@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<!-- complexity-level: 1→5 (this page teaches the SAME book at five depths, over-simplified … expert) -->
+<!-- Effortless (Greg McKeown) — bilingual EN/FA knowledge graph & 5-stage learning page -->
+<html lang="fa" dir="rtl" data-lang="fa">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Work of Art — نقشهٔ دانش و یادگیری ۵ مرحله‌ای</title>
+
+<!-- Boot theme + language BEFORE paint to avoid a flash -->
+<script>
+(function(){
+  try{
+    var th = localStorage.getItem('workofart-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
+    document.documentElement.setAttribute('data-theme', th);
+  }catch(e){ document.documentElement.setAttribute('data-theme','light'); }
+  try{
+    var lg = localStorage.getItem('workofart-lang') || 'fa';
+    document.documentElement.setAttribute('data-lang', lg);
+    document.documentElement.setAttribute('lang', lg);
+    document.documentElement.setAttribute('dir', lg==='fa' ? 'rtl' : 'ltr');
+  }catch(e){}
+})();
+</script>
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:ital,opsz@0,6..72;1,6..72&display=swap" rel="stylesheet">
+
+<style>
+/* ── TOKENS ───────────────────────────────────────────────── */
+:root, [data-theme="light"]{
+  --bg:#f5f6f8; --bg2:#eef2f7; --card:#fff; --card2:#f8fafb;
+  --ink:#1c2330; --mut:#6b7280; --line:#e6e8ee;
+  --accent:#0e7c86; --accent-ink:#fff; --warm:#c2410c;
+  --shadow:0 1px 2px rgba(20,30,50,.05),0 6px 24px rgba(20,30,50,.06);
+  --hero-1:#0e7c86; --hero-2:#0b5e66;
+  --c-teal:#0e9aa6; --c-blue:#2f6fb0; --c-violet:#7c3aed; --c-amber:#d97706;
+  --c-green:#15a34a; --c-red:#e11d48; --c-gold:#c98a12; --c-gray:#6b7280;
+  --state:#0e9aa6; --action:#d97706; --results:#7c3aed; --core:#0e7c86;
+}
+[data-theme="dark"]{
+  --bg:#0e131a; --bg2:#161d27; --card:#151c26; --card2:#1b2430;
+  --ink:#e9eef5; --mut:#9aa7b6; --line:#27313d;
+  --accent:#2dd4bf; --accent-ink:#06231f; --warm:#fb923c;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 28px rgba(0,0,0,.45);
+  --hero-1:#0c5f67; --hero-2:#07323a;
+  --c-teal:#2dd4bf; --c-blue:#5b9bd5; --c-violet:#a78bfa; --c-amber:#fbbf24;
+  --c-green:#34d399; --c-red:#fb7185; --c-gold:#e2b04a; --c-gray:#94a3b8;
+  --state:#2dd4bf; --action:#fbbf24; --results:#a78bfa; --core:#2dd4bf;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:Vazirmatn,"Segoe UI",Tahoma,Arial,sans-serif;line-height:1.85;font-size:15px;
+  transition:background .25s,color .25s}
+html[data-lang="en"] body{font-family:Inter,"Segoe UI",system-ui,Arial,sans-serif;line-height:1.7}
+.wrap{max-width:960px;margin:0 auto;padding:0 18px 40px}
+
+/* language visibility */
+html[data-lang="en"] [data-only="fa"]{display:none !important}
+html[data-lang="fa"] [data-only="en"]{display:none !important}
+
+/* ── HERO ─────────────────────────────────────────────────── */
+.hero{background:linear-gradient(135deg,var(--hero-1),var(--hero-2));color:#fff;padding:44px 0 34px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset-inline-end:-80px;top:-80px;width:280px;height:280px;
+  background:radial-gradient(circle,rgba(255,255,255,.12),transparent 70%);pointer-events:none}
+.hero .wrap{padding-bottom:0;position:relative;z-index:1}
+.hero h1{margin:0 0 8px;font-size:30px;font-weight:800;letter-spacing:-.3px;line-height:1.25}
+html[data-lang="en"] .hero h1{font-family:Newsreader,Georgia,serif;font-weight:600;letter-spacing:-.5px}
+.hero .dek{margin:0;opacity:.94;font-size:15.5px;max-width:640px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;
+  color:rgba(255,255,255,.95);background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.24);
+  padding:5px 13px;border-radius:20px;margin-bottom:15px}
+.eyebrow .edot{width:7px;height:7px;border-radius:50%;background:#fff;box-shadow:0 0 0 3px rgba(255,255,255,.25)}
+.metastrip{display:flex;flex-wrap:wrap;gap:14px 30px;margin-top:20px;padding-top:16px;
+  border-top:1px solid rgba(255,255,255,.18)}
+.metaitem{display:flex;flex-direction:column;gap:3px}
+.metaitem .mk{font-size:10.5px;color:rgba(255,255,255,.62);font-weight:700;letter-spacing:.6px;text-transform:uppercase}
+.metaitem .mv{font-size:14px;color:#fff;font-weight:700}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);
+  border-radius:11px;padding:9px 15px;font-size:13px}
+.chip b{font-size:20px;display:block;font-weight:800}
+
+/* ── NAV + TOC ────────────────────────────────────────────── */
+.navbar{position:sticky;top:0;z-index:60;background:color-mix(in srgb,var(--card) 92%,transparent);
+  backdrop-filter:saturate(180%) blur(10px);-webkit-backdrop-filter:saturate(180%) blur(10px);
+  border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+.navin{max-width:960px;margin:0 auto;padding:8px 16px;display:flex;align-items:center;gap:12px}
+.brand{flex:0 0 auto;font-weight:800;font-size:12.5px;color:var(--accent);white-space:nowrap;
+  display:flex;align-items:center;gap:7px}
+.brand .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);
+  box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 18%,transparent)}
+.toc{flex:1 1 auto;display:flex;flex-wrap:wrap;gap:7px;justify-content:center}
+.toc a{font-size:12.5px;color:var(--mut);text-decoration:none;border:1px solid var(--line);
+  border-radius:20px;padding:5px 12px;background:var(--card);white-space:nowrap;
+  transition:background .15s,color .15s,border-color .15s}
+.toc a:hover{color:var(--accent);border-color:var(--accent)}
+.toc a.active{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.navctl{flex:0 0 auto;display:flex;align-items:center;gap:8px}
+.langbtn{height:34px;border-radius:18px;border:1px solid var(--line);background:var(--card);
+  color:var(--ink);cursor:pointer;font:inherit;font-size:12.5px;font-weight:700;padding:0 13px;
+  display:flex;align-items:center;gap:6px}
+.langbtn:hover{border-color:var(--accent);color:var(--accent)}
+.langbtn .globe{width:15px;height:15px;display:block}
+.themebtn{flex:0 0 auto;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);
+  background:var(--card);color:var(--ink);cursor:pointer;line-height:1;display:grid;place-items:center}
+.themebtn svg{width:17px;height:17px;display:block}
+.themebtn:hover{border-color:var(--accent);color:var(--accent)}
+[data-theme="light"] .themebtn .ic-sun{display:none}
+[data-theme="dark"]  .themebtn .ic-moon{display:none}
+
+/* ── BLOCKS ───────────────────────────────────────────────── */
+h2{font-size:21px;margin:44px 0 6px;font-weight:800;scroll-margin-top:92px;line-height:1.35}
+html[data-lang="en"] h2{font-family:Newsreader,Georgia,serif;font-weight:600}
+h2 .num{color:var(--accent);font-variant-numeric:tabular-nums}
+.sub{color:var(--mut);font-size:13.5px;margin:0 0 16px;max-width:680px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;
+  padding:20px 22px;margin:14px 0;box-shadow:var(--shadow)}
+.lead{font-size:15.5px}
+.lead b{color:var(--warm)}
+.kgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin:8px 0}
+.kbox{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:15px 16px;text-align:center}
+.kbox .v{font-size:26px;font-weight:800;color:var(--accent);font-variant-numeric:tabular-nums}
+.kbox .l{font-size:12.5px;color:var(--mut);margin-top:3px}
+ul.clean{margin:6px 0;padding-inline-start:20px} ul.clean li{margin:8px 0}
+.callout{background:color-mix(in srgb,var(--warm) 9%,var(--card));
+  border:1px solid color-mix(in srgb,var(--warm) 30%,var(--line));
+  border-radius:12px;padding:14px 18px;margin:12px 0}
+.callout b{color:var(--warm)}
+.callout.accent{background:color-mix(in srgb,var(--accent) 9%,var(--card));
+  border-color:color-mix(in srgb,var(--accent) 30%,var(--line))}
+.callout.accent b{color:var(--accent)}
+a{color:var(--accent)}
+
+/* ── GRAPH ────────────────────────────────────────────────── */
+.gtabs{display:inline-flex;gap:4px;background:var(--bg2);border:1px solid var(--line);
+  border-radius:11px;padding:4px;margin:6px 0 2px}
+.gtab{border:0;background:transparent;color:var(--mut);font:inherit;font-size:13px;font-weight:700;
+  padding:7px 15px;border-radius:8px;cursor:pointer}
+.gtab.active{background:var(--card);color:var(--accent);box-shadow:var(--shadow)}
+.graphcard{padding:14px}
+.legend{display:flex;flex-wrap:wrap;gap:14px;margin:2px 4px 12px;font-size:12.5px;color:var(--mut)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:11px;height:11px;border-radius:50%;display:inline-block}
+.graphstage{display:grid;grid-template-columns:1fr;gap:14px}
+@media(min-width:760px){.graphstage{grid-template-columns:1.35fr .95fr}}
+.svgwrap{position:relative;background:var(--card2);border:1px solid var(--line);border-radius:12px;
+  overflow:hidden;min-height:300px}
+#netsvg{display:block;width:100%;height:560px;touch-action:none;cursor:grab}
+#netsvg text{pointer-events:none;user-select:none}
+.ghint{position:absolute;inset-inline-start:12px;top:10px;font-size:11.5px;color:var(--mut);
+  background:color-mix(in srgb,var(--card) 82%,transparent);border:1px solid var(--line);
+  border-radius:20px;padding:3px 11px;backdrop-filter:blur(4px);max-width:70%}
+.greset{position:absolute;inset-inline-end:10px;top:10px;border:1px solid var(--line);background:var(--card);
+  color:var(--mut);border-radius:8px;font:inherit;font-size:11.5px;padding:4px 10px;cursor:pointer}
+.greset:hover{color:var(--accent);border-color:var(--accent)}
+/* node + link interaction states */
+.node{cursor:pointer}
+/* the inner <g class="ns"> is what scales; fill-box keeps the pivot on the node itself, not the SVG viewport */
+.ns{transform-box:fill-box;transform-origin:center;transition:transform .2s cubic-bezier(.2,.75,.25,1)}
+.node.hover .ns{transform:scale(1.1)}
+.node.sel  .ns{transform:scale(1.34)}                 /* selected node grows */
+.node.ncore.hover .ns{transform:scale(1.06)}
+.node.ncore.sel   .ns{transform:none}                 /* the centre 'Effortless' node keeps default size */
+.node.sel circle{stroke:var(--ink);stroke-width:2.5;filter:drop-shadow(0 0 8px color-mix(in srgb,var(--accent) 60%,transparent))}
+.node.hl circle{stroke:var(--ink);stroke-opacity:.5;stroke-width:2.5}
+.node.dim{opacity:.2}
+.node text{font-family:Vazirmatn,Tahoma,sans-serif;font-weight:700}
+html[data-lang="en"] .node text{font-family:Inter,sans-serif}
+.glink{transition:opacity .2s,stroke .2s}
+.glink.dim{opacity:.08}
+.glink.hl{stroke:var(--accent) !important;stroke-opacity:.8}
+/* detail panel */
+.detail{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;min-height:220px}
+@media(min-width:760px){.detail{max-height:480px;overflow:auto}}
+.detail .dkick{font-size:11.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;display:flex;align-items:center;gap:7px;color:var(--mut)}
+.detail .dkick i{width:10px;height:10px;border-radius:50%}
+.detail h4{margin:8px 0 3px;font-size:18px;font-weight:800}
+html[data-lang="en"] .detail h4{font-family:Newsreader,serif;font-weight:600}
+.detail .drow{margin:11px 0}
+.detail .dlab{font-size:10.5px;font-weight:800;color:var(--accent);letter-spacing:.5px;text-transform:uppercase;
+  display:inline-flex;align-items:center;gap:5px}
+.detail .drow.tip .dlab{color:var(--c-green)}
+.detail .drow.pit .dlab{color:var(--warm)}
+.detail .drow.more{border-inline-start:2px solid color-mix(in srgb,var(--accent) 32%,var(--line));padding-inline-start:11px}
+.detail .drow.more .dlab{color:var(--mut)}
+.detail .dtxt{font-size:13.6px;margin-top:3px}
+.dchips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.dchip{font-size:12px;border:1px solid var(--line);background:var(--card2);border-radius:16px;padding:4px 11px;
+  cursor:pointer;color:var(--ink);display:inline-flex;align-items:center;gap:6px;font-family:inherit}
+.dchip:hover{border-color:var(--accent);color:var(--accent)}
+.dchip i{width:8px;height:8px;border-radius:50%;flex:0 0 auto}
+
+/* ── CONCEPT MAP ──────────────────────────────────────────── */
+.mapgrid{display:grid;grid-template-columns:1fr;gap:14px}
+@media(min-width:820px){.mapgrid{grid-template-columns:repeat(3,1fr)}}
+.partcol{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:16px;position:relative}
+.partcol .ph{display:flex;align-items:center;gap:9px;margin-bottom:3px}
+.partcol .pdot{width:13px;height:13px;border-radius:50%;flex:0 0 auto}
+.partcol .pnum{font-size:11px;font-weight:800;color:var(--mut)}
+.partcol h4{margin:0;font-size:16.5px;font-weight:800}
+html[data-lang="en"] .partcol h4{font-family:Newsreader,serif;font-weight:600}
+.partcol .ptag{font-size:12px;color:var(--mut);margin:2px 0 4px;font-weight:700}
+.partcol .pgist{font-size:12.8px;color:var(--mut);margin:0 0 12px}
+.chapchip{display:flex;align-items:baseline;gap:8px;padding:7px 10px;border:1px solid var(--line);
+  border-radius:9px;margin:6px 0;background:var(--card2);font-size:13px}
+.chapchip .cn{font-size:11px;font-weight:800;color:var(--mut);flex:0 0 auto;font-variant-numeric:tabular-nums}
+.chapchip b{font-weight:700}
+.chapchip small{color:var(--mut);display:block;font-size:11.5px;line-height:1.5}
+.flowline{display:flex;align-items:center;justify-content:center;gap:10px;color:var(--mut);
+  font-size:12.5px;font-weight:700;margin:6px 0 2px;flex-wrap:wrap}
+.flowline .ar{color:var(--accent)}
+
+/* ── STAGE LADDER ─────────────────────────────────────────── */
+.ladder{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 4px}
+.rung{flex:1 1 150px;border:1px solid var(--line);background:var(--card);border-radius:11px;
+  padding:11px 13px;cursor:pointer;transition:transform .12s,border-color .12s;position:relative}
+.rung:hover{border-color:var(--accent);transform:translateY(-2px)}
+.rung.active{border-color:var(--accent);box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 35%,transparent)}
+.rung .lv{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.4px}
+.rung .lt{font-size:13.5px;font-weight:800;margin-top:2px}
+.rung .lbar{height:5px;border-radius:4px;background:var(--bg2);margin-top:9px;overflow:hidden}
+.rung .lbar i{display:block;height:100%;background:linear-gradient(90deg,var(--c-teal),var(--c-violet))}
+.stagecard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 24px;
+  margin:14px 0;box-shadow:var(--shadow)}
+.stagecard .shead{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.stagecard .badge{font-size:12px;font-weight:800;color:#fff;background:var(--accent);
+  border-radius:8px;padding:4px 11px;white-space:nowrap}
+.stagecard h3{margin:0;font-size:21px;font-weight:800}
+html[data-lang="en"] .stagecard h3{font-family:Newsreader,serif;font-weight:600}
+.stagecard .tagline{color:var(--mut);font-size:13.5px;margin:4px 0 14px;font-weight:700}
+.stagecard .sbody{font-size:15px}
+.exbox{background:var(--card2);border:1px solid var(--line);border-inline-start:3px solid var(--accent);
+  border-radius:0 11px 11px 0;padding:13px 16px;margin:14px 0 6px}
+.exbox .exk{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.5px;text-transform:uppercase}
+.exbox .ext{font-size:13.8px;margin-top:3px}
+.gainrow{display:flex;align-items:flex-start;gap:9px;margin-top:12px;font-size:13px;color:var(--mut)}
+.gainrow .gi{flex:0 0 auto;color:var(--c-green);font-weight:800}
+.stagenav{display:flex;justify-content:space-between;gap:10px;margin-top:16px}
+.stagenav button{border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit;
+  font-size:13px;font-weight:700;border-radius:9px;padding:8px 14px;cursor:pointer}
+.stagenav button:hover:not(:disabled){border-color:var(--accent);color:var(--accent)}
+.stagenav button:disabled{opacity:.4;cursor:default}
+
+/* ── QUOTES ───────────────────────────────────────────────── */
+.qgrid{display:grid;grid-template-columns:1fr;gap:12px}
+@media(min-width:720px){.qgrid{grid-template-columns:1fr 1fr}}
+blockquote{margin:0;background:var(--card2);border-inline-start:3px solid var(--accent);
+  border-radius:0 12px 12px 0;padding:15px 18px;font-size:14.5px;position:relative}
+blockquote .qm{font-size:34px;line-height:0;color:var(--accent);opacity:.35;font-family:Georgia,serif;
+  position:absolute;inset-inline-start:10px;top:20px}
+blockquote p{margin:0;padding-inline-start:22px}
+html[data-lang="en"] blockquote{font-family:Newsreader,Georgia,serif;font-size:15.5px}
+
+/* ── MEDIA ────────────────────────────────────────────────── */
+.mgrid{display:grid;grid-template-columns:1fr;gap:16px}
+@media(min-width:640px){.mgrid{grid-template-columns:1fr 1fr}}
+.mcard{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;
+  box-shadow:var(--shadow);display:flex;flex-direction:column}
+.mthumb{position:relative;display:block;aspect-ratio:16/9;background:var(--bg2);overflow:hidden;text-decoration:none}
+.mthumb img{width:100%;height:100%;object-fit:cover;display:block}
+.mthumb .play{position:absolute;inset:0;display:grid;place-items:center}
+.mthumb .play span{width:54px;height:54px;border-radius:50%;background:rgba(0,0,0,.6);
+  display:grid;place-items:center;border:2px solid rgba(255,255,255,.9)}
+.mthumb .play svg{width:22px;height:22px;fill:#fff;margin-inline-start:3px}
+.mthumb .ptype{position:absolute;inset-inline-start:9px;top:9px;background:rgba(0,0,0,.72);color:#fff;
+  font-size:11px;font-weight:700;border-radius:6px;padding:3px 9px;letter-spacing:.3px}
+.mfake{aspect-ratio:16/9;display:grid;place-items:center;
+  background:linear-gradient(135deg,color-mix(in srgb,var(--c-violet) 22%,var(--card)),color-mix(in srgb,var(--c-teal) 22%,var(--card)))}
+.mfake svg{width:52px;height:52px;color:var(--ink);opacity:.6}
+.mbody{padding:15px 17px;display:flex;flex-direction:column;gap:7px;flex:1}
+.mbody .msrc{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.3px;text-transform:uppercase}
+.mbody h4{margin:0;font-size:15.5px;font-weight:800;line-height:1.4}
+html[data-lang="en"] .mbody h4{font-family:Newsreader,serif;font-weight:600}
+.mbody .mdesc{font-size:13px;color:var(--mut);margin:0}
+.mbody ul{margin:4px 0 0;padding-inline-start:18px}
+.mbody ul li{font-size:12.8px;margin:5px 0}
+.mbody .mbest{font-size:12px;font-weight:700;color:var(--warm);margin-top:auto;padding-top:8px}
+.mlink{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;
+  text-decoration:none;color:var(--accent);margin-top:4px}
+.mlink:hover{text-decoration:underline}
+.golist{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.golist a{font-size:12.5px;text-decoration:none;color:var(--ink);border:1px solid var(--line);
+  border-radius:20px;padding:6px 13px;background:var(--card);font-weight:700}
+.golist a:hover{border-color:var(--accent);color:var(--accent)}
+
+/* ── RECS + METHOD + CREDIT ───────────────────────────────── */
+.rec{display:grid;gap:10px;margin:8px 0}
+.rec .item{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--card)}
+.rec .item .t{font-weight:800;font-size:14.5px;margin-bottom:3px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.rec .item .t .pri{font-size:11px;font-weight:700;color:#fff;background:var(--warm);border-radius:6px;padding:2px 9px}
+.rec .item .t .pri.b{background:var(--accent)}
+.rec .item .d{font-size:13.4px;color:var(--mut)}
+.method{color:var(--mut);font-size:13.4px}
+.method p{margin:8px 0}
+.method b{color:var(--ink)}
+.credit{text-align:center;margin-top:40px;padding:22px 0 8px;border-top:1px solid var(--line);
+  color:var(--mut);font-size:14px}
+.credit .cname{color:var(--ink);font-weight:800}
+.credit a{font-weight:700;text-decoration:none}
+.credit a:hover{text-decoration:underline}
+.credit .sep{opacity:.5;margin:0 8px}
+.credit .li{display:inline-flex;align-items:center;gap:5px;vertical-align:middle}
+.credit .li svg{width:15px;height:15px;vertical-align:-3px}
+
+@media (max-width:640px){
+  body{font-size:14px}
+  .wrap{padding:0 13px 30px}
+  .hero{padding:28px 0 22px} .hero h1{font-size:22px}
+  h2{font-size:18px;scroll-margin-top:66px}
+  .brand{display:none}
+  .toc{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;scrollbar-width:none}
+  .toc::-webkit-scrollbar{display:none}
+  #netsvg{height:420px}
+}
+</style>
+</head>
+<body>
+
+<!-- ── HERO ───────────────────────────────────────────────── -->
+<header class="hero"><div class="wrap">
+  <div class="eyebrow"><span class="edot"></span>
+    <span data-only="en">Book knowledge map · Adam Moss</span>
+    <span data-only="fa">نقشهٔ کتاب · آدام ماس</span>
+  </div>
+  <h1>
+    <span data-only="en">The Work of Art — How Something Comes from Nothing</span>
+    <span data-only="fa">کارِ هنر — چطور چیزی از هیچ پدید می‌آید</span>
+  </h1>
+  <p class="dek">
+    <span data-only="en">A knowledge graph of the whole book, plus a 5-stage path from a single spark to seeing like an artist — with an example at every step.</span>
+    <span data-only="fa">نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از یک جرقهٔ ساده تا دیدن مثلِ یک هنرمند — با یک مثال در هر مرحله.</span>
+  </p>
+  <div class="metastrip">
+    <div class="metaitem"><span class="mk" data-only="en">Book</span><span class="mk" data-only="fa">کتاب</span>
+      <span class="mv" data-only="en">The Work of Art</span><span class="mv" data-only="fa">کارِ هنر</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Author</span><span class="mk" data-only="fa">نویسنده</span>
+      <span class="mv" data-only="en">Adam Moss</span><span class="mv" data-only="fa">آدام ماس</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Published</span><span class="mk" data-only="fa">سالِ چاپ</span>
+      <span class="mv" data-only="en">2024</span><span class="mv" data-only="fa">۲۰۲۴</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Group</span><span class="mk" data-only="fa">گروه</span>
+      <span class="mv" data-only="en">Taste &amp; Craft</span><span class="mv" data-only="fa">ذوق و پیشه‌وری</span></div>
+  </div>
+  <div class="chips">
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Parts</span><span data-only="fa">بخش</span></div>
+    <div class="chip"><b data-only="en">16</b><b data-only="fa">۱۶</b><span data-only="en">Lessons</span><span data-only="fa">درس</span></div>
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Learning stages</span><span data-only="fa">مرحلهٔ یادگیری</span></div>
+  </div>
+</div></header>
+
+<!-- ── STICKY NAV ─────────────────────────────────────────── -->
+<div class="navbar"><div class="navin">
+  <span class="brand"><span class="dot"></span>The Work of Art</span>
+  <nav class="toc">
+    <a href="#tldr" data-only="en">In a nutshell</a><a href="#tldr" data-only="fa">خلاصه</a>
+    <a href="#graph" data-only="en">Knowledge graph</a><a href="#graph" data-only="fa">نقشهٔ دانش</a>
+    <a href="#stages" data-only="en">5 stages</a><a href="#stages" data-only="fa">۵ مرحله</a>
+    <a href="#quotes" data-only="en">Quotes</a><a href="#quotes" data-only="fa">جمله‌ها</a>
+    <a href="#media" data-only="en">Watch &amp; explore</a><a href="#media" data-only="fa">تماشا و منابع</a>
+    <a href="#apply" data-only="en">Apply it</a><a href="#apply" data-only="fa">کاربرد</a>
+  </nav>
+  <div class="navctl">
+    <button class="langbtn" id="langBtn" aria-label="Switch language">
+      <svg class="globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>
+      <span data-only="en">فارسی</span><span data-only="fa">English</span>
+    </button>
+    <button class="themebtn" id="themeBtn" aria-label="Toggle theme" title="Light / Dark">
+      <span class="ic-sun" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5 19 19M19 5l-1.5 1.5M6.5 17.5 5 19"/></svg></span>
+      <span class="ic-moon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.6 6.6 0 0 0 9.8 9.8Z"/></svg></span>
+    </button>
+  </div>
+</div></div>
+
+<div class="wrap">
+
+  <!-- ── TL;DR ────────────────────────────────────────────── -->
+  <h2 id="tldr"><span class="num" data-only="en">1.</span><span class="num" data-only="fa">۱.</span>
+    <span data-only="en"> In a nutshell</span><span data-only="fa"> خلاصه</span></h2>
+  <p class="sub" data-only="en">If you read only this, you still get the whole idea.</p>
+  <p class="sub" data-only="fa">اگر فقط همین بخش را بخوانی، کلِ ایده دستت می‌آید.</p>
+  <div class="card lead"><ul class="clean" id="tldrHost"></ul></div>
+  <div class="kgrid">
+    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Parts (spark · mess · unstuck · done · patterns)</div><div class="l" data-only="fa">بخش (جرقه · آشفتگی · گیر · پایان · الگو)</div></div>
+    <div class="kbox"><div class="v" data-only="en">16</div><div class="v" data-only="fa">۱۶</div><div class="l" data-only="en">Lessons you can use</div><div class="l" data-only="fa">درس برای استفاده</div></div>
+    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Stages, simple → expert</div><div class="l" data-only="fa">مرحله، ساده تا حرفه‌ای</div></div>
+    <div class="kbox"><div class="v" data-only="en">43</div><div class="v" data-only="fa">۴۳</div><div class="l" data-only="en">Artists Moss interviewed</div><div class="l" data-only="fa">هنرمند که ماس با آن‌ها حرف زد</div></div>
+  </div>
+  
+  <div class="callout accent">
+    <b data-only="en">The core idea:</b>
+    <b data-only="fa">ایدهٔ اصلی:</b>
+    <span data-only="en"> Making art isn't magic — it's <i>work</i>. Adam Moss asked 43 artists exactly how they made one specific thing, and the same shape appears every time: a small spark, a long mess, the struggle to get unstuck, and knowing when to stop. Creativity is a human process, and you can see right inside it.</span>
+    <span data-only="fa"> ساختنِ هنر جادو نیست — <i>کار</i> است. آدام ماس از ۴۳ هنرمند پرسید دقیقاً یک اثرِ مشخص را چطور ساختند، و هر بار یک شکلِ آشنا پیدا می‌شود: یک جرقهٔ کوچک، یک آشفتگیِ طولانی، تقلا برای بیرون‌آمدن از گیر، و فهمیدنِ اینکه کِی باید ایستاد. خلاقیت یک فرایندِ انسانی است، و می‌شود درست از تویش را دید.</span>
+  </div>
+
+  <!-- ── KNOWLEDGE GRAPH ──────────────────────────────────── -->
+  <h2 id="graph"><span class="num" data-only="en">2.</span><span class="num" data-only="fa">۲.</span>
+    <span data-only="en"> The knowledge graph</span><span data-only="fa"> نقشهٔ دانش</span></h2>
+  <p class="sub" data-only="en">The whole book as one picture. Click any node to focus its connections and read more — or switch to the structured map.</p>
+  <p class="sub" data-only="fa">کلِ کتاب در یک تصویر. روی هر دایره کلیک کن تا ارتباط‌هایش را ببینی و بیشتر بخوانی — یا به نقشهٔ مرتب برو.</p>
+
+  <div class="gtabs">
+    <button class="gtab active" id="tabNet"><span data-only="en">Interactive network</span><span data-only="fa">شبکهٔ تعاملی</span></button>
+    <button class="gtab" id="tabMap"><span data-only="en">Structured map</span><span data-only="fa">نقشهٔ مرتب</span></button>
+  </div>
+
+  <!-- network view -->
+  <div class="card graphcard" id="netView">
+    <div class="legend" id="legendHost"></div>
+    <div class="graphstage">
+      <div class="svgwrap">
+        <svg id="netsvg" viewBox="0 0 820 560" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Effortless knowledge network"></svg>
+        <div class="ghint" id="ghint"></div>
+        <button class="greset" id="greset"></button>
+      </div>
+      <div class="detail" id="detailHost"></div>
+    </div>
+  </div>
+
+  <!-- map view -->
+  <div class="card graphcard" id="mapView" style="display:none">
+    <div class="flowline" id="flowTop"></div>
+    <div class="mapgrid" id="mapHost"></div>
+    <div class="callout" style="margin-top:16px">
+      <b data-only="en">Read it as an arc:</b><b data-only="fa">به‌صورتِ یک قوس بخوانش:</b>
+      <span data-only="en"> catch a <b>spark</b>, then <b>wrestle</b> the messy middle — drafts, dead ends, doubt — until the thing tells you it's <b>done</b>. The last part steps back to the <b>patterns</b> every artist shares.</span>
+      <span data-only="fa"> یک <b>جرقه</b> بگیر، بعد با <b>وسطِ آشفته</b> کلنجار برو — پیش‌نویس‌ها، بن‌بست‌ها، تردید — تا خودِ اثر بگوید که <b>تمام</b> شده. بخشِ آخر یک قدم عقب می‌رود سراغِ <b>الگوهایی</b> که هر هنرمند دارد.</span>
+    </div>
+  </div>
+
+  <!-- ── 5 STAGES ─────────────────────────────────────────── -->
+  <h2 id="stages"><span class="num" data-only="en">3.</span><span class="num" data-only="fa">۳.</span>
+    <span data-only="en"> Learn it in 5 stages</span><span data-only="fa"> یادگیری در ۵ مرحله</span></h2>
+  <p class="sub" data-only="en">The same book at five depths. Start over-simplified, climb to expert. Tap a rung to jump.</p>
+  <p class="sub" data-only="fa">یک کتاب در پنج عمق. از خیلی ساده شروع کن و تا حرفه‌ای بالا برو. روی هر پله بزن تا بپری.</p>
+  <div class="ladder" id="ladderHost"></div>
+  <div id="stageHost"></div>
+
+  <!-- ── QUOTES ───────────────────────────────────────────── -->
+  <h2 id="quotes"><span class="num" data-only="en">4.</span><span class="num" data-only="fa">۴.</span>
+    <span data-only="en"> Lines worth keeping</span><span data-only="fa"> جمله‌هایی که ارزشِ نگه‌داشتن دارند</span></h2>
+  <p class="sub" data-only="en">Verbatim quotes from the book, translated alongside.</p>
+  <p class="sub" data-only="fa">جمله‌های مستقیم از کتاب، همراه با ترجمه.</p>
+  <div class="qgrid" id="quoteHost"></div>
+
+  <!-- ── MEDIA ────────────────────────────────────────────── -->
+  <h2 id="media"><span class="num" data-only="en">5.</span><span class="num" data-only="fa">۵.</span>
+    <span data-only="en"> Watch &amp; explore</span><span data-only="fa"> تماشا و منابع</span></h2>
+  <p class="sub" data-only="en">Special resources found online — each with what it covers and who it's best for.</p>
+  <p class="sub" data-only="fa">منابعِ ویژه‌ای که آنلاین پیدا شد — هرکدام با اینکه چه می‌گوید و به چه دردی می‌خورد.</p>
+  <div class="mgrid" id="mediaHost"></div>
+  <div class="card" style="margin-top:16px">
+    <div style="font-weight:800;font-size:13.5px;margin-bottom:4px">
+      <span data-only="en">Go straight to the source</span><span data-only="fa">مستقیم سراغِ منبع برو</span>
+    </div>
+    <div class="golist" id="goHost"></div>
+  </div>
+
+  <!-- ── APPLY ────────────────────────────────────────────── -->
+  <h2 id="apply"><span class="num" data-only="en">6.</span><span class="num" data-only="fa">۶.</span>
+    <span data-only="en"> Apply it this week</span><span data-only="fa"> این هفته امتحانش کن</span></h2>
+  <p class="sub" data-only="en">Four small moves that turn the idea into a habit.</p>
+  <p class="sub" data-only="fa">چهار حرکتِ کوچک که این ایده را به عادت تبدیل می‌کنند.</p>
+  <div class="rec" id="recHost"></div>
+
+  <!-- ── METHOD ───────────────────────────────────────────── -->
+  <h2 id="method"><span class="num" data-only="en">7.</span><span class="num" data-only="fa">۷.</span>
+    <span data-only="en"> Sources &amp; notes</span><span data-only="fa"> منابع و توضیح</span></h2>
+  <div class="card method" id="methodHost"></div>
+
+  <!-- ── CREDIT FOOTER ────────────────────────────────────── -->
+  <div class="credit">
+    <span data-only="en">Created by <span class="cname">Behnam Atefi</span><span class="sep">·</span><a class="li" href="https://www.linkedin.com/in/behnamatefi/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.3c0-1.26-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9z"/></svg>LinkedIn</a></span>
+    <span data-only="fa">ساخته‌شده توسط <span class="cname">بهنام عاطفی</span><span class="sep">·</span><a class="li" href="https://www.linkedin.com/in/behnamatefi/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.3c0-1.26-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9z"/></svg>لینکدین</a></span>
+  </div>
+</div>
+
+<!-- ═══════════════════════ SCRIPTS ═══════════════════════ -->
+<script>
+/* ── 1) language + formatters ─────────────────────────────── */
+var LANG = document.documentElement.getAttribute('data-lang') || 'fa';
+var FA_D = '۰۱۲۳۴۵۶۷۸۹';
+var RLM  = '‏';
+function faDigits(s){ return String(s).replace(/[0-9]/g, function(d){ return FA_D[+d]; }); }
+/* honor the RTL preference: isolate Latin runs (word order preserved) and mark with U+200F */
+function rlm(s){
+  return String(s)
+    .replace(/[A-Za-zÀ-ɏ][A-Za-zÀ-ɏ0-9'’.&:\/\-]*(?:\s+[A-Za-zÀ-ɏ0-9'’.&:\/\-]+)*/g,
+      function(m){ return RLM+'⁦'+m+'⁩'+RLM; })
+    .replace(/[0-9۰-۹]+/g, function(m){ return m+RLM; });
+}
+/* transform only TEXT segments, never HTML tags (so <b>/<i> survive) */
+function faText(s){ return String(s).replace(/(<[^>]+>)|([^<]+)/g, function(m,tag,txt){ return tag ? tag : faDigits(rlm(txt)); }); }
+function TX(o){ if(o==null) return ''; if(typeof o==='string') return o; return LANG==='fa' ? faText(o.fa) : o.en; }
+function num(n){ return LANG==='fa' ? faDigits(n) : String(n); }
+function tok(name){ return getComputedStyle(document.documentElement).getPropertyValue(name).trim(); }
+</script>
+
+<script>
+/* ── DATA LAYER — Atomic Habits (bilingual, plain-spoken Persian) ── */
+var DATA = {"tldr":[{"en":"The whole book in one line: art doesn't arrive by magic — it's made, step by messy step.","fa":"خلاصهٔ کل کتاب در یک جمله: هنر با جادو نمی‌آید — قدم‌به‌قدم و با آشفتگی ساخته می‌شود."},{"en":"Every project follows a shape: a <b>spark</b>, a <b>mess</b>, a <b>stuck</b> place, and a <b>finish</b>.","fa":"هر پروژه یک شکل دارد: یک <b>جرقه</b>، یک <b>آشفتگی</b>، یک نقطهٔ <b>گیر</b>، و یک <b>پایان</b>."},{"en":"Ideas start small and fragile — the job is to <b>notice</b> them and give yourself permission to begin.","fa":"ایده‌ها کوچک و شکننده شروع می‌شوند — کار این است که <b>ببینی‌شان</b> و به خودت اجازهٔ شروع بدهی."},{"en":"The middle is meant to feel like a mess. You <b>follow the material</b>, revise, and use the accidents.","fa":"قرار است وسطِ کار حسِ آشفتگی بدهد. تو <b>دنبالِ مصالح</b> می‌روی، بازنویسی می‌کنی، و از اتفاق‌ها استفاده می‌کنی."},{"en":"Across 43 artists, the real reward isn't the finished object — it's the making itself.","fa":"بینِ ۴۳ هنرمند، پاداشِ واقعی خودِ اثرِ تمام‌شده نیست — خودِ ساختن است."}],"parts":[{"key":"spark","varc":"--c-teal","name":{"en":"The Spark","fa":"جرقه"},"tag":{"en":"Where it begins","fa":"جایی که شروع می‌شود"},"gist":{"en":"Ideas start as a small, fragile impulse — your first job is to notice it and begin.","fa":"ایده‌ها یک تکانهٔ کوچک و شکننده‌اند — کارِ اولت این است که ببینی‌اش و شروع کنی."},"more":{"en":"No artist in the book waits for lightning. They stay curious, catch a fragment that snags their attention, and — the hard part — give themselves permission to start before they know where it goes.","fa":"هیچ هنرمندی در کتاب منتظرِ رعدوبرق نمی‌ماند. کنجکاو می‌مانند، تکه‌ای را که توجهشان را می‌گیرد شکار می‌کنند، و — قسمتِ سخت — به خودشان اجازهٔ شروع می‌دهند، قبل از اینکه بدانند به کجا می‌رسد."},"chapters":["notice","permission","fragile"]},{"key":"wrestle","varc":"--c-blue","name":{"en":"Wrestling with the Mess","fa":"کلنجار با آشفتگی"},"tag":{"en":"Do the work","fa":"کارِ اصلی"},"gist":{"en":"The middle is messy by design: draft badly, follow the material, and revise toward clear.","fa":"وسطِ کار طبیعتاً آشفته است: بد پیش‌نویس بزن، دنبالِ مصالح برو، و به‌سمتِ روشنی بازنویسی کن."},"more":{"en":"This is where most of the work lives. You make something rough, let the material talk back, keep the happy accidents, and rewrite again and again until the mess turns into a shape.","fa":"بیشترِ کار همین‌جاست. یک چیزِ خام می‌سازی، می‌گذاری مصالح جوابت را بدهد، اتفاق‌های خوب را نگه می‌داری، و بارها بازنویسی می‌کنی تا آشفتگی تبدیل به یک شکل شود."},"chapters":["draft","material","revise"]},{"key":"unstuck","varc":"--c-amber","name":{"en":"Getting Unstuck","fa":"بیرون آمدن از گیر"},"tag":{"en":"When it stalls","fa":"وقتی گیر می‌کند"},"gist":{"en":"Doubt and dead ends are normal — use limits, change the problem, or walk away and return.","fa":"تردید و بن‌بست عادی‌اند — از محدودیت استفاده کن، مسئله را عوض کن، یا برو و برگرد."},"more":{"en":"Every maker gets stuck. The trick isn't pushing harder; it's a set of moves: sit with the doubt, let a constraint narrow the field, reframe the problem, or step away so your mind can keep working in the background.","fa":"هر سازنده‌ای گیر می‌کند. ترفند این نیست که سخت‌تر فشار بیاوری؛ چند حرکت است: با تردید بنشین، بگذار یک محدودیت میدان را تنگ کند، مسئله را از نو قاب بگیر، یا کنار برو تا ذهنت پشتِ صحنه کار کند."},"chapters":["doubt","constraints","reframe"]},{"key":"done","varc":"--c-violet","name":{"en":"Knowing When It's Done","fa":"فهمیدنِ اینکه کِی تمام شده"},"tag":{"en":"The finish","fa":"پایان"},"gist":{"en":"Finishing is a feeling you learn to trust — taste, a sense of rightness, and letting go.","fa":"تمام‌کردن یک حس است که یاد می‌گیری بهش اعتماد کنی — ذوق، حسِ درست‌بودن، و رهاکردن."},"more":{"en":"There's rarely a bell. Artists finish when it feels right — a judgment built from taste — and then face the hardest part: letting the thing be imperfect and out of their hands.","fa":"به‌ندرت زنگی به صدا درمی‌آید. هنرمندها وقتی تمام می‌کنند که حس می‌کنند درست است — یک قضاوت که از ذوق ساخته شده — و بعد با سخت‌ترین قسمت روبه‌رو می‌شوند: گذاشتن که اثر ناقص بماند و از دستشان برود."},"chapters":["taste","rightness","letgo"]},{"key":"patterns","varc":"--c-green","name":{"en":"Patterns Across Artists","fa":"الگوهای مشترکِ هنرمندان"},"tag":{"en":"What they share","fa":"چیزِ مشترک"},"gist":{"en":"Routine, play, self-trust, other people — and a compulsion to keep making things.","fa":"روتین، بازی، اعتماد به خود، آدم‌های دیگر — و یک اجبار برای ادامهٔ ساختن."},"more":{"en":"Step back and the same habits repeat across every discipline: a steady routine that leaves room for play, trust in your own taste, a few trusted people to react — and, underneath it all, a compulsion to make that never really turns off.","fa":"یک قدم عقب برو، همان عادت‌ها در هر رشته‌ای تکرار می‌شوند: یک روتینِ ثابت که جا برای بازی می‌گذارد، اعتماد به ذوقِ خودت، چند آدمِ مطمئن برای واکنش — و زیرِ همهٔ این‌ها، یک اجبار برای ساختن که هیچ‌وقت واقعاً خاموش نمی‌شود."},"chapters":["routine","selftrust","others","compulsion"]}],"chapters":{"notice":{"part":"spark","n":1,"name":{"en":"Ideas Begin in Noticing","fa":"ایده از دیدن شروع می‌شود"},"glabel":{"en":"Notice","fa":"دیدن"},"principle":{"en":"Ideas don't fall from the sky — they come from paying close attention to what catches you.","fa":"ایده از آسمان نمی‌افتد — از توجهِ دقیق به چیزی می‌آید که تو را می‌گیرد."},"more":{"en":"Artists train themselves to notice: a stray image, an odd phrase, a feeling that won't leave. Moss describes letting your imagination go fishing — staying open enough for something to bite.","fa":"هنرمندها خودشان را تمرین می‌دهند که ببینند: یک تصویرِ سرگردان، یک عبارتِ عجیب، حسی که ول نمی‌کند. ماس می‌گوید بگذار خیالت به ماهیگیری برود — آن‌قدر باز بمانی که چیزی گاز بگیرد."},"example":{"en":"Cartoonist Roz Chast builds a strip from a scrap of overheard conversation — the idea was just lying there, noticed.","fa":"رز چَست، کارتونیست، از یک تکه‌گفت‌وگوی از سرِ اتفاق شنیده‌شده یک کارتون می‌سازد — ایده همان‌جا افتاده بود، فقط دیده شد."},"tip":{"en":"Keep a scrap file. Write down the small things that snag your attention, before they slip away.","fa":"یک دفترِ تکه‌ها داشته باش. چیزهای کوچکی که توجهت را می‌گیرند بنویس، قبل از اینکه در بروند."},"pitfall":{"en":"Waiting for a big, finished idea to arrive whole — it almost never does.","fa":"منتظرِ یک ایدهٔ بزرگ و کاملِ آماده ماندن — که تقریباً هیچ‌وقت این‌طوری نمی‌آید."}},"permission":{"part":"spark","n":2,"name":{"en":"Give Yourself Permission","fa":"به خودت اجازه بده"},"glabel":{"en":"Permission","fa":"اجازه"},"principle":{"en":"You don't need to be ready or qualified — you just need to let yourself begin.","fa":"لازم نیست آماده یا واجدِ شرایط باشی — فقط باید به خودت اجازهٔ شروع بدهی."},"more":{"en":"The scariest moment is the blank page. Many artists describe a private permission — a decision that it's okay to make something bad, okay to play, okay to not know yet — that unlocks the whole process.","fa":"ترسناک‌ترین لحظه، صفحهٔ سفید است. خیلی از هنرمندها از یک اجازهٔ شخصی می‌گویند — تصمیمی که اشکالی ندارد چیزِ بد بسازی، اشکالی ندارد بازی کنی، اشکالی ندارد هنوز ندانی — و همین کلِ کار را باز می‌کند."},"example":{"en":"The permission is simple: it doesn't have to begin with something good — it just has to begin.","fa":"اجازه ساده است: لازم نیست با یک چیزِ خوب شروع شود — فقط باید شروع شود."},"tip":{"en":"Give yourself a tiny, ugly first draft on purpose. Lower the bar until starting feels easy.","fa":"عمداً یک پیش‌نویسِ اولِ کوچک و زشت به خودت بده. سقفِ توقع را آن‌قدر پایین بیاور که شروع آسان شود."},"pitfall":{"en":"Waiting to feel ready or qualified enough — that feeling rarely comes before you start.","fa":"منتظرِ حسِ آماده‌بودن یا به‌اندازهٔ کافی‌بودن ماندن — این حس به‌ندرت قبل از شروع می‌آید."}},"fragile":{"part":"spark","n":3,"name":{"en":"Protect the Fragile First Idea","fa":"از ایدهٔ اولِ شکننده محافظت کن"},"glabel":{"en":"First Idea","fa":"ایدهٔ اول"},"principle":{"en":"A new idea is delicate; judge it too early and you'll kill it before it can grow.","fa":"ایدهٔ نو ظریف است؛ زیادی زود قضاوتش کنی، قبل از اینکه رشد کند می‌کُشی‌اش."},"more":{"en":"The first impulse is usually vague and easy to dismiss. Artists learn to shelter it — to hold off the inner critic, keep the fragment alive, and let it become something before deciding whether it's any good.","fa":"تکانهٔ اول معمولاً مبهم است و راحت می‌شود ردش کرد. هنرمندها یاد می‌گیرند پناهش بدهند — منتقدِ درونی را عقب نگه دارند، تکه را زنده نگه دارند، و بگذارند چیزی شود، قبل از اینکه تصمیم بگیرند خوب است یا نه."},"example":{"en":"A songwriter hums a rough melody into their phone before the critic wakes up and calls it silly.","fa":"یک ترانه‌سرا یک ملودیِ خام را توی گوشی‌اش زمزمه می‌کند، قبل از اینکه منتقد بیدار شود و بگوید مسخره است."},"tip":{"en":"Separate making from judging. Capture the raw idea first; evaluate it later, on a different day.","fa":"ساختن را از قضاوت جدا کن. اول ایدهٔ خام را ثبت کن؛ بعداً، یک روزِ دیگر، ارزیابی‌اش کن."},"pitfall":{"en":"Editing an idea to death in the first hour, before it ever had a chance.","fa":"ایده را همان ساعتِ اول با ویرایش کشتن، قبل از اینکه اصلاً فرصتی داشته باشد."}},"draft":{"part":"wrestle","n":4,"name":{"en":"Make a Mess First","fa":"اول آشفته بساز"},"glabel":{"en":"Rough Draft","fa":"پیش‌نویسِ خام"},"principle":{"en":"Start by making something bad on purpose — you can't fix a blank page.","fa":"با ساختنِ یک چیزِ بد و عمدی شروع کن — صفحهٔ سفید را نمی‌شود درست کرد."},"more":{"en":"The first version exists to be wrong. Getting a rough, ugly whole out of your head gives you material to react to; artists rush through the bad part precisely so they can reach the good part.","fa":"نسخهٔ اول هست که غلط باشد. بیرون‌کشیدنِ یک کلِ خام و زشت از سرت، به تو مصالحی می‌دهد که بهش واکنش نشان بدهی؛ هنرمندها عمداً از قسمتِ بد سریع رد می‌شوند تا به قسمتِ خوب برسند."},"example":{"en":"Musician Rostam Batmanglij's rule: you've got to get through the bad in order to get to the good.","fa":"قاعدهٔ رستم بتمنقلیج، موسیقی‌دان: باید از بد رد شوی تا به خوب برسی."},"tip":{"en":"Set a timer and produce a whole rough version fast — quantity now, quality later.","fa":"یک تایمر بگذار و سریع یک نسخهٔ خامِ کامل بساز — اول کمیت، بعد کیفیت."},"pitfall":{"en":"Trying to make the first attempt perfect, so you freeze and never finish a draft.","fa":"خواستنِ اینکه اولین تلاش بی‌نقص باشد، که یخ می‌زنی و هیچ‌وقت یک پیش‌نویس تمام نمی‌کنی."}},"material":{"part":"wrestle","n":5,"name":{"en":"Follow the Material","fa":"دنبالِ مصالح برو"},"glabel":{"en":"The Material","fa":"مصالح"},"principle":{"en":"The work starts talking back — listen, and let it lead you somewhere you didn't plan.","fa":"کار شروع می‌کند جوابت را بدهد — گوش کن، و بگذار جایی ببردت که برنامه‌اش را نداشتی."},"more":{"en":"Once something exists, it develops its own logic. Artists follow where the material wants to go, and treat accidents as gifts — a wrong note, a smudge, a typo — that often become the best part.","fa":"همین که چیزی به‌وجود آمد، منطقِ خودش را پیدا می‌کند. هنرمندها دنبالِ جایی می‌روند که مصالح می‌خواهد برود، و اتفاق‌ها را هدیه می‌بینند — یک نتِ اشتباه، یک لکه، یک غلطِ تایپی — که اغلب بهترین قسمت می‌شوند."},"example":{"en":"A painter keeps a mistake color that dropped onto the canvas because it makes the whole thing sing.","fa":"یک نقاش یک رنگِ اشتباهی را که روی بوم چکیده نگه می‌دارد، چون کلِ اثر را به آواز درمی‌آورد."},"tip":{"en":"When something surprises you mid-work, don't delete it — chase it for ten minutes and see.","fa":"وقتی وسطِ کار چیزی غافلگیرت کرد، پاکش نکن — ده دقیقه دنبالش برو و ببین چه می‌شود."},"pitfall":{"en":"Clinging to your original plan so tightly that you miss the better thing emerging.","fa":"آن‌قدر محکم به نقشهٔ اولت چسبیدن که چیزِ بهتری را که دارد پیدا می‌شود از دست بدهی."}},"revise":{"part":"wrestle","n":6,"name":{"en":"Revise Toward Clear","fa":"به‌سمتِ روشنی بازنویسی کن"},"glabel":{"en":"Revision","fa":"بازنویسی"},"principle":{"en":"Most of the work is rewriting — turning the big mess in your head into its simplest version.","fa":"بیشترِ کار بازنویسی است — تبدیلِ آن آشفتگیِ بزرگ توی سرت به ساده‌ترین شکلش."},"more":{"en":"Revision isn't polishing; it's where the real thinking happens. You cut, reorder, and simplify pass after pass, because the shape only becomes clear by working the raw draft over and over.","fa":"بازنویسی صیقل‌دادن نیست؛ جایی است که فکرِ اصلی اتفاق می‌افتد. برش می‌زنی، دوباره می‌چینی، و ساده می‌کنی، دور به دور، چون شکل فقط با ورزدادنِ پیش‌نویسِ خام، بارها و بارها، روشن می‌شود."},"example":{"en":"A writer cuts a chapter they loved because the book gets clearer without it — the mess becomes a line.","fa":"یک نویسنده فصلی را که دوستش داشت حذف می‌کند، چون کتاب بدونش روشن‌تر می‌شود — آشفتگی تبدیل به یک خط می‌شود."},"tip":{"en":"Revise in passes: one for structure, one for cuts, one for clarity. Don't fix everything at once.","fa":"دور به دور بازنویسی کن: یک دور برای ساختار، یک دور برای حذف، یک دور برای روشنی. همه‌چیز را یک‌جا درست نکن."},"pitfall":{"en":"Treating the first draft as finished, or polishing words before the structure is right.","fa":"پیش‌نویسِ اول را تمام‌شده پنداشتن، یا صیقل‌دادنِ کلمه‌ها قبل از اینکه ساختار درست باشد."}},"doubt":{"part":"unstuck","n":7,"name":{"en":"Sit With the Doubt","fa":"با تردید بنشین"},"glabel":{"en":"Doubt","fa":"تردید"},"principle":{"en":"Feeling lost and full of doubt isn't a sign you're failing — it's part of the process.","fa":"حسِ گم‌شدن و پُر از تردید بودن، نشانهٔ شکست نیست — بخشی از فرایند است."},"more":{"en":"Nearly every artist hits dead ends and wants to quit. Moss found the difference isn't confidence; it's tolerance — staying in the discomfort, and often walking away so the mind can keep solving it in the background.","fa":"تقریباً هر هنرمندی به بن‌بست می‌خورد و می‌خواهد ول کند. ماس فهمید فرق در اعتمادبه‌نفس نیست؛ در تحمل است — ماندن در ناراحتی، و اغلب کنارکشیدن تا ذهن پشتِ صحنه حلش کند."},"example":{"en":"Stuck on a problem, an artist takes a long walk — and the answer arrives when they've stopped forcing it.","fa":"گیرِ یک مسئله، هنرمند یک پیاده‌رویِ طولانی می‌کند — و جواب وقتی می‌آید که دیگر به‌زور دنبالش نیست."},"tip":{"en":"When you're stuck, step away on purpose — a walk, a shower, a night's sleep — then come back.","fa":"وقتی گیر کردی، عمداً کنار برو — یک پیاده‌روی، یک دوش، یک شب خواب — بعد برگرد."},"pitfall":{"en":"Reading the discomfort of being stuck as proof you have no talent, and quitting.","fa":"ناراحتیِ گیرکردن را دلیلِ بی‌استعدادی خواندن، و ول‌کردن."}},"constraints":{"part":"unstuck","n":8,"name":{"en":"Let Limits Free You","fa":"بگذار محدودیت آزادت کند"},"glabel":{"en":"Limits","fa":"محدودیت"},"principle":{"en":"A blank field of infinite options is paralyzing; a constraint gives you something to push against.","fa":"یک میدانِ خالی با گزینه‌های بی‌نهایت فلجت می‌کند؛ یک محدودیت به تو چیزی می‌دهد که بهش تکیه کنی."},"more":{"en":"Moss heard it again and again: limitations are helpful. A deadline, a small budget, a fixed form, a rule you set yourself — narrowing the choices is what makes the work possible instead of endless.","fa":"ماس بارها شنید: محدودیت‌ها کمک‌کننده‌اند. یک ضرب‌الاجل، یک بودجهٔ کوچک، یک قالبِ ثابت، یک قاعده که خودت می‌گذاری — تنگ‌کردنِ گزینه‌ها همان چیزی است که کار را ممکن می‌کند، نه بی‌پایان."},"example":{"en":"A filmmaker with almost no money invents a simpler shot — and the limit makes the scene better.","fa":"یک فیلم‌ساز که تقریباً پول ندارد یک نمای ساده‌تر ابداع می‌کند — و همان محدودیت صحنه را بهتر می‌کند."},"tip":{"en":"When you're overwhelmed by options, invent a rule: one color, ten minutes, a single page.","fa":"وقتی گزینه‌ها غرقت می‌کنند، یک قاعده بساز: یک رنگ، ده دقیقه، یک صفحه."},"pitfall":{"en":"Believing total freedom helps, when in fact endless options are what keep you stuck.","fa":"باور به اینکه آزادیِ کامل کمک می‌کند، درحالی‌که در واقع گزینه‌های بی‌پایان همان چیزی است که گیرت می‌اندازد."}},"reframe":{"part":"unstuck","n":9,"name":{"en":"Change the Problem","fa":"مسئله را عوض کن"},"glabel":{"en":"Reframe","fa":"قابِ نو"},"principle":{"en":"When you're stuck, the problem you're solving is often the wrong one — change the question.","fa":"وقتی گیر می‌کنی، مسئله‌ای که داری حل می‌کنی اغلب مسئلهٔ غلط است — سؤال را عوض کن."},"more":{"en":"A dead end usually means you've framed the task badly. Artists get unstuck by stepping back and asking a different question — not how do I fix this, but what is this actually about — and the block dissolves.","fa":"بن‌بست معمولاً یعنی کار را بد قاب گرفته‌ای. هنرمندها با یک قدم عقب و پرسیدنِ یک سؤالِ دیگر از گیر درمی‌آیند — نه اینکه «چطور درستش کنم»، بلکه «این اصلاً دربارهٔ چیست» — و گره باز می‌شود."},"example":{"en":"Blocked on an ending, a writer realizes the story was really about the sister — and it unlocks.","fa":"گیرِ یک پایان، نویسنده می‌فهمد داستان در واقع دربارهٔ خواهر بوده — و همه‌چیز باز می‌شود."},"tip":{"en":"Stuck? Write down what the piece is really about in one sentence. Then solve that instead.","fa":"گیر کرده‌ای؟ در یک جمله بنویس اثر واقعاً دربارهٔ چیست. بعد آن را حل کن."},"pitfall":{"en":"Grinding harder on the original problem when the fix is to redefine it.","fa":"سخت‌تر رویِ مسئلهٔ اولیه سابیدن، درحالی‌که راهِ حل، بازتعریفِ آن است."}},"taste":{"part":"done","n":10,"name":{"en":"Trust Your Taste","fa":"به ذوقت اعتماد کن"},"glabel":{"en":"Taste","fa":"ذوق"},"principle":{"en":"Knowing when it's done is a matter of taste — your own read of what's good, built over time.","fa":"فهمیدنِ اینکه کِی تمام شده، یک مسئلهٔ ذوق است — خوانشِ خودت از اینکه چه خوب است، که در طول زمان ساخته می‌شود."},"more":{"en":"There's no formula for finished. Artists rely on a trained sense of quality — taste — that tells them when a thing is working. It isn't innate; it grows from making a lot and paying attention to what you admire.","fa":"برای «تمام‌شده» فرمولی نیست. هنرمندها به یک حسِ تربیت‌شده از کیفیت تکیه می‌کنند — ذوق — که می‌گوید کِی یک چیز جواب می‌دهد. ذاتی نیست؛ از زیاد ساختن و توجه به آنچه تحسینش می‌کنی رشد می‌کند."},"example":{"en":"An editor cuts one more line because it's better — and can't fully explain why, except that it is.","fa":"یک ویراستار یک خطِ دیگر را حذف می‌کند چون بهتر است — و نمی‌تواند کامل توضیح دهد چرا، جز اینکه همین‌طور است."},"tip":{"en":"Study work you love and ask why it's good. Naming what you admire sharpens your own taste.","fa":"کاری را که دوست داری بررسی کن و بپرس چرا خوب است. نام‌گذاریِ آنچه تحسین می‌کنی، ذوقِ خودت را تیز می‌کند."},"pitfall":{"en":"Outsourcing the call to rules or other people instead of building your own judgment.","fa":"واگذارکردنِ تصمیم به قاعده‌ها یا آدم‌های دیگر، به‌جای ساختنِ قضاوتِ خودت."}},"rightness":{"part":"done","n":11,"name":{"en":"Feel for Rightness","fa":"دنبالِ حسِ درست‌بودن باش"},"glabel":{"en":"Rightness","fa":"درست‌بودن"},"principle":{"en":"Done often arrives as a quiet feeling that the pieces have clicked into place.","fa":"پایان اغلب به‌شکلِ یک حسِ آرام می‌آید که تکه‌ها سرِ جای خودشان جفت شده‌اند."},"more":{"en":"Many artists describe a bodily sense of rightness — a click, a settling — when a work is done. It's not euphoria; Moss notes it's often undramatic, more that's it than fireworks. You learn to recognize and trust that signal.","fa":"خیلی از هنرمندها از یک حسِ بدنیِ درست‌بودن می‌گویند — یک جفت‌شدن، یک ته‌نشین‌شدن — وقتی کار تمام است. سرخوشی نیست؛ ماس می‌گوید اغلب بی‌سروصداست، بیشتر «همین است» تا آتش‌بازی. یاد می‌گیری این نشانه را بشناسی و بهش اعتماد کنی."},"example":{"en":"A poet reads the last line aloud, feels it settle, and knows — without drama — that the poem is finished.","fa":"یک شاعر خطِ آخر را بلند می‌خواند، حس می‌کند ته‌نشین شد، و می‌داند — بی‌هیچ هیاهو — که شعر تمام است."},"tip":{"en":"Look at your work fresh — out loud, or the next morning; notice where it clicks and where it snags.","fa":"کارت را با نگاهِ تازه ببین — بلند بخوانش، یا صبحِ روزِ بعد؛ ببین کجا جفت می‌شود و کجا گیر می‌کند."},"pitfall":{"en":"Endlessly tweaking past the point of rightness, until you polish the life out of it.","fa":"بی‌پایان ور رفتن، بعد از نقطهٔ درست‌بودن، تا جانِ اثر را با صیقل بگیری."}},"letgo":{"part":"done","n":12,"name":{"en":"Learn to Let Go","fa":"رهاکردن را یاد بگیر"},"glabel":{"en":"Let Go","fa":"رهاکردن"},"principle":{"en":"At some point you have to release the work, imperfect, and let it belong to others.","fa":"یک جایی باید کار را رها کنی، ناقص، و بگذاری مالِ دیگران شود."},"more":{"en":"Nothing is ever fully finished — it's abandoned at a good moment. Artists accept that the thing in the world will never match the thing in their head, and let it go anyway, so they can start the next one.","fa":"هیچ‌چیز واقعاً «تمام» نمی‌شود — در یک لحظهٔ خوب رهایش می‌کنی. هنرمندها می‌پذیرند که آن چیزی که در دنیاست هیچ‌وقت با آن چیزی که در سرشان بود جور درنمی‌آید، و بازهم رهایش می‌کنند، تا بتوانند بعدی را شروع کنند."},"example":{"en":"Moss found nobody is fully satisfied; you finish, the next day is fine, and you go back to work.","fa":"ماس فهمید هیچ‌کس کاملاً راضی نیست؛ تمام می‌کنی، روزِ بعد حالت خوب است، و برمی‌گردی سرِ کار."},"tip":{"en":"Set a real deadline and ship it. Better can wait for the next project; done teaches more than perfect.","fa":"یک ضرب‌الاجلِ واقعی بگذار و منتشرش کن. «بهتر» می‌تواند برای پروژهٔ بعدی صبر کند؛ تمام‌کردن بیشتر از بی‌نقص‌بودن یاد می‌دهد."},"pitfall":{"en":"Holding a piece forever, afraid to let anyone see it fall short of the version in your head.","fa":"یک اثر را تا ابد نگه‌داشتن، از ترسِ اینکه کسی ببیند از نسخهٔ توی سرت کوتاه‌تر است."}},"routine":{"part":"patterns","n":13,"name":{"en":"Routine and Play","fa":"روتین و بازی"},"glabel":{"en":"Routine","fa":"روتین"},"principle":{"en":"A steady routine does the heavy lifting; play is what lets discovery happen inside it.","fa":"یک روتینِ ثابت بارِ سنگین را می‌کشد؛ بازی همان چیزی است که می‌گذارد کشف در دلش اتفاق بیفتد."},"more":{"en":"Almost every artist has ordinary habits — same hours, same desk — that remove the drama of starting. But the routine exists to protect play: showing up reliably so that, some days, something surprising can happen.","fa":"تقریباً هر هنرمندی عادت‌های معمولی دارد — همان ساعت‌ها، همان میز — که هیجانِ اضطراب‌آورِ شروع را برمی‌دارد. اما روتین هست که از بازی محافظت کند: مرتب سرِ کار حاضرشدن، تا بعضی روزها چیزِ غافلگیرکننده‌ای اتفاق بیفتد."},"example":{"en":"A painter works the same hours every day; the discipline is exactly what frees them to experiment.","fa":"یک نقاش هر روز همان ساعت‌ها کار می‌کند؛ همین نظم دقیقاً همان چیزی است که آزادش می‌کند تا آزمایش کند."},"tip":{"en":"Fix the boring parts — time and place — so your energy goes into the work, not into deciding.","fa":"قسمت‌های خسته‌کننده را ثابت کن — زمان و مکان — تا انرژی‌ات صرفِ کار شود، نه تصمیم‌گرفتن."},"pitfall":{"en":"Waiting for inspiration instead of building a routine that makes the work happen anyway.","fa":"منتظرِ الهام ماندن، به‌جای ساختنِ یک روتین که کار را به‌هرحال پیش می‌برد."}},"selftrust":{"part":"patterns","n":14,"name":{"en":"Trust Yourself","fa":"به خودت اعتماد کن"},"glabel":{"en":"Self-Trust","fa":"اعتماد به خود"},"principle":{"en":"In the end, you have to believe your own instinct more than the noise around you.","fa":"آخرش، باید به غریزهٔ خودت بیشتر از سروصدای دورت باور داشته باشی."},"more":{"en":"Every artist faces the moment where no one can tell them the answer. Self-trust — the willingness to back your own choice even when you're unsure — is what carries a personal work through to the end.","fa":"هر هنرمندی به لحظه‌ای می‌رسد که هیچ‌کس نمی‌تواند جواب را بگوید. اعتماد به خود — حاضربودن برای پشتیبانی از انتخابِ خودت، حتی وقتی مطمئن نیستی — همان چیزی است که یک اثرِ شخصی را تا آخر می‌رساند."},"example":{"en":"Told a choice was too strange, an artist keeps it anyway — and that oddness becomes the signature.","fa":"به یک هنرمند می‌گویند یک انتخاب زیادی عجیب است، بازهم نگهش می‌دارد — و همان عجیب‌بودن امضایش می‌شود."},"tip":{"en":"Notice when you're editing to please a critic in your head. Ask what you'd choose if no one watched.","fa":"حواست باشد کِی داری برای راضی‌کردنِ یک منتقدِ توی سرت ویرایش می‌کنی. بپرس اگر کسی نگاه نمی‌کرد چه انتخاب می‌کردی."},"pitfall":{"en":"Sanding off what's most personal to match what you think others expect.","fa":"سابیدنِ شخصی‌ترین چیز، برای جورشدن با چیزی که فکر می‌کنی دیگران انتظار دارند."}},"others":{"part":"patterns","n":15,"name":{"en":"You Need Other People","fa":"به آدم‌های دیگر نیاز داری"},"glabel":{"en":"Others","fa":"دیگران"},"principle":{"en":"Even solitary work needs a few trusted eyes — someone to react, push back, and see what you can't.","fa":"حتی کارِ تک‌نفره هم چند چشمِ مطمئن می‌خواهد — کسی که واکنش نشان دهد، مخالفت کند، و چیزی را ببیند که تو نمی‌توانی."},"more":{"en":"The lone genius is a myth. Behind most work is an editor, a partner, a friend whose reaction reveals what's really there — the whole book is Moss doing exactly that, drawing the process out through conversation.","fa":"نابغهٔ تنها یک افسانه است. پشتِ بیشترِ کارها یک ویراستار، یک شریک، یک دوست است که واکنشش نشان می‌دهد واقعاً چه چیزی آنجاست — کلِ کتاب همین است، ماس با گفت‌وگو فرایند را بیرون می‌کشد."},"example":{"en":"A novelist's editor asks one blunt question that reveals the real story hiding under the draft.","fa":"ویراستارِ یک رمان‌نویس یک سؤالِ رک می‌پرسد که داستانِ واقعیِ پنهان زیرِ پیش‌نویس را آشکار می‌کند."},"tip":{"en":"Find one or two people you trust and show them work early. You want reaction, not just praise.","fa":"یکی‌دو نفر پیدا کن که بهشان اعتماد داری و کارت را زود نشانشان بده. تو واکنش می‌خواهی، نه فقط تعریف."},"pitfall":{"en":"Either hiding your work from everyone, or handing your judgment over to the crowd.","fa":"یا کارت را از همه پنهان‌کردن، یا قضاوتت را دستِ جمعیت سپردن."}},"compulsion":{"part":"patterns","n":16,"name":{"en":"Why They Keep Making","fa":"چرا ادامه می‌دهند"},"glabel":{"en":"The Drive","fa":"کشش"},"principle":{"en":"Underneath every artist is a compulsion to make — the process matters more than the product.","fa":"زیرِ هر هنرمندی یک اجبار برای ساختن هست — خودِ فرایند بیشتر از محصول مهم است."},"more":{"en":"Asked why they keep going, the artists don't point to fame or the finished object. They describe a need to make, and a love of the making itself — the reason the book is called The Work of Art: it's about the work.","fa":"وقتی می‌پرسی چرا ادامه می‌دهند، هنرمندها به شهرت یا شیءِ تمام‌شده اشاره نمی‌کنند. از یک نیاز به ساختن می‌گویند، و از عشق به خودِ ساختن — به همین دلیل اسمِ کتاب «کارِ هنر» است: دربارهٔ کار است."},"example":{"en":"Moss says the makers are consumed by the work; the end product, they insist, is not the point.","fa":"ماس می‌گوید سازنده‌ها غرقِ کارند؛ اصرار دارند که محصولِ نهایی، اصلِ مطلب نیست."},"tip":{"en":"Chase projects that pull you into the making. If only the finished trophy appeals, motivation won't last.","fa":"دنبالِ پروژه‌هایی برو که تو را به دلِ ساختن می‌کشند. اگر فقط جامِ تمام‌شده جذابت کند، انگیزه دوام نمی‌آورد."},"pitfall":{"en":"Chasing only the outcome — applause, sales — until the making feels empty and you burn out.","fa":"دنبالِ فقط نتیجه‌رفتن — تشویق، فروش — تا وقتی ساختن پوچ حس شود و بسوزی."}}},"core":{"name":{"en":"HOW ART GETS MADE","fa":"هنر چطور ساخته می‌شود"},"principle":{"en":"Creativity isn't magic — it's a messy, human process, and you can see right inside it. Adam Moss asked 43 artists how they made one specific thing, and the same arc appears: a spark, a long wrestle with the mess, the work of getting unstuck, and the quiet judgment of knowing when it's done.","fa":"خلاقیت جادو نیست — یک فرایندِ آشفته و انسانی است، و می‌شود درست از تویش را دید. آدام ماس از ۴۳ هنرمند پرسید یک چیزِ مشخص را چطور ساختند، و همان قوس پیدا می‌شود: یک جرقه، یک کلنجارِ طولانی با آشفتگی، کارِ بیرون‌آمدن از گیر، و قضاوتِ آرامِ فهمیدنِ اینکه کِی تمام است."},"more":{"en":"The book maps into five parts — The Spark (noticing, permission, the fragile first idea), Wrestling with the Mess (draft, follow the material, revise), Getting Unstuck (doubt, limits, changing the problem), Knowing When It's Done (taste, rightness, letting go), and Patterns Across Artists (routine, self-trust, other people, the compulsion to make). The thread through all of it: the finished object isn't the point — the making is.","fa":"کتاب به پنج بخش نقشه می‌شود — جرقه (دیدن، اجازه، ایدهٔ اولِ شکننده)، کلنجار با آشفتگی (پیش‌نویس، دنبالِ مصالح، بازنویسی)، بیرون‌آمدن از گیر (تردید، محدودیت، عوض‌کردنِ مسئله)، فهمیدنِ اینکه کِی تمام شده (ذوق، درست‌بودن، رهاکردن)، و الگوهای مشترکِ هنرمندان (روتین، اعتماد به خود، آدم‌های دیگر، اجبار به ساختن). نخِ رابطِ همه‌شان: شیءِ تمام‌شده اصلِ مطلب نیست — ساختن است."},"example":{"en":"Click any node to read a lesson or a part. You can also drag the nodes around.","fa":"روی هر دایره کلیک کن تا یک درس یا بخش را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."}},"stages":[{"level":1,"badge":{"en":"Level 1 · Over-simplified","fa":"سطحِ ۱ · خیلی ساده"},"title":{"en":"Art is made, not magic","fa":"هنر ساخته می‌شود، جادو نیست"},"tagline":{"en":"The whole book in a sentence.","fa":"کلِ کتاب در یک جمله."},"body":{"en":"Great work doesn't drop from the sky onto gifted people. It's built, step by messy step — a spark, a lot of trying, and a slow shaping. Anyone who makes things goes through the same struggle.","fa":"کارِ بزرگ از آسمان روی آدم‌های بااستعداد نمی‌افتد. ساخته می‌شود، قدم‌به‌قدم و با آشفتگی — یک جرقه، کلی تلاش، و یک شکل‌دادنِ آرام. هر کسی که چیزی می‌سازد، همین کشمکش را می‌گذراند."},"example":{"en":"The genius you admire made an ugly first draft too — you just never saw it.","fa":"همان «نابغه‌ای» که تحسینش می‌کنی هم یک پیش‌نویسِ اولِ زشت داشت — تو فقط ندیدی‌اش."},"gain":{"en":"You stop waiting for magic and accept that making is work.","fa":"دست از انتظارِ جادو برمی‌داری و می‌پذیری که ساختن، کار است."}},{"level":2,"badge":{"en":"Level 2 · Simple","fa":"سطحِ ۲ · ساده"},"title":{"en":"The four-beat arc","fa":"قوسِ چهارضربی"},"tagline":{"en":"Spark, mess, unstuck, done.","fa":"جرقه، آشفتگی، گیر، پایان."},"body":{"en":"Every project moves through the same beats: a <b>spark</b> to begin, a messy <b>middle</b> where most of the work happens, a <b>stuck</b> stretch you have to push through, and a <b>finish</b> you decide by feel. Knowing the arc makes the hard parts feel normal.","fa":"هر پروژه از همان ضرب‌ها می‌گذرد: یک <b>جرقه</b> برای شروع، یک <b>وسطِ</b> آشفته که بیشترِ کار همان‌جاست، یک تکهٔ <b>گیر</b> که باید از تویش رد شوی، و یک <b>پایان</b> که با حس تصمیمش می‌گیری. دانستنِ این قوس، قسمت‌های سخت را عادی می‌کند."},"example":{"en":"Feeling lost in the middle? That's not failure — it's the map telling you you're on track.","fa":"وسطِ کار حس می‌کنی گم شده‌ای؟ این شکست نیست — نقشه دارد می‌گوید سرِ راهی."},"gain":{"en":"You can locate yourself in any project instead of panicking.","fa":"می‌توانی جای خودت را در هر پروژه پیدا کنی، به‌جای وحشت‌کردن."}},{"level":3,"badge":{"en":"Level 3 · Balanced","fa":"سطحِ ۳ · متعادل"},"title":{"en":"Work the messy middle","fa":"با وسطِ آشفته کار کن"},"tagline":{"en":"Draft badly, follow it, revise.","fa":"بد پیش‌نویس بزن، دنبالش برو، بازنویسی کن."},"body":{"en":"Now the craft. Make a rough <b>draft</b> on purpose — you can't fix blank. Then <b>follow the material</b>, keeping the accidents it hands you. Then <b>revise</b> in passes, cutting and simplifying until the mess becomes a shape. Most of the real work lives here.","fa":"حالا صنعتِ کار. عمداً یک <b>پیش‌نویسِ</b> خام بساز — سفید را نمی‌شود درست کرد. بعد <b>دنبالِ مصالح</b> برو، و اتفاق‌هایی را که بهت می‌دهد نگه دار. بعد دور به دور <b>بازنویسی</b> کن، برش بزن و ساده کن تا آشفتگی تبدیل به یک شکل شود. بیشترِ کارِ اصلی همین‌جاست."},"example":{"en":"Halve a rough draft, keep the surprising bits, and rebuild — it's almost always better.","fa":"یک پیش‌نویسِ خام را نصف کن، تکه‌های غافلگیرکننده را نگه دار، و از نو بساز — تقریباً همیشه بهتر است."},"gain":{"en":"You can turn a rough start into a finished thing.","fa":"می‌توانی یک شروعِ خام را به یک چیزِ تمام‌شده تبدیل کنی."}},{"level":4,"badge":{"en":"Level 4 · Advanced","fa":"سطحِ ۴ · پیشرفته"},"title":{"en":"Get unstuck on purpose","fa":"عمدی از گیر دربیا"},"tagline":{"en":"Limits, reframing, walking away.","fa":"محدودیت، قابِ نو، کنارکشیدن."},"body":{"en":"The advanced maker has moves for the wall. Add a <b>constraint</b> so infinite options stop paralyzing you. <b>Reframe</b> the problem — often you're solving the wrong one. And when you're truly stuck, <b>walk away</b>, trusting your mind to keep working in the background until the answer surfaces.","fa":"سازندهٔ پیشرفته برای دیوار، حرکت دارد. یک <b>محدودیت</b> اضافه کن تا گزینه‌های بی‌نهایت فلجت نکنند. مسئله را <b>از نو قاب بگیر</b> — اغلب داری مسئلهٔ غلط را حل می‌کنی. و وقتی واقعاً گیر کردی، <b>کنار برو</b>، با اعتماد به اینکه ذهنت پشتِ صحنه کار می‌کند تا جواب رو بیاید."},"example":{"en":"Blocked for days, you set one rule and take a walk — and the fix arrives when you stop forcing it.","fa":"چند روز گیر بوده‌ای، یک قاعده می‌گذاری و پیاده‌روی می‌کنی — و راهِ حل وقتی می‌آید که دیگر به‌زور دنبالش نیستی."},"gain":{"en":"A block becomes a step in the process, not the end of it.","fa":"گیرکردن تبدیل به یک قدم در فرایند می‌شود، نه پایانِ آن."}},{"level":5,"badge":{"en":"Level 5 · Expert","fa":"سطحِ ۵ · حرفه‌ای"},"title":{"en":"See like an artist","fa":"مثلِ یک هنرمند ببین"},"tagline":{"en":"Taste, self-trust, and the love of making.","fa":"ذوق، اعتماد به خود، و عشق به ساختن."},"body":{"en":"The expert trusts the whole process. You know done by <b>taste</b> and a felt sense of <b>rightness</b>, then <b>let the work go</b>, imperfect. You lean on a <b>routine</b> that protects play, a few trusted <b>people</b>, and above all your own <b>instinct</b>. And you keep making — because the point was never the finished object; it was the work itself.","fa":"آدمِ حرفه‌ای به کلِ فرایند اعتماد دارد. پایان را با <b>ذوق</b> و یک حسِ <b>درست‌بودن</b> می‌شناسی، بعد کار را <b>رها می‌کنی</b>، ناقص. به یک <b>روتین</b> که از بازی محافظت می‌کند تکیه می‌کنی، به چند <b>آدمِ</b> مطمئن، و از همه مهم‌تر به <b>غریزهٔ</b> خودت. و ادامه می‌دهی به ساختن — چون اصل هیچ‌وقت شیءِ تمام‌شده نبود؛ خودِ کار بود."},"example":{"en":"You ship work you believe in, learn from it, and start the next thing the very next day.","fa":"کاری را که بهش باور داری منتشر می‌کنی، ازش یاد می‌گیری، و همان روزِ بعد چیزِ بعدی را شروع می‌کنی."},"gain":{"en":"You can make things with confidence — and help others do the same.","fa":"می‌توانی با اطمینان چیز بسازی — و به دیگران هم کمک کنی همین کار را بکنند."}}],"quotes":[{"en":"It's taught me to appreciate the making, not the made. — Adam Moss","fa":"به من یاد داد قدرِ ساختن را بدانم، نه ساخته‌شده را. — آدام ماس"},{"en":"The end product is not the point. — Adam Moss","fa":"محصولِ نهایی، اصلِ مطلب نیست. — آدام ماس"},{"en":"They all have drive. They all have a compulsion — an obsession to make something. — Adam Moss","fa":"همه‌شان کشش دارند. همه‌شان یک اجبار دارند — وسواسِ ساختنِ یک چیز. — آدام ماس"},{"en":"You need to be distracted enough for your mind, for your imagination to go fishing, and you need to be focused enough to know what to do with it. — Adam Moss","fa":"باید آن‌قدر حواست پرت باشد که ذهنت، خیالت، به ماهیگیری برود، و آن‌قدر متمرکز باشی که بدانی با آن چه کنی. — آدام ماس"},{"en":"Limitations are helpful. — Adam Moss","fa":"محدودیت‌ها کمک‌کننده‌اند. — آدام ماس"},{"en":"I really wanted to be good, and it made the act of making art so frustrating for me. — Adam Moss","fa":"واقعاً می‌خواستم خوب باشم، و همین باعث شد ساختنِ هنر برایم خیلی عذاب‌آور شود. — آدام ماس"},{"en":"You've got to get through the bad in order to get to the good. — Rostam Batmanglij","fa":"باید از بد رد شوی تا به خوب برسی. — رستم بتمنقلیج"},{"en":"The book is called ‘The Work of Art,’ and that is kind of what it's about. It's about the work. — Adam Moss","fa":"اسمِ کتاب «کارِ هنر» است، و یک‌جورهایی هم موضوعش همین است. موضوعش کار است. — آدام ماس"}],"media":[{"kind":"yt","id":"VU_XKJ_VnQY","src":{"en":"YouTube · Hammer Museum","fa":"یوتیوب · Hammer Museum"},"title":{"en":"Adam Moss Reads from The Work of Art","fa":"آدام ماس از «کارِ هنر» می‌خواند"},"desc":{"en":"A live reading and talk at the Hammer Museum, May 2024.","fa":"یک خوانش و گفت‌وگوی زنده در موزهٔ هامر، مه ۲۰۲۴."},"bullets":{"en":["Moss in his own words","How the book came together","A warm, personal introduction"],"fa":["ماس با زبانِ خودش","اینکه کتاب چطور شکل گرفت","یک مقدمهٔ گرم و شخصی"]},"best":{"en":"Best for Stage 1–2.","fa":"خوب برای مرحلهٔ ۱ و ۲."}},{"kind":"yt","id":"SkXRPf0b-pM","src":{"en":"YouTube · Barnes & Noble","fa":"یوتیوب · Barnes & Noble"},"title":{"en":"#PouredOver: Adam Moss on The Work of Art","fa":"گفت‌وگوی پادکستِ بارنز اند نوبل با آدام ماس"},"desc":{"en":"A podcast conversation about the making of the book and its ideas.","fa":"یک گفت‌وگوی پادکستی دربارهٔ ساختِ کتاب و ایده‌هایش."},"bullets":{"en":["The process behind the book","Stories from the interviews","Good after a first look"],"fa":["فرایندِ پشتِ کتاب","قصه‌هایی از مصاحبه‌ها","خوب بعد از نگاهِ اول"]},"best":{"en":"Best for Stage 2–3.","fa":"خوب برای مرحلهٔ ۲ و ۳."}},{"kind":"yt","id":"C2c_xOzc6dU","src":{"en":"YouTube · Midtown Scholar","fa":"یوتیوب · Midtown Scholar"},"title":{"en":"The Work of Art — Keynote with Vinson Cunningham","fa":"کارِ هنر — گفت‌وگو با وینسن کانینگهام"},"desc":{"en":"A longer keynote conversation digging into creativity and craft.","fa":"یک گفت‌وگوی بلندترِ کلیدی که به خلاقیت و پیشه‌وری می‌پردازد."},"bullets":{"en":["A deeper, unhurried talk","Creativity across disciplines","For when you want more"],"fa":["یک گفت‌وگوی عمیق‌تر و بی‌عجله","خلاقیت در رشته‌های مختلف","برای وقتی بیشتر می‌خواهی"]},"best":{"en":"Best for Stage 4–5.","fa":"خوب برای مرحلهٔ ۴ و ۵."}},{"kind":"img","url":"https://www.penguinrandomhouse.com/books/669522/the-work-of-art-by-adam-moss/","src":{"en":"Penguin Press · Publisher","fa":"Penguin Press · ناشر"},"title":{"en":"The Work of Art — Publisher Page","fa":"کارِ هنر — صفحهٔ ناشر"},"desc":{"en":"The publisher page, with the description, contributors, and editions.","fa":"صفحهٔ ناشر، با توضیحات، فهرستِ هنرمندان، و نسخه‌ها."},"bullets":{"en":["Straight from the source","The full list of artists","Editions and details"],"fa":["مستقیم از خودِ منبع","فهرستِ کاملِ هنرمندان","نسخه‌ها و جزئیات"]},"best":{"en":"For the source and details.","fa":"برای منبع و جزئیات."}}],"go":[{"label":{"en":"Publisher page (Penguin Press)","fa":"صفحهٔ ناشر (Penguin Press)"},"url":"https://www.penguinrandomhouse.com/books/669522/the-work-of-art-by-adam-moss/"},{"label":{"en":"Book on Goodreads","fa":"کتاب در گودریدز"},"url":"https://www.goodreads.com/book/show/192723955-the-work-of-art"},{"label":{"en":"NPR: Adam Moss on making art","fa":"NPR: آدام ماس دربارهٔ ساختنِ هنر"},"url":"https://www.npr.org/2024/04/16/1245150280/whats-the-key-to-creating-great-art-this-author-spoke-to-40-artists-to-find-out"}],"recs":[{"pri":"b","t":{"en":"Catch one spark today","fa":"امروز یک جرقه بگیر"},"d":{"en":"Write down one small thing that snagged your attention — an image, a line, a question — before it slips away.","fa":"یک چیزِ کوچک که توجهت را گرفت بنویس — یک تصویر، یک جمله، یک سؤال — قبل از اینکه در برود."}},{"pri":"b","t":{"en":"Make an ugly first draft","fa":"یک پیش‌نویسِ اولِ زشت بساز"},"d":{"en":"Set a timer and make something rough and whole on purpose. You can't fix a blank page.","fa":"یک تایمر بگذار و عمداً یک چیزِ خام و کامل بساز. صفحهٔ سفید را نمی‌شود درست کرد."}},{"pri":"n","t":{"en":"When stuck, add a limit","fa":"وقتی گیر کردی، یک محدودیت بگذار"},"d":{"en":"Overwhelmed by options? Invent one rule — one color, ten minutes, a single page — and push against it.","fa":"گزینه‌ها غرقت کرده؟ یک قاعده بساز — یک رنگ، ده دقیقه، یک صفحه — و بهش تکیه کن."}},{"pri":"n","t":{"en":"Finish and let it go","fa":"تمام کن و رها کن"},"d":{"en":"Set a real deadline and ship something imperfect. Done teaches you more than endless polishing.","fa":"یک ضرب‌الاجلِ واقعی بگذار و یک چیزِ ناقص را منتشر کن. تمام‌کردن بیشتر از صیقلِ بی‌پایان یادت می‌دهد."}}]};
+</script>
+
+<script>
+/* ── 3) RENDER (text sections) ────────────────────────────── */
+function elClear(id){ var e=document.getElementById(id); if(e) e.innerHTML=''; return e; }
+
+function renderText(){
+  var t=elClear('tldrHost');
+  DATA.tldr.forEach(function(o){ var li=document.createElement('li'); li.innerHTML = TX(o); t.appendChild(li); });
+
+  var q=elClear('quoteHost');
+  DATA.quotes.forEach(function(o){
+    var bq=document.createElement('blockquote');
+    bq.innerHTML = '<span class="qm">“</span><p>'+TX(o)+'</p>';
+    q.appendChild(bq);
+  });
+
+  var m=elClear('mediaHost');
+  DATA.media.forEach(function(o){
+    var card=document.createElement('div'); card.className='mcard';
+    var thumb;
+    if(o.kind==='yt'){
+      var url='https://www.youtube.com/watch?v='+o.id;
+      var img='https://i.ytimg.com/vi/'+o.id+'/hqdefault.jpg';
+      thumb='<a class="mthumb" href="'+url+'" target="_blank" rel="noopener">'
+        +'<img src="'+img+'" alt="" loading="lazy" onerror="this.style.display=\'none\'">'
+        +'<span class="ptype">'+(LANG==='fa'?'ویدیو':'VIDEO')+'</span>'
+        +'<span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></span></a>';
+    } else {
+      thumb='<a class="mthumb" href="'+o.url+'" target="_blank" rel="noopener"><span class="mfake">'
+        +'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.6"/><path d="M21 15l-5-5L5 21"/></svg>'
+        +'</span><span class="ptype">'+(LANG==='fa'?'تصویر':'IMAGE')+'</span></a>';
+    }
+    var link = o.kind==='yt' ? 'https://www.youtube.com/watch?v='+o.id : o.url;
+    var bl = (LANG==='fa'?o.bullets.fa:o.bullets.en).map(function(b){ return '<li>'+ (LANG==='fa'?faText(b):b) +'</li>'; }).join('');
+    card.innerHTML = thumb + '<div class="mbody">'
+      + '<div class="msrc">'+TX(o.src)+'</div>'
+      + '<h4>'+TX(o.title)+'</h4>'
+      + '<p class="mdesc">'+TX(o.desc)+'</p>'
+      + '<ul>'+bl+'</ul>'
+      + '<a class="mlink" href="'+link+'" target="_blank" rel="noopener">'+(LANG==='fa'?'باز کردن ↗':'Open ↗')+'</a>'
+      + '<div class="mbest">'+TX(o.best)+'</div>'
+      + '</div>';
+    m.appendChild(card);
+  });
+
+  var g=elClear('goHost');
+  DATA.go.forEach(function(o){
+    var a=document.createElement('a'); a.href=o.url; a.target='_blank'; a.rel='noopener';
+    a.textContent=TX(o.label); g.appendChild(a);
+  });
+
+  var r=elClear('recHost');
+  DATA.recs.forEach(function(o){
+    var it=document.createElement('div'); it.className='item';
+    var priLabel = o.pri==='b' ? (LANG==='fa'?'از اینجا شروع کن':'Start here') : (LANG==='fa'?'بعدش این':'Then this');
+    it.innerHTML='<div class="t">'+TX(o.t)+'<span class="pri '+(o.pri==='b'?'b':'')+'">'+priLabel+'</span></div>'
+      +'<div class="d">'+TX(o.d)+'</div>';
+    r.appendChild(it);
+  });
+
+  var mth=document.getElementById('methodHost');
+  mth.innerHTML = LANG==='fa' ? faText("<p><b>منبع:</b> کتابِ «کارِ هنر: چطور چیزی از هیچ پدید می‌آید» نوشتهٔ آدام ماس (نشرِ Penguin Press، ۲۰۲۴) — گفت‌وگو با ۴۳ هنرمند، نویسنده و موسیقی‌دان دربارهٔ اینکه یک اثرِ مشخص را چطور ساختند.</p><p><b>روشِ کار:</b> قوسِ پنج‌بخشی و درس‌ها از خودِ کتاب، مصاحبه‌ها و منابعِ معتبر گردآوری و ساده‌نویسی شده؛ نقل‌قول‌ها مقابله و ویدیوها بررسی شده‌اند.</p><p><b>گروه:</b> «ذوق و پیشه‌وری» — کتاب‌هایی دربارهٔ قضاوت، ساختن، و فرایندِ خلاقیت.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای متنِ کامل، خودِ کتاب را بخوان.</p>") : "<p><b>Source:</b> the book <i>The Work of Art: How Something Comes from Nothing</i> by Adam Moss (Penguin Press, 2024) — conversations with 43 artists, writers, and musicians about how they made one specific work.</p><p><b>How this was built:</b> the five-part arc and the lessons were gathered and rewritten from the book, interviews, and reputable sources; quotes were cross-checked and the linked videos verified.</p><p><b>Group:</b> Taste &amp; Craft — books about judgment, making, and the creative process.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>";
+  var fl=document.getElementById('flowTop');
+  if(fl){
+    var loop = LANG==='fa' ? ["جرقه","کلنجار","پایان"] : ["Spark","Wrestle","Finish"];
+    var ar = LANG==='fa' ? '⟵' : '⟶';
+    fl.innerHTML = loop.map(function(w){ return '<b>'+ (LANG==='fa'?faText(w):w) +'</b>'; }).join(' <span class="ar">'+ar+'</span> ');
+  }
+}
+</script>
+
+<script>
+/* ── 4) CONCEPT MAP ───────────────────────────────────────── */
+function renderMap(){
+  var host=document.getElementById('mapHost'); if(!host) return; host.innerHTML='';
+  DATA.parts.forEach(function(p, i){
+    var col=document.createElement('div'); col.className='partcol';
+    var chaps=p.chapters.map(function(ck){
+      var c=DATA.chapters[ck];
+      return '<div class="chapchip"><span class="cn">'+num(c.n)+'</span><div><b>'+TX(c.name)+'</b>'
+        +'<small>'+TX(c.principle).replace(/<[^>]+>/g,'').slice(0, LANG==='fa'?86:76)+'…</small></div></div>';
+    }).join('');
+    col.innerHTML='<div class="ph"><span class="pdot" style="background:var('+p.varc+')"></span>'
+      +'<span class="pnum">'+(LANG==='fa'?'بخشِ ':'PART ')+num(i+1)+'</span></div>'
+      +'<h4>'+TX(p.name)+'</h4>'
+      +'<div class="ptag" style="color:var('+p.varc+')">'+TX(p.tag)+'</div>'
+      +'<p class="pgist">'+TX(p.gist)+'</p>'+chaps;
+    host.appendChild(col);
+  });
+}
+</script>
+
+<script>
+/* ── 5) INTERACTIVE NETWORK GRAPH (deterministic radial layout, no physics) ── */
+var GRAPH = (function(){
+  var svg, W=980, H=780, nodes=[], links=[], sel=null, dragNode=null, moved=false, startPt=null;
+
+  function build(){
+    svg=document.getElementById('netsvg');
+    svg.setAttribute('viewBox','0 0 '+W+' '+H);
+    nodes=[]; links=[];
+    var cx=W/2, cy=H/2, R1=220, R2=126, span=66*Math.PI/180;
+    var N=DATA.parts.length, partAng=DATA.parts.map(function(_,i){ return -Math.PI/2 + i*(2*Math.PI/N); });
+    nodes.push({id:'core', kind:'core', varc:'--core', r:38, x:cx, y:cy, label:DATA.core.name, data:DATA.core});
+    DATA.parts.forEach(function(p,i){
+      var a=partAng[i], px=cx+Math.cos(a)*R1, py=cy+Math.sin(a)*R1;
+      nodes.push({id:'p_'+p.key, kind:'part', varc:p.varc, r:25, x:px, y:py,
+        label:p.name, data:{name:p.name, principle:p.gist, more:p.more, tag:p.tag, key:p.key}});
+      links.push({s:'core', t:'p_'+p.key, strong:true});
+      var nc=p.chapters.length, start=a-span/2;
+      p.chapters.forEach(function(ck,j){
+        var ca = nc>1 ? start+span*(j/(nc-1)) : a;   // fan the 5 chapters outward
+        var c=DATA.chapters[ck];
+        nodes.push({id:'c_'+ck, kind:'chap', varc:p.varc, r:15,
+          x:px+Math.cos(ca)*R2, y:py+Math.sin(ca)*R2,
+          label:(c.glabel||c.name), data:c, ck:ck});
+        links.push({s:'p_'+p.key, t:'c_'+ck});
+      });
+    });
+    nodes.forEach(function(n){ n.hx=n.x; n.hy=n.y; });   // remember home positions for reset
+    draw();
+    select('core');
+  }
+
+  function byId(id){ for(var i=0;i<nodes.length;i++) if(nodes[i].id===id) return nodes[i]; return null; }
+
+  function draw(){
+    var ln='', nd='';
+    links.forEach(function(l){ ln+='<line class="glink" data-s="'+l.s+'" data-t="'+l.t+'" stroke="var(--line)" stroke-width="'+(l.strong?2.4:1.5)+'" stroke-linecap="round"/>'; });
+    nodes.forEach(function(n){
+      var inside='', below='';
+      if(n.kind==='core'){
+        inside='<text text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="800" fill="#fff" letter-spacing="0.3">'+shortLabel(n)+'</text>';
+      } else {
+        if(n.kind==='chap'){
+          inside='<text text-anchor="middle" dominant-baseline="central" font-size="11" font-weight="800" fill="#fff">'+num(n.data.n)+'</text>';
+        }
+        var ly = n.r + (n.kind==='part'?17:14);
+        var fs = n.kind==='part'?13:11;
+        var stroke = 'paint-order:stroke;stroke:var(--card2);stroke-width:3.6px;stroke-linejoin:round';
+        below='<text class="nlab" text-anchor="middle" y="'+ly+'" font-size="'+fs+'" font-weight="'+(n.kind==='part'?'800':'700')+'" fill="var(--ink)" style="'+stroke+'">'+shortLabel(n)+'</text>';
+      }
+      nd+='<g class="node'+(n.kind==='core'?' ncore':'')+'" data-id="'+n.id+'"><g class="ns">'
+        +'<circle r="'+n.r+'" fill="var('+n.varc+')" fill-opacity="'+(n.kind==='chap'?0.94:1)+'" stroke="var(--card)" stroke-width="2.5"/>'
+        +inside+below+'</g></g>';
+    });
+    svg.innerHTML='<g id="glinks">'+ln+'</g><g id="gnodes">'+nd+'</g>';
+    svg.querySelectorAll('.node').forEach(function(gEl){
+      gEl.addEventListener('pointerdown', onDown);
+      gEl.addEventListener('click', function(){ if(!moved) select(gEl.getAttribute('data-id')); });
+      gEl.addEventListener('pointerenter', function(){ if(!dragNode) gEl.classList.add('hover'); });
+      gEl.addEventListener('pointerleave', function(){ gEl.classList.remove('hover'); });
+    });
+    positions();
+  }
+  function shortLabel(n){ return TX(n.label); }
+
+  function positions(){
+    svg.querySelectorAll('.node').forEach(function(g){
+      var n=byId(g.getAttribute('data-id'));
+      g.setAttribute('transform','translate('+n.x.toFixed(1)+','+n.y.toFixed(1)+')');
+    });
+    svg.querySelectorAll('.glink').forEach(function(l){
+      var a=byId(l.getAttribute('data-s')), b=byId(l.getAttribute('data-t'));
+      l.setAttribute('x1',a.x.toFixed(1)); l.setAttribute('y1',a.y.toFixed(1));
+      l.setAttribute('x2',b.x.toFixed(1)); l.setAttribute('y2',b.y.toFixed(1));
+    });
+  }
+
+  /* drag: just move the grabbed node — no simulation, so nothing else shifts */
+  function toSvg(e){
+    var pt=svg.createSVGPoint(); pt.x=e.clientX; pt.y=e.clientY;
+    var m=svg.getScreenCTM(); if(!m) return {x:e.clientX,y:e.clientY};
+    return pt.matrixTransform(m.inverse());
+  }
+  function onDown(e){
+    e.preventDefault();
+    dragNode=byId(e.currentTarget.getAttribute('data-id'));
+    moved=false; startPt=toSvg(e); svg.style.cursor='grabbing';
+    e.currentTarget.classList.remove('hover');
+    window.addEventListener('pointermove', onMove);
+    window.addEventListener('pointerup', onUp);
+  }
+  function onMove(e){
+    if(!dragNode) return; var p=toSvg(e);
+    if(startPt && (Math.abs(p.x-startPt.x)>4 || Math.abs(p.y-startPt.y)>4)) moved=true;
+    dragNode.x=Math.max(dragNode.r+4, Math.min(W-dragNode.r-4, p.x));
+    dragNode.y=Math.max(dragNode.r+4, Math.min(H-dragNode.r-24, p.y));
+    positions();
+  }
+  function onUp(){
+    dragNode=null; svg.style.cursor='grab';
+    window.removeEventListener('pointermove', onMove);
+    window.removeEventListener('pointerup', onUp);
+  }
+
+  function keepSet(id){
+    var n=byId(id); if(!n || id==='core') return null;   // core → show everything
+    var keep={}; keep[id]=1; keep['core']=1;
+    var pk = (n.kind==='part') ? n.data.key : n.data.part;
+    keep['p_'+pk]=1;
+    DATA.parts.forEach(function(p){ if(p.key===pk) p.chapters.forEach(function(ck){ keep['c_'+ck]=1; }); });
+    return keep;   // highlight the whole branch: core → part → its chapters
+  }
+  function applyFocus(id){
+    var keep=keepSet(id), full=(keep===null);
+    svg.querySelectorAll('.node').forEach(function(g){
+      var nid=g.getAttribute('data-id');
+      g.classList.toggle('dim', !full && !keep[nid]);
+      g.classList.toggle('hl', !full && keep[nid] && nid!==id);
+    });
+    svg.querySelectorAll('.glink').forEach(function(l){
+      var s=l.getAttribute('data-s'), t=l.getAttribute('data-t');
+      var on = full || (keep[s] && keep[t]);
+      l.classList.toggle('dim', !on);
+      l.classList.toggle('hl', !full && on);
+    });
+  }
+
+  function relatedIds(node){
+    var ids=[];
+    if(node.id==='core'){ DATA.parts.forEach(function(p){ ids.push('p_'+p.key); }); }
+    else if(node.kind==='part'){ var pk=node.data.key; DATA.parts.forEach(function(p){ if(p.key===pk) p.chapters.forEach(function(ck){ ids.push('c_'+ck); }); }); }
+    else { var pk2=node.data.part; ids.push('p_'+pk2);
+      DATA.parts.forEach(function(p){ if(p.key===pk2) p.chapters.forEach(function(ck){ if('c_'+ck!==node.id) ids.push('c_'+ck); }); }); }
+    return ids;
+  }
+
+  function drow(cls,label,txt){ return '<div class="drow '+cls+'"><div class="dlab">'+label+'</div><div class="dtxt">'+txt+'</div></div>'; }
+
+  function select(id){
+    var n=byId(id); if(!n) return;
+    sel=id;
+    svg.querySelectorAll('.node').forEach(function(g){ g.classList.toggle('sel', g.getAttribute('data-id')===id); });
+    var selEl=svg.querySelector('.node[data-id="'+id+'"]'); if(selEl&&selEl.parentNode) selEl.parentNode.appendChild(selEl);  // raise on top
+    applyFocus(id);
+    var d=n.data, pv = n.kind==='core' ? '--core' : n.varc;
+    var kicker = n.kind==='core' ? (LANG==='fa'?'ایدهٔ مرکزی':'Core idea')
+             : n.kind==='part' ? (LANG==='fa'?'بخش':'Part') + ' · ' + TX(d.tag)
+             : (LANG==='fa'?"درسِ":"Lesson") + ' ' + num(d.n);
+    var prLab = (n.kind==='chap') ? (LANG==='fa'?'اصل':'Principle') : (LANG==='fa'?'ایدهٔ اصلی':'Big idea');
+    var html='<div class="dkick"><i style="background:var('+pv+')"></i>'+ (LANG==='fa'?faText(kicker):kicker) +'</div>'
+      +'<h4>'+TX(d.name)+'</h4>'
+      + drow('', prLab, TX(d.principle));
+    if(d.more)    html += drow('more', (LANG==='fa'?'بیشتر':'In depth'), TX(d.more));
+    if(d.example) html += drow('', (LANG==='fa'?'مثال':'Example'), TX(d.example));
+    if(d.tip)     html += drow('tip', (LANG==='fa'?'امتحان کن':'Try this'), TX(d.tip));
+    if(d.pitfall) html += drow('pit', (LANG==='fa'?'حواست باشد':'Watch out'), TX(d.pitfall));
+    // related chips
+    var rel=relatedIds(n);
+    if(rel.length){
+      var chips=rel.map(function(rid){ var rn=byId(rid); if(!rn) return '';
+        return '<span class="dchip" data-goto="'+rid+'"><i style="background:var('+rn.varc+')"></i>'+TX(rn.data.name)+'</span>'; }).join('');
+      html += '<div class="drow"><div class="dlab">'+(LANG==='fa'?'مرتبط':'Related')+'</div><div class="dchips">'+chips+'</div></div>';
+    }
+    var host=document.getElementById('detailHost');
+    host.innerHTML=html;
+    host.querySelectorAll('.dchip').forEach(function(c){
+      c.addEventListener('click', function(){ select(c.getAttribute('data-goto')); });
+    });
+  }
+
+  function relabel(){ if(!svg) return; draw(); select(sel||'core'); }
+
+  return {
+    build:build,
+    kick:function(){},                                    // no-op; layout is static
+    relabel:relabel,
+    reset:function(){ nodes.forEach(function(n){ n.x=n.hx; n.y=n.hy; }); positions(); },
+    resetFocus:function(){ select('core'); },
+    selectNode:function(id){ select(id); },
+    hasNodes:function(){ return nodes.length>0; }
+  };
+})();
+</script>
+
+<script>
+/* ── 6) 5-STAGE LADDER ────────────────────────────────────── */
+var curStage=0;
+function renderLadder(){
+  var host=document.getElementById('ladderHost'); host.innerHTML='';
+  DATA.stages.forEach(function(s,i){
+    var r=document.createElement('div'); r.className='rung'+(i===curStage?' active':'');
+    r.innerHTML='<div class="lv">'+ (LANG==='fa'?('سطحِ '+num(s.level)):('Level '+s.level)) +'</div>'
+      +'<div class="lt">'+TX(s.title)+'</div>'
+      +'<div class="lbar"><i style="width:'+(s.level*20)+'%"></i></div>';
+    r.addEventListener('click', function(){ curStage=i; renderLadder(); renderStage();
+      document.getElementById('stageHost').scrollIntoView({behavior:'smooth',block:'nearest'}); });
+    host.appendChild(r);
+  });
+}
+function renderStage(){
+  var s=DATA.stages[curStage];
+  var host=document.getElementById('stageHost');
+  var exLabel = LANG==='fa'?'مثال':'Example';
+  var prev = LANG==='fa'?'مرحلهٔ قبل':'‹ Prev', next = LANG==='fa'?'مرحلهٔ بعد':'Next ›';
+  host.innerHTML=''+
+    '<div class="stagecard">'
+    +'<div class="shead"><span class="badge">'+TX(s.badge)+'</span><h3>'+TX(s.title)+'</h3></div>'
+    +'<div class="tagline">'+TX(s.tagline)+'</div>'
+    +'<div class="sbody">'+TX(s.body)+'</div>'
+    +'<div class="exbox"><div class="exk">'+exLabel+'</div><div class="ext">'+TX(s.example)+'</div></div>'
+    +'<div class="gainrow"><span class="gi">✓</span><span>'+TX(s.gain)+'</span></div>'
+    +'<div class="stagenav">'
+      +'<button id="stPrev" '+(curStage===0?'disabled':'')+'>'+prev+'</button>'
+      +'<button id="stNext" '+(curStage===DATA.stages.length-1?'disabled':'')+'>'+next+'</button>'
+    +'</div></div>';
+  var pv=document.getElementById('stPrev'), nx=document.getElementById('stNext');
+  if(pv) pv.onclick=function(){ if(curStage>0){curStage--; renderLadder(); renderStage();} };
+  if(nx) nx.onclick=function(){ if(curStage<DATA.stages.length-1){curStage++; renderLadder(); renderStage();} };
+}
+</script>
+
+<script>
+/* ── 7) legend + graph tabs ───────────────────────────────── */
+function renderLegend(){
+  var host=document.getElementById('legendHost'); if(!host) return;
+  var items=[{c:'--core', en:'Core idea', fa:'ایدهٔ مرکزی'}]
+    .concat(DATA.parts.map(function(p){ return {c:p.varc, en:p.name.en, fa:p.name.fa}; }));
+  host.innerHTML = items.map(function(it){
+    return '<span><i style="background:var('+it.c+')"></i>'+(LANG==='fa'?faText(it.fa):it.en)+'</span>';
+  }).join('');
+  document.getElementById('ghint').textContent = LANG==='fa' ? 'روی هر دایره کلیک کن تا بیشتر بخوانی · می‌توانی بکشی‌شان' : 'Click a node to read more · drag to move';
+  document.getElementById('greset').textContent = LANG==='fa' ? '↺ چیدمان' : '↺ Reset';
+}
+function setupTabs(){
+  function show(net){
+    document.getElementById('netView').style.display = net?'':'none';
+    document.getElementById('mapView').style.display = net?'none':'';
+    document.getElementById('tabNet').classList.toggle('active',net);
+    document.getElementById('tabMap').classList.toggle('active',!net);
+    if(net) GRAPH.kick();
+  }
+  document.getElementById('tabNet').onclick=function(){show(true);};
+  document.getElementById('tabMap').onclick=function(){show(false);};
+  document.getElementById('greset').onclick=function(){ GRAPH.reset(); };
+  // click empty graph space resets the focus
+  var svg=document.getElementById('netsvg');
+  svg.addEventListener('click', function(e){ if(!e.target.closest('.node')) GRAPH.resetFocus(); });
+}
+</script>
+
+<script>
+/* ── 8) toggles + boot ────────────────────────────────────── */
+function setLang(lg){
+  LANG=lg;
+  document.documentElement.setAttribute('data-lang',lg);
+  document.documentElement.setAttribute('lang',lg);
+  document.documentElement.setAttribute('dir', lg==='fa'?'rtl':'ltr');
+  try{ localStorage.setItem('workofart-lang',lg); }catch(e){}
+  renderAll();
+}
+function renderAll(){
+  renderText();
+  renderMap();
+  renderLegend();
+  renderLadder();
+  renderStage();
+  if(GRAPH.hasNodes()) GRAPH.relabel(); else GRAPH.build();
+}
+(function(){
+  var lb=document.getElementById('langBtn');
+  lb && lb.addEventListener('click', function(){ setLang(LANG==='fa'?'en':'fa'); });
+
+  var tb=document.getElementById('themeBtn');
+  function curT(){ return document.documentElement.getAttribute('data-theme'); }
+  tb && tb.addEventListener('click', function(){
+    var t=curT()==='dark'?'light':'dark';
+    document.documentElement.setAttribute('data-theme',t);
+    try{ localStorage.setItem('workofart-theme',t); }catch(e){}
+  });
+  try{ matchMedia('(prefers-color-scheme: dark)').addEventListener('change',function(e){
+    if(!localStorage.getItem('workofart-theme')){ document.documentElement.setAttribute('data-theme', e.matches?'dark':'light'); }
+  }); }catch(e){}
+})();
+
+/* scroll-spy */
+(function(){
+  var links=[].slice.call(document.querySelectorAll('.toc a'));
+  var seen={}, ids=[];
+  links.forEach(function(a){ var id=a.getAttribute('href').slice(1); if(!seen[id]){seen[id]=1; ids.push(id);} });
+  var secs=ids.map(function(id){return document.getElementById(id);}).filter(Boolean);
+  function setActive(id){ links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('href')==='#'+id); }); }
+  if('IntersectionObserver' in window){
+    var obs=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+    },{rootMargin:'-45% 0px -50% 0px',threshold:0});
+    secs.forEach(function(s){ obs.observe(s); });
+  }
+})();
+
+document.addEventListener('DOMContentLoaded', function(){
+  setupTabs();
+  renderAll();
+});
+</script>
+</body>
+</html>

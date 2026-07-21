@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<!-- Product Builder's Library — bilingual EN/FA catalog of 45 essential books in 15 groups -->
+<html lang="fa" dir="rtl" data-lang="fa">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Product Books — کتابخانهٔ سازندهٔ محصول · ۴۵ کتاب در ۱۵ گروه</title>
+
+<!-- Boot theme + language BEFORE paint -->
+<script>
+(function(){
+  try{
+    var th = localStorage.getItem('pb-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
+    document.documentElement.setAttribute('data-theme', th);
+  }catch(e){ document.documentElement.setAttribute('data-theme','light'); }
+  try{
+    var lg = localStorage.getItem('pb-lang') || 'fa';
+    document.documentElement.setAttribute('data-lang', lg);
+    document.documentElement.setAttribute('lang', lg);
+    document.documentElement.setAttribute('dir', lg==='fa' ? 'rtl' : 'ltr');
+  }catch(e){}
+})();
+</script>
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:ital,opsz@0,6..72;1,6..72&display=swap" rel="stylesheet">
+
+<style>
+/* ── TOKENS ───────────────────────────────────────────────── */
+:root, [data-theme="light"]{
+  --bg:#f5f6f8; --bg2:#eef2f7; --card:#fff; --card2:#f8fafb;
+  --ink:#1c2330; --mut:#6b7280; --line:#e6e8ee;
+  --accent:#0e7c86; --accent-ink:#fff; --warm:#c2410c;
+  --shadow:0 1px 2px rgba(20,30,50,.05),0 6px 24px rgba(20,30,50,.06);
+  --hero-1:#0e7c86; --hero-2:#0b5e66;
+  --c-teal:#0e9aa6; --c-blue:#2f6fb0; --c-violet:#7c3aed; --c-amber:#d97706;
+  --c-green:#15a34a; --c-red:#e11d48; --c-gold:#c98a12; --c-gray:#6b7280;
+}
+[data-theme="dark"]{
+  --bg:#0e131a; --bg2:#161d27; --card:#151c26; --card2:#1b2430;
+  --ink:#e9eef5; --mut:#9aa7b6; --line:#27313d;
+  --accent:#2dd4bf; --accent-ink:#06231f; --warm:#fb923c;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 28px rgba(0,0,0,.45);
+  --hero-1:#0c5f67; --hero-2:#07323a;
+  --c-teal:#2dd4bf; --c-blue:#5b9bd5; --c-violet:#a78bfa; --c-amber:#fbbf24;
+  --c-green:#34d399; --c-red:#fb7185; --c-gold:#e2b04a; --c-gray:#94a3b8;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:Vazirmatn,"Segoe UI",Tahoma,Arial,sans-serif;line-height:1.85;font-size:15px;
+  transition:background .25s,color .25s}
+html[data-lang="en"] body{font-family:Inter,"Segoe UI",system-ui,Arial,sans-serif;line-height:1.7}
+.wrap{max-width:1040px;margin:0 auto;padding:0 18px 40px}
+html[data-lang="en"] [data-only="fa"]{display:none !important}
+html[data-lang="fa"] [data-only="en"]{display:none !important}
+
+/* ── HERO ─────────────────────────────────────────────────── */
+.hero{background:linear-gradient(135deg,var(--hero-1),var(--hero-2));color:#fff;padding:46px 0 36px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset-inline-end:-80px;top:-80px;width:300px;height:300px;
+  background:radial-gradient(circle,rgba(255,255,255,.12),transparent 70%);pointer-events:none}
+.hero .wrap{padding-bottom:0;position:relative;z-index:1;max-width:1040px}
+.hero h1{margin:0 0 10px;font-size:32px;font-weight:800;letter-spacing:-.3px;line-height:1.22}
+html[data-lang="en"] .hero h1{font-family:Newsreader,Georgia,serif;font-weight:600;letter-spacing:-.5px}
+.hero .dek{margin:0;opacity:.94;font-size:16px;max-width:680px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;
+  color:rgba(255,255,255,.95);background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.24);
+  padding:5px 13px;border-radius:20px;margin-bottom:15px}
+.eyebrow .edot{width:7px;height:7px;border-radius:50%;background:#fff;box-shadow:0 0 0 3px rgba(255,255,255,.25)}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);
+  border-radius:11px;padding:9px 15px;font-size:13px;min-width:96px}
+.chip b{font-size:22px;display:block;font-weight:800}
+
+/* ── NAV ──────────────────────────────────────────────────── */
+.navbar{position:sticky;top:0;z-index:60;background:color-mix(in srgb,var(--card) 92%,transparent);
+  backdrop-filter:saturate(180%) blur(10px);-webkit-backdrop-filter:saturate(180%) blur(10px);
+  border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+.navin{max-width:1040px;margin:0 auto;padding:9px 16px;display:flex;align-items:center;gap:12px}
+.brand{flex:1 1 auto;font-weight:800;font-size:13px;color:var(--accent);white-space:nowrap;
+  display:flex;align-items:center;gap:7px}
+.brand .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);
+  box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 18%,transparent)}
+.navctl{flex:0 0 auto;display:flex;align-items:center;gap:8px}
+.langbtn{height:34px;border-radius:18px;border:1px solid var(--line);background:var(--card);
+  color:var(--ink);cursor:pointer;font:inherit;font-size:12.5px;font-weight:700;padding:0 13px;
+  display:flex;align-items:center;gap:6px}
+.langbtn:hover{border-color:var(--accent);color:var(--accent)}
+.langbtn .globe{width:15px;height:15px;display:block}
+.themebtn{flex:0 0 auto;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);
+  background:var(--card);color:var(--ink);cursor:pointer;line-height:1;display:grid;place-items:center}
+.themebtn svg{width:17px;height:17px;display:block}
+.themebtn:hover{border-color:var(--accent);color:var(--accent)}
+[data-theme="light"] .themebtn .ic-sun{display:none}
+[data-theme="dark"]  .themebtn .ic-moon{display:none}
+
+/* ── INTRO ────────────────────────────────────────────────── */
+.intro{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);
+  padding:20px 22px;margin-top:26px}
+.intro p{margin:0 0 10px}
+.intro p:last-child{margin:0}
+.intro a{color:var(--accent);text-decoration:none;font-weight:600}
+.intro a:hover{text-decoration:underline}
+.legendrow{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:14px;font-size:12.5px;color:var(--mut)}
+.lg{display:inline-flex;align-items:center;gap:7px}
+.lg .sw{width:11px;height:11px;border-radius:50%}
+.lg .sw.live{background:var(--c-green)}
+.lg .sw.soon{background:var(--c-gray);opacity:.5}
+
+/* ── GROUPS ───────────────────────────────────────────────── */
+.groups{display:flex;flex-direction:column;gap:16px;margin-top:22px}
+.group{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);overflow:hidden;scroll-margin-top:70px}
+.ghead{display:flex;align-items:center;gap:15px;padding:15px 18px;border-bottom:1px solid var(--line);background:var(--card2)}
+.gnum{flex:0 0 auto;width:44px;height:44px;border-radius:12px;display:grid;place-items:center;
+  font-weight:800;font-size:16px;color:#fff;font-variant-numeric:tabular-nums;letter-spacing:-.5px}
+.gtext{flex:1 1 auto;min-width:0}
+.gname{font-weight:800;font-size:17px;line-height:1.3}
+html[data-lang="en"] .gname{font-family:Newsreader,Georgia,serif;font-weight:600}
+.gblurb{color:var(--mut);font-size:13px;line-height:1.55;margin-top:2px}
+.books{display:grid;grid-template-columns:repeat(3,1fr)}
+.book{padding:16px 18px;border-inline-start:1px solid var(--line);text-decoration:none;color:inherit;
+  display:flex;flex-direction:column;gap:5px;position:relative;transition:background .15s,transform .1s}
+.book:first-child{border-inline-start:none}
+.book.live{cursor:pointer}
+.book.live:hover{background:var(--card2)}
+.book.live::after{content:"";position:absolute;inset-inline-start:0;top:0;bottom:0;width:3px;background:var(--c-green);opacity:0;transition:opacity .15s}
+.book.live:hover::after{opacity:1}
+.book.soon{opacity:.62}
+.btitle{font-weight:700;font-size:15px;line-height:1.4;letter-spacing:-.1px;padding-inline-end:56px}
+.borig{font-size:11px;color:var(--mut);font-family:Inter,system-ui,sans-serif;letter-spacing:.1px}
+.bauthor{font-size:12.5px;color:var(--mut);margin-top:1px}
+.bwhy{font-size:12.5px;line-height:1.65;opacity:.9;margin-top:4px}
+.badge{position:absolute;top:12px;inset-inline-end:14px;font-size:9.5px;font-weight:800;letter-spacing:.5px;
+  text-transform:uppercase;padding:3px 8px;border-radius:20px;border:1px solid transparent}
+.badge.live{color:var(--c-green);background:color-mix(in srgb,var(--c-green) 14%,transparent);border-color:color-mix(in srgb,var(--c-green) 30%,transparent)}
+.badge.soon{color:var(--mut);background:color-mix(in srgb,var(--c-gray) 12%,transparent);border-color:var(--line)}
+
+/* ── FOOTER ───────────────────────────────────────────────── */
+.foot{max-width:1040px;margin:34px auto 0;padding:22px 18px 8px;border-top:1px solid var(--line);
+  display:flex;justify-content:center;text-align:center;color:var(--mut);font-size:13px}
+.foot .cname{color:var(--ink);font-weight:700}
+.foot .sep{margin:0 9px;opacity:.5}
+.foot .li{display:inline-flex;align-items:center;gap:5px;color:var(--accent);text-decoration:none;font-weight:600}
+.foot .li:hover{text-decoration:underline}
+.foot .li svg{width:15px;height:15px}
+
+@media(max-width:760px){
+  .books{grid-template-columns:1fr}
+  .book{border-inline-start:none;border-top:1px solid var(--line)}
+  .book:first-child{border-top:none}
+  .hero h1{font-size:26px}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ NAV ═══════════════ -->
+<div class="navbar"><div class="navin">
+  <div class="brand"><span class="dot"></span><span data-only="en">Product Builder's Library</span><span data-only="fa">کتابخانهٔ سازندهٔ محصول</span></div>
+  <div class="navctl">
+    <button class="langbtn" id="langBtn" aria-label="Switch language">
+      <svg class="globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18"/></svg>
+      <span data-only="en">فارسی</span><span data-only="fa">English</span>
+    </button>
+    <button class="themebtn" id="themeBtn" aria-label="Toggle theme" title="Light / Dark">
+      <svg class="ic-moon" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      <svg class="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"/></svg>
+    </button>
+  </div>
+</div></div>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<header class="hero"><div class="wrap">
+  <span class="eyebrow"><span class="edot"></span><span data-only="en">Essential books for product builders</span><span data-only="fa">کتاب‌های ضروریِ سازندگانِ محصول</span></span>
+  <h1><span data-only="en">The Product Builder's Library</span><span data-only="fa">کتابخانهٔ سازندهٔ محصول</span></h1>
+  <p class="dek"><span data-only="en">45 essential books, sorted into 15 groups — from communication and strategy to design, influence, and happiness. Each one is being distilled into a simple, bilingual page you can actually learn from.</span><span data-only="fa">۴۵ کتابِ ضروری، دسته‌بندی‌شده در ۱۵ گروه — از ارتباط و استراتژی تا طراحی، نفوذ و شادکامی. هر کتاب به یک صفحهٔ ساده و دوزبانه تبدیل می‌شود که واقعاً بتوانی از آن یاد بگیری.</span></p>
+  <div class="chips">
+    <div class="chip"><b id="kBooks">45</b><span data-only="en">books</span><span data-only="fa">کتاب</span></div>
+    <div class="chip"><b>15</b><span data-only="en">groups</span><span data-only="fa">گروه</span></div>
+    <div class="chip"><b id="kDone">45</b><span data-only="en">distilled</span><span data-only="fa">آماده</span></div>
+    <div class="chip"><b>EN·FA</b><span data-only="en">bilingual</span><span data-only="fa">دوزبانه</span></div>
+  </div>
+</div></header>
+
+<div class="wrap">
+
+  <!-- INTRO -->
+  <div class="intro">
+    <p data-only="en">This library gathers the reading lists from Lenny Rachitsky's two-part <b>"Essential books for product builders"</b>, organized into the same 15 skill groups. Click any <b>green</b> title to open its distilled knowledge-graph page — a single book taught in five stages, from over-simplified to expert, in English and Persian.</p>
+    <p data-only="fa">این کتابخانه، فهرست‌های کتابِ مجموعهٔ دوقسمتیِ <b>«کتاب‌های ضروری برای سازندگانِ محصول»</b> از لنی رچیتسکی را در همان ۱۵ گروهِ مهارتی گرد آورده است. روی هر عنوانِ <b>سبز</b> بزن تا صفحهٔ نقشهٔ دانشِ آن باز شود — یک کتاب که در پنج مرحله آموزش داده می‌شود، از خیلی ساده تا سطحِ خبره، به انگلیسی و فارسی.</p>
+    <div class="legendrow">
+      <span class="lg"><span class="sw live"></span><span data-only="en">Distilled — ready to read</span><span data-only="fa">آماده — قابلِ مطالعه</span></span>
+      <span class="lg"><span class="sw soon"></span><span data-only="en">Coming soon</span><span data-only="fa">به‌زودی</span></span>
+    </div>
+  </div>
+
+  <!-- GROUPS render here -->
+  <div class="groups" id="groups"></div>
+
+</div>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer class="foot">
+  <div>
+    <span data-only="en">Created by <span class="cname">Behnam Atefi</span><span class="sep">·</span><a class="li" href="https://www.linkedin.com/in/behnamatefi/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.3c0-1.26-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9z"/></svg>LinkedIn</a></span>
+    <span data-only="fa">ساخته‌شده توسط <span class="cname">بهنام عاطفی</span><span class="sep">·</span><a class="li" href="https://www.linkedin.com/in/behnamatefi/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.3c0-1.26-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9z"/></svg>لینکدین</a></span>
+  </div>
+</footer>
+
+<script>
+/* ── language + RLM formatters (identical to book pages) ──── */
+var LANG = document.documentElement.getAttribute('data-lang') || 'fa';
+var FA_D = '۰۱۲۳۴۵۶۷۸۹';
+var RLM  = '‏';
+function faDigits(s){ return String(s).replace(/[0-9]/g, function(d){ return FA_D[+d]; }); }
+function rlm(s){
+  return String(s)
+    .replace(/[A-Za-zÀ-ɏ][A-Za-zÀ-ɏ0-9'’.&:\/\-\*]*(?:\s+[A-Za-zÀ-ɏ0-9'’.&:\/\-\*]+)*/g,
+      function(m){ return RLM+'⁦'+m+'⁩'+RLM; })
+    .replace(/[0-9۰-۹]+/g, function(m){ return m+RLM; });
+}
+function faText(s){ return String(s).replace(/(<[^>]+>)|([^<]+)/g, function(m,tag,txt){ return tag ? tag : faDigits(rlm(txt)); }); }
+function TX(o){ if(o==null) return ''; return LANG==='fa' ? faText(o.fa) : o.en; }
+function num(n){ return LANG==='fa' ? faDigits(String(n)) : String(n); }
+
+/* ── DATA: 15 groups × 3 books ───────────────────────────── */
+var COLORS = ['--c-teal','--c-blue','--c-violet','--c-amber','--c-green','--c-red','--c-gold','--c-teal','--c-blue','--c-violet','--c-amber','--c-green','--c-red','--c-gold','--c-teal'];
+var GROUPS = [
+ {n:1, en:{name:"Communication", blurb:"Write and speak clearly so you're actually heard — and earn the reader's attention."},
+       fa:{name:"ارتباط", blurb:"واضح بنویس و بگو تا واقعاً شنیده شوی — و توجهِ خواننده را به‌دست بیاور."}, books:[
+   {live:true, href:"01 - Communication/nobody-wants-to-read-your-shit.html",
+     en:{t:"Nobody Wants to Read Your Sh*t", a:"Steven Pressfield", why:"Every reader silently asks “so what?” — respect that and get to the point fast."},
+     fa:{t:"هیچ‌کس نمی‌خواهد نوشته‌ات را بخواند", orig:"Nobody Wants to Read Your Sh*t", a:"استیون پرسفیلد", why:"هر خواننده بی‌صدا می‌پرسد «که چه؟» — این را جدی بگیر و سریع سرِ اصل برو."}},
+   {live:true, href:"01 - Communication/on-writing-well.html",
+     en:{t:"On Writing Well", a:"William Zinsser", why:"The craft of clear nonfiction: cut the clutter and respect the reader's time."},
+     fa:{t:"خوب نوشتن", orig:"On Writing Well", a:"ویلیام زینسر", why:"هنرِ نوشتنِ روشن: زوائد را حذف کن و به وقتِ خواننده احترام بگذار."}},
+   {live:true, href:"01 - Communication/storyworthy.html",
+     en:{t:"Storyworthy", a:"Matthew Dicks", why:"Turn ordinary moments into stories people remember, with a repeatable method."},
+     fa:{t:"داستان‌واره", orig:"Storyworthy", a:"متیو دیکس", why:"لحظه‌های معمولی را با یک روشِ تکرارپذیر به داستان‌هایی ماندگار تبدیل کن."}}
+ ]},
+ {n:2, en:{name:"Executing", blurb:"Actually get things done: build systems, keep focus, and fix the bottleneck."},
+       fa:{name:"اجرا", blurb:"کارها را واقعاً پیش ببر: سیستم بساز، تمرکز را حفظ کن، و گلوگاه را برطرف کن."}, books:[
+   {live:true, href:"02 - Executing/the-great-ceo-within.html",
+     en:{t:"The Great CEO Within", a:"Matt Mochary", why:"An operating manual for the day-to-day of building and running a company."},
+     fa:{t:"مدیرعاملِ بزرگِ درون", orig:"The Great CEO Within", a:"مت موکری", why:"یک دفترچهٔ راهنما برای کارهای روزمرهٔ ساختن و اداره‌کردنِ یک شرکت."}},
+   {live:true, href:"02 - Executing/scaling-people.html",
+     en:{t:"Scaling People", a:"Claire Hughes Johnson", why:"Concrete systems and practices for leading teams as they grow."},
+     fa:{t:"مقیاس‌دادن به آدم‌ها", orig:"Scaling People", a:"کلر هیوز جانسون", why:"سیستم‌ها و روش‌های ملموس برای رهبریِ تیم‌ها هم‌زمان با رشدشان."}},
+   {live:true, href:"02 - Executing/the-goal.html",
+     en:{t:"The Goal", a:"Eliyahu Goldratt", why:"A business novel that teaches the Theory of Constraints: find and fix the bottleneck."},
+     fa:{t:"هدف", orig:"The Goal", a:"الیاهو گلدرات", why:"رمانی کاری که «نظریهٔ محدودیت‌ها» را می‌آموزد: گلوگاه را پیدا و رفع کن."}}
+ ]},
+ {n:3, en:{name:"Strategy", blurb:"Make the hard choices well: where to play, and how you'll actually win."},
+       fa:{name:"استراتژی", blurb:"انتخاب‌های سخت را خوب انجام بده: کجا بازی کنی، و چطور واقعاً ببری."}, books:[
+   {live:true, href:"03 - Strategy/good-strategy-bad-strategy.html", en:{t:"Good Strategy / Bad Strategy", a:"Richard Rumelt", why:"Real strategy is a diagnosis, a guiding policy, and coherent action — not slogans."},
+     fa:{t:"استراتژیِ خوب، استراتژیِ بد", orig:"Good Strategy / Bad Strategy", a:"ریچارد روملت", why:"استراتژیِ واقعی یعنی تشخیص، سیاستِ راهنما و اقدامِ منسجم — نه شعار."}},
+   {live:true, href:"03 - Strategy/playing-to-win.html", en:{t:"Playing to Win", a:"A.G. Lafley & Roger Martin", why:"Strategy as five linked choices, cascading from where-to-play to how-to-win."},
+     fa:{t:"بازی برای بردن", orig:"Playing to Win", a:"ای.جی. لفلی و راجر مارتین", why:"استراتژی به‌شکلِ پنج انتخابِ به‌هم‌پیوسته، از «کجا بازی کنیم» تا «چطور ببریم»."}},
+   {live:true, href:"03 - Strategy/working-backwards.html", en:{t:"Working Backwards", a:"Colin Bryar & Bill Carr", why:"Amazon's operating practices: start from the customer and work backward."},
+     fa:{t:"از آخر به اول", orig:"Working Backwards", a:"کالین برایر و بیل کار", why:"روش‌های اجراییِ آمازون: از مشتری شروع کن و به‌عقب کار کن."}}
+ ]},
+ {n:4, en:{name:"Inspiration", blurb:"Stories from real makers — the doubt, the craft, and the courage to ship."},
+       fa:{name:"الهام", blurb:"داستانِ سازندگانِ واقعی — تردید، پیشه‌وری، و جرأتِ عرضه‌کردن."}, books:[
+   {live:true, href:"04 - Inspiration/the-making-of-prince-of-persia.html", en:{t:"The Making of Prince of Persia", a:"Jordan Mechner", why:"A game-maker's journals on self-doubt, craft, and finally shipping."},
+     fa:{t:"ساختِ شاهزادهٔ ایران", orig:"The Making of Prince of Persia", a:"جردن مکنر", why:"دفترچه‌های یک بازی‌ساز دربارهٔ تردید، پیشه‌وری، و سرانجام عرضه‌کردن."}},
+   {live:true, href:"04 - Inspiration/build.html", en:{t:"Build", a:"Tony Fadell", why:"Hard-won lessons on building products, teams, and yourself — from the iPod's maker."},
+     fa:{t:"بساز", orig:"Build", a:"تونی فدل", why:"درس‌های به‌سختی‌آموخته دربارهٔ ساختنِ محصول، تیم و خودت — از سازندهٔ آی‌پاد."}},
+   {live:true, href:"04 - Inspiration/shoe-dog.html", en:{t:"Shoe Dog", a:"Phil Knight", why:"Nike's founder tells the messy, honest, human story of starting up."},
+     fa:{t:"شو داگ", orig:"Shoe Dog", a:"فیل نایت", why:"بنیان‌گذارِ نایکی داستانِ شلوغ، صادقانه و انسانیِ راه‌اندازی را می‌گوید."}}
+ ]},
+ {n:5, en:{name:"Managing", blurb:"Lead a team well: multiply output, give feedback, and grow people."},
+       fa:{name:"مدیریت", blurb:"یک تیم را خوب رهبری کن: خروجی را چند برابر کن، بازخورد بده، و آدم‌ها را رشد بده."}, books:[
+   {live:true, href:"05 - Managing/high-output-management.html", en:{t:"High Output Management", a:"Andy Grove", why:"The classic on leverage, meetings, and what a manager's real output is."},
+     fa:{t:"مدیریتِ پُربازده", orig:"High Output Management", a:"اندی گرو", why:"کتابِ کلاسیک دربارهٔ اهرم، جلسه‌ها، و اینکه خروجیِ واقعیِ یک مدیر چیست."}},
+   {live:true, href:"05 - Managing/the-making-of-a-manager.html", en:{t:"The Making of a Manager", a:"Julie Zhuo", why:"A warm, practical guide for your first time leading people."},
+     fa:{t:"تبدیل‌شدن به مدیر", orig:"The Making of a Manager", a:"جولی ژو", why:"راهنمایی گرم و کاربردی برای نخستین‌باری که آدم‌ها را رهبری می‌کنی."}},
+   {live:true, href:"05 - Managing/radical-candor.html", en:{t:"Radical Candor", a:"Kim Scott", why:"Care personally and challenge directly — both at once — to lead great teams."},
+     fa:{t:"صراحتِ رادیکال", orig:"Radical Candor", a:"کیم اسکات", why:"هم دلسوزِ آدم‌ها باش و هم رک به چالش بکش — هر دو با هم — تا تیمِ عالی بسازی."}}
+ ]},
+ {n:6, en:{name:"Leadership", blurb:"Raise the standard, sharpen focus, and set a direction people follow."},
+       fa:{name:"رهبری", blurb:"استاندارد را بالا ببر، تمرکز را تیز کن، و مسیری بگذار که آدم‌ها دنبالش کنند."}, books:[
+   {live:true, href:"06 - Leadership/amp-it-up.html", en:{t:"Amp It Up", a:"Frank Slootman", why:"Raise standards, narrow focus, and pick up the pace across the whole company."},
+     fa:{t:"شدتش را زیاد کن", orig:"Amp It Up", a:"فرانک اسلوتمن", why:"استاندارد را بالا ببر، تمرکز را باریک کن، و سرعتِ کلِ شرکت را زیاد کن."}},
+   {live:true, href:"06 - Leadership/15-commitments-conscious-leadership.html", en:{t:"The 15 Commitments of Conscious Leadership", a:"Dethmer, Chapman & Klemp", why:"Lead from responsibility and self-awareness instead of fear."},
+     fa:{t:"۱۵ تعهدِ رهبریِ آگاهانه", orig:"The 15 Commitments of Conscious Leadership", a:"دتمر، چپمن و کلمپ", why:"از جایگاهِ مسئولیت‌پذیری و خودآگاهی رهبری کن، نه از ترس."}},
+   {live:true, href:"06 - Leadership/the-score-takes-care-of-itself.html", en:{t:"The Score Takes Care of Itself", a:"Bill Walsh", why:"Build a “standard of performance” and let the results follow."},
+     fa:{t:"امتیاز، خودش را می‌سازد", orig:"The Score Takes Care of Itself", a:"بیل والش", why:"یک «استانداردِ عملکرد» بساز و بگذار نتیجه‌ها خودشان بیایند."}}
+ ]},
+ {n:7, en:{name:"Product Success Rate", blurb:"Build the right thing: talk to customers and focus on real value."},
+       fa:{name:"نرخِ موفقیتِ محصول", blurb:"چیزِ درست را بساز: با مشتری حرف بزن و روی ارزشِ واقعی تمرکز کن."}, books:[
+   {live:true, href:"07 - Product Success Rate/the-mom-test.html", en:{t:"The Mom Test", a:"Rob Fitzpatrick", why:"How to talk to customers so that even your mom can't lie to you."},
+     fa:{t:"تستِ مادر", orig:"The Mom Test", a:"راب فیتزپاتریک", why:"چطور با مشتری حرف بزنی که حتی مادرت هم نتواند به‌ات دروغ بگوید."}},
+   {live:true, href:"07 - Product Success Rate/escaping-the-build-trap.html", en:{t:"Escaping the Build Trap", a:"Melissa Perri", why:"Stop measuring features shipped; focus on outcomes and value delivered."},
+     fa:{t:"فرار از دامِ ساختن", orig:"Escaping the Build Trap", a:"ملیسا پری", why:"شمردنِ فیچرها را کنار بگذار؛ روی نتیجه و ارزشی که می‌رسانی تمرکز کن."}},
+   {live:true, href:"07 - Product Success Rate/continuous-discovery-habits.html", en:{t:"Continuous Discovery Habits", a:"Teresa Torres", why:"Make a weekly habit of talking to customers and testing your ideas."},
+     fa:{t:"عادت‌های کشفِ پیوسته", orig:"Continuous Discovery Habits", a:"ترزا تورس", why:"حرف‌زدن با مشتری و آزمودنِ ایده‌ها را به یک عادتِ هفتگی تبدیل کن."}}
+ ]},
+ {n:8, en:{name:"Product Org", blurb:"Build empowered product teams and make good calls under uncertainty."},
+       fa:{name:"سازمانِ محصول", blurb:"تیم‌های محصولِ توانمند بساز و در دلِ نااطمینانی تصمیم‌های خوب بگیر."}, books:[
+   {live:true, href:"08 - Product Org/empowered.html", en:{t:"Empowered", a:"Marty Cagan", why:"How the best companies turn ordinary teams into empowered product teams."},
+     fa:{t:"توانمند", orig:"Empowered", a:"مارتی کیگن", why:"چطور بهترین شرکت‌ها تیم‌های معمولی را به تیم‌های محصولِ توانمند تبدیل می‌کنند."}},
+   {live:true, href:"08 - Product Org/inspired.html", en:{t:"Inspired", a:"Marty Cagan", why:"The foundational text on how to build products customers love."},
+     fa:{t:"الهام‌گرفته", orig:"Inspired", a:"مارتی کیگن", why:"متنِ پایه دربارهٔ اینکه چطور محصولی بسازی که مشتری عاشقش شود."}},
+   {live:true, href:"08 - Product Org/thinking-in-bets.html", en:{t:"Thinking in Bets", a:"Annie Duke", why:"Make better decisions under uncertainty by thinking in probabilities, not certainties."},
+     fa:{t:"شرط‌بندانه فکر کن", orig:"Thinking in Bets", a:"انی دیوک", why:"در نااطمینانی تصمیمِ بهتر بگیر: احتمالی فکر کن، نه قطعی."}}
+ ]},
+ {n:9, en:{name:"Sales & Marketing", blurb:"Be remarkable, position clearly, and learn to sell from zero."},
+       fa:{name:"فروش و بازاریابی", blurb:"چشمگیر باش، جایگاهت را روشن کن، و فروش را از صفر یاد بگیر."}, books:[
+   {live:true, href:"09 - Sales & Marketing/purple-cow.html", en:{t:"Purple Cow", a:"Seth Godin", why:"Be remarkable — build something so different it's worth talking about."},
+     fa:{t:"گاوِ بنفش", orig:"Purple Cow", a:"ست گادین", why:"چشمگیر باش — چیزی بساز آن‌قدر متفاوت که ارزشِ حرف‌زدن داشته باشد."}},
+   {live:true, href:"09 - Sales & Marketing/obviously-awesome.html", en:{t:"Obviously Awesome", a:"April Dunford", why:"Positioning: make it instantly obvious why your product matters and to whom."},
+     fa:{t:"به‌وضوح عالی", orig:"Obviously Awesome", a:"آوریل دانفورد", why:"جایگاه‌یابی: فوری روشن کن که محصولت چرا و برای چه‌کسی مهم است."}},
+   {live:true, href:"09 - Sales & Marketing/founding-sales.html", en:{t:"Founding Sales", a:"Pete Kazanjy", why:"The early founder's field guide to building a sales motion from nothing."},
+     fa:{t:"فروش در روزهای اول", orig:"Founding Sales", a:"پیت کازانجی", why:"راهنمای عملیِ بنیان‌گذارِ اولیه برای ساختنِ فروش از هیچ."}}
+ ]},
+ {n:10, en:{name:"Design", blurb:"Good design is invisible: simple, clear, and effortless to use."},
+        fa:{name:"طراحی", blurb:"طراحیِ خوب نامرئی است: ساده، روشن، و بی‌دردسر."}, books:[
+   {live:true, href:"10 - Design/dont-make-me-think.html", en:{t:"Don't Make Me Think", a:"Steve Krug", why:"Usability boils down to one rule: don't make people stop and think."},
+     fa:{t:"وادارم نکن فکر کنم", orig:"Don't Make Me Think", a:"استیو کروگ", why:"کاربردپذیری در یک قانون خلاصه می‌شود: کاری نکن که کاربر بایستد و فکر کند."}},
+   {live:true, href:"10 - Design/the-design-of-everyday-things.html", en:{t:"The Design of Everyday Things", a:"Don Norman", why:"Why good design disappears — affordances, signifiers, and feedback."},
+     fa:{t:"طراحیِ چیزهای روزمره", orig:"The Design of Everyday Things", a:"دان نورمن", why:"چرا طراحیِ خوب دیده نمی‌شود — کارکردنما، نشانه‌ها، و بازخورد."}},
+   {live:true, href:"10 - Design/refactoring-ui.html", en:{t:"Refactoring UI", a:"Wathan & Schoger", why:"Practical, copy-able tactics to make interfaces actually look designed."},
+     fa:{t:"بازآراییِ رابط کاربری", orig:"Refactoring UI", a:"واتان و شوگر", why:"ترفندهای عملی و قابل‌کپی تا رابط‌ها واقعاً طراحی‌شده به‌نظر برسند."}}
+ ]},
+ {n:11, en:{name:"Taste & Craft", blurb:"Beat the resistance and do the creative work only you can do."},
+        fa:{name:"ذوق و پیشه‌وری", blurb:"بر مقاومت غلبه کن و کارِ خلاقانه‌ای را انجام بده که فقط از تو برمی‌آید."}, books:[
+   {live:true, href:"11 - Taste & Craft/the-war-of-art.html", en:{t:"The War of Art", a:"Steven Pressfield", why:"Name the “Resistance” that blocks you — then sit down and do the work."},
+     fa:{t:"جنگِ هنر", orig:"The War of Art", a:"استیون پرسفیلد", why:"«مقاومتی» را که جلویت را می‌گیرد نام‌گذاری کن — بعد بنشین و کار کن."}},
+   {live:true, href:"11 - Taste & Craft/the-work-of-art.html", en:{t:"The Work of Art", a:"Adam Moss", why:"A look inside how real artists actually make something from nothing."},
+     fa:{t:"کارِ هنر", orig:"The Work of Art", a:"آدام ماس", why:"نگاهی از درون به اینکه هنرمندانِ واقعی چطور از هیچ چیزی می‌سازند."}},
+   {live:true, href:"11 - Taste & Craft/creativity-inc.html", en:{t:"Creativity, Inc.", a:"Ed Catmull", why:"Building a culture where creativity survives, from Pixar's president."},
+     fa:{t:"شرکتِ خلاقیت", orig:"Creativity, Inc.", a:"اد کتمول", why:"ساختنِ فرهنگی که خلاقیت در آن زنده بماند، از زبانِ رئیسِ پیکسار."}}
+ ]},
+ {n:12, en:{name:"Influence", blurb:"Deal well with people and understand the real levers of persuasion."},
+        fa:{name:"نفوذ", blurb:"با آدم‌ها خوب رفتار کن و اهرم‌های واقعیِ اقناع را بشناس."}, books:[
+   {live:true, href:"12 - Influence/how-to-win-friends.html", en:{t:"How to Win Friends and Influence People", a:"Dale Carnegie", why:"Timeless, still-true principles for dealing gracefully with people."},
+     fa:{t:"آیینِ دوست‌یابی", orig:"How to Win Friends and Influence People", a:"دیل کارنگی", why:"اصولِ همیشگی و هنوز درست برای رفتارِ درست و محترمانه با آدم‌ها."}},
+   {live:true, href:"12 - Influence/influence.html", en:{t:"Influence", a:"Robert Cialdini", why:"The six psychological levers behind almost every “yes.”"},
+     fa:{t:"نفوذ", orig:"Influence", a:"رابرت چالدینی", why:"شش اهرمِ روان‌شناختی که پشتِ تقریباً هر «بله‌ای» هستند."}},
+   {live:true, href:"12 - Influence/never-split-the-difference.html", en:{t:"Never Split the Difference", a:"Chris Voss", why:"Negotiation tactics honed by an FBI hostage negotiator."},
+     fa:{t:"هرگز سازش نکن", orig:"Never Split the Difference", a:"کریس واس", why:"ترفندهای مذاکره که یک مذاکره‌کنندهٔ گروگان‌گیریِ اف‌بی‌آی صیقل داده."}}
+ ]},
+ {n:13, en:{name:"Starting a Company", blurb:"From idea to market: validate first, then find your mainstream."},
+        fa:{name:"راه‌اندازیِ شرکت", blurb:"از ایده تا بازار: اول اعتبارسنجی کن، بعد بازارِ اصلی‌ات را پیدا کن."}, books:[
+   {live:true, href:"13 - Starting a Company/the-lean-startup.html", en:{t:"The Lean Startup", a:"Eric Ries", why:"Build–measure–learn: validate cheaply before you spend big to scale."},
+     fa:{t:"استارتاپِ ناب", orig:"The Lean Startup", a:"اریک ریس", why:"بساز–بسنج–یاد بگیر: پیش از خرجِ کلان برای رشد، ارزان اعتبارسنجی کن."}},
+   {live:true, href:"13 - Starting a Company/crossing-the-chasm.html", en:{t:"Crossing the Chasm", a:"Geoffrey Moore", why:"How to carry a product from early adopters to the mainstream market."},
+     fa:{t:"عبور از شکاف", orig:"Crossing the Chasm", a:"جفری مور", why:"چطور یک محصول را از پذیرندگانِ اولیه به بازارِ اصلی برسانی."}},
+   {live:true, href:"13 - Starting a Company/fall-in-love-with-the-problem.html", en:{t:"Fall in Love with the Problem", a:"Uri Levine", why:"A serial founder's rule: obsess over the problem, not your solution."},
+     fa:{t:"عاشقِ مسئله شو، نه راه‌حل", orig:"Fall in Love with the Problem", a:"اوری لواین", why:"قانونِ یک بنیان‌گذارِ کارکشته: شیفتهٔ مسئله باش، نه راه‌حلت."}}
+ ]},
+ {n:14, en:{name:"Career", blurb:"Work smarter, build real power, and focus on what makes you effective."},
+        fa:{name:"مسیرِ شغلی", blurb:"هوشمندانه‌تر کار کن، قدرتِ واقعی بساز، و روی چیزی تمرکز کن که اثربخشت می‌کند."}, books:[
+   {live:true, href:"14 - Career/great-at-work.html", en:{t:"Great at Work", a:"Morten Hansen", why:"Work smarter: do less, then obsess over doing it exceptionally well."},
+     fa:{t:"عالی در کار", orig:"Great at Work", a:"مورتن هنسن", why:"هوشمندانه کار کن: کمتر انجام بده، بعد وسواسِ عالی‌انجام‌دادنش را داشته باش."}},
+   {live:true, href:"14 - Career/7-rules-of-power.html", en:{t:"7 Rules of Power", a:"Jeffrey Pfeffer", why:"How power actually works in organizations — and how to build it."},
+     fa:{t:"۷ قانونِ قدرت", orig:"7 Rules of Power", a:"جفری فِفِر", why:"قدرت واقعاً چطور در سازمان‌ها کار می‌کند — و چطور آن را بسازی."}},
+   {live:true, href:"14 - Career/the-effective-executive.html", en:{t:"The Effective Executive", a:"Peter Drucker", why:"The handful of habits that make any knowledge worker effective."},
+     fa:{t:"مدیرِ اثربخش", orig:"The Effective Executive", a:"پیتر دراکر", why:"همان چند عادتی که هر کارگرِ دانشی را اثربخش می‌کند."}}
+ ]},
+ {n:15, en:{name:"Happiness", blurb:"Choose what to care about — and see clearly what really makes a good life."},
+        fa:{name:"شادکامی", blurb:"انتخاب کن به چه اهمیت بدهی — و روشن ببین چه چیزی واقعاً زندگیِ خوب می‌سازد."}, books:[
+   {live:true, href:"15 - Happiness/subtle-art-of-not-giving-a-fck.html", en:{t:"The Subtle Art of Not Giving a F*ck", a:"Mark Manson", why:"Pick what to care about — values matter more than forced positivity."},
+     fa:{t:"هنرِ ظریفِ بی‌خیالی", orig:"The Subtle Art of Not Giving a F*ck", a:"مارک منسون", why:"انتخاب کن به چه اهمیت بدهی — ارزش‌ها از مثبت‌اندیشیِ زورکی مهم‌ترند."}},
+   {live:true, href:"15 - Happiness/a-guide-to-the-good-life.html", en:{t:"A Guide to the Good Life", a:"William Irvine", why:"Stoicism as a practical, modern philosophy for a calmer, happier life."},
+     fa:{t:"راهنمای زندگیِ خوب", orig:"A Guide to the Good Life", a:"ویلیام اروین", why:"رواقی‌گری به‌مثابهٔ فلسفه‌ای عملی و امروزی برای زندگیِ آرام‌تر و شادتر."}},
+   {live:true, href:"15 - Happiness/stumbling-on-happiness.html", en:{t:"Stumbling on Happiness", a:"Daniel Gilbert", why:"Why our brains are surprisingly bad at predicting what will make us happy."},
+     fa:{t:"تصادفی به شادی رسیدن", orig:"Stumbling on Happiness", a:"دنیل گیلبرت", why:"چرا مغزِ ما به‌طرزِ عجیبی در پیش‌بینیِ چیزی که شادمان‌مان می‌کند ضعیف است."}}
+ ]}
+];
+
+/* ── render ──────────────────────────────────────────────── */
+function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function bookCard(b){
+  var o = LANG==='fa' ? b.fa : b.en;
+  var title = TX({en:b.en.t, fa:b.fa.t});
+  var author = TX({en:b.en.a, fa:b.fa.a});
+  var why = TX({en:b.en.why, fa:b.fa.why});
+  var orig = (LANG==='fa' && b.fa.orig) ? '<div class="borig" dir="ltr">'+esc(b.fa.orig)+'</div>' : '';
+  var badge = b.live
+    ? '<span class="badge live"><span data-only="en">Ready</span><span data-only="fa">آماده</span></span>'
+    : '<span class="badge soon"><span data-only="en">Soon</span><span data-only="fa">به‌زودی</span></span>';
+  var inner = badge
+    + '<div class="btitle">'+title+'</div>'
+    + orig
+    + '<div class="bauthor">'+author+'</div>'
+    + '<div class="bwhy">'+why+'</div>';
+  if(b.live){
+    return '<a class="book live" href="'+encodeURI(b.href)+'">'+inner+'</a>';
+  }
+  return '<div class="book soon">'+inner+'</div>';
+}
+function groupBlock(g){
+  var o = LANG==='fa' ? g.fa : g.en;
+  var col = 'var('+COLORS[(g.n-1)%COLORS.length]+')';
+  var head = '<div class="ghead">'
+      + '<div class="gnum" style="background:'+col+'">'+num(('0'+g.n).slice(-2))+'</div>'
+      + '<div class="gtext"><div class="gname">'+TX({en:g.en.name, fa:g.fa.name})+'</div>'
+      + '<div class="gblurb">'+TX({en:g.en.blurb, fa:g.fa.blurb})+'</div></div></div>';
+  var books = '<div class="books">'+g.books.map(bookCard).join('')+'</div>';
+  return '<section class="group" id="g'+g.n+'">'+head+books+'</section>';
+}
+function render(){
+  document.getElementById('groups').innerHTML = GROUPS.map(groupBlock).join('');
+  document.getElementById('kBooks').textContent = num(45);
+  document.getElementById('kDone').textContent = num(45);
+}
+
+/* ── language + theme toggles ────────────────────────────── */
+function setLang(lg){
+  LANG=lg;
+  document.documentElement.setAttribute('data-lang',lg);
+  document.documentElement.setAttribute('lang',lg);
+  document.documentElement.setAttribute('dir', lg==='fa'?'rtl':'ltr');
+  try{ localStorage.setItem('pb-lang',lg); }catch(e){}
+  render();
+}
+(function(){
+  var lb=document.getElementById('langBtn');
+  lb && lb.addEventListener('click', function(){ setLang(LANG==='fa'?'en':'fa'); });
+  var tb=document.getElementById('themeBtn');
+  function curT(){ return document.documentElement.getAttribute('data-theme'); }
+  tb && tb.addEventListener('click', function(){
+    var t=curT()==='dark'?'light':'dark';
+    document.documentElement.setAttribute('data-theme',t);
+    try{ localStorage.setItem('pb-theme',t); }catch(e){}
+  });
+  try{ matchMedia('(prefers-color-scheme: dark)').addEventListener('change',function(e){
+    if(!localStorage.getItem('pb-theme')){ document.documentElement.setAttribute('data-theme', e.matches?'dark':'light'); }
+  }); }catch(e){}
+})();
+
+render();
+</script>
+</body>
+</html>

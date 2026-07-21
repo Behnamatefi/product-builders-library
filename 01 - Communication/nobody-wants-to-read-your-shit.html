@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<!-- complexity-level: 1→5 (this page teaches the SAME book at five depths, over-simplified … expert) -->
+<!-- Effortless (Greg McKeown) — bilingual EN/FA knowledge graph & 5-stage learning page -->
+<html lang="fa" dir="rtl" data-lang="fa">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nobody Wants to Read Your Sh*t — نقشهٔ دانش و یادگیری ۵ مرحله‌ای</title>
+
+<!-- Boot theme + language BEFORE paint to avoid a flash -->
+<script>
+(function(){
+  try{
+    var th = localStorage.getItem('nwr-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
+    document.documentElement.setAttribute('data-theme', th);
+  }catch(e){ document.documentElement.setAttribute('data-theme','light'); }
+  try{
+    var lg = localStorage.getItem('nwr-lang') || 'fa';
+    document.documentElement.setAttribute('data-lang', lg);
+    document.documentElement.setAttribute('lang', lg);
+    document.documentElement.setAttribute('dir', lg==='fa' ? 'rtl' : 'ltr');
+  }catch(e){}
+})();
+</script>
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:ital,opsz@0,6..72;1,6..72&display=swap" rel="stylesheet">
+
+<style>
+/* ── TOKENS ───────────────────────────────────────────────── */
+:root, [data-theme="light"]{
+  --bg:#f5f6f8; --bg2:#eef2f7; --card:#fff; --card2:#f8fafb;
+  --ink:#1c2330; --mut:#6b7280; --line:#e6e8ee;
+  --accent:#0e7c86; --accent-ink:#fff; --warm:#c2410c;
+  --shadow:0 1px 2px rgba(20,30,50,.05),0 6px 24px rgba(20,30,50,.06);
+  --hero-1:#0e7c86; --hero-2:#0b5e66;
+  --c-teal:#0e9aa6; --c-blue:#2f6fb0; --c-violet:#7c3aed; --c-amber:#d97706;
+  --c-green:#15a34a; --c-red:#e11d48; --c-gold:#c98a12; --c-gray:#6b7280;
+  --state:#0e9aa6; --action:#d97706; --results:#7c3aed; --core:#0e7c86;
+}
+[data-theme="dark"]{
+  --bg:#0e131a; --bg2:#161d27; --card:#151c26; --card2:#1b2430;
+  --ink:#e9eef5; --mut:#9aa7b6; --line:#27313d;
+  --accent:#2dd4bf; --accent-ink:#06231f; --warm:#fb923c;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 28px rgba(0,0,0,.45);
+  --hero-1:#0c5f67; --hero-2:#07323a;
+  --c-teal:#2dd4bf; --c-blue:#5b9bd5; --c-violet:#a78bfa; --c-amber:#fbbf24;
+  --c-green:#34d399; --c-red:#fb7185; --c-gold:#e2b04a; --c-gray:#94a3b8;
+  --state:#2dd4bf; --action:#fbbf24; --results:#a78bfa; --core:#2dd4bf;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:Vazirmatn,"Segoe UI",Tahoma,Arial,sans-serif;line-height:1.85;font-size:15px;
+  transition:background .25s,color .25s}
+html[data-lang="en"] body{font-family:Inter,"Segoe UI",system-ui,Arial,sans-serif;line-height:1.7}
+.wrap{max-width:960px;margin:0 auto;padding:0 18px 40px}
+
+/* language visibility */
+html[data-lang="en"] [data-only="fa"]{display:none !important}
+html[data-lang="fa"] [data-only="en"]{display:none !important}
+
+/* ── HERO ─────────────────────────────────────────────────── */
+.hero{background:linear-gradient(135deg,var(--hero-1),var(--hero-2));color:#fff;padding:44px 0 34px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset-inline-end:-80px;top:-80px;width:280px;height:280px;
+  background:radial-gradient(circle,rgba(255,255,255,.12),transparent 70%);pointer-events:none}
+.hero .wrap{padding-bottom:0;position:relative;z-index:1}
+.hero h1{margin:0 0 8px;font-size:30px;font-weight:800;letter-spacing:-.3px;line-height:1.25}
+html[data-lang="en"] .hero h1{font-family:Newsreader,Georgia,serif;font-weight:600;letter-spacing:-.5px}
+.hero .dek{margin:0;opacity:.94;font-size:15.5px;max-width:640px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;
+  color:rgba(255,255,255,.95);background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.24);
+  padding:5px 13px;border-radius:20px;margin-bottom:15px}
+.eyebrow .edot{width:7px;height:7px;border-radius:50%;background:#fff;box-shadow:0 0 0 3px rgba(255,255,255,.25)}
+.metastrip{display:flex;flex-wrap:wrap;gap:14px 30px;margin-top:20px;padding-top:16px;
+  border-top:1px solid rgba(255,255,255,.18)}
+.metaitem{display:flex;flex-direction:column;gap:3px}
+.metaitem .mk{font-size:10.5px;color:rgba(255,255,255,.62);font-weight:700;letter-spacing:.6px;text-transform:uppercase}
+.metaitem .mv{font-size:14px;color:#fff;font-weight:700}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);
+  border-radius:11px;padding:9px 15px;font-size:13px}
+.chip b{font-size:20px;display:block;font-weight:800}
+
+/* ── NAV + TOC ────────────────────────────────────────────── */
+.navbar{position:sticky;top:0;z-index:60;background:color-mix(in srgb,var(--card) 92%,transparent);
+  backdrop-filter:saturate(180%) blur(10px);-webkit-backdrop-filter:saturate(180%) blur(10px);
+  border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+.navin{max-width:960px;margin:0 auto;padding:8px 16px;display:flex;align-items:center;gap:12px}
+.brand{flex:0 0 auto;font-weight:800;font-size:12.5px;color:var(--accent);white-space:nowrap;
+  display:flex;align-items:center;gap:7px}
+.brand .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);
+  box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 18%,transparent)}
+.toc{flex:1 1 auto;display:flex;flex-wrap:wrap;gap:7px;justify-content:center}
+.toc a{font-size:12.5px;color:var(--mut);text-decoration:none;border:1px solid var(--line);
+  border-radius:20px;padding:5px 12px;background:var(--card);white-space:nowrap;
+  transition:background .15s,color .15s,border-color .15s}
+.toc a:hover{color:var(--accent);border-color:var(--accent)}
+.toc a.active{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.navctl{flex:0 0 auto;display:flex;align-items:center;gap:8px}
+.langbtn{height:34px;border-radius:18px;border:1px solid var(--line);background:var(--card);
+  color:var(--ink);cursor:pointer;font:inherit;font-size:12.5px;font-weight:700;padding:0 13px;
+  display:flex;align-items:center;gap:6px}
+.langbtn:hover{border-color:var(--accent);color:var(--accent)}
+.langbtn .globe{width:15px;height:15px;display:block}
+.themebtn{flex:0 0 auto;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);
+  background:var(--card);color:var(--ink);cursor:pointer;line-height:1;display:grid;place-items:center}
+.themebtn svg{width:17px;height:17px;display:block}
+.themebtn:hover{border-color:var(--accent);color:var(--accent)}
+[data-theme="light"] .themebtn .ic-sun{display:none}
+[data-theme="dark"]  .themebtn .ic-moon{display:none}
+
+/* ── BLOCKS ───────────────────────────────────────────────── */
+h2{font-size:21px;margin:44px 0 6px;font-weight:800;scroll-margin-top:92px;line-height:1.35}
+html[data-lang="en"] h2{font-family:Newsreader,Georgia,serif;font-weight:600}
+h2 .num{color:var(--accent);font-variant-numeric:tabular-nums}
+.sub{color:var(--mut);font-size:13.5px;margin:0 0 16px;max-width:680px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;
+  padding:20px 22px;margin:14px 0;box-shadow:var(--shadow)}
+.lead{font-size:15.5px}
+.lead b{color:var(--warm)}
+.kgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin:8px 0}
+.kbox{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:15px 16px;text-align:center}
+.kbox .v{font-size:26px;font-weight:800;color:var(--accent);font-variant-numeric:tabular-nums}
+.kbox .l{font-size:12.5px;color:var(--mut);margin-top:3px}
+ul.clean{margin:6px 0;padding-inline-start:20px} ul.clean li{margin:8px 0}
+.callout{background:color-mix(in srgb,var(--warm) 9%,var(--card));
+  border:1px solid color-mix(in srgb,var(--warm) 30%,var(--line));
+  border-radius:12px;padding:14px 18px;margin:12px 0}
+.callout b{color:var(--warm)}
+.callout.accent{background:color-mix(in srgb,var(--accent) 9%,var(--card));
+  border-color:color-mix(in srgb,var(--accent) 30%,var(--line))}
+.callout.accent b{color:var(--accent)}
+a{color:var(--accent)}
+
+/* ── GRAPH ────────────────────────────────────────────────── */
+.gtabs{display:inline-flex;gap:4px;background:var(--bg2);border:1px solid var(--line);
+  border-radius:11px;padding:4px;margin:6px 0 2px}
+.gtab{border:0;background:transparent;color:var(--mut);font:inherit;font-size:13px;font-weight:700;
+  padding:7px 15px;border-radius:8px;cursor:pointer}
+.gtab.active{background:var(--card);color:var(--accent);box-shadow:var(--shadow)}
+.graphcard{padding:14px}
+.legend{display:flex;flex-wrap:wrap;gap:14px;margin:2px 4px 12px;font-size:12.5px;color:var(--mut)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:11px;height:11px;border-radius:50%;display:inline-block}
+.graphstage{display:grid;grid-template-columns:1fr;gap:14px}
+@media(min-width:760px){.graphstage{grid-template-columns:1.35fr .95fr}}
+.svgwrap{position:relative;background:var(--card2);border:1px solid var(--line);border-radius:12px;
+  overflow:hidden;min-height:300px}
+#netsvg{display:block;width:100%;height:560px;touch-action:none;cursor:grab}
+#netsvg text{pointer-events:none;user-select:none}
+.ghint{position:absolute;inset-inline-start:12px;top:10px;font-size:11.5px;color:var(--mut);
+  background:color-mix(in srgb,var(--card) 82%,transparent);border:1px solid var(--line);
+  border-radius:20px;padding:3px 11px;backdrop-filter:blur(4px);max-width:70%}
+.greset{position:absolute;inset-inline-end:10px;top:10px;border:1px solid var(--line);background:var(--card);
+  color:var(--mut);border-radius:8px;font:inherit;font-size:11.5px;padding:4px 10px;cursor:pointer}
+.greset:hover{color:var(--accent);border-color:var(--accent)}
+/* node + link interaction states */
+.node{cursor:pointer}
+/* the inner <g class="ns"> is what scales; fill-box keeps the pivot on the node itself, not the SVG viewport */
+.ns{transform-box:fill-box;transform-origin:center;transition:transform .2s cubic-bezier(.2,.75,.25,1)}
+.node.hover .ns{transform:scale(1.1)}
+.node.sel  .ns{transform:scale(1.34)}                 /* selected node grows */
+.node.ncore.hover .ns{transform:scale(1.06)}
+.node.ncore.sel   .ns{transform:none}                 /* the centre 'Effortless' node keeps default size */
+.node.sel circle{stroke:var(--ink);stroke-width:2.5;filter:drop-shadow(0 0 8px color-mix(in srgb,var(--accent) 60%,transparent))}
+.node.hl circle{stroke:var(--ink);stroke-opacity:.5;stroke-width:2.5}
+.node.dim{opacity:.2}
+.node text{font-family:Vazirmatn,Tahoma,sans-serif;font-weight:700}
+html[data-lang="en"] .node text{font-family:Inter,sans-serif}
+.glink{transition:opacity .2s,stroke .2s}
+.glink.dim{opacity:.08}
+.glink.hl{stroke:var(--accent) !important;stroke-opacity:.8}
+/* detail panel */
+.detail{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;min-height:220px}
+@media(min-width:760px){.detail{max-height:480px;overflow:auto}}
+.detail .dkick{font-size:11.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;display:flex;align-items:center;gap:7px;color:var(--mut)}
+.detail .dkick i{width:10px;height:10px;border-radius:50%}
+.detail h4{margin:8px 0 3px;font-size:18px;font-weight:800}
+html[data-lang="en"] .detail h4{font-family:Newsreader,serif;font-weight:600}
+.detail .drow{margin:11px 0}
+.detail .dlab{font-size:10.5px;font-weight:800;color:var(--accent);letter-spacing:.5px;text-transform:uppercase;
+  display:inline-flex;align-items:center;gap:5px}
+.detail .drow.tip .dlab{color:var(--c-green)}
+.detail .drow.pit .dlab{color:var(--warm)}
+.detail .drow.more{border-inline-start:2px solid color-mix(in srgb,var(--accent) 32%,var(--line));padding-inline-start:11px}
+.detail .drow.more .dlab{color:var(--mut)}
+.detail .dtxt{font-size:13.6px;margin-top:3px}
+.dchips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.dchip{font-size:12px;border:1px solid var(--line);background:var(--card2);border-radius:16px;padding:4px 11px;
+  cursor:pointer;color:var(--ink);display:inline-flex;align-items:center;gap:6px;font-family:inherit}
+.dchip:hover{border-color:var(--accent);color:var(--accent)}
+.dchip i{width:8px;height:8px;border-radius:50%;flex:0 0 auto}
+
+/* ── CONCEPT MAP ──────────────────────────────────────────── */
+.mapgrid{display:grid;grid-template-columns:1fr;gap:14px}
+@media(min-width:820px){.mapgrid{grid-template-columns:repeat(3,1fr)}}
+.partcol{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:16px;position:relative}
+.partcol .ph{display:flex;align-items:center;gap:9px;margin-bottom:3px}
+.partcol .pdot{width:13px;height:13px;border-radius:50%;flex:0 0 auto}
+.partcol .pnum{font-size:11px;font-weight:800;color:var(--mut)}
+.partcol h4{margin:0;font-size:16.5px;font-weight:800}
+html[data-lang="en"] .partcol h4{font-family:Newsreader,serif;font-weight:600}
+.partcol .ptag{font-size:12px;color:var(--mut);margin:2px 0 4px;font-weight:700}
+.partcol .pgist{font-size:12.8px;color:var(--mut);margin:0 0 12px}
+.chapchip{display:flex;align-items:baseline;gap:8px;padding:7px 10px;border:1px solid var(--line);
+  border-radius:9px;margin:6px 0;background:var(--card2);font-size:13px}
+.chapchip .cn{font-size:11px;font-weight:800;color:var(--mut);flex:0 0 auto;font-variant-numeric:tabular-nums}
+.chapchip b{font-weight:700}
+.chapchip small{color:var(--mut);display:block;font-size:11.5px;line-height:1.5}
+.flowline{display:flex;align-items:center;justify-content:center;gap:10px;color:var(--mut);
+  font-size:12.5px;font-weight:700;margin:6px 0 2px;flex-wrap:wrap}
+.flowline .ar{color:var(--accent)}
+
+/* ── STAGE LADDER ─────────────────────────────────────────── */
+.ladder{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 4px}
+.rung{flex:1 1 150px;border:1px solid var(--line);background:var(--card);border-radius:11px;
+  padding:11px 13px;cursor:pointer;transition:transform .12s,border-color .12s;position:relative}
+.rung:hover{border-color:var(--accent);transform:translateY(-2px)}
+.rung.active{border-color:var(--accent);box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 35%,transparent)}
+.rung .lv{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.4px}
+.rung .lt{font-size:13.5px;font-weight:800;margin-top:2px}
+.rung .lbar{height:5px;border-radius:4px;background:var(--bg2);margin-top:9px;overflow:hidden}
+.rung .lbar i{display:block;height:100%;background:linear-gradient(90deg,var(--c-teal),var(--c-violet))}
+.stagecard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 24px;
+  margin:14px 0;box-shadow:var(--shadow)}
+.stagecard .shead{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.stagecard .badge{font-size:12px;font-weight:800;color:#fff;background:var(--accent);
+  border-radius:8px;padding:4px 11px;white-space:nowrap}
+.stagecard h3{margin:0;font-size:21px;font-weight:800}
+html[data-lang="en"] .stagecard h3{font-family:Newsreader,serif;font-weight:600}
+.stagecard .tagline{color:var(--mut);font-size:13.5px;margin:4px 0 14px;font-weight:700}
+.stagecard .sbody{font-size:15px}
+.exbox{background:var(--card2);border:1px solid var(--line);border-inline-start:3px solid var(--accent);
+  border-radius:0 11px 11px 0;padding:13px 16px;margin:14px 0 6px}
+.exbox .exk{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.5px;text-transform:uppercase}
+.exbox .ext{font-size:13.8px;margin-top:3px}
+.gainrow{display:flex;align-items:flex-start;gap:9px;margin-top:12px;font-size:13px;color:var(--mut)}
+.gainrow .gi{flex:0 0 auto;color:var(--c-green);font-weight:800}
+.stagenav{display:flex;justify-content:space-between;gap:10px;margin-top:16px}
+.stagenav button{border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit;
+  font-size:13px;font-weight:700;border-radius:9px;padding:8px 14px;cursor:pointer}
+.stagenav button:hover:not(:disabled){border-color:var(--accent);color:var(--accent)}
+.stagenav button:disabled{opacity:.4;cursor:default}
+
+/* ── QUOTES ───────────────────────────────────────────────── */
+.qgrid{display:grid;grid-template-columns:1fr;gap:12px}
+@media(min-width:720px){.qgrid{grid-template-columns:1fr 1fr}}
+blockquote{margin:0;background:var(--card2);border-inline-start:3px solid var(--accent);
+  border-radius:0 12px 12px 0;padding:15px 18px;font-size:14.5px;position:relative}
+blockquote .qm{font-size:34px;line-height:0;color:var(--accent);opacity:.35;font-family:Georgia,serif;
+  position:absolute;inset-inline-start:10px;top:20px}
+blockquote p{margin:0;padding-inline-start:22px}
+html[data-lang="en"] blockquote{font-family:Newsreader,Georgia,serif;font-size:15.5px}
+
+/* ── MEDIA ────────────────────────────────────────────────── */
+.mgrid{display:grid;grid-template-columns:1fr;gap:16px}
+@media(min-width:640px){.mgrid{grid-template-columns:1fr 1fr}}
+.mcard{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;
+  box-shadow:var(--shadow);display:flex;flex-direction:column}
+.mthumb{position:relative;display:block;aspect-ratio:16/9;background:var(--bg2);overflow:hidden;text-decoration:none}
+.mthumb img{width:100%;height:100%;object-fit:cover;display:block}
+.mthumb .play{position:absolute;inset:0;display:grid;place-items:center}
+.mthumb .play span{width:54px;height:54px;border-radius:50%;background:rgba(0,0,0,.6);
+  display:grid;place-items:center;border:2px solid rgba(255,255,255,.9)}
+.mthumb .play svg{width:22px;height:22px;fill:#fff;margin-inline-start:3px}
+.mthumb .ptype{position:absolute;inset-inline-start:9px;top:9px;background:rgba(0,0,0,.72);color:#fff;
+  font-size:11px;font-weight:700;border-radius:6px;padding:3px 9px;letter-spacing:.3px}
+.mfake{aspect-ratio:16/9;display:grid;place-items:center;
+  background:linear-gradient(135deg,color-mix(in srgb,var(--c-violet) 22%,var(--card)),color-mix(in srgb,var(--c-teal) 22%,var(--card)))}
+.mfake svg{width:52px;height:52px;color:var(--ink);opacity:.6}
+.mbody{padding:15px 17px;display:flex;flex-direction:column;gap:7px;flex:1}
+.mbody .msrc{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.3px;text-transform:uppercase}
+.mbody h4{margin:0;font-size:15.5px;font-weight:800;line-height:1.4}
+html[data-lang="en"] .mbody h4{font-family:Newsreader,serif;font-weight:600}
+.mbody .mdesc{font-size:13px;color:var(--mut);margin:0}
+.mbody ul{margin:4px 0 0;padding-inline-start:18px}
+.mbody ul li{font-size:12.8px;margin:5px 0}
+.mbody .mbest{font-size:12px;font-weight:700;color:var(--warm);margin-top:auto;padding-top:8px}
+.mlink{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;
+  text-decoration:none;color:var(--accent);margin-top:4px}
+.mlink:hover{text-decoration:underline}
+.golist{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.golist a{font-size:12.5px;text-decoration:none;color:var(--ink);border:1px solid var(--line);
+  border-radius:20px;padding:6px 13px;background:var(--card);font-weight:700}
+.golist a:hover{border-color:var(--accent);color:var(--accent)}
+
+/* ── RECS + METHOD + CREDIT ───────────────────────────────── */
+.rec{display:grid;gap:10px;margin:8px 0}
+.rec .item{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--card)}
+.rec .item .t{font-weight:800;font-size:14.5px;margin-bottom:3px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.rec .item .t .pri{font-size:11px;font-weight:700;color:#fff;background:var(--warm);border-radius:6px;padding:2px 9px}
+.rec .item .t .pri.b{background:var(--accent)}
+.rec .item .d{font-size:13.4px;color:var(--mut)}
+.method{color:var(--mut);font-size:13.4px}
+.method p{margin:8px 0}
+.method b{color:var(--ink)}
+.credit{text-align:center;margin-top:40px;padding:22px 0 8px;border-top:1px solid var(--line);
+  color:var(--mut);font-size:14px}
+.credit .cname{color:var(--ink);font-weight:800}
+.credit a{font-weight:700;text-decoration:none}
+.credit a:hover{text-decoration:underline}
+.credit .sep{opacity:.5;margin:0 8px}
+.credit .li{display:inline-flex;align-items:center;gap:5px;vertical-align:middle}
+.credit .li svg{width:15px;height:15px;vertical-align:-3px}
+
+@media (max-width:640px){
+  body{font-size:14px}
+  .wrap{padding:0 13px 30px}
+  .hero{padding:28px 0 22px} .hero h1{font-size:22px}
+  h2{font-size:18px;scroll-margin-top:66px}
+  .brand{display:none}
+  .toc{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;scrollbar-width:none}
+  .toc::-webkit-scrollbar{display:none}
+  #netsvg{height:420px}
+}
+</style>
+</head>
+<body>
+
+<!-- ── HERO ───────────────────────────────────────────────── -->
+<header class="hero"><div class="wrap">
+  <div class="eyebrow"><span class="edot"></span>
+    <span data-only="en">Book knowledge map · Steven Pressfield</span>
+    <span data-only="fa">نقشهٔ کتاب · استیون پرسفیلد</span>
+  </div>
+  <h1>
+    <span data-only="en">Nobody Wants to Read Your Sh*t — And What to Do About It</span>
+    <span data-only="fa">هیچ‌کس نمی‌خواهد نوشته‌ات را بخواند — و چه باید کرد</span>
+  </h1>
+  <p class="dek">
+    <span data-only="en">A knowledge graph of the whole book, plus a 5-stage path from a single sentence to expert-level mastery — with an example at every step.</span>
+    <span data-only="fa">نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از خیلی ساده تا حرفه‌ای — با یک مثال در هر مرحله.</span>
+  </p>
+  <div class="metastrip">
+    <div class="metaitem"><span class="mk" data-only="en">Book</span><span class="mk" data-only="fa">کتاب</span>
+      <span class="mv" data-only="en">Nobody Wants to Read Your Sh*t</span><span class="mv" data-only="fa">هیچ‌کس نمی‌خواهد نوشته‌ات را بخواند</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Author</span><span class="mk" data-only="fa">نویسنده</span>
+      <span class="mv" data-only="en">Steven Pressfield</span><span class="mv" data-only="fa">استیون پرسفیلد</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Published</span><span class="mk" data-only="fa">سالِ چاپ</span>
+      <span class="mv" data-only="en">2016</span><span class="mv" data-only="fa">۲۰۱۶</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Group</span><span class="mk" data-only="fa">گروه</span>
+      <span class="mv" data-only="en">Communication</span><span class="mv" data-only="fa">ارتباط</span></div>
+  </div>
+  <div class="chips">
+    <div class="chip"><b data-only="en">4</b><b data-only="fa">۴</b><span data-only="en">Themes</span><span data-only="fa">بخش</span></div>
+    <div class="chip"><b data-only="en">13</b><b data-only="fa">۱۳</b><span data-only="en">Lessons</span><span data-only="fa">درس</span></div>
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Learning stages</span><span data-only="fa">مرحلهٔ یادگیری</span></div>
+  </div>
+</div></header>
+
+<!-- ── STICKY NAV ─────────────────────────────────────────── -->
+<div class="navbar"><div class="navin">
+  <span class="brand"><span class="dot"></span>Nobody Wants to Read Your Sh*t</span>
+  <nav class="toc">
+    <a href="#tldr" data-only="en">In a nutshell</a><a href="#tldr" data-only="fa">خلاصه</a>
+    <a href="#graph" data-only="en">Knowledge graph</a><a href="#graph" data-only="fa">نقشهٔ دانش</a>
+    <a href="#stages" data-only="en">5 stages</a><a href="#stages" data-only="fa">۵ مرحله</a>
+    <a href="#quotes" data-only="en">Quotes</a><a href="#quotes" data-only="fa">جمله‌ها</a>
+    <a href="#media" data-only="en">Watch &amp; explore</a><a href="#media" data-only="fa">تماشا و منابع</a>
+    <a href="#apply" data-only="en">Apply it</a><a href="#apply" data-only="fa">کاربرد</a>
+  </nav>
+  <div class="navctl">
+    <button class="langbtn" id="langBtn" aria-label="Switch language">
+      <svg class="globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>
+      <span data-only="en">فارسی</span><span data-only="fa">English</span>
+    </button>
+    <button class="themebtn" id="themeBtn" aria-label="Toggle theme" title="Light / Dark">
+      <span class="ic-sun" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5 19 19M19 5l-1.5 1.5M6.5 17.5 5 19"/></svg></span>
+      <span class="ic-moon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.6 6.6 0 0 0 9.8 9.8Z"/></svg></span>
+    </button>
+  </div>
+</div></div>
+
+<div class="wrap">
+
+  <!-- ── TL;DR ────────────────────────────────────────────── -->
+  <h2 id="tldr"><span class="num" data-only="en">1.</span><span class="num" data-only="fa">۱.</span>
+    <span data-only="en"> In a nutshell</span><span data-only="fa"> خلاصه</span></h2>
+  <p class="sub" data-only="en">If you read only this, you still get the whole idea.</p>
+  <p class="sub" data-only="fa">اگر فقط همین بخش را بخوانی، کلِ ایده دستت می‌آید.</p>
+  <div class="card lead"><ul class="clean" id="tldrHost"></ul></div>
+  <div class="kgrid">
+    <div class="kbox"><div class="v" data-only="en">4</div><div class="v" data-only="fa">۴</div><div class="l" data-only="en">Themes (truth · concept · structure · pro)</div><div class="l" data-only="fa">بخش (حقیقت · ایده · ساختار · حرفه‌ای)</div></div>
+    <div class="kbox"><div class="v" data-only="en">13</div><div class="v" data-only="fa">۱۳</div><div class="l" data-only="en">Lessons you can use</div><div class="l" data-only="fa">درس برای استفاده</div></div>
+    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Levels, simple → expert</div><div class="l" data-only="fa">مرحله، ساده تا حرفه‌ای</div></div>
+    <div class="kbox"><div class="v" data-only="en">3</div><div class="v" data-only="fa">۳</div><div class="l" data-only="en">Acts: hook · build · payoff</div><div class="l" data-only="fa">پرده: قلاب · ساخت · پاداش</div></div>
+  </div>
+  
+  <div class="callout accent">
+    <b data-only="en">The core idea:</b>
+    <b data-only="fa">ایدهٔ اصلی:</b>
+    <span data-only="en"> Nobody owes you their attention. Readers are busy and indifferent, so the whole job is to <i>earn</i> the read — with empathy, a clear idea, and a story's shape.</span>
+    <span data-only="fa"> هیچ‌کس توجهش را به تو بدهکار نیست. خواننده‌ها سرشان شلوغ و بی‌تفاوت‌اند، پس کلِ کار این است که خواندن را <i>به‌دست بیاوری</i> — با همدلی، یک ایدهٔ روشن، و شکلِ یک داستان.</span>
+  </div>
+
+  <!-- ── KNOWLEDGE GRAPH ──────────────────────────────────── -->
+  <h2 id="graph"><span class="num" data-only="en">2.</span><span class="num" data-only="fa">۲.</span>
+    <span data-only="en"> The knowledge graph</span><span data-only="fa"> نقشهٔ دانش</span></h2>
+  <p class="sub" data-only="en">The whole book as one picture. Click any node to focus its connections and read more — or switch to the structured map.</p>
+  <p class="sub" data-only="fa">کلِ کتاب در یک تصویر. روی هر دایره کلیک کن تا ارتباط‌هایش را ببینی و بیشتر بخوانی — یا به نقشهٔ مرتب برو.</p>
+
+  <div class="gtabs">
+    <button class="gtab active" id="tabNet"><span data-only="en">Interactive network</span><span data-only="fa">شبکهٔ تعاملی</span></button>
+    <button class="gtab" id="tabMap"><span data-only="en">Structured map</span><span data-only="fa">نقشهٔ مرتب</span></button>
+  </div>
+
+  <!-- network view -->
+  <div class="card graphcard" id="netView">
+    <div class="legend" id="legendHost"></div>
+    <div class="graphstage">
+      <div class="svgwrap">
+        <svg id="netsvg" viewBox="0 0 820 560" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Effortless knowledge network"></svg>
+        <div class="ghint" id="ghint"></div>
+        <button class="greset" id="greset"></button>
+      </div>
+      <div class="detail" id="detailHost"></div>
+    </div>
+  </div>
+
+  <!-- map view -->
+  <div class="card graphcard" id="mapView" style="display:none">
+    <div class="flowline" id="flowTop"></div>
+    <div class="mapgrid" id="mapHost"></div>
+    <div class="callout" style="margin-top:16px">
+      <b data-only="en">Read it as a flow:</b><b data-only="fa">به‌صورتِ یک جریان بخوانش:</b>
+      <span data-only="en"> accept the hard truth (empathy), find your concept and theme, give it a three-act shape — <b>hook</b>, <b>build</b>, <b>payoff</b> — then turn pro and finish.</span>
+      <span data-only="fa"> حقیقتِ تلخ را بپذیر (همدلی)، ایده و مضمونت را پیدا کن، به آن ساختارِ سه‌پرده‌ای بده — <b>قلاب</b>، <b>ساخت</b>، <b>پاداش</b> — بعد حرفه‌ای شو و تمامش کن.</span>
+    </div>
+  </div>
+
+  <!-- ── 5 STAGES ─────────────────────────────────────────── -->
+  <h2 id="stages"><span class="num" data-only="en">3.</span><span class="num" data-only="fa">۳.</span>
+    <span data-only="en"> Learn it in 5 stages</span><span data-only="fa"> یادگیری در ۵ مرحله</span></h2>
+  <p class="sub" data-only="en">The same book at five depths. Start over-simplified, climb to expert. Tap a rung to jump.</p>
+  <p class="sub" data-only="fa">یک کتاب در پنج عمق. از خیلی ساده شروع کن و تا حرفه‌ای بالا برو. روی هر پله بزن تا بپری.</p>
+  <div class="ladder" id="ladderHost"></div>
+  <div id="stageHost"></div>
+
+  <!-- ── QUOTES ───────────────────────────────────────────── -->
+  <h2 id="quotes"><span class="num" data-only="en">4.</span><span class="num" data-only="fa">۴.</span>
+    <span data-only="en"> Lines worth keeping</span><span data-only="fa"> جمله‌هایی که ارزشِ نگه‌داشتن دارند</span></h2>
+  <p class="sub" data-only="en">Verbatim quotes from the book, translated alongside.</p>
+  <p class="sub" data-only="fa">جمله‌های مستقیم از کتاب، همراه با ترجمه.</p>
+  <div class="qgrid" id="quoteHost"></div>
+
+  <!-- ── MEDIA ────────────────────────────────────────────── -->
+  <h2 id="media"><span class="num" data-only="en">5.</span><span class="num" data-only="fa">۵.</span>
+    <span data-only="en"> Watch &amp; explore</span><span data-only="fa"> تماشا و منابع</span></h2>
+  <p class="sub" data-only="en">Special resources found online — each with what it covers and who it's best for.</p>
+  <p class="sub" data-only="fa">منابعِ ویژه‌ای که آنلاین پیدا شد — هرکدام با اینکه چه می‌گوید و به چه دردی می‌خورد.</p>
+  <div class="mgrid" id="mediaHost"></div>
+  <div class="card" style="margin-top:16px">
+    <div style="font-weight:800;font-size:13.5px;margin-bottom:4px">
+      <span data-only="en">Go straight to the source</span><span data-only="fa">مستقیم سراغِ منبع برو</span>
+    </div>
+    <div class="golist" id="goHost"></div>
+  </div>
+
+  <!-- ── APPLY ────────────────────────────────────────────── -->
+  <h2 id="apply"><span class="num" data-only="en">6.</span><span class="num" data-only="fa">۶.</span>
+    <span data-only="en"> Apply it this week</span><span data-only="fa"> این هفته امتحانش کن</span></h2>
+  <p class="sub" data-only="en">Four small moves that turn the idea into a habit.</p>
+  <p class="sub" data-only="fa">چهار حرکتِ کوچک که این ایده را به عادت تبدیل می‌کنند.</p>
+  <div class="rec" id="recHost"></div>
+
+  <!-- ── METHOD ───────────────────────────────────────────── -->
+  <h2 id="method"><span class="num" data-only="en">7.</span><span class="num" data-only="fa">۷.</span>
+    <span data-only="en"> Sources &amp; notes</span><span data-only="fa"> منابع و توضیح</span></h2>
+  <div class="card method" id="methodHost"></div>
+
+  <!-- ── CREDIT FOOTER ────────────────────────────────────── -->
+  <div class="credit">
+    <span data-only="en">Created by <span class="cname">Behnam Atefi</span><span class="sep">·</span><a class="li" href="https://www.linkedin.com/in/behnamatefi/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.3c0-1.26-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9z"/></svg>LinkedIn</a></span>
+    <span data-only="fa">ساخته‌شده توسط <span class="cname">بهنام عاطفی</span><span class="sep">·</span><a class="li" href="https://www.linkedin.com/in/behnamatefi/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.3c0-1.26-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9z"/></svg>لینکدین</a></span>
+  </div>
+</div>
+
+<!-- ═══════════════════════ SCRIPTS ═══════════════════════ -->
+<script>
+/* ── 1) language + formatters ─────────────────────────────── */
+var LANG = document.documentElement.getAttribute('data-lang') || 'fa';
+var FA_D = '۰۱۲۳۴۵۶۷۸۹';
+var RLM  = '‏';
+function faDigits(s){ return String(s).replace(/[0-9]/g, function(d){ return FA_D[+d]; }); }
+/* honor the RTL preference: isolate Latin runs (word order preserved) and mark with U+200F */
+function rlm(s){
+  return String(s)
+    .replace(/[A-Za-zÀ-ɏ][A-Za-zÀ-ɏ0-9'’.&:\/\-]*(?:\s+[A-Za-zÀ-ɏ0-9'’.&:\/\-]+)*/g,
+      function(m){ return RLM+'⁦'+m+'⁩'+RLM; })
+    .replace(/[0-9۰-۹]+/g, function(m){ return m+RLM; });
+}
+/* transform only TEXT segments, never HTML tags (so <b>/<i> survive) */
+function faText(s){ return String(s).replace(/(<[^>]+>)|([^<]+)/g, function(m,tag,txt){ return tag ? tag : faDigits(rlm(txt)); }); }
+function TX(o){ if(o==null) return ''; if(typeof o==='string') return o; return LANG==='fa' ? faText(o.fa) : o.en; }
+function num(n){ return LANG==='fa' ? faDigits(n) : String(n); }
+function tok(name){ return getComputedStyle(document.documentElement).getPropertyValue(name).trim(); }
+</script>
+
+<script>
+/* ── DATA LAYER — Atomic Habits (bilingual, plain-spoken Persian) ── */
+var DATA = {"tldr":[{"en":"The whole book in one line: nobody wants to read your work, so it's your job — not theirs — to make it worth reading.","fa":"خلاصهٔ کل کتاب در یک جمله: هیچ‌کس نمی‌خواهد کارِ تو را بخواند، پس این وظیفهٔ توست — نه او — که ارزشِ خواندن به آن بدهی."},{"en":"That hard truth is a gift: it forces <b>empathy</b> — you start seeing every sentence through a busy reader's eyes.","fa":"این حقیقتِ تلخ یک هدیه است: تو را وادار به <b>همدلی</b> می‌کند — هر جمله را از چشمِ یک خوانندهٔ سرشلوغ می‌بینی."},{"en":"Every piece needs a <b>concept</b>, a clear <b>theme</b> (what's it about?), and a <b>three-act shape</b>: hook, build, payoff.","fa":"هر نوشته به یک <b>ایده</b>، یک <b>مضمونِ</b> روشن (دربارهٔ چیست؟)، و یک <b>ساختارِ سه‌پرده‌ای</b> نیاز دارد: قلاب، ساخت، پاداش."},{"en":"The same rules govern ads, novels, films, nonfiction and talks — even facts should be told like a story.","fa":"همین قواعد بر تبلیغات، رمان، فیلم، ناداستان و سخنرانی حاکم‌اند — حتی واقعیت‌ها را هم باید مثلِ داستان تعریف کرد."},{"en":"Then turn pro: beat Resistance, finish the work, and build a career — not one perfect piece.","fa":"بعد حرفه‌ای شو: بر «مقاومت» غلبه کن، کار را تمام کن، و یک مسیرِ حرفه‌ای بساز — نه فقط یک اثرِ بی‌نقص."}],"parts":[{"key":"truth","varc":"--c-red","name":{"en":"The Hard Truth","fa":"حقیقتِ تلخ"},"tag":{"en":"The reader","fa":"خواننده"},"gist":{"en":"Readers owe you nothing — earn attention with empathy and interest.","fa":"خواننده هیچ به تو بدهکار نیست — با همدلی و جذابیت، توجه را به‌دست بیاور."},"more":{"en":"This is the mindset the whole book rests on. The moment you truly believe nobody wants to read your work, you stop writing for yourself and start writing for a distracted stranger — which is exactly what makes writing good.","fa":"این همان طرزِ فکری است که کلِ کتاب رویش بنا شده. لحظه‌ای که واقعاً باور کنی هیچ‌کس نمی‌خواهد کارت را بخواند، دیگر برای خودت نمی‌نویسی و برای یک غریبهٔ حواس‌پرت می‌نویسی — و دقیقاً همین است که نوشته را خوب می‌کند."},"chapters":["nobody","empathy","interesting"]},{"key":"concept","varc":"--c-amber","name":{"en":"Concept & Theme","fa":"ایده و مضمون"},"tag":{"en":"The idea","fa":"ایده"},"gist":{"en":"Before you write, know your organizing idea and what it's really about.","fa":"پیش از نوشتن، ایدهٔ محوری‌ات و اینکه واقعاً دربارهٔ چیست را بدان."},"more":{"en":"A concept is a fresh spin that frames the whole piece; a theme is the single answer to 'what is this about?'. Get both clear and every later choice becomes easy; skip them and you produce content with no center.","fa":"ایده یک نگاهِ تازه است که کلِ نوشته را قاب می‌گیرد؛ مضمون، تنها پاسخِ «این دربارهٔ چیست؟» است. این دو را روشن کن، هر تصمیمِ بعدی آسان می‌شود؛ ردشان کن، محتوایی بی‌مرکز می‌سازی."},"chapters":["concept","theme","problem"]},{"key":"structure","varc":"--c-blue","name":{"en":"Story Structure","fa":"ساختارِ داستان"},"tag":{"en":"The shape","fa":"شکل"},"gist":{"en":"Give any piece the shape of a story: a beginning, middle, and end.","fa":"به هر نوشته شکلِ یک داستان بده: آغاز، میانه، و پایان."},"more":{"en":"Pressfield's rule of thumb from screenwriting: hook the reader, build rising tension, then pay it off — and know your ending before you start, because the climax is already hidden in the opening.","fa":"قاعدهٔ سرانگشتیِ پرسفیلد از فیلم‌نامه‌نویسی: خواننده را قلاب کن، تنشِ فزاینده بساز، بعد جوابش را بده — و پایان را قبل از شروع بدان، چون اوجِ داستان از همان ابتدا در دلِ آن پنهان است."},"chapters":["threeact","hookbuild","incite"]},{"key":"pro","varc":"--c-violet","name":{"en":"Turn Pro","fa":"حرفه‌ای شو"},"tag":{"en":"The mindset","fa":"طرزِ فکر"},"gist":{"en":"Beat Resistance, finish the work, and build a body of work over a career.","fa":"بر مقاومت غلبه کن، کار را تمام کن، و در طولِ یک مسیرِ حرفه‌ای، مجموعه‌ای از آثار بساز."},"more":{"en":"Talent is common; finishing is rare. The professional shows up despite fear (Resistance), thinks in drafts so perfectionism can't freeze them, and measures success across a lifetime of shipped work rather than one masterpiece.","fa":"استعداد فراوان است؛ تمام‌کردن نادر. آدمِ حرفه‌ای با وجودِ ترس (مقاومت) سرِ کار حاضر می‌شود، به‌شکلِ پیش‌نویس فکر می‌کند تا کمال‌گرایی فلجش نکند، و موفقیت را در طولِ یک عمر کارِ منتشرشده می‌سنجد، نه در یک شاهکار."},"chapters":["resistance","finish","career","give"]}],"chapters":{"nobody":{"part":"truth","n":1,"name":{"en":"Nobody Wants to Read It","fa":"هیچ‌کس نمی‌خواهد بخواندش"},"glabel":{"en":"Nobody reads","fa":"هیچ‌کس"},"principle":{"en":"Attention must be earned, never assumed — the reader is busy, skeptical, and ready to click away.","fa":"توجه را باید به‌دست آورد، نه فرض کرد — خواننده سرش شلوغ است، بدبین است، و آمادهٔ رفتن."},"more":{"en":"Pressfield learned this in advertising, where readers actively hate ads and skip them. The same is true of your article, email or deck: assume indifference and it changes how you write every line.","fa":"پرسفیلد این را در تبلیغات یاد گرفت، جایی که خواننده‌ها فعالانه از آگهی بدشان می‌آید و ردش می‌کنند. دربارهٔ مقاله، ایمیل یا اسلایدِ تو هم همین است: بی‌تفاوتی را فرض بگیر، آن‌وقت طرزِ نوشتنِ هر خطت عوض می‌شود."},"example":{"en":"People flip past magazine ads without a glance — your job is to be the rare one they stop on.","fa":"مردم بی‌آنکه نگاه کنند از رویِ آگهیِ مجله رد می‌شوند — کارِ تو این است که همان آگهیِ نادری باشی که رویش می‌ایستند."},"tip":{"en":"Before sending anything, imagine the reader with their finger on 'delete'. Now make them stop.","fa":"قبل از فرستادنِ هر چیزی، خواننده را تصور کن که انگشتش روی «حذف» است. حالا کاری کن بایستد."},"pitfall":{"en":"Writing as if the world is waiting for your words — it isn't.","fa":"نوشتن انگار دنیا منتظرِ کلماتِ توست — این‌طور نیست."}},"empathy":{"part":"truth","n":2,"name":{"en":"Switch to the Reader","fa":"جای خواننده بنشین"},"glabel":{"en":"Empathy","fa":"همدلی"},"principle":{"en":"Great writers toggle between their own view and the reader's, constantly asking 'how does this land for a stranger?'","fa":"نویسنده‌های خوب مدام بینِ دیدِ خودشان و دیدِ خواننده جابه‌جا می‌شوند و می‌پرسند «این برای یک غریبه چطور جا می‌افتد؟»"},"more":{"en":"This is the master skill the hard truth forces on you. You can't move a reader you can't see; imagining their boredom, confusion and impatience is what tells you which words to cut.","fa":"این همان مهارتِ اصلی است که حقیقتِ تلخ به تو تحمیل می‌کند. نمی‌توانی خواننده‌ای را که نمی‌بینی تکان بدهی؛ تصورِ کسالت، سردرگمی و بی‌حوصلگیِ او همان چیزی است که به تو می‌گوید کدام کلمه‌ها را حذف کنی."},"example":{"en":"An ad writer pictures the tired commuter flipping the page, and writes the one line that makes them pause.","fa":"یک آگهی‌نویس، مسافرِ خستهٔ درونِ قطار را تصور می‌کند که صفحه را ورق می‌زند، و همان یک خطی را می‌نویسد که مکثش می‌دهد."},"tip":{"en":"Read your draft aloud as if you were the busy reader, not the proud author.","fa":"پیش‌نویست را بلند بخوان، انگار خوانندهٔ سرشلوغی، نه نویسندهٔ مغرور."},"pitfall":{"en":"Only ever seeing the page as its author, never as a stranger.","fa":"همیشه فقط از چشمِ نویسنده به صفحه نگاه‌کردن، نه از چشمِ یک غریبه."}},"interesting":{"part":"truth","n":3,"name":{"en":"Make It Interesting","fa":"جذابش کن"},"glabel":{"en":"Interesting","fa":"جذابیت"},"principle":{"en":"Writing is a transaction: you owe the reader something so compelling they'd be crazy to stop.","fa":"نوشتن یک معامله است: به خواننده چیزی بدهکاری آن‌قدر گیرا که دیوانه باشد اگر ادامه ندهد."},"more":{"en":"Interrogate every sentence — is this fun, surprising, useful, or inventive? Correct-but-boring is the most common failure, and the reader punishes it by leaving.","fa":"هر جمله را بازجویی کن — این سرگرم‌کننده، غافلگیرکننده، مفید یا خلاقانه است؟ «درست ولی کسل‌کننده» رایج‌ترین شکست است، و خواننده با رفتن تنبیهش می‌کند."},"example":{"en":"Two accurate reports; the one full of vivid, concrete detail gets read to the end — the dry one doesn't.","fa":"دو گزارشِ دقیق؛ آن‌که پُر از جزئیاتِ زنده و ملموس است تا آخر خوانده می‌شود — گزارشِ خشک نه."},"tip":{"en":"Cut the dullest paragraph you wrote today and see if anything is lost.","fa":"کسل‌کننده‌ترین پاراگرافی که امروز نوشتی را حذف کن و ببین چیزی از دست می‌رود یا نه."},"pitfall":{"en":"Work that is complete and correct but has no spark.","fa":"کاری که کامل و درست است اما هیچ جرقه‌ای ندارد."}},"concept":{"part":"concept","n":4,"name":{"en":"Start With a Concept","fa":"با یک ایده شروع کن"},"glabel":{"en":"Concept","fa":"ایده"},"principle":{"en":"A concept takes an ordinary claim and puts a spin on it, giving the whole piece a frame bigger than its parts.","fa":"یک ایده، یک ادعای معمولی را برمی‌دارد و رویش یک چرخش می‌گذارد، و به کلِ نوشته قابی بزرگ‌تر از اجزایش می‌دهد."},"more":{"en":"Campaigns and books live or die on this organizing twist. Without a concept you have facts and paragraphs; with one, everything points the same direction.","fa":"کمپین‌ها و کتاب‌ها با همین چرخشِ سازمان‌دهنده زنده یا مرده‌اند. بدونِ ایده، فقط واقعیت و پاراگراف داری؛ با ایده، همه‌چیز به یک سمت اشاره می‌کند."},"example":{"en":"'What happens in Vegas stays in Vegas' isn't a fact about a city — it's a concept that frames a whole campaign.","fa":"«هرچه در وگاس اتفاق می‌افتد، در وگاس می‌ماند» یک واقعیت دربارهٔ یک شهر نیست — یک ایده است که کلِ یک کمپین را قاب می‌گیرد."},"tip":{"en":"Before writing, finish this: 'the one fresh idea here is ___.'","fa":"قبل از نوشتن، این را کامل کن: «تنها ایدهٔ تازهٔ اینجا ___ است.»"},"pitfall":{"en":"Producing 'content' with no single idea holding it together.","fa":"تولیدِ «محتوا» بدونِ یک ایدهٔ واحد که کنارِ هم نگهش دارد."}},"theme":{"part":"concept","n":5,"name":{"en":"Find the Theme","fa":"مضمون را پیدا کن"},"glabel":{"en":"Theme","fa":"مضمون"},"principle":{"en":"Every piece must answer 'what is this thing about?' — and the answer then governs every choice.","fa":"هر نوشته باید به «این اصلاً دربارهٔ چیست؟» جواب بدهد — و همان جواب بعد هر تصمیم را هدایت می‌کند."},"more":{"en":"Theme is the invisible spine. Once you can say it in a sentence, you know what to keep, what to cut, and how it should end.","fa":"مضمون، ستونِ فقراتِ نامرئی است. همین که بتوانی در یک جمله بگویی‌اش، می‌دانی چه نگه داری، چه حذف کنی، و باید چطور تمام شود."},"example":{"en":"Pressfield says his novel Gates of Fire is about how 'the opposite of fear is love' — that theme drives every scene.","fa":"پرسفیلد می‌گوید رمانش «دروازه‌های آتش» دربارهٔ این است که «نقطهٔ مقابلِ ترس، عشق است» — همین مضمون هر صحنه را پیش می‌برد."},"tip":{"en":"Write your theme on a sticky note and keep it in view while you draft.","fa":"مضمونت را روی یک کاغذِ یادداشت بنویس و موقعِ نوشتن جلوی چشمت نگه دار."},"pitfall":{"en":"A heap of scenes or facts with no controlling idea.","fa":"تلنباری از صحنه‌ها یا واقعیت‌ها بدونِ یک ایدهٔ حاکم."}},"problem":{"part":"concept","n":6,"name":{"en":"Writing Is Problem-Solving","fa":"نوشتن یعنی حلِ مسئله"},"glabel":{"en":"Solve it","fa":"حلِ مسئله"},"principle":{"en":"Swap 'what should I write?' for 'what's the problem here?' — naming the problem is half of solving it.","fa":"«چه بنویسم؟» را با «مسئله اینجا چیست؟» عوض کن — نام‌گذاریِ مسئله، نیمی از حلِ آن است."},"more":{"en":"A blank page is paralyzing; a defined problem is workable. Turning writing into a series of problems to solve keeps you moving instead of waiting for inspiration.","fa":"صفحهٔ خالی فلج‌کننده است؛ مسئلهٔ تعریف‌شده قابلِ‌کار. تبدیلِ نوشتن به رشته‌ای از مسئله‌ها که باید حل شوند، تو را در حرکت نگه می‌دارد به‌جای اینکه منتظرِ الهام بمانی."},"example":{"en":"Stuck on an intro? Reframe it: 'the problem is the reader doesn't yet care — how do I make them?'","fa":"سرِ مقدمه گیر کرده‌ای؟ بازقابش کن: «مسئله این است که خواننده هنوز اهمیت نمی‌دهد — چطور وادارش کنم؟»"},"tip":{"en":"State today's writing task as a problem sentence before you type anything.","fa":"کارِ نوشتنِ امروزت را قبل از تایپِ هر چیزی، به‌شکلِ یک جملهٔ مسئله بیان کن."},"pitfall":{"en":"Staring at a blank page, waiting for inspiration to strike.","fa":"زل‌زدن به صفحهٔ خالی، به انتظارِ اینکه الهام از راه برسد."}},"threeact":{"part":"structure","n":7,"name":{"en":"Three-Act Shape","fa":"ساختارِ سه‌پرده‌ای"},"glabel":{"en":"3 Acts","fa":"سه پرده"},"principle":{"en":"Break any piece into a beginning, a middle, and an end — the oldest, most reliable shape there is.","fa":"هر نوشته را به آغاز، میانه و پایان بشکن — قدیمی‌ترین و قابلِ‌اعتمادترین شکلی که وجود دارد."},"more":{"en":"It works identically for an ad, a novel, a memo or a talk. The three acts give the reader a sense of movement and a promise that the piece is going somewhere.","fa":"برای یک آگهی، یک رمان، یک یادداشت یا یک سخنرانی یکسان کار می‌کند. سه پرده به خواننده حسِ حرکت می‌دهند و این نویدِ که نوشته دارد به جایی می‌رود."},"example":{"en":"A product update: the problem (act 1), what you built (act 2), what changes now (act 3).","fa":"یک به‌روزرسانیِ محصول: مسئله (پردهٔ ۱)، چیزی که ساختی (پردهٔ ۲)، چیزی که حالا عوض می‌شود (پردهٔ ۳)."},"tip":{"en":"Outline your next piece as just three bullets: beginning, middle, end.","fa":"نوشتهٔ بعدی‌ات را فقط با سه خط طرح بزن: آغاز، میانه، پایان."},"pitfall":{"en":"Formless writing that wanders with no arc.","fa":"نوشتهٔ بی‌شکل که بی هیچ قوسی پرسه می‌زند."}},"hookbuild":{"part":"structure","n":8,"name":{"en":"Hook · Build · Payoff","fa":"قلاب · ساخت · پاداش"},"glabel":{"en":"Hook·Build·Payoff","fa":"قلاب·ساخت·پاداش"},"principle":{"en":"Grab attention fast, escalate tension in the middle, and deliver a satisfying payoff at the end.","fa":"سریع توجه را بگیر، در میانه تنش را بالا ببر، و در پایان یک پاداشِ رضایت‌بخش تحویل بده."},"more":{"en":"'That is how a joke is told; that is how any story is told.' A weak hook loses them at the door; a weak payoff makes the whole trip feel wasted.","fa":"«یک جوک این‌طور تعریف می‌شود؛ هر داستانی این‌طور تعریف می‌شود.» قلابِ ضعیف، خواننده را دمِ در از دست می‌دهد؛ پاداشِ ضعیف، کلِ سفر را بیهوده جلوه می‌دهد."},"example":{"en":"A joke: setup (hook), escalation (build), punchline (payoff) — remove any one and it dies.","fa":"یک جوک: زمینه‌چینی (قلاب)، اوج‌گیری (ساخت)، ضربهٔ نهایی (پاداش) — هرکدام را برداری، می‌میرد."},"tip":{"en":"Check your draft: is there a real hook up top and a real payoff at the end?","fa":"پیش‌نویست را بررسی کن: آیا بالای آن یک قلابِ واقعی و در پایانش یک پاداشِ واقعی هست؟"},"pitfall":{"en":"A limp opening or an ending that fizzles out, unearned.","fa":"یک شروعِ بی‌رمق یا پایانی که بی‌آنکه حقش را ادا کند، ته می‌کشد."}},"incite":{"part":"structure","n":9,"name":{"en":"Inciting Incident → Climax","fa":"جرقهٔ آغاز ← اوج"},"glabel":{"en":"Know the end","fa":"پایان را بدان"},"principle":{"en":"A strong opening event launches the story, and the climax that resolves it is already hidden inside that opening.","fa":"یک رویدادِ آغازینِ قوی، داستان را راه می‌اندازد، و اوجی که آن را حل می‌کند از همان ابتدا در دلِ آن آغاز پنهان است."},"more":{"en":"Pressfield's screenwriting rule: know your ending before you start, because the climax must pay off the promise the opening made. Write toward a destination, not away from a start.","fa":"قاعدهٔ فیلم‌نامه‌نویسیِ پرسفیلد: پایانت را قبل از شروع بدان، چون اوج باید وعده‌ای را که آغاز داده ادا کند. به‌سمتِ یک مقصد بنویس، نه دورشدن از یک شروع."},"example":{"en":"Set up 'can this team ship in time?' in line one, and your ending must answer exactly that.","fa":"در خطِ اول بپرس «آیا این تیم به‌موقع می‌رساند؟»، و پایانت باید دقیقاً به همان جواب بدهد."},"tip":{"en":"Write your last line first, then write toward it.","fa":"آخرین خطت را اول بنویس، بعد به‌سمتش بنویس."},"pitfall":{"en":"A meandering setup and an off-theme, accidental finish.","fa":"یک زمینه‌چینیِ پرسه‌زن و پایانی تصادفی که به مضمون ربطی ندارد."}},"resistance":{"part":"pro","n":10,"name":{"en":"Beat Resistance","fa":"غلبه بر مقاومت"},"glabel":{"en":"Resistance","fa":"مقاومت"},"principle":{"en":"The real enemy is Resistance — fear, procrastination, self-doubt. The professional does the work anyway.","fa":"دشمنِ واقعی «مقاومت» است — ترس، اهمال‌کاری، شکِ به خود. آدمِ حرفه‌ای به‌هرحال کار را انجام می‌دهد."},"more":{"en":"Resistance is strongest right before you begin. You beat it not by feeling ready but by showing up on schedule, whether or not the muse arrives.","fa":"مقاومت درست قبل از شروع قوی‌ترین است. بر آن غلبه نمی‌کنی با «آماده حس‌کردن»، بلکه با سرِ ساعت حاضر‌شدن، چه الهام بیاید چه نیاید."},"example":{"en":"The pro sits down at 9am and writes, even on the mornings the words feel impossible.","fa":"حرفه‌ای ساعتِ ۹ می‌نشیند و می‌نویسد، حتی صبح‌هایی که کلمات غیرممکن به‌نظر می‌رسند."},"tip":{"en":"Set a fixed start time and keep it, no matter how you feel.","fa":"یک زمانِ شروعِ ثابت بگذار و پایبندش باش، هر جور که حس می‌کنی."},"pitfall":{"en":"Waiting to feel inspired or 'ready' before starting.","fa":"منتظرماندن برای حسِ الهام یا «آمادگی» قبل از شروع."}},"finish":{"part":"pro","n":11,"name":{"en":"Finish — Think in Drafts","fa":"تمام کن — پیش‌نویسی فکر کن"},"glabel":{"en":"Finish","fa":"تمام‌کردن"},"principle":{"en":"Complete the work; telling yourself 'it is only a draft' takes the pressure off and keeps you moving.","fa":"کار را تمام کن؛ گفتنِ «این فقط یک پیش‌نویس است» به خودت، فشار را برمی‌دارد و تو را در حرکت نگه می‌دارد."},"more":{"en":"Talent is common; finishers are rare. Perfectionism disguises Resistance — a rough finished draft you can fix beats a flawless fragment you never complete.","fa":"استعداد فراوان است؛ تمام‌کننده‌ها نادرند. کمال‌گرایی، لباسِ مبدلِ مقاومت است — یک پیش‌نویسِ خامِ تمام‌شده که بشود درستش کرد، از یک تکهٔ بی‌نقص که هیچ‌وقت کاملش نمی‌کنی بهتر است."},"example":{"en":"Write the whole ugly first draft end-to-end before you let yourself edit a single line.","fa":"کلِ پیش‌نویسِ اولِ زشت را از اول تا آخر بنویس، قبل از اینکه اجازه بدهی حتی یک خط را ویرایش کنی."},"tip":{"en":"Give yourself permission for a 'bad' first draft — just reach the end.","fa":"به خودت اجازهٔ یک پیش‌نویسِ اولِ «بد» را بده — فقط به پایان برس."},"pitfall":{"en":"Polishing one paragraph forever and never finishing.","fa":"صیقل‌دادنِ ابدیِ یک پاراگراف و هیچ‌وقت تمام‌نکردن."}},"career":{"part":"pro","n":12,"name":{"en":"A Career, Not One Hit","fa":"یک مسیر، نه یک شاهکار"},"glabel":{"en":"Career","fa":"مسیرِ کاری"},"principle":{"en":"Writing is a lifetime body of work, built project by project — not a single magic breakthrough.","fa":"نوشتن، مجموعه‌ای از آثارِ یک عمر است، پروژه به پروژه ساخته می‌شود — نه یک جهشِ جادوییِ یگانه."},"more":{"en":"Betting everything on one masterpiece is a trap. Ship, learn, and start the next one; the craft compounds across a career the way habits compound across a life.","fa":"شرط‌بستنِ همه‌چیز روی یک شاهکار، یک دام است. منتشر کن، یاد بگیر، و بعدی را شروع کن؛ صنعتِ کار در طولِ یک مسیرِ حرفه‌ای همان‌طور روی هم جمع می‌شود که عادت‌ها در طولِ یک زندگی."},"example":{"en":"Pressfield wrote for decades — ad copy, unproduced scripts — before a breakout; each project taught the next.","fa":"پرسفیلد دهه‌ها نوشت — متنِ آگهی، فیلم‌نامه‌های ساخته‌نشده — پیش از موفقیت؛ هر پروژه، پروژهٔ بعدی را آموخت."},"tip":{"en":"Finish this piece, then immediately start the next — don't wait for it to be a hit.","fa":"این نوشته را تمام کن، بعد فوری بعدی را شروع کن — منتظرِ اینکه شاهکار شود نمان."},"pitfall":{"en":"Staking your whole identity on one over-worked manuscript.","fa":"گِره‌زدنِ کلِ هویتت به یک دست‌نوشتهٔ بیش‌ازحد‌کارشده."}},"give":{"part":"pro","n":13,"name":{"en":"Have Something to Give","fa":"چیزی برای دادن داشته باش"},"glabel":{"en":"Give","fa":"بخشیدن"},"principle":{"en":"A real writer writes to give the reader something of value — not to get attention or validation.","fa":"نویسندهٔ واقعی می‌نویسد تا به خواننده چیزی باارزش بدهد — نه برای گرفتنِ توجه یا تأیید."},"more":{"en":"The mature creator has lived, struggled and learned enough to have something worth handing over. Shift from 'look at me' to 'here, this will help you' and the work gets both better and easier to read.","fa":"آفرینندهٔ پخته آن‌قدر زندگی کرده، جنگیده و آموخته که چیزی ارزشمند برای دادن دارد. از «به من نگاه کن» به «بیا، این کمکت می‌کند» جابه‌جا شو، آن‌وقت کار هم بهتر می‌شود هم خواندنش آسان‌تر."},"example":{"en":"A useful how-to that solves the reader's real problem beats a clever essay that only shows off.","fa":"یک راهنمای مفید که مسئلهٔ واقعیِ خواننده را حل می‌کند، از یک جستارِ زیرکانه که فقط خودنمایی می‌کند بهتر است."},"tip":{"en":"Before publishing, ask: what does the reader walk away with?","fa":"قبل از انتشار بپرس: خواننده با چه چیزی از اینجا می‌رود؟"},"pitfall":{"en":"Writing to get (attention, applause) instead of to give.","fa":"نوشتن برای گرفتن (توجه، تشویق) به‌جای دادن."}}},"core":{"name":{"en":"THE READER","fa":"خواننده"},"principle":{"en":"Nobody is waiting to read your work — readers are busy and indifferent, so the whole job is to earn their attention by making the work irresistibly worth their time.","fa":"هیچ‌کس منتظرِ خواندنِ کارِ تو نیست — خواننده‌ها سرشان شلوغ است و بی‌تفاوت‌اند، پس کلِ کار این است که با ساختنِ چیزی که واقعاً ارزشِ وقتشان را دارد، توجهشان را به‌دست بیاوری."},"more":{"en":"Pressfield learned this across advertising, fiction, film, nonfiction and self-help — and found the same craft underneath all of them: a concept, a clear theme (what is this about?), and a three-act shape (hook, build, payoff). Accept that nobody owes you their attention and you gain the empathy to write something they actually want.","fa":"پرسفیلد این را در تبلیغات، داستان، فیلم، ناداستان و خودیاری یاد گرفت — و زیرِ همه‌شان یک صنعتِ مشترک دید: یک ایده، یک مضمونِ روشن (این دربارهٔ چیست؟)، و یک ساختارِ سه‌پرده‌ای (قلاب، ساخت، پاداش). بپذیر که هیچ‌کس توجهش را به تو بدهکار نیست، آن‌وقت همدلی‌ای پیدا می‌کنی که چیزی بنویسی که واقعاً بخواهندش."},"example":{"en":"Click any node to read a theme or a lesson. You can also drag the nodes around.","fa":"روی هر دایره کلیک کن تا یک بخش یا درس را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."}},"stages":[{"level":1,"badge":{"en":"Level 1 · Over-simplified","fa":"سطحِ ۱ · خیلی ساده"},"title":{"en":"Earn the read","fa":"خواندن را به‌دست بیاور"},"tagline":{"en":"The whole book as a single sentence.","fa":"کلِ کتاب در یک جمله."},"body":{"en":"Nobody is obligated to read what you write. So the job isn't to express yourself — it's to make your writing so worth reading that a busy stranger can't stop.","fa":"هیچ‌کس موظف نیست چیزی را که می‌نویسی بخواند. پس کار این نیست که خودت را بیان کنی — این است که نوشته‌ات را آن‌قدر ارزشمند کنی که یک غریبهٔ سرشلوغ نتواند دست بکشد."},"example":{"en":"Before hitting send on an email, cut it in half. The shorter, sharper version is the one people actually read.","fa":"قبل از فرستادنِ یک ایمیل، نصفش کن. نسخهٔ کوتاه‌تر و تیزتر همان است که مردم واقعاً می‌خوانند."},"gain":{"en":"You now hold the one idea the whole book defends.","fa":"حالا همان یک ایده‌ای را بلدی که کلِ کتاب از آن دفاع می‌کند."}},{"level":2,"badge":{"en":"Level 2 · Simple","fa":"سطحِ ۲ · ساده"},"title":{"en":"See it their way","fa":"از دیدِ او ببین"},"tagline":{"en":"Empathy and interest come first.","fa":"همدلی و جذابیت، اول از همه."},"body":{"en":"Because nobody wants to read your work, you develop <b>empathy</b> — you see every line through the reader's tired, distracted eyes. Then you make each line <b>interesting</b>: is it fun, surprising, or useful enough to earn the next one?","fa":"چون هیچ‌کس نمی‌خواهد کارت را بخواند، <b>همدلی</b> پیدا می‌کنی — هر خط را از چشمِ خسته و حواس‌پرتِ خواننده می‌بینی. بعد هر خط را <b>جذاب</b> می‌کنی: سرگرم‌کننده، غافلگیرکننده یا مفید هست، آن‌قدر که خطِ بعدی را حق کند؟"},"example":{"en":"Swap 'we leveraged synergies' for 'we saved three days a week' — concrete and worth reading.","fa":"«از هم‌افزایی‌ها بهره بردیم» را با «هفته‌ای سه روز صرفه‌جویی کردیم» عوض کن — ملموس و ارزشِ خواندن."},"gain":{"en":"You judge your writing by the reader's attention, not your own intent.","fa":"نوشته‌ات را با توجهِ خواننده می‌سنجی، نه با نیتِ خودت."}},{"level":3,"badge":{"en":"Level 3 · Balanced","fa":"سطحِ ۳ · متعادل"},"title":{"en":"Give it a shape","fa":"به آن شکل بده"},"tagline":{"en":"Concept, theme, and three acts.","fa":"ایده، مضمون، و سه پرده."},"body":{"en":"Now the craft. Start with a <b>concept</b> (a fresh spin) and a <b>theme</b> (what's it about?). Then give it a story's <b>three-act shape</b>: a hook that grabs, a middle that builds tension, and a payoff that lands. Know your ending before you begin.","fa":"حالا صنعتِ کار. با یک <b>ایده</b> (یک چرخشِ تازه) و یک <b>مضمون</b> (دربارهٔ چیست؟) شروع کن. بعد به آن <b>ساختارِ سه‌پرده‌ایِ</b> یک داستان بده: قلابی که می‌گیرد، میانه‌ای که تنش می‌سازد، و پاداشی که جا می‌افتد. پایانت را قبل از شروع بدان."},"example":{"en":"A memo about a launch: hook with the stakes, build with what you did, pay off with what changes now.","fa":"یک یادداشت دربارهٔ یک عرضه: با اهمیتِ ماجرا قلاب کن، با کاری که کردی بساز، با چیزی که حالا عوض می‌شود پاداش بده."},"gain":{"en":"You can structure any piece — even a factual one — like a story.","fa":"می‌توانی هر نوشته‌ای را — حتی یک نوشتهٔ واقعی — مثلِ داستان بسازی."}},{"level":4,"badge":{"en":"Level 4 · Advanced","fa":"سطحِ ۴ · پیشرفته"},"title":{"en":"Same rules, every form","fa":"همان قواعد، در هر قالب"},"tagline":{"en":"Ads, novels, film, nonfiction, talks.","fa":"آگهی، رمان، فیلم، ناداستان، سخنرانی."},"body":{"en":"At this depth you see one shared toolkit under every form Pressfield worked in. A grant proposal, a dissertation, a keynote, a landing page — each still needs a concept, a theme, a hero-and-obstacle, and a three-act arc. Structure even facts like a story, kept on-theme, and dump-of-information writing disappears.","fa":"در این عمق، زیرِ هر قالبی که پرسفیلد در آن کار کرد یک جعبه‌ابزارِ مشترک می‌بینی. یک طرحِ پیشنهادی، یک پایان‌نامه، یک سخنرانیِ کلیدی، یک صفحهٔ فرود — هرکدام باز هم به یک ایده، یک مضمون، یک قهرمان‌و‌مانع، و یک قوسِ سه‌پرده‌ای نیاز دارد. حتی واقعیت‌ها را هم مثلِ داستان و وفادار به مضمون بساز، آن‌وقت نوشتهٔ «تلنبارِ اطلاعات» ناپدید می‌شود."},"example":{"en":"A dry quarterly report becomes readable when framed as: the challenge, the fight, the turning point.","fa":"یک گزارشِ فصلیِ خشک وقتی خواندنی می‌شود که این‌طور قاب شود: چالش، نبرد، نقطهٔ عطف."},"gain":{"en":"You can carry one craft across every kind of writing you do.","fa":"می‌توانی یک صنعت را در هر نوع نوشتنی که انجام می‌دهی به کار ببری."}},{"level":5,"badge":{"en":"Level 5 · Expert","fa":"سطحِ ۵ · حرفه‌ای"},"title":{"en":"Turn pro","fa":"حرفه‌ای شو"},"tagline":{"en":"Beat Resistance, finish, and give.","fa":"بر مقاومت غلبه کن، تمام کن، و ببخش."},"body":{"en":"The expert has internalized the mindset. The real enemy is <b>Resistance</b> — fear dressed as procrastination and perfectionism — and you beat it by showing up on schedule and <b>thinking in drafts</b>. You measure yourself across a whole <b>career</b> of finished work, not one masterpiece. And underneath it all is a shift from getting to giving: the mature writer has lived enough to have something worth handing the reader. That generosity is what finally makes the work worth reading.","fa":"آدمِ حرفه‌ای این طرزِ فکر را درونی کرده. دشمنِ واقعی <b>مقاومت</b> است — ترسی که لباسِ اهمال‌کاری و کمال‌گرایی پوشیده — و با سرِ ساعت حاضر‌شدن و <b>پیش‌نویسی فکر‌کردن</b> شکستش می‌دهی. خودت را در طولِ یک <b>مسیرِ حرفه‌ای</b> از کارِ تمام‌شده می‌سنجی، نه یک شاهکار. و زیرِ همهٔ این‌ها یک جابه‌جایی است از گرفتن به دادن: نویسندهٔ پخته آن‌قدر زندگی کرده که چیزی ارزشمند برای دادن به خواننده دارد. همین سخاوت است که بالاخره کار را ارزشِ خواندن می‌کند."},"example":{"en":"You stop guarding one 'perfect' essay, publish weekly, and each piece gives readers a real, usable takeaway.","fa":"دست از نگهبانیِ یک جستارِ «بی‌نقص» برمی‌داری، هفتگی منتشر می‌کنی، و هر نوشته به خواننده یک نتیجهٔ واقعی و قابلِ‌استفاده می‌دهد."},"gain":{"en":"You can teach the craft, ship consistently, and write to serve the reader.","fa":"می‌توانی این صنعت را آموزش بدهی، پیوسته منتشر کنی، و در خدمتِ خواننده بنویسی."}}],"quotes":[{"en":"Nobody wants to read your shit.","fa":"هیچ‌کس نمی‌خواهد نوشته‌ات را بخواند."},{"en":"When you understand that nobody wants to read your shit, you develop empathy.","fa":"وقتی بفهمی هیچ‌کس نمی‌خواهد نوشته‌ات را بخواند، همدلی پیدا می‌کنی."},{"en":"Writing/reading is, above all, a transaction.","fa":"نوشتن و خواندن، بیش از هر چیز، یک معامله است."},{"en":"Ask yourself with every sentence and every phrase: Is this interesting? Is it fun or challenging or inventive?","fa":"با هر جمله و هر عبارت از خودت بپرس: این جذاب است؟ سرگرم‌کننده یا چالش‌برانگیز یا خلاقانه است؟"},{"en":"Make it so compelling that a person would have to be crazy NOT to read it.","fa":"آن‌قدر گیرایش کن که آدم باید دیوانه باشد که نخواندش."},{"en":"Hook. Build. Payoff. This is the shape any story must take.","fa":"قلاب. ساخت. پاداش. این همان شکلی است که هر داستانی باید بگیرد."},{"en":"Nonfiction is fiction.","fa":"ناداستان، داستان است."},{"en":"A concept takes a conventional claim and puts a spin on it.","fa":"یک ایده، یک ادعای معمولی را برمی‌دارد و رویش یک چرخش می‌گذارد."},{"en":"What is this thing about? In other words, what's the theme?","fa":"این اصلاً دربارهٔ چیست؟ به بیانِ دیگر، مضمونش چیست؟"}],"media":[{"kind":"yt","id":"CR4MsTA61gQ","src":{"en":"YouTube · Heroic (Brian Johnson)","fa":"یوتیوب · Heroic (برایان جانسون)"},"title":{"en":"Nobody Wants to Read Your Sh*t — Big Ideas","fa":"هیچ‌کس نمی‌خواهد نوشته‌ات را بخواند — ایده‌های اصلی"},"desc":{"en":"A crisp walkthrough of the book's core ideas.","fa":"یک مرورِ فشرده از ایده‌های اصلیِ کتاب."},"bullets":{"en":["The reader-indifference premise in plain terms","Why empathy is the writer's master skill","Concept, theme, and three-act shape"],"fa":["فرضِ بی‌تفاوتیِ خواننده به زبانِ ساده","چرا همدلی مهارتِ اصلیِ نویسنده است","ایده، مضمون، و ساختارِ سه‌پرده‌ای"]},"best":{"en":"Best for Stage 1–2 — a fast overview.","fa":"خوب برای مرحلهٔ ۱ و ۲ — یک مرورِ سریع."}},{"kind":"yt","id":"4VUADkfNjJY","src":{"en":"YouTube · bestbookbits","fa":"یوتیوب · bestbookbits"},"title":{"en":"Nobody Wants to Read Your Sh*t — Book Summary","fa":"هیچ‌کس نمی‌خواهد نوشته‌ات را بخواند — خلاصهٔ کتاب"},"desc":{"en":"A concise summary of the main lessons.","fa":"یک خلاصهٔ فشرده از درس‌های اصلی."},"bullets":{"en":["The main lessons, chapter by chapter","Practical craft takeaways","A good recap after a first read"],"fa":["درس‌های اصلی، فصل به فصل","نکته‌های کاربردیِ صنعتِ نوشتن","مرورِ خوب بعد از اولین خواندن"]},"best":{"en":"Best for Stage 2–3.","fa":"خوب برای مرحلهٔ ۲ و ۳."}},{"kind":"yt","id":"imFW4GnNK8g","src":{"en":"YouTube · Better Than Food","fa":"یوتیوب · Better Than Food"},"title":{"en":"Nobody Wants to Read Your Sh*t — Book Review","fa":"هیچ‌کس نمی‌خواهد نوشته‌ات را بخواند — نقدِ کتاب"},"desc":{"en":"A thoughtful review with context on Pressfield's craft.","fa":"یک نقدِ تأمل‌برانگیز با زمینه‌ای دربارهٔ صنعتِ پرسفیلد."},"bullets":{"en":["A reflective review of the book","How it fits Pressfield's work on Resistance","Context and honest critique"],"fa":["یک نقدِ تأمل‌برانگیز از کتاب","جایگاهش در کارهای پرسفیلد دربارهٔ مقاومت","زمینه و نقدِ صادقانه"]},"best":{"en":"Best for Stage 4–5 — a deeper take.","fa":"خوب برای مرحلهٔ ۴ و ۵ — نگاهی عمیق‌تر."}},{"kind":"img","url":"https://stevenpressfield.com/books/nobody-wants-to-read-your-sht/","src":{"en":"stevenpressfield.com · Official","fa":"stevenpressfield.com · رسمی"},"title":{"en":"Steven Pressfield — Writing Wednesdays","fa":"استیون پرسفیلد — یادداشت‌های نویسندگی"},"desc":{"en":"The author's own site, blog and books on craft and Resistance.","fa":"سایت، وبلاگ و کتاب‌های خودِ نویسنده دربارهٔ صنعتِ نوشتن و مقاومت."},"bullets":{"en":["The author's blog on craft and Resistance","His other books (The War of Art, Turning Pro)","Straight from the source"],"fa":["وبلاگِ نویسنده دربارهٔ صنعتِ نوشتن و مقاومت","کتاب‌های دیگرش («جنگِ هنر»، «حرفه‌ای‌شدن»)","مستقیم از خودِ منبع"]},"best":{"en":"For going to the source.","fa":"برای رفتن سراغِ منبعِ اصلی."}}],"go":[{"label":{"en":"Steven Pressfield's site","fa":"سایتِ استیون پرسفیلد"},"url":"https://stevenpressfield.com/"},{"label":{"en":"The book page","fa":"صفحهٔ کتاب"},"url":"https://stevenpressfield.com/books/nobody-wants-to-read-your-sht/"},{"label":{"en":"The War of Art","fa":"کتابِ «جنگِ هنر»"},"url":"https://stevenpressfield.com/books/the-war-of-art/"},{"label":{"en":"Book on Goodreads","fa":"کتاب در گودریدز"},"url":"https://www.goodreads.com/book/show/30556551-nobody-wants-to-read-your-sh-t"}],"recs":[{"pri":"b","t":{"en":"Cut your next thing in half","fa":"چیزِ بعدی‌ات را نصف کن"},"d":{"en":"Write it, then delete every line that isn't interesting or useful. Shorter almost always wins.","fa":"بنویسش، بعد هر خطی که جذاب یا مفید نیست را حذف کن. کوتاه‌تر تقریباً همیشه برنده است."}},{"pri":"b","t":{"en":"Name the theme in one sentence","fa":"مضمون را در یک جمله بگو"},"d":{"en":"Before you draft, finish: 'this is about ___.' Keep it in view and cut anything that strays.","fa":"قبل از نوشتن، این را کامل کن: «این دربارهٔ ___ است.» جلوی چشمت نگهش دار و هرچه منحرف می‌شود را حذف کن."}},{"pri":"n","t":{"en":"Write the ugly first draft to the end","fa":"پیش‌نویسِ اولِ زشت را تا آخر بنویس"},"d":{"en":"No editing until you reach the last line. Finishing beats polishing.","fa":"تا به آخرین خط نرسیدی ویرایش نکن. تمام‌کردن از صیقل‌دادن بهتر است."}},{"pri":"n","t":{"en":"Read it aloud as the reader","fa":"مثلِ خواننده بلند بخوانش"},"d":{"en":"Hear where a busy stranger would get bored or confused, and fix those spots.","fa":"بشنو کجا یک غریبهٔ سرشلوغ خسته یا گیج می‌شود، و همان‌جاها را درست کن."}}]};
+</script>
+
+<script>
+/* ── 3) RENDER (text sections) ────────────────────────────── */
+function elClear(id){ var e=document.getElementById(id); if(e) e.innerHTML=''; return e; }
+
+function renderText(){
+  var t=elClear('tldrHost');
+  DATA.tldr.forEach(function(o){ var li=document.createElement('li'); li.innerHTML = TX(o); t.appendChild(li); });
+
+  var q=elClear('quoteHost');
+  DATA.quotes.forEach(function(o){
+    var bq=document.createElement('blockquote');
+    bq.innerHTML = '<span class="qm">“</span><p>'+TX(o)+'</p>';
+    q.appendChild(bq);
+  });
+
+  var m=elClear('mediaHost');
+  DATA.media.forEach(function(o){
+    var card=document.createElement('div'); card.className='mcard';
+    var thumb;
+    if(o.kind==='yt'){
+      var url='https://www.youtube.com/watch?v='+o.id;
+      var img='https://i.ytimg.com/vi/'+o.id+'/hqdefault.jpg';
+      thumb='<a class="mthumb" href="'+url+'" target="_blank" rel="noopener">'
+        +'<img src="'+img+'" alt="" loading="lazy" onerror="this.style.display=\'none\'">'
+        +'<span class="ptype">'+(LANG==='fa'?'ویدیو':'VIDEO')+'</span>'
+        +'<span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></span></a>';
+    } else {
+      thumb='<a class="mthumb" href="'+o.url+'" target="_blank" rel="noopener"><span class="mfake">'
+        +'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.6"/><path d="M21 15l-5-5L5 21"/></svg>'
+        +'</span><span class="ptype">'+(LANG==='fa'?'تصویر':'IMAGE')+'</span></a>';
+    }
+    var link = o.kind==='yt' ? 'https://www.youtube.com/watch?v='+o.id : o.url;
+    var bl = (LANG==='fa'?o.bullets.fa:o.bullets.en).map(function(b){ return '<li>'+ (LANG==='fa'?faText(b):b) +'</li>'; }).join('');
+    card.innerHTML = thumb + '<div class="mbody">'
+      + '<div class="msrc">'+TX(o.src)+'</div>'
+      + '<h4>'+TX(o.title)+'</h4>'
+      + '<p class="mdesc">'+TX(o.desc)+'</p>'
+      + '<ul>'+bl+'</ul>'
+      + '<a class="mlink" href="'+link+'" target="_blank" rel="noopener">'+(LANG==='fa'?'باز کردن ↗':'Open ↗')+'</a>'
+      + '<div class="mbest">'+TX(o.best)+'</div>'
+      + '</div>';
+    m.appendChild(card);
+  });
+
+  var g=elClear('goHost');
+  DATA.go.forEach(function(o){
+    var a=document.createElement('a'); a.href=o.url; a.target='_blank'; a.rel='noopener';
+    a.textContent=TX(o.label); g.appendChild(a);
+  });
+
+  var r=elClear('recHost');
+  DATA.recs.forEach(function(o){
+    var it=document.createElement('div'); it.className='item';
+    var priLabel = o.pri==='b' ? (LANG==='fa'?'از اینجا شروع کن':'Start here') : (LANG==='fa'?'بعدش این':'Then this');
+    it.innerHTML='<div class="t">'+TX(o.t)+'<span class="pri '+(o.pri==='b'?'b':'')+'">'+priLabel+'</span></div>'
+      +'<div class="d">'+TX(o.d)+'</div>';
+    r.appendChild(it);
+  });
+
+  var mth=document.getElementById('methodHost');
+  mth.innerHTML = LANG==='fa' ? faText("<p><b>منبع:</b> کتابِ «Nobody Wants to Read Your Sh*t» نوشتهٔ استیون پرسفیلد (با ویرایشِ شاون کوین)، چاپِ ۲۰۱۶.</p><p><b>روشِ کار:</b> ساختار و درس‌ها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده؛ نقل‌قول‌ها با متنِ کتاب مقابله و ویدیوها بررسی شده‌اند.</p><p><b>گروه:</b> «ارتباط» — از فهرستِ کتاب‌های ضروریِ سازندگانِ محصولِ لنی راچیتسکی.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای متنِ کامل، خودِ کتاب را بخوان.</p>") : "<p><b>Source:</b> the book <i>Nobody Wants to Read Your Sh*t</i> by Steven Pressfield (edited by Shawn Coyne), 2016.</p><p><b>How this was built:</b> the structure and lessons were gathered and rewritten from the book and reputable sources; quotes were cross-checked against the text and the linked videos verified.</p><p><b>Group:</b> Communication — from Lenny Rachitsky's essential books for product builders.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>";
+  var fl=document.getElementById('flowTop');
+  if(fl){
+    var loop = LANG==='fa' ? ["قلاب","ساخت","پاداش"] : ["Hook","Build","Payoff"];
+    var ar = LANG==='fa' ? '⟵' : '⟶';
+    fl.innerHTML = loop.map(function(w){ return '<b>'+ (LANG==='fa'?faText(w):w) +'</b>'; }).join(' <span class="ar">'+ar+'</span> ');
+  }
+}
+</script>
+
+<script>
+/* ── 4) CONCEPT MAP ───────────────────────────────────────── */
+function renderMap(){
+  var host=document.getElementById('mapHost'); if(!host) return; host.innerHTML='';
+  DATA.parts.forEach(function(p, i){
+    var col=document.createElement('div'); col.className='partcol';
+    var chaps=p.chapters.map(function(ck){
+      var c=DATA.chapters[ck];
+      return '<div class="chapchip"><span class="cn">'+num(c.n)+'</span><div><b>'+TX(c.name)+'</b>'
+        +'<small>'+TX(c.principle).replace(/<[^>]+>/g,'').slice(0, LANG==='fa'?86:76)+'…</small></div></div>';
+    }).join('');
+    col.innerHTML='<div class="ph"><span class="pdot" style="background:var('+p.varc+')"></span>'
+      +'<span class="pnum">'+(LANG==='fa'?'بخشِ ':'PART ')+num(i+1)+'</span></div>'
+      +'<h4>'+TX(p.name)+'</h4>'
+      +'<div class="ptag" style="color:var('+p.varc+')">'+TX(p.tag)+'</div>'
+      +'<p class="pgist">'+TX(p.gist)+'</p>'+chaps;
+    host.appendChild(col);
+  });
+}
+</script>
+
+<script>
+/* ── 5) INTERACTIVE NETWORK GRAPH (deterministic radial layout, no physics) ── */
+var GRAPH = (function(){
+  var svg, W=900, H=720, nodes=[], links=[], sel=null, dragNode=null, moved=false, startPt=null;
+
+  function build(){
+    svg=document.getElementById('netsvg');
+    svg.setAttribute('viewBox','0 0 '+W+' '+H);
+    nodes=[]; links=[];
+    var cx=W/2, cy=H/2, R1=196, R2=132, span=78*Math.PI/180;
+    var N=DATA.parts.length, partAng=DATA.parts.map(function(_,i){ return -Math.PI/2 + i*(2*Math.PI/N); });
+    nodes.push({id:'core', kind:'core', varc:'--core', r:38, x:cx, y:cy, label:DATA.core.name, data:DATA.core});
+    DATA.parts.forEach(function(p,i){
+      var a=partAng[i], px=cx+Math.cos(a)*R1, py=cy+Math.sin(a)*R1;
+      nodes.push({id:'p_'+p.key, kind:'part', varc:p.varc, r:25, x:px, y:py,
+        label:p.name, data:{name:p.name, principle:p.gist, more:p.more, tag:p.tag, key:p.key}});
+      links.push({s:'core', t:'p_'+p.key, strong:true});
+      var nc=p.chapters.length, start=a-span/2;
+      p.chapters.forEach(function(ck,j){
+        var ca = nc>1 ? start+span*(j/(nc-1)) : a;   // fan the 5 chapters outward
+        var c=DATA.chapters[ck];
+        nodes.push({id:'c_'+ck, kind:'chap', varc:p.varc, r:15,
+          x:px+Math.cos(ca)*R2, y:py+Math.sin(ca)*R2,
+          label:(c.glabel||c.name), data:c, ck:ck});
+        links.push({s:'p_'+p.key, t:'c_'+ck});
+      });
+    });
+    nodes.forEach(function(n){ n.hx=n.x; n.hy=n.y; });   // remember home positions for reset
+    draw();
+    select('core');
+  }
+
+  function byId(id){ for(var i=0;i<nodes.length;i++) if(nodes[i].id===id) return nodes[i]; return null; }
+
+  function draw(){
+    var ln='', nd='';
+    links.forEach(function(l){ ln+='<line class="glink" data-s="'+l.s+'" data-t="'+l.t+'" stroke="var(--line)" stroke-width="'+(l.strong?2.4:1.5)+'" stroke-linecap="round"/>'; });
+    nodes.forEach(function(n){
+      var inside='', below='';
+      if(n.kind==='core'){
+        inside='<text text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="800" fill="#fff" letter-spacing="0.3">'+shortLabel(n)+'</text>';
+      } else {
+        if(n.kind==='chap'){
+          inside='<text text-anchor="middle" dominant-baseline="central" font-size="11" font-weight="800" fill="#fff">'+num(n.data.n)+'</text>';
+        }
+        var ly = n.r + (n.kind==='part'?17:14);
+        var fs = n.kind==='part'?13:11;
+        var stroke = 'paint-order:stroke;stroke:var(--card2);stroke-width:3.6px;stroke-linejoin:round';
+        below='<text class="nlab" text-anchor="middle" y="'+ly+'" font-size="'+fs+'" font-weight="'+(n.kind==='part'?'800':'700')+'" fill="var(--ink)" style="'+stroke+'">'+shortLabel(n)+'</text>';
+      }
+      nd+='<g class="node'+(n.kind==='core'?' ncore':'')+'" data-id="'+n.id+'"><g class="ns">'
+        +'<circle r="'+n.r+'" fill="var('+n.varc+')" fill-opacity="'+(n.kind==='chap'?0.94:1)+'" stroke="var(--card)" stroke-width="2.5"/>'
+        +inside+below+'</g></g>';
+    });
+    svg.innerHTML='<g id="glinks">'+ln+'</g><g id="gnodes">'+nd+'</g>';
+    svg.querySelectorAll('.node').forEach(function(gEl){
+      gEl.addEventListener('pointerdown', onDown);
+      gEl.addEventListener('click', function(){ if(!moved) select(gEl.getAttribute('data-id')); });
+      gEl.addEventListener('pointerenter', function(){ if(!dragNode) gEl.classList.add('hover'); });
+      gEl.addEventListener('pointerleave', function(){ gEl.classList.remove('hover'); });
+    });
+    positions();
+  }
+  function shortLabel(n){ return TX(n.label); }
+
+  function positions(){
+    svg.querySelectorAll('.node').forEach(function(g){
+      var n=byId(g.getAttribute('data-id'));
+      g.setAttribute('transform','translate('+n.x.toFixed(1)+','+n.y.toFixed(1)+')');
+    });
+    svg.querySelectorAll('.glink').forEach(function(l){
+      var a=byId(l.getAttribute('data-s')), b=byId(l.getAttribute('data-t'));
+      l.setAttribute('x1',a.x.toFixed(1)); l.setAttribute('y1',a.y.toFixed(1));
+      l.setAttribute('x2',b.x.toFixed(1)); l.setAttribute('y2',b.y.toFixed(1));
+    });
+  }
+
+  /* drag: just move the grabbed node — no simulation, so nothing else shifts */
+  function toSvg(e){
+    var pt=svg.createSVGPoint(); pt.x=e.clientX; pt.y=e.clientY;
+    var m=svg.getScreenCTM(); if(!m) return {x:e.clientX,y:e.clientY};
+    return pt.matrixTransform(m.inverse());
+  }
+  function onDown(e){
+    e.preventDefault();
+    dragNode=byId(e.currentTarget.getAttribute('data-id'));
+    moved=false; startPt=toSvg(e); svg.style.cursor='grabbing';
+    e.currentTarget.classList.remove('hover');
+    window.addEventListener('pointermove', onMove);
+    window.addEventListener('pointerup', onUp);
+  }
+  function onMove(e){
+    if(!dragNode) return; var p=toSvg(e);
+    if(startPt && (Math.abs(p.x-startPt.x)>4 || Math.abs(p.y-startPt.y)>4)) moved=true;
+    dragNode.x=Math.max(dragNode.r+4, Math.min(W-dragNode.r-4, p.x));
+    dragNode.y=Math.max(dragNode.r+4, Math.min(H-dragNode.r-24, p.y));
+    positions();
+  }
+  function onUp(){
+    dragNode=null; svg.style.cursor='grab';
+    window.removeEventListener('pointermove', onMove);
+    window.removeEventListener('pointerup', onUp);
+  }
+
+  function keepSet(id){
+    var n=byId(id); if(!n || id==='core') return null;   // core → show everything
+    var keep={}; keep[id]=1; keep['core']=1;
+    var pk = (n.kind==='part') ? n.data.key : n.data.part;
+    keep['p_'+pk]=1;
+    DATA.parts.forEach(function(p){ if(p.key===pk) p.chapters.forEach(function(ck){ keep['c_'+ck]=1; }); });
+    return keep;   // highlight the whole branch: core → part → its chapters
+  }
+  function applyFocus(id){
+    var keep=keepSet(id), full=(keep===null);
+    svg.querySelectorAll('.node').forEach(function(g){
+      var nid=g.getAttribute('data-id');
+      g.classList.toggle('dim', !full && !keep[nid]);
+      g.classList.toggle('hl', !full && keep[nid] && nid!==id);
+    });
+    svg.querySelectorAll('.glink').forEach(function(l){
+      var s=l.getAttribute('data-s'), t=l.getAttribute('data-t');
+      var on = full || (keep[s] && keep[t]);
+      l.classList.toggle('dim', !on);
+      l.classList.toggle('hl', !full && on);
+    });
+  }
+
+  function relatedIds(node){
+    var ids=[];
+    if(node.id==='core'){ DATA.parts.forEach(function(p){ ids.push('p_'+p.key); }); }
+    else if(node.kind==='part'){ var pk=node.data.key; DATA.parts.forEach(function(p){ if(p.key===pk) p.chapters.forEach(function(ck){ ids.push('c_'+ck); }); }); }
+    else { var pk2=node.data.part; ids.push('p_'+pk2);
+      DATA.parts.forEach(function(p){ if(p.key===pk2) p.chapters.forEach(function(ck){ if('c_'+ck!==node.id) ids.push('c_'+ck); }); }); }
+    return ids;
+  }
+
+  function drow(cls,label,txt){ return '<div class="drow '+cls+'"><div class="dlab">'+label+'</div><div class="dtxt">'+txt+'</div></div>'; }
+
+  function select(id){
+    var n=byId(id); if(!n) return;
+    sel=id;
+    svg.querySelectorAll('.node').forEach(function(g){ g.classList.toggle('sel', g.getAttribute('data-id')===id); });
+    var selEl=svg.querySelector('.node[data-id="'+id+'"]'); if(selEl&&selEl.parentNode) selEl.parentNode.appendChild(selEl);  // raise on top
+    applyFocus(id);
+    var d=n.data, pv = n.kind==='core' ? '--core' : n.varc;
+    var kicker = n.kind==='core' ? (LANG==='fa'?'ایدهٔ مرکزی':'Core idea')
+             : n.kind==='part' ? (LANG==='fa'?'بخش':'Part') + ' · ' + TX(d.tag)
+             : (LANG==='fa'?"ایدهٔ":"Idea") + ' ' + num(d.n);
+    var prLab = (n.kind==='chap') ? (LANG==='fa'?'اصل':'Principle') : (LANG==='fa'?'ایدهٔ اصلی':'Big idea');
+    var html='<div class="dkick"><i style="background:var('+pv+')"></i>'+ (LANG==='fa'?faText(kicker):kicker) +'</div>'
+      +'<h4>'+TX(d.name)+'</h4>'
+      + drow('', prLab, TX(d.principle));
+    if(d.more)    html += drow('more', (LANG==='fa'?'بیشتر':'In depth'), TX(d.more));
+    if(d.example) html += drow('', (LANG==='fa'?'مثال':'Example'), TX(d.example));
+    if(d.tip)     html += drow('tip', (LANG==='fa'?'امتحان کن':'Try this'), TX(d.tip));
+    if(d.pitfall) html += drow('pit', (LANG==='fa'?'حواست باشد':'Watch out'), TX(d.pitfall));
+    // related chips
+    var rel=relatedIds(n);
+    if(rel.length){
+      var chips=rel.map(function(rid){ var rn=byId(rid); if(!rn) return '';
+        return '<span class="dchip" data-goto="'+rid+'"><i style="background:var('+rn.varc+')"></i>'+TX(rn.data.name)+'</span>'; }).join('');
+      html += '<div class="drow"><div class="dlab">'+(LANG==='fa'?'مرتبط':'Related')+'</div><div class="dchips">'+chips+'</div></div>';
+    }
+    var host=document.getElementById('detailHost');
+    host.innerHTML=html;
+    host.querySelectorAll('.dchip').forEach(function(c){
+      c.addEventListener('click', function(){ select(c.getAttribute('data-goto')); });
+    });
+  }
+
+  function relabel(){ if(!svg) return; draw(); select(sel||'core'); }
+
+  return {
+    build:build,
+    kick:function(){},                                    // no-op; layout is static
+    relabel:relabel,
+    reset:function(){ nodes.forEach(function(n){ n.x=n.hx; n.y=n.hy; }); positions(); },
+    resetFocus:function(){ select('core'); },
+    selectNode:function(id){ select(id); },
+    hasNodes:function(){ return nodes.length>0; }
+  };
+})();
+</script>
+
+<script>
+/* ── 6) 5-STAGE LADDER ────────────────────────────────────── */
+var curStage=0;
+function renderLadder(){
+  var host=document.getElementById('ladderHost'); host.innerHTML='';
+  DATA.stages.forEach(function(s,i){
+    var r=document.createElement('div'); r.className='rung'+(i===curStage?' active':'');
+    r.innerHTML='<div class="lv">'+ (LANG==='fa'?('سطحِ '+num(s.level)):('Level '+s.level)) +'</div>'
+      +'<div class="lt">'+TX(s.title)+'</div>'
+      +'<div class="lbar"><i style="width:'+(s.level*20)+'%"></i></div>';
+    r.addEventListener('click', function(){ curStage=i; renderLadder(); renderStage();
+      document.getElementById('stageHost').scrollIntoView({behavior:'smooth',block:'nearest'}); });
+    host.appendChild(r);
+  });
+}
+function renderStage(){
+  var s=DATA.stages[curStage];
+  var host=document.getElementById('stageHost');
+  var exLabel = LANG==='fa'?'مثال':'Example';
+  var prev = LANG==='fa'?'مرحلهٔ قبل':'‹ Prev', next = LANG==='fa'?'مرحلهٔ بعد':'Next ›';
+  host.innerHTML=''+
+    '<div class="stagecard">'
+    +'<div class="shead"><span class="badge">'+TX(s.badge)+'</span><h3>'+TX(s.title)+'</h3></div>'
+    +'<div class="tagline">'+TX(s.tagline)+'</div>'
+    +'<div class="sbody">'+TX(s.body)+'</div>'
+    +'<div class="exbox"><div class="exk">'+exLabel+'</div><div class="ext">'+TX(s.example)+'</div></div>'
+    +'<div class="gainrow"><span class="gi">✓</span><span>'+TX(s.gain)+'</span></div>'
+    +'<div class="stagenav">'
+      +'<button id="stPrev" '+(curStage===0?'disabled':'')+'>'+prev+'</button>'
+      +'<button id="stNext" '+(curStage===DATA.stages.length-1?'disabled':'')+'>'+next+'</button>'
+    +'</div></div>';
+  var pv=document.getElementById('stPrev'), nx=document.getElementById('stNext');
+  if(pv) pv.onclick=function(){ if(curStage>0){curStage--; renderLadder(); renderStage();} };
+  if(nx) nx.onclick=function(){ if(curStage<DATA.stages.length-1){curStage++; renderLadder(); renderStage();} };
+}
+</script>
+
+<script>
+/* ── 7) legend + graph tabs ───────────────────────────────── */
+function renderLegend(){
+  var host=document.getElementById('legendHost'); if(!host) return;
+  var items=[{c:'--core', en:'Core idea', fa:'ایدهٔ مرکزی'}]
+    .concat(DATA.parts.map(function(p){ return {c:p.varc, en:p.name.en, fa:p.name.fa}; }));
+  host.innerHTML = items.map(function(it){
+    return '<span><i style="background:var('+it.c+')"></i>'+(LANG==='fa'?faText(it.fa):it.en)+'</span>';
+  }).join('');
+  document.getElementById('ghint').textContent = LANG==='fa' ? 'روی هر دایره کلیک کن تا بیشتر بخوانی · می‌توانی بکشی‌شان' : 'Click a node to read more · drag to move';
+  document.getElementById('greset').textContent = LANG==='fa' ? '↺ چیدمان' : '↺ Reset';
+}
+function setupTabs(){
+  function show(net){
+    document.getElementById('netView').style.display = net?'':'none';
+    document.getElementById('mapView').style.display = net?'none':'';
+    document.getElementById('tabNet').classList.toggle('active',net);
+    document.getElementById('tabMap').classList.toggle('active',!net);
+    if(net) GRAPH.kick();
+  }
+  document.getElementById('tabNet').onclick=function(){show(true);};
+  document.getElementById('tabMap').onclick=function(){show(false);};
+  document.getElementById('greset').onclick=function(){ GRAPH.reset(); };
+  // click empty graph space resets the focus
+  var svg=document.getElementById('netsvg');
+  svg.addEventListener('click', function(e){ if(!e.target.closest('.node')) GRAPH.resetFocus(); });
+}
+</script>
+
+<script>
+/* ── 8) toggles + boot ────────────────────────────────────── */
+function setLang(lg){
+  LANG=lg;
+  document.documentElement.setAttribute('data-lang',lg);
+  document.documentElement.setAttribute('lang',lg);
+  document.documentElement.setAttribute('dir', lg==='fa'?'rtl':'ltr');
+  try{ localStorage.setItem('nwr-lang',lg); }catch(e){}
+  renderAll();
+}
+function renderAll(){
+  renderText();
+  renderMap();
+  renderLegend();
+  renderLadder();
+  renderStage();
+  if(GRAPH.hasNodes()) GRAPH.relabel(); else GRAPH.build();
+}
+(function(){
+  var lb=document.getElementById('langBtn');
+  lb && lb.addEventListener('click', function(){ setLang(LANG==='fa'?'en':'fa'); });
+
+  var tb=document.getElementById('themeBtn');
+  function curT(){ return document.documentElement.getAttribute('data-theme'); }
+  tb && tb.addEventListener('click', function(){
+    var t=curT()==='dark'?'light':'dark';
+    document.documentElement.setAttribute('data-theme',t);
+    try{ localStorage.setItem('nwr-theme',t); }catch(e){}
+  });
+  try{ matchMedia('(prefers-color-scheme: dark)').addEventListener('change',function(e){
+    if(!localStorage.getItem('nwr-theme')){ document.documentElement.setAttribute('data-theme', e.matches?'dark':'light'); }
+  }); }catch(e){}
+})();
+
+/* scroll-spy */
+(function(){
+  var links=[].slice.call(document.querySelectorAll('.toc a'));
+  var seen={}, ids=[];
+  links.forEach(function(a){ var id=a.getAttribute('href').slice(1); if(!seen[id]){seen[id]=1; ids.push(id);} });
+  var secs=ids.map(function(id){return document.getElementById(id);}).filter(Boolean);
+  function setActive(id){ links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('href')==='#'+id); }); }
+  if('IntersectionObserver' in window){
+    var obs=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+    },{rootMargin:'-45% 0px -50% 0px',threshold:0});
+    secs.forEach(function(s){ obs.observe(s); });
+  }
+})();
+
+document.addEventListener('DOMContentLoaded', function(){
+  setupTabs();
+  renderAll();
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<!-- complexity-level: 1→5 (this page teaches the SAME book at five depths, over-simplified … expert) -->
+<!-- Effortless (Greg McKeown) — bilingual EN/FA knowledge graph & 5-stage learning page -->
+<html lang="fa" dir="rtl" data-lang="fa">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Escaping the Build Trap — نقشهٔ دانش و یادگیری ۵ مرحله‌ای</title>
+
+<!-- Boot theme + language BEFORE paint to avoid a flash -->
+<script>
+(function(){
+  try{
+    var th = localStorage.getItem('buildtrap-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
+    document.documentElement.setAttribute('data-theme', th);
+  }catch(e){ document.documentElement.setAttribute('data-theme','light'); }
+  try{
+    var lg = localStorage.getItem('buildtrap-lang') || 'fa';
+    document.documentElement.setAttribute('data-lang', lg);
+    document.documentElement.setAttribute('lang', lg);
+    document.documentElement.setAttribute('dir', lg==='fa' ? 'rtl' : 'ltr');
+  }catch(e){}
+})();
+</script>
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:ital,opsz@0,6..72;1,6..72&display=swap" rel="stylesheet">
+
+<style>
+/* ── TOKENS ───────────────────────────────────────────────── */
+:root, [data-theme="light"]{
+  --bg:#f5f6f8; --bg2:#eef2f7; --card:#fff; --card2:#f8fafb;
+  --ink:#1c2330; --mut:#6b7280; --line:#e6e8ee;
+  --accent:#0e7c86; --accent-ink:#fff; --warm:#c2410c;
+  --shadow:0 1px 2px rgba(20,30,50,.05),0 6px 24px rgba(20,30,50,.06);
+  --hero-1:#0e7c86; --hero-2:#0b5e66;
+  --c-teal:#0e9aa6; --c-blue:#2f6fb0; --c-violet:#7c3aed; --c-amber:#d97706;
+  --c-green:#15a34a; --c-red:#e11d48; --c-gold:#c98a12; --c-gray:#6b7280;
+  --state:#0e9aa6; --action:#d97706; --results:#7c3aed; --core:#0e7c86;
+}
+[data-theme="dark"]{
+  --bg:#0e131a; --bg2:#161d27; --card:#151c26; --card2:#1b2430;
+  --ink:#e9eef5; --mut:#9aa7b6; --line:#27313d;
+  --accent:#2dd4bf; --accent-ink:#06231f; --warm:#fb923c;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 28px rgba(0,0,0,.45);
+  --hero-1:#0c5f67; --hero-2:#07323a;
+  --c-teal:#2dd4bf; --c-blue:#5b9bd5; --c-violet:#a78bfa; --c-amber:#fbbf24;
+  --c-green:#34d399; --c-red:#fb7185; --c-gold:#e2b04a; --c-gray:#94a3b8;
+  --state:#2dd4bf; --action:#fbbf24; --results:#a78bfa; --core:#2dd4bf;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:Vazirmatn,"Segoe UI",Tahoma,Arial,sans-serif;line-height:1.85;font-size:15px;
+  transition:background .25s,color .25s}
+html[data-lang="en"] body{font-family:Inter,"Segoe UI",system-ui,Arial,sans-serif;line-height:1.7}
+.wrap{max-width:960px;margin:0 auto;padding:0 18px 40px}
+
+/* language visibility */
+html[data-lang="en"] [data-only="fa"]{display:none !important}
+html[data-lang="fa"] [data-only="en"]{display:none !important}
+
+/* ── HERO ─────────────────────────────────────────────────── */
+.hero{background:linear-gradient(135deg,var(--hero-1),var(--hero-2));color:#fff;padding:44px 0 34px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset-inline-end:-80px;top:-80px;width:280px;height:280px;
+  background:radial-gradient(circle,rgba(255,255,255,.12),transparent 70%);pointer-events:none}
+.hero .wrap{padding-bottom:0;position:relative;z-index:1}
+.hero h1{margin:0 0 8px;font-size:30px;font-weight:800;letter-spacing:-.3px;line-height:1.25}
+html[data-lang="en"] .hero h1{font-family:Newsreader,Georgia,serif;font-weight:600;letter-spacing:-.5px}
+.hero .dek{margin:0;opacity:.94;font-size:15.5px;max-width:640px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;
+  color:rgba(255,255,255,.95);background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.24);
+  padding:5px 13px;border-radius:20px;margin-bottom:15px}
+.eyebrow .edot{width:7px;height:7px;border-radius:50%;background:#fff;box-shadow:0 0 0 3px rgba(255,255,255,.25)}
+.metastrip{display:flex;flex-wrap:wrap;gap:14px 30px;margin-top:20px;padding-top:16px;
+  border-top:1px solid rgba(255,255,255,.18)}
+.metaitem{display:flex;flex-direction:column;gap:3px}
+.metaitem .mk{font-size:10.5px;color:rgba(255,255,255,.62);font-weight:700;letter-spacing:.6px;text-transform:uppercase}
+.metaitem .mv{font-size:14px;color:#fff;font-weight:700}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);
+  border-radius:11px;padding:9px 15px;font-size:13px}
+.chip b{font-size:20px;display:block;font-weight:800}
+
+/* ── NAV + TOC ────────────────────────────────────────────── */
+.navbar{position:sticky;top:0;z-index:60;background:color-mix(in srgb,var(--card) 92%,transparent);
+  backdrop-filter:saturate(180%) blur(10px);-webkit-backdrop-filter:saturate(180%) blur(10px);
+  border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+.navin{max-width:960px;margin:0 auto;padding:8px 16px;display:flex;align-items:center;gap:12px}
+.brand{flex:0 0 auto;font-weight:800;font-size:12.5px;color:var(--accent);white-space:nowrap;
+  display:flex;align-items:center;gap:7px}
+.brand .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);
+  box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 18%,transparent)}
+.toc{flex:1 1 auto;display:flex;flex-wrap:wrap;gap:7px;justify-content:center}
+.toc a{font-size:12.5px;color:var(--mut);text-decoration:none;border:1px solid var(--line);
+  border-radius:20px;padding:5px 12px;background:var(--card);white-space:nowrap;
+  transition:background .15s,color .15s,border-color .15s}
+.toc a:hover{color:var(--accent);border-color:var(--accent)}
+.toc a.active{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.navctl{flex:0 0 auto;display:flex;align-items:center;gap:8px}
+.langbtn{height:34px;border-radius:18px;border:1px solid var(--line);background:var(--card);
+  color:var(--ink);cursor:pointer;font:inherit;font-size:12.5px;font-weight:700;padding:0 13px;
+  display:flex;align-items:center;gap:6px}
+.langbtn:hover{border-color:var(--accent);color:var(--accent)}
+.langbtn .globe{width:15px;height:15px;display:block}
+.themebtn{flex:0 0 auto;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);
+  background:var(--card);color:var(--ink);cursor:pointer;line-height:1;display:grid;place-items:center}
+.themebtn svg{width:17px;height:17px;display:block}
+.themebtn:hover{border-color:var(--accent);color:var(--accent)}
+[data-theme="light"] .themebtn .ic-sun{display:none}
+[data-theme="dark"]  .themebtn .ic-moon{display:none}
+
+/* ── BLOCKS ───────────────────────────────────────────────── */
+h2{font-size:21px;margin:44px 0 6px;font-weight:800;scroll-margin-top:92px;line-height:1.35}
+html[data-lang="en"] h2{font-family:Newsreader,Georgia,serif;font-weight:600}
+h2 .num{color:var(--accent);font-variant-numeric:tabular-nums}
+.sub{color:var(--mut);font-size:13.5px;margin:0 0 16px;max-width:680px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;
+  padding:20px 22px;margin:14px 0;box-shadow:var(--shadow)}
+.lead{font-size:15.5px}
+.lead b{color:var(--warm)}
+.kgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin:8px 0}
+.kbox{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:15px 16px;text-align:center}
+.kbox .v{font-size:26px;font-weight:800;color:var(--accent);font-variant-numeric:tabular-nums}
+.kbox .l{font-size:12.5px;color:var(--mut);margin-top:3px}
+ul.clean{margin:6px 0;padding-inline-start:20px} ul.clean li{margin:8px 0}
+.callout{background:color-mix(in srgb,var(--warm) 9%,var(--card));
+  border:1px solid color-mix(in srgb,var(--warm) 30%,var(--line));
+  border-radius:12px;padding:14px 18px;margin:12px 0}
+.callout b{color:var(--warm)}
+.callout.accent{background:color-mix(in srgb,var(--accent) 9%,var(--card));
+  border-color:color-mix(in srgb,var(--accent) 30%,var(--line))}
+.callout.accent b{color:var(--accent)}
+a{color:var(--accent)}
+
+/* ── GRAPH ────────────────────────────────────────────────── */
+.gtabs{display:inline-flex;gap:4px;background:var(--bg2);border:1px solid var(--line);
+  border-radius:11px;padding:4px;margin:6px 0 2px}
+.gtab{border:0;background:transparent;color:var(--mut);font:inherit;font-size:13px;font-weight:700;
+  padding:7px 15px;border-radius:8px;cursor:pointer}
+.gtab.active{background:var(--card);color:var(--accent);box-shadow:var(--shadow)}
+.graphcard{padding:14px}
+.legend{display:flex;flex-wrap:wrap;gap:14px;margin:2px 4px 12px;font-size:12.5px;color:var(--mut)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:11px;height:11px;border-radius:50%;display:inline-block}
+.graphstage{display:grid;grid-template-columns:1fr;gap:14px}
+@media(min-width:760px){.graphstage{grid-template-columns:1.35fr .95fr}}
+.svgwrap{position:relative;background:var(--card2);border:1px solid var(--line);border-radius:12px;
+  overflow:hidden;min-height:300px}
+#netsvg{display:block;width:100%;height:560px;touch-action:none;cursor:grab}
+#netsvg text{pointer-events:none;user-select:none}
+.ghint{position:absolute;inset-inline-start:12px;top:10px;font-size:11.5px;color:var(--mut);
+  background:color-mix(in srgb,var(--card) 82%,transparent);border:1px solid var(--line);
+  border-radius:20px;padding:3px 11px;backdrop-filter:blur(4px);max-width:70%}
+.greset{position:absolute;inset-inline-end:10px;top:10px;border:1px solid var(--line);background:var(--card);
+  color:var(--mut);border-radius:8px;font:inherit;font-size:11.5px;padding:4px 10px;cursor:pointer}
+.greset:hover{color:var(--accent);border-color:var(--accent)}
+/* node + link interaction states */
+.node{cursor:pointer}
+/* the inner <g class="ns"> is what scales; fill-box keeps the pivot on the node itself, not the SVG viewport */
+.ns{transform-box:fill-box;transform-origin:center;transition:transform .2s cubic-bezier(.2,.75,.25,1)}
+.node.hover .ns{transform:scale(1.1)}
+.node.sel  .ns{transform:scale(1.34)}                 /* selected node grows */
+.node.ncore.hover .ns{transform:scale(1.06)}
+.node.ncore.sel   .ns{transform:none}                 /* the centre 'Effortless' node keeps default size */
+.node.sel circle{stroke:var(--ink);stroke-width:2.5;filter:drop-shadow(0 0 8px color-mix(in srgb,var(--accent) 60%,transparent))}
+.node.hl circle{stroke:var(--ink);stroke-opacity:.5;stroke-width:2.5}
+.node.dim{opacity:.2}
+.node text{font-family:Vazirmatn,Tahoma,sans-serif;font-weight:700}
+html[data-lang="en"] .node text{font-family:Inter,sans-serif}
+.glink{transition:opacity .2s,stroke .2s}
+.glink.dim{opacity:.08}
+.glink.hl{stroke:var(--accent) !important;stroke-opacity:.8}
+/* detail panel */
+.detail{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;min-height:220px}
+@media(min-width:760px){.detail{max-height:480px;overflow:auto}}
+.detail .dkick{font-size:11.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;display:flex;align-items:center;gap:7px;color:var(--mut)}
+.detail .dkick i{width:10px;height:10px;border-radius:50%}
+.detail h4{margin:8px 0 3px;font-size:18px;font-weight:800}
+html[data-lang="en"] .detail h4{font-family:Newsreader,serif;font-weight:600}
+.detail .drow{margin:11px 0}
+.detail .dlab{font-size:10.5px;font-weight:800;color:var(--accent);letter-spacing:.5px;text-transform:uppercase;
+  display:inline-flex;align-items:center;gap:5px}
+.detail .drow.tip .dlab{color:var(--c-green)}
+.detail .drow.pit .dlab{color:var(--warm)}
+.detail .drow.more{border-inline-start:2px solid color-mix(in srgb,var(--accent) 32%,var(--line));padding-inline-start:11px}
+.detail .drow.more .dlab{color:var(--mut)}
+.detail .dtxt{font-size:13.6px;margin-top:3px}
+.dchips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.dchip{font-size:12px;border:1px solid var(--line);background:var(--card2);border-radius:16px;padding:4px 11px;
+  cursor:pointer;color:var(--ink);display:inline-flex;align-items:center;gap:6px;font-family:inherit}
+.dchip:hover{border-color:var(--accent);color:var(--accent)}
+.dchip i{width:8px;height:8px;border-radius:50%;flex:0 0 auto}
+
+/* ── CONCEPT MAP ──────────────────────────────────────────── */
+.mapgrid{display:grid;grid-template-columns:1fr;gap:14px}
+@media(min-width:820px){.mapgrid{grid-template-columns:repeat(3,1fr)}}
+.partcol{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:16px;position:relative}
+.partcol .ph{display:flex;align-items:center;gap:9px;margin-bottom:3px}
+.partcol .pdot{width:13px;height:13px;border-radius:50%;flex:0 0 auto}
+.partcol .pnum{font-size:11px;font-weight:800;color:var(--mut)}
+.partcol h4{margin:0;font-size:16.5px;font-weight:800}
+html[data-lang="en"] .partcol h4{font-family:Newsreader,serif;font-weight:600}
+.partcol .ptag{font-size:12px;color:var(--mut);margin:2px 0 4px;font-weight:700}
+.partcol .pgist{font-size:12.8px;color:var(--mut);margin:0 0 12px}
+.chapchip{display:flex;align-items:baseline;gap:8px;padding:7px 10px;border:1px solid var(--line);
+  border-radius:9px;margin:6px 0;background:var(--card2);font-size:13px}
+.chapchip .cn{font-size:11px;font-weight:800;color:var(--mut);flex:0 0 auto;font-variant-numeric:tabular-nums}
+.chapchip b{font-weight:700}
+.chapchip small{color:var(--mut);display:block;font-size:11.5px;line-height:1.5}
+.flowline{display:flex;align-items:center;justify-content:center;gap:10px;color:var(--mut);
+  font-size:12.5px;font-weight:700;margin:6px 0 2px;flex-wrap:wrap}
+.flowline .ar{color:var(--accent)}
+
+/* ── STAGE LADDER ─────────────────────────────────────────── */
+.ladder{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 4px}
+.rung{flex:1 1 150px;border:1px solid var(--line);background:var(--card);border-radius:11px;
+  padding:11px 13px;cursor:pointer;transition:transform .12s,border-color .12s;position:relative}
+.rung:hover{border-color:var(--accent);transform:translateY(-2px)}
+.rung.active{border-color:var(--accent);box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 35%,transparent)}
+.rung .lv{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.4px}
+.rung .lt{font-size:13.5px;font-weight:800;margin-top:2px}
+.rung .lbar{height:5px;border-radius:4px;background:var(--bg2);margin-top:9px;overflow:hidden}
+.rung .lbar i{display:block;height:100%;background:linear-gradient(90deg,var(--c-teal),var(--c-violet))}
+.stagecard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 24px;
+  margin:14px 0;box-shadow:var(--shadow)}
+.stagecard .shead{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.stagecard .badge{font-size:12px;font-weight:800;color:#fff;background:var(--accent);
+  border-radius:8px;padding:4px 11px;white-space:nowrap}
+.stagecard h3{margin:0;font-size:21px;font-weight:800}
+html[data-lang="en"] .stagecard h3{font-family:Newsreader,serif;font-weight:600}
+.stagecard .tagline{color:var(--mut);font-size:13.5px;margin:4px 0 14px;font-weight:700}
+.stagecard .sbody{font-size:15px}
+.exbox{background:var(--card2);border:1px solid var(--line);border-inline-start:3px solid var(--accent);
+  border-radius:0 11px 11px 0;padding:13px 16px;margin:14px 0 6px}
+.exbox .exk{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.5px;text-transform:uppercase}
+.exbox .ext{font-size:13.8px;margin-top:3px}
+.gainrow{display:flex;align-items:flex-start;gap:9px;margin-top:12px;font-size:13px;color:var(--mut)}
+.gainrow .gi{flex:0 0 auto;color:var(--c-green);font-weight:800}
+.stagenav{display:flex;justify-content:space-between;gap:10px;margin-top:16px}
+.stagenav button{border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit;
+  font-size:13px;font-weight:700;border-radius:9px;padding:8px 14px;cursor:pointer}
+.stagenav button:hover:not(:disabled){border-color:var(--accent);color:var(--accent)}
+.stagenav button:disabled{opacity:.4;cursor:default}
+
+/* ── QUOTES ───────────────────────────────────────────────── */
+.qgrid{display:grid;grid-template-columns:1fr;gap:12px}
+@media(min-width:720px){.qgrid{grid-template-columns:1fr 1fr}}
+blockquote{margin:0;background:var(--card2);border-inline-start:3px solid var(--accent);
+  border-radius:0 12px 12px 0;padding:15px 18px;font-size:14.5px;position:relative}
+blockquote .qm{font-size:34px;line-height:0;color:var(--accent);opacity:.35;font-family:Georgia,serif;
+  position:absolute;inset-inline-start:10px;top:20px}
+blockquote p{margin:0;padding-inline-start:22px}
+html[data-lang="en"] blockquote{font-family:Newsreader,Georgia,serif;font-size:15.5px}
+
+/* ── MEDIA ────────────────────────────────────────────────── */
+.mgrid{display:grid;grid-template-columns:1fr;gap:16px}
+@media(min-width:640px){.mgrid{grid-template-columns:1fr 1fr}}
+.mcard{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;
+  box-shadow:var(--shadow);display:flex;flex-direction:column}
+.mthumb{position:relative;display:block;aspect-ratio:16/9;background:var(--bg2);overflow:hidden;text-decoration:none}
+.mthumb img{width:100%;height:100%;object-fit:cover;display:block}
+.mthumb .play{position:absolute;inset:0;display:grid;place-items:center}
+.mthumb .play span{width:54px;height:54px;border-radius:50%;background:rgba(0,0,0,.6);
+  display:grid;place-items:center;border:2px solid rgba(255,255,255,.9)}
+.mthumb .play svg{width:22px;height:22px;fill:#fff;margin-inline-start:3px}
+.mthumb .ptype{position:absolute;inset-inline-start:9px;top:9px;background:rgba(0,0,0,.72);color:#fff;
+  font-size:11px;font-weight:700;border-radius:6px;padding:3px 9px;letter-spacing:.3px}
+.mfake{aspect-ratio:16/9;display:grid;place-items:center;
+  background:linear-gradient(135deg,color-mix(in srgb,var(--c-violet) 22%,var(--card)),color-mix(in srgb,var(--c-teal) 22%,var(--card)))}
+.mfake svg{width:52px;height:52px;color:var(--ink);opacity:.6}
+.mbody{padding:15px 17px;display:flex;flex-direction:column;gap:7px;flex:1}
+.mbody .msrc{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.3px;text-transform:uppercase}
+.mbody h4{margin:0;font-size:15.5px;font-weight:800;line-height:1.4}
+html[data-lang="en"] .mbody h4{font-family:Newsreader,serif;font-weight:600}
+.mbody .mdesc{font-size:13px;color:var(--mut);margin:0}
+.mbody ul{margin:4px 0 0;padding-inline-start:18px}
+.mbody ul li{font-size:12.8px;margin:5px 0}
+.mbody .mbest{font-size:12px;font-weight:700;color:var(--warm);margin-top:auto;padding-top:8px}
+.mlink{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;
+  text-decoration:none;color:var(--accent);margin-top:4px}
+.mlink:hover{text-decoration:underline}
+.golist{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.golist a{font-size:12.5px;text-decoration:none;color:var(--ink);border:1px solid var(--line);
+  border-radius:20px;padding:6px 13px;background:var(--card);font-weight:700}
+.golist a:hover{border-color:var(--accent);color:var(--accent)}
+
+/* ── RECS + METHOD + CREDIT ───────────────────────────────── */
+.rec{display:grid;gap:10px;margin:8px 0}
+.rec .item{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--card)}
+.rec .item .t{font-weight:800;font-size:14.5px;margin-bottom:3px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.rec .item .t .pri{font-size:11px;font-weight:700;color:#fff;background:var(--warm);border-radius:6px;padding:2px 9px}
+.rec .item .t .pri.b{background:var(--accent)}
+.rec .item .d{font-size:13.4px;color:var(--mut)}
+.method{color:var(--mut);font-size:13.4px}
+.method p{margin:8px 0}
+.method b{color:var(--ink)}
+.credit{text-align:center;margin-top:40px;padding:22px 0 8px;border-top:1px solid var(--line);
+  color:var(--mut);font-size:14px}
+.credit .cname{color:var(--ink);font-weight:800}
+.credit a{font-weight:700;text-decoration:none}
+.credit a:hover{text-decoration:underline}
+.credit .sep{opacity:.5;margin:0 8px}
+.credit .li{display:inline-flex;align-items:center;gap:5px;vertical-align:middle}
+.credit .li svg{width:15px;height:15px;vertical-align:-3px}
+
+@media (max-width:640px){
+  body{font-size:14px}
+  .wrap{padding:0 13px 30px}
+  .hero{padding:28px 0 22px} .hero h1{font-size:22px}
+  h2{font-size:18px;scroll-margin-top:66px}
+  .brand{display:none}
+  .toc{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;scrollbar-width:none}
+  .toc::-webkit-scrollbar{display:none}
+  #netsvg{height:420px}
+}
+</style>
+</head>
+<body>
+
+<!-- ── HERO ───────────────────────────────────────────────── -->
+<header class="hero"><div class="wrap">
+  <div class="eyebrow"><span class="edot"></span>
+    <span data-only="en">Book knowledge map · Melissa Perri</span>
+    <span data-only="fa">نقشهٔ کتاب · ملیسا پری</span>
+  </div>
+  <h1>
+    <span data-only="en">Escaping the Build Trap — How Effective Product Management Creates Real Value</span>
+    <span data-only="fa">فرار از تلهٔ ساختن — مدیریتِ محصولِ اثربخش چطور ارزشِ واقعی می‌سازد</span>
+  </h1>
+  <p class="dek">
+    <span data-only="en">A knowledge graph of the whole book, plus a 5-stage path from a single idea to expert-level mastery — with an example at every step.</span>
+    <span data-only="fa">نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از یک ایدهٔ ساده تا حرفه‌ای — با یک مثال در هر مرحله.</span>
+  </p>
+  <div class="metastrip">
+    <div class="metaitem"><span class="mk" data-only="en">Book</span><span class="mk" data-only="fa">کتاب</span>
+      <span class="mv" data-only="en">Escaping the Build Trap</span><span class="mv" data-only="fa">فرار از تلهٔ ساختن</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Author</span><span class="mk" data-only="fa">نویسنده</span>
+      <span class="mv" data-only="en">Melissa Perri</span><span class="mv" data-only="fa">ملیسا پری</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Published</span><span class="mk" data-only="fa">سالِ چاپ</span>
+      <span class="mv" data-only="en">2018</span><span class="mv" data-only="fa">۲۰۱۸</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Group</span><span class="mk" data-only="fa">گروه</span>
+      <span class="mv" data-only="en">Product Success Rate</span><span class="mv" data-only="fa">نرخِ موفقیتِ محصول</span></div>
+  </div>
+  <div class="chips">
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Parts</span><span data-only="fa">بخش</span></div>
+    <div class="chip"><b data-only="en">16</b><b data-only="fa">۱۶</b><span data-only="en">Ideas</span><span data-only="fa">ایده</span></div>
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Learning stages</span><span data-only="fa">مرحلهٔ یادگیری</span></div>
+  </div>
+</div></header>
+
+<!-- ── STICKY NAV ─────────────────────────────────────────── -->
+<div class="navbar"><div class="navin">
+  <span class="brand"><span class="dot"></span>Escaping the Build Trap</span>
+  <nav class="toc">
+    <a href="#tldr" data-only="en">In a nutshell</a><a href="#tldr" data-only="fa">خلاصه</a>
+    <a href="#graph" data-only="en">Knowledge graph</a><a href="#graph" data-only="fa">نقشهٔ دانش</a>
+    <a href="#stages" data-only="en">5 stages</a><a href="#stages" data-only="fa">۵ مرحله</a>
+    <a href="#quotes" data-only="en">Quotes</a><a href="#quotes" data-only="fa">جمله‌ها</a>
+    <a href="#media" data-only="en">Watch &amp; explore</a><a href="#media" data-only="fa">تماشا و منابع</a>
+    <a href="#apply" data-only="en">Apply it</a><a href="#apply" data-only="fa">کاربرد</a>
+  </nav>
+  <div class="navctl">
+    <button class="langbtn" id="langBtn" aria-label="Switch language">
+      <svg class="globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>
+      <span data-only="en">فارسی</span><span data-only="fa">English</span>
+    </button>
+    <button class="themebtn" id="themeBtn" aria-label="Toggle theme" title="Light / Dark">
+      <span class="ic-sun" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5 19 19M19 5l-1.5 1.5M6.5 17.5 5 19"/></svg></span>
+      <span class="ic-moon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.6 6.6 0 0 0 9.8 9.8Z"/></svg></span>
+    </button>
+  </div>
+</div></div>
+
+<div class="wrap">
+
+  <!-- ── TL;DR ────────────────────────────────────────────── -->
+  <h2 id="tldr"><span class="num" data-only="en">1.</span><span class="num" data-only="fa">۱.</span>
+    <span data-only="en"> In a nutshell</span><span data-only="fa"> خلاصه</span></h2>
+  <p class="sub" data-only="en">If you read only this, you still get the whole idea.</p>
+  <p class="sub" data-only="fa">اگر فقط همین بخش را بخوانی، کلِ ایده دستت می‌آید.</p>
+  <div class="card lead"><ul class="clean" id="tldrHost"></ul></div>
+  <div class="kgrid">
+    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Parts (build trap · the PM · strategy · process · product-led org)</div><div class="l" data-only="fa">بخش (تلهٔ ساختن · مدیرِ محصول · استراتژی · فرایند · سازمانِ محصول‌محور)</div></div>
+    <div class="kbox"><div class="v" data-only="en">16</div><div class="v" data-only="fa">۱۶</div><div class="l" data-only="en">Ideas you can use</div><div class="l" data-only="fa">ایده برای استفاده</div></div>
+    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Levels, simple → expert</div><div class="l" data-only="fa">مرحله، ساده تا حرفه‌ای</div></div>
+    <div class="kbox"><div class="v" data-only="en">3</div><div class="v" data-only="fa">۳</div><div class="l" data-only="en">The loop: problem · experiment · outcome</div><div class="l" data-only="fa">حلقه: مسئله · آزمایش · نتیجه</div></div>
+  </div>
+  
+  <div class="callout accent">
+    <b data-only="en">The core idea:</b>
+    <b data-only="fa">ایدهٔ اصلی:</b>
+    <span data-only="en"> The <i>build trap</i> is when you measure success by the features you ship (<i>output</i>) instead of the value you create for customers and the business (<i>outcomes</i>). Teams caught in it turn into feature factories — busy, but never moving the needle. The way out is real product management: connect strategy to true customer problems, and manage for outcomes.</span>
+    <span data-only="fa"> <i>تلهٔ ساختن</i> یعنی موفقیت را با تعدادِ ویژگی‌هایی که تحویل می‌دهی (<i>خروجی</i>) بسنجی، نه با ارزشی که برای مشتری و کسب‌وکار می‌سازی (<i>نتیجه</i>). تیمی که در این تله می‌افتد، تبدیل می‌شود به یک کارخانهٔ ویژگی — سرش شلوغ است، اما آب از آب تکان نمی‌خورد. راهِ بیرون‌آمدن، مدیریتِ محصولِ واقعی است: استراتژی را به مشکل‌های واقعیِ مشتری وصل کن و برای نتیجه کار کن.</span>
+  </div>
+
+  <!-- ── KNOWLEDGE GRAPH ──────────────────────────────────── -->
+  <h2 id="graph"><span class="num" data-only="en">2.</span><span class="num" data-only="fa">۲.</span>
+    <span data-only="en"> The knowledge graph</span><span data-only="fa"> نقشهٔ دانش</span></h2>
+  <p class="sub" data-only="en">The whole book as one picture. Click any node to focus its connections and read more — or switch to the structured map.</p>
+  <p class="sub" data-only="fa">کلِ کتاب در یک تصویر. روی هر دایره کلیک کن تا ارتباط‌هایش را ببینی و بیشتر بخوانی — یا به نقشهٔ مرتب برو.</p>
+
+  <div class="gtabs">
+    <button class="gtab active" id="tabNet"><span data-only="en">Interactive network</span><span data-only="fa">شبکهٔ تعاملی</span></button>
+    <button class="gtab" id="tabMap"><span data-only="en">Structured map</span><span data-only="fa">نقشهٔ مرتب</span></button>
+  </div>
+
+  <!-- network view -->
+  <div class="card graphcard" id="netView">
+    <div class="legend" id="legendHost"></div>
+    <div class="graphstage">
+      <div class="svgwrap">
+        <svg id="netsvg" viewBox="0 0 820 560" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Effortless knowledge network"></svg>
+        <div class="ghint" id="ghint"></div>
+        <button class="greset" id="greset"></button>
+      </div>
+      <div class="detail" id="detailHost"></div>
+    </div>
+  </div>
+
+  <!-- map view -->
+  <div class="card graphcard" id="mapView" style="display:none">
+    <div class="flowline" id="flowTop"></div>
+    <div class="mapgrid" id="mapHost"></div>
+    <div class="callout" style="margin-top:16px">
+      <b data-only="en">Read it as a flow:</b><b data-only="fa">به‌صورتِ یک جریان بخوانش:</b>
+      <span data-only="en"> escape the <b>build trap</b> by measuring <b>outcomes</b>, not output; put a real <b>product manager</b> — a strategist — in charge of the why; set a <b>strategy</b> that connects a vision to a few clear intents and initiatives; run the <b>product process</b>, the Kata — explore the problem, experiment on solutions, and learn; then grow into a <b>product-led organization</b> with outcome-based roadmaps, staged budgeting, and a culture that rewards learning.</span>
+      <span data-only="fa"> با سنجیدنِ <b>نتیجه</b> به‌جای خروجی از <b>تلهٔ ساختن</b> بیرون بیا؛ یک <b>مدیرِ محصولِ</b> واقعی — یک استراتژیست — را مسئولِ چرایی کن؛ یک <b>استراتژی</b> بچین که یک چشم‌انداز را به چند نیت و طرحِ روشن وصل کند؛ <b>فرایندِ محصول</b> را اجرا کن، همان کاتا — مسئله را بکاو، روی راه‌حل‌ها آزمایش کن، و یاد بگیر؛ بعد کم‌کم به یک <b>سازمانِ محصول‌محور</b> تبدیل شو، با نقشه‌راهِ نتیجه‌محور، بودجه‌بندیِ مرحله‌ای، و فرهنگی که یادگیری را پاداش می‌دهد.</span>
+    </div>
+  </div>
+
+  <!-- ── 5 STAGES ─────────────────────────────────────────── -->
+  <h2 id="stages"><span class="num" data-only="en">3.</span><span class="num" data-only="fa">۳.</span>
+    <span data-only="en"> Learn it in 5 stages</span><span data-only="fa"> یادگیری در ۵ مرحله</span></h2>
+  <p class="sub" data-only="en">The same book at five depths. Start over-simplified, climb to expert. Tap a rung to jump.</p>
+  <p class="sub" data-only="fa">یک کتاب در پنج عمق. از خیلی ساده شروع کن و تا حرفه‌ای بالا برو. روی هر پله بزن تا بپری.</p>
+  <div class="ladder" id="ladderHost"></div>
+  <div id="stageHost"></div>
+
+  <!-- ── QUOTES ───────────────────────────────────────────── -->
+  <h2 id="quotes"><span class="num" data-only="en">4.</span><span class="num" data-only="fa">۴.</span>
+    <span data-only="en"> Lines worth keeping</span><span data-only="fa"> جمله‌هایی که ارزشِ نگه‌داشتن دارند</span></h2>
+  <p class="sub" data-only="en">Verbatim quotes from the book, translated alongside.</p>
+  <p class="sub" data-only="fa">جمله‌های مستقیم از کتاب، همراه با ترجمه.</p>
+  <div class="qgrid" id="quoteHost"></div>
+
+  <!-- ── MEDIA ────────────────────────────────────────────── -->
+  <h2 id="media"><span class="num" data-only="en">5.</span><span class="num" data-only="fa">۵.</span>
+    <span data-only="en"> Watch &amp; explore</span><span data-only="fa"> تماشا و منابع</span></h2>
+  <p class="sub" data-only="en">Special resources found online — each with what it covers and who it's best for.</p>
+  <p class="sub" data-only="fa">منابعِ ویژه‌ای که آنلاین پیدا شد — هرکدام با اینکه چه می‌گوید و به چه دردی می‌خورد.</p>
+  <div class="mgrid" id="mediaHost"></div>
+  <div class="card" style="margin-top:16px">
+    <div style="font-weight:800;font-size:13.5px;margin-bottom:4px">
+      <span data-only="en">Go straight to the source</span><span data-only="fa">مستقیم سراغِ منبع برو</span>
+    </div>
+    <div class="golist" id="goHost"></div>
+  </div>
+
+  <!-- ── APPLY ────────────────────────────────────────────── -->
+  <h2 id="apply"><span class="num" data-only="en">6.</span><span class="num" data-only="fa">۶.</span>
+    <span data-only="en"> Apply it this week</span><span data-only="fa"> این هفته امتحانش کن</span></h2>
+  <p class="sub" data-only="en">Four small moves that turn the idea into a habit.</p>
+  <p class="sub" data-only="fa">چهار حرکتِ کوچک که این ایده را به عادت تبدیل می‌کنند.</p>
+  <div class="rec" id="recHost"></div>
+
+  <!-- ── METHOD ───────────────────────────────────────────── -->
+  <h2 id="method"><span class="num" data-only="en">7.</span><span class="num" data-only="fa">۷.</span>
+    <span data-only="en"> Sources &amp; notes</span><span data-only="fa"> منابع و توضیح</span></h2>
+  <div class="card method" id="methodHost"></div>
+
+  <!-- ── CREDIT FOOTER ────────────────────────────────────── -->
+  <div class="credit">
+    <span data-only="en">Created by <span class="cname">Behnam Atefi</span><span class="sep">·</span><a class="li" href="https://www.linkedin.com/in/behnamatefi/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.3c0-1.26-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9z"/></svg>LinkedIn</a></span>
+    <span data-only="fa">ساخته‌شده توسط <span class="cname">بهنام عاطفی</span><span class="sep">·</span><a class="li" href="https://www.linkedin.com/in/behnamatefi/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.3c0-1.26-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9z"/></svg>لینکدین</a></span>
+  </div>
+</div>
+
+<!-- ═══════════════════════ SCRIPTS ═══════════════════════ -->
+<script>
+/* ── 1) language + formatters ─────────────────────────────── */
+var LANG = document.documentElement.getAttribute('data-lang') || 'fa';
+var FA_D = '۰۱۲۳۴۵۶۷۸۹';
+var RLM  = '‏';
+function faDigits(s){ return String(s).replace(/[0-9]/g, function(d){ return FA_D[+d]; }); }
+/* honor the RTL preference: isolate Latin runs (word order preserved) and mark with U+200F */
+function rlm(s){
+  return String(s)
+    .replace(/[A-Za-zÀ-ɏ][A-Za-zÀ-ɏ0-9'’.&:\/\-]*(?:\s+[A-Za-zÀ-ɏ0-9'’.&:\/\-]+)*/g,
+      function(m){ return RLM+'⁦'+m+'⁩'+RLM; })
+    .replace(/[0-9۰-۹]+/g, function(m){ return m+RLM; });
+}
+/* transform only TEXT segments, never HTML tags (so <b>/<i> survive) */
+function faText(s){ return String(s).replace(/(<[^>]+>)|([^<]+)/g, function(m,tag,txt){ return tag ? tag : faDigits(rlm(txt)); }); }
+function TX(o){ if(o==null) return ''; if(typeof o==='string') return o; return LANG==='fa' ? faText(o.fa) : o.en; }
+function num(n){ return LANG==='fa' ? faDigits(n) : String(n); }
+function tok(name){ return getComputedStyle(document.documentElement).getPropertyValue(name).trim(); }
+</script>
+
+<script>
+/* ── DATA LAYER — Atomic Habits (bilingual, plain-spoken Persian) ── */
+var DATA = {"tldr":[{"en":"The whole book in one line: escape the build trap by measuring success by outcomes — the value you create — not by output, the features you ship.","fa":"خلاصهٔ کل کتاب در یک جمله: از تلهٔ ساختن بیرون بیا، با سنجیدنِ موفقیت بر اساسِ نتیجه — ارزشی که می‌سازی — نه خروجی، یعنی ویژگی‌هایی که عرضه می‌کنی."},{"en":"A product is a <b>vehicle of value</b>: you only win when it solves a real customer problem <b>and</b> the business gets value back — the value exchange.","fa":"محصول یک <b>وسیلهٔ ارزش</b> است: فقط وقتی می‌بَری که یک مشکلِ واقعیِ مشتری را حل کند <b>و</b> کسب‌وکار هم ارزش پس بگیرد — همان معاملهٔ ارزش."},{"en":"The <b>product manager</b> isn't a mini-CEO; they're a strategist who owns the <b>why</b> and connects business goals to customer problems.","fa":"<b>مدیرِ محصول</b> یک مدیرعاملِ کوچک نیست؛ استراتژیستی است که مسئولِ <b>چرایی</b>ست و هدف‌های کسب‌وکار را به مشکل‌های مشتری وصل می‌کند."},{"en":"<b>Strategy</b> is a decision-making framework, not a plan: a vision, a few <b>strategic intents</b>, and product <b>initiatives</b> — never just a feature list.","fa":"<b>استراتژی</b> یک چارچوبِ تصمیم‌گیری است، نه یک نقشه: یک چشم‌انداز، چند <b>نیتِ استراتژیک</b>، و <b>طرح‌های</b> محصول — نه فقط یک فهرستِ ویژگی."},{"en":"Run the process — the <b>Product Kata</b> — to explore problems and experiment on solutions, then build an org with outcome-based roadmaps that <b>rewards learning</b>.","fa":"فرایند را اجرا کن — <b>کاتای محصول</b> — تا مشکل‌ها را بکاوی و روی راه‌حل‌ها آزمایش کنی، بعد سازمانی بساز با نقشه‌راهِ نتیجه‌محور که <b>یادگیری را پاداش می‌دهد</b>."}],"parts":[{"key":"buildtrap","varc":"--c-teal","name":{"en":"The Build Trap","fa":"تلهٔ ساختن"},"tag":{"en":"The core problem","fa":"مشکلِ اصلی"},"gist":{"en":"Output vs outcome, the value exchange, and the feature-factory trap.","fa":"خروجی در برابرِ نتیجه، معاملهٔ ارزش، و تلهٔ کارخانهٔ ویژگی."},"more":{"en":"This is the disease the whole book cures. When success means features shipped, teams get busy building things nobody measures — mistaking output for progress. Name the trap first: see how value really works, and how easily a roadmap becomes a treadmill.","fa":"این همان بیماری‌ای است که کلِ کتاب درمانش می‌کند. وقتی موفقیت یعنی تعدادِ ویژگیِ عرضه‌شده، تیم‌ها سرشان به ساختنِ چیزهایی گرم می‌شود که هیچ‌کس اندازه‌شان نمی‌گیرد — و حرکت را با پیشرفت اشتباه می‌گیرند. اول اسمِ تله را ببر: ببین ارزش واقعاً چطور کار می‌کند، و چه راحت یک نقشه‌راه به یک تردمیل تبدیل می‌شود."},"chapters":["output","value","factory"]},{"key":"role","varc":"--c-blue","name":{"en":"The Product Manager","fa":"مدیرِ محصول"},"tag":{"en":"Who owns the why","fa":"چه کسی مسئولِ چراییست"},"gist":{"en":"Not a mini-CEO but a strategist who owns the why — and isn't a project manager.","fa":"نه یک مدیرعاملِ کوچک، بلکه استراتژیستی که مسئولِ چراییست — و مدیرِ پروژه نیست."},"more":{"en":"If output is the disease, a real product manager is the first cure. Perri clears up what the job actually is — not commanding like a CEO, not administering a backlog like a project manager, but owning the why: the strategist who ties business value to customer problems, with a real career path behind it.","fa":"اگر خروجی‌زدگی بیماری است، یک مدیرِ محصولِ واقعی اولین درمان است. پری روشن می‌کند این کار واقعاً چیست — نه فرمان‌دادن مثلِ یک مدیرعامل، نه ادارهٔ یک فهرستِ کار مثلِ یک مدیرِ پروژه، بلکه مسئولیتِ چرایی: همان استراتژیستی که ارزشِ کسب‌وکار را به مشکلِ مشتری گره می‌زند، با یک مسیرِ شغلیِ واقعی پشتش."},"chapters":["miniceo","strategist","vspjm","ladder"]},{"key":"strategy","varc":"--c-amber","name":{"en":"Strategy","fa":"استراتژی"},"tag":{"en":"Direction that decides","fa":"جهتی که تصمیم می‌سازد"},"gist":{"en":"A decision-making framework: vision, strategic intents, and product initiatives.","fa":"یک چارچوبِ تصمیم‌گیری: چشم‌انداز، نیت‌های استراتژیک، و طرح‌های محصول."},"more":{"en":"A good product manager needs a good strategy to point at. Perri's strategy isn't a plan of features; it's a framework that lets every level decide for itself. It flows from a company vision down to a few strategic intents and the product initiatives that chase them.","fa":"یک مدیرِ محصولِ خوب به یک استراتژیِ خوب نیاز دارد که به آن نشانه برود. استراتژی از نگاهِ پری، نقشه‌ای از ویژگی‌ها نیست؛ چارچوبی است که به هر سطح اجازه می‌دهد خودش تصمیم بگیرد. از چشم‌اندازِ شرکت جاری می‌شود پایین تا چند نیتِ استراتژیک و طرح‌های محصولی که دنبالشان می‌روند."},"chapters":["framework","intents","initiatives"]},{"key":"process","varc":"--c-violet","name":{"en":"The Product Process","fa":"فرایندِ محصول"},"tag":{"en":"How the work happens","fa":"کار چطور پیش می‌رود"},"gist":{"en":"The Product Kata: explore the problem, then experiment your way to a solution.","fa":"کاتای محصول: مشکل را بکاو، بعد با آزمایش به راه‌حل برس."},"more":{"en":"Strategy sets the direction; the process does the work. The Product Kata is Perri's repeatable loop for reaching an outcome: understand the direction, explore the real problem, and experiment toward a solution instead of building on faith. It's the scientific method, aimed at customer value.","fa":"استراتژی جهت را تعیین می‌کند؛ فرایند کار را انجام می‌دهد. کاتای محصول، حلقهٔ تکرارشوندهٔ پری برای رسیدن به یک نتیجه است: جهت را بفهم، مشکلِ واقعی را بکاو، و به‌جای ساختن از رویِ ایمان، با آزمایش به‌سمتِ راه‌حل برو. این همان روشِ علمی است، نشانه‌رفته به ارزشِ مشتری."},"chapters":["kata","problem","experiments"]},{"key":"orgled","varc":"--c-green","name":{"en":"The Product-Led Org","fa":"سازمانِ محصول‌محور"},"tag":{"en":"The culture around it","fa":"فرهنگی که دورش است"},"gist":{"en":"Outcome-based roadmaps, staged budgeting, and a culture that rewards learning.","fa":"نقشه‌راهِ نتیجه‌محور، بودجه‌بندیِ مرحله‌ای، و فرهنگی که یادگیری را پاداش می‌دهد."},"more":{"en":"One good team isn't enough; the whole organization has to reward the right thing. A product-led company changes its roadmaps, its budgeting and its culture so that outcomes and learning — not shipping — are what get celebrated. That's what keeps the build trap from creeping back.","fa":"یک تیمِ خوب کافی نیست؛ کلِ سازمان باید به چیزِ درست پاداش بدهد. یک شرکتِ محصول‌محور نقشه‌راه و بودجه‌بندی و فرهنگش را طوری عوض می‌کند که نتیجه و یادگیری — نه عرضه‌کردن — چیزی باشد که تشویق می‌شود. همین است که نمی‌گذارد تلهٔ ساختن دوباره برگردد."},"chapters":["roadmaps","budgeting","culture"]}],"chapters":{"output":{"part":"buildtrap","n":1,"name":{"en":"Output vs Outcome","fa":"خروجی در برابرِ نتیجه"},"glabel":{"en":"Outcomes","fa":"نتیجه"},"principle":{"en":"The build trap is measuring success by output — features shipped — instead of outcomes: the value those features actually create.","fa":"تلهٔ ساختن یعنی موفقیت را با خروجی بسنجی — تعدادِ ویژگیِ عرضه‌شده — به‌جای نتیجه: ارزشی که آن ویژگی‌ها واقعاً می‌سازند."},"more":{"en":"Output is what you produce: features, releases, lines on a roadmap. Outcome is the result — a customer problem solved, a business number moved. In the trap, teams celebrate shipping and mistake motion for progress. The fix is to define the outcome first, then find the smallest work that reaches it.","fa":"خروجی چیزی است که تولید می‌کنی: ویژگی، انتشار، خط‌های یک نقشه‌راه. نتیجه یعنی حاصلِ کار — یک مشکلِ مشتری که حل می‌شود، یک عددِ کسب‌وکار که تکان می‌خورد. در تله، تیم‌ها عرضه‌کردن را جشن می‌گیرند و جنب‌وجوش را با پیشرفت اشتباه می‌گیرند. راهِ درست این است که اول نتیجه را تعریف کنی، بعد کوچک‌ترین کاری را که به آن می‌رسد پیدا کنی."},"example":{"en":"A team that reports “we shipped 30 features this quarter” is measuring output; a team that reports “we cut onboarding drop-off from 60% to 40%” is measuring an outcome.","fa":"تیمی که گزارش می‌دهد «این فصل ۳۰ ویژگی عرضه کردیم» خروجی را می‌سنجد؛ تیمی که می‌گوید «ریزشِ کاربر در آغازِ کار را از ۶۰٪ به ۴۰٪ رساندیم» نتیجه را می‌سنجد."},"tip":{"en":"For your next project, write the outcome you want — a number that moves — before you list any feature.","fa":"برای پروژهٔ بعدی‌ات، قبل از اینکه هر ویژگی‌ای را فهرست کنی، نتیجه‌ای را که می‌خواهی بنویس — یک عددی که تکان می‌خورد."},"pitfall":{"en":"Treating a full release calendar as proof of success.","fa":"یک تقویمِ پُر از انتشار را نشانهٔ موفقیت پنداشتن."}},"value":{"part":"buildtrap","n":2,"name":{"en":"The Value Exchange","fa":"معاملهٔ ارزش"},"glabel":{"en":"Value","fa":"ارزش"},"principle":{"en":"Products are vehicles of value. Real value appears only when the customer's problem is solved and the business gets value back in return.","fa":"محصول‌ها وسیله‌های ارزش‌اند. ارزشِ واقعی فقط وقتی پیدا می‌شود که مشکلِ مشتری حل شود و کسب‌وکار هم در عوض ارزشی پس بگیرد."},"more":{"en":"Perri draws a value exchange: customers give money, time or attention only when a product solves a real problem or fills a need; in return the company earns revenue, loyalty or data. A feature itself isn't value — what it does for the user is. Break either side and the exchange collapses.","fa":"پری یک معاملهٔ ارزش را ترسیم می‌کند: مشتری پول و وقت و توجهش را وقتی می‌دهد که محصول یک مشکلِ واقعی را حل کند یا نیازی را برآورد؛ در عوض شرکت درآمد و وفاداری و داده به‌دست می‌آورد. خودِ یک ویژگی ارزش نیست — آن کاری که برای کاربر می‌کند ارزش است. هر طرفِ این معامله را که بشکنی، کلش فرو می‌ریزد."},"example":{"en":"A subscription renews only while the product keeps solving the user's problem; ship features nobody needs and the exchange — and the revenue — quietly stops.","fa":"یک اشتراک تا وقتی تمدید می‌شود که محصول همچنان مشکلِ کاربر را حل کند؛ ویژگی‌هایی عرضه کن که کسی لازمشان ندارد، آن‌وقت معامله — و درآمد — بی‌سروصدا می‌ایستد."},"tip":{"en":"For any feature, name the customer problem it solves and the business value it returns. If you can't, don't build it.","fa":"برای هر ویژگی، مشکلی را که برای مشتری حل می‌کند و ارزشی را که برای کسب‌وکار برمی‌گرداند نام ببر. اگر نتوانستی، نسازش."},"pitfall":{"en":"Assuming a product is valuable just because you built it.","fa":"فرض‌کردنِ اینکه محصول ارزشمند است، فقط چون ساختی‌اش."}},"factory":{"part":"buildtrap","n":3,"name":{"en":"Feature Factories","fa":"کارخانه‌های ویژگی"},"glabel":{"en":"Feature Factory","fa":"کارخانهٔ ویژگی"},"principle":{"en":"A feature factory pumps out features on a roadmap treadmill, rewarding people for shipping rather than for solving problems.","fa":"کارخانهٔ ویژگی روی یک تردمیلِ نقشه‌راه، ویژگی پشتِ ویژگی بیرون می‌دهد و به آدم‌ها به‌خاطرِ عرضه‌کردن پاداش می‌دهد، نه به‌خاطرِ حلِ مشکل."},"more":{"en":"In a feature factory, “value” becomes the number of features delivered, and building becomes the goal in itself. Long backlogs, packed release plans and “did we ship it?” reviews replace any question about whether customers are better off. It feels productive and busy — which is exactly why it's a trap.","fa":"در یک کارخانهٔ ویژگی، «ارزش» می‌شود تعدادِ ویژگیِ تحویل‌داده‌شده، و خودِ ساختن هدف می‌شود. فهرست‌های بلندِ کار، برنامه‌های فشردهٔ انتشار و جلسه‌های «عرضه‌اش کردیم؟» جای هر پرسشی دربارهٔ اینکه حالِ مشتری بهتر شده یا نه را می‌گیرند. حسِ پُرکار و مولد بودن می‌دهد — و دقیقاً به همین خاطر یک تله است."},"example":{"en":"When success is judged by how many roadmap items shipped — not whether any metric moved — you're running a feature factory.","fa":"وقتی موفقیت را با این می‌سنجند که چند موردِ نقشه‌راه عرضه شد — نه اینکه آیا معیاری تکان خورد — داری یک کارخانهٔ ویژگی می‌گردانی."},"tip":{"en":"Audit last quarter: for each shipped feature, can you point to an outcome it moved? Count the ones that can't.","fa":"فصلِ گذشته را وارسی کن: برای هر ویژگیِ عرضه‌شده، می‌توانی نتیجه‌ای را که جابه‌جا کرده نشان بدهی؟ آن‌هایی را که نمی‌توانی بشمار."},"pitfall":{"en":"Rewarding teams for velocity and output instead of results.","fa":"پاداش‌دادن به تیم‌ها به‌خاطرِ سرعت و خروجی، به‌جای نتیجه."}},"miniceo":{"part":"role","n":4,"name":{"en":"Not the Mini-CEO","fa":"نه مدیرعاملِ کوچک"},"glabel":{"en":"Not a Mini-CEO","fa":"نه مدیرعامل"},"principle":{"en":"The product manager is not the CEO of the product. They carry huge responsibility but little direct authority — they lead through influence, not command.","fa":"مدیرِ محصول، مدیرعاملِ محصول نیست. مسئولیتِ سنگینی دارد اما اختیارِ مستقیمِ کمی — با نفوذ رهبری می‌کند، نه با فرمان."},"more":{"en":"The “mini-CEO” myth sets PMs up to fail: real CEOs command budgets and hire and fire; PMs don't. What a good PM actually does is understand the business and the customer deeply enough that the team wants to follow — aligning people around the right problem instead of ordering them around.","fa":"افسانهٔ «مدیرعاملِ کوچک» مدیرِ محصول را به شکست می‌کشاند: مدیرعاملِ واقعی بر بودجه فرمان می‌راند و استخدام و اخراج می‌کند؛ مدیرِ محصول نه. کاری که یک مدیرِ محصولِ خوب واقعاً می‌کند این است که کسب‌وکار و مشتری را آن‌قدر عمیق بفهمد که تیم بخواهد دنبالش بیاید — آدم‌ها را دورِ مشکلِ درست هم‌سو می‌کند، نه اینکه به آن‌ها دستور بدهد."},"example":{"en":"A PM can't force engineering to build something; they win the team over with evidence about the customer's problem and the outcome at stake.","fa":"مدیرِ محصول نمی‌تواند مهندسی را مجبور کند چیزی بسازد؛ تیم را با شواهدی دربارهٔ مشکلِ مشتری و نتیجه‌ای که در میان است با خودش همراه می‌کند."},"tip":{"en":"Drop the “I decide” posture; bring data and a clear problem so the team chooses the direction with you.","fa":"ژستِ «من تصمیم می‌گیرم» را کنار بگذار؛ داده و یک مشکلِ روشن بیاور تا تیم همراهِ تو جهت را انتخاب کند."},"pitfall":{"en":"Playing the all-powerful CEO and losing the team's trust.","fa":"نقشِ مدیرعاملِ همه‌کاره را بازی‌کردن و اعتمادِ تیم را از دست دادن."}},"strategist":{"part":"role","n":5,"name":{"en":"The PM as Strategist","fa":"مدیرِ محصول به‌عنوانِ استراتژیست"},"glabel":{"en":"Strategist","fa":"استراتژیست"},"principle":{"en":"A great product manager owns the why — connecting the company's business goals to real customer value.","fa":"یک مدیرِ محصولِ خوب مسئولِ چراییست — هدف‌های کسب‌وکارِ شرکت را به ارزشِ واقعیِ مشتری وصل می‌کند."},"more":{"en":"The PM's job is to figure out what to build and why it matters: which customer problem, tied to which business outcome. They sit between business, technology and design, and their unique contribution is judgment about value — not writing tickets, but deciding what's worth doing.","fa":"کارِ مدیرِ محصول این است که بفهمد چه باید ساخت و چرا مهم است: کدام مشکلِ مشتری، گره‌خورده به کدام نتیجهٔ کسب‌وکار. بینِ کسب‌وکار و فناوری و طراحی می‌ایستد، و سهمِ یگانه‌اش قضاوت دربارهٔ ارزش است — نه نوشتنِ تیکت، بلکه تصمیم دربارهٔ اینکه چه چیزی ارزشِ انجام‌دادن دارد."},"example":{"en":"When a business goal (“grow retention”) meets a customer problem (“users can't find what they saved”), the PM is the one who connects them into the right thing to build.","fa":"وقتی یک هدفِ کسب‌وکار («نگه‌داشتنِ کاربر را بالا ببریم») به یک مشکلِ مشتری می‌رسد («کاربرها چیزی را که ذخیره کرده‌اند پیدا نمی‌کنند»)، مدیرِ محصول همان کسی است که این دو را به چیزِ درستی برای ساختن وصل می‌کند."},"tip":{"en":"For every initiative, write one line linking a business goal to a customer problem. That link is your job.","fa":"برای هر طرح، یک خط بنویس که یک هدفِ کسب‌وکار را به یک مشکلِ مشتری وصل کند. همین وصل‌کردن، کارِ توست."},"pitfall":{"en":"Getting buried in the backlog and never owning the why.","fa":"زیرِ فهرستِ کار دفن‌شدن و هیچ‌وقت مسئولِ چرایی نبودن."}},"vspjm":{"part":"role","n":6,"name":{"en":"PM vs Project Manager","fa":"مدیرِ محصول یا مدیرِ پروژه"},"glabel":{"en":"PM vs PjM","fa":"محصول/پروژه"},"principle":{"en":"A project manager owns the when and how of delivery; a product manager owns the what and why of value.","fa":"مدیرِ پروژه مسئولِ «کِی و چگونهِ» تحویل است؛ مدیرِ محصول مسئولِ «چه و چراییِ» ارزش."},"more":{"en":"The two roles get confused constantly. Project management — timelines, coordination, shipping on schedule — is real and useful, but it executes a known plan. Product management discovers what's worth building in the first place. A PM stuck doing only project management has been pulled right back into the build trap.","fa":"این دو نقش مدام با هم اشتباه گرفته می‌شوند. مدیریتِ پروژه — زمان‌بندی، هماهنگی، عرضه سرِ موعد — واقعی و مفید است، اما یک نقشهٔ معلوم را اجرا می‌کند. مدیریتِ محصول از اولش کشف می‌کند که چه چیزی ارزشِ ساختن دارد. مدیرِ محصولی که فقط گیرِ مدیریتِ پروژه افتاده، دوباره کشیده شده توی تلهٔ ساختن."},"example":{"en":"“When will this ship?” is a project-management question; “Should we build this at all, and what outcome will it drive?” is a product one.","fa":"«کِی عرضه می‌شود؟» پرسشِ مدیریتِ پروژه است؛ «اصلاً باید این را بسازیم، و چه نتیجه‌ای می‌سازد؟» پرسشِ مدیریتِ محصول است."},"tip":{"en":"If your week is all schedules and status, reclaim time to talk to customers and define value.","fa":"اگر کلِ هفته‌ات زمان‌بندی و گزارشِ وضعیت است، وقتی را پس بگیر تا با مشتری حرف بزنی و ارزش را تعریف کنی."},"pitfall":{"en":"Reducing the PM to a backlog administrator and ticket-mover.","fa":"تقلیلِ مدیرِ محصول به یک متصدیِ فهرستِ کار و جابه‌جاکنندهٔ تیکت."}},"ladder":{"part":"role","n":7,"name":{"en":"The Career Ladder","fa":"نردبانِ شغلی"},"glabel":{"en":"Career Ladder","fa":"نردبانِ شغلی"},"principle":{"en":"Product management is a craft with a real career path — from associate PM up to Chief Product Officer — not a dead-end or a title for everyone.","fa":"مدیریتِ محصول یک حرفه با یک مسیرِ شغلیِ واقعی است — از مدیرِ محصولِ تازه‌کار تا مدیرِ ارشدِ محصول — نه یک بن‌بست و نه عنوانی برای همه."},"more":{"en":"Perri lays out the roles: associate PM, PM, senior PM, then director, VP and CPO. Junior roles focus on features and execution; senior roles own strategy and outcomes across teams. Companies escape the build trap partly by building this ladder, so real product leadership exists and is rewarded.","fa":"پری نقش‌ها را می‌چیند: مدیرِ محصولِ تازه‌کار، مدیرِ محصول، مدیرِ محصولِ ارشد، بعد مدیرِ بخش، معاون، و مدیرِ ارشدِ محصول. نقش‌های پایین‌تر روی ویژگی و اجرا تمرکز دارند؛ نقش‌های ارشد مسئولِ استراتژی و نتیجه در چند تیم‌اند. شرکت‌ها تا حدی با ساختنِ همین نردبان از تلهٔ ساختن بیرون می‌آیند، تا رهبریِ واقعیِ محصول وجود داشته باشد و پاداش بگیرد."},"example":{"en":"A director of product sets outcomes across several teams and coaches PMs; an associate PM learns the craft on a single feature area.","fa":"یک مدیرِ بخشِ محصول برای چند تیم نتیجه تعیین می‌کند و به مدیرهای محصول آموزش می‌دهد؛ یک مدیرِ محصولِ تازه‌کار روی یک حوزهٔ ویژگی، کار را یاد می‌گیرد."},"tip":{"en":"Name the next rung on your ladder and the one skill — usually strategic thinking — that gets you there.","fa":"پلهٔ بعدیِ نردبانت را نام ببر و آن یک مهارتی را که تو را به آن می‌رساند — که معمولاً فکرِ استراتژیک است."},"pitfall":{"en":"Expecting strategic leadership from a team of only junior PMs.","fa":"انتظارِ رهبریِ استراتژیک از تیمی که فقط مدیرِ محصولِ تازه‌کار دارد."}},"framework":{"part":"strategy","n":8,"name":{"en":"Strategy as a Framework","fa":"استراتژی به‌مثابهٔ چارچوب"},"glabel":{"en":"Framework","fa":"چارچوب"},"principle":{"en":"Strategy isn't a detailed plan or a feature list — it's a decision-making framework that helps everyone act toward the same outcomes.","fa":"استراتژی یک نقشهٔ ریز یا فهرستِ ویژگی نیست — یک چارچوبِ تصمیم‌گیری است که به همه کمک می‌کند به‌سمتِ نتیجه‌های یکسان عمل کنند."},"more":{"en":"Perri, drawing on Stephen Bungay, defines strategy as a deployable decision-making framework. Instead of dictating every step, it gives each level enough direction to decide for itself how to reach the goal. That's strategy deployment: leaders set the outcomes, teams choose the how.","fa":"پری، با تکیه بر استیون بانگی، استراتژی را یک چارچوبِ تصمیم‌گیریِ قابلِ‌اجرا تعریف می‌کند. به‌جای دیکته‌کردنِ هر قدم، به هر سطح آن‌قدر جهت می‌دهد که خودش تصمیم بگیرد چطور به هدف برسد. این همان «استقرارِ استراتژی» است: رهبرها نتیجه‌ها را تعیین می‌کنند، تیم‌ها «چگونه» را انتخاب می‌کنند."},"example":{"en":"“Become the easiest tool for small teams to adopt” guides a hundred small decisions; “ship features A, B and C by Q3” guides none once the plan slips.","fa":"«ساده‌ترین ابزار برای پذیرشِ تیم‌های کوچک شویم» صد تصمیمِ کوچک را راهنمایی می‌کند؛ «ویژگی‌های الف و ب و پ را تا فصلِ سوم عرضه کن» به‌محضِ اینکه نقشه عقب بیفتد، هیچ راهنمایی‌ای نمی‌کند."},"tip":{"en":"Replace a plan of features with a short framework of outcomes people can actually decide against.","fa":"یک نقشهٔ پُر از ویژگی را با یک چارچوبِ کوتاه از نتیجه‌ها عوض کن که آدم‌ها واقعاً بتوانند بر اساسش تصمیم بگیرند."},"pitfall":{"en":"Confusing a Gantt chart of features with a strategy.","fa":"یک نمودارِ گانتِ پُر از ویژگی را با استراتژی اشتباه‌گرفتن."}},"intents":{"part":"strategy","n":9,"name":{"en":"Vision & Strategic Intents","fa":"چشم‌انداز و نیت‌های استراتژیک"},"glabel":{"en":"Intents","fa":"نیت‌ها"},"principle":{"en":"A vision points at where the company is going; strategic intents are the few outcome-based goals that get you there now.","fa":"چشم‌انداز نشان می‌دهد شرکت به کجا می‌رود؛ نیت‌های استراتژیک همان چند هدفِ نتیجه‌محورند که همین حالا تو را به آنجا می‌رسانند."},"more":{"en":"Above the teams sits a company vision — the long-term picture. Strategic intents translate it into a handful of high-level, outcome-oriented business goals for the current horizon. They tell the whole organization where to focus, without prescribing the features.","fa":"بالای سرِ تیم‌ها یک چشم‌اندازِ شرکت نشسته — تصویرِ بلندمدت. نیت‌های استراتژیک آن را به مشتی هدفِ کلانِ نتیجه‌محور برای افقِ فعلی ترجمه می‌کنند. به کلِ سازمان می‌گویند کجا تمرکز کند، بی‌آنکه ویژگی‌ها را تجویز کنند."},"example":{"en":"Vision: “everyone can invest.” Strategic intent this year: “make first-time investors succeed in their first month” — an outcome, not a feature.","fa":"چشم‌انداز: «همه بتوانند سرمایه‌گذاری کنند.» نیتِ استراتژیکِ امسال: «کاری کن سرمایه‌گذارهای تازه‌کار در ماهِ اولشان موفق شوند» — یک نتیجه، نه یک ویژگی."},"tip":{"en":"Write your top strategic intent as an outcome with a number, not a project.","fa":"مهم‌ترین نیتِ استراتژیکت را به‌شکلِ یک نتیجه با یک عدد بنویس، نه یک پروژه."},"pitfall":{"en":"A lofty vision with no concrete intents to focus effort.","fa":"یک چشم‌اندازِ بلندبالا بدونِ هیچ نیتِ مشخصی که تلاش را متمرکز کند."}},"initiatives":{"part":"strategy","n":10,"name":{"en":"Product Initiatives","fa":"طرح‌های محصول"},"glabel":{"en":"Initiatives","fa":"طرح‌ها"},"principle":{"en":"Product initiatives are the bets — the problem areas and options a product team takes on to achieve a strategic intent.","fa":"طرح‌های محصول همان شرط‌ها هستند — حوزه‌های مشکل و گزینه‌هایی که یک تیمِ محصول برمی‌دارد تا به یک نیتِ استراتژیک برسد."},"more":{"en":"Between the intent and the day-to-day work sit product initiatives: the specific problem areas you'll tackle to move an intent. They're framed as options to explore, not features promised. This layering — vision, intents, initiatives, options — is how strategy connects the boardroom to the backlog.","fa":"بینِ نیت و کارِ روزمره، طرح‌های محصول قرار دارند: همان حوزه‌های مشخصِ مشکل که سراغشان می‌روی تا یک نیت را جلو ببری. این‌ها به‌شکلِ گزینه‌هایی برای کاوش دیده می‌شوند، نه ویژگی‌هایی که وعده داده شده. همین لایه‌لایه‌بودن — چشم‌انداز، نیت، طرح، گزینه — است که استراتژی را از اتاقِ هیئت‌مدیره به فهرستِ کار وصل می‌کند."},"example":{"en":"To hit the intent “first-month success,” an initiative might be “reduce the setup effort for new accounts” — explored through several possible solutions.","fa":"برای رسیدن به نیتِ «موفقیت در ماهِ اول»، یک طرح می‌تواند این باشد: «زحمتِ راه‌اندازیِ حساب‌های تازه را کم کن» — که با چند راه‌حلِ ممکن کاویده می‌شود."},"tip":{"en":"For each strategic intent, pick one or two initiatives and hold the rest.","fa":"برای هر نیتِ استراتژیک، یکی‌دو طرح انتخاب کن و بقیه را نگه دار."},"pitfall":{"en":"Jumping straight from a big goal to a fixed feature, skipping the problem.","fa":"پریدن از یک هدفِ بزرگ مستقیم به یک ویژگیِ ثابت و جا‌انداختنِ خودِ مشکل."}},"kata":{"part":"process","n":11,"name":{"en":"The Product Kata","fa":"کاتای محصول"},"glabel":{"en":"Product Kata","fa":"کاتا"},"principle":{"en":"The Product Kata is a repeatable, scientific loop that keeps a team aimed at an outcome instead of a feature.","fa":"کاتای محصول یک حلقهٔ تکرارشونده و علمی است که تیم را به‌جای یک ویژگی، نشانه‌رفته به یک نتیجه نگه می‌دارد."},"more":{"en":"Borrowed from the Toyota Kata, Perri's Product Kata asks four questions again and again: What is the goal (the outcome)? Where are we now? What is the biggest obstacle in the way? What experiment will we run next? It turns product work into disciplined problem-solving rather than order-taking.","fa":"پری کاتای محصول را از «کاتای تویوتا» گرفته و چهار پرسش را بارها و بارها می‌پرسد: هدف چیست (نتیجه)؟ الان کجاییم؟ بزرگ‌ترین مانعِ سرِ راه چیست؟ آزمایشِ بعدی‌ای که اجرا می‌کنیم چیست؟ این کارِ محصول را از سفارش‌گرفتن به یک حلِ‌مسئلهٔ منظم تبدیل می‌کند."},"example":{"en":"Goal: cut checkout abandonment. Current: 40% abandon. Obstacle: users don't trust the payment step. Next: test a trust badge and measure.","fa":"هدف: کم‌کردنِ رهاکردنِ پرداخت. اکنون: ۴۰٪ رها می‌کنند. مانع: کاربرها به مرحلهٔ پرداخت اعتماد ندارند. قدمِ بعدی: یک نشانِ اعتماد را آزمایش کن و بسنج."},"tip":{"en":"Post the four Kata questions where your team works and answer them every week.","fa":"چهار پرسشِ کاتا را جایی که تیمت کار می‌کند بزن و هر هفته جوابشان بده."},"pitfall":{"en":"Jumping to “what should we build?” before naming the obstacle.","fa":"پریدن سراغِ «چه بسازیم؟» قبل از اینکه اسمِ مانع را برده باشی."}},"problem":{"part":"process","n":12,"name":{"en":"Problem Exploration","fa":"کاوشِ مسئله"},"glabel":{"en":"Problem","fa":"مسئله"},"principle":{"en":"Understand the problem deeply before you commit to a solution — get out and talk to customers.","fa":"قبل از اینکه به یک راه‌حل متعهد شوی، مشکل را عمیق بفهم — از پشتِ میز بیا بیرون و با مشتری‌ها حرف بزن."},"more":{"en":"Problem exploration is where you make sure you're solving something real. Perri warns that PMs are called the “voice of the customer” yet rarely get out and talk to them. Interviews, observation and data reveal the actual problem, which is usually not the first feature request you heard.","fa":"کاوشِ مسئله همان‌جایی است که مطمئن می‌شوی داری چیزِ واقعی‌ای را حل می‌کنی. پری هشدار می‌دهد که مدیرهای محصول را «صدای مشتری» می‌نامند، اما کم پیش می‌آید بیرون بروند و با مشتری حرف بزنند. مصاحبه، مشاهده و داده، مشکلِ واقعی را نشان می‌دهند، که معمولاً همان اولین درخواستِ ویژگی‌ای که شنیده‌ای نیست."},"example":{"en":"A “we need a dashboard” request, explored, turns out to be “I can't tell if my campaign is working” — a different, smaller problem to solve.","fa":"درخواستِ «به یک داشبورد نیاز داریم» را که بکاوی، معلوم می‌شود در واقع «نمی‌فهمم کمپینم دارد کار می‌کند یا نه» است — یک مشکلِ دیگر و کوچک‌تر برای حل‌کردن."},"tip":{"en":"Before designing anything, interview five real users about the problem — not your solution.","fa":"قبل از اینکه چیزی طراحی کنی، با پنج کاربرِ واقعی دربارهٔ مشکل مصاحبه کن — نه دربارهٔ راه‌حلت."},"pitfall":{"en":"Building the first solution someone asked for without checking the problem.","fa":"ساختنِ اولین راه‌حلی که یک نفر خواسته، بدونِ اینکه خودِ مشکل را وارسی کنی."}},"experiments":{"part":"process","n":13,"name":{"en":"Solution Experiments","fa":"آزمایشِ راه‌حل"},"glabel":{"en":"Experiments","fa":"آزمایش"},"principle":{"en":"Test solutions cheaply before you build them — run experiments to learn, and kill weak ideas early.","fa":"راه‌حل‌ها را قبل از ساختن، ارزان آزمایش کن — برای یادگیری آزمایش کن، و ایده‌های ضعیف را زود بکُش."},"more":{"en":"Once the problem is clear, treat solutions as hypotheses. Concept tests, prototypes, Wizard-of-Oz mockups and small experiments let you learn with the minimum effort before writing expensive code. The goal isn't to ship the experiment; it's to learn whether the idea deserves to be built at all.","fa":"وقتی مشکل روشن شد، راه‌حل‌ها را فرضیه بدان. آزمونِ مفهوم، نمونهٔ اولیه، ماکتِ «آدمِ پشتِ پرده» و آزمایش‌های کوچک به تو اجازه می‌دهند با کمترین زحمت، قبل از نوشتنِ کدِ گران‌قیمت، یاد بگیری. هدف عرضهٔ خودِ آزمایش نیست؛ هدف این است که بفهمی اصلاً این ایده ارزشِ ساخته‌شدن دارد یا نه."},"example":{"en":"Before building a feature, a landing page or a clickable prototype can show whether anyone actually wants it — for a fraction of the cost.","fa":"قبل از ساختنِ یک ویژگی، یک صفحهٔ فرود یا یک نمونهٔ اولیهٔ کلیک‌شدنی می‌تواند نشان بدهد که آیا اصلاً کسی آن را می‌خواهد — با کسری از هزینه."},"tip":{"en":"For your riskiest assumption, design the cheapest test that could prove it wrong this week.","fa":"برای پرخطرترین فرضت، ارزان‌ترین آزمونی را طراحی کن که بتواند همین هفته غلط‌بودنش را ثابت کند."},"pitfall":{"en":"Falling in love with an idea and building it before testing it.","fa":"عاشقِ یک ایده شدن و ساختنش قبل از آزمایش‌کردنش."}},"roadmaps":{"part":"orgled","n":14,"name":{"en":"Outcome-Based Roadmaps","fa":"نقشه‌راهِ نتیجه‌محور"},"glabel":{"en":"Roadmaps","fa":"نقشه‌راه"},"principle":{"en":"Roadmaps should promise outcomes and problems to solve, not a fixed list of dated features.","fa":"نقشه‌راه باید نتیجه‌ها و مشکل‌هایی برای حل‌کردن را وعده بدهد، نه یک فهرستِ ثابت از ویژگی‌های تاریخ‌دار."},"more":{"en":"A traditional roadmap is a feature calendar that locks teams into output. An outcome-based roadmap communicates the problems you'll tackle and the results you're after, with confidence levels that sharpen as you learn. It keeps stakeholders aligned on value while leaving teams free to discover the best solution.","fa":"نقشه‌راهِ سنتی یک تقویمِ ویژگی است که تیم‌ها را در خروجی حبس می‌کند. نقشه‌راهِ نتیجه‌محور، مشکل‌هایی را که سراغشان می‌روی و نتیجه‌هایی را که دنبالشانی منتقل می‌کند، با درجه‌های اطمینانی که هرچه یاد می‌گیری تیزتر می‌شوند. ذی‌نفع‌ها را دورِ ارزش هم‌سو نگه می‌دارد و در همان حال تیم‌ها را آزاد می‌گذارد که بهترین راه‌حل را کشف کنند."},"example":{"en":"Instead of “Q3: build feature X,” the roadmap says “Q3: reduce time-to-first-value for new users,” and the team finds the how.","fa":"به‌جای «فصلِ سوم: ویژگیِ ایکس را بساز»، نقشه‌راه می‌گوید «فصلِ سوم: زمانِ رسیدنِ کاربرِ تازه به اولین ارزش را کم کن»، و تیم خودش «چگونه» را پیدا می‌کند."},"tip":{"en":"Rewrite one roadmap line from a feature into the outcome it's meant to achieve.","fa":"یک خطِ نقشه‌راه را از یک ویژگی به نتیجه‌ای که قرار است بسازد بازنویسی کن."},"pitfall":{"en":"Committing to dated features you haven't validated yet.","fa":"تعهد به ویژگی‌های تاریخ‌داری که هنوز اعتبارشان را نسنجیده‌ای."}},"budgeting":{"part":"orgled","n":15,"name":{"en":"Budgeting for Outcomes","fa":"بودجه‌بندی برای نتیجه"},"glabel":{"en":"Budgeting","fa":"بودجه"},"principle":{"en":"Fund product work like a venture investor — in stages, backing options as they prove out, not one big annual bet.","fa":"کارِ محصول را مثلِ یک سرمایه‌گذارِ خطرپذیر تأمینِ مالی کن — مرحله‌به‌مرحله، و همان‌طور که گزینه‌ها خودشان را ثابت می‌کنند پشتشان را بگیر، نه با یک شرطِ سالانهٔ بزرگ."},"more":{"en":"In many companies the annual budget locks in a year of features up front, which cements the build trap. Perri suggests funding initiatives incrementally: give a small amount to explore, then invest more as evidence of value grows. Money follows learning, so failing ideas are stopped cheaply and winners get fed.","fa":"در خیلی از شرکت‌ها بودجهٔ سالانه، یک سالِ پُر از ویژگی را از همان اول قفل می‌کند، و همین تلهٔ ساختن را سفت می‌کند. پری پیشنهاد می‌دهد طرح‌ها را پله‌پله تأمین کنی: یک مبلغِ کوچک برای کاوش بده، بعد هرچه شواهدِ ارزش بیشتر شد، بیشتر سرمایه بگذار. پول دنبالِ یادگیری می‌رود، پس ایده‌های شکست‌خورده ارزان متوقف می‌شوند و برنده‌ها تغذیه می‌شوند."},"example":{"en":"Rather than approving a whole project for the year, leadership funds a discovery phase, reviews what was learned, then decides whether to invest further.","fa":"به‌جای تصویبِ یک پروژهٔ کامل برای کلِ سال، رهبری یک مرحلهٔ کشف را تأمین می‌کند، آنچه یاد گرفته شده را مرور می‌کند، بعد تصمیم می‌گیرد که بیشتر سرمایه بگذارد یا نه."},"tip":{"en":"Frame your next ask as a small amount to learn, with more contingent on results.","fa":"درخواستِ بعدی‌ات را به‌شکلِ یک مبلغِ کوچک برای یادگیری بچین، که بیشترش وابسته به نتیجه باشد."},"pitfall":{"en":"Locking a full year of spending to a fixed plan no one can revisit.","fa":"قفل‌کردنِ خرجِ یک سالِ کامل به یک نقشهٔ ثابت که هیچ‌کس نمی‌تواند بازبینی‌اش کند."}},"culture":{"part":"orgled","n":16,"name":{"en":"Rewarding Learning","fa":"پاداش به یادگیری"},"glabel":{"en":"Learning","fa":"یادگیری"},"principle":{"en":"A product-led culture measures and rewards outcomes and learning — not the sheer volume of features shipped.","fa":"یک فرهنگِ محصول‌محور، نتیجه و یادگیری را می‌سنجد و پاداش می‌دهد — نه حجمِ صِرفِ ویژگیِ عرضه‌شده."},"more":{"en":"Culture is what finally keeps a company out of the build trap. When leaders ask “what did we learn and what moved?” instead of “did we ship?”, teams are safe to experiment, kill bad ideas, and chase value. Rewarding learning turns the whole organization toward outcomes for good.","fa":"فرهنگ همان چیزی است که در نهایت یک شرکت را بیرونِ تلهٔ ساختن نگه می‌دارد. وقتی رهبرها به‌جای «عرضه‌اش کردیم؟» می‌پرسند «چه یاد گرفتیم و چه چیزی تکان خورد؟»، تیم‌ها با خیالِ راحت آزمایش می‌کنند، ایده‌های بد را می‌کُشند، و دنبالِ ارزش می‌روند. پاداش‌دادن به یادگیری، کلِ سازمان را برای همیشه به‌سمتِ نتیجه می‌چرخاند."},"example":{"en":"A team that stops a feature after an experiment shows no value is celebrated for saving effort — not punished for “not shipping.”","fa":"تیمی که بعد از اینکه یک آزمایش نشان می‌دهد ارزشی در کار نیست، یک ویژگی را متوقف می‌کند، به‌خاطرِ صرفه‌جوییِ در زحمت تشویق می‌شود — نه اینکه به‌خاطرِ «عرضه‌نکردن» تنبیه شود."},"tip":{"en":"In your next review, ask what each team learned and which outcome moved, before asking what shipped.","fa":"در جلسهٔ مرورِ بعدی‌ات، قبل از اینکه بپرسی چه عرضه شد، بپرس هر تیم چه یاد گرفت و کدام نتیجه تکان خورد."},"pitfall":{"en":"Praising busyness and shipping while treating learning as failure.","fa":"تحسینِ شلوغیِ کار و عرضه‌کردن، درحالی‌که یادگیری را شکست حساب می‌کنی."}}},"core":{"name":{"en":"OUTCOMES OVER OUTPUT","fa":"نتیجه، نه خروجی"},"principle":{"en":"Escaping the build trap means measuring success by outcomes — the value you create for customers and the business — not by output, the features you ship. Products are only vehicles of value: they win when they solve a real problem and earn something back. A real product manager, a decision-making strategy, a disciplined process, and a culture that rewards learning are how you get out and stay out.","fa":"فرار از تلهٔ ساختن یعنی موفقیت را با نتیجه بسنجی — ارزشی که برای مشتری و کسب‌وکار می‌سازی — نه با خروجی، یعنی ویژگی‌هایی که عرضه می‌کنی. محصول فقط وسیلهٔ ارزش است: وقتی می‌بَرد که یک مشکلِ واقعی را حل کند و چیزی پس بگیرد. یک مدیرِ محصولِ واقعی، یک استراتژیِ تصمیم‌ساز، یک فرایندِ منظم، و فرهنگی که یادگیری را پاداش می‌دهد — این‌هاست که تو را بیرون می‌آورد و بیرون نگه می‌دارد."},"more":{"en":"Perri organizes the escape into five parts — the Build Trap (output vs outcome, the value exchange, feature factories), the Role of the Product Manager (not a mini-CEO but a strategist who owns the why), Strategy (a decision-making framework of vision, strategic intents and initiatives), the Product Management Process (the Product Kata: explore problems, experiment on solutions), and the Product-Led Organization (outcome-based roadmaps, staged budgeting, and a culture that rewards learning). The thread through all of it: manage for outcomes, not output.","fa":"پری این فرار را در پنج بخش می‌چیند — تلهٔ ساختن (خروجی در برابرِ نتیجه، معاملهٔ ارزش، کارخانه‌های ویژگی)، نقشِ مدیرِ محصول (نه یک مدیرعاملِ کوچک، بلکه استراتژیستی که مسئولِ چراییست)، استراتژی (یک چارچوبِ تصمیم‌گیری از چشم‌انداز و نیت‌های استراتژیک و طرح‌ها)، فرایندِ مدیریتِ محصول (کاتای محصول: کاویدنِ مشکل، آزمایشِ راه‌حل)، و سازمانِ محصول‌محور (نقشه‌راهِ نتیجه‌محور، بودجه‌بندیِ مرحله‌ای، و فرهنگی که یادگیری را پاداش می‌دهد). نخِ رابطِ همه‌شان: برای نتیجه کار کن، نه برای خروجی."},"example":{"en":"Click any node to read a principle or a method. You can also drag the nodes around.","fa":"روی هر دایره کلیک کن تا یک اصل یا روش را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."}},"stages":[{"level":1,"badge":{"en":"Level 1 · Over-simplified","fa":"سطحِ ۱ · خیلی ساده"},"title":{"en":"Outcomes, not output","fa":"نتیجه، نه خروجی"},"tagline":{"en":"The whole book in a sentence.","fa":"کلِ کتاب در یک جمله."},"body":{"en":"Stop counting the features you ship. Start measuring the value you create — a real problem solved, a number that moves. That one shift, from output to outcome, is the whole book.","fa":"دست از شمردنِ ویژگی‌هایی که عرضه می‌کنی بردار. شروع کن به سنجیدنِ ارزشی که می‌سازی — یک مشکلِ واقعی که حل می‌شود، یک عددی که تکان می‌خورد. همین یک چرخش، از خروجی به نتیجه، کلِ کتاب است."},"example":{"en":"“We shipped 12 features” is output. “We doubled the number of users who finish setup” is an outcome.","fa":"«۱۲ ویژگی عرضه کردیم» خروجی است. «تعدادِ کاربرهایی که آماده‌سازی را تمام می‌کنند دو برابر شد» نتیجه است."},"gain":{"en":"You can tell output from outcome.","fa":"می‌توانی خروجی را از نتیجه تشخیص بدهی."}},{"level":2,"badge":{"en":"Level 2 · Simple","fa":"سطحِ ۲ · ساده"},"title":{"en":"Value is an exchange","fa":"ارزش یک معامله است"},"tagline":{"en":"Products are vehicles of value.","fa":"محصول‌ها وسیلهٔ ارزش‌اند."},"body":{"en":"A product isn't valuable because you built it. It's valuable when it solves a real customer problem <b>and</b> the business gets something back — money, loyalty, data. That two-way <b>value exchange</b> is the point; a <b>feature factory</b> forgets it and just ships.","fa":"محصول به‌خاطرِ اینکه ساختی‌اش ارزشمند نیست. وقتی ارزشمند است که یک مشکلِ واقعیِ مشتری را حل کند <b>و</b> کسب‌وکار هم چیزی پس بگیرد — پول، وفاداری، داده. همین <b>معاملهٔ ارزشِ</b> دوطرفه اصلِ ماجراست؛ <b>کارخانهٔ ویژگی</b> این را فراموش می‌کند و فقط عرضه می‌کند."},"example":{"en":"Ship features nobody needs and the subscription quietly stops renewing — the exchange broke.","fa":"ویژگی‌هایی عرضه کن که کسی لازمشان ندارد، آن‌وقت اشتراک بی‌سروصدا تمدید نمی‌شود — معامله به‌هم خورده."},"gain":{"en":"You can spot when the value exchange breaks.","fa":"می‌توانی ببینی کِی معاملهٔ ارزش به‌هم می‌خورد."}},{"level":3,"badge":{"en":"Level 3 · Balanced","fa":"سطحِ ۳ · متعادل"},"title":{"en":"Put a real PM in charge","fa":"یک مدیرِ محصولِ واقعی سرِ کار بگذار"},"tagline":{"en":"A strategist who owns the why.","fa":"استراتژیستی که مسئولِ چراییست."},"body":{"en":"The product manager is <b>not</b> a mini-CEO with a crown; they lead by influence. Their real job is to be a <b>strategist</b> — connecting business goals to customer problems and owning the <b>why</b>. And it isn't <b>project management</b>: shipping on time is delivery; deciding what's worth building is product.","fa":"مدیرِ محصول یک <b>مدیرعاملِ کوچک</b> با تاج نیست؛ با نفوذ رهبری می‌کند. کارِ واقعی‌اش این است که یک <b>استراتژیست</b> باشد — هدف‌های کسب‌وکار را به مشکل‌های مشتری وصل کند و مسئولِ <b>چرایی</b> باشد. و این با <b>مدیریتِ پروژه</b> فرق دارد: به‌موقع عرضه‌کردن یعنی تحویل؛ اما تصمیم دربارهٔ اینکه چه چیزی ارزشِ ساختن دارد یعنی محصول."},"example":{"en":"“When does it ship?” is a project question. “Should we build this, and what will it change?” is a product one.","fa":"«کِی عرضه می‌شود؟» پرسشِ پروژه است. «اصلاً باید این را بسازیم، و چه چیزی را عوض می‌کند؟» پرسشِ محصول است."},"gain":{"en":"You know what a product manager is really for.","fa":"می‌دانی مدیرِ محصول واقعاً برای چیست."}},{"level":4,"badge":{"en":"Level 4 · Advanced","fa":"سطحِ ۴ · پیشرفته"},"title":{"en":"Strategy and process","fa":"استراتژی و فرایند"},"tagline":{"en":"A framework, and the Product Kata.","fa":"یک چارچوب، و کاتای محصول."},"body":{"en":"Now the engine. <b>Strategy</b> isn't a feature plan — it's a decision-making <b>framework</b>: a vision, a few <b>strategic intents</b> (outcome goals), and <b>initiatives</b> (problems to tackle). Then the <b>Product Kata</b> turns it into disciplined problem-solving: name the goal, see where you are, find the obstacle, and run the next <b>experiment</b> — explore the problem before you commit to a solution.","fa":"حالا موتورِ کار. <b>استراتژی</b> یک نقشهٔ ویژگی نیست — یک <b>چارچوبِ</b> تصمیم‌گیری است: یک چشم‌انداز، چند <b>نیتِ استراتژیک</b> (هدف‌های نتیجه‌محور)، و <b>طرح‌ها</b> (مشکل‌هایی که سراغشان می‌روی). بعد <b>کاتای محصول</b> این را به یک حلِ‌مسئلهٔ منظم تبدیل می‌کند: هدف را نام ببر، ببین کجایی، مانع را پیدا کن، و <b>آزمایشِ</b> بعدی را اجرا کن — قبل از اینکه به یک راه‌حل متعهد شوی، مشکل را بکاو."},"example":{"en":"Goal: fewer people abandon checkout. Obstacle: they don't trust the payment step. Next: test one change and measure.","fa":"هدف: آدم‌های کمتری پرداخت را نیمه‌کاره رها کنند. مانع: به مرحلهٔ پرداخت اعتماد ندارند. قدمِ بعدی: یک تغییر را آزمایش کن و بسنج."},"gain":{"en":"You can turn a goal into a testable next step.","fa":"می‌توانی یک هدف را به یک قدمِ بعدیِ آزمون‌پذیر تبدیل کنی."}},{"level":5,"badge":{"en":"Level 5 · Expert","fa":"سطحِ ۵ · حرفه‌ای"},"title":{"en":"Build a product-led org","fa":"یک سازمانِ محصول‌محور بساز"},"tagline":{"en":"Roadmaps, budgeting, and a learning culture.","fa":"نقشه‌راه، بودجه‌بندی، و فرهنگِ یادگیری."},"body":{"en":"The expert changes the whole system so the trap can't come back. <b>Outcome-based roadmaps</b> promise problems and results, not dated features. <b>Budgeting</b> funds work in stages, like a venture investor, so money follows learning. And a <b>product-led culture</b> asks “what did we learn and what moved?” instead of “did we ship?” — rewarding outcomes and learning turns the whole company away from output for good.","fa":"آدمِ حرفه‌ای کلِ سیستم را عوض می‌کند تا تله دیگر برنگردد. <b>نقشه‌راهِ نتیجه‌محور</b> به‌جای ویژگی‌های تاریخ‌دار، مشکل‌ها و نتیجه‌ها را وعده می‌دهد. <b>بودجه‌بندی</b> کار را مرحله‌به‌مرحله تأمین می‌کند، مثلِ یک سرمایه‌گذارِ خطرپذیر، تا پول دنبالِ یادگیری برود. و یک <b>فرهنگِ محصول‌محور</b> به‌جای «عرضه کردیم؟» می‌پرسد «چه یاد گرفتیم و چه چیزی تکان خورد؟» — پاداش‌دادن به نتیجه و یادگیری، کلِ شرکت را برای همیشه از خروجی‌زدگی دور می‌کند."},"example":{"en":"You fund a discovery phase, learn, then invest more only if the outcome shows up — and you celebrate a team that kills a weak idea early.","fa":"یک مرحلهٔ کشف را تأمینِ مالی می‌کنی، یاد می‌گیری، و فقط وقتی نتیجه دیده شد بیشتر سرمایه می‌گذاری — و تیمی را که یک ایدهٔ ضعیف را زود می‌کُشد تشویق می‌کنی."},"gain":{"en":"You can lead a whole org by outcomes, not output.","fa":"می‌توانی کلِ یک سازمان را با نتیجه رهبری کنی، نه با خروجی."}}],"quotes":[{"en":"The build trap is when organizations become stuck measuring their success by outputs rather than outcomes.","fa":"تلهٔ ساختن یعنی سازمان‌ها گیر می‌کنند در سنجیدنِ موفقیتشان با خروجی، به‌جای نتیجه."},{"en":"“Value” becomes the quantity of features that are delivered, and the number of features shipped becomes the primary metric of success.","fa":"«ارزش» می‌شود تعدادِ ویژگی‌هایی که تحویل داده می‌شود، و تعدادِ ویژگی‌های عرضه‌شده می‌شود معیارِ اصلیِ موفقیت."},{"en":"Products are vehicles of value. They deliver value repeatedly to customers and users, without requiring the company to build something new every time.","fa":"محصول‌ها وسیله‌های ارزش‌اند. بارها و بارها به مشتری و کاربر ارزش می‌رسانند، بی‌آنکه شرکت مجبور باشد هر بار چیزِ تازه‌ای بسازد."},{"en":"Products and services are not inherently valuable. It's what they do for the customer or user that has the value — solving a problem, for example, or fulfilling a desire or need.","fa":"محصول و خدمت، خودشان ذاتاً ارزشمند نیستند. آن کاری که برای مشتری یا کاربر می‌کنند ارزش دارد — مثلاً حلِ یک مشکل، یا برآوردنِ یک خواسته یا نیاز."},{"en":"The real role of the product manager in the organization is to work with a team to create the right product that balances meeting business needs with solving user problems.","fa":"نقشِ واقعیِ مدیرِ محصول در سازمان این است که با یک تیم کار کند تا محصولِ درستی بسازد که بینِ برآوردنِ نیازِ کسب‌وکار و حلِ مشکلِ کاربر تعادل برقرار کند."},{"en":"Product management is the domain of recognizing and investigating the known unknowns and of reducing the universe around the unknown unknowns.","fa":"مدیریتِ محصول، قلمروِ شناختن و کاویدنِ «نادانسته‌های دانسته» است و کوچک‌کردنِ آن دنیای «نادانسته‌های نادانسته»."},{"en":"Strategy is a deployable decision-making framework, enabling action to achieve desired outcomes, constrained by current capabilities, coherently aligned to the existing context.","fa":"استراتژی یک چارچوبِ تصمیم‌گیریِ قابلِ‌اجراست که کنش را ممکن می‌کند تا به نتیجه‌های دلخواه برسیم، محدود به توانایی‌های امروز، و هماهنگ با شرایطِ موجود."},{"en":"We are done developing or iterating on a feature only when it has reached its goals.","fa":"کارِ ساختن یا بهترکردنِ یک ویژگی تازه وقتی تمام می‌شود که به هدف‌هایش رسیده باشد."},{"en":"You can easily turn a vanity metric into an actionable metric by adding a time component to it.","fa":"به‌راحتی می‌توانی یک معیارِ نمایشی را به یک معیارِ عملی تبدیل کنی، فقط با افزودنِ یک عنصرِ زمانی به آن."}],"media":[{"kind":"yt","id":"DmJXpI7OJuY","src":{"en":"YouTube · Productized","fa":"یوتیوب · Productized"},"title":{"en":"Escaping the Build Trap — Melissa Perri (Talk)","fa":"فرار از تلهٔ ساختن — ملیسا پری (سخنرانی)"},"desc":{"en":"Melissa Perri gives a full conference talk on escaping the build trap.","fa":"ملیسا پری یک سخنرانیِ کاملِ کنفرانسی دربارهٔ فرار از تلهٔ ساختن می‌دهد."},"bullets":{"en":["Output vs outcome, from the author","The value exchange in plain terms","A full, authoritative talk"],"fa":["خروجی در برابرِ نتیجه، از زبانِ خودِ نویسنده","معاملهٔ ارزش به زبانِ ساده","یک سخنرانیِ کامل و معتبر"]},"best":{"en":"Best for Stage 1–3.","fa":"خوب برای مرحلهٔ ۱ تا ۳."}},{"kind":"yt","id":"jWfI8yXBLsM","src":{"en":"YouTube · Mind the Product SF","fa":"یوتیوب · Mind the Product SF"},"title":{"en":"Escaping the Build Trap — Mind the Product","fa":"فرار از تلهٔ ساختن — Mind the Product"},"desc":{"en":"Her well-known Mind the Product San Francisco talk that introduced the idea.","fa":"همان سخنرانیِ مشهورش در Mind the Product سانفرانسیسکو که این ایده را معرفی کرد."},"bullets":{"en":["Where the ‘build trap’ name comes from","Why feature factories fail","A tight, memorable overview"],"fa":["اینکه نامِ «تلهٔ ساختن» از کجا می‌آید","چرا کارخانه‌های ویژگی شکست می‌خورند","یک مرورِ فشرده و به‌یادماندنی"]},"best":{"en":"Best for Stage 2–4.","fa":"خوب برای مرحلهٔ ۲ تا ۴."}},{"kind":"yt","id":"pNqiW6mCPIg","src":{"en":"YouTube · Inside Outside","fa":"یوتیوب · Inside Outside"},"title":{"en":"Melissa Perri — Author Interview","fa":"ملیسا پری — گفت‌وگو با نویسنده"},"desc":{"en":"A podcast interview with Perri on the book and modern product management.","fa":"یک گفت‌وگوی پادکستی با پری دربارهٔ کتاب و مدیریتِ محصولِ امروزی."},"bullets":{"en":["The PM as strategist, not mini-CEO","Managing for outcomes in practice","Good after a first read"],"fa":["مدیرِ محصول به‌عنوانِ استراتژیست، نه مدیرعاملِ کوچک","مدیریت برای نتیجه در عمل","خوب بعد از اولین خواندن"]},"best":{"en":"Best for Stage 3–5.","fa":"خوب برای مرحلهٔ ۳ تا ۵."}},{"kind":"img","url":"https://www.oreilly.com/library/view/escaping-the-build/9781491973783/","src":{"en":"O'Reilly · Publisher","fa":"O'Reilly · ناشر"},"title":{"en":"Escaping the Build Trap — Publisher Page","fa":"فرار از تلهٔ ساختن — صفحهٔ ناشر"},"desc":{"en":"The publisher page for the book, with editions and details.","fa":"صفحهٔ ناشر برای کتاب، با نسخه‌ها و جزئیات."},"bullets":{"en":["The definitive edition","Background on Melissa Perri","Straight from the source"],"fa":["نسخهٔ معتبر","پیشینه‌ای دربارهٔ ملیسا پری","مستقیم از خودِ منبع"]},"best":{"en":"For editions and the source.","fa":"برای نسخه‌ها و منبعِ اصلی."}}],"go":[{"label":{"en":"Publisher page (O'Reilly)","fa":"صفحهٔ ناشر (O'Reilly)"},"url":"https://www.oreilly.com/library/view/escaping-the-build/9781491973783/"},{"label":{"en":"Book on Goodreads","fa":"کتاب در گودریدز"},"url":"https://www.goodreads.com/book/show/42611483-escaping-the-build-trap"},{"label":{"en":"Melissa Perri — author's site","fa":"ملیسا پری — سایتِ نویسنده"},"url":"https://melissaperri.com/"}],"recs":[{"pri":"b","t":{"en":"Turn one output into an outcome","fa":"یک خروجی را به نتیجه تبدیل کن"},"d":{"en":"Take a roadmap item written as a feature and rewrite it as the customer and business outcome it should achieve.","fa":"یک موردِ نقشه‌راه را که مثلِ یک ویژگی نوشته شده بردار و به‌شکلِ نتیجه‌ای که باید برای مشتری و کسب‌وکار بسازد بازنویسی کن."}},{"pri":"b","t":{"en":"Run the four Kata questions","fa":"چهار پرسشِ کاتا را اجرا کن"},"d":{"en":"On your top goal, answer: what's the outcome, where are we now, what's the obstacle, and what's the next experiment?","fa":"روی مهم‌ترین هدفت جواب بده: نتیجه چیست، الان کجاییم، مانع چیست، و آزمایشِ بعدی چیست؟"}},{"pri":"n","t":{"en":"Talk to five customers","fa":"با پنج مشتری حرف بزن"},"d":{"en":"Before building your next feature, interview five real users about the problem — not your solution.","fa":"قبل از ساختنِ ویژگیِ بعدی، با پنج کاربرِ واقعی دربارهٔ مشکل حرف بزن — نه دربارهٔ راه‌حلت."}},{"pri":"n","t":{"en":"Kill one feature-factory habit","fa":"یک عادتِ کارخانه‌ای را بکش"},"d":{"en":"Find one place you reward shipping and change the question from ‘did we ship?’ to ‘what moved?’","fa":"یک جا را پیدا کن که به عرضه‌کردن پاداش می‌دهی و پرسش را از «عرضه کردیم؟» به «چه چیزی تکان خورد؟» عوض کن."}}]};
+</script>
+
+<script>
+/* ── 3) RENDER (text sections) ────────────────────────────── */
+function elClear(id){ var e=document.getElementById(id); if(e) e.innerHTML=''; return e; }
+
+function renderText(){
+  var t=elClear('tldrHost');
+  DATA.tldr.forEach(function(o){ var li=document.createElement('li'); li.innerHTML = TX(o); t.appendChild(li); });
+
+  var q=elClear('quoteHost');
+  DATA.quotes.forEach(function(o){
+    var bq=document.createElement('blockquote');
+    bq.innerHTML = '<span class="qm">“</span><p>'+TX(o)+'</p>';
+    q.appendChild(bq);
+  });
+
+  var m=elClear('mediaHost');
+  DATA.media.forEach(function(o){
+    var card=document.createElement('div'); card.className='mcard';
+    var thumb;
+    if(o.kind==='yt'){
+      var url='https://www.youtube.com/watch?v='+o.id;
+      var img='https://i.ytimg.com/vi/'+o.id+'/hqdefault.jpg';
+      thumb='<a class="mthumb" href="'+url+'" target="_blank" rel="noopener">'
+        +'<img src="'+img+'" alt="" loading="lazy" onerror="this.style.display=\'none\'">'
+        +'<span class="ptype">'+(LANG==='fa'?'ویدیو':'VIDEO')+'</span>'
+        +'<span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></span></a>';
+    } else {
+      thumb='<a class="mthumb" href="'+o.url+'" target="_blank" rel="noopener"><span class="mfake">'
+        +'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.6"/><path d="M21 15l-5-5L5 21"/></svg>'
+        +'</span><span class="ptype">'+(LANG==='fa'?'تصویر':'IMAGE')+'</span></a>';
+    }
+    var link = o.kind==='yt' ? 'https://www.youtube.com/watch?v='+o.id : o.url;
+    var bl = (LANG==='fa'?o.bullets.fa:o.bullets.en).map(function(b){ return '<li>'+ (LANG==='fa'?faText(b):b) +'</li>'; }).join('');
+    card.innerHTML = thumb + '<div class="mbody">'
+      + '<div class="msrc">'+TX(o.src)+'</div>'
+      + '<h4>'+TX(o.title)+'</h4>'
+      + '<p class="mdesc">'+TX(o.desc)+'</p>'
+      + '<ul>'+bl+'</ul>'
+      + '<a class="mlink" href="'+link+'" target="_blank" rel="noopener">'+(LANG==='fa'?'باز کردن ↗':'Open ↗')+'</a>'
+      + '<div class="mbest">'+TX(o.best)+'</div>'
+      + '</div>';
+    m.appendChild(card);
+  });
+
+  var g=elClear('goHost');
+  DATA.go.forEach(function(o){
+    var a=document.createElement('a'); a.href=o.url; a.target='_blank'; a.rel='noopener';
+    a.textContent=TX(o.label); g.appendChild(a);
+  });
+
+  var r=elClear('recHost');
+  DATA.recs.forEach(function(o){
+    var it=document.createElement('div'); it.className='item';
+    var priLabel = o.pri==='b' ? (LANG==='fa'?'از اینجا شروع کن':'Start here') : (LANG==='fa'?'بعدش این':'Then this');
+    it.innerHTML='<div class="t">'+TX(o.t)+'<span class="pri '+(o.pri==='b'?'b':'')+'">'+priLabel+'</span></div>'
+      +'<div class="d">'+TX(o.d)+'</div>';
+    r.appendChild(it);
+  });
+
+  var mth=document.getElementById('methodHost');
+  mth.innerHTML = LANG==='fa' ? faText("<p><b>منبع:</b> کتابِ «Escaping the Build Trap: How Effective Product Management Creates Real Value» نوشتهٔ ملیسا پری، چاپِ ۲۰۱۸ (نشرِ O'Reilly Media).</p><p><b>روشِ کار:</b> ساختارِ پنج‌بخشی و ایده‌ها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده؛ نقل‌قول‌ها مقابله و ویدیوها بررسی شده‌اند.</p><p><b>گروه:</b> «نرخِ موفقیتِ محصول» — یک خواندنیِ پایه برای ساختنِ محصول‌هایی که واقعاً ارزش می‌سازند.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای متنِ کامل، خودِ کتاب را بخوان.</p>") : "<p><b>Source:</b> the book <i>Escaping the Build Trap: How Effective Product Management Creates Real Value</i> by Melissa Perri, published 2018 (O'Reilly Media).</p><p><b>How this was built:</b> the five-part structure and ideas were gathered and rewritten from the book and reputable sources; quotes were cross-checked and the linked videos verified.</p><p><b>Group:</b> Product Success Rate — a core read for building products that actually create value.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>";
+  var fl=document.getElementById('flowTop');
+  if(fl){
+    var loop = LANG==='fa' ? ["مسئله","آزمایش","نتیجه"] : ["Problem","Experiment","Outcome"];
+    var ar = LANG==='fa' ? '⟵' : '⟶';
+    fl.innerHTML = loop.map(function(w){ return '<b>'+ (LANG==='fa'?faText(w):w) +'</b>'; }).join(' <span class="ar">'+ar+'</span> ');
+  }
+}
+</script>
+
+<script>
+/* ── 4) CONCEPT MAP ───────────────────────────────────────── */
+function renderMap(){
+  var host=document.getElementById('mapHost'); if(!host) return; host.innerHTML='';
+  DATA.parts.forEach(function(p, i){
+    var col=document.createElement('div'); col.className='partcol';
+    var chaps=p.chapters.map(function(ck){
+      var c=DATA.chapters[ck];
+      return '<div class="chapchip"><span class="cn">'+num(c.n)+'</span><div><b>'+TX(c.name)+'</b>'
+        +'<small>'+TX(c.principle).replace(/<[^>]+>/g,'').slice(0, LANG==='fa'?86:76)+'…</small></div></div>';
+    }).join('');
+    col.innerHTML='<div class="ph"><span class="pdot" style="background:var('+p.varc+')"></span>'
+      +'<span class="pnum">'+(LANG==='fa'?'بخشِ ':'PART ')+num(i+1)+'</span></div>'
+      +'<h4>'+TX(p.name)+'</h4>'
+      +'<div class="ptag" style="color:var('+p.varc+')">'+TX(p.tag)+'</div>'
+      +'<p class="pgist">'+TX(p.gist)+'</p>'+chaps;
+    host.appendChild(col);
+  });
+}
+</script>
+
+<script>
+/* ── 5) INTERACTIVE NETWORK GRAPH (deterministic radial layout, no physics) ── */
+var GRAPH = (function(){
+  var svg, W=980, H=780, nodes=[], links=[], sel=null, dragNode=null, moved=false, startPt=null;
+
+  function build(){
+    svg=document.getElementById('netsvg');
+    svg.setAttribute('viewBox','0 0 '+W+' '+H);
+    nodes=[]; links=[];
+    var cx=W/2, cy=H/2, R1=220, R2=126, span=66*Math.PI/180;
+    var N=DATA.parts.length, partAng=DATA.parts.map(function(_,i){ return -Math.PI/2 + i*(2*Math.PI/N); });
+    nodes.push({id:'core', kind:'core', varc:'--core', r:38, x:cx, y:cy, label:DATA.core.name, data:DATA.core});
+    DATA.parts.forEach(function(p,i){
+      var a=partAng[i], px=cx+Math.cos(a)*R1, py=cy+Math.sin(a)*R1;
+      nodes.push({id:'p_'+p.key, kind:'part', varc:p.varc, r:25, x:px, y:py,
+        label:p.name, data:{name:p.name, principle:p.gist, more:p.more, tag:p.tag, key:p.key}});
+      links.push({s:'core', t:'p_'+p.key, strong:true});
+      var nc=p.chapters.length, start=a-span/2;
+      p.chapters.forEach(function(ck,j){
+        var ca = nc>1 ? start+span*(j/(nc-1)) : a;   // fan the 5 chapters outward
+        var c=DATA.chapters[ck];
+        nodes.push({id:'c_'+ck, kind:'chap', varc:p.varc, r:15,
+          x:px+Math.cos(ca)*R2, y:py+Math.sin(ca)*R2,
+          label:(c.glabel||c.name), data:c, ck:ck});
+        links.push({s:'p_'+p.key, t:'c_'+ck});
+      });
+    });
+    nodes.forEach(function(n){ n.hx=n.x; n.hy=n.y; });   // remember home positions for reset
+    draw();
+    select('core');
+  }
+
+  function byId(id){ for(var i=0;i<nodes.length;i++) if(nodes[i].id===id) return nodes[i]; return null; }
+
+  function draw(){
+    var ln='', nd='';
+    links.forEach(function(l){ ln+='<line class="glink" data-s="'+l.s+'" data-t="'+l.t+'" stroke="var(--line)" stroke-width="'+(l.strong?2.4:1.5)+'" stroke-linecap="round"/>'; });
+    nodes.forEach(function(n){
+      var inside='', below='';
+      if(n.kind==='core'){
+        inside='<text text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="800" fill="#fff" letter-spacing="0.3">'+shortLabel(n)+'</text>';
+      } else {
+        if(n.kind==='chap'){
+          inside='<text text-anchor="middle" dominant-baseline="central" font-size="11" font-weight="800" fill="#fff">'+num(n.data.n)+'</text>';
+        }
+        var ly = n.r + (n.kind==='part'?17:14);
+        var fs = n.kind==='part'?13:11;
+        var stroke = 'paint-order:stroke;stroke:var(--card2);stroke-width:3.6px;stroke-linejoin:round';
+        below='<text class="nlab" text-anchor="middle" y="'+ly+'" font-size="'+fs+'" font-weight="'+(n.kind==='part'?'800':'700')+'" fill="var(--ink)" style="'+stroke+'">'+shortLabel(n)+'</text>';
+      }
+      nd+='<g class="node'+(n.kind==='core'?' ncore':'')+'" data-id="'+n.id+'"><g class="ns">'
+        +'<circle r="'+n.r+'" fill="var('+n.varc+')" fill-opacity="'+(n.kind==='chap'?0.94:1)+'" stroke="var(--card)" stroke-width="2.5"/>'
+        +inside+below+'</g></g>';
+    });
+    svg.innerHTML='<g id="glinks">'+ln+'</g><g id="gnodes">'+nd+'</g>';
+    svg.querySelectorAll('.node').forEach(function(gEl){
+      gEl.addEventListener('pointerdown', onDown);
+      gEl.addEventListener('click', function(){ if(!moved) select(gEl.getAttribute('data-id')); });
+      gEl.addEventListener('pointerenter', function(){ if(!dragNode) gEl.classList.add('hover'); });
+      gEl.addEventListener('pointerleave', function(){ gEl.classList.remove('hover'); });
+    });
+    positions();
+  }
+  function shortLabel(n){ return TX(n.label); }
+
+  function positions(){
+    svg.querySelectorAll('.node').forEach(function(g){
+      var n=byId(g.getAttribute('data-id'));
+      g.setAttribute('transform','translate('+n.x.toFixed(1)+','+n.y.toFixed(1)+')');
+    });
+    svg.querySelectorAll('.glink').forEach(function(l){
+      var a=byId(l.getAttribute('data-s')), b=byId(l.getAttribute('data-t'));
+      l.setAttribute('x1',a.x.toFixed(1)); l.setAttribute('y1',a.y.toFixed(1));
+      l.setAttribute('x2',b.x.toFixed(1)); l.setAttribute('y2',b.y.toFixed(1));
+    });
+  }
+
+  /* drag: just move the grabbed node — no simulation, so nothing else shifts */
+  function toSvg(e){
+    var pt=svg.createSVGPoint(); pt.x=e.clientX; pt.y=e.clientY;
+    var m=svg.getScreenCTM(); if(!m) return {x:e.clientX,y:e.clientY};
+    return pt.matrixTransform(m.inverse());
+  }
+  function onDown(e){
+    e.preventDefault();
+    dragNode=byId(e.currentTarget.getAttribute('data-id'));
+    moved=false; startPt=toSvg(e); svg.style.cursor='grabbing';
+    e.currentTarget.classList.remove('hover');
+    window.addEventListener('pointermove', onMove);
+    window.addEventListener('pointerup', onUp);
+  }
+  function onMove(e){
+    if(!dragNode) return; var p=toSvg(e);
+    if(startPt && (Math.abs(p.x-startPt.x)>4 || Math.abs(p.y-startPt.y)>4)) moved=true;
+    dragNode.x=Math.max(dragNode.r+4, Math.min(W-dragNode.r-4, p.x));
+    dragNode.y=Math.max(dragNode.r+4, Math.min(H-dragNode.r-24, p.y));
+    positions();
+  }
+  function onUp(){
+    dragNode=null; svg.style.cursor='grab';
+    window.removeEventListener('pointermove', onMove);
+    window.removeEventListener('pointerup', onUp);
+  }
+
+  function keepSet(id){
+    var n=byId(id); if(!n || id==='core') return null;   // core → show everything
+    var keep={}; keep[id]=1; keep['core']=1;
+    var pk = (n.kind==='part') ? n.data.key : n.data.part;
+    keep['p_'+pk]=1;
+    DATA.parts.forEach(function(p){ if(p.key===pk) p.chapters.forEach(function(ck){ keep['c_'+ck]=1; }); });
+    return keep;   // highlight the whole branch: core → part → its chapters
+  }
+  function applyFocus(id){
+    var keep=keepSet(id), full=(keep===null);
+    svg.querySelectorAll('.node').forEach(function(g){
+      var nid=g.getAttribute('data-id');
+      g.classList.toggle('dim', !full && !keep[nid]);
+      g.classList.toggle('hl', !full && keep[nid] && nid!==id);
+    });
+    svg.querySelectorAll('.glink').forEach(function(l){
+      var s=l.getAttribute('data-s'), t=l.getAttribute('data-t');
+      var on = full || (keep[s] && keep[t]);
+      l.classList.toggle('dim', !on);
+      l.classList.toggle('hl', !full && on);
+    });
+  }
+
+  function relatedIds(node){
+    var ids=[];
+    if(node.id==='core'){ DATA.parts.forEach(function(p){ ids.push('p_'+p.key); }); }
+    else if(node.kind==='part'){ var pk=node.data.key; DATA.parts.forEach(function(p){ if(p.key===pk) p.chapters.forEach(function(ck){ ids.push('c_'+ck); }); }); }
+    else { var pk2=node.data.part; ids.push('p_'+pk2);
+      DATA.parts.forEach(function(p){ if(p.key===pk2) p.chapters.forEach(function(ck){ if('c_'+ck!==node.id) ids.push('c_'+ck); }); }); }
+    return ids;
+  }
+
+  function drow(cls,label,txt){ return '<div class="drow '+cls+'"><div class="dlab">'+label+'</div><div class="dtxt">'+txt+'</div></div>'; }
+
+  function select(id){
+    var n=byId(id); if(!n) return;
+    sel=id;
+    svg.querySelectorAll('.node').forEach(function(g){ g.classList.toggle('sel', g.getAttribute('data-id')===id); });
+    var selEl=svg.querySelector('.node[data-id="'+id+'"]'); if(selEl&&selEl.parentNode) selEl.parentNode.appendChild(selEl);  // raise on top
+    applyFocus(id);
+    var d=n.data, pv = n.kind==='core' ? '--core' : n.varc;
+    var kicker = n.kind==='core' ? (LANG==='fa'?'ایدهٔ مرکزی':'Core idea')
+             : n.kind==='part' ? (LANG==='fa'?'بخش':'Part') + ' · ' + TX(d.tag)
+             : (LANG==='fa'?"ایدهٔ":"Idea") + ' ' + num(d.n);
+    var prLab = (n.kind==='chap') ? (LANG==='fa'?'اصل':'Principle') : (LANG==='fa'?'ایدهٔ اصلی':'Big idea');
+    var html='<div class="dkick"><i style="background:var('+pv+')"></i>'+ (LANG==='fa'?faText(kicker):kicker) +'</div>'
+      +'<h4>'+TX(d.name)+'</h4>'
+      + drow('', prLab, TX(d.principle));
+    if(d.more)    html += drow('more', (LANG==='fa'?'بیشتر':'In depth'), TX(d.more));
+    if(d.example) html += drow('', (LANG==='fa'?'مثال':'Example'), TX(d.example));
+    if(d.tip)     html += drow('tip', (LANG==='fa'?'امتحان کن':'Try this'), TX(d.tip));
+    if(d.pitfall) html += drow('pit', (LANG==='fa'?'حواست باشد':'Watch out'), TX(d.pitfall));
+    // related chips
+    var rel=relatedIds(n);
+    if(rel.length){
+      var chips=rel.map(function(rid){ var rn=byId(rid); if(!rn) return '';
+        return '<span class="dchip" data-goto="'+rid+'"><i style="background:var('+rn.varc+')"></i>'+TX(rn.data.name)+'</span>'; }).join('');
+      html += '<div class="drow"><div class="dlab">'+(LANG==='fa'?'مرتبط':'Related')+'</div><div class="dchips">'+chips+'</div></div>';
+    }
+    var host=document.getElementById('detailHost');
+    host.innerHTML=html;
+    host.querySelectorAll('.dchip').forEach(function(c){
+      c.addEventListener('click', function(){ select(c.getAttribute('data-goto')); });
+    });
+  }
+
+  function relabel(){ if(!svg) return; draw(); select(sel||'core'); }
+
+  return {
+    build:build,
+    kick:function(){},                                    // no-op; layout is static
+    relabel:relabel,
+    reset:function(){ nodes.forEach(function(n){ n.x=n.hx; n.y=n.hy; }); positions(); },
+    resetFocus:function(){ select('core'); },
+    selectNode:function(id){ select(id); },
+    hasNodes:function(){ return nodes.length>0; }
+  };
+})();
+</script>
+
+<script>
+/* ── 6) 5-STAGE LADDER ────────────────────────────────────── */
+var curStage=0;
+function renderLadder(){
+  var host=document.getElementById('ladderHost'); host.innerHTML='';
+  DATA.stages.forEach(function(s,i){
+    var r=document.createElement('div'); r.className='rung'+(i===curStage?' active':'');
+    r.innerHTML='<div class="lv">'+ (LANG==='fa'?('سطحِ '+num(s.level)):('Level '+s.level)) +'</div>'
+      +'<div class="lt">'+TX(s.title)+'</div>'
+      +'<div class="lbar"><i style="width:'+(s.level*20)+'%"></i></div>';
+    r.addEventListener('click', function(){ curStage=i; renderLadder(); renderStage();
+      document.getElementById('stageHost').scrollIntoView({behavior:'smooth',block:'nearest'}); });
+    host.appendChild(r);
+  });
+}
+function renderStage(){
+  var s=DATA.stages[curStage];
+  var host=document.getElementById('stageHost');
+  var exLabel = LANG==='fa'?'مثال':'Example';
+  var prev = LANG==='fa'?'مرحلهٔ قبل':'‹ Prev', next = LANG==='fa'?'مرحلهٔ بعد':'Next ›';
+  host.innerHTML=''+
+    '<div class="stagecard">'
+    +'<div class="shead"><span class="badge">'+TX(s.badge)+'</span><h3>'+TX(s.title)+'</h3></div>'
+    +'<div class="tagline">'+TX(s.tagline)+'</div>'
+    +'<div class="sbody">'+TX(s.body)+'</div>'
+    +'<div class="exbox"><div class="exk">'+exLabel+'</div><div class="ext">'+TX(s.example)+'</div></div>'
+    +'<div class="gainrow"><span class="gi">✓</span><span>'+TX(s.gain)+'</span></div>'
+    +'<div class="stagenav">'
+      +'<button id="stPrev" '+(curStage===0?'disabled':'')+'>'+prev+'</button>'
+      +'<button id="stNext" '+(curStage===DATA.stages.length-1?'disabled':'')+'>'+next+'</button>'
+    +'</div></div>';
+  var pv=document.getElementById('stPrev'), nx=document.getElementById('stNext');
+  if(pv) pv.onclick=function(){ if(curStage>0){curStage--; renderLadder(); renderStage();} };
+  if(nx) nx.onclick=function(){ if(curStage<DATA.stages.length-1){curStage++; renderLadder(); renderStage();} };
+}
+</script>
+
+<script>
+/* ── 7) legend + graph tabs ───────────────────────────────── */
+function renderLegend(){
+  var host=document.getElementById('legendHost'); if(!host) return;
+  var items=[{c:'--core', en:'Core idea', fa:'ایدهٔ مرکزی'}]
+    .concat(DATA.parts.map(function(p){ return {c:p.varc, en:p.name.en, fa:p.name.fa}; }));
+  host.innerHTML = items.map(function(it){
+    return '<span><i style="background:var('+it.c+')"></i>'+(LANG==='fa'?faText(it.fa):it.en)+'</span>';
+  }).join('');
+  document.getElementById('ghint').textContent = LANG==='fa' ? 'روی هر دایره کلیک کن تا بیشتر بخوانی · می‌توانی بکشی‌شان' : 'Click a node to read more · drag to move';
+  document.getElementById('greset').textContent = LANG==='fa' ? '↺ چیدمان' : '↺ Reset';
+}
+function setupTabs(){
+  function show(net){
+    document.getElementById('netView').style.display = net?'':'none';
+    document.getElementById('mapView').style.display = net?'none':'';
+    document.getElementById('tabNet').classList.toggle('active',net);
+    document.getElementById('tabMap').classList.toggle('active',!net);
+    if(net) GRAPH.kick();
+  }
+  document.getElementById('tabNet').onclick=function(){show(true);};
+  document.getElementById('tabMap').onclick=function(){show(false);};
+  document.getElementById('greset').onclick=function(){ GRAPH.reset(); };
+  // click empty graph space resets the focus
+  var svg=document.getElementById('netsvg');
+  svg.addEventListener('click', function(e){ if(!e.target.closest('.node')) GRAPH.resetFocus(); });
+}
+</script>
+
+<script>
+/* ── 8) toggles + boot ────────────────────────────────────── */
+function setLang(lg){
+  LANG=lg;
+  document.documentElement.setAttribute('data-lang',lg);
+  document.documentElement.setAttribute('lang',lg);
+  document.documentElement.setAttribute('dir', lg==='fa'?'rtl':'ltr');
+  try{ localStorage.setItem('buildtrap-lang',lg); }catch(e){}
+  renderAll();
+}
+function renderAll(){
+  renderText();
+  renderMap();
+  renderLegend();
+  renderLadder();
+  renderStage();
+  if(GRAPH.hasNodes()) GRAPH.relabel(); else GRAPH.build();
+}
+(function(){
+  var lb=document.getElementById('langBtn');
+  lb && lb.addEventListener('click', function(){ setLang(LANG==='fa'?'en':'fa'); });
+
+  var tb=document.getElementById('themeBtn');
+  function curT(){ return document.documentElement.getAttribute('data-theme'); }
+  tb && tb.addEventListener('click', function(){
+    var t=curT()==='dark'?'light':'dark';
+    document.documentElement.setAttribute('data-theme',t);
+    try{ localStorage.setItem('buildtrap-theme',t); }catch(e){}
+  });
+  try{ matchMedia('(prefers-color-scheme: dark)').addEventListener('change',function(e){
+    if(!localStorage.getItem('buildtrap-theme')){ document.documentElement.setAttribute('data-theme', e.matches?'dark':'light'); }
+  }); }catch(e){}
+})();
+
+/* scroll-spy */
+(function(){
+  var links=[].slice.call(document.querySelectorAll('.toc a'));
+  var seen={}, ids=[];
+  links.forEach(function(a){ var id=a.getAttribute('href').slice(1); if(!seen[id]){seen[id]=1; ids.push(id);} });
+  var secs=ids.map(function(id){return document.getElementById(id);}).filter(Boolean);
+  function setActive(id){ links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('href')==='#'+id); }); }
+  if('IntersectionObserver' in window){
+    var obs=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+    },{rootMargin:'-45% 0px -50% 0px',threshold:0});
+    secs.forEach(function(s){ obs.observe(s); });
+  }
+})();
+
+document.addEventListener('DOMContentLoaded', function(){
+  setupTabs();
+  renderAll();
+});
+</script>
+</body>
+</html>

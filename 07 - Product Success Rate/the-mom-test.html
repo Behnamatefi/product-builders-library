@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<!-- complexity-level: 1→5 (this page teaches the SAME book at five depths, over-simplified … expert) -->
+<!-- Effortless (Greg McKeown) — bilingual EN/FA knowledge graph & 5-stage learning page -->
+<html lang="fa" dir="rtl" data-lang="fa">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Mom Test — نقشهٔ دانش و یادگیری ۵ مرحله‌ای</title>
+
+<!-- Boot theme + language BEFORE paint to avoid a flash -->
+<script>
+(function(){
+  try{
+    var th = localStorage.getItem('momtest-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
+    document.documentElement.setAttribute('data-theme', th);
+  }catch(e){ document.documentElement.setAttribute('data-theme','light'); }
+  try{
+    var lg = localStorage.getItem('momtest-lang') || 'fa';
+    document.documentElement.setAttribute('data-lang', lg);
+    document.documentElement.setAttribute('lang', lg);
+    document.documentElement.setAttribute('dir', lg==='fa' ? 'rtl' : 'ltr');
+  }catch(e){}
+})();
+</script>
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:ital,opsz@0,6..72;1,6..72&display=swap" rel="stylesheet">
+
+<style>
+/* ── TOKENS ───────────────────────────────────────────────── */
+:root, [data-theme="light"]{
+  --bg:#f5f6f8; --bg2:#eef2f7; --card:#fff; --card2:#f8fafb;
+  --ink:#1c2330; --mut:#6b7280; --line:#e6e8ee;
+  --accent:#0e7c86; --accent-ink:#fff; --warm:#c2410c;
+  --shadow:0 1px 2px rgba(20,30,50,.05),0 6px 24px rgba(20,30,50,.06);
+  --hero-1:#0e7c86; --hero-2:#0b5e66;
+  --c-teal:#0e9aa6; --c-blue:#2f6fb0; --c-violet:#7c3aed; --c-amber:#d97706;
+  --c-green:#15a34a; --c-red:#e11d48; --c-gold:#c98a12; --c-gray:#6b7280;
+  --state:#0e9aa6; --action:#d97706; --results:#7c3aed; --core:#0e7c86;
+}
+[data-theme="dark"]{
+  --bg:#0e131a; --bg2:#161d27; --card:#151c26; --card2:#1b2430;
+  --ink:#e9eef5; --mut:#9aa7b6; --line:#27313d;
+  --accent:#2dd4bf; --accent-ink:#06231f; --warm:#fb923c;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 28px rgba(0,0,0,.45);
+  --hero-1:#0c5f67; --hero-2:#07323a;
+  --c-teal:#2dd4bf; --c-blue:#5b9bd5; --c-violet:#a78bfa; --c-amber:#fbbf24;
+  --c-green:#34d399; --c-red:#fb7185; --c-gold:#e2b04a; --c-gray:#94a3b8;
+  --state:#2dd4bf; --action:#fbbf24; --results:#a78bfa; --core:#2dd4bf;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:Vazirmatn,"Segoe UI",Tahoma,Arial,sans-serif;line-height:1.85;font-size:15px;
+  transition:background .25s,color .25s}
+html[data-lang="en"] body{font-family:Inter,"Segoe UI",system-ui,Arial,sans-serif;line-height:1.7}
+.wrap{max-width:960px;margin:0 auto;padding:0 18px 40px}
+
+/* language visibility */
+html[data-lang="en"] [data-only="fa"]{display:none !important}
+html[data-lang="fa"] [data-only="en"]{display:none !important}
+
+/* ── HERO ─────────────────────────────────────────────────── */
+.hero{background:linear-gradient(135deg,var(--hero-1),var(--hero-2));color:#fff;padding:44px 0 34px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset-inline-end:-80px;top:-80px;width:280px;height:280px;
+  background:radial-gradient(circle,rgba(255,255,255,.12),transparent 70%);pointer-events:none}
+.hero .wrap{padding-bottom:0;position:relative;z-index:1}
+.hero h1{margin:0 0 8px;font-size:30px;font-weight:800;letter-spacing:-.3px;line-height:1.25}
+html[data-lang="en"] .hero h1{font-family:Newsreader,Georgia,serif;font-weight:600;letter-spacing:-.5px}
+.hero .dek{margin:0;opacity:.94;font-size:15.5px;max-width:640px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;
+  color:rgba(255,255,255,.95);background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.24);
+  padding:5px 13px;border-radius:20px;margin-bottom:15px}
+.eyebrow .edot{width:7px;height:7px;border-radius:50%;background:#fff;box-shadow:0 0 0 3px rgba(255,255,255,.25)}
+.metastrip{display:flex;flex-wrap:wrap;gap:14px 30px;margin-top:20px;padding-top:16px;
+  border-top:1px solid rgba(255,255,255,.18)}
+.metaitem{display:flex;flex-direction:column;gap:3px}
+.metaitem .mk{font-size:10.5px;color:rgba(255,255,255,.62);font-weight:700;letter-spacing:.6px;text-transform:uppercase}
+.metaitem .mv{font-size:14px;color:#fff;font-weight:700}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);
+  border-radius:11px;padding:9px 15px;font-size:13px}
+.chip b{font-size:20px;display:block;font-weight:800}
+
+/* ── NAV + TOC ────────────────────────────────────────────── */
+.navbar{position:sticky;top:0;z-index:60;background:color-mix(in srgb,var(--card) 92%,transparent);
+  backdrop-filter:saturate(180%) blur(10px);-webkit-backdrop-filter:saturate(180%) blur(10px);
+  border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+.navin{max-width:960px;margin:0 auto;padding:8px 16px;display:flex;align-items:center;gap:12px}
+.brand{flex:0 0 auto;font-weight:800;font-size:12.5px;color:var(--accent);white-space:nowrap;
+  display:flex;align-items:center;gap:7px}
+.brand .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);
+  box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 18%,transparent)}
+.toc{flex:1 1 auto;display:flex;flex-wrap:wrap;gap:7px;justify-content:center}
+.toc a{font-size:12.5px;color:var(--mut);text-decoration:none;border:1px solid var(--line);
+  border-radius:20px;padding:5px 12px;background:var(--card);white-space:nowrap;
+  transition:background .15s,color .15s,border-color .15s}
+.toc a:hover{color:var(--accent);border-color:var(--accent)}
+.toc a.active{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.navctl{flex:0 0 auto;display:flex;align-items:center;gap:8px}
+.langbtn{height:34px;border-radius:18px;border:1px solid var(--line);background:var(--card);
+  color:var(--ink);cursor:pointer;font:inherit;font-size:12.5px;font-weight:700;padding:0 13px;
+  display:flex;align-items:center;gap:6px}
+.langbtn:hover{border-color:var(--accent);color:var(--accent)}
+.langbtn .globe{width:15px;height:15px;display:block}
+.themebtn{flex:0 0 auto;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);
+  background:var(--card);color:var(--ink);cursor:pointer;line-height:1;display:grid;place-items:center}
+.themebtn svg{width:17px;height:17px;display:block}
+.themebtn:hover{border-color:var(--accent);color:var(--accent)}
+[data-theme="light"] .themebtn .ic-sun{display:none}
+[data-theme="dark"]  .themebtn .ic-moon{display:none}
+
+/* ── BLOCKS ───────────────────────────────────────────────── */
+h2{font-size:21px;margin:44px 0 6px;font-weight:800;scroll-margin-top:92px;line-height:1.35}
+html[data-lang="en"] h2{font-family:Newsreader,Georgia,serif;font-weight:600}
+h2 .num{color:var(--accent);font-variant-numeric:tabular-nums}
+.sub{color:var(--mut);font-size:13.5px;margin:0 0 16px;max-width:680px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;
+  padding:20px 22px;margin:14px 0;box-shadow:var(--shadow)}
+.lead{font-size:15.5px}
+.lead b{color:var(--warm)}
+.kgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin:8px 0}
+.kbox{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:15px 16px;text-align:center}
+.kbox .v{font-size:26px;font-weight:800;color:var(--accent);font-variant-numeric:tabular-nums}
+.kbox .l{font-size:12.5px;color:var(--mut);margin-top:3px}
+ul.clean{margin:6px 0;padding-inline-start:20px} ul.clean li{margin:8px 0}
+.callout{background:color-mix(in srgb,var(--warm) 9%,var(--card));
+  border:1px solid color-mix(in srgb,var(--warm) 30%,var(--line));
+  border-radius:12px;padding:14px 18px;margin:12px 0}
+.callout b{color:var(--warm)}
+.callout.accent{background:color-mix(in srgb,var(--accent) 9%,var(--card));
+  border-color:color-mix(in srgb,var(--accent) 30%,var(--line))}
+.callout.accent b{color:var(--accent)}
+a{color:var(--accent)}
+
+/* ── GRAPH ────────────────────────────────────────────────── */
+.gtabs{display:inline-flex;gap:4px;background:var(--bg2);border:1px solid var(--line);
+  border-radius:11px;padding:4px;margin:6px 0 2px}
+.gtab{border:0;background:transparent;color:var(--mut);font:inherit;font-size:13px;font-weight:700;
+  padding:7px 15px;border-radius:8px;cursor:pointer}
+.gtab.active{background:var(--card);color:var(--accent);box-shadow:var(--shadow)}
+.graphcard{padding:14px}
+.legend{display:flex;flex-wrap:wrap;gap:14px;margin:2px 4px 12px;font-size:12.5px;color:var(--mut)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:11px;height:11px;border-radius:50%;display:inline-block}
+.graphstage{display:grid;grid-template-columns:1fr;gap:14px}
+@media(min-width:760px){.graphstage{grid-template-columns:1.35fr .95fr}}
+.svgwrap{position:relative;background:var(--card2);border:1px solid var(--line);border-radius:12px;
+  overflow:hidden;min-height:300px}
+#netsvg{display:block;width:100%;height:560px;touch-action:none;cursor:grab}
+#netsvg text{pointer-events:none;user-select:none}
+.ghint{position:absolute;inset-inline-start:12px;top:10px;font-size:11.5px;color:var(--mut);
+  background:color-mix(in srgb,var(--card) 82%,transparent);border:1px solid var(--line);
+  border-radius:20px;padding:3px 11px;backdrop-filter:blur(4px);max-width:70%}
+.greset{position:absolute;inset-inline-end:10px;top:10px;border:1px solid var(--line);background:var(--card);
+  color:var(--mut);border-radius:8px;font:inherit;font-size:11.5px;padding:4px 10px;cursor:pointer}
+.greset:hover{color:var(--accent);border-color:var(--accent)}
+/* node + link interaction states */
+.node{cursor:pointer}
+/* the inner <g class="ns"> is what scales; fill-box keeps the pivot on the node itself, not the SVG viewport */
+.ns{transform-box:fill-box;transform-origin:center;transition:transform .2s cubic-bezier(.2,.75,.25,1)}
+.node.hover .ns{transform:scale(1.1)}
+.node.sel  .ns{transform:scale(1.34)}                 /* selected node grows */
+.node.ncore.hover .ns{transform:scale(1.06)}
+.node.ncore.sel   .ns{transform:none}                 /* the centre 'Effortless' node keeps default size */
+.node.sel circle{stroke:var(--ink);stroke-width:2.5;filter:drop-shadow(0 0 8px color-mix(in srgb,var(--accent) 60%,transparent))}
+.node.hl circle{stroke:var(--ink);stroke-opacity:.5;stroke-width:2.5}
+.node.dim{opacity:.2}
+.node text{font-family:Vazirmatn,Tahoma,sans-serif;font-weight:700}
+html[data-lang="en"] .node text{font-family:Inter,sans-serif}
+.glink{transition:opacity .2s,stroke .2s}
+.glink.dim{opacity:.08}
+.glink.hl{stroke:var(--accent) !important;stroke-opacity:.8}
+/* detail panel */
+.detail{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;min-height:220px}
+@media(min-width:760px){.detail{max-height:480px;overflow:auto}}
+.detail .dkick{font-size:11.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;display:flex;align-items:center;gap:7px;color:var(--mut)}
+.detail .dkick i{width:10px;height:10px;border-radius:50%}
+.detail h4{margin:8px 0 3px;font-size:18px;font-weight:800}
+html[data-lang="en"] .detail h4{font-family:Newsreader,serif;font-weight:600}
+.detail .drow{margin:11px 0}
+.detail .dlab{font-size:10.5px;font-weight:800;color:var(--accent);letter-spacing:.5px;text-transform:uppercase;
+  display:inline-flex;align-items:center;gap:5px}
+.detail .drow.tip .dlab{color:var(--c-green)}
+.detail .drow.pit .dlab{color:var(--warm)}
+.detail .drow.more{border-inline-start:2px solid color-mix(in srgb,var(--accent) 32%,var(--line));padding-inline-start:11px}
+.detail .drow.more .dlab{color:var(--mut)}
+.detail .dtxt{font-size:13.6px;margin-top:3px}
+.dchips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.dchip{font-size:12px;border:1px solid var(--line);background:var(--card2);border-radius:16px;padding:4px 11px;
+  cursor:pointer;color:var(--ink);display:inline-flex;align-items:center;gap:6px;font-family:inherit}
+.dchip:hover{border-color:var(--accent);color:var(--accent)}
+.dchip i{width:8px;height:8px;border-radius:50%;flex:0 0 auto}
+
+/* ── CONCEPT MAP ──────────────────────────────────────────── */
+.mapgrid{display:grid;grid-template-columns:1fr;gap:14px}
+@media(min-width:820px){.mapgrid{grid-template-columns:repeat(3,1fr)}}
+.partcol{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:16px;position:relative}
+.partcol .ph{display:flex;align-items:center;gap:9px;margin-bottom:3px}
+.partcol .pdot{width:13px;height:13px;border-radius:50%;flex:0 0 auto}
+.partcol .pnum{font-size:11px;font-weight:800;color:var(--mut)}
+.partcol h4{margin:0;font-size:16.5px;font-weight:800}
+html[data-lang="en"] .partcol h4{font-family:Newsreader,serif;font-weight:600}
+.partcol .ptag{font-size:12px;color:var(--mut);margin:2px 0 4px;font-weight:700}
+.partcol .pgist{font-size:12.8px;color:var(--mut);margin:0 0 12px}
+.chapchip{display:flex;align-items:baseline;gap:8px;padding:7px 10px;border:1px solid var(--line);
+  border-radius:9px;margin:6px 0;background:var(--card2);font-size:13px}
+.chapchip .cn{font-size:11px;font-weight:800;color:var(--mut);flex:0 0 auto;font-variant-numeric:tabular-nums}
+.chapchip b{font-weight:700}
+.chapchip small{color:var(--mut);display:block;font-size:11.5px;line-height:1.5}
+.flowline{display:flex;align-items:center;justify-content:center;gap:10px;color:var(--mut);
+  font-size:12.5px;font-weight:700;margin:6px 0 2px;flex-wrap:wrap}
+.flowline .ar{color:var(--accent)}
+
+/* ── STAGE LADDER ─────────────────────────────────────────── */
+.ladder{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 4px}
+.rung{flex:1 1 150px;border:1px solid var(--line);background:var(--card);border-radius:11px;
+  padding:11px 13px;cursor:pointer;transition:transform .12s,border-color .12s;position:relative}
+.rung:hover{border-color:var(--accent);transform:translateY(-2px)}
+.rung.active{border-color:var(--accent);box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 35%,transparent)}
+.rung .lv{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.4px}
+.rung .lt{font-size:13.5px;font-weight:800;margin-top:2px}
+.rung .lbar{height:5px;border-radius:4px;background:var(--bg2);margin-top:9px;overflow:hidden}
+.rung .lbar i{display:block;height:100%;background:linear-gradient(90deg,var(--c-teal),var(--c-violet))}
+.stagecard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 24px;
+  margin:14px 0;box-shadow:var(--shadow)}
+.stagecard .shead{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.stagecard .badge{font-size:12px;font-weight:800;color:#fff;background:var(--accent);
+  border-radius:8px;padding:4px 11px;white-space:nowrap}
+.stagecard h3{margin:0;font-size:21px;font-weight:800}
+html[data-lang="en"] .stagecard h3{font-family:Newsreader,serif;font-weight:600}
+.stagecard .tagline{color:var(--mut);font-size:13.5px;margin:4px 0 14px;font-weight:700}
+.stagecard .sbody{font-size:15px}
+.exbox{background:var(--card2);border:1px solid var(--line);border-inline-start:3px solid var(--accent);
+  border-radius:0 11px 11px 0;padding:13px 16px;margin:14px 0 6px}
+.exbox .exk{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.5px;text-transform:uppercase}
+.exbox .ext{font-size:13.8px;margin-top:3px}
+.gainrow{display:flex;align-items:flex-start;gap:9px;margin-top:12px;font-size:13px;color:var(--mut)}
+.gainrow .gi{flex:0 0 auto;color:var(--c-green);font-weight:800}
+.stagenav{display:flex;justify-content:space-between;gap:10px;margin-top:16px}
+.stagenav button{border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit;
+  font-size:13px;font-weight:700;border-radius:9px;padding:8px 14px;cursor:pointer}
+.stagenav button:hover:not(:disabled){border-color:var(--accent);color:var(--accent)}
+.stagenav button:disabled{opacity:.4;cursor:default}
+
+/* ── QUOTES ───────────────────────────────────────────────── */
+.qgrid{display:grid;grid-template-columns:1fr;gap:12px}
+@media(min-width:720px){.qgrid{grid-template-columns:1fr 1fr}}
+blockquote{margin:0;background:var(--card2);border-inline-start:3px solid var(--accent);
+  border-radius:0 12px 12px 0;padding:15px 18px;font-size:14.5px;position:relative}
+blockquote .qm{font-size:34px;line-height:0;color:var(--accent);opacity:.35;font-family:Georgia,serif;
+  position:absolute;inset-inline-start:10px;top:20px}
+blockquote p{margin:0;padding-inline-start:22px}
+html[data-lang="en"] blockquote{font-family:Newsreader,Georgia,serif;font-size:15.5px}
+
+/* ── MEDIA ────────────────────────────────────────────────── */
+.mgrid{display:grid;grid-template-columns:1fr;gap:16px}
+@media(min-width:640px){.mgrid{grid-template-columns:1fr 1fr}}
+.mcard{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;
+  box-shadow:var(--shadow);display:flex;flex-direction:column}
+.mthumb{position:relative;display:block;aspect-ratio:16/9;background:var(--bg2);overflow:hidden;text-decoration:none}
+.mthumb img{width:100%;height:100%;object-fit:cover;display:block}
+.mthumb .play{position:absolute;inset:0;display:grid;place-items:center}
+.mthumb .play span{width:54px;height:54px;border-radius:50%;background:rgba(0,0,0,.6);
+  display:grid;place-items:center;border:2px solid rgba(255,255,255,.9)}
+.mthumb .play svg{width:22px;height:22px;fill:#fff;margin-inline-start:3px}
+.mthumb .ptype{position:absolute;inset-inline-start:9px;top:9px;background:rgba(0,0,0,.72);color:#fff;
+  font-size:11px;font-weight:700;border-radius:6px;padding:3px 9px;letter-spacing:.3px}
+.mfake{aspect-ratio:16/9;display:grid;place-items:center;
+  background:linear-gradient(135deg,color-mix(in srgb,var(--c-violet) 22%,var(--card)),color-mix(in srgb,var(--c-teal) 22%,var(--card)))}
+.mfake svg{width:52px;height:52px;color:var(--ink);opacity:.6}
+.mbody{padding:15px 17px;display:flex;flex-direction:column;gap:7px;flex:1}
+.mbody .msrc{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.3px;text-transform:uppercase}
+.mbody h4{margin:0;font-size:15.5px;font-weight:800;line-height:1.4}
+html[data-lang="en"] .mbody h4{font-family:Newsreader,serif;font-weight:600}
+.mbody .mdesc{font-size:13px;color:var(--mut);margin:0}
+.mbody ul{margin:4px 0 0;padding-inline-start:18px}
+.mbody ul li{font-size:12.8px;margin:5px 0}
+.mbody .mbest{font-size:12px;font-weight:700;color:var(--warm);margin-top:auto;padding-top:8px}
+.mlink{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;
+  text-decoration:none;color:var(--accent);margin-top:4px}
+.mlink:hover{text-decoration:underline}
+.golist{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.golist a{font-size:12.5px;text-decoration:none;color:var(--ink);border:1px solid var(--line);
+  border-radius:20px;padding:6px 13px;background:var(--card);font-weight:700}
+.golist a:hover{border-color:var(--accent);color:var(--accent)}
+
+/* ── RECS + METHOD + CREDIT ───────────────────────────────── */
+.rec{display:grid;gap:10px;margin:8px 0}
+.rec .item{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--card)}
+.rec .item .t{font-weight:800;font-size:14.5px;margin-bottom:3px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.rec .item .t .pri{font-size:11px;font-weight:700;color:#fff;background:var(--warm);border-radius:6px;padding:2px 9px}
+.rec .item .t .pri.b{background:var(--accent)}
+.rec .item .d{font-size:13.4px;color:var(--mut)}
+.method{color:var(--mut);font-size:13.4px}
+.method p{margin:8px 0}
+.method b{color:var(--ink)}
+.credit{text-align:center;margin-top:40px;padding:22px 0 8px;border-top:1px solid var(--line);
+  color:var(--mut);font-size:14px}
+.credit .cname{color:var(--ink);font-weight:800}
+.credit a{font-weight:700;text-decoration:none}
+.credit a:hover{text-decoration:underline}
+.credit .sep{opacity:.5;margin:0 8px}
+.credit .li{display:inline-flex;align-items:center;gap:5px;vertical-align:middle}
+.credit .li svg{width:15px;height:15px;vertical-align:-3px}
+
+@media (max-width:640px){
+  body{font-size:14px}
+  .wrap{padding:0 13px 30px}
+  .hero{padding:28px 0 22px} .hero h1{font-size:22px}
+  h2{font-size:18px;scroll-margin-top:66px}
+  .brand{display:none}
+  .toc{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;scrollbar-width:none}
+  .toc::-webkit-scrollbar{display:none}
+  #netsvg{height:420px}
+}
+</style>
+</head>
+<body>
+
+<!-- ── HERO ───────────────────────────────────────────────── -->
+<header class="hero"><div class="wrap">
+  <div class="eyebrow"><span class="edot"></span>
+    <span data-only="en">Book knowledge map · Rob Fitzpatrick</span>
+    <span data-only="fa">نقشهٔ کتاب · راب فیتزپاتریک</span>
+  </div>
+  <h1>
+    <span data-only="en">The Mom Test — How to Talk to Customers &amp; Learn if Your Business Is a Good Idea</span>
+    <span data-only="fa">تِستِ مامان — چطور با مشتری‌ها حرف بزنی و بفهمی ایده‌ات خوب است یا نه</span>
+  </h1>
+  <p class="dek">
+    <span data-only="en">A knowledge graph of the whole book, plus a 5-stage path from a single sentence to expert-level mastery — with an example at every step.</span>
+    <span data-only="fa">نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از یک جملهٔ ساده تا تسلطِ حرفه‌ای — با یک مثال در هر قدم.</span>
+  </p>
+  <div class="metastrip">
+    <div class="metaitem"><span class="mk" data-only="en">Book</span><span class="mk" data-only="fa">کتاب</span>
+      <span class="mv" data-only="en">The Mom Test</span><span class="mv" data-only="fa">تِستِ مامان</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Author</span><span class="mk" data-only="fa">نویسنده</span>
+      <span class="mv" data-only="en">Rob Fitzpatrick</span><span class="mv" data-only="fa">راب فیتزپاتریک</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Published</span><span class="mk" data-only="fa">سالِ چاپ</span>
+      <span class="mv" data-only="en">2013</span><span class="mv" data-only="fa">۲۰۱۳</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Group</span><span class="mk" data-only="fa">گروه</span>
+      <span class="mv" data-only="en">Product Success Rate</span><span class="mv" data-only="fa">نرخِ موفقیتِ محصول</span></div>
+  </div>
+  <div class="chips">
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Parts</span><span data-only="fa">بخش</span></div>
+    <div class="chip"><b data-only="en">16</b><b data-only="fa">۱۶</b><span data-only="en">Rules</span><span data-only="fa">قانون</span></div>
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Learning stages</span><span data-only="fa">مرحلهٔ یادگیری</span></div>
+  </div>
+</div></header>
+
+<!-- ── STICKY NAV ─────────────────────────────────────────── -->
+<div class="navbar"><div class="navin">
+  <span class="brand"><span class="dot"></span>The Mom Test</span>
+  <nav class="toc">
+    <a href="#tldr" data-only="en">In a nutshell</a><a href="#tldr" data-only="fa">خلاصه</a>
+    <a href="#graph" data-only="en">Knowledge graph</a><a href="#graph" data-only="fa">نقشهٔ دانش</a>
+    <a href="#stages" data-only="en">5 stages</a><a href="#stages" data-only="fa">۵ مرحله</a>
+    <a href="#quotes" data-only="en">Quotes</a><a href="#quotes" data-only="fa">جمله‌ها</a>
+    <a href="#media" data-only="en">Watch &amp; explore</a><a href="#media" data-only="fa">تماشا و منابع</a>
+    <a href="#apply" data-only="en">Apply it</a><a href="#apply" data-only="fa">کاربرد</a>
+  </nav>
+  <div class="navctl">
+    <button class="langbtn" id="langBtn" aria-label="Switch language">
+      <svg class="globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>
+      <span data-only="en">فارسی</span><span data-only="fa">English</span>
+    </button>
+    <button class="themebtn" id="themeBtn" aria-label="Toggle theme" title="Light / Dark">
+      <span class="ic-sun" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5 19 19M19 5l-1.5 1.5M6.5 17.5 5 19"/></svg></span>
+      <span class="ic-moon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.6 6.6 0 0 0 9.8 9.8Z"/></svg></span>
+    </button>
+  </div>
+</div></div>
+
+<div class="wrap">
+
+  <!-- ── TL;DR ────────────────────────────────────────────── -->
+  <h2 id="tldr"><span class="num" data-only="en">1.</span><span class="num" data-only="fa">۱.</span>
+    <span data-only="en"> In a nutshell</span><span data-only="fa"> خلاصه</span></h2>
+  <p class="sub" data-only="en">If you read only this, you still get the whole idea.</p>
+  <p class="sub" data-only="fa">اگر فقط همین بخش را بخوانی، کلِ ایده دستت می‌آید.</p>
+  <div class="card lead"><ul class="clean" id="tldrHost"></ul></div>
+  <div class="kgrid">
+    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Parts (rules · questions · digging · commitment · process)</div><div class="l" data-only="fa">بخش (قانون‌ها · سؤال‌ها · کندوکاو · تعهد · فرایند)</div></div>
+    <div class="kbox"><div class="v" data-only="en">16</div><div class="v" data-only="fa">۱۶</div><div class="l" data-only="en">Rules you can use</div><div class="l" data-only="fa">قانون برای استفاده</div></div>
+    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Levels, simple → expert</div><div class="l" data-only="fa">مرحله، ساده تا حرفه‌ای</div></div>
+    <div class="kbox"><div class="v" data-only="en">3</div><div class="v" data-only="fa">۳</div><div class="l" data-only="en">Core rules: their life · the past · listen</div><div class="l" data-only="fa">قانونِ اصلی: زندگی‌شان · گذشته · گوش‌دادن</div></div>
+  </div>
+  
+  <div class="callout accent">
+    <b data-only="en">The core idea:</b>
+    <b data-only="fa">ایدهٔ اصلی:</b>
+    <span data-only="en"> The Mom Test is a set of rules for asking questions so good that even your mom can't lie to you — because you stop pitching your idea and start asking about her <i>life</i>. Talk about their life, ask about the <i>past</i>, and <i>listen</i>. Good questions can't be answered wrong.</span>
+    <span data-only="fa"> تِستِ مامان مجموعه‌ای از قانون‌هاست برای پرسیدنِ سؤالی آن‌قدر خوب که حتی مامانت هم نتواند بهت دروغ بگوید — چون دست از فروختنِ ایده‌ات برمی‌داری و از <i>زندگیِ</i> خودش می‌پرسی. دربارهٔ زندگی‌شان حرف بزن، از <i>گذشته</i> بپرس، و <i>گوش بده</i>. سؤالِ خوب را نمی‌شود اشتباه جواب داد.</span>
+  </div>
+
+  <!-- ── KNOWLEDGE GRAPH ──────────────────────────────────── -->
+  <h2 id="graph"><span class="num" data-only="en">2.</span><span class="num" data-only="fa">۲.</span>
+    <span data-only="en"> The knowledge graph</span><span data-only="fa"> نقشهٔ دانش</span></h2>
+  <p class="sub" data-only="en">The whole book as one picture. Click any node to focus its connections and read more — or switch to the structured map.</p>
+  <p class="sub" data-only="fa">کلِ کتاب در یک تصویر. روی هر دایره کلیک کن تا ارتباط‌هایش را ببینی و بیشتر بخوانی — یا به نقشهٔ مرتب برو.</p>
+
+  <div class="gtabs">
+    <button class="gtab active" id="tabNet"><span data-only="en">Interactive network</span><span data-only="fa">شبکهٔ تعاملی</span></button>
+    <button class="gtab" id="tabMap"><span data-only="en">Structured map</span><span data-only="fa">نقشهٔ مرتب</span></button>
+  </div>
+
+  <!-- network view -->
+  <div class="card graphcard" id="netView">
+    <div class="legend" id="legendHost"></div>
+    <div class="graphstage">
+      <div class="svgwrap">
+        <svg id="netsvg" viewBox="0 0 820 560" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Effortless knowledge network"></svg>
+        <div class="ghint" id="ghint"></div>
+        <button class="greset" id="greset"></button>
+      </div>
+      <div class="detail" id="detailHost"></div>
+    </div>
+  </div>
+
+  <!-- map view -->
+  <div class="card graphcard" id="mapView" style="display:none">
+    <div class="flowline" id="flowTop"></div>
+    <div class="mapgrid" id="mapHost"></div>
+    <div class="callout" style="margin-top:16px">
+      <b data-only="en">Read it as a flow:</b><b data-only="fa">به‌صورتِ یک جریان بخوانش:</b>
+      <span data-only="en"> learn the <b>three rules</b>, ask <b>good questions</b> (dodge compliments, fluff, and pitching), <b>dig</b> for real problems and real spending, read <b>commitment</b> over kind words, and <b>run the process</b> — casual, framed, well-noted.</span>
+      <span data-only="fa"> <b>سه قانون</b> را یاد بگیر، <b>سؤالِ خوب</b> بپرس (از تعریف و حرفِ هوایی و فروختن دوری کن)، برای مشکلِ واقعی و خرجِ واقعی <b>کندوکاو</b> کن، <b>تعهد</b> را بالاتر از حرفِ محبت‌آمیز بخوان، و <b>فرایند را اجرا کن</b> — خودمانی، قاب‌گرفته، خوب‌یادداشت‌شده.</span>
+    </div>
+  </div>
+
+  <!-- ── 5 STAGES ─────────────────────────────────────────── -->
+  <h2 id="stages"><span class="num" data-only="en">3.</span><span class="num" data-only="fa">۳.</span>
+    <span data-only="en"> Learn it in 5 stages</span><span data-only="fa"> یادگیری در ۵ مرحله</span></h2>
+  <p class="sub" data-only="en">The same book at five depths. Start over-simplified, climb to expert. Tap a rung to jump.</p>
+  <p class="sub" data-only="fa">یک کتاب در پنج عمق. از خیلی ساده شروع کن و تا حرفه‌ای بالا برو. روی هر پله بزن تا بپری.</p>
+  <div class="ladder" id="ladderHost"></div>
+  <div id="stageHost"></div>
+
+  <!-- ── QUOTES ───────────────────────────────────────────── -->
+  <h2 id="quotes"><span class="num" data-only="en">4.</span><span class="num" data-only="fa">۴.</span>
+    <span data-only="en"> Lines worth keeping</span><span data-only="fa"> جمله‌هایی که ارزشِ نگه‌داشتن دارند</span></h2>
+  <p class="sub" data-only="en">Verbatim quotes from the book, translated alongside.</p>
+  <p class="sub" data-only="fa">جمله‌های مستقیم از کتاب، همراه با ترجمه.</p>
+  <div class="qgrid" id="quoteHost"></div>
+
+  <!-- ── MEDIA ────────────────────────────────────────────── -->
+  <h2 id="media"><span class="num" data-only="en">5.</span><span class="num" data-only="fa">۵.</span>
+    <span data-only="en"> Watch &amp; explore</span><span data-only="fa"> تماشا و منابع</span></h2>
+  <p class="sub" data-only="en">Special resources found online — each with what it covers and who it's best for.</p>
+  <p class="sub" data-only="fa">منابعِ ویژه‌ای که آنلاین پیدا شد — هرکدام با اینکه چه می‌گوید و به چه دردی می‌خورد.</p>
+  <div class="mgrid" id="mediaHost"></div>
+  <div class="card" style="margin-top:16px">
+    <div style="font-weight:800;font-size:13.5px;margin-bottom:4px">
+      <span data-only="en">Go straight to the source</span><span data-only="fa">مستقیم سراغِ منبع برو</span>
+    </div>
+    <div class="golist" id="goHost"></div>
+  </div>
+
+  <!-- ── APPLY ────────────────────────────────────────────── -->
+  <h2 id="apply"><span class="num" data-only="en">6.</span><span class="num" data-only="fa">۶.</span>
+    <span data-only="en"> Apply it this week</span><span data-only="fa"> این هفته امتحانش کن</span></h2>
+  <p class="sub" data-only="en">Four small moves that turn the idea into a habit.</p>
+  <p class="sub" data-only="fa">چهار حرکتِ کوچک که این ایده را به عادت تبدیل می‌کنند.</p>
+  <div class="rec" id="recHost"></div>
+
+  <!-- ── METHOD ───────────────────────────────────────────── -->
+  <h2 id="method"><span class="num" data-only="en">7.</span><span class="num" data-only="fa">۷.</span>
+    <span data-only="en"> Sources &amp; notes</span><span data-only="fa"> منابع و توضیح</span></h2>
+  <div class="card method" id="methodHost"></div>
+
+  <!-- ── CREDIT FOOTER ────────────────────────────────────── -->
+  <div class="credit">
+    <span data-only="en">Created by <span class="cname">Behnam Atefi</span><span class="sep">·</span><a class="li" href="https://www.linkedin.com/in/behnamatefi/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.3c0-1.26-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9z"/></svg>LinkedIn</a></span>
+    <span data-only="fa">ساخته‌شده توسط <span class="cname">بهنام عاطفی</span><span class="sep">·</span><a class="li" href="https://www.linkedin.com/in/behnamatefi/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.3c0-1.26-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9z"/></svg>لینکدین</a></span>
+  </div>
+</div>
+
+<!-- ═══════════════════════ SCRIPTS ═══════════════════════ -->
+<script>
+/* ── 1) language + formatters ─────────────────────────────── */
+var LANG = document.documentElement.getAttribute('data-lang') || 'fa';
+var FA_D = '۰۱۲۳۴۵۶۷۸۹';
+var RLM  = '‏';
+function faDigits(s){ return String(s).replace(/[0-9]/g, function(d){ return FA_D[+d]; }); }
+/* honor the RTL preference: isolate Latin runs (word order preserved) and mark with U+200F */
+function rlm(s){
+  return String(s)
+    .replace(/[A-Za-zÀ-ɏ][A-Za-zÀ-ɏ0-9'’.&:\/\-]*(?:\s+[A-Za-zÀ-ɏ0-9'’.&:\/\-]+)*/g,
+      function(m){ return RLM+'⁦'+m+'⁩'+RLM; })
+    .replace(/[0-9۰-۹]+/g, function(m){ return m+RLM; });
+}
+/* transform only TEXT segments, never HTML tags (so <b>/<i> survive) */
+function faText(s){ return String(s).replace(/(<[^>]+>)|([^<]+)/g, function(m,tag,txt){ return tag ? tag : faDigits(rlm(txt)); }); }
+function TX(o){ if(o==null) return ''; if(typeof o==='string') return o; return LANG==='fa' ? faText(o.fa) : o.en; }
+function num(n){ return LANG==='fa' ? faDigits(n) : String(n); }
+function tok(name){ return getComputedStyle(document.documentElement).getPropertyValue(name).trim(); }
+</script>
+
+<script>
+/* ── DATA LAYER — Atomic Habits (bilingual, plain-spoken Persian) ── */
+var DATA = {"tldr":[{"en":"The whole book in one line: stop asking people about your idea, and start asking about their life.","fa":"خلاصهٔ کل کتاب در یک جمله: دست از پرسیدن دربارهٔ ایده‌ات بردار، و شروع کن به پرسیدن دربارهٔ زندگیِ آدم‌ها."},{"en":"The three rules: talk about <b>their life</b>, ask about <b>the past</b>, and <b>listen</b> more than you talk.","fa":"سه قانون: دربارهٔ <b>زندگی‌شان</b> حرف بزن، از <b>گذشته</b> بپرس، و بیشتر از آنکه حرف بزنی <b>گوش بده</b>."},{"en":"Dodge <b>compliments, fluff, and pitching</b> — they hand you false positives that feel like success.","fa":"از <b>تعریف، حرفِ هوایی، و فروختن</b> دوری کن — این‌ها جوابِ خوبِ دروغین به تو می‌دهند که حسِ موفقیت دارد."},{"en":"Dig for <b>real problems</b>: what they've done, how they cope now, and what they already pay.","fa":"دنبالِ <b>مشکلِ واقعی</b> بگرد: چه کرده‌اند، الان چطور کنار می‌آیند، و همین‌حالا چقدر پول می‌دهند."},{"en":"Trust <b>commitment</b>, not compliments — time, money, or reputation — and push every meeting to advance.","fa":"به <b>تعهد</b> اعتماد کن، نه تعریف — وقت، پول، یا آبرو — و هر جلسه را به جلو هُل بده."}],"parts":[{"key":"rules","varc":"--c-teal","name":{"en":"The Three Rules","fa":"سه قانون"},"tag":{"en":"The foundation","fa":"پایه"},"gist":{"en":"Talk about their life, ask about the past, and listen more than you talk.","fa":"دربارهٔ زندگی‌شان حرف بزن، از گذشته بپرس، و بیشتر از آنکه حرف بزنی گوش بده."},"more":{"en":"These three rules are the whole method in miniature. Follow them and people can't lie to you — not because they're suddenly honest, but because you've stopped asking questions that beg for flattery.","fa":"این سه قانون، کلِ روش‌اند در ابعادِ کوچک. رعایتشان کن، آن‌وقت آدم‌ها نمی‌توانند بهت دروغ بگویند — نه چون یک‌دفعه راست‌گو شده‌اند، بلکه چون تو دیگر سؤالی نمی‌پرسی که تعارف را دعوت کند."},"chapters":["theirlife","pastspecifics","listenmore"]},{"key":"questions","varc":"--c-blue","name":{"en":"Good vs Bad Questions","fa":"سؤالِ خوب و بد"},"tag":{"en":"What to ask","fa":"چه بپرسی"},"gist":{"en":"Dodge compliments, fluff, and pitching — the three sources of false positives.","fa":"از تعریف، حرفِ هوایی، و فروختن دوری کن — سه سرچشمهٔ جوابِ خوبِ دروغین."},"more":{"en":"Bad questions practically beg for reassuring lies. Compliments, generic fluff, and your own pitching are what produce false positives — the cheerful yes that sends you off to build something nobody wants.","fa":"سؤالِ بد عملاً التماسِ دروغِ دلگرم‌کننده می‌کند. تعریف، حرفِ هواییِ کلی، و فروختنِ خودت، همان‌هایی‌اند که جوابِ خوبِ دروغین می‌سازند — همان «آره»ِ شادی که می‌فرستدت چیزی بسازی که کسی نمی‌خواهد."},"chapters":["nocompliments","nofluff","nopitch"]},{"key":"digging","varc":"--c-amber","name":{"en":"Digging for the Truth","fa":"کندوکاو برای حقیقت"},"tag":{"en":"Go deeper","fa":"عمیق‌تر شو"},"gist":{"en":"Find the real problem, their past behavior, their current fix, and what they pay.","fa":"مشکلِ واقعی، رفتارِ گذشته، راه‌حلِ فعلی، و چیزی که پول می‌دهند را پیدا کن."},"more":{"en":"Once the conversation is honest, dig. A real problem shows up in what people have already done and already paid to solve it. Understand their current workaround and their budget, and you'll know whether a business is even possible.","fa":"وقتی گفت‌وگو صادقانه شد، بکَن. مشکلِ واقعی خودش را در کاری که آدم‌ها قبلاً کرده‌اند و پولی که قبلاً برایش داده‌اند نشان می‌دهد. راه‌حلِ فعلی و بودجه‌شان را بفهم، آن‌وقت می‌فهمی اصلاً کسب‌وکاری ممکن هست یا نه."},"chapters":["realproblem","pastbehavior","currentfix","whatpay"]},{"key":"commitment","varc":"--c-violet","name":{"en":"Commitment & Advancement","fa":"تعهد و پیشروی"},"tag":{"en":"Read the signal","fa":"نشانه را بخوان"},"gist":{"en":"Words are cheap; trust commitment of time, money, or reputation.","fa":"حرف ارزان است؛ به تعهدِ وقت و پول و آبرو اعتماد کن."},"more":{"en":"This is where you tell real from polite. Customers lie with compliments, so measure interest by what they give up — time, money, or reputation — and by whether each meeting advances to a real next step.","fa":"این‌جا همان‌جایی است که واقعی را از تعارف جدا می‌کنی. مشتری‌ها با تعریف دروغ می‌گویند، پس علاقه را با چیزی که از دست می‌دهند بسنج — وقت، پول، یا آبرو — و با اینکه هر جلسه به یک قدمِ بعدیِ واقعی پیش می‌رود یا نه."},"chapters":["complimenttrap","currencies","advancement"]},{"key":"process","varc":"--c-green","name":{"en":"Running the Process","fa":"اجرای فرایند"},"tag":{"en":"Make it work","fa":"عملی‌اش کن"},"gist":{"en":"Keep it casual, frame it well, find the right people, take notes, and segment.","fa":"خودمانی نگهش دار، خوب قابش بگیر، آدمِ درست را پیدا کن، یادداشت بردار، و بخش‌بندی کن."},"more":{"en":"Good questions still need a good process around them. Keep conversations casual, frame the serious ones, spend your time on the right people, take honest notes, and segment your market so the lessons actually add up.","fa":"سؤالِ خوب بازهم به یک فرایندِ خوب دورِ خودش نیاز دارد. گفت‌وگوها را خودمانی نگه دار، جدی‌ها را قاب بگیر، وقتت را روی آدم‌های درست بگذار، صادقانه یادداشت بردار، و بازارت را بخش‌بندی کن تا درس‌ها واقعاً روی‌هم جمع شوند."},"chapters":["keepcasual","framemeeting","notessegment"]}],"chapters":{"theirlife":{"part":"rules","n":1,"name":{"en":"Talk About Their Life","fa":"دربارهٔ زندگی‌شان حرف بزن"},"glabel":{"en":"Their life","fa":"زندگی‌شان"},"principle":{"en":"Talk about their life, not your idea. Their problems, routines and goals are facts; your idea is just a hypothesis they'll be too polite to attack.","fa":"دربارهٔ زندگی‌شان حرف بزن، نه ایده‌ات. مشکل‌ها و کارهای روزمره و هدف‌هایشان واقعیت‌اند؛ ایدهٔ تو فقط یک حدس است که آن‌قدر مؤدب‌اند که زیرِ سؤال نبرندش."},"more":{"en":"The moment you mention your idea, people start protecting your feelings. Keep the spotlight on how they actually live and work, and the truth comes out on its own — no selling required.","fa":"همین که پای ایده‌ات را وسط بکشی، طرف شروع می‌کند به مراعاتِ دلِ تو. نورافکن را روی این بگذار که واقعاً چطور زندگی و کار می‌کنند، آن‌وقت حقیقت خودش بیرون می‌زند — بدونِ هیچ فروشی."},"example":{"en":"Instead of “Would you use an app that does X?”, ask “Walk me through how you handle X today.”","fa":"به‌جای «از اپی که کارِ ایکس را انجام بدهد استفاده می‌کنی؟»، بپرس «بگو ببینم الان کارِ ایکس را چطور انجام می‌دهی.»"},"tip":{"en":"Prepare three questions about your customer's life that you're a little scared to hear the answers to.","fa":"سه تا سؤال دربارهٔ زندگیِ مشتری آماده کن که یه‌کم از شنیدنِ جوابشان می‌ترسی."},"pitfall":{"en":"Steering every conversation back to your idea instead of their world.","fa":"برگرداندنِ هر گفت‌وگو به ایدهٔ خودت، به‌جای دنیای آن‌ها."}},"pastspecifics":{"part":"rules","n":2,"name":{"en":"Specifics in the Past","fa":"جزئیاتِ گذشته"},"glabel":{"en":"The past","fa":"گذشته"},"principle":{"en":"Ask about specifics in the past, not opinions about the future. What people did last week is data; what they say they'll do is a fantasy.","fa":"دربارهٔ جزئیاتِ گذشته بپرس، نه نظر دربارهٔ آینده. کاری که آدم‌ها هفتهٔ پیش کردند داده است؛ کاری که می‌گویند بعداً می‌کنند خیال است."},"more":{"en":"People are terrible at predicting their own behavior and generous with hypotheticals. Anchor every question to a real, concrete moment that already happened, and you get answers you can trust.","fa":"آدم‌ها در پیش‌بینیِ رفتارِ خودشان افتضاح‌اند و در «اگر» و «شاید» دست‌ودل‌باز. هر سؤال را به یک لحظهٔ واقعی و مشخص که قبلاً اتفاق افتاده گره بزن، آن‌وقت جوابی می‌گیری که می‌شود بهش تکیه کرد."},"example":{"en":"Not “Would you pay for this?” but “When did you last pay to solve this, and how much?”","fa":"نه «حاضری پولش را بدهی؟» بلکه «آخرین بار کِی برای حلِ این پول دادی، و چقدر؟»"},"tip":{"en":"Whenever you hear a “would” or a “generally”, pull it back to “tell me about the last time”.","fa":"هر جا یک «می‌کنم» یا «معمولاً» شنیدی، برش گردان به «از آخرین باری که این کار را کردی بگو»."},"pitfall":{"en":"Accepting cheap promises about a hypothetical future purchase.","fa":"قبول‌کردنِ قول‌های ارزان دربارهٔ یک خریدِ فرضی در آینده."}},"listenmore":{"part":"rules","n":3,"name":{"en":"Talk Less, Listen More","fa":"کمتر حرف بزن، بیشتر گوش بده"},"glabel":{"en":"Listen more","fa":"گوش بده"},"principle":{"en":"Talk less and listen more. The more you talk, the less you learn — and the more you bias the very answers you came to find.","fa":"کمتر حرف بزن و بیشتر گوش بده. هرچه بیشتر حرف بزنی، کمتر یاد می‌گیری — و بیشتر همان جواب‌هایی را که آمده‌ای پیدا کنی، خراب می‌کنی."},"more":{"en":"You're there to learn, not to be right. Ask a short question, then stay quiet long enough for them to fill the silence with something real.","fa":"آمده‌ای یاد بگیری، نه اینکه حق با تو باشد. یک سؤالِ کوتاه بپرس، بعد آن‌قدر ساکت بمان تا خودشان سکوت را با یک چیزِ واقعی پُر کنند."},"example":{"en":"Aim to speak far less than the other person; if you're doing most of the talking, you're pitching, not learning.","fa":"سعی کن خیلی کمتر از طرفِ مقابل حرف بزنی؛ اگر بیشترِ حرف‌ها را تو می‌زنی، داری می‌فروشی، نه یاد می‌گیری."},"tip":{"en":"After each answer, count to three before you say anything; let them keep going.","fa":"بعد از هر جواب، تا سه بشمار و بعد حرف بزن؛ بگذار ادامه بدهند."},"pitfall":{"en":"Filling every pause and talking over the very insight you needed.","fa":"پُرکردنِ هر مکث و حرف‌زدن روی همان نکته‌ای که لازمش داشتی."}},"nocompliments":{"part":"questions","n":4,"name":{"en":"Deflect Compliments","fa":"تعریف را رد کن"},"glabel":{"en":"No compliments","fa":"نه به تعریف"},"principle":{"en":"Compliments are worthless — and dangerous. “I love it” and “great idea” feel like progress but teach you nothing; deflect them and get back to facts.","fa":"تعریف و تمجید بی‌ارزش است — و خطرناک. «عاشقشم» و «چه ایدهٔ خوبی» حسِ پیشرفت می‌دهند ولی هیچ چیزی یادت نمی‌دهند؛ ردشان کن و برگرد سراغِ واقعیت."},"more":{"en":"Compliments are the fool's gold of customer conversations: shiny, satisfying, and worth nothing. When someone praises the idea, don't celebrate — steer straight back to their life and their last real action.","fa":"تعریف، طلای قلابیِ گفت‌وگو با مشتری است: برق می‌زند، حالت را خوب می‌کند، و هیچ نمی‌ارزد. وقتی کسی از ایده تعریف کرد، ذوق نکن — یک‌راست برگرد به زندگی‌شان و آخرین کارِ واقعی‌شان."},"example":{"en":"They say “Cool idea!” You reply, “Thanks — but have you ever actually needed something like this? When?”","fa":"می‌گویند «چه ایدهٔ باحالی!» تو جواب می‌دهی «مرسی — ولی تا حالا واقعاً همچین چیزی لازمت شده؟ کِی؟»"},"tip":{"en":"Treat every compliment as a warning light that the conversation just went off track.","fa":"هر تعریف را مثلِ یک چراغِ خطر بگیر که یعنی گفت‌وگو همین‌الان از ریل خارج شد."},"pitfall":{"en":"Walking away happy because everyone said they loved it.","fa":"با خوشحالی برگشتن چون همه گفتند عاشقش شدند."}},"nofluff":{"part":"questions","n":5,"name":{"en":"Cut Through Fluff","fa":"حرفِ هوایی را بشکاف"},"glabel":{"en":"No fluff","fa":"نه به حرفِ هوایی"},"principle":{"en":"Anchor fluff — generic and hypothetical claims like “I would” or “I always” — down to real, specific stories.","fa":"حرف‌های کلی و هوایی را — ادعاهای فرضی مثلِ «حتماً می‌کنم» یا «همیشه» — بیاور روی زمین و به داستان‌های واقعی و مشخص وصلشان کن."},"more":{"en":"Fluff comes in three flavors: generic claims, future promises, and hypothetical maybes. None of them are commitments or facts. Each time you hear fluff, redirect to a concrete past example.","fa":"حرفِ هوایی سه مدل است: ادعای کلی، قولِ آینده، و «شاید»ِ فرضی. هیچ‌کدام نه تعهدند نه واقعیت. هر بار حرفِ هوایی شنیدی، بِکِشش سمتِ یک مثالِ مشخص از گذشته."},"example":{"en":"“I usually buy healthy food” means little; “What did you buy on your last shop?” gets the truth.","fa":"«معمولاً غذای سالم می‌خرم» چیزِ زیادی نمی‌گوید؛ «خریدِ دفعهٔ قبلت چی بود؟» حقیقت را بیرون می‌کشد."},"tip":{"en":"When you catch a generic “always” or “usually”, ask for the last specific instance.","fa":"تا یک «همیشه» یا «معمولاً»ِ کلی گرفتی، آخرین موردِ مشخصش را بخواه."},"pitfall":{"en":"Writing down opinions and generalities as if they were evidence.","fa":"یادداشت‌کردنِ نظرها و کلی‌گویی‌ها انگار که مدرک‌اند."}},"nopitch":{"part":"questions","n":6,"name":{"en":"Stop Pitching","fa":"دست از فروختن بردار"},"glabel":{"en":"Don't pitch","fa":"نفروش"},"principle":{"en":"You're not there to pitch. The moment you start selling, you stop learning — and they start being polite.","fa":"نیامده‌ای ایده‌ات را بفروشی. همین که شروع کنی به فروختن، دیگر یاد نمی‌گیری — و طرف هم شروع می‌کند به تعارف."},"more":{"en":"It's tempting to explain how brilliant your solution is, but every minute you pitch is a minute you don't learn. Keep your idea in your pocket until the very end — if at all.","fa":"وسوسه‌کننده است که توضیح بدهی راه‌حلت چقدر درخشان است، ولی هر دقیقه که بفروشی، یک دقیقه یاد نمی‌گیری. ایده‌ات را تا همان آخرِ آخر — اگر اصلاً — توی جیبت نگه دار."},"example":{"en":"If you feel the urge to say “what we're building is…”, bite your tongue and ask another question about them.","fa":"اگر حس کردی می‌خواهی بگویی «چیزی که داریم می‌سازیم…»، زبانت را گاز بگیر و یک سؤالِ دیگر دربارهٔ خودشان بپرس."},"tip":{"en":"Ban the words “so, what I'm doing is…” from the first two-thirds of every chat.","fa":"کلماتِ «راستش کاری که دارم می‌کنم…» را از دوسومِ اولِ هر گفت‌وگو ممنوع کن."},"pitfall":{"en":"Turning a learning conversation into a sales demo.","fa":"تبدیل‌کردنِ یک گفت‌وگوی یادگیری به یک نمایشِ فروش."}},"realproblem":{"part":"digging","n":7,"name":{"en":"Find the Real Problem","fa":"مشکلِ واقعی را پیدا کن"},"glabel":{"en":"Real problem","fa":"مشکلِ واقعی"},"principle":{"en":"Dig until you hit a real, painful problem — not the one that's convenient for your idea. If there's no real problem, there's no business.","fa":"آن‌قدر بکَن تا به یک مشکلِ واقعی و دردناک برسی — نه مشکلی که به‌دردِ ایده‌ات می‌خورد. اگر مشکلِ واقعی‌ای نباشد، کسب‌وکاری هم نیست."},"more":{"en":"People will describe annoyances they'd never pay to fix. Your job is to tell a real problem from a mild preference by how much it actually costs them — in time, money, or frustration.","fa":"آدم‌ها از دردسرهایی می‌گویند که هیچ‌وقت برای حلشان پول نمی‌دهند. کارِ تو این است که مشکلِ واقعی را از یک سلیقهٔ کم‌رنگ تشخیص بدهی — از رویِ اینکه واقعاً چقدر برایشان خرج برمی‌دارد: وقت، پول، یا حرص‌خوردن."},"example":{"en":"Ask “What are the implications of that?” to see whether the problem is a real headache or a small nuisance.","fa":"بپرس «خب این چه دردسری برایت درست می‌کند؟» تا ببینی مشکل یک سردردِ جدی است یا یک مزاحمتِ کوچک."},"tip":{"en":"For each problem, ask what it costs them today; if the answer is “nothing much”, move on.","fa":"برای هر مشکل بپرس الان چقدر برایشان آب می‌خورد؛ اگر جواب «چیزِ خاصی نه» بود، ردش کن و برو جلو."},"pitfall":{"en":"Hearing the problem you hoped for instead of the one they actually have.","fa":"شنیدنِ همان مشکلی که آرزویش را داشتی، به‌جای مشکلی که واقعاً دارند."}},"pastbehavior":{"part":"digging","n":8,"name":{"en":"Ask About Past Behavior","fa":"از رفتارِ گذشته بپرس"},"glabel":{"en":"Past behavior","fa":"رفتارِ گذشته"},"principle":{"en":"Real behavior beats stated intention. Find out what they've actually done about the problem, not what they imagine they might do.","fa":"رفتارِ واقعی از نیّتِ اعلام‌شده مهم‌تر است. بفهم واقعاً تا حالا برای این مشکل چه کرده‌اند، نه اینکه فکر می‌کنند شاید چه کنند."},"more":{"en":"Someone who has already searched for a fix, cobbled together a workaround, or complained to their boss has a real problem. Someone who has done nothing about it probably won't buy either.","fa":"کسی که قبلاً دنبالِ راه‌حل گشته، یک‌جوری خودش سرِهم‌بندی کرده، یا پیشِ رئیسش غر زده، مشکلش واقعی است. کسی که تا حالا هیچ کاری نکرده، احتمالاً بعداً هم نمی‌خرد."},"example":{"en":"“What have you already tried to fix this?” tells you more than any rating out of ten.","fa":"«تا حالا چه‌کارهایی کرده‌ای که این را درست کنی؟» بیشتر از هر نمرهٔ ده‌دهی به تو می‌گوید."},"tip":{"en":"Ask for the story of the last time they hit the problem, start to finish.","fa":"بخواه داستانِ آخرین باری که به این مشکل خوردند را از اول تا آخر تعریف کنند."},"pitfall":{"en":"Trusting enthusiasm from someone who has never lifted a finger about it.","fa":"اعتماد به هیجانِ کسی که تا حالا برایش دست به سیاه و سفید نزده."}},"currentfix":{"part":"digging","n":9,"name":{"en":"How They Solve It Now","fa":"الان چطور حلش می‌کنند"},"glabel":{"en":"Current fix","fa":"راه‌حلِ فعلی"},"principle":{"en":"Whatever they use today is your real competitor — even if it's a spreadsheet, a workaround, or nothing at all.","fa":"هر چیزی که الان استفاده می‌کنند، رقیبِ واقعیِ توست — حتی اگر یک فایلِ اکسل باشد، یک ترفندِ دست‌ساز، یا اصلاً هیچ‌چیز."},"more":{"en":"Understanding their current workaround shows you how much the problem really bothers them, what they already pay, and the bar your solution has to clear to be worth switching.","fa":"فهمیدنِ راه‌حلِ فعلی‌شان نشانت می‌دهد مشکل واقعاً چقدر اذیتشان می‌کند، الان چقدر خرج می‌کنند، و راه‌حلِ تو باید از چه خطی رد شود تا ارزشِ عوض‌کردن داشته باشد."},"example":{"en":"“How do you deal with it now?” often reveals a messy process they'd love to escape.","fa":"«الان چطور از پسش برمی‌آیی؟» بیشترِ وقت‌ها یک روالِ به‌هم‌ریخته را لو می‌دهد که دلشان می‌خواهد از دستش خلاص شوند."},"tip":{"en":"Map their current workflow step by step, including the tools and the cost.","fa":"روالِ فعلی‌شان را قدم‌به‌قدم بکِش، همراهِ ابزارها و هزینه‌اش."},"pitfall":{"en":"Assuming “nothing” means there's room — often it means they don't care.","fa":"فکرکردن به اینکه «هیچ‌کاری» یعنی جا هست — اغلب یعنی برایشان مهم نیست."}},"whatpay":{"part":"digging","n":10,"name":{"en":"What They Pay","fa":"چقدر پول می‌دهند"},"glabel":{"en":"What they pay","fa":"چه پولی می‌دهند"},"principle":{"en":"Follow the money. What people already spend — in cash, time, or workarounds — is the truest measure of how much a problem matters.","fa":"دنبالِ پول را بگیر. چیزی که آدم‌ها همین‌الان خرج می‌کنند — پول، وقت، یا ترفندهای دست‌ساز — راست‌ترین معیارِ این است که یک مشکل چقدر برایشان مهم است."},"more":{"en":"A budget that already exists is a problem worth solving. If nobody currently pays anything — with money or effort — you'll have to create the pain and the budget from scratch, which is far harder.","fa":"بودجه‌ای که همین‌حالا وجود دارد، یعنی مشکل ارزشِ حل‌شدن دارد. اگر هیچ‌کس الان چیزی خرج نمی‌کند — نه پول نه انرژی — باید هم درد و هم بودجه را از صفر بسازی، که خیلی سخت‌تر است."},"example":{"en":"“Where does the budget for this come from today?” separates a real market from a nice-to-have.","fa":"«الان پولِ این کار از کجا می‌آید؟» بازارِ واقعی را از یک «خوب است باشد» جدا می‌کند."},"tip":{"en":"Ask who owns the budget and what they've paid for a fix before.","fa":"بپرس بودجه دستِ کیست و قبلاً برای حلش چقدر پول داده‌اند."},"pitfall":{"en":"Believing “I'd pay for that” from someone who pays for nothing like it.","fa":"باورکردنِ «پولش را می‌دهم» از کسی که برای هیچ‌چیزِ شبیهش پول نمی‌دهد."}},"complimenttrap":{"part":"commitment","n":11,"name":{"en":"The Compliment Trap","fa":"تلهٔ تعریف"},"glabel":{"en":"Compliment trap","fa":"تلهٔ تعریف"},"principle":{"en":"Customers lie with kindness. A warm, encouraging meeting that ends in compliments and no commitment is a polite rejection in disguise.","fa":"مشتری‌ها با مهربانی دروغ می‌گویند. یک جلسهٔ گرم و دلگرم‌کننده که با تعریف تمام می‌شود و هیچ تعهدی ندارد، یک ردکردنِ مؤدبانه است که لباسِ تأیید پوشیده."},"more":{"en":"It's not malice — people just don't want to hurt you. That's why you can't trust words alone: a warm yes with nothing behind it is worse than a clear no, because it feels like success.","fa":"بدجنسی نیست — آدم‌ها فقط نمی‌خواهند دلت را بشکنند. برای همین نمی‌شود فقط به حرف‌ها اعتماد کرد: یک «آره»ِ گرم که هیچ‌چیز پشتش نیست، از یک «نه»ِ روشن بدتر است، چون حسِ موفقیت می‌دهد."},"example":{"en":"A meeting that ends with “keep me posted!” and nothing else has actually failed.","fa":"جلسه‌ای که با «خبرش را بهم بده!» تمام می‌شود و هیچِ دیگر، در واقع شکست خورده."},"tip":{"en":"Judge meetings by what they gave up, not by how nice they were.","fa":"جلسه‌ها را با چیزی که از دست دادند بسنج، نه با اینکه چقدر خوش‌برخورد بودند."},"pitfall":{"en":"Mistaking politeness and warmth for genuine demand.","fa":"اشتباه‌گرفتنِ ادب و گرمی با تقاضای واقعی."}},"currencies":{"part":"commitment","n":12,"name":{"en":"Time, Money, Reputation","fa":"وقت، پول، آبرو"},"glabel":{"en":"Commitment","fa":"تعهد"},"principle":{"en":"Real interest shows up as commitment — giving up something they value: time, money, or reputation.","fa":"علاقهٔ واقعی خودش را به‌شکلِ تعهد نشان می‌دهد — یعنی از دست‌دادنِ چیزی که برایشان ارزش دارد: وقت، پول، یا آبرو."},"more":{"en":"Words are cheap; currencies are not. A real prospect gives you meaningful time (a long meeting, a trial), money (a deposit, a pre-order), or reputation (introductions to their boss or peers).","fa":"حرف ارزان است؛ این سه‌تا نه. یک مشتریِ واقعی به تو وقتِ باارزش می‌دهد (یک جلسهٔ طولانی، یک تست)، پول (بیعانه، پیش‌خرید)، یا آبرو (معرفی به رئیس یا هم‌کارهایش)."},"example":{"en":"A signed letter of intent or a paid pre-order beats a hundred warm compliments.","fa":"یک تعهدنامهٔ امضاشده یا یک پیش‌خریدِ پولی، از صد تا تعریفِ گرم بهتر است."},"tip":{"en":"End meetings by asking for a concrete next step that costs them something.","fa":"جلسه‌ها را با درخواستِ یک قدمِ بعدیِ مشخص تمام کن که برایشان خرج داشته باشد."},"pitfall":{"en":"Collecting friendly nods instead of time, money, or reputation.","fa":"جمع‌کردنِ سرتکان‌دادن‌های دوستانه به‌جای وقت و پول و آبرو."}},"advancement":{"part":"commitment","n":13,"name":{"en":"Push for Advancement","fa":"برای پیشروی هُل بده"},"glabel":{"en":"Advancement","fa":"پیشروی"},"principle":{"en":"Every meeting should either advance to a real next step or reveal that this isn't a customer. No advancement is a no.","fa":"هر جلسه یا باید به یک قدمِ بعدیِ واقعی پیش برود، یا معلوم کند که این آدم اصلاً مشتری نیست. پیش‌نرفتن یعنی نه."},"more":{"en":"A good conversation moves the relationship forward: a next meeting on the calendar, access to a decision-maker, a trial start date. If nothing advances, you've learned it isn't real — which is still useful.","fa":"یک گفت‌وگوی خوب رابطه را جلو می‌برد: یک جلسهٔ بعدی که توی تقویم می‌نشیند، دسترسی به تصمیم‌گیرنده، تاریخِ شروعِ یک تست. اگر هیچ‌چیز جلو نرفت، فهمیده‌ای که واقعی نیست — که خودش بازهم به‌درد می‌خورد."},"example":{"en":"“What are the next steps?” — if there aren't any real ones, that's your answer.","fa":"«خب قدم‌های بعدی چی‌اند؟» — اگر هیچ قدمِ واقعی‌ای نبود، همان جوابت است."},"tip":{"en":"Plan the specific ask you'll make before you walk into the room.","fa":"قبل از اینکه پا به جلسه بگذاری، همان درخواستِ مشخصی را که می‌خواهی بکنی از قبل تعیین کن."},"pitfall":{"en":"Letting warm meetings end with no ask and no next step.","fa":"گذاشتن جلسه‌های گرم بی‌درخواست و بی‌قدمِ بعدی تمام شوند."}},"keepcasual":{"part":"process","n":14,"name":{"en":"Keep It Casual","fa":"خودمانی نگهش دار"},"glabel":{"en":"Keep it casual","fa":"خودمانی باش"},"principle":{"en":"The best customer conversations don't feel like meetings. Keep them short, casual, and unofficial to get honest answers.","fa":"بهترین گفت‌وگوها با مشتری اصلاً حسِ جلسه نمی‌دهند. کوتاه، خودمانی و غیررسمی نگهشان دار تا جوابِ صادقانه بگیری."},"more":{"en":"Formality makes people cautious and polite. A five-minute chat over coffee — no slides, no agenda — often teaches you more than a scheduled hour, because nobody's performing.","fa":"رسمی‌بودن آدم‌ها را محتاط و مؤدب می‌کند. یک گپِ پنج‌دقیقه‌ایِ سرِ قهوه — بی‌اسلاید و بی‌دستورجلسه — بیشتر از یک ساعتِ برنامه‌ریزی‌شده یادت می‌دهد، چون کسی نقش بازی نمی‌کند."},"example":{"en":"“Can I ask you about that for a minute?” beats “Can we schedule a user interview?”","fa":"«می‌تونم یه دقیقه دربارهٔ اون ازت بپرسم؟» از «می‌تونیم یه جلسهٔ مصاحبهٔ کاربری بذاریم؟» بهتر است."},"tip":{"en":"Drop the word “meeting”; just ask your question where they already are.","fa":"کلمهٔ «جلسه» را بینداز دور؛ همان‌جا که هستند سؤالت را بپرس."},"pitfall":{"en":"Making it so formal that people slip into polite, useless mode.","fa":"آن‌قدر رسمی‌اش کنی که آدم‌ها بروند توی حالتِ مؤدب و بی‌فایده."}},"framemeeting":{"part":"process","n":15,"name":{"en":"Frame It, Find the Right People","fa":"قابش بگیر، آدمِ درست را پیدا کن"},"glabel":{"en":"Frame & find","fa":"قاب و آدمِ درست"},"principle":{"en":"When you do need a real meeting, frame it well and talk to the right people — vision, framing, weakness, pedestal, ask.","fa":"وقتی واقعاً به یک جلسهٔ جدی نیاز داری، خوب قابش بگیر و با آدم‌های درست حرف بزن — چشم‌انداز، چارچوب، ضعف، جایگاه، درخواست."},"more":{"en":"Set expectations up front: why you're there, that you're early and need help, and what you're asking for. And spend your energy on the people who actually have the problem, not whoever is easiest to reach.","fa":"از همان اول انتظارها را روشن کن: چرا آنجایی، اینکه اولِ کاری و به کمک نیاز داری، و دقیقاً چه می‌خواهی. و انرژی‌ات را بگذار روی آدم‌هایی که واقعاً مشکل را دارند، نه هرکسی که دم‌دست‌تر است."},"example":{"en":"A warm intro to the right buyer beats ten easy chats with people who'll never pay.","fa":"یک معرفیِ گرم به خریدارِ درست، از ده تا گپِ راحت با آدم‌هایی که هیچ‌وقت پول نمی‌دهند بهتر است."},"tip":{"en":"Prepare a one-line frame: who you are, why now, and the single thing you want.","fa":"یک قابِ یک‌خطی آماده کن: کی هستی، چرا حالا، و همان یک چیزی که می‌خواهی."},"pitfall":{"en":"Talking to whoever's easy instead of whoever has the problem.","fa":"حرف‌زدن با هرکسی که در دسترس است، به‌جای کسی که مشکل را دارد."}},"notessegment":{"part":"process","n":16,"name":{"en":"Take Notes & Segment","fa":"یادداشت بردار و بخش‌بندی کن"},"glabel":{"en":"Notes & segments","fa":"یادداشت و بخش‌بندی"},"principle":{"en":"Write down what they said in their own words, and slice your market into specific segments so you know who you're really learning from.","fa":"همان چیزی را که گفتند با کلماتِ خودشان یادداشت کن، و بازارت را به بخش‌های مشخص تکه‌تکه کن تا بدانی واقعاً از کی داری یاد می‌گیری."},"more":{"en":"Good notes — exact quotes, facts, and commitments — keep your team honest and let you spot patterns across conversations. Segmenting stops you from blending very different customers into a meaningless average.","fa":"یادداشتِ خوب — نقلِ‌قولِ دقیق، واقعیت‌ها، و تعهدها — تیمت را روراست نگه می‌دارد و می‌گذارد الگوها را در گفت‌وگوهای مختلف ببینی. بخش‌بندی هم جلویت را می‌گیرد که مشتری‌های خیلی متفاوت را در یک میانگینِ بی‌معنا قاطیِ هم نکنی."},"example":{"en":"Instead of “young people”, narrow to “final-year students job-hunting this spring”.","fa":"به‌جای «جوان‌ها»، بِبَرش روی «دانشجوهای سالِ آخر که همین بهار دنبالِ کارند»."},"tip":{"en":"Capture verbatim quotes and every commitment right after each chat.","fa":"درست بعد از هر گفت‌وگو، نقلِ‌قولِ دقیق و هر تعهدی را همان‌جا ثبت کن."},"pitfall":{"en":"Vague memories and a market so broad it means nothing.","fa":"خاطره‌های مبهم و یک بازارِ آن‌قدر بزرگ که هیچ معنایی ندارد."}}},"core":{"name":{"en":"GOOD QUESTIONS","fa":"سؤالِ خوب"},"principle":{"en":"The Mom Test is a set of rules for asking questions so good that even your mom can't lie to you — because you stop pitching your idea and start asking about her life. Good questions can't be answered wrong.","fa":"تِستِ مامان مجموعه‌ای از قانون‌هاست برای پرسیدنِ سؤالی آن‌قدر خوب که حتی مامانت هم نتواند بهت دروغ بگوید — چون دست از فروختنِ ایده‌ات برمی‌داری و شروع می‌کنی به پرسیدن دربارهٔ زندگیِ خودش. سؤالِ خوب را نمی‌شود اشتباه جواب داد."},"more":{"en":"Fitzpatrick's insight is that bad data comes from bad questions, and it's your fault, not the customer's. Talk about their life, ask about the past, and listen; dodge compliments, fluff, and pitching; dig for real problems and real spending; and trust commitment over kind words.","fa":"حرفِ اصلیِ فیتزپاتریک این است که دادهٔ بد از سؤالِ بد می‌آید، و تقصیرِ توست، نه مشتری. دربارهٔ زندگی‌شان حرف بزن، از گذشته بپرس، و گوش بده؛ از تعریف و حرفِ هوایی و فروختن دوری کن؛ دنبالِ مشکلِ واقعی و خرجِ واقعی بگرد؛ و به تعهد بیشتر از حرفِ محبت‌آمیز اعتماد کن."},"example":{"en":"Click any node to open a rule. You can also drag the nodes around.","fa":"روی هر دایره کلیک کن تا یک قانون باز شود. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."}},"stages":[{"level":1,"badge":{"en":"Level 1 · Over-simplified","fa":"سطحِ ۱ · خیلی ساده"},"title":{"en":"Stop pitching","fa":"دست از فروختن بردار"},"tagline":{"en":"The whole book in a sentence.","fa":"کلِ کتاب در یک جمله."},"body":{"en":"Don't ask people what they think of your idea — they'll lie to be nice. Ask about their own life and what they already do. Their behavior is the truth; their opinion of your idea is just politeness.","fa":"از آدم‌ها نپرس نظرشان دربارهٔ ایده‌ات چیست — از سرِ خوش‌رفتاری دروغ می‌گویند. از خودِ زندگی‌شان بپرس و از کارهایی که همین‌حالا می‌کنند. رفتارشان حقیقت است؛ نظرشان دربارهٔ ایدهٔ تو فقط تعارف است."},"example":{"en":"Instead of “Do you like my app?”, ask “How do you do this today?”","fa":"به‌جای «اپم را دوست داری؟»، بپرس «الان این کار را چطور انجام می‌دهی؟»"},"gain":{"en":"You stop fishing for compliments and start hearing the truth.","fa":"دست از تور انداختن برای تعریف برمی‌داری و شروع می‌کنی به شنیدنِ حقیقت."}},{"level":2,"badge":{"en":"Level 2 · Simple","fa":"سطحِ ۲ · ساده"},"title":{"en":"The three rules","fa":"سه قانون"},"tagline":{"en":"Their life, the past, and listening.","fa":"زندگی‌شان، گذشته، و گوش‌دادن."},"body":{"en":"Every good question follows three rules: talk about <b>their life</b>, not your idea; ask about <b>specifics in the past</b>, not opinions about the future; and <b>talk less, listen more</b>. Do this and you pass the Mom Test — even your mom couldn't lie.","fa":"هر سؤالِ خوب سه قانون دارد: دربارهٔ <b>زندگی‌شان</b> حرف بزن، نه ایده‌ات؛ از <b>جزئیاتِ گذشته</b> بپرس، نه نظر دربارهٔ آینده؛ و <b>کمتر حرف بزن، بیشتر گوش بده</b>. این‌طوری از تِستِ مامان سربلند بیرون می‌آیی — حتی مامانت هم نمی‌توانست دروغ بگوید."},"example":{"en":"“When did you last run into this problem?” beats “Would you use a tool for this?”","fa":"«آخرین بار کِی به این مشکل خوردی؟» از «از ابزاری برای این کار استفاده می‌کنی؟» بهتر است."},"gain":{"en":"You can turn any leading question into one that can't be answered wrong.","fa":"می‌توانی هر سؤالِ جهت‌دار را به سؤالی تبدیل کنی که نشود اشتباه جوابش داد."}},{"level":3,"badge":{"en":"Level 3 · Balanced","fa":"سطحِ ۳ · متعادل"},"title":{"en":"Kill the false positives","fa":"جواب‌های خوبِ دروغین را بکُش"},"tagline":{"en":"No compliments, fluff, or pitching.","fa":"نه تعریف، نه حرفِ هوایی، نه فروختن."},"body":{"en":"Now spot the traps. <b>Compliments</b> feel great and mean nothing. <b>Fluff</b> — “I always”, “I would”, “I might” — is generic and hypothetical. And your own <b>pitching</b> makes people polite. Deflect all three and anchor everything to concrete stories from the past.","fa":"حالا تله‌ها را بشناس. <b>تعریف</b> حالِ آدم را خوب می‌کند و هیچ معنایی ندارد. <b>حرفِ هوایی</b> — «همیشه»، «حتماً می‌کنم»، «شاید» — کلی و فرضی است. و <b>فروختنِ</b> خودت آدم‌ها را مؤدب می‌کند. هر سه را رد کن و همه‌چیز را به داستان‌های مشخص از گذشته گره بزن."},"example":{"en":"They say “I'd totally buy that”; you ask “What do you use now, and what did it cost?”","fa":"می‌گویند «حتماً می‌خرمش»؛ تو می‌پرسی «الان از چی استفاده می‌کنی، و چقدر برایت آب خورد؟»"},"gain":{"en":"You stop collecting cheerful lies that would waste months of building.","fa":"دست از جمع‌کردنِ دروغ‌های شاد برمی‌داری که ماه‌ها ساختن را هدر می‌دهند."}},{"level":4,"badge":{"en":"Level 4 · Advanced","fa":"سطحِ ۴ · پیشرفته"},"title":{"en":"Dig and read commitment","fa":"بکَن و تعهد را بخوان"},"tagline":{"en":"Real problems, real spending, real signals.","fa":"مشکلِ واقعی، خرجِ واقعی، نشانهٔ واقعی."},"body":{"en":"Go deeper. Find a <b>real problem</b> by asking what they've already done and already pay to solve it, and study their <b>current workaround</b>. Then read the true signal: customers lie with compliments, so trust <b>commitment</b> — time, money, or reputation — and make sure every meeting <b>advances</b>.","fa":"عمیق‌تر برو. <b>مشکلِ واقعی</b> را با پرسیدن از اینکه قبلاً چه کرده‌اند و چقدر برای حلش پول می‌دهند پیدا کن، و <b>راه‌حلِ فعلی‌شان</b> را وارسی کن. بعد نشانهٔ واقعی را بخوان: مشتری‌ها با تعریف دروغ می‌گویند، پس به <b>تعهد</b> اعتماد کن — وقت، پول، یا آبرو — و مطمئن شو هر جلسه <b>جلو می‌رود</b>."},"example":{"en":"A paid pre-order or an intro to the boss beats a room full of “I love it”.","fa":"یک پیش‌خریدِ پولی یا یک معرفی به رئیس، از یک اتاقِ پُر از «عاشقشم» بهتر است."},"gain":{"en":"You can separate a real customer from a friendly fan.","fa":"می‌توانی مشتریِ واقعی را از یک هوادارِ خوش‌برخورد جدا کنی."}},{"level":5,"badge":{"en":"Level 5 · Expert","fa":"سطحِ ۵ · حرفه‌ای"},"title":{"en":"Run it as a system","fa":"مثلِ یک سیستم اجرایش کن"},"tagline":{"en":"Casual, framed, well-noted, segmented.","fa":"خودمانی، قاب‌گرفته، خوب‌یادداشت‌شده، بخش‌بندی‌شده."},"body":{"en":"The expert turns good questions into a repeatable process. Keep conversations <b>casual</b>, <b>frame</b> the serious ones and pick the <b>right people</b>, take honest <b>notes</b> in their own words, and <b>segment</b> your market so lessons add up. Bad data comes from bad questions — and now it's your job, done well, every time.","fa":"آدمِ حرفه‌ای سؤالِ خوب را به یک فرایندِ تکرارشدنی تبدیل می‌کند. گفت‌وگوها را <b>خودمانی</b> نگه دار، جدی‌ها را <b>قاب</b> بگیر و <b>آدمِ درست</b> را انتخاب کن، صادقانه و با کلماتِ خودشان <b>یادداشت</b> بردار، و بازارت را <b>بخش‌بندی</b> کن تا درس‌ها روی‌هم جمع شوند. دادهٔ بد از سؤالِ بد می‌آید — و حالا این کارِ توست، که خوب انجامش بدهی، هر بار."},"example":{"en":"You run five casual chats a week, log every commitment, and know exactly which segment is real.","fa":"هفته‌ای پنج گپِ خودمانی می‌کنی، هر تعهد را ثبت می‌کنی، و دقیقاً می‌دانی کدام بخش از بازار واقعی است."},"gain":{"en":"You can validate an idea with conversations before writing a line of code.","fa":"می‌توانی یک ایده را با گفت‌وگو بسنجی، پیش از آنکه حتی یک خط کد بنویسی."}}],"quotes":[{"en":"The Mom Test: 1. Talk about their life instead of your idea. 2. Ask about specifics in the past instead of generics or opinions about the future. 3. Talk less and listen more.","fa":"تِستِ مامان: ۱. به‌جای ایده‌ات، دربارهٔ زندگی‌شان حرف بزن. ۲. به‌جای کلی‌گویی یا نظر دربارهٔ آینده، از جزئیاتِ گذشته بپرس. ۳. کمتر حرف بزن و بیشتر گوش بده."},{"en":"With the exception of industry experts who have built very similar businesses, opinions are worthless.","fa":"جز کارشناس‌های صنعتی که کسب‌وکارهای خیلی مشابه ساخته‌اند، بقیهٔ نظرها بی‌ارزش‌اند."},{"en":"You're searching for the truth, not trying to be right.","fa":"دنبالِ حقیقتی، نه اینکه بخواهی حق با تو باشد."},{"en":"Startups are about focusing and executing on a single, scalable idea rather than jumping on every good one which crosses your desk.","fa":"استارتاپ یعنی تمرکز و اجرا روی یک ایدهٔ واحد و مقیاس‌پذیر، نه پریدن روی هر ایدهٔ خوبی که از جلویت رد می‌شود."},{"en":"Rule of thumb: If you don't know what you're trying to learn, you shouldn't bother having the conversation.","fa":"یک قاعدهٔ سرانگشتی: اگر نمی‌دانی دنبالِ یادگرفتنِ چه چیزی هستی، اصلاً به خودت زحمتِ آن گفت‌وگو را نده."},{"en":"Taking good notes is the best way to keep your team (and investors and advisors) in the loop.","fa":"یادداشتِ خوب برداشتن، بهترین راه است برای اینکه تیمت (و سرمایه‌گذارها و مشاورها) را در جریان نگه داری."},{"en":"Warm intros are the goal.","fa":"معرفی‌های گرم، همان هدف‌اند."}],"media":[{"kind":"yt","id":"QIuEQo3WkP4","src":{"en":"YouTube · VideoAsk","fa":"یوتیوب · VideoAsk"},"title":{"en":"The Mom Test — Interactive Lecture with Rob Fitzpatrick","fa":"تِستِ مامان — درسِ تعاملی با خودِ راب فیتزپاتریک"},"desc":{"en":"A free interactive video lecture from the author himself.","fa":"یک درسِ ویدیوییِ تعاملیِ رایگان از خودِ نویسنده."},"bullets":{"en":["The method straight from Rob","Why customers lie, and the fix","A great first watch"],"fa":["روش، مستقیم از زبانِ راب","چرا مشتری‌ها دروغ می‌گویند و راهِ حلش","برای اولین تماشا عالی است"]},"best":{"en":"Best for Stage 1–2.","fa":"خوب برای مرحلهٔ ۱ و ۲."}},{"kind":"yt","id":"xvS__V1BEGY","src":{"en":"YouTube · The Learning Leader Show","fa":"یوتیوب · The Learning Leader Show"},"title":{"en":"How to Talk to Your Customers — Rob Fitzpatrick","fa":"چطور با مشتری‌هایت حرف بزنی — راب فیتزپاتریک"},"desc":{"en":"A long-form interview with Rob on customer conversations.","fa":"یک گفت‌وگوی مفصل با راب دربارهٔ صحبت با مشتری."},"bullets":{"en":["The story behind the book","Real examples from founders","Good after a first read"],"fa":["داستانِ پشتِ کتاب","مثال‌های واقعی از بنیان‌گذارها","خوب بعد از اولین خواندن"]},"best":{"en":"Best for Stage 2–3.","fa":"خوب برای مرحلهٔ ۲ و ۳."}},{"kind":"yt","id":"hM-AGTipv4E","src":{"en":"YouTube · Jacob Haugen","fa":"یوتیوب · Jacob Haugen"},"title":{"en":"The Mom Test — Summary, Notes & Review","fa":"تِستِ مامان — خلاصه، نکته‌ها و مرور"},"desc":{"en":"A reader's structured summary and takeaways.","fa":"خلاصه و نکته‌های دسته‌بندی‌شدهٔ یک خواننده."},"bullets":{"en":["The rules, condensed","Bad vs good questions","A tidy recap"],"fa":["قانون‌ها، فشرده","سؤالِ خوب در برابرِ بد","یک مرورِ مرتب"]},"best":{"en":"Best for Stage 3–4.","fa":"خوب برای مرحلهٔ ۳ و ۴."}},{"kind":"img","url":"https://www.momtestbook.com/","src":{"en":"momtestbook.com · Official","fa":"momtestbook.com · رسمی"},"title":{"en":"The Mom Test — Official Book Site","fa":"تِستِ مامان — سایتِ رسمیِ کتاب"},"desc":{"en":"The author's official page for the book, with details and where to buy.","fa":"صفحهٔ رسمیِ نویسنده برای کتاب، با جزئیات و محلِ خرید."},"bullets":{"en":["Straight from the author","Editions and formats","Extra resources"],"fa":["مستقیم از خودِ نویسنده","نسخه‌ها و قالب‌ها","منابعِ بیشتر"]},"best":{"en":"For the source and editions.","fa":"برای منبعِ اصلی و نسخه‌ها."}}],"go":[{"label":{"en":"Official book site","fa":"سایتِ رسمیِ کتاب"},"url":"https://www.momtestbook.com/"},{"label":{"en":"Book on Goodreads","fa":"کتاب در گودریدز"},"url":"https://www.goodreads.com/book/show/18529000-the-mom-test"},{"label":{"en":"Publisher page (Simon & Schuster)","fa":"صفحهٔ ناشر (سایمون و شوستر)"},"url":"https://www.simonandschuster.com/books/The-Mom-Test/Rob-Fitzpatrick/9798893312560"}],"recs":[{"pri":"b","t":{"en":"Rewrite one question the Mom Test way","fa":"یک سؤالت را به سبکِ تِستِ مامان بازنویسی کن"},"d":{"en":"Take a question you were about to ask and turn it into one about their past behavior, not your idea.","fa":"یک سؤالی که می‌خواستی بپرسی را بردار و به سؤالی دربارهٔ رفتارِ گذشته‌شان تبدیلش کن، نه ایده‌ات."}},{"pri":"b","t":{"en":"Have three casual chats this week","fa":"این هفته سه گپِ خودمانی بزن"},"d":{"en":"Talk to three people who have the problem — no pitch, no slides, just questions about their life.","fa":"با سه نفر که مشکل را دارند حرف بزن — بی‌فروش، بی‌اسلاید، فقط سؤال دربارهٔ زندگی‌شان."}},{"pri":"n","t":{"en":"Ask for one real commitment","fa":"یک تعهدِ واقعی بخواه"},"d":{"en":"End your next conversation by asking for time, money, or an intro — and see what happens.","fa":"گفت‌وگوی بعدی‌ات را با درخواستِ وقت، پول، یا یک معرفی تمام کن — و ببین چه می‌شود."}},{"pri":"n","t":{"en":"Write down their exact words","fa":"کلماتِ دقیقشان را یادداشت کن"},"d":{"en":"After each chat, capture their verbatim quotes and any commitment before you forget.","fa":"بعد از هر گپ، نقلِ‌قولِ دقیق و هر تعهدی را قبل از اینکه یادت برود ثبت کن."}}]};
+</script>
+
+<script>
+/* ── 3) RENDER (text sections) ────────────────────────────── */
+function elClear(id){ var e=document.getElementById(id); if(e) e.innerHTML=''; return e; }
+
+function renderText(){
+  var t=elClear('tldrHost');
+  DATA.tldr.forEach(function(o){ var li=document.createElement('li'); li.innerHTML = TX(o); t.appendChild(li); });
+
+  var q=elClear('quoteHost');
+  DATA.quotes.forEach(function(o){
+    var bq=document.createElement('blockquote');
+    bq.innerHTML = '<span class="qm">“</span><p>'+TX(o)+'</p>';
+    q.appendChild(bq);
+  });
+
+  var m=elClear('mediaHost');
+  DATA.media.forEach(function(o){
+    var card=document.createElement('div'); card.className='mcard';
+    var thumb;
+    if(o.kind==='yt'){
+      var url='https://www.youtube.com/watch?v='+o.id;
+      var img='https://i.ytimg.com/vi/'+o.id+'/hqdefault.jpg';
+      thumb='<a class="mthumb" href="'+url+'" target="_blank" rel="noopener">'
+        +'<img src="'+img+'" alt="" loading="lazy" onerror="this.style.display=\'none\'">'
+        +'<span class="ptype">'+(LANG==='fa'?'ویدیو':'VIDEO')+'</span>'
+        +'<span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></span></a>';
+    } else {
+      thumb='<a class="mthumb" href="'+o.url+'" target="_blank" rel="noopener"><span class="mfake">'
+        +'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.6"/><path d="M21 15l-5-5L5 21"/></svg>'
+        +'</span><span class="ptype">'+(LANG==='fa'?'تصویر':'IMAGE')+'</span></a>';
+    }
+    var link = o.kind==='yt' ? 'https://www.youtube.com/watch?v='+o.id : o.url;
+    var bl = (LANG==='fa'?o.bullets.fa:o.bullets.en).map(function(b){ return '<li>'+ (LANG==='fa'?faText(b):b) +'</li>'; }).join('');
+    card.innerHTML = thumb + '<div class="mbody">'
+      + '<div class="msrc">'+TX(o.src)+'</div>'
+      + '<h4>'+TX(o.title)+'</h4>'
+      + '<p class="mdesc">'+TX(o.desc)+'</p>'
+      + '<ul>'+bl+'</ul>'
+      + '<a class="mlink" href="'+link+'" target="_blank" rel="noopener">'+(LANG==='fa'?'باز کردن ↗':'Open ↗')+'</a>'
+      + '<div class="mbest">'+TX(o.best)+'</div>'
+      + '</div>';
+    m.appendChild(card);
+  });
+
+  var g=elClear('goHost');
+  DATA.go.forEach(function(o){
+    var a=document.createElement('a'); a.href=o.url; a.target='_blank'; a.rel='noopener';
+    a.textContent=TX(o.label); g.appendChild(a);
+  });
+
+  var r=elClear('recHost');
+  DATA.recs.forEach(function(o){
+    var it=document.createElement('div'); it.className='item';
+    var priLabel = o.pri==='b' ? (LANG==='fa'?'از اینجا شروع کن':'Start here') : (LANG==='fa'?'بعدش این':'Then this');
+    it.innerHTML='<div class="t">'+TX(o.t)+'<span class="pri '+(o.pri==='b'?'b':'')+'">'+priLabel+'</span></div>'
+      +'<div class="d">'+TX(o.d)+'</div>';
+    r.appendChild(it);
+  });
+
+  var mth=document.getElementById('methodHost');
+  mth.innerHTML = LANG==='fa' ? faText("<p><b>منبع:</b> کتابِ «The Mom Test» (تِستِ مامان) نوشتهٔ راب فیتزپاتریک، چاپِ ۲۰۱۳.</p><p><b>روشِ کار:</b> ساختارِ پنج‌بخشی و قانون‌ها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده؛ نقل‌قول‌ها با متنِ کتاب و گودریدز مقابله و ویدیوها بررسی شده‌اند.</p><p><b>پنج مرحله:</b> بر اساسِ یک نردبانِ سادگی از ۱ تا ۵ چیده شده — یک محتوا در پنج عمقِ مختلف، از خیلی ساده تا حرفه‌ای.</p><p><b>گروه:</b> «نرخِ موفقیتِ محصول».</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای متنِ کامل، خودِ کتاب را بخوان.</p>") : "<p><b>Source:</b> the book <i>The Mom Test</i> by Rob Fitzpatrick, first published 2013.</p><p><b>How this was built:</b> the five-part structure and rules were gathered and rewritten from the book and reputable sources; quotes were cross-checked against the book and Goodreads, and the linked videos verified.</p><p><b>Five stages:</b> arranged on a simplicity ladder from 1 to 5 — one set of ideas at five depths, from over-simplified to expert.</p><p><b>Group:</b> Product Success Rate.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>";
+  var fl=document.getElementById('flowTop');
+  if(fl){
+    var loop = LANG==='fa' ? ["بپرس","گوش بده","تعهد بگیر"] : ["Ask","Listen","Commit"];
+    var ar = LANG==='fa' ? '⟵' : '⟶';
+    fl.innerHTML = loop.map(function(w){ return '<b>'+ (LANG==='fa'?faText(w):w) +'</b>'; }).join(' <span class="ar">'+ar+'</span> ');
+  }
+}
+</script>
+
+<script>
+/* ── 4) CONCEPT MAP ───────────────────────────────────────── */
+function renderMap(){
+  var host=document.getElementById('mapHost'); if(!host) return; host.innerHTML='';
+  DATA.parts.forEach(function(p, i){
+    var col=document.createElement('div'); col.className='partcol';
+    var chaps=p.chapters.map(function(ck){
+      var c=DATA.chapters[ck];
+      return '<div class="chapchip"><span class="cn">'+num(c.n)+'</span><div><b>'+TX(c.name)+'</b>'
+        +'<small>'+TX(c.principle).replace(/<[^>]+>/g,'').slice(0, LANG==='fa'?86:76)+'…</small></div></div>';
+    }).join('');
+    col.innerHTML='<div class="ph"><span class="pdot" style="background:var('+p.varc+')"></span>'
+      +'<span class="pnum">'+(LANG==='fa'?'بخشِ ':'PART ')+num(i+1)+'</span></div>'
+      +'<h4>'+TX(p.name)+'</h4>'
+      +'<div class="ptag" style="color:var('+p.varc+')">'+TX(p.tag)+'</div>'
+      +'<p class="pgist">'+TX(p.gist)+'</p>'+chaps;
+    host.appendChild(col);
+  });
+}
+</script>
+
+<script>
+/* ── 5) INTERACTIVE NETWORK GRAPH (deterministic radial layout, no physics) ── */
+var GRAPH = (function(){
+  var svg, W=980, H=780, nodes=[], links=[], sel=null, dragNode=null, moved=false, startPt=null;
+
+  function build(){
+    svg=document.getElementById('netsvg');
+    svg.setAttribute('viewBox','0 0 '+W+' '+H);
+    nodes=[]; links=[];
+    var cx=W/2, cy=H/2, R1=220, R2=126, span=66*Math.PI/180;
+    var N=DATA.parts.length, partAng=DATA.parts.map(function(_,i){ return -Math.PI/2 + i*(2*Math.PI/N); });
+    nodes.push({id:'core', kind:'core', varc:'--core', r:38, x:cx, y:cy, label:DATA.core.name, data:DATA.core});
+    DATA.parts.forEach(function(p,i){
+      var a=partAng[i], px=cx+Math.cos(a)*R1, py=cy+Math.sin(a)*R1;
+      nodes.push({id:'p_'+p.key, kind:'part', varc:p.varc, r:25, x:px, y:py,
+        label:p.name, data:{name:p.name, principle:p.gist, more:p.more, tag:p.tag, key:p.key}});
+      links.push({s:'core', t:'p_'+p.key, strong:true});
+      var nc=p.chapters.length, start=a-span/2;
+      p.chapters.forEach(function(ck,j){
+        var ca = nc>1 ? start+span*(j/(nc-1)) : a;   // fan the 5 chapters outward
+        var c=DATA.chapters[ck];
+        nodes.push({id:'c_'+ck, kind:'chap', varc:p.varc, r:15,
+          x:px+Math.cos(ca)*R2, y:py+Math.sin(ca)*R2,
+          label:(c.glabel||c.name), data:c, ck:ck});
+        links.push({s:'p_'+p.key, t:'c_'+ck});
+      });
+    });
+    nodes.forEach(function(n){ n.hx=n.x; n.hy=n.y; });   // remember home positions for reset
+    draw();
+    select('core');
+  }
+
+  function byId(id){ for(var i=0;i<nodes.length;i++) if(nodes[i].id===id) return nodes[i]; return null; }
+
+  function draw(){
+    var ln='', nd='';
+    links.forEach(function(l){ ln+='<line class="glink" data-s="'+l.s+'" data-t="'+l.t+'" stroke="var(--line)" stroke-width="'+(l.strong?2.4:1.5)+'" stroke-linecap="round"/>'; });
+    nodes.forEach(function(n){
+      var inside='', below='';
+      if(n.kind==='core'){
+        inside='<text text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="800" fill="#fff" letter-spacing="0.3">'+shortLabel(n)+'</text>';
+      } else {
+        if(n.kind==='chap'){
+          inside='<text text-anchor="middle" dominant-baseline="central" font-size="11" font-weight="800" fill="#fff">'+num(n.data.n)+'</text>';
+        }
+        var ly = n.r + (n.kind==='part'?17:14);
+        var fs = n.kind==='part'?13:11;
+        var stroke = 'paint-order:stroke;stroke:var(--card2);stroke-width:3.6px;stroke-linejoin:round';
+        below='<text class="nlab" text-anchor="middle" y="'+ly+'" font-size="'+fs+'" font-weight="'+(n.kind==='part'?'800':'700')+'" fill="var(--ink)" style="'+stroke+'">'+shortLabel(n)+'</text>';
+      }
+      nd+='<g class="node'+(n.kind==='core'?' ncore':'')+'" data-id="'+n.id+'"><g class="ns">'
+        +'<circle r="'+n.r+'" fill="var('+n.varc+')" fill-opacity="'+(n.kind==='chap'?0.94:1)+'" stroke="var(--card)" stroke-width="2.5"/>'
+        +inside+below+'</g></g>';
+    });
+    svg.innerHTML='<g id="glinks">'+ln+'</g><g id="gnodes">'+nd+'</g>';
+    svg.querySelectorAll('.node').forEach(function(gEl){
+      gEl.addEventListener('pointerdown', onDown);
+      gEl.addEventListener('click', function(){ if(!moved) select(gEl.getAttribute('data-id')); });
+      gEl.addEventListener('pointerenter', function(){ if(!dragNode) gEl.classList.add('hover'); });
+      gEl.addEventListener('pointerleave', function(){ gEl.classList.remove('hover'); });
+    });
+    positions();
+  }
+  function shortLabel(n){ return TX(n.label); }
+
+  function positions(){
+    svg.querySelectorAll('.node').forEach(function(g){
+      var n=byId(g.getAttribute('data-id'));
+      g.setAttribute('transform','translate('+n.x.toFixed(1)+','+n.y.toFixed(1)+')');
+    });
+    svg.querySelectorAll('.glink').forEach(function(l){
+      var a=byId(l.getAttribute('data-s')), b=byId(l.getAttribute('data-t'));
+      l.setAttribute('x1',a.x.toFixed(1)); l.setAttribute('y1',a.y.toFixed(1));
+      l.setAttribute('x2',b.x.toFixed(1)); l.setAttribute('y2',b.y.toFixed(1));
+    });
+  }
+
+  /* drag: just move the grabbed node — no simulation, so nothing else shifts */
+  function toSvg(e){
+    var pt=svg.createSVGPoint(); pt.x=e.clientX; pt.y=e.clientY;
+    var m=svg.getScreenCTM(); if(!m) return {x:e.clientX,y:e.clientY};
+    return pt.matrixTransform(m.inverse());
+  }
+  function onDown(e){
+    e.preventDefault();
+    dragNode=byId(e.currentTarget.getAttribute('data-id'));
+    moved=false; startPt=toSvg(e); svg.style.cursor='grabbing';
+    e.currentTarget.classList.remove('hover');
+    window.addEventListener('pointermove', onMove);
+    window.addEventListener('pointerup', onUp);
+  }
+  function onMove(e){
+    if(!dragNode) return; var p=toSvg(e);
+    if(startPt && (Math.abs(p.x-startPt.x)>4 || Math.abs(p.y-startPt.y)>4)) moved=true;
+    dragNode.x=Math.max(dragNode.r+4, Math.min(W-dragNode.r-4, p.x));
+    dragNode.y=Math.max(dragNode.r+4, Math.min(H-dragNode.r-24, p.y));
+    positions();
+  }
+  function onUp(){
+    dragNode=null; svg.style.cursor='grab';
+    window.removeEventListener('pointermove', onMove);
+    window.removeEventListener('pointerup', onUp);
+  }
+
+  function keepSet(id){
+    var n=byId(id); if(!n || id==='core') return null;   // core → show everything
+    var keep={}; keep[id]=1; keep['core']=1;
+    var pk = (n.kind==='part') ? n.data.key : n.data.part;
+    keep['p_'+pk]=1;
+    DATA.parts.forEach(function(p){ if(p.key===pk) p.chapters.forEach(function(ck){ keep['c_'+ck]=1; }); });
+    return keep;   // highlight the whole branch: core → part → its chapters
+  }
+  function applyFocus(id){
+    var keep=keepSet(id), full=(keep===null);
+    svg.querySelectorAll('.node').forEach(function(g){
+      var nid=g.getAttribute('data-id');
+      g.classList.toggle('dim', !full && !keep[nid]);
+      g.classList.toggle('hl', !full && keep[nid] && nid!==id);
+    });
+    svg.querySelectorAll('.glink').forEach(function(l){
+      var s=l.getAttribute('data-s'), t=l.getAttribute('data-t');
+      var on = full || (keep[s] && keep[t]);
+      l.classList.toggle('dim', !on);
+      l.classList.toggle('hl', !full && on);
+    });
+  }
+
+  function relatedIds(node){
+    var ids=[];
+    if(node.id==='core'){ DATA.parts.forEach(function(p){ ids.push('p_'+p.key); }); }
+    else if(node.kind==='part'){ var pk=node.data.key; DATA.parts.forEach(function(p){ if(p.key===pk) p.chapters.forEach(function(ck){ ids.push('c_'+ck); }); }); }
+    else { var pk2=node.data.part; ids.push('p_'+pk2);
+      DATA.parts.forEach(function(p){ if(p.key===pk2) p.chapters.forEach(function(ck){ if('c_'+ck!==node.id) ids.push('c_'+ck); }); }); }
+    return ids;
+  }
+
+  function drow(cls,label,txt){ return '<div class="drow '+cls+'"><div class="dlab">'+label+'</div><div class="dtxt">'+txt+'</div></div>'; }
+
+  function select(id){
+    var n=byId(id); if(!n) return;
+    sel=id;
+    svg.querySelectorAll('.node').forEach(function(g){ g.classList.toggle('sel', g.getAttribute('data-id')===id); });
+    var selEl=svg.querySelector('.node[data-id="'+id+'"]'); if(selEl&&selEl.parentNode) selEl.parentNode.appendChild(selEl);  // raise on top
+    applyFocus(id);
+    var d=n.data, pv = n.kind==='core' ? '--core' : n.varc;
+    var kicker = n.kind==='core' ? (LANG==='fa'?'ایدهٔ مرکزی':'Core idea')
+             : n.kind==='part' ? (LANG==='fa'?'بخش':'Part') + ' · ' + TX(d.tag)
+             : (LANG==='fa'?"قانونِ":"Rule") + ' ' + num(d.n);
+    var prLab = (n.kind==='chap') ? (LANG==='fa'?'اصل':'Principle') : (LANG==='fa'?'ایدهٔ اصلی':'Big idea');
+    var html='<div class="dkick"><i style="background:var('+pv+')"></i>'+ (LANG==='fa'?faText(kicker):kicker) +'</div>'
+      +'<h4>'+TX(d.name)+'</h4>'
+      + drow('', prLab, TX(d.principle));
+    if(d.more)    html += drow('more', (LANG==='fa'?'بیشتر':'In depth'), TX(d.more));
+    if(d.example) html += drow('', (LANG==='fa'?'مثال':'Example'), TX(d.example));
+    if(d.tip)     html += drow('tip', (LANG==='fa'?'امتحان کن':'Try this'), TX(d.tip));
+    if(d.pitfall) html += drow('pit', (LANG==='fa'?'حواست باشد':'Watch out'), TX(d.pitfall));
+    // related chips
+    var rel=relatedIds(n);
+    if(rel.length){
+      var chips=rel.map(function(rid){ var rn=byId(rid); if(!rn) return '';
+        return '<span class="dchip" data-goto="'+rid+'"><i style="background:var('+rn.varc+')"></i>'+TX(rn.data.name)+'</span>'; }).join('');
+      html += '<div class="drow"><div class="dlab">'+(LANG==='fa'?'مرتبط':'Related')+'</div><div class="dchips">'+chips+'</div></div>';
+    }
+    var host=document.getElementById('detailHost');
+    host.innerHTML=html;
+    host.querySelectorAll('.dchip').forEach(function(c){
+      c.addEventListener('click', function(){ select(c.getAttribute('data-goto')); });
+    });
+  }
+
+  function relabel(){ if(!svg) return; draw(); select(sel||'core'); }
+
+  return {
+    build:build,
+    kick:function(){},                                    // no-op; layout is static
+    relabel:relabel,
+    reset:function(){ nodes.forEach(function(n){ n.x=n.hx; n.y=n.hy; }); positions(); },
+    resetFocus:function(){ select('core'); },
+    selectNode:function(id){ select(id); },
+    hasNodes:function(){ return nodes.length>0; }
+  };
+})();
+</script>
+
+<script>
+/* ── 6) 5-STAGE LADDER ────────────────────────────────────── */
+var curStage=0;
+function renderLadder(){
+  var host=document.getElementById('ladderHost'); host.innerHTML='';
+  DATA.stages.forEach(function(s,i){
+    var r=document.createElement('div'); r.className='rung'+(i===curStage?' active':'');
+    r.innerHTML='<div class="lv">'+ (LANG==='fa'?('سطحِ '+num(s.level)):('Level '+s.level)) +'</div>'
+      +'<div class="lt">'+TX(s.title)+'</div>'
+      +'<div class="lbar"><i style="width:'+(s.level*20)+'%"></i></div>';
+    r.addEventListener('click', function(){ curStage=i; renderLadder(); renderStage();
+      document.getElementById('stageHost').scrollIntoView({behavior:'smooth',block:'nearest'}); });
+    host.appendChild(r);
+  });
+}
+function renderStage(){
+  var s=DATA.stages[curStage];
+  var host=document.getElementById('stageHost');
+  var exLabel = LANG==='fa'?'مثال':'Example';
+  var prev = LANG==='fa'?'مرحلهٔ قبل':'‹ Prev', next = LANG==='fa'?'مرحلهٔ بعد':'Next ›';
+  host.innerHTML=''+
+    '<div class="stagecard">'
+    +'<div class="shead"><span class="badge">'+TX(s.badge)+'</span><h3>'+TX(s.title)+'</h3></div>'
+    +'<div class="tagline">'+TX(s.tagline)+'</div>'
+    +'<div class="sbody">'+TX(s.body)+'</div>'
+    +'<div class="exbox"><div class="exk">'+exLabel+'</div><div class="ext">'+TX(s.example)+'</div></div>'
+    +'<div class="gainrow"><span class="gi">✓</span><span>'+TX(s.gain)+'</span></div>'
+    +'<div class="stagenav">'
+      +'<button id="stPrev" '+(curStage===0?'disabled':'')+'>'+prev+'</button>'
+      +'<button id="stNext" '+(curStage===DATA.stages.length-1?'disabled':'')+'>'+next+'</button>'
+    +'</div></div>';
+  var pv=document.getElementById('stPrev'), nx=document.getElementById('stNext');
+  if(pv) pv.onclick=function(){ if(curStage>0){curStage--; renderLadder(); renderStage();} };
+  if(nx) nx.onclick=function(){ if(curStage<DATA.stages.length-1){curStage++; renderLadder(); renderStage();} };
+}
+</script>
+
+<script>
+/* ── 7) legend + graph tabs ───────────────────────────────── */
+function renderLegend(){
+  var host=document.getElementById('legendHost'); if(!host) return;
+  var items=[{c:'--core', en:'Core idea', fa:'ایدهٔ مرکزی'}]
+    .concat(DATA.parts.map(function(p){ return {c:p.varc, en:p.name.en, fa:p.name.fa}; }));
+  host.innerHTML = items.map(function(it){
+    return '<span><i style="background:var('+it.c+')"></i>'+(LANG==='fa'?faText(it.fa):it.en)+'</span>';
+  }).join('');
+  document.getElementById('ghint').textContent = LANG==='fa' ? 'روی هر دایره کلیک کن تا بیشتر بخوانی · می‌توانی بکشی‌شان' : 'Click a node to read more · drag to move';
+  document.getElementById('greset').textContent = LANG==='fa' ? '↺ چیدمان' : '↺ Reset';
+}
+function setupTabs(){
+  function show(net){
+    document.getElementById('netView').style.display = net?'':'none';
+    document.getElementById('mapView').style.display = net?'none':'';
+    document.getElementById('tabNet').classList.toggle('active',net);
+    document.getElementById('tabMap').classList.toggle('active',!net);
+    if(net) GRAPH.kick();
+  }
+  document.getElementById('tabNet').onclick=function(){show(true);};
+  document.getElementById('tabMap').onclick=function(){show(false);};
+  document.getElementById('greset').onclick=function(){ GRAPH.reset(); };
+  // click empty graph space resets the focus
+  var svg=document.getElementById('netsvg');
+  svg.addEventListener('click', function(e){ if(!e.target.closest('.node')) GRAPH.resetFocus(); });
+}
+</script>
+
+<script>
+/* ── 8) toggles + boot ────────────────────────────────────── */
+function setLang(lg){
+  LANG=lg;
+  document.documentElement.setAttribute('data-lang',lg);
+  document.documentElement.setAttribute('lang',lg);
+  document.documentElement.setAttribute('dir', lg==='fa'?'rtl':'ltr');
+  try{ localStorage.setItem('momtest-lang',lg); }catch(e){}
+  renderAll();
+}
+function renderAll(){
+  renderText();
+  renderMap();
+  renderLegend();
+  renderLadder();
+  renderStage();
+  if(GRAPH.hasNodes()) GRAPH.relabel(); else GRAPH.build();
+}
+(function(){
+  var lb=document.getElementById('langBtn');
+  lb && lb.addEventListener('click', function(){ setLang(LANG==='fa'?'en':'fa'); });
+
+  var tb=document.getElementById('themeBtn');
+  function curT(){ return document.documentElement.getAttribute('data-theme'); }
+  tb && tb.addEventListener('click', function(){
+    var t=curT()==='dark'?'light':'dark';
+    document.documentElement.setAttribute('data-theme',t);
+    try{ localStorage.setItem('momtest-theme',t); }catch(e){}
+  });
+  try{ matchMedia('(prefers-color-scheme: dark)').addEventListener('change',function(e){
+    if(!localStorage.getItem('momtest-theme')){ document.documentElement.setAttribute('data-theme', e.matches?'dark':'light'); }
+  }); }catch(e){}
+})();
+
+/* scroll-spy */
+(function(){
+  var links=[].slice.call(document.querySelectorAll('.toc a'));
+  var seen={}, ids=[];
+  links.forEach(function(a){ var id=a.getAttribute('href').slice(1); if(!seen[id]){seen[id]=1; ids.push(id);} });
+  var secs=ids.map(function(id){return document.getElementById(id);}).filter(Boolean);
+  function setActive(id){ links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('href')==='#'+id); }); }
+  if('IntersectionObserver' in window){
+    var obs=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+    },{rootMargin:'-45% 0px -50% 0px',threshold:0});
+    secs.forEach(function(s){ obs.observe(s); });
+  }
+})();
+
+document.addEventListener('DOMContentLoaded', function(){
+  setupTabs();
+  renderAll();
+});
+</script>
+</body>
+</html>

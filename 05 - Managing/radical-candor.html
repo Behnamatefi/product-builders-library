@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<!-- complexity-level: 1→5 (this page teaches the SAME book at five depths, over-simplified … expert) -->
+<!-- Effortless (Greg McKeown) — bilingual EN/FA knowledge graph & 5-stage learning page -->
+<html lang="fa" dir="rtl" data-lang="fa">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Radical Candor — نقشهٔ دانش و یادگیری ۵ مرحله‌ای</title>
+
+<!-- Boot theme + language BEFORE paint to avoid a flash -->
+<script>
+(function(){
+  try{
+    var th = localStorage.getItem('rcandor-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
+    document.documentElement.setAttribute('data-theme', th);
+  }catch(e){ document.documentElement.setAttribute('data-theme','light'); }
+  try{
+    var lg = localStorage.getItem('rcandor-lang') || 'fa';
+    document.documentElement.setAttribute('data-lang', lg);
+    document.documentElement.setAttribute('lang', lg);
+    document.documentElement.setAttribute('dir', lg==='fa' ? 'rtl' : 'ltr');
+  }catch(e){}
+})();
+</script>
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:ital,opsz@0,6..72;1,6..72&display=swap" rel="stylesheet">
+
+<style>
+/* ── TOKENS ───────────────────────────────────────────────── */
+:root, [data-theme="light"]{
+  --bg:#f5f6f8; --bg2:#eef2f7; --card:#fff; --card2:#f8fafb;
+  --ink:#1c2330; --mut:#6b7280; --line:#e6e8ee;
+  --accent:#0e7c86; --accent-ink:#fff; --warm:#c2410c;
+  --shadow:0 1px 2px rgba(20,30,50,.05),0 6px 24px rgba(20,30,50,.06);
+  --hero-1:#0e7c86; --hero-2:#0b5e66;
+  --c-teal:#0e9aa6; --c-blue:#2f6fb0; --c-violet:#7c3aed; --c-amber:#d97706;
+  --c-green:#15a34a; --c-red:#e11d48; --c-gold:#c98a12; --c-gray:#6b7280;
+  --state:#0e9aa6; --action:#d97706; --results:#7c3aed; --core:#0e7c86;
+}
+[data-theme="dark"]{
+  --bg:#0e131a; --bg2:#161d27; --card:#151c26; --card2:#1b2430;
+  --ink:#e9eef5; --mut:#9aa7b6; --line:#27313d;
+  --accent:#2dd4bf; --accent-ink:#06231f; --warm:#fb923c;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 28px rgba(0,0,0,.45);
+  --hero-1:#0c5f67; --hero-2:#07323a;
+  --c-teal:#2dd4bf; --c-blue:#5b9bd5; --c-violet:#a78bfa; --c-amber:#fbbf24;
+  --c-green:#34d399; --c-red:#fb7185; --c-gold:#e2b04a; --c-gray:#94a3b8;
+  --state:#2dd4bf; --action:#fbbf24; --results:#a78bfa; --core:#2dd4bf;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:Vazirmatn,"Segoe UI",Tahoma,Arial,sans-serif;line-height:1.85;font-size:15px;
+  transition:background .25s,color .25s}
+html[data-lang="en"] body{font-family:Inter,"Segoe UI",system-ui,Arial,sans-serif;line-height:1.7}
+.wrap{max-width:960px;margin:0 auto;padding:0 18px 40px}
+
+/* language visibility */
+html[data-lang="en"] [data-only="fa"]{display:none !important}
+html[data-lang="fa"] [data-only="en"]{display:none !important}
+
+/* ── HERO ─────────────────────────────────────────────────── */
+.hero{background:linear-gradient(135deg,var(--hero-1),var(--hero-2));color:#fff;padding:44px 0 34px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset-inline-end:-80px;top:-80px;width:280px;height:280px;
+  background:radial-gradient(circle,rgba(255,255,255,.12),transparent 70%);pointer-events:none}
+.hero .wrap{padding-bottom:0;position:relative;z-index:1}
+.hero h1{margin:0 0 8px;font-size:30px;font-weight:800;letter-spacing:-.3px;line-height:1.25}
+html[data-lang="en"] .hero h1{font-family:Newsreader,Georgia,serif;font-weight:600;letter-spacing:-.5px}
+.hero .dek{margin:0;opacity:.94;font-size:15.5px;max-width:640px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;
+  color:rgba(255,255,255,.95);background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.24);
+  padding:5px 13px;border-radius:20px;margin-bottom:15px}
+.eyebrow .edot{width:7px;height:7px;border-radius:50%;background:#fff;box-shadow:0 0 0 3px rgba(255,255,255,.25)}
+.metastrip{display:flex;flex-wrap:wrap;gap:14px 30px;margin-top:20px;padding-top:16px;
+  border-top:1px solid rgba(255,255,255,.18)}
+.metaitem{display:flex;flex-direction:column;gap:3px}
+.metaitem .mk{font-size:10.5px;color:rgba(255,255,255,.62);font-weight:700;letter-spacing:.6px;text-transform:uppercase}
+.metaitem .mv{font-size:14px;color:#fff;font-weight:700}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);
+  border-radius:11px;padding:9px 15px;font-size:13px}
+.chip b{font-size:20px;display:block;font-weight:800}
+
+/* ── NAV + TOC ────────────────────────────────────────────── */
+.navbar{position:sticky;top:0;z-index:60;background:color-mix(in srgb,var(--card) 92%,transparent);
+  backdrop-filter:saturate(180%) blur(10px);-webkit-backdrop-filter:saturate(180%) blur(10px);
+  border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+.navin{max-width:960px;margin:0 auto;padding:8px 16px;display:flex;align-items:center;gap:12px}
+.brand{flex:0 0 auto;font-weight:800;font-size:12.5px;color:var(--accent);white-space:nowrap;
+  display:flex;align-items:center;gap:7px}
+.brand .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);
+  box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 18%,transparent)}
+.toc{flex:1 1 auto;display:flex;flex-wrap:wrap;gap:7px;justify-content:center}
+.toc a{font-size:12.5px;color:var(--mut);text-decoration:none;border:1px solid var(--line);
+  border-radius:20px;padding:5px 12px;background:var(--card);white-space:nowrap;
+  transition:background .15s,color .15s,border-color .15s}
+.toc a:hover{color:var(--accent);border-color:var(--accent)}
+.toc a.active{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.navctl{flex:0 0 auto;display:flex;align-items:center;gap:8px}
+.langbtn{height:34px;border-radius:18px;border:1px solid var(--line);background:var(--card);
+  color:var(--ink);cursor:pointer;font:inherit;font-size:12.5px;font-weight:700;padding:0 13px;
+  display:flex;align-items:center;gap:6px}
+.langbtn:hover{border-color:var(--accent);color:var(--accent)}
+.langbtn .globe{width:15px;height:15px;display:block}
+.themebtn{flex:0 0 auto;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);
+  background:var(--card);color:var(--ink);cursor:pointer;line-height:1;display:grid;place-items:center}
+.themebtn svg{width:17px;height:17px;display:block}
+.themebtn:hover{border-color:var(--accent);color:var(--accent)}
+[data-theme="light"] .themebtn .ic-sun{display:none}
+[data-theme="dark"]  .themebtn .ic-moon{display:none}
+
+/* ── BLOCKS ───────────────────────────────────────────────── */
+h2{font-size:21px;margin:44px 0 6px;font-weight:800;scroll-margin-top:92px;line-height:1.35}
+html[data-lang="en"] h2{font-family:Newsreader,Georgia,serif;font-weight:600}
+h2 .num{color:var(--accent);font-variant-numeric:tabular-nums}
+.sub{color:var(--mut);font-size:13.5px;margin:0 0 16px;max-width:680px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;
+  padding:20px 22px;margin:14px 0;box-shadow:var(--shadow)}
+.lead{font-size:15.5px}
+.lead b{color:var(--warm)}
+.kgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin:8px 0}
+.kbox{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:15px 16px;text-align:center}
+.kbox .v{font-size:26px;font-weight:800;color:var(--accent);font-variant-numeric:tabular-nums}
+.kbox .l{font-size:12.5px;color:var(--mut);margin-top:3px}
+ul.clean{margin:6px 0;padding-inline-start:20px} ul.clean li{margin:8px 0}
+.callout{background:color-mix(in srgb,var(--warm) 9%,var(--card));
+  border:1px solid color-mix(in srgb,var(--warm) 30%,var(--line));
+  border-radius:12px;padding:14px 18px;margin:12px 0}
+.callout b{color:var(--warm)}
+.callout.accent{background:color-mix(in srgb,var(--accent) 9%,var(--card));
+  border-color:color-mix(in srgb,var(--accent) 30%,var(--line))}
+.callout.accent b{color:var(--accent)}
+a{color:var(--accent)}
+
+/* ── GRAPH ────────────────────────────────────────────────── */
+.gtabs{display:inline-flex;gap:4px;background:var(--bg2);border:1px solid var(--line);
+  border-radius:11px;padding:4px;margin:6px 0 2px}
+.gtab{border:0;background:transparent;color:var(--mut);font:inherit;font-size:13px;font-weight:700;
+  padding:7px 15px;border-radius:8px;cursor:pointer}
+.gtab.active{background:var(--card);color:var(--accent);box-shadow:var(--shadow)}
+.graphcard{padding:14px}
+.legend{display:flex;flex-wrap:wrap;gap:14px;margin:2px 4px 12px;font-size:12.5px;color:var(--mut)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:11px;height:11px;border-radius:50%;display:inline-block}
+.graphstage{display:grid;grid-template-columns:1fr;gap:14px}
+@media(min-width:760px){.graphstage{grid-template-columns:1.35fr .95fr}}
+.svgwrap{position:relative;background:var(--card2);border:1px solid var(--line);border-radius:12px;
+  overflow:hidden;min-height:300px}
+#netsvg{display:block;width:100%;height:560px;touch-action:none;cursor:grab}
+#netsvg text{pointer-events:none;user-select:none}
+.ghint{position:absolute;inset-inline-start:12px;top:10px;font-size:11.5px;color:var(--mut);
+  background:color-mix(in srgb,var(--card) 82%,transparent);border:1px solid var(--line);
+  border-radius:20px;padding:3px 11px;backdrop-filter:blur(4px);max-width:70%}
+.greset{position:absolute;inset-inline-end:10px;top:10px;border:1px solid var(--line);background:var(--card);
+  color:var(--mut);border-radius:8px;font:inherit;font-size:11.5px;padding:4px 10px;cursor:pointer}
+.greset:hover{color:var(--accent);border-color:var(--accent)}
+/* node + link interaction states */
+.node{cursor:pointer}
+/* the inner <g class="ns"> is what scales; fill-box keeps the pivot on the node itself, not the SVG viewport */
+.ns{transform-box:fill-box;transform-origin:center;transition:transform .2s cubic-bezier(.2,.75,.25,1)}
+.node.hover .ns{transform:scale(1.1)}
+.node.sel  .ns{transform:scale(1.34)}                 /* selected node grows */
+.node.ncore.hover .ns{transform:scale(1.06)}
+.node.ncore.sel   .ns{transform:none}                 /* the centre 'Effortless' node keeps default size */
+.node.sel circle{stroke:var(--ink);stroke-width:2.5;filter:drop-shadow(0 0 8px color-mix(in srgb,var(--accent) 60%,transparent))}
+.node.hl circle{stroke:var(--ink);stroke-opacity:.5;stroke-width:2.5}
+.node.dim{opacity:.2}
+.node text{font-family:Vazirmatn,Tahoma,sans-serif;font-weight:700}
+html[data-lang="en"] .node text{font-family:Inter,sans-serif}
+.glink{transition:opacity .2s,stroke .2s}
+.glink.dim{opacity:.08}
+.glink.hl{stroke:var(--accent) !important;stroke-opacity:.8}
+/* detail panel */
+.detail{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;min-height:220px}
+@media(min-width:760px){.detail{max-height:480px;overflow:auto}}
+.detail .dkick{font-size:11.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;display:flex;align-items:center;gap:7px;color:var(--mut)}
+.detail .dkick i{width:10px;height:10px;border-radius:50%}
+.detail h4{margin:8px 0 3px;font-size:18px;font-weight:800}
+html[data-lang="en"] .detail h4{font-family:Newsreader,serif;font-weight:600}
+.detail .drow{margin:11px 0}
+.detail .dlab{font-size:10.5px;font-weight:800;color:var(--accent);letter-spacing:.5px;text-transform:uppercase;
+  display:inline-flex;align-items:center;gap:5px}
+.detail .drow.tip .dlab{color:var(--c-green)}
+.detail .drow.pit .dlab{color:var(--warm)}
+.detail .drow.more{border-inline-start:2px solid color-mix(in srgb,var(--accent) 32%,var(--line));padding-inline-start:11px}
+.detail .drow.more .dlab{color:var(--mut)}
+.detail .dtxt{font-size:13.6px;margin-top:3px}
+.dchips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.dchip{font-size:12px;border:1px solid var(--line);background:var(--card2);border-radius:16px;padding:4px 11px;
+  cursor:pointer;color:var(--ink);display:inline-flex;align-items:center;gap:6px;font-family:inherit}
+.dchip:hover{border-color:var(--accent);color:var(--accent)}
+.dchip i{width:8px;height:8px;border-radius:50%;flex:0 0 auto}
+
+/* ── CONCEPT MAP ──────────────────────────────────────────── */
+.mapgrid{display:grid;grid-template-columns:1fr;gap:14px}
+@media(min-width:820px){.mapgrid{grid-template-columns:repeat(3,1fr)}}
+.partcol{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:16px;position:relative}
+.partcol .ph{display:flex;align-items:center;gap:9px;margin-bottom:3px}
+.partcol .pdot{width:13px;height:13px;border-radius:50%;flex:0 0 auto}
+.partcol .pnum{font-size:11px;font-weight:800;color:var(--mut)}
+.partcol h4{margin:0;font-size:16.5px;font-weight:800}
+html[data-lang="en"] .partcol h4{font-family:Newsreader,serif;font-weight:600}
+.partcol .ptag{font-size:12px;color:var(--mut);margin:2px 0 4px;font-weight:700}
+.partcol .pgist{font-size:12.8px;color:var(--mut);margin:0 0 12px}
+.chapchip{display:flex;align-items:baseline;gap:8px;padding:7px 10px;border:1px solid var(--line);
+  border-radius:9px;margin:6px 0;background:var(--card2);font-size:13px}
+.chapchip .cn{font-size:11px;font-weight:800;color:var(--mut);flex:0 0 auto;font-variant-numeric:tabular-nums}
+.chapchip b{font-weight:700}
+.chapchip small{color:var(--mut);display:block;font-size:11.5px;line-height:1.5}
+.flowline{display:flex;align-items:center;justify-content:center;gap:10px;color:var(--mut);
+  font-size:12.5px;font-weight:700;margin:6px 0 2px;flex-wrap:wrap}
+.flowline .ar{color:var(--accent)}
+
+/* ── STAGE LADDER ─────────────────────────────────────────── */
+.ladder{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 4px}
+.rung{flex:1 1 150px;border:1px solid var(--line);background:var(--card);border-radius:11px;
+  padding:11px 13px;cursor:pointer;transition:transform .12s,border-color .12s;position:relative}
+.rung:hover{border-color:var(--accent);transform:translateY(-2px)}
+.rung.active{border-color:var(--accent);box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 35%,transparent)}
+.rung .lv{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.4px}
+.rung .lt{font-size:13.5px;font-weight:800;margin-top:2px}
+.rung .lbar{height:5px;border-radius:4px;background:var(--bg2);margin-top:9px;overflow:hidden}
+.rung .lbar i{display:block;height:100%;background:linear-gradient(90deg,var(--c-teal),var(--c-violet))}
+.stagecard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 24px;
+  margin:14px 0;box-shadow:var(--shadow)}
+.stagecard .shead{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.stagecard .badge{font-size:12px;font-weight:800;color:#fff;background:var(--accent);
+  border-radius:8px;padding:4px 11px;white-space:nowrap}
+.stagecard h3{margin:0;font-size:21px;font-weight:800}
+html[data-lang="en"] .stagecard h3{font-family:Newsreader,serif;font-weight:600}
+.stagecard .tagline{color:var(--mut);font-size:13.5px;margin:4px 0 14px;font-weight:700}
+.stagecard .sbody{font-size:15px}
+.exbox{background:var(--card2);border:1px solid var(--line);border-inline-start:3px solid var(--accent);
+  border-radius:0 11px 11px 0;padding:13px 16px;margin:14px 0 6px}
+.exbox .exk{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.5px;text-transform:uppercase}
+.exbox .ext{font-size:13.8px;margin-top:3px}
+.gainrow{display:flex;align-items:flex-start;gap:9px;margin-top:12px;font-size:13px;color:var(--mut)}
+.gainrow .gi{flex:0 0 auto;color:var(--c-green);font-weight:800}
+.stagenav{display:flex;justify-content:space-between;gap:10px;margin-top:16px}
+.stagenav button{border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit;
+  font-size:13px;font-weight:700;border-radius:9px;padding:8px 14px;cursor:pointer}
+.stagenav button:hover:not(:disabled){border-color:var(--accent);color:var(--accent)}
+.stagenav button:disabled{opacity:.4;cursor:default}
+
+/* ── QUOTES ───────────────────────────────────────────────── */
+.qgrid{display:grid;grid-template-columns:1fr;gap:12px}
+@media(min-width:720px){.qgrid{grid-template-columns:1fr 1fr}}
+blockquote{margin:0;background:var(--card2);border-inline-start:3px solid var(--accent);
+  border-radius:0 12px 12px 0;padding:15px 18px;font-size:14.5px;position:relative}
+blockquote .qm{font-size:34px;line-height:0;color:var(--accent);opacity:.35;font-family:Georgia,serif;
+  position:absolute;inset-inline-start:10px;top:20px}
+blockquote p{margin:0;padding-inline-start:22px}
+html[data-lang="en"] blockquote{font-family:Newsreader,Georgia,serif;font-size:15.5px}
+
+/* ── MEDIA ────────────────────────────────────────────────── */
+.mgrid{display:grid;grid-template-columns:1fr;gap:16px}
+@media(min-width:640px){.mgrid{grid-template-columns:1fr 1fr}}
+.mcard{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;
+  box-shadow:var(--shadow);display:flex;flex-direction:column}
+.mthumb{position:relative;display:block;aspect-ratio:16/9;background:var(--bg2);overflow:hidden;text-decoration:none}
+.mthumb img{width:100%;height:100%;object-fit:cover;display:block}
+.mthumb .play{position:absolute;inset:0;display:grid;place-items:center}
+.mthumb .play span{width:54px;height:54px;border-radius:50%;background:rgba(0,0,0,.6);
+  display:grid;place-items:center;border:2px solid rgba(255,255,255,.9)}
+.mthumb .play svg{width:22px;height:22px;fill:#fff;margin-inline-start:3px}
+.mthumb .ptype{position:absolute;inset-inline-start:9px;top:9px;background:rgba(0,0,0,.72);color:#fff;
+  font-size:11px;font-weight:700;border-radius:6px;padding:3px 9px;letter-spacing:.3px}
+.mfake{aspect-ratio:16/9;display:grid;place-items:center;
+  background:linear-gradient(135deg,color-mix(in srgb,var(--c-violet) 22%,var(--card)),color-mix(in srgb,var(--c-teal) 22%,var(--card)))}
+.mfake svg{width:52px;height:52px;color:var(--ink);opacity:.6}
+.mbody{padding:15px 17px;display:flex;flex-direction:column;gap:7px;flex:1}
+.mbody .msrc{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.3px;text-transform:uppercase}
+.mbody h4{margin:0;font-size:15.5px;font-weight:800;line-height:1.4}
+html[data-lang="en"] .mbody h4{font-family:Newsreader,serif;font-weight:600}
+.mbody .mdesc{font-size:13px;color:var(--mut);margin:0}
+.mbody ul{margin:4px 0 0;padding-inline-start:18px}
+.mbody ul li{font-size:12.8px;margin:5px 0}
+.mbody .mbest{font-size:12px;font-weight:700;color:var(--warm);margin-top:auto;padding-top:8px}
+.mlink{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;
+  text-decoration:none;color:var(--accent);margin-top:4px}
+.mlink:hover{text-decoration:underline}
+.golist{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.golist a{font-size:12.5px;text-decoration:none;color:var(--ink);border:1px solid var(--line);
+  border-radius:20px;padding:6px 13px;background:var(--card);font-weight:700}
+.golist a:hover{border-color:var(--accent);color:var(--accent)}
+
+/* ── RECS + METHOD + CREDIT ───────────────────────────────── */
+.rec{display:grid;gap:10px;margin:8px 0}
+.rec .item{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--card)}
+.rec .item .t{font-weight:800;font-size:14.5px;margin-bottom:3px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.rec .item .t .pri{font-size:11px;font-weight:700;color:#fff;background:var(--warm);border-radius:6px;padding:2px 9px}
+.rec .item .t .pri.b{background:var(--accent)}
+.rec .item .d{font-size:13.4px;color:var(--mut)}
+.method{color:var(--mut);font-size:13.4px}
+.method p{margin:8px 0}
+.method b{color:var(--ink)}
+.credit{text-align:center;margin-top:40px;padding:22px 0 8px;border-top:1px solid var(--line);
+  color:var(--mut);font-size:14px}
+.credit .cname{color:var(--ink);font-weight:800}
+.credit a{font-weight:700;text-decoration:none}
+.credit a:hover{text-decoration:underline}
+.credit .sep{opacity:.5;margin:0 8px}
+.credit .li{display:inline-flex;align-items:center;gap:5px;vertical-align:middle}
+.credit .li svg{width:15px;height:15px;vertical-align:-3px}
+
+@media (max-width:640px){
+  body{font-size:14px}
+  .wrap{padding:0 13px 30px}
+  .hero{padding:28px 0 22px} .hero h1{font-size:22px}
+  h2{font-size:18px;scroll-margin-top:66px}
+  .brand{display:none}
+  .toc{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;scrollbar-width:none}
+  .toc::-webkit-scrollbar{display:none}
+  #netsvg{height:420px}
+}
+</style>
+</head>
+<body>
+
+<!-- ── HERO ───────────────────────────────────────────────── -->
+<header class="hero"><div class="wrap">
+  <div class="eyebrow"><span class="edot"></span>
+    <span data-only="en">Book knowledge map · Kim Scott</span>
+    <span data-only="fa">نقشهٔ کتاب · کیم اسکات</span>
+  </div>
+  <h1>
+    <span data-only="en">Radical Candor — Be a Kick-Ass Boss Without Losing Your Humanity</span>
+    <span data-only="fa">صراحتِ همدلانه — رئیسِ کاربلدی باش، بدونِ اینکه آدم‌بودنت را از دست بدهی</span>
+  </h1>
+  <p class="dek">
+    <span data-only="en">A knowledge graph of the whole book, plus a 5-stage path from a single idea to expert-level mastery — with an example at every step.</span>
+    <span data-only="fa">نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از یک ایدهٔ ساده تا حرفه‌ای — با یک مثال در هر مرحله.</span>
+  </p>
+  <div class="metastrip">
+    <div class="metaitem"><span class="mk" data-only="en">Book</span><span class="mk" data-only="fa">کتاب</span>
+      <span class="mv" data-only="en">Radical Candor</span><span class="mv" data-only="fa">صراحتِ همدلانه</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Author</span><span class="mk" data-only="fa">نویسنده</span>
+      <span class="mv" data-only="en">Kim Scott</span><span class="mv" data-only="fa">کیم اسکات</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Published</span><span class="mk" data-only="fa">سالِ چاپ</span>
+      <span class="mv" data-only="en">2017</span><span class="mv" data-only="fa">۲۰۱۷</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Group</span><span class="mk" data-only="fa">گروه</span>
+      <span class="mv" data-only="en">Managing</span><span class="mv" data-only="fa">مدیریت</span></div>
+  </div>
+  <div class="chips">
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Parts</span><span data-only="fa">بخش</span></div>
+    <div class="chip"><b data-only="en">16</b><b data-only="fa">۱۶</b><span data-only="en">Ideas</span><span data-only="fa">ایده</span></div>
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Learning stages</span><span data-only="fa">مرحلهٔ یادگیری</span></div>
+  </div>
+</div></header>
+
+<!-- ── STICKY NAV ─────────────────────────────────────────── -->
+<div class="navbar"><div class="navin">
+  <span class="brand"><span class="dot"></span>Radical Candor</span>
+  <nav class="toc">
+    <a href="#tldr" data-only="en">In a nutshell</a><a href="#tldr" data-only="fa">خلاصه</a>
+    <a href="#graph" data-only="en">Knowledge graph</a><a href="#graph" data-only="fa">نقشهٔ دانش</a>
+    <a href="#stages" data-only="en">5 stages</a><a href="#stages" data-only="fa">۵ مرحله</a>
+    <a href="#quotes" data-only="en">Quotes</a><a href="#quotes" data-only="fa">جمله‌ها</a>
+    <a href="#media" data-only="en">Watch &amp; explore</a><a href="#media" data-only="fa">تماشا و منابع</a>
+    <a href="#apply" data-only="en">Apply it</a><a href="#apply" data-only="fa">کاربرد</a>
+  </nav>
+  <div class="navctl">
+    <button class="langbtn" id="langBtn" aria-label="Switch language">
+      <svg class="globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>
+      <span data-only="en">فارسی</span><span data-only="fa">English</span>
+    </button>
+    <button class="themebtn" id="themeBtn" aria-label="Toggle theme" title="Light / Dark">
+      <span class="ic-sun" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5 19 19M19 5l-1.5 1.5M6.5 17.5 5 19"/></svg></span>
+      <span class="ic-moon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.6 6.6 0 0 0 9.8 9.8Z"/></svg></span>
+    </button>
+  </div>
+</div></div>
+
+<div class="wrap">
+
+  <!-- ── TL;DR ────────────────────────────────────────────── -->
+  <h2 id="tldr"><span class="num" data-only="en">1.</span><span class="num" data-only="fa">۱.</span>
+    <span data-only="en"> In a nutshell</span><span data-only="fa"> خلاصه</span></h2>
+  <p class="sub" data-only="en">If you read only this, you still get the whole idea.</p>
+  <p class="sub" data-only="fa">اگر فقط همین بخش را بخوانی، کلِ ایده دستت می‌آید.</p>
+  <div class="card lead"><ul class="clean" id="tldrHost"></ul></div>
+  <div class="kgrid">
+    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Parts (dimensions · quadrants · guidance · team · results)</div><div class="l" data-only="fa">بخش (بُعدها · خانه‌ها · راهنمایی · تیم · نتیجه)</div></div>
+    <div class="kbox"><div class="v" data-only="en">16</div><div class="v" data-only="fa">۱۶</div><div class="l" data-only="en">Ideas you can use</div><div class="l" data-only="fa">ایده برای استفاده</div></div>
+    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Levels, simple → expert</div><div class="l" data-only="fa">مرحله، ساده تا حرفه‌ای</div></div>
+    <div class="kbox"><div class="v" data-only="en">4</div><div class="v" data-only="fa">۴</div><div class="l" data-only="en">The compass: one goal, three traps</div><div class="l" data-only="fa">قطب‌نما: یک هدف، سه دام</div></div>
+  </div>
+  
+  <div class="callout accent">
+    <b data-only="en">The core idea:</b>
+    <b data-only="fa">ایدهٔ اصلی:</b>
+    <span data-only="en"> To be a great boss, do two things at once: <i>Care Personally</i> and <i>Challenge Directly</i>. Care about people as human beings, and tell them the truth about their work — kindly and clearly. That combination is <i>Radical Candor</i>, and it's what earns the trust to guide people, grow a team, and get real results.</span>
+    <span data-only="fa"> برای اینکه رئیسِ خوبی باشی، دو کار را با هم بکن: <i>اهمیتِ شخصی</i> بده و <i>رُک به چالش</i> بکش. به آدم‌ها به‌عنوانِ آدم اهمیت بده و حقیقتِ کارشان را بهشان بگو — مهربان و روشن. همین ترکیب می‌شود <i>صراحتِ همدلانه</i>، و همان چیزی است که آن اعتماد را می‌سازد تا بتوانی آدم‌ها را راهنمایی کنی، یک تیم بپروری، و نتیجهٔ واقعی بگیری.</span>
+  </div>
+
+  <!-- ── KNOWLEDGE GRAPH ──────────────────────────────────── -->
+  <h2 id="graph"><span class="num" data-only="en">2.</span><span class="num" data-only="fa">۲.</span>
+    <span data-only="en"> The knowledge graph</span><span data-only="fa"> نقشهٔ دانش</span></h2>
+  <p class="sub" data-only="en">The whole book as one picture. Click any node to focus its connections and read more — or switch to the structured map.</p>
+  <p class="sub" data-only="fa">کلِ کتاب در یک تصویر. روی هر دایره کلیک کن تا ارتباط‌هایش را ببینی و بیشتر بخوانی — یا به نقشهٔ مرتب برو.</p>
+
+  <div class="gtabs">
+    <button class="gtab active" id="tabNet"><span data-only="en">Interactive network</span><span data-only="fa">شبکهٔ تعاملی</span></button>
+    <button class="gtab" id="tabMap"><span data-only="en">Structured map</span><span data-only="fa">نقشهٔ مرتب</span></button>
+  </div>
+
+  <!-- network view -->
+  <div class="card graphcard" id="netView">
+    <div class="legend" id="legendHost"></div>
+    <div class="graphstage">
+      <div class="svgwrap">
+        <svg id="netsvg" viewBox="0 0 820 560" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Effortless knowledge network"></svg>
+        <div class="ghint" id="ghint"></div>
+        <button class="greset" id="greset"></button>
+      </div>
+      <div class="detail" id="detailHost"></div>
+    </div>
+  </div>
+
+  <!-- map view -->
+  <div class="card graphcard" id="mapView" style="display:none">
+    <div class="flowline" id="flowTop"></div>
+    <div class="mapgrid" id="mapHost"></div>
+    <div class="callout" style="margin-top:16px">
+      <b data-only="en">Read it as a flow:</b><b data-only="fa">به‌صورتِ یک جریان بخوانش:</b>
+      <span data-only="en"> start from the <b>two dimensions</b> (care personally, challenge directly), read the <b>four quadrants</b> to find Radical Candor, give and get <b>guidance</b> (praise and criticism), build a motivated <b>team</b> (rock stars and superstars), and drive <b>results</b> with the GSD wheel.</span>
+      <span data-only="fa"> از <b>دو بُعد</b> شروع کن (اهمیتِ شخصی، رُکِ به چالش)، <b>چهار خانه</b> را بخوان تا صراحتِ همدلانه را پیدا کنی، <b>راهنمایی</b> بده و بگیر (تعریف و انتقاد)، یک <b>تیمِ</b> باانگیزه بساز (صخره‌ها و ستاره‌ها)، و با چرخِ کار <b>نتیجه</b> بگیر.</span>
+    </div>
+  </div>
+
+  <!-- ── 5 STAGES ─────────────────────────────────────────── -->
+  <h2 id="stages"><span class="num" data-only="en">3.</span><span class="num" data-only="fa">۳.</span>
+    <span data-only="en"> Learn it in 5 stages</span><span data-only="fa"> یادگیری در ۵ مرحله</span></h2>
+  <p class="sub" data-only="en">The same book at five depths. Start over-simplified, climb to expert. Tap a rung to jump.</p>
+  <p class="sub" data-only="fa">یک کتاب در پنج عمق. از خیلی ساده شروع کن و تا حرفه‌ای بالا برو. روی هر پله بزن تا بپری.</p>
+  <div class="ladder" id="ladderHost"></div>
+  <div id="stageHost"></div>
+
+  <!-- ── QUOTES ───────────────────────────────────────────── -->
+  <h2 id="quotes"><span class="num" data-only="en">4.</span><span class="num" data-only="fa">۴.</span>
+    <span data-only="en"> Lines worth keeping</span><span data-only="fa"> جمله‌هایی که ارزشِ نگه‌داشتن دارند</span></h2>
+  <p class="sub" data-only="en">Verbatim quotes from the book, translated alongside.</p>
+  <p class="sub" data-only="fa">جمله‌های مستقیم از کتاب، همراه با ترجمه.</p>
+  <div class="qgrid" id="quoteHost"></div>
+
+  <!-- ── MEDIA ────────────────────────────────────────────── -->
+  <h2 id="media"><span class="num" data-only="en">5.</span><span class="num" data-only="fa">۵.</span>
+    <span data-only="en"> Watch &amp; explore</span><span data-only="fa"> تماشا و منابع</span></h2>
+  <p class="sub" data-only="en">Special resources found online — each with what it covers and who it's best for.</p>
+  <p class="sub" data-only="fa">منابعِ ویژه‌ای که آنلاین پیدا شد — هرکدام با اینکه چه می‌گوید و به چه دردی می‌خورد.</p>
+  <div class="mgrid" id="mediaHost"></div>
+  <div class="card" style="margin-top:16px">
+    <div style="font-weight:800;font-size:13.5px;margin-bottom:4px">
+      <span data-only="en">Go straight to the source</span><span data-only="fa">مستقیم سراغِ منبع برو</span>
+    </div>
+    <div class="golist" id="goHost"></div>
+  </div>
+
+  <!-- ── APPLY ────────────────────────────────────────────── -->
+  <h2 id="apply"><span class="num" data-only="en">6.</span><span class="num" data-only="fa">۶.</span>
+    <span data-only="en"> Apply it this week</span><span data-only="fa"> این هفته امتحانش کن</span></h2>
+  <p class="sub" data-only="en">Four small moves that turn the idea into a habit.</p>
+  <p class="sub" data-only="fa">چهار حرکتِ کوچک که این ایده را به عادت تبدیل می‌کنند.</p>
+  <div class="rec" id="recHost"></div>
+
+  <!-- ── METHOD ───────────────────────────────────────────── -->
+  <h2 id="method"><span class="num" data-only="en">7.</span><span class="num" data-only="fa">۷.</span>
+    <span data-only="en"> Sources &amp; notes</span><span data-only="fa"> منابع و توضیح</span></h2>
+  <div class="card method" id="methodHost"></div>
+
+  <!-- ── CREDIT FOOTER ────────────────────────────────────── -->
+  <div class="credit">
+    <span data-only="en">Created by <span class="cname">Behnam Atefi</span><span class="sep">·</span><a class="li" href="https://www.linkedin.com/in/behnamatefi/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.3c0-1.26-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9z"/></svg>LinkedIn</a></span>
+    <span data-only="fa">ساخته‌شده توسط <span class="cname">بهنام عاطفی</span><span class="sep">·</span><a class="li" href="https://www.linkedin.com/in/behnamatefi/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.3c0-1.26-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9z"/></svg>لینکدین</a></span>
+  </div>
+</div>
+
+<!-- ═══════════════════════ SCRIPTS ═══════════════════════ -->
+<script>
+/* ── 1) language + formatters ─────────────────────────────── */
+var LANG = document.documentElement.getAttribute('data-lang') || 'fa';
+var FA_D = '۰۱۲۳۴۵۶۷۸۹';
+var RLM  = '‏';
+function faDigits(s){ return String(s).replace(/[0-9]/g, function(d){ return FA_D[+d]; }); }
+/* honor the RTL preference: isolate Latin runs (word order preserved) and mark with U+200F */
+function rlm(s){
+  return String(s)
+    .replace(/[A-Za-zÀ-ɏ][A-Za-zÀ-ɏ0-9'’.&:\/\-]*(?:\s+[A-Za-zÀ-ɏ0-9'’.&:\/\-]+)*/g,
+      function(m){ return RLM+'⁦'+m+'⁩'+RLM; })
+    .replace(/[0-9۰-۹]+/g, function(m){ return m+RLM; });
+}
+/* transform only TEXT segments, never HTML tags (so <b>/<i> survive) */
+function faText(s){ return String(s).replace(/(<[^>]+>)|([^<]+)/g, function(m,tag,txt){ return tag ? tag : faDigits(rlm(txt)); }); }
+function TX(o){ if(o==null) return ''; if(typeof o==='string') return o; return LANG==='fa' ? faText(o.fa) : o.en; }
+function num(n){ return LANG==='fa' ? faDigits(n) : String(n); }
+function tok(name){ return getComputedStyle(document.documentElement).getPropertyValue(name).trim(); }
+</script>
+
+<script>
+/* ── DATA LAYER — Atomic Habits (bilingual, plain-spoken Persian) ── */
+var DATA = {"tldr":[{"en":"The whole book in one line: to be a great boss, Care Personally and Challenge Directly at the same time.","fa":"خلاصهٔ کل کتاب در یک جمله: برای اینکه رئیسِ خوبی باشی، هم‌زمان اهمیتِ شخصی بده و رُک به چالش بکش."},{"en":"Those two dimensions make four quadrants. The goal is <b>Radical Candor</b>; the traps are <b>Ruinous Empathy</b>, <b>Obnoxious Aggression</b>, and <b>Manipulative Insincerity</b>.","fa":"همان دو بُعد چهار خانه می‌سازند. هدف <b>صراحتِ همدلانه</b> است؛ دام‌ها <b>همدلیِ ویرانگر</b>، <b>پرخاشِ آزاردهنده</b>، و <b>تظاهرِ فریبکارانه</b>اند."},{"en":"Give <b>guidance</b> well: praise in public and be specific, criticize in private and kindly — and ask for feedback on yourself first.","fa":"خوب <b>راهنمایی</b> کن: در جمع و مشخص تعریف کن، در خلوت و مهربان انتقاد کن — و اول برای خودت بازخورد بخواه."},{"en":"Build the <b>team</b> by understanding what drives each person — steady <b>rock stars</b> and fast-growing <b>superstars</b> both matter.","fa":"<b>تیم</b> را با فهمیدنِ اینکه هر آدم را چه چیزی جلو می‌برد بساز — هم <b>صخره‌های</b> باثبات مهم‌اند هم <b>ستاره‌های</b> تندرشد."},{"en":"Then get <b>results</b> together with the GSD wheel — listen, clarify, debate, decide, persuade, execute, learn — and protect your 1:1s.","fa":"بعد با چرخِ کار به‌شکلِ تیمی <b>نتیجه</b> بگیر — گوش کن، شفاف کن، بحث کن، تصمیم بگیر، همراه کن، اجرا کن، یاد بگیر — و از جلسه‌های دونفره‌ات محافظت کن."}],"parts":[{"key":"dimensions","varc":"--c-teal","name":{"en":"The Two Dimensions","fa":"دو بُعدِ اصلی"},"tag":{"en":"The foundation","fa":"پایه"},"gist":{"en":"Care Personally and Challenge Directly — the two axes everything else is built on.","fa":"اهمیتِ شخصی و رُکِ به چالش — دو محوری که بقیهٔ همه‌چیز روی‌شان بنا شده."},"more":{"en":"Everything in the book grows from two simple things: caring about people as humans, and being willing to challenge them directly. Held together by a real relationship, these two dimensions are what separate a good boss from a bad one.","fa":"هرچیزی در این کتاب از دو چیزِ ساده می‌روید: اهمیت‌دادن به آدم‌ها به‌عنوانِ آدم، و حاضربودن برای اینکه رُک به چالش‌شان بکشی. وقتی یک رابطهٔ واقعی کنارِ هم نگه‌شان دارد، همین دو بُعد‌اند که رئیسِ خوب را از رئیسِ بد جدا می‌کنند."},"chapters":["care","challenge","relationships"]},{"key":"quadrants","varc":"--c-blue","name":{"en":"The Four Quadrants","fa":"چهار خانه"},"tag":{"en":"The compass","fa":"قطب‌نما"},"gist":{"en":"Combine the two axes and you get four styles — one to aim for and three to avoid.","fa":"دو محور را ترکیب کن و چهار سبک به‌دست می‌آید — یکی برای هدف‌گرفتن و سه‌تا برای دوری‌کردن."},"more":{"en":"Put Care Personally and Challenge Directly on two axes and you get a compass. Radical Candor is the goal. Miss on caring and you land in Obnoxious Aggression; miss on challenging and you land in Ruinous Empathy; miss on both and it's Manipulative Insincerity. Most nice people fail by caring but not challenging.","fa":"«اهمیتِ شخصی» و «رُکِ به چالش» را روی دو محور بگذار تا یک قطب‌نما به‌دست بیاید. صراحتِ همدلانه هدف است. اگر در اهمیت‌دادن کم بیاوری، می‌افتی توی پرخاشِ آزاردهنده؛ اگر در به‌چالش‌کشیدن کم بیاوری، توی همدلیِ ویرانگر؛ اگر در هر دو کم بیاوری، می‌شود تظاهرِ فریبکارانه. بیشترِ آدم‌های مهربان از این‌جا شکست می‌خورند که اهمیت می‌دهند ولی به چالش نمی‌کشند."},"chapters":["radcandor","ruinous","obnoxious","manipulative"]},{"key":"guidance","varc":"--c-amber","name":{"en":"Guidance & Feedback","fa":"راهنمایی و بازخورد"},"tag":{"en":"Give and get it","fa":"بده و بگیر"},"gist":{"en":"Praise well, criticize kindly, and ask for feedback on yourself before giving it.","fa":"خوب تعریف کن، مهربان انتقاد کن، و قبل از دادنِ بازخورد، اول برای خودت بخواه."},"more":{"en":"Guidance — what most people call feedback — is the day-to-day work of a boss. Praise in public and be specific; criticize in private, quickly, and humbly. But it only works if you go first: ask for criticism of yourself and react well, so people trust you enough to be honest back.","fa":"راهنمایی — همان چیزی که بیشترِ آدم‌ها بهش می‌گویند بازخورد — کارِ روزمرهٔ یک رئیس است. در جمع و مشخص تعریف کن؛ در خلوت، سریع و فروتنانه انتقاد کن. ولی فقط وقتی جواب می‌دهد که خودت اول قدم برداری: برای خودت انتقاد بخواه و خوب واکنش نشان بده، تا آدم‌ها آن‌قدر بهت اعتماد کنند که در جوابْ صادق باشند."},"chapters":["praise","criticize","solicit"]},{"key":"team","varc":"--c-violet","name":{"en":"Team & Motivation","fa":"تیم و انگیزه"},"tag":{"en":"Build the people","fa":"آدم‌ها را بساز"},"gist":{"en":"Understand what drives each person — steady rock stars and ambitious superstars alike.","fa":"بفهم هر آدم را چه چیزی جلو می‌برد — هم صخره‌های باثبات، هم ستاره‌های جاه‌طلب."},"more":{"en":"A great team needs both stability and growth. Rock stars are steady and want to master their craft in place; superstars are on a steep trajectory and need constant challenge. Neither label is fixed — your job is to understand each person's dreams and growth trajectory, and manage for growth, not just performance.","fa":"یک تیمِ عالی هم به ثبات نیاز دارد هم به رشد. صخره‌ها باثبات‌اند و می‌خواهند همان‌جا در کارشان استاد شوند؛ ستاره‌ها روی یک مسیرِ تندند و به چالشِ همیشگی نیاز دارند. هیچ‌کدام برچسبِ ثابت نیست — کارِ تو این است که آرزوها و مسیرِ رشدِ هر آدم را بفهمی، و به‌جای فقط عملکرد، برای رشد مدیریت کنی."},"chapters":["rockstars","superstars","growth"]},{"key":"results","varc":"--c-green","name":{"en":"Results & the GSD Wheel","fa":"نتیجه و چرخِ کار"},"tag":{"en":"Get stuff done","fa":"کارها را پیش ببر"},"gist":{"en":"Drive results as a team by turning the GSD wheel — and protect your 1:1s.","fa":"نتیجه را به‌شکلِ تیمی بگیر با چرخاندنِ چرخِ کار — و از جلسه‌های دونفره‌ات محافظت کن."},"more":{"en":"Bosses exist to get results — but not by command. The Get Stuff Done wheel turns collaboration into output: listen, clarify, debate, decide, persuade, execute, learn. Debate honestly before deciding, push decisions to the people closest to the facts, and use regular 1:1s to keep the whole thing grounded in trust.","fa":"رئیس‌ها هستند که نتیجه بگیرند — ولی نه با دستور. چرخِ «کارها را پیش ببر» هم‌کاری را به خروجی تبدیل می‌کند: گوش کن، شفاف کن، بحث کن، تصمیم بگیر، همراه کن، اجرا کن، یاد بگیر. قبل از تصمیم صادقانه بحث کن، تصمیم‌ها را بسپار به آدم‌هایی که به واقعیت‌ها نزدیک‌ترند، و با جلسه‌های دونفرهٔ منظم کلِ ماجرا را روی اعتماد نگه دار."},"chapters":["gsd","debate","oneonones"]}],"chapters":{"care":{"part":"dimensions","n":1,"name":{"en":"Care Personally","fa":"اهمیتِ شخصی بده"},"glabel":{"en":"Care","fa":"اهمیت"},"principle":{"en":"Show people you care about them as human beings, not just as workers — bring your whole self, and let them do the same.","fa":"به آدم‌ها نشان بده که برایت مهم‌اند، نه فقط به‌عنوانِ نیروی کار بلکه به‌عنوانِ آدم — خودِ کاملت را بیاور، و بگذار آن‌ها هم همین کار را بکنند."},"more":{"en":"Caring personally is more than remembering birthdays. It means being interested in the person behind the role, sharing a bit of your own life, and showing enough vulnerability to admit when you're having a bad day. That's what earns you the right to challenge them later.","fa":"اهمیت‌دادنِ شخصی یعنی چیزی بیشتر از یادت‌ماندنِ تولدها. یعنی به آدمِ پشتِ نقش علاقه‌مند باشی، کمی از زندگیِ خودت را هم بگویی، و آن‌قدر رو راست باشی که وقتی روزِ بدی داری اعتراف کنی. همین است که بعداً به تو اجازه می‌دهد به آن‌ها چالش بدهی."},"example":{"en":"You spend a few minutes at the start of a 1:1 asking how someone actually is — and you answer honestly when they ask you back.","fa":"اولِ یک جلسهٔ دونفره چند دقیقه می‌پرسی حالِ طرف واقعاً چطور است — و وقتی همین را از تو می‌پرسند، صادقانه جواب می‌دهی."},"tip":{"en":"Get to know your people as humans — their lives, their dreams — a little at a time.","fa":"آدم‌هایت را کم‌کم به‌عنوانِ آدم بشناس — زندگی‌شان، آرزوهایشان."},"pitfall":{"en":"Staying strictly “professional” and cold, so no real trust ever forms.","fa":"چسبیدن به یک فضای خشک و کاملاً «کاری»، جوری که هیچ اعتمادِ واقعی‌ای شکل نمی‌گیرد."}},"challenge":{"part":"dimensions","n":2,"name":{"en":"Challenge Directly","fa":"رُک به چالش بکش"},"glabel":{"en":"Challenge","fa":"چالش"},"principle":{"en":"Tell people clearly when their work isn't good enough — and when it is. Share your honest, humble opinion directly, even when it's hard.","fa":"وقتی کارِ کسی به‌اندازهٔ کافی خوب نیست، روشن بهش بگو — و وقتی خوب است هم همین‌طور. نظرِ صادقانه و فروتنانه‌ات را مستقیم بگو، حتی وقتی سخت است."},"more":{"en":"Challenging directly means being willing to tell someone their work isn't good enough — and being open to hearing the same about your own. It feels unkind at first, but withholding the truth is what really hurts people. Directness is a sign of respect: it says “I think you can handle it.”","fa":"رُک‌به‌چالش‌کشیدن یعنی حاضر باشی به کسی بگویی کارش به‌اندازهٔ کافی خوب نیست — و آماده باشی همین را دربارهٔ کارِ خودت هم بشنوی. اولش نامهربان به‌نظر می‌رسد، ولی پنهان‌کردنِ حقیقت همان چیزی است که واقعاً به آدم‌ها آسیب می‌زند. رُک‌بودن نشانهٔ احترام است: یعنی «فکر می‌کنم از پسش برمی‌آیی»."},"example":{"en":"Instead of “maybe tweak the intro a little”, you say “the intro doesn't land yet — here's exactly why.”","fa":"به‌جای «شاید یه‌کم مقدمه رو دست‌کاری کن»، می‌گویی «مقدمه هنوز نمی‌گیره — دقیقاً بذار بگم چرا»."},"tip":{"en":"Before softening a message to nothing, ask if you're actually helping or just avoiding discomfort.","fa":"قبل از اینکه پیامت را آن‌قدر نرم کنی که هیچ بماند، از خودت بپرس واقعاً داری کمک می‌کنی یا فقط از ناراحتی فرار می‌کنی."},"pitfall":{"en":"Hedging so much that the person never hears the real message.","fa":"آن‌قدر ماست‌مالی‌کردن که طرف اصلِ پیام را اصلاً نمی‌شنود."}},"relationships":{"part":"dimensions","n":3,"name":{"en":"Relationships Drive Results","fa":"رابطه‌ها نتیجه می‌سازند"},"glabel":{"en":"Relationships","fa":"رابطه‌ها"},"principle":{"en":"A boss's job runs through relationships — build real ones and they drive guidance, team, and results.","fa":"کارِ یک رئیس از دلِ رابطه‌ها می‌گذرد — رابطه‌های واقعی بساز، همان‌ها راهنمایی و تیم و نتیجه را جلو می‌برند."},"more":{"en":"At the very heart of being a good boss is a good relationship. Your relationships and your responsibilities reinforce each other: the trust you build lets you give honest guidance, guidance makes the team better, and a better team gets results — which builds more trust. It's a loop, and it starts with the relationship.","fa":"در قلبِ رئیسِ خوب‌بودن، یک رابطهٔ خوب نشسته است. رابطه‌ها و مسئولیت‌هایت همدیگر را تقویت می‌کنند: اعتمادی که می‌سازی به تو اجازه می‌دهد راهنماییِ صادقانه بدهی، راهنمایی تیم را بهتر می‌کند، و تیمِ بهتر نتیجه می‌گیرد — که باز اعتمادِ بیشتری می‌سازد. یک حلقه است، و از رابطه شروع می‌شود."},"example":{"en":"Because a teammate trusts you, they actually act on your tough feedback instead of getting defensive.","fa":"چون یکی از هم‌تیمی‌ها بهت اعتماد دارد، به‌جای گاردگرفتن، واقعاً روی بازخوردِ سختت عمل می‌کند."},"tip":{"en":"Invest in the relationship before you need it — trust is what makes hard conversations work.","fa":"روی رابطه سرمایه‌گذاری کن قبل از اینکه بهش نیاز داشته باشی — همین اعتماد است که گفت‌وگوهای سخت را جواب می‌دهد."},"pitfall":{"en":"Treating relationships as a nice-to-have instead of the core of the job.","fa":"رابطه‌ها را یک چیزِ خوب‌است‌که‌باشد دیدن، نه هستهٔ اصلیِ کار."}},"radcandor":{"part":"quadrants","n":4,"name":{"en":"Radical Candor","fa":"صراحتِ همدلانه"},"glabel":{"en":"Radical Candor","fa":"صراحت"},"principle":{"en":"Care personally AND challenge directly at the same time — that's the goal quadrant.","fa":"هم‌زمان هم اهمیتِ شخصی بده هم رُک به چالش بکش — این همان خانهٔ هدف است."},"more":{"en":"Radical Candor is what happens when you put Care Personally and Challenge Directly together. You give honest, specific feedback in a way that shows you genuinely care about the person. It's not brutal honesty and it's not fake nice — it's clear and kind at once. When you get it right, people trust you and improve fast.","fa":"صراحتِ همدلانه وقتی اتفاق می‌افتد که «اهمیت‌دادنِ شخصی» و «رُک‌به‌چالش‌کشیدن» را کنارِ هم بگذاری. بازخوردِ صادقانه و مشخص می‌دهی، طوری که نشان می‌دهد واقعاً برایت مهم است. نه صداقتِ بی‌رحمانه است نه مهربانیِ الکی — هم‌زمان روشن و مهربان است. وقتی درستش کنی، آدم‌ها بهت اعتماد می‌کنند و سریع بهتر می‌شوند."},"example":{"en":"“I care about you, so I'm going to be straight: that presentation didn't land, and here's how to fix it.”","fa":"«برام مهمی، برای همین رُک می‌گم: اون ارائه نگرفت، و بذار بگم چطور درستش کنی.»"},"tip":{"en":"Aim for clear and kind together; if you can only manage one, start with clear.","fa":"هدفت روشن و مهربان با هم باشد؛ اگر فقط یکی از دستت برمی‌آید، از روشن شروع کن."},"pitfall":{"en":"Mistaking Radical Candor for a license to be a jerk — the care has to be real.","fa":"صراحتِ همدلانه را بهانه‌ای برای بی‌ادب‌بودن گرفتن — آن اهمیت‌دادن باید واقعی باشد."}},"ruinous":{"part":"quadrants","n":5,"name":{"en":"Ruinous Empathy","fa":"همدلیِ ویرانگر"},"glabel":{"en":"Ruinous Empathy","fa":"همدلیِ ویرانگر"},"principle":{"en":"You care, but you won't challenge — so you stay silent to spare feelings and quietly hold people back.","fa":"اهمیت می‌دهی، ولی به چالش نمی‌کشی — پس برای اینکه دلِ کسی نشکند ساکت می‌مانی و بی‌سروصدا جلوی رشدش را می‌گیری."},"more":{"en":"Ruinous Empathy is what happens when you want to spare someone's short-term feelings, so you don't tell them something they need to know. It feels kind, but it's the most common — and most damaging — mistake nice bosses make. Praise gets vague, criticism never comes, and the person never gets the chance to fix the problem.","fa":"همدلیِ ویرانگر وقتی اتفاق می‌افتد که می‌خواهی دلِ کسی در کوتاه‌مدت نشکند، پس چیزی را که باید بداند بهش نمی‌گویی. مهربانانه به‌نظر می‌رسد، ولی رایج‌ترین — و آسیب‌زننده‌ترین — اشتباهی است که رئیس‌های مهربان می‌کنند. تعریف مبهم می‌شود، انتقاد هیچ‌وقت نمی‌آید، و طرف هیچ‌وقت فرصتِ درست‌کردنِ مشکل را پیدا نمی‌کند."},"example":{"en":"A teammate has spinach in their teeth for a week and no one tells them — that's Ruinous Empathy in a nutshell.","fa":"یک هفته لای دندانِ یکی از هم‌تیمی‌ها سبزی مانده و کسی بهش نمی‌گوید — این خلاصهٔ همدلیِ ویرانگر است."},"tip":{"en":"When you catch yourself staying quiet to be “nice”, that's usually the moment to speak.","fa":"وقتی می‌بینی داری برای «مهربان‌بودن» ساکت می‌مانی، معمولاً همان لحظه‌ای است که باید حرف بزنی."},"pitfall":{"en":"Sugar-coating everything until people are blindsided at review time.","fa":"همه‌چیز را شیرین‌پوشی‌کردن تا وقتی که موقعِ ارزیابی، غافلگیر و شوکه می‌شوند."}},"obnoxious":{"part":"quadrants","n":6,"name":{"en":"Obnoxious Aggression","fa":"پرخاشِ آزاردهنده"},"glabel":{"en":"Obnoxious Aggression","fa":"پرخاش"},"principle":{"en":"You challenge hard but don't show you care — honest, but delivered in a way that bruises.","fa":"سخت به چالش می‌کشی ولی نشان نمی‌دهی که برایت مهم است — صادقانه، ولی طوری که کبود می‌کند."},"more":{"en":"Obnoxious Aggression is what happens when you challenge someone directly, but don't show you care about them personally. The feedback may be right, but it lands as belittling, so people get defensive instead of better. It's better than staying silent — at least the message is clear — but it burns trust, and you can't stay there for long.","fa":"پرخاشِ آزاردهنده وقتی اتفاق می‌افتد که کسی را مستقیم به چالش می‌کشی، ولی نشان نمی‌دهی که به‌عنوانِ آدم برایت مهم است. شاید بازخورد درست باشد، ولی مثلِ تحقیر می‌نشیند، پس آدم‌ها به‌جای بهترشدن گارد می‌گیرند. از سکوت بهتر است — دستِ‌کم پیام روشن است — ولی اعتماد را می‌سوزاند و نمی‌شود زیاد آن‌جا ماند."},"example":{"en":"Tearing someone's idea apart in front of the whole team without a shred of warmth.","fa":"تکه‌پاره‌کردنِ ایدهٔ یک نفر جلوی کلِ تیم، بدونِ ذره‌ای گرمی."},"tip":{"en":"If you were harsh, don't fake-apologize — just add the care back and keep the honesty.","fa":"اگر تند بودی، عذرخواهیِ الکی نکن — فقط آن اهمیت‌دادن را برگردان و صداقت را نگه دار."},"pitfall":{"en":"Thinking blunt honesty alone makes you a strong boss.","fa":"این تصور که فقط صداقتِ بی‌پرده، تو را رئیسِ قوی‌ای می‌کند."}},"manipulative":{"part":"quadrants","n":7,"name":{"en":"Manipulative Insincerity","fa":"تظاهرِ فریبکارانه"},"glabel":{"en":"Manipulative Insincerity","fa":"تظاهر"},"principle":{"en":"You neither care nor challenge — praise is fake, criticism happens behind backs. The worst quadrant.","fa":"نه اهمیت می‌دهی نه به چالش می‌کشی — تعریف الکی است، انتقاد پشتِ سر انجام می‌شود. بدترین خانه."},"more":{"en":"Manipulative Insincerity is flattery to a person's face and harsh criticism behind their back. It usually comes from wanting to be liked, or from politics and self-protection. Nothing useful gets said to the person who could act on it, so it's the most damaging quadrant of all — and the hardest to spot in yourself.","fa":"تظاهرِ فریبکارانه یعنی چاپلوسی جلوی روی طرف و انتقادِ تندِ پشتِ سرش. معمولاً از این می‌آید که می‌خواهی دوستت داشته باشند، یا از بازی‌های سیاسی و مراقبت از خود. هیچ حرفِ به‌دردبخوری به کسی که می‌تواند رویش کار کند گفته نمی‌شود، پس آسیب‌زننده‌ترین خانه از همه است — و سخت‌ترینشان برای دیدن در خودت."},"example":{"en":"Telling someone their work is “great!” to their face, then complaining about it to others.","fa":"جلوی روی طرف بگویی کارش «عالیه!» و بعد پیشِ بقیه ازش گله کنی."},"tip":{"en":"Say to the person's face only what you'd be comfortable saying about them to others.","fa":"جلوی روی طرف فقط چیزی را بگو که راحت باشی همان را دربارهٔ او به دیگران هم بگویی."},"pitfall":{"en":"Playing politics or people-pleasing until no one hears the truth.","fa":"سیاسی‌بازی یا خودشیرینی، تا جایی که هیچ‌کس حقیقت را نمی‌شنود."}},"praise":{"part":"guidance","n":8,"name":{"en":"Give Praise Well","fa":"خوب تعریف کن"},"glabel":{"en":"Praise","fa":"تعریف"},"principle":{"en":"Praise in public and be specific — say exactly what was good and why it mattered.","fa":"در جمع تعریف کن و مشخص باش — دقیق بگو چه چیزی خوب بود و چرا مهم بود."},"more":{"en":"Good praise is more than “great job”. Vague praise feels nice for a second but teaches nothing. Be specific about what the person did, why it was good, and what impact it had — so they know exactly what to do more of. And praising in public multiplies its value.","fa":"تعریفِ خوب چیزی بیشتر از «آفرین» است. تعریفِ مبهم یک لحظه خوب است ولی هیچ چیزی یاد نمی‌دهد. مشخص باش که طرف چه کاری کرد، چرا خوب بود، و چه اثری داشت — تا دقیق بداند از چه چیزی باید بیشتر انجام دهد. و تعریف در جمع، ارزشش را چند برابر می‌کند."},"example":{"en":"Not “nice report”, but “the way you summarized the risks up top saved the client an hour — do that every time.”","fa":"نه «گزارشِ خوبی بود»، بلکه «اون‌طور که ریسک‌ها رو اول خلاصه کردی یه ساعت از وقتِ مشتری رو نجات داد — هر بار همین کار رو بکن.»"},"tip":{"en":"Make praise as specific as criticism; “good job” is a wasted opportunity.","fa":"تعریف را به‌اندازهٔ انتقاد مشخص کن؛ «خوب بود» یک فرصتِ هدررفته است."},"pitfall":{"en":"Generic praise that feels good but tells the person nothing useful.","fa":"تعریفِ کلی که حسِ خوبی می‌دهد ولی هیچ چیزِ به‌دردبخوری به طرف نمی‌گوید."}},"criticize":{"part":"guidance","n":9,"name":{"en":"Criticize Kindly & Clearly","fa":"مهربان و روشن انتقاد کن"},"glabel":{"en":"Criticism","fa":"انتقاد"},"principle":{"en":"Criticize in private, quickly, and about the work — be humble, specific, and helpful, not cruel.","fa":"در خلوت، سریع، و دربارهٔ خودِ کار انتقاد کن — فروتن، مشخص و کمک‌کننده باش، نه بی‌رحم."},"more":{"en":"Deliver criticism in private and soon after the event, while it still matters. Describe the specific behavior and its impact, stay humble (you might be missing something), and make it clearly about helping — not about being right. The goal isn't to prove a point; it's to help the person improve.","fa":"انتقاد را در خلوت و کمی بعد از اتفاق بده، وقتی هنوز مهم است. رفتارِ مشخص و اثرش را بگو، فروتن بمان (شاید چیزی را از قلم انداخته باشی)، و روشن کن که هدف کمک است — نه حق‌به‌جانب‌بودن. هدف بردنِ بحث نیست؛ کمک به بهترشدنِ طرف است."},"example":{"en":"“When you interrupted Sara twice, the room went quiet. Can we let people finish?” — said one-on-one, that same day.","fa":"«وقتی دو بار حرفِ سارا رو قطع کردی، جمع ساکت شد. می‌شه بذاریم آدم‌ها حرفشون رو تموم کنن؟» — دونفره، همان روز گفته می‌شود."},"tip":{"en":"Criticize right away and in private; never save it up for the annual review.","fa":"همان موقع و در خلوت انتقاد کن؛ هیچ‌وقت آن را برای ارزیابیِ سالانه ذخیره نکن."},"pitfall":{"en":"Public criticism, or bottling issues up until they explode.","fa":"انتقاد در جمع، یا انباشتنِ مشکل‌ها تا وقتی منفجر شوند."}},"solicit":{"part":"guidance","n":10,"name":{"en":"Get Feedback First","fa":"اول خودت بازخورد بگیر"},"glabel":{"en":"Solicit","fa":"بازخورد بگیر"},"principle":{"en":"Ask for criticism before you give it — and react well when it comes, or it stops coming.","fa":"قبل از اینکه انتقاد بدهی، برای خودت انتقاد بخواه — و وقتی آمد خوب واکنش نشان بده، وگرنه دیگر نمی‌آید."},"more":{"en":"Before you can give guidance, you have to prove you can take it. Ask a real question — not “any feedback?” but “what could I do or stop doing that would make it easier to work with me?” — then embrace the discomfort, listen, and reward the candor by actually changing something. The way you react is what makes people trust you with the truth.","fa":"قبل از اینکه بتوانی راهنمایی بدهی، باید ثابت کنی که می‌توانی راهنمایی بگیری. یک سؤالِ واقعی بپرس — نه «بازخوردی هست؟» بلکه «چه کاری بکنم یا نکنم که کارکردن با من راحت‌تر بشه؟» — بعد آن ناراحتی را بپذیر، گوش کن، و با تغییردادنِ واقعیِ یک چیز به آن صراحت پاداش بده. همین واکنشِ توست که باعث می‌شود آدم‌ها حقیقت را به تو بگویند."},"example":{"en":"You ask a report “what's one thing I do that gets in your way?”, then sit with the silence until they answer.","fa":"از یکی از افرادت می‌پرسی «یه کاری که می‌کنم و جلوی کارِت رو می‌گیره چیه؟»، و آن‌قدر با سکوت می‌مانی تا جواب بدهد."},"tip":{"en":"Have one go-to question ready to ask for criticism, and count to six before you respond.","fa":"یک سؤالِ همیشه‌آماده برای انتقاد‌خواستن داشته باش، و قبل از جواب‌دادن تا شش بشمار."},"pitfall":{"en":"Getting defensive the first time, which teaches everyone to stop being honest.","fa":"بارِ اول گاردگرفتن، که به همه یاد می‌دهد دیگر صادق نباشند."}},"rockstars":{"part":"team","n":11,"name":{"en":"Rock Stars","fa":"صخره‌ها"},"glabel":{"en":"Rock Stars","fa":"صخره‌ها"},"principle":{"en":"Rock stars are your steady, deeply skilled people who love their work — they want stability, not the next promotion.","fa":"صخره‌ها آدم‌های باثبات و کاربلدت‌اند که کارشان را دوست دارند — دنبالِ ثبات‌اند، نه ترفیعِ بعدی."},"more":{"en":"Scott borrows the term from a colleague: rock stars are the rock you build the team on. They're excellent at their jobs and happy to keep doing them, on a gentle growth trajectory. Don't push them into management they don't want, or treat stability as a lack of ambition. Value them, and give them mastery and recognition.","fa":"اسکات این اصطلاح را از یک همکار گرفته: صخره‌ها همان تکیه‌گاهی‌اند که تیم را روی‌شان می‌سازی. کارشان را عالی انجام می‌دهند و خوشحال‌اند که همان را ادامه بدهند، روی یک مسیرِ رشدِ ملایم. آن‌ها را به مدیریتی که نمی‌خواهند هُل نده، و ثبات را کم‌جاه‌طلبی نبین. برایشان ارزش قائل شو، و به آن‌ها تسلط و قدردانی بده."},"example":{"en":"A brilliant engineer wants to keep building, not manage — so you give them depth and respect, not a management title.","fa":"یک مهندسِ درخشان می‌خواهد به ساختن ادامه بدهد، نه مدیریت — پس بهش عمق و احترام می‌دهی، نه عنوانِ مدیریتی."},"tip":{"en":"Don't force your rock stars up a ladder they don't want; reward mastery in place.","fa":"صخره‌هایت را به بالارفتن از نردبانی که نمی‌خواهند مجبور نکن؛ به تسلطشان همان‌جا پاداش بده."},"pitfall":{"en":"Pushing a happy expert into management and losing a great individual contributor.","fa":"هُل‌دادنِ یک متخصصِ راضی به مدیریت و ازدست‌دادنِ یک نیروی فردیِ عالی."}},"superstars":{"part":"team","n":12,"name":{"en":"Superstars","fa":"ستاره‌ها"},"glabel":{"en":"Superstars","fa":"ستاره‌ها"},"principle":{"en":"Superstars are on a steep growth trajectory — ambitious, fast-learning, and hungry for new challenges.","fa":"ستاره‌ها روی یک مسیرِ رشدِ تند هستند — جاه‌طلب، تندآموز، و تشنهٔ چالش‌های تازه."},"more":{"en":"Superstars are your change agents: they grow fast and get restless if they aren't stretched. The best way to keep them happy is to challenge them and make sure they're constantly learning — give them new problems, more scope, and a path forward, even if it eventually leads out of your team. Hold them back and you'll lose them.","fa":"ستاره‌ها عاملانِ تغییرِ تو هستند: سریع رشد می‌کنند و اگر کشیده نشوند بی‌قرار می‌شوند. بهترین راهِ راضی‌نگه‌داشتنشان این است که به چالش بکشی‌شان و مطمئن شوی مدام در حالِ یادگیری‌اند — مسئله‌های تازه، دامنهٔ بیشتر، و یک مسیرِ رو به جلو بهشان بده، حتی اگر آخرش از تیمِ تو بیرون برود. جلوی‌شان را بگیری، از دستشان می‌دهی."},"example":{"en":"A fast riser gets bored, so you hand them a bigger, scarier project instead of more of the same.","fa":"یک آدمِ سریع‌الرشد حوصله‌اش سر می‌رود، پس به‌جای همان کارهای تکراری، یک پروژهٔ بزرگ‌تر و ترسناک‌تر بهش می‌سپاری."},"tip":{"en":"Keep superstars learning; give them the next challenge before they go looking for it.","fa":"ستاره‌ها را در حالِ یادگیری نگه دار؛ چالشِ بعدی را قبل از اینکه خودشان دنبالش بگردند بهشان بده."},"pitfall":{"en":"Boring your best people with routine until they leave for somewhere that stretches them.","fa":"بهترین آدم‌هایت را با کارِ روزمره خسته‌کردن تا وقتی که برای جایی که کشیده‌شان کند می‌روند."}},"growth":{"part":"team","n":13,"name":{"en":"Understand What Drives Each Person","fa":"بفهم هر آدم را چه چیزی جلو می‌برد"},"glabel":{"en":"Motivation","fa":"انگیزه"},"principle":{"en":"Manage growth, not just performance — get to know each person's dreams and their trajectory right now.","fa":"رشد را مدیریت کن، نه فقط عملکرد را — آرزوهای هر آدم و مسیرِ همین‌الانش را بشناس."},"more":{"en":"Rock star and superstar aren't fixed labels — they describe someone's growth trajectory in a given role at a given time, and the same person can be either. Your job is to understand what motivates each person and where they want to go, then tailor the work to help them take a real step toward their dreams. That's growth management, and it's how you build a great team.","fa":"«صخره» و «ستاره» برچسب‌های ثابت نیستند — مسیرِ رشدِ یک نفر را در یک نقش و یک زمانِ مشخص توصیف می‌کنند، و یک آدم می‌تواند هر کدام باشد. کارِ تو این است که بفهمی هر کس را چه چیزی به حرکت درمی‌آورد و کجا می‌خواهد برود، بعد کار را طوری بچینی که کمکش کند یک قدمِ واقعی به‌سمتِ آرزوهایش بردارد. این می‌شود مدیریتِ رشد، و راهِ ساختنِ یک تیمِ عالی همین است."},"example":{"en":"In a growth conversation you learn a quiet analyst dreams of leading — so you start handing them small leadership moments.","fa":"توی یک گفت‌وگوی رشد می‌فهمی یک تحلیل‌گرِ کم‌حرف آرزوی رهبری دارد — پس کم‌کم لحظه‌های کوچکِ رهبری را بهش می‌سپاری."},"tip":{"en":"Ask each person where they want to be in a few years, and shape their work toward it.","fa":"از هر آدم بپرس چند سالِ دیگر می‌خواهد کجا باشد، و کارش را به‌سمتِ همان شکل بده."},"pitfall":{"en":"Treating everyone the same, or slapping a permanent label on people.","fa":"با همه یک‌جور رفتارکردن، یا چسباندنِ یک برچسبِ دائمی به آدم‌ها."}},"gsd":{"part":"results","n":14,"name":{"en":"The GSD Wheel","fa":"چرخِ کارها را پیش‌ببر"},"glabel":{"en":"GSD Wheel","fa":"چرخِ کار"},"principle":{"en":"Get Stuff Done as a team by turning a wheel: listen, clarify, debate, decide, persuade, execute, and learn.","fa":"کارها را به‌شکلِ تیمی پیش ببر با چرخاندنِ یک چرخ: گوش کن، شفاف کن، بحث کن، تصمیم بگیر، همراه کن، اجرا کن، و یاد بگیر."},"more":{"en":"Results don't come from ordering people around; they come from a collaborative cycle. Listen to ideas, create a space to clarify them, debate them honestly, decide, then persuade everyone (including the skeptics), execute efficiently, and learn from what happened — before going around again. Skip a step and the whole wheel stalls.","fa":"نتیجه از دستوردادن به آدم‌ها نمی‌آید؛ از یک چرخهٔ هم‌کارانه می‌آید. به ایده‌ها گوش کن، فضایی برای شفاف‌کردنشان بساز، صادقانه سرشان بحث کن، تصمیم بگیر، بعد همه — از جمله شکاک‌ها — را همراه کن، بهینه اجرا کن، و از آنچه پیش آمد یاد بگیر — قبل از اینکه دوباره دور بزنی. یک قدم را رد کنی، کلِ چرخ گیر می‌کند."},"example":{"en":"Before a big launch you run the loop: gather input, debate options, decide, bring the doubters along, then ship.","fa":"قبل از یک عرضهٔ بزرگ، حلقه را می‌چرخانی: نظرها را جمع می‌کنی، سرِ گزینه‌ها بحث می‌کنی، تصمیم می‌گیری، مرددها را همراه می‌کنی، بعد منتشر می‌کنی."},"tip":{"en":"When work stalls, find which step you skipped — usually listening or persuading.","fa":"وقتی کار گیر می‌کند، ببین کدام قدم را رد کرده‌ای — معمولاً گوش‌دادن یا همراه‌کردن."},"pitfall":{"en":"Jumping straight to “decide and execute” and skipping listen, debate, and persuade.","fa":"پریدن مستقیم به «تصمیم و اجرا» و ردکردنِ گوش‌دادن، بحث، و همراه‌کردن."}},"debate":{"part":"results","n":15,"name":{"en":"Debate Before You Decide","fa":"قبل از تصمیم، بحث کن"},"glabel":{"en":"Debate","fa":"بحث"},"principle":{"en":"Push the team to debate ideas hard — and resist deciding too early just to end the discomfort.","fa":"تیم را وادار کن سختِ سرِ ایده‌ها بحث کند — و در برابرِ تصمیمِ زودهنگام فقط برای تمام‌کردنِ ناراحتی مقاومت کن."},"more":{"en":"Good decisions come out of real debate, not politeness. Make it about ideas, not egos: put people on the same side against the problem, rotate who argues which position, and watch for the urge to end the tension by deciding prematurely. Then push the decision down to the person closest to the facts, rather than deciding everything yourself.","fa":"تصمیمِ خوب از بحثِ واقعی درمی‌آید، نه از تعارف. بحث را دربارهٔ ایده‌ها کن، نه آدم‌ها: همه را کنارِ هم و روبه‌روی مسئله بگذار، بچرخان که هر بار چه کسی از چه موضعی دفاع کند، و مواظبِ آن وسوسه باش که برای تمام‌کردنِ تنش زود تصمیم بگیری. بعد تصمیم را بسپار به کسی که به واقعیت‌ها نزدیک‌تر است، نه اینکه خودت همه‌چیز را تصمیم بگیری."},"example":{"en":"You ask two people to argue the opposite of what they believe, so the team pressure-tests the idea, not each other.","fa":"از دو نفر می‌خواهی خلافِ چیزی که باور دارند را استدلال کنند، تا تیم ایده را زیرِ فشار بگذارد، نه همدیگر را."},"tip":{"en":"Separate the debate from the decision; don't let the first meeting rush to a call.","fa":"بحث را از تصمیم جدا کن؛ نگذار جلسهٔ اول با عجله به یک نتیجه برسد."},"pitfall":{"en":"Shutting down debate for the sake of harmony, then deciding on thin thinking.","fa":"خفه‌کردنِ بحث به‌خاطرِ آرامش، و بعد تصمیم‌گرفتن روی فکرِ نصفه‌ونیمه."}},"oneonones":{"part":"results","n":16,"name":{"en":"1:1 Meetings","fa":"جلسه‌های دونفره"},"glabel":{"en":"1:1s","fa":"دونفره"},"principle":{"en":"The 1:1 is a manager's most important meeting — it's the person's time to talk, and your time to listen.","fa":"جلسهٔ دونفره مهم‌ترین جلسهٔ یک مدیر است — وقتِ حرف‌زدنِ طرف است و وقتِ گوش‌دادنِ تو."},"more":{"en":"Regular one-on-ones are where trust and guidance actually happen. Probably the most important thing you can do to build trust is to spend a little time alone with each of your direct reports on a regular basis. Let them set much of the agenda, ask open questions, listen more than you talk, and use the time to understand what's really going on — not to give status updates.","fa":"جلسه‌های دونفرهٔ منظم همان‌جایی‌اند که اعتماد و راهنمایی واقعاً اتفاق می‌افتند. شاید مهم‌ترین کاری که برای ساختنِ اعتماد می‌توانی بکنی این باشد که مرتب کمی وقت را تنها با هرکدام از افرادت بگذرانی. بگذار بخشِ زیادی از دستورِجلسه را خودشان بچینند، سؤالِ باز بپرس، بیشتر از اینکه حرف بزنی گوش بده، و از این وقت برای فهمیدنِ اینکه واقعاً چه خبر است استفاده کن — نه برای گزارشِ وضعیت."},"example":{"en":"You keep a weekly 1:1 the report owns — their topics first, their career, their blockers — not a status report.","fa":"یک جلسهٔ دونفرهٔ هفتگی داری که صاحبش خودِ طرف است — اول موضوع‌های او، مسیرِ شغلی‌اش، مانع‌هایش — نه گزارشِ وضعیت."},"tip":{"en":"Protect the 1:1, never cancel it lightly, and let the other person talk first.","fa":"از جلسهٔ دونفره محافظت کن، سرسری کنسلش نکن، و بگذار طرفِ مقابل اول حرف بزند."},"pitfall":{"en":"Turning 1:1s into status meetings, or canceling them whenever you're busy.","fa":"تبدیلِ جلسه‌های دونفره به جلسهٔ گزارشِ وضعیت، یا کنسل‌کردنشان هر وقت سرت شلوغ است."}}},"core":{"name":{"en":"RADICAL CANDOR","fa":"صراحتِ همدلانه"},"principle":{"en":"Being a great boss comes down to two things done together: Care Personally and Challenge Directly. Care about people as human beings, and be willing to tell them clearly when their work — or yours — isn't good enough. Do both at once and you earn the trust to guide a team, build the right people, and get real results.","fa":"رئیسِ خوب‌بودن به دو چیز برمی‌گردد که با هم انجام شوند: «اهمیت‌دادنِ شخصی» و «رُک‌به‌چالش‌کشیدن». به آدم‌ها به‌عنوانِ آدم اهمیت بده، و حاضر باش روشن بهشان بگویی که کارِ آن‌ها — یا خودت — به‌اندازهٔ کافی خوب نیست. هر دو را با هم انجام بده تا آن اعتمادی را به‌دست بیاوری که با آن می‌شود یک تیم را راهنمایی کرد، آدم‌های درست را پروراند، و نتیجهٔ واقعی گرفت."},"more":{"en":"Scott organizes the book into two big ideas and three responsibilities. The two dimensions — Care Personally and Challenge Directly — create a compass with four quadrants: Radical Candor (the goal), Ruinous Empathy, Obnoxious Aggression, and Manipulative Insincerity. From there, a boss has three jobs: give and get guidance (praise and criticism), build a motivated team (rock stars and superstars), and drive results through the GSD wheel. The thread through all of it: relationships come first.","fa":"اسکات کتاب را حولِ دو ایدهٔ بزرگ و سه مسئولیت می‌چیند. دو بُعد — «اهمیت‌دادنِ شخصی» و «رُک‌به‌چالش‌کشیدن» — یک قطب‌نما با چهار خانه می‌سازند: صراحتِ همدلانه (هدف)، همدلیِ ویرانگر، پرخاشِ آزاردهنده، و تظاهرِ فریبکارانه. از آن‌جا، یک رئیس سه کار دارد: راهنمایی بده و بگیر (تعریف و انتقاد)، یک تیمِ باانگیزه بساز (صخره‌ها و ستاره‌ها)، و با چرخِ کار نتیجه بگیر. نخِ رابطِ همه‌شان: رابطه‌ها اول‌اند."},"example":{"en":"Click any node to read an idea. You can also drag the nodes around.","fa":"روی هر دایره کلیک کن تا یک ایده را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."}},"stages":[{"level":1,"badge":{"en":"Level 1 · Over-simplified","fa":"سطحِ ۱ · خیلی ساده"},"title":{"en":"Care and challenge","fa":"اهمیت بده و به چالش بکش"},"tagline":{"en":"The whole book in a sentence.","fa":"کلِ کتاب در یک جمله."},"body":{"en":"To be a good boss, do two things at once: genuinely care about your people, and be honest enough to tell them the truth about their work. That's it — that's Radical Candor.","fa":"برای اینکه رئیسِ خوبی باشی، دو کار را با هم بکن: واقعاً به آدم‌هایت اهمیت بده، و آن‌قدر صادق باش که حقیقتِ کارشان را بهشان بگویی. همین — این می‌شود صراحتِ همدلانه."},"example":{"en":"You tell a teammate their draft has a real problem — kindly, and because you want them to succeed.","fa":"به یک هم‌تیمی می‌گویی پیش‌نویسش یک مشکلِ واقعی دارد — مهربانانه، و چون می‌خواهی موفق شود."},"gain":{"en":"You hold the single idea the whole book expands on.","fa":"همان یک ایده‌ای را داری که کلِ کتاب بسطش می‌دهد."}},{"level":2,"badge":{"en":"Level 2 · Simple","fa":"سطحِ ۲ · ساده"},"title":{"en":"The four quadrants","fa":"چهار خانه"},"tagline":{"en":"One to aim for, three to avoid.","fa":"یکی برای هدف، سه‌تا برای پرهیز."},"body":{"en":"Put <b>care</b> on one axis and <b>challenge</b> on the other. Do both and you get <b>Radical Candor</b>. Care without challenge is <b>Ruinous Empathy</b>; challenge without care is <b>Obnoxious Aggression</b>; neither is <b>Manipulative Insincerity</b>. Nice bosses usually get stuck in Ruinous Empathy.","fa":"<b>اهمیت‌دادن</b> را روی یک محور بگذار و <b>به‌چالش‌کشیدن</b> را روی محورِ دیگر. هر دو را انجام بده تا <b>صراحتِ همدلانه</b> به‌دست بیاید. اهمیت بدونِ چالش می‌شود <b>همدلیِ ویرانگر</b>؛ چالش بدونِ اهمیت می‌شود <b>پرخاشِ آزاردهنده</b>؛ هیچ‌کدام می‌شود <b>تظاهرِ فریبکارانه</b>. رئیس‌های مهربان معمولاً توی همدلیِ ویرانگر گیر می‌کنند."},"example":{"en":"Staying quiet to spare someone's feelings feels kind, but it's Ruinous Empathy — and it holds them back.","fa":"ساکت‌ماندن برای اینکه دلِ کسی نشکند مهربانانه به‌نظر می‌رسد، ولی همدلیِ ویرانگر است — و جلوی رشدش را می‌گیرد."},"gain":{"en":"You can name your own default failure mode and correct it.","fa":"می‌توانی حالتِ شکستِ پیش‌فرضِ خودت را اسم ببری و درستش کنی."}},{"level":3,"badge":{"en":"Level 3 · Balanced","fa":"سطحِ ۳ · متعادل"},"title":{"en":"Give and get guidance","fa":"راهنمایی بده و بگیر"},"tagline":{"en":"Praise, criticism, and feedback first.","fa":"تعریف، انتقاد، و اول بازخورد."},"body":{"en":"Now the daily craft. <b>Praise</b> in public and be specific about what was good. <b>Criticize</b> in private, quickly and humbly. And most important, <b>ask for criticism of yourself first</b> — then react well, so people learn it's safe to be honest with you.","fa":"حالا نوبتِ کارِ روزمره است. در <b>جمع</b> تعریف کن و مشخص بگو چه چیزی خوب بود. در <b>خلوت</b>، سریع و فروتنانه <b>انتقاد</b> کن. و از همه مهم‌تر، <b>اول برای خودت انتقاد بخواه</b> — بعد خوب واکنش نشان بده، تا آدم‌ها یاد بگیرند که صادق‌بودن با تو امن است."},"example":{"en":"You open by asking “what am I doing that gets in your way?” before you ever give feedback of your own.","fa":"قبل از اینکه اصلاً بازخوردِ خودت را بدهی، با پرسیدنِ «چه کاری می‌کنم که جلوی کارِت رو می‌گیره؟» شروع می‌کنی."},"gain":{"en":"You can run honest, two-way feedback without blowing up trust.","fa":"می‌توانی بازخوردِ صادقانه و دوطرفه را بدونِ نابودکردنِ اعتماد پیش ببری."}},{"level":4,"badge":{"en":"Level 4 · Advanced","fa":"سطحِ ۴ · پیشرفته"},"title":{"en":"Build a motivated team","fa":"یک تیمِ باانگیزه بساز"},"tagline":{"en":"Rock stars, superstars, growth.","fa":"صخره‌ها، ستاره‌ها، رشد."},"body":{"en":"Great bosses grow people. Learn what drives each person and where they're headed. Honor your <b>rock stars</b> — steady experts who want mastery, not promotion — and stretch your <b>superstars</b> with constant new challenges. Manage each person's <b>growth trajectory</b>, not just this quarter's output.","fa":"رئیس‌های خوب آدم‌ها را رشد می‌دهند. بفهم هر کس را چه چیزی جلو می‌برد و کجا می‌رود. <b>صخره‌هایت</b> را ارج بگذار — متخصص‌های باثباتی که تسلط می‌خواهند، نه ترفیع — و <b>ستاره‌هایت</b> را با چالش‌های تازهٔ همیشگی بکش. <b>مسیرِ رشدِ</b> هر آدم را مدیریت کن، نه فقط خروجیِ این فصل را."},"example":{"en":"You give a restless superstar a bigger project and give a happy rock star deeper mastery — not the same path for both.","fa":"به یک ستارهٔ بی‌قرار یک پروژهٔ بزرگ‌تر می‌دهی و به یک صخرهٔ راضی عمقِ بیشتر — نه یک مسیرِ یک‌سان برای هر دو."},"gain":{"en":"You can motivate very different people without a one-size-fits-all approach.","fa":"می‌توانی آدم‌های خیلی متفاوت را بدونِ یک نسخهٔ واحد برای همه، باانگیزه کنی."}},{"level":5,"badge":{"en":"Level 5 · Expert","fa":"سطحِ ۵ · حرفه‌ای"},"title":{"en":"Get results together","fa":"با هم نتیجه بگیر"},"tagline":{"en":"The GSD wheel and real 1:1s.","fa":"چرخِ کار و جلسه‌های دونفرهٔ واقعی."},"body":{"en":"The complete boss turns relationships into results — without commanding. Run the <b>GSD wheel</b>: listen, clarify, debate, decide, persuade, execute, learn. <b>Debate</b> honestly before deciding, and push decisions to whoever is closest to the facts. Anchor it all in <b>1:1s</b> — the most important meeting you have, where the other person talks and you listen. Care and candor, turned into a team that ships.","fa":"رئیسِ کامل، رابطه‌ها را به نتیجه تبدیل می‌کند — بدونِ دستوردادن. <b>چرخِ کار</b> را بچرخان: گوش کن، شفاف کن، بحث کن، تصمیم بگیر، همراه کن، اجرا کن، یاد بگیر. قبل از تصمیم صادقانه <b>بحث</b> کن، و تصمیم را بسپار به هرکس که به واقعیت‌ها نزدیک‌تر است. همه‌چیز را روی <b>جلسه‌های دونفره</b> لنگر بینداز — مهم‌ترین جلسه‌ای که داری، جایی که طرفِ مقابل حرف می‌زند و تو گوش می‌دهی. اهمیت و صراحت، تبدیل‌شده به تیمی که کار را می‌رساند."},"example":{"en":"Before a big call you gather input, let the team debate, decide with them, and bring the doubters along — then ship.","fa":"قبل از یک تصمیمِ بزرگ، نظرها را جمع می‌کنی، می‌گذاری تیم بحث کند، با آن‌ها تصمیم می‌گیری، و مرددها را همراه می‌کنی — بعد کار را می‌رسانی."},"gain":{"en":"You can lead a team that trusts you, grows, and gets real results.","fa":"می‌توانی تیمی را رهبری کنی که بهت اعتماد دارد، رشد می‌کند، و نتیجهٔ واقعی می‌گیرد."}}],"quotes":[{"en":"Radical Candor is what happens when you put ‘Care Personally’ and ‘Challenge Directly’ together.","fa":"صراحتِ همدلانه وقتی اتفاق می‌افتد که «اهمیت‌دادنِ شخصی» و «رُک‌به‌چالش‌کشیدن» را کنارِ هم بگذاری."},{"en":"Ruinous Empathy is what happens when you want to spare someone's short-term feelings, so you don't tell them something they need to know.","fa":"همدلیِ ویرانگر وقتی اتفاق می‌افتد که می‌خواهی دلِ کسی در کوتاه‌مدت نشکند، پس چیزی را که باید بداند بهش نمی‌گویی."},{"en":"You already know how to be Radically Candid because you know how to care personally and to challenge directly.","fa":"تو همین‌الان هم بلدی صراحتِ همدلانه داشته باشی، چون بلدی هم اهمیتِ شخصی بدهی و هم رُک به چالش بکشی."},{"en":"The way you ask for criticism and react when you get it goes a long way toward building trust—or destroying it.","fa":"طرزی که انتقاد را می‌خواهی و وقتی می‌گیری‌اش واکنش نشان می‌دهی، نقشِ بزرگی در ساختنِ اعتماد دارد — یا نابودکردنش."},{"en":"Probably the most important thing you can do to build trust is to spend a little time alone with each of your direct reports on a regular basis.","fa":"شاید مهم‌ترین کاری که برای ساختنِ اعتماد می‌توانی بکنی این باشد که مرتب کمی وقت را تنها با هرکدام از افرادت بگذرانی."},{"en":"The best way to keep superstars happy is to challenge them and make sure they are constantly learning.","fa":"بهترین راهِ راضی‌نگه‌داشتنِ ستاره‌ها این است که به چالش بکشی‌شان و مطمئن شوی مدام در حالِ یادگیری‌اند."},{"en":"This is not babysitting. It's called management, and it is your job!","fa":"این بچه‌داری نیست. اسمش مدیریت است، و کارِ توست!"},{"en":"At the very heart of being a good boss is a good relationship.","fa":"در قلبِ رئیسِ خوب‌بودن، یک رابطهٔ خوب نشسته است."}],"media":[{"kind":"yt","id":"MIh_992Nfes","src":{"en":"YouTube · First Round Capital","fa":"یوتیوب · First Round Capital"},"title":{"en":"Radical Candor — The Surprising Secret to Being a Good Boss","fa":"صراحتِ همدلانه — رازِ غافلگیرکنندهٔ رئیسِ خوب‌بودن"},"desc":{"en":"Kim Scott's classic First Round talk that launched the framework.","fa":"سخنرانیِ کلاسیکِ کیم اسکات در فرست‌راند که این چارچوب را معرفی کرد."},"bullets":{"en":["The two dimensions, in plain terms","Where Radical Candor comes from","A warm, story-driven overview"],"fa":["دو بُعدِ اصلی، به زبانِ ساده","اینکه صراحتِ همدلانه از کجا آمد","یک مرورِ گرم و همراهِ داستان"]},"best":{"en":"Best for Stage 1–2.","fa":"خوب برای مرحلهٔ ۱ و ۲."}},{"kind":"yt","id":"OoISfhACm4s","src":{"en":"YouTube · Radical Candor","fa":"یوتیوب · Radical Candor"},"title":{"en":"What is Radical Candor? | Kim Scott","fa":"صراحتِ همدلانه چیست؟ | کیم اسکات"},"desc":{"en":"Kim Scott explains the four quadrants and how to use them.","fa":"کیم اسکات چهار خانه و طرزِ استفاده‌شان را توضیح می‌دهد."},"bullets":{"en":["The compass and its four quadrants","Radical Candor vs. the three traps","A short, clear explainer"],"fa":["قطب‌نما و چهار خانه‌اش","صراحتِ همدلانه در برابرِ سه دام","یک توضیحِ کوتاه و روشن"]},"best":{"en":"Best for Stage 2–3.","fa":"خوب برای مرحلهٔ ۲ و ۳."}},{"kind":"img","url":"https://us.macmillan.com/books/9781250235374/radicalcandorfullyrevisedupdatededition/","src":{"en":"St. Martin's Press · Publisher","fa":"St. Martin's Press · ناشر"},"title":{"en":"Radical Candor — Publisher Page","fa":"صراحتِ همدلانه — صفحهٔ ناشر"},"desc":{"en":"The publisher page for the fully revised edition, with details and ordering.","fa":"صفحهٔ ناشر برای نسخهٔ کاملاً بازنگری‌شده، با جزئیات و سفارش."},"bullets":{"en":["The revised and updated edition","Background on the book","Straight from the source"],"fa":["نسخهٔ بازنگری و به‌روزشده","پیشینه‌ای دربارهٔ کتاب","مستقیم از خودِ منبع"]},"best":{"en":"For the edition and details.","fa":"برای نسخه و جزئیات."}}],"go":[{"label":{"en":"Publisher page (St. Martin's Press)","fa":"صفحهٔ ناشر"},"url":"https://us.macmillan.com/books/9781250235374/radicalcandorfullyrevisedupdatededition/"},{"label":{"en":"Book on Goodreads","fa":"کتاب در گودریدز"},"url":"https://www.goodreads.com/book/show/32809138-radical-candor"},{"label":{"en":"Official Radical Candor site","fa":"سایتِ رسمیِ Radical Candor"},"url":"https://www.radicalcandor.com/the-book/"}],"recs":[{"pri":"b","t":{"en":"Ask for criticism first","fa":"اول برای خودت انتقاد بخواه"},"d":{"en":"This week, ask one person “what could I do or stop doing that would make it easier to work with me?” — then just listen.","fa":"همین هفته، از یک نفر بپرس «چه کاری بکنم یا نکنم که کارکردن با من راحت‌تر بشه؟» — و بعد فقط گوش بده."}},{"pri":"b","t":{"en":"Give one specific piece of praise","fa":"یک تعریفِ مشخص بکن"},"d":{"en":"Instead of “good job”, tell someone exactly what they did well and why it mattered.","fa":"به‌جای «خوب بود»، به یک نفر دقیق بگو چه کاری را خوب انجام داد و چرا مهم بود."}},{"pri":"n","t":{"en":"Catch your Ruinous Empathy","fa":"همدلیِ ویرانگرت را بگیر"},"d":{"en":"Find one thing you've been avoiding saying to be “nice”, and say it kindly and clearly.","fa":"یک چیزی را که برای «مهربان‌بودن» از گفتنش طفره رفته‌ای پیدا کن، و مهربان و روشن بگو."}},{"pri":"n","t":{"en":"Protect your 1:1s","fa":"از جلسه‌های دونفره‌ات محافظت کن"},"d":{"en":"Put a regular 1:1 on the calendar with each report, and let them set the agenda.","fa":"با هرکدام از افرادت یک جلسهٔ دونفرهٔ منظم توی تقویم بگذار، و بگذار دستورِجلسه را خودشان بچینند."}}]};
+</script>
+
+<script>
+/* ── 3) RENDER (text sections) ────────────────────────────── */
+function elClear(id){ var e=document.getElementById(id); if(e) e.innerHTML=''; return e; }
+
+function renderText(){
+  var t=elClear('tldrHost');
+  DATA.tldr.forEach(function(o){ var li=document.createElement('li'); li.innerHTML = TX(o); t.appendChild(li); });
+
+  var q=elClear('quoteHost');
+  DATA.quotes.forEach(function(o){
+    var bq=document.createElement('blockquote');
+    bq.innerHTML = '<span class="qm">“</span><p>'+TX(o)+'</p>';
+    q.appendChild(bq);
+  });
+
+  var m=elClear('mediaHost');
+  DATA.media.forEach(function(o){
+    var card=document.createElement('div'); card.className='mcard';
+    var thumb;
+    if(o.kind==='yt'){
+      var url='https://www.youtube.com/watch?v='+o.id;
+      var img='https://i.ytimg.com/vi/'+o.id+'/hqdefault.jpg';
+      thumb='<a class="mthumb" href="'+url+'" target="_blank" rel="noopener">'
+        +'<img src="'+img+'" alt="" loading="lazy" onerror="this.style.display=\'none\'">'
+        +'<span class="ptype">'+(LANG==='fa'?'ویدیو':'VIDEO')+'</span>'
+        +'<span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></span></a>';
+    } else {
+      thumb='<a class="mthumb" href="'+o.url+'" target="_blank" rel="noopener"><span class="mfake">'
+        +'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.6"/><path d="M21 15l-5-5L5 21"/></svg>'
+        +'</span><span class="ptype">'+(LANG==='fa'?'تصویر':'IMAGE')+'</span></a>';
+    }
+    var link = o.kind==='yt' ? 'https://www.youtube.com/watch?v='+o.id : o.url;
+    var bl = (LANG==='fa'?o.bullets.fa:o.bullets.en).map(function(b){ return '<li>'+ (LANG==='fa'?faText(b):b) +'</li>'; }).join('');
+    card.innerHTML = thumb + '<div class="mbody">'
+      + '<div class="msrc">'+TX(o.src)+'</div>'
+      + '<h4>'+TX(o.title)+'</h4>'
+      + '<p class="mdesc">'+TX(o.desc)+'</p>'
+      + '<ul>'+bl+'</ul>'
+      + '<a class="mlink" href="'+link+'" target="_blank" rel="noopener">'+(LANG==='fa'?'باز کردن ↗':'Open ↗')+'</a>'
+      + '<div class="mbest">'+TX(o.best)+'</div>'
+      + '</div>';
+    m.appendChild(card);
+  });
+
+  var g=elClear('goHost');
+  DATA.go.forEach(function(o){
+    var a=document.createElement('a'); a.href=o.url; a.target='_blank'; a.rel='noopener';
+    a.textContent=TX(o.label); g.appendChild(a);
+  });
+
+  var r=elClear('recHost');
+  DATA.recs.forEach(function(o){
+    var it=document.createElement('div'); it.className='item';
+    var priLabel = o.pri==='b' ? (LANG==='fa'?'از اینجا شروع کن':'Start here') : (LANG==='fa'?'بعدش این':'Then this');
+    it.innerHTML='<div class="t">'+TX(o.t)+'<span class="pri '+(o.pri==='b'?'b':'')+'">'+priLabel+'</span></div>'
+      +'<div class="d">'+TX(o.d)+'</div>';
+    r.appendChild(it);
+  });
+
+  var mth=document.getElementById('methodHost');
+  mth.innerHTML = LANG==='fa' ? faText("<p><b>منبع:</b> کتابِ «Radical Candor» نوشتهٔ کیم اسکات، چاپِ ۲۰۱۷ (انتشاراتِ St. Martin's Press).</p><p><b>روشِ کار:</b> ساختارِ پنج‌بخشی و ایده‌ها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده؛ نقل‌قول‌ها با متنِ کتاب مقابله و ویدیوها بررسی شده‌اند.</p><p><b>گروه:</b> «مدیریت» — از فهرستِ کتاب‌های ضروریِ سازندگانِ محصولِ لنی راچیتسکی.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای متنِ کامل، خودِ کتاب را بخوان.</p>") : "<p><b>Source:</b> the book <i>Radical Candor</i> by Kim Scott, published 2017 (St. Martin's Press).</p><p><b>How this was built:</b> the five-part structure and ideas were gathered and rewritten from the book and reputable sources; quotes were cross-checked and the linked videos verified.</p><p><b>Group:</b> Managing — from Lenny Rachitsky's essential books for product builders.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>";
+  var fl=document.getElementById('flowTop');
+  if(fl){
+    var loop = LANG==='fa' ? ["اهمیت بده","رُک بگو","راهنمایی کن"] : ["Care","Challenge","Guide"];
+    var ar = LANG==='fa' ? '⟵' : '⟶';
+    fl.innerHTML = loop.map(function(w){ return '<b>'+ (LANG==='fa'?faText(w):w) +'</b>'; }).join(' <span class="ar">'+ar+'</span> ');
+  }
+}
+</script>
+
+<script>
+/* ── 4) CONCEPT MAP ───────────────────────────────────────── */
+function renderMap(){
+  var host=document.getElementById('mapHost'); if(!host) return; host.innerHTML='';
+  DATA.parts.forEach(function(p, i){
+    var col=document.createElement('div'); col.className='partcol';
+    var chaps=p.chapters.map(function(ck){
+      var c=DATA.chapters[ck];
+      return '<div class="chapchip"><span class="cn">'+num(c.n)+'</span><div><b>'+TX(c.name)+'</b>'
+        +'<small>'+TX(c.principle).replace(/<[^>]+>/g,'').slice(0, LANG==='fa'?86:76)+'…</small></div></div>';
+    }).join('');
+    col.innerHTML='<div class="ph"><span class="pdot" style="background:var('+p.varc+')"></span>'
+      +'<span class="pnum">'+(LANG==='fa'?'بخشِ ':'PART ')+num(i+1)+'</span></div>'
+      +'<h4>'+TX(p.name)+'</h4>'
+      +'<div class="ptag" style="color:var('+p.varc+')">'+TX(p.tag)+'</div>'
+      +'<p class="pgist">'+TX(p.gist)+'</p>'+chaps;
+    host.appendChild(col);
+  });
+}
+</script>
+
+<script>
+/* ── 5) INTERACTIVE NETWORK GRAPH (deterministic radial layout, no physics) ── */
+var GRAPH = (function(){
+  var svg, W=980, H=780, nodes=[], links=[], sel=null, dragNode=null, moved=false, startPt=null;
+
+  function build(){
+    svg=document.getElementById('netsvg');
+    svg.setAttribute('viewBox','0 0 '+W+' '+H);
+    nodes=[]; links=[];
+    var cx=W/2, cy=H/2, R1=220, R2=126, span=66*Math.PI/180;
+    var N=DATA.parts.length, partAng=DATA.parts.map(function(_,i){ return -Math.PI/2 + i*(2*Math.PI/N); });
+    nodes.push({id:'core', kind:'core', varc:'--core', r:38, x:cx, y:cy, label:DATA.core.name, data:DATA.core});
+    DATA.parts.forEach(function(p,i){
+      var a=partAng[i], px=cx+Math.cos(a)*R1, py=cy+Math.sin(a)*R1;
+      nodes.push({id:'p_'+p.key, kind:'part', varc:p.varc, r:25, x:px, y:py,
+        label:p.name, data:{name:p.name, principle:p.gist, more:p.more, tag:p.tag, key:p.key}});
+      links.push({s:'core', t:'p_'+p.key, strong:true});
+      var nc=p.chapters.length, start=a-span/2;
+      p.chapters.forEach(function(ck,j){
+        var ca = nc>1 ? start+span*(j/(nc-1)) : a;   // fan the 5 chapters outward
+        var c=DATA.chapters[ck];
+        nodes.push({id:'c_'+ck, kind:'chap', varc:p.varc, r:15,
+          x:px+Math.cos(ca)*R2, y:py+Math.sin(ca)*R2,
+          label:(c.glabel||c.name), data:c, ck:ck});
+        links.push({s:'p_'+p.key, t:'c_'+ck});
+      });
+    });
+    nodes.forEach(function(n){ n.hx=n.x; n.hy=n.y; });   // remember home positions for reset
+    draw();
+    select('core');
+  }
+
+  function byId(id){ for(var i=0;i<nodes.length;i++) if(nodes[i].id===id) return nodes[i]; return null; }
+
+  function draw(){
+    var ln='', nd='';
+    links.forEach(function(l){ ln+='<line class="glink" data-s="'+l.s+'" data-t="'+l.t+'" stroke="var(--line)" stroke-width="'+(l.strong?2.4:1.5)+'" stroke-linecap="round"/>'; });
+    nodes.forEach(function(n){
+      var inside='', below='';
+      if(n.kind==='core'){
+        inside='<text text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="800" fill="#fff" letter-spacing="0.3">'+shortLabel(n)+'</text>';
+      } else {
+        if(n.kind==='chap'){
+          inside='<text text-anchor="middle" dominant-baseline="central" font-size="11" font-weight="800" fill="#fff">'+num(n.data.n)+'</text>';
+        }
+        var ly = n.r + (n.kind==='part'?17:14);
+        var fs = n.kind==='part'?13:11;
+        var stroke = 'paint-order:stroke;stroke:var(--card2);stroke-width:3.6px;stroke-linejoin:round';
+        below='<text class="nlab" text-anchor="middle" y="'+ly+'" font-size="'+fs+'" font-weight="'+(n.kind==='part'?'800':'700')+'" fill="var(--ink)" style="'+stroke+'">'+shortLabel(n)+'</text>';
+      }
+      nd+='<g class="node'+(n.kind==='core'?' ncore':'')+'" data-id="'+n.id+'"><g class="ns">'
+        +'<circle r="'+n.r+'" fill="var('+n.varc+')" fill-opacity="'+(n.kind==='chap'?0.94:1)+'" stroke="var(--card)" stroke-width="2.5"/>'
+        +inside+below+'</g></g>';
+    });
+    svg.innerHTML='<g id="glinks">'+ln+'</g><g id="gnodes">'+nd+'</g>';
+    svg.querySelectorAll('.node').forEach(function(gEl){
+      gEl.addEventListener('pointerdown', onDown);
+      gEl.addEventListener('click', function(){ if(!moved) select(gEl.getAttribute('data-id')); });
+      gEl.addEventListener('pointerenter', function(){ if(!dragNode) gEl.classList.add('hover'); });
+      gEl.addEventListener('pointerleave', function(){ gEl.classList.remove('hover'); });
+    });
+    positions();
+  }
+  function shortLabel(n){ return TX(n.label); }
+
+  function positions(){
+    svg.querySelectorAll('.node').forEach(function(g){
+      var n=byId(g.getAttribute('data-id'));
+      g.setAttribute('transform','translate('+n.x.toFixed(1)+','+n.y.toFixed(1)+')');
+    });
+    svg.querySelectorAll('.glink').forEach(function(l){
+      var a=byId(l.getAttribute('data-s')), b=byId(l.getAttribute('data-t'));
+      l.setAttribute('x1',a.x.toFixed(1)); l.setAttribute('y1',a.y.toFixed(1));
+      l.setAttribute('x2',b.x.toFixed(1)); l.setAttribute('y2',b.y.toFixed(1));
+    });
+  }
+
+  /* drag: just move the grabbed node — no simulation, so nothing else shifts */
+  function toSvg(e){
+    var pt=svg.createSVGPoint(); pt.x=e.clientX; pt.y=e.clientY;
+    var m=svg.getScreenCTM(); if(!m) return {x:e.clientX,y:e.clientY};
+    return pt.matrixTransform(m.inverse());
+  }
+  function onDown(e){
+    e.preventDefault();
+    dragNode=byId(e.currentTarget.getAttribute('data-id'));
+    moved=false; startPt=toSvg(e); svg.style.cursor='grabbing';
+    e.currentTarget.classList.remove('hover');
+    window.addEventListener('pointermove', onMove);
+    window.addEventListener('pointerup', onUp);
+  }
+  function onMove(e){
+    if(!dragNode) return; var p=toSvg(e);
+    if(startPt && (Math.abs(p.x-startPt.x)>4 || Math.abs(p.y-startPt.y)>4)) moved=true;
+    dragNode.x=Math.max(dragNode.r+4, Math.min(W-dragNode.r-4, p.x));
+    dragNode.y=Math.max(dragNode.r+4, Math.min(H-dragNode.r-24, p.y));
+    positions();
+  }
+  function onUp(){
+    dragNode=null; svg.style.cursor='grab';
+    window.removeEventListener('pointermove', onMove);
+    window.removeEventListener('pointerup', onUp);
+  }
+
+  function keepSet(id){
+    var n=byId(id); if(!n || id==='core') return null;   // core → show everything
+    var keep={}; keep[id]=1; keep['core']=1;
+    var pk = (n.kind==='part') ? n.data.key : n.data.part;
+    keep['p_'+pk]=1;
+    DATA.parts.forEach(function(p){ if(p.key===pk) p.chapters.forEach(function(ck){ keep['c_'+ck]=1; }); });
+    return keep;   // highlight the whole branch: core → part → its chapters
+  }
+  function applyFocus(id){
+    var keep=keepSet(id), full=(keep===null);
+    svg.querySelectorAll('.node').forEach(function(g){
+      var nid=g.getAttribute('data-id');
+      g.classList.toggle('dim', !full && !keep[nid]);
+      g.classList.toggle('hl', !full && keep[nid] && nid!==id);
+    });
+    svg.querySelectorAll('.glink').forEach(function(l){
+      var s=l.getAttribute('data-s'), t=l.getAttribute('data-t');
+      var on = full || (keep[s] && keep[t]);
+      l.classList.toggle('dim', !on);
+      l.classList.toggle('hl', !full && on);
+    });
+  }
+
+  function relatedIds(node){
+    var ids=[];
+    if(node.id==='core'){ DATA.parts.forEach(function(p){ ids.push('p_'+p.key); }); }
+    else if(node.kind==='part'){ var pk=node.data.key; DATA.parts.forEach(function(p){ if(p.key===pk) p.chapters.forEach(function(ck){ ids.push('c_'+ck); }); }); }
+    else { var pk2=node.data.part; ids.push('p_'+pk2);
+      DATA.parts.forEach(function(p){ if(p.key===pk2) p.chapters.forEach(function(ck){ if('c_'+ck!==node.id) ids.push('c_'+ck); }); }); }
+    return ids;
+  }
+
+  function drow(cls,label,txt){ return '<div class="drow '+cls+'"><div class="dlab">'+label+'</div><div class="dtxt">'+txt+'</div></div>'; }
+
+  function select(id){
+    var n=byId(id); if(!n) return;
+    sel=id;
+    svg.querySelectorAll('.node').forEach(function(g){ g.classList.toggle('sel', g.getAttribute('data-id')===id); });
+    var selEl=svg.querySelector('.node[data-id="'+id+'"]'); if(selEl&&selEl.parentNode) selEl.parentNode.appendChild(selEl);  // raise on top
+    applyFocus(id);
+    var d=n.data, pv = n.kind==='core' ? '--core' : n.varc;
+    var kicker = n.kind==='core' ? (LANG==='fa'?'ایدهٔ مرکزی':'Core idea')
+             : n.kind==='part' ? (LANG==='fa'?'بخش':'Part') + ' · ' + TX(d.tag)
+             : (LANG==='fa'?"ایدهٔ":"Idea") + ' ' + num(d.n);
+    var prLab = (n.kind==='chap') ? (LANG==='fa'?'اصل':'Principle') : (LANG==='fa'?'ایدهٔ اصلی':'Big idea');
+    var html='<div class="dkick"><i style="background:var('+pv+')"></i>'+ (LANG==='fa'?faText(kicker):kicker) +'</div>'
+      +'<h4>'+TX(d.name)+'</h4>'
+      + drow('', prLab, TX(d.principle));
+    if(d.more)    html += drow('more', (LANG==='fa'?'بیشتر':'In depth'), TX(d.more));
+    if(d.example) html += drow('', (LANG==='fa'?'مثال':'Example'), TX(d.example));
+    if(d.tip)     html += drow('tip', (LANG==='fa'?'امتحان کن':'Try this'), TX(d.tip));
+    if(d.pitfall) html += drow('pit', (LANG==='fa'?'حواست باشد':'Watch out'), TX(d.pitfall));
+    // related chips
+    var rel=relatedIds(n);
+    if(rel.length){
+      var chips=rel.map(function(rid){ var rn=byId(rid); if(!rn) return '';
+        return '<span class="dchip" data-goto="'+rid+'"><i style="background:var('+rn.varc+')"></i>'+TX(rn.data.name)+'</span>'; }).join('');
+      html += '<div class="drow"><div class="dlab">'+(LANG==='fa'?'مرتبط':'Related')+'</div><div class="dchips">'+chips+'</div></div>';
+    }
+    var host=document.getElementById('detailHost');
+    host.innerHTML=html;
+    host.querySelectorAll('.dchip').forEach(function(c){
+      c.addEventListener('click', function(){ select(c.getAttribute('data-goto')); });
+    });
+  }
+
+  function relabel(){ if(!svg) return; draw(); select(sel||'core'); }
+
+  return {
+    build:build,
+    kick:function(){},                                    // no-op; layout is static
+    relabel:relabel,
+    reset:function(){ nodes.forEach(function(n){ n.x=n.hx; n.y=n.hy; }); positions(); },
+    resetFocus:function(){ select('core'); },
+    selectNode:function(id){ select(id); },
+    hasNodes:function(){ return nodes.length>0; }
+  };
+})();
+</script>
+
+<script>
+/* ── 6) 5-STAGE LADDER ────────────────────────────────────── */
+var curStage=0;
+function renderLadder(){
+  var host=document.getElementById('ladderHost'); host.innerHTML='';
+  DATA.stages.forEach(function(s,i){
+    var r=document.createElement('div'); r.className='rung'+(i===curStage?' active':'');
+    r.innerHTML='<div class="lv">'+ (LANG==='fa'?('سطحِ '+num(s.level)):('Level '+s.level)) +'</div>'
+      +'<div class="lt">'+TX(s.title)+'</div>'
+      +'<div class="lbar"><i style="width:'+(s.level*20)+'%"></i></div>';
+    r.addEventListener('click', function(){ curStage=i; renderLadder(); renderStage();
+      document.getElementById('stageHost').scrollIntoView({behavior:'smooth',block:'nearest'}); });
+    host.appendChild(r);
+  });
+}
+function renderStage(){
+  var s=DATA.stages[curStage];
+  var host=document.getElementById('stageHost');
+  var exLabel = LANG==='fa'?'مثال':'Example';
+  var prev = LANG==='fa'?'مرحلهٔ قبل':'‹ Prev', next = LANG==='fa'?'مرحلهٔ بعد':'Next ›';
+  host.innerHTML=''+
+    '<div class="stagecard">'
+    +'<div class="shead"><span class="badge">'+TX(s.badge)+'</span><h3>'+TX(s.title)+'</h3></div>'
+    +'<div class="tagline">'+TX(s.tagline)+'</div>'
+    +'<div class="sbody">'+TX(s.body)+'</div>'
+    +'<div class="exbox"><div class="exk">'+exLabel+'</div><div class="ext">'+TX(s.example)+'</div></div>'
+    +'<div class="gainrow"><span class="gi">✓</span><span>'+TX(s.gain)+'</span></div>'
+    +'<div class="stagenav">'
+      +'<button id="stPrev" '+(curStage===0?'disabled':'')+'>'+prev+'</button>'
+      +'<button id="stNext" '+(curStage===DATA.stages.length-1?'disabled':'')+'>'+next+'</button>'
+    +'</div></div>';
+  var pv=document.getElementById('stPrev'), nx=document.getElementById('stNext');
+  if(pv) pv.onclick=function(){ if(curStage>0){curStage--; renderLadder(); renderStage();} };
+  if(nx) nx.onclick=function(){ if(curStage<DATA.stages.length-1){curStage++; renderLadder(); renderStage();} };
+}
+</script>
+
+<script>
+/* ── 7) legend + graph tabs ───────────────────────────────── */
+function renderLegend(){
+  var host=document.getElementById('legendHost'); if(!host) return;
+  var items=[{c:'--core', en:'Core idea', fa:'ایدهٔ مرکزی'}]
+    .concat(DATA.parts.map(function(p){ return {c:p.varc, en:p.name.en, fa:p.name.fa}; }));
+  host.innerHTML = items.map(function(it){
+    return '<span><i style="background:var('+it.c+')"></i>'+(LANG==='fa'?faText(it.fa):it.en)+'</span>';
+  }).join('');
+  document.getElementById('ghint').textContent = LANG==='fa' ? 'روی هر دایره کلیک کن تا بیشتر بخوانی · می‌توانی بکشی‌شان' : 'Click a node to read more · drag to move';
+  document.getElementById('greset').textContent = LANG==='fa' ? '↺ چیدمان' : '↺ Reset';
+}
+function setupTabs(){
+  function show(net){
+    document.getElementById('netView').style.display = net?'':'none';
+    document.getElementById('mapView').style.display = net?'none':'';
+    document.getElementById('tabNet').classList.toggle('active',net);
+    document.getElementById('tabMap').classList.toggle('active',!net);
+    if(net) GRAPH.kick();
+  }
+  document.getElementById('tabNet').onclick=function(){show(true);};
+  document.getElementById('tabMap').onclick=function(){show(false);};
+  document.getElementById('greset').onclick=function(){ GRAPH.reset(); };
+  // click empty graph space resets the focus
+  var svg=document.getElementById('netsvg');
+  svg.addEventListener('click', function(e){ if(!e.target.closest('.node')) GRAPH.resetFocus(); });
+}
+</script>
+
+<script>
+/* ── 8) toggles + boot ────────────────────────────────────── */
+function setLang(lg){
+  LANG=lg;
+  document.documentElement.setAttribute('data-lang',lg);
+  document.documentElement.setAttribute('lang',lg);
+  document.documentElement.setAttribute('dir', lg==='fa'?'rtl':'ltr');
+  try{ localStorage.setItem('rcandor-lang',lg); }catch(e){}
+  renderAll();
+}
+function renderAll(){
+  renderText();
+  renderMap();
+  renderLegend();
+  renderLadder();
+  renderStage();
+  if(GRAPH.hasNodes()) GRAPH.relabel(); else GRAPH.build();
+}
+(function(){
+  var lb=document.getElementById('langBtn');
+  lb && lb.addEventListener('click', function(){ setLang(LANG==='fa'?'en':'fa'); });
+
+  var tb=document.getElementById('themeBtn');
+  function curT(){ return document.documentElement.getAttribute('data-theme'); }
+  tb && tb.addEventListener('click', function(){
+    var t=curT()==='dark'?'light':'dark';
+    document.documentElement.setAttribute('data-theme',t);
+    try{ localStorage.setItem('rcandor-theme',t); }catch(e){}
+  });
+  try{ matchMedia('(prefers-color-scheme: dark)').addEventListener('change',function(e){
+    if(!localStorage.getItem('rcandor-theme')){ document.documentElement.setAttribute('data-theme', e.matches?'dark':'light'); }
+  }); }catch(e){}
+})();
+
+/* scroll-spy */
+(function(){
+  var links=[].slice.call(document.querySelectorAll('.toc a'));
+  var seen={}, ids=[];
+  links.forEach(function(a){ var id=a.getAttribute('href').slice(1); if(!seen[id]){seen[id]=1; ids.push(id);} });
+  var secs=ids.map(function(id){return document.getElementById(id);}).filter(Boolean);
+  function setActive(id){ links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('href')==='#'+id); }); }
+  if('IntersectionObserver' in window){
+    var obs=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+    },{rootMargin:'-45% 0px -50% 0px',threshold:0});
+    secs.forEach(function(s){ obs.observe(s); });
+  }
+})();
+
+document.addEventListener('DOMContentLoaded', function(){
+  setupTabs();
+  renderAll();
+});
+</script>
+</body>
+</html>

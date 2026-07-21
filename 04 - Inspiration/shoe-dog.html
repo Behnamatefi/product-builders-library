@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<!-- complexity-level: 1→5 (this page teaches the SAME book at five depths, over-simplified … expert) -->
+<!-- Effortless (Greg McKeown) — bilingual EN/FA knowledge graph & 5-stage learning page -->
+<html lang="fa" dir="rtl" data-lang="fa">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shoe Dog — نقشهٔ دانش و یادگیری ۵ مرحله‌ای</title>
+
+<!-- Boot theme + language BEFORE paint to avoid a flash -->
+<script>
+(function(){
+  try{
+    var th = localStorage.getItem('shoe-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
+    document.documentElement.setAttribute('data-theme', th);
+  }catch(e){ document.documentElement.setAttribute('data-theme','light'); }
+  try{
+    var lg = localStorage.getItem('shoe-lang') || 'fa';
+    document.documentElement.setAttribute('data-lang', lg);
+    document.documentElement.setAttribute('lang', lg);
+    document.documentElement.setAttribute('dir', lg==='fa' ? 'rtl' : 'ltr');
+  }catch(e){}
+})();
+</script>
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:ital,opsz@0,6..72;1,6..72&display=swap" rel="stylesheet">
+
+<style>
+/* ── TOKENS ───────────────────────────────────────────────── */
+:root, [data-theme="light"]{
+  --bg:#f5f6f8; --bg2:#eef2f7; --card:#fff; --card2:#f8fafb;
+  --ink:#1c2330; --mut:#6b7280; --line:#e6e8ee;
+  --accent:#0e7c86; --accent-ink:#fff; --warm:#c2410c;
+  --shadow:0 1px 2px rgba(20,30,50,.05),0 6px 24px rgba(20,30,50,.06);
+  --hero-1:#0e7c86; --hero-2:#0b5e66;
+  --c-teal:#0e9aa6; --c-blue:#2f6fb0; --c-violet:#7c3aed; --c-amber:#d97706;
+  --c-green:#15a34a; --c-red:#e11d48; --c-gold:#c98a12; --c-gray:#6b7280;
+  --state:#0e9aa6; --action:#d97706; --results:#7c3aed; --core:#0e7c86;
+}
+[data-theme="dark"]{
+  --bg:#0e131a; --bg2:#161d27; --card:#151c26; --card2:#1b2430;
+  --ink:#e9eef5; --mut:#9aa7b6; --line:#27313d;
+  --accent:#2dd4bf; --accent-ink:#06231f; --warm:#fb923c;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 28px rgba(0,0,0,.45);
+  --hero-1:#0c5f67; --hero-2:#07323a;
+  --c-teal:#2dd4bf; --c-blue:#5b9bd5; --c-violet:#a78bfa; --c-amber:#fbbf24;
+  --c-green:#34d399; --c-red:#fb7185; --c-gold:#e2b04a; --c-gray:#94a3b8;
+  --state:#2dd4bf; --action:#fbbf24; --results:#a78bfa; --core:#2dd4bf;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:Vazirmatn,"Segoe UI",Tahoma,Arial,sans-serif;line-height:1.85;font-size:15px;
+  transition:background .25s,color .25s}
+html[data-lang="en"] body{font-family:Inter,"Segoe UI",system-ui,Arial,sans-serif;line-height:1.7}
+.wrap{max-width:960px;margin:0 auto;padding:0 18px 40px}
+
+/* language visibility */
+html[data-lang="en"] [data-only="fa"]{display:none !important}
+html[data-lang="fa"] [data-only="en"]{display:none !important}
+
+/* ── HERO ─────────────────────────────────────────────────── */
+.hero{background:linear-gradient(135deg,var(--hero-1),var(--hero-2));color:#fff;padding:44px 0 34px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset-inline-end:-80px;top:-80px;width:280px;height:280px;
+  background:radial-gradient(circle,rgba(255,255,255,.12),transparent 70%);pointer-events:none}
+.hero .wrap{padding-bottom:0;position:relative;z-index:1}
+.hero h1{margin:0 0 8px;font-size:30px;font-weight:800;letter-spacing:-.3px;line-height:1.25}
+html[data-lang="en"] .hero h1{font-family:Newsreader,Georgia,serif;font-weight:600;letter-spacing:-.5px}
+.hero .dek{margin:0;opacity:.94;font-size:15.5px;max-width:640px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;
+  color:rgba(255,255,255,.95);background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.24);
+  padding:5px 13px;border-radius:20px;margin-bottom:15px}
+.eyebrow .edot{width:7px;height:7px;border-radius:50%;background:#fff;box-shadow:0 0 0 3px rgba(255,255,255,.25)}
+.metastrip{display:flex;flex-wrap:wrap;gap:14px 30px;margin-top:20px;padding-top:16px;
+  border-top:1px solid rgba(255,255,255,.18)}
+.metaitem{display:flex;flex-direction:column;gap:3px}
+.metaitem .mk{font-size:10.5px;color:rgba(255,255,255,.62);font-weight:700;letter-spacing:.6px;text-transform:uppercase}
+.metaitem .mv{font-size:14px;color:#fff;font-weight:700}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);
+  border-radius:11px;padding:9px 15px;font-size:13px}
+.chip b{font-size:20px;display:block;font-weight:800}
+
+/* ── NAV + TOC ────────────────────────────────────────────── */
+.navbar{position:sticky;top:0;z-index:60;background:color-mix(in srgb,var(--card) 92%,transparent);
+  backdrop-filter:saturate(180%) blur(10px);-webkit-backdrop-filter:saturate(180%) blur(10px);
+  border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+.navin{max-width:960px;margin:0 auto;padding:8px 16px;display:flex;align-items:center;gap:12px}
+.brand{flex:0 0 auto;font-weight:800;font-size:12.5px;color:var(--accent);white-space:nowrap;
+  display:flex;align-items:center;gap:7px}
+.brand .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);
+  box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 18%,transparent)}
+.toc{flex:1 1 auto;display:flex;flex-wrap:wrap;gap:7px;justify-content:center}
+.toc a{font-size:12.5px;color:var(--mut);text-decoration:none;border:1px solid var(--line);
+  border-radius:20px;padding:5px 12px;background:var(--card);white-space:nowrap;
+  transition:background .15s,color .15s,border-color .15s}
+.toc a:hover{color:var(--accent);border-color:var(--accent)}
+.toc a.active{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.navctl{flex:0 0 auto;display:flex;align-items:center;gap:8px}
+.langbtn{height:34px;border-radius:18px;border:1px solid var(--line);background:var(--card);
+  color:var(--ink);cursor:pointer;font:inherit;font-size:12.5px;font-weight:700;padding:0 13px;
+  display:flex;align-items:center;gap:6px}
+.langbtn:hover{border-color:var(--accent);color:var(--accent)}
+.langbtn .globe{width:15px;height:15px;display:block}
+.themebtn{flex:0 0 auto;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);
+  background:var(--card);color:var(--ink);cursor:pointer;line-height:1;display:grid;place-items:center}
+.themebtn svg{width:17px;height:17px;display:block}
+.themebtn:hover{border-color:var(--accent);color:var(--accent)}
+[data-theme="light"] .themebtn .ic-sun{display:none}
+[data-theme="dark"]  .themebtn .ic-moon{display:none}
+
+/* ── BLOCKS ───────────────────────────────────────────────── */
+h2{font-size:21px;margin:44px 0 6px;font-weight:800;scroll-margin-top:92px;line-height:1.35}
+html[data-lang="en"] h2{font-family:Newsreader,Georgia,serif;font-weight:600}
+h2 .num{color:var(--accent);font-variant-numeric:tabular-nums}
+.sub{color:var(--mut);font-size:13.5px;margin:0 0 16px;max-width:680px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;
+  padding:20px 22px;margin:14px 0;box-shadow:var(--shadow)}
+.lead{font-size:15.5px}
+.lead b{color:var(--warm)}
+.kgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin:8px 0}
+.kbox{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:15px 16px;text-align:center}
+.kbox .v{font-size:26px;font-weight:800;color:var(--accent);font-variant-numeric:tabular-nums}
+.kbox .l{font-size:12.5px;color:var(--mut);margin-top:3px}
+ul.clean{margin:6px 0;padding-inline-start:20px} ul.clean li{margin:8px 0}
+.callout{background:color-mix(in srgb,var(--warm) 9%,var(--card));
+  border:1px solid color-mix(in srgb,var(--warm) 30%,var(--line));
+  border-radius:12px;padding:14px 18px;margin:12px 0}
+.callout b{color:var(--warm)}
+.callout.accent{background:color-mix(in srgb,var(--accent) 9%,var(--card));
+  border-color:color-mix(in srgb,var(--accent) 30%,var(--line))}
+.callout.accent b{color:var(--accent)}
+a{color:var(--accent)}
+
+/* ── GRAPH ────────────────────────────────────────────────── */
+.gtabs{display:inline-flex;gap:4px;background:var(--bg2);border:1px solid var(--line);
+  border-radius:11px;padding:4px;margin:6px 0 2px}
+.gtab{border:0;background:transparent;color:var(--mut);font:inherit;font-size:13px;font-weight:700;
+  padding:7px 15px;border-radius:8px;cursor:pointer}
+.gtab.active{background:var(--card);color:var(--accent);box-shadow:var(--shadow)}
+.graphcard{padding:14px}
+.legend{display:flex;flex-wrap:wrap;gap:14px;margin:2px 4px 12px;font-size:12.5px;color:var(--mut)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:11px;height:11px;border-radius:50%;display:inline-block}
+.graphstage{display:grid;grid-template-columns:1fr;gap:14px}
+@media(min-width:760px){.graphstage{grid-template-columns:1.35fr .95fr}}
+.svgwrap{position:relative;background:var(--card2);border:1px solid var(--line);border-radius:12px;
+  overflow:hidden;min-height:300px}
+#netsvg{display:block;width:100%;height:560px;touch-action:none;cursor:grab}
+#netsvg text{pointer-events:none;user-select:none}
+.ghint{position:absolute;inset-inline-start:12px;top:10px;font-size:11.5px;color:var(--mut);
+  background:color-mix(in srgb,var(--card) 82%,transparent);border:1px solid var(--line);
+  border-radius:20px;padding:3px 11px;backdrop-filter:blur(4px);max-width:70%}
+.greset{position:absolute;inset-inline-end:10px;top:10px;border:1px solid var(--line);background:var(--card);
+  color:var(--mut);border-radius:8px;font:inherit;font-size:11.5px;padding:4px 10px;cursor:pointer}
+.greset:hover{color:var(--accent);border-color:var(--accent)}
+/* node + link interaction states */
+.node{cursor:pointer}
+/* the inner <g class="ns"> is what scales; fill-box keeps the pivot on the node itself, not the SVG viewport */
+.ns{transform-box:fill-box;transform-origin:center;transition:transform .2s cubic-bezier(.2,.75,.25,1)}
+.node.hover .ns{transform:scale(1.1)}
+.node.sel  .ns{transform:scale(1.34)}                 /* selected node grows */
+.node.ncore.hover .ns{transform:scale(1.06)}
+.node.ncore.sel   .ns{transform:none}                 /* the centre 'Effortless' node keeps default size */
+.node.sel circle{stroke:var(--ink);stroke-width:2.5;filter:drop-shadow(0 0 8px color-mix(in srgb,var(--accent) 60%,transparent))}
+.node.hl circle{stroke:var(--ink);stroke-opacity:.5;stroke-width:2.5}
+.node.dim{opacity:.2}
+.node text{font-family:Vazirmatn,Tahoma,sans-serif;font-weight:700}
+html[data-lang="en"] .node text{font-family:Inter,sans-serif}
+.glink{transition:opacity .2s,stroke .2s}
+.glink.dim{opacity:.08}
+.glink.hl{stroke:var(--accent) !important;stroke-opacity:.8}
+/* detail panel */
+.detail{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;min-height:220px}
+@media(min-width:760px){.detail{max-height:480px;overflow:auto}}
+.detail .dkick{font-size:11.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;display:flex;align-items:center;gap:7px;color:var(--mut)}
+.detail .dkick i{width:10px;height:10px;border-radius:50%}
+.detail h4{margin:8px 0 3px;font-size:18px;font-weight:800}
+html[data-lang="en"] .detail h4{font-family:Newsreader,serif;font-weight:600}
+.detail .drow{margin:11px 0}
+.detail .dlab{font-size:10.5px;font-weight:800;color:var(--accent);letter-spacing:.5px;text-transform:uppercase;
+  display:inline-flex;align-items:center;gap:5px}
+.detail .drow.tip .dlab{color:var(--c-green)}
+.detail .drow.pit .dlab{color:var(--warm)}
+.detail .drow.more{border-inline-start:2px solid color-mix(in srgb,var(--accent) 32%,var(--line));padding-inline-start:11px}
+.detail .drow.more .dlab{color:var(--mut)}
+.detail .dtxt{font-size:13.6px;margin-top:3px}
+.dchips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.dchip{font-size:12px;border:1px solid var(--line);background:var(--card2);border-radius:16px;padding:4px 11px;
+  cursor:pointer;color:var(--ink);display:inline-flex;align-items:center;gap:6px;font-family:inherit}
+.dchip:hover{border-color:var(--accent);color:var(--accent)}
+.dchip i{width:8px;height:8px;border-radius:50%;flex:0 0 auto}
+
+/* ── CONCEPT MAP ──────────────────────────────────────────── */
+.mapgrid{display:grid;grid-template-columns:1fr;gap:14px}
+@media(min-width:820px){.mapgrid{grid-template-columns:repeat(3,1fr)}}
+.partcol{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:16px;position:relative}
+.partcol .ph{display:flex;align-items:center;gap:9px;margin-bottom:3px}
+.partcol .pdot{width:13px;height:13px;border-radius:50%;flex:0 0 auto}
+.partcol .pnum{font-size:11px;font-weight:800;color:var(--mut)}
+.partcol h4{margin:0;font-size:16.5px;font-weight:800}
+html[data-lang="en"] .partcol h4{font-family:Newsreader,serif;font-weight:600}
+.partcol .ptag{font-size:12px;color:var(--mut);margin:2px 0 4px;font-weight:700}
+.partcol .pgist{font-size:12.8px;color:var(--mut);margin:0 0 12px}
+.chapchip{display:flex;align-items:baseline;gap:8px;padding:7px 10px;border:1px solid var(--line);
+  border-radius:9px;margin:6px 0;background:var(--card2);font-size:13px}
+.chapchip .cn{font-size:11px;font-weight:800;color:var(--mut);flex:0 0 auto;font-variant-numeric:tabular-nums}
+.chapchip b{font-weight:700}
+.chapchip small{color:var(--mut);display:block;font-size:11.5px;line-height:1.5}
+.flowline{display:flex;align-items:center;justify-content:center;gap:10px;color:var(--mut);
+  font-size:12.5px;font-weight:700;margin:6px 0 2px;flex-wrap:wrap}
+.flowline .ar{color:var(--accent)}
+
+/* ── STAGE LADDER ─────────────────────────────────────────── */
+.ladder{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 4px}
+.rung{flex:1 1 150px;border:1px solid var(--line);background:var(--card);border-radius:11px;
+  padding:11px 13px;cursor:pointer;transition:transform .12s,border-color .12s;position:relative}
+.rung:hover{border-color:var(--accent);transform:translateY(-2px)}
+.rung.active{border-color:var(--accent);box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 35%,transparent)}
+.rung .lv{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.4px}
+.rung .lt{font-size:13.5px;font-weight:800;margin-top:2px}
+.rung .lbar{height:5px;border-radius:4px;background:var(--bg2);margin-top:9px;overflow:hidden}
+.rung .lbar i{display:block;height:100%;background:linear-gradient(90deg,var(--c-teal),var(--c-violet))}
+.stagecard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 24px;
+  margin:14px 0;box-shadow:var(--shadow)}
+.stagecard .shead{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.stagecard .badge{font-size:12px;font-weight:800;color:#fff;background:var(--accent);
+  border-radius:8px;padding:4px 11px;white-space:nowrap}
+.stagecard h3{margin:0;font-size:21px;font-weight:800}
+html[data-lang="en"] .stagecard h3{font-family:Newsreader,serif;font-weight:600}
+.stagecard .tagline{color:var(--mut);font-size:13.5px;margin:4px 0 14px;font-weight:700}
+.stagecard .sbody{font-size:15px}
+.exbox{background:var(--card2);border:1px solid var(--line);border-inline-start:3px solid var(--accent);
+  border-radius:0 11px 11px 0;padding:13px 16px;margin:14px 0 6px}
+.exbox .exk{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.5px;text-transform:uppercase}
+.exbox .ext{font-size:13.8px;margin-top:3px}
+.gainrow{display:flex;align-items:flex-start;gap:9px;margin-top:12px;font-size:13px;color:var(--mut)}
+.gainrow .gi{flex:0 0 auto;color:var(--c-green);font-weight:800}
+.stagenav{display:flex;justify-content:space-between;gap:10px;margin-top:16px}
+.stagenav button{border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit;
+  font-size:13px;font-weight:700;border-radius:9px;padding:8px 14px;cursor:pointer}
+.stagenav button:hover:not(:disabled){border-color:var(--accent);color:var(--accent)}
+.stagenav button:disabled{opacity:.4;cursor:default}
+
+/* ── QUOTES ───────────────────────────────────────────────── */
+.qgrid{display:grid;grid-template-columns:1fr;gap:12px}
+@media(min-width:720px){.qgrid{grid-template-columns:1fr 1fr}}
+blockquote{margin:0;background:var(--card2);border-inline-start:3px solid var(--accent);
+  border-radius:0 12px 12px 0;padding:15px 18px;font-size:14.5px;position:relative}
+blockquote .qm{font-size:34px;line-height:0;color:var(--accent);opacity:.35;font-family:Georgia,serif;
+  position:absolute;inset-inline-start:10px;top:20px}
+blockquote p{margin:0;padding-inline-start:22px}
+html[data-lang="en"] blockquote{font-family:Newsreader,Georgia,serif;font-size:15.5px}
+
+/* ── MEDIA ────────────────────────────────────────────────── */
+.mgrid{display:grid;grid-template-columns:1fr;gap:16px}
+@media(min-width:640px){.mgrid{grid-template-columns:1fr 1fr}}
+.mcard{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;
+  box-shadow:var(--shadow);display:flex;flex-direction:column}
+.mthumb{position:relative;display:block;aspect-ratio:16/9;background:var(--bg2);overflow:hidden;text-decoration:none}
+.mthumb img{width:100%;height:100%;object-fit:cover;display:block}
+.mthumb .play{position:absolute;inset:0;display:grid;place-items:center}
+.mthumb .play span{width:54px;height:54px;border-radius:50%;background:rgba(0,0,0,.6);
+  display:grid;place-items:center;border:2px solid rgba(255,255,255,.9)}
+.mthumb .play svg{width:22px;height:22px;fill:#fff;margin-inline-start:3px}
+.mthumb .ptype{position:absolute;inset-inline-start:9px;top:9px;background:rgba(0,0,0,.72);color:#fff;
+  font-size:11px;font-weight:700;border-radius:6px;padding:3px 9px;letter-spacing:.3px}
+.mfake{aspect-ratio:16/9;display:grid;place-items:center;
+  background:linear-gradient(135deg,color-mix(in srgb,var(--c-violet) 22%,var(--card)),color-mix(in srgb,var(--c-teal) 22%,var(--card)))}
+.mfake svg{width:52px;height:52px;color:var(--ink);opacity:.6}
+.mbody{padding:15px 17px;display:flex;flex-direction:column;gap:7px;flex:1}
+.mbody .msrc{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.3px;text-transform:uppercase}
+.mbody h4{margin:0;font-size:15.5px;font-weight:800;line-height:1.4}
+html[data-lang="en"] .mbody h4{font-family:Newsreader,serif;font-weight:600}
+.mbody .mdesc{font-size:13px;color:var(--mut);margin:0}
+.mbody ul{margin:4px 0 0;padding-inline-start:18px}
+.mbody ul li{font-size:12.8px;margin:5px 0}
+.mbody .mbest{font-size:12px;font-weight:700;color:var(--warm);margin-top:auto;padding-top:8px}
+.mlink{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;
+  text-decoration:none;color:var(--accent);margin-top:4px}
+.mlink:hover{text-decoration:underline}
+.golist{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.golist a{font-size:12.5px;text-decoration:none;color:var(--ink);border:1px solid var(--line);
+  border-radius:20px;padding:6px 13px;background:var(--card);font-weight:700}
+.golist a:hover{border-color:var(--accent);color:var(--accent)}
+
+/* ── RECS + METHOD + CREDIT ───────────────────────────────── */
+.rec{display:grid;gap:10px;margin:8px 0}
+.rec .item{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--card)}
+.rec .item .t{font-weight:800;font-size:14.5px;margin-bottom:3px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.rec .item .t .pri{font-size:11px;font-weight:700;color:#fff;background:var(--warm);border-radius:6px;padding:2px 9px}
+.rec .item .t .pri.b{background:var(--accent)}
+.rec .item .d{font-size:13.4px;color:var(--mut)}
+.method{color:var(--mut);font-size:13.4px}
+.method p{margin:8px 0}
+.method b{color:var(--ink)}
+.credit{text-align:center;margin-top:40px;padding:22px 0 8px;border-top:1px solid var(--line);
+  color:var(--mut);font-size:14px}
+.credit .cname{color:var(--ink);font-weight:800}
+.credit a{font-weight:700;text-decoration:none}
+.credit a:hover{text-decoration:underline}
+.credit .sep{opacity:.5;margin:0 8px}
+.credit .li{display:inline-flex;align-items:center;gap:5px;vertical-align:middle}
+.credit .li svg{width:15px;height:15px;vertical-align:-3px}
+
+@media (max-width:640px){
+  body{font-size:14px}
+  .wrap{padding:0 13px 30px}
+  .hero{padding:28px 0 22px} .hero h1{font-size:22px}
+  h2{font-size:18px;scroll-margin-top:66px}
+  .brand{display:none}
+  .toc{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;scrollbar-width:none}
+  .toc::-webkit-scrollbar{display:none}
+  #netsvg{height:420px}
+}
+</style>
+</head>
+<body>
+
+<!-- ── HERO ───────────────────────────────────────────────── -->
+<header class="hero"><div class="wrap">
+  <div class="eyebrow"><span class="edot"></span>
+    <span data-only="en">Book knowledge map · Phil Knight</span>
+    <span data-only="fa">نقشهٔ کتاب · فیل نایت</span>
+  </div>
+  <h1>
+    <span data-only="en">Shoe Dog — A Memoir by the Creator of Nike</span>
+    <span data-only="fa">کفش‌باز — خاطراتِ خالقِ نایکی</span>
+  </h1>
+  <p class="dek">
+    <span data-only="en">A knowledge graph of the whole memoir, plus a 5-stage path from the crazy idea to a lasting company — with a lesson and an example at every step.</span>
+    <span data-only="fa">نقشه‌ای از کلِ این خاطرات، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از آن ایدهٔ دیوانه‌وار تا یک شرکتِ ماندگار — با یک درس و یک مثال در هر قدم.</span>
+  </p>
+  <div class="metastrip">
+    <div class="metaitem"><span class="mk" data-only="en">Book</span><span class="mk" data-only="fa">کتاب</span>
+      <span class="mv" data-only="en">Shoe Dog</span><span class="mv" data-only="fa">کفش‌باز</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Author</span><span class="mk" data-only="fa">نویسنده</span>
+      <span class="mv" data-only="en">Phil Knight</span><span class="mv" data-only="fa">فیل نایت</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Published</span><span class="mk" data-only="fa">سالِ چاپ</span>
+      <span class="mv" data-only="en">2016</span><span class="mv" data-only="fa">۲۰۱۶</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Group</span><span class="mk" data-only="fa">گروه</span>
+      <span class="mv" data-only="en">Inspiration</span><span class="mv" data-only="fa">الهام</span></div>
+  </div>
+  <div class="chips">
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Parts</span><span data-only="fa">بخش</span></div>
+    <div class="chip"><b data-only="en">16</b><b data-only="fa">۱۶</b><span data-only="en">Lessons</span><span data-only="fa">درس</span></div>
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Learning stages</span><span data-only="fa">مرحلهٔ یادگیری</span></div>
+  </div>
+</div></header>
+
+<!-- ── STICKY NAV ─────────────────────────────────────────── -->
+<div class="navbar"><div class="navin">
+  <span class="brand"><span class="dot"></span>Shoe Dog</span>
+  <nav class="toc">
+    <a href="#tldr" data-only="en">In a nutshell</a><a href="#tldr" data-only="fa">خلاصه</a>
+    <a href="#graph" data-only="en">Knowledge graph</a><a href="#graph" data-only="fa">نقشهٔ دانش</a>
+    <a href="#stages" data-only="en">5 stages</a><a href="#stages" data-only="fa">۵ مرحله</a>
+    <a href="#quotes" data-only="en">Quotes</a><a href="#quotes" data-only="fa">جمله‌ها</a>
+    <a href="#media" data-only="en">Watch &amp; explore</a><a href="#media" data-only="fa">تماشا و منابع</a>
+    <a href="#apply" data-only="en">Apply it</a><a href="#apply" data-only="fa">کاربرد</a>
+  </nav>
+  <div class="navctl">
+    <button class="langbtn" id="langBtn" aria-label="Switch language">
+      <svg class="globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>
+      <span data-only="en">فارسی</span><span data-only="fa">English</span>
+    </button>
+    <button class="themebtn" id="themeBtn" aria-label="Toggle theme" title="Light / Dark">
+      <span class="ic-sun" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5 19 19M19 5l-1.5 1.5M6.5 17.5 5 19"/></svg></span>
+      <span class="ic-moon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.6 6.6 0 0 0 9.8 9.8Z"/></svg></span>
+    </button>
+  </div>
+</div></div>
+
+<div class="wrap">
+
+  <!-- ── TL;DR ────────────────────────────────────────────── -->
+  <h2 id="tldr"><span class="num" data-only="en">1.</span><span class="num" data-only="fa">۱.</span>
+    <span data-only="en"> In a nutshell</span><span data-only="fa"> خلاصه</span></h2>
+  <p class="sub" data-only="en">If you read only this, you still get the whole idea.</p>
+  <p class="sub" data-only="fa">اگر فقط همین بخش را بخوانی، کلِ ایده دستت می‌آید.</p>
+  <div class="card lead"><ul class="clean" id="tldrHost"></ul></div>
+  <div class="kgrid">
+    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Parts (idea · cash · team · grit · legacy)</div><div class="l" data-only="fa">بخش (ایده · پول · تیم · سماجت · میراث)</div></div>
+    <div class="kbox"><div class="v" data-only="en">16</div><div class="v" data-only="fa">۱۶</div><div class="l" data-only="en">Lessons drawn from the story</div><div class="l" data-only="fa">درس از دلِ داستان</div></div>
+    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Levels, simple → expert</div><div class="l" data-only="fa">مرحله، ساده تا حرفه‌ای</div></div>
+    <div class="kbox"><div class="v" data-only="en">1</div><div class="v" data-only="fa">۱</div><div class="l" data-only="en">Rule above all: keep going</div><div class="l" data-only="fa">قاعدهٔ بالاتر از همه: ادامه بده</div></div>
+  </div>
+  
+  <div class="callout accent">
+    <b data-only="en">The core idea:</b>
+    <b data-only="fa">ایدهٔ اصلی:</b>
+    <span data-only="en"> Nike began as one <i>crazy idea</i> a young man refused to give up. It grew on borrowed money and a permanent cash-flow crisis, carried by a team of <i>misfits</i> who believed — and it survived because Phil Knight simply would not stop. The lesson of the whole memoir: <b>keep going</b>.</span>
+    <span data-only="fa"> نایکی با یک <i>ایدهٔ دیوانه‌وار</i> شروع شد که یک جوان حاضر نشد ازش دست بکشد. با پولِ قرضی و یک بحرانِ همیشگیِ نقدینگی بزرگ شد، رویِ دوشِ تیمی از <i>آدم‌های ناجور</i> که باور داشتند — و زنده ماند چون فیل نایت به‌سادگی حاضر نبود بایستد. درسِ کلِ کتاب همین است: <b>ادامه بده</b>.</span>
+  </div>
+
+  <!-- ── KNOWLEDGE GRAPH ──────────────────────────────────── -->
+  <h2 id="graph"><span class="num" data-only="en">2.</span><span class="num" data-only="fa">۲.</span>
+    <span data-only="en"> The knowledge graph</span><span data-only="fa"> نقشهٔ دانش</span></h2>
+  <p class="sub" data-only="en">The whole book as one picture. Click any node to focus its connections and read more — or switch to the structured map.</p>
+  <p class="sub" data-only="fa">کلِ کتاب در یک تصویر. روی هر دایره کلیک کن تا ارتباط‌هایش را ببینی و بیشتر بخوانی — یا به نقشهٔ مرتب برو.</p>
+
+  <div class="gtabs">
+    <button class="gtab active" id="tabNet"><span data-only="en">Interactive network</span><span data-only="fa">شبکهٔ تعاملی</span></button>
+    <button class="gtab" id="tabMap"><span data-only="en">Structured map</span><span data-only="fa">نقشهٔ مرتب</span></button>
+  </div>
+
+  <!-- network view -->
+  <div class="card graphcard" id="netView">
+    <div class="legend" id="legendHost"></div>
+    <div class="graphstage">
+      <div class="svgwrap">
+        <svg id="netsvg" viewBox="0 0 820 560" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Effortless knowledge network"></svg>
+        <div class="ghint" id="ghint"></div>
+        <button class="greset" id="greset"></button>
+      </div>
+      <div class="detail" id="detailHost"></div>
+    </div>
+  </div>
+
+  <!-- map view -->
+  <div class="card graphcard" id="mapView" style="display:none">
+    <div class="flowline" id="flowTop"></div>
+    <div class="mapgrid" id="mapHost"></div>
+    <div class="callout" style="margin-top:16px">
+      <b data-only="en">Read it as a journey:</b><b data-only="fa">به‌صورتِ یک سفر بخوانش:</b>
+      <span data-only="en"> it starts with a <b>crazy idea</b> and the leap to chase it, runs straight into a <b>cash</b> crisis, is saved by a <b>team of misfits</b>, is tested by <b>setbacks and betrayal</b>, and ends in <b>meaning</b> — what all the struggle was really for.</span>
+      <span data-only="fa"> با یک <b>ایدهٔ دیوانه‌وار</b> و پرش به‌سویش شروع می‌شود، یک‌راست به بحرانِ <b>پول</b> می‌خورد، با یک <b>تیم از آدم‌های ناجور</b> نجات پیدا می‌کند، با <b>شکست‌ها و خیانت</b> آزموده می‌شود، و به <b>معنا</b> می‌رسد — اینکه این‌همه تلاش واقعاً برای چه بود.</span>
+    </div>
+  </div>
+
+  <!-- ── 5 STAGES ─────────────────────────────────────────── -->
+  <h2 id="stages"><span class="num" data-only="en">3.</span><span class="num" data-only="fa">۳.</span>
+    <span data-only="en"> Learn it in 5 stages</span><span data-only="fa"> یادگیری در ۵ مرحله</span></h2>
+  <p class="sub" data-only="en">The same book at five depths. Start over-simplified, climb to expert. Tap a rung to jump.</p>
+  <p class="sub" data-only="fa">یک کتاب در پنج عمق. از خیلی ساده شروع کن و تا حرفه‌ای بالا برو. روی هر پله بزن تا بپری.</p>
+  <div class="ladder" id="ladderHost"></div>
+  <div id="stageHost"></div>
+
+  <!-- ── QUOTES ───────────────────────────────────────────── -->
+  <h2 id="quotes"><span class="num" data-only="en">4.</span><span class="num" data-only="fa">۴.</span>
+    <span data-only="en"> Lines worth keeping</span><span data-only="fa"> جمله‌هایی که ارزشِ نگه‌داشتن دارند</span></h2>
+  <p class="sub" data-only="en">Verbatim quotes from the book, translated alongside.</p>
+  <p class="sub" data-only="fa">جمله‌های مستقیم از کتاب، همراه با ترجمه.</p>
+  <div class="qgrid" id="quoteHost"></div>
+
+  <!-- ── MEDIA ────────────────────────────────────────────── -->
+  <h2 id="media"><span class="num" data-only="en">5.</span><span class="num" data-only="fa">۵.</span>
+    <span data-only="en"> Watch &amp; explore</span><span data-only="fa"> تماشا و منابع</span></h2>
+  <p class="sub" data-only="en">Special resources found online — each with what it covers and who it's best for.</p>
+  <p class="sub" data-only="fa">منابعِ ویژه‌ای که آنلاین پیدا شد — هرکدام با اینکه چه می‌گوید و به چه دردی می‌خورد.</p>
+  <div class="mgrid" id="mediaHost"></div>
+  <div class="card" style="margin-top:16px">
+    <div style="font-weight:800;font-size:13.5px;margin-bottom:4px">
+      <span data-only="en">Go straight to the source</span><span data-only="fa">مستقیم سراغِ منبع برو</span>
+    </div>
+    <div class="golist" id="goHost"></div>
+  </div>
+
+  <!-- ── APPLY ────────────────────────────────────────────── -->
+  <h2 id="apply"><span class="num" data-only="en">6.</span><span class="num" data-only="fa">۶.</span>
+    <span data-only="en"> Apply it this week</span><span data-only="fa"> این هفته امتحانش کن</span></h2>
+  <p class="sub" data-only="en">Four small moves that turn the idea into a habit.</p>
+  <p class="sub" data-only="fa">چهار حرکتِ کوچک که این ایده را به عادت تبدیل می‌کنند.</p>
+  <div class="rec" id="recHost"></div>
+
+  <!-- ── METHOD ───────────────────────────────────────────── -->
+  <h2 id="method"><span class="num" data-only="en">7.</span><span class="num" data-only="fa">۷.</span>
+    <span data-only="en"> Sources &amp; notes</span><span data-only="fa"> منابع و توضیح</span></h2>
+  <div class="card method" id="methodHost"></div>
+
+  <!-- ── CREDIT FOOTER ────────────────────────────────────── -->
+  <div class="credit">
+    <span data-only="en">Created by <span class="cname">Behnam Atefi</span><span class="sep">·</span><a class="li" href="https://www.linkedin.com/in/behnamatefi/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.3c0-1.26-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9z"/></svg>LinkedIn</a></span>
+    <span data-only="fa">ساخته‌شده توسط <span class="cname">بهنام عاطفی</span><span class="sep">·</span><a class="li" href="https://www.linkedin.com/in/behnamatefi/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.3c0-1.26-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9z"/></svg>لینکدین</a></span>
+  </div>
+</div>
+
+<!-- ═══════════════════════ SCRIPTS ═══════════════════════ -->
+<script>
+/* ── 1) language + formatters ─────────────────────────────── */
+var LANG = document.documentElement.getAttribute('data-lang') || 'fa';
+var FA_D = '۰۱۲۳۴۵۶۷۸۹';
+var RLM  = '‏';
+function faDigits(s){ return String(s).replace(/[0-9]/g, function(d){ return FA_D[+d]; }); }
+/* honor the RTL preference: isolate Latin runs (word order preserved) and mark with U+200F */
+function rlm(s){
+  return String(s)
+    .replace(/[A-Za-zÀ-ɏ][A-Za-zÀ-ɏ0-9'’.&:\/\-]*(?:\s+[A-Za-zÀ-ɏ0-9'’.&:\/\-]+)*/g,
+      function(m){ return RLM+'⁦'+m+'⁩'+RLM; })
+    .replace(/[0-9۰-۹]+/g, function(m){ return m+RLM; });
+}
+/* transform only TEXT segments, never HTML tags (so <b>/<i> survive) */
+function faText(s){ return String(s).replace(/(<[^>]+>)|([^<]+)/g, function(m,tag,txt){ return tag ? tag : faDigits(rlm(txt)); }); }
+function TX(o){ if(o==null) return ''; if(typeof o==='string') return o; return LANG==='fa' ? faText(o.fa) : o.en; }
+function num(n){ return LANG==='fa' ? faDigits(n) : String(n); }
+function tok(name){ return getComputedStyle(document.documentElement).getPropertyValue(name).trim(); }
+</script>
+
+<script>
+/* ── DATA LAYER — Atomic Habits (bilingual, plain-spoken Persian) ── */
+var DATA = {"tldr":[{"en":"The whole memoir in one line: Nike began as a crazy idea, and it survived because its founder refused to stop.","fa":"خلاصهٔ کل کتاب در یک جمله: نایکی یک ایدهٔ دیوانه‌وار بود، و زنده ماند چون بنیان‌گذارش حاضر نشد بایستد."},{"en":"It started tiny — Knight selling Japanese running shoes out of the trunk of his car.","fa":"خیلی کوچک شروع شد — نایت کفش‌های دوِ ژاپنی را از صندوقِ ماشینش می‌فروخت."},{"en":"For years the company lived on the edge of bankruptcy — growth was constant, and so was the <b>cash</b> crisis.","fa":"سال‌ها شرکت لبِ پرتگاهِ ورشکستگی زندگی کرد — رشد همیشگی بود، بحرانِ <b>پول</b> هم همیشگی."},{"en":"It was carried by a <b>team of misfits</b> — coach Bill Bowerman and a handful of odd, loyal believers.","fa":"یک <b>تیم از آدم‌های ناجور</b> نگهش داشت — بیل باورمنِ مربی و یک مشت آدمِ عجیب و وفادار که باور داشتند."},{"en":"Through betrayal, lawsuits and near-ruin, one rule held: <b>keep going, don't stop</b> — and in the end it was never really about the money.","fa":"از میانِ خیانت، شکایت‌های حقوقی و ورشکستگیِ نزدیک، یک قاعده ثابت ماند: <b>ادامه بده، نایست</b> — و آخرش هیچ‌وقت واقعاً بحثِ پول نبود."}],"parts":[{"key":"idea","varc":"--c-teal","name":{"en":"The Crazy Idea","fa":"ایدهٔ دیوانه‌وار"},"tag":{"en":"The beginning","fa":"شروع"},"gist":{"en":"A wild idea, the leap to chase it, and shoes sold from a car trunk.","fa":"یک ایدهٔ عجیب، پرش به‌سویش، و کفش‌هایی که از صندوقِ ماشین فروخته می‌شدند."},"more":{"en":"Everything starts here: a 24-year-old with a term-paper idea about Japanese running shoes, and the nerve to actually try it. No plan survives contact with reality, but the leap does — you begin before you feel ready.","fa":"همه‌چیز از این‌جا شروع می‌شود: یک جوانِ بیست‌وچهار ساله با یک ایده از دلِ یک مقالهٔ دانشگاهی دربارهٔ کفش‌های دوِ ژاپنی، و جراتِ اینکه واقعاً امتحانش کند. هیچ نقشه‌ای جلوی واقعیت دوام نمی‌آورد، اما آن پرش دوام می‌آورد — قبل از اینکه آماده حس کنی، شروع می‌کنی."},"chapters":["origin","leap","trunk"]},{"key":"cash","varc":"--c-blue","name":{"en":"Cash Is King","fa":"پول، حرفِ اول"},"tag":{"en":"Survival","fa":"بقا"},"gist":{"en":"Constant growth, a constant cash crisis, and a bank that wants out.","fa":"رشدِ همیشگی، بحرانِ همیشگیِ پول، و بانکی که می‌خواهد بیرون بکشد."},"more":{"en":"Nike doubled sales almost every year and was still always broke. Growth eats cash: every extra pair ordered has to be paid for long before it sells. The real enemy wasn't a competitor — it was running out of money before the next payment came in.","fa":"نایکی تقریباً هر سال فروشش را دوبرابر می‌کرد و بازهم همیشه بی‌پول بود. رشد، پول را می‌بلعد: هر جفتِ اضافه‌ای که سفارش می‌دهی باید مدت‌ها قبل از فروخته‌شدنش پولش را بدهی. دشمنِ اصلی یک رقیب نبود — تمام‌شدنِ پول بود، قبل از اینکه پرداختِ بعدی برسد."},"chapters":["cashcrisis","growordie","bank"]},{"key":"misfits","varc":"--c-amber","name":{"en":"A Team of Misfits","fa":"تیمی از آدم‌های ناجور"},"tag":{"en":"The people","fa":"آدم‌ها"},"gist":{"en":"A legendary coach, a band of oddballs, and loyalty both ways.","fa":"یک مربیِ افسانه‌ای، یک مشت آدمِ عجیب، و وفاداریِ دوطرفه."},"more":{"en":"Knight didn't hire the polished; he hired believers — his old track coach, a paralyzed salesman, an overweight accountant with a big heart. They were odd, difficult, and completely committed. He gave them room and loyalty, and they gave him a company.","fa":"نایت آدم‌های شیک و صیقلی را استخدام نکرد؛ آدم‌های باورمند را استخدام کرد — مربیِ قدیمیِ دو و میدانی‌اش، یک فروشندهٔ فلج، یک حسابدارِ چاق با یک دلِ بزرگ. عجیب بودند، سخت بودند، و تماماً پای کار. او به آن‌ها فضا و وفاداری داد، و آن‌ها به او یک شرکت دادند."},"chapters":["bowerman","oddhires","loyalty"]},{"key":"grit","varc":"--c-violet","name":{"en":"Grit & Belief","fa":"سماجت و باور"},"tag":{"en":"The test","fa":"آزمون"},"gist":{"en":"Setbacks, the Onitsuka betrayal, the lawsuit — and refusing to quit.","fa":"شکست‌ها، خیانتِ اونیتسوکا، دعوای حقوقی — و حاضرنشدن به تسلیم."},"more":{"en":"The story is one crisis after another: a supplier that tries to steal the business, a lawsuit that could end everything, banks that pull out. What carries Knight through isn't a clever move; it's a decision made in advance to keep going no matter what.","fa":"داستان یک بحران پشتِ بحرانِ دیگر است: تأمین‌کننده‌ای که می‌خواهد کسب‌وکار را بدزدد، دعوایی که می‌تواند همه‌چیز را تمام کند، بانک‌هایی که پا پس می‌کشند. چیزی که نایت را از این‌ها رد می‌کند یک حرکتِ زیرکانه نیست؛ یک تصمیمِ از پیش‌گرفته‌شده است: به هر قیمتی ادامه بده."},"chapters":["setbacks","betrayal","lawsuit","keepgoing"]},{"key":"legacy","varc":"--c-green","name":{"en":"Meaning & Legacy","fa":"معنا و میراث"},"tag":{"en":"What it was for","fa":"برای چه بود"},"gist":{"en":"It was never about money — it was about building something that matters.","fa":"هیچ‌وقت بحثِ پول نبود — بحثِ ساختنِ چیزی بود که ارزش داشته باشد."},"more":{"en":"By the end, Knight is rich beyond counting and still asking what it all meant. The answer isn't the money; it's the work itself, the people, and the chance to make something that outlasts you — and to pass that spark to the next person who has a crazy idea.","fa":"آخرِ کار، نایت آن‌قدر ثروتمند است که به شمار نمی‌آید و بازهم می‌پرسد همهٔ این‌ها یعنی چه. جواب، پول نیست؛ خودِ کار است، آدم‌ها هستند، و این فرصت که چیزی بسازی که از خودت بیشتر بماند — و آن جرقه را به آدمِ بعدی بسپاری که یک ایدهٔ دیوانه‌وار دارد."},"chapters":["morethanmoney","build","passiton"]}],"chapters":{"origin":{"part":"idea","n":1,"name":{"en":"It Began as an Idea","fa":"همه‌چیز با یک ایده شروع شد"},"glabel":{"en":"The Idea","fa":"ایده"},"principle":{"en":"Big things start as a small, half-formed idea you can't stop thinking about — take it seriously.","fa":"چیزهای بزرگ با یک ایدهٔ کوچک و نصفه‌نیمه شروع می‌شوند که نمی‌توانی از فکرش بیرون بیایی — جدی‌اش بگیر."},"more":{"en":"Knight's 'Crazy Idea' came from a college paper: quality Japanese running shoes could beat the German brands the way Japanese cameras had. It sounds obvious now; then it was just a hunch nobody else believed. The lesson is to respect the hunch enough to test it.","fa":"«ایدهٔ دیوانه‌وارِ» نایت از یک مقالهٔ دانشگاهی آمد: کفش‌های دوِ باکیفیتِ ژاپنی می‌توانند برندهای آلمانی را شکست بدهند، همان‌طور که دوربین‌های ژاپنی شکست داده بودند. حالا بدیهی به‌نظر می‌رسد؛ آن موقع فقط یک حدس بود که هیچ‌کس باورش نداشت. درس این است: آن‌قدر به حدست احترام بگذار که امتحانش کنی."},"example":{"en":"A class assignment about Japanese shoes became the seed of a multi-billion-dollar company.","fa":"یک تکلیفِ کلاسی دربارهٔ کفش‌های ژاپنی شد بذرِ یک شرکتِ چند-میلیارد-دلاری."},"tip":{"en":"Write down the idea you keep coming back to, and take one small step to test it this week.","fa":"همان ایده‌ای را که مدام به سراغش برمی‌گردی بنویس، و همین هفته یک قدمِ کوچک برای امتحانش بردار."},"pitfall":{"en":"Dismissing your own idea as 'crazy' before you ever test it.","fa":"ایدهٔ خودت را «دیوانه‌وار» بدانی و کنارش بگذاری، پیش از اینکه اصلاً امتحانش کنی."}},"leap":{"part":"idea","n":2,"name":{"en":"Take the Leap","fa":"دل به دریا بزن"},"glabel":{"en":"The Leap","fa":"پرش"},"principle":{"en":"You'll never feel fully ready; commit and begin before the fear goes away.","fa":"هیچ‌وقت کاملاً آماده حس نمی‌کنی؛ متعهد شو و شروع کن، پیش از اینکه ترس برود."},"more":{"en":"Knight spent his savings on a plane ticket to Japan and bluffed his way into a meeting, inventing a company name — 'Blue Ribbon' — on the spot. He didn't wait for permission or certainty. The leap is where a wish turns into a story worth telling.","fa":"نایت پس‌اندازش را خرجِ یک بلیتِ هواپیما به ژاپن کرد و با یک بلوف خودش را به یک جلسه رساند و همان‌جا یک اسمِ شرکت — «بلو ریبِن» — از خودش ساخت. منتظرِ اجازه یا اطمینان نماند. آن پرش همان‌جایی است که یک آرزو به یک داستانِ گفتنی تبدیل می‌شود."},"example":{"en":"Asked who he represented, Knight blurted out a company that didn't exist yet — and won the deal.","fa":"وقتی پرسیدند نمایندهٔ کیست، نایت اسمِ شرکتی را پراند که هنوز وجود نداشت — و قرارداد را برد."},"tip":{"en":"Pick the leap you keep postponing and take the smallest irreversible step toward it.","fa":"همان پرشی را که مدام عقب می‌اندازی انتخاب کن و کوچک‌ترین قدمِ برگشت‌ناپذیر را به‌سمتش بردار."},"pitfall":{"en":"Waiting to feel ready — that day rarely comes.","fa":"منتظرِ حسِ آماده‌بودن بمانی — آن روز کم پیش می‌آید که بیاید."}},"trunk":{"part":"idea","n":3,"name":{"en":"Sell from the Trunk","fa":"از صندوقِ ماشین بفروش"},"glabel":{"en":"Start Small","fa":"کوچک شروع کن"},"principle":{"en":"Start with whatever you have; humble, hands-on beginnings teach you what matters.","fa":"با هر چه داری شروع کن؛ شروعِ ساده و دست‌به‌کار به تو یاد می‌دهد چه چیزی مهم است."},"more":{"en":"There was no store and no staff. Knight drove to track meets and sold shoes straight from the back of his green Plymouth, and they sold themselves because they were good. Selling face to face taught him his customer better than any market study could.","fa":"نه مغازه‌ای بود نه کارمندی. نایت با ماشین به مسابقه‌های دو می‌رفت و کفش‌ها را یک‌راست از صندوقِ پلیموثِ سبزش می‌فروخت، و خودشان خودشان را می‌فروختند چون خوب بودند. فروشِ رودررو، مشتری‌اش را بهتر از هر تحقیقِ بازاری به او شناساند."},"example":{"en":"His first big 'store' was the trunk of a car at high-school and college track meets.","fa":"اولین «فروشگاهِ» بزرگش، صندوقِ یک ماشین بود، سرِ مسابقه‌های دوِ مدرسه و دانشگاه."},"tip":{"en":"Sell or ship the smallest real version now, by hand, to real people.","fa":"همین حالا کوچک‌ترین نسخهٔ واقعی را، دستی، به آدم‌های واقعی بفروش یا برسان."},"pitfall":{"en":"Waiting for the perfect setup instead of starting scrappy.","fa":"منتظرِ شرایطِ بی‌نقص بمانی، به‌جای اینکه با هر چه هست و به‌شکلِ زمخت شروع کنی."}},"cashcrisis":{"part":"cash","n":4,"name":{"en":"The Cash-Flow Crisis","fa":"بحرانِ همیشگیِ نقدینگی"},"glabel":{"en":"Cash Flow","fa":"نقدینگی"},"principle":{"en":"Profit on paper isn't cash in hand; a growing business can be starving for money.","fa":"سودِ روی کاغذ، پولِ توی دست نیست؛ یک کسب‌وکارِ در حالِ رشد می‌تواند از گرسنگیِ پول بمیرد."},"more":{"en":"Blue Ribbon grew fast and was perpetually out of cash, because every dollar was tied up in the next, bigger shoe order. Knight learned that the number that keeps you alive isn't profit — it's whether there's money in the account when a bill is due.","fa":"بلو ریبِن سریع رشد می‌کرد و همیشه بی‌پول بود، چون هر دلار گیرِ سفارشِ بعدی و بزرگ‌ترِ کفش بود. نایت فهمید عددی که تو را زنده نگه می‌دارد سود نیست — این است که سرِ موعدِ یک قبض، پولی توی حساب باشد یا نه."},"example":{"en":"Sales doubled year after year, yet the bank balance was often near zero.","fa":"فروش سال‌به‌سال دوبرابر می‌شد، اما موجودیِ بانک اغلب نزدیکِ صفر بود."},"tip":{"en":"Track cash in the bank weekly, not just sales — know your runway.","fa":"هفتگی پولِ توی بانک را رصد کن، نه فقط فروش را — بدان چقدر تا ته‌کشیدن فاصله داری."},"pitfall":{"en":"Celebrating record sales while quietly running out of cash.","fa":"جشن‌گرفتنِ رکوردِ فروش، در حالی که بی‌سروصدا پولت ته می‌کشد."}},"growordie":{"part":"cash","n":5,"name":{"en":"Grow or Die","fa":"رشد کن یا بمیر"},"glabel":{"en":"Grow or Die","fa":"رشد یا مرگ"},"principle":{"en":"Knight bet everything on growth — standing still felt more dangerous than pushing forward.","fa":"نایت همه‌چیز را روی رشد شرط بست — درجازدن از جلورفتن خطرناک‌تر به‌نظرش می‌رسید."},"more":{"en":"Every year he reinvested every cent and borrowed to the hilt to double down. It was reckless by any textbook — but he believed a company that stops growing starts dying, and in a young market, momentum was survival. Growth was the strategy and the risk at once.","fa":"هر سال هر سِنت را دوباره سرمایه‌گذاری می‌کرد و تا خرخره قرض می‌گرفت تا باز هم بزرگ‌تر شود. طبقِ هر کتابِ درسی این کار بی‌پروا بود — اما او باور داشت شرکتی که رشدش می‌ایستد، مردنش شروع می‌شود، و در یک بازارِ جوان، شتاب یعنی بقا. رشد هم‌زمان هم استراتژی بود هم ریسک."},"example":{"en":"His answer to every banker who wanted caution was to grow faster, not slower.","fa":"جوابِ او به هر بانکداری که احتیاط می‌خواست، این بود که سریع‌تر رشد کند، نه کندتر."},"tip":{"en":"Decide where bold growth is worth the risk — and where it would sink you.","fa":"تصمیم بگیر کجا رشدِ جسورانه ارزشِ ریسک را دارد — و کجا غرقت می‌کند."},"pitfall":{"en":"Confusing reckless expansion with healthy growth.","fa":"قاطیِ‌کردنِ توسعهٔ بی‌پروا با رشدِ سالم."}},"bank":{"part":"cash","n":6,"name":{"en":"The Bank Isn't Your Friend","fa":"بانک رفیقت نیست"},"glabel":{"en":"The Bank","fa":"بانک"},"principle":{"en":"Lenders want safety, not your dream; don't hand your fate to people who can walk away.","fa":"وام‌دهنده امنیت می‌خواهد، نه رؤیای تو را؛ سرنوشتت را دستِ کسانی نده که می‌توانند هر لحظه کنار بکشند."},"more":{"en":"Knight's banks pushed him to slow down and, at the worst moment, dropped him entirely and even reported him — nearly finishing the company. He survived by finding other backers and, eventually, his own footing. The lesson: understand the incentives of anyone holding your lifeline.","fa":"بانک‌های نایت فشار می‌آوردند که کندتر برود و، در بدترین لحظه، کاملاً رهایش کردند و حتی ازش شکایت کردند — نزدیک بود شرکت را تمام کنند. او با پیدا‌کردنِ پشتیبان‌های دیگر و در نهایت با ایستادن روی پای خودش جان به در برد. درس: انگیزهٔ هر کسی را که طنابِ نجاتت دستِ اوست بشناس."},"example":{"en":"At the brink, his bank cut him off — and Nike had to scramble to survive the week.","fa":"لبِ پرتگاه، بانکش قطعش کرد — و نایکی باید تقلا می‌کرد تا همان هفته را دوام بیاورد."},"tip":{"en":"Line up a backup source of funding before you desperately need one.","fa":"قبل از اینکه ناچار به پولی نیاز پیدا کنی، یک منبعِ پشتیبان جور کن."},"pitfall":{"en":"Depending on a single lender who can pull out at the worst time.","fa":"وابسته‌بودن به یک وام‌دهندهٔ واحد که می‌تواند بدترین وقت پا پس بکشد."}},"bowerman":{"part":"misfits","n":7,"name":{"en":"Find Your Bowerman","fa":"باورمنِ خودت را پیدا کن"},"glabel":{"en":"Bowerman","fa":"باورمن"},"principle":{"en":"A great partner or mentor who obsesses over the craft is worth more than any investor.","fa":"یک شریک یا مرشدِ عالی که وسواسِ خودِ کار را دارد، از هر سرمایه‌گذاری باارزش‌تر است."},"more":{"en":"Bill Bowerman, Knight's old track coach, became his co-founder — a relentless tinkerer who tore shoes apart to make them lighter and faster, once pouring rubber into the family waffle iron. His obsession with the product gave Nike its soul, long before it had money.","fa":"بیل باورمن، مربیِ قدیمیِ دوِ نایت، شد هم‌بنیان‌گذارش — یک وسواسیِ همیشه‌در‌حالِ‌ساختن که کفش‌ها را از هم می‌درید تا سبک‌تر و سریع‌ترشان کند، و یک‌بار لاستیک را توی وافل‌سازِ خانه ریخت. وسواسش روی محصول، به نایکی روح داد، خیلی قبل از اینکه پول داشته باشد."},"example":{"en":"Bowerman poured rubber into a waffle iron to invent a lighter, grippier sole.","fa":"باورمن لاستیک را توی یک وافل‌ساز ریخت تا یک کفِ سبک‌تر و چسبنده‌تر اختراع کند."},"tip":{"en":"Partner with someone who cares about the work more than the payoff.","fa":"با کسی شریک شو که بیشتر از خودِ پاداش، به خودِ کار اهمیت می‌دهد."},"pitfall":{"en":"Going it alone when the right partner would make you far stronger.","fa":"تنها پیش‌رفتن، وقتی شریکِ درست می‌توانست خیلی قوی‌ترت کند."}},"oddhires":{"part":"misfits","n":8,"name":{"en":"Hire the Misfits","fa":"آدم‌های ناجور را استخدام کن"},"glabel":{"en":"Misfits","fa":"ناجورها"},"principle":{"en":"Believers and oddballs who care will outwork the polished résumés every time.","fa":"آدم‌های باورمند و عجیبی که دلشان با کار است، هر بار از رزومه‌های شیک بیشتر کار می‌کنند."},"more":{"en":"Knight's first team was a collection of misfits — a sales rep who was partly paralyzed, an accountant who wrote fierce letters, ex-runners with no business polish. They didn't fit anywhere else, so they gave everything to Blue Ribbon. Shared belief beat conventional credentials.","fa":"تیمِ اولِ نایت یک مجموعه از آدم‌های ناجور بود — یک فروشنده که تا حدی فلج بود، یک حسابدار که نامه‌های آتشین می‌نوشت، دونده‌های سابق بدونِ ژستِ تجاری. هیچ‌جای دیگری جا نمی‌شدند، پس همه‌چیزشان را به بلو ریبِن دادند. باورِ مشترک از مدرکِ متعارف جلو زد."},"example":{"en":"His inner circle met over blunt, loyal, all-in retreats they nicknamed themselves.","fa":"حلقهٔ نزدیکش دورِ جلسه‌هایی رک، وفادار و تماماً‌پای‌کار جمع می‌شدند که خودشان اسمِ خودمانی رویش گذاشته بودند."},"tip":{"en":"Hire for belief and grit, not just a tidy background.","fa":"برای باور و سماجت استخدام کن، نه فقط برای یک سابقهٔ مرتب."},"pitfall":{"en":"Picking safe, credentialed hires over people who truly believe.","fa":"انتخابِ آدم‌های بی‌خطر و مدرک‌دار، به‌جای کسانی که واقعاً باور دارند."}},"loyalty":{"part":"misfits","n":9,"name":{"en":"Loyalty Runs Both Ways","fa":"وفاداری دوطرفه است"},"glabel":{"en":"Loyalty","fa":"وفاداری"},"principle":{"en":"Give people trust, room, and loyalty, and they'll carry you through the hard years.","fa":"به آدم‌ها اعتماد، فضا و وفاداری بده، و آن‌ها تو را از سال‌های سخت رد می‌کنند."},"more":{"en":"Knight led with a loose hand — hire good people, then don't tell them how to do their jobs. He stuck by his team through danger and mistakes, and they stuck by him for decades, often for little pay, because the loyalty was real and mutual.","fa":"نایت با دستِ باز رهبری می‌کرد — آدم‌های خوب را بگیر، بعد بهشان نگو کارشان را چطور انجام بدهند. در خطر و اشتباه کنارِ تیمش ماند، و آن‌ها دهه‌ها کنارش ماندند، اغلب با حقوقِ کم، چون آن وفاداری واقعی و دوطرفه بود."},"example":{"en":"His rule echoed General Patton: tell people what to do, not how, and let them surprise you.","fa":"قاعده‌اش یادآورِ ژنرال پاتِن بود: به آدم‌ها بگو چه‌کار کنند، نه چطور، و بگذار غافلگیرت کنند."},"tip":{"en":"Back your people in public; give them problems to own, not orders to follow.","fa":"جلوی جمع پشتِ آدم‌هایت باش؛ به‌جای دستور، مسئله بده که مالِ خودشان باشد."},"pitfall":{"en":"Micromanaging the very people you hired for their judgment.","fa":"ریزمدیریتِ همان آدم‌هایی که به‌خاطرِ قضاوتشان استخدامشان کردی."}},"setbacks":{"part":"grit","n":10,"name":{"en":"Setbacks Are Fuel","fa":"شکست‌ها سوختِ راه‌اند"},"glabel":{"en":"Setbacks","fa":"شکست‌ها"},"principle":{"en":"Treat each defeat as fuel for the next attempt, not a verdict on you.","fa":"هر شکست را سوختِ تلاشِ بعدی بدان، نه حکمی دربارهٔ خودت."},"more":{"en":"Shoe Dog is a chain of near-death moments: canceled shipments, empty accounts, doors slammed shut. Knight, a former runner, treats them the way a racer treats pain — as information and fuel. If you're following a real calling, he says, the disappointments become fuel.","fa":"«کفش‌باز» یک زنجیره از لحظه‌های مرگِ نزدیک است: محموله‌های لغوشده، حساب‌های خالی، درهایی که کوبیده می‌شوند و بسته. نایت، که خودش دونده بوده، با آن‌ها همان‌طور برخورد می‌کند که یک دونده با درد — مثلِ اطلاعات و سوخت. می‌گوید اگر دنبالِ یک رسالتِ واقعی باشی، ناامیدی‌ها می‌شوند سوخت."},"example":{"en":"When one supplier or bank failed him, he turned the setback into the push for the next move.","fa":"وقتی یک تأمین‌کننده یا بانک ناکامش می‌گذاشت، همان شکست را به هُلِ حرکتِ بعدی تبدیل می‌کرد."},"tip":{"en":"After a failure, write the one lesson it taught you and use it immediately.","fa":"بعد از یک شکست، آن یک درسی را که یادت داد بنویس و همان‌جا به کارش ببر."},"pitfall":{"en":"Reading a setback as proof you should quit.","fa":"شکست را دلیلی بخوانی بر اینکه باید کنار بکشی."}},"betrayal":{"part":"grit","n":11,"name":{"en":"The Onitsuka Betrayal","fa":"خیانتِ اونیتسوکا"},"glabel":{"en":"Betrayal","fa":"خیانت"},"principle":{"en":"Depending on one supplier or partner is a knife they can hold to your throat.","fa":"وابسته‌بودن به یک تأمین‌کننده یا شریکِ واحد، چاقویی است که می‌توانند بیخِ گلویت بگذارند."},"more":{"en":"For years Blue Ribbon only sold shoes made by Japan's Onitsuka — until Onitsuka began looking for other US distributors and tried to take over the business. The betrayal nearly killed Knight's company, but it forced the leap that made Nike: making his own shoes, under his own name.","fa":"سال‌ها بلو ریبِن فقط کفش‌های ساختِ اونیتسوکای ژاپن را می‌فروخت — تا اینکه اونیتسوکا دنبالِ پخش‌کننده‌های دیگری در آمریکا افتاد و خواست کسب‌وکار را از چنگش دربیاورد. آن خیانت نزدیک بود شرکتِ نایت را بکشد، اما همان بود که او را به پرشی رساند که نایکی را ساخت: ساختنِ کفشِ خودش، با نامِ خودش."},"example":{"en":"Losing his only supplier pushed Knight to launch his own brand — Nike.","fa":"از‌دست‌دادنِ تنها تأمین‌کننده‌اش، نایت را هُل داد تا برندِ خودش را راه بیندازد — نایکی."},"tip":{"en":"Never let a single partner control something you can't survive without.","fa":"هرگز نگذار یک شریکِ واحد چیزی را کنترل کند که بدونش دوام نمی‌آوری."},"pitfall":{"en":"Betting the whole company on one relationship you don't control.","fa":"شرط‌بستنِ کلِ شرکت روی یک رابطه که کنترلش دستِ تو نیست."}},"lawsuit":{"part":"grit","n":12,"name":{"en":"Fight for It","fa":"برایش بجنگ"},"glabel":{"en":"The Fight","fa":"نبرد"},"principle":{"en":"When someone tries to take what you built, stand and fight — belief plus nerve can win.","fa":"وقتی کسی می‌خواهد چیزی را که ساخته‌ای بگیرد، بایست و بجنگ — باور به‌علاوهٔ جرات می‌تواند ببرد."},"more":{"en":"The break with Onitsuka ended in court. Outgunned and nearly broke, Knight and his misfits fought the lawsuit and won — because they believed they were in the right and refused to fold. Business, he says, is war without bullets; sometimes you simply have to outlast the other side.","fa":"شکاف با اونیتسوکا به دادگاه کشید. با دستِ خالی و تقریباً ورشکسته، نایت و آدم‌های ناجورش با دعوا جنگیدند و بردند — چون باور داشتند حق با آن‌هاست و حاضر نشدند کوتاه بیایند. می‌گوید کسب‌وکار جنگ است، منتها بدونِ گلوله؛ گاهی فقط باید بیشتر از طرفِ مقابل دوام بیاوری."},"example":{"en":"Broke and outmatched, Nike fought the court battle with Onitsuka — and won.","fa":"ورشکسته و ضعیف‌تر، نایکی نبردِ دادگاهی با اونیتسوکا را جنگید — و برد."},"tip":{"en":"Know what you'd fight for, and don't fold the moment it gets frightening.","fa":"بدان برای چه می‌جنگی، و همان لحظه‌ای که ترسناک می‌شود کوتاه نیا."},"pitfall":{"en":"Folding under pressure on something you know is worth defending.","fa":"زیرِ فشار کوتاه‌آمدن، سرِ چیزی که می‌دانی ارزشِ دفاع دارد."}},"keepgoing":{"part":"grit","n":13,"name":{"en":"Don't Stop","fa":"نایست"},"glabel":{"en":"Don't Stop","fa":"نایست"},"principle":{"en":"Decide in advance to keep going — the ones who quit never learn how close they were.","fa":"از قبل تصمیم بگیر که ادامه بدهی — آن‌هایی که کنار می‌کشند هیچ‌وقت نمی‌فهمند چقدر نزدیک بودند."},"more":{"en":"The single thread through every crisis is Knight's private vow: keep going, don't stop, don't even think about stopping. It isn't a strategy; it's a decision he made once and kept remaking. Almost every disaster in the book was survivable simply because he didn't quit.","fa":"نخِ رابطِ همهٔ بحران‌ها یک عهدِ شخصیِ نایت است: ادامه بده، نایست، حتی به ایستادن فکر نکن. این یک استراتژی نیست؛ تصمیمی است که یک‌بار گرفت و مدام از نو گرفتش. تقریباً هر فاجعه‌ای در کتاب فقط به این خاطر قابلِ‌تحمل شد که او کنار نکشید."},"example":{"en":"His mantra from 1962 on: keep going, don't stop — whatever comes.","fa":"وِردِ او از سالِ ۱۹۶۲ به بعد: ادامه بده، نایست — هر چه پیش بیاید."},"tip":{"en":"Decide now that quitting isn't on the table, so panic can't decide for you later.","fa":"همین حالا تصمیم بگیر که کنارکشیدن روی میز نیست، تا بعداً ترس به‌جای تو تصمیم نگیرد."},"pitfall":{"en":"Quitting in the dip, right before things would have turned.","fa":"کنارکشیدن در گودی، درست قبل از جایی که ورق برمی‌گشت."}},"morethanmoney":{"part":"legacy","n":14,"name":{"en":"More Than Money","fa":"فراتر از پول"},"glabel":{"en":"Meaning","fa":"معنا"},"principle":{"en":"Chase a calling, not a paycheck — the meaning is what carries you through the pain.","fa":"دنبالِ یک رسالت باش، نه یک فیشِ حقوقی — این معناست که تو را از دلِ درد رد می‌کند."},"more":{"en":"Knight was never really in it for the money; he was chasing the feeling of building something and of sport itself. That's why he could endure years of stress a purely financial motive would never justify. Find a calling, he urges, and the fatigue is easier to bear.","fa":"نایت هیچ‌وقت واقعاً به‌خاطرِ پول توی این کار نبود؛ دنبالِ آن حسِ ساختنِ چیزی و خودِ ورزش بود. برای همین توانست سال‌ها استرسی را تحمل کند که یک انگیزهٔ صرفاً مالی هیچ‌وقت توجیهش نمی‌کرد. می‌گوید یک رسالت پیدا کن، آن‌وقت خستگی آسان‌تر تحمل می‌شود."},"example":{"en":"With more money than he could spend, he still measured success by the work, not the wealth.","fa":"با پولی بیشتر از آنچه می‌توانست خرج کند، بازهم موفقیت را با کار می‌سنجید، نه با ثروت."},"tip":{"en":"Name the calling under your work — the reason that would keep you going unpaid.","fa":"آن رسالتی را که زیرِ کارت هست نام ببر — دلیلی که حتی بی‌مزد هم نگهت می‌داشت."},"pitfall":{"en":"Working only for the payoff, so the first hard year hollows you out.","fa":"فقط برای پاداش کارکردن، طوری که همان سالِ سختِ اول ازتویت خالی کند."}},"build":{"part":"legacy","n":15,"name":{"en":"Build Something That Lasts","fa":"چیزی بساز که بماند"},"glabel":{"en":"Build","fa":"ساختن"},"principle":{"en":"Aim to build something that outlives you, not just a quick win.","fa":"هدفت این باشد چیزی بسازی که از خودت بیشتر بماند، نه فقط یک بُردِ زودگذر."},"more":{"en":"What began as a trunk full of shoes became a brand, a culture, and a swoosh known everywhere. Knight's satisfaction comes from having built something durable and meaningful with people he loved — the enterprise itself, more than any single product or year, is the reward.","fa":"چیزی که با یک صندوقِ پُر از کفش شروع شد، تبدیل شد به یک برند، یک فرهنگ، و یک نشانِ سوئوش که همه‌جا شناخته می‌شود. رضایتِ نایت از این است که چیزی بادوام و بامعنا ساخته، با آدم‌هایی که دوستشان داشت — خودِ آن بنا، بیشتر از هر محصول یا سالِ خاصی، همان پاداش است."},"example":{"en":"A car-trunk hustle grew into a global brand and its unmistakable swoosh.","fa":"یک دست‌فروشیِ صندوقِ‌ماشینی تبدیل شد به یک برندِ جهانی و آن نشانِ سوئوشِ بی‌همتا."},"tip":{"en":"Ask whether today's work builds something that will still matter in ten years.","fa":"از خودت بپرس کارِ امروزت چیزی می‌سازد که ده سالِ دیگر هم مهم باشد یا نه."},"pitfall":{"en":"Chasing quick wins that leave nothing standing behind them.","fa":"دویدن دنبالِ بُردهای زودگذری که هیچ‌چیزِ ماندگاری پشتشان نمی‌ماند."}},"passiton":{"part":"legacy","n":16,"name":{"en":"Pass It On","fa":"به دیگران بسپار"},"glabel":{"en":"Pass It On","fa":"سپردن"},"principle":{"en":"The final gift is to hand your spark, and your chances, to the ones coming after you.","fa":"آخرین هدیه این است که جرقه‌ات و فرصت‌هایت را به آن‌هایی بسپاری که بعد از تو می‌آیند."},"more":{"en":"Knight closes by wishing he could tell the next generation to seek a calling and take their own crazy leap — and by pouring his fortune into helping others. A legacy isn't only what you build; it's the courage and the opportunities you pass to the people who come next.","fa":"نایت با این آرزو کتاب را می‌بندد که کاش می‌توانست به نسلِ بعد بگوید دنبالِ یک رسالت بروند و پرشِ دیوانه‌وارِ خودشان را بزنند — و با ریختنِ ثروتش پایِ کمک به دیگران. میراث فقط چیزی نیست که می‌سازی؛ آن جرات و فرصت‌هایی است که به آدم‌های بعدی می‌سپاری."},"example":{"en":"He ends the book urging the young to seek a calling and dare their own crazy idea.","fa":"کتاب را با این ترغیب تمام می‌کند که جوان‌ها دنبالِ یک رسالت بروند و به ایدهٔ دیوانه‌وارِ خودشان جرات بدهند."},"tip":{"en":"Teach, fund, or open a door for one person chasing their own crazy idea.","fa":"به یک نفر که دنبالِ ایدهٔ دیوانه‌وارِ خودش است چیزی یاد بده، کمکِ مالی کن، یا دری برایش باز کن."},"pitfall":{"en":"Hoarding what you've learned instead of handing it forward.","fa":"چنگ‌زدن به آنچه یاد گرفته‌ای، به‌جای سپردنش به بعدی‌ها."}}},"core":{"name":{"en":"KEEP GOING","fa":"ادامه بده"},"principle":{"en":"Shoe Dog is really one lesson told through a company: keep going. Have a crazy idea, take the leap, survive the cash crises, gather a team of believers, endure the betrayals and setbacks — and simply refuse to stop, because a calling makes the pain worth bearing.","fa":"«کفش‌باز» در واقع یک درس است که از دلِ یک شرکت گفته می‌شود: ادامه بده. یک ایدهٔ دیوانه‌وار داشته باش، پرش را بزن، از بحران‌های پول جان به در ببر، یک تیم از آدم‌های باورمند جمع کن، خیانت‌ها و شکست‌ها را تحمل کن — و به‌سادگی حاضر نشو بایستی، چون یک رسالت، دردش را ارزشمند می‌کند."},"more":{"en":"The memoir moves through five parts — the crazy idea, the endless cash crisis, the team of misfits, the grit to survive betrayal and lawsuits, and finally the meaning of it all. The thread tying them together is a single private vow Knight made young and never broke: don't stop.","fa":"این خاطرات از پنج بخش می‌گذرد — ایدهٔ دیوانه‌وار، بحرانِ بی‌پایانِ پول، تیمِ آدم‌های ناجور، سماجتی که خیانت و دعوا را دوام می‌آورد، و در آخر معنای همهٔ این‌ها. نخی که این‌ها را به هم می‌بندد یک عهدِ شخصی است که نایت در جوانی بست و هیچ‌وقت نشکست: نایست."},"example":{"en":"Click any node to read a lesson from the story. You can also drag the nodes around.","fa":"روی هر دایره کلیک کن تا یک درس از داستان را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."}},"stages":[{"level":1,"badge":{"en":"Level 1 · Over-simplified","fa":"سطحِ ۱ · خیلی ساده"},"title":{"en":"Keep going","fa":"ادامه بده"},"tagline":{"en":"The whole book in two words.","fa":"کلِ کتاب در دو کلمه."},"body":{"en":"Nike was built by a man who simply would not quit. Have an idea, start, and don't stop when it gets hard — that stubbornness is most of the story.","fa":"نایکی را مردی ساخت که به‌سادگی حاضر نبود کنار بکشد. یک ایده داشته باش، شروع کن، و وقتی سخت شد نایست — بیشترِ داستان همین یک‌دندگی است."},"example":{"en":"Every crisis in the book ends the same way: he kept going.","fa":"هر بحرانی در کتاب یک‌جور تمام می‌شود: او ادامه داد."},"gain":{"en":"You hold the single idea the whole memoir circles around.","fa":"همان یک ایده‌ای را داری که کلِ کتاب دورش می‌چرخد."}},{"level":2,"badge":{"en":"Level 2 · Simple","fa":"سطحِ ۲ · ساده"},"title":{"en":"Idea, leap, hustle","fa":"ایده، پرش، تقلا"},"tagline":{"en":"Start small and sell it yourself.","fa":"کوچک شروع کن و خودت بفروشش."},"body":{"en":"It begins with a <b>crazy idea</b> — good Japanese running shoes — and the <b>leap</b> to chase it before he felt ready. Knight sold shoes from his <b>car trunk</b>, face to face, and let the product prove itself.","fa":"با یک <b>ایدهٔ دیوانه‌وار</b> شروع می‌شود — کفش‌های دوِ خوبِ ژاپنی — و <b>پرشی</b> به‌سویش، قبل از اینکه آماده حس کند. نایت کفش‌ها را از <b>صندوقِ ماشینش</b> می‌فروخت، رودررو، و می‌گذاشت محصول خودش را ثابت کند."},"example":{"en":"His first store was a car; his first pitch was at a track meet.","fa":"اولین فروشگاهش یک ماشین بود؛ اولین معرفی‌اش سرِ یک مسابقهٔ دو."},"gain":{"en":"You can see how a real venture actually starts — scrappy and by hand.","fa":"می‌بینی یک کارِ واقعی چطور شروع می‌شود — زمخت و دستی."}},{"level":3,"badge":{"en":"Level 3 · Balanced","fa":"سطحِ ۳ · متعادل"},"title":{"en":"Cash and people","fa":"پول و آدم‌ها"},"tagline":{"en":"Survive the money; gather the misfits.","fa":"از پول جان به در ببر؛ ناجورها را جمع کن."},"body":{"en":"Now the real machinery. Growth eats <b>cash</b>, so the company lives on a knife-edge and can't trust the <b>bank</b>. What keeps it alive is a <b>team of misfits</b> — Bowerman and a few loyal believers — led with trust, not orders.","fa":"حالا ماشینِ اصلی. رشد، <b>پول</b> را می‌بلعد، پس شرکت لبِ تیغ زندگی می‌کند و نمی‌تواند به <b>بانک</b> اعتماد کند. چیزی که زنده نگهش می‌دارد یک <b>تیم از آدم‌های ناجور</b> است — باورمن و چند باورمندِ وفادار — که با اعتماد رهبری می‌شوند، نه با دستور."},"example":{"en":"Sales doubled yearly, the account neared zero, and a band of oddballs held it together.","fa":"فروش سالانه دوبرابر می‌شد، حساب نزدیکِ صفر می‌رفت، و یک مشت آدمِ عجیب نگهش می‌داشتند."},"gain":{"en":"You understand the two forces that make or break a young company: cash and people.","fa":"دو نیرویی را می‌فهمی که یک شرکتِ جوان را می‌سازند یا می‌شکنند: پول و آدم‌ها."}},{"level":4,"badge":{"en":"Level 4 · Advanced","fa":"سطحِ ۴ · پیشرفته"},"title":{"en":"Grit under fire","fa":"سماجت زیرِ آتش"},"tagline":{"en":"Setbacks, betrayal, and the fight.","fa":"شکست‌ها، خیانت، و نبرد."},"body":{"en":"The hardest stretch. His only supplier, <b>Onitsuka</b>, tries to steal the business; banks drop him; a <b>lawsuit</b> could end it all. He treats <b>setbacks as fuel</b>, fights the court battle, and holds to one vow — <b>don't stop</b> — until the danger passes.","fa":"سخت‌ترین بخش. تنها تأمین‌کننده‌اش، <b>اونیتسوکا</b>، می‌خواهد کسب‌وکار را بدزدد؛ بانک‌ها رهایش می‌کنند؛ یک <b>دعوای حقوقی</b> می‌تواند همه‌چیز را تمام کند. او <b>شکست‌ها را سوخت</b> می‌کند، نبردِ دادگاهی را می‌جنگد، و به یک عهد پایبند می‌ماند — <b>نایست</b> — تا خطر بگذرد."},"example":{"en":"Betrayed by his supplier, he launched Nike; broke and outmatched, he won the lawsuit.","fa":"تأمین‌کننده‌اش بهش خیانت کرد، او نایکی را راه انداخت؛ ورشکسته و ضعیف‌تر، دعوا را برد."},"gain":{"en":"You can see how belief and grit, not clever tricks, carry a company through crises.","fa":"می‌بینی که باور و سماجت — نه ترفندهای زیرکانه — یک شرکت را از دلِ بحران رد می‌کنند."}},{"level":5,"badge":{"en":"Level 5 · Expert","fa":"سطحِ ۵ · حرفه‌ای"},"title":{"en":"Meaning & legacy","fa":"معنا و میراث"},"tagline":{"en":"What all the struggle was for.","fa":"اینکه این‌همه تلاش برای چه بود."},"body":{"en":"The expert reads Shoe Dog past the business and into its heart. It was never about the <b>money</b>; it was a <b>calling</b> — the joy of building something, with people he loved, that would <b>last</b>. And the final move is to <b>pass it on</b>: to urge the next person to seek their calling and dare their own crazy idea. Keep going, and make it mean something.","fa":"آدمِ حرفه‌ای «کفش‌باز» را فراتر از کسب‌وکار می‌خواند و تا قلبش می‌رود. هیچ‌وقت بحثِ <b>پول</b> نبود؛ یک <b>رسالت</b> بود — لذتِ ساختنِ چیزی، با آدم‌هایی که دوستشان داشت، که <b>بماند</b>. و حرکتِ آخر <b>سپردن</b> است: ترغیبِ آدمِ بعدی که دنبالِ رسالتش برود و به ایدهٔ دیوانه‌وارِ خودش جرات بدهد. ادامه بده، و کاری کن که معنایی داشته باشد."},"example":{"en":"Rich beyond measure, he still says: seek a calling, and pass the spark on.","fa":"با ثروتی بی‌اندازه، بازهم می‌گوید: دنبالِ یک رسالت بگرد، و آن جرقه را بسپار."},"gain":{"en":"You can read the whole story as one lesson about calling, grit, and meaning — and live it.","fa":"می‌توانی کلِ داستان را مثلِ یک درس دربارهٔ رسالت، سماجت و معنا بخوانی — و زندگی‌اش کنی."}}],"quotes":[{"en":"Let everyone else call your idea crazy . . . just keep going. Don't stop.","fa":"بگذار بقیه ایده‌ات را دیوانه‌وار بنامند… تو فقط ادامه بده. نایست."},{"en":"The cowards never started and the weak died along the way. That leaves us, ladies and gentlemen. Us.","fa":"ترسوها اصلاً شروع نکردند و ضعیف‌ها توی راه از پا افتادند. می‌ماند ما، خانم‌ها و آقایان. ما."},{"en":"Seek a calling. Even if you don't know what that means, seek it.","fa":"دنبالِ یک رسالت بگرد. حتی اگر نمی‌دانی یعنی چه، دنبالش بگرد."},{"en":"Have faith in yourself, but also have faith in faith.","fa":"به خودت ایمان داشته باش، اما به خودِ ایمان هم ایمان داشته باش."},{"en":"Business is war without bullets.","fa":"کسب‌وکار یعنی جنگ، منتها بدونِ گلوله."},{"en":"Beating the competition is relatively easy. Beating yourself is a never-ending commitment.","fa":"بردنِ رقیب نسبتاً آسان است. بردنِ خودت یک تعهدِ بی‌پایان است."},{"en":"Life is growth. You grow or you die.","fa":"زندگی یعنی رشد. یا رشد می‌کنی یا می‌میری."}],"media":[{"kind":"yt","id":"cSe-qR4f1Ng","src":{"en":"YouTube · Good Morning America","fa":"یوتیوب · Good Morning America"},"title":{"en":"Phil Knight Discusses Shoe Dog","fa":"فیل نایت دربارهٔ کتابِ کفش‌باز"},"desc":{"en":"Nike's founder talks about the story and ideas behind his memoir.","fa":"بنیان‌گذارِ نایکی از داستان و ایده‌های پشتِ خاطراتش می‌گوید."},"bullets":{"en":["Phil Knight in his own words","The idea and the early struggle","Straight from the founder"],"fa":["فیل نایت با زبانِ خودش","ایده و تقلای روزهای اول","مستقیم از خودِ بنیان‌گذار"]},"best":{"en":"Best for Stage 1–2.","fa":"خوب برای مرحلهٔ ۱ و ۲."}},{"kind":"img","url":"https://www.simonandschuster.com/books/Shoe-Dog/Phil-Knight/9781501135927","src":{"en":"Simon & Schuster · Publisher","fa":"سایمون‌اند‌شوستر · ناشر"},"title":{"en":"Shoe Dog — Publisher Page","fa":"کفش‌باز — صفحهٔ ناشر"},"desc":{"en":"The official publisher page, with editions and details.","fa":"صفحهٔ رسمیِ ناشر، با نسخه‌ها و جزئیات."},"bullets":{"en":["The definitive editions","Background on the book","Straight from the source"],"fa":["نسخه‌های معتبر","پیشینه‌ای دربارهٔ کتاب","مستقیم از خودِ منبع"]},"best":{"en":"For editions and the source.","fa":"برای نسخه‌ها و منبعِ اصلی."}},{"kind":"img","url":"https://www.gatesnotes.com/shoe-dog","src":{"en":"gatesnotes · Bill Gates","fa":"gatesnotes · بیل گیتس"},"title":{"en":"Bill Gates' Review of Shoe Dog","fa":"نقدِ بیل گیتس بر کفش‌باز"},"desc":{"en":"A short, warm review of the memoir from a famous reader.","fa":"یک نقدِ کوتاه و گرم بر این خاطرات، از زبانِ یک خوانندهٔ مشهور."},"bullets":{"en":["Why the book resonates","An outside perspective","Good after you finish"],"fa":["اینکه چرا کتاب به دل می‌نشیند","یک نگاه از بیرون","خوب بعد از تمام‌کردنِ کتاب"]},"best":{"en":"Best after Stage 4–5.","fa":"خوب بعد از مرحلهٔ ۴ و ۵."}}],"go":[{"label":{"en":"Publisher page","fa":"صفحهٔ ناشر"},"url":"https://www.simonandschuster.com/books/Shoe-Dog/Phil-Knight/9781501135927"},{"label":{"en":"Book on Goodreads","fa":"کتاب در گودریدز"},"url":"https://www.goodreads.com/book/show/27220736-shoe-dog"},{"label":{"en":"Bill Gates' review","fa":"نقدِ بیل گیتس"},"url":"https://www.gatesnotes.com/shoe-dog"}],"recs":[{"pri":"b","t":{"en":"Name your crazy idea","fa":"ایدهٔ دیوانه‌وارت را نام ببر"},"d":{"en":"Write down the idea you keep coming back to, and take one tiny step to test it this week.","fa":"همان ایده‌ای که مدام سراغش می‌روی را بنویس، و همین هفته یک قدمِ کوچک برای امتحانش بردار."}},{"pri":"b","t":{"en":"Decide not to stop","fa":"تصمیم بگیر که نایستی"},"d":{"en":"Pick one hard thing and decide in advance that quitting isn't on the table.","fa":"یک کارِ سخت را انتخاب کن و از قبل تصمیم بگیر که کنارکشیدن روی میز نیست."}},{"pri":"n","t":{"en":"Watch your cash, not just wins","fa":"حواست به پول باشد، نه فقط بُردها"},"d":{"en":"Check the money in the bank weekly and know how long your runway really is.","fa":"هفتگی پولِ توی بانک را چک کن و بدان واقعاً چقدر تا ته‌کشیدن فاصله داری."}},{"pri":"n","t":{"en":"Find your Bowerman","fa":"باورمنِ خودت را پیدا کن"},"d":{"en":"Reach out to one person who cares about the work as much as you do.","fa":"به یک نفر که به‌اندازهٔ خودت به کار اهمیت می‌دهد پیام بده."}}]};
+</script>
+
+<script>
+/* ── 3) RENDER (text sections) ────────────────────────────── */
+function elClear(id){ var e=document.getElementById(id); if(e) e.innerHTML=''; return e; }
+
+function renderText(){
+  var t=elClear('tldrHost');
+  DATA.tldr.forEach(function(o){ var li=document.createElement('li'); li.innerHTML = TX(o); t.appendChild(li); });
+
+  var q=elClear('quoteHost');
+  DATA.quotes.forEach(function(o){
+    var bq=document.createElement('blockquote');
+    bq.innerHTML = '<span class="qm">“</span><p>'+TX(o)+'</p>';
+    q.appendChild(bq);
+  });
+
+  var m=elClear('mediaHost');
+  DATA.media.forEach(function(o){
+    var card=document.createElement('div'); card.className='mcard';
+    var thumb;
+    if(o.kind==='yt'){
+      var url='https://www.youtube.com/watch?v='+o.id;
+      var img='https://i.ytimg.com/vi/'+o.id+'/hqdefault.jpg';
+      thumb='<a class="mthumb" href="'+url+'" target="_blank" rel="noopener">'
+        +'<img src="'+img+'" alt="" loading="lazy" onerror="this.style.display=\'none\'">'
+        +'<span class="ptype">'+(LANG==='fa'?'ویدیو':'VIDEO')+'</span>'
+        +'<span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></span></a>';
+    } else {
+      thumb='<a class="mthumb" href="'+o.url+'" target="_blank" rel="noopener"><span class="mfake">'
+        +'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.6"/><path d="M21 15l-5-5L5 21"/></svg>'
+        +'</span><span class="ptype">'+(LANG==='fa'?'تصویر':'IMAGE')+'</span></a>';
+    }
+    var link = o.kind==='yt' ? 'https://www.youtube.com/watch?v='+o.id : o.url;
+    var bl = (LANG==='fa'?o.bullets.fa:o.bullets.en).map(function(b){ return '<li>'+ (LANG==='fa'?faText(b):b) +'</li>'; }).join('');
+    card.innerHTML = thumb + '<div class="mbody">'
+      + '<div class="msrc">'+TX(o.src)+'</div>'
+      + '<h4>'+TX(o.title)+'</h4>'
+      + '<p class="mdesc">'+TX(o.desc)+'</p>'
+      + '<ul>'+bl+'</ul>'
+      + '<a class="mlink" href="'+link+'" target="_blank" rel="noopener">'+(LANG==='fa'?'باز کردن ↗':'Open ↗')+'</a>'
+      + '<div class="mbest">'+TX(o.best)+'</div>'
+      + '</div>';
+    m.appendChild(card);
+  });
+
+  var g=elClear('goHost');
+  DATA.go.forEach(function(o){
+    var a=document.createElement('a'); a.href=o.url; a.target='_blank'; a.rel='noopener';
+    a.textContent=TX(o.label); g.appendChild(a);
+  });
+
+  var r=elClear('recHost');
+  DATA.recs.forEach(function(o){
+    var it=document.createElement('div'); it.className='item';
+    var priLabel = o.pri==='b' ? (LANG==='fa'?'از اینجا شروع کن':'Start here') : (LANG==='fa'?'بعدش این':'Then this');
+    it.innerHTML='<div class="t">'+TX(o.t)+'<span class="pri '+(o.pri==='b'?'b':'')+'">'+priLabel+'</span></div>'
+      +'<div class="d">'+TX(o.d)+'</div>';
+    r.appendChild(it);
+  });
+
+  var mth=document.getElementById('methodHost');
+  mth.innerHTML = LANG==='fa' ? faText("<p><b>منبع:</b> کتابِ خاطراتِ «کفش‌باز» (Shoe Dog) نوشتهٔ فیل نایت، چاپِ ۲۰۱۶ توسطِ انتشاراتِ اسکریبنر (سایمون‌اند‌شوستر).</p><p><b>روشِ کار:</b> قوسِ پنج‌بخشی و درس‌ها از خودِ کتاب و منابعِ معتبر بیرون کشیده و ساده‌نویسی شده؛ نقل‌قول‌ها با متنِ کتاب مقابله و ویدیوی لینک‌شده بررسی شده است.</p><p><b>گروه:</b> «الهام» — یک داستان برای یادگرفتن، نه یک دفترچهٔ راهنما.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای کلِ داستان، خودش را بخوان.</p>") : "<p><b>Source:</b> the memoir <i>Shoe Dog</i> by Phil Knight, published 2016 by Scribner (Simon & Schuster).</p><p><b>How this was built:</b> the five-part arc and the lessons were drawn and rewritten from the book and reputable sources; the quotes were cross-checked and the linked video verified.</p><p><b>Group:</b> Inspiration — a story to learn from, not a how-to manual.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book. For the full story, read it.</p>";
+  var fl=document.getElementById('flowTop');
+  if(fl){
+    var loop = LANG==='fa' ? ["باور","ریسک","پافشاری"] : ["Believe","Risk","Persist"];
+    var ar = LANG==='fa' ? '⟵' : '⟶';
+    fl.innerHTML = loop.map(function(w){ return '<b>'+ (LANG==='fa'?faText(w):w) +'</b>'; }).join(' <span class="ar">'+ar+'</span> ');
+  }
+}
+</script>
+
+<script>
+/* ── 4) CONCEPT MAP ───────────────────────────────────────── */
+function renderMap(){
+  var host=document.getElementById('mapHost'); if(!host) return; host.innerHTML='';
+  DATA.parts.forEach(function(p, i){
+    var col=document.createElement('div'); col.className='partcol';
+    var chaps=p.chapters.map(function(ck){
+      var c=DATA.chapters[ck];
+      return '<div class="chapchip"><span class="cn">'+num(c.n)+'</span><div><b>'+TX(c.name)+'</b>'
+        +'<small>'+TX(c.principle).replace(/<[^>]+>/g,'').slice(0, LANG==='fa'?86:76)+'…</small></div></div>';
+    }).join('');
+    col.innerHTML='<div class="ph"><span class="pdot" style="background:var('+p.varc+')"></span>'
+      +'<span class="pnum">'+(LANG==='fa'?'بخشِ ':'PART ')+num(i+1)+'</span></div>'
+      +'<h4>'+TX(p.name)+'</h4>'
+      +'<div class="ptag" style="color:var('+p.varc+')">'+TX(p.tag)+'</div>'
+      +'<p class="pgist">'+TX(p.gist)+'</p>'+chaps;
+    host.appendChild(col);
+  });
+}
+</script>
+
+<script>
+/* ── 5) INTERACTIVE NETWORK GRAPH (deterministic radial layout, no physics) ── */
+var GRAPH = (function(){
+  var svg, W=980, H=780, nodes=[], links=[], sel=null, dragNode=null, moved=false, startPt=null;
+
+  function build(){
+    svg=document.getElementById('netsvg');
+    svg.setAttribute('viewBox','0 0 '+W+' '+H);
+    nodes=[]; links=[];
+    var cx=W/2, cy=H/2, R1=220, R2=126, span=66*Math.PI/180;
+    var N=DATA.parts.length, partAng=DATA.parts.map(function(_,i){ return -Math.PI/2 + i*(2*Math.PI/N); });
+    nodes.push({id:'core', kind:'core', varc:'--core', r:38, x:cx, y:cy, label:DATA.core.name, data:DATA.core});
+    DATA.parts.forEach(function(p,i){
+      var a=partAng[i], px=cx+Math.cos(a)*R1, py=cy+Math.sin(a)*R1;
+      nodes.push({id:'p_'+p.key, kind:'part', varc:p.varc, r:25, x:px, y:py,
+        label:p.name, data:{name:p.name, principle:p.gist, more:p.more, tag:p.tag, key:p.key}});
+      links.push({s:'core', t:'p_'+p.key, strong:true});
+      var nc=p.chapters.length, start=a-span/2;
+      p.chapters.forEach(function(ck,j){
+        var ca = nc>1 ? start+span*(j/(nc-1)) : a;   // fan the 5 chapters outward
+        var c=DATA.chapters[ck];
+        nodes.push({id:'c_'+ck, kind:'chap', varc:p.varc, r:15,
+          x:px+Math.cos(ca)*R2, y:py+Math.sin(ca)*R2,
+          label:(c.glabel||c.name), data:c, ck:ck});
+        links.push({s:'p_'+p.key, t:'c_'+ck});
+      });
+    });
+    nodes.forEach(function(n){ n.hx=n.x; n.hy=n.y; });   // remember home positions for reset
+    draw();
+    select('core');
+  }
+
+  function byId(id){ for(var i=0;i<nodes.length;i++) if(nodes[i].id===id) return nodes[i]; return null; }
+
+  function draw(){
+    var ln='', nd='';
+    links.forEach(function(l){ ln+='<line class="glink" data-s="'+l.s+'" data-t="'+l.t+'" stroke="var(--line)" stroke-width="'+(l.strong?2.4:1.5)+'" stroke-linecap="round"/>'; });
+    nodes.forEach(function(n){
+      var inside='', below='';
+      if(n.kind==='core'){
+        inside='<text text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="800" fill="#fff" letter-spacing="0.3">'+shortLabel(n)+'</text>';
+      } else {
+        if(n.kind==='chap'){
+          inside='<text text-anchor="middle" dominant-baseline="central" font-size="11" font-weight="800" fill="#fff">'+num(n.data.n)+'</text>';
+        }
+        var ly = n.r + (n.kind==='part'?17:14);
+        var fs = n.kind==='part'?13:11;
+        var stroke = 'paint-order:stroke;stroke:var(--card2);stroke-width:3.6px;stroke-linejoin:round';
+        below='<text class="nlab" text-anchor="middle" y="'+ly+'" font-size="'+fs+'" font-weight="'+(n.kind==='part'?'800':'700')+'" fill="var(--ink)" style="'+stroke+'">'+shortLabel(n)+'</text>';
+      }
+      nd+='<g class="node'+(n.kind==='core'?' ncore':'')+'" data-id="'+n.id+'"><g class="ns">'
+        +'<circle r="'+n.r+'" fill="var('+n.varc+')" fill-opacity="'+(n.kind==='chap'?0.94:1)+'" stroke="var(--card)" stroke-width="2.5"/>'
+        +inside+below+'</g></g>';
+    });
+    svg.innerHTML='<g id="glinks">'+ln+'</g><g id="gnodes">'+nd+'</g>';
+    svg.querySelectorAll('.node').forEach(function(gEl){
+      gEl.addEventListener('pointerdown', onDown);
+      gEl.addEventListener('click', function(){ if(!moved) select(gEl.getAttribute('data-id')); });
+      gEl.addEventListener('pointerenter', function(){ if(!dragNode) gEl.classList.add('hover'); });
+      gEl.addEventListener('pointerleave', function(){ gEl.classList.remove('hover'); });
+    });
+    positions();
+  }
+  function shortLabel(n){ return TX(n.label); }
+
+  function positions(){
+    svg.querySelectorAll('.node').forEach(function(g){
+      var n=byId(g.getAttribute('data-id'));
+      g.setAttribute('transform','translate('+n.x.toFixed(1)+','+n.y.toFixed(1)+')');
+    });
+    svg.querySelectorAll('.glink').forEach(function(l){
+      var a=byId(l.getAttribute('data-s')), b=byId(l.getAttribute('data-t'));
+      l.setAttribute('x1',a.x.toFixed(1)); l.setAttribute('y1',a.y.toFixed(1));
+      l.setAttribute('x2',b.x.toFixed(1)); l.setAttribute('y2',b.y.toFixed(1));
+    });
+  }
+
+  /* drag: just move the grabbed node — no simulation, so nothing else shifts */
+  function toSvg(e){
+    var pt=svg.createSVGPoint(); pt.x=e.clientX; pt.y=e.clientY;
+    var m=svg.getScreenCTM(); if(!m) return {x:e.clientX,y:e.clientY};
+    return pt.matrixTransform(m.inverse());
+  }
+  function onDown(e){
+    e.preventDefault();
+    dragNode=byId(e.currentTarget.getAttribute('data-id'));
+    moved=false; startPt=toSvg(e); svg.style.cursor='grabbing';
+    e.currentTarget.classList.remove('hover');
+    window.addEventListener('pointermove', onMove);
+    window.addEventListener('pointerup', onUp);
+  }
+  function onMove(e){
+    if(!dragNode) return; var p=toSvg(e);
+    if(startPt && (Math.abs(p.x-startPt.x)>4 || Math.abs(p.y-startPt.y)>4)) moved=true;
+    dragNode.x=Math.max(dragNode.r+4, Math.min(W-dragNode.r-4, p.x));
+    dragNode.y=Math.max(dragNode.r+4, Math.min(H-dragNode.r-24, p.y));
+    positions();
+  }
+  function onUp(){
+    dragNode=null; svg.style.cursor='grab';
+    window.removeEventListener('pointermove', onMove);
+    window.removeEventListener('pointerup', onUp);
+  }
+
+  function keepSet(id){
+    var n=byId(id); if(!n || id==='core') return null;   // core → show everything
+    var keep={}; keep[id]=1; keep['core']=1;
+    var pk = (n.kind==='part') ? n.data.key : n.data.part;
+    keep['p_'+pk]=1;
+    DATA.parts.forEach(function(p){ if(p.key===pk) p.chapters.forEach(function(ck){ keep['c_'+ck]=1; }); });
+    return keep;   // highlight the whole branch: core → part → its chapters
+  }
+  function applyFocus(id){
+    var keep=keepSet(id), full=(keep===null);
+    svg.querySelectorAll('.node').forEach(function(g){
+      var nid=g.getAttribute('data-id');
+      g.classList.toggle('dim', !full && !keep[nid]);
+      g.classList.toggle('hl', !full && keep[nid] && nid!==id);
+    });
+    svg.querySelectorAll('.glink').forEach(function(l){
+      var s=l.getAttribute('data-s'), t=l.getAttribute('data-t');
+      var on = full || (keep[s] && keep[t]);
+      l.classList.toggle('dim', !on);
+      l.classList.toggle('hl', !full && on);
+    });
+  }
+
+  function relatedIds(node){
+    var ids=[];
+    if(node.id==='core'){ DATA.parts.forEach(function(p){ ids.push('p_'+p.key); }); }
+    else if(node.kind==='part'){ var pk=node.data.key; DATA.parts.forEach(function(p){ if(p.key===pk) p.chapters.forEach(function(ck){ ids.push('c_'+ck); }); }); }
+    else { var pk2=node.data.part; ids.push('p_'+pk2);
+      DATA.parts.forEach(function(p){ if(p.key===pk2) p.chapters.forEach(function(ck){ if('c_'+ck!==node.id) ids.push('c_'+ck); }); }); }
+    return ids;
+  }
+
+  function drow(cls,label,txt){ return '<div class="drow '+cls+'"><div class="dlab">'+label+'</div><div class="dtxt">'+txt+'</div></div>'; }
+
+  function select(id){
+    var n=byId(id); if(!n) return;
+    sel=id;
+    svg.querySelectorAll('.node').forEach(function(g){ g.classList.toggle('sel', g.getAttribute('data-id')===id); });
+    var selEl=svg.querySelector('.node[data-id="'+id+'"]'); if(selEl&&selEl.parentNode) selEl.parentNode.appendChild(selEl);  // raise on top
+    applyFocus(id);
+    var d=n.data, pv = n.kind==='core' ? '--core' : n.varc;
+    var kicker = n.kind==='core' ? (LANG==='fa'?'ایدهٔ مرکزی':'Core idea')
+             : n.kind==='part' ? (LANG==='fa'?'بخش':'Part') + ' · ' + TX(d.tag)
+             : (LANG==='fa'?"درسِ":"Lesson") + ' ' + num(d.n);
+    var prLab = (n.kind==='chap') ? (LANG==='fa'?'اصل':'Principle') : (LANG==='fa'?'ایدهٔ اصلی':'Big idea');
+    var html='<div class="dkick"><i style="background:var('+pv+')"></i>'+ (LANG==='fa'?faText(kicker):kicker) +'</div>'
+      +'<h4>'+TX(d.name)+'</h4>'
+      + drow('', prLab, TX(d.principle));
+    if(d.more)    html += drow('more', (LANG==='fa'?'بیشتر':'In depth'), TX(d.more));
+    if(d.example) html += drow('', (LANG==='fa'?'مثال':'Example'), TX(d.example));
+    if(d.tip)     html += drow('tip', (LANG==='fa'?'امتحان کن':'Try this'), TX(d.tip));
+    if(d.pitfall) html += drow('pit', (LANG==='fa'?'حواست باشد':'Watch out'), TX(d.pitfall));
+    // related chips
+    var rel=relatedIds(n);
+    if(rel.length){
+      var chips=rel.map(function(rid){ var rn=byId(rid); if(!rn) return '';
+        return '<span class="dchip" data-goto="'+rid+'"><i style="background:var('+rn.varc+')"></i>'+TX(rn.data.name)+'</span>'; }).join('');
+      html += '<div class="drow"><div class="dlab">'+(LANG==='fa'?'مرتبط':'Related')+'</div><div class="dchips">'+chips+'</div></div>';
+    }
+    var host=document.getElementById('detailHost');
+    host.innerHTML=html;
+    host.querySelectorAll('.dchip').forEach(function(c){
+      c.addEventListener('click', function(){ select(c.getAttribute('data-goto')); });
+    });
+  }
+
+  function relabel(){ if(!svg) return; draw(); select(sel||'core'); }
+
+  return {
+    build:build,
+    kick:function(){},                                    // no-op; layout is static
+    relabel:relabel,
+    reset:function(){ nodes.forEach(function(n){ n.x=n.hx; n.y=n.hy; }); positions(); },
+    resetFocus:function(){ select('core'); },
+    selectNode:function(id){ select(id); },
+    hasNodes:function(){ return nodes.length>0; }
+  };
+})();
+</script>
+
+<script>
+/* ── 6) 5-STAGE LADDER ────────────────────────────────────── */
+var curStage=0;
+function renderLadder(){
+  var host=document.getElementById('ladderHost'); host.innerHTML='';
+  DATA.stages.forEach(function(s,i){
+    var r=document.createElement('div'); r.className='rung'+(i===curStage?' active':'');
+    r.innerHTML='<div class="lv">'+ (LANG==='fa'?('سطحِ '+num(s.level)):('Level '+s.level)) +'</div>'
+      +'<div class="lt">'+TX(s.title)+'</div>'
+      +'<div class="lbar"><i style="width:'+(s.level*20)+'%"></i></div>';
+    r.addEventListener('click', function(){ curStage=i; renderLadder(); renderStage();
+      document.getElementById('stageHost').scrollIntoView({behavior:'smooth',block:'nearest'}); });
+    host.appendChild(r);
+  });
+}
+function renderStage(){
+  var s=DATA.stages[curStage];
+  var host=document.getElementById('stageHost');
+  var exLabel = LANG==='fa'?'مثال':'Example';
+  var prev = LANG==='fa'?'مرحلهٔ قبل':'‹ Prev', next = LANG==='fa'?'مرحلهٔ بعد':'Next ›';
+  host.innerHTML=''+
+    '<div class="stagecard">'
+    +'<div class="shead"><span class="badge">'+TX(s.badge)+'</span><h3>'+TX(s.title)+'</h3></div>'
+    +'<div class="tagline">'+TX(s.tagline)+'</div>'
+    +'<div class="sbody">'+TX(s.body)+'</div>'
+    +'<div class="exbox"><div class="exk">'+exLabel+'</div><div class="ext">'+TX(s.example)+'</div></div>'
+    +'<div class="gainrow"><span class="gi">✓</span><span>'+TX(s.gain)+'</span></div>'
+    +'<div class="stagenav">'
+      +'<button id="stPrev" '+(curStage===0?'disabled':'')+'>'+prev+'</button>'
+      +'<button id="stNext" '+(curStage===DATA.stages.length-1?'disabled':'')+'>'+next+'</button>'
+    +'</div></div>';
+  var pv=document.getElementById('stPrev'), nx=document.getElementById('stNext');
+  if(pv) pv.onclick=function(){ if(curStage>0){curStage--; renderLadder(); renderStage();} };
+  if(nx) nx.onclick=function(){ if(curStage<DATA.stages.length-1){curStage++; renderLadder(); renderStage();} };
+}
+</script>
+
+<script>
+/* ── 7) legend + graph tabs ───────────────────────────────── */
+function renderLegend(){
+  var host=document.getElementById('legendHost'); if(!host) return;
+  var items=[{c:'--core', en:'Core idea', fa:'ایدهٔ مرکزی'}]
+    .concat(DATA.parts.map(function(p){ return {c:p.varc, en:p.name.en, fa:p.name.fa}; }));
+  host.innerHTML = items.map(function(it){
+    return '<span><i style="background:var('+it.c+')"></i>'+(LANG==='fa'?faText(it.fa):it.en)+'</span>';
+  }).join('');
+  document.getElementById('ghint').textContent = LANG==='fa' ? 'روی هر دایره کلیک کن تا بیشتر بخوانی · می‌توانی بکشی‌شان' : 'Click a node to read more · drag to move';
+  document.getElementById('greset').textContent = LANG==='fa' ? '↺ چیدمان' : '↺ Reset';
+}
+function setupTabs(){
+  function show(net){
+    document.getElementById('netView').style.display = net?'':'none';
+    document.getElementById('mapView').style.display = net?'none':'';
+    document.getElementById('tabNet').classList.toggle('active',net);
+    document.getElementById('tabMap').classList.toggle('active',!net);
+    if(net) GRAPH.kick();
+  }
+  document.getElementById('tabNet').onclick=function(){show(true);};
+  document.getElementById('tabMap').onclick=function(){show(false);};
+  document.getElementById('greset').onclick=function(){ GRAPH.reset(); };
+  // click empty graph space resets the focus
+  var svg=document.getElementById('netsvg');
+  svg.addEventListener('click', function(e){ if(!e.target.closest('.node')) GRAPH.resetFocus(); });
+}
+</script>
+
+<script>
+/* ── 8) toggles + boot ────────────────────────────────────── */
+function setLang(lg){
+  LANG=lg;
+  document.documentElement.setAttribute('data-lang',lg);
+  document.documentElement.setAttribute('lang',lg);
+  document.documentElement.setAttribute('dir', lg==='fa'?'rtl':'ltr');
+  try{ localStorage.setItem('shoe-lang',lg); }catch(e){}
+  renderAll();
+}
+function renderAll(){
+  renderText();
+  renderMap();
+  renderLegend();
+  renderLadder();
+  renderStage();
+  if(GRAPH.hasNodes()) GRAPH.relabel(); else GRAPH.build();
+}
+(function(){
+  var lb=document.getElementById('langBtn');
+  lb && lb.addEventListener('click', function(){ setLang(LANG==='fa'?'en':'fa'); });
+
+  var tb=document.getElementById('themeBtn');
+  function curT(){ return document.documentElement.getAttribute('data-theme'); }
+  tb && tb.addEventListener('click', function(){
+    var t=curT()==='dark'?'light':'dark';
+    document.documentElement.setAttribute('data-theme',t);
+    try{ localStorage.setItem('shoe-theme',t); }catch(e){}
+  });
+  try{ matchMedia('(prefers-color-scheme: dark)').addEventListener('change',function(e){
+    if(!localStorage.getItem('shoe-theme')){ document.documentElement.setAttribute('data-theme', e.matches?'dark':'light'); }
+  }); }catch(e){}
+})();
+
+/* scroll-spy */
+(function(){
+  var links=[].slice.call(document.querySelectorAll('.toc a'));
+  var seen={}, ids=[];
+  links.forEach(function(a){ var id=a.getAttribute('href').slice(1); if(!seen[id]){seen[id]=1; ids.push(id);} });
+  var secs=ids.map(function(id){return document.getElementById(id);}).filter(Boolean);
+  function setActive(id){ links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('href')==='#'+id); }); }
+  if('IntersectionObserver' in window){
+    var obs=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+    },{rootMargin:'-45% 0px -50% 0px',threshold:0});
+    secs.forEach(function(s){ obs.observe(s); });
+  }
+})();
+
+document.addEventListener('DOMContentLoaded', function(){
+  setupTabs();
+  renderAll();
+});
+</script>
+</body>
+</html>

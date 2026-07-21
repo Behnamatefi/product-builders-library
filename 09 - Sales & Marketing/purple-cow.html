@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<!-- complexity-level: 1→5 (this page teaches the SAME book at five depths, over-simplified … expert) -->
+<!-- Effortless (Greg McKeown) — bilingual EN/FA knowledge graph & 5-stage learning page -->
+<html lang="fa" dir="rtl" data-lang="fa">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Purple Cow — نقشهٔ دانش و یادگیری ۵ مرحله‌ای</title>
+
+<!-- Boot theme + language BEFORE paint to avoid a flash -->
+<script>
+(function(){
+  try{
+    var th = localStorage.getItem('purplecow-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
+    document.documentElement.setAttribute('data-theme', th);
+  }catch(e){ document.documentElement.setAttribute('data-theme','light'); }
+  try{
+    var lg = localStorage.getItem('purplecow-lang') || 'fa';
+    document.documentElement.setAttribute('data-lang', lg);
+    document.documentElement.setAttribute('lang', lg);
+    document.documentElement.setAttribute('dir', lg==='fa' ? 'rtl' : 'ltr');
+  }catch(e){}
+})();
+</script>
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:ital,opsz@0,6..72;1,6..72&display=swap" rel="stylesheet">
+
+<style>
+/* ── TOKENS ───────────────────────────────────────────────── */
+:root, [data-theme="light"]{
+  --bg:#f5f6f8; --bg2:#eef2f7; --card:#fff; --card2:#f8fafb;
+  --ink:#1c2330; --mut:#6b7280; --line:#e6e8ee;
+  --accent:#0e7c86; --accent-ink:#fff; --warm:#c2410c;
+  --shadow:0 1px 2px rgba(20,30,50,.05),0 6px 24px rgba(20,30,50,.06);
+  --hero-1:#0e7c86; --hero-2:#0b5e66;
+  --c-teal:#0e9aa6; --c-blue:#2f6fb0; --c-violet:#7c3aed; --c-amber:#d97706;
+  --c-green:#15a34a; --c-red:#e11d48; --c-gold:#c98a12; --c-gray:#6b7280;
+  --state:#0e9aa6; --action:#d97706; --results:#7c3aed; --core:#0e7c86;
+}
+[data-theme="dark"]{
+  --bg:#0e131a; --bg2:#161d27; --card:#151c26; --card2:#1b2430;
+  --ink:#e9eef5; --mut:#9aa7b6; --line:#27313d;
+  --accent:#2dd4bf; --accent-ink:#06231f; --warm:#fb923c;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 28px rgba(0,0,0,.45);
+  --hero-1:#0c5f67; --hero-2:#07323a;
+  --c-teal:#2dd4bf; --c-blue:#5b9bd5; --c-violet:#a78bfa; --c-amber:#fbbf24;
+  --c-green:#34d399; --c-red:#fb7185; --c-gold:#e2b04a; --c-gray:#94a3b8;
+  --state:#2dd4bf; --action:#fbbf24; --results:#a78bfa; --core:#2dd4bf;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:Vazirmatn,"Segoe UI",Tahoma,Arial,sans-serif;line-height:1.85;font-size:15px;
+  transition:background .25s,color .25s}
+html[data-lang="en"] body{font-family:Inter,"Segoe UI",system-ui,Arial,sans-serif;line-height:1.7}
+.wrap{max-width:960px;margin:0 auto;padding:0 18px 40px}
+
+/* language visibility */
+html[data-lang="en"] [data-only="fa"]{display:none !important}
+html[data-lang="fa"] [data-only="en"]{display:none !important}
+
+/* ── HERO ─────────────────────────────────────────────────── */
+.hero{background:linear-gradient(135deg,var(--hero-1),var(--hero-2));color:#fff;padding:44px 0 34px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset-inline-end:-80px;top:-80px;width:280px;height:280px;
+  background:radial-gradient(circle,rgba(255,255,255,.12),transparent 70%);pointer-events:none}
+.hero .wrap{padding-bottom:0;position:relative;z-index:1}
+.hero h1{margin:0 0 8px;font-size:30px;font-weight:800;letter-spacing:-.3px;line-height:1.25}
+html[data-lang="en"] .hero h1{font-family:Newsreader,Georgia,serif;font-weight:600;letter-spacing:-.5px}
+.hero .dek{margin:0;opacity:.94;font-size:15.5px;max-width:640px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;
+  color:rgba(255,255,255,.95);background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.24);
+  padding:5px 13px;border-radius:20px;margin-bottom:15px}
+.eyebrow .edot{width:7px;height:7px;border-radius:50%;background:#fff;box-shadow:0 0 0 3px rgba(255,255,255,.25)}
+.metastrip{display:flex;flex-wrap:wrap;gap:14px 30px;margin-top:20px;padding-top:16px;
+  border-top:1px solid rgba(255,255,255,.18)}
+.metaitem{display:flex;flex-direction:column;gap:3px}
+.metaitem .mk{font-size:10.5px;color:rgba(255,255,255,.62);font-weight:700;letter-spacing:.6px;text-transform:uppercase}
+.metaitem .mv{font-size:14px;color:#fff;font-weight:700}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);
+  border-radius:11px;padding:9px 15px;font-size:13px}
+.chip b{font-size:20px;display:block;font-weight:800}
+
+/* ── NAV + TOC ────────────────────────────────────────────── */
+.navbar{position:sticky;top:0;z-index:60;background:color-mix(in srgb,var(--card) 92%,transparent);
+  backdrop-filter:saturate(180%) blur(10px);-webkit-backdrop-filter:saturate(180%) blur(10px);
+  border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+.navin{max-width:960px;margin:0 auto;padding:8px 16px;display:flex;align-items:center;gap:12px}
+.brand{flex:0 0 auto;font-weight:800;font-size:12.5px;color:var(--accent);white-space:nowrap;
+  display:flex;align-items:center;gap:7px}
+.brand .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);
+  box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 18%,transparent)}
+.toc{flex:1 1 auto;display:flex;flex-wrap:wrap;gap:7px;justify-content:center}
+.toc a{font-size:12.5px;color:var(--mut);text-decoration:none;border:1px solid var(--line);
+  border-radius:20px;padding:5px 12px;background:var(--card);white-space:nowrap;
+  transition:background .15s,color .15s,border-color .15s}
+.toc a:hover{color:var(--accent);border-color:var(--accent)}
+.toc a.active{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.navctl{flex:0 0 auto;display:flex;align-items:center;gap:8px}
+.langbtn{height:34px;border-radius:18px;border:1px solid var(--line);background:var(--card);
+  color:var(--ink);cursor:pointer;font:inherit;font-size:12.5px;font-weight:700;padding:0 13px;
+  display:flex;align-items:center;gap:6px}
+.langbtn:hover{border-color:var(--accent);color:var(--accent)}
+.langbtn .globe{width:15px;height:15px;display:block}
+.themebtn{flex:0 0 auto;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);
+  background:var(--card);color:var(--ink);cursor:pointer;line-height:1;display:grid;place-items:center}
+.themebtn svg{width:17px;height:17px;display:block}
+.themebtn:hover{border-color:var(--accent);color:var(--accent)}
+[data-theme="light"] .themebtn .ic-sun{display:none}
+[data-theme="dark"]  .themebtn .ic-moon{display:none}
+
+/* ── BLOCKS ───────────────────────────────────────────────── */
+h2{font-size:21px;margin:44px 0 6px;font-weight:800;scroll-margin-top:92px;line-height:1.35}
+html[data-lang="en"] h2{font-family:Newsreader,Georgia,serif;font-weight:600}
+h2 .num{color:var(--accent);font-variant-numeric:tabular-nums}
+.sub{color:var(--mut);font-size:13.5px;margin:0 0 16px;max-width:680px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;
+  padding:20px 22px;margin:14px 0;box-shadow:var(--shadow)}
+.lead{font-size:15.5px}
+.lead b{color:var(--warm)}
+.kgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin:8px 0}
+.kbox{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:15px 16px;text-align:center}
+.kbox .v{font-size:26px;font-weight:800;color:var(--accent);font-variant-numeric:tabular-nums}
+.kbox .l{font-size:12.5px;color:var(--mut);margin-top:3px}
+ul.clean{margin:6px 0;padding-inline-start:20px} ul.clean li{margin:8px 0}
+.callout{background:color-mix(in srgb,var(--warm) 9%,var(--card));
+  border:1px solid color-mix(in srgb,var(--warm) 30%,var(--line));
+  border-radius:12px;padding:14px 18px;margin:12px 0}
+.callout b{color:var(--warm)}
+.callout.accent{background:color-mix(in srgb,var(--accent) 9%,var(--card));
+  border-color:color-mix(in srgb,var(--accent) 30%,var(--line))}
+.callout.accent b{color:var(--accent)}
+a{color:var(--accent)}
+
+/* ── GRAPH ────────────────────────────────────────────────── */
+.gtabs{display:inline-flex;gap:4px;background:var(--bg2);border:1px solid var(--line);
+  border-radius:11px;padding:4px;margin:6px 0 2px}
+.gtab{border:0;background:transparent;color:var(--mut);font:inherit;font-size:13px;font-weight:700;
+  padding:7px 15px;border-radius:8px;cursor:pointer}
+.gtab.active{background:var(--card);color:var(--accent);box-shadow:var(--shadow)}
+.graphcard{padding:14px}
+.legend{display:flex;flex-wrap:wrap;gap:14px;margin:2px 4px 12px;font-size:12.5px;color:var(--mut)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:11px;height:11px;border-radius:50%;display:inline-block}
+.graphstage{display:grid;grid-template-columns:1fr;gap:14px}
+@media(min-width:760px){.graphstage{grid-template-columns:1.35fr .95fr}}
+.svgwrap{position:relative;background:var(--card2);border:1px solid var(--line);border-radius:12px;
+  overflow:hidden;min-height:300px}
+#netsvg{display:block;width:100%;height:560px;touch-action:none;cursor:grab}
+#netsvg text{pointer-events:none;user-select:none}
+.ghint{position:absolute;inset-inline-start:12px;top:10px;font-size:11.5px;color:var(--mut);
+  background:color-mix(in srgb,var(--card) 82%,transparent);border:1px solid var(--line);
+  border-radius:20px;padding:3px 11px;backdrop-filter:blur(4px);max-width:70%}
+.greset{position:absolute;inset-inline-end:10px;top:10px;border:1px solid var(--line);background:var(--card);
+  color:var(--mut);border-radius:8px;font:inherit;font-size:11.5px;padding:4px 10px;cursor:pointer}
+.greset:hover{color:var(--accent);border-color:var(--accent)}
+/* node + link interaction states */
+.node{cursor:pointer}
+/* the inner <g class="ns"> is what scales; fill-box keeps the pivot on the node itself, not the SVG viewport */
+.ns{transform-box:fill-box;transform-origin:center;transition:transform .2s cubic-bezier(.2,.75,.25,1)}
+.node.hover .ns{transform:scale(1.1)}
+.node.sel  .ns{transform:scale(1.34)}                 /* selected node grows */
+.node.ncore.hover .ns{transform:scale(1.06)}
+.node.ncore.sel   .ns{transform:none}                 /* the centre 'Effortless' node keeps default size */
+.node.sel circle{stroke:var(--ink);stroke-width:2.5;filter:drop-shadow(0 0 8px color-mix(in srgb,var(--accent) 60%,transparent))}
+.node.hl circle{stroke:var(--ink);stroke-opacity:.5;stroke-width:2.5}
+.node.dim{opacity:.2}
+.node text{font-family:Vazirmatn,Tahoma,sans-serif;font-weight:700}
+html[data-lang="en"] .node text{font-family:Inter,sans-serif}
+.glink{transition:opacity .2s,stroke .2s}
+.glink.dim{opacity:.08}
+.glink.hl{stroke:var(--accent) !important;stroke-opacity:.8}
+/* detail panel */
+.detail{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;min-height:220px}
+@media(min-width:760px){.detail{max-height:480px;overflow:auto}}
+.detail .dkick{font-size:11.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;display:flex;align-items:center;gap:7px;color:var(--mut)}
+.detail .dkick i{width:10px;height:10px;border-radius:50%}
+.detail h4{margin:8px 0 3px;font-size:18px;font-weight:800}
+html[data-lang="en"] .detail h4{font-family:Newsreader,serif;font-weight:600}
+.detail .drow{margin:11px 0}
+.detail .dlab{font-size:10.5px;font-weight:800;color:var(--accent);letter-spacing:.5px;text-transform:uppercase;
+  display:inline-flex;align-items:center;gap:5px}
+.detail .drow.tip .dlab{color:var(--c-green)}
+.detail .drow.pit .dlab{color:var(--warm)}
+.detail .drow.more{border-inline-start:2px solid color-mix(in srgb,var(--accent) 32%,var(--line));padding-inline-start:11px}
+.detail .drow.more .dlab{color:var(--mut)}
+.detail .dtxt{font-size:13.6px;margin-top:3px}
+.dchips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.dchip{font-size:12px;border:1px solid var(--line);background:var(--card2);border-radius:16px;padding:4px 11px;
+  cursor:pointer;color:var(--ink);display:inline-flex;align-items:center;gap:6px;font-family:inherit}
+.dchip:hover{border-color:var(--accent);color:var(--accent)}
+.dchip i{width:8px;height:8px;border-radius:50%;flex:0 0 auto}
+
+/* ── CONCEPT MAP ──────────────────────────────────────────── */
+.mapgrid{display:grid;grid-template-columns:1fr;gap:14px}
+@media(min-width:820px){.mapgrid{grid-template-columns:repeat(3,1fr)}}
+.partcol{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:16px;position:relative}
+.partcol .ph{display:flex;align-items:center;gap:9px;margin-bottom:3px}
+.partcol .pdot{width:13px;height:13px;border-radius:50%;flex:0 0 auto}
+.partcol .pnum{font-size:11px;font-weight:800;color:var(--mut)}
+.partcol h4{margin:0;font-size:16.5px;font-weight:800}
+html[data-lang="en"] .partcol h4{font-family:Newsreader,serif;font-weight:600}
+.partcol .ptag{font-size:12px;color:var(--mut);margin:2px 0 4px;font-weight:700}
+.partcol .pgist{font-size:12.8px;color:var(--mut);margin:0 0 12px}
+.chapchip{display:flex;align-items:baseline;gap:8px;padding:7px 10px;border:1px solid var(--line);
+  border-radius:9px;margin:6px 0;background:var(--card2);font-size:13px}
+.chapchip .cn{font-size:11px;font-weight:800;color:var(--mut);flex:0 0 auto;font-variant-numeric:tabular-nums}
+.chapchip b{font-weight:700}
+.chapchip small{color:var(--mut);display:block;font-size:11.5px;line-height:1.5}
+.flowline{display:flex;align-items:center;justify-content:center;gap:10px;color:var(--mut);
+  font-size:12.5px;font-weight:700;margin:6px 0 2px;flex-wrap:wrap}
+.flowline .ar{color:var(--accent)}
+
+/* ── STAGE LADDER ─────────────────────────────────────────── */
+.ladder{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 4px}
+.rung{flex:1 1 150px;border:1px solid var(--line);background:var(--card);border-radius:11px;
+  padding:11px 13px;cursor:pointer;transition:transform .12s,border-color .12s;position:relative}
+.rung:hover{border-color:var(--accent);transform:translateY(-2px)}
+.rung.active{border-color:var(--accent);box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 35%,transparent)}
+.rung .lv{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.4px}
+.rung .lt{font-size:13.5px;font-weight:800;margin-top:2px}
+.rung .lbar{height:5px;border-radius:4px;background:var(--bg2);margin-top:9px;overflow:hidden}
+.rung .lbar i{display:block;height:100%;background:linear-gradient(90deg,var(--c-teal),var(--c-violet))}
+.stagecard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 24px;
+  margin:14px 0;box-shadow:var(--shadow)}
+.stagecard .shead{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.stagecard .badge{font-size:12px;font-weight:800;color:#fff;background:var(--accent);
+  border-radius:8px;padding:4px 11px;white-space:nowrap}
+.stagecard h3{margin:0;font-size:21px;font-weight:800}
+html[data-lang="en"] .stagecard h3{font-family:Newsreader,serif;font-weight:600}
+.stagecard .tagline{color:var(--mut);font-size:13.5px;margin:4px 0 14px;font-weight:700}
+.stagecard .sbody{font-size:15px}
+.exbox{background:var(--card2);border:1px solid var(--line);border-inline-start:3px solid var(--accent);
+  border-radius:0 11px 11px 0;padding:13px 16px;margin:14px 0 6px}
+.exbox .exk{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.5px;text-transform:uppercase}
+.exbox .ext{font-size:13.8px;margin-top:3px}
+.gainrow{display:flex;align-items:flex-start;gap:9px;margin-top:12px;font-size:13px;color:var(--mut)}
+.gainrow .gi{flex:0 0 auto;color:var(--c-green);font-weight:800}
+.stagenav{display:flex;justify-content:space-between;gap:10px;margin-top:16px}
+.stagenav button{border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit;
+  font-size:13px;font-weight:700;border-radius:9px;padding:8px 14px;cursor:pointer}
+.stagenav button:hover:not(:disabled){border-color:var(--accent);color:var(--accent)}
+.stagenav button:disabled{opacity:.4;cursor:default}
+
+/* ── QUOTES ───────────────────────────────────────────────── */
+.qgrid{display:grid;grid-template-columns:1fr;gap:12px}
+@media(min-width:720px){.qgrid{grid-template-columns:1fr 1fr}}
+blockquote{margin:0;background:var(--card2);border-inline-start:3px solid var(--accent);
+  border-radius:0 12px 12px 0;padding:15px 18px;font-size:14.5px;position:relative}
+blockquote .qm{font-size:34px;line-height:0;color:var(--accent);opacity:.35;font-family:Georgia,serif;
+  position:absolute;inset-inline-start:10px;top:20px}
+blockquote p{margin:0;padding-inline-start:22px}
+html[data-lang="en"] blockquote{font-family:Newsreader,Georgia,serif;font-size:15.5px}
+
+/* ── MEDIA ────────────────────────────────────────────────── */
+.mgrid{display:grid;grid-template-columns:1fr;gap:16px}
+@media(min-width:640px){.mgrid{grid-template-columns:1fr 1fr}}
+.mcard{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;
+  box-shadow:var(--shadow);display:flex;flex-direction:column}
+.mthumb{position:relative;display:block;aspect-ratio:16/9;background:var(--bg2);overflow:hidden;text-decoration:none}
+.mthumb img{width:100%;height:100%;object-fit:cover;display:block}
+.mthumb .play{position:absolute;inset:0;display:grid;place-items:center}
+.mthumb .play span{width:54px;height:54px;border-radius:50%;background:rgba(0,0,0,.6);
+  display:grid;place-items:center;border:2px solid rgba(255,255,255,.9)}
+.mthumb .play svg{width:22px;height:22px;fill:#fff;margin-inline-start:3px}
+.mthumb .ptype{position:absolute;inset-inline-start:9px;top:9px;background:rgba(0,0,0,.72);color:#fff;
+  font-size:11px;font-weight:700;border-radius:6px;padding:3px 9px;letter-spacing:.3px}
+.mfake{aspect-ratio:16/9;display:grid;place-items:center;
+  background:linear-gradient(135deg,color-mix(in srgb,var(--c-violet) 22%,var(--card)),color-mix(in srgb,var(--c-teal) 22%,var(--card)))}
+.mfake svg{width:52px;height:52px;color:var(--ink);opacity:.6}
+.mbody{padding:15px 17px;display:flex;flex-direction:column;gap:7px;flex:1}
+.mbody .msrc{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.3px;text-transform:uppercase}
+.mbody h4{margin:0;font-size:15.5px;font-weight:800;line-height:1.4}
+html[data-lang="en"] .mbody h4{font-family:Newsreader,serif;font-weight:600}
+.mbody .mdesc{font-size:13px;color:var(--mut);margin:0}
+.mbody ul{margin:4px 0 0;padding-inline-start:18px}
+.mbody ul li{font-size:12.8px;margin:5px 0}
+.mbody .mbest{font-size:12px;font-weight:700;color:var(--warm);margin-top:auto;padding-top:8px}
+.mlink{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;
+  text-decoration:none;color:var(--accent);margin-top:4px}
+.mlink:hover{text-decoration:underline}
+.golist{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.golist a{font-size:12.5px;text-decoration:none;color:var(--ink);border:1px solid var(--line);
+  border-radius:20px;padding:6px 13px;background:var(--card);font-weight:700}
+.golist a:hover{border-color:var(--accent);color:var(--accent)}
+
+/* ── RECS + METHOD + CREDIT ───────────────────────────────── */
+.rec{display:grid;gap:10px;margin:8px 0}
+.rec .item{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--card)}
+.rec .item .t{font-weight:800;font-size:14.5px;margin-bottom:3px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.rec .item .t .pri{font-size:11px;font-weight:700;color:#fff;background:var(--warm);border-radius:6px;padding:2px 9px}
+.rec .item .t .pri.b{background:var(--accent)}
+.rec .item .d{font-size:13.4px;color:var(--mut)}
+.method{color:var(--mut);font-size:13.4px}
+.method p{margin:8px 0}
+.method b{color:var(--ink)}
+.credit{text-align:center;margin-top:40px;padding:22px 0 8px;border-top:1px solid var(--line);
+  color:var(--mut);font-size:14px}
+.credit .cname{color:var(--ink);font-weight:800}
+.credit a{font-weight:700;text-decoration:none}
+.credit a:hover{text-decoration:underline}
+.credit .sep{opacity:.5;margin:0 8px}
+.credit .li{display:inline-flex;align-items:center;gap:5px;vertical-align:middle}
+.credit .li svg{width:15px;height:15px;vertical-align:-3px}
+
+@media (max-width:640px){
+  body{font-size:14px}
+  .wrap{padding:0 13px 30px}
+  .hero{padding:28px 0 22px} .hero h1{font-size:22px}
+  h2{font-size:18px;scroll-margin-top:66px}
+  .brand{display:none}
+  .toc{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;scrollbar-width:none}
+  .toc::-webkit-scrollbar{display:none}
+  #netsvg{height:420px}
+}
+</style>
+</head>
+<body>
+
+<!-- ── HERO ───────────────────────────────────────────────── -->
+<header class="hero"><div class="wrap">
+  <div class="eyebrow"><span class="edot"></span>
+    <span data-only="en">Book knowledge map · Seth Godin</span>
+    <span data-only="fa">نقشهٔ کتاب · ست گودین</span>
+  </div>
+  <h1>
+    <span data-only="en">Purple Cow — Transform Your Business by Being Remarkable</span>
+    <span data-only="fa">گاوِ بنفش — کسب‌وکارت را با چشمگیر‌بودن دگرگون کن</span>
+  </h1>
+  <p class="dek">
+    <span data-only="en">A knowledge graph of the whole book, plus a 5-stage path from a single idea to expert-level mastery — with an example at every step.</span>
+    <span data-only="fa">نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از یک ایدهٔ ساده تا حرفه‌ای — با یک مثال در هر مرحله.</span>
+  </p>
+  <div class="metastrip">
+    <div class="metaitem"><span class="mk" data-only="en">Book</span><span class="mk" data-only="fa">کتاب</span>
+      <span class="mv" data-only="en">Purple Cow</span><span class="mv" data-only="fa">گاوِ بنفش</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Author</span><span class="mk" data-only="fa">نویسنده</span>
+      <span class="mv" data-only="en">Seth Godin</span><span class="mv" data-only="fa">ست گودین</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Published</span><span class="mk" data-only="fa">سالِ چاپ</span>
+      <span class="mv" data-only="en">2003</span><span class="mv" data-only="fa">۲۰۰۳</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Group</span><span class="mk" data-only="fa">گروه</span>
+      <span class="mv" data-only="en">Sales & Marketing</span><span class="mv" data-only="fa">فروش و بازاریابی</span></div>
+  </div>
+  <div class="chips">
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Parts</span><span data-only="fa">بخش</span></div>
+    <div class="chip"><b data-only="en">16</b><b data-only="fa">۱۶</b><span data-only="en">Ideas</span><span data-only="fa">ایده</span></div>
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Learning stages</span><span data-only="fa">مرحلهٔ یادگیری</span></div>
+  </div>
+</div></header>
+
+<!-- ── STICKY NAV ─────────────────────────────────────────── -->
+<div class="navbar"><div class="navin">
+  <span class="brand"><span class="dot"></span>Purple Cow</span>
+  <nav class="toc">
+    <a href="#tldr" data-only="en">In a nutshell</a><a href="#tldr" data-only="fa">خلاصه</a>
+    <a href="#graph" data-only="en">Knowledge graph</a><a href="#graph" data-only="fa">نقشهٔ دانش</a>
+    <a href="#stages" data-only="en">5 stages</a><a href="#stages" data-only="fa">۵ مرحله</a>
+    <a href="#quotes" data-only="en">Quotes</a><a href="#quotes" data-only="fa">جمله‌ها</a>
+    <a href="#media" data-only="en">Watch &amp; explore</a><a href="#media" data-only="fa">تماشا و منابع</a>
+    <a href="#apply" data-only="en">Apply it</a><a href="#apply" data-only="fa">کاربرد</a>
+  </nav>
+  <div class="navctl">
+    <button class="langbtn" id="langBtn" aria-label="Switch language">
+      <svg class="globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>
+      <span data-only="en">فارسی</span><span data-only="fa">English</span>
+    </button>
+    <button class="themebtn" id="themeBtn" aria-label="Toggle theme" title="Light / Dark">
+      <span class="ic-sun" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5 19 19M19 5l-1.5 1.5M6.5 17.5 5 19"/></svg></span>
+      <span class="ic-moon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.6 6.6 0 0 0 9.8 9.8Z"/></svg></span>
+    </button>
+  </div>
+</div></div>
+
+<div class="wrap">
+
+  <!-- ── TL;DR ────────────────────────────────────────────── -->
+  <h2 id="tldr"><span class="num" data-only="en">1.</span><span class="num" data-only="fa">۱.</span>
+    <span data-only="en"> In a nutshell</span><span data-only="fa"> خلاصه</span></h2>
+  <p class="sub" data-only="en">If you read only this, you still get the whole idea.</p>
+  <p class="sub" data-only="fa">اگر فقط همین بخش را بخوانی، کلِ ایده دستت می‌آید.</p>
+  <div class="card lead"><ul class="clean" id="tldrHost"></ul></div>
+  <div class="kgrid">
+    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Parts (death of ordinary · the cow · diffusion · edges · milk it)</div><div class="l" data-only="fa">بخش (مرگِ معمولی · گاو · پخش · لبه‌ها · دوشیدن)</div></div>
+    <div class="kbox"><div class="v" data-only="en">16</div><div class="v" data-only="fa">۱۶</div><div class="l" data-only="en">Ideas you can use</div><div class="l" data-only="fa">ایده برای استفاده</div></div>
+    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Levels, simple → expert</div><div class="l" data-only="fa">مرحله، ساده تا حرفه‌ای</div></div>
+    <div class="kbox"><div class="v" data-only="en">3</div><div class="v" data-only="fa">۳</div><div class="l" data-only="en">The flow: remark · niche · spread</div><div class="l" data-only="fa">جریان: چشمگیر · گوشه · سرایت</div></div>
+  </div>
+  
+  <div class="callout accent">
+    <b data-only="en">The core idea:</b>
+    <b data-only="fa">ایدهٔ اصلی:</b>
+    <span data-only="en"> A <i>Purple Cow</i> is something worth remarking about — so remarkable that people can't help talking about it. In a world flooded with choices and starved for attention, the safe, average product for the average person is invisible, and invisible means dead. So stop trying to advertise louder and start building things worth noticing. Being <i>very good</i> is boring; being remarkable is the only safe bet.</span>
+    <span data-only="fa"> یک <i>گاوِ بنفش</i> چیزی است که ارزشِ حرف‌زدن دارد — آن‌قدر چشمگیر که آدم‌ها نمی‌توانند دربارهٔ‌اش حرف نزنند. در دنیایی که پُر از انتخاب است و گرسنهٔ توجه، محصولِ امنِ معمولی برای آدمِ معمولی نامرئی است، و نامرئی یعنی مُرده. پس دست از بلندتر تبلیغ‌کردن بردار و چیزی بساز که ارزشِ دیده‌شدن داشته باشد. <i>خیلی خوب</i>بودن کسل‌کننده است؛ چشمگیر‌بودن تنها شرطِ امن است.</span>
+  </div>
+
+  <!-- ── KNOWLEDGE GRAPH ──────────────────────────────────── -->
+  <h2 id="graph"><span class="num" data-only="en">2.</span><span class="num" data-only="fa">۲.</span>
+    <span data-only="en"> The knowledge graph</span><span data-only="fa"> نقشهٔ دانش</span></h2>
+  <p class="sub" data-only="en">The whole book as one picture. Click any node to focus its connections and read more — or switch to the structured map.</p>
+  <p class="sub" data-only="fa">کلِ کتاب در یک تصویر. روی هر دایره کلیک کن تا ارتباط‌هایش را ببینی و بیشتر بخوانی — یا به نقشهٔ مرتب برو.</p>
+
+  <div class="gtabs">
+    <button class="gtab active" id="tabNet"><span data-only="en">Interactive network</span><span data-only="fa">شبکهٔ تعاملی</span></button>
+    <button class="gtab" id="tabMap"><span data-only="en">Structured map</span><span data-only="fa">نقشهٔ مرتب</span></button>
+  </div>
+
+  <!-- network view -->
+  <div class="card graphcard" id="netView">
+    <div class="legend" id="legendHost"></div>
+    <div class="graphstage">
+      <div class="svgwrap">
+        <svg id="netsvg" viewBox="0 0 820 560" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Effortless knowledge network"></svg>
+        <div class="ghint" id="ghint"></div>
+        <button class="greset" id="greset"></button>
+      </div>
+      <div class="detail" id="detailHost"></div>
+    </div>
+  </div>
+
+  <!-- map view -->
+  <div class="card graphcard" id="mapView" style="display:none">
+    <div class="flowline" id="flowTop"></div>
+    <div class="mapgrid" id="mapHost"></div>
+    <div class="callout" style="margin-top:16px">
+      <b data-only="en">Read it as a flow:</b><b data-only="fa">به‌صورتِ یک جریان بخوانش:</b>
+      <span data-only="en"> make something <b>remarkable</b> — a real Purple Cow, built in, not bolted on — aim it at a <b>niche</b> at the edge of the market that actually cares, and let <b>sneezers</b> spread the word across the diffusion curve. Then milk the Cow for all it's worth, and when it turns ordinary, build the next one.</span>
+      <span data-only="fa"> چیزی <b>چشمگیر</b> بساز — یک گاوِ بنفشِ واقعی که از اول در آن ساخته شده، نه بعداً چسبانده‌شده — آن را به یک <b>گوشهٔ</b> بازار در لبه نشانه بگیر که واقعاً برایش مهم است، و بگذار <b>عطسه‌کن‌ها</b> خبر را در طولِ منحنیِ پخش پخش کنند. بعد گاو را تا آخرین قطره بدوش، و وقتی معمولی شد، بعدی را بساز.</span>
+    </div>
+  </div>
+
+  <!-- ── 5 STAGES ─────────────────────────────────────────── -->
+  <h2 id="stages"><span class="num" data-only="en">3.</span><span class="num" data-only="fa">۳.</span>
+    <span data-only="en"> Learn it in 5 stages</span><span data-only="fa"> یادگیری در ۵ مرحله</span></h2>
+  <p class="sub" data-only="en">The same book at five depths. Start over-simplified, climb to expert. Tap a rung to jump.</p>
+  <p class="sub" data-only="fa">یک کتاب در پنج عمق. از خیلی ساده شروع کن و تا حرفه‌ای بالا برو. روی هر پله بزن تا بپری.</p>
+  <div class="ladder" id="ladderHost"></div>
+  <div id="stageHost"></div>
+
+  <!-- ── QUOTES ───────────────────────────────────────────── -->
+  <h2 id="quotes"><span class="num" data-only="en">4.</span><span class="num" data-only="fa">۴.</span>
+    <span data-only="en"> Lines worth keeping</span><span data-only="fa"> جمله‌هایی که ارزشِ نگه‌داشتن دارند</span></h2>
+  <p class="sub" data-only="en">Verbatim quotes from the book, translated alongside.</p>
+  <p class="sub" data-only="fa">جمله‌های مستقیم از کتاب، همراه با ترجمه.</p>
+  <div class="qgrid" id="quoteHost"></div>
+
+  <!-- ── MEDIA ────────────────────────────────────────────── -->
+  <h2 id="media"><span class="num" data-only="en">5.</span><span class="num" data-only="fa">۵.</span>
+    <span data-only="en"> Watch &amp; explore</span><span data-only="fa"> تماشا و منابع</span></h2>
+  <p class="sub" data-only="en">Special resources found online — each with what it covers and who it's best for.</p>
+  <p class="sub" data-only="fa">منابعِ ویژه‌ای که آنلاین پیدا شد — هرکدام با اینکه چه می‌گوید و به چه دردی می‌خورد.</p>
+  <div class="mgrid" id="mediaHost"></div>
+  <div class="card" style="margin-top:16px">
+    <div style="font-weight:800;font-size:13.5px;margin-bottom:4px">
+      <span data-only="en">Go straight to the source</span><span data-only="fa">مستقیم سراغِ منبع برو</span>
+    </div>
+    <div class="golist" id="goHost"></div>
+  </div>
+
+  <!-- ── APPLY ────────────────────────────────────────────── -->
+  <h2 id="apply"><span class="num" data-only="en">6.</span><span class="num" data-only="fa">۶.</span>
+    <span data-only="en"> Apply it this week</span><span data-only="fa"> این هفته امتحانش کن</span></h2>
+  <p class="sub" data-only="en">Four small moves that turn the idea into a habit.</p>
+  <p class="sub" data-only="fa">چهار حرکتِ کوچک که این ایده را به عادت تبدیل می‌کنند.</p>
+  <div class="rec" id="recHost"></div>
+
+  <!-- ── METHOD ───────────────────────────────────────────── -->
+  <h2 id="method"><span class="num" data-only="en">7.</span><span class="num" data-only="fa">۷.</span>
+    <span data-only="en"> Sources &amp; notes</span><span data-only="fa"> منابع و توضیح</span></h2>
+  <div class="card method" id="methodHost"></div>
+
+  <!-- ── CREDIT FOOTER ────────────────────────────────────── -->
+  <div class="credit">
+    <span data-only="en">Created by <span class="cname">Behnam Atefi</span><span class="sep">·</span><a class="li" href="https://www.linkedin.com/in/behnamatefi/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.3c0-1.26-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9z"/></svg>LinkedIn</a></span>
+    <span data-only="fa">ساخته‌شده توسط <span class="cname">بهنام عاطفی</span><span class="sep">·</span><a class="li" href="https://www.linkedin.com/in/behnamatefi/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.3c0-1.26-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9z"/></svg>لینکدین</a></span>
+  </div>
+</div>
+
+<!-- ═══════════════════════ SCRIPTS ═══════════════════════ -->
+<script>
+/* ── 1) language + formatters ─────────────────────────────── */
+var LANG = document.documentElement.getAttribute('data-lang') || 'fa';
+var FA_D = '۰۱۲۳۴۵۶۷۸۹';
+var RLM  = '‏';
+function faDigits(s){ return String(s).replace(/[0-9]/g, function(d){ return FA_D[+d]; }); }
+/* honor the RTL preference: isolate Latin runs (word order preserved) and mark with U+200F */
+function rlm(s){
+  return String(s)
+    .replace(/[A-Za-zÀ-ɏ][A-Za-zÀ-ɏ0-9'’.&:\/\-]*(?:\s+[A-Za-zÀ-ɏ0-9'’.&:\/\-]+)*/g,
+      function(m){ return RLM+'⁦'+m+'⁩'+RLM; })
+    .replace(/[0-9۰-۹]+/g, function(m){ return m+RLM; });
+}
+/* transform only TEXT segments, never HTML tags (so <b>/<i> survive) */
+function faText(s){ return String(s).replace(/(<[^>]+>)|([^<]+)/g, function(m,tag,txt){ return tag ? tag : faDigits(rlm(txt)); }); }
+function TX(o){ if(o==null) return ''; if(typeof o==='string') return o; return LANG==='fa' ? faText(o.fa) : o.en; }
+function num(n){ return LANG==='fa' ? faDigits(n) : String(n); }
+function tok(name){ return getComputedStyle(document.documentElement).getPropertyValue(name).trim(); }
+</script>
+
+<script>
+/* ── DATA LAYER — Atomic Habits (bilingual, plain-spoken Persian) ── */
+var DATA = {"tldr":[{"en":"The whole book in one line: be remarkable — make something worth talking about — or stay invisible.","fa":"خلاصهٔ کل کتاب در یک جمله: چشمگیر باش — چیزی بساز که ارزشِ حرف‌زدن داشته باشد — وگرنه نامرئی می‌مانی."},{"en":"The old system is dead: advertising <b>average products</b> to a <b>mass market</b> (the TV-industrial complex) no longer works.","fa":"سیستمِ قدیمی مُرده: تبلیغِ <b>محصولِ معمولی</b> به <b>بازارِ توده</b> (چرخهٔ تلویزیون‌صنعتی) دیگر جواب نمی‌دهد."},{"en":"A <b>Purple Cow</b> is remarkable — literally worth making a remark about — and it's built into the product, not bolted on with ads.","fa":"یک <b>گاوِ بنفش</b> چشمگیر است — دقیقاً یعنی ارزشِ حرف‌زدن دارد — و از اول در خودِ محصول ساخته شده، نه با تبلیغ بعداً چسبانده‌شده."},{"en":"Ideas spread through <b>sneezers</b> and <b>early adopters</b>, not the indifferent middle — find the <b>otaku</b> who truly care.","fa":"ایده‌ها از راهِ <b>عطسه‌کن‌ها</b> و <b>زودپذیرها</b> پخش می‌شوند، نه از راهِ وسطِ بی‌تفاوت — همان <b>اوتاکو</b>یی را پیدا کن که واقعاً برایش مهم است."},{"en":"Go to the <b>edges</b>, own a <b>niche</b>, milk the Cow while it lasts — then invent the next, because the opposite of remarkable is “very good.”","fa":"برو به <b>لبه‌ها</b>، یک <b>گوشهٔ</b> بازار را مالِ خودت کن، و تا وقت هست گاو را بدوش — بعد بعدی را بساز، چون نقطهٔ مقابلِ چشمگیر «خیلی خوب» است."}],"parts":[{"key":"ordinary","varc":"--c-teal","name":{"en":"The Death of the Ordinary","fa":"مرگِ چیزِ معمولی"},"tag":{"en":"The old way is over","fa":"راهِ قدیمی تمام شد"},"gist":{"en":"The TV-industrial complex is broken; average products for average people fail.","fa":"چرخهٔ تلویزیون‌صنعتی خراب شده؛ محصولِ معمولی برای آدمِ معمولی شکست می‌خورد."},"more":{"en":"For fifty years you could buy an ad, push an average product to the giant middle, and profit — then buy more ads. That flywheel is broken. People ignore ads, choices are endless, and the safe middle is now the most dangerous place to stand.","fa":"پنجاه سال می‌شد یک تبلیغ بخری، محصولِ معمولی را به وسطِ بزرگِ بازار هُل بدهی و سود کنی — بعد باز تبلیغ بخری. این چرخ شکسته. آدم‌ها تبلیغ را نادیده می‌گیرند، انتخاب‌ها بی‌شمار است، و وسطِ امن حالا خطرناک‌ترین جایی است که می‌شود ایستاد."},"chapters":["tvcomplex","massdead","saferisky"]},{"key":"cow","varc":"--c-blue","name":{"en":"What a Purple Cow Is","fa":"گاوِ بنفش یعنی چه"},"tag":{"en":"Remarkable, built in","fa":"چشمگیر، از درون"},"gist":{"en":"Remarkable means worth a remark. Build it into the product, don't bolt it on.","fa":"چشمگیر یعنی ارزشِ حرف‌زدن دارد. از اول در محصول بسازش، بعداً نچسبان."},"more":{"en":"A field of cows is boring; a purple one you'd stop for. That's the whole idea: be worth a remark. And you can't add that with a bigger ad budget — remarkability has to be designed into the thing itself, so the product becomes its own best marketing.","fa":"یک دشتِ پُر از گاو کسل‌کننده است؛ گاوِ بنفش را می‌ایستی تماشا کنی. کلِ ایده همین است: ارزشِ یک حرف داشته باش. و این را با بودجهٔ تبلیغِ بزرگ‌تر نمی‌شود اضافه کرد — چشمگیری باید از اول در خودِ چیز طراحی شود، تا محصول خودش بهترین بازاریابیِ خودش شود."},"chapters":["remarkable","buildin","newp"]},{"key":"diffusion","varc":"--c-amber","name":{"en":"Diffusion: Sneezers & the Chasm","fa":"پخش: عطسه‌کن‌ها و شکاف"},"tag":{"en":"How ideas spread","fa":"ایده چطور پخش می‌شود"},"gist":{"en":"Market to sneezers and early adopters who carry it, not to the indifferent mass.","fa":"به عطسه‌کن‌ها و زودپذیرها بفروش که خبر را می‌برند، نه به تودهٔ بی‌تفاوت."},"more":{"en":"Ideas don't land on everyone at once; they spread along a curve, from innovators and early adopters toward the rest — if they can cross the gap in between. So aim at the few who are obsessed and love to talk, and let them do your marketing for you.","fa":"ایده‌ها یک‌دفعه روی همه نمی‌نشینند؛ روی یک منحنی پخش می‌شوند، از نوآورها و زودپذیرها به‌سمتِ بقیه — اگر بتوانند از شکافِ وسط رد شوند. پس همان چند نفری را نشانه بگیر که وسواس دارند و عاشقِ حرف‌زدن‌اند، و بگذار آن‌ها بازاریابی‌ات را برایت انجام دهند."},"chapters":["curve","sneezers","otaku","earlyadopters"]},{"key":"edges","varc":"--c-violet","name":{"en":"Choose the Edges","fa":"لبه‌ها را انتخاب کن"},"tag":{"en":"Be different, on purpose","fa":"عمداً متفاوت شو"},"gist":{"en":"Niche down, go to extremes, and differentiate on something people care about.","fa":"گوشه بگیر، به لبه‌ها برو، و روی چیزی که برای مردم مهم است متفاوت شو."},"more":{"en":"The middle is crowded and safe and invisible; the edges get noticed. Pick an extreme — cheapest, boldest, fastest — and own a narrow niche that truly wants it. A product for everybody is a product for nobody, so choose the few and go all the way.","fa":"وسط شلوغ است و امن و نامرئی؛ لبه‌ها دیده می‌شوند. یک لبه انتخاب کن — ارزان‌ترین، جسورترین، سریع‌ترین — و یک گوشهٔ باریکِ بازار را مالِ خودت کن که واقعاً آن را می‌خواهد. محصولی برای همه، محصولی برای هیچ‌کس است، پس همان چند نفر را انتخاب کن و تا ته برو."},"chapters":["goedges","niche","mattersaxis"]},{"key":"milk","varc":"--c-green","name":{"en":"Milk It, Then Do It Again","fa":"شیرش را بدوش، بعد از نو بساز"},"tag":{"en":"Exploit, then reinvent","fa":"بهره ببر، بعد از نو بساز"},"gist":{"en":"Milk a Cow while it lasts; when it becomes a commodity, invent the next one.","fa":"تا وقت هست گاو را بدوش؛ وقتی به کالای معمولی تبدیل شد، بعدی را بساز."},"more":{"en":"A Purple Cow doesn't stay purple. Rivals copy it, the shock wears off, and it fades into an ordinary brown cow. So squeeze every bit of profit while it's remarkable and pour it into inventing the next one — because standing still and being merely very good is the same as being invisible.","fa":"گاوِ بنفش بنفش نمی‌ماند. رقبا کپی‌اش می‌کنند، شگفتی‌اش می‌ریزد، و به یک گاوِ قهوه‌ایِ معمولی محو می‌شود. پس تا وقتی چشمگیر است هر ذره سود را بگیر و بریز توی ساختنِ بعدی — چون سرِجا ماندن و فقط «خیلی خوب» بودن، همان نامرئی‌بودن است."},"chapters":["milk","nextcow","verygood"]}],"chapters":{"tvcomplex":{"part":"ordinary","n":1,"name":{"en":"The TV-Industrial Complex Is Over","fa":"چرخهٔ تلویزیون‌صنعتی تمام شد"},"glabel":{"en":"TV Complex","fa":"تلویزیون‌صنعتی"},"principle":{"en":"The old loop — buy ads, sell average products to everyone, profit, buy more ads — has quietly broken.","fa":"چرخهٔ قدیمی — تبلیغ بخر، محصولِ معمولی را به همه بفروش، سود کن، باز تبلیغ بخر — بی‌سروصدا شکسته."},"more":{"en":"For decades that flywheel let big brands buy their way to growth. But attention got scarce and cheap ads stopped working, so you can no longer purchase your way into people's heads. Interruption is out; being worth talking about is in.","fa":"ده‌ها سال این چرخ به برندهای بزرگ اجازه می‌داد رشد را بخرند. اما توجه کمیاب شد و تبلیغِ ارزان از کار افتاد، پس دیگر نمی‌شود راهِ ورود به ذهنِ آدم‌ها را خرید. مزاحمت تمام شد؛ ارزشِ حرف‌داشتن سرِ کار آمد."},"example":{"en":"A company that once ran endless TV spots to push a middle-of-the-road product now finds people skipping the ads and asking their friends instead.","fa":"شرکتی که زمانی با تبلیغِ بی‌پایانِ تلویزیونی یک محصولِ میان‌مایه را هُل می‌داد، حالا می‌بیند آدم‌ها تبلیغ را رد می‌کنند و به‌جایش از دوستشان می‌پرسند."},"tip":{"en":"Stop asking ‘how do we advertise this more?’ and start asking ‘why would anyone talk about it?’","fa":"دست از پرسیدنِ «چطور بیشتر تبلیغش کنیم؟» بردار و بپرس «اصلاً چرا کسی باید دربارهٔ‌اش حرف بزند؟»"},"pitfall":{"en":"Betting the whole plan on buying attention that people no longer sell.","fa":"بستنِ کلِ نقشه به خریدنِ توجهی که آدم‌ها دیگر نمی‌فروشند."}},"massdead":{"part":"ordinary","n":2,"name":{"en":"Average for Average Fails","fa":"معمولی برای معمولی شکست می‌خورد"},"glabel":{"en":"Mass Market","fa":"بازارِ توده"},"principle":{"en":"Making an average product for average people — smoothing off every edge — no longer wins the market.","fa":"ساختنِ محصولِ معمولی برای آدمِ معمولی — با صاف‌کردنِ هر لبه — دیگر بازار را نمی‌بَرد."},"more":{"en":"Mass marketing needed a mass, undivided audience, and that audience has splintered into a thousand niches. A product designed to offend no one excites no one, so it slips past everybody unnoticed. The safe center is where products go to be ignored.","fa":"بازاریابیِ انبوه به یک مخاطبِ بزرگ و یک‌پارچه نیاز داشت، و آن مخاطب به هزار گوشهٔ کوچک تکه‌تکه شده. محصولی که طراحی شده تا کسی را نرنجاند، هیچ‌کس را هم به شوق نمی‌آورد، پس بی‌آنکه دیده شود از کنارِ همه رد می‌شود. مرکزِ امن همان‌جایی است که محصول‌ها می‌روند تا نادیده گرفته شوند."},"example":{"en":"A me-too breakfast cereal or a middle-of-the-road sedan offends no one and thrills no one — so nobody bothers to mention it.","fa":"یک غلاتِ صبحانهٔ کپی‌شده یا یک خودروی میان‌مایه نه کسی را می‌رنجاند نه کسی را ذوق‌زده می‌کند — پس هیچ‌کس زحمتِ حرف‌زدن درباره‌اش را به خودش نمی‌دهد."},"tip":{"en":"Look at your product and name the boring, average parts that make it forgettable.","fa":"به محصولت نگاه کن و همان بخش‌های کسل‌کننده و معمولی را که فراموش‌شدنی‌اش می‌کنند نام ببر."},"pitfall":{"en":"Chasing the giant ‘average’ customer who doesn't actually exist.","fa":"دنبالِ آن مشتریِ «معمولیِ» بزرگ‌گشتن که در واقع وجود ندارد."}},"saferisky":{"part":"ordinary","n":3,"name":{"en":"Safe Is Now Risky","fa":"امن حالا پرخطر است"},"glabel":{"en":"Safe Is Risky","fa":"امنِ پرخطر"},"principle":{"en":"In a crowded market, playing it safe is the riskiest move — boring reliably leads to failure.","fa":"در بازارِ شلوغ، محافظه‌کاری پرخطرترین حرکت است — کسل‌کننده‌بودن مطمئناً به شکست می‌رسد."},"more":{"en":"Safe feels prudent, but a product that takes no risks gives people no reason to notice or repeat it, so it fades. The remarkable path feels scary and some will hate it — yet that's exactly why the rest remember it. The real gamble is being ordinary.","fa":"امن‌بودن عاقلانه به‌نظر می‌رسد، اما محصولی که هیچ ریسکی نمی‌کند، به آدم‌ها هیچ دلیلی برای دیدن یا تکرارش نمی‌دهد، پس محو می‌شود. راهِ چشمگیر ترسناک است و بعضی‌ها بدشان می‌آید — و دقیقاً به همین خاطر بقیه به‌یادش می‌سپارند. قمارِ واقعی، معمولی‌بودن است."},"example":{"en":"The brand that sands off every edge to avoid offending anyone ends up remembered by no one; the one that dares to be different gets talked about.","fa":"برندی که هر لبه را می‌ساید تا کسی را نرنجاند، دستِ‌آخر یادِ هیچ‌کس نمی‌ماند؛ آنکه جرئتِ متفاوت‌بودن دارد، سرِ زبان‌ها می‌افتد."},"tip":{"en":"When a choice feels ‘safe,’ ask whether safe here really means invisible.","fa":"وقتی یک انتخاب «امن» به‌نظر می‌رسد، بپرس آیا امن اینجا در واقع یعنی نامرئی."},"pitfall":{"en":"Treating the boring option as low-risk when it's the surest way to be ignored.","fa":"کم‌خطر پنداشتنِ گزینهٔ کسل‌کننده، درحالی‌که مطمئن‌ترین راهِ نادیده‌گرفته‌شدن است."}},"remarkable":{"part":"cow","n":4,"name":{"en":"Be Remarkable","fa":"چشمگیر باش"},"glabel":{"en":"Remarkable","fa":"چشمگیر"},"principle":{"en":"Remarkable literally means worth making a remark about — a Purple Cow in a field of brown ones.","fa":"چشمگیر دقیقاً یعنی ارزشِ حرف‌زدن دارد — یک گاوِ بنفش در دشتی پُر از گاوِ قهوه‌ای."},"more":{"en":"‘Remarkable’ isn't just neat or nice; it's something people feel compelled to point out to each other. Boring is invisible, and most stuff is boring. The question for anything you make is simply: is this worth a remark? If not, it's a brown cow.","fa":"«چشمگیر» فقط قشنگ یا خوب نیست؛ چیزی است که آدم‌ها ناخودآگاه به هم نشانش می‌دهند. کسل‌کننده نامرئی است، و بیشترِ چیزها کسل‌کننده‌اند. سؤال برای هر چیزی که می‌سازی ساده است: این ارزشِ یک حرف را دارد؟ اگر نه، یک گاوِ قهوه‌ای است."},"example":{"en":"Godin's parable: driving through France, his family was enchanted by picturesque cows — then bored within minutes. A purple cow, though, would be worth stopping for.","fa":"تمثیلِ گودین: در سفرِ فرانسه، خانواده‌اش شیفتهٔ گاوهای نقاشی‌وار شدند — و چند دقیقه بعد خسته. اما یک گاوِ بنفش، ارزشِ ایستادن و تماشا را داشت."},"tip":{"en":"Before launching, ask a stranger: is there one thing here you'd tell a friend about?","fa":"قبل از عرضه، از یک غریبه بپرس: اینجا چیزی هست که به یک دوستت بگویی؟"},"pitfall":{"en":"Settling for ‘nice’ or ‘neat’ when only ‘worth a remark’ actually spreads.","fa":"رضایت به «قشنگ» یا «بامزه»، درحالی‌که فقط «ارزشِ حرف‌داشتن» پخش می‌شود."}},"buildin":{"part":"cow","n":5,"name":{"en":"Build It In, Don't Bolt It On","fa":"از اول بسازش، بعداً نچسبان"},"glabel":{"en":"Build It In","fa":"از اول بساز"},"principle":{"en":"Remarkability must be designed into the product itself — you can't add it later with advertising.","fa":"چشمگیری باید از اول در خودِ محصول طراحی شود — نمی‌شود بعداً با تبلیغ چسباندش."},"more":{"en":"Marketing bolted on at the end is a tax you pay for making something ordinary. Instead, make the product so good, strange, or useful that it markets itself. The remarkable belongs at the design table, not in the ad budget.","fa":"بازاریابی‌ای که آخرِ کار می‌چسبانی، مالیاتی است که برای ساختنِ چیزِ معمولی می‌پردازی. به‌جایش، محصول را آن‌قدر خوب، عجیب یا کارآمد کن که خودش خودش را بازاریابی کند. جای چشمگیری سرِ میزِ طراحی است، نه در بودجهٔ تبلیغ."},"example":{"en":"Dutch Boy didn't advertise its way out of a commodity — it redesigned the paint can into an easy twist-and-pour jug. The remarkable was in the product, and stores and shoppers did the talking.","fa":"داچ‌بوی با تبلیغ از دامِ کالای معمولی بیرون نیامد — قوطیِ رنگ را به یک ظرفِ بازوبسته و آسان‌ریز تبدیل کرد. چشمگیری در خودِ محصول بود، و فروشگاه‌ها و خریدارها حرفش را زدند."},"tip":{"en":"Put your best people on the product, not just on the campaign that sells it.","fa":"بهترین آدم‌هایت را روی خودِ محصول بگذار، نه فقط روی کمپینی که می‌فروشدش."},"pitfall":{"en":"Making something ordinary and hoping a clever campaign will rescue it.","fa":"ساختنِ چیزی معمولی و امید‌بستن به اینکه یک کمپینِ زیرکانه نجاتش دهد."}},"newp":{"part":"cow","n":6,"name":{"en":"The Product Is the Marketing","fa":"خودِ محصول، بازاریابی است"},"glabel":{"en":"New P","fa":"بازاریابیِ درون"},"principle":{"en":"Add the Purple Cow to your marketing toolkit as a new ‘P’ — because the remarkable product does the selling.","fa":"گاوِ بنفش را به‌عنوان یک «پیِ» تازه به جعبه‌ابزارِ بازاریابی‌ات اضافه کن — چون محصولِ چشمگیر خودش می‌فروشد."},"more":{"en":"Alongside product, price, promotion and place, Godin puts the Purple Cow itself. When the thing is remarkable, marketing stops being a separate department and becomes a property of the product — customers become the sales force, for free.","fa":"کنارِ محصول و قیمت و ترویج و مکان، گودین خودِ گاوِ بنفش را می‌گذارد. وقتی خودِ چیز چشمگیر است، بازاریابی دیگر یک دپارتمانِ جدا نیست و به یک ویژگیِ محصول تبدیل می‌شود — مشتری‌ها مفت می‌شوند نیروی فروش."},"example":{"en":"JetBlue and Krispy Kreme grew mostly on word of mouth, not big ad budgets — the experience itself did the selling.","fa":"جت‌بلو و کریسپی‌کریم بیشتر با حرفِ دهان‌به‌دهان رشد کردند، نه با بودجهٔ تبلیغِ بزرگ — خودِ تجربه فروشندگی کرد."},"tip":{"en":"Budget remarkability into the product before you budget a single ad.","fa":"پیش از اینکه برای یک تبلیغ بودجه بگذاری، برای چشمگیریِ خودِ محصول بودجه بگذار."},"pitfall":{"en":"Treating marketing as something you add after the product is finished.","fa":"بازاریابی را چیزی پنداشتن که بعد از تمام‌شدنِ محصول اضافه می‌کنی."}},"curve":{"part":"diffusion","n":7,"name":{"en":"The Diffusion Curve & the Chasm","fa":"منحنیِ پخش و شکاف"},"glabel":{"en":"The Curve","fa":"منحنی"},"principle":{"en":"Ideas spread along a curve — from innovators and early adopters toward the mass — and most die in the gap between.","fa":"ایده‌ها روی یک منحنی پخش می‌شوند — از نوآورها و زودپذیرها به‌سمتِ توده — و بیشترشان در شکافِ وسط می‌میرند."},"more":{"en":"New things don't reach everyone at once. A few curious people try them first; if those people love it and spread it, it can cross toward the majority. The trick is to build something remarkable enough that early fans carry it over the chasm for you.","fa":"چیزهای نو یک‌دفعه به همه نمی‌رسند. اول چند آدمِ کنجکاو امتحانش می‌کنند؛ اگر آن‌ها عاشقش شوند و پخشش کنند، می‌تواند به‌سمتِ اکثریت عبور کند. ترفند این است که چیزی به‌قدرِ کافی چشمگیر بسازی که طرفدارهای اولیه از رویِ شکاف عبورش دهند."},"example":{"en":"Most new products stall in the gap between a handful of enthusiasts and the wider market; only the remarkable ones get carried across.","fa":"بیشترِ محصول‌های نو در شکافِ بینِ یک مشتِ دلباخته و بازارِ بزرگ‌تر گیر می‌کنند؛ فقط چشمگیرها از رویش عبور داده می‌شوند."},"tip":{"en":"Design for the early adopters first; they're the only bridge to everyone else.","fa":"اول برای زودپذیرها طراحی کن؛ آن‌ها تنها پُلِ رسیدن به بقیه‌اند."},"pitfall":{"en":"Aiming straight at the mass market and stalling in the chasm.","fa":"مستقیم به بازارِ توده نشانه‌رفتن و در شکاف گیر‌کردن."}},"sneezers":{"part":"diffusion","n":8,"name":{"en":"Sneezers Spread Ideas","fa":"عطسه‌کن‌ها ایده را پخش می‌کنند"},"glabel":{"en":"Sneezers","fa":"عطسه‌کن‌ها"},"principle":{"en":"Word of mouth travels through sneezers — the enthusiasts who can't help telling everyone they know.","fa":"حرفِ دهان‌به‌دهان از راهِ عطسه‌کن‌ها سفر می‌کند — همان دلباخته‌هایی که نمی‌توانند به هرکس می‌شناسند نگویند."},"more":{"en":"A sneezer with a big, trusting network can start an epidemic of attention. They spread an idea the way a sneeze spreads a cold. Your job isn't to reach everyone — it's to delight the sneezers and give them something easy and fun to pass along.","fa":"یک عطسه‌کن با شبکه‌ای بزرگ و بااعتماد می‌تواند اپیدمیِ توجه راه بیندازد. آن‌ها ایده را همان‌طور پخش می‌کنند که یک عطسه سرماخوردگی را. کارِ تو رساندن به همه نیست — خوشحال‌کردنِ عطسه‌کن‌هاست و دادنِ چیزی به آن‌ها که آسان و بامزه دست‌به‌دست شود."},"example":{"en":"The friend who won't stop recommending a new gadget is a sneezer; a company's earliest fans often do more selling than its ads.","fa":"همان دوستی که دست از توصیهٔ یک وسیلهٔ تازه برنمی‌دارد، یک عطسه‌کن است؛ اولین طرفدارهای یک شرکت اغلب بیشتر از تبلیغش می‌فروشند."},"tip":{"en":"Find the people already talking about your space and make them look great for sharing you.","fa":"آدم‌هایی را که همین حالا دربارهٔ حوزهٔ تو حرف می‌زنند پیدا کن و کاری کن با معرفیِ تو خوب به‌نظر برسند."},"pitfall":{"en":"Spending on ads to strangers while ignoring the fans who'd spread it free.","fa":"خرجِ تبلیغ برای غریبه‌ها، درحالی‌که طرفدارهایی که مفت پخشش می‌کنند را نادیده می‌گیری."}},"otaku":{"part":"diffusion","n":9,"name":{"en":"Find the Otaku","fa":"اوتاکو را پیدا کن"},"glabel":{"en":"Otaku","fa":"اوتاکو"},"principle":{"en":"Otaku is an almost obsessive passion — aim at the market that cares enough to hunt your product down and talk about it.","fa":"اوتاکو یعنی یک عشقِ تقریباً وسواسی — بازاری را نشانه بگیر که آن‌قدر برایش مهم است که محصولت را شکار کند و درباره‌اش حرف بزند."},"more":{"en":"Some categories have people who live for them; others leave everyone indifferent. A Purple Cow thrives where otaku already exists, because those fans do the seeking and the spreading. Find a topic people are itching to obsess over, then feed that itch.","fa":"بعضی دسته‌ها آدم‌هایی دارند که برایشان زندگی می‌کنند؛ بعضی همه را بی‌تفاوت می‌گذارند. گاوِ بنفش جایی شکوفا می‌شود که اوتاکو از قبل هست، چون آن طرفدارها هم جست‌وجو می‌کنند هم پخش. موضوعی را پیدا کن که آدم‌ها خارش دارند وسواسش را بگیرند، بعد آن خارش را بخارَان."},"example":{"en":"Godin points to hot-sauce otaku: people so passionate they'll drive across town for a new sauce and tell everyone about it.","fa":"گودین به اوتاکوی سسِ‌تند اشاره می‌کند: آدم‌هایی آن‌قدر شیفته که برای یک سسِ تازه سرِ شهر را زیرِ‌پا می‌گذارند و به همه خبرش را می‌دهند."},"tip":{"en":"Pick a market with built-in passion instead of trying to manufacture it from scratch.","fa":"بازاری با شورِ درون‌ساخت را انتخاب کن، به‌جای اینکه بخواهی از صفر شور بسازی."},"pitfall":{"en":"Launching into a category where nobody cares enough to talk.","fa":"واردِ دسته‌ای شدن که هیچ‌کس آن‌قدر برایش مهم نیست که حرف بزند."}},"earlyadopters":{"part":"diffusion","n":10,"name":{"en":"Market to the Few Who Care","fa":"به همان چند نفری که برایشان مهم است بفروش"},"glabel":{"en":"Early Adopters","fa":"زودپذیرها"},"principle":{"en":"Don't market to the indifferent mass — market to the people who care, and let them reach the rest.","fa":"به تودهٔ بی‌تفاوت نفروش — به آدم‌هایی بفروش که برایشان مهم است، و بگذار آن‌ها به بقیه برسند."},"more":{"en":"The mass is great at ignoring you; the early adopters are looking for something new to love. Win them and they carry the idea down the curve to everyone else. Trying to please the middle first drains the very boldness that would have made the fans fall for you.","fa":"توده در نادیده‌گرفتنِ تو استاد است؛ زودپذیرها دنبالِ چیزِ تازه‌ای می‌گردند تا عاشقش شوند. آن‌ها را ببر، و ایده را روی منحنی تا بقیه می‌برند. تلاش برای راضی‌کردنِ وسط از همان اول، همان جسارتی را می‌خشکاند که قرار بود طرفدارها را عاشقت کند."},"example":{"en":"Instead of a bland ad aimed at everyone, aim at the obsessed few who'll try it early and rave to their friends.","fa":"به‌جای یک تبلیغِ بی‌مزه که همه را نشانه گرفته، همان چند نفرِ وسواسی را نشانه بگیر که زود امتحانش می‌کنند و برای دوستانشان از آن تعریف می‌کنند."},"tip":{"en":"Name the specific person who'd be thrilled by this, and build for them.","fa":"همان آدمِ مشخصی را که این چیز ذوق‌زده‌اش می‌کند نام ببر، و برای او بساز."},"pitfall":{"en":"Watering the idea down to suit a mass that will ignore it anyway.","fa":"رقیق‌کردنِ ایده برای خوش‌آمدِ توده‌ای که به‌هرحال نادیده‌اش می‌گیرد."}},"goedges":{"part":"edges","n":11,"name":{"en":"Go to the Edges","fa":"برو به لبه‌ها"},"glabel":{"en":"The Edges","fa":"لبه‌ها"},"principle":{"en":"Differentiate by going to an extreme — the cheapest, the boldest, the fastest — never the safe middle.","fa":"با رفتن به یک لبه متفاوت شو — ارزان‌ترین، جسورترین، سریع‌ترین — نه هیچ‌وقت وسطِ امن."},"more":{"en":"The center of any market is packed and forgettable; the edges are where attention lives. Push a dimension all the way to its limit until the product becomes impossible to ignore. Whatever ‘too much’ looks like for your category — that's often where the Cow is.","fa":"مرکزِ هر بازار پُر و فراموش‌شدنی است؛ لبه‌ها جایی‌اند که توجه زندگی می‌کند. یک بُعد را تا آخرین حدش هُل بده تا محصول غیرقابلِ‌نادیده‌گرفتن شود. هرچه برای دستهٔ تو «زیادی» به‌نظر می‌رسد — اغلب همان‌جا گاو نشسته."},"example":{"en":"Pick an edge and go all the way: the low-cost extreme, as rock-bottom-fee index funds did, or the most over-the-top version nobody else dares to make.","fa":"یک لبه انتخاب کن و تا ته برو: لبهٔ کم‌هزینه، همان‌طور که صندوق‌های شاخصِ با کارمزدِ ناچیز رفتند، یا آن نسخهٔ افراطی‌ای که هیچ‌کسِ دیگر جرئتِ ساختنش را ندارد."},"tip":{"en":"List the dimensions of your product and ask which one you could take to a shocking extreme.","fa":"بُعدهای محصولت را فهرست کن و بپرس کدام را می‌توانی به یک لبهٔ تکان‌دهنده ببری."},"pitfall":{"en":"Landing in the comfortable middle where every rival already sits.","fa":"فرود آمدن در وسطِ راحتی که هر رقیبی از قبل آن‌جا نشسته."}},"niche":{"part":"edges","n":12,"name":{"en":"Own a Niche","fa":"یک گوشهٔ بازار را مالِ خودت کن"},"glabel":{"en":"Niche","fa":"گوشه"},"principle":{"en":"Target a narrow niche that truly wants you — a product for everybody is a product for nobody.","fa":"یک گوشهٔ باریکِ بازار را نشانه بگیر که واقعاً تو را می‌خواهد — محصولی برای همه، محصولی برای هیچ‌کس است."},"more":{"en":"It's far better to be adored by a small, well-chosen group than tolerated by a big vague one. A tight niche gives you sneezers, word of mouth, and room to be boldly specific. Once you own it, you can migrate outward from strength.","fa":"خیلی بهتر است یک گروهِ کوچکِ خوب‌انتخاب‌شده عاشقت باشند تا یک تودهٔ بزرگ و مبهم تحملت کنند. یک گوشهٔ تنگ به تو عطسه‌کن می‌دهد، حرفِ دهان‌به‌دهان، و جا برای جسورانه دقیق‌بودن. وقتی مالِ خودت شد، می‌توانی از موضعِ قدرت به بیرون گسترش بدهی."},"example":{"en":"Hard Candy sold strange nail-polish colors the big brands ignored — a small niche that adored them and told everyone.","fa":"هارد کندی رنگ‌های عجیبِ لاکِ ناخن را می‌فروخت که برندهای بزرگ نادیده‌شان می‌گرفتند — یک گوشهٔ کوچک که عاشقشان بود و به همه خبر داد."},"tip":{"en":"Choose the smallest market you could dominate and delight completely.","fa":"کوچک‌ترین بازاری را انتخاب کن که می‌توانی کاملاً بر آن مسلط شوی و خوشحالش کنی."},"pitfall":{"en":"Widening the target until the product excites no one in particular.","fa":"آن‌قدر گشاد‌کردنِ هدف که محصول هیچ‌کسِ خاصی را به شوق نیاورد."}},"mattersaxis":{"part":"edges","n":13,"name":{"en":"Differentiate on What Matters","fa":"روی چیزی که مهم است متفاوت شو"},"glabel":{"en":"What Matters","fa":"چیزِ مهم"},"principle":{"en":"Being different isn't enough — be different on a dimension your customers actually care about, and be first there.","fa":"صرفِ متفاوت‌بودن کافی نیست — روی بُعدی متفاوت باش که مشتری‌هایت واقعاً برایش اهمیت می‌دهند، و همان‌جا اول باش."},"more":{"en":"You can differentiate on a hundred axes, but only a few move people to talk and buy. Find the one that matters most to the niche you chose and win it outright. A remarkable difference nobody cares about is just weirdness.","fa":"می‌شود روی صد محور متفاوت شد، اما فقط چند تا آدم‌ها را به حرف و خرید می‌کشانند. همان یکی را که برای گوشهٔ انتخابی‌ات بیشترین اهمیت را دارد پیدا کن و کاملاً ببَرش. یک تفاوتِ چشمگیر که کسی برایش مهم نیست، فقط عجیب‌بودن است."},"example":{"en":"Curad put cartoon characters on its bandages; to kids and their parents that difference mattered, and it took share from plain ones.","fa":"کیورَد شخصیت‌های کارتونی را روی چسبِ‌زخم‌هایش گذاشت؛ برای بچه‌ها و پدرومادرها این تفاوت مهم بود، و از چسب‌های ساده سهم گرفت."},"tip":{"en":"Ask your niche what they'd brag about, then be the best in the world at exactly that.","fa":"از گوشه‌ات بپرس به چه چیزی پُز می‌دهند، بعد در همان یک چیز بهترینِ دنیا باش."},"pitfall":{"en":"Being different in a way that's clever to you but irrelevant to them.","fa":"متفاوت‌بودن به شکلی که برای تو زیرکانه است اما برای آن‌ها بی‌ربط."}},"milk":{"part":"milk","n":14,"name":{"en":"Milk the Cow","fa":"گاو را بدوش"},"glabel":{"en":"Milk It","fa":"بدوش"},"principle":{"en":"When a Purple Cow works, milk it for everything — extend it, raise prices, and harvest the profit.","fa":"وقتی یک گاوِ بنفش جواب داد، تا آخر بدوشش — گسترشش بده، قیمت را بالا ببر، و سود را برداشت کن."},"more":{"en":"A remarkable success won't last forever, so squeeze full value from it while it's hot: milk it with line extensions, higher margins, and everything the fans want more of. Then take that cash and use it to fund the next Cow, before this one cools.","fa":"یک موفقیتِ چشمگیر تا ابد نمی‌ماند، پس تا وقتی داغ است ارزشش را کامل بچلان: با نسخه‌های تازه، حاشیهٔ سودِ بالاتر، و هرچه طرفدارها بیشترش را می‌خواهند بدوشش. بعد آن پول را بردار و صرفِ ساختنِ گاوِ بعدی کن، پیش از اینکه این یکی سرد شود."},"example":{"en":"When a hit product takes off, the smart move is to extend the line and raise prices, then pour the profit into inventing what's next.","fa":"وقتی یک محصولِ پُرفروش می‌گیرد، حرکتِ هوشمندانه این است که خطِ محصول را گسترش بدهی و قیمت را بالا ببری، بعد سود را بریزی توی ساختنِ چیزِ بعدی."},"tip":{"en":"While a Cow is remarkable, extract every bit of profit — and set it aside for the next one.","fa":"تا وقتی یک گاو چشمگیر است، هر ذره سود را بیرون بکش — و برای بعدی کنار بگذار."},"pitfall":{"en":"Under-milking a winner, or milking it so long you forget to build the next.","fa":"کم‌دوشیدنِ یک برنده، یا آن‌قدر دوشیدنش که یادت برود بعدی را بسازی."}},"nextcow":{"part":"milk","n":15,"name":{"en":"Then Invent the Next Cow","fa":"بعد گاوِ بعدی را بساز"},"glabel":{"en":"Next Cow","fa":"گاوِ بعدی"},"principle":{"en":"Every Purple Cow eventually becomes an ordinary brown one — so keep inventing the next remarkable thing.","fa":"هر گاوِ بنفش دستِ‌آخر به یک گاوِ قهوه‌ایِ معمولی تبدیل می‌شود — پس مدام چیزِ چشمگیرِ بعدی را بساز."},"more":{"en":"Rivals copy what works, the novelty fades, and today's Cow slides into commodity. The winners treat remarkability as a repeatable habit, not a one-time miracle: fund a stream of new bets and launch the next Cow before the last turns brown.","fa":"رقبا آنچه جواب می‌دهد را کپی می‌کنند، تازگی می‌ریزد، و گاوِ امروز به کالای معمولی می‌لغزد. برنده‌ها چشمگیری را یک عادتِ تکرارپذیر می‌دانند، نه یک معجزهٔ یک‌بار: جریانی از شرط‌های تازه را تأمینِ مالی می‌کنند و گاوِ بعدی را پیش از قهوه‌ای‌شدنِ قبلی عرضه می‌کنند."},"example":{"en":"The companies that stay remarkable keep launching new hits on purpose, instead of resting on the one that made them famous.","fa":"شرکت‌هایی که چشمگیر می‌مانند، عمداً پُرفروش‌های تازه عرضه می‌کنند، به‌جای اینکه روی همان یکی که مشهورشان کرد لم بدهند."},"tip":{"en":"Treat the last Cow's profit as seed money for the next experiment, not a pension.","fa":"سودِ گاوِ قبلی را پولِ بذرِ آزمایشِ بعدی بدان، نه حقوقِ بازنشستگی."},"pitfall":{"en":"Assuming one remarkable win means you're safe forever.","fa":"فرض‌کردنِ اینکه یک بُردِ چشمگیر یعنی برای همیشه در امانی."}},"verygood":{"part":"milk","n":16,"name":{"en":"The Opposite of Remarkable Is “Very Good”","fa":"نقطهٔ مقابلِ چشمگیر، «خیلی خوب» است"},"glabel":{"en":"“Very Good”","fa":"«خیلی خوب»"},"principle":{"en":"Very good is invisible. In a crowded market, being merely very good is the same as being average.","fa":"خیلی خوب نامرئی است. در بازارِ شلوغ، فقط «خیلی خوب» بودن همان معمولی‌بودن است."},"more":{"en":"‘Very good’ feels like a compliment, but it means competent, expected, and unremarkable — nothing anyone will point out. The bar that actually spreads is ‘remarkable.’ Aim past very good, because good enough is the quiet road to being ignored.","fa":"«خیلی خوب» به‌نظر یک تعریف است، اما یعنی بلد، قابلِ‌انتظار و بی‌حرف — چیزی که کسی نشانش نمی‌دهد. آن میله‌ای که واقعاً پخش می‌شود «چشمگیر» است. از خیلی‌خوب رد شو، چون به‌اندازهٔ‌کافی‌خوب همان جادهٔ بی‌سروصدای نادیده‌شدن است."},"example":{"en":"On a crowded shelf, a ‘very good’ me-too product sits unnoticed next to twenty others; only the remarkable one gets picked up and talked about.","fa":"روی یک قفسهٔ شلوغ، یک محصولِ «خیلی خوبِ» کپی‌شده بی‌آنکه دیده شود کنارِ بیست تای دیگر می‌نشیند؛ فقط چشمگیر برداشته و درباره‌اش حرف زده می‌شود."},"tip":{"en":"When someone calls your product ‘very good,’ treat it as a warning, not praise.","fa":"وقتی کسی محصولت را «خیلی خوب» می‌نامد، آن را یک هشدار بدان، نه تعریف."},"pitfall":{"en":"Polishing something to ‘very good’ and mistaking that for a reason to be noticed.","fa":"صیقل‌دادنِ چیزی تا حدِ «خیلی خوب» و آن را با دلیلی برای دیده‌شدن اشتباه‌گرفتن."}}},"core":{"name":{"en":"BE REMARKABLE","fa":"چشمگیر باش"},"principle":{"en":"A Purple Cow is a product or service remarkable enough that people choose to talk about it. In a crowded, distracted market the safe and average is invisible, so the biggest risk is being boring. Build the remarkable right into what you make, aim it at the people who care, and let word of mouth carry it.","fa":"یک گاوِ بنفش، محصول یا خدمتی است آن‌قدر چشمگیر که آدم‌ها انتخاب می‌کنند درباره‌اش حرف بزنند. در بازارِ شلوغ و حواس‌پرت، امن و معمولی نامرئی است، پس بزرگ‌ترین خطر کسل‌کننده‌بودن است. چشمگیری را از اول در همان چیزی که می‌سازی بساز، آن را به آدم‌هایی که برایشان مهم است نشانه بگیر، و بگذار حرفِ دهان‌به‌دهان ببَرَدش."},"more":{"en":"Godin's argument runs in five moves: the old system of advertising average products to everyone (the TV-industrial complex) is dead; a Purple Cow is something worth remarking about, designed in rather than bolted on; ideas spread when you market to sneezers and early adopters who cross the chasm for you; you win by going to the edges and owning a niche that truly cares; and once a Cow works you milk it, then invent the next — because the opposite of remarkable is “very good.”","fa":"استدلالِ گودین در پنج حرکت پیش می‌رود: سیستمِ قدیمیِ تبلیغِ محصولِ معمولی به همه (چرخهٔ تلویزیون‌صنعتی) مُرده؛ یک گاوِ بنفش چیزی است که ارزشِ حرف‌زدن دارد، از اول ساخته‌شده نه بعداً چسبانده‌شده؛ ایده‌ها وقتی پخش می‌شوند که به عطسه‌کن‌ها و زودپذیرها بفروشی که برایت از شکاف عبور می‌کنند؛ با رفتن به لبه‌ها و مالکیتِ یک گوشهٔ بازار که واقعاً برایش مهم است می‌بَری؛ و وقتی یک گاو جواب داد، می‌دوشی‌اش و بعد بعدی را می‌سازی — چون نقطهٔ مقابلِ چشمگیر «خیلی خوب» است."},"example":{"en":"Click any node to read an idea. You can also drag the nodes around.","fa":"روی هر دایره کلیک کن تا یک ایده را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."}},"stages":[{"level":1,"badge":{"en":"Level 1 · Over-simplified","fa":"سطحِ ۱ · خیلی ساده"},"title":{"en":"Be worth talking about","fa":"ارزشِ حرف‌داشته باش"},"tagline":{"en":"The whole book in a sentence.","fa":"کلِ کتاب در یک جمله."},"body":{"en":"Nobody talks about average. Make one thing remarkable — a Purple Cow — or stay invisible. That's the whole game.","fa":"هیچ‌کس دربارهٔ معمولی حرف نمی‌زند. یک چیز را چشمگیر کن — یک گاوِ بنفش — وگرنه نامرئی می‌مانی. کلِ بازی همین است."},"example":{"en":"A field of brown cows is boring. A purple one? You'd stop the car and tell someone.","fa":"یک دشتِ پُر از گاوِ قهوه‌ای کسل‌کننده است. یک گاوِ بنفش؟ ماشین را نگه می‌داری و به یکی خبرش را می‌دهی."},"gain":{"en":"You hold the single idea the whole book expands on.","fa":"همان یک ایده‌ای را داری که کلِ کتاب بسطش می‌دهد."}},{"level":2,"badge":{"en":"Level 2 · Simple","fa":"سطحِ ۲ · ساده"},"title":{"en":"The ordinary is dead","fa":"چیزِ معمولی مُرده"},"tagline":{"en":"Safe is now the risky choice.","fa":"امن حالا انتخابِ پرخطر است."},"body":{"en":"You can't buy attention by advertising an <b>average product</b> to everyone anymore — the <b>TV-industrial complex</b> is broken. And <b>safe is risky</b>: a boring product gives no one a reason to notice it, so it fades.","fa":"دیگر نمی‌توانی با تبلیغِ یک <b>محصولِ معمولی</b> به همه، توجه بخری — <b>چرخهٔ تلویزیون‌صنعتی</b> شکسته. و <b>امن یعنی پرخطر</b>: یک محصولِ کسل‌کننده به هیچ‌کس دلیلی برای دیدنش نمی‌دهد، پس محو می‌شود."},"example":{"en":"The brand that sands off every edge to offend no one ends up remembered by no one.","fa":"برندی که هر لبه را می‌ساید تا کسی را نرنجاند، دستِ‌آخر یادِ هیچ‌کس نمی‌ماند."},"gain":{"en":"You see why the old marketing playbook stopped working.","fa":"می‌بینی چرا نسخهٔ قدیمیِ بازاریابی از کار افتاد."}},{"level":3,"badge":{"en":"Level 3 · Balanced","fa":"سطحِ ۳ · متعادل"},"title":{"en":"Build the Cow in","fa":"گاو را از درون بساز"},"tagline":{"en":"Remarkable, designed in — not bolted on.","fa":"چشمگیر، از اول ساخته — نه بعداً چسبانده."},"body":{"en":"<b>Remarkable</b> means worth a remark. You can't add it with a bigger ad budget — you have to <b>build it into</b> the product itself, so the product becomes the marketing. Think of the Purple Cow as a new <b>P</b> alongside price and promotion.","fa":"<b>چشمگیر</b> یعنی ارزشِ یک حرف دارد. با بودجهٔ تبلیغِ بزرگ‌تر نمی‌شود اضافه‌اش کرد — باید <b>از اول در</b> خودِ محصول بسازی‌اش، تا محصول خودش بازاریابی شود. گاوِ بنفش را یک <b>پیِ</b> تازه کنارِ قیمت و ترویج بدان."},"example":{"en":"Dutch Boy turned a boring paint can into an easy twist-and-pour jug; the product did the talking.","fa":"داچ‌بوی یک قوطیِ رنگِ کسل‌کننده را به ظرفی بازوبسته و آسان‌ریز تبدیل کرد؛ محصول خودش حرف زد."},"gain":{"en":"You can spot where remarkability actually has to live.","fa":"می‌توانی ببینی چشمگیری واقعاً باید کجا زندگی کند."}},{"level":4,"badge":{"en":"Level 4 · Advanced","fa":"سطحِ ۴ · پیشرفته"},"title":{"en":"Spread it through the few","fa":"از راهِ چند نفر پخشش کن"},"tagline":{"en":"Sneezers, otaku, the chasm, and the edges.","fa":"عطسه‌کن‌ها، اوتاکو، شکاف، و لبه‌ها."},"body":{"en":"Ideas spread along a curve. Market to <b>sneezers</b> and <b>early adopters</b> who care — find the <b>otaku</b>, the obsessed fans — and they carry it across the <b>chasm</b> to everyone else. Win by going to the <b>edges</b> and owning a <b>niche</b> that truly wants you.","fa":"ایده‌ها روی یک منحنی پخش می‌شوند. به <b>عطسه‌کن‌ها</b> و <b>زودپذیرها</b> بفروش که برایشان مهم است — <b>اوتاکو</b> را پیدا کن، همان طرفدارهای وسواسی — و آن‌ها از رویِ <b>شکاف</b> به بقیه می‌بَرَندش. با رفتن به <b>لبه‌ها</b> و مالکیتِ یک <b>گوشهٔ</b> بازار که واقعاً تو را می‌خواهد، می‌بَری."},"example":{"en":"Hot-sauce fans will drive across town for a new sauce and tell everyone — that's otaku doing your marketing.","fa":"طرفدارهای سسِ‌تند برای یک سسِ تازه سرِ شهر را زیرِ‌پا می‌گذارند و به همه می‌گویند — این یعنی اوتاکو دارد بازاریابی‌ات را می‌کند."},"gain":{"en":"You can aim a remarkable product at the people who'll spread it.","fa":"می‌توانی یک محصولِ چشمگیر را به آدم‌هایی نشانه بگیری که پخشش می‌کنند."}},{"level":5,"badge":{"en":"Level 5 · Expert","fa":"سطحِ ۵ · حرفه‌ای"},"title":{"en":"Milk it, then do it again","fa":"بدوش، بعد از نو بساز"},"tagline":{"en":"Exploit the Cow, then invent the next.","fa":"از گاو بهره ببر، بعد بعدی را بساز."},"body":{"en":"The expert treats remarkability as a habit. <b>Milk</b> a Cow while it's hot — extend it, raise prices, harvest the profit — and pour that into the <b>next</b> one, because every Cow eventually turns brown as rivals copy it. And never forget the deepest rule: the opposite of remarkable is <b>“very good.”</b> Good enough is the quiet road to invisible, so you keep producing Cows on purpose.","fa":"آدمِ حرفه‌ای چشمگیری را یک عادت می‌داند. تا وقتی یک گاو داغ است <b>بدوشش</b> — گسترشش بده، قیمت را بالا ببر، سود را بردار — و آن را بریز توی <b>بعدی</b>، چون هر گاو دستِ‌آخر با کپیِ رقبا قهوه‌ای می‌شود. و عمیق‌ترین قاعده را هیچ‌وقت یادت نرود: نقطهٔ مقابلِ چشمگیر <b>«خیلی خوب»</b> است. به‌اندازهٔ‌کافی‌خوب همان جادهٔ بی‌سروصدای نامرئی‌شدن است، پس عمداً مدام گاو تولید می‌کنی."},"example":{"en":"You cash in on today's hit, set the profit aside, and launch the next remarkable thing before the last one cools.","fa":"از پُرفروشِ امروز پول درمی‌آوری، سود را کنار می‌گذاری، و چیزِ چشمگیرِ بعدی را پیش از سردشدنِ قبلی عرضه می‌کنی."},"gain":{"en":"You can create remarkable products on repeat, not just once.","fa":"می‌توانی محصولِ چشمگیر را پشتِ‌سرِ هم بسازی، نه فقط یک‌بار."}}],"quotes":[{"en":"In a crowded marketplace, fitting in is failing. In a busy marketplace, not standing out is the same as being invisible.","fa":"در بازارِ شلوغ، جا‌افتادن یعنی باختن. در بازارِ پُرترافیک، به‌چشم‌نیامدن همان نامرئی‌بودن است."},{"en":"You're either a Purple Cow or you're not. You're either remarkable or invisible.","fa":"یا گاوِ بنفشی یا نیستی. یا چشمگیری یا نامرئی."},{"en":"In your career, even more than for a brand, being safe is risky. The path to lifetime job security is to be remarkable.","fa":"در مسیرِ شغلی‌ات، حتی بیشتر از یک برند، امن‌بودن پرخطر است. راهِ امنیتِ شغلیِ همیشگی این است که چشمگیر باشی."},{"en":"Boring always leads to failure. Boring is always the most risky strategy.","fa":"کسل‌کننده‌بودن همیشه به شکست می‌رسد. کسل‌کننده‌بودن همیشه پرخطرترین راهبرد است."},{"en":"If you're remarkable, it's likely that some people won't like you. That's part of the definition of remarkable.","fa":"اگر چشمگیر باشی، به احتمالِ زیاد بعضی‌ها ازت خوششان نمی‌آید. این خودش بخشی از معنای چشمگیر است."},{"en":"Don't try to make a product for everybody, because that is a product for nobody.","fa":"سعی نکن محصولی برای همه بسازی، چون آن، محصولی برای هیچ‌کس است."},{"en":"If you are a marketer who doesn't know how to invent, design, influence, adapt, and ultimately discard products, then you're no longer a marketer. You're deadwood.","fa":"اگر بازاریابی هستی که بلد نیست محصول را اختراع، طراحی، تنظیم و در نهایت کنار بگذارد، دیگر بازاریاب نیستی. شاخهٔ خشکی."},{"en":"Then, if you're good and you're lucky, that innovation will diffuse. After it dominates the original niche, it will migrate to the masses.","fa":"بعد، اگر خوب باشی و شانس بیاوری، آن نوآوری پخش می‌شود. وقتی بر گوشهٔ اولیه مسلط شد، به‌سمتِ توده کوچ می‌کند."}],"media":[{"kind":"yt","id":"xBIVlM435Zg","src":{"en":"YouTube · TED","fa":"یوتیوب · TED"},"title":{"en":"How to Get Your Ideas to Spread — Seth Godin","fa":"چطور ایده‌هایت را پخش کنی — ست گودین"},"desc":{"en":"Godin's classic TED talk — the Purple Cow argument in his own words: sliced bread, otaku, and being remarkable.","fa":"سخنرانیِ کلاسیکِ گودین در TED — استدلالِ گاوِ بنفش به زبانِ خودش: نانِ بُرش‌خورده، اوتاکو، و چشمگیر‌بودن."},"bullets":{"en":["Remarkable ideas spread, boring ones don't","Market to sneezers and the people who care","The whole thesis in under 20 minutes"],"fa":["ایده‌های چشمگیر پخش می‌شوند، کسل‌کننده‌ها نه","به عطسه‌کن‌ها و آدم‌هایی که برایشان مهم است بفروش","کلِ تز در کمتر از ۲۰ دقیقه"]},"best":{"en":"Best for Stage 1–3.","fa":"خوب برای مرحلهٔ ۱ تا ۳."}},{"kind":"yt","id":"7QkPaJ299Uk","src":{"en":"YouTube · MentalEFit","fa":"یوتیوب · MentalEFit"},"title":{"en":"Purple Cow — Animated Book Summary","fa":"گاوِ بنفش — خلاصهٔ تصویریِ کتاب"},"desc":{"en":"A short animated walk-through of the book's core ideas and examples.","fa":"یک مرورِ کوتاهِ انیمیشنی از ایده‌ها و مثال‌های اصلیِ کتاب."},"bullets":{"en":["Remarkable vs. invisible, in pictures","Sneezers, niches, and the edges","A fast, memorable overview"],"fa":["چشمگیر در برابرِ نامرئی، به‌شکلِ تصویری","عطسه‌کن‌ها، گوشه‌ها، و لبه‌ها","یک مرورِ سریع و به‌یادماندنی"]},"best":{"en":"Best for Stage 1–2.","fa":"خوب برای مرحلهٔ ۱ و ۲."}},{"kind":"img","url":"https://www.penguinrandomhouse.com/books/292254/purple-cow-new-edition-by-seth-godin/","src":{"en":"Portfolio / Penguin · Publisher","fa":"Portfolio / Penguin · ناشر"},"title":{"en":"Purple Cow — Publisher Page","fa":"گاوِ بنفش — صفحهٔ ناشر"},"desc":{"en":"The publisher page for the book, with editions and details.","fa":"صفحهٔ ناشر برای کتاب، با نسخه‌ها و جزئیات."},"bullets":{"en":["The definitive editions","Background on Seth Godin","Straight from the source"],"fa":["نسخه‌های معتبر","پیشینه‌ای دربارهٔ ست گودین","مستقیم از خودِ منبع"]},"best":{"en":"For editions and the source.","fa":"برای نسخه‌ها و منبعِ اصلی."}}],"go":[{"label":{"en":"Publisher page","fa":"صفحهٔ ناشر"},"url":"https://www.penguinrandomhouse.com/books/292254/purple-cow-new-edition-by-seth-godin/"},{"label":{"en":"Book on Goodreads","fa":"کتاب در گودریدز"},"url":"https://www.goodreads.com/book/show/641604.Purple_Cow"},{"label":{"en":"Seth Godin's TED talk","fa":"سخنرانیِ TEDِ ست گودین"},"url":"https://www.ted.com/talks/seth_godin_how_to_get_your_ideas_to_spread"}],"recs":[{"pri":"b","t":{"en":"Find your brown cow","fa":"گاوِ قهوه‌ای‌ات را پیدا کن"},"d":{"en":"Look hard at your product and name the boring, average parts that make it invisible.","fa":"با دقت به محصولت نگاه کن و همان بخش‌های کسل‌کننده و معمولی را که نامرئی‌اش می‌کنند نام ببر."}},{"pri":"b","t":{"en":"Design one remarkable thing","fa":"یک چیزِ چشمگیر طراحی کن"},"d":{"en":"Pick one feature or experience worth a remark and build it right into the product.","fa":"یک ویژگی یا تجربه را که ارزشِ یک حرف دارد انتخاب کن و از اول در خودِ محصول بسازش."}},{"pri":"n","t":{"en":"Aim at the sneezers","fa":"عطسه‌کن‌ها را نشانه بگیر"},"d":{"en":"Name the few obsessed people who'd love this and market to them, not to the indifferent mass.","fa":"همان چند آدمِ وسواسی را که عاشقش می‌شوند نام ببر و به آن‌ها بفروش، نه به تودهٔ بی‌تفاوت."}},{"pri":"n","t":{"en":"Go to an edge","fa":"به یک لبه برو"},"d":{"en":"Choose one extreme — cheapest, boldest, fastest — and push your product all the way there.","fa":"یک لبه انتخاب کن — ارزان‌ترین، جسورترین، سریع‌ترین — و محصولت را تا ته همان‌جا هُل بده."}}]};
+</script>
+
+<script>
+/* ── 3) RENDER (text sections) ────────────────────────────── */
+function elClear(id){ var e=document.getElementById(id); if(e) e.innerHTML=''; return e; }
+
+function renderText(){
+  var t=elClear('tldrHost');
+  DATA.tldr.forEach(function(o){ var li=document.createElement('li'); li.innerHTML = TX(o); t.appendChild(li); });
+
+  var q=elClear('quoteHost');
+  DATA.quotes.forEach(function(o){
+    var bq=document.createElement('blockquote');
+    bq.innerHTML = '<span class="qm">“</span><p>'+TX(o)+'</p>';
+    q.appendChild(bq);
+  });
+
+  var m=elClear('mediaHost');
+  DATA.media.forEach(function(o){
+    var card=document.createElement('div'); card.className='mcard';
+    var thumb;
+    if(o.kind==='yt'){
+      var url='https://www.youtube.com/watch?v='+o.id;
+      var img='https://i.ytimg.com/vi/'+o.id+'/hqdefault.jpg';
+      thumb='<a class="mthumb" href="'+url+'" target="_blank" rel="noopener">'
+        +'<img src="'+img+'" alt="" loading="lazy" onerror="this.style.display=\'none\'">'
+        +'<span class="ptype">'+(LANG==='fa'?'ویدیو':'VIDEO')+'</span>'
+        +'<span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></span></a>';
+    } else {
+      thumb='<a class="mthumb" href="'+o.url+'" target="_blank" rel="noopener"><span class="mfake">'
+        +'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.6"/><path d="M21 15l-5-5L5 21"/></svg>'
+        +'</span><span class="ptype">'+(LANG==='fa'?'تصویر':'IMAGE')+'</span></a>';
+    }
+    var link = o.kind==='yt' ? 'https://www.youtube.com/watch?v='+o.id : o.url;
+    var bl = (LANG==='fa'?o.bullets.fa:o.bullets.en).map(function(b){ return '<li>'+ (LANG==='fa'?faText(b):b) +'</li>'; }).join('');
+    card.innerHTML = thumb + '<div class="mbody">'
+      + '<div class="msrc">'+TX(o.src)+'</div>'
+      + '<h4>'+TX(o.title)+'</h4>'
+      + '<p class="mdesc">'+TX(o.desc)+'</p>'
+      + '<ul>'+bl+'</ul>'
+      + '<a class="mlink" href="'+link+'" target="_blank" rel="noopener">'+(LANG==='fa'?'باز کردن ↗':'Open ↗')+'</a>'
+      + '<div class="mbest">'+TX(o.best)+'</div>'
+      + '</div>';
+    m.appendChild(card);
+  });
+
+  var g=elClear('goHost');
+  DATA.go.forEach(function(o){
+    var a=document.createElement('a'); a.href=o.url; a.target='_blank'; a.rel='noopener';
+    a.textContent=TX(o.label); g.appendChild(a);
+  });
+
+  var r=elClear('recHost');
+  DATA.recs.forEach(function(o){
+    var it=document.createElement('div'); it.className='item';
+    var priLabel = o.pri==='b' ? (LANG==='fa'?'از اینجا شروع کن':'Start here') : (LANG==='fa'?'بعدش این':'Then this');
+    it.innerHTML='<div class="t">'+TX(o.t)+'<span class="pri '+(o.pri==='b'?'b':'')+'">'+priLabel+'</span></div>'
+      +'<div class="d">'+TX(o.d)+'</div>';
+    r.appendChild(it);
+  });
+
+  var mth=document.getElementById('methodHost');
+  mth.innerHTML = LANG==='fa' ? faText("<p><b>منبع:</b> کتابِ «Purple Cow: Transform Your Business by Being Remarkable» نوشتهٔ ست گودین، چاپِ ۲۰۰۳ (نشرِ Portfolio / Penguin).</p><p><b>روشِ کار:</b> ساختارِ پنج‌بخشی و ایده‌ها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده؛ نقل‌قول‌ها مقابله و ویدیوها بررسی شده‌اند.</p><p><b>گروه:</b> «فروش و بازاریابی» — یک خواندنیِ پایه برای هرکسی که می‌خواهد در بازار دیده شود.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای متنِ کامل، خودِ کتاب را بخوان.</p>") : "<p><b>Source:</b> the book <i>Purple Cow: Transform Your Business by Being Remarkable</i> by Seth Godin, published 2003 (Portfolio / Penguin).</p><p><b>How this was built:</b> the five-part structure and ideas were gathered and rewritten from the book and reputable sources; quotes were cross-checked and the linked videos verified.</p><p><b>Group:</b> Sales & Marketing — a foundational read for anyone who needs to get noticed.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>";
+  var fl=document.getElementById('flowTop');
+  if(fl){
+    var loop = LANG==='fa' ? ["چشمگیر","گوشه","سرایت"] : ["Remark","Niche","Spread"];
+    var ar = LANG==='fa' ? '⟵' : '⟶';
+    fl.innerHTML = loop.map(function(w){ return '<b>'+ (LANG==='fa'?faText(w):w) +'</b>'; }).join(' <span class="ar">'+ar+'</span> ');
+  }
+}
+</script>
+
+<script>
+/* ── 4) CONCEPT MAP ───────────────────────────────────────── */
+function renderMap(){
+  var host=document.getElementById('mapHost'); if(!host) return; host.innerHTML='';
+  DATA.parts.forEach(function(p, i){
+    var col=document.createElement('div'); col.className='partcol';
+    var chaps=p.chapters.map(function(ck){
+      var c=DATA.chapters[ck];
+      return '<div class="chapchip"><span class="cn">'+num(c.n)+'</span><div><b>'+TX(c.name)+'</b>'
+        +'<small>'+TX(c.principle).replace(/<[^>]+>/g,'').slice(0, LANG==='fa'?86:76)+'…</small></div></div>';
+    }).join('');
+    col.innerHTML='<div class="ph"><span class="pdot" style="background:var('+p.varc+')"></span>'
+      +'<span class="pnum">'+(LANG==='fa'?'بخشِ ':'PART ')+num(i+1)+'</span></div>'
+      +'<h4>'+TX(p.name)+'</h4>'
+      +'<div class="ptag" style="color:var('+p.varc+')">'+TX(p.tag)+'</div>'
+      +'<p class="pgist">'+TX(p.gist)+'</p>'+chaps;
+    host.appendChild(col);
+  });
+}
+</script>
+
+<script>
+/* ── 5) INTERACTIVE NETWORK GRAPH (deterministic radial layout, no physics) ── */
+var GRAPH = (function(){
+  var svg, W=980, H=780, nodes=[], links=[], sel=null, dragNode=null, moved=false, startPt=null;
+
+  function build(){
+    svg=document.getElementById('netsvg');
+    svg.setAttribute('viewBox','0 0 '+W+' '+H);
+    nodes=[]; links=[];
+    var cx=W/2, cy=H/2, R1=220, R2=126, span=66*Math.PI/180;
+    var N=DATA.parts.length, partAng=DATA.parts.map(function(_,i){ return -Math.PI/2 + i*(2*Math.PI/N); });
+    nodes.push({id:'core', kind:'core', varc:'--core', r:38, x:cx, y:cy, label:DATA.core.name, data:DATA.core});
+    DATA.parts.forEach(function(p,i){
+      var a=partAng[i], px=cx+Math.cos(a)*R1, py=cy+Math.sin(a)*R1;
+      nodes.push({id:'p_'+p.key, kind:'part', varc:p.varc, r:25, x:px, y:py,
+        label:p.name, data:{name:p.name, principle:p.gist, more:p.more, tag:p.tag, key:p.key}});
+      links.push({s:'core', t:'p_'+p.key, strong:true});
+      var nc=p.chapters.length, start=a-span/2;
+      p.chapters.forEach(function(ck,j){
+        var ca = nc>1 ? start+span*(j/(nc-1)) : a;   // fan the 5 chapters outward
+        var c=DATA.chapters[ck];
+        nodes.push({id:'c_'+ck, kind:'chap', varc:p.varc, r:15,
+          x:px+Math.cos(ca)*R2, y:py+Math.sin(ca)*R2,
+          label:(c.glabel||c.name), data:c, ck:ck});
+        links.push({s:'p_'+p.key, t:'c_'+ck});
+      });
+    });
+    nodes.forEach(function(n){ n.hx=n.x; n.hy=n.y; });   // remember home positions for reset
+    draw();
+    select('core');
+  }
+
+  function byId(id){ for(var i=0;i<nodes.length;i++) if(nodes[i].id===id) return nodes[i]; return null; }
+
+  function draw(){
+    var ln='', nd='';
+    links.forEach(function(l){ ln+='<line class="glink" data-s="'+l.s+'" data-t="'+l.t+'" stroke="var(--line)" stroke-width="'+(l.strong?2.4:1.5)+'" stroke-linecap="round"/>'; });
+    nodes.forEach(function(n){
+      var inside='', below='';
+      if(n.kind==='core'){
+        inside='<text text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="800" fill="#fff" letter-spacing="0.3">'+shortLabel(n)+'</text>';
+      } else {
+        if(n.kind==='chap'){
+          inside='<text text-anchor="middle" dominant-baseline="central" font-size="11" font-weight="800" fill="#fff">'+num(n.data.n)+'</text>';
+        }
+        var ly = n.r + (n.kind==='part'?17:14);
+        var fs = n.kind==='part'?13:11;
+        var stroke = 'paint-order:stroke;stroke:var(--card2);stroke-width:3.6px;stroke-linejoin:round';
+        below='<text class="nlab" text-anchor="middle" y="'+ly+'" font-size="'+fs+'" font-weight="'+(n.kind==='part'?'800':'700')+'" fill="var(--ink)" style="'+stroke+'">'+shortLabel(n)+'</text>';
+      }
+      nd+='<g class="node'+(n.kind==='core'?' ncore':'')+'" data-id="'+n.id+'"><g class="ns">'
+        +'<circle r="'+n.r+'" fill="var('+n.varc+')" fill-opacity="'+(n.kind==='chap'?0.94:1)+'" stroke="var(--card)" stroke-width="2.5"/>'
+        +inside+below+'</g></g>';
+    });
+    svg.innerHTML='<g id="glinks">'+ln+'</g><g id="gnodes">'+nd+'</g>';
+    svg.querySelectorAll('.node').forEach(function(gEl){
+      gEl.addEventListener('pointerdown', onDown);
+      gEl.addEventListener('click', function(){ if(!moved) select(gEl.getAttribute('data-id')); });
+      gEl.addEventListener('pointerenter', function(){ if(!dragNode) gEl.classList.add('hover'); });
+      gEl.addEventListener('pointerleave', function(){ gEl.classList.remove('hover'); });
+    });
+    positions();
+  }
+  function shortLabel(n){ return TX(n.label); }
+
+  function positions(){
+    svg.querySelectorAll('.node').forEach(function(g){
+      var n=byId(g.getAttribute('data-id'));
+      g.setAttribute('transform','translate('+n.x.toFixed(1)+','+n.y.toFixed(1)+')');
+    });
+    svg.querySelectorAll('.glink').forEach(function(l){
+      var a=byId(l.getAttribute('data-s')), b=byId(l.getAttribute('data-t'));
+      l.setAttribute('x1',a.x.toFixed(1)); l.setAttribute('y1',a.y.toFixed(1));
+      l.setAttribute('x2',b.x.toFixed(1)); l.setAttribute('y2',b.y.toFixed(1));
+    });
+  }
+
+  /* drag: just move the grabbed node — no simulation, so nothing else shifts */
+  function toSvg(e){
+    var pt=svg.createSVGPoint(); pt.x=e.clientX; pt.y=e.clientY;
+    var m=svg.getScreenCTM(); if(!m) return {x:e.clientX,y:e.clientY};
+    return pt.matrixTransform(m.inverse());
+  }
+  function onDown(e){
+    e.preventDefault();
+    dragNode=byId(e.currentTarget.getAttribute('data-id'));
+    moved=false; startPt=toSvg(e); svg.style.cursor='grabbing';
+    e.currentTarget.classList.remove('hover');
+    window.addEventListener('pointermove', onMove);
+    window.addEventListener('pointerup', onUp);
+  }
+  function onMove(e){
+    if(!dragNode) return; var p=toSvg(e);
+    if(startPt && (Math.abs(p.x-startPt.x)>4 || Math.abs(p.y-startPt.y)>4)) moved=true;
+    dragNode.x=Math.max(dragNode.r+4, Math.min(W-dragNode.r-4, p.x));
+    dragNode.y=Math.max(dragNode.r+4, Math.min(H-dragNode.r-24, p.y));
+    positions();
+  }
+  function onUp(){
+    dragNode=null; svg.style.cursor='grab';
+    window.removeEventListener('pointermove', onMove);
+    window.removeEventListener('pointerup', onUp);
+  }
+
+  function keepSet(id){
+    var n=byId(id); if(!n || id==='core') return null;   // core → show everything
+    var keep={}; keep[id]=1; keep['core']=1;
+    var pk = (n.kind==='part') ? n.data.key : n.data.part;
+    keep['p_'+pk]=1;
+    DATA.parts.forEach(function(p){ if(p.key===pk) p.chapters.forEach(function(ck){ keep['c_'+ck]=1; }); });
+    return keep;   // highlight the whole branch: core → part → its chapters
+  }
+  function applyFocus(id){
+    var keep=keepSet(id), full=(keep===null);
+    svg.querySelectorAll('.node').forEach(function(g){
+      var nid=g.getAttribute('data-id');
+      g.classList.toggle('dim', !full && !keep[nid]);
+      g.classList.toggle('hl', !full && keep[nid] && nid!==id);
+    });
+    svg.querySelectorAll('.glink').forEach(function(l){
+      var s=l.getAttribute('data-s'), t=l.getAttribute('data-t');
+      var on = full || (keep[s] && keep[t]);
+      l.classList.toggle('dim', !on);
+      l.classList.toggle('hl', !full && on);
+    });
+  }
+
+  function relatedIds(node){
+    var ids=[];
+    if(node.id==='core'){ DATA.parts.forEach(function(p){ ids.push('p_'+p.key); }); }
+    else if(node.kind==='part'){ var pk=node.data.key; DATA.parts.forEach(function(p){ if(p.key===pk) p.chapters.forEach(function(ck){ ids.push('c_'+ck); }); }); }
+    else { var pk2=node.data.part; ids.push('p_'+pk2);
+      DATA.parts.forEach(function(p){ if(p.key===pk2) p.chapters.forEach(function(ck){ if('c_'+ck!==node.id) ids.push('c_'+ck); }); }); }
+    return ids;
+  }
+
+  function drow(cls,label,txt){ return '<div class="drow '+cls+'"><div class="dlab">'+label+'</div><div class="dtxt">'+txt+'</div></div>'; }
+
+  function select(id){
+    var n=byId(id); if(!n) return;
+    sel=id;
+    svg.querySelectorAll('.node').forEach(function(g){ g.classList.toggle('sel', g.getAttribute('data-id')===id); });
+    var selEl=svg.querySelector('.node[data-id="'+id+'"]'); if(selEl&&selEl.parentNode) selEl.parentNode.appendChild(selEl);  // raise on top
+    applyFocus(id);
+    var d=n.data, pv = n.kind==='core' ? '--core' : n.varc;
+    var kicker = n.kind==='core' ? (LANG==='fa'?'ایدهٔ مرکزی':'Core idea')
+             : n.kind==='part' ? (LANG==='fa'?'بخش':'Part') + ' · ' + TX(d.tag)
+             : (LANG==='fa'?"ایدهٔ":"Idea") + ' ' + num(d.n);
+    var prLab = (n.kind==='chap') ? (LANG==='fa'?'اصل':'Principle') : (LANG==='fa'?'ایدهٔ اصلی':'Big idea');
+    var html='<div class="dkick"><i style="background:var('+pv+')"></i>'+ (LANG==='fa'?faText(kicker):kicker) +'</div>'
+      +'<h4>'+TX(d.name)+'</h4>'
+      + drow('', prLab, TX(d.principle));
+    if(d.more)    html += drow('more', (LANG==='fa'?'بیشتر':'In depth'), TX(d.more));
+    if(d.example) html += drow('', (LANG==='fa'?'مثال':'Example'), TX(d.example));
+    if(d.tip)     html += drow('tip', (LANG==='fa'?'امتحان کن':'Try this'), TX(d.tip));
+    if(d.pitfall) html += drow('pit', (LANG==='fa'?'حواست باشد':'Watch out'), TX(d.pitfall));
+    // related chips
+    var rel=relatedIds(n);
+    if(rel.length){
+      var chips=rel.map(function(rid){ var rn=byId(rid); if(!rn) return '';
+        return '<span class="dchip" data-goto="'+rid+'"><i style="background:var('+rn.varc+')"></i>'+TX(rn.data.name)+'</span>'; }).join('');
+      html += '<div class="drow"><div class="dlab">'+(LANG==='fa'?'مرتبط':'Related')+'</div><div class="dchips">'+chips+'</div></div>';
+    }
+    var host=document.getElementById('detailHost');
+    host.innerHTML=html;
+    host.querySelectorAll('.dchip').forEach(function(c){
+      c.addEventListener('click', function(){ select(c.getAttribute('data-goto')); });
+    });
+  }
+
+  function relabel(){ if(!svg) return; draw(); select(sel||'core'); }
+
+  return {
+    build:build,
+    kick:function(){},                                    // no-op; layout is static
+    relabel:relabel,
+    reset:function(){ nodes.forEach(function(n){ n.x=n.hx; n.y=n.hy; }); positions(); },
+    resetFocus:function(){ select('core'); },
+    selectNode:function(id){ select(id); },
+    hasNodes:function(){ return nodes.length>0; }
+  };
+})();
+</script>
+
+<script>
+/* ── 6) 5-STAGE LADDER ────────────────────────────────────── */
+var curStage=0;
+function renderLadder(){
+  var host=document.getElementById('ladderHost'); host.innerHTML='';
+  DATA.stages.forEach(function(s,i){
+    var r=document.createElement('div'); r.className='rung'+(i===curStage?' active':'');
+    r.innerHTML='<div class="lv">'+ (LANG==='fa'?('سطحِ '+num(s.level)):('Level '+s.level)) +'</div>'
+      +'<div class="lt">'+TX(s.title)+'</div>'
+      +'<div class="lbar"><i style="width:'+(s.level*20)+'%"></i></div>';
+    r.addEventListener('click', function(){ curStage=i; renderLadder(); renderStage();
+      document.getElementById('stageHost').scrollIntoView({behavior:'smooth',block:'nearest'}); });
+    host.appendChild(r);
+  });
+}
+function renderStage(){
+  var s=DATA.stages[curStage];
+  var host=document.getElementById('stageHost');
+  var exLabel = LANG==='fa'?'مثال':'Example';
+  var prev = LANG==='fa'?'مرحلهٔ قبل':'‹ Prev', next = LANG==='fa'?'مرحلهٔ بعد':'Next ›';
+  host.innerHTML=''+
+    '<div class="stagecard">'
+    +'<div class="shead"><span class="badge">'+TX(s.badge)+'</span><h3>'+TX(s.title)+'</h3></div>'
+    +'<div class="tagline">'+TX(s.tagline)+'</div>'
+    +'<div class="sbody">'+TX(s.body)+'</div>'
+    +'<div class="exbox"><div class="exk">'+exLabel+'</div><div class="ext">'+TX(s.example)+'</div></div>'
+    +'<div class="gainrow"><span class="gi">✓</span><span>'+TX(s.gain)+'</span></div>'
+    +'<div class="stagenav">'
+      +'<button id="stPrev" '+(curStage===0?'disabled':'')+'>'+prev+'</button>'
+      +'<button id="stNext" '+(curStage===DATA.stages.length-1?'disabled':'')+'>'+next+'</button>'
+    +'</div></div>';
+  var pv=document.getElementById('stPrev'), nx=document.getElementById('stNext');
+  if(pv) pv.onclick=function(){ if(curStage>0){curStage--; renderLadder(); renderStage();} };
+  if(nx) nx.onclick=function(){ if(curStage<DATA.stages.length-1){curStage++; renderLadder(); renderStage();} };
+}
+</script>
+
+<script>
+/* ── 7) legend + graph tabs ───────────────────────────────── */
+function renderLegend(){
+  var host=document.getElementById('legendHost'); if(!host) return;
+  var items=[{c:'--core', en:'Core idea', fa:'ایدهٔ مرکزی'}]
+    .concat(DATA.parts.map(function(p){ return {c:p.varc, en:p.name.en, fa:p.name.fa}; }));
+  host.innerHTML = items.map(function(it){
+    return '<span><i style="background:var('+it.c+')"></i>'+(LANG==='fa'?faText(it.fa):it.en)+'</span>';
+  }).join('');
+  document.getElementById('ghint').textContent = LANG==='fa' ? 'روی هر دایره کلیک کن تا بیشتر بخوانی · می‌توانی بکشی‌شان' : 'Click a node to read more · drag to move';
+  document.getElementById('greset').textContent = LANG==='fa' ? '↺ چیدمان' : '↺ Reset';
+}
+function setupTabs(){
+  function show(net){
+    document.getElementById('netView').style.display = net?'':'none';
+    document.getElementById('mapView').style.display = net?'none':'';
+    document.getElementById('tabNet').classList.toggle('active',net);
+    document.getElementById('tabMap').classList.toggle('active',!net);
+    if(net) GRAPH.kick();
+  }
+  document.getElementById('tabNet').onclick=function(){show(true);};
+  document.getElementById('tabMap').onclick=function(){show(false);};
+  document.getElementById('greset').onclick=function(){ GRAPH.reset(); };
+  // click empty graph space resets the focus
+  var svg=document.getElementById('netsvg');
+  svg.addEventListener('click', function(e){ if(!e.target.closest('.node')) GRAPH.resetFocus(); });
+}
+</script>
+
+<script>
+/* ── 8) toggles + boot ────────────────────────────────────── */
+function setLang(lg){
+  LANG=lg;
+  document.documentElement.setAttribute('data-lang',lg);
+  document.documentElement.setAttribute('lang',lg);
+  document.documentElement.setAttribute('dir', lg==='fa'?'rtl':'ltr');
+  try{ localStorage.setItem('purplecow-lang',lg); }catch(e){}
+  renderAll();
+}
+function renderAll(){
+  renderText();
+  renderMap();
+  renderLegend();
+  renderLadder();
+  renderStage();
+  if(GRAPH.hasNodes()) GRAPH.relabel(); else GRAPH.build();
+}
+(function(){
+  var lb=document.getElementById('langBtn');
+  lb && lb.addEventListener('click', function(){ setLang(LANG==='fa'?'en':'fa'); });
+
+  var tb=document.getElementById('themeBtn');
+  function curT(){ return document.documentElement.getAttribute('data-theme'); }
+  tb && tb.addEventListener('click', function(){
+    var t=curT()==='dark'?'light':'dark';
+    document.documentElement.setAttribute('data-theme',t);
+    try{ localStorage.setItem('purplecow-theme',t); }catch(e){}
+  });
+  try{ matchMedia('(prefers-color-scheme: dark)').addEventListener('change',function(e){
+    if(!localStorage.getItem('purplecow-theme')){ document.documentElement.setAttribute('data-theme', e.matches?'dark':'light'); }
+  }); }catch(e){}
+})();
+
+/* scroll-spy */
+(function(){
+  var links=[].slice.call(document.querySelectorAll('.toc a'));
+  var seen={}, ids=[];
+  links.forEach(function(a){ var id=a.getAttribute('href').slice(1); if(!seen[id]){seen[id]=1; ids.push(id);} });
+  var secs=ids.map(function(id){return document.getElementById(id);}).filter(Boolean);
+  function setActive(id){ links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('href')==='#'+id); }); }
+  if('IntersectionObserver' in window){
+    var obs=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+    },{rootMargin:'-45% 0px -50% 0px',threshold:0});
+    secs.forEach(function(s){ obs.observe(s); });
+  }
+})();
+
+document.addEventListener('DOMContentLoaded', function(){
+  setupTabs();
+  renderAll();
+});
+</script>
+</body>
+</html>
