@@ -1,21 +1,20 @@
 <!DOCTYPE html>
-<!-- complexity-level: 1→5 (this page teaches the SAME book at five depths, over-simplified … expert) -->
-<!-- Effortless (Greg McKeown) — bilingual EN/FA knowledge graph & 5-stage learning page -->
+<!-- Generated page. Edit CONTENT in the DATA object below; shared UI lives in ../assets/book.css + ../assets/book.js -->
 <html lang="fa" dir="rtl" data-lang="fa">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The Great CEO Within — نقشهٔ دانش و یادگیری ۵ مرحله‌ای</title>
 
-<!-- Boot theme + language BEFORE paint to avoid a flash -->
+<!-- Boot theme + language BEFORE paint to avoid a flash (shared library-wide keys) -->
 <script>
 (function(){
   try{
-    var th = localStorage.getItem('gcw-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
+    var th = localStorage.getItem('pbl-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
     document.documentElement.setAttribute('data-theme', th);
   }catch(e){ document.documentElement.setAttribute('data-theme','light'); }
   try{
-    var lg = localStorage.getItem('gcw-lang') || 'fa';
+    var lg = localStorage.getItem('pbl-lang') || 'fa';
     document.documentElement.setAttribute('data-lang', lg);
     document.documentElement.setAttribute('lang', lg);
     document.documentElement.setAttribute('dir', lg==='fa' ? 'rtl' : 'ltr');
@@ -28,876 +27,1214 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:ital,opsz@0,6..72;1,6..72&display=swap" rel="stylesheet">
-
-<style>
-/* ── TOKENS ───────────────────────────────────────────────── */
-:root, [data-theme="light"]{
-  --bg:#f5f6f8; --bg2:#eef2f7; --card:#fff; --card2:#f8fafb;
-  --ink:#1c2330; --mut:#6b7280; --line:#e6e8ee;
-  --accent:#0e7c86; --accent-ink:#fff; --warm:#c2410c;
-  --shadow:0 1px 2px rgba(20,30,50,.05),0 6px 24px rgba(20,30,50,.06);
-  --hero-1:#0e7c86; --hero-2:#0b5e66;
-  --c-teal:#0e9aa6; --c-blue:#2f6fb0; --c-violet:#7c3aed; --c-amber:#d97706;
-  --c-green:#15a34a; --c-red:#e11d48; --c-gold:#c98a12; --c-gray:#6b7280;
-  --state:#0e9aa6; --action:#d97706; --results:#7c3aed; --core:#0e7c86;
-}
-[data-theme="dark"]{
-  --bg:#0e131a; --bg2:#161d27; --card:#151c26; --card2:#1b2430;
-  --ink:#e9eef5; --mut:#9aa7b6; --line:#27313d;
-  --accent:#2dd4bf; --accent-ink:#06231f; --warm:#fb923c;
-  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 28px rgba(0,0,0,.45);
-  --hero-1:#0c5f67; --hero-2:#07323a;
-  --c-teal:#2dd4bf; --c-blue:#5b9bd5; --c-violet:#a78bfa; --c-amber:#fbbf24;
-  --c-green:#34d399; --c-red:#fb7185; --c-gold:#e2b04a; --c-gray:#94a3b8;
-  --state:#2dd4bf; --action:#fbbf24; --results:#a78bfa; --core:#2dd4bf;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);
-  font-family:Vazirmatn,"Segoe UI",Tahoma,Arial,sans-serif;line-height:1.85;font-size:15px;
-  transition:background .25s,color .25s}
-html[data-lang="en"] body{font-family:Inter,"Segoe UI",system-ui,Arial,sans-serif;line-height:1.7}
-.wrap{max-width:960px;margin:0 auto;padding:0 18px 40px}
-
-/* language visibility */
-html[data-lang="en"] [data-only="fa"]{display:none !important}
-html[data-lang="fa"] [data-only="en"]{display:none !important}
-
-/* ── HERO ─────────────────────────────────────────────────── */
-.hero{background:linear-gradient(135deg,var(--hero-1),var(--hero-2));color:#fff;padding:44px 0 34px;position:relative;overflow:hidden}
-.hero::after{content:"";position:absolute;inset-inline-end:-80px;top:-80px;width:280px;height:280px;
-  background:radial-gradient(circle,rgba(255,255,255,.12),transparent 70%);pointer-events:none}
-.hero .wrap{padding-bottom:0;position:relative;z-index:1}
-.hero h1{margin:0 0 8px;font-size:30px;font-weight:800;letter-spacing:-.3px;line-height:1.25}
-html[data-lang="en"] .hero h1{font-family:Newsreader,Georgia,serif;font-weight:600;letter-spacing:-.5px}
-.hero .dek{margin:0;opacity:.94;font-size:15.5px;max-width:640px}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;
-  color:rgba(255,255,255,.95);background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.24);
-  padding:5px 13px;border-radius:20px;margin-bottom:15px}
-.eyebrow .edot{width:7px;height:7px;border-radius:50%;background:#fff;box-shadow:0 0 0 3px rgba(255,255,255,.25)}
-.metastrip{display:flex;flex-wrap:wrap;gap:14px 30px;margin-top:20px;padding-top:16px;
-  border-top:1px solid rgba(255,255,255,.18)}
-.metaitem{display:flex;flex-direction:column;gap:3px}
-.metaitem .mk{font-size:10.5px;color:rgba(255,255,255,.62);font-weight:700;letter-spacing:.6px;text-transform:uppercase}
-.metaitem .mv{font-size:14px;color:#fff;font-weight:700}
-.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
-.chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);
-  border-radius:11px;padding:9px 15px;font-size:13px}
-.chip b{font-size:20px;display:block;font-weight:800}
-
-/* ── NAV + TOC ────────────────────────────────────────────── */
-.navbar{position:sticky;top:0;z-index:60;background:color-mix(in srgb,var(--card) 92%,transparent);
-  backdrop-filter:saturate(180%) blur(10px);-webkit-backdrop-filter:saturate(180%) blur(10px);
-  border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
-.navin{max-width:960px;margin:0 auto;padding:8px 16px;display:flex;align-items:center;gap:12px}
-.brand{flex:0 0 auto;font-weight:800;font-size:12.5px;color:var(--accent);white-space:nowrap;
-  display:flex;align-items:center;gap:7px}
-.brand .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);
-  box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 18%,transparent)}
-.toc{flex:1 1 auto;display:flex;flex-wrap:wrap;gap:7px;justify-content:center}
-.toc a{font-size:12.5px;color:var(--mut);text-decoration:none;border:1px solid var(--line);
-  border-radius:20px;padding:5px 12px;background:var(--card);white-space:nowrap;
-  transition:background .15s,color .15s,border-color .15s}
-.toc a:hover{color:var(--accent);border-color:var(--accent)}
-.toc a.active{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
-.navctl{flex:0 0 auto;display:flex;align-items:center;gap:8px}
-.langbtn{height:34px;border-radius:18px;border:1px solid var(--line);background:var(--card);
-  color:var(--ink);cursor:pointer;font:inherit;font-size:12.5px;font-weight:700;padding:0 13px;
-  display:flex;align-items:center;gap:6px}
-.langbtn:hover{border-color:var(--accent);color:var(--accent)}
-.langbtn .globe{width:15px;height:15px;display:block}
-.themebtn{flex:0 0 auto;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);
-  background:var(--card);color:var(--ink);cursor:pointer;line-height:1;display:grid;place-items:center}
-.themebtn svg{width:17px;height:17px;display:block}
-.themebtn:hover{border-color:var(--accent);color:var(--accent)}
-[data-theme="light"] .themebtn .ic-sun{display:none}
-[data-theme="dark"]  .themebtn .ic-moon{display:none}
-
-/* ── BLOCKS ───────────────────────────────────────────────── */
-h2{font-size:21px;margin:44px 0 6px;font-weight:800;scroll-margin-top:92px;line-height:1.35}
-html[data-lang="en"] h2{font-family:Newsreader,Georgia,serif;font-weight:600}
-h2 .num{color:var(--accent);font-variant-numeric:tabular-nums}
-.sub{color:var(--mut);font-size:13.5px;margin:0 0 16px;max-width:680px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;
-  padding:20px 22px;margin:14px 0;box-shadow:var(--shadow)}
-.lead{font-size:15.5px}
-.lead b{color:var(--warm)}
-.kgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin:8px 0}
-.kbox{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:15px 16px;text-align:center}
-.kbox .v{font-size:26px;font-weight:800;color:var(--accent);font-variant-numeric:tabular-nums}
-.kbox .l{font-size:12.5px;color:var(--mut);margin-top:3px}
-ul.clean{margin:6px 0;padding-inline-start:20px} ul.clean li{margin:8px 0}
-.callout{background:color-mix(in srgb,var(--warm) 9%,var(--card));
-  border:1px solid color-mix(in srgb,var(--warm) 30%,var(--line));
-  border-radius:12px;padding:14px 18px;margin:12px 0}
-.callout b{color:var(--warm)}
-.callout.accent{background:color-mix(in srgb,var(--accent) 9%,var(--card));
-  border-color:color-mix(in srgb,var(--accent) 30%,var(--line))}
-.callout.accent b{color:var(--accent)}
-a{color:var(--accent)}
-
-/* ── GRAPH ────────────────────────────────────────────────── */
-.gtabs{display:inline-flex;gap:4px;background:var(--bg2);border:1px solid var(--line);
-  border-radius:11px;padding:4px;margin:6px 0 2px}
-.gtab{border:0;background:transparent;color:var(--mut);font:inherit;font-size:13px;font-weight:700;
-  padding:7px 15px;border-radius:8px;cursor:pointer}
-.gtab.active{background:var(--card);color:var(--accent);box-shadow:var(--shadow)}
-.graphcard{padding:14px}
-.legend{display:flex;flex-wrap:wrap;gap:14px;margin:2px 4px 12px;font-size:12.5px;color:var(--mut)}
-.legend span{display:inline-flex;align-items:center;gap:6px}
-.legend i{width:11px;height:11px;border-radius:50%;display:inline-block}
-.graphstage{display:grid;grid-template-columns:1fr;gap:14px}
-@media(min-width:760px){.graphstage{grid-template-columns:1.35fr .95fr}}
-.svgwrap{position:relative;background:var(--card2);border:1px solid var(--line);border-radius:12px;
-  overflow:hidden;min-height:300px}
-#netsvg{display:block;width:100%;height:560px;touch-action:none;cursor:grab}
-#netsvg text{pointer-events:none;user-select:none}
-.ghint{position:absolute;inset-inline-start:12px;top:10px;font-size:11.5px;color:var(--mut);
-  background:color-mix(in srgb,var(--card) 82%,transparent);border:1px solid var(--line);
-  border-radius:20px;padding:3px 11px;backdrop-filter:blur(4px);max-width:70%}
-.greset{position:absolute;inset-inline-end:10px;top:10px;border:1px solid var(--line);background:var(--card);
-  color:var(--mut);border-radius:8px;font:inherit;font-size:11.5px;padding:4px 10px;cursor:pointer}
-.greset:hover{color:var(--accent);border-color:var(--accent)}
-/* node + link interaction states */
-.node{cursor:pointer}
-/* the inner <g class="ns"> is what scales; fill-box keeps the pivot on the node itself, not the SVG viewport */
-.ns{transform-box:fill-box;transform-origin:center;transition:transform .2s cubic-bezier(.2,.75,.25,1)}
-.node.hover .ns{transform:scale(1.1)}
-.node.sel  .ns{transform:scale(1.34)}                 /* selected node grows */
-.node.ncore.hover .ns{transform:scale(1.06)}
-.node.ncore.sel   .ns{transform:none}                 /* the centre 'Effortless' node keeps default size */
-.node.sel circle{stroke:var(--ink);stroke-width:2.5;filter:drop-shadow(0 0 8px color-mix(in srgb,var(--accent) 60%,transparent))}
-.node.hl circle{stroke:var(--ink);stroke-opacity:.5;stroke-width:2.5}
-.node.dim{opacity:.2}
-.node text{font-family:Vazirmatn,Tahoma,sans-serif;font-weight:700}
-html[data-lang="en"] .node text{font-family:Inter,sans-serif}
-.glink{transition:opacity .2s,stroke .2s}
-.glink.dim{opacity:.08}
-.glink.hl{stroke:var(--accent) !important;stroke-opacity:.8}
-/* detail panel */
-.detail{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;min-height:220px}
-@media(min-width:760px){.detail{max-height:480px;overflow:auto}}
-.detail .dkick{font-size:11.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;display:flex;align-items:center;gap:7px;color:var(--mut)}
-.detail .dkick i{width:10px;height:10px;border-radius:50%}
-.detail h4{margin:8px 0 3px;font-size:18px;font-weight:800}
-html[data-lang="en"] .detail h4{font-family:Newsreader,serif;font-weight:600}
-.detail .drow{margin:11px 0}
-.detail .dlab{font-size:10.5px;font-weight:800;color:var(--accent);letter-spacing:.5px;text-transform:uppercase;
-  display:inline-flex;align-items:center;gap:5px}
-.detail .drow.tip .dlab{color:var(--c-green)}
-.detail .drow.pit .dlab{color:var(--warm)}
-.detail .drow.more{border-inline-start:2px solid color-mix(in srgb,var(--accent) 32%,var(--line));padding-inline-start:11px}
-.detail .drow.more .dlab{color:var(--mut)}
-.detail .dtxt{font-size:13.6px;margin-top:3px}
-.dchips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
-.dchip{font-size:12px;border:1px solid var(--line);background:var(--card2);border-radius:16px;padding:4px 11px;
-  cursor:pointer;color:var(--ink);display:inline-flex;align-items:center;gap:6px;font-family:inherit}
-.dchip:hover{border-color:var(--accent);color:var(--accent)}
-.dchip i{width:8px;height:8px;border-radius:50%;flex:0 0 auto}
-
-/* ── CONCEPT MAP ──────────────────────────────────────────── */
-.mapgrid{display:grid;grid-template-columns:1fr;gap:14px}
-@media(min-width:820px){.mapgrid{grid-template-columns:repeat(3,1fr)}}
-.partcol{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:16px;position:relative}
-.partcol .ph{display:flex;align-items:center;gap:9px;margin-bottom:3px}
-.partcol .pdot{width:13px;height:13px;border-radius:50%;flex:0 0 auto}
-.partcol .pnum{font-size:11px;font-weight:800;color:var(--mut)}
-.partcol h4{margin:0;font-size:16.5px;font-weight:800}
-html[data-lang="en"] .partcol h4{font-family:Newsreader,serif;font-weight:600}
-.partcol .ptag{font-size:12px;color:var(--mut);margin:2px 0 4px;font-weight:700}
-.partcol .pgist{font-size:12.8px;color:var(--mut);margin:0 0 12px}
-.chapchip{display:flex;align-items:baseline;gap:8px;padding:7px 10px;border:1px solid var(--line);
-  border-radius:9px;margin:6px 0;background:var(--card2);font-size:13px}
-.chapchip .cn{font-size:11px;font-weight:800;color:var(--mut);flex:0 0 auto;font-variant-numeric:tabular-nums}
-.chapchip b{font-weight:700}
-.chapchip small{color:var(--mut);display:block;font-size:11.5px;line-height:1.5}
-.flowline{display:flex;align-items:center;justify-content:center;gap:10px;color:var(--mut);
-  font-size:12.5px;font-weight:700;margin:6px 0 2px;flex-wrap:wrap}
-.flowline .ar{color:var(--accent)}
-
-/* ── STAGE LADDER ─────────────────────────────────────────── */
-.ladder{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 4px}
-.rung{flex:1 1 150px;border:1px solid var(--line);background:var(--card);border-radius:11px;
-  padding:11px 13px;cursor:pointer;transition:transform .12s,border-color .12s;position:relative}
-.rung:hover{border-color:var(--accent);transform:translateY(-2px)}
-.rung.active{border-color:var(--accent);box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 35%,transparent)}
-.rung .lv{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.4px}
-.rung .lt{font-size:13.5px;font-weight:800;margin-top:2px}
-.rung .lbar{height:5px;border-radius:4px;background:var(--bg2);margin-top:9px;overflow:hidden}
-.rung .lbar i{display:block;height:100%;background:linear-gradient(90deg,var(--c-teal),var(--c-violet))}
-.stagecard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 24px;
-  margin:14px 0;box-shadow:var(--shadow)}
-.stagecard .shead{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-.stagecard .badge{font-size:12px;font-weight:800;color:#fff;background:var(--accent);
-  border-radius:8px;padding:4px 11px;white-space:nowrap}
-.stagecard h3{margin:0;font-size:21px;font-weight:800}
-html[data-lang="en"] .stagecard h3{font-family:Newsreader,serif;font-weight:600}
-.stagecard .tagline{color:var(--mut);font-size:13.5px;margin:4px 0 14px;font-weight:700}
-.stagecard .sbody{font-size:15px}
-.exbox{background:var(--card2);border:1px solid var(--line);border-inline-start:3px solid var(--accent);
-  border-radius:0 11px 11px 0;padding:13px 16px;margin:14px 0 6px}
-.exbox .exk{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.5px;text-transform:uppercase}
-.exbox .ext{font-size:13.8px;margin-top:3px}
-.gainrow{display:flex;align-items:flex-start;gap:9px;margin-top:12px;font-size:13px;color:var(--mut)}
-.gainrow .gi{flex:0 0 auto;color:var(--c-green);font-weight:800}
-.stagenav{display:flex;justify-content:space-between;gap:10px;margin-top:16px}
-.stagenav button{border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit;
-  font-size:13px;font-weight:700;border-radius:9px;padding:8px 14px;cursor:pointer}
-.stagenav button:hover:not(:disabled){border-color:var(--accent);color:var(--accent)}
-.stagenav button:disabled{opacity:.4;cursor:default}
-
-/* ── QUOTES ───────────────────────────────────────────────── */
-.qgrid{display:grid;grid-template-columns:1fr;gap:12px}
-@media(min-width:720px){.qgrid{grid-template-columns:1fr 1fr}}
-blockquote{margin:0;background:var(--card2);border-inline-start:3px solid var(--accent);
-  border-radius:0 12px 12px 0;padding:15px 18px;font-size:14.5px;position:relative}
-blockquote .qm{font-size:34px;line-height:0;color:var(--accent);opacity:.35;font-family:Georgia,serif;
-  position:absolute;inset-inline-start:10px;top:20px}
-blockquote p{margin:0;padding-inline-start:22px}
-html[data-lang="en"] blockquote{font-family:Newsreader,Georgia,serif;font-size:15.5px}
-
-/* ── MEDIA ────────────────────────────────────────────────── */
-.mgrid{display:grid;grid-template-columns:1fr;gap:16px}
-@media(min-width:640px){.mgrid{grid-template-columns:1fr 1fr}}
-.mcard{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;
-  box-shadow:var(--shadow);display:flex;flex-direction:column}
-.mthumb{position:relative;display:block;aspect-ratio:16/9;background:var(--bg2);overflow:hidden;text-decoration:none}
-.mthumb img{width:100%;height:100%;object-fit:cover;display:block}
-.mthumb .play{position:absolute;inset:0;display:grid;place-items:center}
-.mthumb .play span{width:54px;height:54px;border-radius:50%;background:rgba(0,0,0,.6);
-  display:grid;place-items:center;border:2px solid rgba(255,255,255,.9)}
-.mthumb .play svg{width:22px;height:22px;fill:#fff;margin-inline-start:3px}
-.mthumb .ptype{position:absolute;inset-inline-start:9px;top:9px;background:rgba(0,0,0,.72);color:#fff;
-  font-size:11px;font-weight:700;border-radius:6px;padding:3px 9px;letter-spacing:.3px}
-.mfake{aspect-ratio:16/9;display:grid;place-items:center;
-  background:linear-gradient(135deg,color-mix(in srgb,var(--c-violet) 22%,var(--card)),color-mix(in srgb,var(--c-teal) 22%,var(--card)))}
-.mfake svg{width:52px;height:52px;color:var(--ink);opacity:.6}
-.mbody{padding:15px 17px;display:flex;flex-direction:column;gap:7px;flex:1}
-.mbody .msrc{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.3px;text-transform:uppercase}
-.mbody h4{margin:0;font-size:15.5px;font-weight:800;line-height:1.4}
-html[data-lang="en"] .mbody h4{font-family:Newsreader,serif;font-weight:600}
-.mbody .mdesc{font-size:13px;color:var(--mut);margin:0}
-.mbody ul{margin:4px 0 0;padding-inline-start:18px}
-.mbody ul li{font-size:12.8px;margin:5px 0}
-.mbody .mbest{font-size:12px;font-weight:700;color:var(--warm);margin-top:auto;padding-top:8px}
-.mlink{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;
-  text-decoration:none;color:var(--accent);margin-top:4px}
-.mlink:hover{text-decoration:underline}
-.golist{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
-.golist a{font-size:12.5px;text-decoration:none;color:var(--ink);border:1px solid var(--line);
-  border-radius:20px;padding:6px 13px;background:var(--card);font-weight:700}
-.golist a:hover{border-color:var(--accent);color:var(--accent)}
-
-/* ── RECS + METHOD + CREDIT ───────────────────────────────── */
-.rec{display:grid;gap:10px;margin:8px 0}
-.rec .item{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--card)}
-.rec .item .t{font-weight:800;font-size:14.5px;margin-bottom:3px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.rec .item .t .pri{font-size:11px;font-weight:700;color:#fff;background:var(--warm);border-radius:6px;padding:2px 9px}
-.rec .item .t .pri.b{background:var(--accent)}
-.rec .item .d{font-size:13.4px;color:var(--mut)}
-.method{color:var(--mut);font-size:13.4px}
-.method p{margin:8px 0}
-.method b{color:var(--ink)}
-.credit{text-align:center;margin-top:40px;padding:22px 0 8px;border-top:1px solid var(--line);
-  color:var(--mut);font-size:14px}
-.credit .cname{color:var(--ink);font-weight:800}
-.credit a{font-weight:700;text-decoration:none}
-.credit a:hover{text-decoration:underline}
-.credit .sep{opacity:.5;margin:0 8px}
-.credit .li{display:inline-flex;align-items:center;gap:5px;vertical-align:middle}
-.credit .li svg{width:15px;height:15px;vertical-align:-3px}
-
-@media (max-width:640px){
-  body{font-size:14px}
-  .wrap{padding:0 13px 30px}
-  .hero{padding:28px 0 22px} .hero h1{font-size:22px}
-  h2{font-size:18px;scroll-margin-top:66px}
-  .brand{display:none}
-  .toc{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;scrollbar-width:none}
-  .toc::-webkit-scrollbar{display:none}
-  #netsvg{height:420px}
-}
-</style>
+<link rel="stylesheet" href="../assets/book.css">
 </head>
 <body>
+<div id="app"></div>
 
-<!-- ── HERO ───────────────────────────────────────────────── -->
-<header class="hero"><div class="wrap">
-  <div class="eyebrow"><span class="edot"></span>
-    <span data-only="en">Book knowledge map · Matt Mochary</span>
-    <span data-only="fa">نقشهٔ کتاب · مت موکری</span>
-  </div>
-  <h1>
-    <span data-only="en">The Great CEO Within — The Tactical Guide to Company Building</span>
-    <span data-only="fa">مدیرعاملِ بزرگ — راهنمای عملیِ ساختنِ شرکت</span>
-  </h1>
-  <p class="dek">
-    <span data-only="en">A knowledge graph of the whole book, plus a 5-stage path from a single idea to expert-level mastery — with an example at every step.</span>
-    <span data-only="fa">نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از یک ایدهٔ ساده تا حرفه‌ای — با یک مثال در هر مرحله.</span>
-  </p>
-  <div class="metastrip">
-    <div class="metaitem"><span class="mk" data-only="en">Book</span><span class="mk" data-only="fa">کتاب</span>
-      <span class="mv" data-only="en">The Great CEO Within</span><span class="mv" data-only="fa">مدیرعاملِ بزرگ</span></div>
-    <div class="metaitem"><span class="mk" data-only="en">Author</span><span class="mk" data-only="fa">نویسنده</span>
-      <span class="mv" data-only="en">Matt Mochary</span><span class="mv" data-only="fa">مت موکری</span></div>
-    <div class="metaitem"><span class="mk" data-only="en">Published</span><span class="mk" data-only="fa">سالِ چاپ</span>
-      <span class="mv" data-only="en">2019</span><span class="mv" data-only="fa">۲۰۱۹</span></div>
-    <div class="metaitem"><span class="mk" data-only="en">Group</span><span class="mk" data-only="fa">گروه</span>
-      <span class="mv" data-only="en">Executing</span><span class="mv" data-only="fa">اجرا</span></div>
-  </div>
-  <div class="chips">
-    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Parts</span><span data-only="fa">بخش</span></div>
-    <div class="chip"><b data-only="en">16</b><b data-only="fa">۱۶</b><span data-only="en">Practices</span><span data-only="fa">تمرین</span></div>
-    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Learning stages</span><span data-only="fa">مرحلهٔ یادگیری</span></div>
-  </div>
-</div></header>
-
-<!-- ── STICKY NAV ─────────────────────────────────────────── -->
-<div class="navbar"><div class="navin">
-  <span class="brand"><span class="dot"></span>The Great CEO Within</span>
-  <nav class="toc">
-    <a href="#tldr" data-only="en">In a nutshell</a><a href="#tldr" data-only="fa">خلاصه</a>
-    <a href="#graph" data-only="en">Knowledge graph</a><a href="#graph" data-only="fa">نقشهٔ دانش</a>
-    <a href="#stages" data-only="en">5 stages</a><a href="#stages" data-only="fa">۵ مرحله</a>
-    <a href="#quotes" data-only="en">Quotes</a><a href="#quotes" data-only="fa">جمله‌ها</a>
-    <a href="#media" data-only="en">Watch &amp; explore</a><a href="#media" data-only="fa">تماشا و منابع</a>
-    <a href="#apply" data-only="en">Apply it</a><a href="#apply" data-only="fa">کاربرد</a>
-  </nav>
-  <div class="navctl">
-    <button class="langbtn" id="langBtn" aria-label="Switch language">
-      <svg class="globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>
-      <span data-only="en">فارسی</span><span data-only="fa">English</span>
-    </button>
-    <button class="themebtn" id="themeBtn" aria-label="Toggle theme" title="Light / Dark">
-      <span class="ic-sun" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5 19 19M19 5l-1.5 1.5M6.5 17.5 5 19"/></svg></span>
-      <span class="ic-moon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.6 6.6 0 0 0 9.8 9.8Z"/></svg></span>
-    </button>
-  </div>
-</div></div>
-
-<div class="wrap">
-
-  <!-- ── TL;DR ────────────────────────────────────────────── -->
-  <h2 id="tldr"><span class="num" data-only="en">1.</span><span class="num" data-only="fa">۱.</span>
-    <span data-only="en"> In a nutshell</span><span data-only="fa"> خلاصه</span></h2>
-  <p class="sub" data-only="en">If you read only this, you still get the whole idea.</p>
-  <p class="sub" data-only="fa">اگر فقط همین بخش را بخوانی، کلِ ایده دستت می‌آید.</p>
-  <div class="card lead"><ul class="clean" id="tldrHost"></ul></div>
-  <div class="kgrid">
-    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Parts (self · comms · delegation · team · CEO)</div><div class="l" data-only="fa">بخش (خود · ارتباط · واگذاری · تیم · مدیرعامل)</div></div>
-    <div class="kbox"><div class="v" data-only="en">16</div><div class="v" data-only="fa">۱۶</div><div class="l" data-only="en">Practices you can use</div><div class="l" data-only="fa">تمرین برای استفاده</div></div>
-    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Levels, simple → expert</div><div class="l" data-only="fa">مرحله، ساده تا حرفه‌ای</div></div>
-    <div class="kbox"><div class="v" data-only="en">3</div><div class="v" data-only="fa">۳</div><div class="l" data-only="en">The flow: systematize · delegate · scale</div><div class="l" data-only="fa">جریانِ کار: سیستم‌سازی · واگذاری · رشد</div></div>
-  </div>
-  
-  <div class="callout accent">
-    <b data-only="en">The core idea:</b>
-    <b data-only="fa">ایدهٔ اصلی:</b>
-    <span data-only="en"> Build the <i>systems and habits</i> that let you — and your company — run without you as the bottleneck. Manage yourself first (get tasks out of your head, protect time for your top goal), then run the group on <i>transparency</i>, clean feedback, and clear ownership.</span>
-    <span data-only="fa"> همان <i>سیستم‌ها و عادت‌هایی</i> را بساز که باعث می‌شوند تو — و شرکتت — بدونِ اینکه تو گلوگاه باشی کار کنید. اول خودت را مدیریت کن (کارها را از سرت بیرون بریز، برای هدفِ اصلی‌ات وقت نگه دار)، بعد گروه را با <i>شفافیت</i>، بازخوردِ تمیز و مالکیتِ روشن بچرخان.</span>
-  </div>
-
-  <!-- ── KNOWLEDGE GRAPH ──────────────────────────────────── -->
-  <h2 id="graph"><span class="num" data-only="en">2.</span><span class="num" data-only="fa">۲.</span>
-    <span data-only="en"> The knowledge graph</span><span data-only="fa"> نقشهٔ دانش</span></h2>
-  <p class="sub" data-only="en">The whole book as one picture. Click any node to focus its connections and read more — or switch to the structured map.</p>
-  <p class="sub" data-only="fa">کلِ کتاب در یک تصویر. روی هر دایره کلیک کن تا ارتباط‌هایش را ببینی و بیشتر بخوانی — یا به نقشهٔ مرتب برو.</p>
-
-  <div class="gtabs">
-    <button class="gtab active" id="tabNet"><span data-only="en">Interactive network</span><span data-only="fa">شبکهٔ تعاملی</span></button>
-    <button class="gtab" id="tabMap"><span data-only="en">Structured map</span><span data-only="fa">نقشهٔ مرتب</span></button>
-  </div>
-
-  <!-- network view -->
-  <div class="card graphcard" id="netView">
-    <div class="legend" id="legendHost"></div>
-    <div class="graphstage">
-      <div class="svgwrap">
-        <svg id="netsvg" viewBox="0 0 820 560" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Effortless knowledge network"></svg>
-        <div class="ghint" id="ghint"></div>
-        <button class="greset" id="greset"></button>
-      </div>
-      <div class="detail" id="detailHost"></div>
-    </div>
-  </div>
-
-  <!-- map view -->
-  <div class="card graphcard" id="mapView" style="display:none">
-    <div class="flowline" id="flowTop"></div>
-    <div class="mapgrid" id="mapHost"></div>
-    <div class="callout" style="margin-top:16px">
-      <b data-only="en">Read it as a flow:</b><b data-only="fa">به‌صورتِ یک جریان بخوانش:</b>
-      <span data-only="en"> get <b>yourself</b> organized (GTD, Inbox Zero, Top Goal), run the <b>group</b> on transparency and feedback, <b>delegate</b> with clear ownership (AORs, no single point of failure), and grow the <b>company</b> — culture, hiring, fundraising, sales.</span>
-      <span data-only="fa"> اول <b>خودت</b> را مرتب کن (انجامِ کار، صندوقِ خالی، هدفِ اصلی)، <b>گروه</b> را با شفافیت و بازخورد بگردان، با مالکیتِ روشن <b>واگذار</b> کن (حوزه‌های مسئولیت، بدونِ گلوگاه)، و <b>شرکت</b> را بزرگ کن — فرهنگ، استخدام، جذبِ سرمایه، فروش.</span>
-    </div>
-  </div>
-
-  <!-- ── 5 STAGES ─────────────────────────────────────────── -->
-  <h2 id="stages"><span class="num" data-only="en">3.</span><span class="num" data-only="fa">۳.</span>
-    <span data-only="en"> Learn it in 5 stages</span><span data-only="fa"> یادگیری در ۵ مرحله</span></h2>
-  <p class="sub" data-only="en">The same book at five depths. Start over-simplified, climb to expert. Tap a rung to jump.</p>
-  <p class="sub" data-only="fa">یک کتاب در پنج عمق. از خیلی ساده شروع کن و تا حرفه‌ای بالا برو. روی هر پله بزن تا بپری.</p>
-  <div class="ladder" id="ladderHost"></div>
-  <div id="stageHost"></div>
-
-  <!-- ── QUOTES ───────────────────────────────────────────── -->
-  <h2 id="quotes"><span class="num" data-only="en">4.</span><span class="num" data-only="fa">۴.</span>
-    <span data-only="en"> Lines worth keeping</span><span data-only="fa"> جمله‌هایی که ارزشِ نگه‌داشتن دارند</span></h2>
-  <p class="sub" data-only="en">Verbatim quotes from the book, translated alongside.</p>
-  <p class="sub" data-only="fa">جمله‌های مستقیم از کتاب، همراه با ترجمه.</p>
-  <div class="qgrid" id="quoteHost"></div>
-
-  <!-- ── MEDIA ────────────────────────────────────────────── -->
-  <h2 id="media"><span class="num" data-only="en">5.</span><span class="num" data-only="fa">۵.</span>
-    <span data-only="en"> Watch &amp; explore</span><span data-only="fa"> تماشا و منابع</span></h2>
-  <p class="sub" data-only="en">Special resources found online — each with what it covers and who it's best for.</p>
-  <p class="sub" data-only="fa">منابعِ ویژه‌ای که آنلاین پیدا شد — هرکدام با اینکه چه می‌گوید و به چه دردی می‌خورد.</p>
-  <div class="mgrid" id="mediaHost"></div>
-  <div class="card" style="margin-top:16px">
-    <div style="font-weight:800;font-size:13.5px;margin-bottom:4px">
-      <span data-only="en">Go straight to the source</span><span data-only="fa">مستقیم سراغِ منبع برو</span>
-    </div>
-    <div class="golist" id="goHost"></div>
-  </div>
-
-  <!-- ── APPLY ────────────────────────────────────────────── -->
-  <h2 id="apply"><span class="num" data-only="en">6.</span><span class="num" data-only="fa">۶.</span>
-    <span data-only="en"> Apply it this week</span><span data-only="fa"> این هفته امتحانش کن</span></h2>
-  <p class="sub" data-only="en">Four small moves that turn the idea into a habit.</p>
-  <p class="sub" data-only="fa">چهار حرکتِ کوچک که این ایده را به عادت تبدیل می‌کنند.</p>
-  <div class="rec" id="recHost"></div>
-
-  <!-- ── METHOD ───────────────────────────────────────────── -->
-  <h2 id="method"><span class="num" data-only="en">7.</span><span class="num" data-only="fa">۷.</span>
-    <span data-only="en"> Sources &amp; notes</span><span data-only="fa"> منابع و توضیح</span></h2>
-  <div class="card method" id="methodHost"></div>
-
-  <!-- ── CREDIT FOOTER ────────────────────────────────────── -->
-  <div class="credit">
-    <span data-only="en">Created by <span class="cname">Behnam Atefi</span><span class="sep">·</span><a class="li" href="https://www.linkedin.com/in/behnamatefi/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.3c0-1.26-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9z"/></svg>LinkedIn</a></span>
-    <span data-only="fa">ساخته‌شده توسط <span class="cname">بهنام عاطفی</span><span class="sep">·</span><a class="li" href="https://www.linkedin.com/in/behnamatefi/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.3c0-1.26-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9z"/></svg>لینکدین</a></span>
-  </div>
-</div>
-
-<!-- ═══════════════════════ SCRIPTS ═══════════════════════ -->
+<script src="../assets/library.js"></script>
+<script src="../assets/book.js"></script>
 <script>
-/* ── 1) language + formatters ─────────────────────────────── */
-var LANG = document.documentElement.getAttribute('data-lang') || 'fa';
-var FA_D = '۰۱۲۳۴۵۶۷۸۹';
-var RLM  = '‏';
-function faDigits(s){ return String(s).replace(/[0-9]/g, function(d){ return FA_D[+d]; }); }
-/* honor the RTL preference: isolate Latin runs (word order preserved) and mark with U+200F */
-function rlm(s){
-  return String(s)
-    .replace(/[A-Za-zÀ-ɏ][A-Za-zÀ-ɏ0-9'’.&:\/\-]*(?:\s+[A-Za-zÀ-ɏ0-9'’.&:\/\-]+)*/g,
-      function(m){ return RLM+'⁦'+m+'⁩'+RLM; })
-    .replace(/[0-9۰-۹]+/g, function(m){ return m+RLM; });
-}
-/* transform only TEXT segments, never HTML tags (so <b>/<i> survive) */
-function faText(s){ return String(s).replace(/(<[^>]+>)|([^<]+)/g, function(m,tag,txt){ return tag ? tag : faDigits(rlm(txt)); }); }
-function TX(o){ if(o==null) return ''; if(typeof o==='string') return o; return LANG==='fa' ? faText(o.fa) : o.en; }
-function num(n){ return LANG==='fa' ? faDigits(n) : String(n); }
-function tok(name){ return getComputedStyle(document.documentElement).getPropertyValue(name).trim(); }
-</script>
-
-<script>
-/* ── DATA LAYER — Atomic Habits (bilingual, plain-spoken Persian) ── */
-var DATA = {"tldr":[{"en":"The whole book in one line: build the systems and habits that let you — and your company — run without you as the bottleneck.","fa":"خلاصهٔ کل کتاب در یک جمله: همان سیستم‌ها و عادت‌هایی را بساز که باعث می‌شوند تو — و شرکتت — بدونِ اینکه تو گلوگاه باشی کار کنید."},{"en":"Start with <b>yourself</b>: get tasks out of your head, keep your inbox at zero, and protect two hours a day for your Top Goal.","fa":"از <b>خودت</b> شروع کن: کارها را از سرت بیرون بریز، صندوقِ ورودی‌ات را خالی نگه دار، و هر روز دو ساعت را برای هدفِ اصلی‌ات نگه دار."},{"en":"Run the <b>group</b> on transparency and clean feedback — share everything, and surface issues early instead of letting them fester.","fa":"<b>گروه</b> را با شفافیت و بازخوردِ تمیز بگردان — همه‌چیز را بگو، و مشکل‌ها را زود رو کن، نه اینکه بگذاری ورم کنند."},{"en":"<b>Delegate</b> by giving every area one owner (AORs), so there's no single point of failure — and track a few clear KPIs.","fa":"با دادنِ یک صاحب به هر حوزه (حوزه‌های مسئولیت) <b>واگذار</b> کن، تا هیچ گلوگاهی نمانَد — و چند شاخصِ روشن را دنبال کن."},{"en":"Then build the <b>team and culture</b>, lead from a calm, conscious place, and master the CEO skills: hiring, fundraising, and sales.","fa":"بعد <b>تیم و فرهنگ</b> را بساز، از یک جای آرام و آگاه رهبری کن، و مهارت‌های مدیرعامل را استاد شو: استخدام، جذبِ سرمایه، و فروش."}],"parts":[{"key":"getdone","varc":"--c-teal","name":{"en":"Getting Things Done","fa":"انجامِ کارها"},"tag":{"en":"Personal productivity","fa":"بهره‌وریِ شخصی"},"gist":{"en":"Manage yourself first — get tasks out of your head and protect time for what matters.","fa":"اول خودت را مدیریت کن — کارها را از سرت بیرون بریز و برای آنچه مهم است وقت نگه دار."},"more":{"en":"Everything starts with you. If your own head is full and your inbox runs your day, you can't lead a company. Build a trusted personal system so your attention goes to the work that matters most.","fa":"همه‌چیز از خودت شروع می‌شود. اگر سرِ خودت شلوغ باشد و ایمیل روزت را بگرداند، نمی‌توانی یک شرکت را رهبری کنی. یک سیستمِ شخصیِ مطمئن بساز تا تمرکزت برود روی کاری که از همه مهم‌تر است."},"chapters":["gtd","inbox","topgoal","energy"]},{"key":"comm","varc":"--c-blue","name":{"en":"Communication & Feedback","fa":"ارتباط و بازخورد"},"tag":{"en":"Talk straight","fa":"رُک حرف بزن"},"gist":{"en":"Share everything, give and take feedback cleanly, and surface conflict early.","fa":"همه‌چیز را بگو، بازخورد را تمیز بده و بگیر، و تعارض را زود رو کن."},"more":{"en":"Teams don't break on hard problems; they break on things left unsaid. Default to transparency, make feedback a normal habit, and deal with tension the day you feel it, directly with the person involved.","fa":"تیم‌ها با مسئله‌های سخت نمی‌شکنند؛ با حرف‌های نگفته می‌شکنند. پیش‌فرضت شفافیت باشد، بازخورد را به یک عادتِ عادی تبدیل کن، و تنش را همان روزی که حسش می‌کنی، مستقیم با خودِ طرف حل کن."},"chapters":["transparency","feedback","conflict"]},{"key":"delegate","varc":"--c-amber","name":{"en":"Managing & Delegation","fa":"مدیریت و واگذاری"},"tag":{"en":"Let go well","fa":"خوب واگذار کن"},"gist":{"en":"One owner per area, no single point of failure, and a few numbers everyone can see.","fa":"هر حوزه یک صاحب، بدونِ گلوگاه، و چند عدد که همه ببینند."},"more":{"en":"You scale by letting go, not by holding on. Give every area of responsibility exactly one owner, document how things work so nothing depends on a single person, and steer with a handful of clear metrics.","fa":"با رهاکردن بزرگ می‌شوی، نه با چنگ‌زدن. هر حوزهٔ مسئولیت را دقیقاً به یک نفر بسپار، طرزِ کارها را مستند کن تا هیچ‌چیز به یک نفر بند نباشد، و با چند شاخصِ روشن مسیر را هدایت کن."},"chapters":["aor","nospof","kpis"]},{"key":"team","varc":"--c-violet","name":{"en":"Team & Culture","fa":"تیم و فرهنگ"},"tag":{"en":"Build the people","fa":"آدم‌ها را بساز"},"gist":{"en":"Hire carefully, define your culture with the team, and lead consciously.","fa":"با دقت استخدام کن، فرهنگ را با تیم تعریف کن، و آگاهانه رهبری کن."},"more":{"en":"A company is just its people and the norms they live by. Treat hiring as a top priority, agree on values with the whole team, and lead from a conscious place instead of reacting from fear or anger.","fa":"یک شرکت چیزی نیست جز آدم‌هایش و قاعده‌هایی که با آن‌ها زندگی می‌کنند. استخدام را یک اولویتِ اصلی بدان، ارزش‌ها را با کلِ تیم توافق کن، و به‌جای واکنشِ از سرِ ترس یا خشم، از یک جای آگاه رهبری کن."},"chapters":["hiring","culture","conscious"]},{"key":"ceoskills","varc":"--c-green","name":{"en":"CEO Skills & Fundraising","fa":"مهارت‌های مدیرعامل و جذبِ سرمایه"},"tag":{"en":"Fuel the company","fa":"به شرکت سوخت برسان"},"gist":{"en":"Raise money by running a tight process, sell by solving pain, decide with buy-in.","fa":"با یک فرایندِ فشرده سرمایه جذب کن، با حلِ درد بفروش، و با همراهی تصمیم بگیر."},"more":{"en":"These are the outward-facing skills a founder can't delegate away. Run fundraising as a competitive process, sell by finding real pain and showing results, and make decisions in a way that gets the team to truly own them.","fa":"این‌ها مهارت‌های روبه‌بیرونی‌اند که یک بنیان‌گذار نمی‌تواند از خودش دورشان کند. جذبِ سرمایه را مثلِ یک فرایندِ رقابتی اجرا کن، با پیداکردنِ دردِ واقعی و نشان‌دادنِ نتیجه بفروش، و طوری تصمیم بگیر که تیم واقعاً پایش بایستد."},"chapters":["fundraising","sales","decisions"]}],"chapters":{"gtd":{"part":"getdone","n":1,"name":{"en":"Getting Things Done","fa":"انجامِ کارها"},"glabel":{"en":"GTD","fa":"کارها"},"principle":{"en":"Get every task, idea, and worry out of your head into one trusted system, and decide the next action for each.","fa":"هر کار، ایده و دغدغه را از سرت بیرون بریز توی یک سیستمِ مطمئن، و برای هرکدام قدمِ بعدی را مشخص کن."},"more":{"en":"Your mind is for having ideas, not holding them. When everything lives in an external list you trust — and each item has a clear next action — the background hum of “what am I forgetting?” goes quiet and you can actually focus.","fa":"ذهنِ تو برای ایده‌داشتن است، نه نگه‌داشتنِ ایده‌ها. وقتی همه‌چیز توی یک فهرستِ بیرونی است که بهش اعتماد داری — و هر مورد یک قدمِ بعدیِ روشن دارد — آن وزوزِ همیشگیِ «چی رو دارم یادم می‌ره؟» ساکت می‌شود و می‌توانی واقعاً تمرکز کنی."},"example":{"en":"Instead of holding “call the lawyer” in your head, write a concrete next action: “Email Sara to set up the lawyer call.”","fa":"به‌جای اینکه «به وکیل زنگ بزن» را توی سرت نگه داری، یک قدمِ بعدیِ مشخص بنویس: «به سارا ایمیل بزن تا تماس با وکیل را تنظیم کند»."},"tip":{"en":"Do a weekly review: empty every inbox and check that each project has a defined next action.","fa":"یک مرورِ هفتگی داشته باش: همهٔ صندوق‌ها را خالی کن و مطمئن شو هر پروژه یک قدمِ بعدیِ مشخص دارد."},"pitfall":{"en":"Keeping to-dos in your head, so your energy leaks into remembering instead of doing.","fa":"نگه‌داشتنِ کارها توی سرت، جوری که انرژی‌ات به‌جای انجام‌دادن، صرفِ به‌یادآوردن می‌شود."}},"inbox":{"part":"getdone","n":2,"name":{"en":"Inbox Zero","fa":"صندوقِ خالی"},"glabel":{"en":"Inbox Zero","fa":"صندوقِ خالی"},"principle":{"en":"Treat your inbox as a triage room, not a storage room — process each email to a decision and get to zero.","fa":"صندوقِ ورودی را یک اتاقِ تریاژ بدان، نه انبار — هر ایمیل را تا یک تصمیم پیش ببر و به صفر برسان."},"more":{"en":"Checking email all day, every few minutes, shreds your focus. Batch it into a few blocks, and for each message do one thing: do it now if it's quick, delegate it, turn it into a task, or archive it. The inbox is for triage, not for living in.","fa":"چک‌کردنِ ایمیل در طولِ روز و هر چند دقیقه، تمرکزت را تکه‌تکه می‌کند. آن را توی چند بازهٔ مشخص جمع کن، و برای هر پیام فقط یک کار بکن: اگر سریع است همان‌جا انجامش بده، واگذارش کن، به یک کار تبدیلش کن، یا بایگانی‌اش کن. صندوقِ ورودی برای تریاژ است، نه برای زندگی‌کردن توی آن."},"example":{"en":"Twice a day you open email and move every message out — reply, forward, or make it a task — until the inbox is empty.","fa":"روزی دو بار ایمیل را باز می‌کنی و هر پیام را بیرون می‌بری — جواب، فوروارد، یا تبدیل به کار — تا صندوق خالی شود."},"tip":{"en":"Check email at a few set times a day, not continuously, and turn off the notifications.","fa":"ایمیل را چند بارِ مشخص در روز چک کن، نه مدام، و اعلان‌ها را خاموش کن."},"pitfall":{"en":"Living in your inbox all day, letting other people's priorities set your agenda.","fa":"تمامِ روز توی صندوقِ ورودی زندگی‌کردن، و گذاشتن اولویتِ دیگران برنامه‌ات را بچیند."}},"topgoal":{"part":"getdone","n":3,"name":{"en":"Top Goal","fa":"هدفِ اصلی"},"glabel":{"en":"Top Goal","fa":"هدفِ اصلی"},"principle":{"en":"Pick the single most important goal, and protect two uninterrupted hours a day to work only on it.","fa":"مهم‌ترین هدف را انتخاب کن، و هر روز دو ساعتِ بی‌وقفه را نگه دار که فقط رویش کار کنی."},"more":{"en":"Most people spend their best hours reacting to email and meetings, and their real priority never gets serious attention. Block two hours each morning for your Top Goal alone — no email, no chat, no calls — and guard it like a meeting with your most important investor.","fa":"بیشترِ آدم‌ها بهترین ساعت‌هایشان را صرفِ واکنش به ایمیل و جلسه می‌کنند، و اولویتِ واقعی‌شان هیچ‌وقت توجهِ جدی نمی‌گیرد. هر صبح دو ساعت را فقط برای هدفِ اصلی‌ات خالی کن — نه ایمیل، نه چت، نه تماس — و مثلِ یک جلسه با مهم‌ترین سرمایه‌گذارت ازش محافظت کن."},"example":{"en":"You put a recurring two-hour “Top Goal” block on your calendar each morning and refuse to schedule over it.","fa":"هر صبح یک بازهٔ دوساعتهٔ تکرارشوندهٔ «هدفِ اصلی» توی تقویمت می‌گذاری و اجازه نمی‌دهی چیزی رویش بنشیند."},"tip":{"en":"Do your Top Goal block first thing, before the day's noise starts.","fa":"بازهٔ هدفِ اصلی را همان اولِ وقت انجام بده، قبل از اینکه سروصدای روز شروع شود."},"pitfall":{"en":"Letting urgent-but-unimportant tasks crowd out the one goal that moves the company.","fa":"گذاشتنِ کارهای فوری‌ولی‌بی‌اهمیت جای همان یک هدفی را بگیرند که شرکت را جلو می‌برد."}},"energy":{"part":"getdone","n":4,"name":{"en":"Energy Audit & Zone of Genius","fa":"بررسیِ انرژی و منطقهٔ نبوغ"},"glabel":{"en":"Energy","fa":"انرژی"},"principle":{"en":"Track which activities energize you and which drain you, then shift your time toward your Zone of Genius.","fa":"ببین کدام کارها بهت انرژی می‌دهند و کدام می‌کشندت، بعد وقتت را به‌سمتِ منطقهٔ نبوغت ببر."},"more":{"en":"List everything you do in a week and mark each one energizing or draining. The draining tasks are usually someone else's Zone of Genius — delegate them. Spend more time on the rare work that both energizes you and creates the most value; that's your Zone of Genius.","fa":"هرچه را توی یک هفته انجام می‌دهی بنویس و هرکدام را «انرژی‌بخش» یا «انرژی‌کش» علامت بزن. کارهای انرژی‌کش معمولاً منطقهٔ نبوغِ یک نفرِ دیگرند — واگذارشان کن. بیشترِ وقتت را بگذار روی آن کارِ کمیابی که هم بهت انرژی می‌دهد و هم بیشترین ارزش را می‌سازد؛ همان منطقهٔ نبوغِ توست."},"example":{"en":"If sales calls light you up but bookkeeping drains you, hand off the bookkeeping and do more selling.","fa":"اگر تماس‌های فروش سرِحالت می‌آورند ولی حسابداری خسته‌ات می‌کند، حسابداری را واگذار کن و بیشتر بفروش."},"tip":{"en":"For two weeks, tag each task “energizing” or “draining”, then plan to offload the drainers.","fa":"دو هفته، هر کار را «انرژی‌بخش» یا «انرژی‌کش» برچسب بزن، بعد برنامه بریز که انرژی‌کش‌ها را از دوشت برداری."},"pitfall":{"en":"Grinding through draining work you could delegate, running your own tank to empty.","fa":"جان‌کندن روی کارِ انرژی‌کشی که می‌شد واگذارش کنی، و خالی‌کردنِ باکِ خودت."}},"transparency":{"part":"comm","n":5,"name":{"en":"Transparency","fa":"شفافیت"},"glabel":{"en":"Transparency","fa":"شفافیت"},"principle":{"en":"Share all relevant information with the team, good and bad — transparency builds trust and speed.","fa":"همهٔ اطلاعاتِ مهم را با تیم در میان بگذار، خوب و بد — شفافیت اعتماد و سرعت می‌سازد."},"more":{"en":"Founders often hide bad news to protect the team, but secrecy just breeds fear and rumor. When you share the real numbers, the hard news, and your reasoning, people trust you and can actually help. Default to open — share unless there's a strong reason not to.","fa":"بنیان‌گذارها اغلب خبرِ بد را پنهان می‌کنند تا تیم را حفظ کنند، ولی پنهان‌کاری فقط ترس و شایعه می‌سازد. وقتی عددهای واقعی، خبرهای سخت و دلیل‌هایت را می‌گویی، آدم‌ها بهت اعتماد می‌کنند و واقعاً می‌توانند کمک کنند. پیش‌فرضت باز بودن باشد — بگو، مگر اینکه دلیلِ محکمی برای نگفتن باشد."},"example":{"en":"You send the whole team the monthly financials and the honest state of the business — not just the wins.","fa":"عددهای مالیِ ماهانه و وضعیتِ صادقانهٔ کسب‌وکار را برای کلِ تیم می‌فرستی — نه فقط بُردها را."},"tip":{"en":"Ask yourself “why not share this?” and default to transparency unless there's a real reason.","fa":"از خودت بپرس «چرا این را نگویم؟» و پیش‌فرض را شفافیت بگذار، مگر یک دلیلِ واقعی باشد."},"pitfall":{"en":"Hoarding information to look in control, which quietly breeds distrust and rumors.","fa":"احتکارِ اطلاعات برای اینکه مسلط به‌نظر برسی، که بی‌سروصدا بی‌اعتمادی و شایعه می‌سازد."}},"feedback":{"part":"comm","n":6,"name":{"en":"Feedback & Appreciation","fa":"بازخورد و قدردانی"},"glabel":{"en":"Feedback","fa":"بازخورد"},"principle":{"en":"Give feedback with permission and care — and receive both feedback and appreciation with a simple “Thank you.”","fa":"بازخورد را با اجازه و با ملاحظه بده — و هم بازخورد و هم قدردانی را با یک «ممنونم»ِ ساده بگیر."},"more":{"en":"Good feedback is timely, specific, and asked-for: get permission, describe what happened, share how it landed, and make a request. On the receiving end, resist defending yourself — the only right response to appreciation is “Thank you”, and the right response to criticism is to listen for the truth in it.","fa":"بازخوردِ خوب به‌موقع، مشخص و بااجازه است: اجازه بگیر، بگو چه اتفاقی افتاد، بگو چه حسی بهت داد، و یک درخواست بکن. سرِ گرفتن هم، جلوی گارد گرفتنت را بگیر — تنها جوابِ درست به قدردانی «ممنونم» است، و جوابِ درست به انتقاد این است که گوش کنی و حقیقتش را پیدا کنی."},"example":{"en":"“Can I give you some feedback? When you cut Ali off in the meeting, the room went quiet — could you let people finish?”","fa":"«می‌تونم یه بازخورد بدم؟ توی جلسه وقتی حرفِ علی رو قطع کردی، جمع ساکت شد — می‌شه بذاری آدم‌ها حرفشون رو تموم کنن؟»"},"tip":{"en":"Before you criticize, ask “Can I give you some feedback?” and wait for a yes.","fa":"قبل از انتقاد، بپرس «می‌تونم یه بازخورد بدم؟» و منتظرِ یک «بله» بمان."},"pitfall":{"en":"Bottling up issues until they explode, or getting defensive when feedback comes back to you.","fa":"انباشتنِ مشکل‌ها تا وقتی منفجر شوند، یا گارد گرفتن وقتی بازخورد به خودت برمی‌گردد."}},"conflict":{"part":"comm","n":7,"name":{"en":"Conflict Resolution","fa":"حلِ تعارض"},"glabel":{"en":"Conflict","fa":"تعارض"},"principle":{"en":"Surface issues early and resolve conflict directly between the two people involved, in private.","fa":"مشکل‌ها را زود رو کن و تعارض را مستقیم بینِ همان دو نفرِ درگیر، خصوصی حل کن."},"more":{"en":"Unspoken tension festers and poisons a whole team. Name issues as soon as you feel them. When two people clash, get them in a room to speak directly — each restates the other's view (“I think I heard you say…”) until both feel heard, before solving. Don't carry messages between people.","fa":"تنشِ نگفته می‌ماند و کلِ تیم را مسموم می‌کند. مشکل را همان لحظه‌ای که حسش می‌کنی اسم ببر. وقتی دو نفر به هم می‌خورند، توی یک اتاق بگذارشان تا مستقیم حرف بزنند — هرکدام حرفِ دیگری را دوباره می‌گوید («فکر کنم گفتی که…») تا هر دو حس کنند شنیده شده‌اند، بعد سراغِ حل بروند. پیام‌بَرِ بینِ آدم‌ها نباش."},"example":{"en":"If two teammates are stuck in tension, you sit them together and have each repeat the other's point before proposing a fix.","fa":"اگر دو نفر از تیم توی تنش گیر کرده‌اند، کنارِ هم می‌نشانی‌شان و می‌گویی هرکدام حرفِ دیگری را تکرار کند، بعد راه‌حل پیشنهاد بدهند."},"tip":{"en":"When you sense friction, raise it the same day instead of hoping it fades.","fa":"وقتی یک اصطکاک را حس کردی، همان روز مطرحش کن، نه اینکه امید ببندی خودش برود."},"pitfall":{"en":"Avoiding the hard conversation, or venting to a third party instead of the person involved.","fa":"فرار از گفت‌وگوی سخت، یا خالی‌کردنِ دل پیشِ یک نفرِ سوم به‌جای خودِ طرف."}},"aor":{"part":"delegate","n":8,"name":{"en":"Areas of Responsibility","fa":"حوزه‌های مسئولیت"},"glabel":{"en":"AORs","fa":"مسئولیت"},"principle":{"en":"Assign every area of the company to one — and only one — clearly named owner.","fa":"هر حوزهٔ شرکت را به یک نفر — و فقط یک نفرِ — مشخص بسپار."},"more":{"en":"When two people own something, no one does; when no one owns it, it rots. List every area of responsibility in the company and put exactly one person's name on each. Then everyone knows who to go to, and nothing falls through the cracks.","fa":"وقتی دو نفر صاحبِ یک چیزند، هیچ‌کس نیست؛ وقتی هیچ‌کس صاحبش نیست، می‌پوسد. همهٔ حوزه‌های مسئولیتِ شرکت را فهرست کن و روی هرکدام دقیقاً اسمِ یک نفر را بگذار. آن‌وقت همه می‌دانند سراغِ کی بروند، و هیچ‌چیز از قلم نمی‌افتد."},"example":{"en":"You keep a shared list: “Payroll — Sara. Office — Reza. Security — Nima.” One name each.","fa":"یک فهرستِ مشترک نگه می‌داری: «حقوق‌ودستمزد — سارا. دفتر — رضا. امنیت — نیما». هرکدام یک اسم."},"tip":{"en":"Write down every area of responsibility and make sure each has exactly one owner — not zero, not two.","fa":"همهٔ حوزه‌های مسئولیت را بنویس و مطمئن شو هرکدام دقیقاً یک صاحب دارد — نه صفر، نه دو تا."},"pitfall":{"en":"Shared ownership, where everyone quietly assumes someone else has it handled.","fa":"مالکیتِ مشترک، که همه بی‌سروصدا فکر می‌کنند یکی دیگر ترتیبش را داده."}},"nospof":{"part":"delegate","n":9,"name":{"en":"No Single Point of Failure","fa":"بدونِ گلوگاه"},"glabel":{"en":"Delegate","fa":"واگذاری"},"principle":{"en":"Delegate and document so the company never depends on any one person — including you.","fa":"طوری واگذار و مستند کن که شرکت هیچ‌وقت به یک نفر بند نباشد — از جمله خودت."},"more":{"en":"If only one person can do a critical task, they're a single point of failure and a bottleneck. Delegate ownership, write down how things work, and cross-train a backup. Owning part of a well-run system beats being the hero who has to touch everything.","fa":"اگر فقط یک نفر بتواند یک کارِ حیاتی را انجام دهد، همان یک گلوگاه است. مالکیت را واگذار کن، طرزِ کار را بنویس، و یک نفرِ جایگزین را آموزش بده. صاحبِ بخشی از یک سیستمِ خوب بودن، بهتر از قهرمانی است که باید دستش به همه‌چیز بخورد."},"example":{"en":"If only you can deploy the app or close the books, you teach someone else and write down the steps.","fa":"اگر فقط تو می‌توانی اپ را منتشر کنی یا حساب‌ها را ببندی، یک نفرِ دیگر را یاد می‌دهی و قدم‌ها را می‌نویسی."},"tip":{"en":"Find the tasks only you can do, and this month teach one of them to someone else.","fa":"کارهایی که فقط از دستِ تو برمی‌آید را پیدا کن، و همین ماه یکی‌شان را به یک نفرِ دیگر یاد بده."},"pitfall":{"en":"Becoming the bottleneck yourself because you never trained a backup or wrote it down.","fa":"خودت گلوگاه شدن، چون نه جایگزین آموزش دادی نه چیزی نوشتی."}},"kpis":{"part":"delegate","n":10,"name":{"en":"KPIs & Goal-Tracking","fa":"شاخص‌ها و پیگیریِ هدف"},"glabel":{"en":"KPIs","fa":"شاخص‌ها"},"principle":{"en":"Pick a few key metrics, make them visible, and review progress on a regular cadence.","fa":"چند شاخصِ کلیدی را انتخاب کن، جلوی چشم بگذارشان، و پیشرفت را با یک ریتمِ منظم مرور کن."},"more":{"en":"What gets measured gets managed. Choose the handful of numbers that show the health of the business, put them on a shared dashboard, and review them every week. Clear metrics turn vague hopes into goals the team can actually steer toward.","fa":"چیزی که اندازه گرفته شود، مدیریت می‌شود. همان چند عددی را که سلامتِ کسب‌وکار را نشان می‌دهند انتخاب کن، روی یک داشبوردِ مشترک بگذار، و هر هفته مرورشان کن. شاخصِ روشن، امیدهای مبهم را به هدف‌هایی تبدیل می‌کند که تیم واقعاً می‌تواند به‌سمتشان فرمان بدهد."},"example":{"en":"A weekly dashboard: new signups, revenue, churn, and cash in the bank — reviewed every Monday.","fa":"یک داشبوردِ هفتگی: ثبت‌نامِ جدید، درآمد، ریزش، و پولِ توی حساب — هر دوشنبه مرور می‌شود."},"tip":{"en":"Choose three to five KPIs everyone can see, and review them at the same time each week.","fa":"سه تا پنج شاخص را که همه ببینند انتخاب کن، و هر هفته سرِ یک ساعتِ ثابت مرورشان کن."},"pitfall":{"en":"Drowning in dozens of metrics — or flying blind with none at all.","fa":"غرق‌شدن توی ده‌ها شاخص — یا کورپروازی بدونِ هیچ شاخصی."}},"hiring":{"part":"team","n":11,"name":{"en":"Recruiting & Hiring","fa":"جذب و استخدام"},"glabel":{"en":"Hiring","fa":"استخدام"},"principle":{"en":"Hire slowly and deliberately — recruiting is a top priority, not an interruption.","fa":"آهسته و با دقت استخدام کن — جذبِ نیرو یک اولویتِ اصلی است، نه یک وقفه."},"more":{"en":"A great company is just great people. Treat recruiting as an ongoing priority: build a pipeline, sell candidates on the mission, and check references seriously. Ask why they left each past job — promoted, recruited, or fired? Hire for both skill and values, and be willing to wait for the right person.","fa":"یک شرکتِ عالی چیزی نیست جز آدم‌های عالی. جذبِ نیرو را یک اولویتِ همیشگی بدان: یک صف از کاندیدا بساز، آن‌ها را به مأموریت علاقه‌مند کن، و مرجع‌ها را جدی چک کن. بپرس چرا از هر شغلِ قبلی رفتند — ترفیع گرفتند، جذب شدند، یا اخراج؟ هم برای مهارت استخدام کن هم برای ارزش‌ها، و حاضر باش برای آدمِ درست صبر کنی."},"example":{"en":"In a reference check you ask “Why did they leave?” and “Would you hire them again?”","fa":"موقعِ چک‌کردنِ مرجع می‌پرسی «چرا از اونجا رفت؟» و «دوباره استخدامش می‌کردی؟»"},"tip":{"en":"Always be building a candidate pipeline, even when you're not hiring right now.","fa":"همیشه در حالِ ساختنِ صفی از کاندیدا باش، حتی وقتی همین حالا استخدام نمی‌کنی."},"pitfall":{"en":"Rushing a hire to fill a seat, then paying for that mistake for years.","fa":"عجله در استخدام فقط برای پرکردنِ یک صندلی، و بعد سال‌ها تاوانِ آن اشتباه را دادن."}},"culture":{"part":"team","n":12,"name":{"en":"Culture & Values","fa":"فرهنگ و ارزش‌ها"},"glabel":{"en":"Culture","fa":"فرهنگ"},"principle":{"en":"Culture is the behavior you actually reward — define your values with the whole team and live them.","fa":"فرهنگ همان رفتاری است که واقعاً پاداش می‌دهی — ارزش‌ها را با کلِ تیم تعریف کن و باهاشان زندگی کن."},"more":{"en":"Culture isn't a poster; it's the real norms of how people behave. Agree on your values as a whole company so they get maximum buy-in, name the people who exemplify each, and then hire, promote, and fire by them. What you tolerate becomes your culture.","fa":"فرهنگ یک پوستر نیست؛ همان قاعده‌های واقعیِ رفتارِ آدم‌هاست. ارزش‌ها را به‌عنوانِ کلِ شرکت توافق کن تا بیشترین همراهی را بگیرند، برای هر ارزش آدمی را که نمونه‌اش است اسم ببر، و بعد بر اساسشان استخدام، ترفیع و اخراج کن. چیزی که تحملش می‌کنی، فرهنگت می‌شود."},"example":{"en":"You ask the whole team to nominate a value and a colleague who lives it, and make those your real values.","fa":"از کلِ تیم می‌خواهی یک ارزش و یک همکار که آن را زندگی می‌کند نام ببرند، و همان‌ها را ارزش‌های واقعی‌ات می‌کنی."},"tip":{"en":"Define your values together, then actually use them in hiring and promotion decisions.","fa":"ارزش‌ها را با هم تعریف کن، بعد واقعاً توی تصمیم‌های استخدام و ترفیع به کارشان ببر."},"pitfall":{"en":"Writing values on the wall while rewarding the opposite in practice.","fa":"نوشتنِ ارزش‌ها روی دیوار، درحالی‌که در عمل عکسشان را پاداش می‌دهی."}},"conscious":{"part":"team","n":13,"name":{"en":"Conscious Leadership","fa":"رهبریِ آگاهانه"},"glabel":{"en":"Conscious","fa":"آگاهی"},"principle":{"en":"Lead from above the line — take responsibility instead of blaming, and act from curiosity, not fear.","fa":"از بالای خط رهبری کن — به‌جای مقصر گشتن، مسئولیت بپذیر، و از سرِ کنجکاوی عمل کن، نه ترس."},"more":{"en":"Under stress we drop “below the line”: defensive, blaming, needing to be right. Conscious leaders notice this and shift back “above the line” — open, curious, responsible. They pause to breathe, accept what they feel, and choose their response instead of reacting from fear or anger.","fa":"زیرِ فشار می‌افتیم «پایینِ خط»: گارد گرفته، دنبالِ مقصر، محتاجِ حق‌به‌جانب‌بودن. رهبرهای آگاه این را می‌بینند و برمی‌گردند «بالای خط» — باز، کنجکاو، مسئول. مکث می‌کنند، نفس می‌کشند، حسشان را می‌پذیرند، و به‌جای واکنشِ از سرِ ترس یا خشم، پاسخشان را انتخاب می‌کنند."},"example":{"en":"When you feel defensive in a meeting, you pause, breathe, and ask a curious question instead of attacking.","fa":"وقتی توی جلسه حس می‌کنی داری گارد می‌گیری، مکث می‌کنی، نفس می‌کشی، و به‌جای حمله یک سؤالِ کنجکاوانه می‌پرسی."},"tip":{"en":"When you get triggered, name the feeling and take three breaths before you respond.","fa":"وقتی جرقه می‌خوری، حست را اسم ببر و قبل از جواب‌دادن سه تا نفسِ عمیق بکش."},"pitfall":{"en":"Reacting from fear or anger and dropping below the line into blame.","fa":"واکنش از سرِ ترس یا خشم و افتادن به پایینِ خط، توی مقصر گشتن."}},"fundraising":{"part":"ceoskills","n":14,"name":{"en":"Fundraising","fa":"جذبِ سرمایه"},"glabel":{"en":"Fundraising","fa":"سرمایه"},"principle":{"en":"Run fundraising as a tight, time-boxed process that creates competition among investors.","fa":"جذبِ سرمایه را مثلِ یک فرایندِ فشرده و زمان‌دار اجرا کن که بینِ سرمایه‌گذارها رقابت بسازد."},"more":{"en":"Don't raise money one meeting at a time. Line up all your investor conversations in the same short window so interest builds in parallel and offers arrive together. Real competition — genuine FOMO — is what gets you good terms. Get a lead investor, then close fast.","fa":"سرمایه را یکی‌یکی و جلسه‌به‌جلسه جمع نکن. همهٔ گفت‌وگوهای سرمایه‌گذاری را توی یک بازهٔ کوتاهِ مشترک ردیف کن تا علاقه به‌موازاتِ هم بالا برود و پیشنهادها با هم برسند. رقابتِ واقعی — همان ترسِ ازدست‌دادن — همان چیزی است که شرایطِ خوب را برایت می‌گیرد. یک سرمایه‌گذارِ پیش‌رو پیدا کن، بعد سریع ببند."},"example":{"en":"You book all your first investor meetings in the same two weeks, so the offers land around the same time.","fa":"همهٔ اولین جلسه‌های سرمایه‌گذاری را توی یک بازهٔ دوهفته‌ای می‌گذاری، تا پیشنهادها حدوداً هم‌زمان برسند."},"tip":{"en":"Batch investor meetings into one window to create urgency and competing offers.","fa":"جلسه‌های سرمایه‌گذارها را توی یک بازه جمع کن تا فوریت و پیشنهادهای رقیب بسازی."},"pitfall":{"en":"Dragging fundraising out serially, losing your momentum and your leverage.","fa":"کش‌دادنِ جذبِ سرمایه به‌شکلِ پشتِ‌سرِهم، و ازدست‌دادنِ شتاب و قدرتِ چانه‌زنی‌ات."}},"sales":{"part":"ceoskills","n":15,"name":{"en":"Sales","fa":"فروش"},"glabel":{"en":"Sales","fa":"فروش"},"principle":{"en":"Sell by building trust, finding the customer's real pain, and selling results — not features.","fa":"با اعتمادسازی، پیداکردنِ دردِ واقعیِ مشتری، و فروشِ نتیجه بفروش — نه امکانات."},"more":{"en":"People buy from those they trust, to solve a specific pain. Listen more than you pitch: find the exact problem that's costing them, build trust by being honest, and frame your product around the outcome they'll get, not a list of features. And split lead-generation from closing — they're different jobs.","fa":"آدم‌ها از کسی می‌خرند که بهش اعتماد دارند، تا یک دردِ مشخص را حل کنند. بیشتر از اینکه معرفی کنی، گوش بده: همان مشکلِ دقیقی که دارد برایشان خرج می‌تراشد را پیدا کن، با صادق‌بودن اعتماد بساز، و محصولت را دورِ نتیجه‌ای که می‌گیرند بچین، نه یک فهرست از امکانات. و پیداکردنِ مشتری را از بستنِ قرارداد جدا کن — دو کارِ متفاوت‌اند."},"example":{"en":"Instead of listing features, you ask what a problem is costing them today, then show the result your product delivers.","fa":"به‌جای ردیف‌کردنِ امکانات، می‌پرسی این مشکل الان چقدر برایشان خرج دارد، بعد نتیجه‌ای را که محصولت می‌دهد نشان می‌دهی."},"tip":{"en":"On every sales call, spend the first half just finding the customer's specific pain.","fa":"توی هر تماسِ فروش، نیمهٔ اول را فقط صرفِ پیداکردنِ دردِ دقیقِ مشتری کن."},"pitfall":{"en":"Pitching features to someone whose actual problem you never uncovered.","fa":"معرفیِ امکانات به کسی که مشکلِ واقعی‌اش را اصلاً کشف نکرده‌ای."}},"decisions":{"part":"ceoskills","n":16,"name":{"en":"Decision-Making","fa":"تصمیم‌گیری"},"glabel":{"en":"Decisions","fa":"تصمیم"},"principle":{"en":"Making the call is the easy part; the real work is getting the team emotionally bought in.","fa":"گرفتنِ تصمیم بخشِ آسانش است؛ کارِ اصلی همراه‌کردنِ احساسیِ تیم است."},"more":{"en":"A decision only sticks when the people who have to execute it own it. Involve them in the process, let their input genuinely shape the outcome, and they'll commit even when it isn't the choice they'd have made. Buy-in beats a “correct” decision the team quietly resents.","fa":"یک تصمیم فقط وقتی می‌ماند که آدم‌هایی که باید اجرایش کنند مالکش باشند. توی فرایند دخالتشان بده، بگذار نظرشان واقعاً روی نتیجه اثر بگذارد، آن‌وقت پایش می‌ایستند حتی اگر انتخابِ خودشان نبوده باشد. همراهی از یک تصمیمِ «درست» که تیم در دل ازش دلخور است، بهتر است."},"example":{"en":"Before you decide, you ask the team for input and show how it changed your thinking — then you decide.","fa":"قبل از تصمیم، از تیم نظر می‌خواهی و نشان می‌دهی نظرشان چطور فکرت را عوض کرد — بعد تصمیم می‌گیری."},"tip":{"en":"Bring the team into the decision early, so they feel their input actually shaped it.","fa":"تیم را زود واردِ تصمیم کن، تا حس کنند نظرشان واقعاً رویش اثر گذاشته."},"pitfall":{"en":"Announcing decisions top-down, then wondering why no one follows through.","fa":"اعلامِ تصمیم‌ها از بالا به پایین، و بعد تعجب از اینکه چرا کسی پایش نمی‌ایستد."}}},"core":{"name":{"en":"SYSTEMS","fa":"سیستم‌ها"},"principle":{"en":"A great CEO builds the systems and habits that let a company run — and grow — without them in the middle of everything. Get work out of your head into trusted systems, default to transparency, lead from a calm place, and delegate until you're no longer the bottleneck.","fa":"یک مدیرعاملِ بزرگ همان سیستم‌ها و عادت‌هایی را می‌سازد که باعث می‌شوند یک شرکت بدونِ اینکه او وسطِ همه‌چیز باشد، کار کند و رشد کند. کارها را از سرت بیرون بریز توی سیستم‌های مطمئن، پیش‌فرضت شفافیت باشد، از یک جای آرام رهبری کن، و آن‌قدر واگذار کن تا دیگر گلوگاه نباشی."},"more":{"en":"Mochary organizes the tactical guide into five moves — manage yourself (GTD, Inbox Zero, Top Goal, energy), communicate (transparency, feedback, conflict), delegate (AORs, no single point of failure, KPIs), build the team (hiring, culture, conscious leadership), and master the CEO skills (fundraising, sales, decisions). The thread through all of it: systems and self-awareness let you scale.","fa":"موکری این راهنمای عملی را در پنج حرکت می‌چیند — خودت را مدیریت کن (انجامِ کار، صندوقِ خالی، هدفِ اصلی، انرژی)، ارتباط بگیر (شفافیت، بازخورد، تعارض)، واگذار کن (حوزه‌های مسئولیت، بدونِ گلوگاه، شاخص‌ها)، تیم را بساز (استخدام، فرهنگ، رهبریِ آگاه)، و مهارت‌های مدیرعامل را استاد شو (جذبِ سرمایه، فروش، تصمیم). نخِ رابطِ همه‌شان: سیستم و خودآگاهی به تو اجازهٔ رشد می‌دهند."},"example":{"en":"Click any node to read a practice or an idea. You can also drag the nodes around.","fa":"روی هر دایره کلیک کن تا یک تمرین یا ایده را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."}},"stages":[{"level":1,"badge":{"en":"Level 1 · Over-simplified","fa":"سطحِ ۱ · خیلی ساده"},"title":{"en":"Build systems","fa":"سیستم بساز"},"tagline":{"en":"The whole book in a sentence.","fa":"کلِ کتاب در یک جمله."},"body":{"en":"A great CEO builds systems and habits so the company can run without them. Get everything out of your head and into a system you trust — then hand it off to someone else.","fa":"یک مدیرعاملِ خوب سیستم و عادت می‌سازد تا شرکت بدونِ خودش هم بچرخد. هرچیزی را از سرت بیرون بریز و توی سیستمی بگذار که بهش اعتماد داری — بعد بسپارش به یک نفرِ دیگر."},"example":{"en":"You keep one trusted task list instead of a hundred sticky notes and a full head.","fa":"به‌جای صد تا کاغذِ یادداشت و یک سرِ شلوغ، یک فهرستِ کارِ مطمئن داری."},"gain":{"en":"You hold the single idea the whole book expands on.","fa":"همان یک ایده‌ای را داری که کلِ کتاب بسطش می‌دهد."}},{"level":2,"badge":{"en":"Level 2 · Simple","fa":"سطحِ ۲ · ساده"},"title":{"en":"Manage yourself first","fa":"اول خودت را مدیریت کن"},"tagline":{"en":"GTD, Inbox Zero, Top Goal.","fa":"انجامِ کار، صندوقِ خالی، هدفِ اصلی."},"body":{"en":"Before you can run a company, run yourself. <b>Get things out of your head</b> into a task system, keep your <b>inbox at zero</b>, and protect <b>two hours a day</b> for your Top Goal — the one thing that matters most.","fa":"قبل از اینکه یک شرکت را بگردانی، خودت را بگردان. <b>کارها را از سرت بیرون بریز</b> توی یک سیستمِ کار، <b>صندوقِ ورودی‌ات را خالی</b> نگه دار، و هر روز <b>دو ساعت</b> را برای هدفِ اصلی‌ات نگه دار — همان یک چیزی که از همه مهم‌تر است."},"example":{"en":"Each morning you spend two focused hours on your top priority before you touch email.","fa":"هر صبح، قبل از اینکه سراغِ ایمیل بروی، دو ساعت با تمرکز روی مهم‌ترین کارت کار می‌کنی."},"gain":{"en":"You get your own time and attention under control.","fa":"وقت و تمرکزِ خودت را دستِ خودت می‌گیری."}},{"level":3,"badge":{"en":"Level 3 · Balanced","fa":"سطحِ ۳ · متعادل"},"title":{"en":"Run the group","fa":"گروه را بگردان"},"tagline":{"en":"Transparency, feedback, decisions.","fa":"شفافیت، بازخورد، تصمیم."},"body":{"en":"Now the team. Default to <b>transparency</b> — share the real numbers, good and bad. Give and take <b>feedback</b> cleanly, surface conflict early, and when you decide, get <b>buy-in</b> so the team owns the decision, not just you.","fa":"حالا نوبتِ تیم است. پیش‌فرضت <b>شفافیت</b> باشد — عددهای واقعی را بگو، خوب و بد. <b>بازخورد</b> را تمیز بده و بگیر، تعارض را زود رو کن، و وقتی تصمیم می‌گیری، طوری <b>تیم را همراه</b> کن که تصمیم مالِ همه باشد، نه فقط تو."},"example":{"en":"You share the monthly financials with everyone and let the team shape big calls before you make them.","fa":"عددهای مالیِ ماهانه را با همه در میان می‌گذاری و می‌گذاری تیم روی تصمیم‌های بزرگ اثر بگذارد، قبل از اینکه بگیری‌شان."},"gain":{"en":"You can run a team on trust instead of fear.","fa":"می‌توانی تیم را با اعتماد بگردانی، نه با ترس."}},{"level":4,"badge":{"en":"Level 4 · Advanced","fa":"سطحِ ۴ · پیشرفته"},"title":{"en":"Delegate and structure","fa":"واگذار کن و ساختار بده"},"tagline":{"en":"AORs, no bottlenecks, KPIs.","fa":"حوزهٔ مسئولیت، بی‌گلوگاه، شاخص."},"body":{"en":"Scale by letting go. Give every <b>area of responsibility</b> exactly one owner so nothing falls through the cracks. Kill every <b>single point of failure</b> — including you — by documenting and cross-training. And track a few <b>KPIs</b> everyone can see.","fa":"با رهاکردن، بزرگ شو. هر <b>حوزهٔ مسئولیت</b> را دقیقاً به یک نفر بسپار تا هیچ‌چیز از قلم نیفتد. هر <b>گلوگاه</b> را از بین ببر — از جمله خودت — با مستندکردن و آموزشِ جایگزین. و چند <b>شاخصِ کلیدی</b> را که همه ببینند دنبال کن."},"example":{"en":"Every function has one named owner, and no critical task depends on a single person.","fa":"هر بخش یک صاحبِ مشخص دارد، و هیچ کارِ مهمی به یک نفر بند نیست."},"gain":{"en":"You remove yourself as the bottleneck.","fa":"خودت را از گلوگاه‌بودن درمی‌آوری."}},{"level":5,"badge":{"en":"Level 5 · Expert","fa":"سطحِ ۵ · حرفه‌ای"},"title":{"en":"Lead and scale","fa":"رهبری کن و رشد بده"},"tagline":{"en":"Culture, conscious leadership, the CEO skills.","fa":"فرهنگ، رهبریِ آگاه، مهارت‌های مدیرعامل."},"body":{"en":"The complete CEO builds the people and leads from a calm place. Define your <b>culture and values</b> with the whole team and hire by them. Lead <b>consciously</b> — notice fear and anger, and choose your response instead of reacting. And master the outward skills: <b>hiring, fundraising, and sales</b>. Systems carry the company; you carry the tone.","fa":"مدیرعاملِ کامل، آدم‌ها را می‌سازد و از یک جای آرام رهبری می‌کند. <b>فرهنگ و ارزش‌ها</b> را با کلِ تیم تعریف کن و بر اساسشان استخدام کن. <b>آگاهانه</b> رهبری کن — ترس و خشم را ببین، و به‌جای واکنشِ ناگهانی، پاسخت را انتخاب کن. و مهارت‌های بیرونی را استاد شو: <b>استخدام، جذبِ سرمایه، و فروش</b>. سیستم‌ها شرکت را حمل می‌کنند؛ تو حال‌وهوا را."},"example":{"en":"You hire and promote by your values, stay above the line under stress, and raise money by running a tight process.","fa":"بر اساسِ ارزش‌هایت استخدام و ترفیع می‌دهی، زیرِ فشار بالای خط می‌مانی، و با یک فرایندِ فشرده سرمایه جذب می‌کنی."},"gain":{"en":"You can build a company that runs — and grows — without you in the middle of everything.","fa":"می‌توانی شرکتی بسازی که بدونِ اینکه تو وسطِ همه‌چیز باشی، کار کند و رشد کند."}}],"quotes":[{"en":"Schedule two hours each day to work on your top goal only.","fa":"هر روز دو ساعت را بگذار که فقط روی هدفِ اصلی‌ات کار کنی."},{"en":"Share all relevant information with your team, both positive and negative.","fa":"همهٔ اطلاعاتِ مهم را با تیمت در میان بگذار، چه خوب چه بد."},{"en":"It's often easy to make a decision, but it can be much harder to get your team to invest emotionally in that decision.","fa":"معمولاً گرفتنِ یک تصمیم آسان است، ولی همراه‌کردنِ احساسیِ تیم با آن تصمیم خیلی سخت‌تر است."},{"en":"You create buy-in when you make people feel that they are part of the decision and that their input contributes to the final outcome.","fa":"وقتی کاری می‌کنی که آدم‌ها حس کنند بخشی از تصمیم‌اند و نظرشان روی نتیجهٔ نهایی اثر گذاشته، همراهی می‌سازی."},{"en":"And when receiving appreciation, there is only one correct response: 'Thank you.'","fa":"و وقتی کسی ازت قدردانی می‌کند، فقط یک جوابِ درست دارد: «ممنونم»."},{"en":"Even though conscious leaders get defensive like everyone else, they regularly interrupt this natural reactivity by pausing to breathe, accept, and shift.","fa":"رهبرهای آگاه هم مثلِ بقیه گارد می‌گیرند، ولی مدام این واکنشِ طبیعی را قطع می‌کنند: مکث می‌کنند، نفس می‌کشند، می‌پذیرند و مسیر را عوض می‌کنند."},{"en":"Agreeing on what your values are is the kind of statement that needs maximum buy-in, so it should involve your whole company.","fa":"توافق روی اینکه ارزش‌هایتان چیست، از آن تصمیم‌هایی است که بیشترین همراهی را می‌خواهد، پس باید کلِ شرکت را درگیر کند."},{"en":"To make a sale: build trust, identify the customer's specific pain, and sell results, not features.","fa":"برای فروش: اعتماد بساز، دردِ دقیقِ مشتری را پیدا کن، و نتیجه بفروش، نه امکانات."}],"media":[{"kind":"yt","id":"24b1m0P3AXk","src":{"en":"YouTube · The Learning Leader","fa":"یوتیوب · The Learning Leader"},"title":{"en":"Lessons From A World-Class CEO Coach","fa":"درس‌هایی از یک مربیِ درجه‌یکِ مدیرعامل‌ها"},"desc":{"en":"Ryan Hawk interviews Matt Mochary on the core ideas of the book.","fa":"رایان هاک با مت موکری دربارهٔ ایده‌های اصلیِ کتاب گفت‌وگو می‌کند."},"bullets":{"en":["The big picture, in plain terms","How the habits fit together","A warm, fast overview"],"fa":["تصویرِ کلی، به زبانِ ساده","اینکه عادت‌ها چطور کنارِ هم می‌نشینند","یک مرورِ گرم و سریع"]},"best":{"en":"Best for Stage 1–2.","fa":"خوب برای مرحلهٔ ۱ و ۲."}},{"kind":"yt","id":"qOrwVtZvdaE","src":{"en":"YouTube · Lenny's Podcast","fa":"یوتیوب · Lenny's Podcast"},"title":{"en":"Are Your Fears Giving You Terrible Advice?","fa":"آیا ترس‌هایت دارند نصیحتِ بد بهت می‌دهند؟"},"desc":{"en":"Mochary on working through fear and leading consciously.","fa":"موکری دربارهٔ عبور از ترس و رهبریِ آگاهانه."},"bullets":{"en":["Fear and anger give bad advice","Getting above the line under stress","Practical, story-driven"],"fa":["ترس و خشم نصیحتِ بد می‌دهند","بالای خط رفتن زیرِ فشار","کاربردی و همراهِ داستان"]},"best":{"en":"Best for Stage 3–4.","fa":"خوب برای مرحلهٔ ۳ و ۴."}},{"kind":"yt","id":"JVkiQY8KkOQ","src":{"en":"YouTube · Tim Ferriss","fa":"یوتیوب · Tim Ferriss"},"title":{"en":"CEO Coach Matt Mochary — Coaching Tim","fa":"مربیِ مدیرعامل‌ها، مت موکری — کوچینگِ تیم"},"desc":{"en":"A live coaching session covering delegation, hiring, and accountability.","fa":"یک جلسهٔ کوچینگِ زنده دربارهٔ واگذاری، استخدام و پاسخگویی."},"bullets":{"en":["Real coaching, not just theory","Energy audits and accountability","Deep and practical"],"fa":["کوچینگِ واقعی، نه فقط تئوری","بررسیِ انرژی و پاسخگویی","عمیق و کاربردی"]},"best":{"en":"Best for Stage 4–5.","fa":"خوب برای مرحلهٔ ۴ و ۵."}},{"kind":"img","url":"https://www.porchlightbooks.com/products/great-ceo-within-matt-mochary-9780578599281","src":{"en":"Porchlight · Publisher","fa":"Porchlight · ناشر"},"title":{"en":"The Great CEO Within — Publisher Page","fa":"مدیرعاملِ بزرگ — صفحهٔ ناشر"},"desc":{"en":"The publisher page for the print edition, with details and ordering.","fa":"صفحهٔ ناشر برای نسخهٔ چاپی، با جزئیات و سفارش."},"bullets":{"en":["The print edition","Background on the book","Straight from the source"],"fa":["نسخهٔ چاپی","پیشینه‌ای دربارهٔ کتاب","مستقیم از خودِ منبع"]},"best":{"en":"For the print edition and details.","fa":"برای نسخهٔ چاپی و جزئیات."}}],"go":[{"label":{"en":"Publisher page (Porchlight)","fa":"صفحهٔ ناشر"},"url":"https://www.porchlightbooks.com/products/great-ceo-within-matt-mochary-9780578599281"},{"label":{"en":"Book on Goodreads","fa":"کتاب در گودریدز"},"url":"https://www.goodreads.com/book/show/48691943-the-great-ceo-within"},{"label":{"en":"Read the book free (Google Doc)","fa":"نسخهٔ رایگانِ کتاب"},"url":"https://docs.google.com/document/d/1ZJZbv4J6FZ8Dnb0JuMhJxTnwl-dwqx5xl0s65DE3wO8/mobilebasic"}],"recs":[{"pri":"b","t":{"en":"Set your Top Goal and block two hours","fa":"هدفِ اصلی‌ات را تعیین کن و دو ساعت خالی کن"},"d":{"en":"Pick your single most important goal and put a daily two-hour block on your calendar for it — first thing.","fa":"مهم‌ترین هدفت را انتخاب کن و هر روز یک بازهٔ دوساعته توی تقویمت برایش بگذار — همان اولِ وقت."}},{"pri":"b","t":{"en":"Get to Inbox Zero today","fa":"امروز به صندوقِ خالی برس"},"d":{"en":"Process every email to a decision — do, delegate, defer, or delete — until the inbox is empty.","fa":"هر ایمیل را تا یک تصمیم پیش ببر — انجام، واگذاری، بعداً، یا حذف — تا صندوق خالی شود."}},{"pri":"n","t":{"en":"Give every area one owner","fa":"به هر حوزه یک صاحب بده"},"d":{"en":"List your company's areas of responsibility and put exactly one name on each.","fa":"حوزه‌های مسئولیتِ شرکتت را فهرست کن و روی هرکدام دقیقاً یک اسم بگذار."}},{"pri":"n","t":{"en":"Share the real numbers","fa":"عددهای واقعی را بگو"},"d":{"en":"Send your team the honest state of the business this week — the good news and the bad.","fa":"وضعیتِ صادقانهٔ کسب‌وکار را همین هفته برای تیمت بفرست — خبرهای خوب و بد."}}]};
-</script>
-
-<script>
-/* ── 3) RENDER (text sections) ────────────────────────────── */
-function elClear(id){ var e=document.getElementById(id); if(e) e.innerHTML=''; return e; }
-
-function renderText(){
-  var t=elClear('tldrHost');
-  DATA.tldr.forEach(function(o){ var li=document.createElement('li'); li.innerHTML = TX(o); t.appendChild(li); });
-
-  var q=elClear('quoteHost');
-  DATA.quotes.forEach(function(o){
-    var bq=document.createElement('blockquote');
-    bq.innerHTML = '<span class="qm">“</span><p>'+TX(o)+'</p>';
-    q.appendChild(bq);
-  });
-
-  var m=elClear('mediaHost');
-  DATA.media.forEach(function(o){
-    var card=document.createElement('div'); card.className='mcard';
-    var thumb;
-    if(o.kind==='yt'){
-      var url='https://www.youtube.com/watch?v='+o.id;
-      var img='https://i.ytimg.com/vi/'+o.id+'/hqdefault.jpg';
-      thumb='<a class="mthumb" href="'+url+'" target="_blank" rel="noopener">'
-        +'<img src="'+img+'" alt="" loading="lazy" onerror="this.style.display=\'none\'">'
-        +'<span class="ptype">'+(LANG==='fa'?'ویدیو':'VIDEO')+'</span>'
-        +'<span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></span></a>';
-    } else {
-      thumb='<a class="mthumb" href="'+o.url+'" target="_blank" rel="noopener"><span class="mfake">'
-        +'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.6"/><path d="M21 15l-5-5L5 21"/></svg>'
-        +'</span><span class="ptype">'+(LANG==='fa'?'تصویر':'IMAGE')+'</span></a>';
-    }
-    var link = o.kind==='yt' ? 'https://www.youtube.com/watch?v='+o.id : o.url;
-    var bl = (LANG==='fa'?o.bullets.fa:o.bullets.en).map(function(b){ return '<li>'+ (LANG==='fa'?faText(b):b) +'</li>'; }).join('');
-    card.innerHTML = thumb + '<div class="mbody">'
-      + '<div class="msrc">'+TX(o.src)+'</div>'
-      + '<h4>'+TX(o.title)+'</h4>'
-      + '<p class="mdesc">'+TX(o.desc)+'</p>'
-      + '<ul>'+bl+'</ul>'
-      + '<a class="mlink" href="'+link+'" target="_blank" rel="noopener">'+(LANG==='fa'?'باز کردن ↗':'Open ↗')+'</a>'
-      + '<div class="mbest">'+TX(o.best)+'</div>'
-      + '</div>';
-    m.appendChild(card);
-  });
-
-  var g=elClear('goHost');
-  DATA.go.forEach(function(o){
-    var a=document.createElement('a'); a.href=o.url; a.target='_blank'; a.rel='noopener';
-    a.textContent=TX(o.label); g.appendChild(a);
-  });
-
-  var r=elClear('recHost');
-  DATA.recs.forEach(function(o){
-    var it=document.createElement('div'); it.className='item';
-    var priLabel = o.pri==='b' ? (LANG==='fa'?'از اینجا شروع کن':'Start here') : (LANG==='fa'?'بعدش این':'Then this');
-    it.innerHTML='<div class="t">'+TX(o.t)+'<span class="pri '+(o.pri==='b'?'b':'')+'">'+priLabel+'</span></div>'
-      +'<div class="d">'+TX(o.d)+'</div>';
-    r.appendChild(it);
-  });
-
-  var mth=document.getElementById('methodHost');
-  mth.innerHTML = LANG==='fa' ? faText("<p><b>منبع:</b> کتابِ «The Great CEO Within» نوشتهٔ مت موکری، چاپِ ۲۰۱۹. این کتاب به‌صورتِ رایگان به شکلِ یک گوگل‌داک در دسترس است.</p><p><b>روشِ کار:</b> ساختارِ پنج‌بخشی و تمرین‌ها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده؛ نقل‌قول‌ها با متنِ کتاب مقابله و ویدیوها بررسی شده‌اند.</p><p><b>گروه:</b> «اجرا» — از فهرستِ کتاب‌های ضروریِ سازندگانِ محصولِ لنی راچیتسکی.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای متنِ کامل، خودِ کتاب را بخوان.</p>") : "<p><b>Source:</b> the book <i>The Great CEO Within</i> by Matt Mochary, published 2019 — freely available online as a Google Doc.</p><p><b>How this was built:</b> the five-part structure and practices were gathered and rewritten from the book and reputable sources; quotes were cross-checked and the linked videos verified.</p><p><b>Group:</b> Executing — from Lenny Rachitsky's essential books for product builders.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>";
-  var fl=document.getElementById('flowTop');
-  if(fl){
-    var loop = LANG==='fa' ? ["سیستم بساز","بسپار","رشد بده"] : ["Systematize","Delegate","Scale"];
-    var ar = LANG==='fa' ? '⟵' : '⟶';
-    fl.innerHTML = loop.map(function(w){ return '<b>'+ (LANG==='fa'?faText(w):w) +'</b>'; }).join(' <span class="ar">'+ar+'</span> ');
-  }
-}
-</script>
-
-<script>
-/* ── 4) CONCEPT MAP ───────────────────────────────────────── */
-function renderMap(){
-  var host=document.getElementById('mapHost'); if(!host) return; host.innerHTML='';
-  DATA.parts.forEach(function(p, i){
-    var col=document.createElement('div'); col.className='partcol';
-    var chaps=p.chapters.map(function(ck){
-      var c=DATA.chapters[ck];
-      return '<div class="chapchip"><span class="cn">'+num(c.n)+'</span><div><b>'+TX(c.name)+'</b>'
-        +'<small>'+TX(c.principle).replace(/<[^>]+>/g,'').slice(0, LANG==='fa'?86:76)+'…</small></div></div>';
-    }).join('');
-    col.innerHTML='<div class="ph"><span class="pdot" style="background:var('+p.varc+')"></span>'
-      +'<span class="pnum">'+(LANG==='fa'?'بخشِ ':'PART ')+num(i+1)+'</span></div>'
-      +'<h4>'+TX(p.name)+'</h4>'
-      +'<div class="ptag" style="color:var('+p.varc+')">'+TX(p.tag)+'</div>'
-      +'<p class="pgist">'+TX(p.gist)+'</p>'+chaps;
-    host.appendChild(col);
-  });
-}
-</script>
-
-<script>
-/* ── 5) INTERACTIVE NETWORK GRAPH (deterministic radial layout, no physics) ── */
-var GRAPH = (function(){
-  var svg, W=980, H=780, nodes=[], links=[], sel=null, dragNode=null, moved=false, startPt=null;
-
-  function build(){
-    svg=document.getElementById('netsvg');
-    svg.setAttribute('viewBox','0 0 '+W+' '+H);
-    nodes=[]; links=[];
-    var cx=W/2, cy=H/2, R1=220, R2=126, span=66*Math.PI/180;
-    var N=DATA.parts.length, partAng=DATA.parts.map(function(_,i){ return -Math.PI/2 + i*(2*Math.PI/N); });
-    nodes.push({id:'core', kind:'core', varc:'--core', r:38, x:cx, y:cy, label:DATA.core.name, data:DATA.core});
-    DATA.parts.forEach(function(p,i){
-      var a=partAng[i], px=cx+Math.cos(a)*R1, py=cy+Math.sin(a)*R1;
-      nodes.push({id:'p_'+p.key, kind:'part', varc:p.varc, r:25, x:px, y:py,
-        label:p.name, data:{name:p.name, principle:p.gist, more:p.more, tag:p.tag, key:p.key}});
-      links.push({s:'core', t:'p_'+p.key, strong:true});
-      var nc=p.chapters.length, start=a-span/2;
-      p.chapters.forEach(function(ck,j){
-        var ca = nc>1 ? start+span*(j/(nc-1)) : a;   // fan the 5 chapters outward
-        var c=DATA.chapters[ck];
-        nodes.push({id:'c_'+ck, kind:'chap', varc:p.varc, r:15,
-          x:px+Math.cos(ca)*R2, y:py+Math.sin(ca)*R2,
-          label:(c.glabel||c.name), data:c, ck:ck});
-        links.push({s:'p_'+p.key, t:'c_'+ck});
-      });
-    });
-    nodes.forEach(function(n){ n.hx=n.x; n.hy=n.y; });   // remember home positions for reset
-    draw();
-    select('core');
-  }
-
-  function byId(id){ for(var i=0;i<nodes.length;i++) if(nodes[i].id===id) return nodes[i]; return null; }
-
-  function draw(){
-    var ln='', nd='';
-    links.forEach(function(l){ ln+='<line class="glink" data-s="'+l.s+'" data-t="'+l.t+'" stroke="var(--line)" stroke-width="'+(l.strong?2.4:1.5)+'" stroke-linecap="round"/>'; });
-    nodes.forEach(function(n){
-      var inside='', below='';
-      if(n.kind==='core'){
-        inside='<text text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="800" fill="#fff" letter-spacing="0.3">'+shortLabel(n)+'</text>';
-      } else {
-        if(n.kind==='chap'){
-          inside='<text text-anchor="middle" dominant-baseline="central" font-size="11" font-weight="800" fill="#fff">'+num(n.data.n)+'</text>';
+/* ── CONTENT — everything unique to this book lives here ── */
+Book.mount({
+  "meta": {
+    "slug": "the-great-ceo-within",
+    "folder": "02 - Executing",
+    "groupNum": 2,
+    "group": {
+      "en": "Executing",
+      "fa": "اجرا"
+    },
+    "author": {
+      "en": "Matt Mochary",
+      "fa": "مت موکری"
+    },
+    "eyebrow_author": {
+      "en": "Matt Mochary",
+      "fa": "مت موکری"
+    },
+    "book": {
+      "en": "The Great CEO Within",
+      "fa": "مدیرعاملِ بزرگ"
+    },
+    "hero_title": {
+      "en": "The Great CEO Within — The Tactical Guide to Company Building",
+      "fa": "مدیرعاملِ بزرگ — راهنمای عملیِ ساختنِ شرکت"
+    },
+    "dek": {
+      "en": "A knowledge graph of the whole book, plus a 5-stage path from a single idea to expert-level mastery — with an example at every step.",
+      "fa": "نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از یک ایدهٔ ساده تا حرفه‌ای — با یک مثال در هر مرحله."
+    },
+    "published": {
+      "en": "2019",
+      "fa": "۲۰۱۹"
+    },
+    "chips": [
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Parts",
+          "fa": "بخش"
         }
-        var ly = n.r + (n.kind==='part'?17:14);
-        var fs = n.kind==='part'?13:11;
-        var stroke = 'paint-order:stroke;stroke:var(--card2);stroke-width:3.6px;stroke-linejoin:round';
-        below='<text class="nlab" text-anchor="middle" y="'+ly+'" font-size="'+fs+'" font-weight="'+(n.kind==='part'?'800':'700')+'" fill="var(--ink)" style="'+stroke+'">'+shortLabel(n)+'</text>';
+      },
+      {
+        "v": {
+          "en": "16",
+          "fa": "۱۶"
+        },
+        "l": {
+          "en": "Practices",
+          "fa": "تمرین"
+        }
+      },
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Learning stages",
+          "fa": "مرحلهٔ یادگیری"
+        }
       }
-      nd+='<g class="node'+(n.kind==='core'?' ncore':'')+'" data-id="'+n.id+'"><g class="ns">'
-        +'<circle r="'+n.r+'" fill="var('+n.varc+')" fill-opacity="'+(n.kind==='chap'?0.94:1)+'" stroke="var(--card)" stroke-width="2.5"/>'
-        +inside+below+'</g></g>';
-    });
-    svg.innerHTML='<g id="glinks">'+ln+'</g><g id="gnodes">'+nd+'</g>';
-    svg.querySelectorAll('.node').forEach(function(gEl){
-      gEl.addEventListener('pointerdown', onDown);
-      gEl.addEventListener('click', function(){ if(!moved) select(gEl.getAttribute('data-id')); });
-      gEl.addEventListener('pointerenter', function(){ if(!dragNode) gEl.classList.add('hover'); });
-      gEl.addEventListener('pointerleave', function(){ gEl.classList.remove('hover'); });
-    });
-    positions();
-  }
-  function shortLabel(n){ return TX(n.label); }
-
-  function positions(){
-    svg.querySelectorAll('.node').forEach(function(g){
-      var n=byId(g.getAttribute('data-id'));
-      g.setAttribute('transform','translate('+n.x.toFixed(1)+','+n.y.toFixed(1)+')');
-    });
-    svg.querySelectorAll('.glink').forEach(function(l){
-      var a=byId(l.getAttribute('data-s')), b=byId(l.getAttribute('data-t'));
-      l.setAttribute('x1',a.x.toFixed(1)); l.setAttribute('y1',a.y.toFixed(1));
-      l.setAttribute('x2',b.x.toFixed(1)); l.setAttribute('y2',b.y.toFixed(1));
-    });
-  }
-
-  /* drag: just move the grabbed node — no simulation, so nothing else shifts */
-  function toSvg(e){
-    var pt=svg.createSVGPoint(); pt.x=e.clientX; pt.y=e.clientY;
-    var m=svg.getScreenCTM(); if(!m) return {x:e.clientX,y:e.clientY};
-    return pt.matrixTransform(m.inverse());
-  }
-  function onDown(e){
-    e.preventDefault();
-    dragNode=byId(e.currentTarget.getAttribute('data-id'));
-    moved=false; startPt=toSvg(e); svg.style.cursor='grabbing';
-    e.currentTarget.classList.remove('hover');
-    window.addEventListener('pointermove', onMove);
-    window.addEventListener('pointerup', onUp);
-  }
-  function onMove(e){
-    if(!dragNode) return; var p=toSvg(e);
-    if(startPt && (Math.abs(p.x-startPt.x)>4 || Math.abs(p.y-startPt.y)>4)) moved=true;
-    dragNode.x=Math.max(dragNode.r+4, Math.min(W-dragNode.r-4, p.x));
-    dragNode.y=Math.max(dragNode.r+4, Math.min(H-dragNode.r-24, p.y));
-    positions();
-  }
-  function onUp(){
-    dragNode=null; svg.style.cursor='grab';
-    window.removeEventListener('pointermove', onMove);
-    window.removeEventListener('pointerup', onUp);
-  }
-
-  function keepSet(id){
-    var n=byId(id); if(!n || id==='core') return null;   // core → show everything
-    var keep={}; keep[id]=1; keep['core']=1;
-    var pk = (n.kind==='part') ? n.data.key : n.data.part;
-    keep['p_'+pk]=1;
-    DATA.parts.forEach(function(p){ if(p.key===pk) p.chapters.forEach(function(ck){ keep['c_'+ck]=1; }); });
-    return keep;   // highlight the whole branch: core → part → its chapters
-  }
-  function applyFocus(id){
-    var keep=keepSet(id), full=(keep===null);
-    svg.querySelectorAll('.node').forEach(function(g){
-      var nid=g.getAttribute('data-id');
-      g.classList.toggle('dim', !full && !keep[nid]);
-      g.classList.toggle('hl', !full && keep[nid] && nid!==id);
-    });
-    svg.querySelectorAll('.glink').forEach(function(l){
-      var s=l.getAttribute('data-s'), t=l.getAttribute('data-t');
-      var on = full || (keep[s] && keep[t]);
-      l.classList.toggle('dim', !on);
-      l.classList.toggle('hl', !full && on);
-    });
-  }
-
-  function relatedIds(node){
-    var ids=[];
-    if(node.id==='core'){ DATA.parts.forEach(function(p){ ids.push('p_'+p.key); }); }
-    else if(node.kind==='part'){ var pk=node.data.key; DATA.parts.forEach(function(p){ if(p.key===pk) p.chapters.forEach(function(ck){ ids.push('c_'+ck); }); }); }
-    else { var pk2=node.data.part; ids.push('p_'+pk2);
-      DATA.parts.forEach(function(p){ if(p.key===pk2) p.chapters.forEach(function(ck){ if('c_'+ck!==node.id) ids.push('c_'+ck); }); }); }
-    return ids;
-  }
-
-  function drow(cls,label,txt){ return '<div class="drow '+cls+'"><div class="dlab">'+label+'</div><div class="dtxt">'+txt+'</div></div>'; }
-
-  function select(id){
-    var n=byId(id); if(!n) return;
-    sel=id;
-    svg.querySelectorAll('.node').forEach(function(g){ g.classList.toggle('sel', g.getAttribute('data-id')===id); });
-    var selEl=svg.querySelector('.node[data-id="'+id+'"]'); if(selEl&&selEl.parentNode) selEl.parentNode.appendChild(selEl);  // raise on top
-    applyFocus(id);
-    var d=n.data, pv = n.kind==='core' ? '--core' : n.varc;
-    var kicker = n.kind==='core' ? (LANG==='fa'?'ایدهٔ مرکزی':'Core idea')
-             : n.kind==='part' ? (LANG==='fa'?'بخش':'Part') + ' · ' + TX(d.tag)
-             : (LANG==='fa'?"تمرینِ":"Practice") + ' ' + num(d.n);
-    var prLab = (n.kind==='chap') ? (LANG==='fa'?'اصل':'Principle') : (LANG==='fa'?'ایدهٔ اصلی':'Big idea');
-    var html='<div class="dkick"><i style="background:var('+pv+')"></i>'+ (LANG==='fa'?faText(kicker):kicker) +'</div>'
-      +'<h4>'+TX(d.name)+'</h4>'
-      + drow('', prLab, TX(d.principle));
-    if(d.more)    html += drow('more', (LANG==='fa'?'بیشتر':'In depth'), TX(d.more));
-    if(d.example) html += drow('', (LANG==='fa'?'مثال':'Example'), TX(d.example));
-    if(d.tip)     html += drow('tip', (LANG==='fa'?'امتحان کن':'Try this'), TX(d.tip));
-    if(d.pitfall) html += drow('pit', (LANG==='fa'?'حواست باشد':'Watch out'), TX(d.pitfall));
-    // related chips
-    var rel=relatedIds(n);
-    if(rel.length){
-      var chips=rel.map(function(rid){ var rn=byId(rid); if(!rn) return '';
-        return '<span class="dchip" data-goto="'+rid+'"><i style="background:var('+rn.varc+')"></i>'+TX(rn.data.name)+'</span>'; }).join('');
-      html += '<div class="drow"><div class="dlab">'+(LANG==='fa'?'مرتبط':'Related')+'</div><div class="dchips">'+chips+'</div></div>';
+    ],
+    "kboxes": [
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Parts (self · comms · delegation · team · CEO)",
+          "fa": "بخش (خود · ارتباط · واگذاری · تیم · مدیرعامل)"
+        }
+      },
+      {
+        "v": {
+          "en": "16",
+          "fa": "۱۶"
+        },
+        "l": {
+          "en": "Practices you can use",
+          "fa": "تمرین برای استفاده"
+        }
+      },
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Levels, simple → expert",
+          "fa": "مرحله، ساده تا حرفه‌ای"
+        }
+      },
+      {
+        "v": {
+          "en": "3",
+          "fa": "۳"
+        },
+        "l": {
+          "en": "The flow: systematize · delegate · scale",
+          "fa": "جریانِ کار: سیستم‌سازی · واگذاری · رشد"
+        }
+      }
+    ],
+    "core_callout": {
+      "label": {
+        "en": "The core idea:",
+        "fa": "ایدهٔ اصلی:"
+      },
+      "en": "Build the <i>systems and habits</i> that let you — and your company — run without you as the bottleneck. Manage yourself first (get tasks out of your head, protect time for your top goal), then run the group on <i>transparency</i>, clean feedback, and clear ownership.",
+      "fa": "همان <i>سیستم‌ها و عادت‌هایی</i> را بساز که باعث می‌شوند تو — و شرکتت — بدونِ اینکه تو گلوگاه باشی کار کنید. اول خودت را مدیریت کن (کارها را از سرت بیرون بریز، برای هدفِ اصلی‌ات وقت نگه دار)، بعد گروه را با <i>شفافیت</i>، بازخوردِ تمیز و مالکیتِ روشن بچرخان."
+    },
+    "flow_callout": {
+      "label": {
+        "en": "Read it as a flow:",
+        "fa": "به‌صورتِ یک جریان بخوانش:"
+      },
+      "en": "get <b>yourself</b> organized (GTD, Inbox Zero, Top Goal), run the <b>group</b> on transparency and feedback, <b>delegate</b> with clear ownership (AORs, no single point of failure), and grow the <b>company</b> — culture, hiring, fundraising, sales.",
+      "fa": "اول <b>خودت</b> را مرتب کن (انجامِ کار، صندوقِ خالی، هدفِ اصلی)، <b>گروه</b> را با شفافیت و بازخورد بگردان، با مالکیتِ روشن <b>واگذار</b> کن (حوزه‌های مسئولیت، بدونِ گلوگاه)، و <b>شرکت</b> را بزرگ کن — فرهنگ، استخدام، جذبِ سرمایه، فروش."
     }
-    var host=document.getElementById('detailHost');
-    host.innerHTML=html;
-    host.querySelectorAll('.dchip').forEach(function(c){
-      c.addEventListener('click', function(){ select(c.getAttribute('data-goto')); });
-    });
-  }
-
-  function relabel(){ if(!svg) return; draw(); select(sel||'core'); }
-
-  return {
-    build:build,
-    kick:function(){},                                    // no-op; layout is static
-    relabel:relabel,
-    reset:function(){ nodes.forEach(function(n){ n.x=n.hx; n.y=n.hy; }); positions(); },
-    resetFocus:function(){ select('core'); },
-    selectNode:function(id){ select(id); },
-    hasNodes:function(){ return nodes.length>0; }
-  };
-})();
-</script>
-
-<script>
-/* ── 6) 5-STAGE LADDER ────────────────────────────────────── */
-var curStage=0;
-function renderLadder(){
-  var host=document.getElementById('ladderHost'); host.innerHTML='';
-  DATA.stages.forEach(function(s,i){
-    var r=document.createElement('div'); r.className='rung'+(i===curStage?' active':'');
-    r.innerHTML='<div class="lv">'+ (LANG==='fa'?('سطحِ '+num(s.level)):('Level '+s.level)) +'</div>'
-      +'<div class="lt">'+TX(s.title)+'</div>'
-      +'<div class="lbar"><i style="width:'+(s.level*20)+'%"></i></div>';
-    r.addEventListener('click', function(){ curStage=i; renderLadder(); renderStage();
-      document.getElementById('stageHost').scrollIntoView({behavior:'smooth',block:'nearest'}); });
-    host.appendChild(r);
-  });
-}
-function renderStage(){
-  var s=DATA.stages[curStage];
-  var host=document.getElementById('stageHost');
-  var exLabel = LANG==='fa'?'مثال':'Example';
-  var prev = LANG==='fa'?'مرحلهٔ قبل':'‹ Prev', next = LANG==='fa'?'مرحلهٔ بعد':'Next ›';
-  host.innerHTML=''+
-    '<div class="stagecard">'
-    +'<div class="shead"><span class="badge">'+TX(s.badge)+'</span><h3>'+TX(s.title)+'</h3></div>'
-    +'<div class="tagline">'+TX(s.tagline)+'</div>'
-    +'<div class="sbody">'+TX(s.body)+'</div>'
-    +'<div class="exbox"><div class="exk">'+exLabel+'</div><div class="ext">'+TX(s.example)+'</div></div>'
-    +'<div class="gainrow"><span class="gi">✓</span><span>'+TX(s.gain)+'</span></div>'
-    +'<div class="stagenav">'
-      +'<button id="stPrev" '+(curStage===0?'disabled':'')+'>'+prev+'</button>'
-      +'<button id="stNext" '+(curStage===DATA.stages.length-1?'disabled':'')+'>'+next+'</button>'
-    +'</div></div>';
-  var pv=document.getElementById('stPrev'), nx=document.getElementById('stNext');
-  if(pv) pv.onclick=function(){ if(curStage>0){curStage--; renderLadder(); renderStage();} };
-  if(nx) nx.onclick=function(){ if(curStage<DATA.stages.length-1){curStage++; renderLadder(); renderStage();} };
-}
-</script>
-
-<script>
-/* ── 7) legend + graph tabs ───────────────────────────────── */
-function renderLegend(){
-  var host=document.getElementById('legendHost'); if(!host) return;
-  var items=[{c:'--core', en:'Core idea', fa:'ایدهٔ مرکزی'}]
-    .concat(DATA.parts.map(function(p){ return {c:p.varc, en:p.name.en, fa:p.name.fa}; }));
-  host.innerHTML = items.map(function(it){
-    return '<span><i style="background:var('+it.c+')"></i>'+(LANG==='fa'?faText(it.fa):it.en)+'</span>';
-  }).join('');
-  document.getElementById('ghint').textContent = LANG==='fa' ? 'روی هر دایره کلیک کن تا بیشتر بخوانی · می‌توانی بکشی‌شان' : 'Click a node to read more · drag to move';
-  document.getElementById('greset').textContent = LANG==='fa' ? '↺ چیدمان' : '↺ Reset';
-}
-function setupTabs(){
-  function show(net){
-    document.getElementById('netView').style.display = net?'':'none';
-    document.getElementById('mapView').style.display = net?'none':'';
-    document.getElementById('tabNet').classList.toggle('active',net);
-    document.getElementById('tabMap').classList.toggle('active',!net);
-    if(net) GRAPH.kick();
-  }
-  document.getElementById('tabNet').onclick=function(){show(true);};
-  document.getElementById('tabMap').onclick=function(){show(false);};
-  document.getElementById('greset').onclick=function(){ GRAPH.reset(); };
-  // click empty graph space resets the focus
-  var svg=document.getElementById('netsvg');
-  svg.addEventListener('click', function(e){ if(!e.target.closest('.node')) GRAPH.resetFocus(); });
-}
-</script>
-
-<script>
-/* ── 8) toggles + boot ────────────────────────────────────── */
-function setLang(lg){
-  LANG=lg;
-  document.documentElement.setAttribute('data-lang',lg);
-  document.documentElement.setAttribute('lang',lg);
-  document.documentElement.setAttribute('dir', lg==='fa'?'rtl':'ltr');
-  try{ localStorage.setItem('gcw-lang',lg); }catch(e){}
-  renderAll();
-}
-function renderAll(){
-  renderText();
-  renderMap();
-  renderLegend();
-  renderLadder();
-  renderStage();
-  if(GRAPH.hasNodes()) GRAPH.relabel(); else GRAPH.build();
-}
-(function(){
-  var lb=document.getElementById('langBtn');
-  lb && lb.addEventListener('click', function(){ setLang(LANG==='fa'?'en':'fa'); });
-
-  var tb=document.getElementById('themeBtn');
-  function curT(){ return document.documentElement.getAttribute('data-theme'); }
-  tb && tb.addEventListener('click', function(){
-    var t=curT()==='dark'?'light':'dark';
-    document.documentElement.setAttribute('data-theme',t);
-    try{ localStorage.setItem('gcw-theme',t); }catch(e){}
-  });
-  try{ matchMedia('(prefers-color-scheme: dark)').addEventListener('change',function(e){
-    if(!localStorage.getItem('gcw-theme')){ document.documentElement.setAttribute('data-theme', e.matches?'dark':'light'); }
-  }); }catch(e){}
-})();
-
-/* scroll-spy */
-(function(){
-  var links=[].slice.call(document.querySelectorAll('.toc a'));
-  var seen={}, ids=[];
-  links.forEach(function(a){ var id=a.getAttribute('href').slice(1); if(!seen[id]){seen[id]=1; ids.push(id);} });
-  var secs=ids.map(function(id){return document.getElementById(id);}).filter(Boolean);
-  function setActive(id){ links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('href')==='#'+id); }); }
-  if('IntersectionObserver' in window){
-    var obs=new IntersectionObserver(function(es){
-      es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
-    },{rootMargin:'-45% 0px -50% 0px',threshold:0});
-    secs.forEach(function(s){ obs.observe(s); });
-  }
-})();
-
-document.addEventListener('DOMContentLoaded', function(){
-  setupTabs();
-  renderAll();
+  },
+  "method": {
+    "en": "<p><b>Source:</b> the book <i>The Great CEO Within</i> by Matt Mochary, published 2019 — freely available online as a Google Doc.</p><p><b>How this was built:</b> the five-part structure and practices were gathered and rewritten from the book and reputable sources; quotes were cross-checked and the linked videos verified.</p><p><b>Group:</b> Executing — from Lenny Rachitsky's essential books for product builders.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>",
+    "fa": "<p><b>منبع:</b> کتابِ «The Great CEO Within» نوشتهٔ مت موکری، چاپِ ۲۰۱۹. این کتاب به‌صورتِ رایگان به شکلِ یک گوگل‌داک در دسترس است.</p><p><b>روشِ کار:</b> ساختارِ پنج‌بخشی و تمرین‌ها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده؛ نقل‌قول‌ها با متنِ کتاب مقابله و ویدیوها بررسی شده‌اند.</p><p><b>گروه:</b> «اجرا» — از فهرستِ کتاب‌های ضروریِ سازندگانِ محصولِ لنی راچیتسکی.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای متنِ کامل، خودِ کتاب را بخوان.</p>"
+  },
+  "flow": {
+    "en": [
+      "Systematize",
+      "Delegate",
+      "Scale"
+    ],
+    "fa": [
+      "سیستم بساز",
+      "بسپار",
+      "رشد بده"
+    ]
+  },
+  "graph": {
+    "W": 980,
+    "H": 780,
+    "R1": 220,
+    "R2": 126,
+    "span": 66
+  },
+  "tldr": [
+    {
+      "en": "The whole book in one line: build the systems and habits that let you — and your company — run without you as the bottleneck.",
+      "fa": "خلاصهٔ کل کتاب در یک جمله: همان سیستم‌ها و عادت‌هایی را بساز که باعث می‌شوند تو — و شرکتت — بدونِ اینکه تو گلوگاه باشی کار کنید."
+    },
+    {
+      "en": "Start with <b>yourself</b>: get tasks out of your head, keep your inbox at zero, and protect two hours a day for your Top Goal.",
+      "fa": "از <b>خودت</b> شروع کن: کارها را از سرت بیرون بریز، صندوقِ ورودی‌ات را خالی نگه دار، و هر روز دو ساعت را برای هدفِ اصلی‌ات نگه دار."
+    },
+    {
+      "en": "Run the <b>group</b> on transparency and clean feedback — share everything, and surface issues early instead of letting them fester.",
+      "fa": "<b>گروه</b> را با شفافیت و بازخوردِ تمیز بگردان — همه‌چیز را بگو، و مشکل‌ها را زود رو کن، نه اینکه بگذاری ورم کنند."
+    },
+    {
+      "en": "<b>Delegate</b> by giving every area one owner (AORs), so there's no single point of failure — and track a few clear KPIs.",
+      "fa": "با دادنِ یک صاحب به هر حوزه (حوزه‌های مسئولیت) <b>واگذار</b> کن، تا هیچ گلوگاهی نمانَد — و چند شاخصِ روشن را دنبال کن."
+    },
+    {
+      "en": "Then build the <b>team and culture</b>, lead from a calm, conscious place, and master the CEO skills: hiring, fundraising, and sales.",
+      "fa": "بعد <b>تیم و فرهنگ</b> را بساز، از یک جای آرام و آگاه رهبری کن، و مهارت‌های مدیرعامل را استاد شو: استخدام، جذبِ سرمایه، و فروش."
+    }
+  ],
+  "parts": [
+    {
+      "key": "getdone",
+      "varc": "--c-teal",
+      "name": {
+        "en": "Getting Things Done",
+        "fa": "انجامِ کارها"
+      },
+      "tag": {
+        "en": "Personal productivity",
+        "fa": "بهره‌وریِ شخصی"
+      },
+      "gist": {
+        "en": "Manage yourself first — get tasks out of your head and protect time for what matters.",
+        "fa": "اول خودت را مدیریت کن — کارها را از سرت بیرون بریز و برای آنچه مهم است وقت نگه دار."
+      },
+      "more": {
+        "en": "Everything starts with you. If your own head is full and your inbox runs your day, you can't lead a company. Build a trusted personal system so your attention goes to the work that matters most.",
+        "fa": "همه‌چیز از خودت شروع می‌شود. اگر سرِ خودت شلوغ باشد و ایمیل روزت را بگرداند، نمی‌توانی یک شرکت را رهبری کنی. یک سیستمِ شخصیِ مطمئن بساز تا تمرکزت برود روی کاری که از همه مهم‌تر است."
+      },
+      "chapters": [
+        "gtd",
+        "inbox",
+        "topgoal",
+        "energy"
+      ]
+    },
+    {
+      "key": "comm",
+      "varc": "--c-blue",
+      "name": {
+        "en": "Communication & Feedback",
+        "fa": "ارتباط و بازخورد"
+      },
+      "tag": {
+        "en": "Talk straight",
+        "fa": "رُک حرف بزن"
+      },
+      "gist": {
+        "en": "Share everything, give and take feedback cleanly, and surface conflict early.",
+        "fa": "همه‌چیز را بگو، بازخورد را تمیز بده و بگیر، و تعارض را زود رو کن."
+      },
+      "more": {
+        "en": "Teams don't break on hard problems; they break on things left unsaid. Default to transparency, make feedback a normal habit, and deal with tension the day you feel it, directly with the person involved.",
+        "fa": "تیم‌ها با مسئله‌های سخت نمی‌شکنند؛ با حرف‌های نگفته می‌شکنند. پیش‌فرضت شفافیت باشد، بازخورد را به یک عادتِ عادی تبدیل کن، و تنش را همان روزی که حسش می‌کنی، مستقیم با خودِ طرف حل کن."
+      },
+      "chapters": [
+        "transparency",
+        "feedback",
+        "conflict"
+      ]
+    },
+    {
+      "key": "delegate",
+      "varc": "--c-amber",
+      "name": {
+        "en": "Managing & Delegation",
+        "fa": "مدیریت و واگذاری"
+      },
+      "tag": {
+        "en": "Let go well",
+        "fa": "خوب واگذار کن"
+      },
+      "gist": {
+        "en": "One owner per area, no single point of failure, and a few numbers everyone can see.",
+        "fa": "هر حوزه یک صاحب، بدونِ گلوگاه، و چند عدد که همه ببینند."
+      },
+      "more": {
+        "en": "You scale by letting go, not by holding on. Give every area of responsibility exactly one owner, document how things work so nothing depends on a single person, and steer with a handful of clear metrics.",
+        "fa": "با رهاکردن بزرگ می‌شوی، نه با چنگ‌زدن. هر حوزهٔ مسئولیت را دقیقاً به یک نفر بسپار، طرزِ کارها را مستند کن تا هیچ‌چیز به یک نفر بند نباشد، و با چند شاخصِ روشن مسیر را هدایت کن."
+      },
+      "chapters": [
+        "aor",
+        "nospof",
+        "kpis"
+      ]
+    },
+    {
+      "key": "team",
+      "varc": "--c-violet",
+      "name": {
+        "en": "Team & Culture",
+        "fa": "تیم و فرهنگ"
+      },
+      "tag": {
+        "en": "Build the people",
+        "fa": "آدم‌ها را بساز"
+      },
+      "gist": {
+        "en": "Hire carefully, define your culture with the team, and lead consciously.",
+        "fa": "با دقت استخدام کن، فرهنگ را با تیم تعریف کن، و آگاهانه رهبری کن."
+      },
+      "more": {
+        "en": "A company is just its people and the norms they live by. Treat hiring as a top priority, agree on values with the whole team, and lead from a conscious place instead of reacting from fear or anger.",
+        "fa": "یک شرکت چیزی نیست جز آدم‌هایش و قاعده‌هایی که با آن‌ها زندگی می‌کنند. استخدام را یک اولویتِ اصلی بدان، ارزش‌ها را با کلِ تیم توافق کن، و به‌جای واکنشِ از سرِ ترس یا خشم، از یک جای آگاه رهبری کن."
+      },
+      "chapters": [
+        "hiring",
+        "culture",
+        "conscious"
+      ]
+    },
+    {
+      "key": "ceoskills",
+      "varc": "--c-green",
+      "name": {
+        "en": "CEO Skills & Fundraising",
+        "fa": "مهارت‌های مدیرعامل و جذبِ سرمایه"
+      },
+      "tag": {
+        "en": "Fuel the company",
+        "fa": "به شرکت سوخت برسان"
+      },
+      "gist": {
+        "en": "Raise money by running a tight process, sell by solving pain, decide with buy-in.",
+        "fa": "با یک فرایندِ فشرده سرمایه جذب کن، با حلِ درد بفروش، و با همراهی تصمیم بگیر."
+      },
+      "more": {
+        "en": "These are the outward-facing skills a founder can't delegate away. Run fundraising as a competitive process, sell by finding real pain and showing results, and make decisions in a way that gets the team to truly own them.",
+        "fa": "این‌ها مهارت‌های روبه‌بیرونی‌اند که یک بنیان‌گذار نمی‌تواند از خودش دورشان کند. جذبِ سرمایه را مثلِ یک فرایندِ رقابتی اجرا کن، با پیداکردنِ دردِ واقعی و نشان‌دادنِ نتیجه بفروش، و طوری تصمیم بگیر که تیم واقعاً پایش بایستد."
+      },
+      "chapters": [
+        "fundraising",
+        "sales",
+        "decisions"
+      ]
+    }
+  ],
+  "chapters": {
+    "gtd": {
+      "part": "getdone",
+      "n": 1,
+      "name": {
+        "en": "Getting Things Done",
+        "fa": "انجامِ کارها"
+      },
+      "glabel": {
+        "en": "GTD",
+        "fa": "کارها"
+      },
+      "principle": {
+        "en": "Get every task, idea, and worry out of your head into one trusted system, and decide the next action for each.",
+        "fa": "هر کار، ایده و دغدغه را از سرت بیرون بریز توی یک سیستمِ مطمئن، و برای هرکدام قدمِ بعدی را مشخص کن."
+      },
+      "more": {
+        "en": "Your mind is for having ideas, not holding them. When everything lives in an external list you trust — and each item has a clear next action — the background hum of “what am I forgetting?” goes quiet and you can actually focus.",
+        "fa": "ذهنِ تو برای ایده‌داشتن است، نه نگه‌داشتنِ ایده‌ها. وقتی همه‌چیز توی یک فهرستِ بیرونی است که بهش اعتماد داری — و هر مورد یک قدمِ بعدیِ روشن دارد — آن وزوزِ همیشگیِ «چی رو دارم یادم می‌ره؟» ساکت می‌شود و می‌توانی واقعاً تمرکز کنی."
+      },
+      "example": {
+        "en": "Instead of holding “call the lawyer” in your head, write a concrete next action: “Email Sara to set up the lawyer call.”",
+        "fa": "به‌جای اینکه «به وکیل زنگ بزن» را توی سرت نگه داری، یک قدمِ بعدیِ مشخص بنویس: «به سارا ایمیل بزن تا تماس با وکیل را تنظیم کند»."
+      },
+      "tip": {
+        "en": "Do a weekly review: empty every inbox and check that each project has a defined next action.",
+        "fa": "یک مرورِ هفتگی داشته باش: همهٔ صندوق‌ها را خالی کن و مطمئن شو هر پروژه یک قدمِ بعدیِ مشخص دارد."
+      },
+      "pitfall": {
+        "en": "Keeping to-dos in your head, so your energy leaks into remembering instead of doing.",
+        "fa": "نگه‌داشتنِ کارها توی سرت، جوری که انرژی‌ات به‌جای انجام‌دادن، صرفِ به‌یادآوردن می‌شود."
+      }
+    },
+    "inbox": {
+      "part": "getdone",
+      "n": 2,
+      "name": {
+        "en": "Inbox Zero",
+        "fa": "صندوقِ خالی"
+      },
+      "glabel": {
+        "en": "Inbox Zero",
+        "fa": "صندوقِ خالی"
+      },
+      "principle": {
+        "en": "Treat your inbox as a triage room, not a storage room — process each email to a decision and get to zero.",
+        "fa": "صندوقِ ورودی را یک اتاقِ تریاژ بدان، نه انبار — هر ایمیل را تا یک تصمیم پیش ببر و به صفر برسان."
+      },
+      "more": {
+        "en": "Checking email all day, every few minutes, shreds your focus. Batch it into a few blocks, and for each message do one thing: do it now if it's quick, delegate it, turn it into a task, or archive it. The inbox is for triage, not for living in.",
+        "fa": "چک‌کردنِ ایمیل در طولِ روز و هر چند دقیقه، تمرکزت را تکه‌تکه می‌کند. آن را توی چند بازهٔ مشخص جمع کن، و برای هر پیام فقط یک کار بکن: اگر سریع است همان‌جا انجامش بده، واگذارش کن، به یک کار تبدیلش کن، یا بایگانی‌اش کن. صندوقِ ورودی برای تریاژ است، نه برای زندگی‌کردن توی آن."
+      },
+      "example": {
+        "en": "Twice a day you open email and move every message out — reply, forward, or make it a task — until the inbox is empty.",
+        "fa": "روزی دو بار ایمیل را باز می‌کنی و هر پیام را بیرون می‌بری — جواب، فوروارد، یا تبدیل به کار — تا صندوق خالی شود."
+      },
+      "tip": {
+        "en": "Check email at a few set times a day, not continuously, and turn off the notifications.",
+        "fa": "ایمیل را چند بارِ مشخص در روز چک کن، نه مدام، و اعلان‌ها را خاموش کن."
+      },
+      "pitfall": {
+        "en": "Living in your inbox all day, letting other people's priorities set your agenda.",
+        "fa": "تمامِ روز توی صندوقِ ورودی زندگی‌کردن، و گذاشتن اولویتِ دیگران برنامه‌ات را بچیند."
+      }
+    },
+    "topgoal": {
+      "part": "getdone",
+      "n": 3,
+      "name": {
+        "en": "Top Goal",
+        "fa": "هدفِ اصلی"
+      },
+      "glabel": {
+        "en": "Top Goal",
+        "fa": "هدفِ اصلی"
+      },
+      "principle": {
+        "en": "Pick the single most important goal, and protect two uninterrupted hours a day to work only on it.",
+        "fa": "مهم‌ترین هدف را انتخاب کن، و هر روز دو ساعتِ بی‌وقفه را نگه دار که فقط رویش کار کنی."
+      },
+      "more": {
+        "en": "Most people spend their best hours reacting to email and meetings, and their real priority never gets serious attention. Block two hours each morning for your Top Goal alone — no email, no chat, no calls — and guard it like a meeting with your most important investor.",
+        "fa": "بیشترِ آدم‌ها بهترین ساعت‌هایشان را صرفِ واکنش به ایمیل و جلسه می‌کنند، و اولویتِ واقعی‌شان هیچ‌وقت توجهِ جدی نمی‌گیرد. هر صبح دو ساعت را فقط برای هدفِ اصلی‌ات خالی کن — نه ایمیل، نه چت، نه تماس — و مثلِ یک جلسه با مهم‌ترین سرمایه‌گذارت ازش محافظت کن."
+      },
+      "example": {
+        "en": "You put a recurring two-hour “Top Goal” block on your calendar each morning and refuse to schedule over it.",
+        "fa": "هر صبح یک بازهٔ دوساعتهٔ تکرارشوندهٔ «هدفِ اصلی» توی تقویمت می‌گذاری و اجازه نمی‌دهی چیزی رویش بنشیند."
+      },
+      "tip": {
+        "en": "Do your Top Goal block first thing, before the day's noise starts.",
+        "fa": "بازهٔ هدفِ اصلی را همان اولِ وقت انجام بده، قبل از اینکه سروصدای روز شروع شود."
+      },
+      "pitfall": {
+        "en": "Letting urgent-but-unimportant tasks crowd out the one goal that moves the company.",
+        "fa": "گذاشتنِ کارهای فوری‌ولی‌بی‌اهمیت جای همان یک هدفی را بگیرند که شرکت را جلو می‌برد."
+      }
+    },
+    "energy": {
+      "part": "getdone",
+      "n": 4,
+      "name": {
+        "en": "Energy Audit & Zone of Genius",
+        "fa": "بررسیِ انرژی و منطقهٔ نبوغ"
+      },
+      "glabel": {
+        "en": "Energy",
+        "fa": "انرژی"
+      },
+      "principle": {
+        "en": "Track which activities energize you and which drain you, then shift your time toward your Zone of Genius.",
+        "fa": "ببین کدام کارها بهت انرژی می‌دهند و کدام می‌کشندت، بعد وقتت را به‌سمتِ منطقهٔ نبوغت ببر."
+      },
+      "more": {
+        "en": "List everything you do in a week and mark each one energizing or draining. The draining tasks are usually someone else's Zone of Genius — delegate them. Spend more time on the rare work that both energizes you and creates the most value; that's your Zone of Genius.",
+        "fa": "هرچه را توی یک هفته انجام می‌دهی بنویس و هرکدام را «انرژی‌بخش» یا «انرژی‌کش» علامت بزن. کارهای انرژی‌کش معمولاً منطقهٔ نبوغِ یک نفرِ دیگرند — واگذارشان کن. بیشترِ وقتت را بگذار روی آن کارِ کمیابی که هم بهت انرژی می‌دهد و هم بیشترین ارزش را می‌سازد؛ همان منطقهٔ نبوغِ توست."
+      },
+      "example": {
+        "en": "If sales calls light you up but bookkeeping drains you, hand off the bookkeeping and do more selling.",
+        "fa": "اگر تماس‌های فروش سرِحالت می‌آورند ولی حسابداری خسته‌ات می‌کند، حسابداری را واگذار کن و بیشتر بفروش."
+      },
+      "tip": {
+        "en": "For two weeks, tag each task “energizing” or “draining”, then plan to offload the drainers.",
+        "fa": "دو هفته، هر کار را «انرژی‌بخش» یا «انرژی‌کش» برچسب بزن، بعد برنامه بریز که انرژی‌کش‌ها را از دوشت برداری."
+      },
+      "pitfall": {
+        "en": "Grinding through draining work you could delegate, running your own tank to empty.",
+        "fa": "جان‌کندن روی کارِ انرژی‌کشی که می‌شد واگذارش کنی، و خالی‌کردنِ باکِ خودت."
+      }
+    },
+    "transparency": {
+      "part": "comm",
+      "n": 5,
+      "name": {
+        "en": "Transparency",
+        "fa": "شفافیت"
+      },
+      "glabel": {
+        "en": "Transparency",
+        "fa": "شفافیت"
+      },
+      "principle": {
+        "en": "Share all relevant information with the team, good and bad — transparency builds trust and speed.",
+        "fa": "همهٔ اطلاعاتِ مهم را با تیم در میان بگذار، خوب و بد — شفافیت اعتماد و سرعت می‌سازد."
+      },
+      "more": {
+        "en": "Founders often hide bad news to protect the team, but secrecy just breeds fear and rumor. When you share the real numbers, the hard news, and your reasoning, people trust you and can actually help. Default to open — share unless there's a strong reason not to.",
+        "fa": "بنیان‌گذارها اغلب خبرِ بد را پنهان می‌کنند تا تیم را حفظ کنند، ولی پنهان‌کاری فقط ترس و شایعه می‌سازد. وقتی عددهای واقعی، خبرهای سخت و دلیل‌هایت را می‌گویی، آدم‌ها بهت اعتماد می‌کنند و واقعاً می‌توانند کمک کنند. پیش‌فرضت باز بودن باشد — بگو، مگر اینکه دلیلِ محکمی برای نگفتن باشد."
+      },
+      "example": {
+        "en": "You send the whole team the monthly financials and the honest state of the business — not just the wins.",
+        "fa": "عددهای مالیِ ماهانه و وضعیتِ صادقانهٔ کسب‌وکار را برای کلِ تیم می‌فرستی — نه فقط بُردها را."
+      },
+      "tip": {
+        "en": "Ask yourself “why not share this?” and default to transparency unless there's a real reason.",
+        "fa": "از خودت بپرس «چرا این را نگویم؟» و پیش‌فرض را شفافیت بگذار، مگر یک دلیلِ واقعی باشد."
+      },
+      "pitfall": {
+        "en": "Hoarding information to look in control, which quietly breeds distrust and rumors.",
+        "fa": "احتکارِ اطلاعات برای اینکه مسلط به‌نظر برسی، که بی‌سروصدا بی‌اعتمادی و شایعه می‌سازد."
+      }
+    },
+    "feedback": {
+      "part": "comm",
+      "n": 6,
+      "name": {
+        "en": "Feedback & Appreciation",
+        "fa": "بازخورد و قدردانی"
+      },
+      "glabel": {
+        "en": "Feedback",
+        "fa": "بازخورد"
+      },
+      "principle": {
+        "en": "Give feedback with permission and care — and receive both feedback and appreciation with a simple “Thank you.”",
+        "fa": "بازخورد را با اجازه و با ملاحظه بده — و هم بازخورد و هم قدردانی را با یک «ممنونم»ِ ساده بگیر."
+      },
+      "more": {
+        "en": "Good feedback is timely, specific, and asked-for: get permission, describe what happened, share how it landed, and make a request. On the receiving end, resist defending yourself — the only right response to appreciation is “Thank you”, and the right response to criticism is to listen for the truth in it.",
+        "fa": "بازخوردِ خوب به‌موقع، مشخص و بااجازه است: اجازه بگیر، بگو چه اتفاقی افتاد، بگو چه حسی بهت داد، و یک درخواست بکن. سرِ گرفتن هم، جلوی گارد گرفتنت را بگیر — تنها جوابِ درست به قدردانی «ممنونم» است، و جوابِ درست به انتقاد این است که گوش کنی و حقیقتش را پیدا کنی."
+      },
+      "example": {
+        "en": "“Can I give you some feedback? When you cut Ali off in the meeting, the room went quiet — could you let people finish?”",
+        "fa": "«می‌تونم یه بازخورد بدم؟ توی جلسه وقتی حرفِ علی رو قطع کردی، جمع ساکت شد — می‌شه بذاری آدم‌ها حرفشون رو تموم کنن؟»"
+      },
+      "tip": {
+        "en": "Before you criticize, ask “Can I give you some feedback?” and wait for a yes.",
+        "fa": "قبل از انتقاد، بپرس «می‌تونم یه بازخورد بدم؟» و منتظرِ یک «بله» بمان."
+      },
+      "pitfall": {
+        "en": "Bottling up issues until they explode, or getting defensive when feedback comes back to you.",
+        "fa": "انباشتنِ مشکل‌ها تا وقتی منفجر شوند، یا گارد گرفتن وقتی بازخورد به خودت برمی‌گردد."
+      }
+    },
+    "conflict": {
+      "part": "comm",
+      "n": 7,
+      "name": {
+        "en": "Conflict Resolution",
+        "fa": "حلِ تعارض"
+      },
+      "glabel": {
+        "en": "Conflict",
+        "fa": "تعارض"
+      },
+      "principle": {
+        "en": "Surface issues early and resolve conflict directly between the two people involved, in private.",
+        "fa": "مشکل‌ها را زود رو کن و تعارض را مستقیم بینِ همان دو نفرِ درگیر، خصوصی حل کن."
+      },
+      "more": {
+        "en": "Unspoken tension festers and poisons a whole team. Name issues as soon as you feel them. When two people clash, get them in a room to speak directly — each restates the other's view (“I think I heard you say…”) until both feel heard, before solving. Don't carry messages between people.",
+        "fa": "تنشِ نگفته می‌ماند و کلِ تیم را مسموم می‌کند. مشکل را همان لحظه‌ای که حسش می‌کنی اسم ببر. وقتی دو نفر به هم می‌خورند، توی یک اتاق بگذارشان تا مستقیم حرف بزنند — هرکدام حرفِ دیگری را دوباره می‌گوید («فکر کنم گفتی که…») تا هر دو حس کنند شنیده شده‌اند، بعد سراغِ حل بروند. پیام‌بَرِ بینِ آدم‌ها نباش."
+      },
+      "example": {
+        "en": "If two teammates are stuck in tension, you sit them together and have each repeat the other's point before proposing a fix.",
+        "fa": "اگر دو نفر از تیم توی تنش گیر کرده‌اند، کنارِ هم می‌نشانی‌شان و می‌گویی هرکدام حرفِ دیگری را تکرار کند، بعد راه‌حل پیشنهاد بدهند."
+      },
+      "tip": {
+        "en": "When you sense friction, raise it the same day instead of hoping it fades.",
+        "fa": "وقتی یک اصطکاک را حس کردی، همان روز مطرحش کن، نه اینکه امید ببندی خودش برود."
+      },
+      "pitfall": {
+        "en": "Avoiding the hard conversation, or venting to a third party instead of the person involved.",
+        "fa": "فرار از گفت‌وگوی سخت، یا خالی‌کردنِ دل پیشِ یک نفرِ سوم به‌جای خودِ طرف."
+      }
+    },
+    "aor": {
+      "part": "delegate",
+      "n": 8,
+      "name": {
+        "en": "Areas of Responsibility",
+        "fa": "حوزه‌های مسئولیت"
+      },
+      "glabel": {
+        "en": "AORs",
+        "fa": "مسئولیت"
+      },
+      "principle": {
+        "en": "Assign every area of the company to one — and only one — clearly named owner.",
+        "fa": "هر حوزهٔ شرکت را به یک نفر — و فقط یک نفرِ — مشخص بسپار."
+      },
+      "more": {
+        "en": "When two people own something, no one does; when no one owns it, it rots. List every area of responsibility in the company and put exactly one person's name on each. Then everyone knows who to go to, and nothing falls through the cracks.",
+        "fa": "وقتی دو نفر صاحبِ یک چیزند، هیچ‌کس نیست؛ وقتی هیچ‌کس صاحبش نیست، می‌پوسد. همهٔ حوزه‌های مسئولیتِ شرکت را فهرست کن و روی هرکدام دقیقاً اسمِ یک نفر را بگذار. آن‌وقت همه می‌دانند سراغِ کی بروند، و هیچ‌چیز از قلم نمی‌افتد."
+      },
+      "example": {
+        "en": "You keep a shared list: “Payroll — Sara. Office — Reza. Security — Nima.” One name each.",
+        "fa": "یک فهرستِ مشترک نگه می‌داری: «حقوق‌ودستمزد — سارا. دفتر — رضا. امنیت — نیما». هرکدام یک اسم."
+      },
+      "tip": {
+        "en": "Write down every area of responsibility and make sure each has exactly one owner — not zero, not two.",
+        "fa": "همهٔ حوزه‌های مسئولیت را بنویس و مطمئن شو هرکدام دقیقاً یک صاحب دارد — نه صفر، نه دو تا."
+      },
+      "pitfall": {
+        "en": "Shared ownership, where everyone quietly assumes someone else has it handled.",
+        "fa": "مالکیتِ مشترک، که همه بی‌سروصدا فکر می‌کنند یکی دیگر ترتیبش را داده."
+      }
+    },
+    "nospof": {
+      "part": "delegate",
+      "n": 9,
+      "name": {
+        "en": "No Single Point of Failure",
+        "fa": "بدونِ گلوگاه"
+      },
+      "glabel": {
+        "en": "Delegate",
+        "fa": "واگذاری"
+      },
+      "principle": {
+        "en": "Delegate and document so the company never depends on any one person — including you.",
+        "fa": "طوری واگذار و مستند کن که شرکت هیچ‌وقت به یک نفر بند نباشد — از جمله خودت."
+      },
+      "more": {
+        "en": "If only one person can do a critical task, they're a single point of failure and a bottleneck. Delegate ownership, write down how things work, and cross-train a backup. Owning part of a well-run system beats being the hero who has to touch everything.",
+        "fa": "اگر فقط یک نفر بتواند یک کارِ حیاتی را انجام دهد، همان یک گلوگاه است. مالکیت را واگذار کن، طرزِ کار را بنویس، و یک نفرِ جایگزین را آموزش بده. صاحبِ بخشی از یک سیستمِ خوب بودن، بهتر از قهرمانی است که باید دستش به همه‌چیز بخورد."
+      },
+      "example": {
+        "en": "If only you can deploy the app or close the books, you teach someone else and write down the steps.",
+        "fa": "اگر فقط تو می‌توانی اپ را منتشر کنی یا حساب‌ها را ببندی، یک نفرِ دیگر را یاد می‌دهی و قدم‌ها را می‌نویسی."
+      },
+      "tip": {
+        "en": "Find the tasks only you can do, and this month teach one of them to someone else.",
+        "fa": "کارهایی که فقط از دستِ تو برمی‌آید را پیدا کن، و همین ماه یکی‌شان را به یک نفرِ دیگر یاد بده."
+      },
+      "pitfall": {
+        "en": "Becoming the bottleneck yourself because you never trained a backup or wrote it down.",
+        "fa": "خودت گلوگاه شدن، چون نه جایگزین آموزش دادی نه چیزی نوشتی."
+      }
+    },
+    "kpis": {
+      "part": "delegate",
+      "n": 10,
+      "name": {
+        "en": "KPIs & Goal-Tracking",
+        "fa": "شاخص‌ها و پیگیریِ هدف"
+      },
+      "glabel": {
+        "en": "KPIs",
+        "fa": "شاخص‌ها"
+      },
+      "principle": {
+        "en": "Pick a few key metrics, make them visible, and review progress on a regular cadence.",
+        "fa": "چند شاخصِ کلیدی را انتخاب کن، جلوی چشم بگذارشان، و پیشرفت را با یک ریتمِ منظم مرور کن."
+      },
+      "more": {
+        "en": "What gets measured gets managed. Choose the handful of numbers that show the health of the business, put them on a shared dashboard, and review them every week. Clear metrics turn vague hopes into goals the team can actually steer toward.",
+        "fa": "چیزی که اندازه گرفته شود، مدیریت می‌شود. همان چند عددی را که سلامتِ کسب‌وکار را نشان می‌دهند انتخاب کن، روی یک داشبوردِ مشترک بگذار، و هر هفته مرورشان کن. شاخصِ روشن، امیدهای مبهم را به هدف‌هایی تبدیل می‌کند که تیم واقعاً می‌تواند به‌سمتشان فرمان بدهد."
+      },
+      "example": {
+        "en": "A weekly dashboard: new signups, revenue, churn, and cash in the bank — reviewed every Monday.",
+        "fa": "یک داشبوردِ هفتگی: ثبت‌نامِ جدید، درآمد، ریزش، و پولِ توی حساب — هر دوشنبه مرور می‌شود."
+      },
+      "tip": {
+        "en": "Choose three to five KPIs everyone can see, and review them at the same time each week.",
+        "fa": "سه تا پنج شاخص را که همه ببینند انتخاب کن، و هر هفته سرِ یک ساعتِ ثابت مرورشان کن."
+      },
+      "pitfall": {
+        "en": "Drowning in dozens of metrics — or flying blind with none at all.",
+        "fa": "غرق‌شدن توی ده‌ها شاخص — یا کورپروازی بدونِ هیچ شاخصی."
+      }
+    },
+    "hiring": {
+      "part": "team",
+      "n": 11,
+      "name": {
+        "en": "Recruiting & Hiring",
+        "fa": "جذب و استخدام"
+      },
+      "glabel": {
+        "en": "Hiring",
+        "fa": "استخدام"
+      },
+      "principle": {
+        "en": "Hire slowly and deliberately — recruiting is a top priority, not an interruption.",
+        "fa": "آهسته و با دقت استخدام کن — جذبِ نیرو یک اولویتِ اصلی است، نه یک وقفه."
+      },
+      "more": {
+        "en": "A great company is just great people. Treat recruiting as an ongoing priority: build a pipeline, sell candidates on the mission, and check references seriously. Ask why they left each past job — promoted, recruited, or fired? Hire for both skill and values, and be willing to wait for the right person.",
+        "fa": "یک شرکتِ عالی چیزی نیست جز آدم‌های عالی. جذبِ نیرو را یک اولویتِ همیشگی بدان: یک صف از کاندیدا بساز، آن‌ها را به مأموریت علاقه‌مند کن، و مرجع‌ها را جدی چک کن. بپرس چرا از هر شغلِ قبلی رفتند — ترفیع گرفتند، جذب شدند، یا اخراج؟ هم برای مهارت استخدام کن هم برای ارزش‌ها، و حاضر باش برای آدمِ درست صبر کنی."
+      },
+      "example": {
+        "en": "In a reference check you ask “Why did they leave?” and “Would you hire them again?”",
+        "fa": "موقعِ چک‌کردنِ مرجع می‌پرسی «چرا از اونجا رفت؟» و «دوباره استخدامش می‌کردی؟»"
+      },
+      "tip": {
+        "en": "Always be building a candidate pipeline, even when you're not hiring right now.",
+        "fa": "همیشه در حالِ ساختنِ صفی از کاندیدا باش، حتی وقتی همین حالا استخدام نمی‌کنی."
+      },
+      "pitfall": {
+        "en": "Rushing a hire to fill a seat, then paying for that mistake for years.",
+        "fa": "عجله در استخدام فقط برای پرکردنِ یک صندلی، و بعد سال‌ها تاوانِ آن اشتباه را دادن."
+      }
+    },
+    "culture": {
+      "part": "team",
+      "n": 12,
+      "name": {
+        "en": "Culture & Values",
+        "fa": "فرهنگ و ارزش‌ها"
+      },
+      "glabel": {
+        "en": "Culture",
+        "fa": "فرهنگ"
+      },
+      "principle": {
+        "en": "Culture is the behavior you actually reward — define your values with the whole team and live them.",
+        "fa": "فرهنگ همان رفتاری است که واقعاً پاداش می‌دهی — ارزش‌ها را با کلِ تیم تعریف کن و باهاشان زندگی کن."
+      },
+      "more": {
+        "en": "Culture isn't a poster; it's the real norms of how people behave. Agree on your values as a whole company so they get maximum buy-in, name the people who exemplify each, and then hire, promote, and fire by them. What you tolerate becomes your culture.",
+        "fa": "فرهنگ یک پوستر نیست؛ همان قاعده‌های واقعیِ رفتارِ آدم‌هاست. ارزش‌ها را به‌عنوانِ کلِ شرکت توافق کن تا بیشترین همراهی را بگیرند، برای هر ارزش آدمی را که نمونه‌اش است اسم ببر، و بعد بر اساسشان استخدام، ترفیع و اخراج کن. چیزی که تحملش می‌کنی، فرهنگت می‌شود."
+      },
+      "example": {
+        "en": "You ask the whole team to nominate a value and a colleague who lives it, and make those your real values.",
+        "fa": "از کلِ تیم می‌خواهی یک ارزش و یک همکار که آن را زندگی می‌کند نام ببرند، و همان‌ها را ارزش‌های واقعی‌ات می‌کنی."
+      },
+      "tip": {
+        "en": "Define your values together, then actually use them in hiring and promotion decisions.",
+        "fa": "ارزش‌ها را با هم تعریف کن، بعد واقعاً توی تصمیم‌های استخدام و ترفیع به کارشان ببر."
+      },
+      "pitfall": {
+        "en": "Writing values on the wall while rewarding the opposite in practice.",
+        "fa": "نوشتنِ ارزش‌ها روی دیوار، درحالی‌که در عمل عکسشان را پاداش می‌دهی."
+      }
+    },
+    "conscious": {
+      "part": "team",
+      "n": 13,
+      "name": {
+        "en": "Conscious Leadership",
+        "fa": "رهبریِ آگاهانه"
+      },
+      "glabel": {
+        "en": "Conscious",
+        "fa": "آگاهی"
+      },
+      "principle": {
+        "en": "Lead from above the line — take responsibility instead of blaming, and act from curiosity, not fear.",
+        "fa": "از بالای خط رهبری کن — به‌جای مقصر گشتن، مسئولیت بپذیر، و از سرِ کنجکاوی عمل کن، نه ترس."
+      },
+      "more": {
+        "en": "Under stress we drop “below the line”: defensive, blaming, needing to be right. Conscious leaders notice this and shift back “above the line” — open, curious, responsible. They pause to breathe, accept what they feel, and choose their response instead of reacting from fear or anger.",
+        "fa": "زیرِ فشار می‌افتیم «پایینِ خط»: گارد گرفته، دنبالِ مقصر، محتاجِ حق‌به‌جانب‌بودن. رهبرهای آگاه این را می‌بینند و برمی‌گردند «بالای خط» — باز، کنجکاو، مسئول. مکث می‌کنند، نفس می‌کشند، حسشان را می‌پذیرند، و به‌جای واکنشِ از سرِ ترس یا خشم، پاسخشان را انتخاب می‌کنند."
+      },
+      "example": {
+        "en": "When you feel defensive in a meeting, you pause, breathe, and ask a curious question instead of attacking.",
+        "fa": "وقتی توی جلسه حس می‌کنی داری گارد می‌گیری، مکث می‌کنی، نفس می‌کشی، و به‌جای حمله یک سؤالِ کنجکاوانه می‌پرسی."
+      },
+      "tip": {
+        "en": "When you get triggered, name the feeling and take three breaths before you respond.",
+        "fa": "وقتی جرقه می‌خوری، حست را اسم ببر و قبل از جواب‌دادن سه تا نفسِ عمیق بکش."
+      },
+      "pitfall": {
+        "en": "Reacting from fear or anger and dropping below the line into blame.",
+        "fa": "واکنش از سرِ ترس یا خشم و افتادن به پایینِ خط، توی مقصر گشتن."
+      }
+    },
+    "fundraising": {
+      "part": "ceoskills",
+      "n": 14,
+      "name": {
+        "en": "Fundraising",
+        "fa": "جذبِ سرمایه"
+      },
+      "glabel": {
+        "en": "Fundraising",
+        "fa": "سرمایه"
+      },
+      "principle": {
+        "en": "Run fundraising as a tight, time-boxed process that creates competition among investors.",
+        "fa": "جذبِ سرمایه را مثلِ یک فرایندِ فشرده و زمان‌دار اجرا کن که بینِ سرمایه‌گذارها رقابت بسازد."
+      },
+      "more": {
+        "en": "Don't raise money one meeting at a time. Line up all your investor conversations in the same short window so interest builds in parallel and offers arrive together. Real competition — genuine FOMO — is what gets you good terms. Get a lead investor, then close fast.",
+        "fa": "سرمایه را یکی‌یکی و جلسه‌به‌جلسه جمع نکن. همهٔ گفت‌وگوهای سرمایه‌گذاری را توی یک بازهٔ کوتاهِ مشترک ردیف کن تا علاقه به‌موازاتِ هم بالا برود و پیشنهادها با هم برسند. رقابتِ واقعی — همان ترسِ ازدست‌دادن — همان چیزی است که شرایطِ خوب را برایت می‌گیرد. یک سرمایه‌گذارِ پیش‌رو پیدا کن، بعد سریع ببند."
+      },
+      "example": {
+        "en": "You book all your first investor meetings in the same two weeks, so the offers land around the same time.",
+        "fa": "همهٔ اولین جلسه‌های سرمایه‌گذاری را توی یک بازهٔ دوهفته‌ای می‌گذاری، تا پیشنهادها حدوداً هم‌زمان برسند."
+      },
+      "tip": {
+        "en": "Batch investor meetings into one window to create urgency and competing offers.",
+        "fa": "جلسه‌های سرمایه‌گذارها را توی یک بازه جمع کن تا فوریت و پیشنهادهای رقیب بسازی."
+      },
+      "pitfall": {
+        "en": "Dragging fundraising out serially, losing your momentum and your leverage.",
+        "fa": "کش‌دادنِ جذبِ سرمایه به‌شکلِ پشتِ‌سرِهم، و ازدست‌دادنِ شتاب و قدرتِ چانه‌زنی‌ات."
+      }
+    },
+    "sales": {
+      "part": "ceoskills",
+      "n": 15,
+      "name": {
+        "en": "Sales",
+        "fa": "فروش"
+      },
+      "glabel": {
+        "en": "Sales",
+        "fa": "فروش"
+      },
+      "principle": {
+        "en": "Sell by building trust, finding the customer's real pain, and selling results — not features.",
+        "fa": "با اعتمادسازی، پیداکردنِ دردِ واقعیِ مشتری، و فروشِ نتیجه بفروش — نه امکانات."
+      },
+      "more": {
+        "en": "People buy from those they trust, to solve a specific pain. Listen more than you pitch: find the exact problem that's costing them, build trust by being honest, and frame your product around the outcome they'll get, not a list of features. And split lead-generation from closing — they're different jobs.",
+        "fa": "آدم‌ها از کسی می‌خرند که بهش اعتماد دارند، تا یک دردِ مشخص را حل کنند. بیشتر از اینکه معرفی کنی، گوش بده: همان مشکلِ دقیقی که دارد برایشان خرج می‌تراشد را پیدا کن، با صادق‌بودن اعتماد بساز، و محصولت را دورِ نتیجه‌ای که می‌گیرند بچین، نه یک فهرست از امکانات. و پیداکردنِ مشتری را از بستنِ قرارداد جدا کن — دو کارِ متفاوت‌اند."
+      },
+      "example": {
+        "en": "Instead of listing features, you ask what a problem is costing them today, then show the result your product delivers.",
+        "fa": "به‌جای ردیف‌کردنِ امکانات، می‌پرسی این مشکل الان چقدر برایشان خرج دارد، بعد نتیجه‌ای را که محصولت می‌دهد نشان می‌دهی."
+      },
+      "tip": {
+        "en": "On every sales call, spend the first half just finding the customer's specific pain.",
+        "fa": "توی هر تماسِ فروش، نیمهٔ اول را فقط صرفِ پیداکردنِ دردِ دقیقِ مشتری کن."
+      },
+      "pitfall": {
+        "en": "Pitching features to someone whose actual problem you never uncovered.",
+        "fa": "معرفیِ امکانات به کسی که مشکلِ واقعی‌اش را اصلاً کشف نکرده‌ای."
+      }
+    },
+    "decisions": {
+      "part": "ceoskills",
+      "n": 16,
+      "name": {
+        "en": "Decision-Making",
+        "fa": "تصمیم‌گیری"
+      },
+      "glabel": {
+        "en": "Decisions",
+        "fa": "تصمیم"
+      },
+      "principle": {
+        "en": "Making the call is the easy part; the real work is getting the team emotionally bought in.",
+        "fa": "گرفتنِ تصمیم بخشِ آسانش است؛ کارِ اصلی همراه‌کردنِ احساسیِ تیم است."
+      },
+      "more": {
+        "en": "A decision only sticks when the people who have to execute it own it. Involve them in the process, let their input genuinely shape the outcome, and they'll commit even when it isn't the choice they'd have made. Buy-in beats a “correct” decision the team quietly resents.",
+        "fa": "یک تصمیم فقط وقتی می‌ماند که آدم‌هایی که باید اجرایش کنند مالکش باشند. توی فرایند دخالتشان بده، بگذار نظرشان واقعاً روی نتیجه اثر بگذارد، آن‌وقت پایش می‌ایستند حتی اگر انتخابِ خودشان نبوده باشد. همراهی از یک تصمیمِ «درست» که تیم در دل ازش دلخور است، بهتر است."
+      },
+      "example": {
+        "en": "Before you decide, you ask the team for input and show how it changed your thinking — then you decide.",
+        "fa": "قبل از تصمیم، از تیم نظر می‌خواهی و نشان می‌دهی نظرشان چطور فکرت را عوض کرد — بعد تصمیم می‌گیری."
+      },
+      "tip": {
+        "en": "Bring the team into the decision early, so they feel their input actually shaped it.",
+        "fa": "تیم را زود واردِ تصمیم کن، تا حس کنند نظرشان واقعاً رویش اثر گذاشته."
+      },
+      "pitfall": {
+        "en": "Announcing decisions top-down, then wondering why no one follows through.",
+        "fa": "اعلامِ تصمیم‌ها از بالا به پایین، و بعد تعجب از اینکه چرا کسی پایش نمی‌ایستد."
+      }
+    }
+  },
+  "core": {
+    "name": {
+      "en": "SYSTEMS",
+      "fa": "سیستم‌ها"
+    },
+    "principle": {
+      "en": "A great CEO builds the systems and habits that let a company run — and grow — without them in the middle of everything. Get work out of your head into trusted systems, default to transparency, lead from a calm place, and delegate until you're no longer the bottleneck.",
+      "fa": "یک مدیرعاملِ بزرگ همان سیستم‌ها و عادت‌هایی را می‌سازد که باعث می‌شوند یک شرکت بدونِ اینکه او وسطِ همه‌چیز باشد، کار کند و رشد کند. کارها را از سرت بیرون بریز توی سیستم‌های مطمئن، پیش‌فرضت شفافیت باشد، از یک جای آرام رهبری کن، و آن‌قدر واگذار کن تا دیگر گلوگاه نباشی."
+    },
+    "more": {
+      "en": "Mochary organizes the tactical guide into five moves — manage yourself (GTD, Inbox Zero, Top Goal, energy), communicate (transparency, feedback, conflict), delegate (AORs, no single point of failure, KPIs), build the team (hiring, culture, conscious leadership), and master the CEO skills (fundraising, sales, decisions). The thread through all of it: systems and self-awareness let you scale.",
+      "fa": "موکری این راهنمای عملی را در پنج حرکت می‌چیند — خودت را مدیریت کن (انجامِ کار، صندوقِ خالی، هدفِ اصلی، انرژی)، ارتباط بگیر (شفافیت، بازخورد، تعارض)، واگذار کن (حوزه‌های مسئولیت، بدونِ گلوگاه، شاخص‌ها)، تیم را بساز (استخدام، فرهنگ، رهبریِ آگاه)، و مهارت‌های مدیرعامل را استاد شو (جذبِ سرمایه، فروش، تصمیم). نخِ رابطِ همه‌شان: سیستم و خودآگاهی به تو اجازهٔ رشد می‌دهند."
+    },
+    "example": {
+      "en": "Click any node to read a practice or an idea. You can also drag the nodes around.",
+      "fa": "روی هر دایره کلیک کن تا یک تمرین یا ایده را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."
+    }
+  },
+  "stages": [
+    {
+      "level": 1,
+      "badge": {
+        "en": "Level 1 · Over-simplified",
+        "fa": "سطحِ ۱ · خیلی ساده"
+      },
+      "title": {
+        "en": "Build systems",
+        "fa": "سیستم بساز"
+      },
+      "tagline": {
+        "en": "The whole book in a sentence.",
+        "fa": "کلِ کتاب در یک جمله."
+      },
+      "body": {
+        "en": "A great CEO builds systems and habits so the company can run without them. Get everything out of your head and into a system you trust — then hand it off to someone else.",
+        "fa": "یک مدیرعاملِ خوب سیستم و عادت می‌سازد تا شرکت بدونِ خودش هم بچرخد. هرچیزی را از سرت بیرون بریز و توی سیستمی بگذار که بهش اعتماد داری — بعد بسپارش به یک نفرِ دیگر."
+      },
+      "example": {
+        "en": "You keep one trusted task list instead of a hundred sticky notes and a full head.",
+        "fa": "به‌جای صد تا کاغذِ یادداشت و یک سرِ شلوغ، یک فهرستِ کارِ مطمئن داری."
+      },
+      "gain": {
+        "en": "You hold the single idea the whole book expands on.",
+        "fa": "همان یک ایده‌ای را داری که کلِ کتاب بسطش می‌دهد."
+      }
+    },
+    {
+      "level": 2,
+      "badge": {
+        "en": "Level 2 · Simple",
+        "fa": "سطحِ ۲ · ساده"
+      },
+      "title": {
+        "en": "Manage yourself first",
+        "fa": "اول خودت را مدیریت کن"
+      },
+      "tagline": {
+        "en": "GTD, Inbox Zero, Top Goal.",
+        "fa": "انجامِ کار، صندوقِ خالی، هدفِ اصلی."
+      },
+      "body": {
+        "en": "Before you can run a company, run yourself. <b>Get things out of your head</b> into a task system, keep your <b>inbox at zero</b>, and protect <b>two hours a day</b> for your Top Goal — the one thing that matters most.",
+        "fa": "قبل از اینکه یک شرکت را بگردانی، خودت را بگردان. <b>کارها را از سرت بیرون بریز</b> توی یک سیستمِ کار، <b>صندوقِ ورودی‌ات را خالی</b> نگه دار، و هر روز <b>دو ساعت</b> را برای هدفِ اصلی‌ات نگه دار — همان یک چیزی که از همه مهم‌تر است."
+      },
+      "example": {
+        "en": "Each morning you spend two focused hours on your top priority before you touch email.",
+        "fa": "هر صبح، قبل از اینکه سراغِ ایمیل بروی، دو ساعت با تمرکز روی مهم‌ترین کارت کار می‌کنی."
+      },
+      "gain": {
+        "en": "You get your own time and attention under control.",
+        "fa": "وقت و تمرکزِ خودت را دستِ خودت می‌گیری."
+      }
+    },
+    {
+      "level": 3,
+      "badge": {
+        "en": "Level 3 · Balanced",
+        "fa": "سطحِ ۳ · متعادل"
+      },
+      "title": {
+        "en": "Run the group",
+        "fa": "گروه را بگردان"
+      },
+      "tagline": {
+        "en": "Transparency, feedback, decisions.",
+        "fa": "شفافیت، بازخورد، تصمیم."
+      },
+      "body": {
+        "en": "Now the team. Default to <b>transparency</b> — share the real numbers, good and bad. Give and take <b>feedback</b> cleanly, surface conflict early, and when you decide, get <b>buy-in</b> so the team owns the decision, not just you.",
+        "fa": "حالا نوبتِ تیم است. پیش‌فرضت <b>شفافیت</b> باشد — عددهای واقعی را بگو، خوب و بد. <b>بازخورد</b> را تمیز بده و بگیر، تعارض را زود رو کن، و وقتی تصمیم می‌گیری، طوری <b>تیم را همراه</b> کن که تصمیم مالِ همه باشد، نه فقط تو."
+      },
+      "example": {
+        "en": "You share the monthly financials with everyone and let the team shape big calls before you make them.",
+        "fa": "عددهای مالیِ ماهانه را با همه در میان می‌گذاری و می‌گذاری تیم روی تصمیم‌های بزرگ اثر بگذارد، قبل از اینکه بگیری‌شان."
+      },
+      "gain": {
+        "en": "You can run a team on trust instead of fear.",
+        "fa": "می‌توانی تیم را با اعتماد بگردانی، نه با ترس."
+      }
+    },
+    {
+      "level": 4,
+      "badge": {
+        "en": "Level 4 · Advanced",
+        "fa": "سطحِ ۴ · پیشرفته"
+      },
+      "title": {
+        "en": "Delegate and structure",
+        "fa": "واگذار کن و ساختار بده"
+      },
+      "tagline": {
+        "en": "AORs, no bottlenecks, KPIs.",
+        "fa": "حوزهٔ مسئولیت، بی‌گلوگاه، شاخص."
+      },
+      "body": {
+        "en": "Scale by letting go. Give every <b>area of responsibility</b> exactly one owner so nothing falls through the cracks. Kill every <b>single point of failure</b> — including you — by documenting and cross-training. And track a few <b>KPIs</b> everyone can see.",
+        "fa": "با رهاکردن، بزرگ شو. هر <b>حوزهٔ مسئولیت</b> را دقیقاً به یک نفر بسپار تا هیچ‌چیز از قلم نیفتد. هر <b>گلوگاه</b> را از بین ببر — از جمله خودت — با مستندکردن و آموزشِ جایگزین. و چند <b>شاخصِ کلیدی</b> را که همه ببینند دنبال کن."
+      },
+      "example": {
+        "en": "Every function has one named owner, and no critical task depends on a single person.",
+        "fa": "هر بخش یک صاحبِ مشخص دارد، و هیچ کارِ مهمی به یک نفر بند نیست."
+      },
+      "gain": {
+        "en": "You remove yourself as the bottleneck.",
+        "fa": "خودت را از گلوگاه‌بودن درمی‌آوری."
+      }
+    },
+    {
+      "level": 5,
+      "badge": {
+        "en": "Level 5 · Expert",
+        "fa": "سطحِ ۵ · حرفه‌ای"
+      },
+      "title": {
+        "en": "Lead and scale",
+        "fa": "رهبری کن و رشد بده"
+      },
+      "tagline": {
+        "en": "Culture, conscious leadership, the CEO skills.",
+        "fa": "فرهنگ، رهبریِ آگاه، مهارت‌های مدیرعامل."
+      },
+      "body": {
+        "en": "The complete CEO builds the people and leads from a calm place. Define your <b>culture and values</b> with the whole team and hire by them. Lead <b>consciously</b> — notice fear and anger, and choose your response instead of reacting. And master the outward skills: <b>hiring, fundraising, and sales</b>. Systems carry the company; you carry the tone.",
+        "fa": "مدیرعاملِ کامل، آدم‌ها را می‌سازد و از یک جای آرام رهبری می‌کند. <b>فرهنگ و ارزش‌ها</b> را با کلِ تیم تعریف کن و بر اساسشان استخدام کن. <b>آگاهانه</b> رهبری کن — ترس و خشم را ببین، و به‌جای واکنشِ ناگهانی، پاسخت را انتخاب کن. و مهارت‌های بیرونی را استاد شو: <b>استخدام، جذبِ سرمایه، و فروش</b>. سیستم‌ها شرکت را حمل می‌کنند؛ تو حال‌وهوا را."
+      },
+      "example": {
+        "en": "You hire and promote by your values, stay above the line under stress, and raise money by running a tight process.",
+        "fa": "بر اساسِ ارزش‌هایت استخدام و ترفیع می‌دهی، زیرِ فشار بالای خط می‌مانی، و با یک فرایندِ فشرده سرمایه جذب می‌کنی."
+      },
+      "gain": {
+        "en": "You can build a company that runs — and grows — without you in the middle of everything.",
+        "fa": "می‌توانی شرکتی بسازی که بدونِ اینکه تو وسطِ همه‌چیز باشی، کار کند و رشد کند."
+      }
+    }
+  ],
+  "quotes": [
+    {
+      "en": "Schedule two hours each day to work on your top goal only.",
+      "fa": "هر روز دو ساعت را بگذار که فقط روی هدفِ اصلی‌ات کار کنی."
+    },
+    {
+      "en": "Share all relevant information with your team, both positive and negative.",
+      "fa": "همهٔ اطلاعاتِ مهم را با تیمت در میان بگذار، چه خوب چه بد."
+    },
+    {
+      "en": "It's often easy to make a decision, but it can be much harder to get your team to invest emotionally in that decision.",
+      "fa": "معمولاً گرفتنِ یک تصمیم آسان است، ولی همراه‌کردنِ احساسیِ تیم با آن تصمیم خیلی سخت‌تر است."
+    },
+    {
+      "en": "You create buy-in when you make people feel that they are part of the decision and that their input contributes to the final outcome.",
+      "fa": "وقتی کاری می‌کنی که آدم‌ها حس کنند بخشی از تصمیم‌اند و نظرشان روی نتیجهٔ نهایی اثر گذاشته، همراهی می‌سازی."
+    },
+    {
+      "en": "And when receiving appreciation, there is only one correct response: 'Thank you.'",
+      "fa": "و وقتی کسی ازت قدردانی می‌کند، فقط یک جوابِ درست دارد: «ممنونم»."
+    },
+    {
+      "en": "Even though conscious leaders get defensive like everyone else, they regularly interrupt this natural reactivity by pausing to breathe, accept, and shift.",
+      "fa": "رهبرهای آگاه هم مثلِ بقیه گارد می‌گیرند، ولی مدام این واکنشِ طبیعی را قطع می‌کنند: مکث می‌کنند، نفس می‌کشند، می‌پذیرند و مسیر را عوض می‌کنند."
+    },
+    {
+      "en": "Agreeing on what your values are is the kind of statement that needs maximum buy-in, so it should involve your whole company.",
+      "fa": "توافق روی اینکه ارزش‌هایتان چیست، از آن تصمیم‌هایی است که بیشترین همراهی را می‌خواهد، پس باید کلِ شرکت را درگیر کند."
+    },
+    {
+      "en": "To make a sale: build trust, identify the customer's specific pain, and sell results, not features.",
+      "fa": "برای فروش: اعتماد بساز، دردِ دقیقِ مشتری را پیدا کن، و نتیجه بفروش، نه امکانات."
+    }
+  ],
+  "media": [
+    {
+      "kind": "yt",
+      "id": "24b1m0P3AXk",
+      "src": {
+        "en": "YouTube · The Learning Leader",
+        "fa": "یوتیوب · The Learning Leader"
+      },
+      "title": {
+        "en": "Lessons From A World-Class CEO Coach",
+        "fa": "درس‌هایی از یک مربیِ درجه‌یکِ مدیرعامل‌ها"
+      },
+      "desc": {
+        "en": "Ryan Hawk interviews Matt Mochary on the core ideas of the book.",
+        "fa": "رایان هاک با مت موکری دربارهٔ ایده‌های اصلیِ کتاب گفت‌وگو می‌کند."
+      },
+      "bullets": {
+        "en": [
+          "The big picture, in plain terms",
+          "How the habits fit together",
+          "A warm, fast overview"
+        ],
+        "fa": [
+          "تصویرِ کلی، به زبانِ ساده",
+          "اینکه عادت‌ها چطور کنارِ هم می‌نشینند",
+          "یک مرورِ گرم و سریع"
+        ]
+      },
+      "best": {
+        "en": "Best for Stage 1–2.",
+        "fa": "خوب برای مرحلهٔ ۱ و ۲."
+      }
+    },
+    {
+      "kind": "yt",
+      "id": "qOrwVtZvdaE",
+      "src": {
+        "en": "YouTube · Lenny's Podcast",
+        "fa": "یوتیوب · Lenny's Podcast"
+      },
+      "title": {
+        "en": "Are Your Fears Giving You Terrible Advice?",
+        "fa": "آیا ترس‌هایت دارند نصیحتِ بد بهت می‌دهند؟"
+      },
+      "desc": {
+        "en": "Mochary on working through fear and leading consciously.",
+        "fa": "موکری دربارهٔ عبور از ترس و رهبریِ آگاهانه."
+      },
+      "bullets": {
+        "en": [
+          "Fear and anger give bad advice",
+          "Getting above the line under stress",
+          "Practical, story-driven"
+        ],
+        "fa": [
+          "ترس و خشم نصیحتِ بد می‌دهند",
+          "بالای خط رفتن زیرِ فشار",
+          "کاربردی و همراهِ داستان"
+        ]
+      },
+      "best": {
+        "en": "Best for Stage 3–4.",
+        "fa": "خوب برای مرحلهٔ ۳ و ۴."
+      }
+    },
+    {
+      "kind": "yt",
+      "id": "JVkiQY8KkOQ",
+      "src": {
+        "en": "YouTube · Tim Ferriss",
+        "fa": "یوتیوب · Tim Ferriss"
+      },
+      "title": {
+        "en": "CEO Coach Matt Mochary — Coaching Tim",
+        "fa": "مربیِ مدیرعامل‌ها، مت موکری — کوچینگِ تیم"
+      },
+      "desc": {
+        "en": "A live coaching session covering delegation, hiring, and accountability.",
+        "fa": "یک جلسهٔ کوچینگِ زنده دربارهٔ واگذاری، استخدام و پاسخگویی."
+      },
+      "bullets": {
+        "en": [
+          "Real coaching, not just theory",
+          "Energy audits and accountability",
+          "Deep and practical"
+        ],
+        "fa": [
+          "کوچینگِ واقعی، نه فقط تئوری",
+          "بررسیِ انرژی و پاسخگویی",
+          "عمیق و کاربردی"
+        ]
+      },
+      "best": {
+        "en": "Best for Stage 4–5.",
+        "fa": "خوب برای مرحلهٔ ۴ و ۵."
+      }
+    },
+    {
+      "kind": "img",
+      "url": "https://www.porchlightbooks.com/products/great-ceo-within-matt-mochary-9780578599281",
+      "src": {
+        "en": "Porchlight · Publisher",
+        "fa": "Porchlight · ناشر"
+      },
+      "title": {
+        "en": "The Great CEO Within — Publisher Page",
+        "fa": "مدیرعاملِ بزرگ — صفحهٔ ناشر"
+      },
+      "desc": {
+        "en": "The publisher page for the print edition, with details and ordering.",
+        "fa": "صفحهٔ ناشر برای نسخهٔ چاپی، با جزئیات و سفارش."
+      },
+      "bullets": {
+        "en": [
+          "The print edition",
+          "Background on the book",
+          "Straight from the source"
+        ],
+        "fa": [
+          "نسخهٔ چاپی",
+          "پیشینه‌ای دربارهٔ کتاب",
+          "مستقیم از خودِ منبع"
+        ]
+      },
+      "best": {
+        "en": "For the print edition and details.",
+        "fa": "برای نسخهٔ چاپی و جزئیات."
+      }
+    }
+  ],
+  "go": [
+    {
+      "label": {
+        "en": "Publisher page (Porchlight)",
+        "fa": "صفحهٔ ناشر"
+      },
+      "url": "https://www.porchlightbooks.com/products/great-ceo-within-matt-mochary-9780578599281"
+    },
+    {
+      "label": {
+        "en": "Book on Goodreads",
+        "fa": "کتاب در گودریدز"
+      },
+      "url": "https://www.goodreads.com/book/show/48691943-the-great-ceo-within"
+    },
+    {
+      "label": {
+        "en": "Read the book free (Google Doc)",
+        "fa": "نسخهٔ رایگانِ کتاب"
+      },
+      "url": "https://docs.google.com/document/d/1ZJZbv4J6FZ8Dnb0JuMhJxTnwl-dwqx5xl0s65DE3wO8/mobilebasic"
+    }
+  ],
+  "recs": [
+    {
+      "pri": "b",
+      "t": {
+        "en": "Set your Top Goal and block two hours",
+        "fa": "هدفِ اصلی‌ات را تعیین کن و دو ساعت خالی کن"
+      },
+      "d": {
+        "en": "Pick your single most important goal and put a daily two-hour block on your calendar for it — first thing.",
+        "fa": "مهم‌ترین هدفت را انتخاب کن و هر روز یک بازهٔ دوساعته توی تقویمت برایش بگذار — همان اولِ وقت."
+      }
+    },
+    {
+      "pri": "b",
+      "t": {
+        "en": "Get to Inbox Zero today",
+        "fa": "امروز به صندوقِ خالی برس"
+      },
+      "d": {
+        "en": "Process every email to a decision — do, delegate, defer, or delete — until the inbox is empty.",
+        "fa": "هر ایمیل را تا یک تصمیم پیش ببر — انجام، واگذاری، بعداً، یا حذف — تا صندوق خالی شود."
+      }
+    },
+    {
+      "pri": "n",
+      "t": {
+        "en": "Give every area one owner",
+        "fa": "به هر حوزه یک صاحب بده"
+      },
+      "d": {
+        "en": "List your company's areas of responsibility and put exactly one name on each.",
+        "fa": "حوزه‌های مسئولیتِ شرکتت را فهرست کن و روی هرکدام دقیقاً یک اسم بگذار."
+      }
+    },
+    {
+      "pri": "n",
+      "t": {
+        "en": "Share the real numbers",
+        "fa": "عددهای واقعی را بگو"
+      },
+      "d": {
+        "en": "Send your team the honest state of the business this week — the good news and the bad.",
+        "fa": "وضعیتِ صادقانهٔ کسب‌وکار را همین هفته برای تیمت بفرست — خبرهای خوب و بد."
+      }
+    }
+  ]
 });
 </script>
 </body>

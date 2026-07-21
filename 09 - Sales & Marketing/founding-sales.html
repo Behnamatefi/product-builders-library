@@ -1,21 +1,20 @@
 <!DOCTYPE html>
-<!-- complexity-level: 1→5 (this page teaches the SAME book at five depths, over-simplified … expert) -->
-<!-- Effortless (Greg McKeown) — bilingual EN/FA knowledge graph & 5-stage learning page -->
+<!-- Generated page. Edit CONTENT in the DATA object below; shared UI lives in ../assets/book.css + ../assets/book.js -->
 <html lang="fa" dir="rtl" data-lang="fa">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Founding Sales — نقشهٔ دانش و یادگیری ۵ مرحله‌ای</title>
 
-<!-- Boot theme + language BEFORE paint to avoid a flash -->
+<!-- Boot theme + language BEFORE paint to avoid a flash (shared library-wide keys) -->
 <script>
 (function(){
   try{
-    var th = localStorage.getItem('foundingsales-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
+    var th = localStorage.getItem('pbl-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
     document.documentElement.setAttribute('data-theme', th);
   }catch(e){ document.documentElement.setAttribute('data-theme','light'); }
   try{
-    var lg = localStorage.getItem('foundingsales-lang') || 'fa';
+    var lg = localStorage.getItem('pbl-lang') || 'fa';
     document.documentElement.setAttribute('data-lang', lg);
     document.documentElement.setAttribute('lang', lg);
     document.documentElement.setAttribute('dir', lg==='fa' ? 'rtl' : 'ltr');
@@ -28,876 +27,1218 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:ital,opsz@0,6..72;1,6..72&display=swap" rel="stylesheet">
-
-<style>
-/* ── TOKENS ───────────────────────────────────────────────── */
-:root, [data-theme="light"]{
-  --bg:#f5f6f8; --bg2:#eef2f7; --card:#fff; --card2:#f8fafb;
-  --ink:#1c2330; --mut:#6b7280; --line:#e6e8ee;
-  --accent:#0e7c86; --accent-ink:#fff; --warm:#c2410c;
-  --shadow:0 1px 2px rgba(20,30,50,.05),0 6px 24px rgba(20,30,50,.06);
-  --hero-1:#0e7c86; --hero-2:#0b5e66;
-  --c-teal:#0e9aa6; --c-blue:#2f6fb0; --c-violet:#7c3aed; --c-amber:#d97706;
-  --c-green:#15a34a; --c-red:#e11d48; --c-gold:#c98a12; --c-gray:#6b7280;
-  --state:#0e9aa6; --action:#d97706; --results:#7c3aed; --core:#0e7c86;
-}
-[data-theme="dark"]{
-  --bg:#0e131a; --bg2:#161d27; --card:#151c26; --card2:#1b2430;
-  --ink:#e9eef5; --mut:#9aa7b6; --line:#27313d;
-  --accent:#2dd4bf; --accent-ink:#06231f; --warm:#fb923c;
-  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 28px rgba(0,0,0,.45);
-  --hero-1:#0c5f67; --hero-2:#07323a;
-  --c-teal:#2dd4bf; --c-blue:#5b9bd5; --c-violet:#a78bfa; --c-amber:#fbbf24;
-  --c-green:#34d399; --c-red:#fb7185; --c-gold:#e2b04a; --c-gray:#94a3b8;
-  --state:#2dd4bf; --action:#fbbf24; --results:#a78bfa; --core:#2dd4bf;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);
-  font-family:Vazirmatn,"Segoe UI",Tahoma,Arial,sans-serif;line-height:1.85;font-size:15px;
-  transition:background .25s,color .25s}
-html[data-lang="en"] body{font-family:Inter,"Segoe UI",system-ui,Arial,sans-serif;line-height:1.7}
-.wrap{max-width:960px;margin:0 auto;padding:0 18px 40px}
-
-/* language visibility */
-html[data-lang="en"] [data-only="fa"]{display:none !important}
-html[data-lang="fa"] [data-only="en"]{display:none !important}
-
-/* ── HERO ─────────────────────────────────────────────────── */
-.hero{background:linear-gradient(135deg,var(--hero-1),var(--hero-2));color:#fff;padding:44px 0 34px;position:relative;overflow:hidden}
-.hero::after{content:"";position:absolute;inset-inline-end:-80px;top:-80px;width:280px;height:280px;
-  background:radial-gradient(circle,rgba(255,255,255,.12),transparent 70%);pointer-events:none}
-.hero .wrap{padding-bottom:0;position:relative;z-index:1}
-.hero h1{margin:0 0 8px;font-size:30px;font-weight:800;letter-spacing:-.3px;line-height:1.25}
-html[data-lang="en"] .hero h1{font-family:Newsreader,Georgia,serif;font-weight:600;letter-spacing:-.5px}
-.hero .dek{margin:0;opacity:.94;font-size:15.5px;max-width:640px}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;
-  color:rgba(255,255,255,.95);background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.24);
-  padding:5px 13px;border-radius:20px;margin-bottom:15px}
-.eyebrow .edot{width:7px;height:7px;border-radius:50%;background:#fff;box-shadow:0 0 0 3px rgba(255,255,255,.25)}
-.metastrip{display:flex;flex-wrap:wrap;gap:14px 30px;margin-top:20px;padding-top:16px;
-  border-top:1px solid rgba(255,255,255,.18)}
-.metaitem{display:flex;flex-direction:column;gap:3px}
-.metaitem .mk{font-size:10.5px;color:rgba(255,255,255,.62);font-weight:700;letter-spacing:.6px;text-transform:uppercase}
-.metaitem .mv{font-size:14px;color:#fff;font-weight:700}
-.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
-.chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);
-  border-radius:11px;padding:9px 15px;font-size:13px}
-.chip b{font-size:20px;display:block;font-weight:800}
-
-/* ── NAV + TOC ────────────────────────────────────────────── */
-.navbar{position:sticky;top:0;z-index:60;background:color-mix(in srgb,var(--card) 92%,transparent);
-  backdrop-filter:saturate(180%) blur(10px);-webkit-backdrop-filter:saturate(180%) blur(10px);
-  border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
-.navin{max-width:960px;margin:0 auto;padding:8px 16px;display:flex;align-items:center;gap:12px}
-.brand{flex:0 0 auto;font-weight:800;font-size:12.5px;color:var(--accent);white-space:nowrap;
-  display:flex;align-items:center;gap:7px}
-.brand .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);
-  box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 18%,transparent)}
-.toc{flex:1 1 auto;display:flex;flex-wrap:wrap;gap:7px;justify-content:center}
-.toc a{font-size:12.5px;color:var(--mut);text-decoration:none;border:1px solid var(--line);
-  border-radius:20px;padding:5px 12px;background:var(--card);white-space:nowrap;
-  transition:background .15s,color .15s,border-color .15s}
-.toc a:hover{color:var(--accent);border-color:var(--accent)}
-.toc a.active{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
-.navctl{flex:0 0 auto;display:flex;align-items:center;gap:8px}
-.langbtn{height:34px;border-radius:18px;border:1px solid var(--line);background:var(--card);
-  color:var(--ink);cursor:pointer;font:inherit;font-size:12.5px;font-weight:700;padding:0 13px;
-  display:flex;align-items:center;gap:6px}
-.langbtn:hover{border-color:var(--accent);color:var(--accent)}
-.langbtn .globe{width:15px;height:15px;display:block}
-.themebtn{flex:0 0 auto;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);
-  background:var(--card);color:var(--ink);cursor:pointer;line-height:1;display:grid;place-items:center}
-.themebtn svg{width:17px;height:17px;display:block}
-.themebtn:hover{border-color:var(--accent);color:var(--accent)}
-[data-theme="light"] .themebtn .ic-sun{display:none}
-[data-theme="dark"]  .themebtn .ic-moon{display:none}
-
-/* ── BLOCKS ───────────────────────────────────────────────── */
-h2{font-size:21px;margin:44px 0 6px;font-weight:800;scroll-margin-top:92px;line-height:1.35}
-html[data-lang="en"] h2{font-family:Newsreader,Georgia,serif;font-weight:600}
-h2 .num{color:var(--accent);font-variant-numeric:tabular-nums}
-.sub{color:var(--mut);font-size:13.5px;margin:0 0 16px;max-width:680px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;
-  padding:20px 22px;margin:14px 0;box-shadow:var(--shadow)}
-.lead{font-size:15.5px}
-.lead b{color:var(--warm)}
-.kgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin:8px 0}
-.kbox{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:15px 16px;text-align:center}
-.kbox .v{font-size:26px;font-weight:800;color:var(--accent);font-variant-numeric:tabular-nums}
-.kbox .l{font-size:12.5px;color:var(--mut);margin-top:3px}
-ul.clean{margin:6px 0;padding-inline-start:20px} ul.clean li{margin:8px 0}
-.callout{background:color-mix(in srgb,var(--warm) 9%,var(--card));
-  border:1px solid color-mix(in srgb,var(--warm) 30%,var(--line));
-  border-radius:12px;padding:14px 18px;margin:12px 0}
-.callout b{color:var(--warm)}
-.callout.accent{background:color-mix(in srgb,var(--accent) 9%,var(--card));
-  border-color:color-mix(in srgb,var(--accent) 30%,var(--line))}
-.callout.accent b{color:var(--accent)}
-a{color:var(--accent)}
-
-/* ── GRAPH ────────────────────────────────────────────────── */
-.gtabs{display:inline-flex;gap:4px;background:var(--bg2);border:1px solid var(--line);
-  border-radius:11px;padding:4px;margin:6px 0 2px}
-.gtab{border:0;background:transparent;color:var(--mut);font:inherit;font-size:13px;font-weight:700;
-  padding:7px 15px;border-radius:8px;cursor:pointer}
-.gtab.active{background:var(--card);color:var(--accent);box-shadow:var(--shadow)}
-.graphcard{padding:14px}
-.legend{display:flex;flex-wrap:wrap;gap:14px;margin:2px 4px 12px;font-size:12.5px;color:var(--mut)}
-.legend span{display:inline-flex;align-items:center;gap:6px}
-.legend i{width:11px;height:11px;border-radius:50%;display:inline-block}
-.graphstage{display:grid;grid-template-columns:1fr;gap:14px}
-@media(min-width:760px){.graphstage{grid-template-columns:1.35fr .95fr}}
-.svgwrap{position:relative;background:var(--card2);border:1px solid var(--line);border-radius:12px;
-  overflow:hidden;min-height:300px}
-#netsvg{display:block;width:100%;height:560px;touch-action:none;cursor:grab}
-#netsvg text{pointer-events:none;user-select:none}
-.ghint{position:absolute;inset-inline-start:12px;top:10px;font-size:11.5px;color:var(--mut);
-  background:color-mix(in srgb,var(--card) 82%,transparent);border:1px solid var(--line);
-  border-radius:20px;padding:3px 11px;backdrop-filter:blur(4px);max-width:70%}
-.greset{position:absolute;inset-inline-end:10px;top:10px;border:1px solid var(--line);background:var(--card);
-  color:var(--mut);border-radius:8px;font:inherit;font-size:11.5px;padding:4px 10px;cursor:pointer}
-.greset:hover{color:var(--accent);border-color:var(--accent)}
-/* node + link interaction states */
-.node{cursor:pointer}
-/* the inner <g class="ns"> is what scales; fill-box keeps the pivot on the node itself, not the SVG viewport */
-.ns{transform-box:fill-box;transform-origin:center;transition:transform .2s cubic-bezier(.2,.75,.25,1)}
-.node.hover .ns{transform:scale(1.1)}
-.node.sel  .ns{transform:scale(1.34)}                 /* selected node grows */
-.node.ncore.hover .ns{transform:scale(1.06)}
-.node.ncore.sel   .ns{transform:none}                 /* the centre 'Effortless' node keeps default size */
-.node.sel circle{stroke:var(--ink);stroke-width:2.5;filter:drop-shadow(0 0 8px color-mix(in srgb,var(--accent) 60%,transparent))}
-.node.hl circle{stroke:var(--ink);stroke-opacity:.5;stroke-width:2.5}
-.node.dim{opacity:.2}
-.node text{font-family:Vazirmatn,Tahoma,sans-serif;font-weight:700}
-html[data-lang="en"] .node text{font-family:Inter,sans-serif}
-.glink{transition:opacity .2s,stroke .2s}
-.glink.dim{opacity:.08}
-.glink.hl{stroke:var(--accent) !important;stroke-opacity:.8}
-/* detail panel */
-.detail{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;min-height:220px}
-@media(min-width:760px){.detail{max-height:480px;overflow:auto}}
-.detail .dkick{font-size:11.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;display:flex;align-items:center;gap:7px;color:var(--mut)}
-.detail .dkick i{width:10px;height:10px;border-radius:50%}
-.detail h4{margin:8px 0 3px;font-size:18px;font-weight:800}
-html[data-lang="en"] .detail h4{font-family:Newsreader,serif;font-weight:600}
-.detail .drow{margin:11px 0}
-.detail .dlab{font-size:10.5px;font-weight:800;color:var(--accent);letter-spacing:.5px;text-transform:uppercase;
-  display:inline-flex;align-items:center;gap:5px}
-.detail .drow.tip .dlab{color:var(--c-green)}
-.detail .drow.pit .dlab{color:var(--warm)}
-.detail .drow.more{border-inline-start:2px solid color-mix(in srgb,var(--accent) 32%,var(--line));padding-inline-start:11px}
-.detail .drow.more .dlab{color:var(--mut)}
-.detail .dtxt{font-size:13.6px;margin-top:3px}
-.dchips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
-.dchip{font-size:12px;border:1px solid var(--line);background:var(--card2);border-radius:16px;padding:4px 11px;
-  cursor:pointer;color:var(--ink);display:inline-flex;align-items:center;gap:6px;font-family:inherit}
-.dchip:hover{border-color:var(--accent);color:var(--accent)}
-.dchip i{width:8px;height:8px;border-radius:50%;flex:0 0 auto}
-
-/* ── CONCEPT MAP ──────────────────────────────────────────── */
-.mapgrid{display:grid;grid-template-columns:1fr;gap:14px}
-@media(min-width:820px){.mapgrid{grid-template-columns:repeat(3,1fr)}}
-.partcol{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:16px;position:relative}
-.partcol .ph{display:flex;align-items:center;gap:9px;margin-bottom:3px}
-.partcol .pdot{width:13px;height:13px;border-radius:50%;flex:0 0 auto}
-.partcol .pnum{font-size:11px;font-weight:800;color:var(--mut)}
-.partcol h4{margin:0;font-size:16.5px;font-weight:800}
-html[data-lang="en"] .partcol h4{font-family:Newsreader,serif;font-weight:600}
-.partcol .ptag{font-size:12px;color:var(--mut);margin:2px 0 4px;font-weight:700}
-.partcol .pgist{font-size:12.8px;color:var(--mut);margin:0 0 12px}
-.chapchip{display:flex;align-items:baseline;gap:8px;padding:7px 10px;border:1px solid var(--line);
-  border-radius:9px;margin:6px 0;background:var(--card2);font-size:13px}
-.chapchip .cn{font-size:11px;font-weight:800;color:var(--mut);flex:0 0 auto;font-variant-numeric:tabular-nums}
-.chapchip b{font-weight:700}
-.chapchip small{color:var(--mut);display:block;font-size:11.5px;line-height:1.5}
-.flowline{display:flex;align-items:center;justify-content:center;gap:10px;color:var(--mut);
-  font-size:12.5px;font-weight:700;margin:6px 0 2px;flex-wrap:wrap}
-.flowline .ar{color:var(--accent)}
-
-/* ── STAGE LADDER ─────────────────────────────────────────── */
-.ladder{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 4px}
-.rung{flex:1 1 150px;border:1px solid var(--line);background:var(--card);border-radius:11px;
-  padding:11px 13px;cursor:pointer;transition:transform .12s,border-color .12s;position:relative}
-.rung:hover{border-color:var(--accent);transform:translateY(-2px)}
-.rung.active{border-color:var(--accent);box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 35%,transparent)}
-.rung .lv{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.4px}
-.rung .lt{font-size:13.5px;font-weight:800;margin-top:2px}
-.rung .lbar{height:5px;border-radius:4px;background:var(--bg2);margin-top:9px;overflow:hidden}
-.rung .lbar i{display:block;height:100%;background:linear-gradient(90deg,var(--c-teal),var(--c-violet))}
-.stagecard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 24px;
-  margin:14px 0;box-shadow:var(--shadow)}
-.stagecard .shead{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-.stagecard .badge{font-size:12px;font-weight:800;color:#fff;background:var(--accent);
-  border-radius:8px;padding:4px 11px;white-space:nowrap}
-.stagecard h3{margin:0;font-size:21px;font-weight:800}
-html[data-lang="en"] .stagecard h3{font-family:Newsreader,serif;font-weight:600}
-.stagecard .tagline{color:var(--mut);font-size:13.5px;margin:4px 0 14px;font-weight:700}
-.stagecard .sbody{font-size:15px}
-.exbox{background:var(--card2);border:1px solid var(--line);border-inline-start:3px solid var(--accent);
-  border-radius:0 11px 11px 0;padding:13px 16px;margin:14px 0 6px}
-.exbox .exk{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.5px;text-transform:uppercase}
-.exbox .ext{font-size:13.8px;margin-top:3px}
-.gainrow{display:flex;align-items:flex-start;gap:9px;margin-top:12px;font-size:13px;color:var(--mut)}
-.gainrow .gi{flex:0 0 auto;color:var(--c-green);font-weight:800}
-.stagenav{display:flex;justify-content:space-between;gap:10px;margin-top:16px}
-.stagenav button{border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit;
-  font-size:13px;font-weight:700;border-radius:9px;padding:8px 14px;cursor:pointer}
-.stagenav button:hover:not(:disabled){border-color:var(--accent);color:var(--accent)}
-.stagenav button:disabled{opacity:.4;cursor:default}
-
-/* ── QUOTES ───────────────────────────────────────────────── */
-.qgrid{display:grid;grid-template-columns:1fr;gap:12px}
-@media(min-width:720px){.qgrid{grid-template-columns:1fr 1fr}}
-blockquote{margin:0;background:var(--card2);border-inline-start:3px solid var(--accent);
-  border-radius:0 12px 12px 0;padding:15px 18px;font-size:14.5px;position:relative}
-blockquote .qm{font-size:34px;line-height:0;color:var(--accent);opacity:.35;font-family:Georgia,serif;
-  position:absolute;inset-inline-start:10px;top:20px}
-blockquote p{margin:0;padding-inline-start:22px}
-html[data-lang="en"] blockquote{font-family:Newsreader,Georgia,serif;font-size:15.5px}
-
-/* ── MEDIA ────────────────────────────────────────────────── */
-.mgrid{display:grid;grid-template-columns:1fr;gap:16px}
-@media(min-width:640px){.mgrid{grid-template-columns:1fr 1fr}}
-.mcard{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;
-  box-shadow:var(--shadow);display:flex;flex-direction:column}
-.mthumb{position:relative;display:block;aspect-ratio:16/9;background:var(--bg2);overflow:hidden;text-decoration:none}
-.mthumb img{width:100%;height:100%;object-fit:cover;display:block}
-.mthumb .play{position:absolute;inset:0;display:grid;place-items:center}
-.mthumb .play span{width:54px;height:54px;border-radius:50%;background:rgba(0,0,0,.6);
-  display:grid;place-items:center;border:2px solid rgba(255,255,255,.9)}
-.mthumb .play svg{width:22px;height:22px;fill:#fff;margin-inline-start:3px}
-.mthumb .ptype{position:absolute;inset-inline-start:9px;top:9px;background:rgba(0,0,0,.72);color:#fff;
-  font-size:11px;font-weight:700;border-radius:6px;padding:3px 9px;letter-spacing:.3px}
-.mfake{aspect-ratio:16/9;display:grid;place-items:center;
-  background:linear-gradient(135deg,color-mix(in srgb,var(--c-violet) 22%,var(--card)),color-mix(in srgb,var(--c-teal) 22%,var(--card)))}
-.mfake svg{width:52px;height:52px;color:var(--ink);opacity:.6}
-.mbody{padding:15px 17px;display:flex;flex-direction:column;gap:7px;flex:1}
-.mbody .msrc{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.3px;text-transform:uppercase}
-.mbody h4{margin:0;font-size:15.5px;font-weight:800;line-height:1.4}
-html[data-lang="en"] .mbody h4{font-family:Newsreader,serif;font-weight:600}
-.mbody .mdesc{font-size:13px;color:var(--mut);margin:0}
-.mbody ul{margin:4px 0 0;padding-inline-start:18px}
-.mbody ul li{font-size:12.8px;margin:5px 0}
-.mbody .mbest{font-size:12px;font-weight:700;color:var(--warm);margin-top:auto;padding-top:8px}
-.mlink{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;
-  text-decoration:none;color:var(--accent);margin-top:4px}
-.mlink:hover{text-decoration:underline}
-.golist{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
-.golist a{font-size:12.5px;text-decoration:none;color:var(--ink);border:1px solid var(--line);
-  border-radius:20px;padding:6px 13px;background:var(--card);font-weight:700}
-.golist a:hover{border-color:var(--accent);color:var(--accent)}
-
-/* ── RECS + METHOD + CREDIT ───────────────────────────────── */
-.rec{display:grid;gap:10px;margin:8px 0}
-.rec .item{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--card)}
-.rec .item .t{font-weight:800;font-size:14.5px;margin-bottom:3px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.rec .item .t .pri{font-size:11px;font-weight:700;color:#fff;background:var(--warm);border-radius:6px;padding:2px 9px}
-.rec .item .t .pri.b{background:var(--accent)}
-.rec .item .d{font-size:13.4px;color:var(--mut)}
-.method{color:var(--mut);font-size:13.4px}
-.method p{margin:8px 0}
-.method b{color:var(--ink)}
-.credit{text-align:center;margin-top:40px;padding:22px 0 8px;border-top:1px solid var(--line);
-  color:var(--mut);font-size:14px}
-.credit .cname{color:var(--ink);font-weight:800}
-.credit a{font-weight:700;text-decoration:none}
-.credit a:hover{text-decoration:underline}
-.credit .sep{opacity:.5;margin:0 8px}
-.credit .li{display:inline-flex;align-items:center;gap:5px;vertical-align:middle}
-.credit .li svg{width:15px;height:15px;vertical-align:-3px}
-
-@media (max-width:640px){
-  body{font-size:14px}
-  .wrap{padding:0 13px 30px}
-  .hero{padding:28px 0 22px} .hero h1{font-size:22px}
-  h2{font-size:18px;scroll-margin-top:66px}
-  .brand{display:none}
-  .toc{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;scrollbar-width:none}
-  .toc::-webkit-scrollbar{display:none}
-  #netsvg{height:420px}
-}
-</style>
+<link rel="stylesheet" href="../assets/book.css">
 </head>
 <body>
+<div id="app"></div>
 
-<!-- ── HERO ───────────────────────────────────────────────── -->
-<header class="hero"><div class="wrap">
-  <div class="eyebrow"><span class="edot"></span>
-    <span data-only="en">Book knowledge map · Pete Kazanjy</span>
-    <span data-only="fa">نقشهٔ کتاب · پیت کازانجی</span>
-  </div>
-  <h1>
-    <span data-only="en">Founding Sales — The Early-Stage Go-to-Market Handbook</span>
-    <span data-only="fa">فروشِ بنیان‌گذار — راهنمای فروش و ورود به بازار برای استارتاپِ نوپا</span>
-  </h1>
-  <p class="dek">
-    <span data-only="en">A knowledge graph of the whole book, plus a 5-stage path from a single sentence to expert-level mastery — with an example at every step.</span>
-    <span data-only="fa">نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از یک جملهٔ ساده تا تسلطِ حرفه‌ای — با یک مثال در هر قدم.</span>
-  </p>
-  <div class="metastrip">
-    <div class="metaitem"><span class="mk" data-only="en">Book</span><span class="mk" data-only="fa">کتاب</span>
-      <span class="mv" data-only="en">Founding Sales</span><span class="mv" data-only="fa">فروشِ بنیان‌گذار</span></div>
-    <div class="metaitem"><span class="mk" data-only="en">Author</span><span class="mk" data-only="fa">نویسنده</span>
-      <span class="mv" data-only="en">Pete Kazanjy</span><span class="mv" data-only="fa">پیت کازانجی</span></div>
-    <div class="metaitem"><span class="mk" data-only="en">Published</span><span class="mk" data-only="fa">سالِ چاپ</span>
-      <span class="mv" data-only="en">2020</span><span class="mv" data-only="fa">۲۰۲۰</span></div>
-    <div class="metaitem"><span class="mk" data-only="en">Group</span><span class="mk" data-only="fa">گروه</span>
-      <span class="mv" data-only="en">Sales &amp; Marketing</span><span class="mv" data-only="fa">فروش و بازاریابی</span></div>
-  </div>
-  <div class="chips">
-    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Parts</span><span data-only="fa">بخش</span></div>
-    <div class="chip"><b data-only="en">16</b><b data-only="fa">۱۶</b><span data-only="en">Moves</span><span data-only="fa">حرکت</span></div>
-    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Learning stages</span><span data-only="fa">مرحلهٔ یادگیری</span></div>
-  </div>
-</div></header>
-
-<!-- ── STICKY NAV ─────────────────────────────────────────── -->
-<div class="navbar"><div class="navin">
-  <span class="brand"><span class="dot"></span>Founding Sales</span>
-  <nav class="toc">
-    <a href="#tldr" data-only="en">In a nutshell</a><a href="#tldr" data-only="fa">خلاصه</a>
-    <a href="#graph" data-only="en">Knowledge graph</a><a href="#graph" data-only="fa">نقشهٔ دانش</a>
-    <a href="#stages" data-only="en">5 stages</a><a href="#stages" data-only="fa">۵ مرحله</a>
-    <a href="#quotes" data-only="en">Quotes</a><a href="#quotes" data-only="fa">جمله‌ها</a>
-    <a href="#media" data-only="en">Watch &amp; explore</a><a href="#media" data-only="fa">تماشا و منابع</a>
-    <a href="#apply" data-only="en">Apply it</a><a href="#apply" data-only="fa">کاربرد</a>
-  </nav>
-  <div class="navctl">
-    <button class="langbtn" id="langBtn" aria-label="Switch language">
-      <svg class="globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>
-      <span data-only="en">فارسی</span><span data-only="fa">English</span>
-    </button>
-    <button class="themebtn" id="themeBtn" aria-label="Toggle theme" title="Light / Dark">
-      <span class="ic-sun" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5 19 19M19 5l-1.5 1.5M6.5 17.5 5 19"/></svg></span>
-      <span class="ic-moon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.6 6.6 0 0 0 9.8 9.8Z"/></svg></span>
-    </button>
-  </div>
-</div></div>
-
-<div class="wrap">
-
-  <!-- ── TL;DR ────────────────────────────────────────────── -->
-  <h2 id="tldr"><span class="num" data-only="en">1.</span><span class="num" data-only="fa">۱.</span>
-    <span data-only="en"> In a nutshell</span><span data-only="fa"> خلاصه</span></h2>
-  <p class="sub" data-only="en">If you read only this, you still get the whole idea.</p>
-  <p class="sub" data-only="fa">اگر فقط همین بخش را بخوانی، کلِ ایده دستت می‌آید.</p>
-  <div class="card lead"><ul class="clean" id="tldrHost"></ul></div>
-  <div class="kgrid">
-    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Parts (mindset · discovery · process · closing · team)</div><div class="l" data-only="fa">بخش (ذهنیت · کشفِ نیاز · فرایند · بستن · تیم)</div></div>
-    <div class="kbox"><div class="v" data-only="en">16</div><div class="v" data-only="fa">۱۶</div><div class="l" data-only="en">Moves you can use</div><div class="l" data-only="fa">حرکت برای استفاده</div></div>
-    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Levels, simple → expert</div><div class="l" data-only="fa">مرحله، ساده تا حرفه‌ای</div></div>
-    <div class="kbox"><div class="v" data-only="en">3</div><div class="v" data-only="fa">۳</div><div class="l" data-only="en">Core beats: learn · sell · scale</div><div class="l" data-only="fa">حرکتِ اصلی: یاد بگیر · بفروش · بزرگ کن</div></div>
-  </div>
-  
-  <div class="callout accent">
-    <b data-only="en">The core idea:</b>
-    <b data-only="fa">ایدهٔ اصلی:</b>
-    <span data-only="en"> The technical founder has to learn to <i>sell first</i> — personally closing the early customers — before hiring any salespeople. Early selling is <i>evangelical product work</i>: helping real people fix a real pain. Learn discovery, build a repeatable process, close deals, and only then scale a team.</span>
-    <span data-only="fa"> بنیان‌گذارِ فنی باید <i>اول خودش یادِ فروش بگیرد</i> — و شخصاً مشتری‌های اول را ببندد — پیش از اینکه هیچ فروشنده‌ای استخدام کند. فروشِ اولِ کار <i>همان کارِ محصول است با شور و شوق</i>: کمک به آدم‌های واقعی برای حلِ یک دردِ واقعی. کشفِ نیاز را یاد بگیر، یک فرایندِ تکرارشدنی بساز، معامله‌ها را ببند، و تازه بعدش تیم را بزرگ کن.</span>
-  </div>
-
-  <!-- ── KNOWLEDGE GRAPH ──────────────────────────────────── -->
-  <h2 id="graph"><span class="num" data-only="en">2.</span><span class="num" data-only="fa">۲.</span>
-    <span data-only="en"> The knowledge graph</span><span data-only="fa"> نقشهٔ دانش</span></h2>
-  <p class="sub" data-only="en">The whole book as one picture. Click any node to focus its connections and read more — or switch to the structured map.</p>
-  <p class="sub" data-only="fa">کلِ کتاب در یک تصویر. روی هر دایره کلیک کن تا ارتباط‌هایش را ببینی و بیشتر بخوانی — یا به نقشهٔ مرتب برو.</p>
-
-  <div class="gtabs">
-    <button class="gtab active" id="tabNet"><span data-only="en">Interactive network</span><span data-only="fa">شبکهٔ تعاملی</span></button>
-    <button class="gtab" id="tabMap"><span data-only="en">Structured map</span><span data-only="fa">نقشهٔ مرتب</span></button>
-  </div>
-
-  <!-- network view -->
-  <div class="card graphcard" id="netView">
-    <div class="legend" id="legendHost"></div>
-    <div class="graphstage">
-      <div class="svgwrap">
-        <svg id="netsvg" viewBox="0 0 820 560" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Effortless knowledge network"></svg>
-        <div class="ghint" id="ghint"></div>
-        <button class="greset" id="greset"></button>
-      </div>
-      <div class="detail" id="detailHost"></div>
-    </div>
-  </div>
-
-  <!-- map view -->
-  <div class="card graphcard" id="mapView" style="display:none">
-    <div class="flowline" id="flowTop"></div>
-    <div class="mapgrid" id="mapHost"></div>
-    <div class="callout" style="margin-top:16px">
-      <b data-only="en">Read it as a flow:</b><b data-only="fa">به‌صورتِ یک جریان بخوانش:</b>
-      <span data-only="en"> get the <b>founder-seller mindset</b> (selling is helping), learn to sell through <b>discovery and qualification</b>, build a <b>repeatable process and pipeline</b>, <b>close and negotiate</b> deals, and only then <b>build and scale the team</b>.</span>
-      <span data-only="fa"> <b>ذهنیتِ بنیان‌گذارِ فروشنده</b> را بگیر (فروش یعنی کمک)، با <b>کشفِ نیاز و محک‌زدن</b> یادِ فروش بگیر، یک <b>فرایند و پایپ‌لاینِ تکرارشدنی</b> بساز، معامله‌ها را <b>ببند و چانه بزن</b>، و تازه بعدش <b>تیم را بساز و بزرگ کن</b>.</span>
-    </div>
-  </div>
-
-  <!-- ── 5 STAGES ─────────────────────────────────────────── -->
-  <h2 id="stages"><span class="num" data-only="en">3.</span><span class="num" data-only="fa">۳.</span>
-    <span data-only="en"> Learn it in 5 stages</span><span data-only="fa"> یادگیری در ۵ مرحله</span></h2>
-  <p class="sub" data-only="en">The same book at five depths. Start over-simplified, climb to expert. Tap a rung to jump.</p>
-  <p class="sub" data-only="fa">یک کتاب در پنج عمق. از خیلی ساده شروع کن و تا حرفه‌ای بالا برو. روی هر پله بزن تا بپری.</p>
-  <div class="ladder" id="ladderHost"></div>
-  <div id="stageHost"></div>
-
-  <!-- ── QUOTES ───────────────────────────────────────────── -->
-  <h2 id="quotes"><span class="num" data-only="en">4.</span><span class="num" data-only="fa">۴.</span>
-    <span data-only="en"> Lines worth keeping</span><span data-only="fa"> جمله‌هایی که ارزشِ نگه‌داشتن دارند</span></h2>
-  <p class="sub" data-only="en">Verbatim quotes from the book, translated alongside.</p>
-  <p class="sub" data-only="fa">جمله‌های مستقیم از کتاب، همراه با ترجمه.</p>
-  <div class="qgrid" id="quoteHost"></div>
-
-  <!-- ── MEDIA ────────────────────────────────────────────── -->
-  <h2 id="media"><span class="num" data-only="en">5.</span><span class="num" data-only="fa">۵.</span>
-    <span data-only="en"> Watch &amp; explore</span><span data-only="fa"> تماشا و منابع</span></h2>
-  <p class="sub" data-only="en">Special resources found online — each with what it covers and who it's best for.</p>
-  <p class="sub" data-only="fa">منابعِ ویژه‌ای که آنلاین پیدا شد — هرکدام با اینکه چه می‌گوید و به چه دردی می‌خورد.</p>
-  <div class="mgrid" id="mediaHost"></div>
-  <div class="card" style="margin-top:16px">
-    <div style="font-weight:800;font-size:13.5px;margin-bottom:4px">
-      <span data-only="en">Go straight to the source</span><span data-only="fa">مستقیم سراغِ منبع برو</span>
-    </div>
-    <div class="golist" id="goHost"></div>
-  </div>
-
-  <!-- ── APPLY ────────────────────────────────────────────── -->
-  <h2 id="apply"><span class="num" data-only="en">6.</span><span class="num" data-only="fa">۶.</span>
-    <span data-only="en"> Apply it this week</span><span data-only="fa"> این هفته امتحانش کن</span></h2>
-  <p class="sub" data-only="en">Four small moves that turn the idea into a habit.</p>
-  <p class="sub" data-only="fa">چهار حرکتِ کوچک که این ایده را به عادت تبدیل می‌کنند.</p>
-  <div class="rec" id="recHost"></div>
-
-  <!-- ── METHOD ───────────────────────────────────────────── -->
-  <h2 id="method"><span class="num" data-only="en">7.</span><span class="num" data-only="fa">۷.</span>
-    <span data-only="en"> Sources &amp; notes</span><span data-only="fa"> منابع و توضیح</span></h2>
-  <div class="card method" id="methodHost"></div>
-
-  <!-- ── CREDIT FOOTER ────────────────────────────────────── -->
-  <div class="credit">
-    <span data-only="en">Created by <span class="cname">Behnam Atefi</span><span class="sep">·</span><a class="li" href="https://www.linkedin.com/in/behnamatefi/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.3c0-1.26-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9z"/></svg>LinkedIn</a></span>
-    <span data-only="fa">ساخته‌شده توسط <span class="cname">بهنام عاطفی</span><span class="sep">·</span><a class="li" href="https://www.linkedin.com/in/behnamatefi/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.3c0-1.26-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9z"/></svg>لینکدین</a></span>
-  </div>
-</div>
-
-<!-- ═══════════════════════ SCRIPTS ═══════════════════════ -->
+<script src="../assets/library.js"></script>
+<script src="../assets/book.js"></script>
 <script>
-/* ── 1) language + formatters ─────────────────────────────── */
-var LANG = document.documentElement.getAttribute('data-lang') || 'fa';
-var FA_D = '۰۱۲۳۴۵۶۷۸۹';
-var RLM  = '‏';
-function faDigits(s){ return String(s).replace(/[0-9]/g, function(d){ return FA_D[+d]; }); }
-/* honor the RTL preference: isolate Latin runs (word order preserved) and mark with U+200F */
-function rlm(s){
-  return String(s)
-    .replace(/[A-Za-zÀ-ɏ][A-Za-zÀ-ɏ0-9'’.&:\/\-]*(?:\s+[A-Za-zÀ-ɏ0-9'’.&:\/\-]+)*/g,
-      function(m){ return RLM+'⁦'+m+'⁩'+RLM; })
-    .replace(/[0-9۰-۹]+/g, function(m){ return m+RLM; });
-}
-/* transform only TEXT segments, never HTML tags (so <b>/<i> survive) */
-function faText(s){ return String(s).replace(/(<[^>]+>)|([^<]+)/g, function(m,tag,txt){ return tag ? tag : faDigits(rlm(txt)); }); }
-function TX(o){ if(o==null) return ''; if(typeof o==='string') return o; return LANG==='fa' ? faText(o.fa) : o.en; }
-function num(n){ return LANG==='fa' ? faDigits(n) : String(n); }
-function tok(name){ return getComputedStyle(document.documentElement).getPropertyValue(name).trim(); }
-</script>
-
-<script>
-/* ── DATA LAYER — Atomic Habits (bilingual, plain-spoken Persian) ── */
-var DATA = {"tldr":[{"en":"The whole book in one line: the technical founder has to learn to sell — and do it personally — before hiring any salespeople.","fa":"خلاصهٔ کل کتاب در یک جمله: بنیان‌گذارِ فنی باید یادِ فروش بگیرد — و خودش انجامش بدهد — پیش از اینکه هیچ فروشنده‌ای استخدام کند."},{"en":"Reframe the job: selling is <b>helping</b> — being the grease of the market, not tricking a 'mark' — and it's a learnable skill.","fa":"کار را دوباره تعریف کن: فروش یعنی <b>کمک‌کردن</b> — یعنی روغن‌کاریِ بازار، نه گول‌زدنِ طرف — و یک مهارتِ یادگرفتنی است."},{"en":"Learn to sell through <b>discovery and qualification</b>: know your ideal customer, prospect on purpose, dig into the pain, and qualify hard.","fa":"با <b>کشفِ نیاز و محک‌زدن</b> یادِ فروش بگیر: مشتریِ ایده‌آلت را بشناس، عمداً پیدایشان کن، توی درد بکَن، و سفت‌وسخت محک بزن."},{"en":"Turn wins into a <b>repeatable process</b> with clear stages, a clean pipeline, and metrics you can forecast from.","fa":"بردها را به یک <b>فرایندِ تکرارشدنی</b> تبدیل کن، با مرحله‌های روشن، پایپ‌لاینِ تمیز، و شاخص‌هایی که می‌شود ازشان پیش‌بینی کرد."},{"en":"Close by handling <b>objections</b>, asking for the sale, and negotiating — then <b>scale a team</b> only after the motion is proven.","fa":"با جواب‌دادن به <b>ایرادها</b>، درخواستِ فروش، و چانه‌زنی ببند — و <b>تیم را</b> فقط بعد از اینکه روش اثبات شد بزرگ کن."}],"parts":[{"key":"mindset","varc":"--c-teal","name":{"en":"The Founder-Seller Mindset","fa":"ذهنیتِ بنیان‌گذارِ فروشنده"},"tag":{"en":"Start here","fa":"از این‌جا شروع کن"},"gist":{"en":"Selling is helping, not sleaze — and at the start, the founder has to do it.","fa":"فروختن یعنی کمک‌کردن، نه حقه‌بازی — و اولِ کار، خودِ بنیان‌گذار باید این کار را بکند."},"more":{"en":"Most technical founders dread sales because they picture a pushy huckster. Drop that image. Early selling is really evangelical product work — and nobody understands the product or the customer's pain better than you do yet.","fa":"بیشترِ بنیان‌گذارهای فنی از فروش می‌ترسند، چون یک آدمِ سمج و حقه‌باز جلوی چشمشان می‌آید. آن تصویر را دور بریز. فروشِ اولِ کار در واقع همان کارِ محصول است با شور و شوق — و هنوز هیچ‌کس محصول و دردِ مشتری را بهتر از تو نمی‌فهمد."},"chapters":["helping","sellfirst","learnable"]},{"key":"discovery","varc":"--c-blue","name":{"en":"Discovery & Qualification","fa":"کشفِ نیاز و محک‌زدن"},"tag":{"en":"Learn to sell","fa":"یادِ فروش بگیر"},"gist":{"en":"Talk to the right prospects, dig into their pain, and qualify hard before you invest time.","fa":"با آدم‌های درست حرف بزن، توی دردشان بکَن، و پیش از اینکه وقت بگذاری خوب محکشان بزن."},"more":{"en":"Selling well starts long before the pitch. You define who actually has the pain, go find them on purpose, ask enough questions to understand the problem, and rule out the ones who'll never buy — so your energy goes where deals really live.","fa":"فروشِ خوب خیلی پیش از ارائه شروع می‌شود. مشخص می‌کنی واقعاً کی این درد را دارد، عمداً می‌روی پیدایشان می‌کنی، آن‌قدر سؤال می‌پرسی تا مشکل را بفهمی، و آن‌هایی را که هیچ‌وقت نمی‌خرند کنار می‌گذاری — تا انرژی‌ات برود همان‌جا که معامله واقعاً هست."},"chapters":["icp","prospect","qualify","pain"]},{"key":"process","varc":"--c-amber","name":{"en":"Sales Process & Pipeline","fa":"فرایند و پایپ‌لاینِ فروش"},"tag":{"en":"Make it repeatable","fa":"تکرارشدنی‌اش کن"},"gist":{"en":"Turn scattered wins into a repeatable process with clear stages, a tidy pipeline, and honest metrics.","fa":"بردهای پراکنده را به یک فرایندِ تکرارشدنی تبدیل کن، با مرحله‌های روشن، پایپ‌لاینِ مرتب، و شاخص‌های صادقانه."},"more":{"en":"Once you're closing deals, write down how. A named set of stages, a disciplined pipeline where every deal has a next step, and a few real numbers turn a lucky streak into a machine you can trust, forecast, and eventually hand off.","fa":"وقتی داری معامله می‌بندی، بنویس چطور. یک مجموعهٔ مرحلهٔ اسم‌دار، یک پایپ‌لاینِ منظم که هر معامله توش یک قدمِ بعدی دارد، و چند تا عددِ واقعی، یک دورهٔ خوش‌شانسی را به ماشینی تبدیل می‌کنند که می‌شود بهش اعتماد کرد، پیش‌بینی‌اش کرد، و آخرش به کسی سپردش."},"chapters":["repeatable","pipeline","forecast"]},{"key":"closing","varc":"--c-violet","name":{"en":"Closing, Objections & Negotiation","fa":"بستنِ معامله، ایرادها و چانه‌زنی"},"tag":{"en":"Advance the deal","fa":"معامله را جلو ببر"},"gist":{"en":"Handle objections, ask for the close, and negotiate price without giving the store away.","fa":"به ایرادها جواب بده، برای بستن درخواست بده، و سرِ قیمت چانه بزن، بی‌اینکه همه‌چیز را ببخشی."},"more":{"en":"Deals don't close themselves. You meet objections calmly as buying signals, you actually ask for the business instead of hoping, and you negotiate from a prepared position — anchoring on price and protecting the economics until the money is in the bank.","fa":"معامله‌ها خودشان بسته نمی‌شوند. با خونسردی به ایرادها به‌چشمِ نشانهٔ خرید نگاه می‌کنی، به‌جای امیدواربودن واقعاً درخواستِ معامله را می‌دهی، و از یک جای آماده چانه می‌زنی — سرِ قیمت لنگر می‌اندازی و صرفهٔ کار را نگه می‌داری تا وقتی پول به حساب بنشیند."},"chapters":["objections","askclose","negotiate"]},{"key":"team","varc":"--c-green","name":{"en":"Building & Scaling the Team","fa":"ساختن و بزرگ‌کردنِ تیمِ فروش"},"tag":{"en":"Scale it","fa":"مقیاسش بده"},"gist":{"en":"Only after the motion works: hire quality reps, onboard them well, and manage with metrics.","fa":"فقط بعد از اینکه روش جواب داد: فروشندهٔ خوب استخدام کن، خوب راهشان بینداز، و با شاخص‌ها مدیریتشان کن."},"more":{"en":"Scaling is a reward for proof, not a shortcut to it. Once your numbers say the go-to-market repeats, hire carefully for quality over quantity, onboard reps into your written playbook, and run the team on clear comp and honest metrics.","fa":"بزرگ‌شدن جایزهٔ اثبات است، نه میان‌بری به‌جای آن. وقتی اعدادت گفتند این روش تکرار می‌شود، با دقت و با تأکید بر کیفیت نه تعداد استخدام کن، فروشنده‌ها را توی همان دفترچهٔ نوشته‌شده‌ات راه بینداز، و تیم را با حقوقِ روشن و شاخص‌های صادقانه بگردان."},"chapters":["whenhire","onboard","compmanage"]}],"chapters":{"helping":{"part":"mindset","n":1,"name":{"en":"Sales Is Helping, Not Sleaze","fa":"فروش یعنی کمک، نه حقه"},"glabel":{"en":"Helping","fa":"کمک، نه حقه"},"principle":{"en":"Modern selling isn't tricking a 'mark' — it's finding people with a real problem your product solves, and helping them get it fixed.","fa":"فروشِ امروزی یعنی گول‌زدنِ یک طرف نیست — یعنی پیداکردنِ آدم‌هایی که یک مشکلِ واقعی دارند و محصولِ تو حلش می‌کند، و کمک به اینکه حلش کنند."},"more":{"en":"Kazanjy calls good salespeople the grease of the market: they seek out inefficiencies — qualified people in real pain — and connect them to a cure. Reframed that way, selling is a service, and it stops feeling gross.","fa":"کازانجی به فروشنده‌های خوب می‌گوید روغن‌کاریِ بازار: دنبالِ جاهایی می‌گردند که چیزی لنگ می‌زند — آدم‌هایی که واقعاً درد دارند — و آن‌ها را به درمان وصل می‌کنند. وقتی این‌طور نگاهش کنی، فروش یک‌جور خدمت است و دیگر حالت را بد نمی‌کند."},"example":{"en":"You're not persuading someone to buy junk; you're telling a stressed-out buyer “this fixes exactly the thing that's hurting you.”","fa":"داری کسی را راضی نمی‌کنی چیزِ بی‌ارزش بخرد؛ داری به یک خریدارِ کلافه می‌گویی «این دقیقاً همان چیزی را که اذیتت می‌کند درست می‌کند.»"},"tip":{"en":"Before any pitch, write the one painful problem this customer has that you can genuinely remove.","fa":"پیش از هر ارائه، همان یک مشکلِ دردناکی را که این مشتری دارد و تو واقعاً می‌توانی برطرفش کنی، بنویس."},"pitfall":{"en":"Avoiding sales because you think it means being pushy or dishonest.","fa":"دوری‌کردن از فروش، چون فکر می‌کنی یعنی باید سمج یا نادرست باشی."}},"sellfirst":{"part":"mindset","n":2,"name":{"en":"Founders Must Sell First","fa":"اول خودِ بنیان‌گذار باید بفروشد"},"glabel":{"en":"You sell first","fa":"اول خودت"},"principle":{"en":"You can't outsource the first sales. Until you've closed customers yourself, there's no motion to hand anyone — you need you.","fa":"فروشِ اول را نمی‌شود به کسی سپرد. تا وقتی خودت مشتری جوش نداده باشی، هیچ روشی نیست که به کسی بدهی — به خودت نیاز داری."},"more":{"en":"Early sales is a tight feedback loop between the pitch and the product, and that loop has to live in the founder's head. Hand it to a hired rep too soon and you lose the very learning that tells you what to build and how to say it.","fa":"فروشِ اولِ کار یک حلقهٔ بازخوردِ تنگ بینِ حرفِ فروش و خودِ محصول است، و این حلقه باید توی سرِ بنیان‌گذار باشد. اگر زود بسپاری‌اش به یک فروشندهٔ استخدامی، همان چیزی را از دست می‌دهی که بهت می‌گوید چه بساز و چطور بگو."},"example":{"en":"After ten demos you'll hear the same objection twice and fix the product or the story — a hired rep would just have lost the deals.","fa":"بعد از ده تا دمو، یک ایراد را دو بار می‌شنوی و محصول یا داستان را درست می‌کنی — یک فروشندهٔ استخدامی فقط معامله‌ها را می‌باخت و تمام."},"tip":{"en":"Commit to personally closing your first dozen or more customers before you hire a single rep.","fa":"با خودت قرار بگذار که اولین ده‌دوازده مشتری یا بیشتر را خودت شخصاً ببندی، پیش از اینکه حتی یک فروشنده استخدام کنی."},"pitfall":{"en":"Hiring a salesperson to avoid selling, before the motion even exists.","fa":"استخدامِ یک فروشنده برای فرار از فروش، پیش از اینکه اصلاً روشی وجود داشته باشد."}},"learnable":{"part":"mindset","n":3,"name":{"en":"Selling Is a Learnable Skill","fa":"فروختن یک مهارتِ یادگرفتنی است"},"glabel":{"en":"Learnable","fa":"یادگرفتنی"},"principle":{"en":"Sales acumen is not inborn; it's just another skill to learn — like coding or design, you get good at it by doing reps.","fa":"استعدادِ فروش ذاتی نیست؛ فقط یک مهارتِ دیگر است برای یادگرفتن — مثلِ برنامه‌نویسی یا طراحی، با تمرین و تکرار توش خوب می‌شوی."},"more":{"en":"Founders who think “I'm just not a sales person” let a myth cost them their company. The early sale is mostly evangelism: explaining a new solution clearly and probing whether it helps. That's product work you already know how to do.","fa":"بنیان‌گذاری که فکر می‌کند «من اصلاً آدمِ فروش نیستم»، اجازه می‌دهد یک باورِ غلط شرکتش را ازش بگیرد. فروشِ اولِ کار بیشترش معرفی و آموزش است: یک راه‌حلِ تازه را روشن توضیح بدهی و ببینی به درد می‌خورد یا نه. این همان کارِ محصول است که بلدی."},"example":{"en":"Treat your first 20 sales calls like a course: after each, note what landed, what confused people, and what you'll change.","fa":"بیست تا تماسِ فروشِ اولت را مثلِ یک دوره ببین: بعد از هر کدام یادداشت کن چه چیزی گرفت، کجا آدم‌ها گیج شدند، و چه چیزی را عوض می‌کنی."},"tip":{"en":"Record or note every call and review it like game tape to get better each week.","fa":"هر تماس را ضبط یا یادداشت کن و مثلِ فیلمِ بازی مرورش کن تا هر هفته بهتر شوی."},"pitfall":{"en":"Believing sales is a talent you either have or don't, so you never start.","fa":"باور به اینکه فروش یک استعداد است که یا داری‌اش یا نه، و برای همین هیچ‌وقت شروع نمی‌کنی."}},"icp":{"part":"discovery","n":4,"name":{"en":"Know Your Ideal Customer","fa":"مشتریِ ایده‌آلت را بشناس"},"glabel":{"en":"Ideal customer","fa":"مشتریِ ایده‌آل"},"principle":{"en":"Define the ideal customer profile — the specific kind of buyer whose distinct pain your solution resolves — so you can spot them in the wild.","fa":"مشتریِ ایده‌آلت را مشخص کن — همان نوعِ خاصی از خریدار که دردِ مشخصش را محصولِ تو حل می‌کند — تا بتوانی بینِ بقیه پیدایش کنی."},"more":{"en":"A sharp profile — industry, size, role, the trigger that creates the pain — turns prospecting from guesswork into a repeatable search. The tighter your profile, the less time you waste talking to people who were never going to buy.","fa":"یک پروفایلِ دقیق — صنعت، اندازه، سِمَت، و آن اتفاقی که درد را می‌سازد — پیداکردنِ مشتری را از حدس‌زدن به یک جست‌وجوی تکرارشدنی تبدیل می‌کند. هرچه پروفایلت دقیق‌تر باشد، وقتِ کمتری را با آدم‌هایی که قرار نبود بخرند هدر می‌دهی."},"example":{"en":"Not “any company”, but “a 50-person SaaS whose head of sales just missed quota two quarters running.”","fa":"نه «هر شرکتی»، بلکه «یک شرکتِ نرم‌افزاریِ پنجاه‌نفره که مدیرِ فروشش همین دو فصلِ پشتِ‌هم به هدف نرسیده.»"},"tip":{"en":"Write a one-paragraph portrait of the buyer who needs you most, then only chase matches.","fa":"یک پاراگراف، همان خریداری را که بیشتر از همه بهت نیاز دارد توصیف کن، بعد فقط دنبالِ آدم‌های شبیهش برو."},"pitfall":{"en":"Chasing “everyone” as your market and drowning in bad-fit conversations.","fa":"دنبالِ «همه» به‌عنوانِ بازار رفتن و غرق‌شدن در گفت‌وگوهای بی‌نتیجه."}},"prospect":{"part":"discovery","n":5,"name":{"en":"Prospect Repeatably","fa":"جست‌وجوی مشتری را تکرارشدنی کن"},"glabel":{"en":"Prospecting","fa":"پیداکردنِ مشتری"},"principle":{"en":"Prospecting is finding those ideal buyers in a repeatable fashion — proactively, in volume, not waiting for them to find you.","fa":"پیداکردنِ مشتری یعنی همان خریدارهای ایده‌آل را به شکلی تکرارشدنی پیدا کنی — فعالانه و به تعداد، نه اینکه بنشینی تا خودشان پیدایت کنند."},"more":{"en":"Your goal early on is to proactively line up a large list of potential clients who have the pain, and get the product in front of them. Inbound is nice, but at the start you make your own luck by reaching out on purpose.","fa":"هدفت اولِ کار این است که فعالانه یک لیستِ بزرگ از مشتری‌های احتمالی که آن درد را دارند ردیف کنی، و محصول را جلوی چشمشان بگذاری. اینکه خودشان بیایند خوب است، ولی اولِ کار شانست را خودت می‌سازی، با اینکه عمداً سراغشان بروی."},"example":{"en":"Build a list of 50–100 companies that fit your profile, then reach out to each with a reason you picked them.","fa":"یک لیست از پنجاه تا صد شرکت که به پروفایلت می‌خورند بساز، بعد به هرکدام پیام بده و بگو چرا انتخابشان کردی."},"tip":{"en":"Block time weekly to add fresh, well-matched prospects so the top of your funnel never runs dry.","fa":"هر هفته یک وقتِ ثابت بگذار تا مشتریِ احتمالیِ تازه و جوردرست اضافه کنی، تا بالای قیفت هیچ‌وقت خالی نشود."},"pitfall":{"en":"Waiting passively for inbound while your pipeline slowly empties.","fa":"منتظرِ‌ماندنِ منفعلانه برای اینکه خودشان بیایند، درحالی‌که پایپ‌لاینت آرام‌آرام خالی می‌شود."}},"qualify":{"part":"discovery","n":6,"name":{"en":"Qualify Hard","fa":"سفت‌وسخت محک بزن"},"glabel":{"en":"Qualify","fa":"محک‌زدن"},"principle":{"en":"Qualify every prospect on budget, authority, need, and timeline — and target based on real need, not just who you happen to know.","fa":"هر مشتریِ احتمالی را از چهار زاویه محک بزن: بودجه، اختیارِ تصمیم، نیاز، و زمان‌بندی — و سراغِ کسی برو که واقعاً نیاز دارد، نه فقط چون اتفاقی می‌شناسی‌اش."},"more":{"en":"Targeting by relationship instead of need wastes time. Qualification is the discipline of asking early whether this person has the pain, the money, the power to decide, and a reason to act now — before you pour hours into a demo.","fa":"سراغِ کسی رفتن چون می‌شناسی‌اش به‌جای اینکه نیاز داشته باشد، وقت را هدر می‌دهد. محک‌زدن یعنی این عادت که از همان اول بپرسی این آدم درد را دارد؟ پول را دارد؟ اختیارِ تصمیم را دارد؟ و دلیلی دارد که همین حالا اقدام کند؟ — پیش از اینکه ساعت‌ها روی یک دمو بگذاری."},"example":{"en":"A friendly contact with no budget and no urgency is not a deal; a stranger bleeding money on the problem is.","fa":"یک آشنای خوش‌برخورد که نه بودجه دارد نه عجله، معامله نیست؛ ولی یک غریبه که دارد سرِ این مشکل پول از دست می‌دهد، هست."},"tip":{"en":"Ask your budget, authority, need, and timeline questions in the first call, not the fifth.","fa":"سؤال‌های بودجه، اختیار، نیاز و زمان را توی همان تماسِ اول بپرس، نه تماسِ پنجم."},"pitfall":{"en":"Pouring weeks into a warm contact who was never able to buy.","fa":"هفته‌ها وقت‌گذاشتن روی یک آشنای گرم که از اول اصلاً نمی‌توانست بخرد."}},"pain":{"part":"discovery","n":7,"name":{"en":"Understand the Pain","fa":"دردش را بفهم"},"glabel":{"en":"The pain","fa":"درد"},"principle":{"en":"Diagnose before you prescribe. Ask enough questions to truly understand the customer's problem before you show a single feature.","fa":"پیش از نسخه‌پیچی، تشخیص بده. آن‌قدر سؤال بپرس تا مشکلِ مشتری را واقعاً بفهمی، پیش از اینکه حتی یک قابلیت نشان بدهی."},"more":{"en":"The best demos are aimed. When you understand exactly what hurts and what it costs them, you can show only the parts of your product that speak to that pain — and let them feel understood instead of pitched at.","fa":"بهترین دموها نشانه‌گیری‌شده‌اند. وقتی دقیق بفهمی چه چیزی اذیتشان می‌کند و چقدر برایشان خرج دارد، می‌توانی فقط همان بخش‌هایی از محصول را نشان بدهی که به آن درد جواب می‌دهند — و طرف حس کند فهمیده شده، نه اینکه بهش چیزی فروخته شده."},"example":{"en":"Open with “walk me through how you handle this today” before you ever open your slides.","fa":"پیش از اینکه اسلایدهایت را باز کنی، با «بگو ببینم الان این کار را چطور انجام می‌دهی» شروع کن."},"tip":{"en":"Spend the first third of every meeting asking and listening, not presenting.","fa":"یک‌سومِ اولِ هر جلسه را بگذار برای پرسیدن و گوش‌دادن، نه ارائه‌دادن."},"pitfall":{"en":"Launching into a feature dump before you know what the customer needs.","fa":"پریدن وسطِ ردیف‌کردنِ قابلیت‌ها، پیش از اینکه بدانی مشتری چه می‌خواهد."}},"repeatable":{"part":"process","n":8,"name":{"en":"Build a Repeatable Process","fa":"یک فرایندِ تکرارشدنی بساز"},"glabel":{"en":"Repeatable process","fa":"فرایندِ تکرارشدنی"},"principle":{"en":"Map your selling into named stages — from first contact to closed deal — so every rep can run the same play, not reinvent it.","fa":"فروشت را به مرحله‌های اسم‌دار بشکن — از اولین تماس تا بستنِ معامله — تا هر فروشنده‌ای بتواند همان بازی را اجرا کند، نه اینکه از نو اختراعش کند."},"more":{"en":"A repeatable process is just the winning path written down: what happens at each step, what has to be true to advance, and what you say. It's what lets you diagnose where deals stall and later teach someone else to do what you do.","fa":"فرایندِ تکرارشدنی فقط همان مسیرِ برنده است که نوشته شده باشد: هر قدم چه اتفاقی می‌افتد، چه چیزی باید درست باشد تا جلو بروی، و چه می‌گویی. همین است که می‌گذارد بفهمی معامله‌ها کجا گیر می‌کنند و بعداً به یک نفرِ دیگر یاد بدهی همان کاری را که تو می‌کنی بکند."},"example":{"en":"Stages like: prospected → discovery call → demo → proposal → negotiation → closed.","fa":"مرحله‌هایی مثلِ: پیدا شد ← تماسِ کشفِ نیاز ← دمو ← پیشنهاد ← چانه‌زنی ← بسته‌شد."},"tip":{"en":"Write down the exact steps of your last three wins and look for the common path.","fa":"قدم‌های دقیقِ سه بردِ آخرت را بنویس و دنبالِ مسیرِ مشترکشان بگرد."},"pitfall":{"en":"Selling on instinct alone, so nothing can be repeated or taught.","fa":"فروختن فقط از رویِ حس، طوری که هیچ‌چیز نه تکرار می‌شود نه یاد دادنی است."}},"pipeline":{"part":"process","n":9,"name":{"en":"Keep the Pipeline Clean","fa":"پایپ‌لاین را تمیز نگه دار"},"glabel":{"en":"Pipeline discipline","fa":"نظمِ پایپ‌لاین"},"principle":{"en":"Every open deal needs an explicit next step with a date. Pipelines rot when “what happens next, and when” is left blank.","fa":"هر معاملهٔ باز باید یک قدمِ بعدیِ مشخص با تاریخ داشته باشد. پایپ‌لاین وقتی می‌گندد که «قدمِ بعدی چیست، و کِی» خالی مانده باشد."},"more":{"en":"Kazanjy is blunt: pipelines get out of control when there's no explicit next step, or there is one but no time and date to do it. A clean CRM where each deal has an owner, a stage, and a dated action is how you keep reality from drifting.","fa":"کازانجی رک می‌گوید: پایپ‌لاین وقتی از کنترل خارج می‌شود که یا قدمِ بعدیِ مشخصی نباشد، یا باشد ولی زمان و تاریخی برایش تعیین نشده باشد. یک سی‌آر‌امِ تمیز که هر معامله توش یک صاحب، یک مرحله، و یک کارِ تاریخ‌دار دارد، همان چیزی است که نمی‌گذارد واقعیت از دستت در برود."},"example":{"en":"Not “following up sometime” but “send proposal Tuesday, review call Thursday 2pm.”","fa":"نه «یه‌وقتی پیگیری می‌کنم» بلکه «سه‌شنبه پیشنهاد را می‌فرستم، پنج‌شنبه ساعتِ دو تماسِ بررسی.»"},"tip":{"en":"Once a week, delete or re-date any deal with no real next step.","fa":"هفته‌ای یک‌بار، هر معامله‌ای که قدمِ بعدیِ واقعی ندارد را یا پاک کن یا تاریخِ تازه بهش بده."},"pitfall":{"en":"A bloated pipeline full of “someday” deals that will never close.","fa":"یک پایپ‌لاینِ باددارِ پُر از معامله‌های «یه‌روزی» که هیچ‌وقت بسته نمی‌شوند."}},"forecast":{"part":"process","n":10,"name":{"en":"Forecast & Measure","fa":"پیش‌بینی کن و اندازه بگیر"},"glabel":{"en":"Metrics & forecast","fa":"شاخص و پیش‌بینی"},"principle":{"en":"Track the few numbers that prove the motion works: conversion between stages, average deal size, and sales-cycle length.","fa":"همان چند عددی را دنبال کن که ثابت می‌کنند روشت جواب می‌دهد: نرخِ تبدیل بینِ مرحله‌ها، اندازهٔ متوسطِ معامله، و طولِ چرخهٔ فروش."},"more":{"en":"Metrics turn selling from a feeling into a forecast. When you know your rates, you can predict revenue, see where deals leak, and prove to yourself the go-to-market is repeatable — the green light that says you're ready to hire.","fa":"شاخص‌ها فروش را از یک حس به یک پیش‌بینی تبدیل می‌کنند. وقتی نرخ‌هایت را بدانی، می‌توانی درآمد را پیش‌بینی کنی، ببینی معامله‌ها از کجا نشت می‌کنند، و به خودت ثابت کنی این روش تکرارشدنی است — همان چراغِ سبزی که می‌گوید آماده‌ای استخدام کنی."},"example":{"en":"“One in four demos closes, average deal $12k, 30-day cycle” — now you can plan.","fa":"«از هر چهار دمو یکی می‌بندد، معاملهٔ متوسط دوازده‌هزار دلار، چرخهٔ سی‌روزه» — حالا می‌توانی برنامه بریزی."},"tip":{"en":"Compute your demo-to-close rate this month; it sets everything else.","fa":"همین ماه نرخِ دمو-تا-بستن را حساب کن؛ همه‌چیزِ دیگر رویش سوار می‌شود."},"pitfall":{"en":"Flying blind with no idea which stage loses the most deals.","fa":"کورکورانه پیش‌رفتن، بی‌اینکه بدانی کدام مرحله بیشترین معامله را می‌بازد."}},"objections":{"part":"closing","n":11,"name":{"en":"Handle Objections Calmly","fa":"خونسرد به ایرادها جواب بده"},"glabel":{"en":"Objections","fa":"ایرادها"},"principle":{"en":"Treat objections as questions, not rejections. A concern raised out loud is a buying signal — the prospect is helping you close them.","fa":"به ایرادها مثلِ سؤال نگاه کن، نه ردکردن. نگرانی‌ای که بلند گفته می‌شود یک نشانهٔ خرید است — مشتری دارد کمکت می‌کند که ببندی‌اش."},"more":{"en":"Most objections are a handful of predictable worries: price, timing, trust, fit. Prepare honest answers in advance, address the real concern underneath, and you turn “I'm not sure” into a solved problem instead of a dead end.","fa":"بیشترِ ایرادها همان چند نگرانیِ قابلِ‌حدس‌اند: قیمت، زمان، اعتماد، تناسب. از قبل جوابِ صادقانه آماده کن، به نگرانیِ واقعیِ زیرش جواب بده، آن‌وقت «مطمئن نیستم» را به یک مشکلِ حل‌شده تبدیل می‌کنی، نه یک بن‌بست."},"example":{"en":"“It's too expensive” usually means “show me the payback” — so show it.","fa":"«خیلی گران است» معمولاً یعنی «نشانم بده کِی برمی‌گردد» — پس نشانش بده."},"tip":{"en":"List your top five objections and write a one-line honest answer to each.","fa":"پنج ایرادِ اصلی‌ات را فهرست کن و برای هرکدام یک جوابِ صادقانهٔ یک‌خطی بنویس."},"pitfall":{"en":"Getting defensive or talking over a concern instead of answering it.","fa":"جبهه‌گرفتن یا رویِ نگرانی حرف‌زدن، به‌جای اینکه جوابش را بدهی."}},"askclose":{"part":"closing","n":12,"name":{"en":"Ask for the Close","fa":"درخواستِ بستن را بده"},"glabel":{"en":"Ask for it","fa":"درخواستِ بستن"},"principle":{"en":"Actually ask for the business, and don't celebrate early — run all the way until the money is in the bank.","fa":"واقعاً درخواستِ معامله را بده، و زود جشن نگیر — تا وقتی پول به حساب ننشسته، بدو تا خطِ آخر."},"more":{"en":"Founders lose winnable deals by hoping the customer will close themselves. Advance every meeting to a concrete next step, ask the direct question, and keep pushing paperwork and signatures — a deal isn't done until it's paid.","fa":"بنیان‌گذارها معامله‌های قابلِ‌برد را با این امید که مشتری خودش ببندد، می‌بازند. هر جلسه را به یک قدمِ بعدیِ مشخص برسان، سؤالِ مستقیم را بپرس، و کارهای قرارداد و امضا را هُل بده جلو — معامله تا وقتی پولش پرداخت نشده، تمام نیست."},"example":{"en":"After a good demo, say it plainly: “Shall we get you started? Here's what happens next.”","fa":"بعد از یک دموی خوب، رک بگو: «شروع کنیم؟ از این‌جا به بعد این‌طوری پیش می‌رود.»"},"tip":{"en":"End every meeting by proposing the specific next step out loud.","fa":"هر جلسه را با پیشنهادِ بلندِ همان قدمِ بعدیِ مشخص تمام کن."},"pitfall":{"en":"Doing a happy dance at “yes” and letting the deal slip before it's signed.","fa":"سرِ «بله» رقصِ شادی راه‌انداختن و گذاشتن معامله پیش از امضا از دست برود."}},"negotiate":{"part":"closing","n":13,"name":{"en":"Negotiate & Price","fa":"چانه بزن و قیمت بگذار"},"glabel":{"en":"Negotiate & price","fa":"چانه و قیمت"},"principle":{"en":"Anchor high and protect your economics. Start with pricing that anticipates being negotiated down, so wherever you land still works for you.","fa":"لنگرت را بالا بینداز و صرفهٔ کارت را نگه دار. با قیمتی شروع کن که از قبل حسابِ چانه‌زنیِ رو به پایین را کرده باشد، تا هرجا که فرود آمدی، بازهم برایت بصرفد."},"more":{"en":"Don't back yourself into a corner and start negotiating against yourself. Set a price with room to give, trade concessions for something in return, and never discount so hard that the deal stops being worth doing.","fa":"خودت را توی گوشه‌ای گیر نینداز که مجبور شوی با خودت چانه بزنی. قیمتی بگذار که جا برای کوتاه‌آمدن داشته باشد، هر امتیازی را در ازای یک چیزِ دیگر بده، و هیچ‌وقت آن‌قدر تخفیف نده که دیگر ارزشِ انجام‌دادن نداشته باشد."},"example":{"en":"If you'll accept $10k, open at $14k — the discount becomes a gift you give, not a loss.","fa":"اگر قرار است ده‌هزار دلار را قبول کنی، از چهارده‌هزار شروع کن — آن‌وقت تخفیف می‌شود هدیه‌ای که می‌دهی، نه ضرری که می‌کنی."},"tip":{"en":"Decide your floor price before the call, and never drop below it on the fly.","fa":"کف‌قیمتت را پیش از تماس مشخص کن، و هیچ‌وقت وسطِ کار زیرش نرو."},"pitfall":{"en":"Discounting fast just to feel progress, until the deal isn't worth closing.","fa":"تخفیفِ سریع‌دادن فقط برای اینکه حسِ پیشرفت کنی، تا جایی که دیگر معامله ارزشِ بستن ندارد."}},"whenhire":{"part":"team","n":14,"name":{"en":"Hire Only After It Works","fa":"فقط وقتی جواب داد استخدام کن"},"glabel":{"en":"When to hire","fa":"کِی استخدام کنی"},"principle":{"en":"Scale by adding people only once your metrics show the initial go-to-market is working. Proof first, hiring second.","fa":"فقط وقتی شاخص‌هایت نشان دادند روشِ اولیه جواب می‌دهد، با اضافه‌کردنِ آدم بزرگ شو. اول اثبات، بعد استخدام."},"more":{"en":"Hire too early and you're paying someone to sell a motion that doesn't exist yet; they flail, you blame them, and you learn nothing. Once you can show repeatable numbers, adding reps multiplies something real instead of masking a gap.","fa":"زود استخدام کنی، یعنی داری به کسی پول می‌دهی تا روشی را بفروشد که هنوز وجود ندارد؛ دست‌وپا می‌زنند، تو مقصرشان می‌دانی، و هیچ‌چی یاد نمی‌گیری. وقتی توانستی اعدادِ تکرارشدنی نشان بدهی، اضافه‌کردنِ فروشنده یک چیزِ واقعی را چند برابر می‌کند، نه اینکه رویِ یک خلأ سرپوش بگذارد."},"example":{"en":"Wait until you can say “I've closed 20 of these myself and know exactly how” before you hire.","fa":"صبر کن تا بتوانی بگویی «بیست تای اینها را خودم بسته‌ام و دقیقاً می‌دانم چطور»، بعد استخدام کن."},"tip":{"en":"Make “the founder can repeat the sale” your gate before the first sales hire.","fa":"«بنیان‌گذار می‌تواند فروش را تکرار کند» را دروازه‌ات کن، پیش از اولین استخدامِ فروش."},"pitfall":{"en":"Hiring reps to discover the motion for you — that's your job first.","fa":"استخدامِ فروشنده تا روش را برایت کشف کنند — این اولش کارِ خودِ توست."}},"onboard":{"part":"team","n":15,"name":{"en":"Hire Quality, Onboard Well","fa":"باکیفیت استخدام کن، خوب راه بینداز"},"glabel":{"en":"Hire & onboard","fa":"استخدام و راه‌اندازی"},"principle":{"en":"Hire for quality over quantity, then onboard each rep deliberately into your narrative, product, and process.","fa":"کیفیت را به تعداد ترجیح بده، بعد هر فروشنده را با برنامه توی داستان، محصول و فرایندت راه بینداز."},"more":{"en":"Kazanjy warns against hiring lots of mediocre reps and firing the ones who fail — it's especially damaging for a young company selling something new. A few strong hires, trained properly on why the product wins, beat a churning crowd.","fa":"کازانجی هشدار می‌دهد که تعدادِ زیادی فروشندهٔ متوسط استخدام‌کردن و اخراجِ آن‌هایی که شکست می‌خورند، مخصوصاً برای یک شرکتِ جوان که چیزِ تازه‌ای می‌فروشد خیلی آسیب‌زننده است. چند استخدامِ قوی که درست آموزش دیده‌اند چرا محصول برنده است، از یک جمعیتِ مدام‌عوض‌شونده بهتر است."},"example":{"en":"Give a new rep your recorded calls, your objection answers, and a live-deal shadow before they solo.","fa":"به فروشندهٔ تازه، تماس‌های ضبط‌شده‌ات، جواب‌های ایرادها، و همراهی در یک معاملهٔ واقعی را بده، پیش از اینکه تنها برود میدان."},"tip":{"en":"Write a two-week onboarding plan before the rep's first day.","fa":"پیش از روزِ اولِ فروشنده، یک برنامهٔ راه‌اندازیِ دوهفته‌ای بنویس."},"pitfall":{"en":"Throwing new hires at the phones with no training and hoping some stick.","fa":"پرتاب‌کردنِ نیروهای تازه پشتِ تلفن بدونِ هیچ آموزشی، به این امید که چندتاشان بمانند."}},"compmanage":{"part":"team","n":16,"name":{"en":"Comp, Manage & Measure","fa":"پاداش، مدیریت و اندازه‌گیری"},"glabel":{"en":"Comp & manage","fa":"پاداش و مدیریت"},"principle":{"en":"Pay reps a comp plan that rewards the behavior you want, and manage the team with the same metrics that proved the motion.","fa":"به فروشنده‌ها طرحِ پاداشی بده که همان رفتاری را که می‌خواهی جایزه بدهد، و تیم را با همان شاخص‌هایی مدیریت کن که روش را اثبات کردند."},"more":{"en":"A good comp plan aligns the rep's paycheck with closed, healthy revenue. Manage with a weekly rhythm around pipeline and conversion, and great sales hiring and onboarding becomes a real competitive advantage over slower incumbents.","fa":"یک طرحِ پاداشِ خوب، حقوقِ فروشنده را با درآمدِ بسته‌شده و سالم هم‌راستا می‌کند. با یک ریتمِ هفتگی دورِ پایپ‌لاین و نرخِ تبدیل مدیریت کن، آن‌وقت استخدام و راه‌اندازیِ خوبِ فروش تبدیل می‌شود به یک برتریِ واقعی نسبت به رقیب‌های کندتر."},"example":{"en":"Commission on paid deals, plus a weekly pipeline review — reps chase revenue, not vanity activity.","fa":"پورسانت روی معامله‌های پرداخت‌شده، به‌علاوهٔ یک مرورِ هفتگیِ پایپ‌لاین — فروشنده‌ها دنبالِ درآمد می‌روند، نه فعالیتِ نمایشی."},"tip":{"en":"Tie most of variable pay to closed revenue, and review the pipeline every week.","fa":"بیشترِ حقوقِ متغیر را به درآمدِ بسته‌شده گره بزن، و هر هفته پایپ‌لاین را مرور کن."},"pitfall":{"en":"A comp plan that rewards activity or bookings that never turn into cash.","fa":"یک طرحِ پاداش که فعالیت یا قراردادهایی را جایزه می‌دهد که هیچ‌وقت به پول تبدیل نمی‌شوند."}}},"core":{"name":{"en":"FOUNDER-LED SALES","fa":"فروشِ بنیان‌گذار"},"principle":{"en":"The technical founder has to learn to sell before hiring salespeople. Early selling is evangelical product work — helping real people fix a real pain — and the founder is the only one who can run that tight loop between pitch and product.","fa":"بنیان‌گذارِ فنی باید پیش از استخدامِ فروشنده، خودش یادِ فروش بگیرد. فروشِ اولِ کار همان کارِ محصول است با شور و شوق — کمک به آدم‌های واقعی برای حلِ یک دردِ واقعی — و بنیان‌گذار تنها کسی است که می‌تواند آن حلقهٔ تنگِ بینِ حرفِ فروش و محصول را بچرخاند."},"more":{"en":"Kazanjy's handbook walks a founder from mindset to a scaled team: reframe sales as helping, learn discovery and hard qualification, build a repeatable process and clean pipeline, close and negotiate deals, and only then hire, onboard, and manage a sales team — packaging your proven motion so others can run it.","fa":"دفترچهٔ کازانجی یک بنیان‌گذار را از ذهنیت تا یک تیمِ بزرگ‌شده می‌بَرد: فروش را دوباره «کمک» تعریف کن، کشفِ نیاز و محک‌زدنِ سفت‌وسخت را یاد بگیر، یک فرایندِ تکرارشدنی و پایپ‌لاینِ تمیز بساز، معامله‌ها را ببند و چانه بزن، و تازه بعدش تیمِ فروش استخدام و راه‌اندازی و مدیریت کن — روشِ اثبات‌شده‌ات را طوری بسته‌بندی کن که بقیه هم بتوانند اجرایش کنند."},"example":{"en":"Click any node to open an idea. You can also drag the nodes around.","fa":"روی هر دایره کلیک کن تا یک ایده باز شود. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."}},"stages":[{"level":1,"badge":{"en":"Level 1 · Over-simplified","fa":"سطحِ ۱ · خیلی ساده"},"title":{"en":"Founders sell first","fa":"اول بنیان‌گذار می‌فروشد"},"tagline":{"en":"The whole book in a sentence.","fa":"کلِ کتاب در یک جمله."},"body":{"en":"If you built it, you have to sell it first. Before you hire a single salesperson, close the early customers yourself — nobody understands the product or the pain better than you do right now.","fa":"اگر ساختی‌اش، اول باید خودت بفروشی‌اش. پیش از اینکه حتی یک فروشنده استخدام کنی، مشتری‌های اول را خودت ببند — همین الان هیچ‌کس محصول و درد را بهتر از تو نمی‌فهمد."},"example":{"en":"No sales hire yet — you personally get your first customers on the phone and close them.","fa":"هنوز خبری از استخدامِ فروش نیست — خودت شخصاً مشتری‌های اول را پای تلفن می‌آوری و می‌بندی."},"gain":{"en":"You accept that founder-led selling is step one, not something to delegate.","fa":"می‌پذیری که فروشِ بنیان‌گذار قدمِ اول است، نه چیزی که بسپاری به دیگری."}},{"level":2,"badge":{"en":"Level 2 · Simple","fa":"سطحِ ۲ · ساده"},"title":{"en":"Sell by helping","fa":"با کمک‌کردن بفروش"},"tagline":{"en":"Sales is a service, and a skill.","fa":"فروش یک خدمت است، و یک مهارت."},"body":{"en":"Drop the sleazy image. Good selling is being the <b>grease of the market</b> — finding people in real pain and connecting them to a fix. And it's a <b>learnable skill</b>, not a talent you're born with; you get better with reps.","fa":"آن تصویرِ حقه‌بازانه را دور بریز. فروشِ خوب یعنی <b>روغن‌کاریِ بازار</b> باشی — آدم‌هایی را که واقعاً درد دارند پیدا کنی و به یک راه‌حل وصلشان کنی. و این یک <b>مهارتِ یادگرفتنی</b> است، نه استعدادی که باهاش به‌دنیا آمده باشی؛ با تمرین بهتر می‌شوی."},"example":{"en":"You stop dreading calls and start each one by asking what actually hurts.","fa":"دیگر از تماس‌ها نمی‌ترسی و هر کدام را با پرسیدنِ اینکه واقعاً چه چیزی اذیت می‌کند شروع می‌کنی."},"gain":{"en":"You can pick up the phone without feeling like a fraud.","fa":"می‌توانی گوشی را برداری بی‌اینکه حس کنی داری کلاه سرِ کسی می‌گذاری."}},{"level":3,"badge":{"en":"Level 3 · Balanced","fa":"سطحِ ۳ · متعادل"},"title":{"en":"Run the motion","fa":"روش را اجرا کن"},"tagline":{"en":"Discover, qualify, process, pipeline.","fa":"کشف کن، محک بزن، فرایند، پایپ‌لاین."},"body":{"en":"Now the craft. Define your <b>ideal customer</b>, <b>prospect</b> them on purpose, <b>qualify hard</b> on budget-authority-need-timing, and truly <b>understand the pain</b> before you demo. Then write it down as a <b>repeatable process</b> and keep a clean <b>pipeline</b> where every deal has a dated next step.","fa":"حالا فوت‌وفنِ کار. <b>مشتریِ ایده‌آلت</b> را مشخص کن، عمداً <b>پیدایشان کن</b>، سفت‌وسخت روی بودجه-اختیار-نیاز-زمان <b>محکشان بزن</b>، و پیش از دمو واقعاً <b>دردشان را بفهم</b>. بعد همه را به شکلِ یک <b>فرایندِ تکرارشدنی</b> بنویس و یک <b>پایپ‌لاینِ</b> تمیز نگه دار که هر معامله توش یک قدمِ بعدیِ تاریخ‌دار دارد."},"example":{"en":"Fifty matched prospects, a five-stage pipeline, and a discovery call before every demo.","fa":"پنجاه مشتریِ احتمالیِ جوردرست، یک پایپ‌لاینِ پنج‌مرحله‌ای، و یک تماسِ کشفِ نیاز پیش از هر دمو."},"gain":{"en":"You can run a real, measurable sales process instead of winging it.","fa":"می‌توانی یک فرایندِ فروشِ واقعی و قابلِ‌اندازه‌گیری اجرا کنی، نه اینکه سرِهم‌بندی کنی."}},{"level":4,"badge":{"en":"Level 4 · Advanced","fa":"سطحِ ۴ · پیشرفته"},"title":{"en":"Close and negotiate","fa":"ببند و چانه بزن"},"tagline":{"en":"Objections, the ask, and pricing.","fa":"ایرادها، درخواست، و قیمت."},"body":{"en":"Advance deals to the finish. Meet <b>objections</b> calmly as buying signals, actually <b>ask for the close</b> and run until the money's in the bank, and <b>negotiate</b> from an anchored price that protects your economics — never discounting so hard the deal stops being worth doing.","fa":"معامله‌ها را تا خطِ پایان جلو ببر. با خونسردی به <b>ایرادها</b> به‌چشمِ نشانهٔ خرید جواب بده، واقعاً <b>درخواستِ بستن</b> را بده و تا وقتی پول به حساب ننشسته بدو، و از یک <b>قیمتِ لنگرانداخته</b> که صرفهٔ کارت را نگه می‌دارد <b>چانه بزن</b> — هیچ‌وقت آن‌قدر تخفیف نده که دیگر معامله ارزشِ انجام نداشته باشد."},"example":{"en":"You anchor high, trade every concession, and ask for the signature out loud.","fa":"لنگرت را بالا می‌اندازی، هر امتیاز را در ازای چیزی می‌دهی، و بلند درخواستِ امضا را می‌کنی."},"gain":{"en":"You can turn interested prospects into signed, paid customers.","fa":"می‌توانی مشتری‌های علاقه‌مند را به مشتریِ امضاکرده و پول‌داده تبدیل کنی."}},{"level":5,"badge":{"en":"Level 5 · Expert","fa":"سطحِ ۵ · حرفه‌ای"},"title":{"en":"Scale the team","fa":"تیم را بزرگ کن"},"tagline":{"en":"Hire, onboard, comp, and manage.","fa":"استخدام، راه‌اندازی، پاداش، و مدیریت."},"body":{"en":"Only once the numbers prove the motion repeats do you scale. <b>Hire</b> for quality over quantity, <b>onboard</b> reps into your written playbook, set a <b>comp plan</b> that rewards paid revenue, and <b>manage</b> with the same metrics. Package your proven motion, hand it off, and great sales hiring becomes a competitive advantage.","fa":"فقط وقتی اعداد ثابت کردند روش تکرار می‌شود، بزرگش می‌کنی. با تأکید بر کیفیت نه تعداد <b>استخدام</b> کن، فروشنده‌ها را توی دفترچهٔ نوشته‌شده‌ات <b>راه بینداز</b>، یک <b>طرحِ پاداش</b> بگذار که درآمدِ پرداخت‌شده را جایزه بدهد، و با همان شاخص‌ها <b>مدیریت</b> کن. روشِ اثبات‌شده‌ات را بسته‌بندی کن، بسپارش به بقیه، و استخدامِ خوبِ فروش تبدیل می‌شود به یک برگِ برنده."},"example":{"en":"You've handed a trained rep a repeatable playbook and a weekly pipeline review — and revenue grows without you on every call.","fa":"یک فروشندهٔ آموزش‌دیده را با یک دفترچهٔ تکرارشدنی و یک مرورِ هفتگیِ پایپ‌لاین راه انداخته‌ای — و درآمد بی‌اینکه تو پای هر تماس باشی بزرگ می‌شود."},"gain":{"en":"You can build a sales team that scales the motion you proved.","fa":"می‌توانی یک تیمِ فروش بسازی که همان روشی را که اثبات کردی بزرگ می‌کند."}}],"quotes":[{"en":"Sales acumen is not inborn. It's just another skill to be learned.","fa":"استعدادِ فروش ذاتی نیست. فقط یک مهارتِ دیگر است که باید یاد گرفت."},{"en":"Modern sales is not about trying to sell snake oil to a 'mark.' Rather, sales professionals are the grease of the market. They seek out inefficiencies in the world, in the form of qualified prospects who have the business pain that the proposed solution resolves.","fa":"فروشِ امروزی این نیست که بخواهی به یک طرف جنسِ قلابی بیندازی. برعکس، فروشنده‌های حرفه‌ای روغن‌کاریِ بازارند. دنبالِ جاهایی می‌گردند که کار لنگ می‌زند — یعنی مشتری‌های واجدِ شرایطی که همان دردی را دارند که راه‌حلِ پیشنهادی حلش می‌کند."},{"en":"At this stage, your 'sales' is in large part evangelical product management and product marketing, and this is why you, as a founder, need to be involved in it.","fa":"در این مرحله، «فروشِ» تو بیشترش همان مدیریتِ محصول و بازاریابیِ محصول است با شور و ایمان، و برای همین است که تو، به‌عنوانِ بنیان‌گذار، باید خودت پایش باشی."},{"en":"Targeting based on relationship rather than need is ineffective and a waste of time.","fa":"هدف‌گرفتنِ آدم‌ها بر اساسِ رابطه به‌جای نیاز، بی‌فایده است و اتلافِ وقت."},{"en":"Prospecting is about finding those people in a repeatable fashion. By knowing your ideal customer profile, you'll be able to identify more prospects in the wild.","fa":"پیداکردنِ مشتری یعنی همان آدم‌ها را به شکلی تکرارشدنی پیدا کنی. وقتی پروفایلِ مشتریِ ایده‌آلت را بشناسی، می‌توانی بیرون، توی دنیای واقعی، مشتری‌های بیشتری را تشخیص بدهی."},{"en":"Pipelines get out of control when there's no explicit next step, and when there are specific next steps but no clear time and date for when to complete them.","fa":"پایپ‌لاین وقتی از کنترل خارج می‌شود که یا قدمِ بعدیِ مشخصی نباشد، یا قدم‌های مشخصی باشد ولی زمان و تاریخِ روشنی برای انجامشان تعیین نشده باشد."},{"en":"Start with inflated pricing in anticipation of being negotiated down, so that wherever you end up still provides an economically viable deal for you.","fa":"با قیمتی بالاتر شروع کن، با این حساب که قرار است پایین بیایی، طوری که هرجا هم که تمام شد، بازهم برایت یک معاملهٔ به‌صرفه باشد."},{"en":"Don't stop to do a happy dance and risk your deal. You have to run all the way until the money's in the bank.","fa":"نایست که رقصِ شادی راه بیندازی و معامله‌ات را به خطر بیندازی. باید تا خطِ آخر بدوی، تا وقتی پول به حساب بنشیند."},{"en":"The ability to attract, hire, and onboard successful, high-quality sales staff can be a monster competitive advantage that startups have against ossified incumbents.","fa":"توانایی جذب، استخدام، و راه‌اندازیِ نیروی فروشِ موفق و باکیفیت می‌تواند یک برگِ برندهٔ غول‌آسا باشد که استارتاپ‌ها در برابرِ غول‌های خشک‌وجامدِ قدیمی دارند."}],"media":[{"kind":"yt","id":"lAutzV21Gus","src":{"en":"YouTube · Peter Kazanjy","fa":"یوتیوب · Peter Kazanjy"},"title":{"en":"Startup Sales Maturity Stages & Founder-Led Selling","fa":"مرحله‌های بلوغِ فروشِ استارتاپ و فروشِ بنیان‌گذار"},"desc":{"en":"A presentation from the author himself on founder-led selling.","fa":"یک ارائه از خودِ نویسنده دربارهٔ فروشِ بنیان‌گذار."},"bullets":{"en":["The big picture, straight from Pete","Why founders sell first","A great first watch"],"fa":["تصویرِ کلی، مستقیم از زبانِ پیت","چرا اول بنیان‌گذار می‌فروشد","برای اولین تماشا عالی است"]},"best":{"en":"Best for Stage 1–2.","fa":"خوب برای مرحلهٔ ۱ و ۲."}},{"kind":"yt","id":"bbciemLuRRI","src":{"en":"YouTube · 30 Minutes to President's Club","fa":"یوتیوب · 30 Minutes to President's Club"},"title":{"en":"Founder-Led Sales: Taking Your Startup to Market","fa":"فروشِ بنیان‌گذار: بردنِ استارتاپت به بازار"},"desc":{"en":"A tactical talk on running founder-led sales in practice.","fa":"یک صحبتِ کاربردی دربارهٔ اجرای عملیِ فروشِ بنیان‌گذار."},"bullets":{"en":["Discovery, qualification, and process","Real founder-selling tactics","Good after a first read"],"fa":["کشفِ نیاز، محک‌زدن، و فرایند","تاکتیک‌های واقعیِ فروشِ بنیان‌گذار","خوب بعد از اولین خواندن"]},"best":{"en":"Best for Stage 2–3.","fa":"خوب برای مرحلهٔ ۲ و ۳."}},{"kind":"yt","id":"uWE6AgZM51M","src":{"en":"YouTube · IO Podcast","fa":"یوتیوب · IO Podcast"},"title":{"en":"The Sales Playbook Every Founder Needs to Know","fa":"دفترچهٔ فروشی که هر بنیان‌گذاری باید بلد باشد"},"desc":{"en":"A long conversation with Pete on the founder sales playbook.","fa":"یک گفت‌وگوی طولانی با پیت دربارهٔ دفترچهٔ فروشِ بنیان‌گذار."},"bullets":{"en":["Closing, negotiation, and hiring","How the pieces fit together","A deeper dive"],"fa":["بستن، چانه‌زنی، و استخدام","اینکه تکه‌ها چطور کنارِ هم می‌نشینند","یک غوطهٔ عمیق‌تر"]},"best":{"en":"Best for Stage 3–4.","fa":"خوب برای مرحلهٔ ۳ و ۴."}},{"kind":"img","url":"https://www.foundingsales.com/","src":{"en":"foundingsales.com · Official","fa":"foundingsales.com · رسمی"},"title":{"en":"Founding Sales — Free Full Book Online","fa":"فروشِ بنیان‌گذار — کتابِ کاملِ رایگانِ آنلاین"},"desc":{"en":"The author's official site, where the entire book is free to read.","fa":"سایتِ رسمیِ نویسنده، جایی که کلِ کتاب را می‌شود رایگان خواند."},"bullets":{"en":["The whole book, free","Straight from the source","Chapters and extras"],"fa":["کلِ کتاب، رایگان","مستقیم از خودِ منبع","فصل‌ها و مطالبِ اضافه"]},"best":{"en":"For the full text and source.","fa":"برای متنِ کامل و منبعِ اصلی."}}],"go":[{"label":{"en":"Read the full book free","fa":"کتابِ کامل را رایگان بخوان"},"url":"https://www.foundingsales.com/"},{"label":{"en":"Book on Goodreads","fa":"کتاب در گودریدز"},"url":"https://www.goodreads.com/book/show/54339426-founding-sales"},{"label":{"en":"Buy on Amazon","fa":"خرید از آمازون"},"url":"https://www.amazon.com/Founding-Sales-Go-Market-Handbook/dp/1734505117"}],"recs":[{"pri":"b","t":{"en":"Close your next customer yourself","fa":"مشتریِ بعدی‌ات را خودت ببند"},"d":{"en":"Take one live deal and run it end to end personally — no rep, no shortcut.","fa":"یک معاملهٔ واقعی را بردار و از اول تا آخر خودت پیش ببر — بی‌فروشنده، بی‌میان‌بر."}},{"pri":"b","t":{"en":"Write your ideal-customer profile","fa":"پروفایلِ مشتریِ ایده‌آلت را بنویس"},"d":{"en":"In one paragraph, describe exactly who has the pain you fix, then list ten prospects who match.","fa":"در یک پاراگراف دقیق بنویس کی همان دردی را دارد که تو حلش می‌کنی، بعد ده مشتریِ احتمالیِ جوردرست فهرست کن."}},{"pri":"n","t":{"en":"Give every deal a dated next step","fa":"به هر معامله یک قدمِ بعدیِ تاریخ‌دار بده"},"d":{"en":"Open your pipeline and add a specific next action and date to every deal, or drop it.","fa":"پایپ‌لاینت را باز کن و به هر معامله یک کارِ بعدیِ مشخص و تاریخ بده، یا بیرونش بینداز."}},{"pri":"n","t":{"en":"Prepare answers to your top objections","fa":"برای ایرادهای اصلی‌ات جواب آماده کن"},"d":{"en":"List the five objections you hear most and write one honest, short answer for each.","fa":"پنج ایرادی که بیشتر از همه می‌شنوی را فهرست کن و برای هرکدام یک جوابِ صادقانهٔ کوتاه بنویس."}}]};
-</script>
-
-<script>
-/* ── 3) RENDER (text sections) ────────────────────────────── */
-function elClear(id){ var e=document.getElementById(id); if(e) e.innerHTML=''; return e; }
-
-function renderText(){
-  var t=elClear('tldrHost');
-  DATA.tldr.forEach(function(o){ var li=document.createElement('li'); li.innerHTML = TX(o); t.appendChild(li); });
-
-  var q=elClear('quoteHost');
-  DATA.quotes.forEach(function(o){
-    var bq=document.createElement('blockquote');
-    bq.innerHTML = '<span class="qm">“</span><p>'+TX(o)+'</p>';
-    q.appendChild(bq);
-  });
-
-  var m=elClear('mediaHost');
-  DATA.media.forEach(function(o){
-    var card=document.createElement('div'); card.className='mcard';
-    var thumb;
-    if(o.kind==='yt'){
-      var url='https://www.youtube.com/watch?v='+o.id;
-      var img='https://i.ytimg.com/vi/'+o.id+'/hqdefault.jpg';
-      thumb='<a class="mthumb" href="'+url+'" target="_blank" rel="noopener">'
-        +'<img src="'+img+'" alt="" loading="lazy" onerror="this.style.display=\'none\'">'
-        +'<span class="ptype">'+(LANG==='fa'?'ویدیو':'VIDEO')+'</span>'
-        +'<span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></span></a>';
-    } else {
-      thumb='<a class="mthumb" href="'+o.url+'" target="_blank" rel="noopener"><span class="mfake">'
-        +'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.6"/><path d="M21 15l-5-5L5 21"/></svg>'
-        +'</span><span class="ptype">'+(LANG==='fa'?'تصویر':'IMAGE')+'</span></a>';
-    }
-    var link = o.kind==='yt' ? 'https://www.youtube.com/watch?v='+o.id : o.url;
-    var bl = (LANG==='fa'?o.bullets.fa:o.bullets.en).map(function(b){ return '<li>'+ (LANG==='fa'?faText(b):b) +'</li>'; }).join('');
-    card.innerHTML = thumb + '<div class="mbody">'
-      + '<div class="msrc">'+TX(o.src)+'</div>'
-      + '<h4>'+TX(o.title)+'</h4>'
-      + '<p class="mdesc">'+TX(o.desc)+'</p>'
-      + '<ul>'+bl+'</ul>'
-      + '<a class="mlink" href="'+link+'" target="_blank" rel="noopener">'+(LANG==='fa'?'باز کردن ↗':'Open ↗')+'</a>'
-      + '<div class="mbest">'+TX(o.best)+'</div>'
-      + '</div>';
-    m.appendChild(card);
-  });
-
-  var g=elClear('goHost');
-  DATA.go.forEach(function(o){
-    var a=document.createElement('a'); a.href=o.url; a.target='_blank'; a.rel='noopener';
-    a.textContent=TX(o.label); g.appendChild(a);
-  });
-
-  var r=elClear('recHost');
-  DATA.recs.forEach(function(o){
-    var it=document.createElement('div'); it.className='item';
-    var priLabel = o.pri==='b' ? (LANG==='fa'?'از اینجا شروع کن':'Start here') : (LANG==='fa'?'بعدش این':'Then this');
-    it.innerHTML='<div class="t">'+TX(o.t)+'<span class="pri '+(o.pri==='b'?'b':'')+'">'+priLabel+'</span></div>'
-      +'<div class="d">'+TX(o.d)+'</div>';
-    r.appendChild(it);
-  });
-
-  var mth=document.getElementById('methodHost');
-  mth.innerHTML = LANG==='fa' ? faText("<p><b>منبع:</b> کتابِ «Founding Sales» (فروشِ بنیان‌گذار) نوشتهٔ پیت کازانجی، چاپِ ۲۰۲۰ — که متنِ کاملش رایگان روی foundingsales.com هست.</p><p><b>روشِ کار:</b> ساختارِ پنج‌بخشی و حرکت‌ها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده؛ نقل‌قول‌ها با متنِ کتاب مقابله و ویدیوها بررسی شده‌اند.</p><p><b>پنج مرحله:</b> بر اساسِ یک نردبانِ سادگی از ۱ تا ۵ چیده شده — یک محتوا در پنج عمقِ مختلف، از خیلی ساده تا حرفه‌ای.</p><p><b>گروه:</b> «فروش و بازاریابی».</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای متنِ کامل، خودِ کتاب را بخوان.</p>") : "<p><b>Source:</b> the book <i>Founding Sales: The Early-Stage Go-to-Market Handbook</i> by Pete Kazanjy, first published 2020 — the full text is free to read at foundingsales.com.</p><p><b>How this was built:</b> the five-part structure and moves were gathered and rewritten from the book and reputable sources; quotes were cross-checked against the book and the linked videos verified.</p><p><b>Five stages:</b> arranged on a simplicity ladder from 1 to 5 — one set of ideas at five depths, from over-simplified to expert.</p><p><b>Group:</b> Sales &amp; Marketing.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>";
-  var fl=document.getElementById('flowTop');
-  if(fl){
-    var loop = LANG==='fa' ? ["یاد بگیر","بفروش","بزرگ کن"] : ["Learn","Sell","Scale"];
-    var ar = LANG==='fa' ? '⟵' : '⟶';
-    fl.innerHTML = loop.map(function(w){ return '<b>'+ (LANG==='fa'?faText(w):w) +'</b>'; }).join(' <span class="ar">'+ar+'</span> ');
-  }
-}
-</script>
-
-<script>
-/* ── 4) CONCEPT MAP ───────────────────────────────────────── */
-function renderMap(){
-  var host=document.getElementById('mapHost'); if(!host) return; host.innerHTML='';
-  DATA.parts.forEach(function(p, i){
-    var col=document.createElement('div'); col.className='partcol';
-    var chaps=p.chapters.map(function(ck){
-      var c=DATA.chapters[ck];
-      return '<div class="chapchip"><span class="cn">'+num(c.n)+'</span><div><b>'+TX(c.name)+'</b>'
-        +'<small>'+TX(c.principle).replace(/<[^>]+>/g,'').slice(0, LANG==='fa'?86:76)+'…</small></div></div>';
-    }).join('');
-    col.innerHTML='<div class="ph"><span class="pdot" style="background:var('+p.varc+')"></span>'
-      +'<span class="pnum">'+(LANG==='fa'?'بخشِ ':'PART ')+num(i+1)+'</span></div>'
-      +'<h4>'+TX(p.name)+'</h4>'
-      +'<div class="ptag" style="color:var('+p.varc+')">'+TX(p.tag)+'</div>'
-      +'<p class="pgist">'+TX(p.gist)+'</p>'+chaps;
-    host.appendChild(col);
-  });
-}
-</script>
-
-<script>
-/* ── 5) INTERACTIVE NETWORK GRAPH (deterministic radial layout, no physics) ── */
-var GRAPH = (function(){
-  var svg, W=980, H=780, nodes=[], links=[], sel=null, dragNode=null, moved=false, startPt=null;
-
-  function build(){
-    svg=document.getElementById('netsvg');
-    svg.setAttribute('viewBox','0 0 '+W+' '+H);
-    nodes=[]; links=[];
-    var cx=W/2, cy=H/2, R1=220, R2=126, span=66*Math.PI/180;
-    var N=DATA.parts.length, partAng=DATA.parts.map(function(_,i){ return -Math.PI/2 + i*(2*Math.PI/N); });
-    nodes.push({id:'core', kind:'core', varc:'--core', r:38, x:cx, y:cy, label:DATA.core.name, data:DATA.core});
-    DATA.parts.forEach(function(p,i){
-      var a=partAng[i], px=cx+Math.cos(a)*R1, py=cy+Math.sin(a)*R1;
-      nodes.push({id:'p_'+p.key, kind:'part', varc:p.varc, r:25, x:px, y:py,
-        label:p.name, data:{name:p.name, principle:p.gist, more:p.more, tag:p.tag, key:p.key}});
-      links.push({s:'core', t:'p_'+p.key, strong:true});
-      var nc=p.chapters.length, start=a-span/2;
-      p.chapters.forEach(function(ck,j){
-        var ca = nc>1 ? start+span*(j/(nc-1)) : a;   // fan the 5 chapters outward
-        var c=DATA.chapters[ck];
-        nodes.push({id:'c_'+ck, kind:'chap', varc:p.varc, r:15,
-          x:px+Math.cos(ca)*R2, y:py+Math.sin(ca)*R2,
-          label:(c.glabel||c.name), data:c, ck:ck});
-        links.push({s:'p_'+p.key, t:'c_'+ck});
-      });
-    });
-    nodes.forEach(function(n){ n.hx=n.x; n.hy=n.y; });   // remember home positions for reset
-    draw();
-    select('core');
-  }
-
-  function byId(id){ for(var i=0;i<nodes.length;i++) if(nodes[i].id===id) return nodes[i]; return null; }
-
-  function draw(){
-    var ln='', nd='';
-    links.forEach(function(l){ ln+='<line class="glink" data-s="'+l.s+'" data-t="'+l.t+'" stroke="var(--line)" stroke-width="'+(l.strong?2.4:1.5)+'" stroke-linecap="round"/>'; });
-    nodes.forEach(function(n){
-      var inside='', below='';
-      if(n.kind==='core'){
-        inside='<text text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="800" fill="#fff" letter-spacing="0.3">'+shortLabel(n)+'</text>';
-      } else {
-        if(n.kind==='chap'){
-          inside='<text text-anchor="middle" dominant-baseline="central" font-size="11" font-weight="800" fill="#fff">'+num(n.data.n)+'</text>';
+/* ── CONTENT — everything unique to this book lives here ── */
+Book.mount({
+  "meta": {
+    "slug": "founding-sales",
+    "folder": "09 - Sales & Marketing",
+    "groupNum": 9,
+    "group": {
+      "en": "Sales &amp; Marketing",
+      "fa": "فروش و بازاریابی"
+    },
+    "author": {
+      "en": "Pete Kazanjy",
+      "fa": "پیت کازانجی"
+    },
+    "eyebrow_author": {
+      "en": "Pete Kazanjy",
+      "fa": "پیت کازانجی"
+    },
+    "book": {
+      "en": "Founding Sales",
+      "fa": "فروشِ بنیان‌گذار"
+    },
+    "hero_title": {
+      "en": "Founding Sales — The Early-Stage Go-to-Market Handbook",
+      "fa": "فروشِ بنیان‌گذار — راهنمای فروش و ورود به بازار برای استارتاپِ نوپا"
+    },
+    "dek": {
+      "en": "A knowledge graph of the whole book, plus a 5-stage path from a single sentence to expert-level mastery — with an example at every step.",
+      "fa": "نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از یک جملهٔ ساده تا تسلطِ حرفه‌ای — با یک مثال در هر قدم."
+    },
+    "published": {
+      "en": "2020",
+      "fa": "۲۰۲۰"
+    },
+    "chips": [
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Parts",
+          "fa": "بخش"
         }
-        var ly = n.r + (n.kind==='part'?17:14);
-        var fs = n.kind==='part'?13:11;
-        var stroke = 'paint-order:stroke;stroke:var(--card2);stroke-width:3.6px;stroke-linejoin:round';
-        below='<text class="nlab" text-anchor="middle" y="'+ly+'" font-size="'+fs+'" font-weight="'+(n.kind==='part'?'800':'700')+'" fill="var(--ink)" style="'+stroke+'">'+shortLabel(n)+'</text>';
+      },
+      {
+        "v": {
+          "en": "16",
+          "fa": "۱۶"
+        },
+        "l": {
+          "en": "Moves",
+          "fa": "حرکت"
+        }
+      },
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Learning stages",
+          "fa": "مرحلهٔ یادگیری"
+        }
       }
-      nd+='<g class="node'+(n.kind==='core'?' ncore':'')+'" data-id="'+n.id+'"><g class="ns">'
-        +'<circle r="'+n.r+'" fill="var('+n.varc+')" fill-opacity="'+(n.kind==='chap'?0.94:1)+'" stroke="var(--card)" stroke-width="2.5"/>'
-        +inside+below+'</g></g>';
-    });
-    svg.innerHTML='<g id="glinks">'+ln+'</g><g id="gnodes">'+nd+'</g>';
-    svg.querySelectorAll('.node').forEach(function(gEl){
-      gEl.addEventListener('pointerdown', onDown);
-      gEl.addEventListener('click', function(){ if(!moved) select(gEl.getAttribute('data-id')); });
-      gEl.addEventListener('pointerenter', function(){ if(!dragNode) gEl.classList.add('hover'); });
-      gEl.addEventListener('pointerleave', function(){ gEl.classList.remove('hover'); });
-    });
-    positions();
-  }
-  function shortLabel(n){ return TX(n.label); }
-
-  function positions(){
-    svg.querySelectorAll('.node').forEach(function(g){
-      var n=byId(g.getAttribute('data-id'));
-      g.setAttribute('transform','translate('+n.x.toFixed(1)+','+n.y.toFixed(1)+')');
-    });
-    svg.querySelectorAll('.glink').forEach(function(l){
-      var a=byId(l.getAttribute('data-s')), b=byId(l.getAttribute('data-t'));
-      l.setAttribute('x1',a.x.toFixed(1)); l.setAttribute('y1',a.y.toFixed(1));
-      l.setAttribute('x2',b.x.toFixed(1)); l.setAttribute('y2',b.y.toFixed(1));
-    });
-  }
-
-  /* drag: just move the grabbed node — no simulation, so nothing else shifts */
-  function toSvg(e){
-    var pt=svg.createSVGPoint(); pt.x=e.clientX; pt.y=e.clientY;
-    var m=svg.getScreenCTM(); if(!m) return {x:e.clientX,y:e.clientY};
-    return pt.matrixTransform(m.inverse());
-  }
-  function onDown(e){
-    e.preventDefault();
-    dragNode=byId(e.currentTarget.getAttribute('data-id'));
-    moved=false; startPt=toSvg(e); svg.style.cursor='grabbing';
-    e.currentTarget.classList.remove('hover');
-    window.addEventListener('pointermove', onMove);
-    window.addEventListener('pointerup', onUp);
-  }
-  function onMove(e){
-    if(!dragNode) return; var p=toSvg(e);
-    if(startPt && (Math.abs(p.x-startPt.x)>4 || Math.abs(p.y-startPt.y)>4)) moved=true;
-    dragNode.x=Math.max(dragNode.r+4, Math.min(W-dragNode.r-4, p.x));
-    dragNode.y=Math.max(dragNode.r+4, Math.min(H-dragNode.r-24, p.y));
-    positions();
-  }
-  function onUp(){
-    dragNode=null; svg.style.cursor='grab';
-    window.removeEventListener('pointermove', onMove);
-    window.removeEventListener('pointerup', onUp);
-  }
-
-  function keepSet(id){
-    var n=byId(id); if(!n || id==='core') return null;   // core → show everything
-    var keep={}; keep[id]=1; keep['core']=1;
-    var pk = (n.kind==='part') ? n.data.key : n.data.part;
-    keep['p_'+pk]=1;
-    DATA.parts.forEach(function(p){ if(p.key===pk) p.chapters.forEach(function(ck){ keep['c_'+ck]=1; }); });
-    return keep;   // highlight the whole branch: core → part → its chapters
-  }
-  function applyFocus(id){
-    var keep=keepSet(id), full=(keep===null);
-    svg.querySelectorAll('.node').forEach(function(g){
-      var nid=g.getAttribute('data-id');
-      g.classList.toggle('dim', !full && !keep[nid]);
-      g.classList.toggle('hl', !full && keep[nid] && nid!==id);
-    });
-    svg.querySelectorAll('.glink').forEach(function(l){
-      var s=l.getAttribute('data-s'), t=l.getAttribute('data-t');
-      var on = full || (keep[s] && keep[t]);
-      l.classList.toggle('dim', !on);
-      l.classList.toggle('hl', !full && on);
-    });
-  }
-
-  function relatedIds(node){
-    var ids=[];
-    if(node.id==='core'){ DATA.parts.forEach(function(p){ ids.push('p_'+p.key); }); }
-    else if(node.kind==='part'){ var pk=node.data.key; DATA.parts.forEach(function(p){ if(p.key===pk) p.chapters.forEach(function(ck){ ids.push('c_'+ck); }); }); }
-    else { var pk2=node.data.part; ids.push('p_'+pk2);
-      DATA.parts.forEach(function(p){ if(p.key===pk2) p.chapters.forEach(function(ck){ if('c_'+ck!==node.id) ids.push('c_'+ck); }); }); }
-    return ids;
-  }
-
-  function drow(cls,label,txt){ return '<div class="drow '+cls+'"><div class="dlab">'+label+'</div><div class="dtxt">'+txt+'</div></div>'; }
-
-  function select(id){
-    var n=byId(id); if(!n) return;
-    sel=id;
-    svg.querySelectorAll('.node').forEach(function(g){ g.classList.toggle('sel', g.getAttribute('data-id')===id); });
-    var selEl=svg.querySelector('.node[data-id="'+id+'"]'); if(selEl&&selEl.parentNode) selEl.parentNode.appendChild(selEl);  // raise on top
-    applyFocus(id);
-    var d=n.data, pv = n.kind==='core' ? '--core' : n.varc;
-    var kicker = n.kind==='core' ? (LANG==='fa'?'ایدهٔ مرکزی':'Core idea')
-             : n.kind==='part' ? (LANG==='fa'?'بخش':'Part') + ' · ' + TX(d.tag)
-             : (LANG==='fa'?"حرکتِ":"Move") + ' ' + num(d.n);
-    var prLab = (n.kind==='chap') ? (LANG==='fa'?'اصل':'Principle') : (LANG==='fa'?'ایدهٔ اصلی':'Big idea');
-    var html='<div class="dkick"><i style="background:var('+pv+')"></i>'+ (LANG==='fa'?faText(kicker):kicker) +'</div>'
-      +'<h4>'+TX(d.name)+'</h4>'
-      + drow('', prLab, TX(d.principle));
-    if(d.more)    html += drow('more', (LANG==='fa'?'بیشتر':'In depth'), TX(d.more));
-    if(d.example) html += drow('', (LANG==='fa'?'مثال':'Example'), TX(d.example));
-    if(d.tip)     html += drow('tip', (LANG==='fa'?'امتحان کن':'Try this'), TX(d.tip));
-    if(d.pitfall) html += drow('pit', (LANG==='fa'?'حواست باشد':'Watch out'), TX(d.pitfall));
-    // related chips
-    var rel=relatedIds(n);
-    if(rel.length){
-      var chips=rel.map(function(rid){ var rn=byId(rid); if(!rn) return '';
-        return '<span class="dchip" data-goto="'+rid+'"><i style="background:var('+rn.varc+')"></i>'+TX(rn.data.name)+'</span>'; }).join('');
-      html += '<div class="drow"><div class="dlab">'+(LANG==='fa'?'مرتبط':'Related')+'</div><div class="dchips">'+chips+'</div></div>';
+    ],
+    "kboxes": [
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Parts (mindset · discovery · process · closing · team)",
+          "fa": "بخش (ذهنیت · کشفِ نیاز · فرایند · بستن · تیم)"
+        }
+      },
+      {
+        "v": {
+          "en": "16",
+          "fa": "۱۶"
+        },
+        "l": {
+          "en": "Moves you can use",
+          "fa": "حرکت برای استفاده"
+        }
+      },
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Levels, simple → expert",
+          "fa": "مرحله، ساده تا حرفه‌ای"
+        }
+      },
+      {
+        "v": {
+          "en": "3",
+          "fa": "۳"
+        },
+        "l": {
+          "en": "Core beats: learn · sell · scale",
+          "fa": "حرکتِ اصلی: یاد بگیر · بفروش · بزرگ کن"
+        }
+      }
+    ],
+    "core_callout": {
+      "label": {
+        "en": "The core idea:",
+        "fa": "ایدهٔ اصلی:"
+      },
+      "en": "The technical founder has to learn to <i>sell first</i> — personally closing the early customers — before hiring any salespeople. Early selling is <i>evangelical product work</i>: helping real people fix a real pain. Learn discovery, build a repeatable process, close deals, and only then scale a team.",
+      "fa": "بنیان‌گذارِ فنی باید <i>اول خودش یادِ فروش بگیرد</i> — و شخصاً مشتری‌های اول را ببندد — پیش از اینکه هیچ فروشنده‌ای استخدام کند. فروشِ اولِ کار <i>همان کارِ محصول است با شور و شوق</i>: کمک به آدم‌های واقعی برای حلِ یک دردِ واقعی. کشفِ نیاز را یاد بگیر، یک فرایندِ تکرارشدنی بساز، معامله‌ها را ببند، و تازه بعدش تیم را بزرگ کن."
+    },
+    "flow_callout": {
+      "label": {
+        "en": "Read it as a flow:",
+        "fa": "به‌صورتِ یک جریان بخوانش:"
+      },
+      "en": "get the <b>founder-seller mindset</b> (selling is helping), learn to sell through <b>discovery and qualification</b>, build a <b>repeatable process and pipeline</b>, <b>close and negotiate</b> deals, and only then <b>build and scale the team</b>.",
+      "fa": "<b>ذهنیتِ بنیان‌گذارِ فروشنده</b> را بگیر (فروش یعنی کمک)، با <b>کشفِ نیاز و محک‌زدن</b> یادِ فروش بگیر، یک <b>فرایند و پایپ‌لاینِ تکرارشدنی</b> بساز، معامله‌ها را <b>ببند و چانه بزن</b>، و تازه بعدش <b>تیم را بساز و بزرگ کن</b>."
     }
-    var host=document.getElementById('detailHost');
-    host.innerHTML=html;
-    host.querySelectorAll('.dchip').forEach(function(c){
-      c.addEventListener('click', function(){ select(c.getAttribute('data-goto')); });
-    });
-  }
-
-  function relabel(){ if(!svg) return; draw(); select(sel||'core'); }
-
-  return {
-    build:build,
-    kick:function(){},                                    // no-op; layout is static
-    relabel:relabel,
-    reset:function(){ nodes.forEach(function(n){ n.x=n.hx; n.y=n.hy; }); positions(); },
-    resetFocus:function(){ select('core'); },
-    selectNode:function(id){ select(id); },
-    hasNodes:function(){ return nodes.length>0; }
-  };
-})();
-</script>
-
-<script>
-/* ── 6) 5-STAGE LADDER ────────────────────────────────────── */
-var curStage=0;
-function renderLadder(){
-  var host=document.getElementById('ladderHost'); host.innerHTML='';
-  DATA.stages.forEach(function(s,i){
-    var r=document.createElement('div'); r.className='rung'+(i===curStage?' active':'');
-    r.innerHTML='<div class="lv">'+ (LANG==='fa'?('سطحِ '+num(s.level)):('Level '+s.level)) +'</div>'
-      +'<div class="lt">'+TX(s.title)+'</div>'
-      +'<div class="lbar"><i style="width:'+(s.level*20)+'%"></i></div>';
-    r.addEventListener('click', function(){ curStage=i; renderLadder(); renderStage();
-      document.getElementById('stageHost').scrollIntoView({behavior:'smooth',block:'nearest'}); });
-    host.appendChild(r);
-  });
-}
-function renderStage(){
-  var s=DATA.stages[curStage];
-  var host=document.getElementById('stageHost');
-  var exLabel = LANG==='fa'?'مثال':'Example';
-  var prev = LANG==='fa'?'مرحلهٔ قبل':'‹ Prev', next = LANG==='fa'?'مرحلهٔ بعد':'Next ›';
-  host.innerHTML=''+
-    '<div class="stagecard">'
-    +'<div class="shead"><span class="badge">'+TX(s.badge)+'</span><h3>'+TX(s.title)+'</h3></div>'
-    +'<div class="tagline">'+TX(s.tagline)+'</div>'
-    +'<div class="sbody">'+TX(s.body)+'</div>'
-    +'<div class="exbox"><div class="exk">'+exLabel+'</div><div class="ext">'+TX(s.example)+'</div></div>'
-    +'<div class="gainrow"><span class="gi">✓</span><span>'+TX(s.gain)+'</span></div>'
-    +'<div class="stagenav">'
-      +'<button id="stPrev" '+(curStage===0?'disabled':'')+'>'+prev+'</button>'
-      +'<button id="stNext" '+(curStage===DATA.stages.length-1?'disabled':'')+'>'+next+'</button>'
-    +'</div></div>';
-  var pv=document.getElementById('stPrev'), nx=document.getElementById('stNext');
-  if(pv) pv.onclick=function(){ if(curStage>0){curStage--; renderLadder(); renderStage();} };
-  if(nx) nx.onclick=function(){ if(curStage<DATA.stages.length-1){curStage++; renderLadder(); renderStage();} };
-}
-</script>
-
-<script>
-/* ── 7) legend + graph tabs ───────────────────────────────── */
-function renderLegend(){
-  var host=document.getElementById('legendHost'); if(!host) return;
-  var items=[{c:'--core', en:'Core idea', fa:'ایدهٔ مرکزی'}]
-    .concat(DATA.parts.map(function(p){ return {c:p.varc, en:p.name.en, fa:p.name.fa}; }));
-  host.innerHTML = items.map(function(it){
-    return '<span><i style="background:var('+it.c+')"></i>'+(LANG==='fa'?faText(it.fa):it.en)+'</span>';
-  }).join('');
-  document.getElementById('ghint').textContent = LANG==='fa' ? 'روی هر دایره کلیک کن تا بیشتر بخوانی · می‌توانی بکشی‌شان' : 'Click a node to read more · drag to move';
-  document.getElementById('greset').textContent = LANG==='fa' ? '↺ چیدمان' : '↺ Reset';
-}
-function setupTabs(){
-  function show(net){
-    document.getElementById('netView').style.display = net?'':'none';
-    document.getElementById('mapView').style.display = net?'none':'';
-    document.getElementById('tabNet').classList.toggle('active',net);
-    document.getElementById('tabMap').classList.toggle('active',!net);
-    if(net) GRAPH.kick();
-  }
-  document.getElementById('tabNet').onclick=function(){show(true);};
-  document.getElementById('tabMap').onclick=function(){show(false);};
-  document.getElementById('greset').onclick=function(){ GRAPH.reset(); };
-  // click empty graph space resets the focus
-  var svg=document.getElementById('netsvg');
-  svg.addEventListener('click', function(e){ if(!e.target.closest('.node')) GRAPH.resetFocus(); });
-}
-</script>
-
-<script>
-/* ── 8) toggles + boot ────────────────────────────────────── */
-function setLang(lg){
-  LANG=lg;
-  document.documentElement.setAttribute('data-lang',lg);
-  document.documentElement.setAttribute('lang',lg);
-  document.documentElement.setAttribute('dir', lg==='fa'?'rtl':'ltr');
-  try{ localStorage.setItem('foundingsales-lang',lg); }catch(e){}
-  renderAll();
-}
-function renderAll(){
-  renderText();
-  renderMap();
-  renderLegend();
-  renderLadder();
-  renderStage();
-  if(GRAPH.hasNodes()) GRAPH.relabel(); else GRAPH.build();
-}
-(function(){
-  var lb=document.getElementById('langBtn');
-  lb && lb.addEventListener('click', function(){ setLang(LANG==='fa'?'en':'fa'); });
-
-  var tb=document.getElementById('themeBtn');
-  function curT(){ return document.documentElement.getAttribute('data-theme'); }
-  tb && tb.addEventListener('click', function(){
-    var t=curT()==='dark'?'light':'dark';
-    document.documentElement.setAttribute('data-theme',t);
-    try{ localStorage.setItem('foundingsales-theme',t); }catch(e){}
-  });
-  try{ matchMedia('(prefers-color-scheme: dark)').addEventListener('change',function(e){
-    if(!localStorage.getItem('foundingsales-theme')){ document.documentElement.setAttribute('data-theme', e.matches?'dark':'light'); }
-  }); }catch(e){}
-})();
-
-/* scroll-spy */
-(function(){
-  var links=[].slice.call(document.querySelectorAll('.toc a'));
-  var seen={}, ids=[];
-  links.forEach(function(a){ var id=a.getAttribute('href').slice(1); if(!seen[id]){seen[id]=1; ids.push(id);} });
-  var secs=ids.map(function(id){return document.getElementById(id);}).filter(Boolean);
-  function setActive(id){ links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('href')==='#'+id); }); }
-  if('IntersectionObserver' in window){
-    var obs=new IntersectionObserver(function(es){
-      es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
-    },{rootMargin:'-45% 0px -50% 0px',threshold:0});
-    secs.forEach(function(s){ obs.observe(s); });
-  }
-})();
-
-document.addEventListener('DOMContentLoaded', function(){
-  setupTabs();
-  renderAll();
+  },
+  "method": {
+    "en": "<p><b>Source:</b> the book <i>Founding Sales: The Early-Stage Go-to-Market Handbook</i> by Pete Kazanjy, first published 2020 — the full text is free to read at foundingsales.com.</p><p><b>How this was built:</b> the five-part structure and moves were gathered and rewritten from the book and reputable sources; quotes were cross-checked against the book and the linked videos verified.</p><p><b>Five stages:</b> arranged on a simplicity ladder from 1 to 5 — one set of ideas at five depths, from over-simplified to expert.</p><p><b>Group:</b> Sales &amp; Marketing.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>",
+    "fa": "<p><b>منبع:</b> کتابِ «Founding Sales» (فروشِ بنیان‌گذار) نوشتهٔ پیت کازانجی، چاپِ ۲۰۲۰ — که متنِ کاملش رایگان روی foundingsales.com هست.</p><p><b>روشِ کار:</b> ساختارِ پنج‌بخشی و حرکت‌ها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده؛ نقل‌قول‌ها با متنِ کتاب مقابله و ویدیوها بررسی شده‌اند.</p><p><b>پنج مرحله:</b> بر اساسِ یک نردبانِ سادگی از ۱ تا ۵ چیده شده — یک محتوا در پنج عمقِ مختلف، از خیلی ساده تا حرفه‌ای.</p><p><b>گروه:</b> «فروش و بازاریابی».</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای متنِ کامل، خودِ کتاب را بخوان.</p>"
+  },
+  "flow": {
+    "en": [
+      "Learn",
+      "Sell",
+      "Scale"
+    ],
+    "fa": [
+      "یاد بگیر",
+      "بفروش",
+      "بزرگ کن"
+    ]
+  },
+  "graph": {
+    "W": 980,
+    "H": 780,
+    "R1": 220,
+    "R2": 126,
+    "span": 66
+  },
+  "tldr": [
+    {
+      "en": "The whole book in one line: the technical founder has to learn to sell — and do it personally — before hiring any salespeople.",
+      "fa": "خلاصهٔ کل کتاب در یک جمله: بنیان‌گذارِ فنی باید یادِ فروش بگیرد — و خودش انجامش بدهد — پیش از اینکه هیچ فروشنده‌ای استخدام کند."
+    },
+    {
+      "en": "Reframe the job: selling is <b>helping</b> — being the grease of the market, not tricking a 'mark' — and it's a learnable skill.",
+      "fa": "کار را دوباره تعریف کن: فروش یعنی <b>کمک‌کردن</b> — یعنی روغن‌کاریِ بازار، نه گول‌زدنِ طرف — و یک مهارتِ یادگرفتنی است."
+    },
+    {
+      "en": "Learn to sell through <b>discovery and qualification</b>: know your ideal customer, prospect on purpose, dig into the pain, and qualify hard.",
+      "fa": "با <b>کشفِ نیاز و محک‌زدن</b> یادِ فروش بگیر: مشتریِ ایده‌آلت را بشناس، عمداً پیدایشان کن، توی درد بکَن، و سفت‌وسخت محک بزن."
+    },
+    {
+      "en": "Turn wins into a <b>repeatable process</b> with clear stages, a clean pipeline, and metrics you can forecast from.",
+      "fa": "بردها را به یک <b>فرایندِ تکرارشدنی</b> تبدیل کن، با مرحله‌های روشن، پایپ‌لاینِ تمیز، و شاخص‌هایی که می‌شود ازشان پیش‌بینی کرد."
+    },
+    {
+      "en": "Close by handling <b>objections</b>, asking for the sale, and negotiating — then <b>scale a team</b> only after the motion is proven.",
+      "fa": "با جواب‌دادن به <b>ایرادها</b>، درخواستِ فروش، و چانه‌زنی ببند — و <b>تیم را</b> فقط بعد از اینکه روش اثبات شد بزرگ کن."
+    }
+  ],
+  "parts": [
+    {
+      "key": "mindset",
+      "varc": "--c-teal",
+      "name": {
+        "en": "The Founder-Seller Mindset",
+        "fa": "ذهنیتِ بنیان‌گذارِ فروشنده"
+      },
+      "tag": {
+        "en": "Start here",
+        "fa": "از این‌جا شروع کن"
+      },
+      "gist": {
+        "en": "Selling is helping, not sleaze — and at the start, the founder has to do it.",
+        "fa": "فروختن یعنی کمک‌کردن، نه حقه‌بازی — و اولِ کار، خودِ بنیان‌گذار باید این کار را بکند."
+      },
+      "more": {
+        "en": "Most technical founders dread sales because they picture a pushy huckster. Drop that image. Early selling is really evangelical product work — and nobody understands the product or the customer's pain better than you do yet.",
+        "fa": "بیشترِ بنیان‌گذارهای فنی از فروش می‌ترسند، چون یک آدمِ سمج و حقه‌باز جلوی چشمشان می‌آید. آن تصویر را دور بریز. فروشِ اولِ کار در واقع همان کارِ محصول است با شور و شوق — و هنوز هیچ‌کس محصول و دردِ مشتری را بهتر از تو نمی‌فهمد."
+      },
+      "chapters": [
+        "helping",
+        "sellfirst",
+        "learnable"
+      ]
+    },
+    {
+      "key": "discovery",
+      "varc": "--c-blue",
+      "name": {
+        "en": "Discovery & Qualification",
+        "fa": "کشفِ نیاز و محک‌زدن"
+      },
+      "tag": {
+        "en": "Learn to sell",
+        "fa": "یادِ فروش بگیر"
+      },
+      "gist": {
+        "en": "Talk to the right prospects, dig into their pain, and qualify hard before you invest time.",
+        "fa": "با آدم‌های درست حرف بزن، توی دردشان بکَن، و پیش از اینکه وقت بگذاری خوب محکشان بزن."
+      },
+      "more": {
+        "en": "Selling well starts long before the pitch. You define who actually has the pain, go find them on purpose, ask enough questions to understand the problem, and rule out the ones who'll never buy — so your energy goes where deals really live.",
+        "fa": "فروشِ خوب خیلی پیش از ارائه شروع می‌شود. مشخص می‌کنی واقعاً کی این درد را دارد، عمداً می‌روی پیدایشان می‌کنی، آن‌قدر سؤال می‌پرسی تا مشکل را بفهمی، و آن‌هایی را که هیچ‌وقت نمی‌خرند کنار می‌گذاری — تا انرژی‌ات برود همان‌جا که معامله واقعاً هست."
+      },
+      "chapters": [
+        "icp",
+        "prospect",
+        "qualify",
+        "pain"
+      ]
+    },
+    {
+      "key": "process",
+      "varc": "--c-amber",
+      "name": {
+        "en": "Sales Process & Pipeline",
+        "fa": "فرایند و پایپ‌لاینِ فروش"
+      },
+      "tag": {
+        "en": "Make it repeatable",
+        "fa": "تکرارشدنی‌اش کن"
+      },
+      "gist": {
+        "en": "Turn scattered wins into a repeatable process with clear stages, a tidy pipeline, and honest metrics.",
+        "fa": "بردهای پراکنده را به یک فرایندِ تکرارشدنی تبدیل کن، با مرحله‌های روشن، پایپ‌لاینِ مرتب، و شاخص‌های صادقانه."
+      },
+      "more": {
+        "en": "Once you're closing deals, write down how. A named set of stages, a disciplined pipeline where every deal has a next step, and a few real numbers turn a lucky streak into a machine you can trust, forecast, and eventually hand off.",
+        "fa": "وقتی داری معامله می‌بندی، بنویس چطور. یک مجموعهٔ مرحلهٔ اسم‌دار، یک پایپ‌لاینِ منظم که هر معامله توش یک قدمِ بعدی دارد، و چند تا عددِ واقعی، یک دورهٔ خوش‌شانسی را به ماشینی تبدیل می‌کنند که می‌شود بهش اعتماد کرد، پیش‌بینی‌اش کرد، و آخرش به کسی سپردش."
+      },
+      "chapters": [
+        "repeatable",
+        "pipeline",
+        "forecast"
+      ]
+    },
+    {
+      "key": "closing",
+      "varc": "--c-violet",
+      "name": {
+        "en": "Closing, Objections & Negotiation",
+        "fa": "بستنِ معامله، ایرادها و چانه‌زنی"
+      },
+      "tag": {
+        "en": "Advance the deal",
+        "fa": "معامله را جلو ببر"
+      },
+      "gist": {
+        "en": "Handle objections, ask for the close, and negotiate price without giving the store away.",
+        "fa": "به ایرادها جواب بده، برای بستن درخواست بده، و سرِ قیمت چانه بزن، بی‌اینکه همه‌چیز را ببخشی."
+      },
+      "more": {
+        "en": "Deals don't close themselves. You meet objections calmly as buying signals, you actually ask for the business instead of hoping, and you negotiate from a prepared position — anchoring on price and protecting the economics until the money is in the bank.",
+        "fa": "معامله‌ها خودشان بسته نمی‌شوند. با خونسردی به ایرادها به‌چشمِ نشانهٔ خرید نگاه می‌کنی، به‌جای امیدواربودن واقعاً درخواستِ معامله را می‌دهی، و از یک جای آماده چانه می‌زنی — سرِ قیمت لنگر می‌اندازی و صرفهٔ کار را نگه می‌داری تا وقتی پول به حساب بنشیند."
+      },
+      "chapters": [
+        "objections",
+        "askclose",
+        "negotiate"
+      ]
+    },
+    {
+      "key": "team",
+      "varc": "--c-green",
+      "name": {
+        "en": "Building & Scaling the Team",
+        "fa": "ساختن و بزرگ‌کردنِ تیمِ فروش"
+      },
+      "tag": {
+        "en": "Scale it",
+        "fa": "مقیاسش بده"
+      },
+      "gist": {
+        "en": "Only after the motion works: hire quality reps, onboard them well, and manage with metrics.",
+        "fa": "فقط بعد از اینکه روش جواب داد: فروشندهٔ خوب استخدام کن، خوب راهشان بینداز، و با شاخص‌ها مدیریتشان کن."
+      },
+      "more": {
+        "en": "Scaling is a reward for proof, not a shortcut to it. Once your numbers say the go-to-market repeats, hire carefully for quality over quantity, onboard reps into your written playbook, and run the team on clear comp and honest metrics.",
+        "fa": "بزرگ‌شدن جایزهٔ اثبات است، نه میان‌بری به‌جای آن. وقتی اعدادت گفتند این روش تکرار می‌شود، با دقت و با تأکید بر کیفیت نه تعداد استخدام کن، فروشنده‌ها را توی همان دفترچهٔ نوشته‌شده‌ات راه بینداز، و تیم را با حقوقِ روشن و شاخص‌های صادقانه بگردان."
+      },
+      "chapters": [
+        "whenhire",
+        "onboard",
+        "compmanage"
+      ]
+    }
+  ],
+  "chapters": {
+    "helping": {
+      "part": "mindset",
+      "n": 1,
+      "name": {
+        "en": "Sales Is Helping, Not Sleaze",
+        "fa": "فروش یعنی کمک، نه حقه"
+      },
+      "glabel": {
+        "en": "Helping",
+        "fa": "کمک، نه حقه"
+      },
+      "principle": {
+        "en": "Modern selling isn't tricking a 'mark' — it's finding people with a real problem your product solves, and helping them get it fixed.",
+        "fa": "فروشِ امروزی یعنی گول‌زدنِ یک طرف نیست — یعنی پیداکردنِ آدم‌هایی که یک مشکلِ واقعی دارند و محصولِ تو حلش می‌کند، و کمک به اینکه حلش کنند."
+      },
+      "more": {
+        "en": "Kazanjy calls good salespeople the grease of the market: they seek out inefficiencies — qualified people in real pain — and connect them to a cure. Reframed that way, selling is a service, and it stops feeling gross.",
+        "fa": "کازانجی به فروشنده‌های خوب می‌گوید روغن‌کاریِ بازار: دنبالِ جاهایی می‌گردند که چیزی لنگ می‌زند — آدم‌هایی که واقعاً درد دارند — و آن‌ها را به درمان وصل می‌کنند. وقتی این‌طور نگاهش کنی، فروش یک‌جور خدمت است و دیگر حالت را بد نمی‌کند."
+      },
+      "example": {
+        "en": "You're not persuading someone to buy junk; you're telling a stressed-out buyer “this fixes exactly the thing that's hurting you.”",
+        "fa": "داری کسی را راضی نمی‌کنی چیزِ بی‌ارزش بخرد؛ داری به یک خریدارِ کلافه می‌گویی «این دقیقاً همان چیزی را که اذیتت می‌کند درست می‌کند.»"
+      },
+      "tip": {
+        "en": "Before any pitch, write the one painful problem this customer has that you can genuinely remove.",
+        "fa": "پیش از هر ارائه، همان یک مشکلِ دردناکی را که این مشتری دارد و تو واقعاً می‌توانی برطرفش کنی، بنویس."
+      },
+      "pitfall": {
+        "en": "Avoiding sales because you think it means being pushy or dishonest.",
+        "fa": "دوری‌کردن از فروش، چون فکر می‌کنی یعنی باید سمج یا نادرست باشی."
+      }
+    },
+    "sellfirst": {
+      "part": "mindset",
+      "n": 2,
+      "name": {
+        "en": "Founders Must Sell First",
+        "fa": "اول خودِ بنیان‌گذار باید بفروشد"
+      },
+      "glabel": {
+        "en": "You sell first",
+        "fa": "اول خودت"
+      },
+      "principle": {
+        "en": "You can't outsource the first sales. Until you've closed customers yourself, there's no motion to hand anyone — you need you.",
+        "fa": "فروشِ اول را نمی‌شود به کسی سپرد. تا وقتی خودت مشتری جوش نداده باشی، هیچ روشی نیست که به کسی بدهی — به خودت نیاز داری."
+      },
+      "more": {
+        "en": "Early sales is a tight feedback loop between the pitch and the product, and that loop has to live in the founder's head. Hand it to a hired rep too soon and you lose the very learning that tells you what to build and how to say it.",
+        "fa": "فروشِ اولِ کار یک حلقهٔ بازخوردِ تنگ بینِ حرفِ فروش و خودِ محصول است، و این حلقه باید توی سرِ بنیان‌گذار باشد. اگر زود بسپاری‌اش به یک فروشندهٔ استخدامی، همان چیزی را از دست می‌دهی که بهت می‌گوید چه بساز و چطور بگو."
+      },
+      "example": {
+        "en": "After ten demos you'll hear the same objection twice and fix the product or the story — a hired rep would just have lost the deals.",
+        "fa": "بعد از ده تا دمو، یک ایراد را دو بار می‌شنوی و محصول یا داستان را درست می‌کنی — یک فروشندهٔ استخدامی فقط معامله‌ها را می‌باخت و تمام."
+      },
+      "tip": {
+        "en": "Commit to personally closing your first dozen or more customers before you hire a single rep.",
+        "fa": "با خودت قرار بگذار که اولین ده‌دوازده مشتری یا بیشتر را خودت شخصاً ببندی، پیش از اینکه حتی یک فروشنده استخدام کنی."
+      },
+      "pitfall": {
+        "en": "Hiring a salesperson to avoid selling, before the motion even exists.",
+        "fa": "استخدامِ یک فروشنده برای فرار از فروش، پیش از اینکه اصلاً روشی وجود داشته باشد."
+      }
+    },
+    "learnable": {
+      "part": "mindset",
+      "n": 3,
+      "name": {
+        "en": "Selling Is a Learnable Skill",
+        "fa": "فروختن یک مهارتِ یادگرفتنی است"
+      },
+      "glabel": {
+        "en": "Learnable",
+        "fa": "یادگرفتنی"
+      },
+      "principle": {
+        "en": "Sales acumen is not inborn; it's just another skill to learn — like coding or design, you get good at it by doing reps.",
+        "fa": "استعدادِ فروش ذاتی نیست؛ فقط یک مهارتِ دیگر است برای یادگرفتن — مثلِ برنامه‌نویسی یا طراحی، با تمرین و تکرار توش خوب می‌شوی."
+      },
+      "more": {
+        "en": "Founders who think “I'm just not a sales person” let a myth cost them their company. The early sale is mostly evangelism: explaining a new solution clearly and probing whether it helps. That's product work you already know how to do.",
+        "fa": "بنیان‌گذاری که فکر می‌کند «من اصلاً آدمِ فروش نیستم»، اجازه می‌دهد یک باورِ غلط شرکتش را ازش بگیرد. فروشِ اولِ کار بیشترش معرفی و آموزش است: یک راه‌حلِ تازه را روشن توضیح بدهی و ببینی به درد می‌خورد یا نه. این همان کارِ محصول است که بلدی."
+      },
+      "example": {
+        "en": "Treat your first 20 sales calls like a course: after each, note what landed, what confused people, and what you'll change.",
+        "fa": "بیست تا تماسِ فروشِ اولت را مثلِ یک دوره ببین: بعد از هر کدام یادداشت کن چه چیزی گرفت، کجا آدم‌ها گیج شدند، و چه چیزی را عوض می‌کنی."
+      },
+      "tip": {
+        "en": "Record or note every call and review it like game tape to get better each week.",
+        "fa": "هر تماس را ضبط یا یادداشت کن و مثلِ فیلمِ بازی مرورش کن تا هر هفته بهتر شوی."
+      },
+      "pitfall": {
+        "en": "Believing sales is a talent you either have or don't, so you never start.",
+        "fa": "باور به اینکه فروش یک استعداد است که یا داری‌اش یا نه، و برای همین هیچ‌وقت شروع نمی‌کنی."
+      }
+    },
+    "icp": {
+      "part": "discovery",
+      "n": 4,
+      "name": {
+        "en": "Know Your Ideal Customer",
+        "fa": "مشتریِ ایده‌آلت را بشناس"
+      },
+      "glabel": {
+        "en": "Ideal customer",
+        "fa": "مشتریِ ایده‌آل"
+      },
+      "principle": {
+        "en": "Define the ideal customer profile — the specific kind of buyer whose distinct pain your solution resolves — so you can spot them in the wild.",
+        "fa": "مشتریِ ایده‌آلت را مشخص کن — همان نوعِ خاصی از خریدار که دردِ مشخصش را محصولِ تو حل می‌کند — تا بتوانی بینِ بقیه پیدایش کنی."
+      },
+      "more": {
+        "en": "A sharp profile — industry, size, role, the trigger that creates the pain — turns prospecting from guesswork into a repeatable search. The tighter your profile, the less time you waste talking to people who were never going to buy.",
+        "fa": "یک پروفایلِ دقیق — صنعت، اندازه، سِمَت، و آن اتفاقی که درد را می‌سازد — پیداکردنِ مشتری را از حدس‌زدن به یک جست‌وجوی تکرارشدنی تبدیل می‌کند. هرچه پروفایلت دقیق‌تر باشد، وقتِ کمتری را با آدم‌هایی که قرار نبود بخرند هدر می‌دهی."
+      },
+      "example": {
+        "en": "Not “any company”, but “a 50-person SaaS whose head of sales just missed quota two quarters running.”",
+        "fa": "نه «هر شرکتی»، بلکه «یک شرکتِ نرم‌افزاریِ پنجاه‌نفره که مدیرِ فروشش همین دو فصلِ پشتِ‌هم به هدف نرسیده.»"
+      },
+      "tip": {
+        "en": "Write a one-paragraph portrait of the buyer who needs you most, then only chase matches.",
+        "fa": "یک پاراگراف، همان خریداری را که بیشتر از همه بهت نیاز دارد توصیف کن، بعد فقط دنبالِ آدم‌های شبیهش برو."
+      },
+      "pitfall": {
+        "en": "Chasing “everyone” as your market and drowning in bad-fit conversations.",
+        "fa": "دنبالِ «همه» به‌عنوانِ بازار رفتن و غرق‌شدن در گفت‌وگوهای بی‌نتیجه."
+      }
+    },
+    "prospect": {
+      "part": "discovery",
+      "n": 5,
+      "name": {
+        "en": "Prospect Repeatably",
+        "fa": "جست‌وجوی مشتری را تکرارشدنی کن"
+      },
+      "glabel": {
+        "en": "Prospecting",
+        "fa": "پیداکردنِ مشتری"
+      },
+      "principle": {
+        "en": "Prospecting is finding those ideal buyers in a repeatable fashion — proactively, in volume, not waiting for them to find you.",
+        "fa": "پیداکردنِ مشتری یعنی همان خریدارهای ایده‌آل را به شکلی تکرارشدنی پیدا کنی — فعالانه و به تعداد، نه اینکه بنشینی تا خودشان پیدایت کنند."
+      },
+      "more": {
+        "en": "Your goal early on is to proactively line up a large list of potential clients who have the pain, and get the product in front of them. Inbound is nice, but at the start you make your own luck by reaching out on purpose.",
+        "fa": "هدفت اولِ کار این است که فعالانه یک لیستِ بزرگ از مشتری‌های احتمالی که آن درد را دارند ردیف کنی، و محصول را جلوی چشمشان بگذاری. اینکه خودشان بیایند خوب است، ولی اولِ کار شانست را خودت می‌سازی، با اینکه عمداً سراغشان بروی."
+      },
+      "example": {
+        "en": "Build a list of 50–100 companies that fit your profile, then reach out to each with a reason you picked them.",
+        "fa": "یک لیست از پنجاه تا صد شرکت که به پروفایلت می‌خورند بساز، بعد به هرکدام پیام بده و بگو چرا انتخابشان کردی."
+      },
+      "tip": {
+        "en": "Block time weekly to add fresh, well-matched prospects so the top of your funnel never runs dry.",
+        "fa": "هر هفته یک وقتِ ثابت بگذار تا مشتریِ احتمالیِ تازه و جوردرست اضافه کنی، تا بالای قیفت هیچ‌وقت خالی نشود."
+      },
+      "pitfall": {
+        "en": "Waiting passively for inbound while your pipeline slowly empties.",
+        "fa": "منتظرِ‌ماندنِ منفعلانه برای اینکه خودشان بیایند، درحالی‌که پایپ‌لاینت آرام‌آرام خالی می‌شود."
+      }
+    },
+    "qualify": {
+      "part": "discovery",
+      "n": 6,
+      "name": {
+        "en": "Qualify Hard",
+        "fa": "سفت‌وسخت محک بزن"
+      },
+      "glabel": {
+        "en": "Qualify",
+        "fa": "محک‌زدن"
+      },
+      "principle": {
+        "en": "Qualify every prospect on budget, authority, need, and timeline — and target based on real need, not just who you happen to know.",
+        "fa": "هر مشتریِ احتمالی را از چهار زاویه محک بزن: بودجه، اختیارِ تصمیم، نیاز، و زمان‌بندی — و سراغِ کسی برو که واقعاً نیاز دارد، نه فقط چون اتفاقی می‌شناسی‌اش."
+      },
+      "more": {
+        "en": "Targeting by relationship instead of need wastes time. Qualification is the discipline of asking early whether this person has the pain, the money, the power to decide, and a reason to act now — before you pour hours into a demo.",
+        "fa": "سراغِ کسی رفتن چون می‌شناسی‌اش به‌جای اینکه نیاز داشته باشد، وقت را هدر می‌دهد. محک‌زدن یعنی این عادت که از همان اول بپرسی این آدم درد را دارد؟ پول را دارد؟ اختیارِ تصمیم را دارد؟ و دلیلی دارد که همین حالا اقدام کند؟ — پیش از اینکه ساعت‌ها روی یک دمو بگذاری."
+      },
+      "example": {
+        "en": "A friendly contact with no budget and no urgency is not a deal; a stranger bleeding money on the problem is.",
+        "fa": "یک آشنای خوش‌برخورد که نه بودجه دارد نه عجله، معامله نیست؛ ولی یک غریبه که دارد سرِ این مشکل پول از دست می‌دهد، هست."
+      },
+      "tip": {
+        "en": "Ask your budget, authority, need, and timeline questions in the first call, not the fifth.",
+        "fa": "سؤال‌های بودجه، اختیار، نیاز و زمان را توی همان تماسِ اول بپرس، نه تماسِ پنجم."
+      },
+      "pitfall": {
+        "en": "Pouring weeks into a warm contact who was never able to buy.",
+        "fa": "هفته‌ها وقت‌گذاشتن روی یک آشنای گرم که از اول اصلاً نمی‌توانست بخرد."
+      }
+    },
+    "pain": {
+      "part": "discovery",
+      "n": 7,
+      "name": {
+        "en": "Understand the Pain",
+        "fa": "دردش را بفهم"
+      },
+      "glabel": {
+        "en": "The pain",
+        "fa": "درد"
+      },
+      "principle": {
+        "en": "Diagnose before you prescribe. Ask enough questions to truly understand the customer's problem before you show a single feature.",
+        "fa": "پیش از نسخه‌پیچی، تشخیص بده. آن‌قدر سؤال بپرس تا مشکلِ مشتری را واقعاً بفهمی، پیش از اینکه حتی یک قابلیت نشان بدهی."
+      },
+      "more": {
+        "en": "The best demos are aimed. When you understand exactly what hurts and what it costs them, you can show only the parts of your product that speak to that pain — and let them feel understood instead of pitched at.",
+        "fa": "بهترین دموها نشانه‌گیری‌شده‌اند. وقتی دقیق بفهمی چه چیزی اذیتشان می‌کند و چقدر برایشان خرج دارد، می‌توانی فقط همان بخش‌هایی از محصول را نشان بدهی که به آن درد جواب می‌دهند — و طرف حس کند فهمیده شده، نه اینکه بهش چیزی فروخته شده."
+      },
+      "example": {
+        "en": "Open with “walk me through how you handle this today” before you ever open your slides.",
+        "fa": "پیش از اینکه اسلایدهایت را باز کنی، با «بگو ببینم الان این کار را چطور انجام می‌دهی» شروع کن."
+      },
+      "tip": {
+        "en": "Spend the first third of every meeting asking and listening, not presenting.",
+        "fa": "یک‌سومِ اولِ هر جلسه را بگذار برای پرسیدن و گوش‌دادن، نه ارائه‌دادن."
+      },
+      "pitfall": {
+        "en": "Launching into a feature dump before you know what the customer needs.",
+        "fa": "پریدن وسطِ ردیف‌کردنِ قابلیت‌ها، پیش از اینکه بدانی مشتری چه می‌خواهد."
+      }
+    },
+    "repeatable": {
+      "part": "process",
+      "n": 8,
+      "name": {
+        "en": "Build a Repeatable Process",
+        "fa": "یک فرایندِ تکرارشدنی بساز"
+      },
+      "glabel": {
+        "en": "Repeatable process",
+        "fa": "فرایندِ تکرارشدنی"
+      },
+      "principle": {
+        "en": "Map your selling into named stages — from first contact to closed deal — so every rep can run the same play, not reinvent it.",
+        "fa": "فروشت را به مرحله‌های اسم‌دار بشکن — از اولین تماس تا بستنِ معامله — تا هر فروشنده‌ای بتواند همان بازی را اجرا کند، نه اینکه از نو اختراعش کند."
+      },
+      "more": {
+        "en": "A repeatable process is just the winning path written down: what happens at each step, what has to be true to advance, and what you say. It's what lets you diagnose where deals stall and later teach someone else to do what you do.",
+        "fa": "فرایندِ تکرارشدنی فقط همان مسیرِ برنده است که نوشته شده باشد: هر قدم چه اتفاقی می‌افتد، چه چیزی باید درست باشد تا جلو بروی، و چه می‌گویی. همین است که می‌گذارد بفهمی معامله‌ها کجا گیر می‌کنند و بعداً به یک نفرِ دیگر یاد بدهی همان کاری را که تو می‌کنی بکند."
+      },
+      "example": {
+        "en": "Stages like: prospected → discovery call → demo → proposal → negotiation → closed.",
+        "fa": "مرحله‌هایی مثلِ: پیدا شد ← تماسِ کشفِ نیاز ← دمو ← پیشنهاد ← چانه‌زنی ← بسته‌شد."
+      },
+      "tip": {
+        "en": "Write down the exact steps of your last three wins and look for the common path.",
+        "fa": "قدم‌های دقیقِ سه بردِ آخرت را بنویس و دنبالِ مسیرِ مشترکشان بگرد."
+      },
+      "pitfall": {
+        "en": "Selling on instinct alone, so nothing can be repeated or taught.",
+        "fa": "فروختن فقط از رویِ حس، طوری که هیچ‌چیز نه تکرار می‌شود نه یاد دادنی است."
+      }
+    },
+    "pipeline": {
+      "part": "process",
+      "n": 9,
+      "name": {
+        "en": "Keep the Pipeline Clean",
+        "fa": "پایپ‌لاین را تمیز نگه دار"
+      },
+      "glabel": {
+        "en": "Pipeline discipline",
+        "fa": "نظمِ پایپ‌لاین"
+      },
+      "principle": {
+        "en": "Every open deal needs an explicit next step with a date. Pipelines rot when “what happens next, and when” is left blank.",
+        "fa": "هر معاملهٔ باز باید یک قدمِ بعدیِ مشخص با تاریخ داشته باشد. پایپ‌لاین وقتی می‌گندد که «قدمِ بعدی چیست، و کِی» خالی مانده باشد."
+      },
+      "more": {
+        "en": "Kazanjy is blunt: pipelines get out of control when there's no explicit next step, or there is one but no time and date to do it. A clean CRM where each deal has an owner, a stage, and a dated action is how you keep reality from drifting.",
+        "fa": "کازانجی رک می‌گوید: پایپ‌لاین وقتی از کنترل خارج می‌شود که یا قدمِ بعدیِ مشخصی نباشد، یا باشد ولی زمان و تاریخی برایش تعیین نشده باشد. یک سی‌آر‌امِ تمیز که هر معامله توش یک صاحب، یک مرحله، و یک کارِ تاریخ‌دار دارد، همان چیزی است که نمی‌گذارد واقعیت از دستت در برود."
+      },
+      "example": {
+        "en": "Not “following up sometime” but “send proposal Tuesday, review call Thursday 2pm.”",
+        "fa": "نه «یه‌وقتی پیگیری می‌کنم» بلکه «سه‌شنبه پیشنهاد را می‌فرستم، پنج‌شنبه ساعتِ دو تماسِ بررسی.»"
+      },
+      "tip": {
+        "en": "Once a week, delete or re-date any deal with no real next step.",
+        "fa": "هفته‌ای یک‌بار، هر معامله‌ای که قدمِ بعدیِ واقعی ندارد را یا پاک کن یا تاریخِ تازه بهش بده."
+      },
+      "pitfall": {
+        "en": "A bloated pipeline full of “someday” deals that will never close.",
+        "fa": "یک پایپ‌لاینِ باددارِ پُر از معامله‌های «یه‌روزی» که هیچ‌وقت بسته نمی‌شوند."
+      }
+    },
+    "forecast": {
+      "part": "process",
+      "n": 10,
+      "name": {
+        "en": "Forecast & Measure",
+        "fa": "پیش‌بینی کن و اندازه بگیر"
+      },
+      "glabel": {
+        "en": "Metrics & forecast",
+        "fa": "شاخص و پیش‌بینی"
+      },
+      "principle": {
+        "en": "Track the few numbers that prove the motion works: conversion between stages, average deal size, and sales-cycle length.",
+        "fa": "همان چند عددی را دنبال کن که ثابت می‌کنند روشت جواب می‌دهد: نرخِ تبدیل بینِ مرحله‌ها، اندازهٔ متوسطِ معامله، و طولِ چرخهٔ فروش."
+      },
+      "more": {
+        "en": "Metrics turn selling from a feeling into a forecast. When you know your rates, you can predict revenue, see where deals leak, and prove to yourself the go-to-market is repeatable — the green light that says you're ready to hire.",
+        "fa": "شاخص‌ها فروش را از یک حس به یک پیش‌بینی تبدیل می‌کنند. وقتی نرخ‌هایت را بدانی، می‌توانی درآمد را پیش‌بینی کنی، ببینی معامله‌ها از کجا نشت می‌کنند، و به خودت ثابت کنی این روش تکرارشدنی است — همان چراغِ سبزی که می‌گوید آماده‌ای استخدام کنی."
+      },
+      "example": {
+        "en": "“One in four demos closes, average deal $12k, 30-day cycle” — now you can plan.",
+        "fa": "«از هر چهار دمو یکی می‌بندد، معاملهٔ متوسط دوازده‌هزار دلار، چرخهٔ سی‌روزه» — حالا می‌توانی برنامه بریزی."
+      },
+      "tip": {
+        "en": "Compute your demo-to-close rate this month; it sets everything else.",
+        "fa": "همین ماه نرخِ دمو-تا-بستن را حساب کن؛ همه‌چیزِ دیگر رویش سوار می‌شود."
+      },
+      "pitfall": {
+        "en": "Flying blind with no idea which stage loses the most deals.",
+        "fa": "کورکورانه پیش‌رفتن، بی‌اینکه بدانی کدام مرحله بیشترین معامله را می‌بازد."
+      }
+    },
+    "objections": {
+      "part": "closing",
+      "n": 11,
+      "name": {
+        "en": "Handle Objections Calmly",
+        "fa": "خونسرد به ایرادها جواب بده"
+      },
+      "glabel": {
+        "en": "Objections",
+        "fa": "ایرادها"
+      },
+      "principle": {
+        "en": "Treat objections as questions, not rejections. A concern raised out loud is a buying signal — the prospect is helping you close them.",
+        "fa": "به ایرادها مثلِ سؤال نگاه کن، نه ردکردن. نگرانی‌ای که بلند گفته می‌شود یک نشانهٔ خرید است — مشتری دارد کمکت می‌کند که ببندی‌اش."
+      },
+      "more": {
+        "en": "Most objections are a handful of predictable worries: price, timing, trust, fit. Prepare honest answers in advance, address the real concern underneath, and you turn “I'm not sure” into a solved problem instead of a dead end.",
+        "fa": "بیشترِ ایرادها همان چند نگرانیِ قابلِ‌حدس‌اند: قیمت، زمان، اعتماد، تناسب. از قبل جوابِ صادقانه آماده کن، به نگرانیِ واقعیِ زیرش جواب بده، آن‌وقت «مطمئن نیستم» را به یک مشکلِ حل‌شده تبدیل می‌کنی، نه یک بن‌بست."
+      },
+      "example": {
+        "en": "“It's too expensive” usually means “show me the payback” — so show it.",
+        "fa": "«خیلی گران است» معمولاً یعنی «نشانم بده کِی برمی‌گردد» — پس نشانش بده."
+      },
+      "tip": {
+        "en": "List your top five objections and write a one-line honest answer to each.",
+        "fa": "پنج ایرادِ اصلی‌ات را فهرست کن و برای هرکدام یک جوابِ صادقانهٔ یک‌خطی بنویس."
+      },
+      "pitfall": {
+        "en": "Getting defensive or talking over a concern instead of answering it.",
+        "fa": "جبهه‌گرفتن یا رویِ نگرانی حرف‌زدن، به‌جای اینکه جوابش را بدهی."
+      }
+    },
+    "askclose": {
+      "part": "closing",
+      "n": 12,
+      "name": {
+        "en": "Ask for the Close",
+        "fa": "درخواستِ بستن را بده"
+      },
+      "glabel": {
+        "en": "Ask for it",
+        "fa": "درخواستِ بستن"
+      },
+      "principle": {
+        "en": "Actually ask for the business, and don't celebrate early — run all the way until the money is in the bank.",
+        "fa": "واقعاً درخواستِ معامله را بده، و زود جشن نگیر — تا وقتی پول به حساب ننشسته، بدو تا خطِ آخر."
+      },
+      "more": {
+        "en": "Founders lose winnable deals by hoping the customer will close themselves. Advance every meeting to a concrete next step, ask the direct question, and keep pushing paperwork and signatures — a deal isn't done until it's paid.",
+        "fa": "بنیان‌گذارها معامله‌های قابلِ‌برد را با این امید که مشتری خودش ببندد، می‌بازند. هر جلسه را به یک قدمِ بعدیِ مشخص برسان، سؤالِ مستقیم را بپرس، و کارهای قرارداد و امضا را هُل بده جلو — معامله تا وقتی پولش پرداخت نشده، تمام نیست."
+      },
+      "example": {
+        "en": "After a good demo, say it plainly: “Shall we get you started? Here's what happens next.”",
+        "fa": "بعد از یک دموی خوب، رک بگو: «شروع کنیم؟ از این‌جا به بعد این‌طوری پیش می‌رود.»"
+      },
+      "tip": {
+        "en": "End every meeting by proposing the specific next step out loud.",
+        "fa": "هر جلسه را با پیشنهادِ بلندِ همان قدمِ بعدیِ مشخص تمام کن."
+      },
+      "pitfall": {
+        "en": "Doing a happy dance at “yes” and letting the deal slip before it's signed.",
+        "fa": "سرِ «بله» رقصِ شادی راه‌انداختن و گذاشتن معامله پیش از امضا از دست برود."
+      }
+    },
+    "negotiate": {
+      "part": "closing",
+      "n": 13,
+      "name": {
+        "en": "Negotiate & Price",
+        "fa": "چانه بزن و قیمت بگذار"
+      },
+      "glabel": {
+        "en": "Negotiate & price",
+        "fa": "چانه و قیمت"
+      },
+      "principle": {
+        "en": "Anchor high and protect your economics. Start with pricing that anticipates being negotiated down, so wherever you land still works for you.",
+        "fa": "لنگرت را بالا بینداز و صرفهٔ کارت را نگه دار. با قیمتی شروع کن که از قبل حسابِ چانه‌زنیِ رو به پایین را کرده باشد، تا هرجا که فرود آمدی، بازهم برایت بصرفد."
+      },
+      "more": {
+        "en": "Don't back yourself into a corner and start negotiating against yourself. Set a price with room to give, trade concessions for something in return, and never discount so hard that the deal stops being worth doing.",
+        "fa": "خودت را توی گوشه‌ای گیر نینداز که مجبور شوی با خودت چانه بزنی. قیمتی بگذار که جا برای کوتاه‌آمدن داشته باشد، هر امتیازی را در ازای یک چیزِ دیگر بده، و هیچ‌وقت آن‌قدر تخفیف نده که دیگر ارزشِ انجام‌دادن نداشته باشد."
+      },
+      "example": {
+        "en": "If you'll accept $10k, open at $14k — the discount becomes a gift you give, not a loss.",
+        "fa": "اگر قرار است ده‌هزار دلار را قبول کنی، از چهارده‌هزار شروع کن — آن‌وقت تخفیف می‌شود هدیه‌ای که می‌دهی، نه ضرری که می‌کنی."
+      },
+      "tip": {
+        "en": "Decide your floor price before the call, and never drop below it on the fly.",
+        "fa": "کف‌قیمتت را پیش از تماس مشخص کن، و هیچ‌وقت وسطِ کار زیرش نرو."
+      },
+      "pitfall": {
+        "en": "Discounting fast just to feel progress, until the deal isn't worth closing.",
+        "fa": "تخفیفِ سریع‌دادن فقط برای اینکه حسِ پیشرفت کنی، تا جایی که دیگر معامله ارزشِ بستن ندارد."
+      }
+    },
+    "whenhire": {
+      "part": "team",
+      "n": 14,
+      "name": {
+        "en": "Hire Only After It Works",
+        "fa": "فقط وقتی جواب داد استخدام کن"
+      },
+      "glabel": {
+        "en": "When to hire",
+        "fa": "کِی استخدام کنی"
+      },
+      "principle": {
+        "en": "Scale by adding people only once your metrics show the initial go-to-market is working. Proof first, hiring second.",
+        "fa": "فقط وقتی شاخص‌هایت نشان دادند روشِ اولیه جواب می‌دهد، با اضافه‌کردنِ آدم بزرگ شو. اول اثبات، بعد استخدام."
+      },
+      "more": {
+        "en": "Hire too early and you're paying someone to sell a motion that doesn't exist yet; they flail, you blame them, and you learn nothing. Once you can show repeatable numbers, adding reps multiplies something real instead of masking a gap.",
+        "fa": "زود استخدام کنی، یعنی داری به کسی پول می‌دهی تا روشی را بفروشد که هنوز وجود ندارد؛ دست‌وپا می‌زنند، تو مقصرشان می‌دانی، و هیچ‌چی یاد نمی‌گیری. وقتی توانستی اعدادِ تکرارشدنی نشان بدهی، اضافه‌کردنِ فروشنده یک چیزِ واقعی را چند برابر می‌کند، نه اینکه رویِ یک خلأ سرپوش بگذارد."
+      },
+      "example": {
+        "en": "Wait until you can say “I've closed 20 of these myself and know exactly how” before you hire.",
+        "fa": "صبر کن تا بتوانی بگویی «بیست تای اینها را خودم بسته‌ام و دقیقاً می‌دانم چطور»، بعد استخدام کن."
+      },
+      "tip": {
+        "en": "Make “the founder can repeat the sale” your gate before the first sales hire.",
+        "fa": "«بنیان‌گذار می‌تواند فروش را تکرار کند» را دروازه‌ات کن، پیش از اولین استخدامِ فروش."
+      },
+      "pitfall": {
+        "en": "Hiring reps to discover the motion for you — that's your job first.",
+        "fa": "استخدامِ فروشنده تا روش را برایت کشف کنند — این اولش کارِ خودِ توست."
+      }
+    },
+    "onboard": {
+      "part": "team",
+      "n": 15,
+      "name": {
+        "en": "Hire Quality, Onboard Well",
+        "fa": "باکیفیت استخدام کن، خوب راه بینداز"
+      },
+      "glabel": {
+        "en": "Hire & onboard",
+        "fa": "استخدام و راه‌اندازی"
+      },
+      "principle": {
+        "en": "Hire for quality over quantity, then onboard each rep deliberately into your narrative, product, and process.",
+        "fa": "کیفیت را به تعداد ترجیح بده، بعد هر فروشنده را با برنامه توی داستان، محصول و فرایندت راه بینداز."
+      },
+      "more": {
+        "en": "Kazanjy warns against hiring lots of mediocre reps and firing the ones who fail — it's especially damaging for a young company selling something new. A few strong hires, trained properly on why the product wins, beat a churning crowd.",
+        "fa": "کازانجی هشدار می‌دهد که تعدادِ زیادی فروشندهٔ متوسط استخدام‌کردن و اخراجِ آن‌هایی که شکست می‌خورند، مخصوصاً برای یک شرکتِ جوان که چیزِ تازه‌ای می‌فروشد خیلی آسیب‌زننده است. چند استخدامِ قوی که درست آموزش دیده‌اند چرا محصول برنده است، از یک جمعیتِ مدام‌عوض‌شونده بهتر است."
+      },
+      "example": {
+        "en": "Give a new rep your recorded calls, your objection answers, and a live-deal shadow before they solo.",
+        "fa": "به فروشندهٔ تازه، تماس‌های ضبط‌شده‌ات، جواب‌های ایرادها، و همراهی در یک معاملهٔ واقعی را بده، پیش از اینکه تنها برود میدان."
+      },
+      "tip": {
+        "en": "Write a two-week onboarding plan before the rep's first day.",
+        "fa": "پیش از روزِ اولِ فروشنده، یک برنامهٔ راه‌اندازیِ دوهفته‌ای بنویس."
+      },
+      "pitfall": {
+        "en": "Throwing new hires at the phones with no training and hoping some stick.",
+        "fa": "پرتاب‌کردنِ نیروهای تازه پشتِ تلفن بدونِ هیچ آموزشی، به این امید که چندتاشان بمانند."
+      }
+    },
+    "compmanage": {
+      "part": "team",
+      "n": 16,
+      "name": {
+        "en": "Comp, Manage & Measure",
+        "fa": "پاداش، مدیریت و اندازه‌گیری"
+      },
+      "glabel": {
+        "en": "Comp & manage",
+        "fa": "پاداش و مدیریت"
+      },
+      "principle": {
+        "en": "Pay reps a comp plan that rewards the behavior you want, and manage the team with the same metrics that proved the motion.",
+        "fa": "به فروشنده‌ها طرحِ پاداشی بده که همان رفتاری را که می‌خواهی جایزه بدهد، و تیم را با همان شاخص‌هایی مدیریت کن که روش را اثبات کردند."
+      },
+      "more": {
+        "en": "A good comp plan aligns the rep's paycheck with closed, healthy revenue. Manage with a weekly rhythm around pipeline and conversion, and great sales hiring and onboarding becomes a real competitive advantage over slower incumbents.",
+        "fa": "یک طرحِ پاداشِ خوب، حقوقِ فروشنده را با درآمدِ بسته‌شده و سالم هم‌راستا می‌کند. با یک ریتمِ هفتگی دورِ پایپ‌لاین و نرخِ تبدیل مدیریت کن، آن‌وقت استخدام و راه‌اندازیِ خوبِ فروش تبدیل می‌شود به یک برتریِ واقعی نسبت به رقیب‌های کندتر."
+      },
+      "example": {
+        "en": "Commission on paid deals, plus a weekly pipeline review — reps chase revenue, not vanity activity.",
+        "fa": "پورسانت روی معامله‌های پرداخت‌شده، به‌علاوهٔ یک مرورِ هفتگیِ پایپ‌لاین — فروشنده‌ها دنبالِ درآمد می‌روند، نه فعالیتِ نمایشی."
+      },
+      "tip": {
+        "en": "Tie most of variable pay to closed revenue, and review the pipeline every week.",
+        "fa": "بیشترِ حقوقِ متغیر را به درآمدِ بسته‌شده گره بزن، و هر هفته پایپ‌لاین را مرور کن."
+      },
+      "pitfall": {
+        "en": "A comp plan that rewards activity or bookings that never turn into cash.",
+        "fa": "یک طرحِ پاداش که فعالیت یا قراردادهایی را جایزه می‌دهد که هیچ‌وقت به پول تبدیل نمی‌شوند."
+      }
+    }
+  },
+  "core": {
+    "name": {
+      "en": "FOUNDER-LED SALES",
+      "fa": "فروشِ بنیان‌گذار"
+    },
+    "principle": {
+      "en": "The technical founder has to learn to sell before hiring salespeople. Early selling is evangelical product work — helping real people fix a real pain — and the founder is the only one who can run that tight loop between pitch and product.",
+      "fa": "بنیان‌گذارِ فنی باید پیش از استخدامِ فروشنده، خودش یادِ فروش بگیرد. فروشِ اولِ کار همان کارِ محصول است با شور و شوق — کمک به آدم‌های واقعی برای حلِ یک دردِ واقعی — و بنیان‌گذار تنها کسی است که می‌تواند آن حلقهٔ تنگِ بینِ حرفِ فروش و محصول را بچرخاند."
+    },
+    "more": {
+      "en": "Kazanjy's handbook walks a founder from mindset to a scaled team: reframe sales as helping, learn discovery and hard qualification, build a repeatable process and clean pipeline, close and negotiate deals, and only then hire, onboard, and manage a sales team — packaging your proven motion so others can run it.",
+      "fa": "دفترچهٔ کازانجی یک بنیان‌گذار را از ذهنیت تا یک تیمِ بزرگ‌شده می‌بَرد: فروش را دوباره «کمک» تعریف کن، کشفِ نیاز و محک‌زدنِ سفت‌وسخت را یاد بگیر، یک فرایندِ تکرارشدنی و پایپ‌لاینِ تمیز بساز، معامله‌ها را ببند و چانه بزن، و تازه بعدش تیمِ فروش استخدام و راه‌اندازی و مدیریت کن — روشِ اثبات‌شده‌ات را طوری بسته‌بندی کن که بقیه هم بتوانند اجرایش کنند."
+    },
+    "example": {
+      "en": "Click any node to open an idea. You can also drag the nodes around.",
+      "fa": "روی هر دایره کلیک کن تا یک ایده باز شود. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."
+    }
+  },
+  "stages": [
+    {
+      "level": 1,
+      "badge": {
+        "en": "Level 1 · Over-simplified",
+        "fa": "سطحِ ۱ · خیلی ساده"
+      },
+      "title": {
+        "en": "Founders sell first",
+        "fa": "اول بنیان‌گذار می‌فروشد"
+      },
+      "tagline": {
+        "en": "The whole book in a sentence.",
+        "fa": "کلِ کتاب در یک جمله."
+      },
+      "body": {
+        "en": "If you built it, you have to sell it first. Before you hire a single salesperson, close the early customers yourself — nobody understands the product or the pain better than you do right now.",
+        "fa": "اگر ساختی‌اش، اول باید خودت بفروشی‌اش. پیش از اینکه حتی یک فروشنده استخدام کنی، مشتری‌های اول را خودت ببند — همین الان هیچ‌کس محصول و درد را بهتر از تو نمی‌فهمد."
+      },
+      "example": {
+        "en": "No sales hire yet — you personally get your first customers on the phone and close them.",
+        "fa": "هنوز خبری از استخدامِ فروش نیست — خودت شخصاً مشتری‌های اول را پای تلفن می‌آوری و می‌بندی."
+      },
+      "gain": {
+        "en": "You accept that founder-led selling is step one, not something to delegate.",
+        "fa": "می‌پذیری که فروشِ بنیان‌گذار قدمِ اول است، نه چیزی که بسپاری به دیگری."
+      }
+    },
+    {
+      "level": 2,
+      "badge": {
+        "en": "Level 2 · Simple",
+        "fa": "سطحِ ۲ · ساده"
+      },
+      "title": {
+        "en": "Sell by helping",
+        "fa": "با کمک‌کردن بفروش"
+      },
+      "tagline": {
+        "en": "Sales is a service, and a skill.",
+        "fa": "فروش یک خدمت است، و یک مهارت."
+      },
+      "body": {
+        "en": "Drop the sleazy image. Good selling is being the <b>grease of the market</b> — finding people in real pain and connecting them to a fix. And it's a <b>learnable skill</b>, not a talent you're born with; you get better with reps.",
+        "fa": "آن تصویرِ حقه‌بازانه را دور بریز. فروشِ خوب یعنی <b>روغن‌کاریِ بازار</b> باشی — آدم‌هایی را که واقعاً درد دارند پیدا کنی و به یک راه‌حل وصلشان کنی. و این یک <b>مهارتِ یادگرفتنی</b> است، نه استعدادی که باهاش به‌دنیا آمده باشی؛ با تمرین بهتر می‌شوی."
+      },
+      "example": {
+        "en": "You stop dreading calls and start each one by asking what actually hurts.",
+        "fa": "دیگر از تماس‌ها نمی‌ترسی و هر کدام را با پرسیدنِ اینکه واقعاً چه چیزی اذیت می‌کند شروع می‌کنی."
+      },
+      "gain": {
+        "en": "You can pick up the phone without feeling like a fraud.",
+        "fa": "می‌توانی گوشی را برداری بی‌اینکه حس کنی داری کلاه سرِ کسی می‌گذاری."
+      }
+    },
+    {
+      "level": 3,
+      "badge": {
+        "en": "Level 3 · Balanced",
+        "fa": "سطحِ ۳ · متعادل"
+      },
+      "title": {
+        "en": "Run the motion",
+        "fa": "روش را اجرا کن"
+      },
+      "tagline": {
+        "en": "Discover, qualify, process, pipeline.",
+        "fa": "کشف کن، محک بزن، فرایند، پایپ‌لاین."
+      },
+      "body": {
+        "en": "Now the craft. Define your <b>ideal customer</b>, <b>prospect</b> them on purpose, <b>qualify hard</b> on budget-authority-need-timing, and truly <b>understand the pain</b> before you demo. Then write it down as a <b>repeatable process</b> and keep a clean <b>pipeline</b> where every deal has a dated next step.",
+        "fa": "حالا فوت‌وفنِ کار. <b>مشتریِ ایده‌آلت</b> را مشخص کن، عمداً <b>پیدایشان کن</b>، سفت‌وسخت روی بودجه-اختیار-نیاز-زمان <b>محکشان بزن</b>، و پیش از دمو واقعاً <b>دردشان را بفهم</b>. بعد همه را به شکلِ یک <b>فرایندِ تکرارشدنی</b> بنویس و یک <b>پایپ‌لاینِ</b> تمیز نگه دار که هر معامله توش یک قدمِ بعدیِ تاریخ‌دار دارد."
+      },
+      "example": {
+        "en": "Fifty matched prospects, a five-stage pipeline, and a discovery call before every demo.",
+        "fa": "پنجاه مشتریِ احتمالیِ جوردرست، یک پایپ‌لاینِ پنج‌مرحله‌ای، و یک تماسِ کشفِ نیاز پیش از هر دمو."
+      },
+      "gain": {
+        "en": "You can run a real, measurable sales process instead of winging it.",
+        "fa": "می‌توانی یک فرایندِ فروشِ واقعی و قابلِ‌اندازه‌گیری اجرا کنی، نه اینکه سرِهم‌بندی کنی."
+      }
+    },
+    {
+      "level": 4,
+      "badge": {
+        "en": "Level 4 · Advanced",
+        "fa": "سطحِ ۴ · پیشرفته"
+      },
+      "title": {
+        "en": "Close and negotiate",
+        "fa": "ببند و چانه بزن"
+      },
+      "tagline": {
+        "en": "Objections, the ask, and pricing.",
+        "fa": "ایرادها، درخواست، و قیمت."
+      },
+      "body": {
+        "en": "Advance deals to the finish. Meet <b>objections</b> calmly as buying signals, actually <b>ask for the close</b> and run until the money's in the bank, and <b>negotiate</b> from an anchored price that protects your economics — never discounting so hard the deal stops being worth doing.",
+        "fa": "معامله‌ها را تا خطِ پایان جلو ببر. با خونسردی به <b>ایرادها</b> به‌چشمِ نشانهٔ خرید جواب بده، واقعاً <b>درخواستِ بستن</b> را بده و تا وقتی پول به حساب ننشسته بدو، و از یک <b>قیمتِ لنگرانداخته</b> که صرفهٔ کارت را نگه می‌دارد <b>چانه بزن</b> — هیچ‌وقت آن‌قدر تخفیف نده که دیگر معامله ارزشِ انجام نداشته باشد."
+      },
+      "example": {
+        "en": "You anchor high, trade every concession, and ask for the signature out loud.",
+        "fa": "لنگرت را بالا می‌اندازی، هر امتیاز را در ازای چیزی می‌دهی، و بلند درخواستِ امضا را می‌کنی."
+      },
+      "gain": {
+        "en": "You can turn interested prospects into signed, paid customers.",
+        "fa": "می‌توانی مشتری‌های علاقه‌مند را به مشتریِ امضاکرده و پول‌داده تبدیل کنی."
+      }
+    },
+    {
+      "level": 5,
+      "badge": {
+        "en": "Level 5 · Expert",
+        "fa": "سطحِ ۵ · حرفه‌ای"
+      },
+      "title": {
+        "en": "Scale the team",
+        "fa": "تیم را بزرگ کن"
+      },
+      "tagline": {
+        "en": "Hire, onboard, comp, and manage.",
+        "fa": "استخدام، راه‌اندازی، پاداش، و مدیریت."
+      },
+      "body": {
+        "en": "Only once the numbers prove the motion repeats do you scale. <b>Hire</b> for quality over quantity, <b>onboard</b> reps into your written playbook, set a <b>comp plan</b> that rewards paid revenue, and <b>manage</b> with the same metrics. Package your proven motion, hand it off, and great sales hiring becomes a competitive advantage.",
+        "fa": "فقط وقتی اعداد ثابت کردند روش تکرار می‌شود، بزرگش می‌کنی. با تأکید بر کیفیت نه تعداد <b>استخدام</b> کن، فروشنده‌ها را توی دفترچهٔ نوشته‌شده‌ات <b>راه بینداز</b>، یک <b>طرحِ پاداش</b> بگذار که درآمدِ پرداخت‌شده را جایزه بدهد، و با همان شاخص‌ها <b>مدیریت</b> کن. روشِ اثبات‌شده‌ات را بسته‌بندی کن، بسپارش به بقیه، و استخدامِ خوبِ فروش تبدیل می‌شود به یک برگِ برنده."
+      },
+      "example": {
+        "en": "You've handed a trained rep a repeatable playbook and a weekly pipeline review — and revenue grows without you on every call.",
+        "fa": "یک فروشندهٔ آموزش‌دیده را با یک دفترچهٔ تکرارشدنی و یک مرورِ هفتگیِ پایپ‌لاین راه انداخته‌ای — و درآمد بی‌اینکه تو پای هر تماس باشی بزرگ می‌شود."
+      },
+      "gain": {
+        "en": "You can build a sales team that scales the motion you proved.",
+        "fa": "می‌توانی یک تیمِ فروش بسازی که همان روشی را که اثبات کردی بزرگ می‌کند."
+      }
+    }
+  ],
+  "quotes": [
+    {
+      "en": "Sales acumen is not inborn. It's just another skill to be learned.",
+      "fa": "استعدادِ فروش ذاتی نیست. فقط یک مهارتِ دیگر است که باید یاد گرفت."
+    },
+    {
+      "en": "Modern sales is not about trying to sell snake oil to a 'mark.' Rather, sales professionals are the grease of the market. They seek out inefficiencies in the world, in the form of qualified prospects who have the business pain that the proposed solution resolves.",
+      "fa": "فروشِ امروزی این نیست که بخواهی به یک طرف جنسِ قلابی بیندازی. برعکس، فروشنده‌های حرفه‌ای روغن‌کاریِ بازارند. دنبالِ جاهایی می‌گردند که کار لنگ می‌زند — یعنی مشتری‌های واجدِ شرایطی که همان دردی را دارند که راه‌حلِ پیشنهادی حلش می‌کند."
+    },
+    {
+      "en": "At this stage, your 'sales' is in large part evangelical product management and product marketing, and this is why you, as a founder, need to be involved in it.",
+      "fa": "در این مرحله، «فروشِ» تو بیشترش همان مدیریتِ محصول و بازاریابیِ محصول است با شور و ایمان، و برای همین است که تو، به‌عنوانِ بنیان‌گذار، باید خودت پایش باشی."
+    },
+    {
+      "en": "Targeting based on relationship rather than need is ineffective and a waste of time.",
+      "fa": "هدف‌گرفتنِ آدم‌ها بر اساسِ رابطه به‌جای نیاز، بی‌فایده است و اتلافِ وقت."
+    },
+    {
+      "en": "Prospecting is about finding those people in a repeatable fashion. By knowing your ideal customer profile, you'll be able to identify more prospects in the wild.",
+      "fa": "پیداکردنِ مشتری یعنی همان آدم‌ها را به شکلی تکرارشدنی پیدا کنی. وقتی پروفایلِ مشتریِ ایده‌آلت را بشناسی، می‌توانی بیرون، توی دنیای واقعی، مشتری‌های بیشتری را تشخیص بدهی."
+    },
+    {
+      "en": "Pipelines get out of control when there's no explicit next step, and when there are specific next steps but no clear time and date for when to complete them.",
+      "fa": "پایپ‌لاین وقتی از کنترل خارج می‌شود که یا قدمِ بعدیِ مشخصی نباشد، یا قدم‌های مشخصی باشد ولی زمان و تاریخِ روشنی برای انجامشان تعیین نشده باشد."
+    },
+    {
+      "en": "Start with inflated pricing in anticipation of being negotiated down, so that wherever you end up still provides an economically viable deal for you.",
+      "fa": "با قیمتی بالاتر شروع کن، با این حساب که قرار است پایین بیایی، طوری که هرجا هم که تمام شد، بازهم برایت یک معاملهٔ به‌صرفه باشد."
+    },
+    {
+      "en": "Don't stop to do a happy dance and risk your deal. You have to run all the way until the money's in the bank.",
+      "fa": "نایست که رقصِ شادی راه بیندازی و معامله‌ات را به خطر بیندازی. باید تا خطِ آخر بدوی، تا وقتی پول به حساب بنشیند."
+    },
+    {
+      "en": "The ability to attract, hire, and onboard successful, high-quality sales staff can be a monster competitive advantage that startups have against ossified incumbents.",
+      "fa": "توانایی جذب، استخدام، و راه‌اندازیِ نیروی فروشِ موفق و باکیفیت می‌تواند یک برگِ برندهٔ غول‌آسا باشد که استارتاپ‌ها در برابرِ غول‌های خشک‌وجامدِ قدیمی دارند."
+    }
+  ],
+  "media": [
+    {
+      "kind": "yt",
+      "id": "lAutzV21Gus",
+      "src": {
+        "en": "YouTube · Peter Kazanjy",
+        "fa": "یوتیوب · Peter Kazanjy"
+      },
+      "title": {
+        "en": "Startup Sales Maturity Stages & Founder-Led Selling",
+        "fa": "مرحله‌های بلوغِ فروشِ استارتاپ و فروشِ بنیان‌گذار"
+      },
+      "desc": {
+        "en": "A presentation from the author himself on founder-led selling.",
+        "fa": "یک ارائه از خودِ نویسنده دربارهٔ فروشِ بنیان‌گذار."
+      },
+      "bullets": {
+        "en": [
+          "The big picture, straight from Pete",
+          "Why founders sell first",
+          "A great first watch"
+        ],
+        "fa": [
+          "تصویرِ کلی، مستقیم از زبانِ پیت",
+          "چرا اول بنیان‌گذار می‌فروشد",
+          "برای اولین تماشا عالی است"
+        ]
+      },
+      "best": {
+        "en": "Best for Stage 1–2.",
+        "fa": "خوب برای مرحلهٔ ۱ و ۲."
+      }
+    },
+    {
+      "kind": "yt",
+      "id": "bbciemLuRRI",
+      "src": {
+        "en": "YouTube · 30 Minutes to President's Club",
+        "fa": "یوتیوب · 30 Minutes to President's Club"
+      },
+      "title": {
+        "en": "Founder-Led Sales: Taking Your Startup to Market",
+        "fa": "فروشِ بنیان‌گذار: بردنِ استارتاپت به بازار"
+      },
+      "desc": {
+        "en": "A tactical talk on running founder-led sales in practice.",
+        "fa": "یک صحبتِ کاربردی دربارهٔ اجرای عملیِ فروشِ بنیان‌گذار."
+      },
+      "bullets": {
+        "en": [
+          "Discovery, qualification, and process",
+          "Real founder-selling tactics",
+          "Good after a first read"
+        ],
+        "fa": [
+          "کشفِ نیاز، محک‌زدن، و فرایند",
+          "تاکتیک‌های واقعیِ فروشِ بنیان‌گذار",
+          "خوب بعد از اولین خواندن"
+        ]
+      },
+      "best": {
+        "en": "Best for Stage 2–3.",
+        "fa": "خوب برای مرحلهٔ ۲ و ۳."
+      }
+    },
+    {
+      "kind": "yt",
+      "id": "uWE6AgZM51M",
+      "src": {
+        "en": "YouTube · IO Podcast",
+        "fa": "یوتیوب · IO Podcast"
+      },
+      "title": {
+        "en": "The Sales Playbook Every Founder Needs to Know",
+        "fa": "دفترچهٔ فروشی که هر بنیان‌گذاری باید بلد باشد"
+      },
+      "desc": {
+        "en": "A long conversation with Pete on the founder sales playbook.",
+        "fa": "یک گفت‌وگوی طولانی با پیت دربارهٔ دفترچهٔ فروشِ بنیان‌گذار."
+      },
+      "bullets": {
+        "en": [
+          "Closing, negotiation, and hiring",
+          "How the pieces fit together",
+          "A deeper dive"
+        ],
+        "fa": [
+          "بستن، چانه‌زنی، و استخدام",
+          "اینکه تکه‌ها چطور کنارِ هم می‌نشینند",
+          "یک غوطهٔ عمیق‌تر"
+        ]
+      },
+      "best": {
+        "en": "Best for Stage 3–4.",
+        "fa": "خوب برای مرحلهٔ ۳ و ۴."
+      }
+    },
+    {
+      "kind": "img",
+      "url": "https://www.foundingsales.com/",
+      "src": {
+        "en": "foundingsales.com · Official",
+        "fa": "foundingsales.com · رسمی"
+      },
+      "title": {
+        "en": "Founding Sales — Free Full Book Online",
+        "fa": "فروشِ بنیان‌گذار — کتابِ کاملِ رایگانِ آنلاین"
+      },
+      "desc": {
+        "en": "The author's official site, where the entire book is free to read.",
+        "fa": "سایتِ رسمیِ نویسنده، جایی که کلِ کتاب را می‌شود رایگان خواند."
+      },
+      "bullets": {
+        "en": [
+          "The whole book, free",
+          "Straight from the source",
+          "Chapters and extras"
+        ],
+        "fa": [
+          "کلِ کتاب، رایگان",
+          "مستقیم از خودِ منبع",
+          "فصل‌ها و مطالبِ اضافه"
+        ]
+      },
+      "best": {
+        "en": "For the full text and source.",
+        "fa": "برای متنِ کامل و منبعِ اصلی."
+      }
+    }
+  ],
+  "go": [
+    {
+      "label": {
+        "en": "Read the full book free",
+        "fa": "کتابِ کامل را رایگان بخوان"
+      },
+      "url": "https://www.foundingsales.com/"
+    },
+    {
+      "label": {
+        "en": "Book on Goodreads",
+        "fa": "کتاب در گودریدز"
+      },
+      "url": "https://www.goodreads.com/book/show/54339426-founding-sales"
+    },
+    {
+      "label": {
+        "en": "Buy on Amazon",
+        "fa": "خرید از آمازون"
+      },
+      "url": "https://www.amazon.com/Founding-Sales-Go-Market-Handbook/dp/1734505117"
+    }
+  ],
+  "recs": [
+    {
+      "pri": "b",
+      "t": {
+        "en": "Close your next customer yourself",
+        "fa": "مشتریِ بعدی‌ات را خودت ببند"
+      },
+      "d": {
+        "en": "Take one live deal and run it end to end personally — no rep, no shortcut.",
+        "fa": "یک معاملهٔ واقعی را بردار و از اول تا آخر خودت پیش ببر — بی‌فروشنده، بی‌میان‌بر."
+      }
+    },
+    {
+      "pri": "b",
+      "t": {
+        "en": "Write your ideal-customer profile",
+        "fa": "پروفایلِ مشتریِ ایده‌آلت را بنویس"
+      },
+      "d": {
+        "en": "In one paragraph, describe exactly who has the pain you fix, then list ten prospects who match.",
+        "fa": "در یک پاراگراف دقیق بنویس کی همان دردی را دارد که تو حلش می‌کنی، بعد ده مشتریِ احتمالیِ جوردرست فهرست کن."
+      }
+    },
+    {
+      "pri": "n",
+      "t": {
+        "en": "Give every deal a dated next step",
+        "fa": "به هر معامله یک قدمِ بعدیِ تاریخ‌دار بده"
+      },
+      "d": {
+        "en": "Open your pipeline and add a specific next action and date to every deal, or drop it.",
+        "fa": "پایپ‌لاینت را باز کن و به هر معامله یک کارِ بعدیِ مشخص و تاریخ بده، یا بیرونش بینداز."
+      }
+    },
+    {
+      "pri": "n",
+      "t": {
+        "en": "Prepare answers to your top objections",
+        "fa": "برای ایرادهای اصلی‌ات جواب آماده کن"
+      },
+      "d": {
+        "en": "List the five objections you hear most and write one honest, short answer for each.",
+        "fa": "پنج ایرادی که بیشتر از همه می‌شنوی را فهرست کن و برای هرکدام یک جوابِ صادقانهٔ کوتاه بنویس."
+      }
+    }
+  ]
 });
 </script>
 </body>

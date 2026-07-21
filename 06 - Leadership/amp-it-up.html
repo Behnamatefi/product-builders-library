@@ -1,21 +1,20 @@
 <!DOCTYPE html>
-<!-- complexity-level: 1→5 (this page teaches the SAME book at five depths, over-simplified … expert) -->
-<!-- Effortless (Greg McKeown) — bilingual EN/FA knowledge graph & 5-stage learning page -->
+<!-- Generated page. Edit CONTENT in the DATA object below; shared UI lives in ../assets/book.css + ../assets/book.js -->
 <html lang="fa" dir="rtl" data-lang="fa">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Amp It Up — نقشهٔ دانش و یادگیری ۵ مرحله‌ای</title>
 
-<!-- Boot theme + language BEFORE paint to avoid a flash -->
+<!-- Boot theme + language BEFORE paint to avoid a flash (shared library-wide keys) -->
 <script>
 (function(){
   try{
-    var th = localStorage.getItem('ampup-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
+    var th = localStorage.getItem('pbl-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
     document.documentElement.setAttribute('data-theme', th);
   }catch(e){ document.documentElement.setAttribute('data-theme','light'); }
   try{
-    var lg = localStorage.getItem('ampup-lang') || 'fa';
+    var lg = localStorage.getItem('pbl-lang') || 'fa';
     document.documentElement.setAttribute('data-lang', lg);
     document.documentElement.setAttribute('lang', lg);
     document.documentElement.setAttribute('dir', lg==='fa' ? 'rtl' : 'ltr');
@@ -28,876 +27,1214 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:ital,opsz@0,6..72;1,6..72&display=swap" rel="stylesheet">
-
-<style>
-/* ── TOKENS ───────────────────────────────────────────────── */
-:root, [data-theme="light"]{
-  --bg:#f5f6f8; --bg2:#eef2f7; --card:#fff; --card2:#f8fafb;
-  --ink:#1c2330; --mut:#6b7280; --line:#e6e8ee;
-  --accent:#0e7c86; --accent-ink:#fff; --warm:#c2410c;
-  --shadow:0 1px 2px rgba(20,30,50,.05),0 6px 24px rgba(20,30,50,.06);
-  --hero-1:#0e7c86; --hero-2:#0b5e66;
-  --c-teal:#0e9aa6; --c-blue:#2f6fb0; --c-violet:#7c3aed; --c-amber:#d97706;
-  --c-green:#15a34a; --c-red:#e11d48; --c-gold:#c98a12; --c-gray:#6b7280;
-  --state:#0e9aa6; --action:#d97706; --results:#7c3aed; --core:#0e7c86;
-}
-[data-theme="dark"]{
-  --bg:#0e131a; --bg2:#161d27; --card:#151c26; --card2:#1b2430;
-  --ink:#e9eef5; --mut:#9aa7b6; --line:#27313d;
-  --accent:#2dd4bf; --accent-ink:#06231f; --warm:#fb923c;
-  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 28px rgba(0,0,0,.45);
-  --hero-1:#0c5f67; --hero-2:#07323a;
-  --c-teal:#2dd4bf; --c-blue:#5b9bd5; --c-violet:#a78bfa; --c-amber:#fbbf24;
-  --c-green:#34d399; --c-red:#fb7185; --c-gold:#e2b04a; --c-gray:#94a3b8;
-  --state:#2dd4bf; --action:#fbbf24; --results:#a78bfa; --core:#2dd4bf;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);
-  font-family:Vazirmatn,"Segoe UI",Tahoma,Arial,sans-serif;line-height:1.85;font-size:15px;
-  transition:background .25s,color .25s}
-html[data-lang="en"] body{font-family:Inter,"Segoe UI",system-ui,Arial,sans-serif;line-height:1.7}
-.wrap{max-width:960px;margin:0 auto;padding:0 18px 40px}
-
-/* language visibility */
-html[data-lang="en"] [data-only="fa"]{display:none !important}
-html[data-lang="fa"] [data-only="en"]{display:none !important}
-
-/* ── HERO ─────────────────────────────────────────────────── */
-.hero{background:linear-gradient(135deg,var(--hero-1),var(--hero-2));color:#fff;padding:44px 0 34px;position:relative;overflow:hidden}
-.hero::after{content:"";position:absolute;inset-inline-end:-80px;top:-80px;width:280px;height:280px;
-  background:radial-gradient(circle,rgba(255,255,255,.12),transparent 70%);pointer-events:none}
-.hero .wrap{padding-bottom:0;position:relative;z-index:1}
-.hero h1{margin:0 0 8px;font-size:30px;font-weight:800;letter-spacing:-.3px;line-height:1.25}
-html[data-lang="en"] .hero h1{font-family:Newsreader,Georgia,serif;font-weight:600;letter-spacing:-.5px}
-.hero .dek{margin:0;opacity:.94;font-size:15.5px;max-width:640px}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;
-  color:rgba(255,255,255,.95);background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.24);
-  padding:5px 13px;border-radius:20px;margin-bottom:15px}
-.eyebrow .edot{width:7px;height:7px;border-radius:50%;background:#fff;box-shadow:0 0 0 3px rgba(255,255,255,.25)}
-.metastrip{display:flex;flex-wrap:wrap;gap:14px 30px;margin-top:20px;padding-top:16px;
-  border-top:1px solid rgba(255,255,255,.18)}
-.metaitem{display:flex;flex-direction:column;gap:3px}
-.metaitem .mk{font-size:10.5px;color:rgba(255,255,255,.62);font-weight:700;letter-spacing:.6px;text-transform:uppercase}
-.metaitem .mv{font-size:14px;color:#fff;font-weight:700}
-.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
-.chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);
-  border-radius:11px;padding:9px 15px;font-size:13px}
-.chip b{font-size:20px;display:block;font-weight:800}
-
-/* ── NAV + TOC ────────────────────────────────────────────── */
-.navbar{position:sticky;top:0;z-index:60;background:color-mix(in srgb,var(--card) 92%,transparent);
-  backdrop-filter:saturate(180%) blur(10px);-webkit-backdrop-filter:saturate(180%) blur(10px);
-  border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
-.navin{max-width:960px;margin:0 auto;padding:8px 16px;display:flex;align-items:center;gap:12px}
-.brand{flex:0 0 auto;font-weight:800;font-size:12.5px;color:var(--accent);white-space:nowrap;
-  display:flex;align-items:center;gap:7px}
-.brand .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);
-  box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 18%,transparent)}
-.toc{flex:1 1 auto;display:flex;flex-wrap:wrap;gap:7px;justify-content:center}
-.toc a{font-size:12.5px;color:var(--mut);text-decoration:none;border:1px solid var(--line);
-  border-radius:20px;padding:5px 12px;background:var(--card);white-space:nowrap;
-  transition:background .15s,color .15s,border-color .15s}
-.toc a:hover{color:var(--accent);border-color:var(--accent)}
-.toc a.active{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
-.navctl{flex:0 0 auto;display:flex;align-items:center;gap:8px}
-.langbtn{height:34px;border-radius:18px;border:1px solid var(--line);background:var(--card);
-  color:var(--ink);cursor:pointer;font:inherit;font-size:12.5px;font-weight:700;padding:0 13px;
-  display:flex;align-items:center;gap:6px}
-.langbtn:hover{border-color:var(--accent);color:var(--accent)}
-.langbtn .globe{width:15px;height:15px;display:block}
-.themebtn{flex:0 0 auto;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);
-  background:var(--card);color:var(--ink);cursor:pointer;line-height:1;display:grid;place-items:center}
-.themebtn svg{width:17px;height:17px;display:block}
-.themebtn:hover{border-color:var(--accent);color:var(--accent)}
-[data-theme="light"] .themebtn .ic-sun{display:none}
-[data-theme="dark"]  .themebtn .ic-moon{display:none}
-
-/* ── BLOCKS ───────────────────────────────────────────────── */
-h2{font-size:21px;margin:44px 0 6px;font-weight:800;scroll-margin-top:92px;line-height:1.35}
-html[data-lang="en"] h2{font-family:Newsreader,Georgia,serif;font-weight:600}
-h2 .num{color:var(--accent);font-variant-numeric:tabular-nums}
-.sub{color:var(--mut);font-size:13.5px;margin:0 0 16px;max-width:680px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;
-  padding:20px 22px;margin:14px 0;box-shadow:var(--shadow)}
-.lead{font-size:15.5px}
-.lead b{color:var(--warm)}
-.kgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin:8px 0}
-.kbox{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:15px 16px;text-align:center}
-.kbox .v{font-size:26px;font-weight:800;color:var(--accent);font-variant-numeric:tabular-nums}
-.kbox .l{font-size:12.5px;color:var(--mut);margin-top:3px}
-ul.clean{margin:6px 0;padding-inline-start:20px} ul.clean li{margin:8px 0}
-.callout{background:color-mix(in srgb,var(--warm) 9%,var(--card));
-  border:1px solid color-mix(in srgb,var(--warm) 30%,var(--line));
-  border-radius:12px;padding:14px 18px;margin:12px 0}
-.callout b{color:var(--warm)}
-.callout.accent{background:color-mix(in srgb,var(--accent) 9%,var(--card));
-  border-color:color-mix(in srgb,var(--accent) 30%,var(--line))}
-.callout.accent b{color:var(--accent)}
-a{color:var(--accent)}
-
-/* ── GRAPH ────────────────────────────────────────────────── */
-.gtabs{display:inline-flex;gap:4px;background:var(--bg2);border:1px solid var(--line);
-  border-radius:11px;padding:4px;margin:6px 0 2px}
-.gtab{border:0;background:transparent;color:var(--mut);font:inherit;font-size:13px;font-weight:700;
-  padding:7px 15px;border-radius:8px;cursor:pointer}
-.gtab.active{background:var(--card);color:var(--accent);box-shadow:var(--shadow)}
-.graphcard{padding:14px}
-.legend{display:flex;flex-wrap:wrap;gap:14px;margin:2px 4px 12px;font-size:12.5px;color:var(--mut)}
-.legend span{display:inline-flex;align-items:center;gap:6px}
-.legend i{width:11px;height:11px;border-radius:50%;display:inline-block}
-.graphstage{display:grid;grid-template-columns:1fr;gap:14px}
-@media(min-width:760px){.graphstage{grid-template-columns:1.35fr .95fr}}
-.svgwrap{position:relative;background:var(--card2);border:1px solid var(--line);border-radius:12px;
-  overflow:hidden;min-height:300px}
-#netsvg{display:block;width:100%;height:560px;touch-action:none;cursor:grab}
-#netsvg text{pointer-events:none;user-select:none}
-.ghint{position:absolute;inset-inline-start:12px;top:10px;font-size:11.5px;color:var(--mut);
-  background:color-mix(in srgb,var(--card) 82%,transparent);border:1px solid var(--line);
-  border-radius:20px;padding:3px 11px;backdrop-filter:blur(4px);max-width:70%}
-.greset{position:absolute;inset-inline-end:10px;top:10px;border:1px solid var(--line);background:var(--card);
-  color:var(--mut);border-radius:8px;font:inherit;font-size:11.5px;padding:4px 10px;cursor:pointer}
-.greset:hover{color:var(--accent);border-color:var(--accent)}
-/* node + link interaction states */
-.node{cursor:pointer}
-/* the inner <g class="ns"> is what scales; fill-box keeps the pivot on the node itself, not the SVG viewport */
-.ns{transform-box:fill-box;transform-origin:center;transition:transform .2s cubic-bezier(.2,.75,.25,1)}
-.node.hover .ns{transform:scale(1.1)}
-.node.sel  .ns{transform:scale(1.34)}                 /* selected node grows */
-.node.ncore.hover .ns{transform:scale(1.06)}
-.node.ncore.sel   .ns{transform:none}                 /* the centre 'Effortless' node keeps default size */
-.node.sel circle{stroke:var(--ink);stroke-width:2.5;filter:drop-shadow(0 0 8px color-mix(in srgb,var(--accent) 60%,transparent))}
-.node.hl circle{stroke:var(--ink);stroke-opacity:.5;stroke-width:2.5}
-.node.dim{opacity:.2}
-.node text{font-family:Vazirmatn,Tahoma,sans-serif;font-weight:700}
-html[data-lang="en"] .node text{font-family:Inter,sans-serif}
-.glink{transition:opacity .2s,stroke .2s}
-.glink.dim{opacity:.08}
-.glink.hl{stroke:var(--accent) !important;stroke-opacity:.8}
-/* detail panel */
-.detail{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;min-height:220px}
-@media(min-width:760px){.detail{max-height:480px;overflow:auto}}
-.detail .dkick{font-size:11.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;display:flex;align-items:center;gap:7px;color:var(--mut)}
-.detail .dkick i{width:10px;height:10px;border-radius:50%}
-.detail h4{margin:8px 0 3px;font-size:18px;font-weight:800}
-html[data-lang="en"] .detail h4{font-family:Newsreader,serif;font-weight:600}
-.detail .drow{margin:11px 0}
-.detail .dlab{font-size:10.5px;font-weight:800;color:var(--accent);letter-spacing:.5px;text-transform:uppercase;
-  display:inline-flex;align-items:center;gap:5px}
-.detail .drow.tip .dlab{color:var(--c-green)}
-.detail .drow.pit .dlab{color:var(--warm)}
-.detail .drow.more{border-inline-start:2px solid color-mix(in srgb,var(--accent) 32%,var(--line));padding-inline-start:11px}
-.detail .drow.more .dlab{color:var(--mut)}
-.detail .dtxt{font-size:13.6px;margin-top:3px}
-.dchips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
-.dchip{font-size:12px;border:1px solid var(--line);background:var(--card2);border-radius:16px;padding:4px 11px;
-  cursor:pointer;color:var(--ink);display:inline-flex;align-items:center;gap:6px;font-family:inherit}
-.dchip:hover{border-color:var(--accent);color:var(--accent)}
-.dchip i{width:8px;height:8px;border-radius:50%;flex:0 0 auto}
-
-/* ── CONCEPT MAP ──────────────────────────────────────────── */
-.mapgrid{display:grid;grid-template-columns:1fr;gap:14px}
-@media(min-width:820px){.mapgrid{grid-template-columns:repeat(3,1fr)}}
-.partcol{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:16px;position:relative}
-.partcol .ph{display:flex;align-items:center;gap:9px;margin-bottom:3px}
-.partcol .pdot{width:13px;height:13px;border-radius:50%;flex:0 0 auto}
-.partcol .pnum{font-size:11px;font-weight:800;color:var(--mut)}
-.partcol h4{margin:0;font-size:16.5px;font-weight:800}
-html[data-lang="en"] .partcol h4{font-family:Newsreader,serif;font-weight:600}
-.partcol .ptag{font-size:12px;color:var(--mut);margin:2px 0 4px;font-weight:700}
-.partcol .pgist{font-size:12.8px;color:var(--mut);margin:0 0 12px}
-.chapchip{display:flex;align-items:baseline;gap:8px;padding:7px 10px;border:1px solid var(--line);
-  border-radius:9px;margin:6px 0;background:var(--card2);font-size:13px}
-.chapchip .cn{font-size:11px;font-weight:800;color:var(--mut);flex:0 0 auto;font-variant-numeric:tabular-nums}
-.chapchip b{font-weight:700}
-.chapchip small{color:var(--mut);display:block;font-size:11.5px;line-height:1.5}
-.flowline{display:flex;align-items:center;justify-content:center;gap:10px;color:var(--mut);
-  font-size:12.5px;font-weight:700;margin:6px 0 2px;flex-wrap:wrap}
-.flowline .ar{color:var(--accent)}
-
-/* ── STAGE LADDER ─────────────────────────────────────────── */
-.ladder{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 4px}
-.rung{flex:1 1 150px;border:1px solid var(--line);background:var(--card);border-radius:11px;
-  padding:11px 13px;cursor:pointer;transition:transform .12s,border-color .12s;position:relative}
-.rung:hover{border-color:var(--accent);transform:translateY(-2px)}
-.rung.active{border-color:var(--accent);box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 35%,transparent)}
-.rung .lv{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.4px}
-.rung .lt{font-size:13.5px;font-weight:800;margin-top:2px}
-.rung .lbar{height:5px;border-radius:4px;background:var(--bg2);margin-top:9px;overflow:hidden}
-.rung .lbar i{display:block;height:100%;background:linear-gradient(90deg,var(--c-teal),var(--c-violet))}
-.stagecard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 24px;
-  margin:14px 0;box-shadow:var(--shadow)}
-.stagecard .shead{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-.stagecard .badge{font-size:12px;font-weight:800;color:#fff;background:var(--accent);
-  border-radius:8px;padding:4px 11px;white-space:nowrap}
-.stagecard h3{margin:0;font-size:21px;font-weight:800}
-html[data-lang="en"] .stagecard h3{font-family:Newsreader,serif;font-weight:600}
-.stagecard .tagline{color:var(--mut);font-size:13.5px;margin:4px 0 14px;font-weight:700}
-.stagecard .sbody{font-size:15px}
-.exbox{background:var(--card2);border:1px solid var(--line);border-inline-start:3px solid var(--accent);
-  border-radius:0 11px 11px 0;padding:13px 16px;margin:14px 0 6px}
-.exbox .exk{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.5px;text-transform:uppercase}
-.exbox .ext{font-size:13.8px;margin-top:3px}
-.gainrow{display:flex;align-items:flex-start;gap:9px;margin-top:12px;font-size:13px;color:var(--mut)}
-.gainrow .gi{flex:0 0 auto;color:var(--c-green);font-weight:800}
-.stagenav{display:flex;justify-content:space-between;gap:10px;margin-top:16px}
-.stagenav button{border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit;
-  font-size:13px;font-weight:700;border-radius:9px;padding:8px 14px;cursor:pointer}
-.stagenav button:hover:not(:disabled){border-color:var(--accent);color:var(--accent)}
-.stagenav button:disabled{opacity:.4;cursor:default}
-
-/* ── QUOTES ───────────────────────────────────────────────── */
-.qgrid{display:grid;grid-template-columns:1fr;gap:12px}
-@media(min-width:720px){.qgrid{grid-template-columns:1fr 1fr}}
-blockquote{margin:0;background:var(--card2);border-inline-start:3px solid var(--accent);
-  border-radius:0 12px 12px 0;padding:15px 18px;font-size:14.5px;position:relative}
-blockquote .qm{font-size:34px;line-height:0;color:var(--accent);opacity:.35;font-family:Georgia,serif;
-  position:absolute;inset-inline-start:10px;top:20px}
-blockquote p{margin:0;padding-inline-start:22px}
-html[data-lang="en"] blockquote{font-family:Newsreader,Georgia,serif;font-size:15.5px}
-
-/* ── MEDIA ────────────────────────────────────────────────── */
-.mgrid{display:grid;grid-template-columns:1fr;gap:16px}
-@media(min-width:640px){.mgrid{grid-template-columns:1fr 1fr}}
-.mcard{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;
-  box-shadow:var(--shadow);display:flex;flex-direction:column}
-.mthumb{position:relative;display:block;aspect-ratio:16/9;background:var(--bg2);overflow:hidden;text-decoration:none}
-.mthumb img{width:100%;height:100%;object-fit:cover;display:block}
-.mthumb .play{position:absolute;inset:0;display:grid;place-items:center}
-.mthumb .play span{width:54px;height:54px;border-radius:50%;background:rgba(0,0,0,.6);
-  display:grid;place-items:center;border:2px solid rgba(255,255,255,.9)}
-.mthumb .play svg{width:22px;height:22px;fill:#fff;margin-inline-start:3px}
-.mthumb .ptype{position:absolute;inset-inline-start:9px;top:9px;background:rgba(0,0,0,.72);color:#fff;
-  font-size:11px;font-weight:700;border-radius:6px;padding:3px 9px;letter-spacing:.3px}
-.mfake{aspect-ratio:16/9;display:grid;place-items:center;
-  background:linear-gradient(135deg,color-mix(in srgb,var(--c-violet) 22%,var(--card)),color-mix(in srgb,var(--c-teal) 22%,var(--card)))}
-.mfake svg{width:52px;height:52px;color:var(--ink);opacity:.6}
-.mbody{padding:15px 17px;display:flex;flex-direction:column;gap:7px;flex:1}
-.mbody .msrc{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.3px;text-transform:uppercase}
-.mbody h4{margin:0;font-size:15.5px;font-weight:800;line-height:1.4}
-html[data-lang="en"] .mbody h4{font-family:Newsreader,serif;font-weight:600}
-.mbody .mdesc{font-size:13px;color:var(--mut);margin:0}
-.mbody ul{margin:4px 0 0;padding-inline-start:18px}
-.mbody ul li{font-size:12.8px;margin:5px 0}
-.mbody .mbest{font-size:12px;font-weight:700;color:var(--warm);margin-top:auto;padding-top:8px}
-.mlink{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;
-  text-decoration:none;color:var(--accent);margin-top:4px}
-.mlink:hover{text-decoration:underline}
-.golist{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
-.golist a{font-size:12.5px;text-decoration:none;color:var(--ink);border:1px solid var(--line);
-  border-radius:20px;padding:6px 13px;background:var(--card);font-weight:700}
-.golist a:hover{border-color:var(--accent);color:var(--accent)}
-
-/* ── RECS + METHOD + CREDIT ───────────────────────────────── */
-.rec{display:grid;gap:10px;margin:8px 0}
-.rec .item{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--card)}
-.rec .item .t{font-weight:800;font-size:14.5px;margin-bottom:3px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.rec .item .t .pri{font-size:11px;font-weight:700;color:#fff;background:var(--warm);border-radius:6px;padding:2px 9px}
-.rec .item .t .pri.b{background:var(--accent)}
-.rec .item .d{font-size:13.4px;color:var(--mut)}
-.method{color:var(--mut);font-size:13.4px}
-.method p{margin:8px 0}
-.method b{color:var(--ink)}
-.credit{text-align:center;margin-top:40px;padding:22px 0 8px;border-top:1px solid var(--line);
-  color:var(--mut);font-size:14px}
-.credit .cname{color:var(--ink);font-weight:800}
-.credit a{font-weight:700;text-decoration:none}
-.credit a:hover{text-decoration:underline}
-.credit .sep{opacity:.5;margin:0 8px}
-.credit .li{display:inline-flex;align-items:center;gap:5px;vertical-align:middle}
-.credit .li svg{width:15px;height:15px;vertical-align:-3px}
-
-@media (max-width:640px){
-  body{font-size:14px}
-  .wrap{padding:0 13px 30px}
-  .hero{padding:28px 0 22px} .hero h1{font-size:22px}
-  h2{font-size:18px;scroll-margin-top:66px}
-  .brand{display:none}
-  .toc{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;scrollbar-width:none}
-  .toc::-webkit-scrollbar{display:none}
-  #netsvg{height:420px}
-}
-</style>
+<link rel="stylesheet" href="../assets/book.css">
 </head>
 <body>
+<div id="app"></div>
 
-<!-- ── HERO ───────────────────────────────────────────────── -->
-<header class="hero"><div class="wrap">
-  <div class="eyebrow"><span class="edot"></span>
-    <span data-only="en">Book knowledge map · Frank Slootman</span>
-    <span data-only="fa">نقشهٔ کتاب · فرانک اسلوتمن</span>
-  </div>
-  <h1>
-    <span data-only="en">Amp It Up — Leading for Hypergrowth by Raising Expectations, Increasing Urgency, and Elevating Intensity</span>
-    <span data-only="fa">آمپش را ببر بالا — رهبری برای رشدِ انفجاری با بالا بردنِ انتظارها، افزایشِ فوریت و بالا بردنِ شدت</span>
-  </h1>
-  <p class="dek">
-    <span data-only="en">A knowledge graph of the whole book, plus a 5-stage path from a single sentence to expert-level mastery — with an example at every step.</span>
-    <span data-only="fa">نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از یک جملهٔ ساده تا تسلطِ حرفه‌ای — با یک مثال در هر مرحله.</span>
-  </p>
-  <div class="metastrip">
-    <div class="metaitem"><span class="mk" data-only="en">Book</span><span class="mk" data-only="fa">کتاب</span>
-      <span class="mv" data-only="en">Amp It Up</span><span class="mv" data-only="fa">آمپش را ببر بالا</span></div>
-    <div class="metaitem"><span class="mk" data-only="en">Author</span><span class="mk" data-only="fa">نویسنده</span>
-      <span class="mv" data-only="en">Frank Slootman</span><span class="mv" data-only="fa">فرانک اسلوتمن</span></div>
-    <div class="metaitem"><span class="mk" data-only="en">Published</span><span class="mk" data-only="fa">سالِ چاپ</span>
-      <span class="mv" data-only="en">2022</span><span class="mv" data-only="fa">۲۰۲۲</span></div>
-    <div class="metaitem"><span class="mk" data-only="en">Group</span><span class="mk" data-only="fa">گروه</span>
-      <span class="mv" data-only="en">Leadership</span><span class="mv" data-only="fa">رهبری</span></div>
-  </div>
-  <div class="chips">
-    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Parts</span><span data-only="fa">بخش</span></div>
-    <div class="chip"><b data-only="en">16</b><b data-only="fa">۱۶</b><span data-only="en">Moves</span><span data-only="fa">حرکت</span></div>
-    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Learning stages</span><span data-only="fa">مرحلهٔ یادگیری</span></div>
-  </div>
-</div></header>
-
-<!-- ── STICKY NAV ─────────────────────────────────────────── -->
-<div class="navbar"><div class="navin">
-  <span class="brand"><span class="dot"></span>Amp It Up</span>
-  <nav class="toc">
-    <a href="#tldr" data-only="en">In a nutshell</a><a href="#tldr" data-only="fa">خلاصه</a>
-    <a href="#graph" data-only="en">Knowledge graph</a><a href="#graph" data-only="fa">نقشهٔ دانش</a>
-    <a href="#stages" data-only="en">5 stages</a><a href="#stages" data-only="fa">۵ مرحله</a>
-    <a href="#quotes" data-only="en">Quotes</a><a href="#quotes" data-only="fa">جمله‌ها</a>
-    <a href="#media" data-only="en">Watch &amp; explore</a><a href="#media" data-only="fa">تماشا و منابع</a>
-    <a href="#apply" data-only="en">Apply it</a><a href="#apply" data-only="fa">کاربرد</a>
-  </nav>
-  <div class="navctl">
-    <button class="langbtn" id="langBtn" aria-label="Switch language">
-      <svg class="globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>
-      <span data-only="en">فارسی</span><span data-only="fa">English</span>
-    </button>
-    <button class="themebtn" id="themeBtn" aria-label="Toggle theme" title="Light / Dark">
-      <span class="ic-sun" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5 19 19M19 5l-1.5 1.5M6.5 17.5 5 19"/></svg></span>
-      <span class="ic-moon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.6 6.6 0 0 0 9.8 9.8Z"/></svg></span>
-    </button>
-  </div>
-</div></div>
-
-<div class="wrap">
-
-  <!-- ── TL;DR ────────────────────────────────────────────── -->
-  <h2 id="tldr"><span class="num" data-only="en">1.</span><span class="num" data-only="fa">۱.</span>
-    <span data-only="en"> In a nutshell</span><span data-only="fa"> خلاصه</span></h2>
-  <p class="sub" data-only="en">If you read only this, you still get the whole idea.</p>
-  <p class="sub" data-only="fa">اگر فقط همین بخش را بخوانی، کلِ ایده دستت می‌آید.</p>
-  <div class="card lead"><ul class="clean" id="tldrHost"></ul></div>
-  <div class="kgrid">
-    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Parts (standards · alignment · focus · pace · culture)</div><div class="l" data-only="fa">بخش (استاندارد · هم‌سویی · تمرکز · سرعت · فرهنگ)</div></div>
-    <div class="kbox"><div class="v" data-only="en">16</div><div class="v" data-only="fa">۱۶</div><div class="l" data-only="en">Moves you can make</div><div class="l" data-only="fa">حرکت که می‌توانی انجام بدهی</div></div>
-    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Levels, simple → expert</div><div class="l" data-only="fa">مرحله، ساده تا حرفه‌ای</div></div>
-    <div class="kbox"><div class="v" data-only="en">1</div><div class="v" data-only="fa">۱</div><div class="l" data-only="en">Real priority at a time, not many</div><div class="l" data-only="fa">یک اولویتِ واقعی در هر زمان، نه چندتا</div></div>
-  </div>
-  
-  <div class="callout accent">
-    <b data-only="en">The core idea:</b>
-    <b data-only="fa">ایدهٔ اصلی:</b>
-    <span data-only="en"> Take whatever you're already doing and <i>amp it up</i> — raise your standards, sharpen focus to a few priorities, and move with real urgency. Most teams have far more potential than they use; the leader's job is to turn up the intensity and refuse mediocrity.</span>
-    <span data-only="fa"> هر کاری که همین حالا داری می‌کنی را بردار و <i>آمپش را ببر بالا</i> — استانداردت را بالا ببر، تمرکزت را روی چند اولویت تیز کن، و با فوریتِ واقعی حرکت کن. بیشترِ تیم‌ها خیلی بیشتر از چیزی که استفاده می‌کنند توان دارند؛ کارِ رهبر این است که شدت را ببرد بالا و به کارِ متوسط تن ندهد.</span>
-  </div>
-
-  <!-- ── KNOWLEDGE GRAPH ──────────────────────────────────── -->
-  <h2 id="graph"><span class="num" data-only="en">2.</span><span class="num" data-only="fa">۲.</span>
-    <span data-only="en"> The knowledge graph</span><span data-only="fa"> نقشهٔ دانش</span></h2>
-  <p class="sub" data-only="en">The whole book as one picture. Click any node to focus its connections and read more — or switch to the structured map.</p>
-  <p class="sub" data-only="fa">کلِ کتاب در یک تصویر. روی هر دایره کلیک کن تا ارتباط‌هایش را ببینی و بیشتر بخوانی — یا به نقشهٔ مرتب برو.</p>
-
-  <div class="gtabs">
-    <button class="gtab active" id="tabNet"><span data-only="en">Interactive network</span><span data-only="fa">شبکهٔ تعاملی</span></button>
-    <button class="gtab" id="tabMap"><span data-only="en">Structured map</span><span data-only="fa">نقشهٔ مرتب</span></button>
-  </div>
-
-  <!-- network view -->
-  <div class="card graphcard" id="netView">
-    <div class="legend" id="legendHost"></div>
-    <div class="graphstage">
-      <div class="svgwrap">
-        <svg id="netsvg" viewBox="0 0 820 560" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Effortless knowledge network"></svg>
-        <div class="ghint" id="ghint"></div>
-        <button class="greset" id="greset"></button>
-      </div>
-      <div class="detail" id="detailHost"></div>
-    </div>
-  </div>
-
-  <!-- map view -->
-  <div class="card graphcard" id="mapView" style="display:none">
-    <div class="flowline" id="flowTop"></div>
-    <div class="mapgrid" id="mapHost"></div>
-    <div class="callout" style="margin-top:16px">
-      <b data-only="en">Read it as a flow:</b><b data-only="fa">به‌صورتِ یک جریان بخوانش:</b>
-      <span data-only="en"> First <b>raise</b> standards and align everyone, then <b>focus</b> on a few priorities, then <b>accelerate</b> — pick up urgency and intensity — and finally lift ambition and put drivers, not passengers, in the seats.</span>
-      <span data-only="fa"> اول استانداردها را <b>ببر بالا</b> و همه را هم‌سو کن، بعد روی چند اولویت <b>تمرکز</b> کن، بعد <b>شتاب بگیر</b> — فوریت و شدت را بالا ببر — و آخرش هم جاه‌طلبی را بالا ببر و آدم‌های راننده را، نه مسافر، پشتِ فرمان بنشان.</span>
-    </div>
-  </div>
-
-  <!-- ── 5 STAGES ─────────────────────────────────────────── -->
-  <h2 id="stages"><span class="num" data-only="en">3.</span><span class="num" data-only="fa">۳.</span>
-    <span data-only="en"> Learn it in 5 stages</span><span data-only="fa"> یادگیری در ۵ مرحله</span></h2>
-  <p class="sub" data-only="en">The same book at five depths. Start over-simplified, climb to expert. Tap a rung to jump.</p>
-  <p class="sub" data-only="fa">یک کتاب در پنج عمق. از خیلی ساده شروع کن و تا حرفه‌ای بالا برو. روی هر پله بزن تا بپری.</p>
-  <div class="ladder" id="ladderHost"></div>
-  <div id="stageHost"></div>
-
-  <!-- ── QUOTES ───────────────────────────────────────────── -->
-  <h2 id="quotes"><span class="num" data-only="en">4.</span><span class="num" data-only="fa">۴.</span>
-    <span data-only="en"> Lines worth keeping</span><span data-only="fa"> جمله‌هایی که ارزشِ نگه‌داشتن دارند</span></h2>
-  <p class="sub" data-only="en">Verbatim quotes from the book, translated alongside.</p>
-  <p class="sub" data-only="fa">جمله‌های مستقیم از کتاب، همراه با ترجمه.</p>
-  <div class="qgrid" id="quoteHost"></div>
-
-  <!-- ── MEDIA ────────────────────────────────────────────── -->
-  <h2 id="media"><span class="num" data-only="en">5.</span><span class="num" data-only="fa">۵.</span>
-    <span data-only="en"> Watch &amp; explore</span><span data-only="fa"> تماشا و منابع</span></h2>
-  <p class="sub" data-only="en">Special resources found online — each with what it covers and who it's best for.</p>
-  <p class="sub" data-only="fa">منابعِ ویژه‌ای که آنلاین پیدا شد — هرکدام با اینکه چه می‌گوید و به چه دردی می‌خورد.</p>
-  <div class="mgrid" id="mediaHost"></div>
-  <div class="card" style="margin-top:16px">
-    <div style="font-weight:800;font-size:13.5px;margin-bottom:4px">
-      <span data-only="en">Go straight to the source</span><span data-only="fa">مستقیم سراغِ منبع برو</span>
-    </div>
-    <div class="golist" id="goHost"></div>
-  </div>
-
-  <!-- ── APPLY ────────────────────────────────────────────── -->
-  <h2 id="apply"><span class="num" data-only="en">6.</span><span class="num" data-only="fa">۶.</span>
-    <span data-only="en"> Apply it this week</span><span data-only="fa"> این هفته امتحانش کن</span></h2>
-  <p class="sub" data-only="en">Four small moves that turn the idea into a habit.</p>
-  <p class="sub" data-only="fa">چهار حرکتِ کوچک که این ایده را به عادت تبدیل می‌کنند.</p>
-  <div class="rec" id="recHost"></div>
-
-  <!-- ── METHOD ───────────────────────────────────────────── -->
-  <h2 id="method"><span class="num" data-only="en">7.</span><span class="num" data-only="fa">۷.</span>
-    <span data-only="en"> Sources &amp; notes</span><span data-only="fa"> منابع و توضیح</span></h2>
-  <div class="card method" id="methodHost"></div>
-
-  <!-- ── CREDIT FOOTER ────────────────────────────────────── -->
-  <div class="credit">
-    <span data-only="en">Created by <span class="cname">Behnam Atefi</span><span class="sep">·</span><a class="li" href="https://www.linkedin.com/in/behnamatefi/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.3c0-1.26-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9z"/></svg>LinkedIn</a></span>
-    <span data-only="fa">ساخته‌شده توسط <span class="cname">بهنام عاطفی</span><span class="sep">·</span><a class="li" href="https://www.linkedin.com/in/behnamatefi/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.3c0-1.26-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9z"/></svg>لینکدین</a></span>
-  </div>
-</div>
-
-<!-- ═══════════════════════ SCRIPTS ═══════════════════════ -->
+<script src="../assets/library.js"></script>
+<script src="../assets/book.js"></script>
 <script>
-/* ── 1) language + formatters ─────────────────────────────── */
-var LANG = document.documentElement.getAttribute('data-lang') || 'fa';
-var FA_D = '۰۱۲۳۴۵۶۷۸۹';
-var RLM  = '‏';
-function faDigits(s){ return String(s).replace(/[0-9]/g, function(d){ return FA_D[+d]; }); }
-/* honor the RTL preference: isolate Latin runs (word order preserved) and mark with U+200F */
-function rlm(s){
-  return String(s)
-    .replace(/[A-Za-zÀ-ɏ][A-Za-zÀ-ɏ0-9'’.&:\/\-]*(?:\s+[A-Za-zÀ-ɏ0-9'’.&:\/\-]+)*/g,
-      function(m){ return RLM+'⁦'+m+'⁩'+RLM; })
-    .replace(/[0-9۰-۹]+/g, function(m){ return m+RLM; });
-}
-/* transform only TEXT segments, never HTML tags (so <b>/<i> survive) */
-function faText(s){ return String(s).replace(/(<[^>]+>)|([^<]+)/g, function(m,tag,txt){ return tag ? tag : faDigits(rlm(txt)); }); }
-function TX(o){ if(o==null) return ''; if(typeof o==='string') return o; return LANG==='fa' ? faText(o.fa) : o.en; }
-function num(n){ return LANG==='fa' ? faDigits(n) : String(n); }
-function tok(name){ return getComputedStyle(document.documentElement).getPropertyValue(name).trim(); }
-</script>
-
-<script>
-/* ── DATA LAYER — Atomic Habits (bilingual, plain-spoken Persian) ── */
-var DATA = {"tldr":[{"en":"The whole book in one line: take what you're already doing and amp it up — more intensity, higher standards, more urgency.","fa":"خلاصهٔ کل کتاب در یک جمله: هر کاری که همین حالا می‌کنی را بردار و آمپش را ببر بالا — شدتِ بیشتر، استانداردِ بالاتر، فوریتِ بیشتر."},{"en":"Raising expectations costs nothing and changes everything — most teams perform far below their real potential.","fa":"بالا بردنِ انتظارها هیچ خرجی ندارد و همه‌چیز را عوض می‌کند — بیشترِ تیم‌ها خیلی پایین‌تر از توانِ واقعی‌شان کار می‌کنند."},{"en":"<b>“Priority” is singular</b>: do fewer things, decide what <i>not</i> to do, and put your best people on the one that matters.","fa":"<b>«اولویت» مفرد است</b>: کمتر کار کن، تصمیم بگیر چه‌کاری را <i>نکنی</i>، و بهترین آدم‌هایت را روی همان یک چیزِ مهم بگذار."},{"en":"Speed and urgency are <b>choices, not resources</b> — you can almost always move faster than feels normal.","fa":"سرعت و فوریت <b>انتخاب‌اند، نه منبع</b> — تقریباً همیشه می‌توانی سریع‌تر از چیزی که عادی به‌نظر می‌رسد حرکت کنی."},{"en":"Culture follows: lift ambition, hire drivers not passengers, and remember <b>no strategy is better than its execution</b>.","fa":"فرهنگ دنبال می‌آید: جاه‌طلبی را بالا ببر، راننده استخدام کن نه مسافر، و یادت باشد <b>هیچ استراتژی‌ای بهتر از اجرایش نیست</b>."}],"parts":[{"key":"raise","varc":"--c-teal","name":{"en":"Raise Your Standards","fa":"استانداردت را بالا ببر"},"tag":{"en":"The mindset shift","fa":"تغییرِ نگرش"},"gist":{"en":"Amp up expectations and declare war on mediocrity.","fa":"انتظارها را ببر بالا و با کارِ متوسط بجنگ."},"more":{"en":"Everything starts here. Raising the bar costs nothing but changes what your team believes is possible; most people rise to the standard you set out loud, and no higher.","fa":"همه‌چیز از این‌جا شروع می‌شود. بالا بردنِ استاندارد هیچ خرجی ندارد ولی باورِ تیمت را دربارهٔ اینکه چه چیزی ممکن است عوض می‌کند؛ بیشترِ آدم‌ها تا همان سطحی که با صدای بلند تعیین می‌کنی بالا می‌آیند، نه بالاتر."},"chapters":["ampup","mediocrity","standards","excellence"]},{"key":"align","varc":"--c-blue","name":{"en":"Align the Whole Company","fa":"کلِ شرکت را هم‌سو کن"},"tag":{"en":"One direction","fa":"یک جهت"},"gist":{"en":"Get everyone on the same page and make priorities explicit.","fa":"همه را روی یک خط بیاور و اولویت‌ها را روشن کن."},"more":{"en":"Speed without alignment just scatters energy. Say out loud what matters most, repeat it until it's boring, and make sure the same priorities are understood from the top to the front line.","fa":"سرعت بدونِ هم‌سویی فقط انرژی را پخش‌وپلا می‌کند. با صدای بلند بگو چه چیزی از همه مهم‌تر است، آن‌قدر تکرارش کن که خسته‌کننده شود، و مطمئن شو همان اولویت‌ها از بالا تا خطِ مقدم فهمیده شده‌اند."},"chapters":["sameplane","priorities","overcommunicate"]},{"key":"focus","varc":"--c-amber","name":{"en":"Sharpen Your Focus","fa":"تمرکزت را تیز کن"},"tag":{"en":"Do fewer things","fa":"کمتر انجام بده"},"gist":{"en":"Do fewer things, narrow the priorities, and decide what not to do.","fa":"کمتر انجام بده، اولویت‌ها را کم کن، و تصمیم بگیر چه‌کاری را نکنی."},"more":{"en":"Focus is a force multiplier. The moment you have many priorities you have none — so cut the list hard, put your best people on the few things that matter, and protect them from everything else.","fa":"تمرکز، ضریبِ نیروست. لحظه‌ای که چند اولویت داری، هیچ اولویتی نداری — پس فهرست را قاطعانه کوتاه کن، بهترین آدم‌هایت را روی همان چند چیزِ مهم بگذار، و از بقیهٔ چیزها حفظشان کن."},"chapters":["fewerthings","onepriority","notdo"]},{"key":"pace","varc":"--c-violet","name":{"en":"Pick Up the Pace","fa":"سرعت را ببر بالا"},"tag":{"en":"Urgency & intensity","fa":"فوریت و شدت"},"gist":{"en":"Treat urgency, intensity, and speed as choices you make.","fa":"فوریت، شدت و سرعت را تصمیم‌هایی بدان که خودت می‌گیری."},"more":{"en":"Time is not your friend. Most deadlines can be shorter, most work can move faster, and the pace of the leader sets the pace of the company — so raise it on purpose.","fa":"زمان دوستِ تو نیست. بیشترِ مهلت‌ها می‌توانند کوتاه‌تر باشند، بیشترِ کارها می‌توانند سریع‌تر پیش بروند، و سرعتِ رهبر، سرعتِ شرکت را تعیین می‌کند — پس عمداً ببرش بالا."},"chapters":["urgency","speed","intensity"]},{"key":"transform","varc":"--c-green","name":{"en":"Transform Strategy & Culture","fa":"استراتژی و فرهنگ را دگرگون کن"},"tag":{"en":"Ambition & people","fa":"جاه‌طلبی و آدم‌ها"},"gist":{"en":"Elevate ambition and hire drivers, not passengers.","fa":"جاه‌طلبی را بالا ببر و آدم‌های راننده استخدام کن، نه مسافر."},"more":{"en":"Big ambition attracts big talent and forces sharper strategy. Go after the largest opportunity you can, put people who own outcomes in charge, and remember: no strategy is better than its execution.","fa":"جاه‌طلبیِ بزرگ، استعدادِ بزرگ را جذب می‌کند و استراتژی را تیزتر می‌کند. دنبالِ بزرگ‌ترین فرصتی که می‌توانی برو، آدم‌هایی را که مسئولیتِ نتیجه را می‌پذیرند سرِ کار بگذار، و یادت باشد: هیچ استراتژی‌ای بهتر از اجرایش نیست."},"chapters":["ambition","drivers","execution"]}],"chapters":{"ampup":{"part":"raise","n":1,"name":{"en":"Amp It Up","fa":"آمپش را ببر بالا"},"glabel":{"en":"Amp It Up","fa":"آمپ"},"principle":{"en":"Take whatever you're already doing and turn up the intensity — more energy, higher expectations, faster action.","fa":"هر کاری که همین حالا می‌کنی را بردار و شدتش را ببر بالا — انرژیِ بیشتر، انتظارِ بالاتر، اقدامِ سریع‌تر."},"more":{"en":"You rarely need a new strategy; you need more intensity behind the one you have. Amping up is a decision a leader can make on any ordinary Monday, and it changes the whole tempo of the team.","fa":"خیلی کم پیش می‌آید که به استراتژیِ نو نیاز داشته باشی؛ به شدتِ بیشتر پشتِ همان استراتژی نیاز داری. بالا بردنِ آمپ تصمیمی است که رهبر در هر دوشنبهٔ معمولی می‌تواند بگیرد، و کلِ ریتمِ تیم را عوض می‌کند."},"example":{"en":"Slootman turned companies around not by changing the plan but by raising the energy, standards, and speed around it.","fa":"اسلوتمن شرکت‌ها را نه با عوض‌کردنِ نقشه، بلکه با بالا بردنِ انرژی، استاندارد و سرعتِ دورِ آن، زیر و رو کرد."},"tip":{"en":"Pick one thing your team does at an okay level this week and demand it be done at a high level instead.","fa":"این هفته یک کار را که تیمت در حدِ «بد نیست» انجام می‌دهد انتخاب کن و به‌جایش سطحِ بالا بخواه."},"pitfall":{"en":"Waiting for a grand new strategy while the real problem is low energy and low expectations.","fa":"منتظرِ یک استراتژیِ بزرگِ جدید ماندن، درحالی‌که مشکلِ واقعی انرژیِ کم و انتظارِ کم است."}},"mediocrity":{"part":"raise","n":2,"name":{"en":"Declare War on Mediocrity","fa":"با کارِ متوسط اعلانِ جنگ کن"},"glabel":{"en":"Anti-Mediocrity","fa":"ضدِ متوسط"},"principle":{"en":"Refuse “good enough.” Treat mediocre work as a problem to attack, not a normal state to tolerate.","fa":"به «به‌اندازهٔ کافی خوب» تن نده. کارِ متوسط را مشکلی بدان که باید به آن حمله کنی، نه حالتی عادی که تحملش کنی."},"more":{"en":"Mediocrity spreads quietly when leaders let it pass. Naming it, calling it out, and expecting better resets what the team thinks is acceptable — and that reset is contagious in a good way.","fa":"کارِ متوسط بی‌سروصدا پخش می‌شود وقتی رهبرها از کنارش رد می‌شوند. اسم‌بردن از آن، تذکر دادنش، و انتظارِ بهتر، این را که تیم چه چیزی را قابل‌قبول می‌داند از نو تنظیم می‌کند — و این تنظیمِ تازه به شکلِ خوبی مسری است."},"example":{"en":"A report that's “fine” gets sent back with a clear bar for what excellent would look like.","fa":"گزارشی که «بد نیست» است، با یک معیارِ روشن از اینکه عالی چه شکلی است، پس فرستاده می‌شود."},"tip":{"en":"Next time you almost say “that's fine,” stop and say what a great version would look like.","fa":"دفعهٔ بعد که نزدیک است بگویی «خوبه»، بایست و بگو نسخهٔ عالی‌اش چه شکلی است."},"pitfall":{"en":"Letting “good enough” slide to keep the peace, until it becomes the standard.","fa":"رها کردنِ «به‌اندازهٔ کافی خوب» برای حفظِ آرامش، تا وقتی که خودش می‌شود استاندارد."}},"standards":{"part":"raise","n":3,"name":{"en":"Raise Your Standards","fa":"استانداردت را بالا ببر"},"glabel":{"en":"Standards","fa":"استاندارد"},"principle":{"en":"Set the bar higher than feels comfortable; people usually rise to the expectation you make explicit.","fa":"معیار را بالاتر از چیزی که راحت است بگذار؛ آدم‌ها معمولاً تا همان انتظاری که روشن بیان می‌کنی بالا می‌آیند."},"more":{"en":"Higher standards cost nothing and are the cheapest performance upgrade a leader has. The trick is to raise them out loud and then hold the line, instead of hoping people guess what you want.","fa":"استانداردِ بالاتر هیچ خرجی ندارد و ارزان‌ترین ارتقای عملکردی است که یک رهبر دارد. رمزش این است که با صدای بلند بالایشان ببری و بعد پایش بایستی، نه اینکه امید داشته باشی آدم‌ها حدس بزنند چه می‌خواهی."},"example":{"en":"Announcing “we ship this at world-class quality, not just done” changes how the whole team works on it.","fa":"گفتنِ «این را در کیفیتِ جهانی می‌فرستیم، نه فقط تمام‌شده» عوض می‌کند که کلِ تیم چطور رویش کار می‌کند."},"tip":{"en":"Say your standard for one deliverable in a single sentence, out loud, before work starts.","fa":"استانداردت برای یک خروجی را در یک جمله، با صدای بلند، قبل از شروعِ کار بگو."},"pitfall":{"en":"Keeping high standards in your head and feeling let down when no one meets them.","fa":"استانداردِ بالا را توی سرت نگه‌داشتن و بعد دلخور شدن که چرا کسی به آن نمی‌رسد."}},"excellence":{"part":"raise","n":4,"name":{"en":"Expect Excellence","fa":"انتظارِ عالی‌بودن داشته باش"},"glabel":{"en":"Excellence","fa":"عالی‌بودن"},"principle":{"en":"Make excellence the default expectation, not a rare bonus reserved for special projects.","fa":"عالی‌بودن را انتظارِ پیش‌فرض کن، نه جایزه‌ای نادر که فقط برای پروژه‌های خاص کنار گذاشته شده."},"more":{"en":"When excellence is normal, average work starts to feel out of place. This isn't about pressure for its own sake; it's about respecting the team enough to believe they can do great work — and asking for it.","fa":"وقتی عالی‌بودن عادی است، کارِ متوسط شروع می‌کند به بی‌جا به‌نظر رسیدن. این دربارهٔ فشار به‌خاطرِ خودِ فشار نیست؛ دربارهٔ این است که آن‌قدر به تیم احترام بگذاری که باور کنی می‌توانند کارِ عالی کنند — و از آن‌ها بخواهی‌اش."},"example":{"en":"A team that treats every release as a chance to be excellent outperforms one that just clears the bug list.","fa":"تیمی که هر انتشار را فرصتی برای عالی‌بودن می‌داند، از تیمی که فقط فهرستِ باگ‌ها را تمام می‌کند بهتر عمل می‌کند."},"tip":{"en":"Praise the specific thing that made a piece of work excellent, so people know what to repeat.","fa":"همان چیزِ مشخصی که یک کار را عالی کرد تحسین کن، تا آدم‌ها بدانند چه چیزی را تکرار کنند."},"pitfall":{"en":"Rewarding effort and busyness instead of the quality of the result.","fa":"پاداش‌دادن به تلاش و مشغول‌بودن، به‌جای کیفیتِ نتیجه."}},"sameplane":{"part":"align","n":5,"name":{"en":"Get Everyone on the Same Page","fa":"همه را روی یک خط بیاور"},"glabel":{"en":"Alignment","fa":"هم‌سویی"},"principle":{"en":"Alignment means every team is pointed at the same goal and knows how their work connects to it.","fa":"هم‌سویی یعنی هر تیم به همان هدفِ واحد نشانه رفته و می‌داند کارش چطور به آن وصل می‌شود."},"more":{"en":"Smart people pulling in slightly different directions waste enormous energy. The leader's job is to make the shared destination so clear that everyone can check their own work against it.","fa":"آدم‌های باهوش که هرکدام کمی به سمتِ متفاوتی می‌کشند، انرژیِ عظیمی را هدر می‌دهند. کارِ رهبر این است که مقصدِ مشترک را آن‌قدر روشن کند که هرکس بتواند کارِ خودش را با آن بسنجد."},"example":{"en":"Every team can state the company's top goal this quarter in the same words.","fa":"هر تیم می‌تواند هدفِ اصلیِ شرکت در این فصل را با همان کلمات بگوید."},"tip":{"en":"Ask three people on different teams what the top priority is; if answers differ, you have an alignment problem.","fa":"از سه نفر در تیم‌های مختلف بپرس اولویتِ اصلی چیست؛ اگر جواب‌ها فرق داشت، مشکلِ هم‌سویی داری."},"pitfall":{"en":"Assuming people are aligned because no one is arguing.","fa":"فرض کردن اینکه آدم‌ها هم‌سو هستند چون کسی بحث نمی‌کند."}},"priorities":{"part":"align","n":6,"name":{"en":"Spell Out the Priorities","fa":"اولویت‌ها را مو به مو بگو"},"glabel":{"en":"Priorities","fa":"اولویت‌ها"},"principle":{"en":"Say exactly what matters most, in plain words; don't assume it's obvious.","fa":"دقیقاً بگو چه چیزی از همه مهم‌تر است، با زبانِ ساده؛ فرض نکن که واضح است."},"more":{"en":"Priorities that are clear at the top get blurrier at every level below. If you don't spell them out precisely, they arrive at the front line distorted or lost — so over-specify on purpose.","fa":"اولویت‌هایی که بالا روشن‌اند، در هر سطحِ پایین‌تر تارتر می‌شوند. اگر دقیق بیانشان نکنی، به خطِ مقدم که می‌رسند تحریف‌شده یا گم‌شده‌اند — پس عمداً بیش‌ازحد دقیق باش."},"example":{"en":"“Ship X by March and hit Y quality” beats a vague “let's focus on the product.”","fa":"«X را تا مارس بفرست و به کیفیتِ Y برس» از «بیایید روی محصول تمرکز کنیم»ِ مبهم بهتر است."},"tip":{"en":"Write your top priority in one specific sentence a new hire could understand.","fa":"اولویتِ اصلی‌ات را در یک جملهٔ مشخص بنویس که یک تازه‌واردْ هم بفهمدش."},"pitfall":{"en":"Fuzzy priorities that everyone nods at and no one can act on.","fa":"اولویت‌های مبهمی که همه سرشان را تکان می‌دهند و هیچ‌کس نمی‌تواند رویشان اقدام کند."}},"overcommunicate":{"part":"align","n":7,"name":{"en":"Over-Communicate the Message","fa":"پیام را بیش‌ازحد تکرار کن"},"glabel":{"en":"Repeat It","fa":"تکرار"},"principle":{"en":"Repeat the direction far more than feels necessary — by the time it's boring to you, it's just landing for them.","fa":"جهت را خیلی بیشتر از چیزی که لازم به‌نظر می‌رسد تکرار کن — وقتی برای تو خسته‌کننده شد، تازه دارد به آن‌ها می‌رسد."},"more":{"en":"A message you've said three times feels overdone to you and is brand-new to half the room. Consistent repetition, in the same words, is how a direction becomes something the whole company actually shares.","fa":"پیامی که سه بار گفته‌ای برای تو زیادی به‌نظر می‌رسد و برای نصفِ اتاق کاملاً تازه است. تکرارِ یک‌دست، با همان کلمات، همان راهی است که یک جهت به چیزی تبدیل می‌شود که کلِ شرکت واقعاً در آن شریک است."},"example":{"en":"The same three priorities show up in every all-hands, every update, every review.","fa":"همان سه اولویت در هر جلسهٔ عمومی، هر به‌روزرسانی، هر بازبینی پیدایشان می‌شود."},"tip":{"en":"Put your top priority in the same words at the start of every team meeting this month.","fa":"این ماه، اولویتِ اصلی‌ات را با همان کلمات اولِ هر جلسهٔ تیمی بگو."},"pitfall":{"en":"Saying something important once and assuming it stuck.","fa":"یک چیزِ مهم را یک‌بار گفتن و فرض کردن که جا افتاد."}},"fewerthings":{"part":"focus","n":8,"name":{"en":"Do Fewer Things","fa":"کارهای کمتری انجام بده"},"glabel":{"en":"Fewer Things","fa":"کمتر"},"principle":{"en":"Concentrate effort on a short list; spreading thin across many projects guarantees weak results everywhere.","fa":"تلاش را روی یک فهرستِ کوتاه متمرکز کن؛ پخش‌شدن روی پروژه‌های زیاد، نتیجهٔ ضعیف را همه‌جا تضمین می‌کند."},"more":{"en":"Doing fewer things well beats doing many things adequately. Cutting projects feels risky, but a focused team moving fast on a few bets almost always outperforms a busy team inching everything forward.","fa":"کمتر کار کردن ولی خوب، از زیاد کار کردنِ متوسط بهتر است. کم‌کردنِ پروژه‌ها ترسناک به‌نظر می‌رسد، ولی یک تیمِ متمرکز که روی چند شرط سریع می‌دود، تقریباً همیشه از یک تیمِ شلوغ که همه‌چیز را ذره‌ذره جلو می‌برد بهتر عمل می‌کند."},"example":{"en":"Cutting a roadmap from twelve initiatives to three often ships more real value, sooner.","fa":"کم‌کردنِ نقشهٔ راه از دوازده اقدام به سه‌تا، اغلب ارزشِ واقعیِ بیشتری را زودتر می‌رساند."},"tip":{"en":"List everything in flight, then cross out until only the few that truly matter remain.","fa":"هر چیزی که در جریان است را فهرست کن، بعد آن‌قدر خط بزن تا فقط همان چند تای واقعاً مهم بماند."},"pitfall":{"en":"Keeping every project alive so no one is disappointed, and finishing none of them well.","fa":"زنده نگه‌داشتنِ هر پروژه تا کسی ناامید نشود، و هیچ‌کدام را خوب تمام نکردن."}},"onepriority":{"part":"focus","n":9,"name":{"en":"One Priority, Not Many","fa":"یک اولویت، نه چندتا"},"glabel":{"en":"One Priority","fa":"یک اولویت"},"principle":{"en":"“Priority” is meant to be singular; the moment you have many, you effectively have none.","fa":"«اولویت» قرار است مفرد باشد؛ لحظه‌ای که چندتا داری، در عمل هیچ‌کدام را نداری."},"more":{"en":"A long list of “priorities” is really a way of avoiding the hard choice. Naming the single most important thing tells everyone what wins when there's a conflict — and there's always a conflict.","fa":"یک فهرستِ بلند از «اولویت‌ها» در واقع راهی است برای فرار از انتخابِ سخت. اسم‌بردن از تنها مهم‌ترین چیز، به همه می‌گوید وقتی تعارض پیش بیاید چه چیزی برنده می‌شود — و همیشه تعارض پیش می‌آید."},"example":{"en":"When two urgent things collide, the team already knows which one the whole company backs.","fa":"وقتی دو چیزِ فوری به هم می‌خورند، تیم از قبل می‌داند کلِ شرکت پشتِ کدام‌یک است."},"tip":{"en":"If you have five priorities, force-rank them and treat number one as the real one.","fa":"اگر پنج اولویت داری، به‌زور رتبه‌بندی‌شان کن و شمارهٔ یک را اولویتِ واقعی بدان."},"pitfall":{"en":"Calling everything a priority so nothing can actually be deprioritized.","fa":"همه‌چیز را اولویت نامیدن، تا هیچ‌چیز واقعاً نتواند از اولویت بیفتد."}},"notdo":{"part":"focus","n":10,"name":{"en":"Decide What Not to Do","fa":"تصمیم بگیر چه‌کاری را نکنی"},"glabel":{"en":"What Not to Do","fa":"نکردن"},"principle":{"en":"Focus is defined by what you say no to; a real priority list has a real “not doing” list beside it.","fa":"تمرکز با چیزی که به آن نه می‌گویی تعریف می‌شود؛ یک فهرستِ اولویتِ واقعی، یک فهرستِ «انجام‌نمی‌دهیم»ِ واقعی هم کنارش دارد."},"more":{"en":"Every yes is a no to something else, whether you admit it or not. Deciding out loud what you won't do frees your best people and stops good-looking distractions from eating the plan.","fa":"هر «بله» یک «نه» به چیزِ دیگری است، چه اعترافش کنی چه نکنی. تصمیم‌گرفتنِ باصدای بلند دربارهٔ کاری که نمی‌کنی، بهترین آدم‌هایت را آزاد می‌کند و نمی‌گذارد حواس‌پرتی‌های خوش‌ظاهر نقشه را بخورند."},"example":{"en":"A “not now” list for tempting features keeps the team from quietly picking them up.","fa":"یک فهرستِ «الان نه» برای قابلیت‌های وسوسه‌انگیز، نمی‌گذارد تیم بی‌سروصدا سراغشان برود."},"tip":{"en":"For every priority you set, name one thing you'll stop or postpone to protect it.","fa":"برای هر اولویتی که می‌گذاری، یک چیز را نام ببر که برای حفاظت از آن متوقف یا عقب می‌اندازی."},"pitfall":{"en":"Adding new priorities without ever removing old ones.","fa":"اضافه‌کردنِ اولویت‌های جدید بدونِ اینکه هیچ‌وقت قدیمی‌ها را برداری."}},"urgency":{"part":"pace","n":11,"name":{"en":"Increase the Urgency","fa":"فوریت را بالا ببر"},"glabel":{"en":"Urgency","fa":"فوریت"},"principle":{"en":"Treat time as scarce and competition as real; act now rather than when it's comfortable.","fa":"زمان را کمیاب و رقیب را واقعی بدان؛ همین حالا اقدام کن، نه وقتی که راحت است."},"more":{"en":"Time is not your friend — deals cool off, competitors move, momentum fades. A leader who treats most things as more urgent than the team assumed pulls decisions and delivery forward by weeks.","fa":"زمان دوستِ تو نیست — معامله‌ها سرد می‌شوند، رقیب‌ها حرکت می‌کنند، شتاب فروکش می‌کند. رهبری که بیشترِ چیزها را فوری‌تر از آنچه تیم فرض کرده می‌داند، تصمیم‌ها و تحویل را هفته‌ها جلو می‌کشد."},"example":{"en":"Turning a “next quarter” decision into a “this week” decision, on purpose.","fa":"تبدیلِ عمدیِ یک تصمیمِ «فصلِ بعد» به تصمیمِ «همین هفته»."},"tip":{"en":"Take one deadline on your list and ask honestly, “why not sooner?”","fa":"یک مهلت از فهرستت را بردار و صادقانه بپرس: «چرا زودتر نه؟»"},"pitfall":{"en":"Letting default timelines stand just because no one questioned them.","fa":"رها کردنِ زمان‌بندی‌های پیش‌فرض فقط به این خاطر که کسی زیرِ سوال نبردشان."}},"speed":{"part":"pace","n":12,"name":{"en":"Speed Is a Choice","fa":"سرعت یک انتخاب است"},"glabel":{"en":"Speed","fa":"سرعت"},"principle":{"en":"Moving fast is a decision, not a resource you wait for; you can almost always go faster than feels normal.","fa":"سریع حرکت کردن یک تصمیم است، نه منبعی که منتظرش بمانی؛ تقریباً همیشه می‌توانی سریع‌تر از چیزی که عادی به‌نظر می‌رسد بروی."},"more":{"en":"People treat the current pace as fixed, but it's mostly habit. When a leader asks “why not faster?” and means it, work that seemed to need a month often gets done well in a week.","fa":"آدم‌ها سرعتِ فعلی را ثابت فرض می‌کنند، ولی بیشترش عادت است. وقتی رهبری می‌پرسد «چرا سریع‌تر نه؟» و واقعاً منظورش همین است، کاری که انگار یک ماه لازم داشت، اغلب در یک هفته خوب انجام می‌شود."},"example":{"en":"Compressing a launch timeline in half and discovering the team can actually hit it.","fa":"نصف‌کردنِ زمان‌بندیِ یک عرضه و کشفِ اینکه تیم واقعاً می‌تواند به آن برسد."},"tip":{"en":"Pick one task and ask what it would take to finish it in half the time.","fa":"یک کار را انتخاب کن و بپرس چه لازم است تا در نصفِ زمان تمامش کنی."},"pitfall":{"en":"Confusing “we've always taken this long” with “this is how long it takes.”","fa":"اشتباه‌گرفتنِ «همیشه این‌قدر طول کشیده» با «این‌قدر طول می‌کشد»."}},"intensity":{"part":"pace","n":13,"name":{"en":"Raise the Intensity","fa":"شدت را بالا ببر"},"glabel":{"en":"Intensity","fa":"شدت"},"principle":{"en":"Bring sustained, focused energy to the work; intensity is the fuel that turns standards and urgency into results.","fa":"انرژیِ پایدار و متمرکز به کار بیاور؛ شدت همان سوختی است که استاندارد و فوریت را به نتیجه تبدیل می‌کند."},"more":{"en":"Intensity isn't frantic busyness or long hours for their own sake — it's the whole team caring hard about the outcome and pushing on what matters. The leader sets this temperature more than anyone.","fa":"شدت یعنی مشغولیتِ سراسیمه یا ساعت‌های طولانی به‌خاطرِ خودش نیست — یعنی کلِ تیم سختْ به نتیجه اهمیت بدهد و روی چیزی که مهم است فشار بیاورد. رهبر بیشتر از هرکسی این دما را تعیین می‌کند."},"example":{"en":"A leader who shows visible energy about the goal raises the energy of everyone around the table.","fa":"رهبری که دربارهٔ هدف انرژیِ آشکار نشان می‌دهد، انرژیِ همهٔ کسانی که دورِ میزند را بالا می‌برد."},"tip":{"en":"Show up to the meeting about your top goal with visibly more energy than usual.","fa":"با انرژیِ آشکارا بیشتر از همیشه به جلسهٔ هدفِ اصلی‌ات برو."},"pitfall":{"en":"Mistaking a calm, low-energy meeting for a productive one.","fa":"اشتباه‌گرفتنِ یک جلسهٔ آرام و کم‌انرژی با یک جلسهٔ پربازده."}},"ambition":{"part":"transform","n":14,"name":{"en":"Elevate Your Ambition","fa":"جاه‌طلبی‌ات را بالا ببر"},"glabel":{"en":"Ambition","fa":"جاه‌طلبی"},"principle":{"en":"Aim at the biggest opportunity you can credibly go after; big goals sharpen strategy and attract strong people.","fa":"بزرگ‌ترین فرصتی که به‌شکلِ باورپذیر می‌توانی دنبالش بروی را هدف بگیر؛ هدف‌های بزرگ استراتژی را تیز می‌کنند و آدم‌های قوی را جذب می‌کنند."},"more":{"en":"Small ambitions produce small plans and attract people who want an easy ride. A bold destination forces harder thinking about strategy and draws the kind of talent that wants to build something that matters.","fa":"جاه‌طلبیِ کوچک، نقشهٔ کوچک می‌سازد و آدم‌هایی را جذب می‌کند که سواریِ راحت می‌خواهند. یک مقصدِ جسورانه، فکرِ سخت‌تری دربارهٔ استراتژی را مجبور می‌کند و همان جور استعدادی را می‌کشد که می‌خواهد چیزی بسازد که مهم است."},"example":{"en":"Choosing to build the category leader, not a comfortable niche player, changes every decision after it.","fa":"انتخابِ ساختنِ رهبرِ بازار، نه یک بازیگرِ گوشه‌ای و راحت، هر تصمیمِ بعد از آن را عوض می‌کند."},"tip":{"en":"Ask if your current goal is the biggest one you could believe in — and if not, why.","fa":"بپرس آیا هدفِ فعلی‌ات بزرگ‌ترین هدفی است که می‌توانی به آن باور داشته باشی — و اگر نه، چرا."},"pitfall":{"en":"Setting safe, modest targets that quietly cap what the team will ever reach.","fa":"گذاشتنِ هدف‌های امن و کوچک که بی‌سروصدا سقفِ چیزی که تیم به آن می‌رسد را تعیین می‌کنند."}},"drivers":{"part":"transform","n":15,"name":{"en":"Hire Drivers, Not Passengers","fa":"راننده استخدام کن، نه مسافر"},"glabel":{"en":"Drivers","fa":"راننده‌ها"},"principle":{"en":"Hire people who take ownership and move the dial, and move the wrong people out of the seats.","fa":"آدم‌هایی را استخدام کن که مسئولیت را به دست می‌گیرند و عقربه را جابه‌جا می‌کنند، و آدم‌های نادرست را از صندلی بیرون بیاور."},"more":{"en":"Drivers own outcomes, push for decisions, and make things happen; passengers wait to be told and coast on others' energy. A few drivers in the right seats change the pace of an entire company.","fa":"راننده‌ها مسئولیتِ نتیجه را می‌پذیرند، برای تصمیم فشار می‌آورند، و کارها را پیش می‌برند؛ مسافرها منتظرِ دستورند و روی انرژیِ دیگران سُر می‌خورند. چند راننده در صندلی‌های درست، سرعتِ کلِ یک شرکت را عوض می‌کنند."},"example":{"en":"Celebrate the person who owns a problem end to end over the one who just attends the meetings.","fa":"کسی را که یک مشکل را از اول تا آخر مالِ خودش می‌داند، بیشتر از کسی که فقط در جلسه‌ها حاضر می‌شود تحسین کن."},"tip":{"en":"For a key role, ask in the interview for a time they drove an outcome without being told to.","fa":"برای یک نقشِ کلیدی، در مصاحبه بخواه یک بار را بگویند که بدونِ اینکه بهشان گفته شود یک نتیجه را جلو بردند."},"pitfall":{"en":"Keeping pleasant, passive people in critical seats because moving them is awkward.","fa":"نگه‌داشتنِ آدم‌های خوش‌برخورد و منفعل در صندلی‌های حیاتی، چون جابه‌جا کردنشان معذب‌کننده است."}},"execution":{"part":"transform","n":16,"name":{"en":"Execution Beats Strategy","fa":"اجرا از استراتژی جلو می‌زند"},"glabel":{"en":"Execution","fa":"اجرا"},"principle":{"en":"A good plan poorly executed loses to an okay plan executed with intensity; no strategy is better than its execution.","fa":"یک نقشهٔ خوب که بد اجرا شود، به یک نقشهٔ متوسط که با شدت اجرا شود می‌بازد؛ هیچ استراتژی‌ای بهتر از اجرایش نیست."},"more":{"en":"Strategy gets the glory, but execution wins the market. The everyday work of raising standards, focusing, and moving fast is how strategy actually turns into results — the plan is only a promise until it's executed.","fa":"استراتژی تحسین را می‌گیرد، ولی اجرا بازار را می‌برد. کارِ روزمرهٔ بالا بردنِ استاندارد، تمرکز و سریع حرکت کردن، همان راهی است که استراتژی واقعاً به نتیجه تبدیل می‌شود — نقشه تا وقتی اجرا نشده فقط یک قول است."},"example":{"en":"Two companies with the same plan get opposite results; the difference is entirely in the execution.","fa":"دو شرکت با همان نقشه، نتیجهٔ مخالف می‌گیرند؛ تفاوت کاملاً در اجراست."},"tip":{"en":"When something isn't working, check execution intensity before you rewrite the strategy.","fa":"وقتی چیزی جواب نمی‌دهد، قبل از بازنویسیِ استراتژی، شدتِ اجرا را چک کن."},"pitfall":{"en":"Endlessly polishing the plan while the real gap is weak execution.","fa":"بی‌پایان صیقل‌دادنِ نقشه، درحالی‌که شکافِ واقعی اجرای ضعیف است."}}},"core":{"name":{"en":"RAISE THE BAR","fa":"سطح را بالا ببر"},"principle":{"en":"Take everything you already do and amp it up — raise standards, align everyone, focus on a few priorities, and move with urgency and intensity. Growth comes less from a new strategy than from the energy and expectations you bring to the one you have.","fa":"هر کاری که همین حالا می‌کنی را بردار و آمپش را ببر بالا — استانداردها را بالا ببر، همه را هم‌سو کن، روی چند اولویت تمرکز کن، و با فوریت و شدت حرکت کن. رشد کمتر از یک استراتژیِ نو می‌آید و بیشتر از انرژی و انتظاری که به همان استراتژیِ فعلی می‌آوری."},"more":{"en":"Slootman groups the leader's job into five moves — raise your standards, align the whole company, sharpen focus to a few priorities, pick up the pace, and transform strategy and culture with bigger ambition and better people. The thread through all of it: intensity is a choice, and most teams are capable of far more than they currently deliver.","fa":"اسلوتمن کارِ رهبر را در پنج حرکت دسته‌بندی می‌کند — استانداردت را بالا ببر، کلِ شرکت را هم‌سو کن، تمرکز را روی چند اولویت تیز کن، سرعت را بالا ببر، و استراتژی و فرهنگ را با جاه‌طلبیِ بزرگ‌تر و آدم‌های بهتر دگرگون کن. نخِ رابطِ همه‌شان: شدت یک انتخاب است، و بیشترِ تیم‌ها توانِ خیلی بیشتر از چیزی که الان تحویل می‌دهند دارند."},"example":{"en":"Click any node to read a move or a principle. You can also drag the nodes around.","fa":"روی هر دایره کلیک کن تا یک حرکت یا اصل را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."}},"stages":[{"level":1,"badge":{"en":"Level 1 · Over-simplified","fa":"سطحِ ۱ · خیلی ساده"},"title":{"en":"Turn it up","fa":"ببرش بالا"},"tagline":{"en":"The whole book in a sentence.","fa":"کلِ کتاب در یک جمله."},"body":{"en":"The whole book in one line: take what you're already doing and amp it up. More energy, higher expectations, faster action — starting today.","fa":"کلِ کتاب در یک جمله: هر کاری که همین حالا می‌کنی را بردار و آمپش را ببر بالا. انرژیِ بیشتر، انتظارِ بالاتر، اقدامِ سریع‌تر — از همین امروز."},"example":{"en":"You don't need a new plan to raise the energy around the plan you already have.","fa":"برای بالا بردنِ انرژیِ دورِ نقشه‌ای که داری، به نقشهٔ جدید نیاز نداری."},"gain":{"en":"You hold the single idea the whole book expands on.","fa":"همان یک ایده‌ای را داری که کلِ کتاب بسطش می‌دهد."}},{"level":2,"badge":{"en":"Level 2 · Simple","fa":"سطحِ ۲ · ساده"},"title":{"en":"Standards & alignment","fa":"استاندارد و هم‌سویی"},"tagline":{"en":"Raise the bar, point everyone one way.","fa":"سطح را بالا ببر، همه را یک‌سو کن."},"body":{"en":"First raise your <b>standards</b> and declare war on <b>mediocrity</b> — the cheapest upgrade a leader has. Then get the whole company <b>aligned</b>: spell out the priorities and repeat them until everyone shares the same direction.","fa":"اول <b>استانداردت</b> را ببر بالا و با <b>کارِ متوسط</b> بجنگ — ارزان‌ترین ارتقایی که یک رهبر دارد. بعد کلِ شرکت را <b>هم‌سو</b> کن: اولویت‌ها را مو به مو بگو و آن‌قدر تکرارشان کن که همه در یک جهت شریک شوند."},"example":{"en":"Say your standard out loud, then say the one priority everyone should rally around.","fa":"استانداردت را با صدای بلند بگو، بعد همان یک اولویتی که همه باید دورش جمع شوند را بگو."},"gain":{"en":"You can lift expectations and point everyone the same way.","fa":"می‌توانی انتظارها را بالا ببری و همه را به یک سمت نشانه بروی."}},{"level":3,"badge":{"en":"Level 3 · Balanced","fa":"سطحِ ۳ · متعادل"},"title":{"en":"Do fewer things","fa":"کارهای کمتری کن"},"tagline":{"en":"Fewer things, one real priority.","fa":"کارهای کمتر، یک اولویتِ واقعی."},"body":{"en":"Now <b>focus</b>. “Priority” is singular — the moment you have many, you have none. Do <b>fewer things</b>, force-rank to the <b>one</b> that matters most, and decide clearly <b>what not to do</b> so your best people aren't spread thin.","fa":"حالا <b>تمرکز</b>. «اولویت» مفرد است — لحظه‌ای که چندتا داری، هیچ‌کدام را نداری. <b>کمتر</b> کار کن، تا همان <b>یک</b> چیزِ مهم رتبه‌بندی کن، و روشن تصمیم بگیر <b>چه‌کاری را نکنی</b> تا بهترین آدم‌هایت پخش‌وپلا نشوند."},"example":{"en":"Cut the roadmap from twelve items to three and ship the three well.","fa":"نقشهٔ راه را از دوازده مورد به سه‌تا کم کن و همان سه‌تا را خوب بفرست."},"gain":{"en":"You can turn a long wish-list into a short, real plan.","fa":"می‌توانی یک فهرستِ آرزوی بلند را به یک نقشهٔ کوتاه و واقعی تبدیل کنی."}},{"level":4,"badge":{"en":"Level 4 · Advanced","fa":"سطحِ ۴ · پیشرفته"},"title":{"en":"Pick up the pace","fa":"سرعت را ببر بالا"},"tagline":{"en":"Urgency, speed, and intensity.","fa":"فوریت، سرعت و شدت."},"body":{"en":"Add speed. <b>Urgency</b> is a mindset — time is not your friend. <b>Speed</b> is a choice, not a resource; most work can move faster than feels normal. And <b>intensity</b> — sustained, focused energy — is the fuel that turns high standards and tight focus into real results.","fa":"سرعت را اضافه کن. <b>فوریت</b> یک طرزِ فکر است — زمان دوستِ تو نیست. <b>سرعت</b> یک انتخاب است، نه یک منبع؛ بیشترِ کارها می‌توانند سریع‌تر از چیزی که عادی به‌نظر می‌رسد بروند. و <b>شدت</b> — انرژیِ پایدار و متمرکز — همان سوختی است که استانداردِ بالا و تمرکزِ فشرده را به نتیجهٔ واقعی تبدیل می‌کند."},"example":{"en":"Halve a timeline on purpose and watch the team rise to meet it.","fa":"یک زمان‌بندی را عمداً نصف کن و ببین تیم چطور بالا می‌آید تا به آن برسد."},"gain":{"en":"You can raise the tempo of the whole team on purpose.","fa":"می‌توانی ریتمِ کلِ تیم را عمداً بالا ببری."}},{"level":5,"badge":{"en":"Level 5 · Expert","fa":"سطحِ ۵ · حرفه‌ای"},"title":{"en":"Ambition, people, execution","fa":"جاه‌طلبی، آدم‌ها، اجرا"},"tagline":{"en":"Ambition, drivers, and execution.","fa":"جاه‌طلبی، راننده‌ها و اجرا."},"body":{"en":"The expert amps up the system itself. Lift <b>ambition</b> so the goal is big enough to sharpen strategy and attract talent. Put <b>drivers, not passengers</b>, in the key seats. And remember the deepest rule: <b>no strategy is better than its execution</b> — the everyday intensity of raising standards, focusing, and moving fast is what actually wins.","fa":"آدمِ حرفه‌ای خودِ سیستم را آمپ می‌کند. <b>جاه‌طلبی</b> را بالا ببر تا هدف آن‌قدر بزرگ باشد که استراتژی را تیز کند و استعداد را جذب کند. <b>راننده‌ها را، نه مسافرها را</b>، در صندلی‌های کلیدی بنشان. و عمیق‌ترین قاعده را یادت باشد: <b>هیچ استراتژی‌ای بهتر از اجرایش نیست</b> — همان شدتِ روزمرهٔ بالا بردنِ استاندارد، تمرکز و سریع حرکت کردن است که واقعاً می‌برد."},"example":{"en":"You raise the bar, name one priority, move fast, and put owners in every key seat.","fa":"سطح را بالا می‌بری، یک اولویت را نام می‌بری، سریع حرکت می‌کنی، و در هر صندلیِ کلیدی یک صاحب می‌نشانی."},"gain":{"en":"You can amp up a whole organization — and teach others to do it.","fa":"می‌توانی یک سازمانِ کامل را آمپ کنی — و به دیگران هم یادش بدهی."}}],"quotes":[{"en":"The moment you have many priorities, you actually have none.","fa":"لحظه‌ای که چند اولویت داری، در واقع هیچ‌کدام را نداری."},{"en":"No strategy is better than its execution.","fa":"هیچ استراتژی‌ای بهتر از اجرایش نیست."},{"en":"Time is not our friend. The faster we separate from the competition, the more likely we are to succeed.","fa":"زمان دوستِ ما نیست. هرچه سریع‌تر از رقیب فاصله بگیریم، احتمالِ موفقیتمان بیشتر است."},{"en":"Celebrate people who own their responsibilities, take and defend clear positions, argue for their preferred strategies, and seek to move the dial.","fa":"از آدم‌هایی تجلیل کن که مسئولیتشان را مالِ خودشان می‌دانند، موضعِ روشن می‌گیرند و از آن دفاع می‌کنند، برای استراتژیِ موردِ نظرشان بحث می‌کنند، و می‌خواهند عقربه را جابه‌جا کنند."},{"en":"Work on fewer things at the same time, and prioritize hard.","fa":"هم‌زمان روی چیزهای کمتری کار کن، و قاطعانه اولویت‌بندی کن."},{"en":"High-growth enterprises are not easy places to live. The pressure is relentless.","fa":"شرکت‌های پُررشد جاهای راحتی برای زندگی نیستند. فشار بی‌امان است."},{"en":"Hire drivers, not passengers, and get the wrong people off the bus.","fa":"راننده استخدام کن، نه مسافر، و آدم‌های نادرست را از اتوبوس پیاده کن."},{"en":"Spell out what you mean! If priorities are not clearly understood at the top, how distorted will they be down the line?","fa":"منظورت را مو به مو بگو! اگر اولویت‌ها همان بالا هم درست فهمیده نشوند، پایین‌ترها چقدر تحریف می‌شوند؟"}],"media":[{"kind":"yt","id":"4kZC8p26Fpo","src":{"en":"YouTube · Kleiner Perkins","fa":"یوتیوب · Kleiner Perkins"},"title":{"en":"Frank Slootman on Amp It Up","fa":"فرانک اسلوتمن دربارهٔ کتاب"},"desc":{"en":"The author in conversation with Kleiner Perkins about the book's core ideas.","fa":"گفت‌وگوی نویسنده با Kleiner Perkins دربارهٔ ایده‌های اصلیِ کتاب."},"bullets":{"en":["Straight from the author","Why raising standards works","How he thinks about urgency"],"fa":["مستقیم از زبانِ نویسنده","چرا بالا بردنِ استاندارد جواب می‌دهد","اینکه چطور دربارهٔ فوریت فکر می‌کند"]},"best":{"en":"Best for Stage 1–2.","fa":"خوب برای مرحلهٔ ۱ و ۲."}},{"kind":"yt","id":"Cbq6o9dl_tY","src":{"en":"YouTube · The Learning Leader","fa":"یوتیوب · The Learning Leader"},"title":{"en":"How to Raise Your Standards","fa":"چطور استانداردت را بالا ببری"},"desc":{"en":"Slootman on raising standards and demanding more, in conversation with Ryan Hawk.","fa":"اسلوتمن دربارهٔ بالا بردنِ استاندارد و بیشتر خواستن، در گفت‌وگو با رایان هاک."},"bullets":{"en":["Raising the bar in practice","Declaring war on mediocrity","Leading for intensity"],"fa":["بالا بردنِ سطح در عمل","اعلانِ جنگ به کارِ متوسط","رهبری برای شدت"]},"best":{"en":"Best for Stage 2–3.","fa":"خوب برای مرحلهٔ ۲ و ۳."}},{"kind":"yt","id":"Nov3fdvPujM","src":{"en":"YouTube · Sean DeLaney","fa":"یوتیوب · Sean DeLaney"},"title":{"en":"The Amp It Up Framework","fa":"چارچوبِ کتاب"},"desc":{"en":"A clear walkthrough of the book's five-part framework and how to apply it.","fa":"یک مرورِ روشن از چارچوبِ پنج‌بخشیِ کتاب و اینکه چطور به کارش ببندی."},"bullets":{"en":["The five moves, summarized","Focus and priorities","What to apply first"],"fa":["پنج حرکت، خلاصه‌شده","تمرکز و اولویت‌ها","اینکه اول چه چیزی را به کار ببندی"]},"best":{"en":"Best for Stage 3–4.","fa":"خوب برای مرحلهٔ ۳ و ۴."}},{"kind":"img","url":"https://www.wiley.com/en-gb/Amp+It+Up:+Leading+for+Hypergrowth+by+Raising+Expectations,+Increasing+Urgency,+and+Elevating+Intensity-p-9781119836117","src":{"en":"Wiley · Publisher","fa":"Wiley · ناشر"},"title":{"en":"Amp It Up — Publisher Page","fa":"آمپش را ببر بالا — صفحهٔ ناشر"},"desc":{"en":"The publisher page for the book, with editions and details.","fa":"صفحهٔ ناشر برای کتاب، با نسخه‌ها و جزئیات."},"bullets":{"en":["The official editions","Background on the book","Straight from the source"],"fa":["نسخه‌های رسمی","پیشینه‌ای دربارهٔ کتاب","مستقیم از خودِ منبع"]},"best":{"en":"For editions and the source.","fa":"برای نسخه‌ها و منبعِ اصلی."}}],"go":[{"label":{"en":"Publisher page (Wiley)","fa":"صفحهٔ ناشر (Wiley)"},"url":"https://www.wiley.com/en-gb/Amp+It+Up:+Leading+for+Hypergrowth+by+Raising+Expectations,+Increasing+Urgency,+and+Elevating+Intensity-p-9781119836117"},{"label":{"en":"Book on Goodreads","fa":"کتاب در گودریدز"},"url":"https://www.goodreads.com/book/show/59383944-amp-it-up"},{"label":{"en":"Official book site","fa":"سایتِ رسمیِ کتاب"},"url":"https://ampitupbook.com/"}],"recs":[{"pri":"b","t":{"en":"Raise one standard today","fa":"یک استاندارد را همین امروز بالا ببر"},"d":{"en":"Take one deliverable and state, out loud, what a high-standard version looks like before work starts.","fa":"یک خروجی را بردار و قبل از شروعِ کار، با صدای بلند بگو نسخهٔ استانداردبالایش چه شکلی است."}},{"pri":"b","t":{"en":"Cut down to one priority","fa":"به یک اولویت برسان"},"d":{"en":"Force-rank your current list and protect the single most important thing from everything else.","fa":"فهرستِ فعلی‌ات را به‌زور رتبه‌بندی کن و همان تنها چیزِ مهم‌تر را از بقیهٔ چیزها حفظ کن."}},{"pri":"n","t":{"en":"Ask “why not sooner?”","fa":"بپرس «چرا زودتر نه؟»"},"d":{"en":"Pick one deadline this week and honestly test whether it could be much shorter.","fa":"یک مهلت را این هفته انتخاب کن و صادقانه امتحان کن که آیا می‌تواند خیلی کوتاه‌تر باشد."}},{"pri":"n","t":{"en":"Spot drivers and passengers","fa":"راننده‌ها و مسافرها را تشخیص بده"},"d":{"en":"Look at a key project and notice who owns the outcome versus who is just along for the ride.","fa":"به یک پروژهٔ کلیدی نگاه کن و ببین چه کسی مسئولِ نتیجه است و چه کسی فقط سوارِ ماشین شده."}}]};
-</script>
-
-<script>
-/* ── 3) RENDER (text sections) ────────────────────────────── */
-function elClear(id){ var e=document.getElementById(id); if(e) e.innerHTML=''; return e; }
-
-function renderText(){
-  var t=elClear('tldrHost');
-  DATA.tldr.forEach(function(o){ var li=document.createElement('li'); li.innerHTML = TX(o); t.appendChild(li); });
-
-  var q=elClear('quoteHost');
-  DATA.quotes.forEach(function(o){
-    var bq=document.createElement('blockquote');
-    bq.innerHTML = '<span class="qm">“</span><p>'+TX(o)+'</p>';
-    q.appendChild(bq);
-  });
-
-  var m=elClear('mediaHost');
-  DATA.media.forEach(function(o){
-    var card=document.createElement('div'); card.className='mcard';
-    var thumb;
-    if(o.kind==='yt'){
-      var url='https://www.youtube.com/watch?v='+o.id;
-      var img='https://i.ytimg.com/vi/'+o.id+'/hqdefault.jpg';
-      thumb='<a class="mthumb" href="'+url+'" target="_blank" rel="noopener">'
-        +'<img src="'+img+'" alt="" loading="lazy" onerror="this.style.display=\'none\'">'
-        +'<span class="ptype">'+(LANG==='fa'?'ویدیو':'VIDEO')+'</span>'
-        +'<span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></span></a>';
-    } else {
-      thumb='<a class="mthumb" href="'+o.url+'" target="_blank" rel="noopener"><span class="mfake">'
-        +'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.6"/><path d="M21 15l-5-5L5 21"/></svg>'
-        +'</span><span class="ptype">'+(LANG==='fa'?'تصویر':'IMAGE')+'</span></a>';
-    }
-    var link = o.kind==='yt' ? 'https://www.youtube.com/watch?v='+o.id : o.url;
-    var bl = (LANG==='fa'?o.bullets.fa:o.bullets.en).map(function(b){ return '<li>'+ (LANG==='fa'?faText(b):b) +'</li>'; }).join('');
-    card.innerHTML = thumb + '<div class="mbody">'
-      + '<div class="msrc">'+TX(o.src)+'</div>'
-      + '<h4>'+TX(o.title)+'</h4>'
-      + '<p class="mdesc">'+TX(o.desc)+'</p>'
-      + '<ul>'+bl+'</ul>'
-      + '<a class="mlink" href="'+link+'" target="_blank" rel="noopener">'+(LANG==='fa'?'باز کردن ↗':'Open ↗')+'</a>'
-      + '<div class="mbest">'+TX(o.best)+'</div>'
-      + '</div>';
-    m.appendChild(card);
-  });
-
-  var g=elClear('goHost');
-  DATA.go.forEach(function(o){
-    var a=document.createElement('a'); a.href=o.url; a.target='_blank'; a.rel='noopener';
-    a.textContent=TX(o.label); g.appendChild(a);
-  });
-
-  var r=elClear('recHost');
-  DATA.recs.forEach(function(o){
-    var it=document.createElement('div'); it.className='item';
-    var priLabel = o.pri==='b' ? (LANG==='fa'?'از اینجا شروع کن':'Start here') : (LANG==='fa'?'بعدش این':'Then this');
-    it.innerHTML='<div class="t">'+TX(o.t)+'<span class="pri '+(o.pri==='b'?'b':'')+'">'+priLabel+'</span></div>'
-      +'<div class="d">'+TX(o.d)+'</div>';
-    r.appendChild(it);
-  });
-
-  var mth=document.getElementById('methodHost');
-  mth.innerHTML = LANG==='fa' ? faText("<p><b>منبع:</b> کتابِ «Amp It Up» نوشتهٔ فرانک اسلوتمن (مدیرعاملِ اسنوفلیک)، چاپِ ۲۰۲۲، انتشاراتِ Wiley.</p><p><b>روشِ کار:</b> ساختارِ پنج‌بخشی و حرکت‌ها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده؛ نقل‌قول‌ها با متن مقابله و ویدیوها بررسی شده‌اند.</p><p><b>گروه:</b> «رهبری» — کتابی دربارهٔ رهبریِ اجرا و رشدِ سریع.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای متنِ کامل، خودِ کتاب را بخوان.</p>") : "<p><b>Source:</b> the book <i>Amp It Up</i> by Frank Slootman (CEO of Snowflake), published 2022 by Wiley.</p><p><b>How this was built:</b> the five-part structure and moves were gathered and rewritten from the book and reputable sources; quotes were cross-checked and the linked videos verified.</p><p><b>Group:</b> Leadership — a book about the leadership of execution and fast growth.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>";
-  var fl=document.getElementById('flowTop');
-  if(fl){
-    var loop = LANG==='fa' ? ["بالا بردن","تمرکز","شتاب"] : ["Raise","Focus","Accelerate"];
-    var ar = LANG==='fa' ? '⟵' : '⟶';
-    fl.innerHTML = loop.map(function(w){ return '<b>'+ (LANG==='fa'?faText(w):w) +'</b>'; }).join(' <span class="ar">'+ar+'</span> ');
-  }
-}
-</script>
-
-<script>
-/* ── 4) CONCEPT MAP ───────────────────────────────────────── */
-function renderMap(){
-  var host=document.getElementById('mapHost'); if(!host) return; host.innerHTML='';
-  DATA.parts.forEach(function(p, i){
-    var col=document.createElement('div'); col.className='partcol';
-    var chaps=p.chapters.map(function(ck){
-      var c=DATA.chapters[ck];
-      return '<div class="chapchip"><span class="cn">'+num(c.n)+'</span><div><b>'+TX(c.name)+'</b>'
-        +'<small>'+TX(c.principle).replace(/<[^>]+>/g,'').slice(0, LANG==='fa'?86:76)+'…</small></div></div>';
-    }).join('');
-    col.innerHTML='<div class="ph"><span class="pdot" style="background:var('+p.varc+')"></span>'
-      +'<span class="pnum">'+(LANG==='fa'?'بخشِ ':'PART ')+num(i+1)+'</span></div>'
-      +'<h4>'+TX(p.name)+'</h4>'
-      +'<div class="ptag" style="color:var('+p.varc+')">'+TX(p.tag)+'</div>'
-      +'<p class="pgist">'+TX(p.gist)+'</p>'+chaps;
-    host.appendChild(col);
-  });
-}
-</script>
-
-<script>
-/* ── 5) INTERACTIVE NETWORK GRAPH (deterministic radial layout, no physics) ── */
-var GRAPH = (function(){
-  var svg, W=980, H=780, nodes=[], links=[], sel=null, dragNode=null, moved=false, startPt=null;
-
-  function build(){
-    svg=document.getElementById('netsvg');
-    svg.setAttribute('viewBox','0 0 '+W+' '+H);
-    nodes=[]; links=[];
-    var cx=W/2, cy=H/2, R1=220, R2=126, span=66*Math.PI/180;
-    var N=DATA.parts.length, partAng=DATA.parts.map(function(_,i){ return -Math.PI/2 + i*(2*Math.PI/N); });
-    nodes.push({id:'core', kind:'core', varc:'--core', r:38, x:cx, y:cy, label:DATA.core.name, data:DATA.core});
-    DATA.parts.forEach(function(p,i){
-      var a=partAng[i], px=cx+Math.cos(a)*R1, py=cy+Math.sin(a)*R1;
-      nodes.push({id:'p_'+p.key, kind:'part', varc:p.varc, r:25, x:px, y:py,
-        label:p.name, data:{name:p.name, principle:p.gist, more:p.more, tag:p.tag, key:p.key}});
-      links.push({s:'core', t:'p_'+p.key, strong:true});
-      var nc=p.chapters.length, start=a-span/2;
-      p.chapters.forEach(function(ck,j){
-        var ca = nc>1 ? start+span*(j/(nc-1)) : a;   // fan the 5 chapters outward
-        var c=DATA.chapters[ck];
-        nodes.push({id:'c_'+ck, kind:'chap', varc:p.varc, r:15,
-          x:px+Math.cos(ca)*R2, y:py+Math.sin(ca)*R2,
-          label:(c.glabel||c.name), data:c, ck:ck});
-        links.push({s:'p_'+p.key, t:'c_'+ck});
-      });
-    });
-    nodes.forEach(function(n){ n.hx=n.x; n.hy=n.y; });   // remember home positions for reset
-    draw();
-    select('core');
-  }
-
-  function byId(id){ for(var i=0;i<nodes.length;i++) if(nodes[i].id===id) return nodes[i]; return null; }
-
-  function draw(){
-    var ln='', nd='';
-    links.forEach(function(l){ ln+='<line class="glink" data-s="'+l.s+'" data-t="'+l.t+'" stroke="var(--line)" stroke-width="'+(l.strong?2.4:1.5)+'" stroke-linecap="round"/>'; });
-    nodes.forEach(function(n){
-      var inside='', below='';
-      if(n.kind==='core'){
-        inside='<text text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="800" fill="#fff" letter-spacing="0.3">'+shortLabel(n)+'</text>';
-      } else {
-        if(n.kind==='chap'){
-          inside='<text text-anchor="middle" dominant-baseline="central" font-size="11" font-weight="800" fill="#fff">'+num(n.data.n)+'</text>';
+/* ── CONTENT — everything unique to this book lives here ── */
+Book.mount({
+  "meta": {
+    "slug": "amp-it-up",
+    "folder": "06 - Leadership",
+    "groupNum": 6,
+    "group": {
+      "en": "Leadership",
+      "fa": "رهبری"
+    },
+    "author": {
+      "en": "Frank Slootman",
+      "fa": "فرانک اسلوتمن"
+    },
+    "eyebrow_author": {
+      "en": "Frank Slootman",
+      "fa": "فرانک اسلوتمن"
+    },
+    "book": {
+      "en": "Amp It Up",
+      "fa": "آمپش را ببر بالا"
+    },
+    "hero_title": {
+      "en": "Amp It Up — Leading for Hypergrowth by Raising Expectations, Increasing Urgency, and Elevating Intensity",
+      "fa": "آمپش را ببر بالا — رهبری برای رشدِ انفجاری با بالا بردنِ انتظارها، افزایشِ فوریت و بالا بردنِ شدت"
+    },
+    "dek": {
+      "en": "A knowledge graph of the whole book, plus a 5-stage path from a single sentence to expert-level mastery — with an example at every step.",
+      "fa": "نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از یک جملهٔ ساده تا تسلطِ حرفه‌ای — با یک مثال در هر مرحله."
+    },
+    "published": {
+      "en": "2022",
+      "fa": "۲۰۲۲"
+    },
+    "chips": [
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Parts",
+          "fa": "بخش"
         }
-        var ly = n.r + (n.kind==='part'?17:14);
-        var fs = n.kind==='part'?13:11;
-        var stroke = 'paint-order:stroke;stroke:var(--card2);stroke-width:3.6px;stroke-linejoin:round';
-        below='<text class="nlab" text-anchor="middle" y="'+ly+'" font-size="'+fs+'" font-weight="'+(n.kind==='part'?'800':'700')+'" fill="var(--ink)" style="'+stroke+'">'+shortLabel(n)+'</text>';
+      },
+      {
+        "v": {
+          "en": "16",
+          "fa": "۱۶"
+        },
+        "l": {
+          "en": "Moves",
+          "fa": "حرکت"
+        }
+      },
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Learning stages",
+          "fa": "مرحلهٔ یادگیری"
+        }
       }
-      nd+='<g class="node'+(n.kind==='core'?' ncore':'')+'" data-id="'+n.id+'"><g class="ns">'
-        +'<circle r="'+n.r+'" fill="var('+n.varc+')" fill-opacity="'+(n.kind==='chap'?0.94:1)+'" stroke="var(--card)" stroke-width="2.5"/>'
-        +inside+below+'</g></g>';
-    });
-    svg.innerHTML='<g id="glinks">'+ln+'</g><g id="gnodes">'+nd+'</g>';
-    svg.querySelectorAll('.node').forEach(function(gEl){
-      gEl.addEventListener('pointerdown', onDown);
-      gEl.addEventListener('click', function(){ if(!moved) select(gEl.getAttribute('data-id')); });
-      gEl.addEventListener('pointerenter', function(){ if(!dragNode) gEl.classList.add('hover'); });
-      gEl.addEventListener('pointerleave', function(){ gEl.classList.remove('hover'); });
-    });
-    positions();
-  }
-  function shortLabel(n){ return TX(n.label); }
-
-  function positions(){
-    svg.querySelectorAll('.node').forEach(function(g){
-      var n=byId(g.getAttribute('data-id'));
-      g.setAttribute('transform','translate('+n.x.toFixed(1)+','+n.y.toFixed(1)+')');
-    });
-    svg.querySelectorAll('.glink').forEach(function(l){
-      var a=byId(l.getAttribute('data-s')), b=byId(l.getAttribute('data-t'));
-      l.setAttribute('x1',a.x.toFixed(1)); l.setAttribute('y1',a.y.toFixed(1));
-      l.setAttribute('x2',b.x.toFixed(1)); l.setAttribute('y2',b.y.toFixed(1));
-    });
-  }
-
-  /* drag: just move the grabbed node — no simulation, so nothing else shifts */
-  function toSvg(e){
-    var pt=svg.createSVGPoint(); pt.x=e.clientX; pt.y=e.clientY;
-    var m=svg.getScreenCTM(); if(!m) return {x:e.clientX,y:e.clientY};
-    return pt.matrixTransform(m.inverse());
-  }
-  function onDown(e){
-    e.preventDefault();
-    dragNode=byId(e.currentTarget.getAttribute('data-id'));
-    moved=false; startPt=toSvg(e); svg.style.cursor='grabbing';
-    e.currentTarget.classList.remove('hover');
-    window.addEventListener('pointermove', onMove);
-    window.addEventListener('pointerup', onUp);
-  }
-  function onMove(e){
-    if(!dragNode) return; var p=toSvg(e);
-    if(startPt && (Math.abs(p.x-startPt.x)>4 || Math.abs(p.y-startPt.y)>4)) moved=true;
-    dragNode.x=Math.max(dragNode.r+4, Math.min(W-dragNode.r-4, p.x));
-    dragNode.y=Math.max(dragNode.r+4, Math.min(H-dragNode.r-24, p.y));
-    positions();
-  }
-  function onUp(){
-    dragNode=null; svg.style.cursor='grab';
-    window.removeEventListener('pointermove', onMove);
-    window.removeEventListener('pointerup', onUp);
-  }
-
-  function keepSet(id){
-    var n=byId(id); if(!n || id==='core') return null;   // core → show everything
-    var keep={}; keep[id]=1; keep['core']=1;
-    var pk = (n.kind==='part') ? n.data.key : n.data.part;
-    keep['p_'+pk]=1;
-    DATA.parts.forEach(function(p){ if(p.key===pk) p.chapters.forEach(function(ck){ keep['c_'+ck]=1; }); });
-    return keep;   // highlight the whole branch: core → part → its chapters
-  }
-  function applyFocus(id){
-    var keep=keepSet(id), full=(keep===null);
-    svg.querySelectorAll('.node').forEach(function(g){
-      var nid=g.getAttribute('data-id');
-      g.classList.toggle('dim', !full && !keep[nid]);
-      g.classList.toggle('hl', !full && keep[nid] && nid!==id);
-    });
-    svg.querySelectorAll('.glink').forEach(function(l){
-      var s=l.getAttribute('data-s'), t=l.getAttribute('data-t');
-      var on = full || (keep[s] && keep[t]);
-      l.classList.toggle('dim', !on);
-      l.classList.toggle('hl', !full && on);
-    });
-  }
-
-  function relatedIds(node){
-    var ids=[];
-    if(node.id==='core'){ DATA.parts.forEach(function(p){ ids.push('p_'+p.key); }); }
-    else if(node.kind==='part'){ var pk=node.data.key; DATA.parts.forEach(function(p){ if(p.key===pk) p.chapters.forEach(function(ck){ ids.push('c_'+ck); }); }); }
-    else { var pk2=node.data.part; ids.push('p_'+pk2);
-      DATA.parts.forEach(function(p){ if(p.key===pk2) p.chapters.forEach(function(ck){ if('c_'+ck!==node.id) ids.push('c_'+ck); }); }); }
-    return ids;
-  }
-
-  function drow(cls,label,txt){ return '<div class="drow '+cls+'"><div class="dlab">'+label+'</div><div class="dtxt">'+txt+'</div></div>'; }
-
-  function select(id){
-    var n=byId(id); if(!n) return;
-    sel=id;
-    svg.querySelectorAll('.node').forEach(function(g){ g.classList.toggle('sel', g.getAttribute('data-id')===id); });
-    var selEl=svg.querySelector('.node[data-id="'+id+'"]'); if(selEl&&selEl.parentNode) selEl.parentNode.appendChild(selEl);  // raise on top
-    applyFocus(id);
-    var d=n.data, pv = n.kind==='core' ? '--core' : n.varc;
-    var kicker = n.kind==='core' ? (LANG==='fa'?'ایدهٔ مرکزی':'Core idea')
-             : n.kind==='part' ? (LANG==='fa'?'بخش':'Part') + ' · ' + TX(d.tag)
-             : (LANG==='fa'?"حرکتِ":"Move") + ' ' + num(d.n);
-    var prLab = (n.kind==='chap') ? (LANG==='fa'?'اصل':'Principle') : (LANG==='fa'?'ایدهٔ اصلی':'Big idea');
-    var html='<div class="dkick"><i style="background:var('+pv+')"></i>'+ (LANG==='fa'?faText(kicker):kicker) +'</div>'
-      +'<h4>'+TX(d.name)+'</h4>'
-      + drow('', prLab, TX(d.principle));
-    if(d.more)    html += drow('more', (LANG==='fa'?'بیشتر':'In depth'), TX(d.more));
-    if(d.example) html += drow('', (LANG==='fa'?'مثال':'Example'), TX(d.example));
-    if(d.tip)     html += drow('tip', (LANG==='fa'?'امتحان کن':'Try this'), TX(d.tip));
-    if(d.pitfall) html += drow('pit', (LANG==='fa'?'حواست باشد':'Watch out'), TX(d.pitfall));
-    // related chips
-    var rel=relatedIds(n);
-    if(rel.length){
-      var chips=rel.map(function(rid){ var rn=byId(rid); if(!rn) return '';
-        return '<span class="dchip" data-goto="'+rid+'"><i style="background:var('+rn.varc+')"></i>'+TX(rn.data.name)+'</span>'; }).join('');
-      html += '<div class="drow"><div class="dlab">'+(LANG==='fa'?'مرتبط':'Related')+'</div><div class="dchips">'+chips+'</div></div>';
+    ],
+    "kboxes": [
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Parts (standards · alignment · focus · pace · culture)",
+          "fa": "بخش (استاندارد · هم‌سویی · تمرکز · سرعت · فرهنگ)"
+        }
+      },
+      {
+        "v": {
+          "en": "16",
+          "fa": "۱۶"
+        },
+        "l": {
+          "en": "Moves you can make",
+          "fa": "حرکت که می‌توانی انجام بدهی"
+        }
+      },
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Levels, simple → expert",
+          "fa": "مرحله، ساده تا حرفه‌ای"
+        }
+      },
+      {
+        "v": {
+          "en": "1",
+          "fa": "۱"
+        },
+        "l": {
+          "en": "Real priority at a time, not many",
+          "fa": "یک اولویتِ واقعی در هر زمان، نه چندتا"
+        }
+      }
+    ],
+    "core_callout": {
+      "label": {
+        "en": "The core idea:",
+        "fa": "ایدهٔ اصلی:"
+      },
+      "en": "Take whatever you're already doing and <i>amp it up</i> — raise your standards, sharpen focus to a few priorities, and move with real urgency. Most teams have far more potential than they use; the leader's job is to turn up the intensity and refuse mediocrity.",
+      "fa": "هر کاری که همین حالا داری می‌کنی را بردار و <i>آمپش را ببر بالا</i> — استانداردت را بالا ببر، تمرکزت را روی چند اولویت تیز کن، و با فوریتِ واقعی حرکت کن. بیشترِ تیم‌ها خیلی بیشتر از چیزی که استفاده می‌کنند توان دارند؛ کارِ رهبر این است که شدت را ببرد بالا و به کارِ متوسط تن ندهد."
+    },
+    "flow_callout": {
+      "label": {
+        "en": "Read it as a flow:",
+        "fa": "به‌صورتِ یک جریان بخوانش:"
+      },
+      "en": "First <b>raise</b> standards and align everyone, then <b>focus</b> on a few priorities, then <b>accelerate</b> — pick up urgency and intensity — and finally lift ambition and put drivers, not passengers, in the seats.",
+      "fa": "اول استانداردها را <b>ببر بالا</b> و همه را هم‌سو کن، بعد روی چند اولویت <b>تمرکز</b> کن، بعد <b>شتاب بگیر</b> — فوریت و شدت را بالا ببر — و آخرش هم جاه‌طلبی را بالا ببر و آدم‌های راننده را، نه مسافر، پشتِ فرمان بنشان."
     }
-    var host=document.getElementById('detailHost');
-    host.innerHTML=html;
-    host.querySelectorAll('.dchip').forEach(function(c){
-      c.addEventListener('click', function(){ select(c.getAttribute('data-goto')); });
-    });
-  }
-
-  function relabel(){ if(!svg) return; draw(); select(sel||'core'); }
-
-  return {
-    build:build,
-    kick:function(){},                                    // no-op; layout is static
-    relabel:relabel,
-    reset:function(){ nodes.forEach(function(n){ n.x=n.hx; n.y=n.hy; }); positions(); },
-    resetFocus:function(){ select('core'); },
-    selectNode:function(id){ select(id); },
-    hasNodes:function(){ return nodes.length>0; }
-  };
-})();
-</script>
-
-<script>
-/* ── 6) 5-STAGE LADDER ────────────────────────────────────── */
-var curStage=0;
-function renderLadder(){
-  var host=document.getElementById('ladderHost'); host.innerHTML='';
-  DATA.stages.forEach(function(s,i){
-    var r=document.createElement('div'); r.className='rung'+(i===curStage?' active':'');
-    r.innerHTML='<div class="lv">'+ (LANG==='fa'?('سطحِ '+num(s.level)):('Level '+s.level)) +'</div>'
-      +'<div class="lt">'+TX(s.title)+'</div>'
-      +'<div class="lbar"><i style="width:'+(s.level*20)+'%"></i></div>';
-    r.addEventListener('click', function(){ curStage=i; renderLadder(); renderStage();
-      document.getElementById('stageHost').scrollIntoView({behavior:'smooth',block:'nearest'}); });
-    host.appendChild(r);
-  });
-}
-function renderStage(){
-  var s=DATA.stages[curStage];
-  var host=document.getElementById('stageHost');
-  var exLabel = LANG==='fa'?'مثال':'Example';
-  var prev = LANG==='fa'?'مرحلهٔ قبل':'‹ Prev', next = LANG==='fa'?'مرحلهٔ بعد':'Next ›';
-  host.innerHTML=''+
-    '<div class="stagecard">'
-    +'<div class="shead"><span class="badge">'+TX(s.badge)+'</span><h3>'+TX(s.title)+'</h3></div>'
-    +'<div class="tagline">'+TX(s.tagline)+'</div>'
-    +'<div class="sbody">'+TX(s.body)+'</div>'
-    +'<div class="exbox"><div class="exk">'+exLabel+'</div><div class="ext">'+TX(s.example)+'</div></div>'
-    +'<div class="gainrow"><span class="gi">✓</span><span>'+TX(s.gain)+'</span></div>'
-    +'<div class="stagenav">'
-      +'<button id="stPrev" '+(curStage===0?'disabled':'')+'>'+prev+'</button>'
-      +'<button id="stNext" '+(curStage===DATA.stages.length-1?'disabled':'')+'>'+next+'</button>'
-    +'</div></div>';
-  var pv=document.getElementById('stPrev'), nx=document.getElementById('stNext');
-  if(pv) pv.onclick=function(){ if(curStage>0){curStage--; renderLadder(); renderStage();} };
-  if(nx) nx.onclick=function(){ if(curStage<DATA.stages.length-1){curStage++; renderLadder(); renderStage();} };
-}
-</script>
-
-<script>
-/* ── 7) legend + graph tabs ───────────────────────────────── */
-function renderLegend(){
-  var host=document.getElementById('legendHost'); if(!host) return;
-  var items=[{c:'--core', en:'Core idea', fa:'ایدهٔ مرکزی'}]
-    .concat(DATA.parts.map(function(p){ return {c:p.varc, en:p.name.en, fa:p.name.fa}; }));
-  host.innerHTML = items.map(function(it){
-    return '<span><i style="background:var('+it.c+')"></i>'+(LANG==='fa'?faText(it.fa):it.en)+'</span>';
-  }).join('');
-  document.getElementById('ghint').textContent = LANG==='fa' ? 'روی هر دایره کلیک کن تا بیشتر بخوانی · می‌توانی بکشی‌شان' : 'Click a node to read more · drag to move';
-  document.getElementById('greset').textContent = LANG==='fa' ? '↺ چیدمان' : '↺ Reset';
-}
-function setupTabs(){
-  function show(net){
-    document.getElementById('netView').style.display = net?'':'none';
-    document.getElementById('mapView').style.display = net?'none':'';
-    document.getElementById('tabNet').classList.toggle('active',net);
-    document.getElementById('tabMap').classList.toggle('active',!net);
-    if(net) GRAPH.kick();
-  }
-  document.getElementById('tabNet').onclick=function(){show(true);};
-  document.getElementById('tabMap').onclick=function(){show(false);};
-  document.getElementById('greset').onclick=function(){ GRAPH.reset(); };
-  // click empty graph space resets the focus
-  var svg=document.getElementById('netsvg');
-  svg.addEventListener('click', function(e){ if(!e.target.closest('.node')) GRAPH.resetFocus(); });
-}
-</script>
-
-<script>
-/* ── 8) toggles + boot ────────────────────────────────────── */
-function setLang(lg){
-  LANG=lg;
-  document.documentElement.setAttribute('data-lang',lg);
-  document.documentElement.setAttribute('lang',lg);
-  document.documentElement.setAttribute('dir', lg==='fa'?'rtl':'ltr');
-  try{ localStorage.setItem('ampup-lang',lg); }catch(e){}
-  renderAll();
-}
-function renderAll(){
-  renderText();
-  renderMap();
-  renderLegend();
-  renderLadder();
-  renderStage();
-  if(GRAPH.hasNodes()) GRAPH.relabel(); else GRAPH.build();
-}
-(function(){
-  var lb=document.getElementById('langBtn');
-  lb && lb.addEventListener('click', function(){ setLang(LANG==='fa'?'en':'fa'); });
-
-  var tb=document.getElementById('themeBtn');
-  function curT(){ return document.documentElement.getAttribute('data-theme'); }
-  tb && tb.addEventListener('click', function(){
-    var t=curT()==='dark'?'light':'dark';
-    document.documentElement.setAttribute('data-theme',t);
-    try{ localStorage.setItem('ampup-theme',t); }catch(e){}
-  });
-  try{ matchMedia('(prefers-color-scheme: dark)').addEventListener('change',function(e){
-    if(!localStorage.getItem('ampup-theme')){ document.documentElement.setAttribute('data-theme', e.matches?'dark':'light'); }
-  }); }catch(e){}
-})();
-
-/* scroll-spy */
-(function(){
-  var links=[].slice.call(document.querySelectorAll('.toc a'));
-  var seen={}, ids=[];
-  links.forEach(function(a){ var id=a.getAttribute('href').slice(1); if(!seen[id]){seen[id]=1; ids.push(id);} });
-  var secs=ids.map(function(id){return document.getElementById(id);}).filter(Boolean);
-  function setActive(id){ links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('href')==='#'+id); }); }
-  if('IntersectionObserver' in window){
-    var obs=new IntersectionObserver(function(es){
-      es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
-    },{rootMargin:'-45% 0px -50% 0px',threshold:0});
-    secs.forEach(function(s){ obs.observe(s); });
-  }
-})();
-
-document.addEventListener('DOMContentLoaded', function(){
-  setupTabs();
-  renderAll();
+  },
+  "method": {
+    "en": "<p><b>Source:</b> the book <i>Amp It Up</i> by Frank Slootman (CEO of Snowflake), published 2022 by Wiley.</p><p><b>How this was built:</b> the five-part structure and moves were gathered and rewritten from the book and reputable sources; quotes were cross-checked and the linked videos verified.</p><p><b>Group:</b> Leadership — a book about the leadership of execution and fast growth.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>",
+    "fa": "<p><b>منبع:</b> کتابِ «Amp It Up» نوشتهٔ فرانک اسلوتمن (مدیرعاملِ اسنوفلیک)، چاپِ ۲۰۲۲، انتشاراتِ Wiley.</p><p><b>روشِ کار:</b> ساختارِ پنج‌بخشی و حرکت‌ها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده؛ نقل‌قول‌ها با متن مقابله و ویدیوها بررسی شده‌اند.</p><p><b>گروه:</b> «رهبری» — کتابی دربارهٔ رهبریِ اجرا و رشدِ سریع.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای متنِ کامل، خودِ کتاب را بخوان.</p>"
+  },
+  "flow": {
+    "en": [
+      "Raise",
+      "Focus",
+      "Accelerate"
+    ],
+    "fa": [
+      "بالا بردن",
+      "تمرکز",
+      "شتاب"
+    ]
+  },
+  "graph": {
+    "W": 980,
+    "H": 780,
+    "R1": 220,
+    "R2": 126,
+    "span": 66
+  },
+  "tldr": [
+    {
+      "en": "The whole book in one line: take what you're already doing and amp it up — more intensity, higher standards, more urgency.",
+      "fa": "خلاصهٔ کل کتاب در یک جمله: هر کاری که همین حالا می‌کنی را بردار و آمپش را ببر بالا — شدتِ بیشتر، استانداردِ بالاتر، فوریتِ بیشتر."
+    },
+    {
+      "en": "Raising expectations costs nothing and changes everything — most teams perform far below their real potential.",
+      "fa": "بالا بردنِ انتظارها هیچ خرجی ندارد و همه‌چیز را عوض می‌کند — بیشترِ تیم‌ها خیلی پایین‌تر از توانِ واقعی‌شان کار می‌کنند."
+    },
+    {
+      "en": "<b>“Priority” is singular</b>: do fewer things, decide what <i>not</i> to do, and put your best people on the one that matters.",
+      "fa": "<b>«اولویت» مفرد است</b>: کمتر کار کن، تصمیم بگیر چه‌کاری را <i>نکنی</i>، و بهترین آدم‌هایت را روی همان یک چیزِ مهم بگذار."
+    },
+    {
+      "en": "Speed and urgency are <b>choices, not resources</b> — you can almost always move faster than feels normal.",
+      "fa": "سرعت و فوریت <b>انتخاب‌اند، نه منبع</b> — تقریباً همیشه می‌توانی سریع‌تر از چیزی که عادی به‌نظر می‌رسد حرکت کنی."
+    },
+    {
+      "en": "Culture follows: lift ambition, hire drivers not passengers, and remember <b>no strategy is better than its execution</b>.",
+      "fa": "فرهنگ دنبال می‌آید: جاه‌طلبی را بالا ببر، راننده استخدام کن نه مسافر، و یادت باشد <b>هیچ استراتژی‌ای بهتر از اجرایش نیست</b>."
+    }
+  ],
+  "parts": [
+    {
+      "key": "raise",
+      "varc": "--c-teal",
+      "name": {
+        "en": "Raise Your Standards",
+        "fa": "استانداردت را بالا ببر"
+      },
+      "tag": {
+        "en": "The mindset shift",
+        "fa": "تغییرِ نگرش"
+      },
+      "gist": {
+        "en": "Amp up expectations and declare war on mediocrity.",
+        "fa": "انتظارها را ببر بالا و با کارِ متوسط بجنگ."
+      },
+      "more": {
+        "en": "Everything starts here. Raising the bar costs nothing but changes what your team believes is possible; most people rise to the standard you set out loud, and no higher.",
+        "fa": "همه‌چیز از این‌جا شروع می‌شود. بالا بردنِ استاندارد هیچ خرجی ندارد ولی باورِ تیمت را دربارهٔ اینکه چه چیزی ممکن است عوض می‌کند؛ بیشترِ آدم‌ها تا همان سطحی که با صدای بلند تعیین می‌کنی بالا می‌آیند، نه بالاتر."
+      },
+      "chapters": [
+        "ampup",
+        "mediocrity",
+        "standards",
+        "excellence"
+      ]
+    },
+    {
+      "key": "align",
+      "varc": "--c-blue",
+      "name": {
+        "en": "Align the Whole Company",
+        "fa": "کلِ شرکت را هم‌سو کن"
+      },
+      "tag": {
+        "en": "One direction",
+        "fa": "یک جهت"
+      },
+      "gist": {
+        "en": "Get everyone on the same page and make priorities explicit.",
+        "fa": "همه را روی یک خط بیاور و اولویت‌ها را روشن کن."
+      },
+      "more": {
+        "en": "Speed without alignment just scatters energy. Say out loud what matters most, repeat it until it's boring, and make sure the same priorities are understood from the top to the front line.",
+        "fa": "سرعت بدونِ هم‌سویی فقط انرژی را پخش‌وپلا می‌کند. با صدای بلند بگو چه چیزی از همه مهم‌تر است، آن‌قدر تکرارش کن که خسته‌کننده شود، و مطمئن شو همان اولویت‌ها از بالا تا خطِ مقدم فهمیده شده‌اند."
+      },
+      "chapters": [
+        "sameplane",
+        "priorities",
+        "overcommunicate"
+      ]
+    },
+    {
+      "key": "focus",
+      "varc": "--c-amber",
+      "name": {
+        "en": "Sharpen Your Focus",
+        "fa": "تمرکزت را تیز کن"
+      },
+      "tag": {
+        "en": "Do fewer things",
+        "fa": "کمتر انجام بده"
+      },
+      "gist": {
+        "en": "Do fewer things, narrow the priorities, and decide what not to do.",
+        "fa": "کمتر انجام بده، اولویت‌ها را کم کن، و تصمیم بگیر چه‌کاری را نکنی."
+      },
+      "more": {
+        "en": "Focus is a force multiplier. The moment you have many priorities you have none — so cut the list hard, put your best people on the few things that matter, and protect them from everything else.",
+        "fa": "تمرکز، ضریبِ نیروست. لحظه‌ای که چند اولویت داری، هیچ اولویتی نداری — پس فهرست را قاطعانه کوتاه کن، بهترین آدم‌هایت را روی همان چند چیزِ مهم بگذار، و از بقیهٔ چیزها حفظشان کن."
+      },
+      "chapters": [
+        "fewerthings",
+        "onepriority",
+        "notdo"
+      ]
+    },
+    {
+      "key": "pace",
+      "varc": "--c-violet",
+      "name": {
+        "en": "Pick Up the Pace",
+        "fa": "سرعت را ببر بالا"
+      },
+      "tag": {
+        "en": "Urgency & intensity",
+        "fa": "فوریت و شدت"
+      },
+      "gist": {
+        "en": "Treat urgency, intensity, and speed as choices you make.",
+        "fa": "فوریت، شدت و سرعت را تصمیم‌هایی بدان که خودت می‌گیری."
+      },
+      "more": {
+        "en": "Time is not your friend. Most deadlines can be shorter, most work can move faster, and the pace of the leader sets the pace of the company — so raise it on purpose.",
+        "fa": "زمان دوستِ تو نیست. بیشترِ مهلت‌ها می‌توانند کوتاه‌تر باشند، بیشترِ کارها می‌توانند سریع‌تر پیش بروند، و سرعتِ رهبر، سرعتِ شرکت را تعیین می‌کند — پس عمداً ببرش بالا."
+      },
+      "chapters": [
+        "urgency",
+        "speed",
+        "intensity"
+      ]
+    },
+    {
+      "key": "transform",
+      "varc": "--c-green",
+      "name": {
+        "en": "Transform Strategy & Culture",
+        "fa": "استراتژی و فرهنگ را دگرگون کن"
+      },
+      "tag": {
+        "en": "Ambition & people",
+        "fa": "جاه‌طلبی و آدم‌ها"
+      },
+      "gist": {
+        "en": "Elevate ambition and hire drivers, not passengers.",
+        "fa": "جاه‌طلبی را بالا ببر و آدم‌های راننده استخدام کن، نه مسافر."
+      },
+      "more": {
+        "en": "Big ambition attracts big talent and forces sharper strategy. Go after the largest opportunity you can, put people who own outcomes in charge, and remember: no strategy is better than its execution.",
+        "fa": "جاه‌طلبیِ بزرگ، استعدادِ بزرگ را جذب می‌کند و استراتژی را تیزتر می‌کند. دنبالِ بزرگ‌ترین فرصتی که می‌توانی برو، آدم‌هایی را که مسئولیتِ نتیجه را می‌پذیرند سرِ کار بگذار، و یادت باشد: هیچ استراتژی‌ای بهتر از اجرایش نیست."
+      },
+      "chapters": [
+        "ambition",
+        "drivers",
+        "execution"
+      ]
+    }
+  ],
+  "chapters": {
+    "ampup": {
+      "part": "raise",
+      "n": 1,
+      "name": {
+        "en": "Amp It Up",
+        "fa": "آمپش را ببر بالا"
+      },
+      "glabel": {
+        "en": "Amp It Up",
+        "fa": "آمپ"
+      },
+      "principle": {
+        "en": "Take whatever you're already doing and turn up the intensity — more energy, higher expectations, faster action.",
+        "fa": "هر کاری که همین حالا می‌کنی را بردار و شدتش را ببر بالا — انرژیِ بیشتر، انتظارِ بالاتر، اقدامِ سریع‌تر."
+      },
+      "more": {
+        "en": "You rarely need a new strategy; you need more intensity behind the one you have. Amping up is a decision a leader can make on any ordinary Monday, and it changes the whole tempo of the team.",
+        "fa": "خیلی کم پیش می‌آید که به استراتژیِ نو نیاز داشته باشی؛ به شدتِ بیشتر پشتِ همان استراتژی نیاز داری. بالا بردنِ آمپ تصمیمی است که رهبر در هر دوشنبهٔ معمولی می‌تواند بگیرد، و کلِ ریتمِ تیم را عوض می‌کند."
+      },
+      "example": {
+        "en": "Slootman turned companies around not by changing the plan but by raising the energy, standards, and speed around it.",
+        "fa": "اسلوتمن شرکت‌ها را نه با عوض‌کردنِ نقشه، بلکه با بالا بردنِ انرژی، استاندارد و سرعتِ دورِ آن، زیر و رو کرد."
+      },
+      "tip": {
+        "en": "Pick one thing your team does at an okay level this week and demand it be done at a high level instead.",
+        "fa": "این هفته یک کار را که تیمت در حدِ «بد نیست» انجام می‌دهد انتخاب کن و به‌جایش سطحِ بالا بخواه."
+      },
+      "pitfall": {
+        "en": "Waiting for a grand new strategy while the real problem is low energy and low expectations.",
+        "fa": "منتظرِ یک استراتژیِ بزرگِ جدید ماندن، درحالی‌که مشکلِ واقعی انرژیِ کم و انتظارِ کم است."
+      }
+    },
+    "mediocrity": {
+      "part": "raise",
+      "n": 2,
+      "name": {
+        "en": "Declare War on Mediocrity",
+        "fa": "با کارِ متوسط اعلانِ جنگ کن"
+      },
+      "glabel": {
+        "en": "Anti-Mediocrity",
+        "fa": "ضدِ متوسط"
+      },
+      "principle": {
+        "en": "Refuse “good enough.” Treat mediocre work as a problem to attack, not a normal state to tolerate.",
+        "fa": "به «به‌اندازهٔ کافی خوب» تن نده. کارِ متوسط را مشکلی بدان که باید به آن حمله کنی، نه حالتی عادی که تحملش کنی."
+      },
+      "more": {
+        "en": "Mediocrity spreads quietly when leaders let it pass. Naming it, calling it out, and expecting better resets what the team thinks is acceptable — and that reset is contagious in a good way.",
+        "fa": "کارِ متوسط بی‌سروصدا پخش می‌شود وقتی رهبرها از کنارش رد می‌شوند. اسم‌بردن از آن، تذکر دادنش، و انتظارِ بهتر، این را که تیم چه چیزی را قابل‌قبول می‌داند از نو تنظیم می‌کند — و این تنظیمِ تازه به شکلِ خوبی مسری است."
+      },
+      "example": {
+        "en": "A report that's “fine” gets sent back with a clear bar for what excellent would look like.",
+        "fa": "گزارشی که «بد نیست» است، با یک معیارِ روشن از اینکه عالی چه شکلی است، پس فرستاده می‌شود."
+      },
+      "tip": {
+        "en": "Next time you almost say “that's fine,” stop and say what a great version would look like.",
+        "fa": "دفعهٔ بعد که نزدیک است بگویی «خوبه»، بایست و بگو نسخهٔ عالی‌اش چه شکلی است."
+      },
+      "pitfall": {
+        "en": "Letting “good enough” slide to keep the peace, until it becomes the standard.",
+        "fa": "رها کردنِ «به‌اندازهٔ کافی خوب» برای حفظِ آرامش، تا وقتی که خودش می‌شود استاندارد."
+      }
+    },
+    "standards": {
+      "part": "raise",
+      "n": 3,
+      "name": {
+        "en": "Raise Your Standards",
+        "fa": "استانداردت را بالا ببر"
+      },
+      "glabel": {
+        "en": "Standards",
+        "fa": "استاندارد"
+      },
+      "principle": {
+        "en": "Set the bar higher than feels comfortable; people usually rise to the expectation you make explicit.",
+        "fa": "معیار را بالاتر از چیزی که راحت است بگذار؛ آدم‌ها معمولاً تا همان انتظاری که روشن بیان می‌کنی بالا می‌آیند."
+      },
+      "more": {
+        "en": "Higher standards cost nothing and are the cheapest performance upgrade a leader has. The trick is to raise them out loud and then hold the line, instead of hoping people guess what you want.",
+        "fa": "استانداردِ بالاتر هیچ خرجی ندارد و ارزان‌ترین ارتقای عملکردی است که یک رهبر دارد. رمزش این است که با صدای بلند بالایشان ببری و بعد پایش بایستی، نه اینکه امید داشته باشی آدم‌ها حدس بزنند چه می‌خواهی."
+      },
+      "example": {
+        "en": "Announcing “we ship this at world-class quality, not just done” changes how the whole team works on it.",
+        "fa": "گفتنِ «این را در کیفیتِ جهانی می‌فرستیم، نه فقط تمام‌شده» عوض می‌کند که کلِ تیم چطور رویش کار می‌کند."
+      },
+      "tip": {
+        "en": "Say your standard for one deliverable in a single sentence, out loud, before work starts.",
+        "fa": "استانداردت برای یک خروجی را در یک جمله، با صدای بلند، قبل از شروعِ کار بگو."
+      },
+      "pitfall": {
+        "en": "Keeping high standards in your head and feeling let down when no one meets them.",
+        "fa": "استانداردِ بالا را توی سرت نگه‌داشتن و بعد دلخور شدن که چرا کسی به آن نمی‌رسد."
+      }
+    },
+    "excellence": {
+      "part": "raise",
+      "n": 4,
+      "name": {
+        "en": "Expect Excellence",
+        "fa": "انتظارِ عالی‌بودن داشته باش"
+      },
+      "glabel": {
+        "en": "Excellence",
+        "fa": "عالی‌بودن"
+      },
+      "principle": {
+        "en": "Make excellence the default expectation, not a rare bonus reserved for special projects.",
+        "fa": "عالی‌بودن را انتظارِ پیش‌فرض کن، نه جایزه‌ای نادر که فقط برای پروژه‌های خاص کنار گذاشته شده."
+      },
+      "more": {
+        "en": "When excellence is normal, average work starts to feel out of place. This isn't about pressure for its own sake; it's about respecting the team enough to believe they can do great work — and asking for it.",
+        "fa": "وقتی عالی‌بودن عادی است، کارِ متوسط شروع می‌کند به بی‌جا به‌نظر رسیدن. این دربارهٔ فشار به‌خاطرِ خودِ فشار نیست؛ دربارهٔ این است که آن‌قدر به تیم احترام بگذاری که باور کنی می‌توانند کارِ عالی کنند — و از آن‌ها بخواهی‌اش."
+      },
+      "example": {
+        "en": "A team that treats every release as a chance to be excellent outperforms one that just clears the bug list.",
+        "fa": "تیمی که هر انتشار را فرصتی برای عالی‌بودن می‌داند، از تیمی که فقط فهرستِ باگ‌ها را تمام می‌کند بهتر عمل می‌کند."
+      },
+      "tip": {
+        "en": "Praise the specific thing that made a piece of work excellent, so people know what to repeat.",
+        "fa": "همان چیزِ مشخصی که یک کار را عالی کرد تحسین کن، تا آدم‌ها بدانند چه چیزی را تکرار کنند."
+      },
+      "pitfall": {
+        "en": "Rewarding effort and busyness instead of the quality of the result.",
+        "fa": "پاداش‌دادن به تلاش و مشغول‌بودن، به‌جای کیفیتِ نتیجه."
+      }
+    },
+    "sameplane": {
+      "part": "align",
+      "n": 5,
+      "name": {
+        "en": "Get Everyone on the Same Page",
+        "fa": "همه را روی یک خط بیاور"
+      },
+      "glabel": {
+        "en": "Alignment",
+        "fa": "هم‌سویی"
+      },
+      "principle": {
+        "en": "Alignment means every team is pointed at the same goal and knows how their work connects to it.",
+        "fa": "هم‌سویی یعنی هر تیم به همان هدفِ واحد نشانه رفته و می‌داند کارش چطور به آن وصل می‌شود."
+      },
+      "more": {
+        "en": "Smart people pulling in slightly different directions waste enormous energy. The leader's job is to make the shared destination so clear that everyone can check their own work against it.",
+        "fa": "آدم‌های باهوش که هرکدام کمی به سمتِ متفاوتی می‌کشند، انرژیِ عظیمی را هدر می‌دهند. کارِ رهبر این است که مقصدِ مشترک را آن‌قدر روشن کند که هرکس بتواند کارِ خودش را با آن بسنجد."
+      },
+      "example": {
+        "en": "Every team can state the company's top goal this quarter in the same words.",
+        "fa": "هر تیم می‌تواند هدفِ اصلیِ شرکت در این فصل را با همان کلمات بگوید."
+      },
+      "tip": {
+        "en": "Ask three people on different teams what the top priority is; if answers differ, you have an alignment problem.",
+        "fa": "از سه نفر در تیم‌های مختلف بپرس اولویتِ اصلی چیست؛ اگر جواب‌ها فرق داشت، مشکلِ هم‌سویی داری."
+      },
+      "pitfall": {
+        "en": "Assuming people are aligned because no one is arguing.",
+        "fa": "فرض کردن اینکه آدم‌ها هم‌سو هستند چون کسی بحث نمی‌کند."
+      }
+    },
+    "priorities": {
+      "part": "align",
+      "n": 6,
+      "name": {
+        "en": "Spell Out the Priorities",
+        "fa": "اولویت‌ها را مو به مو بگو"
+      },
+      "glabel": {
+        "en": "Priorities",
+        "fa": "اولویت‌ها"
+      },
+      "principle": {
+        "en": "Say exactly what matters most, in plain words; don't assume it's obvious.",
+        "fa": "دقیقاً بگو چه چیزی از همه مهم‌تر است، با زبانِ ساده؛ فرض نکن که واضح است."
+      },
+      "more": {
+        "en": "Priorities that are clear at the top get blurrier at every level below. If you don't spell them out precisely, they arrive at the front line distorted or lost — so over-specify on purpose.",
+        "fa": "اولویت‌هایی که بالا روشن‌اند، در هر سطحِ پایین‌تر تارتر می‌شوند. اگر دقیق بیانشان نکنی، به خطِ مقدم که می‌رسند تحریف‌شده یا گم‌شده‌اند — پس عمداً بیش‌ازحد دقیق باش."
+      },
+      "example": {
+        "en": "“Ship X by March and hit Y quality” beats a vague “let's focus on the product.”",
+        "fa": "«X را تا مارس بفرست و به کیفیتِ Y برس» از «بیایید روی محصول تمرکز کنیم»ِ مبهم بهتر است."
+      },
+      "tip": {
+        "en": "Write your top priority in one specific sentence a new hire could understand.",
+        "fa": "اولویتِ اصلی‌ات را در یک جملهٔ مشخص بنویس که یک تازه‌واردْ هم بفهمدش."
+      },
+      "pitfall": {
+        "en": "Fuzzy priorities that everyone nods at and no one can act on.",
+        "fa": "اولویت‌های مبهمی که همه سرشان را تکان می‌دهند و هیچ‌کس نمی‌تواند رویشان اقدام کند."
+      }
+    },
+    "overcommunicate": {
+      "part": "align",
+      "n": 7,
+      "name": {
+        "en": "Over-Communicate the Message",
+        "fa": "پیام را بیش‌ازحد تکرار کن"
+      },
+      "glabel": {
+        "en": "Repeat It",
+        "fa": "تکرار"
+      },
+      "principle": {
+        "en": "Repeat the direction far more than feels necessary — by the time it's boring to you, it's just landing for them.",
+        "fa": "جهت را خیلی بیشتر از چیزی که لازم به‌نظر می‌رسد تکرار کن — وقتی برای تو خسته‌کننده شد، تازه دارد به آن‌ها می‌رسد."
+      },
+      "more": {
+        "en": "A message you've said three times feels overdone to you and is brand-new to half the room. Consistent repetition, in the same words, is how a direction becomes something the whole company actually shares.",
+        "fa": "پیامی که سه بار گفته‌ای برای تو زیادی به‌نظر می‌رسد و برای نصفِ اتاق کاملاً تازه است. تکرارِ یک‌دست، با همان کلمات، همان راهی است که یک جهت به چیزی تبدیل می‌شود که کلِ شرکت واقعاً در آن شریک است."
+      },
+      "example": {
+        "en": "The same three priorities show up in every all-hands, every update, every review.",
+        "fa": "همان سه اولویت در هر جلسهٔ عمومی، هر به‌روزرسانی، هر بازبینی پیدایشان می‌شود."
+      },
+      "tip": {
+        "en": "Put your top priority in the same words at the start of every team meeting this month.",
+        "fa": "این ماه، اولویتِ اصلی‌ات را با همان کلمات اولِ هر جلسهٔ تیمی بگو."
+      },
+      "pitfall": {
+        "en": "Saying something important once and assuming it stuck.",
+        "fa": "یک چیزِ مهم را یک‌بار گفتن و فرض کردن که جا افتاد."
+      }
+    },
+    "fewerthings": {
+      "part": "focus",
+      "n": 8,
+      "name": {
+        "en": "Do Fewer Things",
+        "fa": "کارهای کمتری انجام بده"
+      },
+      "glabel": {
+        "en": "Fewer Things",
+        "fa": "کمتر"
+      },
+      "principle": {
+        "en": "Concentrate effort on a short list; spreading thin across many projects guarantees weak results everywhere.",
+        "fa": "تلاش را روی یک فهرستِ کوتاه متمرکز کن؛ پخش‌شدن روی پروژه‌های زیاد، نتیجهٔ ضعیف را همه‌جا تضمین می‌کند."
+      },
+      "more": {
+        "en": "Doing fewer things well beats doing many things adequately. Cutting projects feels risky, but a focused team moving fast on a few bets almost always outperforms a busy team inching everything forward.",
+        "fa": "کمتر کار کردن ولی خوب، از زیاد کار کردنِ متوسط بهتر است. کم‌کردنِ پروژه‌ها ترسناک به‌نظر می‌رسد، ولی یک تیمِ متمرکز که روی چند شرط سریع می‌دود، تقریباً همیشه از یک تیمِ شلوغ که همه‌چیز را ذره‌ذره جلو می‌برد بهتر عمل می‌کند."
+      },
+      "example": {
+        "en": "Cutting a roadmap from twelve initiatives to three often ships more real value, sooner.",
+        "fa": "کم‌کردنِ نقشهٔ راه از دوازده اقدام به سه‌تا، اغلب ارزشِ واقعیِ بیشتری را زودتر می‌رساند."
+      },
+      "tip": {
+        "en": "List everything in flight, then cross out until only the few that truly matter remain.",
+        "fa": "هر چیزی که در جریان است را فهرست کن، بعد آن‌قدر خط بزن تا فقط همان چند تای واقعاً مهم بماند."
+      },
+      "pitfall": {
+        "en": "Keeping every project alive so no one is disappointed, and finishing none of them well.",
+        "fa": "زنده نگه‌داشتنِ هر پروژه تا کسی ناامید نشود، و هیچ‌کدام را خوب تمام نکردن."
+      }
+    },
+    "onepriority": {
+      "part": "focus",
+      "n": 9,
+      "name": {
+        "en": "One Priority, Not Many",
+        "fa": "یک اولویت، نه چندتا"
+      },
+      "glabel": {
+        "en": "One Priority",
+        "fa": "یک اولویت"
+      },
+      "principle": {
+        "en": "“Priority” is meant to be singular; the moment you have many, you effectively have none.",
+        "fa": "«اولویت» قرار است مفرد باشد؛ لحظه‌ای که چندتا داری، در عمل هیچ‌کدام را نداری."
+      },
+      "more": {
+        "en": "A long list of “priorities” is really a way of avoiding the hard choice. Naming the single most important thing tells everyone what wins when there's a conflict — and there's always a conflict.",
+        "fa": "یک فهرستِ بلند از «اولویت‌ها» در واقع راهی است برای فرار از انتخابِ سخت. اسم‌بردن از تنها مهم‌ترین چیز، به همه می‌گوید وقتی تعارض پیش بیاید چه چیزی برنده می‌شود — و همیشه تعارض پیش می‌آید."
+      },
+      "example": {
+        "en": "When two urgent things collide, the team already knows which one the whole company backs.",
+        "fa": "وقتی دو چیزِ فوری به هم می‌خورند، تیم از قبل می‌داند کلِ شرکت پشتِ کدام‌یک است."
+      },
+      "tip": {
+        "en": "If you have five priorities, force-rank them and treat number one as the real one.",
+        "fa": "اگر پنج اولویت داری، به‌زور رتبه‌بندی‌شان کن و شمارهٔ یک را اولویتِ واقعی بدان."
+      },
+      "pitfall": {
+        "en": "Calling everything a priority so nothing can actually be deprioritized.",
+        "fa": "همه‌چیز را اولویت نامیدن، تا هیچ‌چیز واقعاً نتواند از اولویت بیفتد."
+      }
+    },
+    "notdo": {
+      "part": "focus",
+      "n": 10,
+      "name": {
+        "en": "Decide What Not to Do",
+        "fa": "تصمیم بگیر چه‌کاری را نکنی"
+      },
+      "glabel": {
+        "en": "What Not to Do",
+        "fa": "نکردن"
+      },
+      "principle": {
+        "en": "Focus is defined by what you say no to; a real priority list has a real “not doing” list beside it.",
+        "fa": "تمرکز با چیزی که به آن نه می‌گویی تعریف می‌شود؛ یک فهرستِ اولویتِ واقعی، یک فهرستِ «انجام‌نمی‌دهیم»ِ واقعی هم کنارش دارد."
+      },
+      "more": {
+        "en": "Every yes is a no to something else, whether you admit it or not. Deciding out loud what you won't do frees your best people and stops good-looking distractions from eating the plan.",
+        "fa": "هر «بله» یک «نه» به چیزِ دیگری است، چه اعترافش کنی چه نکنی. تصمیم‌گرفتنِ باصدای بلند دربارهٔ کاری که نمی‌کنی، بهترین آدم‌هایت را آزاد می‌کند و نمی‌گذارد حواس‌پرتی‌های خوش‌ظاهر نقشه را بخورند."
+      },
+      "example": {
+        "en": "A “not now” list for tempting features keeps the team from quietly picking them up.",
+        "fa": "یک فهرستِ «الان نه» برای قابلیت‌های وسوسه‌انگیز، نمی‌گذارد تیم بی‌سروصدا سراغشان برود."
+      },
+      "tip": {
+        "en": "For every priority you set, name one thing you'll stop or postpone to protect it.",
+        "fa": "برای هر اولویتی که می‌گذاری، یک چیز را نام ببر که برای حفاظت از آن متوقف یا عقب می‌اندازی."
+      },
+      "pitfall": {
+        "en": "Adding new priorities without ever removing old ones.",
+        "fa": "اضافه‌کردنِ اولویت‌های جدید بدونِ اینکه هیچ‌وقت قدیمی‌ها را برداری."
+      }
+    },
+    "urgency": {
+      "part": "pace",
+      "n": 11,
+      "name": {
+        "en": "Increase the Urgency",
+        "fa": "فوریت را بالا ببر"
+      },
+      "glabel": {
+        "en": "Urgency",
+        "fa": "فوریت"
+      },
+      "principle": {
+        "en": "Treat time as scarce and competition as real; act now rather than when it's comfortable.",
+        "fa": "زمان را کمیاب و رقیب را واقعی بدان؛ همین حالا اقدام کن، نه وقتی که راحت است."
+      },
+      "more": {
+        "en": "Time is not your friend — deals cool off, competitors move, momentum fades. A leader who treats most things as more urgent than the team assumed pulls decisions and delivery forward by weeks.",
+        "fa": "زمان دوستِ تو نیست — معامله‌ها سرد می‌شوند، رقیب‌ها حرکت می‌کنند، شتاب فروکش می‌کند. رهبری که بیشترِ چیزها را فوری‌تر از آنچه تیم فرض کرده می‌داند، تصمیم‌ها و تحویل را هفته‌ها جلو می‌کشد."
+      },
+      "example": {
+        "en": "Turning a “next quarter” decision into a “this week” decision, on purpose.",
+        "fa": "تبدیلِ عمدیِ یک تصمیمِ «فصلِ بعد» به تصمیمِ «همین هفته»."
+      },
+      "tip": {
+        "en": "Take one deadline on your list and ask honestly, “why not sooner?”",
+        "fa": "یک مهلت از فهرستت را بردار و صادقانه بپرس: «چرا زودتر نه؟»"
+      },
+      "pitfall": {
+        "en": "Letting default timelines stand just because no one questioned them.",
+        "fa": "رها کردنِ زمان‌بندی‌های پیش‌فرض فقط به این خاطر که کسی زیرِ سوال نبردشان."
+      }
+    },
+    "speed": {
+      "part": "pace",
+      "n": 12,
+      "name": {
+        "en": "Speed Is a Choice",
+        "fa": "سرعت یک انتخاب است"
+      },
+      "glabel": {
+        "en": "Speed",
+        "fa": "سرعت"
+      },
+      "principle": {
+        "en": "Moving fast is a decision, not a resource you wait for; you can almost always go faster than feels normal.",
+        "fa": "سریع حرکت کردن یک تصمیم است، نه منبعی که منتظرش بمانی؛ تقریباً همیشه می‌توانی سریع‌تر از چیزی که عادی به‌نظر می‌رسد بروی."
+      },
+      "more": {
+        "en": "People treat the current pace as fixed, but it's mostly habit. When a leader asks “why not faster?” and means it, work that seemed to need a month often gets done well in a week.",
+        "fa": "آدم‌ها سرعتِ فعلی را ثابت فرض می‌کنند، ولی بیشترش عادت است. وقتی رهبری می‌پرسد «چرا سریع‌تر نه؟» و واقعاً منظورش همین است، کاری که انگار یک ماه لازم داشت، اغلب در یک هفته خوب انجام می‌شود."
+      },
+      "example": {
+        "en": "Compressing a launch timeline in half and discovering the team can actually hit it.",
+        "fa": "نصف‌کردنِ زمان‌بندیِ یک عرضه و کشفِ اینکه تیم واقعاً می‌تواند به آن برسد."
+      },
+      "tip": {
+        "en": "Pick one task and ask what it would take to finish it in half the time.",
+        "fa": "یک کار را انتخاب کن و بپرس چه لازم است تا در نصفِ زمان تمامش کنی."
+      },
+      "pitfall": {
+        "en": "Confusing “we've always taken this long” with “this is how long it takes.”",
+        "fa": "اشتباه‌گرفتنِ «همیشه این‌قدر طول کشیده» با «این‌قدر طول می‌کشد»."
+      }
+    },
+    "intensity": {
+      "part": "pace",
+      "n": 13,
+      "name": {
+        "en": "Raise the Intensity",
+        "fa": "شدت را بالا ببر"
+      },
+      "glabel": {
+        "en": "Intensity",
+        "fa": "شدت"
+      },
+      "principle": {
+        "en": "Bring sustained, focused energy to the work; intensity is the fuel that turns standards and urgency into results.",
+        "fa": "انرژیِ پایدار و متمرکز به کار بیاور؛ شدت همان سوختی است که استاندارد و فوریت را به نتیجه تبدیل می‌کند."
+      },
+      "more": {
+        "en": "Intensity isn't frantic busyness or long hours for their own sake — it's the whole team caring hard about the outcome and pushing on what matters. The leader sets this temperature more than anyone.",
+        "fa": "شدت یعنی مشغولیتِ سراسیمه یا ساعت‌های طولانی به‌خاطرِ خودش نیست — یعنی کلِ تیم سختْ به نتیجه اهمیت بدهد و روی چیزی که مهم است فشار بیاورد. رهبر بیشتر از هرکسی این دما را تعیین می‌کند."
+      },
+      "example": {
+        "en": "A leader who shows visible energy about the goal raises the energy of everyone around the table.",
+        "fa": "رهبری که دربارهٔ هدف انرژیِ آشکار نشان می‌دهد، انرژیِ همهٔ کسانی که دورِ میزند را بالا می‌برد."
+      },
+      "tip": {
+        "en": "Show up to the meeting about your top goal with visibly more energy than usual.",
+        "fa": "با انرژیِ آشکارا بیشتر از همیشه به جلسهٔ هدفِ اصلی‌ات برو."
+      },
+      "pitfall": {
+        "en": "Mistaking a calm, low-energy meeting for a productive one.",
+        "fa": "اشتباه‌گرفتنِ یک جلسهٔ آرام و کم‌انرژی با یک جلسهٔ پربازده."
+      }
+    },
+    "ambition": {
+      "part": "transform",
+      "n": 14,
+      "name": {
+        "en": "Elevate Your Ambition",
+        "fa": "جاه‌طلبی‌ات را بالا ببر"
+      },
+      "glabel": {
+        "en": "Ambition",
+        "fa": "جاه‌طلبی"
+      },
+      "principle": {
+        "en": "Aim at the biggest opportunity you can credibly go after; big goals sharpen strategy and attract strong people.",
+        "fa": "بزرگ‌ترین فرصتی که به‌شکلِ باورپذیر می‌توانی دنبالش بروی را هدف بگیر؛ هدف‌های بزرگ استراتژی را تیز می‌کنند و آدم‌های قوی را جذب می‌کنند."
+      },
+      "more": {
+        "en": "Small ambitions produce small plans and attract people who want an easy ride. A bold destination forces harder thinking about strategy and draws the kind of talent that wants to build something that matters.",
+        "fa": "جاه‌طلبیِ کوچک، نقشهٔ کوچک می‌سازد و آدم‌هایی را جذب می‌کند که سواریِ راحت می‌خواهند. یک مقصدِ جسورانه، فکرِ سخت‌تری دربارهٔ استراتژی را مجبور می‌کند و همان جور استعدادی را می‌کشد که می‌خواهد چیزی بسازد که مهم است."
+      },
+      "example": {
+        "en": "Choosing to build the category leader, not a comfortable niche player, changes every decision after it.",
+        "fa": "انتخابِ ساختنِ رهبرِ بازار، نه یک بازیگرِ گوشه‌ای و راحت، هر تصمیمِ بعد از آن را عوض می‌کند."
+      },
+      "tip": {
+        "en": "Ask if your current goal is the biggest one you could believe in — and if not, why.",
+        "fa": "بپرس آیا هدفِ فعلی‌ات بزرگ‌ترین هدفی است که می‌توانی به آن باور داشته باشی — و اگر نه، چرا."
+      },
+      "pitfall": {
+        "en": "Setting safe, modest targets that quietly cap what the team will ever reach.",
+        "fa": "گذاشتنِ هدف‌های امن و کوچک که بی‌سروصدا سقفِ چیزی که تیم به آن می‌رسد را تعیین می‌کنند."
+      }
+    },
+    "drivers": {
+      "part": "transform",
+      "n": 15,
+      "name": {
+        "en": "Hire Drivers, Not Passengers",
+        "fa": "راننده استخدام کن، نه مسافر"
+      },
+      "glabel": {
+        "en": "Drivers",
+        "fa": "راننده‌ها"
+      },
+      "principle": {
+        "en": "Hire people who take ownership and move the dial, and move the wrong people out of the seats.",
+        "fa": "آدم‌هایی را استخدام کن که مسئولیت را به دست می‌گیرند و عقربه را جابه‌جا می‌کنند، و آدم‌های نادرست را از صندلی بیرون بیاور."
+      },
+      "more": {
+        "en": "Drivers own outcomes, push for decisions, and make things happen; passengers wait to be told and coast on others' energy. A few drivers in the right seats change the pace of an entire company.",
+        "fa": "راننده‌ها مسئولیتِ نتیجه را می‌پذیرند، برای تصمیم فشار می‌آورند، و کارها را پیش می‌برند؛ مسافرها منتظرِ دستورند و روی انرژیِ دیگران سُر می‌خورند. چند راننده در صندلی‌های درست، سرعتِ کلِ یک شرکت را عوض می‌کنند."
+      },
+      "example": {
+        "en": "Celebrate the person who owns a problem end to end over the one who just attends the meetings.",
+        "fa": "کسی را که یک مشکل را از اول تا آخر مالِ خودش می‌داند، بیشتر از کسی که فقط در جلسه‌ها حاضر می‌شود تحسین کن."
+      },
+      "tip": {
+        "en": "For a key role, ask in the interview for a time they drove an outcome without being told to.",
+        "fa": "برای یک نقشِ کلیدی، در مصاحبه بخواه یک بار را بگویند که بدونِ اینکه بهشان گفته شود یک نتیجه را جلو بردند."
+      },
+      "pitfall": {
+        "en": "Keeping pleasant, passive people in critical seats because moving them is awkward.",
+        "fa": "نگه‌داشتنِ آدم‌های خوش‌برخورد و منفعل در صندلی‌های حیاتی، چون جابه‌جا کردنشان معذب‌کننده است."
+      }
+    },
+    "execution": {
+      "part": "transform",
+      "n": 16,
+      "name": {
+        "en": "Execution Beats Strategy",
+        "fa": "اجرا از استراتژی جلو می‌زند"
+      },
+      "glabel": {
+        "en": "Execution",
+        "fa": "اجرا"
+      },
+      "principle": {
+        "en": "A good plan poorly executed loses to an okay plan executed with intensity; no strategy is better than its execution.",
+        "fa": "یک نقشهٔ خوب که بد اجرا شود، به یک نقشهٔ متوسط که با شدت اجرا شود می‌بازد؛ هیچ استراتژی‌ای بهتر از اجرایش نیست."
+      },
+      "more": {
+        "en": "Strategy gets the glory, but execution wins the market. The everyday work of raising standards, focusing, and moving fast is how strategy actually turns into results — the plan is only a promise until it's executed.",
+        "fa": "استراتژی تحسین را می‌گیرد، ولی اجرا بازار را می‌برد. کارِ روزمرهٔ بالا بردنِ استاندارد، تمرکز و سریع حرکت کردن، همان راهی است که استراتژی واقعاً به نتیجه تبدیل می‌شود — نقشه تا وقتی اجرا نشده فقط یک قول است."
+      },
+      "example": {
+        "en": "Two companies with the same plan get opposite results; the difference is entirely in the execution.",
+        "fa": "دو شرکت با همان نقشه، نتیجهٔ مخالف می‌گیرند؛ تفاوت کاملاً در اجراست."
+      },
+      "tip": {
+        "en": "When something isn't working, check execution intensity before you rewrite the strategy.",
+        "fa": "وقتی چیزی جواب نمی‌دهد، قبل از بازنویسیِ استراتژی، شدتِ اجرا را چک کن."
+      },
+      "pitfall": {
+        "en": "Endlessly polishing the plan while the real gap is weak execution.",
+        "fa": "بی‌پایان صیقل‌دادنِ نقشه، درحالی‌که شکافِ واقعی اجرای ضعیف است."
+      }
+    }
+  },
+  "core": {
+    "name": {
+      "en": "RAISE THE BAR",
+      "fa": "سطح را بالا ببر"
+    },
+    "principle": {
+      "en": "Take everything you already do and amp it up — raise standards, align everyone, focus on a few priorities, and move with urgency and intensity. Growth comes less from a new strategy than from the energy and expectations you bring to the one you have.",
+      "fa": "هر کاری که همین حالا می‌کنی را بردار و آمپش را ببر بالا — استانداردها را بالا ببر، همه را هم‌سو کن، روی چند اولویت تمرکز کن، و با فوریت و شدت حرکت کن. رشد کمتر از یک استراتژیِ نو می‌آید و بیشتر از انرژی و انتظاری که به همان استراتژیِ فعلی می‌آوری."
+    },
+    "more": {
+      "en": "Slootman groups the leader's job into five moves — raise your standards, align the whole company, sharpen focus to a few priorities, pick up the pace, and transform strategy and culture with bigger ambition and better people. The thread through all of it: intensity is a choice, and most teams are capable of far more than they currently deliver.",
+      "fa": "اسلوتمن کارِ رهبر را در پنج حرکت دسته‌بندی می‌کند — استانداردت را بالا ببر، کلِ شرکت را هم‌سو کن، تمرکز را روی چند اولویت تیز کن، سرعت را بالا ببر، و استراتژی و فرهنگ را با جاه‌طلبیِ بزرگ‌تر و آدم‌های بهتر دگرگون کن. نخِ رابطِ همه‌شان: شدت یک انتخاب است، و بیشترِ تیم‌ها توانِ خیلی بیشتر از چیزی که الان تحویل می‌دهند دارند."
+    },
+    "example": {
+      "en": "Click any node to read a move or a principle. You can also drag the nodes around.",
+      "fa": "روی هر دایره کلیک کن تا یک حرکت یا اصل را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."
+    }
+  },
+  "stages": [
+    {
+      "level": 1,
+      "badge": {
+        "en": "Level 1 · Over-simplified",
+        "fa": "سطحِ ۱ · خیلی ساده"
+      },
+      "title": {
+        "en": "Turn it up",
+        "fa": "ببرش بالا"
+      },
+      "tagline": {
+        "en": "The whole book in a sentence.",
+        "fa": "کلِ کتاب در یک جمله."
+      },
+      "body": {
+        "en": "The whole book in one line: take what you're already doing and amp it up. More energy, higher expectations, faster action — starting today.",
+        "fa": "کلِ کتاب در یک جمله: هر کاری که همین حالا می‌کنی را بردار و آمپش را ببر بالا. انرژیِ بیشتر، انتظارِ بالاتر، اقدامِ سریع‌تر — از همین امروز."
+      },
+      "example": {
+        "en": "You don't need a new plan to raise the energy around the plan you already have.",
+        "fa": "برای بالا بردنِ انرژیِ دورِ نقشه‌ای که داری، به نقشهٔ جدید نیاز نداری."
+      },
+      "gain": {
+        "en": "You hold the single idea the whole book expands on.",
+        "fa": "همان یک ایده‌ای را داری که کلِ کتاب بسطش می‌دهد."
+      }
+    },
+    {
+      "level": 2,
+      "badge": {
+        "en": "Level 2 · Simple",
+        "fa": "سطحِ ۲ · ساده"
+      },
+      "title": {
+        "en": "Standards & alignment",
+        "fa": "استاندارد و هم‌سویی"
+      },
+      "tagline": {
+        "en": "Raise the bar, point everyone one way.",
+        "fa": "سطح را بالا ببر، همه را یک‌سو کن."
+      },
+      "body": {
+        "en": "First raise your <b>standards</b> and declare war on <b>mediocrity</b> — the cheapest upgrade a leader has. Then get the whole company <b>aligned</b>: spell out the priorities and repeat them until everyone shares the same direction.",
+        "fa": "اول <b>استانداردت</b> را ببر بالا و با <b>کارِ متوسط</b> بجنگ — ارزان‌ترین ارتقایی که یک رهبر دارد. بعد کلِ شرکت را <b>هم‌سو</b> کن: اولویت‌ها را مو به مو بگو و آن‌قدر تکرارشان کن که همه در یک جهت شریک شوند."
+      },
+      "example": {
+        "en": "Say your standard out loud, then say the one priority everyone should rally around.",
+        "fa": "استانداردت را با صدای بلند بگو، بعد همان یک اولویتی که همه باید دورش جمع شوند را بگو."
+      },
+      "gain": {
+        "en": "You can lift expectations and point everyone the same way.",
+        "fa": "می‌توانی انتظارها را بالا ببری و همه را به یک سمت نشانه بروی."
+      }
+    },
+    {
+      "level": 3,
+      "badge": {
+        "en": "Level 3 · Balanced",
+        "fa": "سطحِ ۳ · متعادل"
+      },
+      "title": {
+        "en": "Do fewer things",
+        "fa": "کارهای کمتری کن"
+      },
+      "tagline": {
+        "en": "Fewer things, one real priority.",
+        "fa": "کارهای کمتر، یک اولویتِ واقعی."
+      },
+      "body": {
+        "en": "Now <b>focus</b>. “Priority” is singular — the moment you have many, you have none. Do <b>fewer things</b>, force-rank to the <b>one</b> that matters most, and decide clearly <b>what not to do</b> so your best people aren't spread thin.",
+        "fa": "حالا <b>تمرکز</b>. «اولویت» مفرد است — لحظه‌ای که چندتا داری، هیچ‌کدام را نداری. <b>کمتر</b> کار کن، تا همان <b>یک</b> چیزِ مهم رتبه‌بندی کن، و روشن تصمیم بگیر <b>چه‌کاری را نکنی</b> تا بهترین آدم‌هایت پخش‌وپلا نشوند."
+      },
+      "example": {
+        "en": "Cut the roadmap from twelve items to three and ship the three well.",
+        "fa": "نقشهٔ راه را از دوازده مورد به سه‌تا کم کن و همان سه‌تا را خوب بفرست."
+      },
+      "gain": {
+        "en": "You can turn a long wish-list into a short, real plan.",
+        "fa": "می‌توانی یک فهرستِ آرزوی بلند را به یک نقشهٔ کوتاه و واقعی تبدیل کنی."
+      }
+    },
+    {
+      "level": 4,
+      "badge": {
+        "en": "Level 4 · Advanced",
+        "fa": "سطحِ ۴ · پیشرفته"
+      },
+      "title": {
+        "en": "Pick up the pace",
+        "fa": "سرعت را ببر بالا"
+      },
+      "tagline": {
+        "en": "Urgency, speed, and intensity.",
+        "fa": "فوریت، سرعت و شدت."
+      },
+      "body": {
+        "en": "Add speed. <b>Urgency</b> is a mindset — time is not your friend. <b>Speed</b> is a choice, not a resource; most work can move faster than feels normal. And <b>intensity</b> — sustained, focused energy — is the fuel that turns high standards and tight focus into real results.",
+        "fa": "سرعت را اضافه کن. <b>فوریت</b> یک طرزِ فکر است — زمان دوستِ تو نیست. <b>سرعت</b> یک انتخاب است، نه یک منبع؛ بیشترِ کارها می‌توانند سریع‌تر از چیزی که عادی به‌نظر می‌رسد بروند. و <b>شدت</b> — انرژیِ پایدار و متمرکز — همان سوختی است که استانداردِ بالا و تمرکزِ فشرده را به نتیجهٔ واقعی تبدیل می‌کند."
+      },
+      "example": {
+        "en": "Halve a timeline on purpose and watch the team rise to meet it.",
+        "fa": "یک زمان‌بندی را عمداً نصف کن و ببین تیم چطور بالا می‌آید تا به آن برسد."
+      },
+      "gain": {
+        "en": "You can raise the tempo of the whole team on purpose.",
+        "fa": "می‌توانی ریتمِ کلِ تیم را عمداً بالا ببری."
+      }
+    },
+    {
+      "level": 5,
+      "badge": {
+        "en": "Level 5 · Expert",
+        "fa": "سطحِ ۵ · حرفه‌ای"
+      },
+      "title": {
+        "en": "Ambition, people, execution",
+        "fa": "جاه‌طلبی، آدم‌ها، اجرا"
+      },
+      "tagline": {
+        "en": "Ambition, drivers, and execution.",
+        "fa": "جاه‌طلبی، راننده‌ها و اجرا."
+      },
+      "body": {
+        "en": "The expert amps up the system itself. Lift <b>ambition</b> so the goal is big enough to sharpen strategy and attract talent. Put <b>drivers, not passengers</b>, in the key seats. And remember the deepest rule: <b>no strategy is better than its execution</b> — the everyday intensity of raising standards, focusing, and moving fast is what actually wins.",
+        "fa": "آدمِ حرفه‌ای خودِ سیستم را آمپ می‌کند. <b>جاه‌طلبی</b> را بالا ببر تا هدف آن‌قدر بزرگ باشد که استراتژی را تیز کند و استعداد را جذب کند. <b>راننده‌ها را، نه مسافرها را</b>، در صندلی‌های کلیدی بنشان. و عمیق‌ترین قاعده را یادت باشد: <b>هیچ استراتژی‌ای بهتر از اجرایش نیست</b> — همان شدتِ روزمرهٔ بالا بردنِ استاندارد، تمرکز و سریع حرکت کردن است که واقعاً می‌برد."
+      },
+      "example": {
+        "en": "You raise the bar, name one priority, move fast, and put owners in every key seat.",
+        "fa": "سطح را بالا می‌بری، یک اولویت را نام می‌بری، سریع حرکت می‌کنی، و در هر صندلیِ کلیدی یک صاحب می‌نشانی."
+      },
+      "gain": {
+        "en": "You can amp up a whole organization — and teach others to do it.",
+        "fa": "می‌توانی یک سازمانِ کامل را آمپ کنی — و به دیگران هم یادش بدهی."
+      }
+    }
+  ],
+  "quotes": [
+    {
+      "en": "The moment you have many priorities, you actually have none.",
+      "fa": "لحظه‌ای که چند اولویت داری، در واقع هیچ‌کدام را نداری."
+    },
+    {
+      "en": "No strategy is better than its execution.",
+      "fa": "هیچ استراتژی‌ای بهتر از اجرایش نیست."
+    },
+    {
+      "en": "Time is not our friend. The faster we separate from the competition, the more likely we are to succeed.",
+      "fa": "زمان دوستِ ما نیست. هرچه سریع‌تر از رقیب فاصله بگیریم، احتمالِ موفقیتمان بیشتر است."
+    },
+    {
+      "en": "Celebrate people who own their responsibilities, take and defend clear positions, argue for their preferred strategies, and seek to move the dial.",
+      "fa": "از آدم‌هایی تجلیل کن که مسئولیتشان را مالِ خودشان می‌دانند، موضعِ روشن می‌گیرند و از آن دفاع می‌کنند، برای استراتژیِ موردِ نظرشان بحث می‌کنند، و می‌خواهند عقربه را جابه‌جا کنند."
+    },
+    {
+      "en": "Work on fewer things at the same time, and prioritize hard.",
+      "fa": "هم‌زمان روی چیزهای کمتری کار کن، و قاطعانه اولویت‌بندی کن."
+    },
+    {
+      "en": "High-growth enterprises are not easy places to live. The pressure is relentless.",
+      "fa": "شرکت‌های پُررشد جاهای راحتی برای زندگی نیستند. فشار بی‌امان است."
+    },
+    {
+      "en": "Hire drivers, not passengers, and get the wrong people off the bus.",
+      "fa": "راننده استخدام کن، نه مسافر، و آدم‌های نادرست را از اتوبوس پیاده کن."
+    },
+    {
+      "en": "Spell out what you mean! If priorities are not clearly understood at the top, how distorted will they be down the line?",
+      "fa": "منظورت را مو به مو بگو! اگر اولویت‌ها همان بالا هم درست فهمیده نشوند، پایین‌ترها چقدر تحریف می‌شوند؟"
+    }
+  ],
+  "media": [
+    {
+      "kind": "yt",
+      "id": "4kZC8p26Fpo",
+      "src": {
+        "en": "YouTube · Kleiner Perkins",
+        "fa": "یوتیوب · Kleiner Perkins"
+      },
+      "title": {
+        "en": "Frank Slootman on Amp It Up",
+        "fa": "فرانک اسلوتمن دربارهٔ کتاب"
+      },
+      "desc": {
+        "en": "The author in conversation with Kleiner Perkins about the book's core ideas.",
+        "fa": "گفت‌وگوی نویسنده با Kleiner Perkins دربارهٔ ایده‌های اصلیِ کتاب."
+      },
+      "bullets": {
+        "en": [
+          "Straight from the author",
+          "Why raising standards works",
+          "How he thinks about urgency"
+        ],
+        "fa": [
+          "مستقیم از زبانِ نویسنده",
+          "چرا بالا بردنِ استاندارد جواب می‌دهد",
+          "اینکه چطور دربارهٔ فوریت فکر می‌کند"
+        ]
+      },
+      "best": {
+        "en": "Best for Stage 1–2.",
+        "fa": "خوب برای مرحلهٔ ۱ و ۲."
+      }
+    },
+    {
+      "kind": "yt",
+      "id": "Cbq6o9dl_tY",
+      "src": {
+        "en": "YouTube · The Learning Leader",
+        "fa": "یوتیوب · The Learning Leader"
+      },
+      "title": {
+        "en": "How to Raise Your Standards",
+        "fa": "چطور استانداردت را بالا ببری"
+      },
+      "desc": {
+        "en": "Slootman on raising standards and demanding more, in conversation with Ryan Hawk.",
+        "fa": "اسلوتمن دربارهٔ بالا بردنِ استاندارد و بیشتر خواستن، در گفت‌وگو با رایان هاک."
+      },
+      "bullets": {
+        "en": [
+          "Raising the bar in practice",
+          "Declaring war on mediocrity",
+          "Leading for intensity"
+        ],
+        "fa": [
+          "بالا بردنِ سطح در عمل",
+          "اعلانِ جنگ به کارِ متوسط",
+          "رهبری برای شدت"
+        ]
+      },
+      "best": {
+        "en": "Best for Stage 2–3.",
+        "fa": "خوب برای مرحلهٔ ۲ و ۳."
+      }
+    },
+    {
+      "kind": "yt",
+      "id": "Nov3fdvPujM",
+      "src": {
+        "en": "YouTube · Sean DeLaney",
+        "fa": "یوتیوب · Sean DeLaney"
+      },
+      "title": {
+        "en": "The Amp It Up Framework",
+        "fa": "چارچوبِ کتاب"
+      },
+      "desc": {
+        "en": "A clear walkthrough of the book's five-part framework and how to apply it.",
+        "fa": "یک مرورِ روشن از چارچوبِ پنج‌بخشیِ کتاب و اینکه چطور به کارش ببندی."
+      },
+      "bullets": {
+        "en": [
+          "The five moves, summarized",
+          "Focus and priorities",
+          "What to apply first"
+        ],
+        "fa": [
+          "پنج حرکت، خلاصه‌شده",
+          "تمرکز و اولویت‌ها",
+          "اینکه اول چه چیزی را به کار ببندی"
+        ]
+      },
+      "best": {
+        "en": "Best for Stage 3–4.",
+        "fa": "خوب برای مرحلهٔ ۳ و ۴."
+      }
+    },
+    {
+      "kind": "img",
+      "url": "https://www.wiley.com/en-gb/Amp+It+Up:+Leading+for+Hypergrowth+by+Raising+Expectations,+Increasing+Urgency,+and+Elevating+Intensity-p-9781119836117",
+      "src": {
+        "en": "Wiley · Publisher",
+        "fa": "Wiley · ناشر"
+      },
+      "title": {
+        "en": "Amp It Up — Publisher Page",
+        "fa": "آمپش را ببر بالا — صفحهٔ ناشر"
+      },
+      "desc": {
+        "en": "The publisher page for the book, with editions and details.",
+        "fa": "صفحهٔ ناشر برای کتاب، با نسخه‌ها و جزئیات."
+      },
+      "bullets": {
+        "en": [
+          "The official editions",
+          "Background on the book",
+          "Straight from the source"
+        ],
+        "fa": [
+          "نسخه‌های رسمی",
+          "پیشینه‌ای دربارهٔ کتاب",
+          "مستقیم از خودِ منبع"
+        ]
+      },
+      "best": {
+        "en": "For editions and the source.",
+        "fa": "برای نسخه‌ها و منبعِ اصلی."
+      }
+    }
+  ],
+  "go": [
+    {
+      "label": {
+        "en": "Publisher page (Wiley)",
+        "fa": "صفحهٔ ناشر (Wiley)"
+      },
+      "url": "https://www.wiley.com/en-gb/Amp+It+Up:+Leading+for+Hypergrowth+by+Raising+Expectations,+Increasing+Urgency,+and+Elevating+Intensity-p-9781119836117"
+    },
+    {
+      "label": {
+        "en": "Book on Goodreads",
+        "fa": "کتاب در گودریدز"
+      },
+      "url": "https://www.goodreads.com/book/show/59383944-amp-it-up"
+    },
+    {
+      "label": {
+        "en": "Official book site",
+        "fa": "سایتِ رسمیِ کتاب"
+      },
+      "url": "https://ampitupbook.com/"
+    }
+  ],
+  "recs": [
+    {
+      "pri": "b",
+      "t": {
+        "en": "Raise one standard today",
+        "fa": "یک استاندارد را همین امروز بالا ببر"
+      },
+      "d": {
+        "en": "Take one deliverable and state, out loud, what a high-standard version looks like before work starts.",
+        "fa": "یک خروجی را بردار و قبل از شروعِ کار، با صدای بلند بگو نسخهٔ استانداردبالایش چه شکلی است."
+      }
+    },
+    {
+      "pri": "b",
+      "t": {
+        "en": "Cut down to one priority",
+        "fa": "به یک اولویت برسان"
+      },
+      "d": {
+        "en": "Force-rank your current list and protect the single most important thing from everything else.",
+        "fa": "فهرستِ فعلی‌ات را به‌زور رتبه‌بندی کن و همان تنها چیزِ مهم‌تر را از بقیهٔ چیزها حفظ کن."
+      }
+    },
+    {
+      "pri": "n",
+      "t": {
+        "en": "Ask “why not sooner?”",
+        "fa": "بپرس «چرا زودتر نه؟»"
+      },
+      "d": {
+        "en": "Pick one deadline this week and honestly test whether it could be much shorter.",
+        "fa": "یک مهلت را این هفته انتخاب کن و صادقانه امتحان کن که آیا می‌تواند خیلی کوتاه‌تر باشد."
+      }
+    },
+    {
+      "pri": "n",
+      "t": {
+        "en": "Spot drivers and passengers",
+        "fa": "راننده‌ها و مسافرها را تشخیص بده"
+      },
+      "d": {
+        "en": "Look at a key project and notice who owns the outcome versus who is just along for the ride.",
+        "fa": "به یک پروژهٔ کلیدی نگاه کن و ببین چه کسی مسئولِ نتیجه است و چه کسی فقط سوارِ ماشین شده."
+      }
+    }
+  ]
 });
 </script>
 </body>

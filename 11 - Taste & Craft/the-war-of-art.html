@@ -1,21 +1,20 @@
 <!DOCTYPE html>
-<!-- complexity-level: 1→5 (this page teaches the SAME book at five depths, over-simplified … expert) -->
-<!-- Effortless (Greg McKeown) — bilingual EN/FA knowledge graph & 5-stage learning page -->
+<!-- Generated page. Edit CONTENT in the DATA object below; shared UI lives in ../assets/book.css + ../assets/book.js -->
 <html lang="fa" dir="rtl" data-lang="fa">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The War of Art — نقشهٔ دانش و یادگیری ۵ مرحله‌ای</title>
 
-<!-- Boot theme + language BEFORE paint to avoid a flash -->
+<!-- Boot theme + language BEFORE paint to avoid a flash (shared library-wide keys) -->
 <script>
 (function(){
   try{
-    var th = localStorage.getItem('warofart-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
+    var th = localStorage.getItem('pbl-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
     document.documentElement.setAttribute('data-theme', th);
   }catch(e){ document.documentElement.setAttribute('data-theme','light'); }
   try{
-    var lg = localStorage.getItem('warofart-lang') || 'fa';
+    var lg = localStorage.getItem('pbl-lang') || 'fa';
     document.documentElement.setAttribute('data-lang', lg);
     document.documentElement.setAttribute('lang', lg);
     document.documentElement.setAttribute('dir', lg==='fa' ? 'rtl' : 'ltr');
@@ -28,876 +27,1218 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:ital,opsz@0,6..72;1,6..72&display=swap" rel="stylesheet">
-
-<style>
-/* ── TOKENS ───────────────────────────────────────────────── */
-:root, [data-theme="light"]{
-  --bg:#f5f6f8; --bg2:#eef2f7; --card:#fff; --card2:#f8fafb;
-  --ink:#1c2330; --mut:#6b7280; --line:#e6e8ee;
-  --accent:#0e7c86; --accent-ink:#fff; --warm:#c2410c;
-  --shadow:0 1px 2px rgba(20,30,50,.05),0 6px 24px rgba(20,30,50,.06);
-  --hero-1:#0e7c86; --hero-2:#0b5e66;
-  --c-teal:#0e9aa6; --c-blue:#2f6fb0; --c-violet:#7c3aed; --c-amber:#d97706;
-  --c-green:#15a34a; --c-red:#e11d48; --c-gold:#c98a12; --c-gray:#6b7280;
-  --state:#0e9aa6; --action:#d97706; --results:#7c3aed; --core:#0e7c86;
-}
-[data-theme="dark"]{
-  --bg:#0e131a; --bg2:#161d27; --card:#151c26; --card2:#1b2430;
-  --ink:#e9eef5; --mut:#9aa7b6; --line:#27313d;
-  --accent:#2dd4bf; --accent-ink:#06231f; --warm:#fb923c;
-  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 28px rgba(0,0,0,.45);
-  --hero-1:#0c5f67; --hero-2:#07323a;
-  --c-teal:#2dd4bf; --c-blue:#5b9bd5; --c-violet:#a78bfa; --c-amber:#fbbf24;
-  --c-green:#34d399; --c-red:#fb7185; --c-gold:#e2b04a; --c-gray:#94a3b8;
-  --state:#2dd4bf; --action:#fbbf24; --results:#a78bfa; --core:#2dd4bf;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);
-  font-family:Vazirmatn,"Segoe UI",Tahoma,Arial,sans-serif;line-height:1.85;font-size:15px;
-  transition:background .25s,color .25s}
-html[data-lang="en"] body{font-family:Inter,"Segoe UI",system-ui,Arial,sans-serif;line-height:1.7}
-.wrap{max-width:960px;margin:0 auto;padding:0 18px 40px}
-
-/* language visibility */
-html[data-lang="en"] [data-only="fa"]{display:none !important}
-html[data-lang="fa"] [data-only="en"]{display:none !important}
-
-/* ── HERO ─────────────────────────────────────────────────── */
-.hero{background:linear-gradient(135deg,var(--hero-1),var(--hero-2));color:#fff;padding:44px 0 34px;position:relative;overflow:hidden}
-.hero::after{content:"";position:absolute;inset-inline-end:-80px;top:-80px;width:280px;height:280px;
-  background:radial-gradient(circle,rgba(255,255,255,.12),transparent 70%);pointer-events:none}
-.hero .wrap{padding-bottom:0;position:relative;z-index:1}
-.hero h1{margin:0 0 8px;font-size:30px;font-weight:800;letter-spacing:-.3px;line-height:1.25}
-html[data-lang="en"] .hero h1{font-family:Newsreader,Georgia,serif;font-weight:600;letter-spacing:-.5px}
-.hero .dek{margin:0;opacity:.94;font-size:15.5px;max-width:640px}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;
-  color:rgba(255,255,255,.95);background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.24);
-  padding:5px 13px;border-radius:20px;margin-bottom:15px}
-.eyebrow .edot{width:7px;height:7px;border-radius:50%;background:#fff;box-shadow:0 0 0 3px rgba(255,255,255,.25)}
-.metastrip{display:flex;flex-wrap:wrap;gap:14px 30px;margin-top:20px;padding-top:16px;
-  border-top:1px solid rgba(255,255,255,.18)}
-.metaitem{display:flex;flex-direction:column;gap:3px}
-.metaitem .mk{font-size:10.5px;color:rgba(255,255,255,.62);font-weight:700;letter-spacing:.6px;text-transform:uppercase}
-.metaitem .mv{font-size:14px;color:#fff;font-weight:700}
-.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
-.chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);
-  border-radius:11px;padding:9px 15px;font-size:13px}
-.chip b{font-size:20px;display:block;font-weight:800}
-
-/* ── NAV + TOC ────────────────────────────────────────────── */
-.navbar{position:sticky;top:0;z-index:60;background:color-mix(in srgb,var(--card) 92%,transparent);
-  backdrop-filter:saturate(180%) blur(10px);-webkit-backdrop-filter:saturate(180%) blur(10px);
-  border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
-.navin{max-width:960px;margin:0 auto;padding:8px 16px;display:flex;align-items:center;gap:12px}
-.brand{flex:0 0 auto;font-weight:800;font-size:12.5px;color:var(--accent);white-space:nowrap;
-  display:flex;align-items:center;gap:7px}
-.brand .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);
-  box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 18%,transparent)}
-.toc{flex:1 1 auto;display:flex;flex-wrap:wrap;gap:7px;justify-content:center}
-.toc a{font-size:12.5px;color:var(--mut);text-decoration:none;border:1px solid var(--line);
-  border-radius:20px;padding:5px 12px;background:var(--card);white-space:nowrap;
-  transition:background .15s,color .15s,border-color .15s}
-.toc a:hover{color:var(--accent);border-color:var(--accent)}
-.toc a.active{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
-.navctl{flex:0 0 auto;display:flex;align-items:center;gap:8px}
-.langbtn{height:34px;border-radius:18px;border:1px solid var(--line);background:var(--card);
-  color:var(--ink);cursor:pointer;font:inherit;font-size:12.5px;font-weight:700;padding:0 13px;
-  display:flex;align-items:center;gap:6px}
-.langbtn:hover{border-color:var(--accent);color:var(--accent)}
-.langbtn .globe{width:15px;height:15px;display:block}
-.themebtn{flex:0 0 auto;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);
-  background:var(--card);color:var(--ink);cursor:pointer;line-height:1;display:grid;place-items:center}
-.themebtn svg{width:17px;height:17px;display:block}
-.themebtn:hover{border-color:var(--accent);color:var(--accent)}
-[data-theme="light"] .themebtn .ic-sun{display:none}
-[data-theme="dark"]  .themebtn .ic-moon{display:none}
-
-/* ── BLOCKS ───────────────────────────────────────────────── */
-h2{font-size:21px;margin:44px 0 6px;font-weight:800;scroll-margin-top:92px;line-height:1.35}
-html[data-lang="en"] h2{font-family:Newsreader,Georgia,serif;font-weight:600}
-h2 .num{color:var(--accent);font-variant-numeric:tabular-nums}
-.sub{color:var(--mut);font-size:13.5px;margin:0 0 16px;max-width:680px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;
-  padding:20px 22px;margin:14px 0;box-shadow:var(--shadow)}
-.lead{font-size:15.5px}
-.lead b{color:var(--warm)}
-.kgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin:8px 0}
-.kbox{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:15px 16px;text-align:center}
-.kbox .v{font-size:26px;font-weight:800;color:var(--accent);font-variant-numeric:tabular-nums}
-.kbox .l{font-size:12.5px;color:var(--mut);margin-top:3px}
-ul.clean{margin:6px 0;padding-inline-start:20px} ul.clean li{margin:8px 0}
-.callout{background:color-mix(in srgb,var(--warm) 9%,var(--card));
-  border:1px solid color-mix(in srgb,var(--warm) 30%,var(--line));
-  border-radius:12px;padding:14px 18px;margin:12px 0}
-.callout b{color:var(--warm)}
-.callout.accent{background:color-mix(in srgb,var(--accent) 9%,var(--card));
-  border-color:color-mix(in srgb,var(--accent) 30%,var(--line))}
-.callout.accent b{color:var(--accent)}
-a{color:var(--accent)}
-
-/* ── GRAPH ────────────────────────────────────────────────── */
-.gtabs{display:inline-flex;gap:4px;background:var(--bg2);border:1px solid var(--line);
-  border-radius:11px;padding:4px;margin:6px 0 2px}
-.gtab{border:0;background:transparent;color:var(--mut);font:inherit;font-size:13px;font-weight:700;
-  padding:7px 15px;border-radius:8px;cursor:pointer}
-.gtab.active{background:var(--card);color:var(--accent);box-shadow:var(--shadow)}
-.graphcard{padding:14px}
-.legend{display:flex;flex-wrap:wrap;gap:14px;margin:2px 4px 12px;font-size:12.5px;color:var(--mut)}
-.legend span{display:inline-flex;align-items:center;gap:6px}
-.legend i{width:11px;height:11px;border-radius:50%;display:inline-block}
-.graphstage{display:grid;grid-template-columns:1fr;gap:14px}
-@media(min-width:760px){.graphstage{grid-template-columns:1.35fr .95fr}}
-.svgwrap{position:relative;background:var(--card2);border:1px solid var(--line);border-radius:12px;
-  overflow:hidden;min-height:300px}
-#netsvg{display:block;width:100%;height:560px;touch-action:none;cursor:grab}
-#netsvg text{pointer-events:none;user-select:none}
-.ghint{position:absolute;inset-inline-start:12px;top:10px;font-size:11.5px;color:var(--mut);
-  background:color-mix(in srgb,var(--card) 82%,transparent);border:1px solid var(--line);
-  border-radius:20px;padding:3px 11px;backdrop-filter:blur(4px);max-width:70%}
-.greset{position:absolute;inset-inline-end:10px;top:10px;border:1px solid var(--line);background:var(--card);
-  color:var(--mut);border-radius:8px;font:inherit;font-size:11.5px;padding:4px 10px;cursor:pointer}
-.greset:hover{color:var(--accent);border-color:var(--accent)}
-/* node + link interaction states */
-.node{cursor:pointer}
-/* the inner <g class="ns"> is what scales; fill-box keeps the pivot on the node itself, not the SVG viewport */
-.ns{transform-box:fill-box;transform-origin:center;transition:transform .2s cubic-bezier(.2,.75,.25,1)}
-.node.hover .ns{transform:scale(1.1)}
-.node.sel  .ns{transform:scale(1.34)}                 /* selected node grows */
-.node.ncore.hover .ns{transform:scale(1.06)}
-.node.ncore.sel   .ns{transform:none}                 /* the centre 'Effortless' node keeps default size */
-.node.sel circle{stroke:var(--ink);stroke-width:2.5;filter:drop-shadow(0 0 8px color-mix(in srgb,var(--accent) 60%,transparent))}
-.node.hl circle{stroke:var(--ink);stroke-opacity:.5;stroke-width:2.5}
-.node.dim{opacity:.2}
-.node text{font-family:Vazirmatn,Tahoma,sans-serif;font-weight:700}
-html[data-lang="en"] .node text{font-family:Inter,sans-serif}
-.glink{transition:opacity .2s,stroke .2s}
-.glink.dim{opacity:.08}
-.glink.hl{stroke:var(--accent) !important;stroke-opacity:.8}
-/* detail panel */
-.detail{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;min-height:220px}
-@media(min-width:760px){.detail{max-height:480px;overflow:auto}}
-.detail .dkick{font-size:11.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;display:flex;align-items:center;gap:7px;color:var(--mut)}
-.detail .dkick i{width:10px;height:10px;border-radius:50%}
-.detail h4{margin:8px 0 3px;font-size:18px;font-weight:800}
-html[data-lang="en"] .detail h4{font-family:Newsreader,serif;font-weight:600}
-.detail .drow{margin:11px 0}
-.detail .dlab{font-size:10.5px;font-weight:800;color:var(--accent);letter-spacing:.5px;text-transform:uppercase;
-  display:inline-flex;align-items:center;gap:5px}
-.detail .drow.tip .dlab{color:var(--c-green)}
-.detail .drow.pit .dlab{color:var(--warm)}
-.detail .drow.more{border-inline-start:2px solid color-mix(in srgb,var(--accent) 32%,var(--line));padding-inline-start:11px}
-.detail .drow.more .dlab{color:var(--mut)}
-.detail .dtxt{font-size:13.6px;margin-top:3px}
-.dchips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
-.dchip{font-size:12px;border:1px solid var(--line);background:var(--card2);border-radius:16px;padding:4px 11px;
-  cursor:pointer;color:var(--ink);display:inline-flex;align-items:center;gap:6px;font-family:inherit}
-.dchip:hover{border-color:var(--accent);color:var(--accent)}
-.dchip i{width:8px;height:8px;border-radius:50%;flex:0 0 auto}
-
-/* ── CONCEPT MAP ──────────────────────────────────────────── */
-.mapgrid{display:grid;grid-template-columns:1fr;gap:14px}
-@media(min-width:820px){.mapgrid{grid-template-columns:repeat(3,1fr)}}
-.partcol{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:16px;position:relative}
-.partcol .ph{display:flex;align-items:center;gap:9px;margin-bottom:3px}
-.partcol .pdot{width:13px;height:13px;border-radius:50%;flex:0 0 auto}
-.partcol .pnum{font-size:11px;font-weight:800;color:var(--mut)}
-.partcol h4{margin:0;font-size:16.5px;font-weight:800}
-html[data-lang="en"] .partcol h4{font-family:Newsreader,serif;font-weight:600}
-.partcol .ptag{font-size:12px;color:var(--mut);margin:2px 0 4px;font-weight:700}
-.partcol .pgist{font-size:12.8px;color:var(--mut);margin:0 0 12px}
-.chapchip{display:flex;align-items:baseline;gap:8px;padding:7px 10px;border:1px solid var(--line);
-  border-radius:9px;margin:6px 0;background:var(--card2);font-size:13px}
-.chapchip .cn{font-size:11px;font-weight:800;color:var(--mut);flex:0 0 auto;font-variant-numeric:tabular-nums}
-.chapchip b{font-weight:700}
-.chapchip small{color:var(--mut);display:block;font-size:11.5px;line-height:1.5}
-.flowline{display:flex;align-items:center;justify-content:center;gap:10px;color:var(--mut);
-  font-size:12.5px;font-weight:700;margin:6px 0 2px;flex-wrap:wrap}
-.flowline .ar{color:var(--accent)}
-
-/* ── STAGE LADDER ─────────────────────────────────────────── */
-.ladder{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 4px}
-.rung{flex:1 1 150px;border:1px solid var(--line);background:var(--card);border-radius:11px;
-  padding:11px 13px;cursor:pointer;transition:transform .12s,border-color .12s;position:relative}
-.rung:hover{border-color:var(--accent);transform:translateY(-2px)}
-.rung.active{border-color:var(--accent);box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 35%,transparent)}
-.rung .lv{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.4px}
-.rung .lt{font-size:13.5px;font-weight:800;margin-top:2px}
-.rung .lbar{height:5px;border-radius:4px;background:var(--bg2);margin-top:9px;overflow:hidden}
-.rung .lbar i{display:block;height:100%;background:linear-gradient(90deg,var(--c-teal),var(--c-violet))}
-.stagecard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 24px;
-  margin:14px 0;box-shadow:var(--shadow)}
-.stagecard .shead{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-.stagecard .badge{font-size:12px;font-weight:800;color:#fff;background:var(--accent);
-  border-radius:8px;padding:4px 11px;white-space:nowrap}
-.stagecard h3{margin:0;font-size:21px;font-weight:800}
-html[data-lang="en"] .stagecard h3{font-family:Newsreader,serif;font-weight:600}
-.stagecard .tagline{color:var(--mut);font-size:13.5px;margin:4px 0 14px;font-weight:700}
-.stagecard .sbody{font-size:15px}
-.exbox{background:var(--card2);border:1px solid var(--line);border-inline-start:3px solid var(--accent);
-  border-radius:0 11px 11px 0;padding:13px 16px;margin:14px 0 6px}
-.exbox .exk{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.5px;text-transform:uppercase}
-.exbox .ext{font-size:13.8px;margin-top:3px}
-.gainrow{display:flex;align-items:flex-start;gap:9px;margin-top:12px;font-size:13px;color:var(--mut)}
-.gainrow .gi{flex:0 0 auto;color:var(--c-green);font-weight:800}
-.stagenav{display:flex;justify-content:space-between;gap:10px;margin-top:16px}
-.stagenav button{border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit;
-  font-size:13px;font-weight:700;border-radius:9px;padding:8px 14px;cursor:pointer}
-.stagenav button:hover:not(:disabled){border-color:var(--accent);color:var(--accent)}
-.stagenav button:disabled{opacity:.4;cursor:default}
-
-/* ── QUOTES ───────────────────────────────────────────────── */
-.qgrid{display:grid;grid-template-columns:1fr;gap:12px}
-@media(min-width:720px){.qgrid{grid-template-columns:1fr 1fr}}
-blockquote{margin:0;background:var(--card2);border-inline-start:3px solid var(--accent);
-  border-radius:0 12px 12px 0;padding:15px 18px;font-size:14.5px;position:relative}
-blockquote .qm{font-size:34px;line-height:0;color:var(--accent);opacity:.35;font-family:Georgia,serif;
-  position:absolute;inset-inline-start:10px;top:20px}
-blockquote p{margin:0;padding-inline-start:22px}
-html[data-lang="en"] blockquote{font-family:Newsreader,Georgia,serif;font-size:15.5px}
-
-/* ── MEDIA ────────────────────────────────────────────────── */
-.mgrid{display:grid;grid-template-columns:1fr;gap:16px}
-@media(min-width:640px){.mgrid{grid-template-columns:1fr 1fr}}
-.mcard{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;
-  box-shadow:var(--shadow);display:flex;flex-direction:column}
-.mthumb{position:relative;display:block;aspect-ratio:16/9;background:var(--bg2);overflow:hidden;text-decoration:none}
-.mthumb img{width:100%;height:100%;object-fit:cover;display:block}
-.mthumb .play{position:absolute;inset:0;display:grid;place-items:center}
-.mthumb .play span{width:54px;height:54px;border-radius:50%;background:rgba(0,0,0,.6);
-  display:grid;place-items:center;border:2px solid rgba(255,255,255,.9)}
-.mthumb .play svg{width:22px;height:22px;fill:#fff;margin-inline-start:3px}
-.mthumb .ptype{position:absolute;inset-inline-start:9px;top:9px;background:rgba(0,0,0,.72);color:#fff;
-  font-size:11px;font-weight:700;border-radius:6px;padding:3px 9px;letter-spacing:.3px}
-.mfake{aspect-ratio:16/9;display:grid;place-items:center;
-  background:linear-gradient(135deg,color-mix(in srgb,var(--c-violet) 22%,var(--card)),color-mix(in srgb,var(--c-teal) 22%,var(--card)))}
-.mfake svg{width:52px;height:52px;color:var(--ink);opacity:.6}
-.mbody{padding:15px 17px;display:flex;flex-direction:column;gap:7px;flex:1}
-.mbody .msrc{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.3px;text-transform:uppercase}
-.mbody h4{margin:0;font-size:15.5px;font-weight:800;line-height:1.4}
-html[data-lang="en"] .mbody h4{font-family:Newsreader,serif;font-weight:600}
-.mbody .mdesc{font-size:13px;color:var(--mut);margin:0}
-.mbody ul{margin:4px 0 0;padding-inline-start:18px}
-.mbody ul li{font-size:12.8px;margin:5px 0}
-.mbody .mbest{font-size:12px;font-weight:700;color:var(--warm);margin-top:auto;padding-top:8px}
-.mlink{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;
-  text-decoration:none;color:var(--accent);margin-top:4px}
-.mlink:hover{text-decoration:underline}
-.golist{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
-.golist a{font-size:12.5px;text-decoration:none;color:var(--ink);border:1px solid var(--line);
-  border-radius:20px;padding:6px 13px;background:var(--card);font-weight:700}
-.golist a:hover{border-color:var(--accent);color:var(--accent)}
-
-/* ── RECS + METHOD + CREDIT ───────────────────────────────── */
-.rec{display:grid;gap:10px;margin:8px 0}
-.rec .item{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--card)}
-.rec .item .t{font-weight:800;font-size:14.5px;margin-bottom:3px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.rec .item .t .pri{font-size:11px;font-weight:700;color:#fff;background:var(--warm);border-radius:6px;padding:2px 9px}
-.rec .item .t .pri.b{background:var(--accent)}
-.rec .item .d{font-size:13.4px;color:var(--mut)}
-.method{color:var(--mut);font-size:13.4px}
-.method p{margin:8px 0}
-.method b{color:var(--ink)}
-.credit{text-align:center;margin-top:40px;padding:22px 0 8px;border-top:1px solid var(--line);
-  color:var(--mut);font-size:14px}
-.credit .cname{color:var(--ink);font-weight:800}
-.credit a{font-weight:700;text-decoration:none}
-.credit a:hover{text-decoration:underline}
-.credit .sep{opacity:.5;margin:0 8px}
-.credit .li{display:inline-flex;align-items:center;gap:5px;vertical-align:middle}
-.credit .li svg{width:15px;height:15px;vertical-align:-3px}
-
-@media (max-width:640px){
-  body{font-size:14px}
-  .wrap{padding:0 13px 30px}
-  .hero{padding:28px 0 22px} .hero h1{font-size:22px}
-  h2{font-size:18px;scroll-margin-top:66px}
-  .brand{display:none}
-  .toc{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;scrollbar-width:none}
-  .toc::-webkit-scrollbar{display:none}
-  #netsvg{height:420px}
-}
-</style>
+<link rel="stylesheet" href="../assets/book.css">
 </head>
 <body>
+<div id="app"></div>
 
-<!-- ── HERO ───────────────────────────────────────────────── -->
-<header class="hero"><div class="wrap">
-  <div class="eyebrow"><span class="edot"></span>
-    <span data-only="en">Book knowledge map · Steven Pressfield</span>
-    <span data-only="fa">نقشهٔ کتاب · استیون پرسفیلد</span>
-  </div>
-  <h1>
-    <span data-only="en">The War of Art — Break Through the Blocks and Win Your Inner Creative Battles</span>
-    <span data-only="fa">جنگِ هنر — از سدها عبور کن و در نبردِ خلاقانهٔ درونت پیروز شو</span>
-  </h1>
-  <p class="dek">
-    <span data-only="en">A knowledge graph of the whole book, plus a 5-stage path from a single idea to expert-level mastery — with an example at every step.</span>
-    <span data-only="fa">نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از یک ایدهٔ ساده تا حرفه‌ای — با یک مثال در هر مرحله.</span>
-  </p>
-  <div class="metastrip">
-    <div class="metaitem"><span class="mk" data-only="en">Book</span><span class="mk" data-only="fa">کتاب</span>
-      <span class="mv" data-only="en">The War of Art</span><span class="mv" data-only="fa">جنگِ هنر</span></div>
-    <div class="metaitem"><span class="mk" data-only="en">Author</span><span class="mk" data-only="fa">نویسنده</span>
-      <span class="mv" data-only="en">Steven Pressfield</span><span class="mv" data-only="fa">استیون پرسفیلد</span></div>
-    <div class="metaitem"><span class="mk" data-only="en">Published</span><span class="mk" data-only="fa">سالِ چاپ</span>
-      <span class="mv" data-only="en">2002</span><span class="mv" data-only="fa">۲۰۰۲</span></div>
-    <div class="metaitem"><span class="mk" data-only="en">Group</span><span class="mk" data-only="fa">گروه</span>
-      <span class="mv" data-only="en">Taste &amp; Craft</span><span class="mv" data-only="fa">ذوق و پیشه‌وری</span></div>
-  </div>
-  <div class="chips">
-    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Parts</span><span data-only="fa">بخش</span></div>
-    <div class="chip"><b data-only="en">16</b><b data-only="fa">۱۶</b><span data-only="en">Ideas</span><span data-only="fa">ایده</span></div>
-    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Learning stages</span><span data-only="fa">مرحلهٔ یادگیری</span></div>
-  </div>
-</div></header>
-
-<!-- ── STICKY NAV ─────────────────────────────────────────── -->
-<div class="navbar"><div class="navin">
-  <span class="brand"><span class="dot"></span>The War of Art</span>
-  <nav class="toc">
-    <a href="#tldr" data-only="en">In a nutshell</a><a href="#tldr" data-only="fa">خلاصه</a>
-    <a href="#graph" data-only="en">Knowledge graph</a><a href="#graph" data-only="fa">نقشهٔ دانش</a>
-    <a href="#stages" data-only="en">5 stages</a><a href="#stages" data-only="fa">۵ مرحله</a>
-    <a href="#quotes" data-only="en">Quotes</a><a href="#quotes" data-only="fa">جمله‌ها</a>
-    <a href="#media" data-only="en">Watch &amp; explore</a><a href="#media" data-only="fa">تماشا و منابع</a>
-    <a href="#apply" data-only="en">Apply it</a><a href="#apply" data-only="fa">کاربرد</a>
-  </nav>
-  <div class="navctl">
-    <button class="langbtn" id="langBtn" aria-label="Switch language">
-      <svg class="globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>
-      <span data-only="en">فارسی</span><span data-only="fa">English</span>
-    </button>
-    <button class="themebtn" id="themeBtn" aria-label="Toggle theme" title="Light / Dark">
-      <span class="ic-sun" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5 19 19M19 5l-1.5 1.5M6.5 17.5 5 19"/></svg></span>
-      <span class="ic-moon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.6 6.6 0 0 0 9.8 9.8Z"/></svg></span>
-    </button>
-  </div>
-</div></div>
-
-<div class="wrap">
-
-  <!-- ── TL;DR ────────────────────────────────────────────── -->
-  <h2 id="tldr"><span class="num" data-only="en">1.</span><span class="num" data-only="fa">۱.</span>
-    <span data-only="en"> In a nutshell</span><span data-only="fa"> خلاصه</span></h2>
-  <p class="sub" data-only="en">If you read only this, you still get the whole idea.</p>
-  <p class="sub" data-only="fa">اگر فقط همین بخش را بخوانی، کلِ ایده دستت می‌آید.</p>
-  <div class="card lead"><ul class="clean" id="tldrHost"></ul></div>
-  <div class="kgrid">
-    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Parts (the enemy · its faces · turning pro · the code · the muse)</div><div class="l" data-only="fa">بخش (دشمن · نقاب‌هایش · حرفه‌ای‌شدن · مرام · الهه)</div></div>
-    <div class="kbox"><div class="v" data-only="en">16</div><div class="v" data-only="fa">۱۶</div><div class="l" data-only="en">Ideas you can use</div><div class="l" data-only="fa">ایده برای استفاده</div></div>
-    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Levels, simple → expert</div><div class="l" data-only="fa">مرحله، ساده تا حرفه‌ای</div></div>
-    <div class="kbox"><div class="v" data-only="en">3</div><div class="v" data-only="fa">۳</div><div class="l" data-only="en">The arc: resist · turn pro · create</div><div class="l" data-only="fa">مسیر: مقاومت · حرفه‌ای‌شو · بیافرین</div></div>
-  </div>
-  
-  <div class="callout accent">
-    <b data-only="en">The core idea:</b>
-    <b data-only="fa">ایدهٔ اصلی:</b>
-    <span data-only="en"> There's an invisible force — Pressfield calls it <i>Resistance</i> — that rises up the moment you try to do important creative work, and its only job is to stop you. You beat it the same way every day: quit being an amateur, <i>turn pro</i>, and sit down to do the work whether you feel like it or not. Do your part, and inspiration — the <i>Muse</i> — shows up to meet you.</span>
-    <span data-only="fa"> یک نیروی نامرئی هست — پرسفیلد اسمش را می‌گذارد <i>مقاومت</i> — که همان لحظه‌ای که می‌خواهی کارِ خلاقانهٔ مهمی بکنی بلند می‌شود، و تنها کارش این است که جلویت را بگیرد. هر روز به یک شکل شکستش می‌دهی: دست از آماتوری بردار، <i>حرفه‌ای شو</i>، و بنشین کار را انجام بده — چه حالش را داشته باشی چه نداشته باشی. سهمِ خودت را انجام بده، آن‌وقت الهام — <i>الهه</i> — به استقبالت می‌آید.</span>
-  </div>
-
-  <!-- ── KNOWLEDGE GRAPH ──────────────────────────────────── -->
-  <h2 id="graph"><span class="num" data-only="en">2.</span><span class="num" data-only="fa">۲.</span>
-    <span data-only="en"> The knowledge graph</span><span data-only="fa"> نقشهٔ دانش</span></h2>
-  <p class="sub" data-only="en">The whole book as one picture. Click any node to focus its connections and read more — or switch to the structured map.</p>
-  <p class="sub" data-only="fa">کلِ کتاب در یک تصویر. روی هر دایره کلیک کن تا ارتباط‌هایش را ببینی و بیشتر بخوانی — یا به نقشهٔ مرتب برو.</p>
-
-  <div class="gtabs">
-    <button class="gtab active" id="tabNet"><span data-only="en">Interactive network</span><span data-only="fa">شبکهٔ تعاملی</span></button>
-    <button class="gtab" id="tabMap"><span data-only="en">Structured map</span><span data-only="fa">نقشهٔ مرتب</span></button>
-  </div>
-
-  <!-- network view -->
-  <div class="card graphcard" id="netView">
-    <div class="legend" id="legendHost"></div>
-    <div class="graphstage">
-      <div class="svgwrap">
-        <svg id="netsvg" viewBox="0 0 820 560" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Effortless knowledge network"></svg>
-        <div class="ghint" id="ghint"></div>
-        <button class="greset" id="greset"></button>
-      </div>
-      <div class="detail" id="detailHost"></div>
-    </div>
-  </div>
-
-  <!-- map view -->
-  <div class="card graphcard" id="mapView" style="display:none">
-    <div class="flowline" id="flowTop"></div>
-    <div class="mapgrid" id="mapHost"></div>
-    <div class="callout" style="margin-top:16px">
-      <b data-only="en">Read it as a flow:</b><b data-only="fa">به‌صورتِ یک جریان بخوانش:</b>
-      <span data-only="en"> Start by naming the enemy — <b>Resistance</b> is universal, internal, and lethal. Learn its <b>disguises</b> (procrastination, fear, excuses, self-sabotage), then <b>turn pro</b>: show up every day and treat the craft like a job. Live by the professional's <b>code</b>, and go <b>beyond Resistance</b> to meet the Muse — where doing the work brings the inspiration.</span>
-      <span data-only="fa"> با نام‌بردنِ دشمن شروع کن — <b>مقاومت</b> همگانی، درونی و کُشنده است. <b>نقاب‌هایش</b> را بشناس (امروز و فردا کردن، ترس، بهانه، خرابکاری در کارِ خود)، بعد <b>حرفه‌ای شو</b>: هر روز سرِ کار حاضر شو و پیشه‌ات را مثلِ یک شغل بگیر. با <b>مرامِ</b> حرفه‌ای زندگی کن، و <b>آن‌سوی مقاومت</b> برو تا الهه را ببینی — همان‌جا که انجامِ کار، الهام را می‌آورد.</span>
-    </div>
-  </div>
-
-  <!-- ── 5 STAGES ─────────────────────────────────────────── -->
-  <h2 id="stages"><span class="num" data-only="en">3.</span><span class="num" data-only="fa">۳.</span>
-    <span data-only="en"> Learn it in 5 stages</span><span data-only="fa"> یادگیری در ۵ مرحله</span></h2>
-  <p class="sub" data-only="en">The same book at five depths. Start over-simplified, climb to expert. Tap a rung to jump.</p>
-  <p class="sub" data-only="fa">یک کتاب در پنج عمق. از خیلی ساده شروع کن و تا حرفه‌ای بالا برو. روی هر پله بزن تا بپری.</p>
-  <div class="ladder" id="ladderHost"></div>
-  <div id="stageHost"></div>
-
-  <!-- ── QUOTES ───────────────────────────────────────────── -->
-  <h2 id="quotes"><span class="num" data-only="en">4.</span><span class="num" data-only="fa">۴.</span>
-    <span data-only="en"> Lines worth keeping</span><span data-only="fa"> جمله‌هایی که ارزشِ نگه‌داشتن دارند</span></h2>
-  <p class="sub" data-only="en">Verbatim quotes from the book, translated alongside.</p>
-  <p class="sub" data-only="fa">جمله‌های مستقیم از کتاب، همراه با ترجمه.</p>
-  <div class="qgrid" id="quoteHost"></div>
-
-  <!-- ── MEDIA ────────────────────────────────────────────── -->
-  <h2 id="media"><span class="num" data-only="en">5.</span><span class="num" data-only="fa">۵.</span>
-    <span data-only="en"> Watch &amp; explore</span><span data-only="fa"> تماشا و منابع</span></h2>
-  <p class="sub" data-only="en">Special resources found online — each with what it covers and who it's best for.</p>
-  <p class="sub" data-only="fa">منابعِ ویژه‌ای که آنلاین پیدا شد — هرکدام با اینکه چه می‌گوید و به چه دردی می‌خورد.</p>
-  <div class="mgrid" id="mediaHost"></div>
-  <div class="card" style="margin-top:16px">
-    <div style="font-weight:800;font-size:13.5px;margin-bottom:4px">
-      <span data-only="en">Go straight to the source</span><span data-only="fa">مستقیم سراغِ منبع برو</span>
-    </div>
-    <div class="golist" id="goHost"></div>
-  </div>
-
-  <!-- ── APPLY ────────────────────────────────────────────── -->
-  <h2 id="apply"><span class="num" data-only="en">6.</span><span class="num" data-only="fa">۶.</span>
-    <span data-only="en"> Apply it this week</span><span data-only="fa"> این هفته امتحانش کن</span></h2>
-  <p class="sub" data-only="en">Four small moves that turn the idea into a habit.</p>
-  <p class="sub" data-only="fa">چهار حرکتِ کوچک که این ایده را به عادت تبدیل می‌کنند.</p>
-  <div class="rec" id="recHost"></div>
-
-  <!-- ── METHOD ───────────────────────────────────────────── -->
-  <h2 id="method"><span class="num" data-only="en">7.</span><span class="num" data-only="fa">۷.</span>
-    <span data-only="en"> Sources &amp; notes</span><span data-only="fa"> منابع و توضیح</span></h2>
-  <div class="card method" id="methodHost"></div>
-
-  <!-- ── CREDIT FOOTER ────────────────────────────────────── -->
-  <div class="credit">
-    <span data-only="en">Created by <span class="cname">Behnam Atefi</span><span class="sep">·</span><a class="li" href="https://www.linkedin.com/in/behnamatefi/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.3c0-1.26-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9z"/></svg>LinkedIn</a></span>
-    <span data-only="fa">ساخته‌شده توسط <span class="cname">بهنام عاطفی</span><span class="sep">·</span><a class="li" href="https://www.linkedin.com/in/behnamatefi/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.3c0-1.26-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9z"/></svg>لینکدین</a></span>
-  </div>
-</div>
-
-<!-- ═══════════════════════ SCRIPTS ═══════════════════════ -->
+<script src="../assets/library.js"></script>
+<script src="../assets/book.js"></script>
 <script>
-/* ── 1) language + formatters ─────────────────────────────── */
-var LANG = document.documentElement.getAttribute('data-lang') || 'fa';
-var FA_D = '۰۱۲۳۴۵۶۷۸۹';
-var RLM  = '‏';
-function faDigits(s){ return String(s).replace(/[0-9]/g, function(d){ return FA_D[+d]; }); }
-/* honor the RTL preference: isolate Latin runs (word order preserved) and mark with U+200F */
-function rlm(s){
-  return String(s)
-    .replace(/[A-Za-zÀ-ɏ][A-Za-zÀ-ɏ0-9'’.&:\/\-]*(?:\s+[A-Za-zÀ-ɏ0-9'’.&:\/\-]+)*/g,
-      function(m){ return RLM+'⁦'+m+'⁩'+RLM; })
-    .replace(/[0-9۰-۹]+/g, function(m){ return m+RLM; });
-}
-/* transform only TEXT segments, never HTML tags (so <b>/<i> survive) */
-function faText(s){ return String(s).replace(/(<[^>]+>)|([^<]+)/g, function(m,tag,txt){ return tag ? tag : faDigits(rlm(txt)); }); }
-function TX(o){ if(o==null) return ''; if(typeof o==='string') return o; return LANG==='fa' ? faText(o.fa) : o.en; }
-function num(n){ return LANG==='fa' ? faDigits(n) : String(n); }
-function tok(name){ return getComputedStyle(document.documentElement).getPropertyValue(name).trim(); }
-</script>
-
-<script>
-/* ── DATA LAYER — Atomic Habits (bilingual, plain-spoken Persian) ── */
-var DATA = {"tldr":[{"en":"The whole book in one line: an invisible force called Resistance fights you whenever you try to create — beat it by doing the work every day.","fa":"خلاصهٔ کل کتاب در یک جمله: یک نیروی نامرئی به‌نامِ مقاومت هر وقت می‌خواهی چیزی بیافرینی با تو می‌جنگد — با انجامِ کار در هر روز شکستش بده."},{"en":"Resistance is <b>universal, internal</b>, and self-generated. It shows up as procrastination, fear, self-doubt, and clever excuses.","fa":"مقاومت <b>همگانی، درونی</b> و خودساخته است. خودش را به‌شکلِ امروز و فردا کردن، ترس، تردید و بهانه‌های زیرکانه نشان می‌دهد."},{"en":"Rule of thumb: <b>the more the work matters to you, the more Resistance you feel</b> — so fear is a compass, not a stop sign.","fa":"یک قاعدهٔ سرانگشتی: <b>هرچه کار برایت مهم‌تر باشد، مقاومتِ بیشتری حس می‌کنی</b> — پس ترس یک قطب‌نماست، نه تابلوی ایست."},{"en":"The answer is to <b>turn pro</b>: show up every day, treat the craft like a job, and do the work whether you're inspired or not.","fa":"جوابش این است که <b>حرفه‌ای شوی</b>: هر روز سرِ کار حاضر شو، پیشه را مثلِ یک شغل بگیر، و کار را چه بااِلهام چه بی‌اِلهام انجام بده."},{"en":"Do the work first, and <b>inspiration follows</b> — the Muse rewards the pro who sits down and starts.","fa":"اول کار را انجام بده، بعد <b>الهام می‌آید</b> — الهه به حرفه‌ای‌ای که می‌نشیند و شروع می‌کند پاداش می‌دهد."}],"parts":[{"key":"enemy","varc":"--c-teal","name":{"en":"Resistance: The Enemy","fa":"مقاومت: دشمن"},"tag":{"en":"Name the force","fa":"دشمن را بشناس"},"gist":{"en":"The invisible force that stops you — universal, internal, and lethal to dreams.","fa":"همان نیروی نامرئی که جلویت را می‌گیرد — همگانی، درونی، و کُشندهٔ رؤیاها."},"more":{"en":"Before you can beat it, you have to see it. Pressfield gives the block a single name — Resistance — and shows that it's the same enemy for everyone, it comes from inside you, and if you let it win, it quietly kills the work you were born to do.","fa":"قبل از اینکه بتوانی شکستش بدهی، باید ببینی‌اش. پرسفیلد به این سدِ درونی یک اسم می‌دهد — مقاومت — و نشان می‌دهد که برای همه همین یک دشمن است، از درونِ خودت می‌آید، و اگر بگذاری ببرد، بی‌سروصدا همان کاری را که برایش ساخته شده‌ای می‌کُشد."},"chapters":["resistance","internal","lethal"]},{"key":"faces","varc":"--c-blue","name":{"en":"How Resistance Shows Up","fa":"مقاومت چطور ظاهر می‌شود"},"tag":{"en":"Know its disguises","fa":"نقاب‌هایش را بشناس"},"gist":{"en":"Procrastination, fear, self-doubt, rationalization, distraction, self-sabotage.","fa":"امروز و فردا کردن، ترس، تردید، بهانه‌تراشی، حواس‌پرتی، خرابکاری در کارِ خود."},"more":{"en":"Resistance almost never shows its face. It hides behind reasonable excuses, sudden urges to do anything else, and a fear that feels like a stop sign. Learn its masks and you can catch it in the act — and the biggest clue is simple: the more a piece of work matters to you, the harder Resistance pushes back.","fa":"مقاومت تقریباً هیچ‌وقت رُک جلو نمی‌آید. پشتِ بهانه‌های منطقی، پشتِ میلِ ناگهانی به انجامِ هر کارِ دیگری، و پشتِ ترسی که مثلِ تابلوی ایست است قایم می‌شود. نقاب‌هایش را یاد بگیر تا سرِ بزنگاه بگیری‌اش — و بزرگ‌ترین سرنخ ساده است: هرچه کاری برایت مهم‌تر باشد، مقاومت محکم‌تر پسَت می‌زند."},"chapters":["procrastination","fear","rationalization","sabotage"]},{"key":"pro","varc":"--c-amber","name":{"en":"Turning Pro","fa":"حرفه‌ای‌شدن"},"tag":{"en":"The answer","fa":"راهِ‌حل"},"gist":{"en":"Amateur vs. professional — the pro shows up every day, no matter what.","fa":"آماتور در برابرِ حرفه‌ای — حرفه‌ای هر روز سرِ کار حاضر می‌شود، هر جور شده."},"more":{"en":"The cure for Resistance isn't more willpower in one heroic burst; it's a change of identity. Stop being an amateur who works when the mood is right, and turn pro: decide the work is your job, show up for it every single day, and do it whether you feel like it or not.","fa":"درمانِ مقاومت، ارادهٔ بیشتر در یک جهشِ قهرمانانه نیست؛ عوض‌شدنِ هویت است. دست از آماتوری بردار که فقط وقتِ حال‌داشتن کار می‌کند، و حرفه‌ای شو: تصمیم بگیر که این کار، شغلِ توست، هر روزِ خدا سرش حاضر شو، و انجامش بده — چه حالش را داشته باشی چه نداشته باشی."},"chapters":["amateur","showup","craftjob"]},{"key":"code","varc":"--c-violet","name":{"en":"The Professional's Code","fa":"مرامِ حرفه‌ای"},"tag":{"en":"How the pro works","fa":"حرفه‌ای چطور کار می‌کند"},"gist":{"en":"Be patient, seek order, don't take failure personally, master the craft.","fa":"صبور باش، زندگی‌ات را مرتب نگه دار، شکست را به دل نگیر، و در کارت استاد شو."},"more":{"en":"Turning pro is a mindset, and it runs on a few plain habits. The professional is patient, keeps a calm and ordered life so chaos can't feed Resistance, refuses to take failure or praise personally, and quietly masters the craft instead of waiting for inspiration.","fa":"حرفه‌ای‌شدن یک طرزِ فکر است، و روی چند عادتِ ساده می‌چرخد. آدمِ حرفه‌ای صبور است، زندگی‌اش را آرام و مرتب نگه می‌دارد تا آشوب به مقاومت خوراک ندهد، شکست و تعریف را به دل نمی‌گیرد، و بی‌سروصدا در کارش استاد می‌شود، به‌جای اینکه منتظرِ الهام بماند."},"chapters":["patience","personally","mastery"]},{"key":"muse","varc":"--c-green","name":{"en":"Beyond Resistance — The Muse","fa":"آن‌سوی مقاومت — الهه"},"tag":{"en":"The reward","fa":"پاداش"},"gist":{"en":"Do the work and inspiration follows; create as an act of service.","fa":"کار را انجام بده تا الهام بیاید؛ آفریدن را یک‌جور خدمت بدان."},"more":{"en":"Here's the payoff. When you do your part — sit down and start — something meets you halfway: call it the Muse, the angels, or just flow. Orient your life around the work itself rather than other people's applause, treat creating as a gift you give, and Resistance loses for good.","fa":"این هم پاداشش. وقتی سهمِ خودت را انجام می‌دهی — می‌نشینی و شروع می‌کنی — چیزی نیمهٔ راه به استقبالت می‌آید: اسمش را بگذار الهه، فرشته‌ها، یا فقط جریان. زندگی‌ات را دورِ خودِ کار بچین، نه دورِ تشویقِ دیگران، آفریدن را هدیه‌ای بدان که می‌بخشی — آن‌وقت مقاومت برای همیشه می‌بازد."},"chapters":["inspiration","territory","service"]}],"chapters":{"resistance":{"part":"enemy","n":1,"name":{"en":"The Invisible Force","fa":"مقاومت"},"glabel":{"en":"Resistance","fa":"مقاومت"},"principle":{"en":"There's an invisible force that shows up whenever you sit down to do meaningful creative work — its only aim is to stop you.","fa":"یک نیروی نامرئی هست که هر وقت می‌نشینی تا کارِ خلاقانهٔ مهمی بکنی سبز می‌شود — تنها هدفش این است که جلویت را بگیرد."},"more":{"en":"Pressfield gives this force one name: Resistance. You can't see it or touch it, but you feel it as the drag that keeps you from starting. Naming it is the first victory, because once you know the enemy, you can fight it.","fa":"پرسفیلد به این نیرو یک اسم می‌دهد: مقاومت. نه می‌بینی‌اش نه لمسش می‌کنی، اما به‌شکلِ همان کششی که نمی‌گذارد شروع کنی حسش می‌کنی. نام‌بردنش اولین پیروزی است، چون وقتی دشمن را شناختی، می‌توانی با او بجنگی."},"example":{"en":"You finally sit down to write, and suddenly the kitchen needs cleaning, your inbox needs checking, and the couch looks very inviting. That pull is Resistance.","fa":"بالاخره می‌نشینی که بنویسی، و یک‌دفعه آشپزخانه باید تمیز شود، ایمیل‌ها باید چک شوند، و کاناپه هم که حسابی وسوسه‌انگیز است. آن کشش، مقاومت است."},"tip":{"en":"Give it a name. Next time you feel the drag away from your real work, say out loud: “That’s Resistance.”","fa":"اسمش را بگذار. دفعهٔ بعد که آن کشش دورت می‌کند از کارِ اصلی، بلند بگو: «این مقاومت است.»"},"pitfall":{"en":"Thinking the problem is you — laziness, bad luck, no talent — instead of a force you can name and fight.","fa":"فکر‌کردن به اینکه مشکل خودتی — تنبلی، بدشانسی، بی‌استعدادی — به‌جای نیرویی که می‌توانی نامش را ببری و با آن بجنگی."}},"internal":{"part":"enemy","n":2,"name":{"en":"It Comes From Within","fa":"از درون می‌آید"},"glabel":{"en":"Internal","fa":"از درون"},"principle":{"en":"Resistance isn't out in the world — it's self-generated, rising from inside you. You are both the one who creates and the one who blocks.","fa":"مقاومت بیرون، در دنیا نیست — خودساخته است و از درونِ تو بلند می‌شود. هم آفریننده تویی، هم کسی که سد می‌سازد."},"more":{"en":"No boss, critic, or circumstance makes Resistance; you do. That's bad news and good news: bad, because you can't blame anyone else; good, because a force you generate is a force you can learn to overpower.","fa":"هیچ رئیس، منتقد یا شرایطی مقاومت نمی‌سازد؛ خودت می‌سازی. این هم خبرِ بد است هم خوب: بد، چون نمی‌توانی گردنِ کسِ دیگری بیندازی؛ خوب، چون نیرویی که خودت می‌سازی، نیرویی است که می‌توانی یاد بگیری بر آن چیره شوی."},"example":{"en":"The room is quiet, the day is free, nobody is stopping you — and still you can't begin. The obstacle was never the room; it was inside.","fa":"اتاق ساکت است، روز خالی است، هیچ‌کس جلویت را نگرفته — و باز هم نمی‌توانی شروع کنی. مانع هیچ‌وقت اتاق نبود؛ درونت بود."},"tip":{"en":"Stop hunting for the perfect conditions. The block is internal, so the fix is too — just start.","fa":"دست از گشتن دنبالِ شرایطِ بی‌نقص بردار. سد درونی است، پس راه‌حل هم درونی است — فقط شروع کن."},"pitfall":{"en":"Waiting for the outside world to change (more time, more quiet, more money) when the real block is within.","fa":"منتظرِ عوض‌شدنِ دنیای بیرون ماندن (وقتِ بیشتر، سکوتِ بیشتر، پولِ بیشتر) وقتی سدِ واقعی درون است."}},"lethal":{"part":"enemy","n":3,"name":{"en":"It Kills Dreams","fa":"رؤیاها را می‌کُشد"},"glabel":{"en":"Lethal","fa":"کُشنده"},"principle":{"en":"Resistance is the most toxic force there is. Left unopposed, it keeps you from the life and work you were meant for.","fa":"مقاومت سمّی‌ترین نیرویی است که هست. جلویش را که نگیری، تو را از زندگی و کاری که برایش ساخته شده‌ای دور نگه می‌دارد."},"more":{"en":"Between the life you live and the unlived life inside you stands Resistance. It doesn't just make you procrastinate — over a lifetime it can quietly bury a book, a business, or a calling that never got made.","fa":"بینِ زندگی‌ای که می‌کنی و زندگیِ نکرده‌ای که درونت است، مقاومت ایستاده. فقط کاری نمی‌کند که امروز و فردا کنی — در طولِ یک عمر می‌تواند بی‌سروصدا یک کتاب، یک کسب‌وکار، یا یک رسالت را که هیچ‌وقت ساخته نشد دفن کند."},"example":{"en":"The person who “always meant to” paint, start the company, or write the novel — and never did. Resistance won, one postponed day at a time.","fa":"همان آدمی که «همیشه می‌خواست» نقاشی کند، شرکت بزند، یا رمان بنویسد — و هیچ‌وقت نکرد. مقاومت برد، یک روزِ عقب‌افتاده پشتِ روزِ عقب‌افتاده."},"tip":{"en":"Picture the unlived work you'd regret most. That's what Resistance is trying to take from you.","fa":"همان کارِ نکرده‌ای را که بیشتر از همه حسرتش را می‌خوری تصور کن. همان است که مقاومت می‌خواهد از تو بگیرد."},"pitfall":{"en":"Treating “someday” as safe. Someday is where Resistance buries dreams.","fa":"«یک‌روزی» را امن پنداشتن. «یک‌روزی» همان‌جایی است که مقاومت رؤیاها را دفن می‌کند."}},"procrastination":{"part":"faces","n":4,"name":{"en":"Procrastination","fa":"امروز و فردا کردن"},"glabel":{"en":"Procrastination","fa":"فردا فردا"},"principle":{"en":"Resistance's favorite disguise is procrastination — the endless “I’ll start tomorrow.”","fa":"محبوب‌ترین نقابِ مقاومت، امروز و فردا کردن است — همان «از فردا شروع می‌کنم»ِ بی‌پایان."},"more":{"en":"Procrastination is seductive because it never says never; it just says later. But later becomes a habit, and the habit becomes a life. The pro fights it by working now, today, in the only moment that exists.","fa":"امروز و فردا کردن فریبنده است چون هیچ‌وقت نمی‌گوید هرگز؛ فقط می‌گوید بعداً. اما بعداً یک عادت می‌شود، و عادت یک زندگی. حرفه‌ای با کارکردن در همین حالا، همین امروز، در تنها لحظه‌ای که وجود دارد، با آن می‌جنگد."},"example":{"en":"“I’ll begin on Monday, once things settle down.” Monday comes, things never settle, and the work stays unstarted.","fa":"«دوشنبه شروع می‌کنم، وقتی اوضاع آرام شد.» دوشنبه می‌رسد، اوضاع هیچ‌وقت آرام نمی‌شود، و کار نشروع می‌ماند."},"tip":{"en":"Shrink it: do just the first ten minutes today. Starting is the whole battle.","fa":"کوچکش کن: فقط همان ده دقیقهٔ اول را امروز انجام بده. شروع‌کردن، تمامِ نبرد است."},"pitfall":{"en":"Believing tomorrow will be different. It won't — only today is real.","fa":"باور به اینکه فردا فرق می‌کند. فرقی نمی‌کند — فقط امروز واقعی است."}},"fear":{"part":"faces","n":5,"name":{"en":"Fear & Self-Doubt","fa":"ترس و تردید"},"glabel":{"en":"Fear","fa":"ترس"},"principle":{"en":"Fear and self-doubt are fuel for Resistance — but they're also a signpost pointing at work that matters.","fa":"ترس و تردید سوختِ مقاومت‌اند — اما در عینِ حال تابلویی‌اند که به کارِ مهم اشاره می‌کنند."},"more":{"en":"The more scared you are of a project, the more sure you can be that you have to do it. Fear doesn't mean stop; it means you've found something important. Self-doubt is the same — even asking “am I really an artist?” is a hopeful sign.","fa":"هرچه از کاری بیشتر بترسی، مطمئن‌تر باش که باید انجامش بدهی. ترس یعنی بایست نیست؛ یعنی چیزِ مهمی پیدا کرده‌ای. تردید هم همین است — حتی همین که بپرسی «واقعاً هنرمندم؟» نشانهٔ امیدوارکننده‌ای است."},"example":{"en":"You're terrified to share the thing you made. That terror is proof it means something to you.","fa":"از به‌اشتراک‌گذاشتنِ چیزی که ساخته‌ای وحشت داری. همان وحشت، مدرکِ این است که برایت معنا دارد."},"tip":{"en":"When fear spikes, read it as a compass: move toward the thing that scares you, not away.","fa":"وقتی ترس اوج می‌گیرد، مثلِ قطب‌نما بخوانش: به‌سمتِ چیزی که می‌ترساندت برو، نه دور از آن."},"pitfall":{"en":"Reading fear as a red light. It's a green one.","fa":"ترس را چراغِ قرمز خواندن. چراغِ سبز است."}},"rationalization":{"part":"faces","n":6,"name":{"en":"Rationalization & Distraction","fa":"بهانه‌تراشی و حواس‌پرتی"},"glabel":{"en":"Excuses","fa":"بهانه"},"principle":{"en":"Resistance is a smooth-talking lawyer — it hands you reasonable-sounding excuses and shiny distractions so you never notice you're avoiding the work.","fa":"مقاومت یک وکیلِ خوش‌زبان است — بهانه‌های منطقی‌به‌نظر و حواس‌پرتی‌های براق دستت می‌دهد تا اصلاً نفهمی که داری از کار فرار می‌کنی."},"more":{"en":"Unlike raw fear, rationalization doesn't feel like fear at all; it feels like good sense. “I’m too busy, I need more research, now’s not the right time.” Distraction does the rest. The trick is to see the excuse as Resistance in a suit.","fa":"برخلافِ ترسِ خام، بهانه‌تراشی اصلاً حسِ ترس نمی‌دهد؛ حسِ عقلِ سلیم می‌دهد. «سرم خیلی شلوغ است، باید بیشتر تحقیق کنم، الان وقتش نیست.» حواس‌پرتی هم بقیه‌اش را تکمیل می‌کند. کلک این است که بهانه را مقاومتی ببینی که کت‌وشلوار پوشیده."},"example":{"en":"You spend the whole morning “researching” and reorganizing your notes — and never write a single real sentence.","fa":"کلِ صبح را «تحقیق» می‌کنی و یادداشت‌هایت را مرتب می‌کنی — و حتی یک جملهٔ واقعی نمی‌نویسی."},"tip":{"en":"When a very reasonable excuse appears right before the work, suspect Resistance.","fa":"وقتی درست پیش از کار یک بهانهٔ خیلی منطقی سبز می‌شود، به مقاومت شک کن."},"pitfall":{"en":"Mistaking busywork and research for the work itself.","fa":"کارِ الکی و تحقیق را با خودِ کار اشتباه‌گرفتن."}},"sabotage":{"part":"faces","n":7,"name":{"en":"Self-Sabotage & the Compass","fa":"خرابکاری در کارِ خود و قطب‌نما"},"glabel":{"en":"Self-sabotage","fa":"خودزنی"},"principle":{"en":"Resistance will even make you wreck your own progress — and the closer you are to a breakthrough, the harder it pushes.","fa":"مقاومت حتی وادارت می‌کند پیشرفتِ خودت را خراب کنی — و هرچه به یک جهش نزدیک‌تری، محکم‌تر هُل می‌دهد."},"more":{"en":"The same rule becomes a compass: the more important a call is to your soul, the more Resistance you'll feel. So the strength of the resistance tells you exactly where your real work is. Follow the fear to find your calling.","fa":"همین قاعده به یک قطب‌نما تبدیل می‌شود: هرچه یک ندا برای روحت مهم‌تر باشد، مقاومتِ بیشتری حس می‌کنی. پس شدتِ مقاومت دقیقاً می‌گوید کارِ اصلی‌ات کجاست. دنبالِ ترس برو تا رسالتت را پیدا کنی."},"example":{"en":"The night before a big creative leap, you pick a fight, stay up too late, or “suddenly” get sick — self-sabotage right at the finish line.","fa":"شبِ قبل از یک جهشِ بزرگِ خلاقانه، دعوا راه می‌اندازی، تا دیروقت بیدار می‌مانی، یا «یک‌دفعه» مریض می‌شوی — خرابکاری درست سرِ خطِ پایان."},"tip":{"en":"Rank your projects by how much Resistance each stirs up; the top of that list is your true work.","fa":"کارهایت را برحسبِ اینکه هرکدام چقدر مقاومت به‌پا می‌کند رتبه‌بندی کن؛ بالای آن فهرست، کارِ واقعیِ توست."},"pitfall":{"en":"Fleeing the projects that scare you most — those are exactly the ones that matter.","fa":"فرار از همان کارهایی که بیشتر از همه می‌ترسانندت — دقیقاً همان‌ها هستند که مهم‌اند."}},"amateur":{"part":"pro","n":8,"name":{"en":"Amateur vs. Professional","fa":"آماتور در برابرِ حرفه‌ای"},"glabel":{"en":"Amateur/Pro","fa":"آماتور/حرفه‌ای"},"principle":{"en":"The amateur plays for fun and waits to feel ready; the professional plays for keeps and commits fully.","fa":"آماتور برای تفریح بازی می‌کند و منتظر می‌ماند تا آماده حس کند؛ حرفه‌ای برای بُرد بازی می‌کند و تمام‌وکمال پایش می‌ایستد."},"more":{"en":"An amateur loves the work but keeps it a hobby — done when the mood strikes, abandoned when it's hard. Turning pro is a mental switch, not a paycheck: you decide the work is who you are, and you stop giving Resistance the escape hatch of “only when I feel inspired.”","fa":"آماتور کارش را دوست دارد اما سرگرمی نگهش می‌دارد — وقتی حال‌وحوصله باشد انجامش می‌دهد، وقتی سخت شود رهایش می‌کند. حرفه‌ای‌شدن یک کلیدِ ذهنی است، نه حقوق: تصمیم می‌گیری که این کار همان کسی است که هستی، و دیگر درِ فرارِ «فقط وقتی الهام بشوم» را به مقاومت نمی‌دهی."},"example":{"en":"The weekend writer waits for a magical burst of motivation; the pro writes on Tuesday morning because it's Tuesday morning.","fa":"نویسندهٔ آخرِهفته منتظرِ یک فورانِ جادوییِ انگیزه می‌ماند؛ حرفه‌ای سه‌شنبه صبح می‌نویسد چون سه‌شنبه صبح است."},"tip":{"en":"Decide, once: “This is my job now,” and treat it that way — no more waiting for the mood.","fa":"یک‌بار برای همیشه تصمیم بگیر: «این حالا شغلِ من است»، و همان‌طور با آن رفتار کن — دیگر منتظرِ حال‌وحوصله نمان."},"pitfall":{"en":"Staying an amateur — keeping your calling a hobby you only touch when it's easy.","fa":"آماتور ماندن — رسالتت را سرگرمی‌ای نگه‌داشتن که فقط وقتِ آسان‌بودن سراغش می‌روی."}},"showup":{"part":"pro","n":9,"name":{"en":"Show Up Every Day","fa":"هر روز سرِ کار حاضر شو"},"glabel":{"en":"Show up","fa":"حاضر شو"},"principle":{"en":"The professional sits down and works every day — inspired or not, sick or well, in the mood or not.","fa":"حرفه‌ای هر روز می‌نشیند و کار می‌کند — بااِلهام یا بی‌اِلهام، مریض یا سالم، سرِحال یا بی‌حوصله."},"more":{"en":"This is the heart of the whole book. You beat Resistance not with a heroic one-time effort but with dull, daily consistency. Show up, put in the hours, and go home; then do it again tomorrow. The showing-up is the win.","fa":"این قلبِ کلِ کتاب است. مقاومت را با یک تلاشِ قهرمانانهٔ یک‌باره شکست نمی‌دهی، بلکه با پایداریِ کسل‌کننده و روزانه. حاضر شو، ساعت‌هایت را بگذار، و برو خانه؛ بعد فردا دوباره همین کار. همین حاضرشدن، خودِ بُرد است."},"example":{"en":"Somerset Maugham said he wrote only when inspiration struck — and made sure it struck every morning at nine o'clock sharp.","fa":"سامرست موآم می‌گفت فقط وقتی الهام بشود می‌نویسد — و کاری می‌کرد که هر روز صبح رأسِ ساعتِ نُه الهام بشود."},"tip":{"en":"Set a fixed time and show up to the work daily, even for a short session. Consistency beats intensity.","fa":"یک ساعتِ ثابت بگذار و هر روز سرِ کار حاضر شو، حتی برای یک جلسهٔ کوتاه. پایداری بر شدت می‌چربد."},"pitfall":{"en":"Waiting for inspiration before you'll start. It arrives after you start, not before.","fa":"منتظرِ الهام ماندن تا بعد شروع کنی. الهام بعد از شروع می‌آید، نه قبلش."}},"craftjob":{"part":"pro","n":10,"name":{"en":"Treat the Craft Like a Job","fa":"پیشه را مثلِ یک شغل بگیر"},"glabel":{"en":"Like a job","fa":"مثلِ شغل"},"principle":{"en":"The pro treats creative work like a real job — clocking in on schedule, staying all day, and sticking with it over the long haul.","fa":"حرفه‌ای با کارِ خلاقانه مثلِ یک شغلِ واقعی رفتار می‌کند — سرِ ساعت شروع می‌کند، تمامِ روز می‌ماند، و در درازمدت پایش می‌ایستد."},"more":{"en":"Think of a plumber or a doctor: they don't wait to feel like it, they don't quit when a task is hard, and they don't fall apart over one bad day. Bring that same steady, unglamorous professionalism to your art and Resistance loses its grip.","fa":"به یک لوله‌کش یا پزشک فکر کن: منتظر نمی‌مانند که حالش را داشته باشند، وقتی کاری سخت است ول نمی‌کنند، و به‌خاطرِ یک روزِ بد از هم نمی‌پاشند. همین حرفه‌ای‌گریِ بی‌سروصدا و باثبات را به هنرت بیاور، آن‌وقت مقاومت چنگش شل می‌شود."},"example":{"en":"A working writer treats nine-to-one as office hours — shows up, does the work, handles the boring parts, and comes back tomorrow.","fa":"یک نویسندهٔ کاربلد ساعتِ نُه تا یک را ساعتِ اداری می‌داند — حاضر می‌شود، کار می‌کند، بخش‌های کسل‌کننده را هم انجام می‌دهد، و فردا برمی‌گردد."},"tip":{"en":"Give your creative work real, scheduled office hours and keep them like any job.","fa":"برای کارِ خلاقانه‌ات یک «ساعتِ اداریِ» واقعی و برنامه‌ریزی‌شده بگذار و مثلِ هر شغلی نگهش دار."},"pitfall":{"en":"Treating your calling as precious and fragile instead of as steady, professional work.","fa":"رسالتت را چیزی نازک و شکننده پنداشتن، به‌جای کاری باثبات و حرفه‌ای."}},"patience":{"part":"code","n":11,"name":{"en":"Be Patient, Seek Order","fa":"صبور باش و نظم داشته باش"},"glabel":{"en":"Patience","fa":"صبر و نظم"},"principle":{"en":"The pro is patient — art takes time — and keeps life ordered, because disorder feeds Resistance.","fa":"حرفه‌ای صبور است — هنر زمان می‌برد — و زندگی‌اش را مرتب نگه می‌دارد، چون بی‌نظمی به مقاومت خوراک می‌دهد."},"more":{"en":"Big work rarely comes fast; the professional arms himself with patience so he doesn't burn out or panic. And he keeps his days simple and orderly, because chaos, drama, and clutter are the mud Resistance grows in. A plain, ordered life protects the work.","fa":"کارِ بزرگ به‌ندرت زود به‌دست می‌آید؛ حرفه‌ای خودش را به صبر مسلح می‌کند تا نه بسوزد نه دستپاچه شود. و روزهایش را ساده و مرتب نگه می‌دارد، چون آشوب و دلهره و شلوغی همان گِلی‌اند که مقاومت در آن می‌روید. یک زندگیِ ساده و منظم از کار محافظت می‌کند."},"example":{"en":"Instead of chasing a dramatic all-nighter, the pro keeps a calm routine and lets the work accumulate over months.","fa":"به‌جای دنبالِ یک شب‌بیداریِ پرهیجان رفتن، حرفه‌ای یک روال آرام نگه می‌دارد و می‌گذارد کار در طولِ ماه‌ها روی‌هم جمع شود."},"tip":{"en":"Simplify your day and remove one source of drama or clutter that keeps stealing your focus.","fa":"روزت را ساده کن و یک منبعِ دلهره یا شلوغی را که مدام تمرکزت را می‌دزدد بردار."},"pitfall":{"en":"Expecting fast results and quitting — or letting a chaotic life crowd out the work.","fa":"انتظارِ نتیجهٔ سریع داشتن و بعد ول‌کردن — یا گذاشتن یک زندگیِ پرآشوب جای کار را تنگ کند."}},"personally":{"part":"code","n":12,"name":{"en":"Don't Take It Personally","fa":"به دل نگیر"},"glabel":{"en":"Not personal","fa":"شخصی‌اش نکن"},"principle":{"en":"The pro doesn't take failure — or success — personally. Praise and criticism land in the world, not on the soul.","fa":"حرفه‌ای شکست — یا موفقیت — را به دل نمی‌گیرد. تعریف و انتقاد در دنیا فرود می‌آیند، نه روی روح."},"more":{"en":"Your work is what you do, not who you are. Keep that gap and a rejection can't crush you and applause can't inflate you. The professional accepts no excuses, acts in the face of fear, and keeps going regardless of how any single piece is received.","fa":"کارت همان چیزی است که می‌کنی، نه کسی که هستی. این فاصله را که نگه داری، یک ردّ‌شدن نمی‌تواند لِهت کند و یک تشویق نمی‌تواند بادت کند. حرفه‌ای هیچ بهانه‌ای را نمی‌پذیرد، در دلِ ترس عمل می‌کند، و فارغ از اینکه یک اثر چطور دیده می‌شود، به راهش ادامه می‌دهد."},"example":{"en":"A pro gets a brutal review, feels the sting for an hour, and is back at the desk the next morning working.","fa":"حرفه‌ای یک نقدِ بی‌رحم می‌گیرد، یک ساعت سوزشش را حس می‌کند، و صبحِ روزِ بعد پشتِ میز مشغولِ کار است."},"tip":{"en":"After a win or a loss, get back to the work quickly — that's how you keep your balance.","fa":"بعد از یک بُرد یا یک باخت، زود برگرد سرِ کار — تعادلت را این‌طوری نگه می‌داری."},"pitfall":{"en":"Letting one rejection define you, or one success make you coast.","fa":"گذاشتن یک ردّ‌شدن تعریفت کند، یا یک موفقیت سُستت کند."}},"mastery":{"part":"code","n":13,"name":{"en":"Master the Craft","fa":"در کارت استاد شو"},"glabel":{"en":"Mastery","fa":"استادی"},"principle":{"en":"The pro dedicates herself to mastering technique — and never waits for inspiration to begin.","fa":"حرفه‌ای خودش را وقفِ استادشدن در فن می‌کند — و هیچ‌وقت منتظرِ الهام نمی‌ماند تا شروع کند."},"more":{"en":"Talent is common; the professional's edge is craft, learned through years of deliberate practice. Because she's prepared and skilled, she can sit down and work on demand instead of praying for a magic mood. Mastery is what lets you keep the daily appointment no matter what.","fa":"استعداد فراوان است؛ برتریِ حرفه‌ای در فن است، که با سال‌ها تمرینِ سنجیده به‌دست می‌آید. چون آماده و ماهر است، می‌تواند بنشیند و به‌فرمان کار کند، نه اینکه التماسِ یک حالِ جادویی را بکند. استادی همان چیزی است که می‌گذارد قرارِ روزانه‌ات را هر جور شده نگه داری."},"example":{"en":"A seasoned musician runs scales and drills technique for years, so that on stage the hard parts simply work.","fa":"یک نوازندهٔ کارکشته سال‌ها گام‌ها را تمرین می‌کند و فن را صیقل می‌دهد، تا روی صحنه بخش‌های سخت به‌سادگی جواب بدهند."},"tip":{"en":"Pick one concrete skill in your craft and practice it deliberately this week.","fa":"یک مهارتِ مشخص در کارت را انتخاب کن و همین هفته سنجیده تمرینش کن."},"pitfall":{"en":"Leaning on raw talent and waiting for inspiration instead of building real skill.","fa":"تکیه به استعدادِ خام و منتظرِ الهام ماندن، به‌جای ساختنِ مهارتِ واقعی."}},"inspiration":{"part":"muse","n":14,"name":{"en":"Do the Work, Inspiration Follows","fa":"کار را انجام بده، الهام می‌آید"},"glabel":{"en":"Inspiration","fa":"الهام"},"principle":{"en":"Sit down and start, and unseen forces come to help — the Muse rewards the pro who shows up.","fa":"بنشین و شروع کن، آن‌وقت نیروهای نادیده به کمک می‌آیند — الهه به حرفه‌ای‌ای که حاضر می‌شود پاداش می‌دهد."},"more":{"en":"Pressfield's near-mystical claim: when you commit and begin the work, ideas, help, and inspiration arrive that weren't there before. The Muse — the angels, the flow — meets you at the desk, but only after you've done your part and started. Begin, and the magic comes to you.","fa":"ادعای تقریباً رازآلودِ پرسفیلد: وقتی پا پیش می‌گذاری و کار را شروع می‌کنی، ایده و کمک و الهامی می‌آید که پیش‌تر نبود. الهه — فرشته‌ها، جریان — پشتِ میز به استقبالت می‌آید، اما فقط بعد از اینکه سهمِ خودت را انجام دادی و شروع کردی. شروع کن، جادو خودش می‌آید سراغت."},"example":{"en":"You force yourself to start, uninspired — and twenty minutes in, ideas are suddenly flowing faster than you can write them.","fa":"به‌زور و بی‌اِلهام شروع می‌کنی — و بیست دقیقه بعد، ایده‌ها تندتر از آنی که بتوانی بنویسی‌شان سرازیرند."},"tip":{"en":"Never wait to feel inspired. Start first; let inspiration catch up to you.","fa":"هیچ‌وقت منتظر نمان تا الهام حس کنی. اول شروع کن؛ بگذار الهام به تو برسد."},"pitfall":{"en":"Sitting around waiting for the Muse. She only shows up once you're already working.","fa":"لم‌دادن و منتظرِ الهه نشستن. او فقط وقتی می‌آید که تو از قبل مشغولِ کار باشی."}},"territory":{"part":"muse","n":15,"name":{"en":"Territory, Not Hierarchy","fa":"قلمرو، نه سلسله‌مراتب"},"glabel":{"en":"Territory","fa":"قلمرو"},"principle":{"en":"Orient yourself territorially, not hierarchically — draw your worth from the work itself, not from others' approval.","fa":"خودت را قلمرو‌محور بچین، نه سلسله‌مراتب‌محور — ارزشت را از خودِ کار بگیر، نه از تأییدِ دیگران."},"more":{"en":"The hierarchical person acts to climb above others and lives on their reactions. The territorial person has a “territory” — running, writing, playing — that sustains them regardless of anyone's opinion. Own your territory, and Resistance loses its favorite weapon: your hunger for approval.","fa":"آدمِ سلسله‌مراتبی کار می‌کند تا بالای دیگران برود و با واکنشِ آن‌ها زندگی می‌کند. آدمِ قلمرو‌محور یک «قلمرو» دارد — دویدن، نوشتن، نواختن — که فارغ از نظرِ هرکسی سرِپا نگهش می‌دارد. قلمرو‌ات را از آنِ خود کن، آن‌وقت مقاومت محبوب‌ترین سلاحش را از دست می‌دهد: گرسنگی‌ات برای تأیید."},"example":{"en":"A musician who plays because the playing itself feeds her is unshakable; one who plays only for applause is at the mercy of the crowd.","fa":"نوازنده‌ای که می‌نوازد چون خودِ نواختن سیرش می‌کند، تکان‌ناپذیر است؛ آن‌که فقط برای تشویق می‌نوازد، دستِ جمعیت است."},"tip":{"en":"Ask of your work: does this feed me even if no one claps? Build your life around that answer.","fa":"از کارت بپرس: این حتی اگر کسی هم دست نزند سیرم می‌کند؟ زندگی‌ات را دورِ همان جواب بساز."},"pitfall":{"en":"Living for likes, ranks, and applause — handing Resistance the keys to your motivation.","fa":"برای لایک و رتبه و تشویق زندگی‌کردن — دادنِ کلیدِ انگیزه‌ات به دستِ مقاومت."}},"service":{"part":"muse","n":16,"name":{"en":"Creativity as Service","fa":"آفرینش به‌مثابهٔ خدمت"},"glabel":{"en":"Service","fa":"خدمت"},"principle":{"en":"Do the work for its own sake, as a gift and an act of service — then let the results go.","fa":"کار را به‌خاطرِ خودش انجام بده، مثلِ یک هدیه و یک‌جور خدمت — بعد نتیجه را رها کن."},"more":{"en":"In the end the work isn't about you. You show up, do your best, and offer it; the ego wants reward, but the deeper Self just wants to serve the gift. Work done for love — not fortune or applause — is the work that beats Resistance for good and blesses everyone it reaches.","fa":"آخرِ سر، کار دربارهٔ تو نیست. حاضر می‌شوی، بهترینت را می‌کنی، و تقدیمش می‌کنی؛ خودپرستی پاداش می‌خواهد، اما آن خودِ عمیق‌ترت فقط می‌خواهد به این موهبت خدمت کند. کاری که از سرِ عشق انجام می‌شود — نه برای ثروت یا تشویق — همان کاری است که مقاومت را برای همیشه می‌بازاند و به هر کسی که به او می‌رسد برکت می‌دهد."},"example":{"en":"An artist finishes the piece, releases it into the world without clinging to how it's received, and starts the next one.","fa":"هنرمند اثر را تمام می‌کند، بی‌آنکه به نحوهٔ دیده‌شدنش بچسبد رهایش می‌کند توی دنیا، و سراغِ بعدی می‌رود."},"tip":{"en":"Make the work your gift: do it as well as you can, offer it, and move on to the next.","fa":"کارت را هدیه‌ات کن: تا می‌توانی خوب انجامش بده، تقدیمش کن، و برو سراغِ بعدی."},"pitfall":{"en":"Working only for money, fame, or applause — the surest way to let Resistance back in.","fa":"فقط برای پول، شهرت یا تشویق کارکردن — مطمئن‌ترین راه برای اینکه دوباره درِ خانه را به روی مقاومت باز کنی."}}},"core":{"name":{"en":"BEAT RESISTANCE","fa":"مقاومت را شکست بده"},"principle":{"en":"Every time you try to do meaningful creative work, an invisible, self-generated force called Resistance rises to stop you — through procrastination, fear, doubt, and clever excuses. You defeat it the same way every day: turn pro, sit down, and do the work whether you feel like it or not. Do your part, and inspiration comes to meet you.","fa":"هر بار که می‌خواهی کارِ خلاقانهٔ معناداری بکنی، یک نیروی نامرئیِ خودساخته به‌نامِ مقاومت بلند می‌شود تا جلویت را بگیرد — با امروز و فردا کردن، ترس، تردید و بهانه‌های زیرکانه. هر روز به یک شکل شکستش می‌دهی: حرفه‌ای شو، بنشین، و کار را انجام بده، چه حالش را داشته باشی چه نداشته باشی. سهمِ خودت را انجام بده، الهام به استقبالت می‌آید."},"more":{"en":"Pressfield maps the fight in a simple arc — name the enemy (Resistance is universal, internal, and lethal to dreams), learn its disguises (procrastination, fear, rationalization, self-sabotage), turn pro (show up every day and treat the craft like a job), live by the professional's code (patience, order, mastery, not taking it personally), and go beyond Resistance to the Muse (do the work and inspiration follows; create as service). The thread through all of it: the work is won by showing up.","fa":"پرسفیلد این نبرد را در یک قوسِ ساده می‌چیند — دشمن را نام ببر (مقاومت همگانی، درونی و کُشندهٔ رؤیاست)، نقاب‌هایش را بشناس (امروز و فردا کردن، ترس، بهانه‌تراشی، خرابکاری در کارِ خود)، حرفه‌ای شو (هر روز سرِ کار حاضر شو و پیشه را مثلِ یک شغل بگیر)، با مرامِ حرفه‌ای زندگی کن (صبر، نظم، استادی، و به‌دل‌نگرفتن)، و از مقاومت فراتر برو تا به الهه برسی (کار را انجام بده تا الهام بیاید؛ آفریدن یک خدمت است). نخِ رابطِ همه‌شان: کار با سرِ کار حاضر‌شدن برده می‌شود."},"example":{"en":"Click any node to read a principle or an idea. You can also drag the nodes around.","fa":"روی هر دایره کلیک کن تا یک اصل یا ایده را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."}},"stages":[{"level":1,"badge":{"en":"Level 1 · Over-simplified","fa":"سطحِ ۱ · خیلی ساده"},"title":{"en":"Just start","fa":"فقط شروع کن"},"tagline":{"en":"The whole book in a sentence.","fa":"کلِ کتاب در یک جمله."},"body":{"en":"Something inside you fights every time you try to create. Beat it the same way every day: stop waiting to feel ready and just do the work.","fa":"یک چیزی درونت هر بار که می‌خواهی بیافرینی می‌جنگد. هر روز به یک شکل شکستش بده: دست از منتظرِ آماده‌شدن ماندن بردار و کار را انجام بده."},"example":{"en":"You don't feel like writing. You write anyway, for ten minutes. That's the entire book in action.","fa":"حالِ نوشتن را نداری. با این‌حال ده دقیقه می‌نویسی. همین، کلِ کتاب در عمل است."},"gain":{"en":"You know the one move the whole book comes back to: do the work.","fa":"همان یک حرکتی را می‌دانی که کلِ کتاب به آن برمی‌گردد: کار را انجام بده."}},{"level":2,"badge":{"en":"Level 2 · Simple","fa":"سطحِ ۲ · ساده"},"title":{"en":"Meet Resistance","fa":"با مقاومت آشنا شو"},"tagline":{"en":"Name the invisible enemy.","fa":"دشمنِ نامرئی را نام ببر."},"body":{"en":"Pressfield gives the block a name: <b>Resistance</b>. It's <b>universal</b>, it comes from <b>within</b> you, and it's <b>lethal</b> — left alone it buries the work you were meant to do. You can't fight what you can't see, so naming it is the first win.","fa":"پرسفیلد به این سد یک اسم می‌دهد: <b>مقاومت</b>. <b>همگانی</b> است، از <b>درونِ</b> خودت می‌آید، و <b>کُشنده</b> است — به‌حالِ‌خود رها شود، همان کاری را که باید بکنی دفن می‌کند. چیزی را که نمی‌بینی نمی‌توانی بشکنی، پس نام‌بردنش اولین بُرد است."},"example":{"en":"The pull toward the fridge, the inbox, the couch — the second you sit down to create — that's Resistance, and now you can call it by name.","fa":"همان کشش به‌سمتِ یخچال و صندوقِ ایمیل و کاناپه، درست لحظه‌ای که می‌نشینی تا بیافرینی — این مقاومت است، و حالا می‌توانی به اسم صدایش کنی."},"gain":{"en":"You can spot Resistance the moment it shows up.","fa":"می‌توانی مقاومت را همان لحظه که ظاهر می‌شود بشناسی."}},{"level":3,"badge":{"en":"Level 3 · Balanced","fa":"سطحِ ۳ · متعادل"},"title":{"en":"Know its disguises","fa":"نقاب‌هایش را بشناس"},"tagline":{"en":"Procrastination, fear, excuses, sabotage.","fa":"امروز و فردا کردن، ترس، بهانه، خرابکاری."},"body":{"en":"Resistance rarely looks like Resistance. It shows up as <b>procrastination</b> (“tomorrow”), as <b>fear</b> and <b>self-doubt</b>, as reasonable-sounding <b>rationalization</b> and distraction, and even as <b>self-sabotage</b> right before a breakthrough. The compass: the more a project scares you, the more it matters.","fa":"مقاومت به‌ندرت شبیهِ مقاومت است. خودش را به‌شکلِ <b>امروز و فردا کردن</b> («فردا»)، <b>ترس</b> و <b>تردید</b>، <b>بهانه‌های</b> منطقی‌به‌نظر و حواس‌پرتی، و حتی <b>خرابکاری در کارِ خود</b> درست پیش از یک جهش نشان می‌دهد. قطب‌نما: هرچه کاری بیشتر می‌ترساندت، بیشتر مهم است."},"example":{"en":"A whole morning of “research” and reorganizing — and not one real sentence written. That's Resistance in disguise.","fa":"یک صبحِ کامل «تحقیق» و مرتب‌کردنِ یادداشت‌ها — و حتی یک جملهٔ واقعی نوشته نمی‌شود. این مقاومت است در لباسِ مبدل."},"gain":{"en":"You can catch Resistance behind its everyday masks.","fa":"می‌توانی مقاومت را پشتِ نقاب‌های روزمره‌اش بگیری."}},{"level":4,"badge":{"en":"Level 4 · Advanced","fa":"سطحِ ۴ · پیشرفته"},"title":{"en":"Turn pro","fa":"حرفه‌ای شو"},"tagline":{"en":"Show up every day, no matter what.","fa":"هر روز سرِ کار حاضر شو، هر جور شده."},"body":{"en":"The answer isn't more inspiration — it's professionalism. The <b>amateur</b> waits for the mood; the <b>professional</b> shows up every day and treats the craft like a <b>job</b>. Live by the pro's <b>code</b>: be patient, keep life ordered, don't take failure personally, and master your technique.","fa":"جواب، الهامِ بیشتر نیست — حرفه‌ای‌گری است. <b>آماتور</b> منتظرِ حال‌وحوصله می‌ماند؛ <b>حرفه‌ای</b> هر روز سرِ کار حاضر می‌شود و پیشه را مثلِ یک <b>شغل</b> می‌گیرد. با <b>مرامِ</b> حرفه‌ای زندگی کن: صبور باش، زندگی‌ات را مرتب نگه دار، شکست را به دل نگیر، و در فنّت استاد شو."},"example":{"en":"Maugham wrote only when inspiration struck — and made sure it struck every morning at nine o'clock sharp. That's turning pro.","fa":"موآم فقط وقتی الهام می‌شد می‌نوشت — و کاری می‌کرد که هر روز صبح رأسِ ساعتِ نُه الهام بشود. این یعنی حرفه‌ای‌شدن."},"gain":{"en":"You can beat Resistance with daily, professional consistency.","fa":"می‌توانی مقاومت را با پایداریِ روزانه و حرفه‌ای شکست بدهی."}},{"level":5,"badge":{"en":"Level 5 · Expert","fa":"سطحِ ۵ · حرفه‌ای"},"title":{"en":"Meet the Muse","fa":"الهه را ملاقات کن"},"tagline":{"en":"Do the work and inspiration follows.","fa":"کار را انجام بده تا الهام بیاید."},"body":{"en":"Do your part first and something meets you halfway. Start the work, and <b>inspiration</b> — the Muse — arrives that wasn't there before. Orient <b>territorially</b>, not hierarchically: draw your worth from the work itself, not from applause. And do it as <b>service</b> — a gift given for its own sake. That's how you win the war for good, one day at a time.","fa":"اول سهمِ خودت را انجام بده تا چیزی نیمهٔ راه به استقبالت بیاید. کار را شروع کن، و <b>الهام</b> — الهه — می‌آید که پیش‌تر نبود. به‌جای سلسله‌مراتب، <b>قلمرو‌محور</b> باش: ارزشت را از خودِ کار بگیر، نه از تشویق. و آن را یک <b>خدمت</b> بدان — هدیه‌ای که به‌خاطرِ خودش می‌دهی. این‌طوری جنگ را برای همیشه می‌بری، روزی یک روز."},"example":{"en":"You sit down uninspired, force the first lines, and twenty minutes later ideas are pouring out faster than you can catch them.","fa":"بی‌اِلهام می‌نشینی، خطهای اول را به‌زور می‌نویسی، و بیست دقیقه بعد ایده‌ها تندتر از آنی که بتوانی بگیری‌شان سرازیر می‌شوند."},"gain":{"en":"You can win the daily fight and help others win theirs.","fa":"می‌توانی نبردِ روزانه را ببری و به دیگران هم یاد بدهی که ببرند."}}],"quotes":[{"en":"Most of us have two lives. The life we live, and the unlived life within us. Between the two stands Resistance.","fa":"بیشترِ ما دو زندگی داریم. زندگی‌ای که می‌کنیم، و زندگیِ نکرده‌ای که درونمان است. بینِ این دو، مقاومت ایستاده است."},{"en":"Resistance is the most toxic force on the planet.","fa":"مقاومت سمّی‌ترین نیروی روی زمین است."},{"en":"The more important a call or action is to our soul's evolution, the more Resistance we will feel toward pursuing it.","fa":"هرچه یک ندا یا کار برای رشدِ روحِ ما مهم‌تر باشد، مقاومتِ بیشتری برای دنبال‌کردنش حس می‌کنیم."},{"en":"Are you paralyzed with fear? That's a good sign. Fear is good. Like self-doubt, fear is an indicator.","fa":"از ترس فلج شده‌ای؟ نشانهٔ خوبی است. ترس خوب است. ترس هم مثلِ تردید، یک نشانگر است."},{"en":"Resistance is always lying and always full of shit.","fa":"مقاومت همیشه دروغ می‌گوید و همیشه سراپا مزخرف است."},{"en":"The amateur plays for fun. The professional plays for keeps.","fa":"آماتور برای سرگرمی بازی می‌کند. حرفه‌ای برای بُرد."},{"en":"I write only when inspiration strikes. Fortunately it strikes every morning at nine o'clock sharp.","fa":"فقط وقتی الهام به سراغم می‌آید می‌نویسم. خوشبختانه هر روز رأسِ ساعتِ نُهِ صبح به سراغم می‌آید."},{"en":"Fear doesn't go away. The warrior and the artist live by the same code of necessity, which dictates that the battle must be fought anew every day.","fa":"ترس از بین نمی‌رود. جنگجو و هنرمند با یک مرامِ ناگزیرِ مشترک زندگی می‌کنند که حکمش این است: نبرد را باید هر روز از نو جنگید."},{"en":"We must do our work for its own sake, not for fortune or attention or applause.","fa":"کارمان را باید به‌خاطرِ خودش انجام دهیم، نه برای ثروت یا توجه یا تشویق."}],"media":[{"kind":"yt","id":"-esGykKrdb8","src":{"en":"YouTube · Finding Mastery","fa":"یوتیوب · Finding Mastery"},"title":{"en":"Pressfield on Fear, Doubt & Procrastination","fa":"پرسفیلد دربارهٔ ترس، تردید و امروز و فردا کردن"},"desc":{"en":"The author himself on conquering the everyday faces of Resistance.","fa":"خودِ نویسنده دربارهٔ غلبه بر چهره‌های روزمرهٔ مقاومت."},"bullets":{"en":["Resistance in the author's own words","Fear and self-doubt as signposts","Practical, honest, and direct"],"fa":["مقاومت به زبانِ خودِ نویسنده","ترس و تردید به‌عنوانِ نشانه","عملی، صادقانه و مستقیم"]},"best":{"en":"Best for Stage 1–3.","fa":"خوب برای مرحلهٔ ۱ تا ۳."}},{"kind":"yt","id":"-RhjESIYsuE","src":{"en":"YouTube · Marie Forleo","fa":"یوتیوب · Marie Forleo"},"title":{"en":"The Truth About Overcoming Resistance","fa":"حقیقتِ غلبه بر مقاومت"},"desc":{"en":"A warm interview with Pressfield on beating the block and turning pro.","fa":"یک گفت‌وگوی گرم با پرسفیلد دربارهٔ شکستِ سد و حرفه‌ای‌شدن."},"bullets":{"en":["Why the work is won daily","Amateur vs. professional","Turning fear into fuel"],"fa":["چرا کار هر روز برده می‌شود","آماتور در برابرِ حرفه‌ای","تبدیلِ ترس به سوخت"]},"best":{"en":"Best for Stage 2–4.","fa":"خوب برای مرحلهٔ ۲ تا ۴."}},{"kind":"yt","id":"cpKsogGdem4","src":{"en":"YouTube · Andrew Huberman","fa":"یوتیوب · Andrew Huberman"},"title":{"en":"How to Overcome Inner Resistance","fa":"چطور بر مقاومتِ درونی غلبه کنیم"},"desc":{"en":"Pressfield and Huberman on the daily discipline that starves Resistance.","fa":"پرسفیلد و هابرمن دربارهٔ انضباطِ روزانه‌ای که مقاومت را گرسنه می‌گذارد."},"bullets":{"en":["The pro's daily practice","Doing the work regardless of mood","Where inspiration really comes from"],"fa":["تمرینِ روزانهٔ حرفه‌ای","انجامِ کار فارغ از حال‌وحوصله","الهام واقعاً از کجا می‌آید"]},"best":{"en":"Best for Stage 3–5.","fa":"خوب برای مرحلهٔ ۳ تا ۵."}},{"kind":"img","url":"https://blackirishbooks.com/product/the-war-of-art/","src":{"en":"Black Irish Books · Publisher","fa":"Black Irish Books · ناشر"},"title":{"en":"The War of Art — Publisher Page","fa":"جنگِ هنر — صفحهٔ ناشر"},"desc":{"en":"The author's own publishing house page, with editions and the audiobook he narrates.","fa":"صفحهٔ انتشاراتیِ خودِ نویسنده، با نسخه‌ها و نسخهٔ صوتی‌ای که خودش می‌خواند."},"bullets":{"en":["The definitive editions","Author-narrated audiobook","Straight from the source"],"fa":["نسخه‌های معتبر","نسخهٔ صوتی با صدای نویسنده","مستقیم از خودِ منبع"]},"best":{"en":"For editions and the source.","fa":"برای نسخه‌ها و منبعِ اصلی."}}],"go":[{"label":{"en":"Publisher page","fa":"صفحهٔ ناشر"},"url":"https://blackirishbooks.com/product/the-war-of-art/"},{"label":{"en":"Book on Goodreads","fa":"کتاب در گودریدز"},"url":"https://www.goodreads.com/book/show/1319.The_War_of_Art"},{"label":{"en":"Author's site: The War of Art","fa":"سایتِ نویسنده: جنگِ هنر"},"url":"https://stevenpressfield.com/books/the-war-of-art/"}],"recs":[{"pri":"b","t":{"en":"Name it out loud","fa":"بلند اسمش را ببر"},"d":{"en":"Next time you dodge your real work, say “That’s Resistance” — then do the first ten minutes anyway.","fa":"دفعهٔ بعد که از کارِ اصلی‌ات طفره رفتی، بگو «این مقاومت است» — بعد همان ده دقیقهٔ اول را به‌هرحال انجام بده."}},{"pri":"b","t":{"en":"Turn pro this week","fa":"همین هفته حرفه‌ای شو"},"d":{"en":"Give your most important work fixed daily office hours, and keep them like any job.","fa":"برای مهم‌ترین کارت یک ساعتِ کاریِ ثابتِ روزانه بگذار، و مثلِ هر شغلی سرِ آن حاضر شو."}},{"pri":"n","t":{"en":"Follow the fear","fa":"دنبالِ ترس برو"},"d":{"en":"List your projects by how much each scares you; the scariest one is your real work. Start it.","fa":"کارهایت را برحسبِ اینکه هرکدام چقدر می‌ترساندت فهرست کن؛ ترسناک‌ترینش کارِ اصلیِ توست. شروعش کن."}},{"pri":"n","t":{"en":"Start before you're ready","fa":"قبل از آماده‌شدن شروع کن"},"d":{"en":"Pick a task you keep waiting to feel inspired for, and begin it now — let the Muse catch up.","fa":"کاری را که مدام منتظری برایش الهام بشوی انتخاب کن، و همین حالا شروعش کن — بگذار الهه بعداً به تو برسد."}}]};
-</script>
-
-<script>
-/* ── 3) RENDER (text sections) ────────────────────────────── */
-function elClear(id){ var e=document.getElementById(id); if(e) e.innerHTML=''; return e; }
-
-function renderText(){
-  var t=elClear('tldrHost');
-  DATA.tldr.forEach(function(o){ var li=document.createElement('li'); li.innerHTML = TX(o); t.appendChild(li); });
-
-  var q=elClear('quoteHost');
-  DATA.quotes.forEach(function(o){
-    var bq=document.createElement('blockquote');
-    bq.innerHTML = '<span class="qm">“</span><p>'+TX(o)+'</p>';
-    q.appendChild(bq);
-  });
-
-  var m=elClear('mediaHost');
-  DATA.media.forEach(function(o){
-    var card=document.createElement('div'); card.className='mcard';
-    var thumb;
-    if(o.kind==='yt'){
-      var url='https://www.youtube.com/watch?v='+o.id;
-      var img='https://i.ytimg.com/vi/'+o.id+'/hqdefault.jpg';
-      thumb='<a class="mthumb" href="'+url+'" target="_blank" rel="noopener">'
-        +'<img src="'+img+'" alt="" loading="lazy" onerror="this.style.display=\'none\'">'
-        +'<span class="ptype">'+(LANG==='fa'?'ویدیو':'VIDEO')+'</span>'
-        +'<span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></span></a>';
-    } else {
-      thumb='<a class="mthumb" href="'+o.url+'" target="_blank" rel="noopener"><span class="mfake">'
-        +'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.6"/><path d="M21 15l-5-5L5 21"/></svg>'
-        +'</span><span class="ptype">'+(LANG==='fa'?'تصویر':'IMAGE')+'</span></a>';
-    }
-    var link = o.kind==='yt' ? 'https://www.youtube.com/watch?v='+o.id : o.url;
-    var bl = (LANG==='fa'?o.bullets.fa:o.bullets.en).map(function(b){ return '<li>'+ (LANG==='fa'?faText(b):b) +'</li>'; }).join('');
-    card.innerHTML = thumb + '<div class="mbody">'
-      + '<div class="msrc">'+TX(o.src)+'</div>'
-      + '<h4>'+TX(o.title)+'</h4>'
-      + '<p class="mdesc">'+TX(o.desc)+'</p>'
-      + '<ul>'+bl+'</ul>'
-      + '<a class="mlink" href="'+link+'" target="_blank" rel="noopener">'+(LANG==='fa'?'باز کردن ↗':'Open ↗')+'</a>'
-      + '<div class="mbest">'+TX(o.best)+'</div>'
-      + '</div>';
-    m.appendChild(card);
-  });
-
-  var g=elClear('goHost');
-  DATA.go.forEach(function(o){
-    var a=document.createElement('a'); a.href=o.url; a.target='_blank'; a.rel='noopener';
-    a.textContent=TX(o.label); g.appendChild(a);
-  });
-
-  var r=elClear('recHost');
-  DATA.recs.forEach(function(o){
-    var it=document.createElement('div'); it.className='item';
-    var priLabel = o.pri==='b' ? (LANG==='fa'?'از اینجا شروع کن':'Start here') : (LANG==='fa'?'بعدش این':'Then this');
-    it.innerHTML='<div class="t">'+TX(o.t)+'<span class="pri '+(o.pri==='b'?'b':'')+'">'+priLabel+'</span></div>'
-      +'<div class="d">'+TX(o.d)+'</div>';
-    r.appendChild(it);
-  });
-
-  var mth=document.getElementById('methodHost');
-  mth.innerHTML = LANG==='fa' ? faText("<p><b>منبع:</b> کتابِ «The War of Art: Break Through the Blocks and Win Your Inner Creative Battles» نوشتهٔ استیون پرسفیلد، چاپِ نخست ۲۰۰۲ (نشرِ Black Irish Books).</p><p><b>روشِ کار:</b> ساختارِ پنج‌بخشی و ایده‌ها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده؛ نقل‌قول‌ها مقابله و ویدیوها بررسی شده‌اند.</p><p><b>گروه:</b> «ذوق و پیشه‌وری» — برای هر کسی که باید چیزی بسازد و مدام گیرِ سد می‌افتد.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای متنِ کامل، خودِ کتاب را بخوان.</p>") : "<p><b>Source:</b> the book <i>The War of Art: Break Through the Blocks and Win Your Inner Creative Battles</i> by Steven Pressfield, first published 2002 (Black Irish Books).</p><p><b>How this was built:</b> the five-part structure and ideas were gathered and rewritten from the book and reputable sources; quotes were cross-checked and the linked videos verified.</p><p><b>Group:</b> Taste &amp; Craft — for anyone who has to make things and keeps getting blocked.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>";
-  var fl=document.getElementById('flowTop');
-  if(fl){
-    var loop = LANG==='fa' ? ["مقاومت","حرفه‌ای شو","بیافرین"] : ["Resist","Turn Pro","Create"];
-    var ar = LANG==='fa' ? '⟵' : '⟶';
-    fl.innerHTML = loop.map(function(w){ return '<b>'+ (LANG==='fa'?faText(w):w) +'</b>'; }).join(' <span class="ar">'+ar+'</span> ');
-  }
-}
-</script>
-
-<script>
-/* ── 4) CONCEPT MAP ───────────────────────────────────────── */
-function renderMap(){
-  var host=document.getElementById('mapHost'); if(!host) return; host.innerHTML='';
-  DATA.parts.forEach(function(p, i){
-    var col=document.createElement('div'); col.className='partcol';
-    var chaps=p.chapters.map(function(ck){
-      var c=DATA.chapters[ck];
-      return '<div class="chapchip"><span class="cn">'+num(c.n)+'</span><div><b>'+TX(c.name)+'</b>'
-        +'<small>'+TX(c.principle).replace(/<[^>]+>/g,'').slice(0, LANG==='fa'?86:76)+'…</small></div></div>';
-    }).join('');
-    col.innerHTML='<div class="ph"><span class="pdot" style="background:var('+p.varc+')"></span>'
-      +'<span class="pnum">'+(LANG==='fa'?'بخشِ ':'PART ')+num(i+1)+'</span></div>'
-      +'<h4>'+TX(p.name)+'</h4>'
-      +'<div class="ptag" style="color:var('+p.varc+')">'+TX(p.tag)+'</div>'
-      +'<p class="pgist">'+TX(p.gist)+'</p>'+chaps;
-    host.appendChild(col);
-  });
-}
-</script>
-
-<script>
-/* ── 5) INTERACTIVE NETWORK GRAPH (deterministic radial layout, no physics) ── */
-var GRAPH = (function(){
-  var svg, W=980, H=780, nodes=[], links=[], sel=null, dragNode=null, moved=false, startPt=null;
-
-  function build(){
-    svg=document.getElementById('netsvg');
-    svg.setAttribute('viewBox','0 0 '+W+' '+H);
-    nodes=[]; links=[];
-    var cx=W/2, cy=H/2, R1=220, R2=126, span=66*Math.PI/180;
-    var N=DATA.parts.length, partAng=DATA.parts.map(function(_,i){ return -Math.PI/2 + i*(2*Math.PI/N); });
-    nodes.push({id:'core', kind:'core', varc:'--core', r:38, x:cx, y:cy, label:DATA.core.name, data:DATA.core});
-    DATA.parts.forEach(function(p,i){
-      var a=partAng[i], px=cx+Math.cos(a)*R1, py=cy+Math.sin(a)*R1;
-      nodes.push({id:'p_'+p.key, kind:'part', varc:p.varc, r:25, x:px, y:py,
-        label:p.name, data:{name:p.name, principle:p.gist, more:p.more, tag:p.tag, key:p.key}});
-      links.push({s:'core', t:'p_'+p.key, strong:true});
-      var nc=p.chapters.length, start=a-span/2;
-      p.chapters.forEach(function(ck,j){
-        var ca = nc>1 ? start+span*(j/(nc-1)) : a;   // fan the 5 chapters outward
-        var c=DATA.chapters[ck];
-        nodes.push({id:'c_'+ck, kind:'chap', varc:p.varc, r:15,
-          x:px+Math.cos(ca)*R2, y:py+Math.sin(ca)*R2,
-          label:(c.glabel||c.name), data:c, ck:ck});
-        links.push({s:'p_'+p.key, t:'c_'+ck});
-      });
-    });
-    nodes.forEach(function(n){ n.hx=n.x; n.hy=n.y; });   // remember home positions for reset
-    draw();
-    select('core');
-  }
-
-  function byId(id){ for(var i=0;i<nodes.length;i++) if(nodes[i].id===id) return nodes[i]; return null; }
-
-  function draw(){
-    var ln='', nd='';
-    links.forEach(function(l){ ln+='<line class="glink" data-s="'+l.s+'" data-t="'+l.t+'" stroke="var(--line)" stroke-width="'+(l.strong?2.4:1.5)+'" stroke-linecap="round"/>'; });
-    nodes.forEach(function(n){
-      var inside='', below='';
-      if(n.kind==='core'){
-        inside='<text text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="800" fill="#fff" letter-spacing="0.3">'+shortLabel(n)+'</text>';
-      } else {
-        if(n.kind==='chap'){
-          inside='<text text-anchor="middle" dominant-baseline="central" font-size="11" font-weight="800" fill="#fff">'+num(n.data.n)+'</text>';
+/* ── CONTENT — everything unique to this book lives here ── */
+Book.mount({
+  "meta": {
+    "slug": "the-war-of-art",
+    "folder": "11 - Taste & Craft",
+    "groupNum": 11,
+    "group": {
+      "en": "Taste &amp; Craft",
+      "fa": "ذوق و پیشه‌وری"
+    },
+    "author": {
+      "en": "Steven Pressfield",
+      "fa": "استیون پرسفیلد"
+    },
+    "eyebrow_author": {
+      "en": "Steven Pressfield",
+      "fa": "استیون پرسفیلد"
+    },
+    "book": {
+      "en": "The War of Art",
+      "fa": "جنگِ هنر"
+    },
+    "hero_title": {
+      "en": "The War of Art — Break Through the Blocks and Win Your Inner Creative Battles",
+      "fa": "جنگِ هنر — از سدها عبور کن و در نبردِ خلاقانهٔ درونت پیروز شو"
+    },
+    "dek": {
+      "en": "A knowledge graph of the whole book, plus a 5-stage path from a single idea to expert-level mastery — with an example at every step.",
+      "fa": "نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از یک ایدهٔ ساده تا حرفه‌ای — با یک مثال در هر مرحله."
+    },
+    "published": {
+      "en": "2002",
+      "fa": "۲۰۰۲"
+    },
+    "chips": [
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Parts",
+          "fa": "بخش"
         }
-        var ly = n.r + (n.kind==='part'?17:14);
-        var fs = n.kind==='part'?13:11;
-        var stroke = 'paint-order:stroke;stroke:var(--card2);stroke-width:3.6px;stroke-linejoin:round';
-        below='<text class="nlab" text-anchor="middle" y="'+ly+'" font-size="'+fs+'" font-weight="'+(n.kind==='part'?'800':'700')+'" fill="var(--ink)" style="'+stroke+'">'+shortLabel(n)+'</text>';
+      },
+      {
+        "v": {
+          "en": "16",
+          "fa": "۱۶"
+        },
+        "l": {
+          "en": "Ideas",
+          "fa": "ایده"
+        }
+      },
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Learning stages",
+          "fa": "مرحلهٔ یادگیری"
+        }
       }
-      nd+='<g class="node'+(n.kind==='core'?' ncore':'')+'" data-id="'+n.id+'"><g class="ns">'
-        +'<circle r="'+n.r+'" fill="var('+n.varc+')" fill-opacity="'+(n.kind==='chap'?0.94:1)+'" stroke="var(--card)" stroke-width="2.5"/>'
-        +inside+below+'</g></g>';
-    });
-    svg.innerHTML='<g id="glinks">'+ln+'</g><g id="gnodes">'+nd+'</g>';
-    svg.querySelectorAll('.node').forEach(function(gEl){
-      gEl.addEventListener('pointerdown', onDown);
-      gEl.addEventListener('click', function(){ if(!moved) select(gEl.getAttribute('data-id')); });
-      gEl.addEventListener('pointerenter', function(){ if(!dragNode) gEl.classList.add('hover'); });
-      gEl.addEventListener('pointerleave', function(){ gEl.classList.remove('hover'); });
-    });
-    positions();
-  }
-  function shortLabel(n){ return TX(n.label); }
-
-  function positions(){
-    svg.querySelectorAll('.node').forEach(function(g){
-      var n=byId(g.getAttribute('data-id'));
-      g.setAttribute('transform','translate('+n.x.toFixed(1)+','+n.y.toFixed(1)+')');
-    });
-    svg.querySelectorAll('.glink').forEach(function(l){
-      var a=byId(l.getAttribute('data-s')), b=byId(l.getAttribute('data-t'));
-      l.setAttribute('x1',a.x.toFixed(1)); l.setAttribute('y1',a.y.toFixed(1));
-      l.setAttribute('x2',b.x.toFixed(1)); l.setAttribute('y2',b.y.toFixed(1));
-    });
-  }
-
-  /* drag: just move the grabbed node — no simulation, so nothing else shifts */
-  function toSvg(e){
-    var pt=svg.createSVGPoint(); pt.x=e.clientX; pt.y=e.clientY;
-    var m=svg.getScreenCTM(); if(!m) return {x:e.clientX,y:e.clientY};
-    return pt.matrixTransform(m.inverse());
-  }
-  function onDown(e){
-    e.preventDefault();
-    dragNode=byId(e.currentTarget.getAttribute('data-id'));
-    moved=false; startPt=toSvg(e); svg.style.cursor='grabbing';
-    e.currentTarget.classList.remove('hover');
-    window.addEventListener('pointermove', onMove);
-    window.addEventListener('pointerup', onUp);
-  }
-  function onMove(e){
-    if(!dragNode) return; var p=toSvg(e);
-    if(startPt && (Math.abs(p.x-startPt.x)>4 || Math.abs(p.y-startPt.y)>4)) moved=true;
-    dragNode.x=Math.max(dragNode.r+4, Math.min(W-dragNode.r-4, p.x));
-    dragNode.y=Math.max(dragNode.r+4, Math.min(H-dragNode.r-24, p.y));
-    positions();
-  }
-  function onUp(){
-    dragNode=null; svg.style.cursor='grab';
-    window.removeEventListener('pointermove', onMove);
-    window.removeEventListener('pointerup', onUp);
-  }
-
-  function keepSet(id){
-    var n=byId(id); if(!n || id==='core') return null;   // core → show everything
-    var keep={}; keep[id]=1; keep['core']=1;
-    var pk = (n.kind==='part') ? n.data.key : n.data.part;
-    keep['p_'+pk]=1;
-    DATA.parts.forEach(function(p){ if(p.key===pk) p.chapters.forEach(function(ck){ keep['c_'+ck]=1; }); });
-    return keep;   // highlight the whole branch: core → part → its chapters
-  }
-  function applyFocus(id){
-    var keep=keepSet(id), full=(keep===null);
-    svg.querySelectorAll('.node').forEach(function(g){
-      var nid=g.getAttribute('data-id');
-      g.classList.toggle('dim', !full && !keep[nid]);
-      g.classList.toggle('hl', !full && keep[nid] && nid!==id);
-    });
-    svg.querySelectorAll('.glink').forEach(function(l){
-      var s=l.getAttribute('data-s'), t=l.getAttribute('data-t');
-      var on = full || (keep[s] && keep[t]);
-      l.classList.toggle('dim', !on);
-      l.classList.toggle('hl', !full && on);
-    });
-  }
-
-  function relatedIds(node){
-    var ids=[];
-    if(node.id==='core'){ DATA.parts.forEach(function(p){ ids.push('p_'+p.key); }); }
-    else if(node.kind==='part'){ var pk=node.data.key; DATA.parts.forEach(function(p){ if(p.key===pk) p.chapters.forEach(function(ck){ ids.push('c_'+ck); }); }); }
-    else { var pk2=node.data.part; ids.push('p_'+pk2);
-      DATA.parts.forEach(function(p){ if(p.key===pk2) p.chapters.forEach(function(ck){ if('c_'+ck!==node.id) ids.push('c_'+ck); }); }); }
-    return ids;
-  }
-
-  function drow(cls,label,txt){ return '<div class="drow '+cls+'"><div class="dlab">'+label+'</div><div class="dtxt">'+txt+'</div></div>'; }
-
-  function select(id){
-    var n=byId(id); if(!n) return;
-    sel=id;
-    svg.querySelectorAll('.node').forEach(function(g){ g.classList.toggle('sel', g.getAttribute('data-id')===id); });
-    var selEl=svg.querySelector('.node[data-id="'+id+'"]'); if(selEl&&selEl.parentNode) selEl.parentNode.appendChild(selEl);  // raise on top
-    applyFocus(id);
-    var d=n.data, pv = n.kind==='core' ? '--core' : n.varc;
-    var kicker = n.kind==='core' ? (LANG==='fa'?'ایدهٔ مرکزی':'Core idea')
-             : n.kind==='part' ? (LANG==='fa'?'بخش':'Part') + ' · ' + TX(d.tag)
-             : (LANG==='fa'?"ایدهٔ":"Idea") + ' ' + num(d.n);
-    var prLab = (n.kind==='chap') ? (LANG==='fa'?'اصل':'Principle') : (LANG==='fa'?'ایدهٔ اصلی':'Big idea');
-    var html='<div class="dkick"><i style="background:var('+pv+')"></i>'+ (LANG==='fa'?faText(kicker):kicker) +'</div>'
-      +'<h4>'+TX(d.name)+'</h4>'
-      + drow('', prLab, TX(d.principle));
-    if(d.more)    html += drow('more', (LANG==='fa'?'بیشتر':'In depth'), TX(d.more));
-    if(d.example) html += drow('', (LANG==='fa'?'مثال':'Example'), TX(d.example));
-    if(d.tip)     html += drow('tip', (LANG==='fa'?'امتحان کن':'Try this'), TX(d.tip));
-    if(d.pitfall) html += drow('pit', (LANG==='fa'?'حواست باشد':'Watch out'), TX(d.pitfall));
-    // related chips
-    var rel=relatedIds(n);
-    if(rel.length){
-      var chips=rel.map(function(rid){ var rn=byId(rid); if(!rn) return '';
-        return '<span class="dchip" data-goto="'+rid+'"><i style="background:var('+rn.varc+')"></i>'+TX(rn.data.name)+'</span>'; }).join('');
-      html += '<div class="drow"><div class="dlab">'+(LANG==='fa'?'مرتبط':'Related')+'</div><div class="dchips">'+chips+'</div></div>';
+    ],
+    "kboxes": [
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Parts (the enemy · its faces · turning pro · the code · the muse)",
+          "fa": "بخش (دشمن · نقاب‌هایش · حرفه‌ای‌شدن · مرام · الهه)"
+        }
+      },
+      {
+        "v": {
+          "en": "16",
+          "fa": "۱۶"
+        },
+        "l": {
+          "en": "Ideas you can use",
+          "fa": "ایده برای استفاده"
+        }
+      },
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Levels, simple → expert",
+          "fa": "مرحله، ساده تا حرفه‌ای"
+        }
+      },
+      {
+        "v": {
+          "en": "3",
+          "fa": "۳"
+        },
+        "l": {
+          "en": "The arc: resist · turn pro · create",
+          "fa": "مسیر: مقاومت · حرفه‌ای‌شو · بیافرین"
+        }
+      }
+    ],
+    "core_callout": {
+      "label": {
+        "en": "The core idea:",
+        "fa": "ایدهٔ اصلی:"
+      },
+      "en": "There's an invisible force — Pressfield calls it <i>Resistance</i> — that rises up the moment you try to do important creative work, and its only job is to stop you. You beat it the same way every day: quit being an amateur, <i>turn pro</i>, and sit down to do the work whether you feel like it or not. Do your part, and inspiration — the <i>Muse</i> — shows up to meet you.",
+      "fa": "یک نیروی نامرئی هست — پرسفیلد اسمش را می‌گذارد <i>مقاومت</i> — که همان لحظه‌ای که می‌خواهی کارِ خلاقانهٔ مهمی بکنی بلند می‌شود، و تنها کارش این است که جلویت را بگیرد. هر روز به یک شکل شکستش می‌دهی: دست از آماتوری بردار، <i>حرفه‌ای شو</i>، و بنشین کار را انجام بده — چه حالش را داشته باشی چه نداشته باشی. سهمِ خودت را انجام بده، آن‌وقت الهام — <i>الهه</i> — به استقبالت می‌آید."
+    },
+    "flow_callout": {
+      "label": {
+        "en": "Read it as a flow:",
+        "fa": "به‌صورتِ یک جریان بخوانش:"
+      },
+      "en": "Start by naming the enemy — <b>Resistance</b> is universal, internal, and lethal. Learn its <b>disguises</b> (procrastination, fear, excuses, self-sabotage), then <b>turn pro</b>: show up every day and treat the craft like a job. Live by the professional's <b>code</b>, and go <b>beyond Resistance</b> to meet the Muse — where doing the work brings the inspiration.",
+      "fa": "با نام‌بردنِ دشمن شروع کن — <b>مقاومت</b> همگانی، درونی و کُشنده است. <b>نقاب‌هایش</b> را بشناس (امروز و فردا کردن، ترس، بهانه، خرابکاری در کارِ خود)، بعد <b>حرفه‌ای شو</b>: هر روز سرِ کار حاضر شو و پیشه‌ات را مثلِ یک شغل بگیر. با <b>مرامِ</b> حرفه‌ای زندگی کن، و <b>آن‌سوی مقاومت</b> برو تا الهه را ببینی — همان‌جا که انجامِ کار، الهام را می‌آورد."
     }
-    var host=document.getElementById('detailHost');
-    host.innerHTML=html;
-    host.querySelectorAll('.dchip').forEach(function(c){
-      c.addEventListener('click', function(){ select(c.getAttribute('data-goto')); });
-    });
-  }
-
-  function relabel(){ if(!svg) return; draw(); select(sel||'core'); }
-
-  return {
-    build:build,
-    kick:function(){},                                    // no-op; layout is static
-    relabel:relabel,
-    reset:function(){ nodes.forEach(function(n){ n.x=n.hx; n.y=n.hy; }); positions(); },
-    resetFocus:function(){ select('core'); },
-    selectNode:function(id){ select(id); },
-    hasNodes:function(){ return nodes.length>0; }
-  };
-})();
-</script>
-
-<script>
-/* ── 6) 5-STAGE LADDER ────────────────────────────────────── */
-var curStage=0;
-function renderLadder(){
-  var host=document.getElementById('ladderHost'); host.innerHTML='';
-  DATA.stages.forEach(function(s,i){
-    var r=document.createElement('div'); r.className='rung'+(i===curStage?' active':'');
-    r.innerHTML='<div class="lv">'+ (LANG==='fa'?('سطحِ '+num(s.level)):('Level '+s.level)) +'</div>'
-      +'<div class="lt">'+TX(s.title)+'</div>'
-      +'<div class="lbar"><i style="width:'+(s.level*20)+'%"></i></div>';
-    r.addEventListener('click', function(){ curStage=i; renderLadder(); renderStage();
-      document.getElementById('stageHost').scrollIntoView({behavior:'smooth',block:'nearest'}); });
-    host.appendChild(r);
-  });
-}
-function renderStage(){
-  var s=DATA.stages[curStage];
-  var host=document.getElementById('stageHost');
-  var exLabel = LANG==='fa'?'مثال':'Example';
-  var prev = LANG==='fa'?'مرحلهٔ قبل':'‹ Prev', next = LANG==='fa'?'مرحلهٔ بعد':'Next ›';
-  host.innerHTML=''+
-    '<div class="stagecard">'
-    +'<div class="shead"><span class="badge">'+TX(s.badge)+'</span><h3>'+TX(s.title)+'</h3></div>'
-    +'<div class="tagline">'+TX(s.tagline)+'</div>'
-    +'<div class="sbody">'+TX(s.body)+'</div>'
-    +'<div class="exbox"><div class="exk">'+exLabel+'</div><div class="ext">'+TX(s.example)+'</div></div>'
-    +'<div class="gainrow"><span class="gi">✓</span><span>'+TX(s.gain)+'</span></div>'
-    +'<div class="stagenav">'
-      +'<button id="stPrev" '+(curStage===0?'disabled':'')+'>'+prev+'</button>'
-      +'<button id="stNext" '+(curStage===DATA.stages.length-1?'disabled':'')+'>'+next+'</button>'
-    +'</div></div>';
-  var pv=document.getElementById('stPrev'), nx=document.getElementById('stNext');
-  if(pv) pv.onclick=function(){ if(curStage>0){curStage--; renderLadder(); renderStage();} };
-  if(nx) nx.onclick=function(){ if(curStage<DATA.stages.length-1){curStage++; renderLadder(); renderStage();} };
-}
-</script>
-
-<script>
-/* ── 7) legend + graph tabs ───────────────────────────────── */
-function renderLegend(){
-  var host=document.getElementById('legendHost'); if(!host) return;
-  var items=[{c:'--core', en:'Core idea', fa:'ایدهٔ مرکزی'}]
-    .concat(DATA.parts.map(function(p){ return {c:p.varc, en:p.name.en, fa:p.name.fa}; }));
-  host.innerHTML = items.map(function(it){
-    return '<span><i style="background:var('+it.c+')"></i>'+(LANG==='fa'?faText(it.fa):it.en)+'</span>';
-  }).join('');
-  document.getElementById('ghint').textContent = LANG==='fa' ? 'روی هر دایره کلیک کن تا بیشتر بخوانی · می‌توانی بکشی‌شان' : 'Click a node to read more · drag to move';
-  document.getElementById('greset').textContent = LANG==='fa' ? '↺ چیدمان' : '↺ Reset';
-}
-function setupTabs(){
-  function show(net){
-    document.getElementById('netView').style.display = net?'':'none';
-    document.getElementById('mapView').style.display = net?'none':'';
-    document.getElementById('tabNet').classList.toggle('active',net);
-    document.getElementById('tabMap').classList.toggle('active',!net);
-    if(net) GRAPH.kick();
-  }
-  document.getElementById('tabNet').onclick=function(){show(true);};
-  document.getElementById('tabMap').onclick=function(){show(false);};
-  document.getElementById('greset').onclick=function(){ GRAPH.reset(); };
-  // click empty graph space resets the focus
-  var svg=document.getElementById('netsvg');
-  svg.addEventListener('click', function(e){ if(!e.target.closest('.node')) GRAPH.resetFocus(); });
-}
-</script>
-
-<script>
-/* ── 8) toggles + boot ────────────────────────────────────── */
-function setLang(lg){
-  LANG=lg;
-  document.documentElement.setAttribute('data-lang',lg);
-  document.documentElement.setAttribute('lang',lg);
-  document.documentElement.setAttribute('dir', lg==='fa'?'rtl':'ltr');
-  try{ localStorage.setItem('warofart-lang',lg); }catch(e){}
-  renderAll();
-}
-function renderAll(){
-  renderText();
-  renderMap();
-  renderLegend();
-  renderLadder();
-  renderStage();
-  if(GRAPH.hasNodes()) GRAPH.relabel(); else GRAPH.build();
-}
-(function(){
-  var lb=document.getElementById('langBtn');
-  lb && lb.addEventListener('click', function(){ setLang(LANG==='fa'?'en':'fa'); });
-
-  var tb=document.getElementById('themeBtn');
-  function curT(){ return document.documentElement.getAttribute('data-theme'); }
-  tb && tb.addEventListener('click', function(){
-    var t=curT()==='dark'?'light':'dark';
-    document.documentElement.setAttribute('data-theme',t);
-    try{ localStorage.setItem('warofart-theme',t); }catch(e){}
-  });
-  try{ matchMedia('(prefers-color-scheme: dark)').addEventListener('change',function(e){
-    if(!localStorage.getItem('warofart-theme')){ document.documentElement.setAttribute('data-theme', e.matches?'dark':'light'); }
-  }); }catch(e){}
-})();
-
-/* scroll-spy */
-(function(){
-  var links=[].slice.call(document.querySelectorAll('.toc a'));
-  var seen={}, ids=[];
-  links.forEach(function(a){ var id=a.getAttribute('href').slice(1); if(!seen[id]){seen[id]=1; ids.push(id);} });
-  var secs=ids.map(function(id){return document.getElementById(id);}).filter(Boolean);
-  function setActive(id){ links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('href')==='#'+id); }); }
-  if('IntersectionObserver' in window){
-    var obs=new IntersectionObserver(function(es){
-      es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
-    },{rootMargin:'-45% 0px -50% 0px',threshold:0});
-    secs.forEach(function(s){ obs.observe(s); });
-  }
-})();
-
-document.addEventListener('DOMContentLoaded', function(){
-  setupTabs();
-  renderAll();
+  },
+  "method": {
+    "en": "<p><b>Source:</b> the book <i>The War of Art: Break Through the Blocks and Win Your Inner Creative Battles</i> by Steven Pressfield, first published 2002 (Black Irish Books).</p><p><b>How this was built:</b> the five-part structure and ideas were gathered and rewritten from the book and reputable sources; quotes were cross-checked and the linked videos verified.</p><p><b>Group:</b> Taste &amp; Craft — for anyone who has to make things and keeps getting blocked.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>",
+    "fa": "<p><b>منبع:</b> کتابِ «The War of Art: Break Through the Blocks and Win Your Inner Creative Battles» نوشتهٔ استیون پرسفیلد، چاپِ نخست ۲۰۰۲ (نشرِ Black Irish Books).</p><p><b>روشِ کار:</b> ساختارِ پنج‌بخشی و ایده‌ها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده؛ نقل‌قول‌ها مقابله و ویدیوها بررسی شده‌اند.</p><p><b>گروه:</b> «ذوق و پیشه‌وری» — برای هر کسی که باید چیزی بسازد و مدام گیرِ سد می‌افتد.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای متنِ کامل، خودِ کتاب را بخوان.</p>"
+  },
+  "flow": {
+    "en": [
+      "Resist",
+      "Turn Pro",
+      "Create"
+    ],
+    "fa": [
+      "مقاومت",
+      "حرفه‌ای شو",
+      "بیافرین"
+    ]
+  },
+  "graph": {
+    "W": 980,
+    "H": 780,
+    "R1": 220,
+    "R2": 126,
+    "span": 66
+  },
+  "tldr": [
+    {
+      "en": "The whole book in one line: an invisible force called Resistance fights you whenever you try to create — beat it by doing the work every day.",
+      "fa": "خلاصهٔ کل کتاب در یک جمله: یک نیروی نامرئی به‌نامِ مقاومت هر وقت می‌خواهی چیزی بیافرینی با تو می‌جنگد — با انجامِ کار در هر روز شکستش بده."
+    },
+    {
+      "en": "Resistance is <b>universal, internal</b>, and self-generated. It shows up as procrastination, fear, self-doubt, and clever excuses.",
+      "fa": "مقاومت <b>همگانی، درونی</b> و خودساخته است. خودش را به‌شکلِ امروز و فردا کردن، ترس، تردید و بهانه‌های زیرکانه نشان می‌دهد."
+    },
+    {
+      "en": "Rule of thumb: <b>the more the work matters to you, the more Resistance you feel</b> — so fear is a compass, not a stop sign.",
+      "fa": "یک قاعدهٔ سرانگشتی: <b>هرچه کار برایت مهم‌تر باشد، مقاومتِ بیشتری حس می‌کنی</b> — پس ترس یک قطب‌نماست، نه تابلوی ایست."
+    },
+    {
+      "en": "The answer is to <b>turn pro</b>: show up every day, treat the craft like a job, and do the work whether you're inspired or not.",
+      "fa": "جوابش این است که <b>حرفه‌ای شوی</b>: هر روز سرِ کار حاضر شو، پیشه را مثلِ یک شغل بگیر، و کار را چه بااِلهام چه بی‌اِلهام انجام بده."
+    },
+    {
+      "en": "Do the work first, and <b>inspiration follows</b> — the Muse rewards the pro who sits down and starts.",
+      "fa": "اول کار را انجام بده، بعد <b>الهام می‌آید</b> — الهه به حرفه‌ای‌ای که می‌نشیند و شروع می‌کند پاداش می‌دهد."
+    }
+  ],
+  "parts": [
+    {
+      "key": "enemy",
+      "varc": "--c-teal",
+      "name": {
+        "en": "Resistance: The Enemy",
+        "fa": "مقاومت: دشمن"
+      },
+      "tag": {
+        "en": "Name the force",
+        "fa": "دشمن را بشناس"
+      },
+      "gist": {
+        "en": "The invisible force that stops you — universal, internal, and lethal to dreams.",
+        "fa": "همان نیروی نامرئی که جلویت را می‌گیرد — همگانی، درونی، و کُشندهٔ رؤیاها."
+      },
+      "more": {
+        "en": "Before you can beat it, you have to see it. Pressfield gives the block a single name — Resistance — and shows that it's the same enemy for everyone, it comes from inside you, and if you let it win, it quietly kills the work you were born to do.",
+        "fa": "قبل از اینکه بتوانی شکستش بدهی، باید ببینی‌اش. پرسفیلد به این سدِ درونی یک اسم می‌دهد — مقاومت — و نشان می‌دهد که برای همه همین یک دشمن است، از درونِ خودت می‌آید، و اگر بگذاری ببرد، بی‌سروصدا همان کاری را که برایش ساخته شده‌ای می‌کُشد."
+      },
+      "chapters": [
+        "resistance",
+        "internal",
+        "lethal"
+      ]
+    },
+    {
+      "key": "faces",
+      "varc": "--c-blue",
+      "name": {
+        "en": "How Resistance Shows Up",
+        "fa": "مقاومت چطور ظاهر می‌شود"
+      },
+      "tag": {
+        "en": "Know its disguises",
+        "fa": "نقاب‌هایش را بشناس"
+      },
+      "gist": {
+        "en": "Procrastination, fear, self-doubt, rationalization, distraction, self-sabotage.",
+        "fa": "امروز و فردا کردن، ترس، تردید، بهانه‌تراشی، حواس‌پرتی، خرابکاری در کارِ خود."
+      },
+      "more": {
+        "en": "Resistance almost never shows its face. It hides behind reasonable excuses, sudden urges to do anything else, and a fear that feels like a stop sign. Learn its masks and you can catch it in the act — and the biggest clue is simple: the more a piece of work matters to you, the harder Resistance pushes back.",
+        "fa": "مقاومت تقریباً هیچ‌وقت رُک جلو نمی‌آید. پشتِ بهانه‌های منطقی، پشتِ میلِ ناگهانی به انجامِ هر کارِ دیگری، و پشتِ ترسی که مثلِ تابلوی ایست است قایم می‌شود. نقاب‌هایش را یاد بگیر تا سرِ بزنگاه بگیری‌اش — و بزرگ‌ترین سرنخ ساده است: هرچه کاری برایت مهم‌تر باشد، مقاومت محکم‌تر پسَت می‌زند."
+      },
+      "chapters": [
+        "procrastination",
+        "fear",
+        "rationalization",
+        "sabotage"
+      ]
+    },
+    {
+      "key": "pro",
+      "varc": "--c-amber",
+      "name": {
+        "en": "Turning Pro",
+        "fa": "حرفه‌ای‌شدن"
+      },
+      "tag": {
+        "en": "The answer",
+        "fa": "راهِ‌حل"
+      },
+      "gist": {
+        "en": "Amateur vs. professional — the pro shows up every day, no matter what.",
+        "fa": "آماتور در برابرِ حرفه‌ای — حرفه‌ای هر روز سرِ کار حاضر می‌شود، هر جور شده."
+      },
+      "more": {
+        "en": "The cure for Resistance isn't more willpower in one heroic burst; it's a change of identity. Stop being an amateur who works when the mood is right, and turn pro: decide the work is your job, show up for it every single day, and do it whether you feel like it or not.",
+        "fa": "درمانِ مقاومت، ارادهٔ بیشتر در یک جهشِ قهرمانانه نیست؛ عوض‌شدنِ هویت است. دست از آماتوری بردار که فقط وقتِ حال‌داشتن کار می‌کند، و حرفه‌ای شو: تصمیم بگیر که این کار، شغلِ توست، هر روزِ خدا سرش حاضر شو، و انجامش بده — چه حالش را داشته باشی چه نداشته باشی."
+      },
+      "chapters": [
+        "amateur",
+        "showup",
+        "craftjob"
+      ]
+    },
+    {
+      "key": "code",
+      "varc": "--c-violet",
+      "name": {
+        "en": "The Professional's Code",
+        "fa": "مرامِ حرفه‌ای"
+      },
+      "tag": {
+        "en": "How the pro works",
+        "fa": "حرفه‌ای چطور کار می‌کند"
+      },
+      "gist": {
+        "en": "Be patient, seek order, don't take failure personally, master the craft.",
+        "fa": "صبور باش، زندگی‌ات را مرتب نگه دار، شکست را به دل نگیر، و در کارت استاد شو."
+      },
+      "more": {
+        "en": "Turning pro is a mindset, and it runs on a few plain habits. The professional is patient, keeps a calm and ordered life so chaos can't feed Resistance, refuses to take failure or praise personally, and quietly masters the craft instead of waiting for inspiration.",
+        "fa": "حرفه‌ای‌شدن یک طرزِ فکر است، و روی چند عادتِ ساده می‌چرخد. آدمِ حرفه‌ای صبور است، زندگی‌اش را آرام و مرتب نگه می‌دارد تا آشوب به مقاومت خوراک ندهد، شکست و تعریف را به دل نمی‌گیرد، و بی‌سروصدا در کارش استاد می‌شود، به‌جای اینکه منتظرِ الهام بماند."
+      },
+      "chapters": [
+        "patience",
+        "personally",
+        "mastery"
+      ]
+    },
+    {
+      "key": "muse",
+      "varc": "--c-green",
+      "name": {
+        "en": "Beyond Resistance — The Muse",
+        "fa": "آن‌سوی مقاومت — الهه"
+      },
+      "tag": {
+        "en": "The reward",
+        "fa": "پاداش"
+      },
+      "gist": {
+        "en": "Do the work and inspiration follows; create as an act of service.",
+        "fa": "کار را انجام بده تا الهام بیاید؛ آفریدن را یک‌جور خدمت بدان."
+      },
+      "more": {
+        "en": "Here's the payoff. When you do your part — sit down and start — something meets you halfway: call it the Muse, the angels, or just flow. Orient your life around the work itself rather than other people's applause, treat creating as a gift you give, and Resistance loses for good.",
+        "fa": "این هم پاداشش. وقتی سهمِ خودت را انجام می‌دهی — می‌نشینی و شروع می‌کنی — چیزی نیمهٔ راه به استقبالت می‌آید: اسمش را بگذار الهه، فرشته‌ها، یا فقط جریان. زندگی‌ات را دورِ خودِ کار بچین، نه دورِ تشویقِ دیگران، آفریدن را هدیه‌ای بدان که می‌بخشی — آن‌وقت مقاومت برای همیشه می‌بازد."
+      },
+      "chapters": [
+        "inspiration",
+        "territory",
+        "service"
+      ]
+    }
+  ],
+  "chapters": {
+    "resistance": {
+      "part": "enemy",
+      "n": 1,
+      "name": {
+        "en": "The Invisible Force",
+        "fa": "مقاومت"
+      },
+      "glabel": {
+        "en": "Resistance",
+        "fa": "مقاومت"
+      },
+      "principle": {
+        "en": "There's an invisible force that shows up whenever you sit down to do meaningful creative work — its only aim is to stop you.",
+        "fa": "یک نیروی نامرئی هست که هر وقت می‌نشینی تا کارِ خلاقانهٔ مهمی بکنی سبز می‌شود — تنها هدفش این است که جلویت را بگیرد."
+      },
+      "more": {
+        "en": "Pressfield gives this force one name: Resistance. You can't see it or touch it, but you feel it as the drag that keeps you from starting. Naming it is the first victory, because once you know the enemy, you can fight it.",
+        "fa": "پرسفیلد به این نیرو یک اسم می‌دهد: مقاومت. نه می‌بینی‌اش نه لمسش می‌کنی، اما به‌شکلِ همان کششی که نمی‌گذارد شروع کنی حسش می‌کنی. نام‌بردنش اولین پیروزی است، چون وقتی دشمن را شناختی، می‌توانی با او بجنگی."
+      },
+      "example": {
+        "en": "You finally sit down to write, and suddenly the kitchen needs cleaning, your inbox needs checking, and the couch looks very inviting. That pull is Resistance.",
+        "fa": "بالاخره می‌نشینی که بنویسی، و یک‌دفعه آشپزخانه باید تمیز شود، ایمیل‌ها باید چک شوند، و کاناپه هم که حسابی وسوسه‌انگیز است. آن کشش، مقاومت است."
+      },
+      "tip": {
+        "en": "Give it a name. Next time you feel the drag away from your real work, say out loud: “That’s Resistance.”",
+        "fa": "اسمش را بگذار. دفعهٔ بعد که آن کشش دورت می‌کند از کارِ اصلی، بلند بگو: «این مقاومت است.»"
+      },
+      "pitfall": {
+        "en": "Thinking the problem is you — laziness, bad luck, no talent — instead of a force you can name and fight.",
+        "fa": "فکر‌کردن به اینکه مشکل خودتی — تنبلی، بدشانسی، بی‌استعدادی — به‌جای نیرویی که می‌توانی نامش را ببری و با آن بجنگی."
+      }
+    },
+    "internal": {
+      "part": "enemy",
+      "n": 2,
+      "name": {
+        "en": "It Comes From Within",
+        "fa": "از درون می‌آید"
+      },
+      "glabel": {
+        "en": "Internal",
+        "fa": "از درون"
+      },
+      "principle": {
+        "en": "Resistance isn't out in the world — it's self-generated, rising from inside you. You are both the one who creates and the one who blocks.",
+        "fa": "مقاومت بیرون، در دنیا نیست — خودساخته است و از درونِ تو بلند می‌شود. هم آفریننده تویی، هم کسی که سد می‌سازد."
+      },
+      "more": {
+        "en": "No boss, critic, or circumstance makes Resistance; you do. That's bad news and good news: bad, because you can't blame anyone else; good, because a force you generate is a force you can learn to overpower.",
+        "fa": "هیچ رئیس، منتقد یا شرایطی مقاومت نمی‌سازد؛ خودت می‌سازی. این هم خبرِ بد است هم خوب: بد، چون نمی‌توانی گردنِ کسِ دیگری بیندازی؛ خوب، چون نیرویی که خودت می‌سازی، نیرویی است که می‌توانی یاد بگیری بر آن چیره شوی."
+      },
+      "example": {
+        "en": "The room is quiet, the day is free, nobody is stopping you — and still you can't begin. The obstacle was never the room; it was inside.",
+        "fa": "اتاق ساکت است، روز خالی است، هیچ‌کس جلویت را نگرفته — و باز هم نمی‌توانی شروع کنی. مانع هیچ‌وقت اتاق نبود؛ درونت بود."
+      },
+      "tip": {
+        "en": "Stop hunting for the perfect conditions. The block is internal, so the fix is too — just start.",
+        "fa": "دست از گشتن دنبالِ شرایطِ بی‌نقص بردار. سد درونی است، پس راه‌حل هم درونی است — فقط شروع کن."
+      },
+      "pitfall": {
+        "en": "Waiting for the outside world to change (more time, more quiet, more money) when the real block is within.",
+        "fa": "منتظرِ عوض‌شدنِ دنیای بیرون ماندن (وقتِ بیشتر، سکوتِ بیشتر، پولِ بیشتر) وقتی سدِ واقعی درون است."
+      }
+    },
+    "lethal": {
+      "part": "enemy",
+      "n": 3,
+      "name": {
+        "en": "It Kills Dreams",
+        "fa": "رؤیاها را می‌کُشد"
+      },
+      "glabel": {
+        "en": "Lethal",
+        "fa": "کُشنده"
+      },
+      "principle": {
+        "en": "Resistance is the most toxic force there is. Left unopposed, it keeps you from the life and work you were meant for.",
+        "fa": "مقاومت سمّی‌ترین نیرویی است که هست. جلویش را که نگیری، تو را از زندگی و کاری که برایش ساخته شده‌ای دور نگه می‌دارد."
+      },
+      "more": {
+        "en": "Between the life you live and the unlived life inside you stands Resistance. It doesn't just make you procrastinate — over a lifetime it can quietly bury a book, a business, or a calling that never got made.",
+        "fa": "بینِ زندگی‌ای که می‌کنی و زندگیِ نکرده‌ای که درونت است، مقاومت ایستاده. فقط کاری نمی‌کند که امروز و فردا کنی — در طولِ یک عمر می‌تواند بی‌سروصدا یک کتاب، یک کسب‌وکار، یا یک رسالت را که هیچ‌وقت ساخته نشد دفن کند."
+      },
+      "example": {
+        "en": "The person who “always meant to” paint, start the company, or write the novel — and never did. Resistance won, one postponed day at a time.",
+        "fa": "همان آدمی که «همیشه می‌خواست» نقاشی کند، شرکت بزند، یا رمان بنویسد — و هیچ‌وقت نکرد. مقاومت برد، یک روزِ عقب‌افتاده پشتِ روزِ عقب‌افتاده."
+      },
+      "tip": {
+        "en": "Picture the unlived work you'd regret most. That's what Resistance is trying to take from you.",
+        "fa": "همان کارِ نکرده‌ای را که بیشتر از همه حسرتش را می‌خوری تصور کن. همان است که مقاومت می‌خواهد از تو بگیرد."
+      },
+      "pitfall": {
+        "en": "Treating “someday” as safe. Someday is where Resistance buries dreams.",
+        "fa": "«یک‌روزی» را امن پنداشتن. «یک‌روزی» همان‌جایی است که مقاومت رؤیاها را دفن می‌کند."
+      }
+    },
+    "procrastination": {
+      "part": "faces",
+      "n": 4,
+      "name": {
+        "en": "Procrastination",
+        "fa": "امروز و فردا کردن"
+      },
+      "glabel": {
+        "en": "Procrastination",
+        "fa": "فردا فردا"
+      },
+      "principle": {
+        "en": "Resistance's favorite disguise is procrastination — the endless “I’ll start tomorrow.”",
+        "fa": "محبوب‌ترین نقابِ مقاومت، امروز و فردا کردن است — همان «از فردا شروع می‌کنم»ِ بی‌پایان."
+      },
+      "more": {
+        "en": "Procrastination is seductive because it never says never; it just says later. But later becomes a habit, and the habit becomes a life. The pro fights it by working now, today, in the only moment that exists.",
+        "fa": "امروز و فردا کردن فریبنده است چون هیچ‌وقت نمی‌گوید هرگز؛ فقط می‌گوید بعداً. اما بعداً یک عادت می‌شود، و عادت یک زندگی. حرفه‌ای با کارکردن در همین حالا، همین امروز، در تنها لحظه‌ای که وجود دارد، با آن می‌جنگد."
+      },
+      "example": {
+        "en": "“I’ll begin on Monday, once things settle down.” Monday comes, things never settle, and the work stays unstarted.",
+        "fa": "«دوشنبه شروع می‌کنم، وقتی اوضاع آرام شد.» دوشنبه می‌رسد، اوضاع هیچ‌وقت آرام نمی‌شود، و کار نشروع می‌ماند."
+      },
+      "tip": {
+        "en": "Shrink it: do just the first ten minutes today. Starting is the whole battle.",
+        "fa": "کوچکش کن: فقط همان ده دقیقهٔ اول را امروز انجام بده. شروع‌کردن، تمامِ نبرد است."
+      },
+      "pitfall": {
+        "en": "Believing tomorrow will be different. It won't — only today is real.",
+        "fa": "باور به اینکه فردا فرق می‌کند. فرقی نمی‌کند — فقط امروز واقعی است."
+      }
+    },
+    "fear": {
+      "part": "faces",
+      "n": 5,
+      "name": {
+        "en": "Fear & Self-Doubt",
+        "fa": "ترس و تردید"
+      },
+      "glabel": {
+        "en": "Fear",
+        "fa": "ترس"
+      },
+      "principle": {
+        "en": "Fear and self-doubt are fuel for Resistance — but they're also a signpost pointing at work that matters.",
+        "fa": "ترس و تردید سوختِ مقاومت‌اند — اما در عینِ حال تابلویی‌اند که به کارِ مهم اشاره می‌کنند."
+      },
+      "more": {
+        "en": "The more scared you are of a project, the more sure you can be that you have to do it. Fear doesn't mean stop; it means you've found something important. Self-doubt is the same — even asking “am I really an artist?” is a hopeful sign.",
+        "fa": "هرچه از کاری بیشتر بترسی، مطمئن‌تر باش که باید انجامش بدهی. ترس یعنی بایست نیست؛ یعنی چیزِ مهمی پیدا کرده‌ای. تردید هم همین است — حتی همین که بپرسی «واقعاً هنرمندم؟» نشانهٔ امیدوارکننده‌ای است."
+      },
+      "example": {
+        "en": "You're terrified to share the thing you made. That terror is proof it means something to you.",
+        "fa": "از به‌اشتراک‌گذاشتنِ چیزی که ساخته‌ای وحشت داری. همان وحشت، مدرکِ این است که برایت معنا دارد."
+      },
+      "tip": {
+        "en": "When fear spikes, read it as a compass: move toward the thing that scares you, not away.",
+        "fa": "وقتی ترس اوج می‌گیرد، مثلِ قطب‌نما بخوانش: به‌سمتِ چیزی که می‌ترساندت برو، نه دور از آن."
+      },
+      "pitfall": {
+        "en": "Reading fear as a red light. It's a green one.",
+        "fa": "ترس را چراغِ قرمز خواندن. چراغِ سبز است."
+      }
+    },
+    "rationalization": {
+      "part": "faces",
+      "n": 6,
+      "name": {
+        "en": "Rationalization & Distraction",
+        "fa": "بهانه‌تراشی و حواس‌پرتی"
+      },
+      "glabel": {
+        "en": "Excuses",
+        "fa": "بهانه"
+      },
+      "principle": {
+        "en": "Resistance is a smooth-talking lawyer — it hands you reasonable-sounding excuses and shiny distractions so you never notice you're avoiding the work.",
+        "fa": "مقاومت یک وکیلِ خوش‌زبان است — بهانه‌های منطقی‌به‌نظر و حواس‌پرتی‌های براق دستت می‌دهد تا اصلاً نفهمی که داری از کار فرار می‌کنی."
+      },
+      "more": {
+        "en": "Unlike raw fear, rationalization doesn't feel like fear at all; it feels like good sense. “I’m too busy, I need more research, now’s not the right time.” Distraction does the rest. The trick is to see the excuse as Resistance in a suit.",
+        "fa": "برخلافِ ترسِ خام، بهانه‌تراشی اصلاً حسِ ترس نمی‌دهد؛ حسِ عقلِ سلیم می‌دهد. «سرم خیلی شلوغ است، باید بیشتر تحقیق کنم، الان وقتش نیست.» حواس‌پرتی هم بقیه‌اش را تکمیل می‌کند. کلک این است که بهانه را مقاومتی ببینی که کت‌وشلوار پوشیده."
+      },
+      "example": {
+        "en": "You spend the whole morning “researching” and reorganizing your notes — and never write a single real sentence.",
+        "fa": "کلِ صبح را «تحقیق» می‌کنی و یادداشت‌هایت را مرتب می‌کنی — و حتی یک جملهٔ واقعی نمی‌نویسی."
+      },
+      "tip": {
+        "en": "When a very reasonable excuse appears right before the work, suspect Resistance.",
+        "fa": "وقتی درست پیش از کار یک بهانهٔ خیلی منطقی سبز می‌شود، به مقاومت شک کن."
+      },
+      "pitfall": {
+        "en": "Mistaking busywork and research for the work itself.",
+        "fa": "کارِ الکی و تحقیق را با خودِ کار اشتباه‌گرفتن."
+      }
+    },
+    "sabotage": {
+      "part": "faces",
+      "n": 7,
+      "name": {
+        "en": "Self-Sabotage & the Compass",
+        "fa": "خرابکاری در کارِ خود و قطب‌نما"
+      },
+      "glabel": {
+        "en": "Self-sabotage",
+        "fa": "خودزنی"
+      },
+      "principle": {
+        "en": "Resistance will even make you wreck your own progress — and the closer you are to a breakthrough, the harder it pushes.",
+        "fa": "مقاومت حتی وادارت می‌کند پیشرفتِ خودت را خراب کنی — و هرچه به یک جهش نزدیک‌تری، محکم‌تر هُل می‌دهد."
+      },
+      "more": {
+        "en": "The same rule becomes a compass: the more important a call is to your soul, the more Resistance you'll feel. So the strength of the resistance tells you exactly where your real work is. Follow the fear to find your calling.",
+        "fa": "همین قاعده به یک قطب‌نما تبدیل می‌شود: هرچه یک ندا برای روحت مهم‌تر باشد، مقاومتِ بیشتری حس می‌کنی. پس شدتِ مقاومت دقیقاً می‌گوید کارِ اصلی‌ات کجاست. دنبالِ ترس برو تا رسالتت را پیدا کنی."
+      },
+      "example": {
+        "en": "The night before a big creative leap, you pick a fight, stay up too late, or “suddenly” get sick — self-sabotage right at the finish line.",
+        "fa": "شبِ قبل از یک جهشِ بزرگِ خلاقانه، دعوا راه می‌اندازی، تا دیروقت بیدار می‌مانی، یا «یک‌دفعه» مریض می‌شوی — خرابکاری درست سرِ خطِ پایان."
+      },
+      "tip": {
+        "en": "Rank your projects by how much Resistance each stirs up; the top of that list is your true work.",
+        "fa": "کارهایت را برحسبِ اینکه هرکدام چقدر مقاومت به‌پا می‌کند رتبه‌بندی کن؛ بالای آن فهرست، کارِ واقعیِ توست."
+      },
+      "pitfall": {
+        "en": "Fleeing the projects that scare you most — those are exactly the ones that matter.",
+        "fa": "فرار از همان کارهایی که بیشتر از همه می‌ترسانندت — دقیقاً همان‌ها هستند که مهم‌اند."
+      }
+    },
+    "amateur": {
+      "part": "pro",
+      "n": 8,
+      "name": {
+        "en": "Amateur vs. Professional",
+        "fa": "آماتور در برابرِ حرفه‌ای"
+      },
+      "glabel": {
+        "en": "Amateur/Pro",
+        "fa": "آماتور/حرفه‌ای"
+      },
+      "principle": {
+        "en": "The amateur plays for fun and waits to feel ready; the professional plays for keeps and commits fully.",
+        "fa": "آماتور برای تفریح بازی می‌کند و منتظر می‌ماند تا آماده حس کند؛ حرفه‌ای برای بُرد بازی می‌کند و تمام‌وکمال پایش می‌ایستد."
+      },
+      "more": {
+        "en": "An amateur loves the work but keeps it a hobby — done when the mood strikes, abandoned when it's hard. Turning pro is a mental switch, not a paycheck: you decide the work is who you are, and you stop giving Resistance the escape hatch of “only when I feel inspired.”",
+        "fa": "آماتور کارش را دوست دارد اما سرگرمی نگهش می‌دارد — وقتی حال‌وحوصله باشد انجامش می‌دهد، وقتی سخت شود رهایش می‌کند. حرفه‌ای‌شدن یک کلیدِ ذهنی است، نه حقوق: تصمیم می‌گیری که این کار همان کسی است که هستی، و دیگر درِ فرارِ «فقط وقتی الهام بشوم» را به مقاومت نمی‌دهی."
+      },
+      "example": {
+        "en": "The weekend writer waits for a magical burst of motivation; the pro writes on Tuesday morning because it's Tuesday morning.",
+        "fa": "نویسندهٔ آخرِهفته منتظرِ یک فورانِ جادوییِ انگیزه می‌ماند؛ حرفه‌ای سه‌شنبه صبح می‌نویسد چون سه‌شنبه صبح است."
+      },
+      "tip": {
+        "en": "Decide, once: “This is my job now,” and treat it that way — no more waiting for the mood.",
+        "fa": "یک‌بار برای همیشه تصمیم بگیر: «این حالا شغلِ من است»، و همان‌طور با آن رفتار کن — دیگر منتظرِ حال‌وحوصله نمان."
+      },
+      "pitfall": {
+        "en": "Staying an amateur — keeping your calling a hobby you only touch when it's easy.",
+        "fa": "آماتور ماندن — رسالتت را سرگرمی‌ای نگه‌داشتن که فقط وقتِ آسان‌بودن سراغش می‌روی."
+      }
+    },
+    "showup": {
+      "part": "pro",
+      "n": 9,
+      "name": {
+        "en": "Show Up Every Day",
+        "fa": "هر روز سرِ کار حاضر شو"
+      },
+      "glabel": {
+        "en": "Show up",
+        "fa": "حاضر شو"
+      },
+      "principle": {
+        "en": "The professional sits down and works every day — inspired or not, sick or well, in the mood or not.",
+        "fa": "حرفه‌ای هر روز می‌نشیند و کار می‌کند — بااِلهام یا بی‌اِلهام، مریض یا سالم، سرِحال یا بی‌حوصله."
+      },
+      "more": {
+        "en": "This is the heart of the whole book. You beat Resistance not with a heroic one-time effort but with dull, daily consistency. Show up, put in the hours, and go home; then do it again tomorrow. The showing-up is the win.",
+        "fa": "این قلبِ کلِ کتاب است. مقاومت را با یک تلاشِ قهرمانانهٔ یک‌باره شکست نمی‌دهی، بلکه با پایداریِ کسل‌کننده و روزانه. حاضر شو، ساعت‌هایت را بگذار، و برو خانه؛ بعد فردا دوباره همین کار. همین حاضرشدن، خودِ بُرد است."
+      },
+      "example": {
+        "en": "Somerset Maugham said he wrote only when inspiration struck — and made sure it struck every morning at nine o'clock sharp.",
+        "fa": "سامرست موآم می‌گفت فقط وقتی الهام بشود می‌نویسد — و کاری می‌کرد که هر روز صبح رأسِ ساعتِ نُه الهام بشود."
+      },
+      "tip": {
+        "en": "Set a fixed time and show up to the work daily, even for a short session. Consistency beats intensity.",
+        "fa": "یک ساعتِ ثابت بگذار و هر روز سرِ کار حاضر شو، حتی برای یک جلسهٔ کوتاه. پایداری بر شدت می‌چربد."
+      },
+      "pitfall": {
+        "en": "Waiting for inspiration before you'll start. It arrives after you start, not before.",
+        "fa": "منتظرِ الهام ماندن تا بعد شروع کنی. الهام بعد از شروع می‌آید، نه قبلش."
+      }
+    },
+    "craftjob": {
+      "part": "pro",
+      "n": 10,
+      "name": {
+        "en": "Treat the Craft Like a Job",
+        "fa": "پیشه را مثلِ یک شغل بگیر"
+      },
+      "glabel": {
+        "en": "Like a job",
+        "fa": "مثلِ شغل"
+      },
+      "principle": {
+        "en": "The pro treats creative work like a real job — clocking in on schedule, staying all day, and sticking with it over the long haul.",
+        "fa": "حرفه‌ای با کارِ خلاقانه مثلِ یک شغلِ واقعی رفتار می‌کند — سرِ ساعت شروع می‌کند، تمامِ روز می‌ماند، و در درازمدت پایش می‌ایستد."
+      },
+      "more": {
+        "en": "Think of a plumber or a doctor: they don't wait to feel like it, they don't quit when a task is hard, and they don't fall apart over one bad day. Bring that same steady, unglamorous professionalism to your art and Resistance loses its grip.",
+        "fa": "به یک لوله‌کش یا پزشک فکر کن: منتظر نمی‌مانند که حالش را داشته باشند، وقتی کاری سخت است ول نمی‌کنند، و به‌خاطرِ یک روزِ بد از هم نمی‌پاشند. همین حرفه‌ای‌گریِ بی‌سروصدا و باثبات را به هنرت بیاور، آن‌وقت مقاومت چنگش شل می‌شود."
+      },
+      "example": {
+        "en": "A working writer treats nine-to-one as office hours — shows up, does the work, handles the boring parts, and comes back tomorrow.",
+        "fa": "یک نویسندهٔ کاربلد ساعتِ نُه تا یک را ساعتِ اداری می‌داند — حاضر می‌شود، کار می‌کند، بخش‌های کسل‌کننده را هم انجام می‌دهد، و فردا برمی‌گردد."
+      },
+      "tip": {
+        "en": "Give your creative work real, scheduled office hours and keep them like any job.",
+        "fa": "برای کارِ خلاقانه‌ات یک «ساعتِ اداریِ» واقعی و برنامه‌ریزی‌شده بگذار و مثلِ هر شغلی نگهش دار."
+      },
+      "pitfall": {
+        "en": "Treating your calling as precious and fragile instead of as steady, professional work.",
+        "fa": "رسالتت را چیزی نازک و شکننده پنداشتن، به‌جای کاری باثبات و حرفه‌ای."
+      }
+    },
+    "patience": {
+      "part": "code",
+      "n": 11,
+      "name": {
+        "en": "Be Patient, Seek Order",
+        "fa": "صبور باش و نظم داشته باش"
+      },
+      "glabel": {
+        "en": "Patience",
+        "fa": "صبر و نظم"
+      },
+      "principle": {
+        "en": "The pro is patient — art takes time — and keeps life ordered, because disorder feeds Resistance.",
+        "fa": "حرفه‌ای صبور است — هنر زمان می‌برد — و زندگی‌اش را مرتب نگه می‌دارد، چون بی‌نظمی به مقاومت خوراک می‌دهد."
+      },
+      "more": {
+        "en": "Big work rarely comes fast; the professional arms himself with patience so he doesn't burn out or panic. And he keeps his days simple and orderly, because chaos, drama, and clutter are the mud Resistance grows in. A plain, ordered life protects the work.",
+        "fa": "کارِ بزرگ به‌ندرت زود به‌دست می‌آید؛ حرفه‌ای خودش را به صبر مسلح می‌کند تا نه بسوزد نه دستپاچه شود. و روزهایش را ساده و مرتب نگه می‌دارد، چون آشوب و دلهره و شلوغی همان گِلی‌اند که مقاومت در آن می‌روید. یک زندگیِ ساده و منظم از کار محافظت می‌کند."
+      },
+      "example": {
+        "en": "Instead of chasing a dramatic all-nighter, the pro keeps a calm routine and lets the work accumulate over months.",
+        "fa": "به‌جای دنبالِ یک شب‌بیداریِ پرهیجان رفتن، حرفه‌ای یک روال آرام نگه می‌دارد و می‌گذارد کار در طولِ ماه‌ها روی‌هم جمع شود."
+      },
+      "tip": {
+        "en": "Simplify your day and remove one source of drama or clutter that keeps stealing your focus.",
+        "fa": "روزت را ساده کن و یک منبعِ دلهره یا شلوغی را که مدام تمرکزت را می‌دزدد بردار."
+      },
+      "pitfall": {
+        "en": "Expecting fast results and quitting — or letting a chaotic life crowd out the work.",
+        "fa": "انتظارِ نتیجهٔ سریع داشتن و بعد ول‌کردن — یا گذاشتن یک زندگیِ پرآشوب جای کار را تنگ کند."
+      }
+    },
+    "personally": {
+      "part": "code",
+      "n": 12,
+      "name": {
+        "en": "Don't Take It Personally",
+        "fa": "به دل نگیر"
+      },
+      "glabel": {
+        "en": "Not personal",
+        "fa": "شخصی‌اش نکن"
+      },
+      "principle": {
+        "en": "The pro doesn't take failure — or success — personally. Praise and criticism land in the world, not on the soul.",
+        "fa": "حرفه‌ای شکست — یا موفقیت — را به دل نمی‌گیرد. تعریف و انتقاد در دنیا فرود می‌آیند، نه روی روح."
+      },
+      "more": {
+        "en": "Your work is what you do, not who you are. Keep that gap and a rejection can't crush you and applause can't inflate you. The professional accepts no excuses, acts in the face of fear, and keeps going regardless of how any single piece is received.",
+        "fa": "کارت همان چیزی است که می‌کنی، نه کسی که هستی. این فاصله را که نگه داری، یک ردّ‌شدن نمی‌تواند لِهت کند و یک تشویق نمی‌تواند بادت کند. حرفه‌ای هیچ بهانه‌ای را نمی‌پذیرد، در دلِ ترس عمل می‌کند، و فارغ از اینکه یک اثر چطور دیده می‌شود، به راهش ادامه می‌دهد."
+      },
+      "example": {
+        "en": "A pro gets a brutal review, feels the sting for an hour, and is back at the desk the next morning working.",
+        "fa": "حرفه‌ای یک نقدِ بی‌رحم می‌گیرد، یک ساعت سوزشش را حس می‌کند، و صبحِ روزِ بعد پشتِ میز مشغولِ کار است."
+      },
+      "tip": {
+        "en": "After a win or a loss, get back to the work quickly — that's how you keep your balance.",
+        "fa": "بعد از یک بُرد یا یک باخت، زود برگرد سرِ کار — تعادلت را این‌طوری نگه می‌داری."
+      },
+      "pitfall": {
+        "en": "Letting one rejection define you, or one success make you coast.",
+        "fa": "گذاشتن یک ردّ‌شدن تعریفت کند، یا یک موفقیت سُستت کند."
+      }
+    },
+    "mastery": {
+      "part": "code",
+      "n": 13,
+      "name": {
+        "en": "Master the Craft",
+        "fa": "در کارت استاد شو"
+      },
+      "glabel": {
+        "en": "Mastery",
+        "fa": "استادی"
+      },
+      "principle": {
+        "en": "The pro dedicates herself to mastering technique — and never waits for inspiration to begin.",
+        "fa": "حرفه‌ای خودش را وقفِ استادشدن در فن می‌کند — و هیچ‌وقت منتظرِ الهام نمی‌ماند تا شروع کند."
+      },
+      "more": {
+        "en": "Talent is common; the professional's edge is craft, learned through years of deliberate practice. Because she's prepared and skilled, she can sit down and work on demand instead of praying for a magic mood. Mastery is what lets you keep the daily appointment no matter what.",
+        "fa": "استعداد فراوان است؛ برتریِ حرفه‌ای در فن است، که با سال‌ها تمرینِ سنجیده به‌دست می‌آید. چون آماده و ماهر است، می‌تواند بنشیند و به‌فرمان کار کند، نه اینکه التماسِ یک حالِ جادویی را بکند. استادی همان چیزی است که می‌گذارد قرارِ روزانه‌ات را هر جور شده نگه داری."
+      },
+      "example": {
+        "en": "A seasoned musician runs scales and drills technique for years, so that on stage the hard parts simply work.",
+        "fa": "یک نوازندهٔ کارکشته سال‌ها گام‌ها را تمرین می‌کند و فن را صیقل می‌دهد، تا روی صحنه بخش‌های سخت به‌سادگی جواب بدهند."
+      },
+      "tip": {
+        "en": "Pick one concrete skill in your craft and practice it deliberately this week.",
+        "fa": "یک مهارتِ مشخص در کارت را انتخاب کن و همین هفته سنجیده تمرینش کن."
+      },
+      "pitfall": {
+        "en": "Leaning on raw talent and waiting for inspiration instead of building real skill.",
+        "fa": "تکیه به استعدادِ خام و منتظرِ الهام ماندن، به‌جای ساختنِ مهارتِ واقعی."
+      }
+    },
+    "inspiration": {
+      "part": "muse",
+      "n": 14,
+      "name": {
+        "en": "Do the Work, Inspiration Follows",
+        "fa": "کار را انجام بده، الهام می‌آید"
+      },
+      "glabel": {
+        "en": "Inspiration",
+        "fa": "الهام"
+      },
+      "principle": {
+        "en": "Sit down and start, and unseen forces come to help — the Muse rewards the pro who shows up.",
+        "fa": "بنشین و شروع کن، آن‌وقت نیروهای نادیده به کمک می‌آیند — الهه به حرفه‌ای‌ای که حاضر می‌شود پاداش می‌دهد."
+      },
+      "more": {
+        "en": "Pressfield's near-mystical claim: when you commit and begin the work, ideas, help, and inspiration arrive that weren't there before. The Muse — the angels, the flow — meets you at the desk, but only after you've done your part and started. Begin, and the magic comes to you.",
+        "fa": "ادعای تقریباً رازآلودِ پرسفیلد: وقتی پا پیش می‌گذاری و کار را شروع می‌کنی، ایده و کمک و الهامی می‌آید که پیش‌تر نبود. الهه — فرشته‌ها، جریان — پشتِ میز به استقبالت می‌آید، اما فقط بعد از اینکه سهمِ خودت را انجام دادی و شروع کردی. شروع کن، جادو خودش می‌آید سراغت."
+      },
+      "example": {
+        "en": "You force yourself to start, uninspired — and twenty minutes in, ideas are suddenly flowing faster than you can write them.",
+        "fa": "به‌زور و بی‌اِلهام شروع می‌کنی — و بیست دقیقه بعد، ایده‌ها تندتر از آنی که بتوانی بنویسی‌شان سرازیرند."
+      },
+      "tip": {
+        "en": "Never wait to feel inspired. Start first; let inspiration catch up to you.",
+        "fa": "هیچ‌وقت منتظر نمان تا الهام حس کنی. اول شروع کن؛ بگذار الهام به تو برسد."
+      },
+      "pitfall": {
+        "en": "Sitting around waiting for the Muse. She only shows up once you're already working.",
+        "fa": "لم‌دادن و منتظرِ الهه نشستن. او فقط وقتی می‌آید که تو از قبل مشغولِ کار باشی."
+      }
+    },
+    "territory": {
+      "part": "muse",
+      "n": 15,
+      "name": {
+        "en": "Territory, Not Hierarchy",
+        "fa": "قلمرو، نه سلسله‌مراتب"
+      },
+      "glabel": {
+        "en": "Territory",
+        "fa": "قلمرو"
+      },
+      "principle": {
+        "en": "Orient yourself territorially, not hierarchically — draw your worth from the work itself, not from others' approval.",
+        "fa": "خودت را قلمرو‌محور بچین، نه سلسله‌مراتب‌محور — ارزشت را از خودِ کار بگیر، نه از تأییدِ دیگران."
+      },
+      "more": {
+        "en": "The hierarchical person acts to climb above others and lives on their reactions. The territorial person has a “territory” — running, writing, playing — that sustains them regardless of anyone's opinion. Own your territory, and Resistance loses its favorite weapon: your hunger for approval.",
+        "fa": "آدمِ سلسله‌مراتبی کار می‌کند تا بالای دیگران برود و با واکنشِ آن‌ها زندگی می‌کند. آدمِ قلمرو‌محور یک «قلمرو» دارد — دویدن، نوشتن، نواختن — که فارغ از نظرِ هرکسی سرِپا نگهش می‌دارد. قلمرو‌ات را از آنِ خود کن، آن‌وقت مقاومت محبوب‌ترین سلاحش را از دست می‌دهد: گرسنگی‌ات برای تأیید."
+      },
+      "example": {
+        "en": "A musician who plays because the playing itself feeds her is unshakable; one who plays only for applause is at the mercy of the crowd.",
+        "fa": "نوازنده‌ای که می‌نوازد چون خودِ نواختن سیرش می‌کند، تکان‌ناپذیر است؛ آن‌که فقط برای تشویق می‌نوازد، دستِ جمعیت است."
+      },
+      "tip": {
+        "en": "Ask of your work: does this feed me even if no one claps? Build your life around that answer.",
+        "fa": "از کارت بپرس: این حتی اگر کسی هم دست نزند سیرم می‌کند؟ زندگی‌ات را دورِ همان جواب بساز."
+      },
+      "pitfall": {
+        "en": "Living for likes, ranks, and applause — handing Resistance the keys to your motivation.",
+        "fa": "برای لایک و رتبه و تشویق زندگی‌کردن — دادنِ کلیدِ انگیزه‌ات به دستِ مقاومت."
+      }
+    },
+    "service": {
+      "part": "muse",
+      "n": 16,
+      "name": {
+        "en": "Creativity as Service",
+        "fa": "آفرینش به‌مثابهٔ خدمت"
+      },
+      "glabel": {
+        "en": "Service",
+        "fa": "خدمت"
+      },
+      "principle": {
+        "en": "Do the work for its own sake, as a gift and an act of service — then let the results go.",
+        "fa": "کار را به‌خاطرِ خودش انجام بده، مثلِ یک هدیه و یک‌جور خدمت — بعد نتیجه را رها کن."
+      },
+      "more": {
+        "en": "In the end the work isn't about you. You show up, do your best, and offer it; the ego wants reward, but the deeper Self just wants to serve the gift. Work done for love — not fortune or applause — is the work that beats Resistance for good and blesses everyone it reaches.",
+        "fa": "آخرِ سر، کار دربارهٔ تو نیست. حاضر می‌شوی، بهترینت را می‌کنی، و تقدیمش می‌کنی؛ خودپرستی پاداش می‌خواهد، اما آن خودِ عمیق‌ترت فقط می‌خواهد به این موهبت خدمت کند. کاری که از سرِ عشق انجام می‌شود — نه برای ثروت یا تشویق — همان کاری است که مقاومت را برای همیشه می‌بازاند و به هر کسی که به او می‌رسد برکت می‌دهد."
+      },
+      "example": {
+        "en": "An artist finishes the piece, releases it into the world without clinging to how it's received, and starts the next one.",
+        "fa": "هنرمند اثر را تمام می‌کند، بی‌آنکه به نحوهٔ دیده‌شدنش بچسبد رهایش می‌کند توی دنیا، و سراغِ بعدی می‌رود."
+      },
+      "tip": {
+        "en": "Make the work your gift: do it as well as you can, offer it, and move on to the next.",
+        "fa": "کارت را هدیه‌ات کن: تا می‌توانی خوب انجامش بده، تقدیمش کن، و برو سراغِ بعدی."
+      },
+      "pitfall": {
+        "en": "Working only for money, fame, or applause — the surest way to let Resistance back in.",
+        "fa": "فقط برای پول، شهرت یا تشویق کارکردن — مطمئن‌ترین راه برای اینکه دوباره درِ خانه را به روی مقاومت باز کنی."
+      }
+    }
+  },
+  "core": {
+    "name": {
+      "en": "BEAT RESISTANCE",
+      "fa": "مقاومت را شکست بده"
+    },
+    "principle": {
+      "en": "Every time you try to do meaningful creative work, an invisible, self-generated force called Resistance rises to stop you — through procrastination, fear, doubt, and clever excuses. You defeat it the same way every day: turn pro, sit down, and do the work whether you feel like it or not. Do your part, and inspiration comes to meet you.",
+      "fa": "هر بار که می‌خواهی کارِ خلاقانهٔ معناداری بکنی، یک نیروی نامرئیِ خودساخته به‌نامِ مقاومت بلند می‌شود تا جلویت را بگیرد — با امروز و فردا کردن، ترس، تردید و بهانه‌های زیرکانه. هر روز به یک شکل شکستش می‌دهی: حرفه‌ای شو، بنشین، و کار را انجام بده، چه حالش را داشته باشی چه نداشته باشی. سهمِ خودت را انجام بده، الهام به استقبالت می‌آید."
+    },
+    "more": {
+      "en": "Pressfield maps the fight in a simple arc — name the enemy (Resistance is universal, internal, and lethal to dreams), learn its disguises (procrastination, fear, rationalization, self-sabotage), turn pro (show up every day and treat the craft like a job), live by the professional's code (patience, order, mastery, not taking it personally), and go beyond Resistance to the Muse (do the work and inspiration follows; create as service). The thread through all of it: the work is won by showing up.",
+      "fa": "پرسفیلد این نبرد را در یک قوسِ ساده می‌چیند — دشمن را نام ببر (مقاومت همگانی، درونی و کُشندهٔ رؤیاست)، نقاب‌هایش را بشناس (امروز و فردا کردن، ترس، بهانه‌تراشی، خرابکاری در کارِ خود)، حرفه‌ای شو (هر روز سرِ کار حاضر شو و پیشه را مثلِ یک شغل بگیر)، با مرامِ حرفه‌ای زندگی کن (صبر، نظم، استادی، و به‌دل‌نگرفتن)، و از مقاومت فراتر برو تا به الهه برسی (کار را انجام بده تا الهام بیاید؛ آفریدن یک خدمت است). نخِ رابطِ همه‌شان: کار با سرِ کار حاضر‌شدن برده می‌شود."
+    },
+    "example": {
+      "en": "Click any node to read a principle or an idea. You can also drag the nodes around.",
+      "fa": "روی هر دایره کلیک کن تا یک اصل یا ایده را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."
+    }
+  },
+  "stages": [
+    {
+      "level": 1,
+      "badge": {
+        "en": "Level 1 · Over-simplified",
+        "fa": "سطحِ ۱ · خیلی ساده"
+      },
+      "title": {
+        "en": "Just start",
+        "fa": "فقط شروع کن"
+      },
+      "tagline": {
+        "en": "The whole book in a sentence.",
+        "fa": "کلِ کتاب در یک جمله."
+      },
+      "body": {
+        "en": "Something inside you fights every time you try to create. Beat it the same way every day: stop waiting to feel ready and just do the work.",
+        "fa": "یک چیزی درونت هر بار که می‌خواهی بیافرینی می‌جنگد. هر روز به یک شکل شکستش بده: دست از منتظرِ آماده‌شدن ماندن بردار و کار را انجام بده."
+      },
+      "example": {
+        "en": "You don't feel like writing. You write anyway, for ten minutes. That's the entire book in action.",
+        "fa": "حالِ نوشتن را نداری. با این‌حال ده دقیقه می‌نویسی. همین، کلِ کتاب در عمل است."
+      },
+      "gain": {
+        "en": "You know the one move the whole book comes back to: do the work.",
+        "fa": "همان یک حرکتی را می‌دانی که کلِ کتاب به آن برمی‌گردد: کار را انجام بده."
+      }
+    },
+    {
+      "level": 2,
+      "badge": {
+        "en": "Level 2 · Simple",
+        "fa": "سطحِ ۲ · ساده"
+      },
+      "title": {
+        "en": "Meet Resistance",
+        "fa": "با مقاومت آشنا شو"
+      },
+      "tagline": {
+        "en": "Name the invisible enemy.",
+        "fa": "دشمنِ نامرئی را نام ببر."
+      },
+      "body": {
+        "en": "Pressfield gives the block a name: <b>Resistance</b>. It's <b>universal</b>, it comes from <b>within</b> you, and it's <b>lethal</b> — left alone it buries the work you were meant to do. You can't fight what you can't see, so naming it is the first win.",
+        "fa": "پرسفیلد به این سد یک اسم می‌دهد: <b>مقاومت</b>. <b>همگانی</b> است، از <b>درونِ</b> خودت می‌آید، و <b>کُشنده</b> است — به‌حالِ‌خود رها شود، همان کاری را که باید بکنی دفن می‌کند. چیزی را که نمی‌بینی نمی‌توانی بشکنی، پس نام‌بردنش اولین بُرد است."
+      },
+      "example": {
+        "en": "The pull toward the fridge, the inbox, the couch — the second you sit down to create — that's Resistance, and now you can call it by name.",
+        "fa": "همان کشش به‌سمتِ یخچال و صندوقِ ایمیل و کاناپه، درست لحظه‌ای که می‌نشینی تا بیافرینی — این مقاومت است، و حالا می‌توانی به اسم صدایش کنی."
+      },
+      "gain": {
+        "en": "You can spot Resistance the moment it shows up.",
+        "fa": "می‌توانی مقاومت را همان لحظه که ظاهر می‌شود بشناسی."
+      }
+    },
+    {
+      "level": 3,
+      "badge": {
+        "en": "Level 3 · Balanced",
+        "fa": "سطحِ ۳ · متعادل"
+      },
+      "title": {
+        "en": "Know its disguises",
+        "fa": "نقاب‌هایش را بشناس"
+      },
+      "tagline": {
+        "en": "Procrastination, fear, excuses, sabotage.",
+        "fa": "امروز و فردا کردن، ترس، بهانه، خرابکاری."
+      },
+      "body": {
+        "en": "Resistance rarely looks like Resistance. It shows up as <b>procrastination</b> (“tomorrow”), as <b>fear</b> and <b>self-doubt</b>, as reasonable-sounding <b>rationalization</b> and distraction, and even as <b>self-sabotage</b> right before a breakthrough. The compass: the more a project scares you, the more it matters.",
+        "fa": "مقاومت به‌ندرت شبیهِ مقاومت است. خودش را به‌شکلِ <b>امروز و فردا کردن</b> («فردا»)، <b>ترس</b> و <b>تردید</b>، <b>بهانه‌های</b> منطقی‌به‌نظر و حواس‌پرتی، و حتی <b>خرابکاری در کارِ خود</b> درست پیش از یک جهش نشان می‌دهد. قطب‌نما: هرچه کاری بیشتر می‌ترساندت، بیشتر مهم است."
+      },
+      "example": {
+        "en": "A whole morning of “research” and reorganizing — and not one real sentence written. That's Resistance in disguise.",
+        "fa": "یک صبحِ کامل «تحقیق» و مرتب‌کردنِ یادداشت‌ها — و حتی یک جملهٔ واقعی نوشته نمی‌شود. این مقاومت است در لباسِ مبدل."
+      },
+      "gain": {
+        "en": "You can catch Resistance behind its everyday masks.",
+        "fa": "می‌توانی مقاومت را پشتِ نقاب‌های روزمره‌اش بگیری."
+      }
+    },
+    {
+      "level": 4,
+      "badge": {
+        "en": "Level 4 · Advanced",
+        "fa": "سطحِ ۴ · پیشرفته"
+      },
+      "title": {
+        "en": "Turn pro",
+        "fa": "حرفه‌ای شو"
+      },
+      "tagline": {
+        "en": "Show up every day, no matter what.",
+        "fa": "هر روز سرِ کار حاضر شو، هر جور شده."
+      },
+      "body": {
+        "en": "The answer isn't more inspiration — it's professionalism. The <b>amateur</b> waits for the mood; the <b>professional</b> shows up every day and treats the craft like a <b>job</b>. Live by the pro's <b>code</b>: be patient, keep life ordered, don't take failure personally, and master your technique.",
+        "fa": "جواب، الهامِ بیشتر نیست — حرفه‌ای‌گری است. <b>آماتور</b> منتظرِ حال‌وحوصله می‌ماند؛ <b>حرفه‌ای</b> هر روز سرِ کار حاضر می‌شود و پیشه را مثلِ یک <b>شغل</b> می‌گیرد. با <b>مرامِ</b> حرفه‌ای زندگی کن: صبور باش، زندگی‌ات را مرتب نگه دار، شکست را به دل نگیر، و در فنّت استاد شو."
+      },
+      "example": {
+        "en": "Maugham wrote only when inspiration struck — and made sure it struck every morning at nine o'clock sharp. That's turning pro.",
+        "fa": "موآم فقط وقتی الهام می‌شد می‌نوشت — و کاری می‌کرد که هر روز صبح رأسِ ساعتِ نُه الهام بشود. این یعنی حرفه‌ای‌شدن."
+      },
+      "gain": {
+        "en": "You can beat Resistance with daily, professional consistency.",
+        "fa": "می‌توانی مقاومت را با پایداریِ روزانه و حرفه‌ای شکست بدهی."
+      }
+    },
+    {
+      "level": 5,
+      "badge": {
+        "en": "Level 5 · Expert",
+        "fa": "سطحِ ۵ · حرفه‌ای"
+      },
+      "title": {
+        "en": "Meet the Muse",
+        "fa": "الهه را ملاقات کن"
+      },
+      "tagline": {
+        "en": "Do the work and inspiration follows.",
+        "fa": "کار را انجام بده تا الهام بیاید."
+      },
+      "body": {
+        "en": "Do your part first and something meets you halfway. Start the work, and <b>inspiration</b> — the Muse — arrives that wasn't there before. Orient <b>territorially</b>, not hierarchically: draw your worth from the work itself, not from applause. And do it as <b>service</b> — a gift given for its own sake. That's how you win the war for good, one day at a time.",
+        "fa": "اول سهمِ خودت را انجام بده تا چیزی نیمهٔ راه به استقبالت بیاید. کار را شروع کن، و <b>الهام</b> — الهه — می‌آید که پیش‌تر نبود. به‌جای سلسله‌مراتب، <b>قلمرو‌محور</b> باش: ارزشت را از خودِ کار بگیر، نه از تشویق. و آن را یک <b>خدمت</b> بدان — هدیه‌ای که به‌خاطرِ خودش می‌دهی. این‌طوری جنگ را برای همیشه می‌بری، روزی یک روز."
+      },
+      "example": {
+        "en": "You sit down uninspired, force the first lines, and twenty minutes later ideas are pouring out faster than you can catch them.",
+        "fa": "بی‌اِلهام می‌نشینی، خطهای اول را به‌زور می‌نویسی، و بیست دقیقه بعد ایده‌ها تندتر از آنی که بتوانی بگیری‌شان سرازیر می‌شوند."
+      },
+      "gain": {
+        "en": "You can win the daily fight and help others win theirs.",
+        "fa": "می‌توانی نبردِ روزانه را ببری و به دیگران هم یاد بدهی که ببرند."
+      }
+    }
+  ],
+  "quotes": [
+    {
+      "en": "Most of us have two lives. The life we live, and the unlived life within us. Between the two stands Resistance.",
+      "fa": "بیشترِ ما دو زندگی داریم. زندگی‌ای که می‌کنیم، و زندگیِ نکرده‌ای که درونمان است. بینِ این دو، مقاومت ایستاده است."
+    },
+    {
+      "en": "Resistance is the most toxic force on the planet.",
+      "fa": "مقاومت سمّی‌ترین نیروی روی زمین است."
+    },
+    {
+      "en": "The more important a call or action is to our soul's evolution, the more Resistance we will feel toward pursuing it.",
+      "fa": "هرچه یک ندا یا کار برای رشدِ روحِ ما مهم‌تر باشد، مقاومتِ بیشتری برای دنبال‌کردنش حس می‌کنیم."
+    },
+    {
+      "en": "Are you paralyzed with fear? That's a good sign. Fear is good. Like self-doubt, fear is an indicator.",
+      "fa": "از ترس فلج شده‌ای؟ نشانهٔ خوبی است. ترس خوب است. ترس هم مثلِ تردید، یک نشانگر است."
+    },
+    {
+      "en": "Resistance is always lying and always full of shit.",
+      "fa": "مقاومت همیشه دروغ می‌گوید و همیشه سراپا مزخرف است."
+    },
+    {
+      "en": "The amateur plays for fun. The professional plays for keeps.",
+      "fa": "آماتور برای سرگرمی بازی می‌کند. حرفه‌ای برای بُرد."
+    },
+    {
+      "en": "I write only when inspiration strikes. Fortunately it strikes every morning at nine o'clock sharp.",
+      "fa": "فقط وقتی الهام به سراغم می‌آید می‌نویسم. خوشبختانه هر روز رأسِ ساعتِ نُهِ صبح به سراغم می‌آید."
+    },
+    {
+      "en": "Fear doesn't go away. The warrior and the artist live by the same code of necessity, which dictates that the battle must be fought anew every day.",
+      "fa": "ترس از بین نمی‌رود. جنگجو و هنرمند با یک مرامِ ناگزیرِ مشترک زندگی می‌کنند که حکمش این است: نبرد را باید هر روز از نو جنگید."
+    },
+    {
+      "en": "We must do our work for its own sake, not for fortune or attention or applause.",
+      "fa": "کارمان را باید به‌خاطرِ خودش انجام دهیم، نه برای ثروت یا توجه یا تشویق."
+    }
+  ],
+  "media": [
+    {
+      "kind": "yt",
+      "id": "-esGykKrdb8",
+      "src": {
+        "en": "YouTube · Finding Mastery",
+        "fa": "یوتیوب · Finding Mastery"
+      },
+      "title": {
+        "en": "Pressfield on Fear, Doubt & Procrastination",
+        "fa": "پرسفیلد دربارهٔ ترس، تردید و امروز و فردا کردن"
+      },
+      "desc": {
+        "en": "The author himself on conquering the everyday faces of Resistance.",
+        "fa": "خودِ نویسنده دربارهٔ غلبه بر چهره‌های روزمرهٔ مقاومت."
+      },
+      "bullets": {
+        "en": [
+          "Resistance in the author's own words",
+          "Fear and self-doubt as signposts",
+          "Practical, honest, and direct"
+        ],
+        "fa": [
+          "مقاومت به زبانِ خودِ نویسنده",
+          "ترس و تردید به‌عنوانِ نشانه",
+          "عملی، صادقانه و مستقیم"
+        ]
+      },
+      "best": {
+        "en": "Best for Stage 1–3.",
+        "fa": "خوب برای مرحلهٔ ۱ تا ۳."
+      }
+    },
+    {
+      "kind": "yt",
+      "id": "-RhjESIYsuE",
+      "src": {
+        "en": "YouTube · Marie Forleo",
+        "fa": "یوتیوب · Marie Forleo"
+      },
+      "title": {
+        "en": "The Truth About Overcoming Resistance",
+        "fa": "حقیقتِ غلبه بر مقاومت"
+      },
+      "desc": {
+        "en": "A warm interview with Pressfield on beating the block and turning pro.",
+        "fa": "یک گفت‌وگوی گرم با پرسفیلد دربارهٔ شکستِ سد و حرفه‌ای‌شدن."
+      },
+      "bullets": {
+        "en": [
+          "Why the work is won daily",
+          "Amateur vs. professional",
+          "Turning fear into fuel"
+        ],
+        "fa": [
+          "چرا کار هر روز برده می‌شود",
+          "آماتور در برابرِ حرفه‌ای",
+          "تبدیلِ ترس به سوخت"
+        ]
+      },
+      "best": {
+        "en": "Best for Stage 2–4.",
+        "fa": "خوب برای مرحلهٔ ۲ تا ۴."
+      }
+    },
+    {
+      "kind": "yt",
+      "id": "cpKsogGdem4",
+      "src": {
+        "en": "YouTube · Andrew Huberman",
+        "fa": "یوتیوب · Andrew Huberman"
+      },
+      "title": {
+        "en": "How to Overcome Inner Resistance",
+        "fa": "چطور بر مقاومتِ درونی غلبه کنیم"
+      },
+      "desc": {
+        "en": "Pressfield and Huberman on the daily discipline that starves Resistance.",
+        "fa": "پرسفیلد و هابرمن دربارهٔ انضباطِ روزانه‌ای که مقاومت را گرسنه می‌گذارد."
+      },
+      "bullets": {
+        "en": [
+          "The pro's daily practice",
+          "Doing the work regardless of mood",
+          "Where inspiration really comes from"
+        ],
+        "fa": [
+          "تمرینِ روزانهٔ حرفه‌ای",
+          "انجامِ کار فارغ از حال‌وحوصله",
+          "الهام واقعاً از کجا می‌آید"
+        ]
+      },
+      "best": {
+        "en": "Best for Stage 3–5.",
+        "fa": "خوب برای مرحلهٔ ۳ تا ۵."
+      }
+    },
+    {
+      "kind": "img",
+      "url": "https://blackirishbooks.com/product/the-war-of-art/",
+      "src": {
+        "en": "Black Irish Books · Publisher",
+        "fa": "Black Irish Books · ناشر"
+      },
+      "title": {
+        "en": "The War of Art — Publisher Page",
+        "fa": "جنگِ هنر — صفحهٔ ناشر"
+      },
+      "desc": {
+        "en": "The author's own publishing house page, with editions and the audiobook he narrates.",
+        "fa": "صفحهٔ انتشاراتیِ خودِ نویسنده، با نسخه‌ها و نسخهٔ صوتی‌ای که خودش می‌خواند."
+      },
+      "bullets": {
+        "en": [
+          "The definitive editions",
+          "Author-narrated audiobook",
+          "Straight from the source"
+        ],
+        "fa": [
+          "نسخه‌های معتبر",
+          "نسخهٔ صوتی با صدای نویسنده",
+          "مستقیم از خودِ منبع"
+        ]
+      },
+      "best": {
+        "en": "For editions and the source.",
+        "fa": "برای نسخه‌ها و منبعِ اصلی."
+      }
+    }
+  ],
+  "go": [
+    {
+      "label": {
+        "en": "Publisher page",
+        "fa": "صفحهٔ ناشر"
+      },
+      "url": "https://blackirishbooks.com/product/the-war-of-art/"
+    },
+    {
+      "label": {
+        "en": "Book on Goodreads",
+        "fa": "کتاب در گودریدز"
+      },
+      "url": "https://www.goodreads.com/book/show/1319.The_War_of_Art"
+    },
+    {
+      "label": {
+        "en": "Author's site: The War of Art",
+        "fa": "سایتِ نویسنده: جنگِ هنر"
+      },
+      "url": "https://stevenpressfield.com/books/the-war-of-art/"
+    }
+  ],
+  "recs": [
+    {
+      "pri": "b",
+      "t": {
+        "en": "Name it out loud",
+        "fa": "بلند اسمش را ببر"
+      },
+      "d": {
+        "en": "Next time you dodge your real work, say “That’s Resistance” — then do the first ten minutes anyway.",
+        "fa": "دفعهٔ بعد که از کارِ اصلی‌ات طفره رفتی، بگو «این مقاومت است» — بعد همان ده دقیقهٔ اول را به‌هرحال انجام بده."
+      }
+    },
+    {
+      "pri": "b",
+      "t": {
+        "en": "Turn pro this week",
+        "fa": "همین هفته حرفه‌ای شو"
+      },
+      "d": {
+        "en": "Give your most important work fixed daily office hours, and keep them like any job.",
+        "fa": "برای مهم‌ترین کارت یک ساعتِ کاریِ ثابتِ روزانه بگذار، و مثلِ هر شغلی سرِ آن حاضر شو."
+      }
+    },
+    {
+      "pri": "n",
+      "t": {
+        "en": "Follow the fear",
+        "fa": "دنبالِ ترس برو"
+      },
+      "d": {
+        "en": "List your projects by how much each scares you; the scariest one is your real work. Start it.",
+        "fa": "کارهایت را برحسبِ اینکه هرکدام چقدر می‌ترساندت فهرست کن؛ ترسناک‌ترینش کارِ اصلیِ توست. شروعش کن."
+      }
+    },
+    {
+      "pri": "n",
+      "t": {
+        "en": "Start before you're ready",
+        "fa": "قبل از آماده‌شدن شروع کن"
+      },
+      "d": {
+        "en": "Pick a task you keep waiting to feel inspired for, and begin it now — let the Muse catch up.",
+        "fa": "کاری را که مدام منتظری برایش الهام بشوی انتخاب کن، و همین حالا شروعش کن — بگذار الهه بعداً به تو برسد."
+      }
+    }
+  ]
 });
 </script>
 </body>

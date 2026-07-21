@@ -10,11 +10,11 @@
 <script>
 (function(){
   try{
-    var th = localStorage.getItem('pb-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
+    var th = localStorage.getItem('pbl-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
     document.documentElement.setAttribute('data-theme', th);
   }catch(e){ document.documentElement.setAttribute('data-theme','light'); }
   try{
-    var lg = localStorage.getItem('pb-lang') || 'fa';
+    var lg = localStorage.getItem('pbl-lang') || 'fa';
     document.documentElement.setAttribute('data-lang', lg);
     document.documentElement.setAttribute('lang', lg);
     document.documentElement.setAttribute('dir', lg==='fa' ? 'rtl' : 'ltr');
@@ -27,6 +27,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:ital,opsz@0,6..72;1,6..72&display=swap" rel="stylesheet">
+<link href="assets/recommend.css" rel="stylesheet">
 
 <style>
 /* ── TOKENS ───────────────────────────────────────────────── */
@@ -147,15 +148,42 @@ html[data-lang="en"] .gname{font-family:Newsreader,Georgia,serif;font-weight:600
 .foot .li:hover{text-decoration:underline}
 .foot .li svg{width:15px;height:15px}
 
+/* ── MASTHEAD (centered logo → home) ──────────────────────── */
+.masthead{display:flex;align-items:center;justify-content:center;
+  padding:14px 16px 12px;background:var(--bg);border-bottom:1px solid var(--line)}
+.masthead .logo{display:inline-flex;align-items:center;gap:11px;text-decoration:none;color:var(--ink)}
+.masthead .logomark{width:34px;height:34px;flex:0 0 auto;display:block}
+.masthead .logomark svg{width:100%;height:100%;display:block}
+.masthead .logotype{display:flex;flex-direction:column;line-height:1.15}
+.masthead .logotype .lt-main{font-weight:800;font-size:15.5px;letter-spacing:-.2px}
+html[data-lang="en"] .masthead .logotype .lt-main{font-family:Newsreader,Georgia,serif;font-weight:600;letter-spacing:-.4px}
+.masthead .logotype .lt-sub{font-size:10.5px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;color:var(--mut);opacity:.9}
+.masthead .logo:hover .lt-main{color:var(--accent)}
+.hero-cta{margin-top:22px}
 @media(max-width:760px){
   .books{grid-template-columns:1fr}
   .book{border-inline-start:none;border-top:1px solid var(--line)}
   .book:first-child{border-top:none}
   .hero h1{font-size:26px}
 }
+@media(max-width:520px){
+  .masthead{padding:11px 14px 10px}
+  .masthead .logomark{width:30px;height:30px}
+  .masthead .logotype .lt-main{font-size:14px}
+  .masthead .logotype .lt-sub{font-size:9.5px}
+}
 </style>
 </head>
 <body>
+
+<!-- ═══════════════ MASTHEAD (centered logo) ═══════════════ -->
+<header class="masthead"><a class="logo" href="index.html" aria-label="Product Builder's Library — home">
+  <span class="logomark"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect x="1" y="1" width="30" height="30" rx="8" fill="var(--accent)"/><g stroke="var(--accent-ink)" stroke-width="1.7" stroke-linecap="round" opacity=".9"><path d="M16 16 8.5 9.5M16 16l8-4M16 16l-3 8.5"/></g><g fill="var(--accent-ink)"><circle cx="16" cy="16" r="3.1"/><circle cx="8.5" cy="9.5" r="2.1"/><circle cx="24" cy="12" r="2.1"/><circle cx="13" cy="24.5" r="2.1"/></g></svg></span>
+  <span class="logotype">
+    <span class="lt-main"><span data-only="en">Product Builder’s Library</span><span data-only="fa">کتابخانهٔ سازندهٔ محصول</span></span>
+    <span class="lt-sub"><span data-only="en">45 books · 15 groups</span><span data-only="fa">۴۵ کتاب · ۱۵ گروه</span></span>
+  </span>
+</a></header>
 
 <!-- ═══════════════ NAV ═══════════════ -->
 <div class="navbar"><div class="navin">
@@ -182,6 +210,12 @@ html[data-lang="en"] .gname{font-family:Newsreader,Georgia,serif;font-weight:600
     <div class="chip"><b>15</b><span data-only="en">groups</span><span data-only="fa">گروه</span></div>
     <div class="chip"><b id="kDone">45</b><span data-only="en">distilled</span><span data-only="fa">آماده</span></div>
     <div class="chip"><b>EN·FA</b><span data-only="en">bilingual</span><span data-only="fa">دوزبانه</span></div>
+  </div>
+  <div class="hero-cta">
+    <button type="button" class="rw-trigger" data-recommend>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M18 6l-2.5 2.5M8.5 15.5 6 18"/></svg>
+      <span data-only="en">Find my reading path</span><span data-only="fa">مسیرِ خواندنم را پیدا کن</span>
+    </button>
   </div>
 </div></header>
 
@@ -415,7 +449,7 @@ function setLang(lg){
   document.documentElement.setAttribute('data-lang',lg);
   document.documentElement.setAttribute('lang',lg);
   document.documentElement.setAttribute('dir', lg==='fa'?'rtl':'ltr');
-  try{ localStorage.setItem('pb-lang',lg); }catch(e){}
+  try{ localStorage.setItem('pbl-lang',lg); }catch(e){}
   render();
 }
 (function(){
@@ -426,14 +460,18 @@ function setLang(lg){
   tb && tb.addEventListener('click', function(){
     var t=curT()==='dark'?'light':'dark';
     document.documentElement.setAttribute('data-theme',t);
-    try{ localStorage.setItem('pb-theme',t); }catch(e){}
+    try{ localStorage.setItem('pbl-theme',t); }catch(e){}
   });
   try{ matchMedia('(prefers-color-scheme: dark)').addEventListener('change',function(e){
-    if(!localStorage.getItem('pb-theme')){ document.documentElement.setAttribute('data-theme', e.matches?'dark':'light'); }
+    if(!localStorage.getItem('pbl-theme')){ document.documentElement.setAttribute('data-theme', e.matches?'dark':'light'); }
   }); }catch(e){}
 })();
 
 render();
 </script>
+
+<!-- reading-path wizard (needs the 45-book manifest) -->
+<script src="assets/library.js"></script>
+<script src="assets/recommend.js"></script>
 </body>
 </html>

@@ -1,21 +1,20 @@
 <!DOCTYPE html>
-<!-- complexity-level: 1→5 (this page teaches the SAME book at five depths, over-simplified … expert) -->
-<!-- Effortless (Greg McKeown) — bilingual EN/FA knowledge graph & 5-stage learning page -->
+<!-- Generated page. Edit CONTENT in the DATA object below; shared UI lives in ../assets/book.css + ../assets/book.js -->
 <html lang="fa" dir="rtl" data-lang="fa">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>How to Win Friends and Influence People — نقشهٔ دانش و یادگیری ۵ مرحله‌ای</title>
 
-<!-- Boot theme + language BEFORE paint to avoid a flash -->
+<!-- Boot theme + language BEFORE paint to avoid a flash (shared library-wide keys) -->
 <script>
 (function(){
   try{
-    var th = localStorage.getItem('htwf-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
+    var th = localStorage.getItem('pbl-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
     document.documentElement.setAttribute('data-theme', th);
   }catch(e){ document.documentElement.setAttribute('data-theme','light'); }
   try{
-    var lg = localStorage.getItem('htwf-lang') || 'fa';
+    var lg = localStorage.getItem('pbl-lang') || 'fa';
     document.documentElement.setAttribute('data-lang', lg);
     document.documentElement.setAttribute('lang', lg);
     document.documentElement.setAttribute('dir', lg==='fa' ? 'rtl' : 'ltr');
@@ -28,876 +27,1182 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:ital,opsz@0,6..72;1,6..72&display=swap" rel="stylesheet">
-
-<style>
-/* ── TOKENS ───────────────────────────────────────────────── */
-:root, [data-theme="light"]{
-  --bg:#f5f6f8; --bg2:#eef2f7; --card:#fff; --card2:#f8fafb;
-  --ink:#1c2330; --mut:#6b7280; --line:#e6e8ee;
-  --accent:#0e7c86; --accent-ink:#fff; --warm:#c2410c;
-  --shadow:0 1px 2px rgba(20,30,50,.05),0 6px 24px rgba(20,30,50,.06);
-  --hero-1:#0e7c86; --hero-2:#0b5e66;
-  --c-teal:#0e9aa6; --c-blue:#2f6fb0; --c-violet:#7c3aed; --c-amber:#d97706;
-  --c-green:#15a34a; --c-red:#e11d48; --c-gold:#c98a12; --c-gray:#6b7280;
-  --state:#0e9aa6; --action:#d97706; --results:#7c3aed; --core:#0e7c86;
-}
-[data-theme="dark"]{
-  --bg:#0e131a; --bg2:#161d27; --card:#151c26; --card2:#1b2430;
-  --ink:#e9eef5; --mut:#9aa7b6; --line:#27313d;
-  --accent:#2dd4bf; --accent-ink:#06231f; --warm:#fb923c;
-  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 28px rgba(0,0,0,.45);
-  --hero-1:#0c5f67; --hero-2:#07323a;
-  --c-teal:#2dd4bf; --c-blue:#5b9bd5; --c-violet:#a78bfa; --c-amber:#fbbf24;
-  --c-green:#34d399; --c-red:#fb7185; --c-gold:#e2b04a; --c-gray:#94a3b8;
-  --state:#2dd4bf; --action:#fbbf24; --results:#a78bfa; --core:#2dd4bf;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);
-  font-family:Vazirmatn,"Segoe UI",Tahoma,Arial,sans-serif;line-height:1.85;font-size:15px;
-  transition:background .25s,color .25s}
-html[data-lang="en"] body{font-family:Inter,"Segoe UI",system-ui,Arial,sans-serif;line-height:1.7}
-.wrap{max-width:960px;margin:0 auto;padding:0 18px 40px}
-
-/* language visibility */
-html[data-lang="en"] [data-only="fa"]{display:none !important}
-html[data-lang="fa"] [data-only="en"]{display:none !important}
-
-/* ── HERO ─────────────────────────────────────────────────── */
-.hero{background:linear-gradient(135deg,var(--hero-1),var(--hero-2));color:#fff;padding:44px 0 34px;position:relative;overflow:hidden}
-.hero::after{content:"";position:absolute;inset-inline-end:-80px;top:-80px;width:280px;height:280px;
-  background:radial-gradient(circle,rgba(255,255,255,.12),transparent 70%);pointer-events:none}
-.hero .wrap{padding-bottom:0;position:relative;z-index:1}
-.hero h1{margin:0 0 8px;font-size:30px;font-weight:800;letter-spacing:-.3px;line-height:1.25}
-html[data-lang="en"] .hero h1{font-family:Newsreader,Georgia,serif;font-weight:600;letter-spacing:-.5px}
-.hero .dek{margin:0;opacity:.94;font-size:15.5px;max-width:640px}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;
-  color:rgba(255,255,255,.95);background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.24);
-  padding:5px 13px;border-radius:20px;margin-bottom:15px}
-.eyebrow .edot{width:7px;height:7px;border-radius:50%;background:#fff;box-shadow:0 0 0 3px rgba(255,255,255,.25)}
-.metastrip{display:flex;flex-wrap:wrap;gap:14px 30px;margin-top:20px;padding-top:16px;
-  border-top:1px solid rgba(255,255,255,.18)}
-.metaitem{display:flex;flex-direction:column;gap:3px}
-.metaitem .mk{font-size:10.5px;color:rgba(255,255,255,.62);font-weight:700;letter-spacing:.6px;text-transform:uppercase}
-.metaitem .mv{font-size:14px;color:#fff;font-weight:700}
-.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
-.chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);
-  border-radius:11px;padding:9px 15px;font-size:13px}
-.chip b{font-size:20px;display:block;font-weight:800}
-
-/* ── NAV + TOC ────────────────────────────────────────────── */
-.navbar{position:sticky;top:0;z-index:60;background:color-mix(in srgb,var(--card) 92%,transparent);
-  backdrop-filter:saturate(180%) blur(10px);-webkit-backdrop-filter:saturate(180%) blur(10px);
-  border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
-.navin{max-width:960px;margin:0 auto;padding:8px 16px;display:flex;align-items:center;gap:12px}
-.brand{flex:0 0 auto;font-weight:800;font-size:12.5px;color:var(--accent);white-space:nowrap;
-  display:flex;align-items:center;gap:7px}
-.brand .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);
-  box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 18%,transparent)}
-.toc{flex:1 1 auto;display:flex;flex-wrap:wrap;gap:7px;justify-content:center}
-.toc a{font-size:12.5px;color:var(--mut);text-decoration:none;border:1px solid var(--line);
-  border-radius:20px;padding:5px 12px;background:var(--card);white-space:nowrap;
-  transition:background .15s,color .15s,border-color .15s}
-.toc a:hover{color:var(--accent);border-color:var(--accent)}
-.toc a.active{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
-.navctl{flex:0 0 auto;display:flex;align-items:center;gap:8px}
-.langbtn{height:34px;border-radius:18px;border:1px solid var(--line);background:var(--card);
-  color:var(--ink);cursor:pointer;font:inherit;font-size:12.5px;font-weight:700;padding:0 13px;
-  display:flex;align-items:center;gap:6px}
-.langbtn:hover{border-color:var(--accent);color:var(--accent)}
-.langbtn .globe{width:15px;height:15px;display:block}
-.themebtn{flex:0 0 auto;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);
-  background:var(--card);color:var(--ink);cursor:pointer;line-height:1;display:grid;place-items:center}
-.themebtn svg{width:17px;height:17px;display:block}
-.themebtn:hover{border-color:var(--accent);color:var(--accent)}
-[data-theme="light"] .themebtn .ic-sun{display:none}
-[data-theme="dark"]  .themebtn .ic-moon{display:none}
-
-/* ── BLOCKS ───────────────────────────────────────────────── */
-h2{font-size:21px;margin:44px 0 6px;font-weight:800;scroll-margin-top:92px;line-height:1.35}
-html[data-lang="en"] h2{font-family:Newsreader,Georgia,serif;font-weight:600}
-h2 .num{color:var(--accent);font-variant-numeric:tabular-nums}
-.sub{color:var(--mut);font-size:13.5px;margin:0 0 16px;max-width:680px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;
-  padding:20px 22px;margin:14px 0;box-shadow:var(--shadow)}
-.lead{font-size:15.5px}
-.lead b{color:var(--warm)}
-.kgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin:8px 0}
-.kbox{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:15px 16px;text-align:center}
-.kbox .v{font-size:26px;font-weight:800;color:var(--accent);font-variant-numeric:tabular-nums}
-.kbox .l{font-size:12.5px;color:var(--mut);margin-top:3px}
-ul.clean{margin:6px 0;padding-inline-start:20px} ul.clean li{margin:8px 0}
-.callout{background:color-mix(in srgb,var(--warm) 9%,var(--card));
-  border:1px solid color-mix(in srgb,var(--warm) 30%,var(--line));
-  border-radius:12px;padding:14px 18px;margin:12px 0}
-.callout b{color:var(--warm)}
-.callout.accent{background:color-mix(in srgb,var(--accent) 9%,var(--card));
-  border-color:color-mix(in srgb,var(--accent) 30%,var(--line))}
-.callout.accent b{color:var(--accent)}
-a{color:var(--accent)}
-
-/* ── GRAPH ────────────────────────────────────────────────── */
-.gtabs{display:inline-flex;gap:4px;background:var(--bg2);border:1px solid var(--line);
-  border-radius:11px;padding:4px;margin:6px 0 2px}
-.gtab{border:0;background:transparent;color:var(--mut);font:inherit;font-size:13px;font-weight:700;
-  padding:7px 15px;border-radius:8px;cursor:pointer}
-.gtab.active{background:var(--card);color:var(--accent);box-shadow:var(--shadow)}
-.graphcard{padding:14px}
-.legend{display:flex;flex-wrap:wrap;gap:14px;margin:2px 4px 12px;font-size:12.5px;color:var(--mut)}
-.legend span{display:inline-flex;align-items:center;gap:6px}
-.legend i{width:11px;height:11px;border-radius:50%;display:inline-block}
-.graphstage{display:grid;grid-template-columns:1fr;gap:14px}
-@media(min-width:760px){.graphstage{grid-template-columns:1.35fr .95fr}}
-.svgwrap{position:relative;background:var(--card2);border:1px solid var(--line);border-radius:12px;
-  overflow:hidden;min-height:300px}
-#netsvg{display:block;width:100%;height:560px;touch-action:none;cursor:grab}
-#netsvg text{pointer-events:none;user-select:none}
-.ghint{position:absolute;inset-inline-start:12px;top:10px;font-size:11.5px;color:var(--mut);
-  background:color-mix(in srgb,var(--card) 82%,transparent);border:1px solid var(--line);
-  border-radius:20px;padding:3px 11px;backdrop-filter:blur(4px);max-width:70%}
-.greset{position:absolute;inset-inline-end:10px;top:10px;border:1px solid var(--line);background:var(--card);
-  color:var(--mut);border-radius:8px;font:inherit;font-size:11.5px;padding:4px 10px;cursor:pointer}
-.greset:hover{color:var(--accent);border-color:var(--accent)}
-/* node + link interaction states */
-.node{cursor:pointer}
-/* the inner <g class="ns"> is what scales; fill-box keeps the pivot on the node itself, not the SVG viewport */
-.ns{transform-box:fill-box;transform-origin:center;transition:transform .2s cubic-bezier(.2,.75,.25,1)}
-.node.hover .ns{transform:scale(1.1)}
-.node.sel  .ns{transform:scale(1.34)}                 /* selected node grows */
-.node.ncore.hover .ns{transform:scale(1.06)}
-.node.ncore.sel   .ns{transform:none}                 /* the centre 'Effortless' node keeps default size */
-.node.sel circle{stroke:var(--ink);stroke-width:2.5;filter:drop-shadow(0 0 8px color-mix(in srgb,var(--accent) 60%,transparent))}
-.node.hl circle{stroke:var(--ink);stroke-opacity:.5;stroke-width:2.5}
-.node.dim{opacity:.2}
-.node text{font-family:Vazirmatn,Tahoma,sans-serif;font-weight:700}
-html[data-lang="en"] .node text{font-family:Inter,sans-serif}
-.glink{transition:opacity .2s,stroke .2s}
-.glink.dim{opacity:.08}
-.glink.hl{stroke:var(--accent) !important;stroke-opacity:.8}
-/* detail panel */
-.detail{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;min-height:220px}
-@media(min-width:760px){.detail{max-height:480px;overflow:auto}}
-.detail .dkick{font-size:11.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;display:flex;align-items:center;gap:7px;color:var(--mut)}
-.detail .dkick i{width:10px;height:10px;border-radius:50%}
-.detail h4{margin:8px 0 3px;font-size:18px;font-weight:800}
-html[data-lang="en"] .detail h4{font-family:Newsreader,serif;font-weight:600}
-.detail .drow{margin:11px 0}
-.detail .dlab{font-size:10.5px;font-weight:800;color:var(--accent);letter-spacing:.5px;text-transform:uppercase;
-  display:inline-flex;align-items:center;gap:5px}
-.detail .drow.tip .dlab{color:var(--c-green)}
-.detail .drow.pit .dlab{color:var(--warm)}
-.detail .drow.more{border-inline-start:2px solid color-mix(in srgb,var(--accent) 32%,var(--line));padding-inline-start:11px}
-.detail .drow.more .dlab{color:var(--mut)}
-.detail .dtxt{font-size:13.6px;margin-top:3px}
-.dchips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
-.dchip{font-size:12px;border:1px solid var(--line);background:var(--card2);border-radius:16px;padding:4px 11px;
-  cursor:pointer;color:var(--ink);display:inline-flex;align-items:center;gap:6px;font-family:inherit}
-.dchip:hover{border-color:var(--accent);color:var(--accent)}
-.dchip i{width:8px;height:8px;border-radius:50%;flex:0 0 auto}
-
-/* ── CONCEPT MAP ──────────────────────────────────────────── */
-.mapgrid{display:grid;grid-template-columns:1fr;gap:14px}
-@media(min-width:820px){.mapgrid{grid-template-columns:repeat(3,1fr)}}
-.partcol{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:16px;position:relative}
-.partcol .ph{display:flex;align-items:center;gap:9px;margin-bottom:3px}
-.partcol .pdot{width:13px;height:13px;border-radius:50%;flex:0 0 auto}
-.partcol .pnum{font-size:11px;font-weight:800;color:var(--mut)}
-.partcol h4{margin:0;font-size:16.5px;font-weight:800}
-html[data-lang="en"] .partcol h4{font-family:Newsreader,serif;font-weight:600}
-.partcol .ptag{font-size:12px;color:var(--mut);margin:2px 0 4px;font-weight:700}
-.partcol .pgist{font-size:12.8px;color:var(--mut);margin:0 0 12px}
-.chapchip{display:flex;align-items:baseline;gap:8px;padding:7px 10px;border:1px solid var(--line);
-  border-radius:9px;margin:6px 0;background:var(--card2);font-size:13px}
-.chapchip .cn{font-size:11px;font-weight:800;color:var(--mut);flex:0 0 auto;font-variant-numeric:tabular-nums}
-.chapchip b{font-weight:700}
-.chapchip small{color:var(--mut);display:block;font-size:11.5px;line-height:1.5}
-.flowline{display:flex;align-items:center;justify-content:center;gap:10px;color:var(--mut);
-  font-size:12.5px;font-weight:700;margin:6px 0 2px;flex-wrap:wrap}
-.flowline .ar{color:var(--accent)}
-
-/* ── STAGE LADDER ─────────────────────────────────────────── */
-.ladder{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 4px}
-.rung{flex:1 1 150px;border:1px solid var(--line);background:var(--card);border-radius:11px;
-  padding:11px 13px;cursor:pointer;transition:transform .12s,border-color .12s;position:relative}
-.rung:hover{border-color:var(--accent);transform:translateY(-2px)}
-.rung.active{border-color:var(--accent);box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 35%,transparent)}
-.rung .lv{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.4px}
-.rung .lt{font-size:13.5px;font-weight:800;margin-top:2px}
-.rung .lbar{height:5px;border-radius:4px;background:var(--bg2);margin-top:9px;overflow:hidden}
-.rung .lbar i{display:block;height:100%;background:linear-gradient(90deg,var(--c-teal),var(--c-violet))}
-.stagecard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 24px;
-  margin:14px 0;box-shadow:var(--shadow)}
-.stagecard .shead{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-.stagecard .badge{font-size:12px;font-weight:800;color:#fff;background:var(--accent);
-  border-radius:8px;padding:4px 11px;white-space:nowrap}
-.stagecard h3{margin:0;font-size:21px;font-weight:800}
-html[data-lang="en"] .stagecard h3{font-family:Newsreader,serif;font-weight:600}
-.stagecard .tagline{color:var(--mut);font-size:13.5px;margin:4px 0 14px;font-weight:700}
-.stagecard .sbody{font-size:15px}
-.exbox{background:var(--card2);border:1px solid var(--line);border-inline-start:3px solid var(--accent);
-  border-radius:0 11px 11px 0;padding:13px 16px;margin:14px 0 6px}
-.exbox .exk{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.5px;text-transform:uppercase}
-.exbox .ext{font-size:13.8px;margin-top:3px}
-.gainrow{display:flex;align-items:flex-start;gap:9px;margin-top:12px;font-size:13px;color:var(--mut)}
-.gainrow .gi{flex:0 0 auto;color:var(--c-green);font-weight:800}
-.stagenav{display:flex;justify-content:space-between;gap:10px;margin-top:16px}
-.stagenav button{border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit;
-  font-size:13px;font-weight:700;border-radius:9px;padding:8px 14px;cursor:pointer}
-.stagenav button:hover:not(:disabled){border-color:var(--accent);color:var(--accent)}
-.stagenav button:disabled{opacity:.4;cursor:default}
-
-/* ── QUOTES ───────────────────────────────────────────────── */
-.qgrid{display:grid;grid-template-columns:1fr;gap:12px}
-@media(min-width:720px){.qgrid{grid-template-columns:1fr 1fr}}
-blockquote{margin:0;background:var(--card2);border-inline-start:3px solid var(--accent);
-  border-radius:0 12px 12px 0;padding:15px 18px;font-size:14.5px;position:relative}
-blockquote .qm{font-size:34px;line-height:0;color:var(--accent);opacity:.35;font-family:Georgia,serif;
-  position:absolute;inset-inline-start:10px;top:20px}
-blockquote p{margin:0;padding-inline-start:22px}
-html[data-lang="en"] blockquote{font-family:Newsreader,Georgia,serif;font-size:15.5px}
-
-/* ── MEDIA ────────────────────────────────────────────────── */
-.mgrid{display:grid;grid-template-columns:1fr;gap:16px}
-@media(min-width:640px){.mgrid{grid-template-columns:1fr 1fr}}
-.mcard{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;
-  box-shadow:var(--shadow);display:flex;flex-direction:column}
-.mthumb{position:relative;display:block;aspect-ratio:16/9;background:var(--bg2);overflow:hidden;text-decoration:none}
-.mthumb img{width:100%;height:100%;object-fit:cover;display:block}
-.mthumb .play{position:absolute;inset:0;display:grid;place-items:center}
-.mthumb .play span{width:54px;height:54px;border-radius:50%;background:rgba(0,0,0,.6);
-  display:grid;place-items:center;border:2px solid rgba(255,255,255,.9)}
-.mthumb .play svg{width:22px;height:22px;fill:#fff;margin-inline-start:3px}
-.mthumb .ptype{position:absolute;inset-inline-start:9px;top:9px;background:rgba(0,0,0,.72);color:#fff;
-  font-size:11px;font-weight:700;border-radius:6px;padding:3px 9px;letter-spacing:.3px}
-.mfake{aspect-ratio:16/9;display:grid;place-items:center;
-  background:linear-gradient(135deg,color-mix(in srgb,var(--c-violet) 22%,var(--card)),color-mix(in srgb,var(--c-teal) 22%,var(--card)))}
-.mfake svg{width:52px;height:52px;color:var(--ink);opacity:.6}
-.mbody{padding:15px 17px;display:flex;flex-direction:column;gap:7px;flex:1}
-.mbody .msrc{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.3px;text-transform:uppercase}
-.mbody h4{margin:0;font-size:15.5px;font-weight:800;line-height:1.4}
-html[data-lang="en"] .mbody h4{font-family:Newsreader,serif;font-weight:600}
-.mbody .mdesc{font-size:13px;color:var(--mut);margin:0}
-.mbody ul{margin:4px 0 0;padding-inline-start:18px}
-.mbody ul li{font-size:12.8px;margin:5px 0}
-.mbody .mbest{font-size:12px;font-weight:700;color:var(--warm);margin-top:auto;padding-top:8px}
-.mlink{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;
-  text-decoration:none;color:var(--accent);margin-top:4px}
-.mlink:hover{text-decoration:underline}
-.golist{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
-.golist a{font-size:12.5px;text-decoration:none;color:var(--ink);border:1px solid var(--line);
-  border-radius:20px;padding:6px 13px;background:var(--card);font-weight:700}
-.golist a:hover{border-color:var(--accent);color:var(--accent)}
-
-/* ── RECS + METHOD + CREDIT ───────────────────────────────── */
-.rec{display:grid;gap:10px;margin:8px 0}
-.rec .item{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--card)}
-.rec .item .t{font-weight:800;font-size:14.5px;margin-bottom:3px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.rec .item .t .pri{font-size:11px;font-weight:700;color:#fff;background:var(--warm);border-radius:6px;padding:2px 9px}
-.rec .item .t .pri.b{background:var(--accent)}
-.rec .item .d{font-size:13.4px;color:var(--mut)}
-.method{color:var(--mut);font-size:13.4px}
-.method p{margin:8px 0}
-.method b{color:var(--ink)}
-.credit{text-align:center;margin-top:40px;padding:22px 0 8px;border-top:1px solid var(--line);
-  color:var(--mut);font-size:14px}
-.credit .cname{color:var(--ink);font-weight:800}
-.credit a{font-weight:700;text-decoration:none}
-.credit a:hover{text-decoration:underline}
-.credit .sep{opacity:.5;margin:0 8px}
-.credit .li{display:inline-flex;align-items:center;gap:5px;vertical-align:middle}
-.credit .li svg{width:15px;height:15px;vertical-align:-3px}
-
-@media (max-width:640px){
-  body{font-size:14px}
-  .wrap{padding:0 13px 30px}
-  .hero{padding:28px 0 22px} .hero h1{font-size:22px}
-  h2{font-size:18px;scroll-margin-top:66px}
-  .brand{display:none}
-  .toc{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;scrollbar-width:none}
-  .toc::-webkit-scrollbar{display:none}
-  #netsvg{height:420px}
-}
-</style>
+<link rel="stylesheet" href="../assets/book.css">
 </head>
 <body>
+<div id="app"></div>
 
-<!-- ── HERO ───────────────────────────────────────────────── -->
-<header class="hero"><div class="wrap">
-  <div class="eyebrow"><span class="edot"></span>
-    <span data-only="en">Book knowledge map · Dale Carnegie</span>
-    <span data-only="fa">نقشهٔ کتاب · دیل کارنگی</span>
-  </div>
-  <h1>
-    <span data-only="en">How to Win Friends and Influence People — The Classic on Human Relations</span>
-    <span data-only="fa">چطور دوست پیدا کنیم و بر مردم اثر بگذاریم — کلاسیکِ روابطِ انسانی</span>
-  </h1>
-  <p class="dek">
-    <span data-only="en">A knowledge graph of the whole book, plus a 5-stage path from a single idea to expert-level mastery — with an example at every step.</span>
-    <span data-only="fa">نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از یک ایدهٔ ساده تا حرفه‌ای — با یک مثال در هر مرحله.</span>
-  </p>
-  <div class="metastrip">
-    <div class="metaitem"><span class="mk" data-only="en">Book</span><span class="mk" data-only="fa">کتاب</span>
-      <span class="mv" data-only="en">How to Win Friends and Influence People</span><span class="mv" data-only="fa">چطور دوست پیدا کنیم و بر مردم اثر بگذاریم</span></div>
-    <div class="metaitem"><span class="mk" data-only="en">Author</span><span class="mk" data-only="fa">نویسنده</span>
-      <span class="mv" data-only="en">Dale Carnegie</span><span class="mv" data-only="fa">دیل کارنگی</span></div>
-    <div class="metaitem"><span class="mk" data-only="en">Published</span><span class="mk" data-only="fa">سالِ چاپ</span>
-      <span class="mv" data-only="en">1936</span><span class="mv" data-only="fa">۱۹۳۶</span></div>
-    <div class="metaitem"><span class="mk" data-only="en">Group</span><span class="mk" data-only="fa">گروه</span>
-      <span class="mv" data-only="en">Influence</span><span class="mv" data-only="fa">نفوذ</span></div>
-  </div>
-  <div class="chips">
-    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Parts</span><span data-only="fa">بخش</span></div>
-    <div class="chip"><b data-only="en">16</b><b data-only="fa">۱۶</b><span data-only="en">Ideas</span><span data-only="fa">ایده</span></div>
-    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Learning stages</span><span data-only="fa">مرحلهٔ یادگیری</span></div>
-  </div>
-</div></header>
-
-<!-- ── STICKY NAV ─────────────────────────────────────────── -->
-<div class="navbar"><div class="navin">
-  <span class="brand"><span class="dot"></span>How to Win Friends and Influence People</span>
-  <nav class="toc">
-    <a href="#tldr" data-only="en">In a nutshell</a><a href="#tldr" data-only="fa">خلاصه</a>
-    <a href="#graph" data-only="en">Knowledge graph</a><a href="#graph" data-only="fa">نقشهٔ دانش</a>
-    <a href="#stages" data-only="en">5 stages</a><a href="#stages" data-only="fa">۵ مرحله</a>
-    <a href="#quotes" data-only="en">Quotes</a><a href="#quotes" data-only="fa">جمله‌ها</a>
-    <a href="#media" data-only="en">Watch &amp; explore</a><a href="#media" data-only="fa">تماشا و منابع</a>
-    <a href="#apply" data-only="en">Apply it</a><a href="#apply" data-only="fa">کاربرد</a>
-  </nav>
-  <div class="navctl">
-    <button class="langbtn" id="langBtn" aria-label="Switch language">
-      <svg class="globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>
-      <span data-only="en">فارسی</span><span data-only="fa">English</span>
-    </button>
-    <button class="themebtn" id="themeBtn" aria-label="Toggle theme" title="Light / Dark">
-      <span class="ic-sun" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5 19 19M19 5l-1.5 1.5M6.5 17.5 5 19"/></svg></span>
-      <span class="ic-moon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.6 6.6 0 0 0 9.8 9.8Z"/></svg></span>
-    </button>
-  </div>
-</div></div>
-
-<div class="wrap">
-
-  <!-- ── TL;DR ────────────────────────────────────────────── -->
-  <h2 id="tldr"><span class="num" data-only="en">1.</span><span class="num" data-only="fa">۱.</span>
-    <span data-only="en"> In a nutshell</span><span data-only="fa"> خلاصه</span></h2>
-  <p class="sub" data-only="en">If you read only this, you still get the whole idea.</p>
-  <p class="sub" data-only="fa">اگر فقط همین بخش را بخوانی، کلِ ایده دستت می‌آید.</p>
-  <div class="card lead"><ul class="clean" id="tldrHost"></ul></div>
-  <div class="kgrid">
-    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Parts (handle · be liked · win over · lead · human)</div><div class="l" data-only="fa">بخش (رفتار · دوست‌داشتنی · همراه‌کردن · رهبری · انسانی)</div></div>
-    <div class="kbox"><div class="v" data-only="en">16</div><div class="v" data-only="fa">۱۶</div><div class="l" data-only="en">Ideas you can use</div><div class="l" data-only="fa">ایده برای استفاده</div></div>
-    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Levels, simple → expert</div><div class="l" data-only="fa">مرحله، ساده تا حرفه‌ای</div></div>
-    <div class="kbox"><div class="v" data-only="en">3</div><div class="v" data-only="fa">۳</div><div class="l" data-only="en">The basics: no blame · honest appreciation · an eager want</div><div class="l" data-only="fa">پایه‌ها: بی‌سرزنش · قدردانیِ صادقانه · اشتیاق</div></div>
-  </div>
-  
-  <div class="callout accent">
-    <b data-only="en">The core idea:</b>
-    <b data-only="fa">ایدهٔ اصلی:</b>
-    <span data-only="en"> Carnegie's whole method rests on one truth: people act out of a deep craving to feel <i>important</i> and <i>appreciated</i>. So don't criticize — give <i>honest appreciation</i>, talk in terms of what the other person <i>wants</i>, and truly see things from their side. Do it sincerely, never as a trick.</span>
-    <span data-only="fa"> کلِ روشِ کارنگی روی یک حقیقت بنا شده: آدم‌ها از سرِ تشنگیِ عمیق برای حسِ <i>مهم‌بودن</i> و <i>قدردانی‌شدن</i> رفتار می‌کنند. پس انتقاد نکن — <i>قدردانیِ صادقانه</i> بده، از زاویهٔ چیزی که طرفِ مقابل <i>می‌خواهد</i> حرف بزن، و واقعاً از سمتِ او ببین. صادقانه انجامش بده، نه به‌عنوانِ کلک.</span>
-  </div>
-
-  <!-- ── KNOWLEDGE GRAPH ──────────────────────────────────── -->
-  <h2 id="graph"><span class="num" data-only="en">2.</span><span class="num" data-only="fa">۲.</span>
-    <span data-only="en"> The knowledge graph</span><span data-only="fa"> نقشهٔ دانش</span></h2>
-  <p class="sub" data-only="en">The whole book as one picture. Click any node to focus its connections and read more — or switch to the structured map.</p>
-  <p class="sub" data-only="fa">کلِ کتاب در یک تصویر. روی هر دایره کلیک کن تا ارتباط‌هایش را ببینی و بیشتر بخوانی — یا به نقشهٔ مرتب برو.</p>
-
-  <div class="gtabs">
-    <button class="gtab active" id="tabNet"><span data-only="en">Interactive network</span><span data-only="fa">شبکهٔ تعاملی</span></button>
-    <button class="gtab" id="tabMap"><span data-only="en">Structured map</span><span data-only="fa">نقشهٔ مرتب</span></button>
-  </div>
-
-  <!-- network view -->
-  <div class="card graphcard" id="netView">
-    <div class="legend" id="legendHost"></div>
-    <div class="graphstage">
-      <div class="svgwrap">
-        <svg id="netsvg" viewBox="0 0 820 560" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Effortless knowledge network"></svg>
-        <div class="ghint" id="ghint"></div>
-        <button class="greset" id="greset"></button>
-      </div>
-      <div class="detail" id="detailHost"></div>
-    </div>
-  </div>
-
-  <!-- map view -->
-  <div class="card graphcard" id="mapView" style="display:none">
-    <div class="flowline" id="flowTop"></div>
-    <div class="mapgrid" id="mapHost"></div>
-    <div class="callout" style="margin-top:16px">
-      <b data-only="en">Read it as a flow:</b><b data-only="fa">به‌صورتِ یک جریان بخوانش:</b>
-      <span data-only="en"> handle people with <b>no blame</b> and honest appreciation, become <b>liked</b> through genuine interest and listening, <b>win people over</b> without arguing, and <b>lead</b> by praising and asking — all growing from one <b>human</b> root: make people feel important, sincerely.</span>
-      <span data-only="fa"> با آدم‌ها <b>بی‌سرزنش</b> و با قدردانیِ صادقانه رفتار کن، با علاقهٔ واقعی و گوش‌دادن <b>دوست‌داشتنی</b> شو، بدونِ بحث آن‌ها را <b>همراه</b> کن، و با تعریف و پرسیدن <b>رهبری</b> کن — همه از یک ریشهٔ <b>انسانی</b> می‌رویند: کاری کن آدم‌ها حس کنند مهم‌اند، صادقانه.</span>
-    </div>
-  </div>
-
-  <!-- ── 5 STAGES ─────────────────────────────────────────── -->
-  <h2 id="stages"><span class="num" data-only="en">3.</span><span class="num" data-only="fa">۳.</span>
-    <span data-only="en"> Learn it in 5 stages</span><span data-only="fa"> یادگیری در ۵ مرحله</span></h2>
-  <p class="sub" data-only="en">The same book at five depths. Start over-simplified, climb to expert. Tap a rung to jump.</p>
-  <p class="sub" data-only="fa">یک کتاب در پنج عمق. از خیلی ساده شروع کن و تا حرفه‌ای بالا برو. روی هر پله بزن تا بپری.</p>
-  <div class="ladder" id="ladderHost"></div>
-  <div id="stageHost"></div>
-
-  <!-- ── QUOTES ───────────────────────────────────────────── -->
-  <h2 id="quotes"><span class="num" data-only="en">4.</span><span class="num" data-only="fa">۴.</span>
-    <span data-only="en"> Lines worth keeping</span><span data-only="fa"> جمله‌هایی که ارزشِ نگه‌داشتن دارند</span></h2>
-  <p class="sub" data-only="en">Verbatim quotes from the book, translated alongside.</p>
-  <p class="sub" data-only="fa">جمله‌های مستقیم از کتاب، همراه با ترجمه.</p>
-  <div class="qgrid" id="quoteHost"></div>
-
-  <!-- ── MEDIA ────────────────────────────────────────────── -->
-  <h2 id="media"><span class="num" data-only="en">5.</span><span class="num" data-only="fa">۵.</span>
-    <span data-only="en"> Watch &amp; explore</span><span data-only="fa"> تماشا و منابع</span></h2>
-  <p class="sub" data-only="en">Special resources found online — each with what it covers and who it's best for.</p>
-  <p class="sub" data-only="fa">منابعِ ویژه‌ای که آنلاین پیدا شد — هرکدام با اینکه چه می‌گوید و به چه دردی می‌خورد.</p>
-  <div class="mgrid" id="mediaHost"></div>
-  <div class="card" style="margin-top:16px">
-    <div style="font-weight:800;font-size:13.5px;margin-bottom:4px">
-      <span data-only="en">Go straight to the source</span><span data-only="fa">مستقیم سراغِ منبع برو</span>
-    </div>
-    <div class="golist" id="goHost"></div>
-  </div>
-
-  <!-- ── APPLY ────────────────────────────────────────────── -->
-  <h2 id="apply"><span class="num" data-only="en">6.</span><span class="num" data-only="fa">۶.</span>
-    <span data-only="en"> Apply it this week</span><span data-only="fa"> این هفته امتحانش کن</span></h2>
-  <p class="sub" data-only="en">Four small moves that turn the idea into a habit.</p>
-  <p class="sub" data-only="fa">چهار حرکتِ کوچک که این ایده را به عادت تبدیل می‌کنند.</p>
-  <div class="rec" id="recHost"></div>
-
-  <!-- ── METHOD ───────────────────────────────────────────── -->
-  <h2 id="method"><span class="num" data-only="en">7.</span><span class="num" data-only="fa">۷.</span>
-    <span data-only="en"> Sources &amp; notes</span><span data-only="fa"> منابع و توضیح</span></h2>
-  <div class="card method" id="methodHost"></div>
-
-  <!-- ── CREDIT FOOTER ────────────────────────────────────── -->
-  <div class="credit">
-    <span data-only="en">Created by <span class="cname">Behnam Atefi</span><span class="sep">·</span><a class="li" href="https://www.linkedin.com/in/behnamatefi/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.3c0-1.26-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9z"/></svg>LinkedIn</a></span>
-    <span data-only="fa">ساخته‌شده توسط <span class="cname">بهنام عاطفی</span><span class="sep">·</span><a class="li" href="https://www.linkedin.com/in/behnamatefi/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.3c0-1.26-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9z"/></svg>لینکدین</a></span>
-  </div>
-</div>
-
-<!-- ═══════════════════════ SCRIPTS ═══════════════════════ -->
+<script src="../assets/library.js"></script>
+<script src="../assets/book.js"></script>
 <script>
-/* ── 1) language + formatters ─────────────────────────────── */
-var LANG = document.documentElement.getAttribute('data-lang') || 'fa';
-var FA_D = '۰۱۲۳۴۵۶۷۸۹';
-var RLM  = '‏';
-function faDigits(s){ return String(s).replace(/[0-9]/g, function(d){ return FA_D[+d]; }); }
-/* honor the RTL preference: isolate Latin runs (word order preserved) and mark with U+200F */
-function rlm(s){
-  return String(s)
-    .replace(/[A-Za-zÀ-ɏ][A-Za-zÀ-ɏ0-9'’.&:\/\-]*(?:\s+[A-Za-zÀ-ɏ0-9'’.&:\/\-]+)*/g,
-      function(m){ return RLM+'⁦'+m+'⁩'+RLM; })
-    .replace(/[0-9۰-۹]+/g, function(m){ return m+RLM; });
-}
-/* transform only TEXT segments, never HTML tags (so <b>/<i> survive) */
-function faText(s){ return String(s).replace(/(<[^>]+>)|([^<]+)/g, function(m,tag,txt){ return tag ? tag : faDigits(rlm(txt)); }); }
-function TX(o){ if(o==null) return ''; if(typeof o==='string') return o; return LANG==='fa' ? faText(o.fa) : o.en; }
-function num(n){ return LANG==='fa' ? faDigits(n) : String(n); }
-function tok(name){ return getComputedStyle(document.documentElement).getPropertyValue(name).trim(); }
-</script>
-
-<script>
-/* ── DATA LAYER — Atomic Habits (bilingual, plain-spoken Persian) ── */
-var DATA = {"tldr":[{"en":"The whole book in one line: to influence people, make them feel genuinely important — and stop trying to win them by force.","fa":"کلِ کتاب در یک جمله: برای اثرگذاری روی آدم‌ها، کاری کن واقعاً حس کنند مهم‌اند — و دست از بردنشان با زور بردار."},{"en":"Start with three basics: <b>don't criticize</b>, give <b>honest appreciation</b>, and <b>arouse an eager want</b> in the other person.","fa":"با سه پایه شروع کن: <b>انتقاد نکن</b>، <b>قدردانیِ صادقانه</b> بده، و در طرفِ مقابل <b>اشتیاق</b> بساز."},{"en":"To be liked, be genuinely <b>interested</b> in others, <b>smile</b>, remember <b>names</b>, and truly <b>listen</b>.","fa":"برای دوست‌داشتنی‌شدن، واقعاً به دیگران <b>علاقه‌مند</b> شو، <b>لبخند</b> بزن، <b>اسم‌ها</b> را یادت باشد، و واقعاً <b>گوش</b> بده."},{"en":"To win people over, <b>avoid arguments</b>, never say <b>“you're wrong”</b>, and let the good idea feel like <b>theirs</b>.","fa":"برای همراه‌کردنِ آدم‌ها، <b>از بحث دوری کن</b>، هیچ‌وقت نگو <b>«اشتباه می‌کنی»</b>، و بگذار ایدهٔ خوب حس شود مالِ <b>خودشان</b> است."},{"en":"To lead, <b>begin with praise</b>, <b>ask instead of order</b>, and give people a good name to live up to — always <b>sincerely</b>.","fa":"برای رهبری، <b>با تعریف شروع کن</b>، <b>به‌جای دستور بپرس</b>، و به آدم‌ها اسمِ خوبی بده که پایش بمانند — همیشه <b>صادقانه</b>."}],"parts":[{"key":"handling","varc":"--c-teal","name":{"en":"Handling People","fa":"رفتار با آدم‌ها"},"tag":{"en":"The basics","fa":"پایه‌ها"},"gist":{"en":"Three habits: no blame, honest appreciation, and arousing an eager want.","fa":"سه عادت: بی‌سرزنش، قدردانیِ صادقانه، و ساختنِ اشتیاق."},"more":{"en":"Before any clever technique, three fundamentals change how people respond to you. Stop criticizing, give people a sincere sense of their worth, and frame everything around what they want — get these right and the rest gets easy.","fa":"قبل از هر روشِ زیرکانه‌ای، سه اصلِ پایه طرزِ واکنشِ آدم‌ها به تو را عوض می‌کند. دست از انتقاد بردار، به آدم‌ها حسِ صادقانهٔ ارزش بده، و همه‌چیز را دورِ خواستهٔ آن‌ها بچین — این‌ها را درست کن، بقیه راحت می‌شود."},"chapters":["dontcrit","appreciate","eagerwant"]},{"key":"likeable","varc":"--c-blue","name":{"en":"Make People Like You","fa":"دوست‌داشتنی‌شدن"},"tag":{"en":"Six ways","fa":"شش راه"},"gist":{"en":"Be interested, smile, remember names, and really listen.","fa":"علاقه‌مند باش، لبخند بزن، اسم‌ها را یادت باشد، و واقعاً گوش بده."},"more":{"en":"Likeability isn't charm or cleverness; it's warmth aimed at the other person. Show real interest, smile, use their name, and listen as if they're the only person in the room — and people are drawn to you.","fa":"دوست‌داشتنی‌بودن، جذابیت یا زرنگی نیست؛ گرمایی است که به سمتِ طرفِ مقابل نشانه رفته. علاقهٔ واقعی نشان بده، لبخند بزن، اسمش را به کار ببر، و طوری گوش بده که انگار تنها آدمِ اتاق اوست — آن‌وقت آدم‌ها به‌سمتت کشیده می‌شوند."},"chapters":["interested","smile","name","listen"]},{"key":"persuade","varc":"--c-amber","name":{"en":"Win Them Over","fa":"همراه‌کردنِ دیگران"},"tag":{"en":"Change minds","fa":"تغییرِ نظرها"},"gist":{"en":"Avoid arguments, respect their view, and make the idea theirs.","fa":"از بحث دوری کن، به نظرشان احترام بگذار، و ایده را مالِ خودشان کن."},"more":{"en":"You almost never change a mind by force. Skip the argument, never announce that someone is wrong, get them nodding early, and let them arrive at your idea themselves — persuasion is something people do to themselves once you make it safe.","fa":"تقریباً هیچ‌وقت با زور نظری را عوض نمی‌کنی. بحث را رها کن، هیچ‌وقت اعلام نکن که کسی اشتباه می‌کند، زود کاری کن سرشان را به تأیید تکان دهند، و بگذار خودشان به ایده‌ات برسند — همراه‌شدن کاری است که آدم‌ها با خودشان می‌کنند، وقتی تو فضا را امن می‌کنی."},"chapters":["argue","noWrong","theirIdea"]},{"key":"leader","varc":"--c-violet","name":{"en":"Be a Leader","fa":"رهبر باش"},"tag":{"en":"Change without offense","fa":"تغییر بدونِ رنجش"},"gist":{"en":"Praise first, ask instead of order, and grow people with a good name.","fa":"اول تعریف کن، به‌جای دستور بپرس، و آدم‌ها را با اسمِ خوب رشد بده."},"more":{"en":"Leadership here is changing people without making enemies. Begin with genuine praise, correct gently and indirectly, ask rather than command, protect people's pride, and praise every small step — people grow toward the reputation you hand them.","fa":"رهبری اینجا یعنی عوض‌کردنِ آدم‌ها بدونِ دشمن‌تراشیدن. با تعریفِ واقعی شروع کن، نرم و غیرمستقیم اصلاح کن، به‌جای فرمان‌دادن بپرس، از غرورِ آدم‌ها محافظت کن، و هر قدمِ کوچک را تحسین کن — آدم‌ها به‌سمتِ اعتباری که بهشان می‌دهی رشد می‌کنند."},"chapters":["praiseFirst","askQuestions","reputation"]},{"key":"human","varc":"--c-green","name":{"en":"Human Principles","fa":"اصل‌های انسانی"},"tag":{"en":"The root","fa":"ریشه"},"gist":{"en":"People crave importance; see their view; stay sincere.","fa":"آدم‌ها تشنهٔ مهم‌بودن‌اند؛ دیدشان را ببین؛ صادق بمان."},"more":{"en":"Underneath every technique are a few truths about people. Everyone hungers to feel important, everyone sees the world from their own angle, and none of it works as a trick — the methods only hold up when they come from sincere care.","fa":"زیرِ هر روشی چند حقیقت دربارهٔ آدم‌ها هست. همه تشنهٔ حسِ مهم‌بودن‌اند، همه دنیا را از زاویهٔ خودشان می‌بینند، و هیچ‌کدامِ این‌ها به‌عنوانِ کلک جواب نمی‌دهد — این روش‌ها فقط وقتی دوام می‌آورند که از دلسوزیِ صادقانه بیایند."},"chapters":["importance","viewpoint","sincerity"]}],"chapters":{"dontcrit":{"part":"handling","n":1,"name":{"en":"Don't Criticize, Condemn or Complain","fa":"انتقاد، سرزنش و شکایت نکن"},"glabel":{"en":"Don't Criticize","fa":"انتقاد نکن"},"principle":{"en":"Criticism puts people on the defensive and wounds their pride; it changes almost no one. Drop the blame.","fa":"انتقاد آدم‌ها را گارد می‌کند و به غرورشان می‌زند؛ تقریباً هیچ‌کس را عوض نمی‌کند. سرزنش را بگذار کنار."},"more":{"en":"People rarely blame themselves for anything, however wrong. Condemning them just makes them defend harder and resent you — so instead of criticizing, try to understand why they did what they did.","fa":"آدم‌ها هرچقدر هم اشتباه کنند، به‌ندرت خودشان را مقصر می‌دانند. سرزنش فقط باعث می‌شود سفت‌تر از خودشان دفاع کنند و از تو دلخور شوند — پس به‌جای انتقاد، سعی کن بفهمی چرا آن کار را کرده‌اند."},"example":{"en":"After Gettysburg, Lincoln wrote a furious letter to a general who let the enemy escape — then never sent it. He knew blame would only start a fight.","fa":"لینکلن بعد از نبردِ گتیسبرگ نامه‌ای پُر از خشم برای فرمانده‌ای نوشت که گذاشت دشمن فرار کند — بعد هیچ‌وقت نفرستادش. می‌دانست سرزنش فقط دعوا راه می‌اندازد."},"tip":{"en":"Before you criticize, ask what would make a decent person act this way — then say nothing.","fa":"قبل از انتقاد، بپرس چه چیزی یک آدمِ معمولی را به این کار می‌کشاند — بعد چیزی نگو."},"pitfall":{"en":"Thinking that pointing out the fault will fix it — it usually just hardens it.","fa":"این خیال که نشان‌دادنِ اشتباه درستش می‌کند — معمولاً فقط سفت‌ترش می‌کند."}},"appreciate":{"part":"handling","n":2,"name":{"en":"Give Honest, Sincere Appreciation","fa":"قدردانیِ صادقانه بده"},"glabel":{"en":"Appreciate","fa":"قدردانی"},"principle":{"en":"The deepest human hunger is to feel appreciated. Feed it with honest, specific praise — not flattery.","fa":"عمیق‌ترین گرسنگیِ آدم این است که قدرش دانسته شود. با تعریفِ صادقانه و مشخص سیرش کن — نه با چاپلوسی."},"more":{"en":"Everyone you meet wants to feel important. Give people a genuine sense of their worth and they'll do almost anything for you; withhold it and they wilt. The catch is that it must be sincere — appreciation from the heart, not the teeth.","fa":"هرکسی که می‌بینی می‌خواهد حس کند مهم است. اگر به آدم‌ها حسِ واقعیِ ارزش بدهی، تقریباً هر کاری برایت می‌کنند؛ اگر ندهی، پژمرده می‌شوند. رمزش این است که باید صادقانه باشد — قدردانی از دل، نه از سرِ زبان."},"example":{"en":"Charles Schwab said his fortune was paid mainly for his ability to draw the best out of people with honest appreciation and encouragement.","fa":"چارلز شواب می‌گفت دستمزدِ کلانش بیشتر برای این بود که می‌توانست با قدردانی و تشویقِ صادقانه بهترینِ آدم‌ها را بیرون بکشد."},"tip":{"en":"Today, tell one person exactly what you value about them — and mean it.","fa":"امروز به یک نفر دقیقاً بگو چه چیزی‌اش را قدر می‌دانی — و از ته دل بگو."},"pitfall":{"en":"Sliding into empty flattery, which people see through at once.","fa":"لغزیدن به چاپلوسیِ توخالی، که آدم‌ها فوری دستش را می‌خوانند."}},"eagerwant":{"part":"handling","n":3,"name":{"en":"Arouse an Eager Want","fa":"میل و اشتیاق بساز"},"glabel":{"en":"Eager Want","fa":"اشتیاق"},"principle":{"en":"The only way to move anyone is to talk about what they want and show them how to get it.","fa":"تنها راهِ به‌حرکت‌درآوردنِ هر کسی این است که از چیزی حرف بزنی که او می‌خواهد و نشانش بدهی چطور به آن برسد."},"more":{"en":"You want what you want; so does everyone else. Stop talking about your own needs and frame your idea around theirs. The person who can arouse an eager want in others has the whole world with them.","fa":"تو چیزی را می‌خواهی که می‌خواهی؛ بقیه هم همین‌طور. دست از حرف‌زدن دربارهٔ نیازِ خودت بردار و ایده‌ات را دورِ خواستهٔ او بچین. کسی که بتواند در دیگران اشتیاق بسازد، تمامِ دنیا با اوست."},"example":{"en":"Carnegie put it plainly: he loved strawberries and cream, but he baited his hook with worms — because that is what the fish wanted.","fa":"کارنگی ساده می‌گفت: خودش عاشقِ توت‌فرنگی و خامه بود، اما قلابش را با کِرم طعمه می‌زد — چون ماهی این را می‌خواست."},"tip":{"en":"Before you ask, write one line: why would the other person want to say yes?","fa":"قبل از اینکه چیزی بخواهی، یک خط بنویس: طرفِ مقابل چرا باید بخواهد بله بگوید؟"},"pitfall":{"en":"Pitching everything in terms of what you need.","fa":"همه‌چیز را از زاویهٔ نیازِ خودت مطرح‌کردن."}},"interested":{"part":"likeable","n":4,"name":{"en":"Become Genuinely Interested in Others","fa":"واقعاً به دیگران علاقه‌مند شو"},"glabel":{"en":"Be Interested","fa":"علاقه‌مند شو"},"principle":{"en":"You make more friends in two months by being interested in others than in two years of trying to make them interested in you.","fa":"با علاقه‌مندشدن به دیگران در دو ماه بیشتر دوست پیدا می‌کنی تا با دو سال تلاش برای اینکه دیگران را به خودت علاقه‌مند کنی."},"more":{"en":"Real, warm interest in other people opens doors that cleverness never will. Ask about them, remember what matters to them, and show up genuinely glad to see them — the way a dog greets you.","fa":"علاقهٔ واقعی و گرم به آدم‌ها دری را باز می‌کند که زرنگی هیچ‌وقت باز نمی‌کند. دربارهٔ خودشان بپرس، یادت باشد چه چیزی برایشان مهم است، و واقعاً خوشحال از دیدنشان ظاهر شو — مثلِ سگی که به استقبالت می‌آید."},"example":{"en":"A dog makes a living purely by showing it's glad to see you — no skills, no résumé, just genuine delight.","fa":"سگ فقط با نشان‌دادنِ اینکه از دیدنت خوشحال است نانش را درمی‌آورد — نه مهارتی، نه رزومه‌ای، فقط شادیِ واقعی."},"tip":{"en":"In your next chat, ask two real questions about them before you say anything about yourself.","fa":"در گفت‌وگوی بعدی، قبل از اینکه چیزی دربارهٔ خودت بگویی، دو سؤالِ واقعی دربارهٔ او بپرس."},"pitfall":{"en":"Trying to be interesting instead of being interested.","fa":"تلاش برای جالب‌بودن، به‌جای علاقه‌مندبودن."}},"smile":{"part":"likeable","n":5,"name":{"en":"Smile","fa":"لبخند بزن"},"glabel":{"en":"Smile","fa":"لبخند"},"principle":{"en":"A simple smile says “I'm glad to see you” faster than any words — and it costs nothing.","fa":"یک لبخندِ ساده سریع‌تر از هر کلمه‌ای می‌گوید «از دیدنت خوشحالم» — و هیچ خرجی هم ندارد."},"more":{"en":"Your expression tells people how you feel about them before you speak. A warm smile is a small act of generosity that makes the other person feel welcome; act cheerful and, as often as not, you begin to feel it too.","fa":"چهره‌ات قبل از اینکه حرف بزنی به آدم‌ها می‌گوید چه حسی به آن‌ها داری. یک لبخندِ گرم یک بخششِ کوچک است که طرف را حس می‌کند پذیرفته‌شده؛ شاد رفتار کن، اغلب کم‌کم خودت هم شاد می‌شوی."},"example":{"en":"Carnegie tells of a man who forced himself to smile each morning and found his marriage and his business warm up within weeks.","fa":"کارنگی از مردی می‌گوید که هر صبح خودش را به لبخند وادار کرد و دید که در چند هفته هم زندگیِ زناشویی و هم کارش گرم‌تر شد."},"tip":{"en":"Smile — a real one — at the next three people you talk to, even on the phone.","fa":"به سه نفرِ بعدی که با آن‌ها حرف می‌زنی لبخند بزن — یک لبخندِ واقعی — حتی پشتِ تلفن."},"pitfall":{"en":"A cold or distracted face that pushes people away before you speak.","fa":"یک چهرهٔ سرد یا حواس‌پرت که قبل از حرف‌زدن آدم‌ها را پس می‌زند."}},"name":{"part":"likeable","n":6,"name":{"en":"Remember the Name","fa":"اسم را به یاد بسپار"},"glabel":{"en":"Names","fa":"اسم"},"principle":{"en":"A person's own name is to them the sweetest, most important sound in any language.","fa":"اسمِ خودِ آدم برایش شیرین‌ترین و مهم‌ترین صدا در هر زبانی است."},"more":{"en":"Remembering and using someone's name tells them they matter to you. Forget it, misspell it, or mangle it, and you send the opposite message. Make the small effort to catch it, repeat it, and use it.","fa":"به‌یاد‌داشتن و به‌کاربردنِ اسمِ کسی به او می‌گوید که برایت مهم است. فراموشش کنی، غلط بنویسی‌اش یا خرابش کنی، پیامِ برعکس می‌فرستی. همان زحمتِ کوچک را بکش که بگیری‌اش، تکرارش کنی، و به کارش ببری."},"example":{"en":"Politician Jim Farley could call thousands of people by their first names — and that gift helped put a president in office.","fa":"جیم فارلیِ سیاستمدار می‌توانست هزاران نفر را به اسمِ کوچک صدا بزند — و همین توانایی کمک کرد یک رئیس‌جمهور سرِ کار بیاید."},"tip":{"en":"When you meet someone, repeat their name once out loud and picture it.","fa":"وقتی کسی را می‌بینی، اسمش را یک‌بار بلند تکرار کن و در ذهنت تصویرش کن."},"pitfall":{"en":"The lazy “I'm terrible with names” — it just tells people they're not worth the effort.","fa":"آن بهانهٔ تنبلانهٔ «من اسم یادم نمی‌ماند» — فقط به آدم‌ها می‌گوید ارزشِ این زحمت را ندارند."}},"listen":{"part":"likeable","n":7,"name":{"en":"Be a Good Listener","fa":"شنوندهٔ خوبی باش"},"glabel":{"en":"Listen","fa":"گوش بده"},"principle":{"en":"Encourage others to talk about themselves, and listen as if nothing else matters.","fa":"دیگران را تشویق کن دربارهٔ خودشان حرف بزنند، و طوری گوش بده که انگار هیچ‌چیزِ دیگری مهم نیست."},"more":{"en":"Most people would rather have a good listener than a clever talker. Give someone your full attention, ask about what they love, and let them do most of the talking — they'll walk away thinking you're wonderful company.","fa":"بیشترِ آدم‌ها یک شنوندهٔ خوب را به یک حرّافِ زبل ترجیح می‌دهند. تمامِ حواست را به کسی بده، از چیزی که دوست دارد بپرس، و بگذار بیشترِ حرف‌ها را او بزند — با این حس می‌رود که تو هم‌صحبتِ فوق‌العاده‌ای هستی."},"example":{"en":"At a dinner Carnegie mostly listened to a botanist for hours; the man later called him a “most interesting conversationalist”.","fa":"سرِ یک شام، کارنگی ساعت‌ها بیشتر به یک گیاه‌شناس گوش داد؛ آن مرد بعداً او را «یک هم‌صحبتِ فوق‌العاده جالب» نامید."},"tip":{"en":"In your next conversation, aim to speak less than a third of the time.","fa":"در گفت‌وگوی بعدی، هدفت این باشد که کمتر از یک‌سومِ وقت حرف بزنی."},"pitfall":{"en":"Waiting for your turn to talk instead of actually listening.","fa":"منتظرِ نوبتِ حرف‌زدنِ خودت ماندن، به‌جای اینکه واقعاً گوش بدهی."}},"argue":{"part":"persuade","n":8,"name":{"en":"Avoid the Argument","fa":"از بحث دوری کن"},"glabel":{"en":"Avoid Arguing","fa":"بحث نکن"},"principle":{"en":"The only way to get the best of an argument is to avoid it — you can't win one.","fa":"تنها راهِ پیروزی در یک بحث این است که واردش نشوی — بحث را نمی‌شود بُرد."},"more":{"en":"Win an argument and you still lose: the other person's pride is hurt and they resent you. Even when you're right, a beaten opponent keeps their old opinion. Better to sidestep the fight and keep the goodwill.","fa":"بحث را ببری، باز هم باخته‌ای: غرورِ طرف زخم می‌خورد و از تو دلخور می‌شود. حتی وقتی حق با توست، طرفِ شکست‌خورده باز همان نظرِ قبلی‌اش را دارد. بهتر است دعوا را دور بزنی و خوش‌بینی را نگه داری."},"example":{"en":"At a banquet a man misquoted a line as Shakespeare; Carnegie's friend, under the table, told him to let it go — being right wasn't worth the bad feeling.","fa":"سرِ یک ضیافت، مردی جمله‌ای را اشتباه به شکسپیر نسبت داد؛ دوستِ کارنگی زیرِ میز به او گفت بی‌خیالش شود — حق‌داشتن ارزشِ آن دلخوری را نداشت."},"tip":{"en":"Next time you feel the urge to correct someone, ask if winning is worth the friction.","fa":"دفعهٔ بعد که خواستی کسی را تصحیح کنی، بپرس بردن ارزشِ این کدورت را دارد یا نه."},"pitfall":{"en":"Winning the point and losing the person.","fa":"بردنِ بحث و باختنِ آدم."}},"noWrong":{"part":"persuade","n":9,"name":{"en":"Never Say “You're Wrong”","fa":"هیچ‌وقت نگو «اشتباه می‌کنی»"},"glabel":{"en":"Never Say Wrong","fa":"نگو اشتباهی"},"principle":{"en":"Don't tell people they're wrong; show respect for their opinion — and admit your own mistakes fast.","fa":"به آدم‌ها نگو اشتباه می‌کنند؛ به نظرشان احترام بگذار — و اشتباهِ خودت را سریع بپذیر."},"more":{"en":"“You're wrong” is a slap that makes people dig in. Begin in a friendly way, grant that you might be mistaken, and let them save face. And when you are wrong, say so quickly and warmly — it disarms people instantly.","fa":"«اشتباه می‌کنی» یک سیلی است که آدم‌ها را لجوج‌تر می‌کند. دوستانه شروع کن، قبول کن که شاید خودت اشتباه کنی، و بگذار آبرویشان را نگه دارند. و وقتی خودت اشتباه کردی، سریع و گرم بگو — این فوری خلعِ‌سلاحشان می‌کند."},"example":{"en":"Ben Franklin dropped words like “certainly” for “I imagine”, and found people agreed with him far more often.","fa":"بنجامین فرانکلین کلماتی مثلِ «قطعاً» را کنار گذاشت و «به‌گمانم» گفت، و دید که آدم‌ها خیلی بیشتر باهاش موافقت می‌کنند."},"tip":{"en":"Replace “you're wrong” with “I may be off, but here's how I see it”.","fa":"«اشتباه می‌کنی» را با «شاید من اشتباه کنم، اما من این‌طور می‌بینمش» عوض کن."},"pitfall":{"en":"Correcting someone bluntly and watching them stop listening.","fa":"تصحیحِ رک و بی‌پردهٔ کسی و تماشای اینکه دیگر گوش نمی‌دهد."}},"theirIdea":{"part":"persuade","n":10,"name":{"en":"Make the Idea Theirs","fa":"بگذار ایده مالِ خودشان باشد"},"glabel":{"en":"Their Idea","fa":"ایدهٔ خودشان"},"principle":{"en":"Let the other person do the talking and feel the idea is their own — get them saying “yes, yes” early.","fa":"بگذار طرفِ مقابل حرف بزند و حس کند ایده مالِ خودش است — زود کاری کن که «بله، بله» بگوید."},"more":{"en":"People back their own ideas, not yours. Ask questions that draw out a string of small yeses, let them talk themselves toward the conclusion, and plant your suggestion so they feel they thought of it. Then honestly try to see it their way.","fa":"آدم‌ها پُشتِ ایدهٔ خودشان می‌ایستند، نه ایدهٔ تو. سؤال‌هایی بپرس که یک‌رشته «بله»‌های کوچک بیرون بکشد، بگذار خودشان حرف‌زنان به نتیجه برسند، و پیشنهادت را طوری بکار که حس کنند خودشان فکرش کرده‌اند. بعد صادقانه سعی کن از دیدِ آن‌ها ببینی‌اش."},"example":{"en":"Socrates kept asking questions his listeners had to agree with, leading them step by step to a conclusion they'd have fought head-on.","fa":"سقراط پشتِ‌سرِ هم سؤال‌هایی می‌پرسید که شنونده مجبور بود موافق باشد، و قدم‌به‌قدم آن‌ها را به نتیجه‌ای می‌رساند که رودررو باهاش می‌جنگیدند."},"tip":{"en":"Turn your next request into a question that lets them reach the idea themselves.","fa":"درخواستِ بعدی‌ات را به سؤالی تبدیل کن که بگذارد خودشان به ایده برسند."},"pitfall":{"en":"Pushing your conclusion so hard they push back on principle.","fa":"آن‌قدر نتیجهٔ خودت را هُل بدهی که از سرِ لج پسش بزنند."}},"praiseFirst":{"part":"leader","n":11,"name":{"en":"Begin With Praise, Correct Indirectly","fa":"با تعریف شروع کن، غیرمستقیم اصلاح کن"},"glabel":{"en":"Praise First","fa":"اول تعریف"},"principle":{"en":"Open with honest praise, point out mistakes indirectly, and talk about your own errors first.","fa":"با تعریفِ صادقانه باز کن، اشتباه‌ها را غیرمستقیم بگو، و اول از اشتباه‌های خودت حرف بزن."},"more":{"en":"It's easier to hear hard truths after a sincere compliment, the way a barber lathers before he shaves. Mention faults indirectly, and admit you've made the same slip yourself — now you're a fellow human, not a judge.","fa":"شنیدنِ حرف‌های سخت بعد از یک تعریفِ صادقانه راحت‌تر است، همان‌طور که سلمانی قبل از تراشیدن، صابون می‌زند. اشتباه‌ها را غیرمستقیم بگو، و اعتراف کن که خودت هم همین لغزش را داشته‌ای — حالا یک همنوعی، نه یک قاضی."},"example":{"en":"Finding workers smoking under a “No Smoking” sign, Schwab handed them cigars and asked them to smoke outside — no scolding, and they loved him for it.","fa":"شواب که کارگرها را زیرِ تابلوی «سیگار ممنوع» در حالِ سیگار‌کشیدن دید، به‌جای دعوا به آن‌ها سیگار برگ داد و خواست بیرون بکشند — و آن‌ها به‌خاطرش دوستش داشتند."},"tip":{"en":"Before a correction, name one thing the person genuinely did well.","fa":"قبل از هر اصلاحی، یک کاری را که طرف واقعاً خوب انجام داده نام ببر."},"pitfall":{"en":"Leading with the criticism so the praise sounds fake.","fa":"با انتقاد شروع‌کردن، طوری که تعریف بعدش الکی به‌نظر برسد."}},"askQuestions":{"part":"leader","n":12,"name":{"en":"Ask Questions, Not Orders","fa":"سؤال بپرس، دستور نده"},"glabel":{"en":"Ask, Don't Order","fa":"بپرس نه دستور"},"principle":{"en":"Give suggestions as questions, not commands, and always let the other person save face.","fa":"پیشنهادها را به‌شکلِ سؤال بده، نه دستور، و همیشه بگذار طرف آبرویش را نگه دارد."},"more":{"en":"“Would you consider this?” invites cooperation; “Do it this way” invites resistance. Questions let people keep their dignity and often improve on your idea. And however things go, never make someone feel small — protect their pride.","fa":"«به این فکر می‌کنی؟» همکاری می‌آورد؛ «این‌طوری انجامش بده» مقاومت. سؤال می‌گذارد آدم‌ها عزتشان را نگه دارند و اغلب ایده‌ات را هم بهتر می‌کنند. و هرطور که پیش برود، هیچ‌وقت نگذار کسی حس کند کوچک شده — از غرورش محافظت کن."},"example":{"en":"Executive Owen D. Young never gave a direct order; he asked “Do you think this would work?” and let people learn by doing.","fa":"اوون یانگِ مدیر هیچ‌وقت دستورِ مستقیم نمی‌داد؛ می‌پرسید «فکر می‌کنی این جواب می‌دهد؟» و می‌گذاشت آدم‌ها با انجام‌دادن یاد بگیرند."},"tip":{"en":"Turn your next instruction into a genuine question.","fa":"دستورِ بعدی‌ات را به یک سؤالِ واقعی تبدیل کن."},"pitfall":{"en":"Barking orders that dent pride and invite quiet resistance.","fa":"دستور‌دادنِ خشک که به غرور می‌زند و مقاومتِ خاموش می‌آورد."}},"reputation":{"part":"leader","n":13,"name":{"en":"Praise Improvement, Give a Reputation to Live Up To","fa":"پیشرفت را تحسین کن، اعتبار بده"},"glabel":{"en":"Reputation","fa":"اعتبار"},"principle":{"en":"Praise the slightest improvement, and give people a fine reputation to live up to.","fa":"کوچک‌ترین پیشرفت را تحسین کن، و به آدم‌ها یک اعتبارِ خوب بده که پایش بمانند."},"more":{"en":"People rise to the label you give them. Praise every step in the right direction and make the fault seem easy to fix; tell someone they already have the very quality you want, and they'll strain to prove you right.","fa":"آدم‌ها به‌اندازهٔ برچسبی که بهشان می‌زنی بالا می‌روند. هر قدمِ درست را تحسین کن و طوری رفتار کن که انگار اشتباه راحت‌درست‌شدنی است؛ به کسی بگو همین حالا همان خصلتِ خوبی را که می‌خواهی دارد، آن‌وقت جان می‌کَند که ثابت کند حق با توست."},"example":{"en":"Tell a careless worker you count on them for careful work, and often they start living up to the name you've given them.","fa":"به یک کارگرِ بی‌دقت بگو روی دقتِ کارش حساب می‌کنی، اغلب کم‌کم پایِ همان اسمی که بهش داده‌ای می‌ماند."},"tip":{"en":"Catch someone doing something a little right today and name it out loud.","fa":"امروز کسی را در حالِ درست‌انجام‌دادنِ یک کارِ کوچک بگیر و بلند اسمش را ببر."},"pitfall":{"en":"Noticing only mistakes and never the progress.","fa":"فقط اشتباه‌ها را دیدن و هیچ‌وقت پیشرفت را ندیدن."}},"importance":{"part":"human","n":14,"name":{"en":"Everyone Craves Importance","fa":"همه تشنهٔ مهم‌بودن‌اند"},"glabel":{"en":"Importance","fa":"مهم‌بودن"},"principle":{"en":"The deepest urge in human nature is the desire to feel important. Almost everything people do flows from it.","fa":"عمیق‌ترین کششِ سرشتِ آدمی، میل به حسِ مهم‌بودن است. تقریباً هر کاری که آدم‌ها می‌کنند از همین برمی‌آید."},"more":{"en":"We crave a feeling of importance the way we crave food. This one hunger drives ambition, generosity, even crime. Once you see it in everyone, you understand what really moves people — and you can meet it honestly.","fa":"ما تشنهٔ حسِ مهم‌بودن‌ایم، همان‌طور که تشنهٔ غذا. همین یک گرسنگی، جاه‌طلبی و بخشش و حتی جنایت را پیش می‌راند. وقتی این را در همه ببینی، می‌فهمی واقعاً چه چیزی آدم‌ها را حرکت می‌دهد — و می‌توانی صادقانه برآورده‌اش کنی."},"example":{"en":"William James wrote that the deepest principle in human nature is the craving to be appreciated.","fa":"ویلیام جیمز نوشت که عمیق‌ترین اصلِ سرشتِ آدمی، تشنگی برای قدردانی‌شدن است."},"tip":{"en":"Ask what would make the person in front of you feel important — then give it.","fa":"بپرس چه چیزی به آدمِ روبه‌رویت حسِ مهم‌بودن می‌دهد — بعد همان را بده."},"pitfall":{"en":"Ignoring people's need to matter, then wondering why they resist you.","fa":"نادیده‌گرفتنِ نیازِ آدم‌ها به مهم‌بودن، و بعد تعجب از اینکه چرا در برابرت مقاومت می‌کنند."}},"viewpoint":{"part":"human","n":15,"name":{"en":"See It Their Way","fa":"از دیدِ آن‌ها ببین"},"glabel":{"en":"Their Viewpoint","fa":"دیدِ آن‌ها"},"principle":{"en":"Try honestly to see things from the other person's point of view — it's the heart of every technique here.","fa":"صادقانه سعی کن چیزها را از زاویهٔ دیدِ طرفِ مقابل ببینی — این قلبِ همهٔ روش‌های اینجاست."},"more":{"en":"If there's one secret of success, it's the ability to get the other person's angle and see things from it as well as your own. Ask why they might want what they want; suddenly your approach becomes obvious.","fa":"اگر یک رازِ موفقیت باشد، همان توانایی گرفتنِ زاویهٔ طرفِ مقابل و دیدنِ چیزها از آن است، به‌اندازهٔ زاویهٔ خودت. بپرس چرا او چیزی را که می‌خواهد می‌خواهد؛ ناگهان راهت روشن می‌شود."},"example":{"en":"Carnegie baited the hook with what the fish wanted, not what he liked — the whole book is that one habit, applied to people.","fa":"کارنگی قلاب را با چیزی طعمه می‌زد که ماهی می‌خواست، نه چیزی که خودش دوست داشت — کلِ کتاب همین یک عادت است، به‌کاربسته روی آدم‌ها."},"tip":{"en":"Before an ask, spend a minute genuinely arguing the other side to yourself.","fa":"قبل از هر درخواست، یک دقیقه صادقانه طرفِ مقابل را برای خودت استدلال کن."},"pitfall":{"en":"Seeing only your own needs and calling it common sense.","fa":"فقط نیازِ خودت را دیدن و اسمش را عقلِ سلیم گذاشتن."}},"sincerity":{"part":"human","n":16,"name":{"en":"Sincerity, Not Manipulation","fa":"صداقت، نه بازی‌دادن"},"glabel":{"en":"Sincerity","fa":"صداقت"},"principle":{"en":"These aren't tricks. They only work when they come from genuine care — sincerity, never flattery.","fa":"این‌ها کلک نیستند. فقط وقتی جواب می‌دهند که از دلسوزیِ واقعی بیایند — صداقت، هیچ‌وقت چاپلوسی."},"more":{"en":"The whole method rests on real goodwill. Flattery is telling people what they already think of themselves; appreciation is sincere and comes from the heart. Use these ideas to manipulate and they curdle; use them to genuinely value people and they last.","fa":"کلِ این روش روی خیرخواهیِ واقعی بنا شده. چاپلوسی یعنی گفتنِ همان چیزی که آدم‌ها خودشان دربارهٔ خودشان فکر می‌کنند؛ قدردانی صادقانه است و از دل می‌آید. اگر با این ایده‌ها آدم‌ها را بازی بدهی، فاسد می‌شوند؛ اگر با آن‌ها واقعاً قدرِ آدم‌ها را بدانی، ماندگارند."},"example":{"en":"Carnegie's own line: the difference between appreciation and flattery is that one is sincere and the other insincere — one from the heart, one from the teeth.","fa":"جملهٔ خودِ کارنگی: فرقِ قدردانی و چاپلوسی این است که یکی صادقانه است و دیگری ریاکارانه — یکی از دل، دیگری از سرِ زبان."},"tip":{"en":"Only say the appreciation you actually mean; skip the rest.","fa":"فقط همان قدردانی‌ای را بگو که واقعاً به آن باور داری؛ بقیه را ول کن."},"pitfall":{"en":"Using these ideas as tactics, which people eventually smell.","fa":"استفاده از این ایده‌ها به‌عنوانِ تاکتیک، که آدم‌ها بالاخره بویش را می‌برند."}}},"core":{"name":{"en":"MAKE PEOPLE FEEL IMPORTANT","fa":"احساسِ مهم‌بودن بده"},"principle":{"en":"Almost every technique in the book grows from one root: the deep human craving to feel important and appreciated. Don't criticize; give honest appreciation; talk in terms of what the other person wants; and truly try to see things from their side. Do it sincerely, and people open up to you.","fa":"تقریباً هر روشِ کتاب از یک ریشه می‌روید: تشنگیِ عمیقِ آدم برای اینکه حس کند مهم است و قدرش دانسته می‌شود. انتقاد نکن؛ قدردانیِ صادقانه بده؛ از زاویهٔ خواستهٔ طرفِ مقابل حرف بزن؛ و واقعاً سعی کن از سمتِ او ببینی. صادقانه انجامش بده، آن‌وقت آدم‌ها به رویت باز می‌شوند."},"more":{"en":"Carnegie groups the ideas into a few moves: fundamental techniques for handling people (no blame, honest appreciation, arouse an eager want), ways to be liked (interest, a smile, names, listening), ways to win people to your thinking (avoid arguments, never say “you're wrong”, let the idea be theirs), and how to lead without giving offense (praise first, ask don't order, give a reputation to live up to). Underneath all of it is one principle: make the other person feel important — sincerely.","fa":"کارنگی ایده‌ها را در چند حرکت می‌چیند: روش‌های بنیادیِ رفتار با آدم‌ها (بی‌سرزنش، قدردانیِ صادقانه، ساختنِ اشتیاق)، راه‌های دوست‌داشتنی‌شدن (علاقه، لبخند، اسم، گوش‌دادن)، راه‌های همراه‌کردنِ دیگران با فکرت (دوری از بحث، نگفتنِ «اشتباه می‌کنی»، مالِ خودشان‌کردنِ ایده)، و رهبری بدونِ رنجاندن (اول تعریف، سؤال به‌جای دستور، اعتبار‌دادن). زیرِ همهٔ این‌ها یک اصل است: کاری کن طرفِ مقابل حس کند مهم است — صادقانه."},"example":{"en":"Click any node to read a principle or a method. You can also drag the nodes around.","fa":"روی هر دایره کلیک کن تا یک اصل یا روش را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."}},"stages":[{"level":1,"badge":{"en":"Level 1 · Over-simplified","fa":"سطحِ ۱ · خیلی ساده"},"title":{"en":"Make people feel important","fa":"کاری کن آدم‌ها حس کنند مهم‌اند"},"tagline":{"en":"The whole book in a sentence.","fa":"کلِ کتاب در یک جمله."},"body":{"en":"People do things for their reasons, not yours, and the biggest reason is wanting to feel important. Stop criticizing, start appreciating, and treat people like they matter — because to them, they do.","fa":"آدم‌ها کارها را به دلایلِ خودشان می‌کنند، نه دلایلِ تو، و بزرگ‌ترین دلیل، میل به حسِ مهم‌بودن است. دست از انتقاد بردار، شروع کن به قدردانی، و با آدم‌ها طوری رفتار کن که انگار مهم‌اند — چون برای خودشان مهم‌اند."},"example":{"en":"Instead of telling a teammate they messed up, thank them for what they did well first.","fa":"به‌جای اینکه به هم‌تیمی‌ات بگویی خراب کرده، اول برای کاری که خوب انجام داده ازش تشکر کن."},"gain":{"en":"You grasp the one idea the whole book expands on.","fa":"همان یک ایده‌ای را می‌گیری که کلِ کتاب بسطش می‌دهد."}},{"level":2,"badge":{"en":"Level 2 · Simple","fa":"سطحِ ۲ · ساده"},"title":{"en":"Three basics","fa":"سه پایه"},"tagline":{"en":"Don't criticize, appreciate, arouse a want.","fa":"انتقاد نکن، قدردانی کن، اشتیاق بساز."},"body":{"en":"Start with the fundamentals of handling people. <b>Don't criticize, condemn, or complain.</b> Give <b>honest, sincere appreciation.</b> And <b>arouse an eager want</b> by talking about what the other person cares about, not what you need.","fa":"با اصل‌های پایهٔ رفتار با آدم‌ها شروع کن. <b>انتقاد و سرزنش و شکایت نکن.</b> <b>قدردانیِ صادقانه</b> بده. و با حرف‌زدن از چیزی که برای طرفِ مقابل مهم است — نه نیازِ تو — در او <b>اشتیاق</b> بساز."},"example":{"en":"To get help, don't list your problems; show how helping you serves something they already want.","fa":"برای گرفتنِ کمک، مشکل‌هایت را ردیف نکن؛ نشان بده کمک‌کردن به تو چیزی را که خودش می‌خواهد پیش می‌برد."},"gain":{"en":"You can change how people respond to you in a single day.","fa":"می‌توانی در یک روز طرزِ واکنشِ آدم‌ها به خودت را عوض کنی."}},{"level":3,"badge":{"en":"Level 3 · Balanced","fa":"سطحِ ۳ · متعادل"},"title":{"en":"Be liked","fa":"دوست‌داشتنی شو"},"tagline":{"en":"Interest, a smile, names, listening.","fa":"علاقه، لبخند، اسم، گوش‌دادن."},"body":{"en":"Now win people's goodwill. Be genuinely <b>interested</b> in them, <b>smile</b>, remember and use their <b>name</b>, and become a real <b>listener</b> who lets them talk about themselves. None of it is clever — it's just warm attention.","fa":"حالا خوش‌بینیِ آدم‌ها را به‌دست بیاور. واقعاً به آن‌ها <b>علاقه‌مند</b> باش، <b>لبخند</b> بزن، <b>اسمشان</b> را یادت باشد و به کار ببر، و یک <b>شنوندهٔ</b> واقعی شو که می‌گذارد دربارهٔ خودشان حرف بزنند. هیچ‌کدام زرنگی نیست — فقط توجهِ گرم است."},"example":{"en":"In your next meeting, ask about the other person and listen more than you talk.","fa":"در جلسهٔ بعدی، دربارهٔ طرفِ مقابل بپرس و بیشتر از آنکه حرف بزنی، گوش بده."},"gain":{"en":"People start to warm to you and trust you.","fa":"آدم‌ها کم‌کم بهت گرم می‌شوند و اعتماد می‌کنند."}},{"level":4,"badge":{"en":"Level 4 · Advanced","fa":"سطحِ ۴ · پیشرفته"},"title":{"en":"Win people over","fa":"آدم‌ها را همراه کن"},"tagline":{"en":"Avoid arguing, no “you're wrong”, make it theirs.","fa":"بحث نکن، بی‌«اشتباه می‌کنی»، مالِ خودشان کن."},"body":{"en":"To change minds, drop force. <b>Avoid arguments</b> — you can't win them. Never say <b>“you're wrong”</b>; begin friendly and admit your own errors fast. Get people saying <b>“yes, yes”</b>, let them talk, and let the good idea feel like <b>their own</b>.","fa":"برای عوض‌کردنِ نظرها، زور را کنار بگذار. <b>از بحث دوری کن</b> — نمی‌شود بُردش. هیچ‌وقت نگو <b>«اشتباه می‌کنی»</b>؛ دوستانه شروع کن و اشتباه‌های خودت را سریع بپذیر. کاری کن آدم‌ها <b>«بله، بله»</b> بگویند، بگذار حرف بزنند، و بگذار ایدهٔ خوب حس شود مالِ <b>خودشان</b> است."},"example":{"en":"Instead of proving a colleague wrong, ask questions that lead them to rethink it themselves.","fa":"به‌جای اثباتِ اشتباهِ یک همکار، سؤال‌هایی بپرس که خودش را به بازاندیشی برساند."},"gain":{"en":"You can shift opinions without making enemies.","fa":"می‌توانی نظرها را جابه‌جا کنی بدونِ دشمن‌تراشیدن."}},{"level":5,"badge":{"en":"Level 5 · Expert","fa":"سطحِ ۵ · حرفه‌ای"},"title":{"en":"Lead — sincerely","fa":"رهبری کن — صادقانه"},"tagline":{"en":"Praise, ask, grow people, and mean it.","fa":"تعریف کن، بپرس، آدم‌ها را رشد بده، و از دل."},"body":{"en":"The expert leads people to change without resentment. <b>Begin with praise</b> and correct indirectly, talk about your own mistakes first, <b>ask questions</b> instead of giving orders, let people <b>save face</b>, and praise every improvement so they grow into a <b>reputation</b> worth living up to. Above all, none of this is a trick — it only works as <b>sincere</b> care for people, aimed at seeing the world from their side.","fa":"آدمِ حرفه‌ای آدم‌ها را بدونِ کینه به تغییر می‌رساند. <b>با تعریف شروع کن</b> و غیرمستقیم اصلاح کن، اول از اشتباه‌های خودت بگو، به‌جای دستور <b>سؤال بپرس</b>، بگذار آدم‌ها <b>آبرویشان</b> را نگه دارند، و هر پیشرفت را تحسین کن تا به‌سمتِ یک <b>اعتبارِ</b> ارزشمند رشد کنند. از همه مهم‌تر، هیچ‌کدامِ این‌ها کلک نیست — فقط به‌عنوانِ دلسوزیِ <b>صادقانه</b> برای آدم‌ها جواب می‌دهد، با نگاهی که دنیا را از سمتِ آن‌ها می‌بیند."},"example":{"en":"You correct a struggling teammate by praising their strengths, asking how they'd fix it, and trusting them to rise to it.","fa":"یک هم‌تیمیِ درگیر را با تعریف از نقاطِ قوتش اصلاح می‌کنی، می‌پرسی خودش چطور درستش می‌کند، و بهش اعتماد می‌کنی که از پسش برمی‌آید."},"gain":{"en":"You can lead and influence people while keeping their goodwill.","fa":"می‌توانی آدم‌ها را رهبری کنی و بر آن‌ها اثر بگذاری، درحالی‌که خوش‌بینی‌شان را نگه می‌داری."}}],"quotes":[{"en":"Any fool can criticize, condemn and complain — and most fools do. But it takes character and self-control to be understanding and forgiving.","fa":"هر آدمِ نادانی می‌تواند انتقاد و سرزنش و شکایت کند — و بیشترِ نادان‌ها همین کار را می‌کنند. اما فهمیدن و بخشیدن، شخصیت و خویشتن‌داری می‌خواهد."},{"en":"When dealing with people, let us remember we are not dealing with creatures of logic. We are dealing with creatures of emotion, creatures bristling with prejudices and motivated by pride and vanity.","fa":"وقتی با آدم‌ها سروکار داریم، یادمان باشد که با موجوداتِ منطق طرف نیستیم. با موجوداتِ احساس طرفیم، موجوداتی پُر از پیش‌داوری که غرور و خودخواهی به حرکتشان درمی‌آورد."},{"en":"You can make more friends in two months by becoming interested in other people than you can in two years by trying to get other people interested in you.","fa":"با علاقه‌مندشدن به دیگران در دو ماه می‌توانی بیشتر دوست پیدا کنی تا در دو سال تلاش برای اینکه دیگران را به خودت علاقه‌مند کنی."},{"en":"The only way to get the best of an argument is to avoid it.","fa":"تنها راهِ پیروزی در یک بحث این است که واردش نشوی."},{"en":"Remember that a person's name is to that person the sweetest and most important sound in any language.","fa":"یادت باشد که اسمِ آدم برای خودش شیرین‌ترین و مهم‌ترین صدا در هر زبانی است."},{"en":"The only way on earth to influence other people is to talk about what they want and show them how to get it.","fa":"تنها راهِ روی زمین برای اثرگذاری بر دیگران این است که از چیزی حرف بزنی که آن‌ها می‌خواهند و نشانشان بدهی چطور به آن برسند."},{"en":"If there is any one secret of success, it lies in the ability to get the other person's point of view and see things from that person's angle as well as from your own.","fa":"اگر یک رازِ موفقیت وجود داشته باشد، در توانایی گرفتنِ زاویهٔ دیدِ طرفِ مقابل است و دیدنِ چیزها از زاویهٔ او، به‌اندازهٔ زاویهٔ خودت."},{"en":"The deepest principle in human nature is the craving to be appreciated.","fa":"عمیق‌ترین اصلِ سرشتِ آدمی، تشنگی برای قدردانی‌شدن است."}],"media":[{"kind":"yt","id":"sdqA7VX_-5c","src":{"en":"YouTube · Edarabia","fa":"یوتیوب · Edarabia"},"title":{"en":"Top 10 Lessons — How to Win Friends","fa":"ده درسِ برتر — چطور دوست پیدا کنیم"},"desc":{"en":"A ten-lesson summary of Carnegie's principles.","fa":"خلاصه‌ای ده‌درسی از اصولِ کارنگی."},"bullets":{"en":["The core principles in a few minutes","Handling, liking, and influencing people","A fast, memorable overview"],"fa":["اصولِ اصلی در چند دقیقه","رفتار، دوست‌داشتنی‌شدن، و اثرگذاری","یک مرورِ سریع و به‌یادماندنی"]},"best":{"en":"Best for Stage 1–2.","fa":"خوب برای مرحلهٔ ۱ و ۲."}},{"kind":"yt","id":"Xo2Q4PQqqWU","src":{"en":"YouTube · Escaping Ordinary","fa":"یوتیوب · Escaping Ordinary"},"title":{"en":"How to Win Friends — in 20 Minutes","fa":"چطور دوست پیدا کنیم — در بیست دقیقه"},"desc":{"en":"A 20-minute walkthrough of the whole book.","fa":"یک مرورِ بیست‌دقیقه‌ای از کلِ کتاب."},"bullets":{"en":["All four ideas, condensed","Clear examples for each principle","Good after a first read"],"fa":["همهٔ ایده‌ها، فشرده","مثالِ روشن برای هر اصل","خوب بعد از اولین خواندن"]},"best":{"en":"Best for Stage 2–3.","fa":"خوب برای مرحلهٔ ۲ و ۳."}},{"kind":"img","url":"https://www.simonandschuster.com/books/How-to-Win-Friends-and-Influence-People/Dale-Carnegie/9781982171452","src":{"en":"Simon & Schuster · Publisher","fa":"Simon & Schuster · ناشر"},"title":{"en":"How to Win Friends — Publisher Page","fa":"چطور دوست پیدا کنیم — صفحهٔ ناشر"},"desc":{"en":"The publisher page for the book, with editions and details.","fa":"صفحهٔ ناشر برای کتاب، با نسخه‌ها و جزئیات."},"bullets":{"en":["The definitive editions","Background on Carnegie","Straight from the source"],"fa":["نسخه‌های معتبر","پیشینه‌ای دربارهٔ کارنگی","مستقیم از خودِ منبع"]},"best":{"en":"For editions and the source.","fa":"برای نسخه‌ها و منبعِ اصلی."}}],"go":[{"label":{"en":"Publisher page","fa":"صفحهٔ ناشر"},"url":"https://www.simonandschuster.com/books/How-to-Win-Friends-and-Influence-People/Dale-Carnegie/9781982171452"},{"label":{"en":"Book on Goodreads","fa":"کتاب در گودریدز"},"url":"https://www.goodreads.com/book/show/4865.How_to_Win_Friends_Influence_People"},{"label":{"en":"The book on Wikipedia","fa":"کتاب در ویکی‌پدیا"},"url":"https://en.wikipedia.org/wiki/How_to_Win_Friends_and_Influence_People"}],"recs":[{"pri":"b","t":{"en":"Kill one criticism","fa":"یک انتقاد را بکُش"},"d":{"en":"Today, catch one thing you're about to criticize and give honest appreciation instead.","fa":"امروز یک چیزی را که می‌خواهی انتقاد کنی بگیر و به‌جایش قدردانیِ صادقانه بگو."}},{"pri":"b","t":{"en":"Ask, don't order","fa":"بپرس، دستور نده"},"d":{"en":"Turn your next instruction to someone into a genuine question and watch what changes.","fa":"دستورِ بعدی‌ات به یک نفر را به یک سؤالِ واقعی تبدیل کن و ببین چه فرقی می‌کند."}},{"pri":"n","t":{"en":"Nail one name","fa":"یک اسم را یاد بگیر"},"d":{"en":"Meet someone new today, repeat their name, and use it before you part.","fa":"امروز با یک نفرِ تازه آشنا شو، اسمش را تکرار کن، و قبل از خداحافظی به کارش ببر."}},{"pri":"n","t":{"en":"Listen twice as much","fa":"دو برابر گوش بده"},"d":{"en":"In one conversation today, ask about the other person and let them do most of the talking.","fa":"امروز در یک گفت‌وگو، دربارهٔ طرفِ مقابل بپرس و بگذار بیشترِ حرف‌ها را او بزند."}}]};
-</script>
-
-<script>
-/* ── 3) RENDER (text sections) ────────────────────────────── */
-function elClear(id){ var e=document.getElementById(id); if(e) e.innerHTML=''; return e; }
-
-function renderText(){
-  var t=elClear('tldrHost');
-  DATA.tldr.forEach(function(o){ var li=document.createElement('li'); li.innerHTML = TX(o); t.appendChild(li); });
-
-  var q=elClear('quoteHost');
-  DATA.quotes.forEach(function(o){
-    var bq=document.createElement('blockquote');
-    bq.innerHTML = '<span class="qm">“</span><p>'+TX(o)+'</p>';
-    q.appendChild(bq);
-  });
-
-  var m=elClear('mediaHost');
-  DATA.media.forEach(function(o){
-    var card=document.createElement('div'); card.className='mcard';
-    var thumb;
-    if(o.kind==='yt'){
-      var url='https://www.youtube.com/watch?v='+o.id;
-      var img='https://i.ytimg.com/vi/'+o.id+'/hqdefault.jpg';
-      thumb='<a class="mthumb" href="'+url+'" target="_blank" rel="noopener">'
-        +'<img src="'+img+'" alt="" loading="lazy" onerror="this.style.display=\'none\'">'
-        +'<span class="ptype">'+(LANG==='fa'?'ویدیو':'VIDEO')+'</span>'
-        +'<span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></span></a>';
-    } else {
-      thumb='<a class="mthumb" href="'+o.url+'" target="_blank" rel="noopener"><span class="mfake">'
-        +'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.6"/><path d="M21 15l-5-5L5 21"/></svg>'
-        +'</span><span class="ptype">'+(LANG==='fa'?'تصویر':'IMAGE')+'</span></a>';
-    }
-    var link = o.kind==='yt' ? 'https://www.youtube.com/watch?v='+o.id : o.url;
-    var bl = (LANG==='fa'?o.bullets.fa:o.bullets.en).map(function(b){ return '<li>'+ (LANG==='fa'?faText(b):b) +'</li>'; }).join('');
-    card.innerHTML = thumb + '<div class="mbody">'
-      + '<div class="msrc">'+TX(o.src)+'</div>'
-      + '<h4>'+TX(o.title)+'</h4>'
-      + '<p class="mdesc">'+TX(o.desc)+'</p>'
-      + '<ul>'+bl+'</ul>'
-      + '<a class="mlink" href="'+link+'" target="_blank" rel="noopener">'+(LANG==='fa'?'باز کردن ↗':'Open ↗')+'</a>'
-      + '<div class="mbest">'+TX(o.best)+'</div>'
-      + '</div>';
-    m.appendChild(card);
-  });
-
-  var g=elClear('goHost');
-  DATA.go.forEach(function(o){
-    var a=document.createElement('a'); a.href=o.url; a.target='_blank'; a.rel='noopener';
-    a.textContent=TX(o.label); g.appendChild(a);
-  });
-
-  var r=elClear('recHost');
-  DATA.recs.forEach(function(o){
-    var it=document.createElement('div'); it.className='item';
-    var priLabel = o.pri==='b' ? (LANG==='fa'?'از اینجا شروع کن':'Start here') : (LANG==='fa'?'بعدش این':'Then this');
-    it.innerHTML='<div class="t">'+TX(o.t)+'<span class="pri '+(o.pri==='b'?'b':'')+'">'+priLabel+'</span></div>'
-      +'<div class="d">'+TX(o.d)+'</div>';
-    r.appendChild(it);
-  });
-
-  var mth=document.getElementById('methodHost');
-  mth.innerHTML = LANG==='fa' ? faText("<p><b>منبع:</b> کتابِ «How to Win Friends and Influence People» نوشتهٔ دیل کارنگی، چاپِ نخست ۱۹۳۶ (نشرِ Simon &amp; Schuster).</p><p><b>روشِ کار:</b> ساختارِ پنج‌بخشی و ایده‌ها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده؛ نقل‌قول‌ها مقابله و ویدیوها بررسی شده‌اند.</p><p><b>گروه:</b> «نفوذ» — یک خواندنیِ پایه برای رفتار با آدم‌ها و جلبِ همکاری.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای متنِ کامل، خودِ کتاب را بخوان.</p>") : "<p><b>Source:</b> the book <i>How to Win Friends and Influence People</i> by Dale Carnegie, first published 1936 (Simon &amp; Schuster).</p><p><b>How this was built:</b> the five-part structure and ideas were gathered and rewritten from the book and reputable sources; quotes were cross-checked and the linked videos verified.</p><p><b>Group:</b> Influence — a foundational read on dealing with people and winning cooperation.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>";
-  var fl=document.getElementById('flowTop');
-  if(fl){
-    var loop = LANG==='fa' ? ["قدردانی","گوش‌دادن","نفوذ"] : ["Appreciate","Listen","Influence"];
-    var ar = LANG==='fa' ? '⟵' : '⟶';
-    fl.innerHTML = loop.map(function(w){ return '<b>'+ (LANG==='fa'?faText(w):w) +'</b>'; }).join(' <span class="ar">'+ar+'</span> ');
-  }
-}
-</script>
-
-<script>
-/* ── 4) CONCEPT MAP ───────────────────────────────────────── */
-function renderMap(){
-  var host=document.getElementById('mapHost'); if(!host) return; host.innerHTML='';
-  DATA.parts.forEach(function(p, i){
-    var col=document.createElement('div'); col.className='partcol';
-    var chaps=p.chapters.map(function(ck){
-      var c=DATA.chapters[ck];
-      return '<div class="chapchip"><span class="cn">'+num(c.n)+'</span><div><b>'+TX(c.name)+'</b>'
-        +'<small>'+TX(c.principle).replace(/<[^>]+>/g,'').slice(0, LANG==='fa'?86:76)+'…</small></div></div>';
-    }).join('');
-    col.innerHTML='<div class="ph"><span class="pdot" style="background:var('+p.varc+')"></span>'
-      +'<span class="pnum">'+(LANG==='fa'?'بخشِ ':'PART ')+num(i+1)+'</span></div>'
-      +'<h4>'+TX(p.name)+'</h4>'
-      +'<div class="ptag" style="color:var('+p.varc+')">'+TX(p.tag)+'</div>'
-      +'<p class="pgist">'+TX(p.gist)+'</p>'+chaps;
-    host.appendChild(col);
-  });
-}
-</script>
-
-<script>
-/* ── 5) INTERACTIVE NETWORK GRAPH (deterministic radial layout, no physics) ── */
-var GRAPH = (function(){
-  var svg, W=980, H=780, nodes=[], links=[], sel=null, dragNode=null, moved=false, startPt=null;
-
-  function build(){
-    svg=document.getElementById('netsvg');
-    svg.setAttribute('viewBox','0 0 '+W+' '+H);
-    nodes=[]; links=[];
-    var cx=W/2, cy=H/2, R1=220, R2=126, span=66*Math.PI/180;
-    var N=DATA.parts.length, partAng=DATA.parts.map(function(_,i){ return -Math.PI/2 + i*(2*Math.PI/N); });
-    nodes.push({id:'core', kind:'core', varc:'--core', r:38, x:cx, y:cy, label:DATA.core.name, data:DATA.core});
-    DATA.parts.forEach(function(p,i){
-      var a=partAng[i], px=cx+Math.cos(a)*R1, py=cy+Math.sin(a)*R1;
-      nodes.push({id:'p_'+p.key, kind:'part', varc:p.varc, r:25, x:px, y:py,
-        label:p.name, data:{name:p.name, principle:p.gist, more:p.more, tag:p.tag, key:p.key}});
-      links.push({s:'core', t:'p_'+p.key, strong:true});
-      var nc=p.chapters.length, start=a-span/2;
-      p.chapters.forEach(function(ck,j){
-        var ca = nc>1 ? start+span*(j/(nc-1)) : a;   // fan the 5 chapters outward
-        var c=DATA.chapters[ck];
-        nodes.push({id:'c_'+ck, kind:'chap', varc:p.varc, r:15,
-          x:px+Math.cos(ca)*R2, y:py+Math.sin(ca)*R2,
-          label:(c.glabel||c.name), data:c, ck:ck});
-        links.push({s:'p_'+p.key, t:'c_'+ck});
-      });
-    });
-    nodes.forEach(function(n){ n.hx=n.x; n.hy=n.y; });   // remember home positions for reset
-    draw();
-    select('core');
-  }
-
-  function byId(id){ for(var i=0;i<nodes.length;i++) if(nodes[i].id===id) return nodes[i]; return null; }
-
-  function draw(){
-    var ln='', nd='';
-    links.forEach(function(l){ ln+='<line class="glink" data-s="'+l.s+'" data-t="'+l.t+'" stroke="var(--line)" stroke-width="'+(l.strong?2.4:1.5)+'" stroke-linecap="round"/>'; });
-    nodes.forEach(function(n){
-      var inside='', below='';
-      if(n.kind==='core'){
-        inside='<text text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="800" fill="#fff" letter-spacing="0.3">'+shortLabel(n)+'</text>';
-      } else {
-        if(n.kind==='chap'){
-          inside='<text text-anchor="middle" dominant-baseline="central" font-size="11" font-weight="800" fill="#fff">'+num(n.data.n)+'</text>';
+/* ── CONTENT — everything unique to this book lives here ── */
+Book.mount({
+  "meta": {
+    "slug": "how-to-win-friends",
+    "folder": "12 - Influence",
+    "groupNum": 12,
+    "group": {
+      "en": "Influence",
+      "fa": "نفوذ"
+    },
+    "author": {
+      "en": "Dale Carnegie",
+      "fa": "دیل کارنگی"
+    },
+    "eyebrow_author": {
+      "en": "Dale Carnegie",
+      "fa": "دیل کارنگی"
+    },
+    "book": {
+      "en": "How to Win Friends and Influence People",
+      "fa": "چطور دوست پیدا کنیم و بر مردم اثر بگذاریم"
+    },
+    "hero_title": {
+      "en": "How to Win Friends and Influence People — The Classic on Human Relations",
+      "fa": "چطور دوست پیدا کنیم و بر مردم اثر بگذاریم — کلاسیکِ روابطِ انسانی"
+    },
+    "dek": {
+      "en": "A knowledge graph of the whole book, plus a 5-stage path from a single idea to expert-level mastery — with an example at every step.",
+      "fa": "نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از یک ایدهٔ ساده تا حرفه‌ای — با یک مثال در هر مرحله."
+    },
+    "published": {
+      "en": "1936",
+      "fa": "۱۹۳۶"
+    },
+    "chips": [
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Parts",
+          "fa": "بخش"
         }
-        var ly = n.r + (n.kind==='part'?17:14);
-        var fs = n.kind==='part'?13:11;
-        var stroke = 'paint-order:stroke;stroke:var(--card2);stroke-width:3.6px;stroke-linejoin:round';
-        below='<text class="nlab" text-anchor="middle" y="'+ly+'" font-size="'+fs+'" font-weight="'+(n.kind==='part'?'800':'700')+'" fill="var(--ink)" style="'+stroke+'">'+shortLabel(n)+'</text>';
+      },
+      {
+        "v": {
+          "en": "16",
+          "fa": "۱۶"
+        },
+        "l": {
+          "en": "Ideas",
+          "fa": "ایده"
+        }
+      },
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Learning stages",
+          "fa": "مرحلهٔ یادگیری"
+        }
       }
-      nd+='<g class="node'+(n.kind==='core'?' ncore':'')+'" data-id="'+n.id+'"><g class="ns">'
-        +'<circle r="'+n.r+'" fill="var('+n.varc+')" fill-opacity="'+(n.kind==='chap'?0.94:1)+'" stroke="var(--card)" stroke-width="2.5"/>'
-        +inside+below+'</g></g>';
-    });
-    svg.innerHTML='<g id="glinks">'+ln+'</g><g id="gnodes">'+nd+'</g>';
-    svg.querySelectorAll('.node').forEach(function(gEl){
-      gEl.addEventListener('pointerdown', onDown);
-      gEl.addEventListener('click', function(){ if(!moved) select(gEl.getAttribute('data-id')); });
-      gEl.addEventListener('pointerenter', function(){ if(!dragNode) gEl.classList.add('hover'); });
-      gEl.addEventListener('pointerleave', function(){ gEl.classList.remove('hover'); });
-    });
-    positions();
-  }
-  function shortLabel(n){ return TX(n.label); }
-
-  function positions(){
-    svg.querySelectorAll('.node').forEach(function(g){
-      var n=byId(g.getAttribute('data-id'));
-      g.setAttribute('transform','translate('+n.x.toFixed(1)+','+n.y.toFixed(1)+')');
-    });
-    svg.querySelectorAll('.glink').forEach(function(l){
-      var a=byId(l.getAttribute('data-s')), b=byId(l.getAttribute('data-t'));
-      l.setAttribute('x1',a.x.toFixed(1)); l.setAttribute('y1',a.y.toFixed(1));
-      l.setAttribute('x2',b.x.toFixed(1)); l.setAttribute('y2',b.y.toFixed(1));
-    });
-  }
-
-  /* drag: just move the grabbed node — no simulation, so nothing else shifts */
-  function toSvg(e){
-    var pt=svg.createSVGPoint(); pt.x=e.clientX; pt.y=e.clientY;
-    var m=svg.getScreenCTM(); if(!m) return {x:e.clientX,y:e.clientY};
-    return pt.matrixTransform(m.inverse());
-  }
-  function onDown(e){
-    e.preventDefault();
-    dragNode=byId(e.currentTarget.getAttribute('data-id'));
-    moved=false; startPt=toSvg(e); svg.style.cursor='grabbing';
-    e.currentTarget.classList.remove('hover');
-    window.addEventListener('pointermove', onMove);
-    window.addEventListener('pointerup', onUp);
-  }
-  function onMove(e){
-    if(!dragNode) return; var p=toSvg(e);
-    if(startPt && (Math.abs(p.x-startPt.x)>4 || Math.abs(p.y-startPt.y)>4)) moved=true;
-    dragNode.x=Math.max(dragNode.r+4, Math.min(W-dragNode.r-4, p.x));
-    dragNode.y=Math.max(dragNode.r+4, Math.min(H-dragNode.r-24, p.y));
-    positions();
-  }
-  function onUp(){
-    dragNode=null; svg.style.cursor='grab';
-    window.removeEventListener('pointermove', onMove);
-    window.removeEventListener('pointerup', onUp);
-  }
-
-  function keepSet(id){
-    var n=byId(id); if(!n || id==='core') return null;   // core → show everything
-    var keep={}; keep[id]=1; keep['core']=1;
-    var pk = (n.kind==='part') ? n.data.key : n.data.part;
-    keep['p_'+pk]=1;
-    DATA.parts.forEach(function(p){ if(p.key===pk) p.chapters.forEach(function(ck){ keep['c_'+ck]=1; }); });
-    return keep;   // highlight the whole branch: core → part → its chapters
-  }
-  function applyFocus(id){
-    var keep=keepSet(id), full=(keep===null);
-    svg.querySelectorAll('.node').forEach(function(g){
-      var nid=g.getAttribute('data-id');
-      g.classList.toggle('dim', !full && !keep[nid]);
-      g.classList.toggle('hl', !full && keep[nid] && nid!==id);
-    });
-    svg.querySelectorAll('.glink').forEach(function(l){
-      var s=l.getAttribute('data-s'), t=l.getAttribute('data-t');
-      var on = full || (keep[s] && keep[t]);
-      l.classList.toggle('dim', !on);
-      l.classList.toggle('hl', !full && on);
-    });
-  }
-
-  function relatedIds(node){
-    var ids=[];
-    if(node.id==='core'){ DATA.parts.forEach(function(p){ ids.push('p_'+p.key); }); }
-    else if(node.kind==='part'){ var pk=node.data.key; DATA.parts.forEach(function(p){ if(p.key===pk) p.chapters.forEach(function(ck){ ids.push('c_'+ck); }); }); }
-    else { var pk2=node.data.part; ids.push('p_'+pk2);
-      DATA.parts.forEach(function(p){ if(p.key===pk2) p.chapters.forEach(function(ck){ if('c_'+ck!==node.id) ids.push('c_'+ck); }); }); }
-    return ids;
-  }
-
-  function drow(cls,label,txt){ return '<div class="drow '+cls+'"><div class="dlab">'+label+'</div><div class="dtxt">'+txt+'</div></div>'; }
-
-  function select(id){
-    var n=byId(id); if(!n) return;
-    sel=id;
-    svg.querySelectorAll('.node').forEach(function(g){ g.classList.toggle('sel', g.getAttribute('data-id')===id); });
-    var selEl=svg.querySelector('.node[data-id="'+id+'"]'); if(selEl&&selEl.parentNode) selEl.parentNode.appendChild(selEl);  // raise on top
-    applyFocus(id);
-    var d=n.data, pv = n.kind==='core' ? '--core' : n.varc;
-    var kicker = n.kind==='core' ? (LANG==='fa'?'ایدهٔ مرکزی':'Core idea')
-             : n.kind==='part' ? (LANG==='fa'?'بخش':'Part') + ' · ' + TX(d.tag)
-             : (LANG==='fa'?"اصلِ":"Principle") + ' ' + num(d.n);
-    var prLab = (n.kind==='chap') ? (LANG==='fa'?'اصل':'Principle') : (LANG==='fa'?'ایدهٔ اصلی':'Big idea');
-    var html='<div class="dkick"><i style="background:var('+pv+')"></i>'+ (LANG==='fa'?faText(kicker):kicker) +'</div>'
-      +'<h4>'+TX(d.name)+'</h4>'
-      + drow('', prLab, TX(d.principle));
-    if(d.more)    html += drow('more', (LANG==='fa'?'بیشتر':'In depth'), TX(d.more));
-    if(d.example) html += drow('', (LANG==='fa'?'مثال':'Example'), TX(d.example));
-    if(d.tip)     html += drow('tip', (LANG==='fa'?'امتحان کن':'Try this'), TX(d.tip));
-    if(d.pitfall) html += drow('pit', (LANG==='fa'?'حواست باشد':'Watch out'), TX(d.pitfall));
-    // related chips
-    var rel=relatedIds(n);
-    if(rel.length){
-      var chips=rel.map(function(rid){ var rn=byId(rid); if(!rn) return '';
-        return '<span class="dchip" data-goto="'+rid+'"><i style="background:var('+rn.varc+')"></i>'+TX(rn.data.name)+'</span>'; }).join('');
-      html += '<div class="drow"><div class="dlab">'+(LANG==='fa'?'مرتبط':'Related')+'</div><div class="dchips">'+chips+'</div></div>';
+    ],
+    "kboxes": [
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Parts (handle · be liked · win over · lead · human)",
+          "fa": "بخش (رفتار · دوست‌داشتنی · همراه‌کردن · رهبری · انسانی)"
+        }
+      },
+      {
+        "v": {
+          "en": "16",
+          "fa": "۱۶"
+        },
+        "l": {
+          "en": "Ideas you can use",
+          "fa": "ایده برای استفاده"
+        }
+      },
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Levels, simple → expert",
+          "fa": "مرحله، ساده تا حرفه‌ای"
+        }
+      },
+      {
+        "v": {
+          "en": "3",
+          "fa": "۳"
+        },
+        "l": {
+          "en": "The basics: no blame · honest appreciation · an eager want",
+          "fa": "پایه‌ها: بی‌سرزنش · قدردانیِ صادقانه · اشتیاق"
+        }
+      }
+    ],
+    "core_callout": {
+      "label": {
+        "en": "The core idea:",
+        "fa": "ایدهٔ اصلی:"
+      },
+      "en": "Carnegie's whole method rests on one truth: people act out of a deep craving to feel <i>important</i> and <i>appreciated</i>. So don't criticize — give <i>honest appreciation</i>, talk in terms of what the other person <i>wants</i>, and truly see things from their side. Do it sincerely, never as a trick.",
+      "fa": "کلِ روشِ کارنگی روی یک حقیقت بنا شده: آدم‌ها از سرِ تشنگیِ عمیق برای حسِ <i>مهم‌بودن</i> و <i>قدردانی‌شدن</i> رفتار می‌کنند. پس انتقاد نکن — <i>قدردانیِ صادقانه</i> بده، از زاویهٔ چیزی که طرفِ مقابل <i>می‌خواهد</i> حرف بزن، و واقعاً از سمتِ او ببین. صادقانه انجامش بده، نه به‌عنوانِ کلک."
+    },
+    "flow_callout": {
+      "label": {
+        "en": "Read it as a flow:",
+        "fa": "به‌صورتِ یک جریان بخوانش:"
+      },
+      "en": "handle people with <b>no blame</b> and honest appreciation, become <b>liked</b> through genuine interest and listening, <b>win people over</b> without arguing, and <b>lead</b> by praising and asking — all growing from one <b>human</b> root: make people feel important, sincerely.",
+      "fa": "با آدم‌ها <b>بی‌سرزنش</b> و با قدردانیِ صادقانه رفتار کن، با علاقهٔ واقعی و گوش‌دادن <b>دوست‌داشتنی</b> شو، بدونِ بحث آن‌ها را <b>همراه</b> کن، و با تعریف و پرسیدن <b>رهبری</b> کن — همه از یک ریشهٔ <b>انسانی</b> می‌رویند: کاری کن آدم‌ها حس کنند مهم‌اند، صادقانه."
     }
-    var host=document.getElementById('detailHost');
-    host.innerHTML=html;
-    host.querySelectorAll('.dchip').forEach(function(c){
-      c.addEventListener('click', function(){ select(c.getAttribute('data-goto')); });
-    });
-  }
-
-  function relabel(){ if(!svg) return; draw(); select(sel||'core'); }
-
-  return {
-    build:build,
-    kick:function(){},                                    // no-op; layout is static
-    relabel:relabel,
-    reset:function(){ nodes.forEach(function(n){ n.x=n.hx; n.y=n.hy; }); positions(); },
-    resetFocus:function(){ select('core'); },
-    selectNode:function(id){ select(id); },
-    hasNodes:function(){ return nodes.length>0; }
-  };
-})();
-</script>
-
-<script>
-/* ── 6) 5-STAGE LADDER ────────────────────────────────────── */
-var curStage=0;
-function renderLadder(){
-  var host=document.getElementById('ladderHost'); host.innerHTML='';
-  DATA.stages.forEach(function(s,i){
-    var r=document.createElement('div'); r.className='rung'+(i===curStage?' active':'');
-    r.innerHTML='<div class="lv">'+ (LANG==='fa'?('سطحِ '+num(s.level)):('Level '+s.level)) +'</div>'
-      +'<div class="lt">'+TX(s.title)+'</div>'
-      +'<div class="lbar"><i style="width:'+(s.level*20)+'%"></i></div>';
-    r.addEventListener('click', function(){ curStage=i; renderLadder(); renderStage();
-      document.getElementById('stageHost').scrollIntoView({behavior:'smooth',block:'nearest'}); });
-    host.appendChild(r);
-  });
-}
-function renderStage(){
-  var s=DATA.stages[curStage];
-  var host=document.getElementById('stageHost');
-  var exLabel = LANG==='fa'?'مثال':'Example';
-  var prev = LANG==='fa'?'مرحلهٔ قبل':'‹ Prev', next = LANG==='fa'?'مرحلهٔ بعد':'Next ›';
-  host.innerHTML=''+
-    '<div class="stagecard">'
-    +'<div class="shead"><span class="badge">'+TX(s.badge)+'</span><h3>'+TX(s.title)+'</h3></div>'
-    +'<div class="tagline">'+TX(s.tagline)+'</div>'
-    +'<div class="sbody">'+TX(s.body)+'</div>'
-    +'<div class="exbox"><div class="exk">'+exLabel+'</div><div class="ext">'+TX(s.example)+'</div></div>'
-    +'<div class="gainrow"><span class="gi">✓</span><span>'+TX(s.gain)+'</span></div>'
-    +'<div class="stagenav">'
-      +'<button id="stPrev" '+(curStage===0?'disabled':'')+'>'+prev+'</button>'
-      +'<button id="stNext" '+(curStage===DATA.stages.length-1?'disabled':'')+'>'+next+'</button>'
-    +'</div></div>';
-  var pv=document.getElementById('stPrev'), nx=document.getElementById('stNext');
-  if(pv) pv.onclick=function(){ if(curStage>0){curStage--; renderLadder(); renderStage();} };
-  if(nx) nx.onclick=function(){ if(curStage<DATA.stages.length-1){curStage++; renderLadder(); renderStage();} };
-}
-</script>
-
-<script>
-/* ── 7) legend + graph tabs ───────────────────────────────── */
-function renderLegend(){
-  var host=document.getElementById('legendHost'); if(!host) return;
-  var items=[{c:'--core', en:'Core idea', fa:'ایدهٔ مرکزی'}]
-    .concat(DATA.parts.map(function(p){ return {c:p.varc, en:p.name.en, fa:p.name.fa}; }));
-  host.innerHTML = items.map(function(it){
-    return '<span><i style="background:var('+it.c+')"></i>'+(LANG==='fa'?faText(it.fa):it.en)+'</span>';
-  }).join('');
-  document.getElementById('ghint').textContent = LANG==='fa' ? 'روی هر دایره کلیک کن تا بیشتر بخوانی · می‌توانی بکشی‌شان' : 'Click a node to read more · drag to move';
-  document.getElementById('greset').textContent = LANG==='fa' ? '↺ چیدمان' : '↺ Reset';
-}
-function setupTabs(){
-  function show(net){
-    document.getElementById('netView').style.display = net?'':'none';
-    document.getElementById('mapView').style.display = net?'none':'';
-    document.getElementById('tabNet').classList.toggle('active',net);
-    document.getElementById('tabMap').classList.toggle('active',!net);
-    if(net) GRAPH.kick();
-  }
-  document.getElementById('tabNet').onclick=function(){show(true);};
-  document.getElementById('tabMap').onclick=function(){show(false);};
-  document.getElementById('greset').onclick=function(){ GRAPH.reset(); };
-  // click empty graph space resets the focus
-  var svg=document.getElementById('netsvg');
-  svg.addEventListener('click', function(e){ if(!e.target.closest('.node')) GRAPH.resetFocus(); });
-}
-</script>
-
-<script>
-/* ── 8) toggles + boot ────────────────────────────────────── */
-function setLang(lg){
-  LANG=lg;
-  document.documentElement.setAttribute('data-lang',lg);
-  document.documentElement.setAttribute('lang',lg);
-  document.documentElement.setAttribute('dir', lg==='fa'?'rtl':'ltr');
-  try{ localStorage.setItem('htwf-lang',lg); }catch(e){}
-  renderAll();
-}
-function renderAll(){
-  renderText();
-  renderMap();
-  renderLegend();
-  renderLadder();
-  renderStage();
-  if(GRAPH.hasNodes()) GRAPH.relabel(); else GRAPH.build();
-}
-(function(){
-  var lb=document.getElementById('langBtn');
-  lb && lb.addEventListener('click', function(){ setLang(LANG==='fa'?'en':'fa'); });
-
-  var tb=document.getElementById('themeBtn');
-  function curT(){ return document.documentElement.getAttribute('data-theme'); }
-  tb && tb.addEventListener('click', function(){
-    var t=curT()==='dark'?'light':'dark';
-    document.documentElement.setAttribute('data-theme',t);
-    try{ localStorage.setItem('htwf-theme',t); }catch(e){}
-  });
-  try{ matchMedia('(prefers-color-scheme: dark)').addEventListener('change',function(e){
-    if(!localStorage.getItem('htwf-theme')){ document.documentElement.setAttribute('data-theme', e.matches?'dark':'light'); }
-  }); }catch(e){}
-})();
-
-/* scroll-spy */
-(function(){
-  var links=[].slice.call(document.querySelectorAll('.toc a'));
-  var seen={}, ids=[];
-  links.forEach(function(a){ var id=a.getAttribute('href').slice(1); if(!seen[id]){seen[id]=1; ids.push(id);} });
-  var secs=ids.map(function(id){return document.getElementById(id);}).filter(Boolean);
-  function setActive(id){ links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('href')==='#'+id); }); }
-  if('IntersectionObserver' in window){
-    var obs=new IntersectionObserver(function(es){
-      es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
-    },{rootMargin:'-45% 0px -50% 0px',threshold:0});
-    secs.forEach(function(s){ obs.observe(s); });
-  }
-})();
-
-document.addEventListener('DOMContentLoaded', function(){
-  setupTabs();
-  renderAll();
+  },
+  "method": {
+    "en": "<p><b>Source:</b> the book <i>How to Win Friends and Influence People</i> by Dale Carnegie, first published 1936 (Simon &amp; Schuster).</p><p><b>How this was built:</b> the five-part structure and ideas were gathered and rewritten from the book and reputable sources; quotes were cross-checked and the linked videos verified.</p><p><b>Group:</b> Influence — a foundational read on dealing with people and winning cooperation.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>",
+    "fa": "<p><b>منبع:</b> کتابِ «How to Win Friends and Influence People» نوشتهٔ دیل کارنگی، چاپِ نخست ۱۹۳۶ (نشرِ Simon &amp; Schuster).</p><p><b>روشِ کار:</b> ساختارِ پنج‌بخشی و ایده‌ها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده؛ نقل‌قول‌ها مقابله و ویدیوها بررسی شده‌اند.</p><p><b>گروه:</b> «نفوذ» — یک خواندنیِ پایه برای رفتار با آدم‌ها و جلبِ همکاری.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای متنِ کامل، خودِ کتاب را بخوان.</p>"
+  },
+  "flow": {
+    "en": [
+      "Appreciate",
+      "Listen",
+      "Influence"
+    ],
+    "fa": [
+      "قدردانی",
+      "گوش‌دادن",
+      "نفوذ"
+    ]
+  },
+  "graph": {
+    "W": 980,
+    "H": 780,
+    "R1": 220,
+    "R2": 126,
+    "span": 66
+  },
+  "tldr": [
+    {
+      "en": "The whole book in one line: to influence people, make them feel genuinely important — and stop trying to win them by force.",
+      "fa": "کلِ کتاب در یک جمله: برای اثرگذاری روی آدم‌ها، کاری کن واقعاً حس کنند مهم‌اند — و دست از بردنشان با زور بردار."
+    },
+    {
+      "en": "Start with three basics: <b>don't criticize</b>, give <b>honest appreciation</b>, and <b>arouse an eager want</b> in the other person.",
+      "fa": "با سه پایه شروع کن: <b>انتقاد نکن</b>، <b>قدردانیِ صادقانه</b> بده، و در طرفِ مقابل <b>اشتیاق</b> بساز."
+    },
+    {
+      "en": "To be liked, be genuinely <b>interested</b> in others, <b>smile</b>, remember <b>names</b>, and truly <b>listen</b>.",
+      "fa": "برای دوست‌داشتنی‌شدن، واقعاً به دیگران <b>علاقه‌مند</b> شو، <b>لبخند</b> بزن، <b>اسم‌ها</b> را یادت باشد، و واقعاً <b>گوش</b> بده."
+    },
+    {
+      "en": "To win people over, <b>avoid arguments</b>, never say <b>“you're wrong”</b>, and let the good idea feel like <b>theirs</b>.",
+      "fa": "برای همراه‌کردنِ آدم‌ها، <b>از بحث دوری کن</b>، هیچ‌وقت نگو <b>«اشتباه می‌کنی»</b>، و بگذار ایدهٔ خوب حس شود مالِ <b>خودشان</b> است."
+    },
+    {
+      "en": "To lead, <b>begin with praise</b>, <b>ask instead of order</b>, and give people a good name to live up to — always <b>sincerely</b>.",
+      "fa": "برای رهبری، <b>با تعریف شروع کن</b>، <b>به‌جای دستور بپرس</b>، و به آدم‌ها اسمِ خوبی بده که پایش بمانند — همیشه <b>صادقانه</b>."
+    }
+  ],
+  "parts": [
+    {
+      "key": "handling",
+      "varc": "--c-teal",
+      "name": {
+        "en": "Handling People",
+        "fa": "رفتار با آدم‌ها"
+      },
+      "tag": {
+        "en": "The basics",
+        "fa": "پایه‌ها"
+      },
+      "gist": {
+        "en": "Three habits: no blame, honest appreciation, and arousing an eager want.",
+        "fa": "سه عادت: بی‌سرزنش، قدردانیِ صادقانه، و ساختنِ اشتیاق."
+      },
+      "more": {
+        "en": "Before any clever technique, three fundamentals change how people respond to you. Stop criticizing, give people a sincere sense of their worth, and frame everything around what they want — get these right and the rest gets easy.",
+        "fa": "قبل از هر روشِ زیرکانه‌ای، سه اصلِ پایه طرزِ واکنشِ آدم‌ها به تو را عوض می‌کند. دست از انتقاد بردار، به آدم‌ها حسِ صادقانهٔ ارزش بده، و همه‌چیز را دورِ خواستهٔ آن‌ها بچین — این‌ها را درست کن، بقیه راحت می‌شود."
+      },
+      "chapters": [
+        "dontcrit",
+        "appreciate",
+        "eagerwant"
+      ]
+    },
+    {
+      "key": "likeable",
+      "varc": "--c-blue",
+      "name": {
+        "en": "Make People Like You",
+        "fa": "دوست‌داشتنی‌شدن"
+      },
+      "tag": {
+        "en": "Six ways",
+        "fa": "شش راه"
+      },
+      "gist": {
+        "en": "Be interested, smile, remember names, and really listen.",
+        "fa": "علاقه‌مند باش، لبخند بزن، اسم‌ها را یادت باشد، و واقعاً گوش بده."
+      },
+      "more": {
+        "en": "Likeability isn't charm or cleverness; it's warmth aimed at the other person. Show real interest, smile, use their name, and listen as if they're the only person in the room — and people are drawn to you.",
+        "fa": "دوست‌داشتنی‌بودن، جذابیت یا زرنگی نیست؛ گرمایی است که به سمتِ طرفِ مقابل نشانه رفته. علاقهٔ واقعی نشان بده، لبخند بزن، اسمش را به کار ببر، و طوری گوش بده که انگار تنها آدمِ اتاق اوست — آن‌وقت آدم‌ها به‌سمتت کشیده می‌شوند."
+      },
+      "chapters": [
+        "interested",
+        "smile",
+        "name",
+        "listen"
+      ]
+    },
+    {
+      "key": "persuade",
+      "varc": "--c-amber",
+      "name": {
+        "en": "Win Them Over",
+        "fa": "همراه‌کردنِ دیگران"
+      },
+      "tag": {
+        "en": "Change minds",
+        "fa": "تغییرِ نظرها"
+      },
+      "gist": {
+        "en": "Avoid arguments, respect their view, and make the idea theirs.",
+        "fa": "از بحث دوری کن، به نظرشان احترام بگذار، و ایده را مالِ خودشان کن."
+      },
+      "more": {
+        "en": "You almost never change a mind by force. Skip the argument, never announce that someone is wrong, get them nodding early, and let them arrive at your idea themselves — persuasion is something people do to themselves once you make it safe.",
+        "fa": "تقریباً هیچ‌وقت با زور نظری را عوض نمی‌کنی. بحث را رها کن، هیچ‌وقت اعلام نکن که کسی اشتباه می‌کند، زود کاری کن سرشان را به تأیید تکان دهند، و بگذار خودشان به ایده‌ات برسند — همراه‌شدن کاری است که آدم‌ها با خودشان می‌کنند، وقتی تو فضا را امن می‌کنی."
+      },
+      "chapters": [
+        "argue",
+        "noWrong",
+        "theirIdea"
+      ]
+    },
+    {
+      "key": "leader",
+      "varc": "--c-violet",
+      "name": {
+        "en": "Be a Leader",
+        "fa": "رهبر باش"
+      },
+      "tag": {
+        "en": "Change without offense",
+        "fa": "تغییر بدونِ رنجش"
+      },
+      "gist": {
+        "en": "Praise first, ask instead of order, and grow people with a good name.",
+        "fa": "اول تعریف کن، به‌جای دستور بپرس، و آدم‌ها را با اسمِ خوب رشد بده."
+      },
+      "more": {
+        "en": "Leadership here is changing people without making enemies. Begin with genuine praise, correct gently and indirectly, ask rather than command, protect people's pride, and praise every small step — people grow toward the reputation you hand them.",
+        "fa": "رهبری اینجا یعنی عوض‌کردنِ آدم‌ها بدونِ دشمن‌تراشیدن. با تعریفِ واقعی شروع کن، نرم و غیرمستقیم اصلاح کن، به‌جای فرمان‌دادن بپرس، از غرورِ آدم‌ها محافظت کن، و هر قدمِ کوچک را تحسین کن — آدم‌ها به‌سمتِ اعتباری که بهشان می‌دهی رشد می‌کنند."
+      },
+      "chapters": [
+        "praiseFirst",
+        "askQuestions",
+        "reputation"
+      ]
+    },
+    {
+      "key": "human",
+      "varc": "--c-green",
+      "name": {
+        "en": "Human Principles",
+        "fa": "اصل‌های انسانی"
+      },
+      "tag": {
+        "en": "The root",
+        "fa": "ریشه"
+      },
+      "gist": {
+        "en": "People crave importance; see their view; stay sincere.",
+        "fa": "آدم‌ها تشنهٔ مهم‌بودن‌اند؛ دیدشان را ببین؛ صادق بمان."
+      },
+      "more": {
+        "en": "Underneath every technique are a few truths about people. Everyone hungers to feel important, everyone sees the world from their own angle, and none of it works as a trick — the methods only hold up when they come from sincere care.",
+        "fa": "زیرِ هر روشی چند حقیقت دربارهٔ آدم‌ها هست. همه تشنهٔ حسِ مهم‌بودن‌اند، همه دنیا را از زاویهٔ خودشان می‌بینند، و هیچ‌کدامِ این‌ها به‌عنوانِ کلک جواب نمی‌دهد — این روش‌ها فقط وقتی دوام می‌آورند که از دلسوزیِ صادقانه بیایند."
+      },
+      "chapters": [
+        "importance",
+        "viewpoint",
+        "sincerity"
+      ]
+    }
+  ],
+  "chapters": {
+    "dontcrit": {
+      "part": "handling",
+      "n": 1,
+      "name": {
+        "en": "Don't Criticize, Condemn or Complain",
+        "fa": "انتقاد، سرزنش و شکایت نکن"
+      },
+      "glabel": {
+        "en": "Don't Criticize",
+        "fa": "انتقاد نکن"
+      },
+      "principle": {
+        "en": "Criticism puts people on the defensive and wounds their pride; it changes almost no one. Drop the blame.",
+        "fa": "انتقاد آدم‌ها را گارد می‌کند و به غرورشان می‌زند؛ تقریباً هیچ‌کس را عوض نمی‌کند. سرزنش را بگذار کنار."
+      },
+      "more": {
+        "en": "People rarely blame themselves for anything, however wrong. Condemning them just makes them defend harder and resent you — so instead of criticizing, try to understand why they did what they did.",
+        "fa": "آدم‌ها هرچقدر هم اشتباه کنند، به‌ندرت خودشان را مقصر می‌دانند. سرزنش فقط باعث می‌شود سفت‌تر از خودشان دفاع کنند و از تو دلخور شوند — پس به‌جای انتقاد، سعی کن بفهمی چرا آن کار را کرده‌اند."
+      },
+      "example": {
+        "en": "After Gettysburg, Lincoln wrote a furious letter to a general who let the enemy escape — then never sent it. He knew blame would only start a fight.",
+        "fa": "لینکلن بعد از نبردِ گتیسبرگ نامه‌ای پُر از خشم برای فرمانده‌ای نوشت که گذاشت دشمن فرار کند — بعد هیچ‌وقت نفرستادش. می‌دانست سرزنش فقط دعوا راه می‌اندازد."
+      },
+      "tip": {
+        "en": "Before you criticize, ask what would make a decent person act this way — then say nothing.",
+        "fa": "قبل از انتقاد، بپرس چه چیزی یک آدمِ معمولی را به این کار می‌کشاند — بعد چیزی نگو."
+      },
+      "pitfall": {
+        "en": "Thinking that pointing out the fault will fix it — it usually just hardens it.",
+        "fa": "این خیال که نشان‌دادنِ اشتباه درستش می‌کند — معمولاً فقط سفت‌ترش می‌کند."
+      }
+    },
+    "appreciate": {
+      "part": "handling",
+      "n": 2,
+      "name": {
+        "en": "Give Honest, Sincere Appreciation",
+        "fa": "قدردانیِ صادقانه بده"
+      },
+      "glabel": {
+        "en": "Appreciate",
+        "fa": "قدردانی"
+      },
+      "principle": {
+        "en": "The deepest human hunger is to feel appreciated. Feed it with honest, specific praise — not flattery.",
+        "fa": "عمیق‌ترین گرسنگیِ آدم این است که قدرش دانسته شود. با تعریفِ صادقانه و مشخص سیرش کن — نه با چاپلوسی."
+      },
+      "more": {
+        "en": "Everyone you meet wants to feel important. Give people a genuine sense of their worth and they'll do almost anything for you; withhold it and they wilt. The catch is that it must be sincere — appreciation from the heart, not the teeth.",
+        "fa": "هرکسی که می‌بینی می‌خواهد حس کند مهم است. اگر به آدم‌ها حسِ واقعیِ ارزش بدهی، تقریباً هر کاری برایت می‌کنند؛ اگر ندهی، پژمرده می‌شوند. رمزش این است که باید صادقانه باشد — قدردانی از دل، نه از سرِ زبان."
+      },
+      "example": {
+        "en": "Charles Schwab said his fortune was paid mainly for his ability to draw the best out of people with honest appreciation and encouragement.",
+        "fa": "چارلز شواب می‌گفت دستمزدِ کلانش بیشتر برای این بود که می‌توانست با قدردانی و تشویقِ صادقانه بهترینِ آدم‌ها را بیرون بکشد."
+      },
+      "tip": {
+        "en": "Today, tell one person exactly what you value about them — and mean it.",
+        "fa": "امروز به یک نفر دقیقاً بگو چه چیزی‌اش را قدر می‌دانی — و از ته دل بگو."
+      },
+      "pitfall": {
+        "en": "Sliding into empty flattery, which people see through at once.",
+        "fa": "لغزیدن به چاپلوسیِ توخالی، که آدم‌ها فوری دستش را می‌خوانند."
+      }
+    },
+    "eagerwant": {
+      "part": "handling",
+      "n": 3,
+      "name": {
+        "en": "Arouse an Eager Want",
+        "fa": "میل و اشتیاق بساز"
+      },
+      "glabel": {
+        "en": "Eager Want",
+        "fa": "اشتیاق"
+      },
+      "principle": {
+        "en": "The only way to move anyone is to talk about what they want and show them how to get it.",
+        "fa": "تنها راهِ به‌حرکت‌درآوردنِ هر کسی این است که از چیزی حرف بزنی که او می‌خواهد و نشانش بدهی چطور به آن برسد."
+      },
+      "more": {
+        "en": "You want what you want; so does everyone else. Stop talking about your own needs and frame your idea around theirs. The person who can arouse an eager want in others has the whole world with them.",
+        "fa": "تو چیزی را می‌خواهی که می‌خواهی؛ بقیه هم همین‌طور. دست از حرف‌زدن دربارهٔ نیازِ خودت بردار و ایده‌ات را دورِ خواستهٔ او بچین. کسی که بتواند در دیگران اشتیاق بسازد، تمامِ دنیا با اوست."
+      },
+      "example": {
+        "en": "Carnegie put it plainly: he loved strawberries and cream, but he baited his hook with worms — because that is what the fish wanted.",
+        "fa": "کارنگی ساده می‌گفت: خودش عاشقِ توت‌فرنگی و خامه بود، اما قلابش را با کِرم طعمه می‌زد — چون ماهی این را می‌خواست."
+      },
+      "tip": {
+        "en": "Before you ask, write one line: why would the other person want to say yes?",
+        "fa": "قبل از اینکه چیزی بخواهی، یک خط بنویس: طرفِ مقابل چرا باید بخواهد بله بگوید؟"
+      },
+      "pitfall": {
+        "en": "Pitching everything in terms of what you need.",
+        "fa": "همه‌چیز را از زاویهٔ نیازِ خودت مطرح‌کردن."
+      }
+    },
+    "interested": {
+      "part": "likeable",
+      "n": 4,
+      "name": {
+        "en": "Become Genuinely Interested in Others",
+        "fa": "واقعاً به دیگران علاقه‌مند شو"
+      },
+      "glabel": {
+        "en": "Be Interested",
+        "fa": "علاقه‌مند شو"
+      },
+      "principle": {
+        "en": "You make more friends in two months by being interested in others than in two years of trying to make them interested in you.",
+        "fa": "با علاقه‌مندشدن به دیگران در دو ماه بیشتر دوست پیدا می‌کنی تا با دو سال تلاش برای اینکه دیگران را به خودت علاقه‌مند کنی."
+      },
+      "more": {
+        "en": "Real, warm interest in other people opens doors that cleverness never will. Ask about them, remember what matters to them, and show up genuinely glad to see them — the way a dog greets you.",
+        "fa": "علاقهٔ واقعی و گرم به آدم‌ها دری را باز می‌کند که زرنگی هیچ‌وقت باز نمی‌کند. دربارهٔ خودشان بپرس، یادت باشد چه چیزی برایشان مهم است، و واقعاً خوشحال از دیدنشان ظاهر شو — مثلِ سگی که به استقبالت می‌آید."
+      },
+      "example": {
+        "en": "A dog makes a living purely by showing it's glad to see you — no skills, no résumé, just genuine delight.",
+        "fa": "سگ فقط با نشان‌دادنِ اینکه از دیدنت خوشحال است نانش را درمی‌آورد — نه مهارتی، نه رزومه‌ای، فقط شادیِ واقعی."
+      },
+      "tip": {
+        "en": "In your next chat, ask two real questions about them before you say anything about yourself.",
+        "fa": "در گفت‌وگوی بعدی، قبل از اینکه چیزی دربارهٔ خودت بگویی، دو سؤالِ واقعی دربارهٔ او بپرس."
+      },
+      "pitfall": {
+        "en": "Trying to be interesting instead of being interested.",
+        "fa": "تلاش برای جالب‌بودن، به‌جای علاقه‌مندبودن."
+      }
+    },
+    "smile": {
+      "part": "likeable",
+      "n": 5,
+      "name": {
+        "en": "Smile",
+        "fa": "لبخند بزن"
+      },
+      "glabel": {
+        "en": "Smile",
+        "fa": "لبخند"
+      },
+      "principle": {
+        "en": "A simple smile says “I'm glad to see you” faster than any words — and it costs nothing.",
+        "fa": "یک لبخندِ ساده سریع‌تر از هر کلمه‌ای می‌گوید «از دیدنت خوشحالم» — و هیچ خرجی هم ندارد."
+      },
+      "more": {
+        "en": "Your expression tells people how you feel about them before you speak. A warm smile is a small act of generosity that makes the other person feel welcome; act cheerful and, as often as not, you begin to feel it too.",
+        "fa": "چهره‌ات قبل از اینکه حرف بزنی به آدم‌ها می‌گوید چه حسی به آن‌ها داری. یک لبخندِ گرم یک بخششِ کوچک است که طرف را حس می‌کند پذیرفته‌شده؛ شاد رفتار کن، اغلب کم‌کم خودت هم شاد می‌شوی."
+      },
+      "example": {
+        "en": "Carnegie tells of a man who forced himself to smile each morning and found his marriage and his business warm up within weeks.",
+        "fa": "کارنگی از مردی می‌گوید که هر صبح خودش را به لبخند وادار کرد و دید که در چند هفته هم زندگیِ زناشویی و هم کارش گرم‌تر شد."
+      },
+      "tip": {
+        "en": "Smile — a real one — at the next three people you talk to, even on the phone.",
+        "fa": "به سه نفرِ بعدی که با آن‌ها حرف می‌زنی لبخند بزن — یک لبخندِ واقعی — حتی پشتِ تلفن."
+      },
+      "pitfall": {
+        "en": "A cold or distracted face that pushes people away before you speak.",
+        "fa": "یک چهرهٔ سرد یا حواس‌پرت که قبل از حرف‌زدن آدم‌ها را پس می‌زند."
+      }
+    },
+    "name": {
+      "part": "likeable",
+      "n": 6,
+      "name": {
+        "en": "Remember the Name",
+        "fa": "اسم را به یاد بسپار"
+      },
+      "glabel": {
+        "en": "Names",
+        "fa": "اسم"
+      },
+      "principle": {
+        "en": "A person's own name is to them the sweetest, most important sound in any language.",
+        "fa": "اسمِ خودِ آدم برایش شیرین‌ترین و مهم‌ترین صدا در هر زبانی است."
+      },
+      "more": {
+        "en": "Remembering and using someone's name tells them they matter to you. Forget it, misspell it, or mangle it, and you send the opposite message. Make the small effort to catch it, repeat it, and use it.",
+        "fa": "به‌یاد‌داشتن و به‌کاربردنِ اسمِ کسی به او می‌گوید که برایت مهم است. فراموشش کنی، غلط بنویسی‌اش یا خرابش کنی، پیامِ برعکس می‌فرستی. همان زحمتِ کوچک را بکش که بگیری‌اش، تکرارش کنی، و به کارش ببری."
+      },
+      "example": {
+        "en": "Politician Jim Farley could call thousands of people by their first names — and that gift helped put a president in office.",
+        "fa": "جیم فارلیِ سیاستمدار می‌توانست هزاران نفر را به اسمِ کوچک صدا بزند — و همین توانایی کمک کرد یک رئیس‌جمهور سرِ کار بیاید."
+      },
+      "tip": {
+        "en": "When you meet someone, repeat their name once out loud and picture it.",
+        "fa": "وقتی کسی را می‌بینی، اسمش را یک‌بار بلند تکرار کن و در ذهنت تصویرش کن."
+      },
+      "pitfall": {
+        "en": "The lazy “I'm terrible with names” — it just tells people they're not worth the effort.",
+        "fa": "آن بهانهٔ تنبلانهٔ «من اسم یادم نمی‌ماند» — فقط به آدم‌ها می‌گوید ارزشِ این زحمت را ندارند."
+      }
+    },
+    "listen": {
+      "part": "likeable",
+      "n": 7,
+      "name": {
+        "en": "Be a Good Listener",
+        "fa": "شنوندهٔ خوبی باش"
+      },
+      "glabel": {
+        "en": "Listen",
+        "fa": "گوش بده"
+      },
+      "principle": {
+        "en": "Encourage others to talk about themselves, and listen as if nothing else matters.",
+        "fa": "دیگران را تشویق کن دربارهٔ خودشان حرف بزنند، و طوری گوش بده که انگار هیچ‌چیزِ دیگری مهم نیست."
+      },
+      "more": {
+        "en": "Most people would rather have a good listener than a clever talker. Give someone your full attention, ask about what they love, and let them do most of the talking — they'll walk away thinking you're wonderful company.",
+        "fa": "بیشترِ آدم‌ها یک شنوندهٔ خوب را به یک حرّافِ زبل ترجیح می‌دهند. تمامِ حواست را به کسی بده، از چیزی که دوست دارد بپرس، و بگذار بیشترِ حرف‌ها را او بزند — با این حس می‌رود که تو هم‌صحبتِ فوق‌العاده‌ای هستی."
+      },
+      "example": {
+        "en": "At a dinner Carnegie mostly listened to a botanist for hours; the man later called him a “most interesting conversationalist”.",
+        "fa": "سرِ یک شام، کارنگی ساعت‌ها بیشتر به یک گیاه‌شناس گوش داد؛ آن مرد بعداً او را «یک هم‌صحبتِ فوق‌العاده جالب» نامید."
+      },
+      "tip": {
+        "en": "In your next conversation, aim to speak less than a third of the time.",
+        "fa": "در گفت‌وگوی بعدی، هدفت این باشد که کمتر از یک‌سومِ وقت حرف بزنی."
+      },
+      "pitfall": {
+        "en": "Waiting for your turn to talk instead of actually listening.",
+        "fa": "منتظرِ نوبتِ حرف‌زدنِ خودت ماندن، به‌جای اینکه واقعاً گوش بدهی."
+      }
+    },
+    "argue": {
+      "part": "persuade",
+      "n": 8,
+      "name": {
+        "en": "Avoid the Argument",
+        "fa": "از بحث دوری کن"
+      },
+      "glabel": {
+        "en": "Avoid Arguing",
+        "fa": "بحث نکن"
+      },
+      "principle": {
+        "en": "The only way to get the best of an argument is to avoid it — you can't win one.",
+        "fa": "تنها راهِ پیروزی در یک بحث این است که واردش نشوی — بحث را نمی‌شود بُرد."
+      },
+      "more": {
+        "en": "Win an argument and you still lose: the other person's pride is hurt and they resent you. Even when you're right, a beaten opponent keeps their old opinion. Better to sidestep the fight and keep the goodwill.",
+        "fa": "بحث را ببری، باز هم باخته‌ای: غرورِ طرف زخم می‌خورد و از تو دلخور می‌شود. حتی وقتی حق با توست، طرفِ شکست‌خورده باز همان نظرِ قبلی‌اش را دارد. بهتر است دعوا را دور بزنی و خوش‌بینی را نگه داری."
+      },
+      "example": {
+        "en": "At a banquet a man misquoted a line as Shakespeare; Carnegie's friend, under the table, told him to let it go — being right wasn't worth the bad feeling.",
+        "fa": "سرِ یک ضیافت، مردی جمله‌ای را اشتباه به شکسپیر نسبت داد؛ دوستِ کارنگی زیرِ میز به او گفت بی‌خیالش شود — حق‌داشتن ارزشِ آن دلخوری را نداشت."
+      },
+      "tip": {
+        "en": "Next time you feel the urge to correct someone, ask if winning is worth the friction.",
+        "fa": "دفعهٔ بعد که خواستی کسی را تصحیح کنی، بپرس بردن ارزشِ این کدورت را دارد یا نه."
+      },
+      "pitfall": {
+        "en": "Winning the point and losing the person.",
+        "fa": "بردنِ بحث و باختنِ آدم."
+      }
+    },
+    "noWrong": {
+      "part": "persuade",
+      "n": 9,
+      "name": {
+        "en": "Never Say “You're Wrong”",
+        "fa": "هیچ‌وقت نگو «اشتباه می‌کنی»"
+      },
+      "glabel": {
+        "en": "Never Say Wrong",
+        "fa": "نگو اشتباهی"
+      },
+      "principle": {
+        "en": "Don't tell people they're wrong; show respect for their opinion — and admit your own mistakes fast.",
+        "fa": "به آدم‌ها نگو اشتباه می‌کنند؛ به نظرشان احترام بگذار — و اشتباهِ خودت را سریع بپذیر."
+      },
+      "more": {
+        "en": "“You're wrong” is a slap that makes people dig in. Begin in a friendly way, grant that you might be mistaken, and let them save face. And when you are wrong, say so quickly and warmly — it disarms people instantly.",
+        "fa": "«اشتباه می‌کنی» یک سیلی است که آدم‌ها را لجوج‌تر می‌کند. دوستانه شروع کن، قبول کن که شاید خودت اشتباه کنی، و بگذار آبرویشان را نگه دارند. و وقتی خودت اشتباه کردی، سریع و گرم بگو — این فوری خلعِ‌سلاحشان می‌کند."
+      },
+      "example": {
+        "en": "Ben Franklin dropped words like “certainly” for “I imagine”, and found people agreed with him far more often.",
+        "fa": "بنجامین فرانکلین کلماتی مثلِ «قطعاً» را کنار گذاشت و «به‌گمانم» گفت، و دید که آدم‌ها خیلی بیشتر باهاش موافقت می‌کنند."
+      },
+      "tip": {
+        "en": "Replace “you're wrong” with “I may be off, but here's how I see it”.",
+        "fa": "«اشتباه می‌کنی» را با «شاید من اشتباه کنم، اما من این‌طور می‌بینمش» عوض کن."
+      },
+      "pitfall": {
+        "en": "Correcting someone bluntly and watching them stop listening.",
+        "fa": "تصحیحِ رک و بی‌پردهٔ کسی و تماشای اینکه دیگر گوش نمی‌دهد."
+      }
+    },
+    "theirIdea": {
+      "part": "persuade",
+      "n": 10,
+      "name": {
+        "en": "Make the Idea Theirs",
+        "fa": "بگذار ایده مالِ خودشان باشد"
+      },
+      "glabel": {
+        "en": "Their Idea",
+        "fa": "ایدهٔ خودشان"
+      },
+      "principle": {
+        "en": "Let the other person do the talking and feel the idea is their own — get them saying “yes, yes” early.",
+        "fa": "بگذار طرفِ مقابل حرف بزند و حس کند ایده مالِ خودش است — زود کاری کن که «بله، بله» بگوید."
+      },
+      "more": {
+        "en": "People back their own ideas, not yours. Ask questions that draw out a string of small yeses, let them talk themselves toward the conclusion, and plant your suggestion so they feel they thought of it. Then honestly try to see it their way.",
+        "fa": "آدم‌ها پُشتِ ایدهٔ خودشان می‌ایستند، نه ایدهٔ تو. سؤال‌هایی بپرس که یک‌رشته «بله»‌های کوچک بیرون بکشد، بگذار خودشان حرف‌زنان به نتیجه برسند، و پیشنهادت را طوری بکار که حس کنند خودشان فکرش کرده‌اند. بعد صادقانه سعی کن از دیدِ آن‌ها ببینی‌اش."
+      },
+      "example": {
+        "en": "Socrates kept asking questions his listeners had to agree with, leading them step by step to a conclusion they'd have fought head-on.",
+        "fa": "سقراط پشتِ‌سرِ هم سؤال‌هایی می‌پرسید که شنونده مجبور بود موافق باشد، و قدم‌به‌قدم آن‌ها را به نتیجه‌ای می‌رساند که رودررو باهاش می‌جنگیدند."
+      },
+      "tip": {
+        "en": "Turn your next request into a question that lets them reach the idea themselves.",
+        "fa": "درخواستِ بعدی‌ات را به سؤالی تبدیل کن که بگذارد خودشان به ایده برسند."
+      },
+      "pitfall": {
+        "en": "Pushing your conclusion so hard they push back on principle.",
+        "fa": "آن‌قدر نتیجهٔ خودت را هُل بدهی که از سرِ لج پسش بزنند."
+      }
+    },
+    "praiseFirst": {
+      "part": "leader",
+      "n": 11,
+      "name": {
+        "en": "Begin With Praise, Correct Indirectly",
+        "fa": "با تعریف شروع کن، غیرمستقیم اصلاح کن"
+      },
+      "glabel": {
+        "en": "Praise First",
+        "fa": "اول تعریف"
+      },
+      "principle": {
+        "en": "Open with honest praise, point out mistakes indirectly, and talk about your own errors first.",
+        "fa": "با تعریفِ صادقانه باز کن، اشتباه‌ها را غیرمستقیم بگو، و اول از اشتباه‌های خودت حرف بزن."
+      },
+      "more": {
+        "en": "It's easier to hear hard truths after a sincere compliment, the way a barber lathers before he shaves. Mention faults indirectly, and admit you've made the same slip yourself — now you're a fellow human, not a judge.",
+        "fa": "شنیدنِ حرف‌های سخت بعد از یک تعریفِ صادقانه راحت‌تر است، همان‌طور که سلمانی قبل از تراشیدن، صابون می‌زند. اشتباه‌ها را غیرمستقیم بگو، و اعتراف کن که خودت هم همین لغزش را داشته‌ای — حالا یک همنوعی، نه یک قاضی."
+      },
+      "example": {
+        "en": "Finding workers smoking under a “No Smoking” sign, Schwab handed them cigars and asked them to smoke outside — no scolding, and they loved him for it.",
+        "fa": "شواب که کارگرها را زیرِ تابلوی «سیگار ممنوع» در حالِ سیگار‌کشیدن دید، به‌جای دعوا به آن‌ها سیگار برگ داد و خواست بیرون بکشند — و آن‌ها به‌خاطرش دوستش داشتند."
+      },
+      "tip": {
+        "en": "Before a correction, name one thing the person genuinely did well.",
+        "fa": "قبل از هر اصلاحی، یک کاری را که طرف واقعاً خوب انجام داده نام ببر."
+      },
+      "pitfall": {
+        "en": "Leading with the criticism so the praise sounds fake.",
+        "fa": "با انتقاد شروع‌کردن، طوری که تعریف بعدش الکی به‌نظر برسد."
+      }
+    },
+    "askQuestions": {
+      "part": "leader",
+      "n": 12,
+      "name": {
+        "en": "Ask Questions, Not Orders",
+        "fa": "سؤال بپرس، دستور نده"
+      },
+      "glabel": {
+        "en": "Ask, Don't Order",
+        "fa": "بپرس نه دستور"
+      },
+      "principle": {
+        "en": "Give suggestions as questions, not commands, and always let the other person save face.",
+        "fa": "پیشنهادها را به‌شکلِ سؤال بده، نه دستور، و همیشه بگذار طرف آبرویش را نگه دارد."
+      },
+      "more": {
+        "en": "“Would you consider this?” invites cooperation; “Do it this way” invites resistance. Questions let people keep their dignity and often improve on your idea. And however things go, never make someone feel small — protect their pride.",
+        "fa": "«به این فکر می‌کنی؟» همکاری می‌آورد؛ «این‌طوری انجامش بده» مقاومت. سؤال می‌گذارد آدم‌ها عزتشان را نگه دارند و اغلب ایده‌ات را هم بهتر می‌کنند. و هرطور که پیش برود، هیچ‌وقت نگذار کسی حس کند کوچک شده — از غرورش محافظت کن."
+      },
+      "example": {
+        "en": "Executive Owen D. Young never gave a direct order; he asked “Do you think this would work?” and let people learn by doing.",
+        "fa": "اوون یانگِ مدیر هیچ‌وقت دستورِ مستقیم نمی‌داد؛ می‌پرسید «فکر می‌کنی این جواب می‌دهد؟» و می‌گذاشت آدم‌ها با انجام‌دادن یاد بگیرند."
+      },
+      "tip": {
+        "en": "Turn your next instruction into a genuine question.",
+        "fa": "دستورِ بعدی‌ات را به یک سؤالِ واقعی تبدیل کن."
+      },
+      "pitfall": {
+        "en": "Barking orders that dent pride and invite quiet resistance.",
+        "fa": "دستور‌دادنِ خشک که به غرور می‌زند و مقاومتِ خاموش می‌آورد."
+      }
+    },
+    "reputation": {
+      "part": "leader",
+      "n": 13,
+      "name": {
+        "en": "Praise Improvement, Give a Reputation to Live Up To",
+        "fa": "پیشرفت را تحسین کن، اعتبار بده"
+      },
+      "glabel": {
+        "en": "Reputation",
+        "fa": "اعتبار"
+      },
+      "principle": {
+        "en": "Praise the slightest improvement, and give people a fine reputation to live up to.",
+        "fa": "کوچک‌ترین پیشرفت را تحسین کن، و به آدم‌ها یک اعتبارِ خوب بده که پایش بمانند."
+      },
+      "more": {
+        "en": "People rise to the label you give them. Praise every step in the right direction and make the fault seem easy to fix; tell someone they already have the very quality you want, and they'll strain to prove you right.",
+        "fa": "آدم‌ها به‌اندازهٔ برچسبی که بهشان می‌زنی بالا می‌روند. هر قدمِ درست را تحسین کن و طوری رفتار کن که انگار اشتباه راحت‌درست‌شدنی است؛ به کسی بگو همین حالا همان خصلتِ خوبی را که می‌خواهی دارد، آن‌وقت جان می‌کَند که ثابت کند حق با توست."
+      },
+      "example": {
+        "en": "Tell a careless worker you count on them for careful work, and often they start living up to the name you've given them.",
+        "fa": "به یک کارگرِ بی‌دقت بگو روی دقتِ کارش حساب می‌کنی، اغلب کم‌کم پایِ همان اسمی که بهش داده‌ای می‌ماند."
+      },
+      "tip": {
+        "en": "Catch someone doing something a little right today and name it out loud.",
+        "fa": "امروز کسی را در حالِ درست‌انجام‌دادنِ یک کارِ کوچک بگیر و بلند اسمش را ببر."
+      },
+      "pitfall": {
+        "en": "Noticing only mistakes and never the progress.",
+        "fa": "فقط اشتباه‌ها را دیدن و هیچ‌وقت پیشرفت را ندیدن."
+      }
+    },
+    "importance": {
+      "part": "human",
+      "n": 14,
+      "name": {
+        "en": "Everyone Craves Importance",
+        "fa": "همه تشنهٔ مهم‌بودن‌اند"
+      },
+      "glabel": {
+        "en": "Importance",
+        "fa": "مهم‌بودن"
+      },
+      "principle": {
+        "en": "The deepest urge in human nature is the desire to feel important. Almost everything people do flows from it.",
+        "fa": "عمیق‌ترین کششِ سرشتِ آدمی، میل به حسِ مهم‌بودن است. تقریباً هر کاری که آدم‌ها می‌کنند از همین برمی‌آید."
+      },
+      "more": {
+        "en": "We crave a feeling of importance the way we crave food. This one hunger drives ambition, generosity, even crime. Once you see it in everyone, you understand what really moves people — and you can meet it honestly.",
+        "fa": "ما تشنهٔ حسِ مهم‌بودن‌ایم، همان‌طور که تشنهٔ غذا. همین یک گرسنگی، جاه‌طلبی و بخشش و حتی جنایت را پیش می‌راند. وقتی این را در همه ببینی، می‌فهمی واقعاً چه چیزی آدم‌ها را حرکت می‌دهد — و می‌توانی صادقانه برآورده‌اش کنی."
+      },
+      "example": {
+        "en": "William James wrote that the deepest principle in human nature is the craving to be appreciated.",
+        "fa": "ویلیام جیمز نوشت که عمیق‌ترین اصلِ سرشتِ آدمی، تشنگی برای قدردانی‌شدن است."
+      },
+      "tip": {
+        "en": "Ask what would make the person in front of you feel important — then give it.",
+        "fa": "بپرس چه چیزی به آدمِ روبه‌رویت حسِ مهم‌بودن می‌دهد — بعد همان را بده."
+      },
+      "pitfall": {
+        "en": "Ignoring people's need to matter, then wondering why they resist you.",
+        "fa": "نادیده‌گرفتنِ نیازِ آدم‌ها به مهم‌بودن، و بعد تعجب از اینکه چرا در برابرت مقاومت می‌کنند."
+      }
+    },
+    "viewpoint": {
+      "part": "human",
+      "n": 15,
+      "name": {
+        "en": "See It Their Way",
+        "fa": "از دیدِ آن‌ها ببین"
+      },
+      "glabel": {
+        "en": "Their Viewpoint",
+        "fa": "دیدِ آن‌ها"
+      },
+      "principle": {
+        "en": "Try honestly to see things from the other person's point of view — it's the heart of every technique here.",
+        "fa": "صادقانه سعی کن چیزها را از زاویهٔ دیدِ طرفِ مقابل ببینی — این قلبِ همهٔ روش‌های اینجاست."
+      },
+      "more": {
+        "en": "If there's one secret of success, it's the ability to get the other person's angle and see things from it as well as your own. Ask why they might want what they want; suddenly your approach becomes obvious.",
+        "fa": "اگر یک رازِ موفقیت باشد، همان توانایی گرفتنِ زاویهٔ طرفِ مقابل و دیدنِ چیزها از آن است، به‌اندازهٔ زاویهٔ خودت. بپرس چرا او چیزی را که می‌خواهد می‌خواهد؛ ناگهان راهت روشن می‌شود."
+      },
+      "example": {
+        "en": "Carnegie baited the hook with what the fish wanted, not what he liked — the whole book is that one habit, applied to people.",
+        "fa": "کارنگی قلاب را با چیزی طعمه می‌زد که ماهی می‌خواست، نه چیزی که خودش دوست داشت — کلِ کتاب همین یک عادت است، به‌کاربسته روی آدم‌ها."
+      },
+      "tip": {
+        "en": "Before an ask, spend a minute genuinely arguing the other side to yourself.",
+        "fa": "قبل از هر درخواست، یک دقیقه صادقانه طرفِ مقابل را برای خودت استدلال کن."
+      },
+      "pitfall": {
+        "en": "Seeing only your own needs and calling it common sense.",
+        "fa": "فقط نیازِ خودت را دیدن و اسمش را عقلِ سلیم گذاشتن."
+      }
+    },
+    "sincerity": {
+      "part": "human",
+      "n": 16,
+      "name": {
+        "en": "Sincerity, Not Manipulation",
+        "fa": "صداقت، نه بازی‌دادن"
+      },
+      "glabel": {
+        "en": "Sincerity",
+        "fa": "صداقت"
+      },
+      "principle": {
+        "en": "These aren't tricks. They only work when they come from genuine care — sincerity, never flattery.",
+        "fa": "این‌ها کلک نیستند. فقط وقتی جواب می‌دهند که از دلسوزیِ واقعی بیایند — صداقت، هیچ‌وقت چاپلوسی."
+      },
+      "more": {
+        "en": "The whole method rests on real goodwill. Flattery is telling people what they already think of themselves; appreciation is sincere and comes from the heart. Use these ideas to manipulate and they curdle; use them to genuinely value people and they last.",
+        "fa": "کلِ این روش روی خیرخواهیِ واقعی بنا شده. چاپلوسی یعنی گفتنِ همان چیزی که آدم‌ها خودشان دربارهٔ خودشان فکر می‌کنند؛ قدردانی صادقانه است و از دل می‌آید. اگر با این ایده‌ها آدم‌ها را بازی بدهی، فاسد می‌شوند؛ اگر با آن‌ها واقعاً قدرِ آدم‌ها را بدانی، ماندگارند."
+      },
+      "example": {
+        "en": "Carnegie's own line: the difference between appreciation and flattery is that one is sincere and the other insincere — one from the heart, one from the teeth.",
+        "fa": "جملهٔ خودِ کارنگی: فرقِ قدردانی و چاپلوسی این است که یکی صادقانه است و دیگری ریاکارانه — یکی از دل، دیگری از سرِ زبان."
+      },
+      "tip": {
+        "en": "Only say the appreciation you actually mean; skip the rest.",
+        "fa": "فقط همان قدردانی‌ای را بگو که واقعاً به آن باور داری؛ بقیه را ول کن."
+      },
+      "pitfall": {
+        "en": "Using these ideas as tactics, which people eventually smell.",
+        "fa": "استفاده از این ایده‌ها به‌عنوانِ تاکتیک، که آدم‌ها بالاخره بویش را می‌برند."
+      }
+    }
+  },
+  "core": {
+    "name": {
+      "en": "MAKE PEOPLE FEEL IMPORTANT",
+      "fa": "احساسِ مهم‌بودن بده"
+    },
+    "principle": {
+      "en": "Almost every technique in the book grows from one root: the deep human craving to feel important and appreciated. Don't criticize; give honest appreciation; talk in terms of what the other person wants; and truly try to see things from their side. Do it sincerely, and people open up to you.",
+      "fa": "تقریباً هر روشِ کتاب از یک ریشه می‌روید: تشنگیِ عمیقِ آدم برای اینکه حس کند مهم است و قدرش دانسته می‌شود. انتقاد نکن؛ قدردانیِ صادقانه بده؛ از زاویهٔ خواستهٔ طرفِ مقابل حرف بزن؛ و واقعاً سعی کن از سمتِ او ببینی. صادقانه انجامش بده، آن‌وقت آدم‌ها به رویت باز می‌شوند."
+    },
+    "more": {
+      "en": "Carnegie groups the ideas into a few moves: fundamental techniques for handling people (no blame, honest appreciation, arouse an eager want), ways to be liked (interest, a smile, names, listening), ways to win people to your thinking (avoid arguments, never say “you're wrong”, let the idea be theirs), and how to lead without giving offense (praise first, ask don't order, give a reputation to live up to). Underneath all of it is one principle: make the other person feel important — sincerely.",
+      "fa": "کارنگی ایده‌ها را در چند حرکت می‌چیند: روش‌های بنیادیِ رفتار با آدم‌ها (بی‌سرزنش، قدردانیِ صادقانه، ساختنِ اشتیاق)، راه‌های دوست‌داشتنی‌شدن (علاقه، لبخند، اسم، گوش‌دادن)، راه‌های همراه‌کردنِ دیگران با فکرت (دوری از بحث، نگفتنِ «اشتباه می‌کنی»، مالِ خودشان‌کردنِ ایده)، و رهبری بدونِ رنجاندن (اول تعریف، سؤال به‌جای دستور، اعتبار‌دادن). زیرِ همهٔ این‌ها یک اصل است: کاری کن طرفِ مقابل حس کند مهم است — صادقانه."
+    },
+    "example": {
+      "en": "Click any node to read a principle or a method. You can also drag the nodes around.",
+      "fa": "روی هر دایره کلیک کن تا یک اصل یا روش را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."
+    }
+  },
+  "stages": [
+    {
+      "level": 1,
+      "badge": {
+        "en": "Level 1 · Over-simplified",
+        "fa": "سطحِ ۱ · خیلی ساده"
+      },
+      "title": {
+        "en": "Make people feel important",
+        "fa": "کاری کن آدم‌ها حس کنند مهم‌اند"
+      },
+      "tagline": {
+        "en": "The whole book in a sentence.",
+        "fa": "کلِ کتاب در یک جمله."
+      },
+      "body": {
+        "en": "People do things for their reasons, not yours, and the biggest reason is wanting to feel important. Stop criticizing, start appreciating, and treat people like they matter — because to them, they do.",
+        "fa": "آدم‌ها کارها را به دلایلِ خودشان می‌کنند، نه دلایلِ تو، و بزرگ‌ترین دلیل، میل به حسِ مهم‌بودن است. دست از انتقاد بردار، شروع کن به قدردانی، و با آدم‌ها طوری رفتار کن که انگار مهم‌اند — چون برای خودشان مهم‌اند."
+      },
+      "example": {
+        "en": "Instead of telling a teammate they messed up, thank them for what they did well first.",
+        "fa": "به‌جای اینکه به هم‌تیمی‌ات بگویی خراب کرده، اول برای کاری که خوب انجام داده ازش تشکر کن."
+      },
+      "gain": {
+        "en": "You grasp the one idea the whole book expands on.",
+        "fa": "همان یک ایده‌ای را می‌گیری که کلِ کتاب بسطش می‌دهد."
+      }
+    },
+    {
+      "level": 2,
+      "badge": {
+        "en": "Level 2 · Simple",
+        "fa": "سطحِ ۲ · ساده"
+      },
+      "title": {
+        "en": "Three basics",
+        "fa": "سه پایه"
+      },
+      "tagline": {
+        "en": "Don't criticize, appreciate, arouse a want.",
+        "fa": "انتقاد نکن، قدردانی کن، اشتیاق بساز."
+      },
+      "body": {
+        "en": "Start with the fundamentals of handling people. <b>Don't criticize, condemn, or complain.</b> Give <b>honest, sincere appreciation.</b> And <b>arouse an eager want</b> by talking about what the other person cares about, not what you need.",
+        "fa": "با اصل‌های پایهٔ رفتار با آدم‌ها شروع کن. <b>انتقاد و سرزنش و شکایت نکن.</b> <b>قدردانیِ صادقانه</b> بده. و با حرف‌زدن از چیزی که برای طرفِ مقابل مهم است — نه نیازِ تو — در او <b>اشتیاق</b> بساز."
+      },
+      "example": {
+        "en": "To get help, don't list your problems; show how helping you serves something they already want.",
+        "fa": "برای گرفتنِ کمک، مشکل‌هایت را ردیف نکن؛ نشان بده کمک‌کردن به تو چیزی را که خودش می‌خواهد پیش می‌برد."
+      },
+      "gain": {
+        "en": "You can change how people respond to you in a single day.",
+        "fa": "می‌توانی در یک روز طرزِ واکنشِ آدم‌ها به خودت را عوض کنی."
+      }
+    },
+    {
+      "level": 3,
+      "badge": {
+        "en": "Level 3 · Balanced",
+        "fa": "سطحِ ۳ · متعادل"
+      },
+      "title": {
+        "en": "Be liked",
+        "fa": "دوست‌داشتنی شو"
+      },
+      "tagline": {
+        "en": "Interest, a smile, names, listening.",
+        "fa": "علاقه، لبخند، اسم، گوش‌دادن."
+      },
+      "body": {
+        "en": "Now win people's goodwill. Be genuinely <b>interested</b> in them, <b>smile</b>, remember and use their <b>name</b>, and become a real <b>listener</b> who lets them talk about themselves. None of it is clever — it's just warm attention.",
+        "fa": "حالا خوش‌بینیِ آدم‌ها را به‌دست بیاور. واقعاً به آن‌ها <b>علاقه‌مند</b> باش، <b>لبخند</b> بزن، <b>اسمشان</b> را یادت باشد و به کار ببر، و یک <b>شنوندهٔ</b> واقعی شو که می‌گذارد دربارهٔ خودشان حرف بزنند. هیچ‌کدام زرنگی نیست — فقط توجهِ گرم است."
+      },
+      "example": {
+        "en": "In your next meeting, ask about the other person and listen more than you talk.",
+        "fa": "در جلسهٔ بعدی، دربارهٔ طرفِ مقابل بپرس و بیشتر از آنکه حرف بزنی، گوش بده."
+      },
+      "gain": {
+        "en": "People start to warm to you and trust you.",
+        "fa": "آدم‌ها کم‌کم بهت گرم می‌شوند و اعتماد می‌کنند."
+      }
+    },
+    {
+      "level": 4,
+      "badge": {
+        "en": "Level 4 · Advanced",
+        "fa": "سطحِ ۴ · پیشرفته"
+      },
+      "title": {
+        "en": "Win people over",
+        "fa": "آدم‌ها را همراه کن"
+      },
+      "tagline": {
+        "en": "Avoid arguing, no “you're wrong”, make it theirs.",
+        "fa": "بحث نکن، بی‌«اشتباه می‌کنی»، مالِ خودشان کن."
+      },
+      "body": {
+        "en": "To change minds, drop force. <b>Avoid arguments</b> — you can't win them. Never say <b>“you're wrong”</b>; begin friendly and admit your own errors fast. Get people saying <b>“yes, yes”</b>, let them talk, and let the good idea feel like <b>their own</b>.",
+        "fa": "برای عوض‌کردنِ نظرها، زور را کنار بگذار. <b>از بحث دوری کن</b> — نمی‌شود بُردش. هیچ‌وقت نگو <b>«اشتباه می‌کنی»</b>؛ دوستانه شروع کن و اشتباه‌های خودت را سریع بپذیر. کاری کن آدم‌ها <b>«بله، بله»</b> بگویند، بگذار حرف بزنند، و بگذار ایدهٔ خوب حس شود مالِ <b>خودشان</b> است."
+      },
+      "example": {
+        "en": "Instead of proving a colleague wrong, ask questions that lead them to rethink it themselves.",
+        "fa": "به‌جای اثباتِ اشتباهِ یک همکار، سؤال‌هایی بپرس که خودش را به بازاندیشی برساند."
+      },
+      "gain": {
+        "en": "You can shift opinions without making enemies.",
+        "fa": "می‌توانی نظرها را جابه‌جا کنی بدونِ دشمن‌تراشیدن."
+      }
+    },
+    {
+      "level": 5,
+      "badge": {
+        "en": "Level 5 · Expert",
+        "fa": "سطحِ ۵ · حرفه‌ای"
+      },
+      "title": {
+        "en": "Lead — sincerely",
+        "fa": "رهبری کن — صادقانه"
+      },
+      "tagline": {
+        "en": "Praise, ask, grow people, and mean it.",
+        "fa": "تعریف کن، بپرس، آدم‌ها را رشد بده، و از دل."
+      },
+      "body": {
+        "en": "The expert leads people to change without resentment. <b>Begin with praise</b> and correct indirectly, talk about your own mistakes first, <b>ask questions</b> instead of giving orders, let people <b>save face</b>, and praise every improvement so they grow into a <b>reputation</b> worth living up to. Above all, none of this is a trick — it only works as <b>sincere</b> care for people, aimed at seeing the world from their side.",
+        "fa": "آدمِ حرفه‌ای آدم‌ها را بدونِ کینه به تغییر می‌رساند. <b>با تعریف شروع کن</b> و غیرمستقیم اصلاح کن، اول از اشتباه‌های خودت بگو، به‌جای دستور <b>سؤال بپرس</b>، بگذار آدم‌ها <b>آبرویشان</b> را نگه دارند، و هر پیشرفت را تحسین کن تا به‌سمتِ یک <b>اعتبارِ</b> ارزشمند رشد کنند. از همه مهم‌تر، هیچ‌کدامِ این‌ها کلک نیست — فقط به‌عنوانِ دلسوزیِ <b>صادقانه</b> برای آدم‌ها جواب می‌دهد، با نگاهی که دنیا را از سمتِ آن‌ها می‌بیند."
+      },
+      "example": {
+        "en": "You correct a struggling teammate by praising their strengths, asking how they'd fix it, and trusting them to rise to it.",
+        "fa": "یک هم‌تیمیِ درگیر را با تعریف از نقاطِ قوتش اصلاح می‌کنی، می‌پرسی خودش چطور درستش می‌کند، و بهش اعتماد می‌کنی که از پسش برمی‌آید."
+      },
+      "gain": {
+        "en": "You can lead and influence people while keeping their goodwill.",
+        "fa": "می‌توانی آدم‌ها را رهبری کنی و بر آن‌ها اثر بگذاری، درحالی‌که خوش‌بینی‌شان را نگه می‌داری."
+      }
+    }
+  ],
+  "quotes": [
+    {
+      "en": "Any fool can criticize, condemn and complain — and most fools do. But it takes character and self-control to be understanding and forgiving.",
+      "fa": "هر آدمِ نادانی می‌تواند انتقاد و سرزنش و شکایت کند — و بیشترِ نادان‌ها همین کار را می‌کنند. اما فهمیدن و بخشیدن، شخصیت و خویشتن‌داری می‌خواهد."
+    },
+    {
+      "en": "When dealing with people, let us remember we are not dealing with creatures of logic. We are dealing with creatures of emotion, creatures bristling with prejudices and motivated by pride and vanity.",
+      "fa": "وقتی با آدم‌ها سروکار داریم، یادمان باشد که با موجوداتِ منطق طرف نیستیم. با موجوداتِ احساس طرفیم، موجوداتی پُر از پیش‌داوری که غرور و خودخواهی به حرکتشان درمی‌آورد."
+    },
+    {
+      "en": "You can make more friends in two months by becoming interested in other people than you can in two years by trying to get other people interested in you.",
+      "fa": "با علاقه‌مندشدن به دیگران در دو ماه می‌توانی بیشتر دوست پیدا کنی تا در دو سال تلاش برای اینکه دیگران را به خودت علاقه‌مند کنی."
+    },
+    {
+      "en": "The only way to get the best of an argument is to avoid it.",
+      "fa": "تنها راهِ پیروزی در یک بحث این است که واردش نشوی."
+    },
+    {
+      "en": "Remember that a person's name is to that person the sweetest and most important sound in any language.",
+      "fa": "یادت باشد که اسمِ آدم برای خودش شیرین‌ترین و مهم‌ترین صدا در هر زبانی است."
+    },
+    {
+      "en": "The only way on earth to influence other people is to talk about what they want and show them how to get it.",
+      "fa": "تنها راهِ روی زمین برای اثرگذاری بر دیگران این است که از چیزی حرف بزنی که آن‌ها می‌خواهند و نشانشان بدهی چطور به آن برسند."
+    },
+    {
+      "en": "If there is any one secret of success, it lies in the ability to get the other person's point of view and see things from that person's angle as well as from your own.",
+      "fa": "اگر یک رازِ موفقیت وجود داشته باشد، در توانایی گرفتنِ زاویهٔ دیدِ طرفِ مقابل است و دیدنِ چیزها از زاویهٔ او، به‌اندازهٔ زاویهٔ خودت."
+    },
+    {
+      "en": "The deepest principle in human nature is the craving to be appreciated.",
+      "fa": "عمیق‌ترین اصلِ سرشتِ آدمی، تشنگی برای قدردانی‌شدن است."
+    }
+  ],
+  "media": [
+    {
+      "kind": "yt",
+      "id": "sdqA7VX_-5c",
+      "src": {
+        "en": "YouTube · Edarabia",
+        "fa": "یوتیوب · Edarabia"
+      },
+      "title": {
+        "en": "Top 10 Lessons — How to Win Friends",
+        "fa": "ده درسِ برتر — چطور دوست پیدا کنیم"
+      },
+      "desc": {
+        "en": "A ten-lesson summary of Carnegie's principles.",
+        "fa": "خلاصه‌ای ده‌درسی از اصولِ کارنگی."
+      },
+      "bullets": {
+        "en": [
+          "The core principles in a few minutes",
+          "Handling, liking, and influencing people",
+          "A fast, memorable overview"
+        ],
+        "fa": [
+          "اصولِ اصلی در چند دقیقه",
+          "رفتار، دوست‌داشتنی‌شدن، و اثرگذاری",
+          "یک مرورِ سریع و به‌یادماندنی"
+        ]
+      },
+      "best": {
+        "en": "Best for Stage 1–2.",
+        "fa": "خوب برای مرحلهٔ ۱ و ۲."
+      }
+    },
+    {
+      "kind": "yt",
+      "id": "Xo2Q4PQqqWU",
+      "src": {
+        "en": "YouTube · Escaping Ordinary",
+        "fa": "یوتیوب · Escaping Ordinary"
+      },
+      "title": {
+        "en": "How to Win Friends — in 20 Minutes",
+        "fa": "چطور دوست پیدا کنیم — در بیست دقیقه"
+      },
+      "desc": {
+        "en": "A 20-minute walkthrough of the whole book.",
+        "fa": "یک مرورِ بیست‌دقیقه‌ای از کلِ کتاب."
+      },
+      "bullets": {
+        "en": [
+          "All four ideas, condensed",
+          "Clear examples for each principle",
+          "Good after a first read"
+        ],
+        "fa": [
+          "همهٔ ایده‌ها، فشرده",
+          "مثالِ روشن برای هر اصل",
+          "خوب بعد از اولین خواندن"
+        ]
+      },
+      "best": {
+        "en": "Best for Stage 2–3.",
+        "fa": "خوب برای مرحلهٔ ۲ و ۳."
+      }
+    },
+    {
+      "kind": "img",
+      "url": "https://www.simonandschuster.com/books/How-to-Win-Friends-and-Influence-People/Dale-Carnegie/9781982171452",
+      "src": {
+        "en": "Simon & Schuster · Publisher",
+        "fa": "Simon & Schuster · ناشر"
+      },
+      "title": {
+        "en": "How to Win Friends — Publisher Page",
+        "fa": "چطور دوست پیدا کنیم — صفحهٔ ناشر"
+      },
+      "desc": {
+        "en": "The publisher page for the book, with editions and details.",
+        "fa": "صفحهٔ ناشر برای کتاب، با نسخه‌ها و جزئیات."
+      },
+      "bullets": {
+        "en": [
+          "The definitive editions",
+          "Background on Carnegie",
+          "Straight from the source"
+        ],
+        "fa": [
+          "نسخه‌های معتبر",
+          "پیشینه‌ای دربارهٔ کارنگی",
+          "مستقیم از خودِ منبع"
+        ]
+      },
+      "best": {
+        "en": "For editions and the source.",
+        "fa": "برای نسخه‌ها و منبعِ اصلی."
+      }
+    }
+  ],
+  "go": [
+    {
+      "label": {
+        "en": "Publisher page",
+        "fa": "صفحهٔ ناشر"
+      },
+      "url": "https://www.simonandschuster.com/books/How-to-Win-Friends-and-Influence-People/Dale-Carnegie/9781982171452"
+    },
+    {
+      "label": {
+        "en": "Book on Goodreads",
+        "fa": "کتاب در گودریدز"
+      },
+      "url": "https://www.goodreads.com/book/show/4865.How_to_Win_Friends_Influence_People"
+    },
+    {
+      "label": {
+        "en": "The book on Wikipedia",
+        "fa": "کتاب در ویکی‌پدیا"
+      },
+      "url": "https://en.wikipedia.org/wiki/How_to_Win_Friends_and_Influence_People"
+    }
+  ],
+  "recs": [
+    {
+      "pri": "b",
+      "t": {
+        "en": "Kill one criticism",
+        "fa": "یک انتقاد را بکُش"
+      },
+      "d": {
+        "en": "Today, catch one thing you're about to criticize and give honest appreciation instead.",
+        "fa": "امروز یک چیزی را که می‌خواهی انتقاد کنی بگیر و به‌جایش قدردانیِ صادقانه بگو."
+      }
+    },
+    {
+      "pri": "b",
+      "t": {
+        "en": "Ask, don't order",
+        "fa": "بپرس، دستور نده"
+      },
+      "d": {
+        "en": "Turn your next instruction to someone into a genuine question and watch what changes.",
+        "fa": "دستورِ بعدی‌ات به یک نفر را به یک سؤالِ واقعی تبدیل کن و ببین چه فرقی می‌کند."
+      }
+    },
+    {
+      "pri": "n",
+      "t": {
+        "en": "Nail one name",
+        "fa": "یک اسم را یاد بگیر"
+      },
+      "d": {
+        "en": "Meet someone new today, repeat their name, and use it before you part.",
+        "fa": "امروز با یک نفرِ تازه آشنا شو، اسمش را تکرار کن، و قبل از خداحافظی به کارش ببر."
+      }
+    },
+    {
+      "pri": "n",
+      "t": {
+        "en": "Listen twice as much",
+        "fa": "دو برابر گوش بده"
+      },
+      "d": {
+        "en": "In one conversation today, ask about the other person and let them do most of the talking.",
+        "fa": "امروز در یک گفت‌وگو، دربارهٔ طرفِ مقابل بپرس و بگذار بیشترِ حرف‌ها را او بزند."
+      }
+    }
+  ]
 });
 </script>
 </body>

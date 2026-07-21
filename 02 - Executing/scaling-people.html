@@ -1,21 +1,20 @@
 <!DOCTYPE html>
-<!-- complexity-level: 1→5 (this page teaches the SAME book at five depths, over-simplified … expert) -->
-<!-- Effortless (Greg McKeown) — bilingual EN/FA knowledge graph & 5-stage learning page -->
+<!-- Generated page. Edit CONTENT in the DATA object below; shared UI lives in ../assets/book.css + ../assets/book.js -->
 <html lang="fa" dir="rtl" data-lang="fa">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Scaling People — نقشهٔ دانش و یادگیری ۵ مرحله‌ای</title>
 
-<!-- Boot theme + language BEFORE paint to avoid a flash -->
+<!-- Boot theme + language BEFORE paint to avoid a flash (shared library-wide keys) -->
 <script>
 (function(){
   try{
-    var th = localStorage.getItem('scp-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
+    var th = localStorage.getItem('pbl-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
     document.documentElement.setAttribute('data-theme', th);
   }catch(e){ document.documentElement.setAttribute('data-theme','light'); }
   try{
-    var lg = localStorage.getItem('scp-lang') || 'fa';
+    var lg = localStorage.getItem('pbl-lang') || 'fa';
     document.documentElement.setAttribute('data-lang', lg);
     document.documentElement.setAttribute('lang', lg);
     document.documentElement.setAttribute('dir', lg==='fa' ? 'rtl' : 'ltr');
@@ -28,876 +27,1216 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:ital,opsz@0,6..72;1,6..72&display=swap" rel="stylesheet">
-
-<style>
-/* ── TOKENS ───────────────────────────────────────────────── */
-:root, [data-theme="light"]{
-  --bg:#f5f6f8; --bg2:#eef2f7; --card:#fff; --card2:#f8fafb;
-  --ink:#1c2330; --mut:#6b7280; --line:#e6e8ee;
-  --accent:#0e7c86; --accent-ink:#fff; --warm:#c2410c;
-  --shadow:0 1px 2px rgba(20,30,50,.05),0 6px 24px rgba(20,30,50,.06);
-  --hero-1:#0e7c86; --hero-2:#0b5e66;
-  --c-teal:#0e9aa6; --c-blue:#2f6fb0; --c-violet:#7c3aed; --c-amber:#d97706;
-  --c-green:#15a34a; --c-red:#e11d48; --c-gold:#c98a12; --c-gray:#6b7280;
-  --state:#0e9aa6; --action:#d97706; --results:#7c3aed; --core:#0e7c86;
-}
-[data-theme="dark"]{
-  --bg:#0e131a; --bg2:#161d27; --card:#151c26; --card2:#1b2430;
-  --ink:#e9eef5; --mut:#9aa7b6; --line:#27313d;
-  --accent:#2dd4bf; --accent-ink:#06231f; --warm:#fb923c;
-  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 28px rgba(0,0,0,.45);
-  --hero-1:#0c5f67; --hero-2:#07323a;
-  --c-teal:#2dd4bf; --c-blue:#5b9bd5; --c-violet:#a78bfa; --c-amber:#fbbf24;
-  --c-green:#34d399; --c-red:#fb7185; --c-gold:#e2b04a; --c-gray:#94a3b8;
-  --state:#2dd4bf; --action:#fbbf24; --results:#a78bfa; --core:#2dd4bf;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);
-  font-family:Vazirmatn,"Segoe UI",Tahoma,Arial,sans-serif;line-height:1.85;font-size:15px;
-  transition:background .25s,color .25s}
-html[data-lang="en"] body{font-family:Inter,"Segoe UI",system-ui,Arial,sans-serif;line-height:1.7}
-.wrap{max-width:960px;margin:0 auto;padding:0 18px 40px}
-
-/* language visibility */
-html[data-lang="en"] [data-only="fa"]{display:none !important}
-html[data-lang="fa"] [data-only="en"]{display:none !important}
-
-/* ── HERO ─────────────────────────────────────────────────── */
-.hero{background:linear-gradient(135deg,var(--hero-1),var(--hero-2));color:#fff;padding:44px 0 34px;position:relative;overflow:hidden}
-.hero::after{content:"";position:absolute;inset-inline-end:-80px;top:-80px;width:280px;height:280px;
-  background:radial-gradient(circle,rgba(255,255,255,.12),transparent 70%);pointer-events:none}
-.hero .wrap{padding-bottom:0;position:relative;z-index:1}
-.hero h1{margin:0 0 8px;font-size:30px;font-weight:800;letter-spacing:-.3px;line-height:1.25}
-html[data-lang="en"] .hero h1{font-family:Newsreader,Georgia,serif;font-weight:600;letter-spacing:-.5px}
-.hero .dek{margin:0;opacity:.94;font-size:15.5px;max-width:640px}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;
-  color:rgba(255,255,255,.95);background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.24);
-  padding:5px 13px;border-radius:20px;margin-bottom:15px}
-.eyebrow .edot{width:7px;height:7px;border-radius:50%;background:#fff;box-shadow:0 0 0 3px rgba(255,255,255,.25)}
-.metastrip{display:flex;flex-wrap:wrap;gap:14px 30px;margin-top:20px;padding-top:16px;
-  border-top:1px solid rgba(255,255,255,.18)}
-.metaitem{display:flex;flex-direction:column;gap:3px}
-.metaitem .mk{font-size:10.5px;color:rgba(255,255,255,.62);font-weight:700;letter-spacing:.6px;text-transform:uppercase}
-.metaitem .mv{font-size:14px;color:#fff;font-weight:700}
-.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
-.chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);
-  border-radius:11px;padding:9px 15px;font-size:13px}
-.chip b{font-size:20px;display:block;font-weight:800}
-
-/* ── NAV + TOC ────────────────────────────────────────────── */
-.navbar{position:sticky;top:0;z-index:60;background:color-mix(in srgb,var(--card) 92%,transparent);
-  backdrop-filter:saturate(180%) blur(10px);-webkit-backdrop-filter:saturate(180%) blur(10px);
-  border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
-.navin{max-width:960px;margin:0 auto;padding:8px 16px;display:flex;align-items:center;gap:12px}
-.brand{flex:0 0 auto;font-weight:800;font-size:12.5px;color:var(--accent);white-space:nowrap;
-  display:flex;align-items:center;gap:7px}
-.brand .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);
-  box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 18%,transparent)}
-.toc{flex:1 1 auto;display:flex;flex-wrap:wrap;gap:7px;justify-content:center}
-.toc a{font-size:12.5px;color:var(--mut);text-decoration:none;border:1px solid var(--line);
-  border-radius:20px;padding:5px 12px;background:var(--card);white-space:nowrap;
-  transition:background .15s,color .15s,border-color .15s}
-.toc a:hover{color:var(--accent);border-color:var(--accent)}
-.toc a.active{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
-.navctl{flex:0 0 auto;display:flex;align-items:center;gap:8px}
-.langbtn{height:34px;border-radius:18px;border:1px solid var(--line);background:var(--card);
-  color:var(--ink);cursor:pointer;font:inherit;font-size:12.5px;font-weight:700;padding:0 13px;
-  display:flex;align-items:center;gap:6px}
-.langbtn:hover{border-color:var(--accent);color:var(--accent)}
-.langbtn .globe{width:15px;height:15px;display:block}
-.themebtn{flex:0 0 auto;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);
-  background:var(--card);color:var(--ink);cursor:pointer;line-height:1;display:grid;place-items:center}
-.themebtn svg{width:17px;height:17px;display:block}
-.themebtn:hover{border-color:var(--accent);color:var(--accent)}
-[data-theme="light"] .themebtn .ic-sun{display:none}
-[data-theme="dark"]  .themebtn .ic-moon{display:none}
-
-/* ── BLOCKS ───────────────────────────────────────────────── */
-h2{font-size:21px;margin:44px 0 6px;font-weight:800;scroll-margin-top:92px;line-height:1.35}
-html[data-lang="en"] h2{font-family:Newsreader,Georgia,serif;font-weight:600}
-h2 .num{color:var(--accent);font-variant-numeric:tabular-nums}
-.sub{color:var(--mut);font-size:13.5px;margin:0 0 16px;max-width:680px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;
-  padding:20px 22px;margin:14px 0;box-shadow:var(--shadow)}
-.lead{font-size:15.5px}
-.lead b{color:var(--warm)}
-.kgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin:8px 0}
-.kbox{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:15px 16px;text-align:center}
-.kbox .v{font-size:26px;font-weight:800;color:var(--accent);font-variant-numeric:tabular-nums}
-.kbox .l{font-size:12.5px;color:var(--mut);margin-top:3px}
-ul.clean{margin:6px 0;padding-inline-start:20px} ul.clean li{margin:8px 0}
-.callout{background:color-mix(in srgb,var(--warm) 9%,var(--card));
-  border:1px solid color-mix(in srgb,var(--warm) 30%,var(--line));
-  border-radius:12px;padding:14px 18px;margin:12px 0}
-.callout b{color:var(--warm)}
-.callout.accent{background:color-mix(in srgb,var(--accent) 9%,var(--card));
-  border-color:color-mix(in srgb,var(--accent) 30%,var(--line))}
-.callout.accent b{color:var(--accent)}
-a{color:var(--accent)}
-
-/* ── GRAPH ────────────────────────────────────────────────── */
-.gtabs{display:inline-flex;gap:4px;background:var(--bg2);border:1px solid var(--line);
-  border-radius:11px;padding:4px;margin:6px 0 2px}
-.gtab{border:0;background:transparent;color:var(--mut);font:inherit;font-size:13px;font-weight:700;
-  padding:7px 15px;border-radius:8px;cursor:pointer}
-.gtab.active{background:var(--card);color:var(--accent);box-shadow:var(--shadow)}
-.graphcard{padding:14px}
-.legend{display:flex;flex-wrap:wrap;gap:14px;margin:2px 4px 12px;font-size:12.5px;color:var(--mut)}
-.legend span{display:inline-flex;align-items:center;gap:6px}
-.legend i{width:11px;height:11px;border-radius:50%;display:inline-block}
-.graphstage{display:grid;grid-template-columns:1fr;gap:14px}
-@media(min-width:760px){.graphstage{grid-template-columns:1.35fr .95fr}}
-.svgwrap{position:relative;background:var(--card2);border:1px solid var(--line);border-radius:12px;
-  overflow:hidden;min-height:300px}
-#netsvg{display:block;width:100%;height:560px;touch-action:none;cursor:grab}
-#netsvg text{pointer-events:none;user-select:none}
-.ghint{position:absolute;inset-inline-start:12px;top:10px;font-size:11.5px;color:var(--mut);
-  background:color-mix(in srgb,var(--card) 82%,transparent);border:1px solid var(--line);
-  border-radius:20px;padding:3px 11px;backdrop-filter:blur(4px);max-width:70%}
-.greset{position:absolute;inset-inline-end:10px;top:10px;border:1px solid var(--line);background:var(--card);
-  color:var(--mut);border-radius:8px;font:inherit;font-size:11.5px;padding:4px 10px;cursor:pointer}
-.greset:hover{color:var(--accent);border-color:var(--accent)}
-/* node + link interaction states */
-.node{cursor:pointer}
-/* the inner <g class="ns"> is what scales; fill-box keeps the pivot on the node itself, not the SVG viewport */
-.ns{transform-box:fill-box;transform-origin:center;transition:transform .2s cubic-bezier(.2,.75,.25,1)}
-.node.hover .ns{transform:scale(1.1)}
-.node.sel  .ns{transform:scale(1.34)}                 /* selected node grows */
-.node.ncore.hover .ns{transform:scale(1.06)}
-.node.ncore.sel   .ns{transform:none}                 /* the centre 'Effortless' node keeps default size */
-.node.sel circle{stroke:var(--ink);stroke-width:2.5;filter:drop-shadow(0 0 8px color-mix(in srgb,var(--accent) 60%,transparent))}
-.node.hl circle{stroke:var(--ink);stroke-opacity:.5;stroke-width:2.5}
-.node.dim{opacity:.2}
-.node text{font-family:Vazirmatn,Tahoma,sans-serif;font-weight:700}
-html[data-lang="en"] .node text{font-family:Inter,sans-serif}
-.glink{transition:opacity .2s,stroke .2s}
-.glink.dim{opacity:.08}
-.glink.hl{stroke:var(--accent) !important;stroke-opacity:.8}
-/* detail panel */
-.detail{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;min-height:220px}
-@media(min-width:760px){.detail{max-height:480px;overflow:auto}}
-.detail .dkick{font-size:11.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;display:flex;align-items:center;gap:7px;color:var(--mut)}
-.detail .dkick i{width:10px;height:10px;border-radius:50%}
-.detail h4{margin:8px 0 3px;font-size:18px;font-weight:800}
-html[data-lang="en"] .detail h4{font-family:Newsreader,serif;font-weight:600}
-.detail .drow{margin:11px 0}
-.detail .dlab{font-size:10.5px;font-weight:800;color:var(--accent);letter-spacing:.5px;text-transform:uppercase;
-  display:inline-flex;align-items:center;gap:5px}
-.detail .drow.tip .dlab{color:var(--c-green)}
-.detail .drow.pit .dlab{color:var(--warm)}
-.detail .drow.more{border-inline-start:2px solid color-mix(in srgb,var(--accent) 32%,var(--line));padding-inline-start:11px}
-.detail .drow.more .dlab{color:var(--mut)}
-.detail .dtxt{font-size:13.6px;margin-top:3px}
-.dchips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
-.dchip{font-size:12px;border:1px solid var(--line);background:var(--card2);border-radius:16px;padding:4px 11px;
-  cursor:pointer;color:var(--ink);display:inline-flex;align-items:center;gap:6px;font-family:inherit}
-.dchip:hover{border-color:var(--accent);color:var(--accent)}
-.dchip i{width:8px;height:8px;border-radius:50%;flex:0 0 auto}
-
-/* ── CONCEPT MAP ──────────────────────────────────────────── */
-.mapgrid{display:grid;grid-template-columns:1fr;gap:14px}
-@media(min-width:820px){.mapgrid{grid-template-columns:repeat(3,1fr)}}
-.partcol{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:16px;position:relative}
-.partcol .ph{display:flex;align-items:center;gap:9px;margin-bottom:3px}
-.partcol .pdot{width:13px;height:13px;border-radius:50%;flex:0 0 auto}
-.partcol .pnum{font-size:11px;font-weight:800;color:var(--mut)}
-.partcol h4{margin:0;font-size:16.5px;font-weight:800}
-html[data-lang="en"] .partcol h4{font-family:Newsreader,serif;font-weight:600}
-.partcol .ptag{font-size:12px;color:var(--mut);margin:2px 0 4px;font-weight:700}
-.partcol .pgist{font-size:12.8px;color:var(--mut);margin:0 0 12px}
-.chapchip{display:flex;align-items:baseline;gap:8px;padding:7px 10px;border:1px solid var(--line);
-  border-radius:9px;margin:6px 0;background:var(--card2);font-size:13px}
-.chapchip .cn{font-size:11px;font-weight:800;color:var(--mut);flex:0 0 auto;font-variant-numeric:tabular-nums}
-.chapchip b{font-weight:700}
-.chapchip small{color:var(--mut);display:block;font-size:11.5px;line-height:1.5}
-.flowline{display:flex;align-items:center;justify-content:center;gap:10px;color:var(--mut);
-  font-size:12.5px;font-weight:700;margin:6px 0 2px;flex-wrap:wrap}
-.flowline .ar{color:var(--accent)}
-
-/* ── STAGE LADDER ─────────────────────────────────────────── */
-.ladder{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 4px}
-.rung{flex:1 1 150px;border:1px solid var(--line);background:var(--card);border-radius:11px;
-  padding:11px 13px;cursor:pointer;transition:transform .12s,border-color .12s;position:relative}
-.rung:hover{border-color:var(--accent);transform:translateY(-2px)}
-.rung.active{border-color:var(--accent);box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 35%,transparent)}
-.rung .lv{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.4px}
-.rung .lt{font-size:13.5px;font-weight:800;margin-top:2px}
-.rung .lbar{height:5px;border-radius:4px;background:var(--bg2);margin-top:9px;overflow:hidden}
-.rung .lbar i{display:block;height:100%;background:linear-gradient(90deg,var(--c-teal),var(--c-violet))}
-.stagecard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 24px;
-  margin:14px 0;box-shadow:var(--shadow)}
-.stagecard .shead{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-.stagecard .badge{font-size:12px;font-weight:800;color:#fff;background:var(--accent);
-  border-radius:8px;padding:4px 11px;white-space:nowrap}
-.stagecard h3{margin:0;font-size:21px;font-weight:800}
-html[data-lang="en"] .stagecard h3{font-family:Newsreader,serif;font-weight:600}
-.stagecard .tagline{color:var(--mut);font-size:13.5px;margin:4px 0 14px;font-weight:700}
-.stagecard .sbody{font-size:15px}
-.exbox{background:var(--card2);border:1px solid var(--line);border-inline-start:3px solid var(--accent);
-  border-radius:0 11px 11px 0;padding:13px 16px;margin:14px 0 6px}
-.exbox .exk{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.5px;text-transform:uppercase}
-.exbox .ext{font-size:13.8px;margin-top:3px}
-.gainrow{display:flex;align-items:flex-start;gap:9px;margin-top:12px;font-size:13px;color:var(--mut)}
-.gainrow .gi{flex:0 0 auto;color:var(--c-green);font-weight:800}
-.stagenav{display:flex;justify-content:space-between;gap:10px;margin-top:16px}
-.stagenav button{border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit;
-  font-size:13px;font-weight:700;border-radius:9px;padding:8px 14px;cursor:pointer}
-.stagenav button:hover:not(:disabled){border-color:var(--accent);color:var(--accent)}
-.stagenav button:disabled{opacity:.4;cursor:default}
-
-/* ── QUOTES ───────────────────────────────────────────────── */
-.qgrid{display:grid;grid-template-columns:1fr;gap:12px}
-@media(min-width:720px){.qgrid{grid-template-columns:1fr 1fr}}
-blockquote{margin:0;background:var(--card2);border-inline-start:3px solid var(--accent);
-  border-radius:0 12px 12px 0;padding:15px 18px;font-size:14.5px;position:relative}
-blockquote .qm{font-size:34px;line-height:0;color:var(--accent);opacity:.35;font-family:Georgia,serif;
-  position:absolute;inset-inline-start:10px;top:20px}
-blockquote p{margin:0;padding-inline-start:22px}
-html[data-lang="en"] blockquote{font-family:Newsreader,Georgia,serif;font-size:15.5px}
-
-/* ── MEDIA ────────────────────────────────────────────────── */
-.mgrid{display:grid;grid-template-columns:1fr;gap:16px}
-@media(min-width:640px){.mgrid{grid-template-columns:1fr 1fr}}
-.mcard{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;
-  box-shadow:var(--shadow);display:flex;flex-direction:column}
-.mthumb{position:relative;display:block;aspect-ratio:16/9;background:var(--bg2);overflow:hidden;text-decoration:none}
-.mthumb img{width:100%;height:100%;object-fit:cover;display:block}
-.mthumb .play{position:absolute;inset:0;display:grid;place-items:center}
-.mthumb .play span{width:54px;height:54px;border-radius:50%;background:rgba(0,0,0,.6);
-  display:grid;place-items:center;border:2px solid rgba(255,255,255,.9)}
-.mthumb .play svg{width:22px;height:22px;fill:#fff;margin-inline-start:3px}
-.mthumb .ptype{position:absolute;inset-inline-start:9px;top:9px;background:rgba(0,0,0,.72);color:#fff;
-  font-size:11px;font-weight:700;border-radius:6px;padding:3px 9px;letter-spacing:.3px}
-.mfake{aspect-ratio:16/9;display:grid;place-items:center;
-  background:linear-gradient(135deg,color-mix(in srgb,var(--c-violet) 22%,var(--card)),color-mix(in srgb,var(--c-teal) 22%,var(--card)))}
-.mfake svg{width:52px;height:52px;color:var(--ink);opacity:.6}
-.mbody{padding:15px 17px;display:flex;flex-direction:column;gap:7px;flex:1}
-.mbody .msrc{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.3px;text-transform:uppercase}
-.mbody h4{margin:0;font-size:15.5px;font-weight:800;line-height:1.4}
-html[data-lang="en"] .mbody h4{font-family:Newsreader,serif;font-weight:600}
-.mbody .mdesc{font-size:13px;color:var(--mut);margin:0}
-.mbody ul{margin:4px 0 0;padding-inline-start:18px}
-.mbody ul li{font-size:12.8px;margin:5px 0}
-.mbody .mbest{font-size:12px;font-weight:700;color:var(--warm);margin-top:auto;padding-top:8px}
-.mlink{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;
-  text-decoration:none;color:var(--accent);margin-top:4px}
-.mlink:hover{text-decoration:underline}
-.golist{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
-.golist a{font-size:12.5px;text-decoration:none;color:var(--ink);border:1px solid var(--line);
-  border-radius:20px;padding:6px 13px;background:var(--card);font-weight:700}
-.golist a:hover{border-color:var(--accent);color:var(--accent)}
-
-/* ── RECS + METHOD + CREDIT ───────────────────────────────── */
-.rec{display:grid;gap:10px;margin:8px 0}
-.rec .item{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--card)}
-.rec .item .t{font-weight:800;font-size:14.5px;margin-bottom:3px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.rec .item .t .pri{font-size:11px;font-weight:700;color:#fff;background:var(--warm);border-radius:6px;padding:2px 9px}
-.rec .item .t .pri.b{background:var(--accent)}
-.rec .item .d{font-size:13.4px;color:var(--mut)}
-.method{color:var(--mut);font-size:13.4px}
-.method p{margin:8px 0}
-.method b{color:var(--ink)}
-.credit{text-align:center;margin-top:40px;padding:22px 0 8px;border-top:1px solid var(--line);
-  color:var(--mut);font-size:14px}
-.credit .cname{color:var(--ink);font-weight:800}
-.credit a{font-weight:700;text-decoration:none}
-.credit a:hover{text-decoration:underline}
-.credit .sep{opacity:.5;margin:0 8px}
-.credit .li{display:inline-flex;align-items:center;gap:5px;vertical-align:middle}
-.credit .li svg{width:15px;height:15px;vertical-align:-3px}
-
-@media (max-width:640px){
-  body{font-size:14px}
-  .wrap{padding:0 13px 30px}
-  .hero{padding:28px 0 22px} .hero h1{font-size:22px}
-  h2{font-size:18px;scroll-margin-top:66px}
-  .brand{display:none}
-  .toc{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;scrollbar-width:none}
-  .toc::-webkit-scrollbar{display:none}
-  #netsvg{height:420px}
-}
-</style>
+<link rel="stylesheet" href="../assets/book.css">
 </head>
 <body>
+<div id="app"></div>
 
-<!-- ── HERO ───────────────────────────────────────────────── -->
-<header class="hero"><div class="wrap">
-  <div class="eyebrow"><span class="edot"></span>
-    <span data-only="en">Book knowledge map · Claire Hughes Johnson</span>
-    <span data-only="fa">نقشهٔ کتاب · کلر هیوز جانسون</span>
-  </div>
-  <h1>
-    <span data-only="en">Scaling People — Tactics for Management and Company Building</span>
-    <span data-only="fa">بزرگ‌کردنِ آدم‌ها — تاکتیک‌هایی برای مدیریت و شرکت‌سازی</span>
-  </h1>
-  <p class="dek">
-    <span data-only="en">A knowledge graph of the whole book, plus a 5-stage path from a single idea to expert-level mastery — with an example at every step.</span>
-    <span data-only="fa">نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از یک ایدهٔ ساده تا حرفه‌ای — با یک مثال در هر مرحله.</span>
-  </p>
-  <div class="metastrip">
-    <div class="metaitem"><span class="mk" data-only="en">Book</span><span class="mk" data-only="fa">کتاب</span>
-      <span class="mv" data-only="en">Scaling People</span><span class="mv" data-only="fa">بزرگ‌کردنِ آدم‌ها</span></div>
-    <div class="metaitem"><span class="mk" data-only="en">Author</span><span class="mk" data-only="fa">نویسنده</span>
-      <span class="mv" data-only="en">Claire Hughes Johnson</span><span class="mv" data-only="fa">کلر هیوز جانسون</span></div>
-    <div class="metaitem"><span class="mk" data-only="en">Published</span><span class="mk" data-only="fa">سالِ چاپ</span>
-      <span class="mv" data-only="en">2023</span><span class="mv" data-only="fa">۲۰۲۳</span></div>
-    <div class="metaitem"><span class="mk" data-only="en">Group</span><span class="mk" data-only="fa">گروه</span>
-      <span class="mv" data-only="en">Executing</span><span class="mv" data-only="fa">اجرا</span></div>
-  </div>
-  <div class="chips">
-    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Parts</span><span data-only="fa">بخش</span></div>
-    <div class="chip"><b data-only="en">16</b><b data-only="fa">۱۶</b><span data-only="en">Tactics</span><span data-only="fa">تاکتیک</span></div>
-    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Learning stages</span><span data-only="fa">مرحلهٔ یادگیری</span></div>
-  </div>
-</div></header>
-
-<!-- ── STICKY NAV ─────────────────────────────────────────── -->
-<div class="navbar"><div class="navin">
-  <span class="brand"><span class="dot"></span>Scaling People</span>
-  <nav class="toc">
-    <a href="#tldr" data-only="en">In a nutshell</a><a href="#tldr" data-only="fa">خلاصه</a>
-    <a href="#graph" data-only="en">Knowledge graph</a><a href="#graph" data-only="fa">نقشهٔ دانش</a>
-    <a href="#stages" data-only="en">5 stages</a><a href="#stages" data-only="fa">۵ مرحله</a>
-    <a href="#quotes" data-only="en">Quotes</a><a href="#quotes" data-only="fa">جمله‌ها</a>
-    <a href="#media" data-only="en">Watch &amp; explore</a><a href="#media" data-only="fa">تماشا و منابع</a>
-    <a href="#apply" data-only="en">Apply it</a><a href="#apply" data-only="fa">کاربرد</a>
-  </nav>
-  <div class="navctl">
-    <button class="langbtn" id="langBtn" aria-label="Switch language">
-      <svg class="globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>
-      <span data-only="en">فارسی</span><span data-only="fa">English</span>
-    </button>
-    <button class="themebtn" id="themeBtn" aria-label="Toggle theme" title="Light / Dark">
-      <span class="ic-sun" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5 19 19M19 5l-1.5 1.5M6.5 17.5 5 19"/></svg></span>
-      <span class="ic-moon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.6 6.6 0 0 0 9.8 9.8Z"/></svg></span>
-    </button>
-  </div>
-</div></div>
-
-<div class="wrap">
-
-  <!-- ── TL;DR ────────────────────────────────────────────── -->
-  <h2 id="tldr"><span class="num" data-only="en">1.</span><span class="num" data-only="fa">۱.</span>
-    <span data-only="en"> In a nutshell</span><span data-only="fa"> خلاصه</span></h2>
-  <p class="sub" data-only="en">If you read only this, you still get the whole idea.</p>
-  <p class="sub" data-only="fa">اگر فقط همین بخش را بخوانی، کلِ ایده دستت می‌آید.</p>
-  <div class="card lead"><ul class="clean" id="tldrHost"></ul></div>
-  <div class="kgrid">
-    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Parts (self-awareness · hiring · managing · planning · culture)</div><div class="l" data-only="fa">بخش (خودآگاهی · استخدام · مدیریت · برنامه‌ریزی · فرهنگ)</div></div>
-    <div class="kbox"><div class="v" data-only="en">16</div><div class="v" data-only="fa">۱۶</div><div class="l" data-only="en">Tactics you can use</div><div class="l" data-only="fa">تاکتیک برای استفاده</div></div>
-    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Levels, simple → expert</div><div class="l" data-only="fa">مرحله، ساده تا حرفه‌ای</div></div>
-    <div class="kbox"><div class="v" data-only="en">4</div><div class="v" data-only="fa">۴</div><div class="l" data-only="en">Operating principles that anchor it</div><div class="l" data-only="fa">اصلِ کاری که همه‌چیز را نگه می‌دارند</div></div>
-  </div>
-  
-  <div class="callout accent">
-    <b data-only="en">The core idea:</b>
-    <b data-only="fa">ایدهٔ اصلی:</b>
-    <span data-only="en"> You don't scale a company, you scale its <i>people</i>. Start with <i>self-awareness</i>, make your principles and plans explicit, then build the systems — hiring, feedback, goals — that let a growing team stay <i>clear, aligned</i> and <i>human</i>.</span>
-    <span data-only="fa"> تو شرکت را بزرگ نمی‌کنی، <i>آدم‌هایش</i> را بزرگ می‌کنی. از <i>خودآگاهی</i> شروع کن، اصول و برنامه‌هایت را نوشته و روشن کن، بعد سیستم‌ها را بساز — استخدام، بازخورد، هدف — تا یک تیمِ روبه‌رشد <i>روشن، هماهنگ</i> و <i>انسانی</i> بماند.</span>
-  </div>
-
-  <!-- ── KNOWLEDGE GRAPH ──────────────────────────────────── -->
-  <h2 id="graph"><span class="num" data-only="en">2.</span><span class="num" data-only="fa">۲.</span>
-    <span data-only="en"> The knowledge graph</span><span data-only="fa"> نقشهٔ دانش</span></h2>
-  <p class="sub" data-only="en">The whole book as one picture. Click any node to focus its connections and read more — or switch to the structured map.</p>
-  <p class="sub" data-only="fa">کلِ کتاب در یک تصویر. روی هر دایره کلیک کن تا ارتباط‌هایش را ببینی و بیشتر بخوانی — یا به نقشهٔ مرتب برو.</p>
-
-  <div class="gtabs">
-    <button class="gtab active" id="tabNet"><span data-only="en">Interactive network</span><span data-only="fa">شبکهٔ تعاملی</span></button>
-    <button class="gtab" id="tabMap"><span data-only="en">Structured map</span><span data-only="fa">نقشهٔ مرتب</span></button>
-  </div>
-
-  <!-- network view -->
-  <div class="card graphcard" id="netView">
-    <div class="legend" id="legendHost"></div>
-    <div class="graphstage">
-      <div class="svgwrap">
-        <svg id="netsvg" viewBox="0 0 820 560" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Effortless knowledge network"></svg>
-        <div class="ghint" id="ghint"></div>
-        <button class="greset" id="greset"></button>
-      </div>
-      <div class="detail" id="detailHost"></div>
-    </div>
-  </div>
-
-  <!-- map view -->
-  <div class="card graphcard" id="mapView" style="display:none">
-    <div class="flowline" id="flowTop"></div>
-    <div class="mapgrid" id="mapHost"></div>
-    <div class="callout" style="margin-top:16px">
-      <b data-only="en">Read it as a flow:</b><b data-only="fa">به‌صورتِ یک جریان بخوانش:</b>
-      <span data-only="en"> get your <b>foundation</b> right (self-awareness, principles), <b>hire</b> a strong team, <b>develop</b> them with feedback and clear expectations, and <b>plan</b> the goals and cadence that keep everyone aligned as you grow.</span>
-      <span data-only="fa"> <b>پایه</b> را درست کن (خودآگاهی، اصول)، یک تیمِ قوی <b>استخدام</b> کن، با بازخورد و انتظارهای روشن <b>پرورششان</b> بده، و <b>هدف</b> و ریتمی را <b>برنامه‌ریزی</b> کن که همه را حینِ رشد هماهنگ نگه دارد.</span>
-    </div>
-  </div>
-
-  <!-- ── 5 STAGES ─────────────────────────────────────────── -->
-  <h2 id="stages"><span class="num" data-only="en">3.</span><span class="num" data-only="fa">۳.</span>
-    <span data-only="en"> Learn it in 5 stages</span><span data-only="fa"> یادگیری در ۵ مرحله</span></h2>
-  <p class="sub" data-only="en">The same book at five depths. Start over-simplified, climb to expert. Tap a rung to jump.</p>
-  <p class="sub" data-only="fa">یک کتاب در پنج عمق. از خیلی ساده شروع کن و تا حرفه‌ای بالا برو. روی هر پله بزن تا بپری.</p>
-  <div class="ladder" id="ladderHost"></div>
-  <div id="stageHost"></div>
-
-  <!-- ── QUOTES ───────────────────────────────────────────── -->
-  <h2 id="quotes"><span class="num" data-only="en">4.</span><span class="num" data-only="fa">۴.</span>
-    <span data-only="en"> Lines worth keeping</span><span data-only="fa"> جمله‌هایی که ارزشِ نگه‌داشتن دارند</span></h2>
-  <p class="sub" data-only="en">Verbatim quotes from the book, translated alongside.</p>
-  <p class="sub" data-only="fa">جمله‌های مستقیم از کتاب، همراه با ترجمه.</p>
-  <div class="qgrid" id="quoteHost"></div>
-
-  <!-- ── MEDIA ────────────────────────────────────────────── -->
-  <h2 id="media"><span class="num" data-only="en">5.</span><span class="num" data-only="fa">۵.</span>
-    <span data-only="en"> Watch &amp; explore</span><span data-only="fa"> تماشا و منابع</span></h2>
-  <p class="sub" data-only="en">Special resources found online — each with what it covers and who it's best for.</p>
-  <p class="sub" data-only="fa">منابعِ ویژه‌ای که آنلاین پیدا شد — هرکدام با اینکه چه می‌گوید و به چه دردی می‌خورد.</p>
-  <div class="mgrid" id="mediaHost"></div>
-  <div class="card" style="margin-top:16px">
-    <div style="font-weight:800;font-size:13.5px;margin-bottom:4px">
-      <span data-only="en">Go straight to the source</span><span data-only="fa">مستقیم سراغِ منبع برو</span>
-    </div>
-    <div class="golist" id="goHost"></div>
-  </div>
-
-  <!-- ── APPLY ────────────────────────────────────────────── -->
-  <h2 id="apply"><span class="num" data-only="en">6.</span><span class="num" data-only="fa">۶.</span>
-    <span data-only="en"> Apply it this week</span><span data-only="fa"> این هفته امتحانش کن</span></h2>
-  <p class="sub" data-only="en">Four small moves that turn the idea into a habit.</p>
-  <p class="sub" data-only="fa">چهار حرکتِ کوچک که این ایده را به عادت تبدیل می‌کنند.</p>
-  <div class="rec" id="recHost"></div>
-
-  <!-- ── METHOD ───────────────────────────────────────────── -->
-  <h2 id="method"><span class="num" data-only="en">7.</span><span class="num" data-only="fa">۷.</span>
-    <span data-only="en"> Sources &amp; notes</span><span data-only="fa"> منابع و توضیح</span></h2>
-  <div class="card method" id="methodHost"></div>
-
-  <!-- ── CREDIT FOOTER ────────────────────────────────────── -->
-  <div class="credit">
-    <span data-only="en">Created by <span class="cname">Behnam Atefi</span><span class="sep">·</span><a class="li" href="https://www.linkedin.com/in/behnamatefi/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.3c0-1.26-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9z"/></svg>LinkedIn</a></span>
-    <span data-only="fa">ساخته‌شده توسط <span class="cname">بهنام عاطفی</span><span class="sep">·</span><a class="li" href="https://www.linkedin.com/in/behnamatefi/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.3c0-1.26-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9z"/></svg>لینکدین</a></span>
-  </div>
-</div>
-
-<!-- ═══════════════════════ SCRIPTS ═══════════════════════ -->
+<script src="../assets/library.js"></script>
+<script src="../assets/book.js"></script>
 <script>
-/* ── 1) language + formatters ─────────────────────────────── */
-var LANG = document.documentElement.getAttribute('data-lang') || 'fa';
-var FA_D = '۰۱۲۳۴۵۶۷۸۹';
-var RLM  = '‏';
-function faDigits(s){ return String(s).replace(/[0-9]/g, function(d){ return FA_D[+d]; }); }
-/* honor the RTL preference: isolate Latin runs (word order preserved) and mark with U+200F */
-function rlm(s){
-  return String(s)
-    .replace(/[A-Za-zÀ-ɏ][A-Za-zÀ-ɏ0-9'’.&:\/\-]*(?:\s+[A-Za-zÀ-ɏ0-9'’.&:\/\-]+)*/g,
-      function(m){ return RLM+'⁦'+m+'⁩'+RLM; })
-    .replace(/[0-9۰-۹]+/g, function(m){ return m+RLM; });
-}
-/* transform only TEXT segments, never HTML tags (so <b>/<i> survive) */
-function faText(s){ return String(s).replace(/(<[^>]+>)|([^<]+)/g, function(m,tag,txt){ return tag ? tag : faDigits(rlm(txt)); }); }
-function TX(o){ if(o==null) return ''; if(typeof o==='string') return o; return LANG==='fa' ? faText(o.fa) : o.en; }
-function num(n){ return LANG==='fa' ? faDigits(n) : String(n); }
-function tok(name){ return getComputedStyle(document.documentElement).getPropertyValue(name).trim(); }
-</script>
-
-<script>
-/* ── DATA LAYER — Atomic Habits (bilingual, plain-spoken Persian) ── */
-var DATA = {"tldr":[{"en":"The whole book in one line: you scale a company by intentionally scaling its people.","fa":"خلاصهٔ کل کتاب در یک جمله: شرکت را با بزرگ‌کردنِ عمدیِ آدم‌هایش بزرگ می‌کنی."},{"en":"It starts with <b>self-awareness</b> — know your work style, strengths, and blind spots before you lead others.","fa":"همه‌چیز از <b>خودآگاهی</b> شروع می‌شود — قبل از رهبریِ دیگران، سبکِ کاری، نقاطِ قوت و نقاطِ کورت را بشناس."},{"en":"Make the implicit explicit: write down your <b>principles, mission, and values</b> so a growing team stays aligned.","fa":"نانوشته‌ها را نوشته کن: <b>اصول، مأموریت و ارزش‌ها</b> را بنویس تا تیمِ روبه‌رشد هماهنگ بماند."},{"en":"Build the machine: <b>hire</b> deliberately, give honest <b>feedback</b>, and run real one-on-ones and goals.","fa":"ماشین را بساز: با دقت <b>استخدام</b> کن، <b>بازخوردِ</b> صادقانه بده، و جلسه‌های تک‌به‌تک و هدف‌های واقعی داشته باش."},{"en":"Then keep it human: <b>say the thing you cannot say</b>, and remember you are the foundation your team stands on.","fa":"بعد انسانی نگهش دار: <b>همان چیزی را که فکر می‌کنی نمی‌توانی بگویی، بگو</b>، و یادت باشد تو همان پایه‌ای هستی که تیمت رویش ایستاده."}],"parts":[{"key":"found","varc":"--c-teal","name":{"en":"Self-Awareness & Principles","fa":"خودآگاهی و اصول"},"tag":{"en":"The foundation","fa":"پایه"},"gist":{"en":"Know yourself, then set the operating principles you lead by.","fa":"اول خودت را بشناس، بعد اصولی را که با آن‌ها رهبری می‌کنی تعیین کن."},"more":{"en":"Everything starts here. If you don't understand your own work style and blind spots, you'll misread everyone else. Self-awareness plus a few explicit principles give a team a stable base to grow on.","fa":"همه‌چیز از اینجا شروع می‌شود. اگر سبکِ کاری و نقاطِ کورِ خودت را نفهمی، بقیه را هم اشتباه می‌خوانی. خودآگاهی به‌علاوهٔ چند اصلِ روشن، به تیم یک پایهٔ باثبات برای رشد می‌دهد."},"chapters":["selfaware","principles","mgmtlead"]},{"key":"team","varc":"--c-blue","name":{"en":"Hiring & Team","fa":"استخدام و تیم"},"tag":{"en":"Get the right people","fa":"آدم‌های درست را بیاور"},"gist":{"en":"Build a pipeline, interview with structure, and onboard on purpose.","fa":"یک قیف بساز، ساختارمند مصاحبه کن، و شروعِ کار را عمداً طراحی کن."},"more":{"en":"Hiring is the highest-leverage thing a manager does. Treating it as an always-on funnel with consistent, rubric-based interviews beats scrambling to fill a seat — and a deliberate onboarding turns a good hire into a fast contributor.","fa":"استخدام پرُاهرم‌ترین کاری است که یک مدیر می‌کند. برخورد با آن مثلِ یک قیفِ همیشه‌روشن با مصاحبه‌های یک‌دست و معیارمحور، بهتر از تقلا برای پرکردنِ یک صندلی است — و یک شروعِ کارِ حساب‌شده، یک استخدامِ خوب را به یک نیروی سریع تبدیل می‌کند."},"chapters":["pipeline","interview","onboard"]},{"key":"manage","varc":"--c-amber","name":{"en":"Managing People","fa":"مدیریتِ آدم‌ها"},"tag":{"en":"Grow the team","fa":"تیم را رشد بده"},"gist":{"en":"Feedback, one-on-ones, performance, and real delegation.","fa":"بازخورد، جلسه‌های تک‌به‌تک، عملکرد، و واگذاریِ واقعی."},"more":{"en":"Managing well is a set of repeatable habits: give feedback as an explorer holding up a mirror, protect regular one-on-ones, judge performance on results and behavior, and delegate real ownership so people — and you — can grow.","fa":"خوب مدیریت‌کردن یک مجموعه عادتِ تکرارشدنی است: بازخورد را مثلِ یک کاشف که آینه می‌گیرد بده، جلسه‌های تک‌به‌تکِ منظم را حفظ کن، عملکرد را با نتیجه و رفتار بسنج، و مالکیتِ واقعی را واگذار کن تا آدم‌ها — و خودت — رشد کنید."},"chapters":["feedback","oneonone","performance","delegate"]},{"key":"plan","varc":"--c-violet","name":{"en":"Structure & Planning","fa":"ساختار و برنامه‌ریزی"},"tag":{"en":"Align on goals","fa":"روی هدف‌ها هم‌سو شو"},"gist":{"en":"Foundational documents, measurable goals, and a steady cadence.","fa":"سندهای پایه، هدف‌های قابلِ‌اندازه‌گیری، و یک ریتمِ باثبات."},"more":{"en":"Structure is what lets a bigger team stay coherent. Write the mission, vision, and values; set goals that name outcomes; and run a predictable operating cadence so planning and review happen on rhythm, not on panic.","fa":"ساختار همان چیزی است که به یک تیمِ بزرگ‌تر اجازه می‌دهد یک‌پارچه بماند. مأموریت، چشم‌انداز و ارزش‌ها را بنویس؛ هدف‌هایی تعیین کن که نتیجه را نام می‌برند؛ و یک ریتمِ اجرای قابلِ‌پیش‌بینی بگردان تا برنامه‌ریزی و بازبینی روی ریتم انجام شود، نه از سرِ هول."},"chapters":["mvv","goals","cadence"]},{"key":"culture","varc":"--c-green","name":{"en":"Communication & Culture","fa":"ارتباط و فرهنگ"},"tag":{"en":"Keep it human","fa":"انسانی نگهش دار"},"gist":{"en":"Candor, great meetings, and scaling yourself and the culture.","fa":"صراحت، جلسه‌های خوب، و بزرگ‌کردنِ خودت و فرهنگ."},"more":{"en":"Systems only work if people trust each other. Say the hard thing kindly, make meetings actually decide, and — as you grow — build people and a culture that hold your standards when you can't be everywhere.","fa":"سیستم‌ها فقط وقتی کار می‌کنند که آدم‌ها به هم اعتماد داشته باشند. حرفِ سخت را مهربانانه بزن، کاری کن جلسه‌ها واقعاً تصمیم بگیرند، و — همین‌طور که بزرگ می‌شوی — آدم‌ها و فرهنگی بساز که وقتی نمی‌توانی همه‌جا باشی، استانداردهایت را نگه دارند."},"chapters":["candor","meetings","scaleself"]}],"chapters":{"selfaware":{"part":"found","n":1,"name":{"en":"Self-Awareness","fa":"خودآگاهی"},"glabel":{"en":"Self","fa":"خودآگاهی"},"principle":{"en":"Know your work style, motivators, strengths, and blind spots before you try to lead anyone else.","fa":"قبل از اینکه بخواهی کسی را رهبری کنی، سبکِ کاری، انگیزه‌ها، نقاطِ قوت و نقاطِ کورت را بشناس."},"more":{"en":"Self-awareness is the foundation the whole book rests on. When you understand how you work — where you shine and where you trip — you can adapt to others instead of expecting them to adapt to you.","fa":"خودآگاهی همان پایه‌ای است که کلِ کتاب رویش بنا شده. وقتی می‌فهمی چطور کار می‌کنی — کجا می‌درخشی و کجا می‌لغزی — می‌توانی خودت را با بقیه وفق بدهی، نه اینکه توقع داشته باشی آن‌ها با تو وفق بدهند."},"example":{"en":"Write down whether you're an analyzer, director, promoter, or collaborator — and share it with your team.","fa":"بنویس که تحلیل‌گری، تصمیم‌گیر، مروج، یا هم‌کار — و با تیمت درمیانش بگذار."},"tip":{"en":"Ask three colleagues for one strength and one blind spot they see in you.","fa":"از سه هم‌کار بخواه یک نقطهٔ قوت و یک نقطهٔ کورِ تو را بگویند."},"pitfall":{"en":"Assuming everyone works — and should work — the way you do.","fa":"این فرض که همه مثلِ تو کار می‌کنند و باید بکنند."}},"principles":{"part":"found","n":2,"name":{"en":"Operating Principles","fa":"اصولِ کاری"},"glabel":{"en":"Principles","fa":"اصول"},"principle":{"en":"Agree on a short set of operating principles — shared rules for how you work and decide together.","fa":"روی یک مجموعهٔ کوتاه از اصولِ کاری توافق کن — قاعده‌های مشترک برای اینکه چطور با هم کار و تصمیم می‌گیرید."},"more":{"en":"Principles turn vague culture into something you can actually use in a hard moment. Hughes Johnson's own include 'build self-awareness to build mutual awareness' and 'say the thing you think you cannot say'.","fa":"اصول، فرهنگِ مبهم را به چیزی تبدیل می‌کنند که واقعاً در یک لحظهٔ سخت به کار می‌آید. اصولِ خودِ هیوز جانسون شاملِ «خودآگاهی بساز تا آگاهیِ دوطرفه بسازی» و «همان چیزی را که فکر می‌کنی نمی‌توانی بگویی، بگو» است."},"example":{"en":"When a meeting feels tense, name it out loud instead of pretending everything is fine.","fa":"وقتی یک جلسه پرتنش می‌شود، به‌جای اینکه وانمود کنی همه‌چیز خوب است، بلند اسمش را بیاور."},"tip":{"en":"Draft three principles your team can point to when a decision gets hard.","fa":"سه اصل بنویس که تیمت وقتِ سختیِ یک تصمیم بتواند بهش اشاره کند."},"pitfall":{"en":"Leaving the 'how we work' rules unspoken until they're broken.","fa":"نانوشته گذاشتنِ قاعده‌های «چطور کار می‌کنیم» تا وقتی شکسته شوند."}},"mgmtlead":{"part":"found","n":3,"name":{"en":"Management vs. Leadership","fa":"مدیریت در برابرِ رهبری"},"glabel":{"en":"Lead","fa":"رهبری"},"principle":{"en":"Management creates stability; leadership drives change. You need both, and you need to know which one the moment calls for.","fa":"مدیریت ثبات می‌سازد؛ رهبری تغییر می‌آورد. به هر دو نیاز داری، و باید بدانی هر لحظه کدام‌یک لازم است."},"more":{"en":"Managing is the day-to-day machine — plans, reviews, one-on-ones. Leading is setting direction and taking people somewhere new. Great operators move fluidly between the two instead of doing only the part they enjoy.","fa":"مدیریت همان ماشینِ روزمره است — برنامه، بازبینی، جلسه‌های تک‌به‌تک. رهبری یعنی جهت‌دادن و بردنِ آدم‌ها به جایی نو. آدم‌های کاربلد روان بینِ این دو جابه‌جا می‌شوند، نه اینکه فقط بخشی را که دوست دارند انجام بدهند."},"example":{"en":"Shipping the quarterly plan is management; convincing the team to bet on a new direction is leadership.","fa":"رساندنِ برنامهٔ فصلی مدیریت است؛ قانع‌کردنِ تیم برای شرط‌بستن روی یک مسیرِ نو رهبری است."},"tip":{"en":"This week, name one thing you're managing and one thing you're leading.","fa":"این هفته، یک چیز را که مدیریت می‌کنی و یک چیز را که رهبری می‌کنی نام ببر."},"pitfall":{"en":"Doing only the visionary part and letting the operating machine rust.","fa":"فقط انجام‌دادنِ بخشِ رؤیاپرداز و رهاکردنِ ماشینِ اجرا تا زنگ بزند."}},"pipeline":{"part":"team","n":4,"name":{"en":"Recruiting Pipeline","fa":"قیفِ استخدام"},"glabel":{"en":"Pipeline","fa":"قیف"},"principle":{"en":"Treat hiring like a funnel you build on purpose, not a scramble you start when a seat opens.","fa":"با استخدام مثلِ یک قیف رفتار کن که عمداً می‌سازی، نه یک تقلای عجولانه که وقتِ خالی‌شدنِ یک صندلی شروع می‌شود."},"more":{"en":"A steady pipeline means you're always meeting people, so you hire from strength instead of desperation. Define the role, the must-have attributes, and the sourcing plan before you post anything.","fa":"یک قیفِ همیشگی یعنی مدام آدم می‌بینی، پس از سرِ قدرت استخدام می‌کنی نه از سرِ استیصال. قبل از انتشارِ هر آگهی، نقش، ویژگی‌های حتمی، و برنامهٔ پیداکردنِ آدم را مشخص کن."},"example":{"en":"Keep a running list of strong people you've met, long before you have a role for them.","fa":"یک فهرستِ همیشه‌فعال از آدم‌های قوی که دیده‌ای نگه دار، خیلی قبل از اینکه نقشی برایشان داشته باشی."},"tip":{"en":"Before opening a role, write the one-line scorecard of what great looks like.","fa":"قبل از بازکردنِ یک نقش، در یک خط بنویس که «عالی» چه شکلی است."},"pitfall":{"en":"Starting the search only after someone quits, then rushing the hire.","fa":"شروعِ جست‌وجو فقط بعد از اینکه کسی می‌رود، و بعد عجله در استخدام."}},"interview":{"part":"team","n":5,"name":{"en":"Structured Interviews","fa":"مصاحبهٔ ساختارمند"},"glabel":{"en":"Interview","fa":"مصاحبه"},"principle":{"en":"Ask every candidate the same core questions against a clear rubric, so you compare signal, not vibes.","fa":"از هر داوطلب همان پرسش‌های اصلی را با یک معیارِ روشن بپرس، تا سیگنال را مقایسه کنی، نه حسِ لحظه‌ای را."},"more":{"en":"Unstructured interviews mostly measure how much someone reminds you of yourself. A shared scorecard, attributes split across interviewers, and written feedback turn a gut call into a real decision.","fa":"مصاحبهٔ بی‌ساختار بیشتر اندازه می‌گیرد که طرف چقدر تو را یادِ خودت می‌اندازد. یک کارنامهٔ مشترک، تقسیمِ ویژگی‌ها بینِ مصاحبه‌گرها، و بازخوردِ نوشتاری، یک قضاوتِ شکمی را به یک تصمیمِ واقعی تبدیل می‌کنند."},"example":{"en":"Give each interviewer one attribute to probe — ownership, craft, collaboration — and a scale to score it.","fa":"به هر مصاحبه‌گر یک ویژگی بده تا بکاود — مالکیت، مهارت، هم‌کاری — و یک مقیاس تا نمره بدهد."},"tip":{"en":"Write your feedback before you hear anyone else's, to avoid groupthink.","fa":"بازخوردت را قبل از شنیدنِ نظرِ بقیه بنویس، تا گرفتارِ هم‌رنگیِ گروهی نشوی."},"pitfall":{"en":"Hiring the person who feels most like you and calling it 'culture fit'.","fa":"استخدامِ کسی که بیشتر شبیهِ توست و اسمش را «تناسبِ فرهنگی» گذاشتن."}},"onboard":{"part":"team","n":6,"name":{"en":"Onboarding & Ramp","fa":"شروعِ کار و جاافتادن"},"glabel":{"en":"Onboard","fa":"شروع"},"principle":{"en":"A new hire's first weeks decide how fast they'll contribute — design the ramp, don't leave it to chance.","fa":"هفته‌های اولِ یک آدمِ تازه تعیین می‌کند چقدر زود مفید می‌شود — مسیرِ جاافتادن را طراحی کن، به شانس نسپارش."},"more":{"en":"Clear early goals, a buddy, and a written map of who does what shorten the time to real impact. The care you put into week one signals the standards of the whole team.","fa":"هدف‌های روشنِ اولیه، یک هم‌راه، و یک نقشهٔ نوشته‌شده از اینکه چه‌کسی چه‌کاری می‌کند، زمانِ رسیدن به تأثیرِ واقعی را کوتاه می‌کند. دقتی که خرجِ هفتهٔ اول می‌کنی، نشانهٔ استانداردِ کلِ تیم است."},"example":{"en":"Give a new engineer a small, shippable task in week one so they feel real progress.","fa":"به یک مهندسِ تازه در هفتهٔ اول یک کارِ کوچکِ قابلِ‌تحویل بده تا پیشرفتِ واقعی حس کند."},"tip":{"en":"Write a thirty-day plan together with the new hire on day one.","fa":"روزِ اول با آدمِ تازه یک برنامهٔ سی‌روزه بنویس."},"pitfall":{"en":"Dropping someone in with no plan and hoping they figure it out.","fa":"رهاکردنِ کسی بدونِ هیچ برنامه‌ای و امید به اینکه خودش سر دربیاورد."}},"feedback":{"part":"manage","n":7,"name":{"en":"Feedback: Explorer, Not Lecturer","fa":"بازخورد: کاشف باش نه سخنران"},"glabel":{"en":"Feedback","fa":"بازخورد"},"principle":{"en":"Give feedback by holding up a mirror and getting curious — explore what happened together instead of lecturing.","fa":"بازخورد را با گرفتنِ یک آینه جلوی طرف و کنجکاوشدن بده — به‌جای سخنرانی، با هم بکاوید که چه شد."},"more":{"en":"You don't need every answer. Describe the specific behavior and its impact, ask genuine questions, and let the other person help solve it — that keeps feedback honest without turning it into a verdict.","fa":"لازم نیست همهٔ جواب‌ها را داشته باشی. رفتارِ مشخص و اثرش را توصیف کن، پرسش‌های واقعی بپرس، و بگذار طرفِ مقابل در حلش کمک کند — این کار بازخورد را صادق نگه می‌دارد بی‌آنکه به یک حکم تبدیلش کند."},"example":{"en":"Not 'you were unprepared', but 'the deck had no data — what got in the way?'","fa":"نه «تو آماده نبودی»، بلکه «اسلایدها هیچ داده‌ای نداشت — چه چیزی سرِ راه بود؟»"},"tip":{"en":"Open your next feedback with an observation and a real question, not a judgment.","fa":"بازخوردِ بعدی‌ات را با یک مشاهده و یک پرسشِ واقعی باز کن، نه یک قضاوت."},"pitfall":{"en":"Feeling you must have every answer before you can give feedback.","fa":"این حس که باید همهٔ جواب‌ها را داشته باشی تا بتوانی بازخورد بدهی."}},"oneonone":{"part":"manage","n":8,"name":{"en":"Effective One-on-Ones","fa":"جلسه‌های تک‌به‌تکِ مؤثر"},"glabel":{"en":"One-on-ones","fa":"تک‌به‌تک"},"principle":{"en":"Protect a regular one-on-one with each person — it's their meeting, for what matters to them.","fa":"با هر نفر یک جلسهٔ تک‌به‌تکِ منظم را حفظ کن — این جلسهٔ اوست، برای چیزی که برای او مهم است."},"more":{"en":"The best one-on-ones aren't status updates; they're where trust, growth, and early warning signs live. Come with a light agenda, then mostly listen and follow their thread.","fa":"بهترین جلسه‌های تک‌به‌تک گزارشِ وضعیت نیستند؛ جایی‌اند که اعتماد، رشد، و اولین نشانه‌های خطر زندگی می‌کنند. با یک دستورِ کارِ سبک بیا، بعد بیشتر گوش بده و نخِ حرفِ او را دنبال کن."},"example":{"en":"Start with 'what's most on your mind this week?' and let them set the direction.","fa":"با «این هفته بیشتر از همه ذهنت درگیرِ چیست؟» شروع کن و بگذار او مسیر را تعیین کند."},"tip":{"en":"Keep a shared running doc so nothing important waits for the next meeting.","fa":"یک سندِ مشترکِ همیشه‌فعال نگه دار تا هیچ چیزِ مهمی منتظرِ جلسهٔ بعد نماند."},"pitfall":{"en":"Turning it into a status report you could have gotten over chat.","fa":"تبدیلش به گزارشِ وضعیتی که با یک پیام هم می‌شد گرفت."}},"performance":{"part":"manage","n":9,"name":{"en":"Performance Management","fa":"مدیریتِ عملکرد"},"glabel":{"en":"Performance","fa":"عملکرد"},"principle":{"en":"Judge performance on both results and how they were achieved — the what and the how together.","fa":"عملکرد را هم با نتیجه و هم با نحوهٔ رسیدن به آن بسنج — «چه» و «چطور» با هم."},"more":{"en":"Someone who hits every number while burning the team isn't a top performer. Set expectations early, review against them honestly, and never let a rating be a surprise.","fa":"کسی که به همهٔ عددها می‌رسد ولی تیم را می‌سوزاند، عملکردِ برتر نیست. انتظارها را زود تعیین کن، صادقانه در برابرشان ارزیابی کن، و هرگز نگذار یک نمره غافلگیرکننده باشد."},"example":{"en":"Rate a strong-results, poor-collaboration person honestly on both axes, not just the numbers.","fa":"کسی را که نتیجه‌اش قوی ولی هم‌کاری‌اش ضعیف است، صادقانه روی هر دو محور نمره بده، نه فقط عددها."},"tip":{"en":"Write expectations at the start of a cycle so the review writes itself.","fa":"انتظارها را اولِ دوره بنویس تا ارزیابی خودش خودش را بنویسد."},"pitfall":{"en":"Rewarding results alone and ignoring the damage done to reach them.","fa":"پاداش‌دادن فقط به نتیجه و نادیده‌گرفتنِ خرابی‌ای که برای رسیدن به آن شده."}},"delegate":{"part":"manage","n":10,"name":{"en":"Delegation & Growth","fa":"واگذاری و رشد"},"glabel":{"en":"Delegate","fa":"واگذاری"},"principle":{"en":"Delegate real ownership, not just tasks — it's how people grow and how you scale beyond yourself.","fa":"مالکیتِ واقعی را واگذار کن، نه فقط کارها را — آدم‌ها این‌طور رشد می‌کنند و تو این‌طور از خودت فراتر می‌روی."},"more":{"en":"Hold on to everything and you become the bottleneck. Hand over the outcome and the authority, agree on how you'll check in, then let people do it their way — even if it's not your way.","fa":"اگر همه‌چیز را نگه داری، خودت گلوگاه می‌شوی. نتیجه و اختیار را واگذار کن، روی نحوهٔ پیگیری توافق کن، بعد بگذار آدم‌ها به روشِ خودشان انجامش بدهند — حتی اگر روشِ تو نباشد."},"example":{"en":"Give a report a whole project end to end, not a list of small to-dos.","fa":"به یکی از اعضای تیم یک پروژهٔ کامل را از اول تا آخر بده، نه یک فهرست از کارهای ریز."},"tip":{"en":"Pick one thing only you currently do and hand it fully to someone this month.","fa":"یک کار را که فعلاً فقط خودت انجام می‌دهی انتخاب کن و این ماه کاملاً به کسی بسپار."},"pitfall":{"en":"Delegating the task but keeping the decisions, so nobody really owns it.","fa":"واگذاریِ کار ولی نگه‌داشتنِ تصمیم‌ها، جوری که هیچ‌کس واقعاً مالکش نیست."}},"mvv":{"part":"plan","n":11,"name":{"en":"Mission, Vision, Values","fa":"مأموریت، چشم‌انداز، ارزش‌ها"},"glabel":{"en":"Mission","fa":"مأموریت"},"principle":{"en":"Write down why you exist, where you're going, and how you behave — the foundational documents a team aligns on.","fa":"بنویس چرا وجود داری، کجا می‌روی، و چطور رفتار می‌کنی — همان سندهای پایه‌ای که تیم رویشان هم‌سو می‌شود."},"more":{"en":"Mission is the enduring why, vision is the destination, values are how you act on the way. Writing them makes the implicit explicit, so a growing team makes consistent calls without you in the room.","fa":"مأموریت همان «چرا»ی ماندگار است، چشم‌انداز مقصد است، ارزش‌ها نحوهٔ رفتارت در راه‌اند. نوشتنشان نانوشته‌ها را نوشته می‌کند، تا تیمِ روبه‌رشد بدونِ حضورِ تو هم تصمیم‌های یک‌دست بگیرد."},"example":{"en":"A one-page doc: our mission, our three-year vision, and five values with what each means.","fa":"یک سندِ یک‌صفحه‌ای: مأموریتمان، چشم‌اندازِ سه‌ساله‌مان، و پنج ارزش با معنیِ هرکدام."},"tip":{"en":"Draft your mission in one sentence a new hire could repeat back.","fa":"مأموریتت را در یک جمله بنویس که یک آدمِ تازه بتواند برایت تکرارش کند."},"pitfall":{"en":"Vague slogans on a wall that never guide an actual decision.","fa":"شعارهای مبهم روی دیوار که هیچ‌وقت یک تصمیمِ واقعی را راهنمایی نمی‌کنند."}},"goals":{"part":"plan","n":12,"name":{"en":"Goals & OKRs","fa":"هدف‌ها و OKRها"},"glabel":{"en":"Goals","fa":"هدف‌ها"},"principle":{"en":"Set a few clear, measurable goals that describe outcomes — then let teams choose how to hit them.","fa":"چند هدفِ روشن و قابلِ‌اندازه‌گیری تعیین کن که نتیجه را توصیف می‌کنند — بعد بگذار تیم‌ها روشِ رسیدن را خودشان انتخاب کنند."},"more":{"en":"A good goal names the result you want, not the activity. If it starts with a verb like 'launch' or 'build', it's an action; reframe it as the outcome that action is supposed to produce.","fa":"یک هدفِ خوب نتیجه‌ای را که می‌خواهی نام می‌برد، نه فعالیت را. اگر با فعلی مثلِ «راه‌اندازی» یا «ساختن» شروع شود، یک کار است؛ بازقابش کن به آن نتیجه‌ای که آن کار قرار است بسازد."},"example":{"en":"Not 'launch the new checkout', but 'cut checkout drop-off from a third to a sixth'.","fa":"نه «راه‌اندازیِ پرداختِ جدید»، بلکه «کاهشِ رهاکردنِ پرداخت از یک‌سوم به یک‌ششم»."},"tip":{"en":"For each goal ask: could we measure whether we hit it? If not, rewrite it.","fa":"برای هر هدف بپرس: می‌شود اندازه گرفت که بهش رسیدیم یا نه؟ اگر نه، بازنویسی‌اش کن."},"pitfall":{"en":"Goals that are really activity lists, so you're busy but not moving.","fa":"هدف‌هایی که در واقع فهرستِ فعالیت‌اند، جوری که مشغولی ولی جلو نمی‌روی."}},"cadence":{"part":"plan","n":13,"name":{"en":"Operating Cadence","fa":"ریتمِ اجرا"},"glabel":{"en":"Cadence","fa":"ریتم"},"principle":{"en":"Run a predictable rhythm of planning and review — a sound operating system is what turns strategy into execution.","fa":"یک ریتمِ قابلِ‌پیش‌بینی از برنامه‌ریزی و بازبینی داشته باش — یک سیستمِ کاریِ سالم همان چیزی است که استراتژی را به اجرا تبدیل می‌کند."},"more":{"en":"Weekly, monthly, and quarterly beats keep everyone synced without constant fire drills. When the cadence is clear, people know when decisions get made and stop pinging you for them.","fa":"ضرب‌آهنگِ هفتگی، ماهانه و فصلی همه را هماهنگ نگه می‌دارد بدونِ آژیرهای دائمی. وقتی ریتم روشن است، آدم‌ها می‌دانند تصمیم‌ها کِی گرفته می‌شوند و دیگر برایش مدام سراغت را نمی‌گیرند."},"example":{"en":"Weekly team sync, monthly metrics review, quarterly planning — same shape every time.","fa":"هماهنگیِ هفتگیِ تیم، بازبینیِ ماهانهٔ شاخص‌ها، برنامه‌ریزیِ فصلی — هر بار همان شکل."},"tip":{"en":"Put your planning and review meetings on the calendar for the whole quarter now.","fa":"جلسه‌های برنامه‌ریزی و بازبینی را همین حالا برای کلِ فصل توی تقویم بگذار."},"pitfall":{"en":"An ad-hoc rhythm where every decision needs a brand-new meeting.","fa":"یک ریتمِ بی‌نظم که هر تصمیم به یک جلسهٔ تازه نیاز دارد."}},"candor":{"part":"culture","n":14,"name":{"en":"Say the Thing","fa":"همان حرف را بزن"},"glabel":{"en":"Candor","fa":"صراحت"},"principle":{"en":"Say the thing you think you cannot say — name the hard truth kindly instead of letting it fester.","fa":"همان چیزی را که فکر می‌کنی نمی‌توانی بگویی، بگو — حقیقتِ سخت را مهربانانه نام ببر، به‌جای اینکه بگذاری چرک کند."},"more":{"en":"Most team problems are things everyone senses but no one voices. Naming the awkward thing — with care and in the open — builds trust far faster than polite avoidance ever will.","fa":"بیشترِ مشکلاتِ تیم چیزهایی‌اند که همه حسشان می‌کنند ولی کسی به زبان نمی‌آورد. نام‌بردنِ آن چیزِ معذب‌کننده — با ملاحظه و رو-راست — خیلی سریع‌تر از هر طفره‌رویِ مؤدبانه‌ای اعتماد می‌سازد."},"example":{"en":"Tell a peer 'I think we're avoiding the real issue here' instead of staying quiet.","fa":"به یک هم‌کار بگو «فکر می‌کنم داریم از مسئلهٔ اصلی فرار می‌کنیم» به‌جای اینکه ساکت بمانی."},"tip":{"en":"Name one thing you've been avoiding saying, kindly, this week.","fa":"این هفته یک چیز را که از گفتنش طفره می‌رفتی، مهربانانه به زبان بیاور."},"pitfall":{"en":"Staying polite and quiet while the real problem grows.","fa":"مؤدب و ساکت‌ماندن در حالی که مشکلِ اصلی بزرگ‌تر می‌شود."}},"meetings":{"part":"culture","n":15,"name":{"en":"Run Great Meetings","fa":"جلسه‌های خوب بگردان"},"glabel":{"en":"Meetings","fa":"جلسه"},"principle":{"en":"Every meeting needs an owner, a purpose, and a decision — otherwise cancel it and send a note.","fa":"هر جلسه به یک صاحب، یک هدف، و یک تصمیم نیاز دارد — وگرنه لغوش کن و یک یادداشت بفرست."},"more":{"en":"Meetings are the most expensive thing a company does with its time. Say up front whether you're deciding, informing, or brainstorming; end with clear owners and next steps, written down.","fa":"جلسه گران‌ترین کاری است که یک شرکت با وقتش می‌کند. از اول بگو داری تصمیم می‌گیری، اطلاع می‌دهی، یا ایده می‌سازی؛ با صاحب‌های روشن و قدم‌های بعدیِ نوشته‌شده تمامش کن."},"example":{"en":"Open with 'the goal of this meeting is to decide X' so everyone knows why they're there.","fa":"با «هدفِ این جلسه تصمیم‌گرفتن دربارهٔ فلان‌چیز است» شروع کن تا همه بدانند چرا اینجایند."},"tip":{"en":"Before sending an invite, write the one decision the meeting must produce.","fa":"قبل از فرستادنِ دعوت، آن یک تصمیمی را که جلسه باید بسازد بنویس."},"pitfall":{"en":"Recurring meetings with no owner that no one is allowed to cancel.","fa":"جلسه‌های تکراریِ بی‌صاحب که کسی اجازه ندارد لغوشان کند."}},"scaleself":{"part":"culture","n":16,"name":{"en":"Scale Yourself & the Culture","fa":"خودت و فرهنگ را بزرگ کن"},"glabel":{"en":"Scale","fa":"مقیاس"},"principle":{"en":"As the company grows, you are the foundation — scale your own habits and let the culture carry them.","fa":"همین‌طور که شرکت بزرگ می‌شود، تو همان پایه‌ای — عادت‌های خودت را بزرگ کن و بگذار فرهنگ حملشان کند."},"more":{"en":"You can't be in every room, so your job becomes building people and systems that hold your standards when you're not there. The steadier and clearer you are, the more your team can rely on you as their stable point.","fa":"نمی‌توانی توی هر اتاقی باشی، پس کارَت می‌شود ساختنِ آدم‌ها و سیستم‌هایی که وقتی نیستی استانداردهایت را نگه دارند. هرچه باثبات‌تر و روشن‌تر باشی، تیمت بیشتر می‌تواند به تو به‌عنوانِ نقطهٔ ثابتش تکیه کند."},"example":{"en":"Teach two managers to run the review you always run, then step back.","fa":"به دو مدیر یاد بده همان بازبینی‌ای را که همیشه خودت می‌گردانی بگردانند، بعد کنار بکش."},"tip":{"en":"Ask what only you can do right now — and start handing the rest away.","fa":"بپرس همین حالا چه‌کاری فقط از خودت برمی‌آید — و بقیه را شروع کن به سپردن."},"pitfall":{"en":"Staying the single point of failure because it feels faster to do it yourself.","fa":"ماندن به‌عنوانِ تنها نقطهٔ شکست، چون خودت‌انجام‌دادن سریع‌تر به‌نظر می‌رسد."}}},"core":{"name":{"en":"PEOPLE","fa":"آدم‌ها"},"principle":{"en":"A company is just a collection of people, so you scale it by scaling them — deliberately. Start with self-awareness, make your principles and plans explicit, hire and manage with care, and keep communication honest as you grow.","fa":"یک شرکت فقط مجموعه‌ای از آدم‌هاست، پس با بزرگ‌کردنِ آن‌ها بزرگش می‌کنی — عمداً. از خودآگاهی شروع کن، اصول و برنامه‌هایت را نوشته و روشن کن، با دقت استخدام و مدیریت کن، و حینِ رشد ارتباط را صادق نگه دار."},"more":{"en":"Hughes Johnson organizes company building into a few connected systems: self-awareness and operating principles, hiring and team-building, managing through feedback and one-on-ones, structure and planning, and communication and culture. The thread through all of it: make the implicit explicit, and treat people as the thing you're actually scaling.","fa":"هیوز جانسون شرکت‌سازی را در چند سیستمِ به‌هم‌پیوسته می‌چیند: خودآگاهی و اصولِ کاری، استخدام و تیم‌سازی، مدیریت با بازخورد و جلسه‌های تک‌به‌تک، ساختار و برنامه‌ریزی، و ارتباط و فرهنگ. نخِ رابطِ همه‌شان: نانوشته‌ها را نوشته کن، و آدم‌ها را همان چیزی بدان که واقعاً داری بزرگش می‌کنی."},"example":{"en":"Click any node to read a tactic or a principle. You can also drag the nodes around.","fa":"روی هر دایره کلیک کن تا یک تاکتیک یا اصل را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."}},"stages":[{"level":1,"badge":{"en":"Level 1 · Over-simplified","fa":"سطحِ ۱ · خیلی ساده"},"title":{"en":"Scale the people","fa":"آدم‌ها را بزرگ کن"},"tagline":{"en":"The whole book in a sentence.","fa":"کلِ کتاب در یک جمله."},"body":{"en":"A company is just a group of people. You don't grow the company directly — you grow its people and the systems around them. Do that on purpose.","fa":"یک شرکت فقط گروهی از آدم‌هاست. تو شرکت را مستقیم بزرگ نمی‌کنی — آدم‌هایش و سیستم‌های دورشان را بزرگ می‌کنی. این کار را عمداً بکن."},"example":{"en":"When something breaks at scale, ask which person or system is missing — not just what to patch.","fa":"وقتی چیزی در مقیاس خراب می‌شود، بپرس کدام آدم یا سیستم غایب است — نه فقط چه چیزی را وصله کنی."},"gain":{"en":"You hold the one idea the whole book expands on.","fa":"همان یک ایده‌ای را داری که کلِ کتاب بسطش می‌دهد."}},{"level":2,"badge":{"en":"Level 2 · Simple","fa":"سطحِ ۲ · ساده"},"title":{"en":"Start with yourself","fa":"از خودت شروع کن"},"tagline":{"en":"Self-awareness is the foundation.","fa":"خودآگاهی پایه است."},"body":{"en":"Before you manage anyone, understand yourself — your <b>work style</b>, <b>strengths</b>, and <b>blind spots</b>. Then agree on a few <b>operating principles</b> so your team knows how you work and decide together.","fa":"قبل از مدیریتِ هر کسی، خودت را بفهم — <b>سبکِ کاری</b>، <b>نقاطِ قوت</b>، و <b>نقاطِ کور</b>. بعد روی چند <b>اصلِ کاری</b> توافق کن تا تیمت بداند چطور کار و تصمیم می‌گیرید."},"example":{"en":"Name your style — analyzer, director, promoter, collaborator — and tell your team.","fa":"سبکت را نام ببر — تحلیل‌گر، تصمیم‌گیر، مروج، هم‌کار — و به تیمت بگو."},"gain":{"en":"You lead from self-knowledge instead of guesswork.","fa":"از سرِ خودشناسی رهبری می‌کنی، نه از سرِ حدس."}},{"level":3,"badge":{"en":"Level 3 · Balanced","fa":"سطحِ ۳ · متعادل"},"title":{"en":"Build the team","fa":"تیم را بساز"},"tagline":{"en":"Hire well, then manage well.","fa":"خوب استخدام کن، بعد خوب مدیریت کن."},"body":{"en":"Now the machine. <b>Hire</b> from a real pipeline with <b>structured interviews</b>. Then manage: honest <b>feedback</b> (explorer, not lecturer), regular <b>one-on-ones</b>, and <b>performance</b> judged on results and how they're reached.","fa":"حالا ماشین. از یک قیفِ واقعی با <b>مصاحبهٔ ساختارمند</b> <b>استخدام</b> کن. بعد مدیریت کن: <b>بازخوردِ</b> صادق (کاشف باش نه سخنران)، <b>جلسه‌های تک‌به‌تکِ</b> منظم، و <b>عملکردی</b> که با نتیجه و نحوهٔ رسیدن به آن سنجیده می‌شود."},"example":{"en":"Give feedback as 'here's what I saw, what got in the way?' — not a verdict.","fa":"بازخورد را این‌طور بده: «این چیزی است که دیدم، چه چیزی سرِ راه بود؟» — نه یک حکم."},"gain":{"en":"You can hire a strong team and manage it honestly.","fa":"می‌توانی یک تیمِ قوی استخدام کنی و صادقانه مدیریتش کنی."}},{"level":4,"badge":{"en":"Level 4 · Advanced","fa":"سطحِ ۴ · پیشرفته"},"title":{"en":"Give it structure","fa":"بهش ساختار بده"},"tagline":{"en":"Mission, goals, and a steady cadence.","fa":"مأموریت، هدف، و یک ریتمِ باثبات."},"body":{"en":"Scale needs structure. Write the <b>mission, vision, and values</b>. Set a few measurable <b>goals</b> that name outcomes, not tasks. And run a predictable <b>operating cadence</b> — weekly, monthly, quarterly — so strategy actually turns into execution.","fa":"مقیاس به ساختار نیاز دارد. <b>مأموریت، چشم‌انداز و ارزش‌ها</b> را بنویس. چند <b>هدفِ</b> قابلِ‌اندازه‌گیری تعیین کن که نتیجه را نام می‌برند، نه کار را. و یک <b>ریتمِ اجرای</b> قابلِ‌پیش‌بینی بگردان — هفتگی، ماهانه، فصلی — تا استراتژی واقعاً به اجرا تبدیل شود."},"example":{"en":"Reframe 'build the dashboard' into 'give every team its numbers by Monday'.","fa":"«ساختنِ داشبورد» را بازقاب کن به «رساندنِ عددها به دستِ هر تیم تا دوشنبه»."},"gain":{"en":"You give a growing team the rails to run without you.","fa":"به یک تیمِ روبه‌رشد ریلی می‌دهی که بدونِ تو هم برود."}},{"level":5,"badge":{"en":"Level 5 · Expert","fa":"سطحِ ۵ · حرفه‌ای"},"title":{"en":"Keep it human at scale","fa":"در مقیاس، انسانی نگهش دار"},"tagline":{"en":"Communication, culture, and you as the foundation.","fa":"ارتباط، فرهنگ، و تویی که پایه‌ای."},"body":{"en":"The expert holds the systems and keeps them human. <b>Say the thing you cannot say</b>, run meetings that actually decide, and make the implicit explicit everywhere. As the company grows, remember <b>you are the foundation</b> — your steadiness becomes the culture, and your job is to build people and systems that hold your standards when you're not in the room.","fa":"آدمِ حرفه‌ای سیستم‌ها را نگه می‌دارد و انسانی‌شان می‌کند. <b>همان حرفی را که نمی‌توانی بزنی، بزن</b>، جلسه‌هایی بگردان که واقعاً تصمیم می‌گیرند، و همه‌جا نانوشته‌ها را نوشته کن. همین‌طور که شرکت بزرگ می‌شود، یادت باشد <b>تو همان پایه‌ای</b> — ثباتِ تو همان فرهنگ می‌شود، و کارَت ساختنِ آدم‌ها و سیستم‌هایی است که وقتی توی اتاق نیستی استانداردهایت را نگه دارند."},"example":{"en":"You've taught others to run your reviews, and the team stays aligned whether or not you're there.","fa":"به دیگران یاد داده‌ای بازبینی‌هایت را بگردانند، و تیم چه باشی چه نباشی هماهنگ می‌ماند."},"gain":{"en":"You can build people and a culture that scale beyond you.","fa":"می‌توانی آدم‌ها و فرهنگی بسازی که فراتر از تو بزرگ می‌شوند."}}],"quotes":[{"en":"We always talk about scaling companies, but companies are just collections of people.","fa":"ما همیشه از بزرگ‌کردنِ شرکت‌ها حرف می‌زنیم، ولی شرکت‌ها فقط مجموعه‌ای از آدم‌ها هستند."},{"en":"Build self-awareness to build mutual awareness.","fa":"خودآگاهی بساز تا آگاهیِ دوطرفه بسازی."},{"en":"Say the thing you think you cannot say.","fa":"همان چیزی را که فکر می‌کنی نمی‌توانی بگویی، بگو."},{"en":"Distinguish between management and leadership.","fa":"بینِ مدیریت و رهبری فرق بگذار."},{"en":"A sound operating system running on an efficient cadence is essential to execution and lays the groundwork for great management.","fa":"یک سیستمِ کاریِ سالم که روی یک ریتمِ کارآمد کار می‌کند، برای اجرا ضروری است و زمینه را برای مدیریتِ عالی فراهم می‌کند."},{"en":"Be an explorer, not a lecturer.","fa":"کاشف باش، نه سخنران."},{"en":"If you don't understand yourself — your work style preferences, your motivators, your strengths, your blind spots — you're going to have trouble being an effective manager and a leader.","fa":"اگر خودت را نفهمی — ترجیح‌های سبکِ کاری، انگیزه‌ها، نقاطِ قوت، نقاطِ کورت — در مدیر و رهبرِ مؤثربودن به مشکل می‌خوری."},{"en":"Ultimately, you are the foundation. You are the stability point and the foundation for your team and for your organization.","fa":"در نهایت، تو همان پایه‌ای. تو نقطهٔ ثبات و پایه‌ای برای تیم و سازمانت هستی."}],"media":[{"kind":"yt","id":"Mv0o9o4MRh0","src":{"en":"YouTube · Lenny's Podcast","fa":"یوتیوب · Lenny's Podcast"},"title":{"en":"Lessons from Scaling Stripe — Claire Hughes Johnson","fa":"درس‌هایی از بزرگ‌کردنِ استرایپ — کلر هیوز جانسون"},"desc":{"en":"A deep, tactical interview with the ex-COO of Stripe on the ideas in the book.","fa":"یک مصاحبهٔ عمیق و تاکتیکی با معاونِ اجراییِ سابقِ استرایپ دربارهٔ ایده‌های کتاب."},"bullets":{"en":["Self-awareness and operating principles","How Stripe hired and managed at scale","Straight from the author"],"fa":["خودآگاهی و اصولِ کاری","اینکه استرایپ چطور در مقیاس استخدام و مدیریت کرد","مستقیم از خودِ نویسنده"]},"best":{"en":"Best for Stage 1–3.","fa":"خوب برای مرحلهٔ ۱ تا ۳."}},{"kind":"yt","id":"Dofw-YiBfZI","src":{"en":"YouTube · Newcomer","fa":"یوتیوب · Newcomer"},"title":{"en":"Scaling People, with Claire Hughes Johnson","fa":"بزرگ‌کردنِ آدم‌ها، با کلر هیوز جانسون"},"desc":{"en":"A conversation on company building and the tactics behind the book.","fa":"گفت‌وگویی دربارهٔ شرکت‌سازی و تاکتیک‌های پشتِ کتاب."},"bullets":{"en":["Why she wrote a tactical handbook","Foundations, hiring, and feedback","Good after a first read"],"fa":["چرا یک کتابچهٔ تاکتیکی نوشت","پایه‌ها، استخدام، و بازخورد","خوب بعد از اولین خواندن"]},"best":{"en":"Best for Stage 2–4.","fa":"خوب برای مرحلهٔ ۲ تا ۴."}},{"kind":"yt","id":"Dswk83wBDd4","src":{"en":"YouTube · Permanent Equity","fa":"یوتیوب · Permanent Equity"},"title":{"en":"Claire Hughes Johnson — Scaling People","fa":"کلر هیوز جانسون — بزرگ‌کردنِ آدم‌ها"},"desc":{"en":"A practical talk on management, feedback, and building durable teams.","fa":"یک گفت‌وگوی کاربردی دربارهٔ مدیریت، بازخورد، و ساختنِ تیم‌های ماندگار."},"bullets":{"en":["Management vs. leadership","Feedback and performance in practice","A solid, applied overview"],"fa":["مدیریت در برابرِ رهبری","بازخورد و عملکرد در عمل","یک مرورِ محکم و کاربردی"]},"best":{"en":"Best for Stage 3–4.","fa":"خوب برای مرحلهٔ ۳ و ۴."}},{"kind":"img","url":"https://press.stripe.com/scaling-people","src":{"en":"Stripe Press · Publisher","fa":"نشرِ استرایپ · ناشر"},"title":{"en":"Scaling People — Publisher Page","fa":"بزرگ‌کردنِ آدم‌ها — صفحهٔ ناشر"},"desc":{"en":"The publisher page, with the book, excerpts, and free companion resources.","fa":"صفحهٔ ناشر، همراه با کتاب، بخش‌هایی از متن، و منابعِ رایگانِ همراه."},"bullets":{"en":["Overview and excerpts","Free templates and worksheets","Straight from the source"],"fa":["مرور و بخش‌هایی از متن","قالب‌ها و کاربرگ‌های رایگان","مستقیم از خودِ منبع"]},"best":{"en":"For the book and its toolkit.","fa":"برای کتاب و جعبه‌ابزارش."}}],"go":[{"label":{"en":"Publisher page (Stripe Press)","fa":"صفحهٔ ناشر (نشرِ استرایپ)"},"url":"https://press.stripe.com/scaling-people"},{"label":{"en":"Book on Goodreads","fa":"کتاب در گودریدز"},"url":"https://www.goodreads.com/book/show/63063173-scaling-people"},{"label":{"en":"Lenny's Podcast interview","fa":"مصاحبهٔ پادکستِ لنی"},"url":"https://www.lennyspodcast.com/lessons-from-scaling-stripe/"}],"recs":[{"pri":"b","t":{"en":"Write down your work style","fa":"سبکِ کاری‌ات را بنویس"},"d":{"en":"Name your strengths and blind spots, and share them with your team this week.","fa":"نقاطِ قوت و نقاطِ کورت را نام ببر، و این هفته با تیمت درمیانشان بگذار."}},{"pri":"b","t":{"en":"Say one thing you've been avoiding","fa":"یک حرفی که ازش طفره می‌رفتی را بزن"},"d":{"en":"Kindly name the hard truth in your next one-on-one instead of letting it sit.","fa":"در جلسهٔ تک‌به‌تکِ بعدی‌ات حقیقتِ سخت را مهربانانه نام ببر، به‌جای اینکه بماند."}},{"pri":"n","t":{"en":"Turn one task into an outcome","fa":"یک کار را به یک نتیجه تبدیل کن"},"d":{"en":"Take a goal that starts with a verb and rewrite it as the result you actually want.","fa":"یک هدف که با فعل شروع می‌شود را بردار و به آن نتیجه‌ای که واقعاً می‌خواهی بازنویسی‌اش کن."}},{"pri":"n","t":{"en":"Delegate one thing fully","fa":"یک چیز را کامل واگذار کن"},"d":{"en":"Hand over a whole outcome and the authority to decide, then check in lightly.","fa":"یک نتیجهٔ کامل و اختیارِ تصمیم‌گیری را واگذار کن، بعد سبک پیگیری کن."}}]};
-</script>
-
-<script>
-/* ── 3) RENDER (text sections) ────────────────────────────── */
-function elClear(id){ var e=document.getElementById(id); if(e) e.innerHTML=''; return e; }
-
-function renderText(){
-  var t=elClear('tldrHost');
-  DATA.tldr.forEach(function(o){ var li=document.createElement('li'); li.innerHTML = TX(o); t.appendChild(li); });
-
-  var q=elClear('quoteHost');
-  DATA.quotes.forEach(function(o){
-    var bq=document.createElement('blockquote');
-    bq.innerHTML = '<span class="qm">“</span><p>'+TX(o)+'</p>';
-    q.appendChild(bq);
-  });
-
-  var m=elClear('mediaHost');
-  DATA.media.forEach(function(o){
-    var card=document.createElement('div'); card.className='mcard';
-    var thumb;
-    if(o.kind==='yt'){
-      var url='https://www.youtube.com/watch?v='+o.id;
-      var img='https://i.ytimg.com/vi/'+o.id+'/hqdefault.jpg';
-      thumb='<a class="mthumb" href="'+url+'" target="_blank" rel="noopener">'
-        +'<img src="'+img+'" alt="" loading="lazy" onerror="this.style.display=\'none\'">'
-        +'<span class="ptype">'+(LANG==='fa'?'ویدیو':'VIDEO')+'</span>'
-        +'<span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></span></a>';
-    } else {
-      thumb='<a class="mthumb" href="'+o.url+'" target="_blank" rel="noopener"><span class="mfake">'
-        +'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.6"/><path d="M21 15l-5-5L5 21"/></svg>'
-        +'</span><span class="ptype">'+(LANG==='fa'?'تصویر':'IMAGE')+'</span></a>';
-    }
-    var link = o.kind==='yt' ? 'https://www.youtube.com/watch?v='+o.id : o.url;
-    var bl = (LANG==='fa'?o.bullets.fa:o.bullets.en).map(function(b){ return '<li>'+ (LANG==='fa'?faText(b):b) +'</li>'; }).join('');
-    card.innerHTML = thumb + '<div class="mbody">'
-      + '<div class="msrc">'+TX(o.src)+'</div>'
-      + '<h4>'+TX(o.title)+'</h4>'
-      + '<p class="mdesc">'+TX(o.desc)+'</p>'
-      + '<ul>'+bl+'</ul>'
-      + '<a class="mlink" href="'+link+'" target="_blank" rel="noopener">'+(LANG==='fa'?'باز کردن ↗':'Open ↗')+'</a>'
-      + '<div class="mbest">'+TX(o.best)+'</div>'
-      + '</div>';
-    m.appendChild(card);
-  });
-
-  var g=elClear('goHost');
-  DATA.go.forEach(function(o){
-    var a=document.createElement('a'); a.href=o.url; a.target='_blank'; a.rel='noopener';
-    a.textContent=TX(o.label); g.appendChild(a);
-  });
-
-  var r=elClear('recHost');
-  DATA.recs.forEach(function(o){
-    var it=document.createElement('div'); it.className='item';
-    var priLabel = o.pri==='b' ? (LANG==='fa'?'از اینجا شروع کن':'Start here') : (LANG==='fa'?'بعدش این':'Then this');
-    it.innerHTML='<div class="t">'+TX(o.t)+'<span class="pri '+(o.pri==='b'?'b':'')+'">'+priLabel+'</span></div>'
-      +'<div class="d">'+TX(o.d)+'</div>';
-    r.appendChild(it);
-  });
-
-  var mth=document.getElementById('methodHost');
-  mth.innerHTML = LANG==='fa' ? faText("<p><b>منبع:</b> کتابِ «Scaling People» نوشتهٔ کلر هیوز جانسون (نشرِ استرایپ، ۲۰۲۳).</p><p><b>روشِ کار:</b> ساختارِ پنج‌بخشی و تاکتیک‌ها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده؛ نقل‌قول‌ها مقابله و ویدیوها بررسی شده‌اند.</p><p><b>گروه:</b> «اجرا» — از فهرستِ کتاب‌های ضروریِ سازندگانِ محصولِ لنی راچیتسکی.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای متنِ کامل، خودِ کتاب را بخوان.</p>") : "<p><b>Source:</b> the book <i>Scaling People: Tactics for Management and Company Building</i> by Claire Hughes Johnson (Stripe Press, 2023).</p><p><b>How this was built:</b> the five-part structure and tactics were gathered and rewritten from the book and reputable sources; quotes were cross-checked and the linked videos verified.</p><p><b>Group:</b> Executing — from Lenny Rachitsky's essential books for product builders.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>";
-  var fl=document.getElementById('flowTop');
-  if(fl){
-    var loop = LANG==='fa' ? ["پایه","استخدام","پرورش","برنامه‌ریزی"] : ["Foundation","Hire","Develop","Plan"];
-    var ar = LANG==='fa' ? '⟵' : '⟶';
-    fl.innerHTML = loop.map(function(w){ return '<b>'+ (LANG==='fa'?faText(w):w) +'</b>'; }).join(' <span class="ar">'+ar+'</span> ');
-  }
-}
-</script>
-
-<script>
-/* ── 4) CONCEPT MAP ───────────────────────────────────────── */
-function renderMap(){
-  var host=document.getElementById('mapHost'); if(!host) return; host.innerHTML='';
-  DATA.parts.forEach(function(p, i){
-    var col=document.createElement('div'); col.className='partcol';
-    var chaps=p.chapters.map(function(ck){
-      var c=DATA.chapters[ck];
-      return '<div class="chapchip"><span class="cn">'+num(c.n)+'</span><div><b>'+TX(c.name)+'</b>'
-        +'<small>'+TX(c.principle).replace(/<[^>]+>/g,'').slice(0, LANG==='fa'?86:76)+'…</small></div></div>';
-    }).join('');
-    col.innerHTML='<div class="ph"><span class="pdot" style="background:var('+p.varc+')"></span>'
-      +'<span class="pnum">'+(LANG==='fa'?'بخشِ ':'PART ')+num(i+1)+'</span></div>'
-      +'<h4>'+TX(p.name)+'</h4>'
-      +'<div class="ptag" style="color:var('+p.varc+')">'+TX(p.tag)+'</div>'
-      +'<p class="pgist">'+TX(p.gist)+'</p>'+chaps;
-    host.appendChild(col);
-  });
-}
-</script>
-
-<script>
-/* ── 5) INTERACTIVE NETWORK GRAPH (deterministic radial layout, no physics) ── */
-var GRAPH = (function(){
-  var svg, W=980, H=780, nodes=[], links=[], sel=null, dragNode=null, moved=false, startPt=null;
-
-  function build(){
-    svg=document.getElementById('netsvg');
-    svg.setAttribute('viewBox','0 0 '+W+' '+H);
-    nodes=[]; links=[];
-    var cx=W/2, cy=H/2, R1=220, R2=126, span=66*Math.PI/180;
-    var N=DATA.parts.length, partAng=DATA.parts.map(function(_,i){ return -Math.PI/2 + i*(2*Math.PI/N); });
-    nodes.push({id:'core', kind:'core', varc:'--core', r:38, x:cx, y:cy, label:DATA.core.name, data:DATA.core});
-    DATA.parts.forEach(function(p,i){
-      var a=partAng[i], px=cx+Math.cos(a)*R1, py=cy+Math.sin(a)*R1;
-      nodes.push({id:'p_'+p.key, kind:'part', varc:p.varc, r:25, x:px, y:py,
-        label:p.name, data:{name:p.name, principle:p.gist, more:p.more, tag:p.tag, key:p.key}});
-      links.push({s:'core', t:'p_'+p.key, strong:true});
-      var nc=p.chapters.length, start=a-span/2;
-      p.chapters.forEach(function(ck,j){
-        var ca = nc>1 ? start+span*(j/(nc-1)) : a;   // fan the 5 chapters outward
-        var c=DATA.chapters[ck];
-        nodes.push({id:'c_'+ck, kind:'chap', varc:p.varc, r:15,
-          x:px+Math.cos(ca)*R2, y:py+Math.sin(ca)*R2,
-          label:(c.glabel||c.name), data:c, ck:ck});
-        links.push({s:'p_'+p.key, t:'c_'+ck});
-      });
-    });
-    nodes.forEach(function(n){ n.hx=n.x; n.hy=n.y; });   // remember home positions for reset
-    draw();
-    select('core');
-  }
-
-  function byId(id){ for(var i=0;i<nodes.length;i++) if(nodes[i].id===id) return nodes[i]; return null; }
-
-  function draw(){
-    var ln='', nd='';
-    links.forEach(function(l){ ln+='<line class="glink" data-s="'+l.s+'" data-t="'+l.t+'" stroke="var(--line)" stroke-width="'+(l.strong?2.4:1.5)+'" stroke-linecap="round"/>'; });
-    nodes.forEach(function(n){
-      var inside='', below='';
-      if(n.kind==='core'){
-        inside='<text text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="800" fill="#fff" letter-spacing="0.3">'+shortLabel(n)+'</text>';
-      } else {
-        if(n.kind==='chap'){
-          inside='<text text-anchor="middle" dominant-baseline="central" font-size="11" font-weight="800" fill="#fff">'+num(n.data.n)+'</text>';
+/* ── CONTENT — everything unique to this book lives here ── */
+Book.mount({
+  "meta": {
+    "slug": "scaling-people",
+    "folder": "02 - Executing",
+    "groupNum": 2,
+    "group": {
+      "en": "Executing",
+      "fa": "اجرا"
+    },
+    "author": {
+      "en": "Claire Hughes Johnson",
+      "fa": "کلر هیوز جانسون"
+    },
+    "eyebrow_author": {
+      "en": "Claire Hughes Johnson",
+      "fa": "کلر هیوز جانسون"
+    },
+    "book": {
+      "en": "Scaling People",
+      "fa": "بزرگ‌کردنِ آدم‌ها"
+    },
+    "hero_title": {
+      "en": "Scaling People — Tactics for Management and Company Building",
+      "fa": "بزرگ‌کردنِ آدم‌ها — تاکتیک‌هایی برای مدیریت و شرکت‌سازی"
+    },
+    "dek": {
+      "en": "A knowledge graph of the whole book, plus a 5-stage path from a single idea to expert-level mastery — with an example at every step.",
+      "fa": "نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از یک ایدهٔ ساده تا حرفه‌ای — با یک مثال در هر مرحله."
+    },
+    "published": {
+      "en": "2023",
+      "fa": "۲۰۲۳"
+    },
+    "chips": [
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Parts",
+          "fa": "بخش"
         }
-        var ly = n.r + (n.kind==='part'?17:14);
-        var fs = n.kind==='part'?13:11;
-        var stroke = 'paint-order:stroke;stroke:var(--card2);stroke-width:3.6px;stroke-linejoin:round';
-        below='<text class="nlab" text-anchor="middle" y="'+ly+'" font-size="'+fs+'" font-weight="'+(n.kind==='part'?'800':'700')+'" fill="var(--ink)" style="'+stroke+'">'+shortLabel(n)+'</text>';
+      },
+      {
+        "v": {
+          "en": "16",
+          "fa": "۱۶"
+        },
+        "l": {
+          "en": "Tactics",
+          "fa": "تاکتیک"
+        }
+      },
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Learning stages",
+          "fa": "مرحلهٔ یادگیری"
+        }
       }
-      nd+='<g class="node'+(n.kind==='core'?' ncore':'')+'" data-id="'+n.id+'"><g class="ns">'
-        +'<circle r="'+n.r+'" fill="var('+n.varc+')" fill-opacity="'+(n.kind==='chap'?0.94:1)+'" stroke="var(--card)" stroke-width="2.5"/>'
-        +inside+below+'</g></g>';
-    });
-    svg.innerHTML='<g id="glinks">'+ln+'</g><g id="gnodes">'+nd+'</g>';
-    svg.querySelectorAll('.node').forEach(function(gEl){
-      gEl.addEventListener('pointerdown', onDown);
-      gEl.addEventListener('click', function(){ if(!moved) select(gEl.getAttribute('data-id')); });
-      gEl.addEventListener('pointerenter', function(){ if(!dragNode) gEl.classList.add('hover'); });
-      gEl.addEventListener('pointerleave', function(){ gEl.classList.remove('hover'); });
-    });
-    positions();
-  }
-  function shortLabel(n){ return TX(n.label); }
-
-  function positions(){
-    svg.querySelectorAll('.node').forEach(function(g){
-      var n=byId(g.getAttribute('data-id'));
-      g.setAttribute('transform','translate('+n.x.toFixed(1)+','+n.y.toFixed(1)+')');
-    });
-    svg.querySelectorAll('.glink').forEach(function(l){
-      var a=byId(l.getAttribute('data-s')), b=byId(l.getAttribute('data-t'));
-      l.setAttribute('x1',a.x.toFixed(1)); l.setAttribute('y1',a.y.toFixed(1));
-      l.setAttribute('x2',b.x.toFixed(1)); l.setAttribute('y2',b.y.toFixed(1));
-    });
-  }
-
-  /* drag: just move the grabbed node — no simulation, so nothing else shifts */
-  function toSvg(e){
-    var pt=svg.createSVGPoint(); pt.x=e.clientX; pt.y=e.clientY;
-    var m=svg.getScreenCTM(); if(!m) return {x:e.clientX,y:e.clientY};
-    return pt.matrixTransform(m.inverse());
-  }
-  function onDown(e){
-    e.preventDefault();
-    dragNode=byId(e.currentTarget.getAttribute('data-id'));
-    moved=false; startPt=toSvg(e); svg.style.cursor='grabbing';
-    e.currentTarget.classList.remove('hover');
-    window.addEventListener('pointermove', onMove);
-    window.addEventListener('pointerup', onUp);
-  }
-  function onMove(e){
-    if(!dragNode) return; var p=toSvg(e);
-    if(startPt && (Math.abs(p.x-startPt.x)>4 || Math.abs(p.y-startPt.y)>4)) moved=true;
-    dragNode.x=Math.max(dragNode.r+4, Math.min(W-dragNode.r-4, p.x));
-    dragNode.y=Math.max(dragNode.r+4, Math.min(H-dragNode.r-24, p.y));
-    positions();
-  }
-  function onUp(){
-    dragNode=null; svg.style.cursor='grab';
-    window.removeEventListener('pointermove', onMove);
-    window.removeEventListener('pointerup', onUp);
-  }
-
-  function keepSet(id){
-    var n=byId(id); if(!n || id==='core') return null;   // core → show everything
-    var keep={}; keep[id]=1; keep['core']=1;
-    var pk = (n.kind==='part') ? n.data.key : n.data.part;
-    keep['p_'+pk]=1;
-    DATA.parts.forEach(function(p){ if(p.key===pk) p.chapters.forEach(function(ck){ keep['c_'+ck]=1; }); });
-    return keep;   // highlight the whole branch: core → part → its chapters
-  }
-  function applyFocus(id){
-    var keep=keepSet(id), full=(keep===null);
-    svg.querySelectorAll('.node').forEach(function(g){
-      var nid=g.getAttribute('data-id');
-      g.classList.toggle('dim', !full && !keep[nid]);
-      g.classList.toggle('hl', !full && keep[nid] && nid!==id);
-    });
-    svg.querySelectorAll('.glink').forEach(function(l){
-      var s=l.getAttribute('data-s'), t=l.getAttribute('data-t');
-      var on = full || (keep[s] && keep[t]);
-      l.classList.toggle('dim', !on);
-      l.classList.toggle('hl', !full && on);
-    });
-  }
-
-  function relatedIds(node){
-    var ids=[];
-    if(node.id==='core'){ DATA.parts.forEach(function(p){ ids.push('p_'+p.key); }); }
-    else if(node.kind==='part'){ var pk=node.data.key; DATA.parts.forEach(function(p){ if(p.key===pk) p.chapters.forEach(function(ck){ ids.push('c_'+ck); }); }); }
-    else { var pk2=node.data.part; ids.push('p_'+pk2);
-      DATA.parts.forEach(function(p){ if(p.key===pk2) p.chapters.forEach(function(ck){ if('c_'+ck!==node.id) ids.push('c_'+ck); }); }); }
-    return ids;
-  }
-
-  function drow(cls,label,txt){ return '<div class="drow '+cls+'"><div class="dlab">'+label+'</div><div class="dtxt">'+txt+'</div></div>'; }
-
-  function select(id){
-    var n=byId(id); if(!n) return;
-    sel=id;
-    svg.querySelectorAll('.node').forEach(function(g){ g.classList.toggle('sel', g.getAttribute('data-id')===id); });
-    var selEl=svg.querySelector('.node[data-id="'+id+'"]'); if(selEl&&selEl.parentNode) selEl.parentNode.appendChild(selEl);  // raise on top
-    applyFocus(id);
-    var d=n.data, pv = n.kind==='core' ? '--core' : n.varc;
-    var kicker = n.kind==='core' ? (LANG==='fa'?'ایدهٔ مرکزی':'Core idea')
-             : n.kind==='part' ? (LANG==='fa'?'بخش':'Part') + ' · ' + TX(d.tag)
-             : (LANG==='fa'?"تاکتیکِ":"Tactic") + ' ' + num(d.n);
-    var prLab = (n.kind==='chap') ? (LANG==='fa'?'اصل':'Principle') : (LANG==='fa'?'ایدهٔ اصلی':'Big idea');
-    var html='<div class="dkick"><i style="background:var('+pv+')"></i>'+ (LANG==='fa'?faText(kicker):kicker) +'</div>'
-      +'<h4>'+TX(d.name)+'</h4>'
-      + drow('', prLab, TX(d.principle));
-    if(d.more)    html += drow('more', (LANG==='fa'?'بیشتر':'In depth'), TX(d.more));
-    if(d.example) html += drow('', (LANG==='fa'?'مثال':'Example'), TX(d.example));
-    if(d.tip)     html += drow('tip', (LANG==='fa'?'امتحان کن':'Try this'), TX(d.tip));
-    if(d.pitfall) html += drow('pit', (LANG==='fa'?'حواست باشد':'Watch out'), TX(d.pitfall));
-    // related chips
-    var rel=relatedIds(n);
-    if(rel.length){
-      var chips=rel.map(function(rid){ var rn=byId(rid); if(!rn) return '';
-        return '<span class="dchip" data-goto="'+rid+'"><i style="background:var('+rn.varc+')"></i>'+TX(rn.data.name)+'</span>'; }).join('');
-      html += '<div class="drow"><div class="dlab">'+(LANG==='fa'?'مرتبط':'Related')+'</div><div class="dchips">'+chips+'</div></div>';
+    ],
+    "kboxes": [
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Parts (self-awareness · hiring · managing · planning · culture)",
+          "fa": "بخش (خودآگاهی · استخدام · مدیریت · برنامه‌ریزی · فرهنگ)"
+        }
+      },
+      {
+        "v": {
+          "en": "16",
+          "fa": "۱۶"
+        },
+        "l": {
+          "en": "Tactics you can use",
+          "fa": "تاکتیک برای استفاده"
+        }
+      },
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Levels, simple → expert",
+          "fa": "مرحله، ساده تا حرفه‌ای"
+        }
+      },
+      {
+        "v": {
+          "en": "4",
+          "fa": "۴"
+        },
+        "l": {
+          "en": "Operating principles that anchor it",
+          "fa": "اصلِ کاری که همه‌چیز را نگه می‌دارند"
+        }
+      }
+    ],
+    "core_callout": {
+      "label": {
+        "en": "The core idea:",
+        "fa": "ایدهٔ اصلی:"
+      },
+      "en": "You don't scale a company, you scale its <i>people</i>. Start with <i>self-awareness</i>, make your principles and plans explicit, then build the systems — hiring, feedback, goals — that let a growing team stay <i>clear, aligned</i> and <i>human</i>.",
+      "fa": "تو شرکت را بزرگ نمی‌کنی، <i>آدم‌هایش</i> را بزرگ می‌کنی. از <i>خودآگاهی</i> شروع کن، اصول و برنامه‌هایت را نوشته و روشن کن، بعد سیستم‌ها را بساز — استخدام، بازخورد، هدف — تا یک تیمِ روبه‌رشد <i>روشن، هماهنگ</i> و <i>انسانی</i> بماند."
+    },
+    "flow_callout": {
+      "label": {
+        "en": "Read it as a flow:",
+        "fa": "به‌صورتِ یک جریان بخوانش:"
+      },
+      "en": "get your <b>foundation</b> right (self-awareness, principles), <b>hire</b> a strong team, <b>develop</b> them with feedback and clear expectations, and <b>plan</b> the goals and cadence that keep everyone aligned as you grow.",
+      "fa": "<b>پایه</b> را درست کن (خودآگاهی، اصول)، یک تیمِ قوی <b>استخدام</b> کن، با بازخورد و انتظارهای روشن <b>پرورششان</b> بده، و <b>هدف</b> و ریتمی را <b>برنامه‌ریزی</b> کن که همه را حینِ رشد هماهنگ نگه دارد."
     }
-    var host=document.getElementById('detailHost');
-    host.innerHTML=html;
-    host.querySelectorAll('.dchip').forEach(function(c){
-      c.addEventListener('click', function(){ select(c.getAttribute('data-goto')); });
-    });
-  }
-
-  function relabel(){ if(!svg) return; draw(); select(sel||'core'); }
-
-  return {
-    build:build,
-    kick:function(){},                                    // no-op; layout is static
-    relabel:relabel,
-    reset:function(){ nodes.forEach(function(n){ n.x=n.hx; n.y=n.hy; }); positions(); },
-    resetFocus:function(){ select('core'); },
-    selectNode:function(id){ select(id); },
-    hasNodes:function(){ return nodes.length>0; }
-  };
-})();
-</script>
-
-<script>
-/* ── 6) 5-STAGE LADDER ────────────────────────────────────── */
-var curStage=0;
-function renderLadder(){
-  var host=document.getElementById('ladderHost'); host.innerHTML='';
-  DATA.stages.forEach(function(s,i){
-    var r=document.createElement('div'); r.className='rung'+(i===curStage?' active':'');
-    r.innerHTML='<div class="lv">'+ (LANG==='fa'?('سطحِ '+num(s.level)):('Level '+s.level)) +'</div>'
-      +'<div class="lt">'+TX(s.title)+'</div>'
-      +'<div class="lbar"><i style="width:'+(s.level*20)+'%"></i></div>';
-    r.addEventListener('click', function(){ curStage=i; renderLadder(); renderStage();
-      document.getElementById('stageHost').scrollIntoView({behavior:'smooth',block:'nearest'}); });
-    host.appendChild(r);
-  });
-}
-function renderStage(){
-  var s=DATA.stages[curStage];
-  var host=document.getElementById('stageHost');
-  var exLabel = LANG==='fa'?'مثال':'Example';
-  var prev = LANG==='fa'?'مرحلهٔ قبل':'‹ Prev', next = LANG==='fa'?'مرحلهٔ بعد':'Next ›';
-  host.innerHTML=''+
-    '<div class="stagecard">'
-    +'<div class="shead"><span class="badge">'+TX(s.badge)+'</span><h3>'+TX(s.title)+'</h3></div>'
-    +'<div class="tagline">'+TX(s.tagline)+'</div>'
-    +'<div class="sbody">'+TX(s.body)+'</div>'
-    +'<div class="exbox"><div class="exk">'+exLabel+'</div><div class="ext">'+TX(s.example)+'</div></div>'
-    +'<div class="gainrow"><span class="gi">✓</span><span>'+TX(s.gain)+'</span></div>'
-    +'<div class="stagenav">'
-      +'<button id="stPrev" '+(curStage===0?'disabled':'')+'>'+prev+'</button>'
-      +'<button id="stNext" '+(curStage===DATA.stages.length-1?'disabled':'')+'>'+next+'</button>'
-    +'</div></div>';
-  var pv=document.getElementById('stPrev'), nx=document.getElementById('stNext');
-  if(pv) pv.onclick=function(){ if(curStage>0){curStage--; renderLadder(); renderStage();} };
-  if(nx) nx.onclick=function(){ if(curStage<DATA.stages.length-1){curStage++; renderLadder(); renderStage();} };
-}
-</script>
-
-<script>
-/* ── 7) legend + graph tabs ───────────────────────────────── */
-function renderLegend(){
-  var host=document.getElementById('legendHost'); if(!host) return;
-  var items=[{c:'--core', en:'Core idea', fa:'ایدهٔ مرکزی'}]
-    .concat(DATA.parts.map(function(p){ return {c:p.varc, en:p.name.en, fa:p.name.fa}; }));
-  host.innerHTML = items.map(function(it){
-    return '<span><i style="background:var('+it.c+')"></i>'+(LANG==='fa'?faText(it.fa):it.en)+'</span>';
-  }).join('');
-  document.getElementById('ghint').textContent = LANG==='fa' ? 'روی هر دایره کلیک کن تا بیشتر بخوانی · می‌توانی بکشی‌شان' : 'Click a node to read more · drag to move';
-  document.getElementById('greset').textContent = LANG==='fa' ? '↺ چیدمان' : '↺ Reset';
-}
-function setupTabs(){
-  function show(net){
-    document.getElementById('netView').style.display = net?'':'none';
-    document.getElementById('mapView').style.display = net?'none':'';
-    document.getElementById('tabNet').classList.toggle('active',net);
-    document.getElementById('tabMap').classList.toggle('active',!net);
-    if(net) GRAPH.kick();
-  }
-  document.getElementById('tabNet').onclick=function(){show(true);};
-  document.getElementById('tabMap').onclick=function(){show(false);};
-  document.getElementById('greset').onclick=function(){ GRAPH.reset(); };
-  // click empty graph space resets the focus
-  var svg=document.getElementById('netsvg');
-  svg.addEventListener('click', function(e){ if(!e.target.closest('.node')) GRAPH.resetFocus(); });
-}
-</script>
-
-<script>
-/* ── 8) toggles + boot ────────────────────────────────────── */
-function setLang(lg){
-  LANG=lg;
-  document.documentElement.setAttribute('data-lang',lg);
-  document.documentElement.setAttribute('lang',lg);
-  document.documentElement.setAttribute('dir', lg==='fa'?'rtl':'ltr');
-  try{ localStorage.setItem('scp-lang',lg); }catch(e){}
-  renderAll();
-}
-function renderAll(){
-  renderText();
-  renderMap();
-  renderLegend();
-  renderLadder();
-  renderStage();
-  if(GRAPH.hasNodes()) GRAPH.relabel(); else GRAPH.build();
-}
-(function(){
-  var lb=document.getElementById('langBtn');
-  lb && lb.addEventListener('click', function(){ setLang(LANG==='fa'?'en':'fa'); });
-
-  var tb=document.getElementById('themeBtn');
-  function curT(){ return document.documentElement.getAttribute('data-theme'); }
-  tb && tb.addEventListener('click', function(){
-    var t=curT()==='dark'?'light':'dark';
-    document.documentElement.setAttribute('data-theme',t);
-    try{ localStorage.setItem('scp-theme',t); }catch(e){}
-  });
-  try{ matchMedia('(prefers-color-scheme: dark)').addEventListener('change',function(e){
-    if(!localStorage.getItem('scp-theme')){ document.documentElement.setAttribute('data-theme', e.matches?'dark':'light'); }
-  }); }catch(e){}
-})();
-
-/* scroll-spy */
-(function(){
-  var links=[].slice.call(document.querySelectorAll('.toc a'));
-  var seen={}, ids=[];
-  links.forEach(function(a){ var id=a.getAttribute('href').slice(1); if(!seen[id]){seen[id]=1; ids.push(id);} });
-  var secs=ids.map(function(id){return document.getElementById(id);}).filter(Boolean);
-  function setActive(id){ links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('href')==='#'+id); }); }
-  if('IntersectionObserver' in window){
-    var obs=new IntersectionObserver(function(es){
-      es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
-    },{rootMargin:'-45% 0px -50% 0px',threshold:0});
-    secs.forEach(function(s){ obs.observe(s); });
-  }
-})();
-
-document.addEventListener('DOMContentLoaded', function(){
-  setupTabs();
-  renderAll();
+  },
+  "method": {
+    "en": "<p><b>Source:</b> the book <i>Scaling People: Tactics for Management and Company Building</i> by Claire Hughes Johnson (Stripe Press, 2023).</p><p><b>How this was built:</b> the five-part structure and tactics were gathered and rewritten from the book and reputable sources; quotes were cross-checked and the linked videos verified.</p><p><b>Group:</b> Executing — from Lenny Rachitsky's essential books for product builders.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>",
+    "fa": "<p><b>منبع:</b> کتابِ «Scaling People» نوشتهٔ کلر هیوز جانسون (نشرِ استرایپ، ۲۰۲۳).</p><p><b>روشِ کار:</b> ساختارِ پنج‌بخشی و تاکتیک‌ها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده؛ نقل‌قول‌ها مقابله و ویدیوها بررسی شده‌اند.</p><p><b>گروه:</b> «اجرا» — از فهرستِ کتاب‌های ضروریِ سازندگانِ محصولِ لنی راچیتسکی.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای متنِ کامل، خودِ کتاب را بخوان.</p>"
+  },
+  "flow": {
+    "en": [
+      "Foundation",
+      "Hire",
+      "Develop",
+      "Plan"
+    ],
+    "fa": [
+      "پایه",
+      "استخدام",
+      "پرورش",
+      "برنامه‌ریزی"
+    ]
+  },
+  "graph": {
+    "W": 980,
+    "H": 780,
+    "R1": 220,
+    "R2": 126,
+    "span": 66
+  },
+  "tldr": [
+    {
+      "en": "The whole book in one line: you scale a company by intentionally scaling its people.",
+      "fa": "خلاصهٔ کل کتاب در یک جمله: شرکت را با بزرگ‌کردنِ عمدیِ آدم‌هایش بزرگ می‌کنی."
+    },
+    {
+      "en": "It starts with <b>self-awareness</b> — know your work style, strengths, and blind spots before you lead others.",
+      "fa": "همه‌چیز از <b>خودآگاهی</b> شروع می‌شود — قبل از رهبریِ دیگران، سبکِ کاری، نقاطِ قوت و نقاطِ کورت را بشناس."
+    },
+    {
+      "en": "Make the implicit explicit: write down your <b>principles, mission, and values</b> so a growing team stays aligned.",
+      "fa": "نانوشته‌ها را نوشته کن: <b>اصول، مأموریت و ارزش‌ها</b> را بنویس تا تیمِ روبه‌رشد هماهنگ بماند."
+    },
+    {
+      "en": "Build the machine: <b>hire</b> deliberately, give honest <b>feedback</b>, and run real one-on-ones and goals.",
+      "fa": "ماشین را بساز: با دقت <b>استخدام</b> کن، <b>بازخوردِ</b> صادقانه بده، و جلسه‌های تک‌به‌تک و هدف‌های واقعی داشته باش."
+    },
+    {
+      "en": "Then keep it human: <b>say the thing you cannot say</b>, and remember you are the foundation your team stands on.",
+      "fa": "بعد انسانی نگهش دار: <b>همان چیزی را که فکر می‌کنی نمی‌توانی بگویی، بگو</b>، و یادت باشد تو همان پایه‌ای هستی که تیمت رویش ایستاده."
+    }
+  ],
+  "parts": [
+    {
+      "key": "found",
+      "varc": "--c-teal",
+      "name": {
+        "en": "Self-Awareness & Principles",
+        "fa": "خودآگاهی و اصول"
+      },
+      "tag": {
+        "en": "The foundation",
+        "fa": "پایه"
+      },
+      "gist": {
+        "en": "Know yourself, then set the operating principles you lead by.",
+        "fa": "اول خودت را بشناس، بعد اصولی را که با آن‌ها رهبری می‌کنی تعیین کن."
+      },
+      "more": {
+        "en": "Everything starts here. If you don't understand your own work style and blind spots, you'll misread everyone else. Self-awareness plus a few explicit principles give a team a stable base to grow on.",
+        "fa": "همه‌چیز از اینجا شروع می‌شود. اگر سبکِ کاری و نقاطِ کورِ خودت را نفهمی، بقیه را هم اشتباه می‌خوانی. خودآگاهی به‌علاوهٔ چند اصلِ روشن، به تیم یک پایهٔ باثبات برای رشد می‌دهد."
+      },
+      "chapters": [
+        "selfaware",
+        "principles",
+        "mgmtlead"
+      ]
+    },
+    {
+      "key": "team",
+      "varc": "--c-blue",
+      "name": {
+        "en": "Hiring & Team",
+        "fa": "استخدام و تیم"
+      },
+      "tag": {
+        "en": "Get the right people",
+        "fa": "آدم‌های درست را بیاور"
+      },
+      "gist": {
+        "en": "Build a pipeline, interview with structure, and onboard on purpose.",
+        "fa": "یک قیف بساز، ساختارمند مصاحبه کن، و شروعِ کار را عمداً طراحی کن."
+      },
+      "more": {
+        "en": "Hiring is the highest-leverage thing a manager does. Treating it as an always-on funnel with consistent, rubric-based interviews beats scrambling to fill a seat — and a deliberate onboarding turns a good hire into a fast contributor.",
+        "fa": "استخدام پرُاهرم‌ترین کاری است که یک مدیر می‌کند. برخورد با آن مثلِ یک قیفِ همیشه‌روشن با مصاحبه‌های یک‌دست و معیارمحور، بهتر از تقلا برای پرکردنِ یک صندلی است — و یک شروعِ کارِ حساب‌شده، یک استخدامِ خوب را به یک نیروی سریع تبدیل می‌کند."
+      },
+      "chapters": [
+        "pipeline",
+        "interview",
+        "onboard"
+      ]
+    },
+    {
+      "key": "manage",
+      "varc": "--c-amber",
+      "name": {
+        "en": "Managing People",
+        "fa": "مدیریتِ آدم‌ها"
+      },
+      "tag": {
+        "en": "Grow the team",
+        "fa": "تیم را رشد بده"
+      },
+      "gist": {
+        "en": "Feedback, one-on-ones, performance, and real delegation.",
+        "fa": "بازخورد، جلسه‌های تک‌به‌تک، عملکرد، و واگذاریِ واقعی."
+      },
+      "more": {
+        "en": "Managing well is a set of repeatable habits: give feedback as an explorer holding up a mirror, protect regular one-on-ones, judge performance on results and behavior, and delegate real ownership so people — and you — can grow.",
+        "fa": "خوب مدیریت‌کردن یک مجموعه عادتِ تکرارشدنی است: بازخورد را مثلِ یک کاشف که آینه می‌گیرد بده، جلسه‌های تک‌به‌تکِ منظم را حفظ کن، عملکرد را با نتیجه و رفتار بسنج، و مالکیتِ واقعی را واگذار کن تا آدم‌ها — و خودت — رشد کنید."
+      },
+      "chapters": [
+        "feedback",
+        "oneonone",
+        "performance",
+        "delegate"
+      ]
+    },
+    {
+      "key": "plan",
+      "varc": "--c-violet",
+      "name": {
+        "en": "Structure & Planning",
+        "fa": "ساختار و برنامه‌ریزی"
+      },
+      "tag": {
+        "en": "Align on goals",
+        "fa": "روی هدف‌ها هم‌سو شو"
+      },
+      "gist": {
+        "en": "Foundational documents, measurable goals, and a steady cadence.",
+        "fa": "سندهای پایه، هدف‌های قابلِ‌اندازه‌گیری، و یک ریتمِ باثبات."
+      },
+      "more": {
+        "en": "Structure is what lets a bigger team stay coherent. Write the mission, vision, and values; set goals that name outcomes; and run a predictable operating cadence so planning and review happen on rhythm, not on panic.",
+        "fa": "ساختار همان چیزی است که به یک تیمِ بزرگ‌تر اجازه می‌دهد یک‌پارچه بماند. مأموریت، چشم‌انداز و ارزش‌ها را بنویس؛ هدف‌هایی تعیین کن که نتیجه را نام می‌برند؛ و یک ریتمِ اجرای قابلِ‌پیش‌بینی بگردان تا برنامه‌ریزی و بازبینی روی ریتم انجام شود، نه از سرِ هول."
+      },
+      "chapters": [
+        "mvv",
+        "goals",
+        "cadence"
+      ]
+    },
+    {
+      "key": "culture",
+      "varc": "--c-green",
+      "name": {
+        "en": "Communication & Culture",
+        "fa": "ارتباط و فرهنگ"
+      },
+      "tag": {
+        "en": "Keep it human",
+        "fa": "انسانی نگهش دار"
+      },
+      "gist": {
+        "en": "Candor, great meetings, and scaling yourself and the culture.",
+        "fa": "صراحت، جلسه‌های خوب، و بزرگ‌کردنِ خودت و فرهنگ."
+      },
+      "more": {
+        "en": "Systems only work if people trust each other. Say the hard thing kindly, make meetings actually decide, and — as you grow — build people and a culture that hold your standards when you can't be everywhere.",
+        "fa": "سیستم‌ها فقط وقتی کار می‌کنند که آدم‌ها به هم اعتماد داشته باشند. حرفِ سخت را مهربانانه بزن، کاری کن جلسه‌ها واقعاً تصمیم بگیرند، و — همین‌طور که بزرگ می‌شوی — آدم‌ها و فرهنگی بساز که وقتی نمی‌توانی همه‌جا باشی، استانداردهایت را نگه دارند."
+      },
+      "chapters": [
+        "candor",
+        "meetings",
+        "scaleself"
+      ]
+    }
+  ],
+  "chapters": {
+    "selfaware": {
+      "part": "found",
+      "n": 1,
+      "name": {
+        "en": "Self-Awareness",
+        "fa": "خودآگاهی"
+      },
+      "glabel": {
+        "en": "Self",
+        "fa": "خودآگاهی"
+      },
+      "principle": {
+        "en": "Know your work style, motivators, strengths, and blind spots before you try to lead anyone else.",
+        "fa": "قبل از اینکه بخواهی کسی را رهبری کنی، سبکِ کاری، انگیزه‌ها، نقاطِ قوت و نقاطِ کورت را بشناس."
+      },
+      "more": {
+        "en": "Self-awareness is the foundation the whole book rests on. When you understand how you work — where you shine and where you trip — you can adapt to others instead of expecting them to adapt to you.",
+        "fa": "خودآگاهی همان پایه‌ای است که کلِ کتاب رویش بنا شده. وقتی می‌فهمی چطور کار می‌کنی — کجا می‌درخشی و کجا می‌لغزی — می‌توانی خودت را با بقیه وفق بدهی، نه اینکه توقع داشته باشی آن‌ها با تو وفق بدهند."
+      },
+      "example": {
+        "en": "Write down whether you're an analyzer, director, promoter, or collaborator — and share it with your team.",
+        "fa": "بنویس که تحلیل‌گری، تصمیم‌گیر، مروج، یا هم‌کار — و با تیمت درمیانش بگذار."
+      },
+      "tip": {
+        "en": "Ask three colleagues for one strength and one blind spot they see in you.",
+        "fa": "از سه هم‌کار بخواه یک نقطهٔ قوت و یک نقطهٔ کورِ تو را بگویند."
+      },
+      "pitfall": {
+        "en": "Assuming everyone works — and should work — the way you do.",
+        "fa": "این فرض که همه مثلِ تو کار می‌کنند و باید بکنند."
+      }
+    },
+    "principles": {
+      "part": "found",
+      "n": 2,
+      "name": {
+        "en": "Operating Principles",
+        "fa": "اصولِ کاری"
+      },
+      "glabel": {
+        "en": "Principles",
+        "fa": "اصول"
+      },
+      "principle": {
+        "en": "Agree on a short set of operating principles — shared rules for how you work and decide together.",
+        "fa": "روی یک مجموعهٔ کوتاه از اصولِ کاری توافق کن — قاعده‌های مشترک برای اینکه چطور با هم کار و تصمیم می‌گیرید."
+      },
+      "more": {
+        "en": "Principles turn vague culture into something you can actually use in a hard moment. Hughes Johnson's own include 'build self-awareness to build mutual awareness' and 'say the thing you think you cannot say'.",
+        "fa": "اصول، فرهنگِ مبهم را به چیزی تبدیل می‌کنند که واقعاً در یک لحظهٔ سخت به کار می‌آید. اصولِ خودِ هیوز جانسون شاملِ «خودآگاهی بساز تا آگاهیِ دوطرفه بسازی» و «همان چیزی را که فکر می‌کنی نمی‌توانی بگویی، بگو» است."
+      },
+      "example": {
+        "en": "When a meeting feels tense, name it out loud instead of pretending everything is fine.",
+        "fa": "وقتی یک جلسه پرتنش می‌شود، به‌جای اینکه وانمود کنی همه‌چیز خوب است، بلند اسمش را بیاور."
+      },
+      "tip": {
+        "en": "Draft three principles your team can point to when a decision gets hard.",
+        "fa": "سه اصل بنویس که تیمت وقتِ سختیِ یک تصمیم بتواند بهش اشاره کند."
+      },
+      "pitfall": {
+        "en": "Leaving the 'how we work' rules unspoken until they're broken.",
+        "fa": "نانوشته گذاشتنِ قاعده‌های «چطور کار می‌کنیم» تا وقتی شکسته شوند."
+      }
+    },
+    "mgmtlead": {
+      "part": "found",
+      "n": 3,
+      "name": {
+        "en": "Management vs. Leadership",
+        "fa": "مدیریت در برابرِ رهبری"
+      },
+      "glabel": {
+        "en": "Lead",
+        "fa": "رهبری"
+      },
+      "principle": {
+        "en": "Management creates stability; leadership drives change. You need both, and you need to know which one the moment calls for.",
+        "fa": "مدیریت ثبات می‌سازد؛ رهبری تغییر می‌آورد. به هر دو نیاز داری، و باید بدانی هر لحظه کدام‌یک لازم است."
+      },
+      "more": {
+        "en": "Managing is the day-to-day machine — plans, reviews, one-on-ones. Leading is setting direction and taking people somewhere new. Great operators move fluidly between the two instead of doing only the part they enjoy.",
+        "fa": "مدیریت همان ماشینِ روزمره است — برنامه، بازبینی، جلسه‌های تک‌به‌تک. رهبری یعنی جهت‌دادن و بردنِ آدم‌ها به جایی نو. آدم‌های کاربلد روان بینِ این دو جابه‌جا می‌شوند، نه اینکه فقط بخشی را که دوست دارند انجام بدهند."
+      },
+      "example": {
+        "en": "Shipping the quarterly plan is management; convincing the team to bet on a new direction is leadership.",
+        "fa": "رساندنِ برنامهٔ فصلی مدیریت است؛ قانع‌کردنِ تیم برای شرط‌بستن روی یک مسیرِ نو رهبری است."
+      },
+      "tip": {
+        "en": "This week, name one thing you're managing and one thing you're leading.",
+        "fa": "این هفته، یک چیز را که مدیریت می‌کنی و یک چیز را که رهبری می‌کنی نام ببر."
+      },
+      "pitfall": {
+        "en": "Doing only the visionary part and letting the operating machine rust.",
+        "fa": "فقط انجام‌دادنِ بخشِ رؤیاپرداز و رهاکردنِ ماشینِ اجرا تا زنگ بزند."
+      }
+    },
+    "pipeline": {
+      "part": "team",
+      "n": 4,
+      "name": {
+        "en": "Recruiting Pipeline",
+        "fa": "قیفِ استخدام"
+      },
+      "glabel": {
+        "en": "Pipeline",
+        "fa": "قیف"
+      },
+      "principle": {
+        "en": "Treat hiring like a funnel you build on purpose, not a scramble you start when a seat opens.",
+        "fa": "با استخدام مثلِ یک قیف رفتار کن که عمداً می‌سازی، نه یک تقلای عجولانه که وقتِ خالی‌شدنِ یک صندلی شروع می‌شود."
+      },
+      "more": {
+        "en": "A steady pipeline means you're always meeting people, so you hire from strength instead of desperation. Define the role, the must-have attributes, and the sourcing plan before you post anything.",
+        "fa": "یک قیفِ همیشگی یعنی مدام آدم می‌بینی، پس از سرِ قدرت استخدام می‌کنی نه از سرِ استیصال. قبل از انتشارِ هر آگهی، نقش، ویژگی‌های حتمی، و برنامهٔ پیداکردنِ آدم را مشخص کن."
+      },
+      "example": {
+        "en": "Keep a running list of strong people you've met, long before you have a role for them.",
+        "fa": "یک فهرستِ همیشه‌فعال از آدم‌های قوی که دیده‌ای نگه دار، خیلی قبل از اینکه نقشی برایشان داشته باشی."
+      },
+      "tip": {
+        "en": "Before opening a role, write the one-line scorecard of what great looks like.",
+        "fa": "قبل از بازکردنِ یک نقش، در یک خط بنویس که «عالی» چه شکلی است."
+      },
+      "pitfall": {
+        "en": "Starting the search only after someone quits, then rushing the hire.",
+        "fa": "شروعِ جست‌وجو فقط بعد از اینکه کسی می‌رود، و بعد عجله در استخدام."
+      }
+    },
+    "interview": {
+      "part": "team",
+      "n": 5,
+      "name": {
+        "en": "Structured Interviews",
+        "fa": "مصاحبهٔ ساختارمند"
+      },
+      "glabel": {
+        "en": "Interview",
+        "fa": "مصاحبه"
+      },
+      "principle": {
+        "en": "Ask every candidate the same core questions against a clear rubric, so you compare signal, not vibes.",
+        "fa": "از هر داوطلب همان پرسش‌های اصلی را با یک معیارِ روشن بپرس، تا سیگنال را مقایسه کنی، نه حسِ لحظه‌ای را."
+      },
+      "more": {
+        "en": "Unstructured interviews mostly measure how much someone reminds you of yourself. A shared scorecard, attributes split across interviewers, and written feedback turn a gut call into a real decision.",
+        "fa": "مصاحبهٔ بی‌ساختار بیشتر اندازه می‌گیرد که طرف چقدر تو را یادِ خودت می‌اندازد. یک کارنامهٔ مشترک، تقسیمِ ویژگی‌ها بینِ مصاحبه‌گرها، و بازخوردِ نوشتاری، یک قضاوتِ شکمی را به یک تصمیمِ واقعی تبدیل می‌کنند."
+      },
+      "example": {
+        "en": "Give each interviewer one attribute to probe — ownership, craft, collaboration — and a scale to score it.",
+        "fa": "به هر مصاحبه‌گر یک ویژگی بده تا بکاود — مالکیت، مهارت، هم‌کاری — و یک مقیاس تا نمره بدهد."
+      },
+      "tip": {
+        "en": "Write your feedback before you hear anyone else's, to avoid groupthink.",
+        "fa": "بازخوردت را قبل از شنیدنِ نظرِ بقیه بنویس، تا گرفتارِ هم‌رنگیِ گروهی نشوی."
+      },
+      "pitfall": {
+        "en": "Hiring the person who feels most like you and calling it 'culture fit'.",
+        "fa": "استخدامِ کسی که بیشتر شبیهِ توست و اسمش را «تناسبِ فرهنگی» گذاشتن."
+      }
+    },
+    "onboard": {
+      "part": "team",
+      "n": 6,
+      "name": {
+        "en": "Onboarding & Ramp",
+        "fa": "شروعِ کار و جاافتادن"
+      },
+      "glabel": {
+        "en": "Onboard",
+        "fa": "شروع"
+      },
+      "principle": {
+        "en": "A new hire's first weeks decide how fast they'll contribute — design the ramp, don't leave it to chance.",
+        "fa": "هفته‌های اولِ یک آدمِ تازه تعیین می‌کند چقدر زود مفید می‌شود — مسیرِ جاافتادن را طراحی کن، به شانس نسپارش."
+      },
+      "more": {
+        "en": "Clear early goals, a buddy, and a written map of who does what shorten the time to real impact. The care you put into week one signals the standards of the whole team.",
+        "fa": "هدف‌های روشنِ اولیه، یک هم‌راه، و یک نقشهٔ نوشته‌شده از اینکه چه‌کسی چه‌کاری می‌کند، زمانِ رسیدن به تأثیرِ واقعی را کوتاه می‌کند. دقتی که خرجِ هفتهٔ اول می‌کنی، نشانهٔ استانداردِ کلِ تیم است."
+      },
+      "example": {
+        "en": "Give a new engineer a small, shippable task in week one so they feel real progress.",
+        "fa": "به یک مهندسِ تازه در هفتهٔ اول یک کارِ کوچکِ قابلِ‌تحویل بده تا پیشرفتِ واقعی حس کند."
+      },
+      "tip": {
+        "en": "Write a thirty-day plan together with the new hire on day one.",
+        "fa": "روزِ اول با آدمِ تازه یک برنامهٔ سی‌روزه بنویس."
+      },
+      "pitfall": {
+        "en": "Dropping someone in with no plan and hoping they figure it out.",
+        "fa": "رهاکردنِ کسی بدونِ هیچ برنامه‌ای و امید به اینکه خودش سر دربیاورد."
+      }
+    },
+    "feedback": {
+      "part": "manage",
+      "n": 7,
+      "name": {
+        "en": "Feedback: Explorer, Not Lecturer",
+        "fa": "بازخورد: کاشف باش نه سخنران"
+      },
+      "glabel": {
+        "en": "Feedback",
+        "fa": "بازخورد"
+      },
+      "principle": {
+        "en": "Give feedback by holding up a mirror and getting curious — explore what happened together instead of lecturing.",
+        "fa": "بازخورد را با گرفتنِ یک آینه جلوی طرف و کنجکاوشدن بده — به‌جای سخنرانی، با هم بکاوید که چه شد."
+      },
+      "more": {
+        "en": "You don't need every answer. Describe the specific behavior and its impact, ask genuine questions, and let the other person help solve it — that keeps feedback honest without turning it into a verdict.",
+        "fa": "لازم نیست همهٔ جواب‌ها را داشته باشی. رفتارِ مشخص و اثرش را توصیف کن، پرسش‌های واقعی بپرس، و بگذار طرفِ مقابل در حلش کمک کند — این کار بازخورد را صادق نگه می‌دارد بی‌آنکه به یک حکم تبدیلش کند."
+      },
+      "example": {
+        "en": "Not 'you were unprepared', but 'the deck had no data — what got in the way?'",
+        "fa": "نه «تو آماده نبودی»، بلکه «اسلایدها هیچ داده‌ای نداشت — چه چیزی سرِ راه بود؟»"
+      },
+      "tip": {
+        "en": "Open your next feedback with an observation and a real question, not a judgment.",
+        "fa": "بازخوردِ بعدی‌ات را با یک مشاهده و یک پرسشِ واقعی باز کن، نه یک قضاوت."
+      },
+      "pitfall": {
+        "en": "Feeling you must have every answer before you can give feedback.",
+        "fa": "این حس که باید همهٔ جواب‌ها را داشته باشی تا بتوانی بازخورد بدهی."
+      }
+    },
+    "oneonone": {
+      "part": "manage",
+      "n": 8,
+      "name": {
+        "en": "Effective One-on-Ones",
+        "fa": "جلسه‌های تک‌به‌تکِ مؤثر"
+      },
+      "glabel": {
+        "en": "One-on-ones",
+        "fa": "تک‌به‌تک"
+      },
+      "principle": {
+        "en": "Protect a regular one-on-one with each person — it's their meeting, for what matters to them.",
+        "fa": "با هر نفر یک جلسهٔ تک‌به‌تکِ منظم را حفظ کن — این جلسهٔ اوست، برای چیزی که برای او مهم است."
+      },
+      "more": {
+        "en": "The best one-on-ones aren't status updates; they're where trust, growth, and early warning signs live. Come with a light agenda, then mostly listen and follow their thread.",
+        "fa": "بهترین جلسه‌های تک‌به‌تک گزارشِ وضعیت نیستند؛ جایی‌اند که اعتماد، رشد، و اولین نشانه‌های خطر زندگی می‌کنند. با یک دستورِ کارِ سبک بیا، بعد بیشتر گوش بده و نخِ حرفِ او را دنبال کن."
+      },
+      "example": {
+        "en": "Start with 'what's most on your mind this week?' and let them set the direction.",
+        "fa": "با «این هفته بیشتر از همه ذهنت درگیرِ چیست؟» شروع کن و بگذار او مسیر را تعیین کند."
+      },
+      "tip": {
+        "en": "Keep a shared running doc so nothing important waits for the next meeting.",
+        "fa": "یک سندِ مشترکِ همیشه‌فعال نگه دار تا هیچ چیزِ مهمی منتظرِ جلسهٔ بعد نماند."
+      },
+      "pitfall": {
+        "en": "Turning it into a status report you could have gotten over chat.",
+        "fa": "تبدیلش به گزارشِ وضعیتی که با یک پیام هم می‌شد گرفت."
+      }
+    },
+    "performance": {
+      "part": "manage",
+      "n": 9,
+      "name": {
+        "en": "Performance Management",
+        "fa": "مدیریتِ عملکرد"
+      },
+      "glabel": {
+        "en": "Performance",
+        "fa": "عملکرد"
+      },
+      "principle": {
+        "en": "Judge performance on both results and how they were achieved — the what and the how together.",
+        "fa": "عملکرد را هم با نتیجه و هم با نحوهٔ رسیدن به آن بسنج — «چه» و «چطور» با هم."
+      },
+      "more": {
+        "en": "Someone who hits every number while burning the team isn't a top performer. Set expectations early, review against them honestly, and never let a rating be a surprise.",
+        "fa": "کسی که به همهٔ عددها می‌رسد ولی تیم را می‌سوزاند، عملکردِ برتر نیست. انتظارها را زود تعیین کن، صادقانه در برابرشان ارزیابی کن، و هرگز نگذار یک نمره غافلگیرکننده باشد."
+      },
+      "example": {
+        "en": "Rate a strong-results, poor-collaboration person honestly on both axes, not just the numbers.",
+        "fa": "کسی را که نتیجه‌اش قوی ولی هم‌کاری‌اش ضعیف است، صادقانه روی هر دو محور نمره بده، نه فقط عددها."
+      },
+      "tip": {
+        "en": "Write expectations at the start of a cycle so the review writes itself.",
+        "fa": "انتظارها را اولِ دوره بنویس تا ارزیابی خودش خودش را بنویسد."
+      },
+      "pitfall": {
+        "en": "Rewarding results alone and ignoring the damage done to reach them.",
+        "fa": "پاداش‌دادن فقط به نتیجه و نادیده‌گرفتنِ خرابی‌ای که برای رسیدن به آن شده."
+      }
+    },
+    "delegate": {
+      "part": "manage",
+      "n": 10,
+      "name": {
+        "en": "Delegation & Growth",
+        "fa": "واگذاری و رشد"
+      },
+      "glabel": {
+        "en": "Delegate",
+        "fa": "واگذاری"
+      },
+      "principle": {
+        "en": "Delegate real ownership, not just tasks — it's how people grow and how you scale beyond yourself.",
+        "fa": "مالکیتِ واقعی را واگذار کن، نه فقط کارها را — آدم‌ها این‌طور رشد می‌کنند و تو این‌طور از خودت فراتر می‌روی."
+      },
+      "more": {
+        "en": "Hold on to everything and you become the bottleneck. Hand over the outcome and the authority, agree on how you'll check in, then let people do it their way — even if it's not your way.",
+        "fa": "اگر همه‌چیز را نگه داری، خودت گلوگاه می‌شوی. نتیجه و اختیار را واگذار کن، روی نحوهٔ پیگیری توافق کن، بعد بگذار آدم‌ها به روشِ خودشان انجامش بدهند — حتی اگر روشِ تو نباشد."
+      },
+      "example": {
+        "en": "Give a report a whole project end to end, not a list of small to-dos.",
+        "fa": "به یکی از اعضای تیم یک پروژهٔ کامل را از اول تا آخر بده، نه یک فهرست از کارهای ریز."
+      },
+      "tip": {
+        "en": "Pick one thing only you currently do and hand it fully to someone this month.",
+        "fa": "یک کار را که فعلاً فقط خودت انجام می‌دهی انتخاب کن و این ماه کاملاً به کسی بسپار."
+      },
+      "pitfall": {
+        "en": "Delegating the task but keeping the decisions, so nobody really owns it.",
+        "fa": "واگذاریِ کار ولی نگه‌داشتنِ تصمیم‌ها، جوری که هیچ‌کس واقعاً مالکش نیست."
+      }
+    },
+    "mvv": {
+      "part": "plan",
+      "n": 11,
+      "name": {
+        "en": "Mission, Vision, Values",
+        "fa": "مأموریت، چشم‌انداز، ارزش‌ها"
+      },
+      "glabel": {
+        "en": "Mission",
+        "fa": "مأموریت"
+      },
+      "principle": {
+        "en": "Write down why you exist, where you're going, and how you behave — the foundational documents a team aligns on.",
+        "fa": "بنویس چرا وجود داری، کجا می‌روی، و چطور رفتار می‌کنی — همان سندهای پایه‌ای که تیم رویشان هم‌سو می‌شود."
+      },
+      "more": {
+        "en": "Mission is the enduring why, vision is the destination, values are how you act on the way. Writing them makes the implicit explicit, so a growing team makes consistent calls without you in the room.",
+        "fa": "مأموریت همان «چرا»ی ماندگار است، چشم‌انداز مقصد است، ارزش‌ها نحوهٔ رفتارت در راه‌اند. نوشتنشان نانوشته‌ها را نوشته می‌کند، تا تیمِ روبه‌رشد بدونِ حضورِ تو هم تصمیم‌های یک‌دست بگیرد."
+      },
+      "example": {
+        "en": "A one-page doc: our mission, our three-year vision, and five values with what each means.",
+        "fa": "یک سندِ یک‌صفحه‌ای: مأموریتمان، چشم‌اندازِ سه‌ساله‌مان، و پنج ارزش با معنیِ هرکدام."
+      },
+      "tip": {
+        "en": "Draft your mission in one sentence a new hire could repeat back.",
+        "fa": "مأموریتت را در یک جمله بنویس که یک آدمِ تازه بتواند برایت تکرارش کند."
+      },
+      "pitfall": {
+        "en": "Vague slogans on a wall that never guide an actual decision.",
+        "fa": "شعارهای مبهم روی دیوار که هیچ‌وقت یک تصمیمِ واقعی را راهنمایی نمی‌کنند."
+      }
+    },
+    "goals": {
+      "part": "plan",
+      "n": 12,
+      "name": {
+        "en": "Goals & OKRs",
+        "fa": "هدف‌ها و OKRها"
+      },
+      "glabel": {
+        "en": "Goals",
+        "fa": "هدف‌ها"
+      },
+      "principle": {
+        "en": "Set a few clear, measurable goals that describe outcomes — then let teams choose how to hit them.",
+        "fa": "چند هدفِ روشن و قابلِ‌اندازه‌گیری تعیین کن که نتیجه را توصیف می‌کنند — بعد بگذار تیم‌ها روشِ رسیدن را خودشان انتخاب کنند."
+      },
+      "more": {
+        "en": "A good goal names the result you want, not the activity. If it starts with a verb like 'launch' or 'build', it's an action; reframe it as the outcome that action is supposed to produce.",
+        "fa": "یک هدفِ خوب نتیجه‌ای را که می‌خواهی نام می‌برد، نه فعالیت را. اگر با فعلی مثلِ «راه‌اندازی» یا «ساختن» شروع شود، یک کار است؛ بازقابش کن به آن نتیجه‌ای که آن کار قرار است بسازد."
+      },
+      "example": {
+        "en": "Not 'launch the new checkout', but 'cut checkout drop-off from a third to a sixth'.",
+        "fa": "نه «راه‌اندازیِ پرداختِ جدید»، بلکه «کاهشِ رهاکردنِ پرداخت از یک‌سوم به یک‌ششم»."
+      },
+      "tip": {
+        "en": "For each goal ask: could we measure whether we hit it? If not, rewrite it.",
+        "fa": "برای هر هدف بپرس: می‌شود اندازه گرفت که بهش رسیدیم یا نه؟ اگر نه، بازنویسی‌اش کن."
+      },
+      "pitfall": {
+        "en": "Goals that are really activity lists, so you're busy but not moving.",
+        "fa": "هدف‌هایی که در واقع فهرستِ فعالیت‌اند، جوری که مشغولی ولی جلو نمی‌روی."
+      }
+    },
+    "cadence": {
+      "part": "plan",
+      "n": 13,
+      "name": {
+        "en": "Operating Cadence",
+        "fa": "ریتمِ اجرا"
+      },
+      "glabel": {
+        "en": "Cadence",
+        "fa": "ریتم"
+      },
+      "principle": {
+        "en": "Run a predictable rhythm of planning and review — a sound operating system is what turns strategy into execution.",
+        "fa": "یک ریتمِ قابلِ‌پیش‌بینی از برنامه‌ریزی و بازبینی داشته باش — یک سیستمِ کاریِ سالم همان چیزی است که استراتژی را به اجرا تبدیل می‌کند."
+      },
+      "more": {
+        "en": "Weekly, monthly, and quarterly beats keep everyone synced without constant fire drills. When the cadence is clear, people know when decisions get made and stop pinging you for them.",
+        "fa": "ضرب‌آهنگِ هفتگی، ماهانه و فصلی همه را هماهنگ نگه می‌دارد بدونِ آژیرهای دائمی. وقتی ریتم روشن است، آدم‌ها می‌دانند تصمیم‌ها کِی گرفته می‌شوند و دیگر برایش مدام سراغت را نمی‌گیرند."
+      },
+      "example": {
+        "en": "Weekly team sync, monthly metrics review, quarterly planning — same shape every time.",
+        "fa": "هماهنگیِ هفتگیِ تیم، بازبینیِ ماهانهٔ شاخص‌ها، برنامه‌ریزیِ فصلی — هر بار همان شکل."
+      },
+      "tip": {
+        "en": "Put your planning and review meetings on the calendar for the whole quarter now.",
+        "fa": "جلسه‌های برنامه‌ریزی و بازبینی را همین حالا برای کلِ فصل توی تقویم بگذار."
+      },
+      "pitfall": {
+        "en": "An ad-hoc rhythm where every decision needs a brand-new meeting.",
+        "fa": "یک ریتمِ بی‌نظم که هر تصمیم به یک جلسهٔ تازه نیاز دارد."
+      }
+    },
+    "candor": {
+      "part": "culture",
+      "n": 14,
+      "name": {
+        "en": "Say the Thing",
+        "fa": "همان حرف را بزن"
+      },
+      "glabel": {
+        "en": "Candor",
+        "fa": "صراحت"
+      },
+      "principle": {
+        "en": "Say the thing you think you cannot say — name the hard truth kindly instead of letting it fester.",
+        "fa": "همان چیزی را که فکر می‌کنی نمی‌توانی بگویی، بگو — حقیقتِ سخت را مهربانانه نام ببر، به‌جای اینکه بگذاری چرک کند."
+      },
+      "more": {
+        "en": "Most team problems are things everyone senses but no one voices. Naming the awkward thing — with care and in the open — builds trust far faster than polite avoidance ever will.",
+        "fa": "بیشترِ مشکلاتِ تیم چیزهایی‌اند که همه حسشان می‌کنند ولی کسی به زبان نمی‌آورد. نام‌بردنِ آن چیزِ معذب‌کننده — با ملاحظه و رو-راست — خیلی سریع‌تر از هر طفره‌رویِ مؤدبانه‌ای اعتماد می‌سازد."
+      },
+      "example": {
+        "en": "Tell a peer 'I think we're avoiding the real issue here' instead of staying quiet.",
+        "fa": "به یک هم‌کار بگو «فکر می‌کنم داریم از مسئلهٔ اصلی فرار می‌کنیم» به‌جای اینکه ساکت بمانی."
+      },
+      "tip": {
+        "en": "Name one thing you've been avoiding saying, kindly, this week.",
+        "fa": "این هفته یک چیز را که از گفتنش طفره می‌رفتی، مهربانانه به زبان بیاور."
+      },
+      "pitfall": {
+        "en": "Staying polite and quiet while the real problem grows.",
+        "fa": "مؤدب و ساکت‌ماندن در حالی که مشکلِ اصلی بزرگ‌تر می‌شود."
+      }
+    },
+    "meetings": {
+      "part": "culture",
+      "n": 15,
+      "name": {
+        "en": "Run Great Meetings",
+        "fa": "جلسه‌های خوب بگردان"
+      },
+      "glabel": {
+        "en": "Meetings",
+        "fa": "جلسه"
+      },
+      "principle": {
+        "en": "Every meeting needs an owner, a purpose, and a decision — otherwise cancel it and send a note.",
+        "fa": "هر جلسه به یک صاحب، یک هدف، و یک تصمیم نیاز دارد — وگرنه لغوش کن و یک یادداشت بفرست."
+      },
+      "more": {
+        "en": "Meetings are the most expensive thing a company does with its time. Say up front whether you're deciding, informing, or brainstorming; end with clear owners and next steps, written down.",
+        "fa": "جلسه گران‌ترین کاری است که یک شرکت با وقتش می‌کند. از اول بگو داری تصمیم می‌گیری، اطلاع می‌دهی، یا ایده می‌سازی؛ با صاحب‌های روشن و قدم‌های بعدیِ نوشته‌شده تمامش کن."
+      },
+      "example": {
+        "en": "Open with 'the goal of this meeting is to decide X' so everyone knows why they're there.",
+        "fa": "با «هدفِ این جلسه تصمیم‌گرفتن دربارهٔ فلان‌چیز است» شروع کن تا همه بدانند چرا اینجایند."
+      },
+      "tip": {
+        "en": "Before sending an invite, write the one decision the meeting must produce.",
+        "fa": "قبل از فرستادنِ دعوت، آن یک تصمیمی را که جلسه باید بسازد بنویس."
+      },
+      "pitfall": {
+        "en": "Recurring meetings with no owner that no one is allowed to cancel.",
+        "fa": "جلسه‌های تکراریِ بی‌صاحب که کسی اجازه ندارد لغوشان کند."
+      }
+    },
+    "scaleself": {
+      "part": "culture",
+      "n": 16,
+      "name": {
+        "en": "Scale Yourself & the Culture",
+        "fa": "خودت و فرهنگ را بزرگ کن"
+      },
+      "glabel": {
+        "en": "Scale",
+        "fa": "مقیاس"
+      },
+      "principle": {
+        "en": "As the company grows, you are the foundation — scale your own habits and let the culture carry them.",
+        "fa": "همین‌طور که شرکت بزرگ می‌شود، تو همان پایه‌ای — عادت‌های خودت را بزرگ کن و بگذار فرهنگ حملشان کند."
+      },
+      "more": {
+        "en": "You can't be in every room, so your job becomes building people and systems that hold your standards when you're not there. The steadier and clearer you are, the more your team can rely on you as their stable point.",
+        "fa": "نمی‌توانی توی هر اتاقی باشی، پس کارَت می‌شود ساختنِ آدم‌ها و سیستم‌هایی که وقتی نیستی استانداردهایت را نگه دارند. هرچه باثبات‌تر و روشن‌تر باشی، تیمت بیشتر می‌تواند به تو به‌عنوانِ نقطهٔ ثابتش تکیه کند."
+      },
+      "example": {
+        "en": "Teach two managers to run the review you always run, then step back.",
+        "fa": "به دو مدیر یاد بده همان بازبینی‌ای را که همیشه خودت می‌گردانی بگردانند، بعد کنار بکش."
+      },
+      "tip": {
+        "en": "Ask what only you can do right now — and start handing the rest away.",
+        "fa": "بپرس همین حالا چه‌کاری فقط از خودت برمی‌آید — و بقیه را شروع کن به سپردن."
+      },
+      "pitfall": {
+        "en": "Staying the single point of failure because it feels faster to do it yourself.",
+        "fa": "ماندن به‌عنوانِ تنها نقطهٔ شکست، چون خودت‌انجام‌دادن سریع‌تر به‌نظر می‌رسد."
+      }
+    }
+  },
+  "core": {
+    "name": {
+      "en": "PEOPLE",
+      "fa": "آدم‌ها"
+    },
+    "principle": {
+      "en": "A company is just a collection of people, so you scale it by scaling them — deliberately. Start with self-awareness, make your principles and plans explicit, hire and manage with care, and keep communication honest as you grow.",
+      "fa": "یک شرکت فقط مجموعه‌ای از آدم‌هاست، پس با بزرگ‌کردنِ آن‌ها بزرگش می‌کنی — عمداً. از خودآگاهی شروع کن، اصول و برنامه‌هایت را نوشته و روشن کن، با دقت استخدام و مدیریت کن، و حینِ رشد ارتباط را صادق نگه دار."
+    },
+    "more": {
+      "en": "Hughes Johnson organizes company building into a few connected systems: self-awareness and operating principles, hiring and team-building, managing through feedback and one-on-ones, structure and planning, and communication and culture. The thread through all of it: make the implicit explicit, and treat people as the thing you're actually scaling.",
+      "fa": "هیوز جانسون شرکت‌سازی را در چند سیستمِ به‌هم‌پیوسته می‌چیند: خودآگاهی و اصولِ کاری، استخدام و تیم‌سازی، مدیریت با بازخورد و جلسه‌های تک‌به‌تک، ساختار و برنامه‌ریزی، و ارتباط و فرهنگ. نخِ رابطِ همه‌شان: نانوشته‌ها را نوشته کن، و آدم‌ها را همان چیزی بدان که واقعاً داری بزرگش می‌کنی."
+    },
+    "example": {
+      "en": "Click any node to read a tactic or a principle. You can also drag the nodes around.",
+      "fa": "روی هر دایره کلیک کن تا یک تاکتیک یا اصل را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."
+    }
+  },
+  "stages": [
+    {
+      "level": 1,
+      "badge": {
+        "en": "Level 1 · Over-simplified",
+        "fa": "سطحِ ۱ · خیلی ساده"
+      },
+      "title": {
+        "en": "Scale the people",
+        "fa": "آدم‌ها را بزرگ کن"
+      },
+      "tagline": {
+        "en": "The whole book in a sentence.",
+        "fa": "کلِ کتاب در یک جمله."
+      },
+      "body": {
+        "en": "A company is just a group of people. You don't grow the company directly — you grow its people and the systems around them. Do that on purpose.",
+        "fa": "یک شرکت فقط گروهی از آدم‌هاست. تو شرکت را مستقیم بزرگ نمی‌کنی — آدم‌هایش و سیستم‌های دورشان را بزرگ می‌کنی. این کار را عمداً بکن."
+      },
+      "example": {
+        "en": "When something breaks at scale, ask which person or system is missing — not just what to patch.",
+        "fa": "وقتی چیزی در مقیاس خراب می‌شود، بپرس کدام آدم یا سیستم غایب است — نه فقط چه چیزی را وصله کنی."
+      },
+      "gain": {
+        "en": "You hold the one idea the whole book expands on.",
+        "fa": "همان یک ایده‌ای را داری که کلِ کتاب بسطش می‌دهد."
+      }
+    },
+    {
+      "level": 2,
+      "badge": {
+        "en": "Level 2 · Simple",
+        "fa": "سطحِ ۲ · ساده"
+      },
+      "title": {
+        "en": "Start with yourself",
+        "fa": "از خودت شروع کن"
+      },
+      "tagline": {
+        "en": "Self-awareness is the foundation.",
+        "fa": "خودآگاهی پایه است."
+      },
+      "body": {
+        "en": "Before you manage anyone, understand yourself — your <b>work style</b>, <b>strengths</b>, and <b>blind spots</b>. Then agree on a few <b>operating principles</b> so your team knows how you work and decide together.",
+        "fa": "قبل از مدیریتِ هر کسی، خودت را بفهم — <b>سبکِ کاری</b>، <b>نقاطِ قوت</b>، و <b>نقاطِ کور</b>. بعد روی چند <b>اصلِ کاری</b> توافق کن تا تیمت بداند چطور کار و تصمیم می‌گیرید."
+      },
+      "example": {
+        "en": "Name your style — analyzer, director, promoter, collaborator — and tell your team.",
+        "fa": "سبکت را نام ببر — تحلیل‌گر، تصمیم‌گیر، مروج، هم‌کار — و به تیمت بگو."
+      },
+      "gain": {
+        "en": "You lead from self-knowledge instead of guesswork.",
+        "fa": "از سرِ خودشناسی رهبری می‌کنی، نه از سرِ حدس."
+      }
+    },
+    {
+      "level": 3,
+      "badge": {
+        "en": "Level 3 · Balanced",
+        "fa": "سطحِ ۳ · متعادل"
+      },
+      "title": {
+        "en": "Build the team",
+        "fa": "تیم را بساز"
+      },
+      "tagline": {
+        "en": "Hire well, then manage well.",
+        "fa": "خوب استخدام کن، بعد خوب مدیریت کن."
+      },
+      "body": {
+        "en": "Now the machine. <b>Hire</b> from a real pipeline with <b>structured interviews</b>. Then manage: honest <b>feedback</b> (explorer, not lecturer), regular <b>one-on-ones</b>, and <b>performance</b> judged on results and how they're reached.",
+        "fa": "حالا ماشین. از یک قیفِ واقعی با <b>مصاحبهٔ ساختارمند</b> <b>استخدام</b> کن. بعد مدیریت کن: <b>بازخوردِ</b> صادق (کاشف باش نه سخنران)، <b>جلسه‌های تک‌به‌تکِ</b> منظم، و <b>عملکردی</b> که با نتیجه و نحوهٔ رسیدن به آن سنجیده می‌شود."
+      },
+      "example": {
+        "en": "Give feedback as 'here's what I saw, what got in the way?' — not a verdict.",
+        "fa": "بازخورد را این‌طور بده: «این چیزی است که دیدم، چه چیزی سرِ راه بود؟» — نه یک حکم."
+      },
+      "gain": {
+        "en": "You can hire a strong team and manage it honestly.",
+        "fa": "می‌توانی یک تیمِ قوی استخدام کنی و صادقانه مدیریتش کنی."
+      }
+    },
+    {
+      "level": 4,
+      "badge": {
+        "en": "Level 4 · Advanced",
+        "fa": "سطحِ ۴ · پیشرفته"
+      },
+      "title": {
+        "en": "Give it structure",
+        "fa": "بهش ساختار بده"
+      },
+      "tagline": {
+        "en": "Mission, goals, and a steady cadence.",
+        "fa": "مأموریت، هدف، و یک ریتمِ باثبات."
+      },
+      "body": {
+        "en": "Scale needs structure. Write the <b>mission, vision, and values</b>. Set a few measurable <b>goals</b> that name outcomes, not tasks. And run a predictable <b>operating cadence</b> — weekly, monthly, quarterly — so strategy actually turns into execution.",
+        "fa": "مقیاس به ساختار نیاز دارد. <b>مأموریت، چشم‌انداز و ارزش‌ها</b> را بنویس. چند <b>هدفِ</b> قابلِ‌اندازه‌گیری تعیین کن که نتیجه را نام می‌برند، نه کار را. و یک <b>ریتمِ اجرای</b> قابلِ‌پیش‌بینی بگردان — هفتگی، ماهانه، فصلی — تا استراتژی واقعاً به اجرا تبدیل شود."
+      },
+      "example": {
+        "en": "Reframe 'build the dashboard' into 'give every team its numbers by Monday'.",
+        "fa": "«ساختنِ داشبورد» را بازقاب کن به «رساندنِ عددها به دستِ هر تیم تا دوشنبه»."
+      },
+      "gain": {
+        "en": "You give a growing team the rails to run without you.",
+        "fa": "به یک تیمِ روبه‌رشد ریلی می‌دهی که بدونِ تو هم برود."
+      }
+    },
+    {
+      "level": 5,
+      "badge": {
+        "en": "Level 5 · Expert",
+        "fa": "سطحِ ۵ · حرفه‌ای"
+      },
+      "title": {
+        "en": "Keep it human at scale",
+        "fa": "در مقیاس، انسانی نگهش دار"
+      },
+      "tagline": {
+        "en": "Communication, culture, and you as the foundation.",
+        "fa": "ارتباط، فرهنگ، و تویی که پایه‌ای."
+      },
+      "body": {
+        "en": "The expert holds the systems and keeps them human. <b>Say the thing you cannot say</b>, run meetings that actually decide, and make the implicit explicit everywhere. As the company grows, remember <b>you are the foundation</b> — your steadiness becomes the culture, and your job is to build people and systems that hold your standards when you're not in the room.",
+        "fa": "آدمِ حرفه‌ای سیستم‌ها را نگه می‌دارد و انسانی‌شان می‌کند. <b>همان حرفی را که نمی‌توانی بزنی، بزن</b>، جلسه‌هایی بگردان که واقعاً تصمیم می‌گیرند، و همه‌جا نانوشته‌ها را نوشته کن. همین‌طور که شرکت بزرگ می‌شود، یادت باشد <b>تو همان پایه‌ای</b> — ثباتِ تو همان فرهنگ می‌شود، و کارَت ساختنِ آدم‌ها و سیستم‌هایی است که وقتی توی اتاق نیستی استانداردهایت را نگه دارند."
+      },
+      "example": {
+        "en": "You've taught others to run your reviews, and the team stays aligned whether or not you're there.",
+        "fa": "به دیگران یاد داده‌ای بازبینی‌هایت را بگردانند، و تیم چه باشی چه نباشی هماهنگ می‌ماند."
+      },
+      "gain": {
+        "en": "You can build people and a culture that scale beyond you.",
+        "fa": "می‌توانی آدم‌ها و فرهنگی بسازی که فراتر از تو بزرگ می‌شوند."
+      }
+    }
+  ],
+  "quotes": [
+    {
+      "en": "We always talk about scaling companies, but companies are just collections of people.",
+      "fa": "ما همیشه از بزرگ‌کردنِ شرکت‌ها حرف می‌زنیم، ولی شرکت‌ها فقط مجموعه‌ای از آدم‌ها هستند."
+    },
+    {
+      "en": "Build self-awareness to build mutual awareness.",
+      "fa": "خودآگاهی بساز تا آگاهیِ دوطرفه بسازی."
+    },
+    {
+      "en": "Say the thing you think you cannot say.",
+      "fa": "همان چیزی را که فکر می‌کنی نمی‌توانی بگویی، بگو."
+    },
+    {
+      "en": "Distinguish between management and leadership.",
+      "fa": "بینِ مدیریت و رهبری فرق بگذار."
+    },
+    {
+      "en": "A sound operating system running on an efficient cadence is essential to execution and lays the groundwork for great management.",
+      "fa": "یک سیستمِ کاریِ سالم که روی یک ریتمِ کارآمد کار می‌کند، برای اجرا ضروری است و زمینه را برای مدیریتِ عالی فراهم می‌کند."
+    },
+    {
+      "en": "Be an explorer, not a lecturer.",
+      "fa": "کاشف باش، نه سخنران."
+    },
+    {
+      "en": "If you don't understand yourself — your work style preferences, your motivators, your strengths, your blind spots — you're going to have trouble being an effective manager and a leader.",
+      "fa": "اگر خودت را نفهمی — ترجیح‌های سبکِ کاری، انگیزه‌ها، نقاطِ قوت، نقاطِ کورت — در مدیر و رهبرِ مؤثربودن به مشکل می‌خوری."
+    },
+    {
+      "en": "Ultimately, you are the foundation. You are the stability point and the foundation for your team and for your organization.",
+      "fa": "در نهایت، تو همان پایه‌ای. تو نقطهٔ ثبات و پایه‌ای برای تیم و سازمانت هستی."
+    }
+  ],
+  "media": [
+    {
+      "kind": "yt",
+      "id": "Mv0o9o4MRh0",
+      "src": {
+        "en": "YouTube · Lenny's Podcast",
+        "fa": "یوتیوب · Lenny's Podcast"
+      },
+      "title": {
+        "en": "Lessons from Scaling Stripe — Claire Hughes Johnson",
+        "fa": "درس‌هایی از بزرگ‌کردنِ استرایپ — کلر هیوز جانسون"
+      },
+      "desc": {
+        "en": "A deep, tactical interview with the ex-COO of Stripe on the ideas in the book.",
+        "fa": "یک مصاحبهٔ عمیق و تاکتیکی با معاونِ اجراییِ سابقِ استرایپ دربارهٔ ایده‌های کتاب."
+      },
+      "bullets": {
+        "en": [
+          "Self-awareness and operating principles",
+          "How Stripe hired and managed at scale",
+          "Straight from the author"
+        ],
+        "fa": [
+          "خودآگاهی و اصولِ کاری",
+          "اینکه استرایپ چطور در مقیاس استخدام و مدیریت کرد",
+          "مستقیم از خودِ نویسنده"
+        ]
+      },
+      "best": {
+        "en": "Best for Stage 1–3.",
+        "fa": "خوب برای مرحلهٔ ۱ تا ۳."
+      }
+    },
+    {
+      "kind": "yt",
+      "id": "Dofw-YiBfZI",
+      "src": {
+        "en": "YouTube · Newcomer",
+        "fa": "یوتیوب · Newcomer"
+      },
+      "title": {
+        "en": "Scaling People, with Claire Hughes Johnson",
+        "fa": "بزرگ‌کردنِ آدم‌ها، با کلر هیوز جانسون"
+      },
+      "desc": {
+        "en": "A conversation on company building and the tactics behind the book.",
+        "fa": "گفت‌وگویی دربارهٔ شرکت‌سازی و تاکتیک‌های پشتِ کتاب."
+      },
+      "bullets": {
+        "en": [
+          "Why she wrote a tactical handbook",
+          "Foundations, hiring, and feedback",
+          "Good after a first read"
+        ],
+        "fa": [
+          "چرا یک کتابچهٔ تاکتیکی نوشت",
+          "پایه‌ها، استخدام، و بازخورد",
+          "خوب بعد از اولین خواندن"
+        ]
+      },
+      "best": {
+        "en": "Best for Stage 2–4.",
+        "fa": "خوب برای مرحلهٔ ۲ تا ۴."
+      }
+    },
+    {
+      "kind": "yt",
+      "id": "Dswk83wBDd4",
+      "src": {
+        "en": "YouTube · Permanent Equity",
+        "fa": "یوتیوب · Permanent Equity"
+      },
+      "title": {
+        "en": "Claire Hughes Johnson — Scaling People",
+        "fa": "کلر هیوز جانسون — بزرگ‌کردنِ آدم‌ها"
+      },
+      "desc": {
+        "en": "A practical talk on management, feedback, and building durable teams.",
+        "fa": "یک گفت‌وگوی کاربردی دربارهٔ مدیریت، بازخورد، و ساختنِ تیم‌های ماندگار."
+      },
+      "bullets": {
+        "en": [
+          "Management vs. leadership",
+          "Feedback and performance in practice",
+          "A solid, applied overview"
+        ],
+        "fa": [
+          "مدیریت در برابرِ رهبری",
+          "بازخورد و عملکرد در عمل",
+          "یک مرورِ محکم و کاربردی"
+        ]
+      },
+      "best": {
+        "en": "Best for Stage 3–4.",
+        "fa": "خوب برای مرحلهٔ ۳ و ۴."
+      }
+    },
+    {
+      "kind": "img",
+      "url": "https://press.stripe.com/scaling-people",
+      "src": {
+        "en": "Stripe Press · Publisher",
+        "fa": "نشرِ استرایپ · ناشر"
+      },
+      "title": {
+        "en": "Scaling People — Publisher Page",
+        "fa": "بزرگ‌کردنِ آدم‌ها — صفحهٔ ناشر"
+      },
+      "desc": {
+        "en": "The publisher page, with the book, excerpts, and free companion resources.",
+        "fa": "صفحهٔ ناشر، همراه با کتاب، بخش‌هایی از متن، و منابعِ رایگانِ همراه."
+      },
+      "bullets": {
+        "en": [
+          "Overview and excerpts",
+          "Free templates and worksheets",
+          "Straight from the source"
+        ],
+        "fa": [
+          "مرور و بخش‌هایی از متن",
+          "قالب‌ها و کاربرگ‌های رایگان",
+          "مستقیم از خودِ منبع"
+        ]
+      },
+      "best": {
+        "en": "For the book and its toolkit.",
+        "fa": "برای کتاب و جعبه‌ابزارش."
+      }
+    }
+  ],
+  "go": [
+    {
+      "label": {
+        "en": "Publisher page (Stripe Press)",
+        "fa": "صفحهٔ ناشر (نشرِ استرایپ)"
+      },
+      "url": "https://press.stripe.com/scaling-people"
+    },
+    {
+      "label": {
+        "en": "Book on Goodreads",
+        "fa": "کتاب در گودریدز"
+      },
+      "url": "https://www.goodreads.com/book/show/63063173-scaling-people"
+    },
+    {
+      "label": {
+        "en": "Lenny's Podcast interview",
+        "fa": "مصاحبهٔ پادکستِ لنی"
+      },
+      "url": "https://www.lennyspodcast.com/lessons-from-scaling-stripe/"
+    }
+  ],
+  "recs": [
+    {
+      "pri": "b",
+      "t": {
+        "en": "Write down your work style",
+        "fa": "سبکِ کاری‌ات را بنویس"
+      },
+      "d": {
+        "en": "Name your strengths and blind spots, and share them with your team this week.",
+        "fa": "نقاطِ قوت و نقاطِ کورت را نام ببر، و این هفته با تیمت درمیانشان بگذار."
+      }
+    },
+    {
+      "pri": "b",
+      "t": {
+        "en": "Say one thing you've been avoiding",
+        "fa": "یک حرفی که ازش طفره می‌رفتی را بزن"
+      },
+      "d": {
+        "en": "Kindly name the hard truth in your next one-on-one instead of letting it sit.",
+        "fa": "در جلسهٔ تک‌به‌تکِ بعدی‌ات حقیقتِ سخت را مهربانانه نام ببر، به‌جای اینکه بماند."
+      }
+    },
+    {
+      "pri": "n",
+      "t": {
+        "en": "Turn one task into an outcome",
+        "fa": "یک کار را به یک نتیجه تبدیل کن"
+      },
+      "d": {
+        "en": "Take a goal that starts with a verb and rewrite it as the result you actually want.",
+        "fa": "یک هدف که با فعل شروع می‌شود را بردار و به آن نتیجه‌ای که واقعاً می‌خواهی بازنویسی‌اش کن."
+      }
+    },
+    {
+      "pri": "n",
+      "t": {
+        "en": "Delegate one thing fully",
+        "fa": "یک چیز را کامل واگذار کن"
+      },
+      "d": {
+        "en": "Hand over a whole outcome and the authority to decide, then check in lightly.",
+        "fa": "یک نتیجهٔ کامل و اختیارِ تصمیم‌گیری را واگذار کن، بعد سبک پیگیری کن."
+      }
+    }
+  ]
 });
 </script>
 </body>

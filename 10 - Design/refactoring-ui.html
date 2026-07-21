@@ -1,21 +1,20 @@
 <!DOCTYPE html>
-<!-- complexity-level: 1→5 (this page teaches the SAME book at five depths, over-simplified … expert) -->
-<!-- Effortless (Greg McKeown) — bilingual EN/FA knowledge graph & 5-stage learning page -->
+<!-- Generated page. Edit CONTENT in the DATA object below; shared UI lives in ../assets/book.css + ../assets/book.js -->
 <html lang="fa" dir="rtl" data-lang="fa">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Refactoring UI — نقشهٔ دانش و یادگیری ۵ مرحله‌ای</title>
 
-<!-- Boot theme + language BEFORE paint to avoid a flash -->
+<!-- Boot theme + language BEFORE paint to avoid a flash (shared library-wide keys) -->
 <script>
 (function(){
   try{
-    var th = localStorage.getItem('refactoringui-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
+    var th = localStorage.getItem('pbl-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
     document.documentElement.setAttribute('data-theme', th);
   }catch(e){ document.documentElement.setAttribute('data-theme','light'); }
   try{
-    var lg = localStorage.getItem('refactoringui-lang') || 'fa';
+    var lg = localStorage.getItem('pbl-lang') || 'fa';
     document.documentElement.setAttribute('data-lang', lg);
     document.documentElement.setAttribute('lang', lg);
     document.documentElement.setAttribute('dir', lg==='fa' ? 'rtl' : 'ltr');
@@ -28,876 +27,1214 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:ital,opsz@0,6..72;1,6..72&display=swap" rel="stylesheet">
-
-<style>
-/* ── TOKENS ───────────────────────────────────────────────── */
-:root, [data-theme="light"]{
-  --bg:#f5f6f8; --bg2:#eef2f7; --card:#fff; --card2:#f8fafb;
-  --ink:#1c2330; --mut:#6b7280; --line:#e6e8ee;
-  --accent:#0e7c86; --accent-ink:#fff; --warm:#c2410c;
-  --shadow:0 1px 2px rgba(20,30,50,.05),0 6px 24px rgba(20,30,50,.06);
-  --hero-1:#0e7c86; --hero-2:#0b5e66;
-  --c-teal:#0e9aa6; --c-blue:#2f6fb0; --c-violet:#7c3aed; --c-amber:#d97706;
-  --c-green:#15a34a; --c-red:#e11d48; --c-gold:#c98a12; --c-gray:#6b7280;
-  --state:#0e9aa6; --action:#d97706; --results:#7c3aed; --core:#0e7c86;
-}
-[data-theme="dark"]{
-  --bg:#0e131a; --bg2:#161d27; --card:#151c26; --card2:#1b2430;
-  --ink:#e9eef5; --mut:#9aa7b6; --line:#27313d;
-  --accent:#2dd4bf; --accent-ink:#06231f; --warm:#fb923c;
-  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 28px rgba(0,0,0,.45);
-  --hero-1:#0c5f67; --hero-2:#07323a;
-  --c-teal:#2dd4bf; --c-blue:#5b9bd5; --c-violet:#a78bfa; --c-amber:#fbbf24;
-  --c-green:#34d399; --c-red:#fb7185; --c-gold:#e2b04a; --c-gray:#94a3b8;
-  --state:#2dd4bf; --action:#fbbf24; --results:#a78bfa; --core:#2dd4bf;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);
-  font-family:Vazirmatn,"Segoe UI",Tahoma,Arial,sans-serif;line-height:1.85;font-size:15px;
-  transition:background .25s,color .25s}
-html[data-lang="en"] body{font-family:Inter,"Segoe UI",system-ui,Arial,sans-serif;line-height:1.7}
-.wrap{max-width:960px;margin:0 auto;padding:0 18px 40px}
-
-/* language visibility */
-html[data-lang="en"] [data-only="fa"]{display:none !important}
-html[data-lang="fa"] [data-only="en"]{display:none !important}
-
-/* ── HERO ─────────────────────────────────────────────────── */
-.hero{background:linear-gradient(135deg,var(--hero-1),var(--hero-2));color:#fff;padding:44px 0 34px;position:relative;overflow:hidden}
-.hero::after{content:"";position:absolute;inset-inline-end:-80px;top:-80px;width:280px;height:280px;
-  background:radial-gradient(circle,rgba(255,255,255,.12),transparent 70%);pointer-events:none}
-.hero .wrap{padding-bottom:0;position:relative;z-index:1}
-.hero h1{margin:0 0 8px;font-size:30px;font-weight:800;letter-spacing:-.3px;line-height:1.25}
-html[data-lang="en"] .hero h1{font-family:Newsreader,Georgia,serif;font-weight:600;letter-spacing:-.5px}
-.hero .dek{margin:0;opacity:.94;font-size:15.5px;max-width:640px}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;
-  color:rgba(255,255,255,.95);background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.24);
-  padding:5px 13px;border-radius:20px;margin-bottom:15px}
-.eyebrow .edot{width:7px;height:7px;border-radius:50%;background:#fff;box-shadow:0 0 0 3px rgba(255,255,255,.25)}
-.metastrip{display:flex;flex-wrap:wrap;gap:14px 30px;margin-top:20px;padding-top:16px;
-  border-top:1px solid rgba(255,255,255,.18)}
-.metaitem{display:flex;flex-direction:column;gap:3px}
-.metaitem .mk{font-size:10.5px;color:rgba(255,255,255,.62);font-weight:700;letter-spacing:.6px;text-transform:uppercase}
-.metaitem .mv{font-size:14px;color:#fff;font-weight:700}
-.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
-.chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);
-  border-radius:11px;padding:9px 15px;font-size:13px}
-.chip b{font-size:20px;display:block;font-weight:800}
-
-/* ── NAV + TOC ────────────────────────────────────────────── */
-.navbar{position:sticky;top:0;z-index:60;background:color-mix(in srgb,var(--card) 92%,transparent);
-  backdrop-filter:saturate(180%) blur(10px);-webkit-backdrop-filter:saturate(180%) blur(10px);
-  border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
-.navin{max-width:960px;margin:0 auto;padding:8px 16px;display:flex;align-items:center;gap:12px}
-.brand{flex:0 0 auto;font-weight:800;font-size:12.5px;color:var(--accent);white-space:nowrap;
-  display:flex;align-items:center;gap:7px}
-.brand .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);
-  box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 18%,transparent)}
-.toc{flex:1 1 auto;display:flex;flex-wrap:wrap;gap:7px;justify-content:center}
-.toc a{font-size:12.5px;color:var(--mut);text-decoration:none;border:1px solid var(--line);
-  border-radius:20px;padding:5px 12px;background:var(--card);white-space:nowrap;
-  transition:background .15s,color .15s,border-color .15s}
-.toc a:hover{color:var(--accent);border-color:var(--accent)}
-.toc a.active{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
-.navctl{flex:0 0 auto;display:flex;align-items:center;gap:8px}
-.langbtn{height:34px;border-radius:18px;border:1px solid var(--line);background:var(--card);
-  color:var(--ink);cursor:pointer;font:inherit;font-size:12.5px;font-weight:700;padding:0 13px;
-  display:flex;align-items:center;gap:6px}
-.langbtn:hover{border-color:var(--accent);color:var(--accent)}
-.langbtn .globe{width:15px;height:15px;display:block}
-.themebtn{flex:0 0 auto;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);
-  background:var(--card);color:var(--ink);cursor:pointer;line-height:1;display:grid;place-items:center}
-.themebtn svg{width:17px;height:17px;display:block}
-.themebtn:hover{border-color:var(--accent);color:var(--accent)}
-[data-theme="light"] .themebtn .ic-sun{display:none}
-[data-theme="dark"]  .themebtn .ic-moon{display:none}
-
-/* ── BLOCKS ───────────────────────────────────────────────── */
-h2{font-size:21px;margin:44px 0 6px;font-weight:800;scroll-margin-top:92px;line-height:1.35}
-html[data-lang="en"] h2{font-family:Newsreader,Georgia,serif;font-weight:600}
-h2 .num{color:var(--accent);font-variant-numeric:tabular-nums}
-.sub{color:var(--mut);font-size:13.5px;margin:0 0 16px;max-width:680px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;
-  padding:20px 22px;margin:14px 0;box-shadow:var(--shadow)}
-.lead{font-size:15.5px}
-.lead b{color:var(--warm)}
-.kgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin:8px 0}
-.kbox{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:15px 16px;text-align:center}
-.kbox .v{font-size:26px;font-weight:800;color:var(--accent);font-variant-numeric:tabular-nums}
-.kbox .l{font-size:12.5px;color:var(--mut);margin-top:3px}
-ul.clean{margin:6px 0;padding-inline-start:20px} ul.clean li{margin:8px 0}
-.callout{background:color-mix(in srgb,var(--warm) 9%,var(--card));
-  border:1px solid color-mix(in srgb,var(--warm) 30%,var(--line));
-  border-radius:12px;padding:14px 18px;margin:12px 0}
-.callout b{color:var(--warm)}
-.callout.accent{background:color-mix(in srgb,var(--accent) 9%,var(--card));
-  border-color:color-mix(in srgb,var(--accent) 30%,var(--line))}
-.callout.accent b{color:var(--accent)}
-a{color:var(--accent)}
-
-/* ── GRAPH ────────────────────────────────────────────────── */
-.gtabs{display:inline-flex;gap:4px;background:var(--bg2);border:1px solid var(--line);
-  border-radius:11px;padding:4px;margin:6px 0 2px}
-.gtab{border:0;background:transparent;color:var(--mut);font:inherit;font-size:13px;font-weight:700;
-  padding:7px 15px;border-radius:8px;cursor:pointer}
-.gtab.active{background:var(--card);color:var(--accent);box-shadow:var(--shadow)}
-.graphcard{padding:14px}
-.legend{display:flex;flex-wrap:wrap;gap:14px;margin:2px 4px 12px;font-size:12.5px;color:var(--mut)}
-.legend span{display:inline-flex;align-items:center;gap:6px}
-.legend i{width:11px;height:11px;border-radius:50%;display:inline-block}
-.graphstage{display:grid;grid-template-columns:1fr;gap:14px}
-@media(min-width:760px){.graphstage{grid-template-columns:1.35fr .95fr}}
-.svgwrap{position:relative;background:var(--card2);border:1px solid var(--line);border-radius:12px;
-  overflow:hidden;min-height:300px}
-#netsvg{display:block;width:100%;height:560px;touch-action:none;cursor:grab}
-#netsvg text{pointer-events:none;user-select:none}
-.ghint{position:absolute;inset-inline-start:12px;top:10px;font-size:11.5px;color:var(--mut);
-  background:color-mix(in srgb,var(--card) 82%,transparent);border:1px solid var(--line);
-  border-radius:20px;padding:3px 11px;backdrop-filter:blur(4px);max-width:70%}
-.greset{position:absolute;inset-inline-end:10px;top:10px;border:1px solid var(--line);background:var(--card);
-  color:var(--mut);border-radius:8px;font:inherit;font-size:11.5px;padding:4px 10px;cursor:pointer}
-.greset:hover{color:var(--accent);border-color:var(--accent)}
-/* node + link interaction states */
-.node{cursor:pointer}
-/* the inner <g class="ns"> is what scales; fill-box keeps the pivot on the node itself, not the SVG viewport */
-.ns{transform-box:fill-box;transform-origin:center;transition:transform .2s cubic-bezier(.2,.75,.25,1)}
-.node.hover .ns{transform:scale(1.1)}
-.node.sel  .ns{transform:scale(1.34)}                 /* selected node grows */
-.node.ncore.hover .ns{transform:scale(1.06)}
-.node.ncore.sel   .ns{transform:none}                 /* the centre 'Effortless' node keeps default size */
-.node.sel circle{stroke:var(--ink);stroke-width:2.5;filter:drop-shadow(0 0 8px color-mix(in srgb,var(--accent) 60%,transparent))}
-.node.hl circle{stroke:var(--ink);stroke-opacity:.5;stroke-width:2.5}
-.node.dim{opacity:.2}
-.node text{font-family:Vazirmatn,Tahoma,sans-serif;font-weight:700}
-html[data-lang="en"] .node text{font-family:Inter,sans-serif}
-.glink{transition:opacity .2s,stroke .2s}
-.glink.dim{opacity:.08}
-.glink.hl{stroke:var(--accent) !important;stroke-opacity:.8}
-/* detail panel */
-.detail{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;min-height:220px}
-@media(min-width:760px){.detail{max-height:480px;overflow:auto}}
-.detail .dkick{font-size:11.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;display:flex;align-items:center;gap:7px;color:var(--mut)}
-.detail .dkick i{width:10px;height:10px;border-radius:50%}
-.detail h4{margin:8px 0 3px;font-size:18px;font-weight:800}
-html[data-lang="en"] .detail h4{font-family:Newsreader,serif;font-weight:600}
-.detail .drow{margin:11px 0}
-.detail .dlab{font-size:10.5px;font-weight:800;color:var(--accent);letter-spacing:.5px;text-transform:uppercase;
-  display:inline-flex;align-items:center;gap:5px}
-.detail .drow.tip .dlab{color:var(--c-green)}
-.detail .drow.pit .dlab{color:var(--warm)}
-.detail .drow.more{border-inline-start:2px solid color-mix(in srgb,var(--accent) 32%,var(--line));padding-inline-start:11px}
-.detail .drow.more .dlab{color:var(--mut)}
-.detail .dtxt{font-size:13.6px;margin-top:3px}
-.dchips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
-.dchip{font-size:12px;border:1px solid var(--line);background:var(--card2);border-radius:16px;padding:4px 11px;
-  cursor:pointer;color:var(--ink);display:inline-flex;align-items:center;gap:6px;font-family:inherit}
-.dchip:hover{border-color:var(--accent);color:var(--accent)}
-.dchip i{width:8px;height:8px;border-radius:50%;flex:0 0 auto}
-
-/* ── CONCEPT MAP ──────────────────────────────────────────── */
-.mapgrid{display:grid;grid-template-columns:1fr;gap:14px}
-@media(min-width:820px){.mapgrid{grid-template-columns:repeat(3,1fr)}}
-.partcol{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:16px;position:relative}
-.partcol .ph{display:flex;align-items:center;gap:9px;margin-bottom:3px}
-.partcol .pdot{width:13px;height:13px;border-radius:50%;flex:0 0 auto}
-.partcol .pnum{font-size:11px;font-weight:800;color:var(--mut)}
-.partcol h4{margin:0;font-size:16.5px;font-weight:800}
-html[data-lang="en"] .partcol h4{font-family:Newsreader,serif;font-weight:600}
-.partcol .ptag{font-size:12px;color:var(--mut);margin:2px 0 4px;font-weight:700}
-.partcol .pgist{font-size:12.8px;color:var(--mut);margin:0 0 12px}
-.chapchip{display:flex;align-items:baseline;gap:8px;padding:7px 10px;border:1px solid var(--line);
-  border-radius:9px;margin:6px 0;background:var(--card2);font-size:13px}
-.chapchip .cn{font-size:11px;font-weight:800;color:var(--mut);flex:0 0 auto;font-variant-numeric:tabular-nums}
-.chapchip b{font-weight:700}
-.chapchip small{color:var(--mut);display:block;font-size:11.5px;line-height:1.5}
-.flowline{display:flex;align-items:center;justify-content:center;gap:10px;color:var(--mut);
-  font-size:12.5px;font-weight:700;margin:6px 0 2px;flex-wrap:wrap}
-.flowline .ar{color:var(--accent)}
-
-/* ── STAGE LADDER ─────────────────────────────────────────── */
-.ladder{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 4px}
-.rung{flex:1 1 150px;border:1px solid var(--line);background:var(--card);border-radius:11px;
-  padding:11px 13px;cursor:pointer;transition:transform .12s,border-color .12s;position:relative}
-.rung:hover{border-color:var(--accent);transform:translateY(-2px)}
-.rung.active{border-color:var(--accent);box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 35%,transparent)}
-.rung .lv{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.4px}
-.rung .lt{font-size:13.5px;font-weight:800;margin-top:2px}
-.rung .lbar{height:5px;border-radius:4px;background:var(--bg2);margin-top:9px;overflow:hidden}
-.rung .lbar i{display:block;height:100%;background:linear-gradient(90deg,var(--c-teal),var(--c-violet))}
-.stagecard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 24px;
-  margin:14px 0;box-shadow:var(--shadow)}
-.stagecard .shead{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-.stagecard .badge{font-size:12px;font-weight:800;color:#fff;background:var(--accent);
-  border-radius:8px;padding:4px 11px;white-space:nowrap}
-.stagecard h3{margin:0;font-size:21px;font-weight:800}
-html[data-lang="en"] .stagecard h3{font-family:Newsreader,serif;font-weight:600}
-.stagecard .tagline{color:var(--mut);font-size:13.5px;margin:4px 0 14px;font-weight:700}
-.stagecard .sbody{font-size:15px}
-.exbox{background:var(--card2);border:1px solid var(--line);border-inline-start:3px solid var(--accent);
-  border-radius:0 11px 11px 0;padding:13px 16px;margin:14px 0 6px}
-.exbox .exk{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.5px;text-transform:uppercase}
-.exbox .ext{font-size:13.8px;margin-top:3px}
-.gainrow{display:flex;align-items:flex-start;gap:9px;margin-top:12px;font-size:13px;color:var(--mut)}
-.gainrow .gi{flex:0 0 auto;color:var(--c-green);font-weight:800}
-.stagenav{display:flex;justify-content:space-between;gap:10px;margin-top:16px}
-.stagenav button{border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit;
-  font-size:13px;font-weight:700;border-radius:9px;padding:8px 14px;cursor:pointer}
-.stagenav button:hover:not(:disabled){border-color:var(--accent);color:var(--accent)}
-.stagenav button:disabled{opacity:.4;cursor:default}
-
-/* ── QUOTES ───────────────────────────────────────────────── */
-.qgrid{display:grid;grid-template-columns:1fr;gap:12px}
-@media(min-width:720px){.qgrid{grid-template-columns:1fr 1fr}}
-blockquote{margin:0;background:var(--card2);border-inline-start:3px solid var(--accent);
-  border-radius:0 12px 12px 0;padding:15px 18px;font-size:14.5px;position:relative}
-blockquote .qm{font-size:34px;line-height:0;color:var(--accent);opacity:.35;font-family:Georgia,serif;
-  position:absolute;inset-inline-start:10px;top:20px}
-blockquote p{margin:0;padding-inline-start:22px}
-html[data-lang="en"] blockquote{font-family:Newsreader,Georgia,serif;font-size:15.5px}
-
-/* ── MEDIA ────────────────────────────────────────────────── */
-.mgrid{display:grid;grid-template-columns:1fr;gap:16px}
-@media(min-width:640px){.mgrid{grid-template-columns:1fr 1fr}}
-.mcard{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;
-  box-shadow:var(--shadow);display:flex;flex-direction:column}
-.mthumb{position:relative;display:block;aspect-ratio:16/9;background:var(--bg2);overflow:hidden;text-decoration:none}
-.mthumb img{width:100%;height:100%;object-fit:cover;display:block}
-.mthumb .play{position:absolute;inset:0;display:grid;place-items:center}
-.mthumb .play span{width:54px;height:54px;border-radius:50%;background:rgba(0,0,0,.6);
-  display:grid;place-items:center;border:2px solid rgba(255,255,255,.9)}
-.mthumb .play svg{width:22px;height:22px;fill:#fff;margin-inline-start:3px}
-.mthumb .ptype{position:absolute;inset-inline-start:9px;top:9px;background:rgba(0,0,0,.72);color:#fff;
-  font-size:11px;font-weight:700;border-radius:6px;padding:3px 9px;letter-spacing:.3px}
-.mfake{aspect-ratio:16/9;display:grid;place-items:center;
-  background:linear-gradient(135deg,color-mix(in srgb,var(--c-violet) 22%,var(--card)),color-mix(in srgb,var(--c-teal) 22%,var(--card)))}
-.mfake svg{width:52px;height:52px;color:var(--ink);opacity:.6}
-.mbody{padding:15px 17px;display:flex;flex-direction:column;gap:7px;flex:1}
-.mbody .msrc{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.3px;text-transform:uppercase}
-.mbody h4{margin:0;font-size:15.5px;font-weight:800;line-height:1.4}
-html[data-lang="en"] .mbody h4{font-family:Newsreader,serif;font-weight:600}
-.mbody .mdesc{font-size:13px;color:var(--mut);margin:0}
-.mbody ul{margin:4px 0 0;padding-inline-start:18px}
-.mbody ul li{font-size:12.8px;margin:5px 0}
-.mbody .mbest{font-size:12px;font-weight:700;color:var(--warm);margin-top:auto;padding-top:8px}
-.mlink{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;
-  text-decoration:none;color:var(--accent);margin-top:4px}
-.mlink:hover{text-decoration:underline}
-.golist{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
-.golist a{font-size:12.5px;text-decoration:none;color:var(--ink);border:1px solid var(--line);
-  border-radius:20px;padding:6px 13px;background:var(--card);font-weight:700}
-.golist a:hover{border-color:var(--accent);color:var(--accent)}
-
-/* ── RECS + METHOD + CREDIT ───────────────────────────────── */
-.rec{display:grid;gap:10px;margin:8px 0}
-.rec .item{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--card)}
-.rec .item .t{font-weight:800;font-size:14.5px;margin-bottom:3px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.rec .item .t .pri{font-size:11px;font-weight:700;color:#fff;background:var(--warm);border-radius:6px;padding:2px 9px}
-.rec .item .t .pri.b{background:var(--accent)}
-.rec .item .d{font-size:13.4px;color:var(--mut)}
-.method{color:var(--mut);font-size:13.4px}
-.method p{margin:8px 0}
-.method b{color:var(--ink)}
-.credit{text-align:center;margin-top:40px;padding:22px 0 8px;border-top:1px solid var(--line);
-  color:var(--mut);font-size:14px}
-.credit .cname{color:var(--ink);font-weight:800}
-.credit a{font-weight:700;text-decoration:none}
-.credit a:hover{text-decoration:underline}
-.credit .sep{opacity:.5;margin:0 8px}
-.credit .li{display:inline-flex;align-items:center;gap:5px;vertical-align:middle}
-.credit .li svg{width:15px;height:15px;vertical-align:-3px}
-
-@media (max-width:640px){
-  body{font-size:14px}
-  .wrap{padding:0 13px 30px}
-  .hero{padding:28px 0 22px} .hero h1{font-size:22px}
-  h2{font-size:18px;scroll-margin-top:66px}
-  .brand{display:none}
-  .toc{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;scrollbar-width:none}
-  .toc::-webkit-scrollbar{display:none}
-  #netsvg{height:420px}
-}
-</style>
+<link rel="stylesheet" href="../assets/book.css">
 </head>
 <body>
+<div id="app"></div>
 
-<!-- ── HERO ───────────────────────────────────────────────── -->
-<header class="hero"><div class="wrap">
-  <div class="eyebrow"><span class="edot"></span>
-    <span data-only="en">Book knowledge map · Adam Wathan &amp; Steve Schoger</span>
-    <span data-only="fa">نقشهٔ کتاب · آدام واتان و استیو شوگر</span>
-  </div>
-  <h1>
-    <span data-only="en">Refactoring UI — Make Your Ideas Look Awesome, Without a Designer</span>
-    <span data-only="fa">بازطراحیِ رابط کاربری — ایده‌هایت را بی‌کمکِ طراح، خوش‌ظاهر کن</span>
-  </h1>
-  <p class="dek">
-    <span data-only="en">A knowledge graph of the whole book, plus a 5-stage path from a single idea to expert-level mastery — with an example at every step.</span>
-    <span data-only="fa">نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از یک ایدهٔ ساده تا حرفه‌ای — با یک مثال در هر مرحله.</span>
-  </p>
-  <div class="metastrip">
-    <div class="metaitem"><span class="mk" data-only="en">Book</span><span class="mk" data-only="fa">کتاب</span>
-      <span class="mv" data-only="en">Refactoring UI</span><span class="mv" data-only="fa">بازطراحیِ رابط کاربری</span></div>
-    <div class="metaitem"><span class="mk" data-only="en">Authors</span><span class="mk" data-only="fa">نویسنده‌ها</span>
-      <span class="mv" data-only="en">Adam Wathan &amp; Steve Schoger</span><span class="mv" data-only="fa">آدام واتان و استیو شوگر</span></div>
-    <div class="metaitem"><span class="mk" data-only="en">Published</span><span class="mk" data-only="fa">سالِ چاپ</span>
-      <span class="mv" data-only="en">2018</span><span class="mv" data-only="fa">۲۰۱۸</span></div>
-    <div class="metaitem"><span class="mk" data-only="en">Group</span><span class="mk" data-only="fa">گروه</span>
-      <span class="mv" data-only="en">Design</span><span class="mv" data-only="fa">طراحی</span></div>
-  </div>
-  <div class="chips">
-    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Parts</span><span data-only="fa">بخش</span></div>
-    <div class="chip"><b data-only="en">16</b><b data-only="fa">۱۶</b><span data-only="en">Tactics</span><span data-only="fa">ترفند</span></div>
-    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Learning stages</span><span data-only="fa">مرحلهٔ یادگیری</span></div>
-  </div>
-</div></header>
-
-<!-- ── STICKY NAV ─────────────────────────────────────────── -->
-<div class="navbar"><div class="navin">
-  <span class="brand"><span class="dot"></span>Refactoring UI</span>
-  <nav class="toc">
-    <a href="#tldr" data-only="en">In a nutshell</a><a href="#tldr" data-only="fa">خلاصه</a>
-    <a href="#graph" data-only="en">Knowledge graph</a><a href="#graph" data-only="fa">نقشهٔ دانش</a>
-    <a href="#stages" data-only="en">5 stages</a><a href="#stages" data-only="fa">۵ مرحله</a>
-    <a href="#quotes" data-only="en">Quotes</a><a href="#quotes" data-only="fa">جمله‌ها</a>
-    <a href="#media" data-only="en">Watch &amp; explore</a><a href="#media" data-only="fa">تماشا و منابع</a>
-    <a href="#apply" data-only="en">Apply it</a><a href="#apply" data-only="fa">کاربرد</a>
-  </nav>
-  <div class="navctl">
-    <button class="langbtn" id="langBtn" aria-label="Switch language">
-      <svg class="globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>
-      <span data-only="en">فارسی</span><span data-only="fa">English</span>
-    </button>
-    <button class="themebtn" id="themeBtn" aria-label="Toggle theme" title="Light / Dark">
-      <span class="ic-sun" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5 19 19M19 5l-1.5 1.5M6.5 17.5 5 19"/></svg></span>
-      <span class="ic-moon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.6 6.6 0 0 0 9.8 9.8Z"/></svg></span>
-    </button>
-  </div>
-</div></div>
-
-<div class="wrap">
-
-  <!-- ── TL;DR ────────────────────────────────────────────── -->
-  <h2 id="tldr"><span class="num" data-only="en">1.</span><span class="num" data-only="fa">۱.</span>
-    <span data-only="en"> In a nutshell</span><span data-only="fa"> خلاصه</span></h2>
-  <p class="sub" data-only="en">If you read only this, you still get the whole idea.</p>
-  <p class="sub" data-only="fa">اگر فقط همین بخش را بخوانی، کلِ ایده دستت می‌آید.</p>
-  <div class="card lead"><ul class="clean" id="tldrHost"></ul></div>
-  <div class="kgrid">
-    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Parts (hierarchy · spacing · text · color · depth)</div><div class="l" data-only="fa">بخش (سلسله‌مراتب · فاصله · نوشته · رنگ · عمق)</div></div>
-    <div class="kbox"><div class="v" data-only="en">16</div><div class="v" data-only="fa">۱۶</div><div class="l" data-only="en">Tactics you can use</div><div class="l" data-only="fa">ترفند برای استفاده</div></div>
-    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Levels, simple → expert</div><div class="l" data-only="fa">مرحله، ساده تا حرفه‌ای</div></div>
-    <div class="kbox"><div class="v" data-only="en">3</div><div class="v" data-only="fa">۳</div><div class="l" data-only="en">The flow: hierarchy · space · polish</div><div class="l" data-only="fa">جریان: سلسله‌مراتب · فضا · پرداخت</div></div>
-  </div>
-  
-  <div class="callout accent">
-    <b data-only="en">The core idea:</b>
-    <b data-only="fa">ایدهٔ اصلی:</b>
-    <span data-only="en"> Good design isn't a talent you're born with — it's a set of <i>practical tactics</i> anyone can learn. To make an interface look designed you don't need artistic flair; you need <i>hierarchy</i>, generous <i>white space</i>, a real <i>type</i> and <i>color</i> system, and a few finishing touches. Systemize your choices and let the details do the work.</span>
-    <span data-only="fa"> طراحیِ خوب استعدادی نیست که با آن به دنیا آمده باشی — مجموعه‌ای از <i>ترفندهای عملی</i> است که هر کسی می‌تواند یاد بگیرد. برای اینکه یک رابط طراحی‌شده به‌نظر برسد به ذوقِ هنری نیاز نداری؛ به <i>سلسله‌مراتب</i>، <i>فضای خالیِ</i> دست‌ودل‌باز، یک نظامِ واقعیِ <i>نوشته</i> و <i>رنگ</i>، و چند دست‌کاریِ پایانی نیاز داری. انتخاب‌هایت را نظام‌مند کن و بگذار جزئیات کار را انجام بدهند.</span>
-  </div>
-
-  <!-- ── KNOWLEDGE GRAPH ──────────────────────────────────── -->
-  <h2 id="graph"><span class="num" data-only="en">2.</span><span class="num" data-only="fa">۲.</span>
-    <span data-only="en"> The knowledge graph</span><span data-only="fa"> نقشهٔ دانش</span></h2>
-  <p class="sub" data-only="en">The whole book as one picture. Click any node to focus its connections and read more — or switch to the structured map.</p>
-  <p class="sub" data-only="fa">کلِ کتاب در یک تصویر. روی هر دایره کلیک کن تا ارتباط‌هایش را ببینی و بیشتر بخوانی — یا به نقشهٔ مرتب برو.</p>
-
-  <div class="gtabs">
-    <button class="gtab active" id="tabNet"><span data-only="en">Interactive network</span><span data-only="fa">شبکهٔ تعاملی</span></button>
-    <button class="gtab" id="tabMap"><span data-only="en">Structured map</span><span data-only="fa">نقشهٔ مرتب</span></button>
-  </div>
-
-  <!-- network view -->
-  <div class="card graphcard" id="netView">
-    <div class="legend" id="legendHost"></div>
-    <div class="graphstage">
-      <div class="svgwrap">
-        <svg id="netsvg" viewBox="0 0 820 560" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Effortless knowledge network"></svg>
-        <div class="ghint" id="ghint"></div>
-        <button class="greset" id="greset"></button>
-      </div>
-      <div class="detail" id="detailHost"></div>
-    </div>
-  </div>
-
-  <!-- map view -->
-  <div class="card graphcard" id="mapView" style="display:none">
-    <div class="flowline" id="flowTop"></div>
-    <div class="mapgrid" id="mapHost"></div>
-    <div class="callout" style="margin-top:16px">
-      <b data-only="en">Read it as a flow:</b><b data-only="fa">به‌صورتِ یک جریان بخوانش:</b>
-      <span data-only="en"> get the <b>hierarchy</b> right first (what matters most, what fades back), give everything room with generous <b>space</b> and a real spacing system, set your <b>text</b> and <b>color</b> systems, then add <b>depth</b> and finishing <b>polish</b> — shadows, details, and great empty states.</span>
-      <span data-only="fa"> اول <b>سلسله‌مراتب</b> را درست کن (چه چیزی مهم‌تر است، چه چیزی عقب می‌رود)، با <b>فضای</b> دست‌ودل‌باز و یک نظامِ واقعیِ فاصله به همه‌چیز جا بده، نظامِ <b>نوشته</b> و <b>رنگت</b> را بچین، بعد <b>عمق</b> و <b>پرداختِ</b> پایانی اضافه کن — سایه‌ها، جزئیات، و حالت‌های خالیِ خوب.</span>
-    </div>
-  </div>
-
-  <!-- ── 5 STAGES ─────────────────────────────────────────── -->
-  <h2 id="stages"><span class="num" data-only="en">3.</span><span class="num" data-only="fa">۳.</span>
-    <span data-only="en"> Learn it in 5 stages</span><span data-only="fa"> یادگیری در ۵ مرحله</span></h2>
-  <p class="sub" data-only="en">The same book at five depths. Start over-simplified, climb to expert. Tap a rung to jump.</p>
-  <p class="sub" data-only="fa">یک کتاب در پنج عمق. از خیلی ساده شروع کن و تا حرفه‌ای بالا برو. روی هر پله بزن تا بپری.</p>
-  <div class="ladder" id="ladderHost"></div>
-  <div id="stageHost"></div>
-
-  <!-- ── QUOTES ───────────────────────────────────────────── -->
-  <h2 id="quotes"><span class="num" data-only="en">4.</span><span class="num" data-only="fa">۴.</span>
-    <span data-only="en"> Lines worth keeping</span><span data-only="fa"> جمله‌هایی که ارزشِ نگه‌داشتن دارند</span></h2>
-  <p class="sub" data-only="en">Verbatim quotes from the book, translated alongside.</p>
-  <p class="sub" data-only="fa">جمله‌های مستقیم از کتاب، همراه با ترجمه.</p>
-  <div class="qgrid" id="quoteHost"></div>
-
-  <!-- ── MEDIA ────────────────────────────────────────────── -->
-  <h2 id="media"><span class="num" data-only="en">5.</span><span class="num" data-only="fa">۵.</span>
-    <span data-only="en"> Watch &amp; explore</span><span data-only="fa"> تماشا و منابع</span></h2>
-  <p class="sub" data-only="en">Special resources found online — each with what it covers and who it's best for.</p>
-  <p class="sub" data-only="fa">منابعِ ویژه‌ای که آنلاین پیدا شد — هرکدام با اینکه چه می‌گوید و به چه دردی می‌خورد.</p>
-  <div class="mgrid" id="mediaHost"></div>
-  <div class="card" style="margin-top:16px">
-    <div style="font-weight:800;font-size:13.5px;margin-bottom:4px">
-      <span data-only="en">Go straight to the source</span><span data-only="fa">مستقیم سراغِ منبع برو</span>
-    </div>
-    <div class="golist" id="goHost"></div>
-  </div>
-
-  <!-- ── APPLY ────────────────────────────────────────────── -->
-  <h2 id="apply"><span class="num" data-only="en">6.</span><span class="num" data-only="fa">۶.</span>
-    <span data-only="en"> Apply it this week</span><span data-only="fa"> این هفته امتحانش کن</span></h2>
-  <p class="sub" data-only="en">Four small moves that turn the idea into a habit.</p>
-  <p class="sub" data-only="fa">چهار حرکتِ کوچک که این ایده را به عادت تبدیل می‌کنند.</p>
-  <div class="rec" id="recHost"></div>
-
-  <!-- ── METHOD ───────────────────────────────────────────── -->
-  <h2 id="method"><span class="num" data-only="en">7.</span><span class="num" data-only="fa">۷.</span>
-    <span data-only="en"> Sources &amp; notes</span><span data-only="fa"> منابع و توضیح</span></h2>
-  <div class="card method" id="methodHost"></div>
-
-  <!-- ── CREDIT FOOTER ────────────────────────────────────── -->
-  <div class="credit">
-    <span data-only="en">Created by <span class="cname">Behnam Atefi</span><span class="sep">·</span><a class="li" href="https://www.linkedin.com/in/behnamatefi/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.3c0-1.26-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9z"/></svg>LinkedIn</a></span>
-    <span data-only="fa">ساخته‌شده توسط <span class="cname">بهنام عاطفی</span><span class="sep">·</span><a class="li" href="https://www.linkedin.com/in/behnamatefi/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.3c0-1.26-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9z"/></svg>لینکدین</a></span>
-  </div>
-</div>
-
-<!-- ═══════════════════════ SCRIPTS ═══════════════════════ -->
+<script src="../assets/library.js"></script>
+<script src="../assets/book.js"></script>
 <script>
-/* ── 1) language + formatters ─────────────────────────────── */
-var LANG = document.documentElement.getAttribute('data-lang') || 'fa';
-var FA_D = '۰۱۲۳۴۵۶۷۸۹';
-var RLM  = '‏';
-function faDigits(s){ return String(s).replace(/[0-9]/g, function(d){ return FA_D[+d]; }); }
-/* honor the RTL preference: isolate Latin runs (word order preserved) and mark with U+200F */
-function rlm(s){
-  return String(s)
-    .replace(/[A-Za-zÀ-ɏ][A-Za-zÀ-ɏ0-9'’.&:\/\-]*(?:\s+[A-Za-zÀ-ɏ0-9'’.&:\/\-]+)*/g,
-      function(m){ return RLM+'⁦'+m+'⁩'+RLM; })
-    .replace(/[0-9۰-۹]+/g, function(m){ return m+RLM; });
-}
-/* transform only TEXT segments, never HTML tags (so <b>/<i> survive) */
-function faText(s){ return String(s).replace(/(<[^>]+>)|([^<]+)/g, function(m,tag,txt){ return tag ? tag : faDigits(rlm(txt)); }); }
-function TX(o){ if(o==null) return ''; if(typeof o==='string') return o; return LANG==='fa' ? faText(o.fa) : o.en; }
-function num(n){ return LANG==='fa' ? faDigits(n) : String(n); }
-function tok(name){ return getComputedStyle(document.documentElement).getPropertyValue(name).trim(); }
-</script>
-
-<script>
-/* ── DATA LAYER — Atomic Habits (bilingual, plain-spoken Persian) ── */
-var DATA = {"tldr":[{"en":"The whole book in one line: you don't need talent to design good UI — you need a handful of practical, repeatable tactics.","fa":"خلاصهٔ کل کتاب در یک جمله: برای طراحیِ خوبِ رابط به استعداد نیاز نداری — به یک‌مشت ترفندِ عملی و تکرارپذیر نیاز داری."},{"en":"Start with <b>hierarchy</b>: decide what matters most and what should fade back, using weight and color — not just size.","fa":"با <b>سلسله‌مراتب</b> شروع کن: با وزن و رنگ — نه فقط اندازه — تصمیم بگیر چه چیزی مهم‌تر است و چه چیزی باید عقب برود."},{"en":"Give everything room. Start with <b>too much white space</b>, use a consistent spacing scale, and don't try to fill the screen.","fa":"به همه‌چیز جا بده. با <b>فضای خالیِ زیاد</b> شروع کن، از یک مقیاسِ فاصلهٔ یک‌دست استفاده کن، و سعی نکن صفحه را پُر کنی."},{"en":"Systemize your <b>text</b> and <b>color</b>: limit fonts, use a type scale, think in <b>HSL</b>, and build a full palette of shades.","fa":"<b>نوشته</b> و <b>رنگت</b> را نظام‌مند کن: فونت‌ها را کم کن، از یک مقیاسِ اندازه استفاده کن، در <b>HSL</b> فکر کن، و یک پالتِ کامل از سایه‌ها بساز."},{"en":"Then add <b>depth</b> and finishing touches — one light source for shadows, layered shadows, and details that make defaults feel designed.","fa":"بعد <b>عمق</b> و دست‌کاریِ پایانی اضافه کن — یک منبعِ نور برای سایه‌ها، سایه‌های لایه‌لایه، و جزئیاتی که حالتِ پیش‌فرض را طراحی‌شده نشان می‌دهند."}],"parts":[{"key":"hierarchy","varc":"--c-teal","name":{"en":"Start with Hierarchy","fa":"با سلسله‌مراتب شروع کن"},"tag":{"en":"What matters most","fa":"چه چیزی مهم‌تر است"},"gist":{"en":"Design is about hierarchy, not decoration — make important things stand out and the rest recede.","fa":"طراحی دربارهٔ سلسله‌مراتب است، نه تزئین — کاری کن چیزهای مهم بیرون بزنند و بقیه عقب بروند."},"more":{"en":"Before color or polish, decide what the user should notice first, second, and last. You do that with weight and color far more than size — and by de-emphasizing the secondary stuff instead of shouting louder everywhere. Get this right and even a plain design reads as intentional.","fa":"قبل از رنگ و پرداخت، تصمیم بگیر کاربر اول چه چیزی را ببیند، بعد چه چیزی، و آخر چه چیزی. این کار را بیشتر با وزن و رنگ انجام می‌دهی تا اندازه — و با کم‌رنگ‌کردنِ چیزهای فرعی، نه با بلندتر داد‌زدن در همه‌جا. این را که درست کنی، حتی یک طرحِ ساده هم عمدی و حساب‌شده به‌نظر می‌رسد."},"chapters":["hierarchy","weight","labels"]},{"key":"layout","varc":"--c-blue","name":{"en":"Layout & Spacing","fa":"چیدمان و فاصله"},"tag":{"en":"Give it room","fa":"بهش جا بده"},"gist":{"en":"Generous, systematic white space is the fastest way to make anything look cleaner.","fa":"فضای خالیِ دست‌ودل‌باز و نظام‌مند، سریع‌ترین راه است برای اینکه هر چیزی تمیزتر به‌نظر برسد."},"more":{"en":"Amateur designs feel cramped; professional ones breathe. Start with way too much space and remove until it feels right, lean on one consistent spacing scale so nothing is arbitrary, and resist the urge to fill every empty area — white space is a feature, not wasted room.","fa":"طرح‌های آماتور تنگ و فشرده‌اند؛ طرح‌های حرفه‌ای نفس می‌کشند. با فضای خیلی زیاد شروع کن و کم کن تا درست شود، به یک مقیاسِ فاصلهٔ یک‌دست تکیه کن تا هیچ‌چیز سرِخود نباشد، و در برابرِ وسوسهٔ پُرکردنِ هر جای خالی مقاومت کن — فضای خالی یک ویژگی است، نه جای هدررفته."},"chapters":["whitespace","spacing","room"]},{"key":"text","varc":"--c-amber","name":{"en":"Designing Text","fa":"طراحیِ نوشته"},"tag":{"en":"Make it readable","fa":"خوانا‌ش کن"},"gist":{"en":"Limit fonts, use a type scale, and treat readability — line length, height, color — as a system.","fa":"فونت‌ها را کم کن، از یک مقیاسِ اندازه استفاده کن، و خوانایی — طولِ خط، ارتفاع، رنگ — را مثلِ یک نظام ببین."},"more":{"en":"Typography carries most of an interface, so stop improvising it. Pick one or two good fonts, size them from a fixed scale instead of random pixels, keep lines 45–75 characters for comfortable reading, and remember that not every piece of text should be full black — use lighter shades to set secondary text back.","fa":"بیشترِ یک رابط را نوشته حمل می‌کند، پس دست از فی‌البداهه ساختنش بردار. یکی‌دو فونتِ خوب انتخاب کن، اندازه‌شان را به‌جای پیکسل‌های تصادفی از یک مقیاسِ ثابت بردار، خط‌ها را برای خواندنِ راحت ۴۵ تا ۷۵ نویسه نگه دار، و یادت باشد که هر تکه نوشته نباید کاملاً مشکی باشد — با سایه‌های روشن‌تر، نوشتهٔ فرعی را عقب بِبَر."},"chapters":["fonts","typescale","readability","textcolor"]},{"key":"color","varc":"--c-violet","name":{"en":"Working with Color","fa":"کار با رنگ"},"tag":{"en":"Build a system","fa":"یک نظام بساز"},"gist":{"en":"Think in HSL, build a full palette of shades, and never lean on color alone.","fa":"در HSL فکر کن، یک پالتِ کامل از سایه‌ها بساز، و هیچ‌وقت فقط به رنگ تکیه نکن."},"more":{"en":"Hex codes make color math impossible; HSL lets you reason about hue, saturation and lightness directly. You'll need far more shades than you'd guess — usually eight or ten per color — so define them up front. And because some users can't distinguish colors, always back color up with a second cue, and check your contrast for real accessibility.","fa":"کدهای هگز محاسبهٔ رنگ را ناممکن می‌کنند؛ HSL می‌گذارد مستقیم دربارهٔ رنگ‌مایه، اشباع و روشنایی فکر کنی. به سایه‌های خیلی بیشتری از آنچه حدس می‌زنی نیاز داری — معمولاً هشت تا ده تا برای هر رنگ — پس از اول تعریفشان کن. و چون بعضی کاربرها رنگ‌ها را از هم تشخیص نمی‌دهند، همیشه رنگ را با یک نشانهٔ دوم پشتیبانی کن، و کنتراست را برای دسترس‌پذیریِ واقعی بررسی کن."},"chapters":["hsl","palette","contrast"]},{"key":"depth","varc":"--c-green","name":{"en":"Depth & Finishing Touches","fa":"عمق و پرداختِ پایانی"},"tag":{"en":"Make it feel real","fa":"واقعی‌ش کن"},"gist":{"en":"Emulate a light source for shadows, use contrast for depth, and sweat the small finishing details.","fa":"برای سایه‌ها یک منبعِ نور را شبیه‌سازی کن، برای عمق از کنتراست استفاده کن، و روی جزئیاتِ کوچکِ پایانی وقت بگذار."},"more":{"en":"Depth is what makes flat UI feel tangible. Pretend light comes from a single source above, layer a soft and a sharp shadow together for realism, and use color and contrast to push things forward or back. Then finish the job: upgrade the boring defaults, and design your empty states and imagery with as much care as everything else.","fa":"عمق همان چیزی است که رابطِ تخت را ملموس می‌کند. وانمود کن نور از یک منبعِ واحد در بالا می‌آید، یک سایهٔ نرم و یک سایهٔ تیز را با هم لایه کن تا واقعی شود، و با رنگ و کنتراست چیزها را جلو یا عقب ببر. بعد کار را تمام کن: حالت‌های پیش‌فرضِ کسل‌کننده را ارتقا بده، و حالت‌های خالی و تصویرها را با همان دقتِ بقیهٔ چیزها طراحی کن."},"chapters":["light","depthcolor","details"]}],"chapters":{"hierarchy":{"part":"hierarchy","n":1,"name":{"en":"Hierarchy Is Everything","fa":"سلسله‌مراتب همه‌چیز است"},"glabel":{"en":"Hierarchy","fa":"سلسله‌مراتب"},"principle":{"en":"Design isn't about making things pretty — it's about deciding what the user should notice first, second, and last.","fa":"طراحی دربارهٔ خوشگل‌کردنِ چیزها نیست — دربارهٔ این است که تصمیم بگیری کاربر اول چه چیزی را ببیند، بعد چه چیزی، و آخر چه چیزی."},"more":{"en":"Visual hierarchy is how you guide attention. When everything competes for focus, the screen feels chaotic — like a room where everyone is shouting. Decide the relative importance of each element and make the design show it; that single decision does more for looking designed than any color or font.","fa":"سلسله‌مراتبِ بصری یعنی چطور توجه را هدایت می‌کنی. وقتی همه‌چیز برای جلب‌توجه با هم رقابت می‌کند، صفحه آشفته به‌نظر می‌رسد — مثلِ اتاقی که همه در آن داد می‌زنند. اهمیتِ نسبیِ هر عنصر را تعیین کن و کاری کن طرح نشانش بدهد؛ همین یک تصمیم، برای طراحی‌شده به‌نظر رسیدن بیشتر از هر رنگ و فونتی کار می‌کند."},"example":{"en":"On a product card, the name and price should jump out while the SKU and metadata sit quiet and grey underneath.","fa":"روی کارتِ یک محصول، نام و قیمت باید بیرون بزنند، درحالی‌که کدِ کالا و اطلاعاتِ جانبی، آرام و خاکستری زیرش بنشینند."},"tip":{"en":"Before styling anything, rank the elements: what's primary, secondary, tertiary?","fa":"قبل از اینکه چیزی را استایل بدهی، عنصرها را رتبه‌بندی کن: کدام اصلی است، کدام فرعی، کدام درجه‌سه؟"},"pitfall":{"en":"Making everything bold and prominent, so nothing actually stands out.","fa":"همه‌چیز را پُررنگ و برجسته‌کردن، طوری که در عمل هیچ‌چیز بیرون نزند."}},"weight":{"part":"hierarchy","n":2,"name":{"en":"Weight & Color, Not Size","fa":"وزن و رنگ، نه اندازه"},"glabel":{"en":"Weight & Color","fa":"وزن و رنگ"},"principle":{"en":"Size isn't the only tool for emphasis — font weight and color usually work better and keep the layout calm.","fa":"اندازه تنها ابزارِ تأکید نیست — وزنِ فونت و رنگ معمولاً بهتر جواب می‌دهند و چیدمان را آرام نگه می‌دارند."},"more":{"en":"If you rely on size alone, important text turns huge and unimportant text turns tiny and unreadable. Instead lean on weight (bold vs normal) and color (dark vs soft grey) to signal importance. That way you can create clear hierarchy while keeping most text at a comfortable, readable size.","fa":"اگر فقط به اندازه تکیه کنی، نوشتهٔ مهم غول‌پیکر می‌شود و نوشتهٔ کم‌اهمیت آن‌قدر ریز که خوانده نمی‌شود. به‌جایش به وزن (پُررنگ در برابرِ معمولی) و رنگ (تیره در برابرِ خاکستریِ ملایم) تکیه کن تا اهمیت را نشان بدهی. این‌طوری می‌توانی سلسله‌مراتبِ روشن بسازی و در عین حال بیشترِ نوشته را در اندازهٔ راحت و خوانا نگه داری."},"example":{"en":"Make a heading bold and dark instead of enormous; a soft grey label reads as secondary without shrinking to nothing.","fa":"یک تیتر را پُررنگ و تیره کن، نه غول‌پیکر؛ یک برچسبِ خاکستریِ ملایم بدونِ اینکه به هیچ کوچک شود، فرعی به‌نظر می‌رسد."},"tip":{"en":"Emphasize by de-emphasizing: soften the secondary elements instead of enlarging the primary one.","fa":"با کم‌رنگ‌کردن تأکید کن: به‌جای بزرگ‌کردنِ عنصرِ اصلی، عنصرهای فرعی را ملایم کن."},"pitfall":{"en":"Cranking up font size for every heading until the page feels clumsy and loud.","fa":"بالابردنِ اندازهٔ فونتِ هر تیتر تا جایی که صفحه دست‌وپا‌چلفتی و پُرسروصدا شود."}},"labels":{"part":"hierarchy","n":3,"name":{"en":"Labels Are a Last Resort","fa":"برچسب، آخرین راه‌حل است"},"glabel":{"en":"Labels","fa":"برچسب‌ها"},"principle":{"en":"Don't label everything by default — often the value speaks for itself, and the label just adds noise.","fa":"همه‌چیز را به‌صورتِ پیش‌فرض برچسب نزن — اغلب خودِ مقدار گویاست، و برچسب فقط شلوغی اضافه می‌کند."},"more":{"en":"Formatting a value clearly can remove the need for a label entirely — an email address looks like an email, a price looks like a price. When you do need a label, treat it as the least important part: make it smaller and lighter, and let the actual content dominate. Combine label and value only when it truly helps.","fa":"قالب‌بندیِ روشنِ یک مقدار می‌تواند نیاز به برچسب را کلاً از بین ببرد — یک آدرسِ ایمیل شبیهِ ایمیل است، یک قیمت شبیهِ قیمت. وقتی هم واقعاً به برچسب نیاز داری، آن را کم‌اهمیت‌ترین بخش بدان: کوچک‌تر و روشن‌ترش کن، و بگذار خودِ محتوا غالب باشد. برچسب و مقدار را فقط وقتی با هم بیاور که واقعاً کمک می‌کند."},"example":{"en":"Instead of 'Phone: 555-0199', just show the number — it already looks like a phone number.","fa":"به‌جای «تلفن: ۵۵۵-۰۱۹۹»، فقط خودِ شماره را نشان بده — همین‌جوری‌اش شبیهِ شمارهٔ تلفن است."},"tip":{"en":"When a label is needed, make it smaller and lighter than the value it describes.","fa":"وقتی برچسب لازم است، از مقداری که توصیفش می‌کند کوچک‌تر و روشن‌ترش کن."},"pitfall":{"en":"Giving every field a bold label that competes with the data it's introducing.","fa":"دادنِ یک برچسبِ پُررنگ به هر فیلد، که با داده‌ای که معرفی‌اش می‌کند رقابت می‌کند."}},"whitespace":{"part":"layout","n":4,"name":{"en":"Start With Too Much White Space","fa":"با فضای خالیِ زیاد شروع کن"},"glabel":{"en":"White Space","fa":"فضای خالی"},"principle":{"en":"Begin every design with way too much white space, then remove it until you're happy — not the other way around.","fa":"هر طرح را با فضای خالیِ خیلی زیاد شروع کن، بعد کم کن تا راضی شوی — نه برعکس."},"more":{"en":"Dense, cramped interfaces are the number-one sign of amateur design. Adding generous space around and between elements instantly makes a layout feel calmer and more professional. Starting spacious and tightening up is much easier than trying to loosen a crowded design after the fact.","fa":"رابط‌های متراکم و فشرده، نشانهٔ شمارهٔ‌یکِ طراحیِ آماتور‌ند. اضافه‌کردنِ فضای دست‌ودل‌باز دورِ عنصرها و بینشان، فوری چیدمان را آرام‌تر و حرفه‌ای‌تر می‌کند. شروع‌کردن با فضای زیاد و بعد جمع‌وجورکردن، خیلی راحت‌تر از این است که بخواهی بعداً یک طرحِ شلوغ را باز کنی."},"example":{"en":"Take a tight card, double the padding and the gaps, and it immediately looks more designed.","fa":"یک کارتِ فشرده را بردار، فاصلهٔ داخلی و شکاف‌ها را دو برابر کن، و همان لحظه طراحی‌شده‌تر به‌نظر می‌رسد."},"tip":{"en":"When something feels off, try adding space before you try anything else.","fa":"وقتی چیزی درست به‌نظر نمی‌رسد، قبل از هر کارِ دیگری، اول فضا اضافه کن."},"pitfall":{"en":"Cramming elements together to save space and making everything feel cheap.","fa":"چپاندنِ عنصرها کنارِ هم برای صرفه‌جویی در فضا، که همه‌چیز را بی‌کیفیت جلوه می‌دهد."}},"spacing":{"part":"layout","n":5,"name":{"en":"Use a Spacing System","fa":"از یک نظامِ فاصله استفاده کن"},"glabel":{"en":"Spacing","fa":"فاصله"},"principle":{"en":"Pick a fixed set of spacing and sizing values and only use those — never arbitrary, hand-picked numbers.","fa":"یک مجموعهٔ ثابت از مقدارهای فاصله و اندازه انتخاب کن و فقط از همان‌ها استفاده کن — نه عددهای دلبخواه و دستی."},"more":{"en":"If you eyeball every margin, you'll waste time nudging pixels and end up with subtle inconsistencies. A predefined scale — where each step is clearly bigger than the last — lets you choose spacing fast and keeps the whole interface visually consistent. Constraints here make you faster, not slower.","fa":"اگر هر حاشیه را چشمی تنظیم کنی، وقتت را با جابه‌جاکردنِ پیکسل‌ها هدر می‌دهی و آخرش به ناهماهنگی‌های ریز می‌رسی. یک مقیاسِ از‌پیش‌تعریف‌شده — که هر پله‌اش آشکارا از قبلی بزرگ‌تر است — می‌گذارد سریع فاصله را انتخاب کنی و کلِ رابط را از نظرِ بصری یک‌دست نگه می‌دارد. محدودیت اینجا تندترت می‌کند، نه کندتر."},"example":{"en":"Use a scale like 4, 8, 12, 16, 24, 32, 48px and snap every gap to one of those values.","fa":"از مقیاسی مثلِ ۴، ۸، ۱۲، ۱۶، ۲۴، ۳۲، ۴۸ پیکسل استفاده کن و هر شکاف را به یکی از همین مقدارها بچسبان."},"tip":{"en":"Make each step in your scale distinct — values that are too close are hard to tell apart.","fa":"هر پلهٔ مقیاست را متمایز کن — مقدارهایی که خیلی به هم نزدیک‌اند، سخت از هم تشخیص داده می‌شوند."},"pitfall":{"en":"Choosing spacing values at random so nothing quite lines up.","fa":"انتخابِ تصادفیِ مقدارهای فاصله، طوری که هیچ‌چیز درست‌وحسابی رج نمی‌شود."}},"room":{"part":"layout","n":6,"name":{"en":"Don't Fill the Whole Screen","fa":"کلِ صفحه را پُر نکن"},"glabel":{"en":"Give Room","fa":"جا بده"},"principle":{"en":"Just because you have space doesn't mean you have to use it — not every element should stretch to fill it.","fa":"اینکه فضا داری به این معنا نیست که باید ازش استفاده کنی — قرار نیست هر عنصری کش بیاید و پُرش کند."},"more":{"en":"Designing for a big screen tempts you to spread content edge to edge, but full-width forms and stretched elements are hard to read and look unbalanced. Give elements only the width they actually need, and let the leftover space frame them. Sometimes the best use of extra room is to leave it empty.","fa":"طراحی برای یک صفحهٔ بزرگ وسوسه‌ات می‌کند که محتوا را از این لبه تا آن لبه پخش کنی، اما فرم‌های تمام‌عرض و عنصرهای کش‌آمده هم سخت خوانده می‌شوند و هم نامتوازن به‌نظر می‌رسند. به هر عنصر فقط همان عرضی را بده که واقعاً لازم دارد، و بگذار فضای باقی‌مانده قابش بگیرد. گاهی بهترین استفاده از فضای اضافه این است که خالی رهایش کنی."},"example":{"en":"A login form doesn't need to be 100% wide on desktop — a narrow, centered box reads better.","fa":"یک فرمِ ورود لازم نیست روی دسکتاپ تمام‌عرض باشد — یک جعبهٔ باریکِ وسط‌چین بهتر خوانده می‌شود."},"tip":{"en":"Give each element a max width based on its content, not on the size of the screen.","fa":"به هر عنصر یک حداکثرِ عرض بده بر اساسِ محتوایش، نه بر اساسِ اندازهٔ صفحه."},"pitfall":{"en":"Stretching forms and text to full width just because the space is there.","fa":"کش‌دادنِ فرم‌ها و نوشته‌ها تا تمام‌عرض، فقط به این خاطر که فضایش هست."}},"fonts":{"part":"text","n":7,"name":{"en":"Limit Your Font Choices","fa":"فونت‌هایت را کم کن"},"glabel":{"en":"Fonts","fa":"فونت‌ها"},"principle":{"en":"Use one, or at most two, good typefaces — and pick a font built for the job it's doing.","fa":"از یک، یا حداکثر دو، فونتِ خوب استفاده کن — و فونتی را انتخاب کن که برای همان کاری که می‌کند ساخته شده."},"more":{"en":"Mixing many fonts makes an interface feel messy and unplanned. A single well-chosen typeface with a few weights covers almost everything. And match the font to the context: a characterful display font that shines in a big headline usually falls apart in small body text, where a clean, neutral font reads far better.","fa":"قاطیِ‌کردنِ فونت‌های زیاد، رابط را شلوغ و بی‌برنامه نشان می‌دهد. یک فونتِ خوب‌انتخاب‌شده با چند وزن، تقریباً همه‌چیز را پوشش می‌دهد. و فونت را با بافت جور کن: یک فونتِ نمایشیِ بااُبهت که در یک تیترِ بزرگ می‌درخشد، معمولاً در نوشتهٔ ریزِ متن از هم می‌پاشد، جایی که یک فونتِ تمیز و خنثی خیلی بهتر خوانده می‌شود."},"example":{"en":"A quirky headline font can look great big, but set it at 14px in a paragraph and it becomes hard to read.","fa":"یک فونتِ تیترِ خاص می‌تواند بزرگ عالی به‌نظر برسد، اما همان را ۱۴ پیکسل توی یک پاراگراف بگذار و سخت‌خوان می‌شود."},"tip":{"en":"Start from a single solid typeface; only add a second font if it earns its place.","fa":"از یک فونتِ محکمِ واحد شروع کن؛ فونتِ دوم را فقط وقتی اضافه کن که جایش را حق کرده باشد."},"pitfall":{"en":"Combining several typefaces and using a display font for long body copy.","fa":"ترکیبِ چند فونت و استفاده از یک فونتِ نمایشی برای متنِ بلند."}},"typescale":{"part":"text","n":8,"name":{"en":"Use a Modular Type Scale","fa":"از یک مقیاسِ اندازه استفاده کن"},"glabel":{"en":"Type Scale","fa":"مقیاسِ نوشته"},"principle":{"en":"Choose font sizes from a small, fixed scale instead of picking arbitrary pixel values.","fa":"اندازهٔ فونت را از یک مقیاسِ کوچک و ثابت انتخاب کن، نه از مقدارهای پیکسلیِ دلبخواه."},"more":{"en":"Hand-picking sizes leads to values so close they look like mistakes — 15px next to 16px. A predefined type scale gives you a handful of clearly distinct sizes that work together, so your headings, subheadings and body text feel like a coherent system instead of a pile of near-misses.","fa":"دستی‌انتخاب‌کردنِ اندازه‌ها به مقدارهایی می‌رسد آن‌قدر نزدیک که شبیهِ اشتباه به‌نظر می‌رسند — ۱۵ پیکسل کنارِ ۱۶ پیکسل. یک مقیاسِ اندازهٔ از‌پیش‌تعریف‌شده، یک‌مشت اندازهٔ آشکارا متمایز به تو می‌دهد که با هم کار می‌کنند، طوری که تیترها، زیرتیترها و متن، به‌جای یک تودهٔ نزدیک‌به‌هم، مثلِ یک نظامِ منسجم به‌نظر می‌رسند."},"example":{"en":"Use a set like 12, 14, 16, 18, 20, 24, 30, 36px rather than 15, 17, 23 chosen by feel.","fa":"از مجموعه‌ای مثلِ ۱۲، ۱۴، ۱۶، ۱۸، ۲۰، ۲۴، ۳۰، ۳۶ پیکسل استفاده کن، نه ۱۵، ۱۷، ۲۳ که چشمی انتخاب شده‌اند."},"tip":{"en":"Define your scale once as a token set, then only ever pick from it.","fa":"مقیاست را یک‌بار به‌شکلِ یک مجموعه‌توکن تعریف کن، بعد همیشه فقط از همان انتخاب کن."},"pitfall":{"en":"Setting sizes by eye until nearly identical values clash across the page.","fa":"چشمی‌گذاشتنِ اندازه‌ها تا جایی که مقدارهای تقریباً یکسان در صفحه با هم بزنند."}},"readability":{"part":"text","n":9,"name":{"en":"Line Length & Line Height","fa":"طولِ خط و ارتفاعِ خط"},"glabel":{"en":"Readability","fa":"خوانایی"},"principle":{"en":"Keep lines around 45–75 characters, and give body text roomy line height so it's easy to read.","fa":"خط‌ها را حدودِ ۴۵ تا ۷۵ نویسه نگه دار، و به متن ارتفاعِ خطِ باز بده تا راحت خوانده شود."},"more":{"en":"Lines that run too wide make it hard for the eye to find the next line; too narrow and the text feels choppy. A comfortable measure of roughly 45–75 characters is the sweet spot. Pair it with generous line height for paragraphs — and tighter line height for big headings, which need less breathing room.","fa":"خط‌هایی که زیادی پهن می‌شوند، پیدا‌کردنِ خطِ بعدی را برای چشم سخت می‌کنند؛ زیادی باریک هم، نوشته را بریده‌بریده می‌کند. یک عرضِ راحتِ حدودِ ۴۵ تا ۷۵ نویسه، همان نقطهٔ طلایی است. کنارش به پاراگراف‌ها ارتفاعِ خطِ باز بده — و به تیترهای بزرگ ارتفاعِ خطِ جمع‌تر، چون به فضای کمتری نیاز دارند."},"example":{"en":"Constrain a paragraph to about 65 characters per line; don't let it stretch across a wide screen.","fa":"یک پاراگراف را به حدودِ ۶۵ نویسه در هر خط محدود کن؛ نگذار روی یک صفحهٔ پهن کش بیاید."},"tip":{"en":"Set a max-width on text blocks and increase line height for smaller body copy.","fa":"روی بلوک‌های نوشته یک حداکثرِ عرض بگذار و برای متنِ ریزتر، ارتفاعِ خط را بیشتر کن."},"pitfall":{"en":"Full-width paragraphs with tight line height that tire the reader's eyes.","fa":"پاراگراف‌های تمام‌عرض با ارتفاعِ خطِ فشرده که چشمِ خواننده را خسته می‌کنند."}},"textcolor":{"part":"text","n":10,"name":{"en":"Not Everything Is Black","fa":"همه‌چیز مشکی نیست"},"glabel":{"en":"Text Color","fa":"رنگِ نوشته"},"principle":{"en":"Use color and softness — not just size — to set hierarchy in text; secondary text should be lighter, not full black.","fa":"برای سلسله‌مراتب در نوشته از رنگ و ملایمت استفاده کن — نه فقط اندازه؛ نوشتهٔ فرعی باید روشن‌تر باشد، نه مشکیِ تمام."},"more":{"en":"Making all text pure black flattens the hierarchy and feels harsh. Use a dark, near-black for primary text and progressively lighter greys for secondary and tertiary content. On colored backgrounds, though, don't just use grey — that looks washed out; instead pick a hand-mixed shade of the background color for softer text.","fa":"مشکیِ خالص‌کردنِ همهٔ نوشته، سلسله‌مراتب را صاف می‌کند و خشن به‌نظر می‌رسد. برای نوشتهٔ اصلی از یک تیرهٔ نزدیک‌به‌مشکی استفاده کن و برای محتوای فرعی و درجه‌سه از خاکستری‌های به‌تدریج روشن‌تر. اما روی زمینه‌های رنگی فقط از خاکستری استفاده نکن — رنگ‌ورورفته به‌نظر می‌رسد؛ به‌جایش برای نوشتهٔ ملایم‌تر، یک سایهٔ دست‌سازِ همان رنگِ زمینه را انتخاب کن."},"example":{"en":"On a blue button, a slightly lighter blue for a subtitle looks better than plain grey.","fa":"روی یک دکمهٔ آبی، یک آبیِ کمی روشن‌تر برای زیرنویس، بهتر از خاکستریِ ساده به‌نظر می‌رسد."},"tip":{"en":"Build a few grey shades for text, and mix tinted shades for text on colored backgrounds.","fa":"چند سایهٔ خاکستری برای نوشته بساز، و برای نوشته روی زمینه‌های رنگی، سایه‌های ته‌رنگ‌دار بساز."},"pitfall":{"en":"Pure black everywhere, and flat grey text sitting on a colored background.","fa":"مشکیِ خالص در همه‌جا، و نوشتهٔ خاکستریِ بی‌روح که روی یک زمینهٔ رنگی نشسته."}},"hsl":{"part":"color","n":11,"name":{"en":"Think in HSL, Not Hex","fa":"در HSL فکر کن، نه هگز"},"glabel":{"en":"HSL","fa":"HSL"},"principle":{"en":"Use HSL — hue, saturation, lightness — so you can actually reason about and adjust color.","fa":"از HSL استفاده کن — رنگ‌مایه، اشباع، روشنایی — تا واقعاً بتوانی دربارهٔ رنگ فکر کنی و تنظیمش کنی."},"more":{"en":"Hex and RGB describe color in a way humans can't intuit — you can't look at a hex code and know how to make it a bit lighter or less intense. HSL maps directly to how we think about color: spin the hue to change the color, raise saturation to make it more vivid, raise lightness to make it brighter. Adjustments become obvious.","fa":"هگز و RGB رنگ را جوری توصیف می‌کنند که آدم نمی‌تواند حسش کند — نمی‌توانی به یک کدِ هگز نگاه کنی و بفهمی چطور کمی روشن‌ترش کنی یا از شدتش کم کنی. HSL مستقیم به همان شکلی که ما به رنگ فکر می‌کنیم نگاشت می‌شود: رنگ‌مایه را بچرخان تا رنگ عوض شود، اشباع را بالا ببر تا زنده‌تر شود، روشنایی را بالا ببر تا روشن‌تر شود. تنظیم‌ها بدیهی می‌شوند."},"example":{"en":"To make hsl(220, 60%, 50%) softer, just lower the saturation — no guesswork like with hex.","fa":"برای ملایم‌ترکردنِ hsl(۲۲۰، ۶۰٪، ۵۰٪)، فقط اشباع را کم کن — نه مثلِ هگز که باید حدس بزنی."},"tip":{"en":"Switch your color tools to HSL and build every shade by adjusting S and L.","fa":"ابزارهای رنگت را روی HSL بگذار و هر سایه را با تنظیمِ اشباع و روشنایی بساز."},"pitfall":{"en":"Juggling hex codes and guessing blindly when you need a lighter or duller shade.","fa":"وَرَفتن با کدهای هگز و حدسِ کورکورانه وقتی به یک سایهٔ روشن‌تر یا کدرتر نیاز داری."}},"palette":{"part":"color","n":12,"name":{"en":"Build a Full Palette","fa":"یک پالتِ کامل بساز"},"glabel":{"en":"Palette","fa":"پالت"},"principle":{"en":"You need far more shades than you think — define a full range for every color up front.","fa":"به سایه‌های خیلی بیشتری از آنچه فکر می‌کنی نیاز داری — از اول برای هر رنگ یک دامنهٔ کامل تعریف کن."},"more":{"en":"A single blue won't survive real UI: you need light tints for backgrounds, mid tones for buttons, and dark shades for text. Plan five to ten shades of each color (plus a good set of greys) before you start, and you'll never get stuck mid-design hunting for a shade that doesn't exist yet.","fa":"یک آبیِ تنها در رابطِ واقعی دوام نمی‌آورد: به ته‌رنگ‌های روشن برای زمینه‌ها، تُن‌های میانه برای دکمه‌ها، و سایه‌های تیره برای نوشته نیاز داری. قبل از شروع، برای هر رنگ پنج تا ده سایه (به‌علاوهٔ یک مجموعهٔ خوب از خاکستری‌ها) طرح‌ریزی کن، آن‌وقت هیچ‌وقت وسطِ کار گیر نمی‌کنی که دنبالِ سایه‌ای بگردی که هنوز وجود ندارد."},"example":{"en":"Define blue-50 through blue-900, plus eight or nine greys, and reach only for those.","fa":"از آبیِ‌۵۰ تا آبیِ‌۹۰۰ را تعریف کن، به‌علاوهٔ هشت‌نُه خاکستری، و فقط سراغِ همان‌ها برو."},"tip":{"en":"Pick a base color, then create lighter and darker steps by adjusting lightness in HSL.","fa":"یک رنگِ پایه انتخاب کن، بعد با تنظیمِ روشنایی در HSL، پله‌های روشن‌تر و تیره‌تر بساز."},"pitfall":{"en":"Starting with just a few colors and inventing shades ad hoc as you go.","fa":"شروع با فقط چند رنگ و سرِهم‌کردنِ سایه‌ها همین‌طور که پیش می‌روی."}},"contrast":{"part":"color","n":13,"name":{"en":"Don't Rely on Color Alone","fa":"فقط به رنگ تکیه نکن"},"glabel":{"en":"Contrast","fa":"کنتراست"},"principle":{"en":"Never use color as the only way to convey meaning, and keep contrast high enough to be accessible.","fa":"هیچ‌وقت رنگ را تنها راهِ رساندنِ معنا نکن، و کنتراست را آن‌قدر بالا نگه دار که دسترس‌پذیر باشد."},"more":{"en":"Many people can't reliably tell certain colors apart, so a red-vs-green status with no other cue is invisible to them. Back color up with an icon, label or shape. And make sure text has enough contrast against its background — but when a required contrast makes text look heavy, adjust the color's saturation and lightness rather than just going darker.","fa":"خیلی‌ها نمی‌توانند بعضی رنگ‌ها را مطمئن از هم تشخیص بدهند، پس یک وضعیتِ قرمز‌در‌برابرِ‌سبز بدونِ نشانهٔ دیگر، برایشان نامرئی است. رنگ را با یک آیکون، برچسب یا شکل پشتیبانی کن. و مطمئن شو نوشته کنتراستِ کافی با زمینه‌اش دارد — اما وقتی کنتراستِ لازم نوشته را سنگین نشان می‌دهد، به‌جای اینکه فقط تیره‌ترش کنی، اشباع و روشناییِ رنگ را تنظیم کن."},"example":{"en":"Add a checkmark or an 'X' icon next to green 'success' and red 'error', not just the color.","fa":"کنارِ سبزِ «موفق» و قرمزِ «خطا»، یک تیک یا یک آیکونِ ضربدر بگذار، نه فقط رنگ را."},"tip":{"en":"Check text contrast against WCAG, and always pair color signals with a second cue.","fa":"کنتراستِ نوشته را با استانداردِ WCAG بررسی کن، و نشانه‌های رنگی را همیشه با یک نشانهٔ دوم همراه کن."},"pitfall":{"en":"Signaling state with color only, and low-contrast text that many can't read.","fa":"نشان‌دادنِ وضعیت فقط با رنگ، و نوشتهٔ کم‌کنتراست که خیلی‌ها نمی‌توانند بخوانند."}},"light":{"part":"depth","n":14,"name":{"en":"Emulate a Light Source","fa":"یک منبعِ نور را شبیه‌سازی کن"},"glabel":{"en":"Light Source","fa":"منبعِ نور"},"principle":{"en":"Shadows imply light — pretend it always comes from directly above, and be consistent everywhere.","fa":"سایه‌ها نور را می‌رسانند — وانمود کن نور همیشه از درست بالا می‌آید، و همه‌جا ثابت باشد."},"more":{"en":"Because light usually comes from above, the top of a raised element catches light and its bottom casts a shadow below. Keep that mental model consistent: raised elements get a shadow beneath them, inset elements (like pressed buttons or inputs) get a shadow inside the top edge. For realism, layer two shadows — a tight dark one and a larger soft one.","fa":"چون نور معمولاً از بالا می‌آید، بالای یک عنصرِ برجسته نور را می‌گیرد و پایینش سایه‌ای زیرِ خودش می‌اندازد. این مدلِ ذهنی را ثابت نگه دار: عنصرهای برجسته زیرِ خودشان سایه می‌گیرند، عنصرهای فرورفته (مثلِ دکمه‌های فشرده‌شده یا فیلدهای ورودی) یک سایه در لبهٔ بالاییِ داخلشان می‌گیرند. برای واقعی‌شدن، دو سایه را لایه کن — یک سایهٔ تیرهٔ جمع و یک سایهٔ نرمِ بزرگ‌تر."},"example":{"en":"A card sits above the page with a soft shadow below it; a text input looks slightly recessed.","fa":"یک کارت با یک سایهٔ نرمِ زیرش، بالای صفحه می‌نشیند؛ یک فیلدِ ورودی کمی فرورفته به‌نظر می‌رسد."},"tip":{"en":"Combine a small sharp shadow with a larger blurry one to mimic real light.","fa":"یک سایهٔ کوچکِ تیز را با یک سایهٔ بزرگ‌ترِ محو ترکیب کن تا نورِ واقعی را تقلید کنی."},"pitfall":{"en":"Harsh, uniform shadows that ignore where the light is supposed to come from.","fa":"سایه‌های خشن و یک‌نواخت که بی‌خیالِ این‌اند که نور قرار است از کجا بیاید."}},"depthcolor":{"part":"depth","n":15,"name":{"en":"Use Color & Contrast for Depth","fa":"برای عمق از رنگ و کنتراست استفاده کن"},"glabel":{"en":"Depth","fa":"عمق"},"principle":{"en":"Elements that feel closer should have more contrast and warmth; distant ones fade back.","fa":"عنصرهایی که نزدیک‌تر حس می‌شوند باید کنتراست و گرمای بیشتری داشته باشند؛ عنصرهای دور عقب می‌روند."},"more":{"en":"Depth isn't only shadows. Higher contrast and warmer, more saturated colors make an element feel like it's in front; lower contrast and cooler, softer colors make it recede into the background. Overlapping elements to create real layers reinforces the effect and makes flat interfaces feel three-dimensional.","fa":"عمق فقط سایه نیست. کنتراستِ بالاتر و رنگ‌های گرم‌تر و اشباع‌تر، کاری می‌کنند عنصر انگار جلو باشد؛ کنتراستِ پایین‌تر و رنگ‌های سردتر و ملایم‌تر، عقب می‌بَرَندش توی زمینه. هم‌پوشانیِ عنصرها برای ساختنِ لایه‌های واقعی، این اثر را تقویت می‌کند و رابطِ تخت را سه‌بعدی نشان می‌دهد."},"example":{"en":"A bright, high-contrast primary button pops forward while a subtle outlined button stays back.","fa":"یک دکمهٔ اصلیِ روشن و پُرکنتراست جلو می‌زند، درحالی‌که یک دکمهٔ خط‌دارِ ملایم عقب می‌ماند."},"tip":{"en":"To push something forward, raise its contrast; to send it back, soften and cool it.","fa":"برای اینکه چیزی را جلو بیاوری، کنتراستش را بالا ببر؛ برای عقب‌فرستادنش، ملایم و سردش کن."},"pitfall":{"en":"Flat, same-contrast elements that all sit on one lifeless plane.","fa":"عنصرهای تخت و هم‌کنتراست که همه روی یک سطحِ بی‌روح نشسته‌اند."}},"details":{"part":"depth","n":16,"name":{"en":"Supercharge the Details","fa":"جزئیات را شارژ کن"},"glabel":{"en":"Finishing Touches","fa":"پرداختِ پایانی"},"principle":{"en":"Great design lives in the details — upgrade the boring defaults and design your empty states with care.","fa":"طراحیِ عالی در جزئیات است — حالت‌های پیش‌فرضِ کسل‌کننده را ارتقا بده و حالت‌های خالی را با دقت طراحی کن."},"more":{"en":"The last 10% is what makes UI feel polished. Replace default bullets and checkmarks with custom icons, style your links and quotes, use nicer images, and never ship a blank empty state — the first thing a new user sees is often an empty screen, so make it welcoming and helpful instead of a dead end.","fa":"همان ده‌درصدِ آخر است که رابط را صیقلی نشان می‌دهد. گلوله‌ها و تیک‌های پیش‌فرض را با آیکون‌های سفارشی عوض کن، لینک‌ها و نقلِ‌قول‌هایت را استایل بده، از تصویرهای بهتری استفاده کن، و هیچ‌وقت یک حالتِ خالیِ سفید تحویل نده — اولین چیزی که کاربرِ تازه می‌بیند اغلب یک صفحهٔ خالی است، پس به‌جای یک بن‌بست، خوشامدگو و کمک‌کننده‌اش کن."},"example":{"en":"An empty 'no projects yet' screen with a friendly illustration and a clear 'Create one' button.","fa":"یک صفحهٔ خالیِ «هنوز پروژه‌ای نیست» با یک تصویرِ دوستانه و یک دکمهٔ روشنِ «یکی بساز»."},"tip":{"en":"Design the empty state first — it's what users see before they have any data.","fa":"اول حالتِ خالی را طراحی کن — همان چیزی است که کاربرها قبل از داشتنِ هر داده‌ای می‌بینند."},"pitfall":{"en":"Shipping raw browser defaults and blank screens with no thought given.","fa":"تحویل‌دادنِ پیش‌فرض‌های خامِ مرورگر و صفحه‌های خالیِ بی‌فکر."}}},"core":{"name":{"en":"MAKE IT LOOK DESIGNED","fa":"طراحی‌شده به‌نظر برسد"},"principle":{"en":"You don't need to be a born artist to design a good interface. Refactoring UI turns design into a set of concrete, repeatable tactics: establish a clear hierarchy, give everything generous space, systemize your text and color, and finish with depth and detail. Make deliberate choices from small, fixed systems and the result looks designed — on purpose.","fa":"لازم نیست هنرمندِ مادرزاد باشی تا یک رابطِ خوب طراحی کنی. «Refactoring UI» طراحی را به مجموعه‌ای از ترفندهای مشخص و تکرارپذیر تبدیل می‌کند: یک سلسله‌مراتبِ روشن بساز، به همه‌چیز فضای دست‌ودل‌باز بده، نوشته و رنگت را نظام‌مند کن، و با عمق و جزئیات کار را تمام کن. از نظام‌های کوچک و ثابت، انتخاب‌های حساب‌شده بکن، آن‌وقت نتیجه طراحی‌شده به‌نظر می‌رسد — عمداً."},"more":{"en":"Wathan and Schoger organize web design into practical areas — Hierarchy (weight and color over size, labels last), Layout & Spacing (start with too much white space, use a spacing system), Designing Text (limit fonts, a type scale, readable measure), Working with Color (HSL, a full palette, accessible contrast), and Depth & Finishing Touches (a consistent light source, layered shadows, empty states and imagery). The thread through all of it: tactics, not talent.","fa":"واتان و شوگر طراحیِ وب را در چند حوزهٔ عملی می‌چینند — سلسله‌مراتب (وزن و رنگ به‌جای اندازه، برچسب در آخر)، چیدمان و فاصله (شروع با فضای خالیِ زیاد، استفاده از یک نظامِ فاصله)، طراحیِ نوشته (کم‌کردنِ فونت، یک مقیاسِ اندازه، عرضِ خوانا)، کار با رنگ (HSL، یک پالتِ کامل، کنتراستِ دسترس‌پذیر)، و عمق و پرداختِ پایانی (یک منبعِ نورِ ثابت، سایه‌های لایه‌لایه، حالت‌های خالی و تصویرها). نخِ رابطِ همه‌شان: ترفند، نه استعداد."},"example":{"en":"Click any node to read a tactic. You can also drag the nodes around.","fa":"روی هر دایره کلیک کن تا یک ترفند را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."}},"stages":[{"level":1,"badge":{"en":"Level 1 · Over-simplified","fa":"سطحِ ۱ · خیلی ساده"},"title":{"en":"Tactics, not talent","fa":"ترفند، نه استعداد"},"tagline":{"en":"The whole book in a sentence.","fa":"کلِ کتاب در یک جمله."},"body":{"en":"Good UI design isn't a gift you're born with — it's a set of tricks you can copy. You don't have to be an artist; you just have to apply a few concrete rules on purpose.","fa":"طراحیِ خوبِ رابط، موهبتی نیست که با آن به دنیا آمده باشی — مجموعه‌ای از ترفندهاست که می‌توانی کپی‌شان کنی. لازم نیست هنرمند باشی؛ فقط باید چند قاعدهٔ مشخص را عمداً به کار ببری."},"example":{"en":"Add more white space and make the important text bolder — it already looks better.","fa":"فضای خالی بیشتر کن و نوشتهٔ مهم را پُررنگ‌تر — همین حالا بهتر به‌نظر می‌رسد."},"gain":{"en":"You believe design is learnable, and you know where to start.","fa":"باور می‌کنی طراحی یادگرفتنی است، و می‌دانی از کجا شروع کنی."}},{"level":2,"badge":{"en":"Level 2 · Simple","fa":"سطحِ ۲ · ساده"},"title":{"en":"Hierarchy & space","fa":"سلسله‌مراتب و فضا"},"tagline":{"en":"Guide the eye, give it room.","fa":"چشم را هدایت کن، بهش جا بده."},"body":{"en":"Start with two moves that fix most designs. Build a clear <b>hierarchy</b> — decide what matters most and use weight and color, not just size, to show it. Then add <b>white space</b>: start with too much and remove until it feels right, using a consistent spacing scale.","fa":"با دو حرکت شروع کن که بیشترِ طرح‌ها را درست می‌کنند. یک <b>سلسله‌مراتبِ</b> روشن بساز — تصمیم بگیر چه چیزی مهم‌تر است و با وزن و رنگ، نه فقط اندازه، نشانش بده. بعد <b>فضای خالی</b> اضافه کن: با فضای زیاد شروع کن و کم کن تا درست شود، با یک مقیاسِ فاصلهٔ یک‌دست."},"example":{"en":"Make the price bold and dark, mute the SKU to grey, and double the padding around the card.","fa":"قیمت را پُررنگ و تیره کن، کدِ کالا را خاکستری و ملایم کن، و فاصلهٔ دورِ کارت را دو برابر کن."},"gain":{"en":"You can make a cramped, flat design feel clean and intentional.","fa":"می‌توانی یک طرحِ فشرده و تخت را تمیز و حساب‌شده کنی."}},{"level":3,"badge":{"en":"Level 3 · Balanced","fa":"سطحِ ۳ · متعادل"},"title":{"en":"Systemize text & color","fa":"نوشته و رنگ را نظام‌مند کن"},"tagline":{"en":"Type scale, HSL, a full palette.","fa":"مقیاسِ اندازه، HSL، یک پالتِ کامل."},"body":{"en":"Now stop improvising. Limit yourself to one or two <b>fonts</b> and size them from a <b>type scale</b>. Keep lines 45–75 characters for <b>readability</b>. Move to <b>HSL</b> so you can reason about color, and build a <b>full palette</b> of shades up front — you'll need more than you think.","fa":"حالا دست از فی‌البداهه‌سازی بردار. خودت را به یکی‌دو <b>فونت</b> محدود کن و اندازه‌شان را از یک <b>مقیاسِ اندازه</b> بردار. خط‌ها را برای <b>خوانایی</b> ۴۵ تا ۷۵ نویسه نگه دار. به <b>HSL</b> برو تا بتوانی دربارهٔ رنگ فکر کنی، و از اول یک <b>پالتِ کامل</b> از سایه‌ها بساز — به بیشتر از آنچه فکر می‌کنی نیاز داری."},"example":{"en":"Pick one clean font, a scale of 12–36px, and define blue-50 to blue-900 plus nine greys.","fa":"یک فونتِ تمیز انتخاب کن، یک مقیاسِ ۱۲ تا ۳۶ پیکسل، و از آبیِ‌۵۰ تا آبیِ‌۹۰۰ به‌علاوهٔ نُه خاکستری را تعریف کن."},"gain":{"en":"Your text and color feel like one coherent system, not guesses.","fa":"نوشته و رنگت مثلِ یک نظامِ منسجم به‌نظر می‌رسند، نه حدس."}},{"level":4,"badge":{"en":"Level 4 · Advanced","fa":"سطحِ ۴ · پیشرفته"},"title":{"en":"Depth & accessibility","fa":"عمق و دسترس‌پذیری"},"tagline":{"en":"Light source, layers, real contrast.","fa":"منبعِ نور، لایه‌ها، کنتراستِ واقعی."},"body":{"en":"Make flat UI feel real. Add <b>depth</b> by emulating a single <b>light source</b> — layered shadows below raised elements — and by using contrast and warmth to bring things forward or push them back. And design for everyone: never rely on <b>color alone</b>, and keep <b>contrast</b> high enough to be accessible.","fa":"رابطِ تخت را واقعی کن. با شبیه‌سازیِ یک <b>منبعِ نورِ</b> واحد <b>عمق</b> اضافه کن — سایه‌های لایه‌لایه زیرِ عنصرهای برجسته — و با کنتراست و گرما چیزها را جلو بیاور یا عقب بِبَر. و برای همه طراحی کن: هیچ‌وقت فقط به <b>رنگ</b> تکیه نکن، و <b>کنتراست</b> را آن‌قدر بالا نگه دار که دسترس‌پذیر باشد."},"example":{"en":"Give a card a soft layered shadow, and add an icon beside a colored status so it's never color-only.","fa":"به یک کارت یک سایهٔ نرمِ لایه‌لایه بده، و کنارِ یک وضعیتِ رنگی یک آیکون بگذار تا هیچ‌وقت فقط رنگی نباشد."},"gain":{"en":"Your interfaces feel tangible and work for every user.","fa":"رابط‌هایت ملموس‌اند و برای هر کاربری کار می‌کنند."}},{"level":5,"badge":{"en":"Level 5 · Expert","fa":"سطحِ ۵ · حرفه‌ای"},"title":{"en":"Sweat the details","fa":"روی جزئیات وقت بگذار"},"tagline":{"en":"Finishing touches that sell it.","fa":"پرداختِ پایانی که فروشش می‌کند."},"body":{"en":"The expert has all the systems and then obsesses over the last 10%. <b>Supercharge the defaults</b>: custom icons instead of browser bullets, styled links and quotes, better imagery. Design <b>empty states</b> so a new user's first blank screen feels welcoming. At this level design is a set of deliberate decisions from your own systems — repeatable, teachable, and unmistakably intentional.","fa":"آدمِ حرفه‌ای همهٔ نظام‌ها را دارد و بعد روی همان ده‌درصدِ آخر وسواس به خرج می‌دهد. <b>پیش‌فرض‌ها را شارژ کن</b>: آیکون‌های سفارشی به‌جای گلوله‌های مرورگر، لینک‌ها و نقلِ‌قول‌های استایل‌خورده، تصویرهای بهتر. <b>حالت‌های خالی</b> را طوری طراحی کن که اولین صفحهٔ خالیِ کاربرِ تازه، خوشامدگو باشد. در این سطح، طراحی مجموعه‌ای از تصمیم‌های حساب‌شده از نظام‌های خودت است — تکرارپذیر، آموختنی، و بی‌شک عمدی."},"example":{"en":"Your empty states, icons and micro-details all feel considered — the UI looks professionally designed.","fa":"حالت‌های خالی، آیکون‌ها و ریزه‌کاری‌هایت همه حساب‌شده به‌نظر می‌رسند — رابط، حرفه‌ای‌طراحی‌شده به‌نظر می‌رسد."},"gain":{"en":"You can make any interface look designed — and show others how.","fa":"می‌توانی هر رابطی را طراحی‌شده نشان بدهی — و به دیگران هم یاد بدهی چطور."}}],"quotes":[{"en":"Make your ideas look awesome, without relying on a designer.","fa":"کاری کن ایده‌هایت عالی به‌نظر برسند، بی‌آنکه به یک طراح تکیه کنی."},{"en":"It's easy to throw your hands up and say, ‘I'll never be able to make this look good, I'm not an artist,’ but there are a ton of tricks you can use to level up your work that don't require a background in graphic design.","fa":"راحت است که دست‌هایت را بالا بیندازی و بگویی «هیچ‌وقت نمی‌توانم این را خوب کنم، من که هنرمند نیستم»، اما کلی ترفند هست که می‌توانی برای بهتر‌کردنِ کارت به کار ببری و هیچ‌کدام به پیشینهٔ طراحیِ گرافیک نیاز ندارند."},{"en":"Not all elements are equal.","fa":"همهٔ عنصرها برابر نیستند."},{"en":"Emphasize by de-emphasizing.","fa":"با کم‌رنگ‌کردن، تأکید کن."},{"en":"When you start designing a new piece of UI, start with too much white space.","fa":"وقتی شروع می‌کنی به طراحیِ یک تکه رابطِ تازه، با فضای خالیِ زیاد شروع کن."},{"en":"Don't use grey text on colored backgrounds.","fa":"روی زمینه‌های رنگی از نوشتهٔ خاکستری استفاده نکن."},{"en":"You're going to need more shades than you think.","fa":"به سایه‌های بیشتری از آنچه فکر می‌کنی نیاز پیدا می‌کنی."},{"en":"Emulate a light source.","fa":"یک منبعِ نور را شبیه‌سازی کن."}],"media":[{"kind":"yt","id":"7Z9rrryIOC4","src":{"en":"YouTube · CSS Day","fa":"یوتیوب · CSS Day"},"title":{"en":"Refactoring UI — Steve Schoger (CSS Day 2019)","fa":"بازطراحیِ رابط — استیو شوگر · CSS Day ۲۰۱۹"},"desc":{"en":"Steve Schoger redesigns real interfaces live, narrating the tactics as he goes.","fa":"استیو شوگر زندهٔ زنده رابط‌های واقعی را بازطراحی می‌کند و همین‌طور که پیش می‌رود، ترفندها را توضیح می‌دهد."},"bullets":{"en":["Live before/after redesigns","Hierarchy, spacing and color in action","Straight from a co-author"],"fa":["بازطراحیِ زندهٔ قبل و بعد","سلسله‌مراتب، فاصله و رنگ در عمل","مستقیم از یکی از نویسنده‌ها"]},"best":{"en":"Best for Stage 2–4.","fa":"خوب برای مرحلهٔ ۲ تا ۴."}},{"kind":"yt","id":"VfRE0ah3NxE","src":{"en":"YouTube · Laracon Online","fa":"یوتیوب · Laracon Online"},"title":{"en":"Practical Solutions to Common UI Design Problems","fa":"راه‌حل‌های عملی برای مشکل‌های رایجِ طراحیِ رابط"},"desc":{"en":"A talk walking through frequent UI mistakes and the simple fixes from the book.","fa":"یک سخنرانی که مشکل‌های پرتکرارِ رابط و راه‌حل‌های سادهٔ کتاب را مرور می‌کند."},"bullets":{"en":["Common mistakes, side by side","Quick, repeatable fixes","A practical overview"],"fa":["اشتباه‌های رایج، کنارِ هم","راه‌حل‌های سریع و تکرارپذیر","یک مرورِ عملی"]},"best":{"en":"Best for Stage 2–3.","fa":"خوب برای مرحلهٔ ۲ و ۳."}},{"kind":"yt","id":"EjEYTRD-W-M","src":{"en":"YouTube · Laracon Online","fa":"یوتیوب · Laracon Online"},"title":{"en":"The Little Details of UI Design — Steve Schoger","fa":"جزئیاتِ کوچکِ طراحیِ رابط — استیو شوگر"},"desc":{"en":"A deep dive into the finishing touches that make interfaces feel polished.","fa":"یک واکاویِ عمیق در دست‌کاری‌های پایانی که رابط‌ها را صیقلی نشان می‌دهند."},"bullets":{"en":["Depth, shadows and detail","Small touches, big payoff","Great for finishing work"],"fa":["عمق، سایه و جزئیات","دست‌کاری‌های کوچک، نتیجهٔ بزرگ","عالی برای کارِ پایانی"]},"best":{"en":"Best for Stage 4–5.","fa":"خوب برای مرحلهٔ ۴ و ۵."}},{"kind":"img","url":"https://refactoringui.com/","src":{"en":"Refactoring UI · Publisher","fa":"Refactoring UI · ناشر"},"title":{"en":"Refactoring UI — Official Site","fa":"بازطراحیِ رابط — سایتِ رسمی"},"desc":{"en":"The official book site, with the full table of contents and sample chapters.","fa":"سایتِ رسمیِ کتاب، با فهرستِ کامل و فصل‌های نمونه."},"bullets":{"en":["The complete contents","Sample tactics and previews","Straight from the source"],"fa":["فهرستِ کامل","ترفندها و پیش‌نمایش‌های نمونه","مستقیم از خودِ منبع"]},"best":{"en":"For the book itself.","fa":"برای خودِ کتاب."}}],"go":[{"label":{"en":"Official book site","fa":"سایتِ رسمیِ کتاب"},"url":"https://refactoringui.com/"},{"label":{"en":"Book on Goodreads","fa":"کتاب در گودریدز"},"url":"https://www.goodreads.com/book/show/43190966-refactoring-ui"},{"label":{"en":"Free article: 7 Practical Tips for Cheating at Design","fa":"مقالهٔ رایگان: هفت ترفندِ عملی برای تقلب در طراحی"},"url":"https://medium.com/refactoring-ui/7-practical-tips-for-cheating-at-design-40c736799886"}],"recs":[{"pri":"b","t":{"en":"Fix hierarchy with weight and color","fa":"سلسله‌مراتب را با وزن و رنگ درست کن"},"d":{"en":"Take one screen and re-rank its elements: bolden what matters, mute the rest to grey — without changing any sizes.","fa":"یک صفحه را بردار و عنصرهایش را از نو رتبه‌بندی کن: چیزِ مهم را پُررنگ کن، بقیه را خاکستری و ملایم — بدونِ عوض‌کردنِ هیچ اندازه‌ای."}},{"pri":"b","t":{"en":"Add too much white space","fa":"فضای خالیِ زیاد اضافه کن"},"d":{"en":"Double the padding and gaps on a cramped component, then trim back until it feels right.","fa":"فاصلهٔ داخلی و شکاف‌های یک عنصرِ فشرده را دو برابر کن، بعد کم کن تا درست شود."}},{"pri":"n","t":{"en":"Define your scales","fa":"مقیاس‌هایت را تعریف کن"},"d":{"en":"Write down a fixed spacing scale and a type scale, and only pick from them from now on.","fa":"یک مقیاسِ فاصلهٔ ثابت و یک مقیاسِ اندازهٔ نوشته بنویس، و از این به بعد فقط از همان‌ها انتخاب کن."}},{"pri":"n","t":{"en":"Build your shades","fa":"سایه‌هایت را بساز"},"d":{"en":"Pick one color and generate eight to ten shades in HSL, plus a set of greys, before your next design.","fa":"یک رنگ انتخاب کن و قبل از طرحِ بعدی‌ات، در HSL هشت تا ده سایه به‌علاوهٔ یک مجموعه خاکستری بساز."}}]};
-</script>
-
-<script>
-/* ── 3) RENDER (text sections) ────────────────────────────── */
-function elClear(id){ var e=document.getElementById(id); if(e) e.innerHTML=''; return e; }
-
-function renderText(){
-  var t=elClear('tldrHost');
-  DATA.tldr.forEach(function(o){ var li=document.createElement('li'); li.innerHTML = TX(o); t.appendChild(li); });
-
-  var q=elClear('quoteHost');
-  DATA.quotes.forEach(function(o){
-    var bq=document.createElement('blockquote');
-    bq.innerHTML = '<span class="qm">“</span><p>'+TX(o)+'</p>';
-    q.appendChild(bq);
-  });
-
-  var m=elClear('mediaHost');
-  DATA.media.forEach(function(o){
-    var card=document.createElement('div'); card.className='mcard';
-    var thumb;
-    if(o.kind==='yt'){
-      var url='https://www.youtube.com/watch?v='+o.id;
-      var img='https://i.ytimg.com/vi/'+o.id+'/hqdefault.jpg';
-      thumb='<a class="mthumb" href="'+url+'" target="_blank" rel="noopener">'
-        +'<img src="'+img+'" alt="" loading="lazy" onerror="this.style.display=\'none\'">'
-        +'<span class="ptype">'+(LANG==='fa'?'ویدیو':'VIDEO')+'</span>'
-        +'<span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></span></a>';
-    } else {
-      thumb='<a class="mthumb" href="'+o.url+'" target="_blank" rel="noopener"><span class="mfake">'
-        +'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.6"/><path d="M21 15l-5-5L5 21"/></svg>'
-        +'</span><span class="ptype">'+(LANG==='fa'?'تصویر':'IMAGE')+'</span></a>';
-    }
-    var link = o.kind==='yt' ? 'https://www.youtube.com/watch?v='+o.id : o.url;
-    var bl = (LANG==='fa'?o.bullets.fa:o.bullets.en).map(function(b){ return '<li>'+ (LANG==='fa'?faText(b):b) +'</li>'; }).join('');
-    card.innerHTML = thumb + '<div class="mbody">'
-      + '<div class="msrc">'+TX(o.src)+'</div>'
-      + '<h4>'+TX(o.title)+'</h4>'
-      + '<p class="mdesc">'+TX(o.desc)+'</p>'
-      + '<ul>'+bl+'</ul>'
-      + '<a class="mlink" href="'+link+'" target="_blank" rel="noopener">'+(LANG==='fa'?'باز کردن ↗':'Open ↗')+'</a>'
-      + '<div class="mbest">'+TX(o.best)+'</div>'
-      + '</div>';
-    m.appendChild(card);
-  });
-
-  var g=elClear('goHost');
-  DATA.go.forEach(function(o){
-    var a=document.createElement('a'); a.href=o.url; a.target='_blank'; a.rel='noopener';
-    a.textContent=TX(o.label); g.appendChild(a);
-  });
-
-  var r=elClear('recHost');
-  DATA.recs.forEach(function(o){
-    var it=document.createElement('div'); it.className='item';
-    var priLabel = o.pri==='b' ? (LANG==='fa'?'از اینجا شروع کن':'Start here') : (LANG==='fa'?'بعدش این':'Then this');
-    it.innerHTML='<div class="t">'+TX(o.t)+'<span class="pri '+(o.pri==='b'?'b':'')+'">'+priLabel+'</span></div>'
-      +'<div class="d">'+TX(o.d)+'</div>';
-    r.appendChild(it);
-  });
-
-  var mth=document.getElementById('methodHost');
-  mth.innerHTML = LANG==='fa' ? faText("<p><b>منبع:</b> کتابِ «Refactoring UI» نوشتهٔ آدام واتان و استیو شوگر، چاپِ ۲۰۱۸.</p><p><b>روشِ کار:</b> ساختارِ پنج‌بخشی و ترفندها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده؛ نقل‌قول‌ها مقابله و ویدیوها بررسی شده‌اند.</p><p><b>گروه:</b> «طراحی» — یک راهنمای عملی برای هر کسی که رابطِ کاربری می‌سازد.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای متنِ کامل، خودِ کتاب را بخوان.</p>") : "<p><b>Source:</b> the book <i>Refactoring UI</i> by Adam Wathan and Steve Schoger, published 2018.</p><p><b>How this was built:</b> the five-part structure and tactics were gathered and rewritten from the book and reputable sources; quotes were cross-checked and the linked videos verified.</p><p><b>Group:</b> Design — a practical handbook for anyone who builds user interfaces.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>";
-  var fl=document.getElementById('flowTop');
-  if(fl){
-    var loop = LANG==='fa' ? ["سلسله‌مراتب","فضا","پرداخت"] : ["Hierarchy","Space","Polish"];
-    var ar = LANG==='fa' ? '⟵' : '⟶';
-    fl.innerHTML = loop.map(function(w){ return '<b>'+ (LANG==='fa'?faText(w):w) +'</b>'; }).join(' <span class="ar">'+ar+'</span> ');
-  }
-}
-</script>
-
-<script>
-/* ── 4) CONCEPT MAP ───────────────────────────────────────── */
-function renderMap(){
-  var host=document.getElementById('mapHost'); if(!host) return; host.innerHTML='';
-  DATA.parts.forEach(function(p, i){
-    var col=document.createElement('div'); col.className='partcol';
-    var chaps=p.chapters.map(function(ck){
-      var c=DATA.chapters[ck];
-      return '<div class="chapchip"><span class="cn">'+num(c.n)+'</span><div><b>'+TX(c.name)+'</b>'
-        +'<small>'+TX(c.principle).replace(/<[^>]+>/g,'').slice(0, LANG==='fa'?86:76)+'…</small></div></div>';
-    }).join('');
-    col.innerHTML='<div class="ph"><span class="pdot" style="background:var('+p.varc+')"></span>'
-      +'<span class="pnum">'+(LANG==='fa'?'بخشِ ':'PART ')+num(i+1)+'</span></div>'
-      +'<h4>'+TX(p.name)+'</h4>'
-      +'<div class="ptag" style="color:var('+p.varc+')">'+TX(p.tag)+'</div>'
-      +'<p class="pgist">'+TX(p.gist)+'</p>'+chaps;
-    host.appendChild(col);
-  });
-}
-</script>
-
-<script>
-/* ── 5) INTERACTIVE NETWORK GRAPH (deterministic radial layout, no physics) ── */
-var GRAPH = (function(){
-  var svg, W=980, H=780, nodes=[], links=[], sel=null, dragNode=null, moved=false, startPt=null;
-
-  function build(){
-    svg=document.getElementById('netsvg');
-    svg.setAttribute('viewBox','0 0 '+W+' '+H);
-    nodes=[]; links=[];
-    var cx=W/2, cy=H/2, R1=220, R2=126, span=66*Math.PI/180;
-    var N=DATA.parts.length, partAng=DATA.parts.map(function(_,i){ return -Math.PI/2 + i*(2*Math.PI/N); });
-    nodes.push({id:'core', kind:'core', varc:'--core', r:38, x:cx, y:cy, label:DATA.core.name, data:DATA.core});
-    DATA.parts.forEach(function(p,i){
-      var a=partAng[i], px=cx+Math.cos(a)*R1, py=cy+Math.sin(a)*R1;
-      nodes.push({id:'p_'+p.key, kind:'part', varc:p.varc, r:25, x:px, y:py,
-        label:p.name, data:{name:p.name, principle:p.gist, more:p.more, tag:p.tag, key:p.key}});
-      links.push({s:'core', t:'p_'+p.key, strong:true});
-      var nc=p.chapters.length, start=a-span/2;
-      p.chapters.forEach(function(ck,j){
-        var ca = nc>1 ? start+span*(j/(nc-1)) : a;   // fan the 5 chapters outward
-        var c=DATA.chapters[ck];
-        nodes.push({id:'c_'+ck, kind:'chap', varc:p.varc, r:15,
-          x:px+Math.cos(ca)*R2, y:py+Math.sin(ca)*R2,
-          label:(c.glabel||c.name), data:c, ck:ck});
-        links.push({s:'p_'+p.key, t:'c_'+ck});
-      });
-    });
-    nodes.forEach(function(n){ n.hx=n.x; n.hy=n.y; });   // remember home positions for reset
-    draw();
-    select('core');
-  }
-
-  function byId(id){ for(var i=0;i<nodes.length;i++) if(nodes[i].id===id) return nodes[i]; return null; }
-
-  function draw(){
-    var ln='', nd='';
-    links.forEach(function(l){ ln+='<line class="glink" data-s="'+l.s+'" data-t="'+l.t+'" stroke="var(--line)" stroke-width="'+(l.strong?2.4:1.5)+'" stroke-linecap="round"/>'; });
-    nodes.forEach(function(n){
-      var inside='', below='';
-      if(n.kind==='core'){
-        inside='<text text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="800" fill="#fff" letter-spacing="0.3">'+shortLabel(n)+'</text>';
-      } else {
-        if(n.kind==='chap'){
-          inside='<text text-anchor="middle" dominant-baseline="central" font-size="11" font-weight="800" fill="#fff">'+num(n.data.n)+'</text>';
+/* ── CONTENT — everything unique to this book lives here ── */
+Book.mount({
+  "meta": {
+    "slug": "refactoring-ui",
+    "folder": "10 - Design",
+    "groupNum": 10,
+    "group": {
+      "en": "Design",
+      "fa": "طراحی"
+    },
+    "author": {
+      "en": "Adam Wathan &amp; Steve Schoger",
+      "fa": "آدام واتان و استیو شوگر"
+    },
+    "eyebrow_author": {
+      "en": "Adam Wathan &amp; Steve Schoger",
+      "fa": "آدام واتان و استیو شوگر"
+    },
+    "book": {
+      "en": "Refactoring UI",
+      "fa": "بازطراحیِ رابط کاربری"
+    },
+    "hero_title": {
+      "en": "Refactoring UI — Make Your Ideas Look Awesome, Without a Designer",
+      "fa": "بازطراحیِ رابط کاربری — ایده‌هایت را بی‌کمکِ طراح، خوش‌ظاهر کن"
+    },
+    "dek": {
+      "en": "A knowledge graph of the whole book, plus a 5-stage path from a single idea to expert-level mastery — with an example at every step.",
+      "fa": "نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از یک ایدهٔ ساده تا حرفه‌ای — با یک مثال در هر مرحله."
+    },
+    "published": {
+      "en": "2018",
+      "fa": "۲۰۱۸"
+    },
+    "chips": [
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Parts",
+          "fa": "بخش"
         }
-        var ly = n.r + (n.kind==='part'?17:14);
-        var fs = n.kind==='part'?13:11;
-        var stroke = 'paint-order:stroke;stroke:var(--card2);stroke-width:3.6px;stroke-linejoin:round';
-        below='<text class="nlab" text-anchor="middle" y="'+ly+'" font-size="'+fs+'" font-weight="'+(n.kind==='part'?'800':'700')+'" fill="var(--ink)" style="'+stroke+'">'+shortLabel(n)+'</text>';
+      },
+      {
+        "v": {
+          "en": "16",
+          "fa": "۱۶"
+        },
+        "l": {
+          "en": "Tactics",
+          "fa": "ترفند"
+        }
+      },
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Learning stages",
+          "fa": "مرحلهٔ یادگیری"
+        }
       }
-      nd+='<g class="node'+(n.kind==='core'?' ncore':'')+'" data-id="'+n.id+'"><g class="ns">'
-        +'<circle r="'+n.r+'" fill="var('+n.varc+')" fill-opacity="'+(n.kind==='chap'?0.94:1)+'" stroke="var(--card)" stroke-width="2.5"/>'
-        +inside+below+'</g></g>';
-    });
-    svg.innerHTML='<g id="glinks">'+ln+'</g><g id="gnodes">'+nd+'</g>';
-    svg.querySelectorAll('.node').forEach(function(gEl){
-      gEl.addEventListener('pointerdown', onDown);
-      gEl.addEventListener('click', function(){ if(!moved) select(gEl.getAttribute('data-id')); });
-      gEl.addEventListener('pointerenter', function(){ if(!dragNode) gEl.classList.add('hover'); });
-      gEl.addEventListener('pointerleave', function(){ gEl.classList.remove('hover'); });
-    });
-    positions();
-  }
-  function shortLabel(n){ return TX(n.label); }
-
-  function positions(){
-    svg.querySelectorAll('.node').forEach(function(g){
-      var n=byId(g.getAttribute('data-id'));
-      g.setAttribute('transform','translate('+n.x.toFixed(1)+','+n.y.toFixed(1)+')');
-    });
-    svg.querySelectorAll('.glink').forEach(function(l){
-      var a=byId(l.getAttribute('data-s')), b=byId(l.getAttribute('data-t'));
-      l.setAttribute('x1',a.x.toFixed(1)); l.setAttribute('y1',a.y.toFixed(1));
-      l.setAttribute('x2',b.x.toFixed(1)); l.setAttribute('y2',b.y.toFixed(1));
-    });
-  }
-
-  /* drag: just move the grabbed node — no simulation, so nothing else shifts */
-  function toSvg(e){
-    var pt=svg.createSVGPoint(); pt.x=e.clientX; pt.y=e.clientY;
-    var m=svg.getScreenCTM(); if(!m) return {x:e.clientX,y:e.clientY};
-    return pt.matrixTransform(m.inverse());
-  }
-  function onDown(e){
-    e.preventDefault();
-    dragNode=byId(e.currentTarget.getAttribute('data-id'));
-    moved=false; startPt=toSvg(e); svg.style.cursor='grabbing';
-    e.currentTarget.classList.remove('hover');
-    window.addEventListener('pointermove', onMove);
-    window.addEventListener('pointerup', onUp);
-  }
-  function onMove(e){
-    if(!dragNode) return; var p=toSvg(e);
-    if(startPt && (Math.abs(p.x-startPt.x)>4 || Math.abs(p.y-startPt.y)>4)) moved=true;
-    dragNode.x=Math.max(dragNode.r+4, Math.min(W-dragNode.r-4, p.x));
-    dragNode.y=Math.max(dragNode.r+4, Math.min(H-dragNode.r-24, p.y));
-    positions();
-  }
-  function onUp(){
-    dragNode=null; svg.style.cursor='grab';
-    window.removeEventListener('pointermove', onMove);
-    window.removeEventListener('pointerup', onUp);
-  }
-
-  function keepSet(id){
-    var n=byId(id); if(!n || id==='core') return null;   // core → show everything
-    var keep={}; keep[id]=1; keep['core']=1;
-    var pk = (n.kind==='part') ? n.data.key : n.data.part;
-    keep['p_'+pk]=1;
-    DATA.parts.forEach(function(p){ if(p.key===pk) p.chapters.forEach(function(ck){ keep['c_'+ck]=1; }); });
-    return keep;   // highlight the whole branch: core → part → its chapters
-  }
-  function applyFocus(id){
-    var keep=keepSet(id), full=(keep===null);
-    svg.querySelectorAll('.node').forEach(function(g){
-      var nid=g.getAttribute('data-id');
-      g.classList.toggle('dim', !full && !keep[nid]);
-      g.classList.toggle('hl', !full && keep[nid] && nid!==id);
-    });
-    svg.querySelectorAll('.glink').forEach(function(l){
-      var s=l.getAttribute('data-s'), t=l.getAttribute('data-t');
-      var on = full || (keep[s] && keep[t]);
-      l.classList.toggle('dim', !on);
-      l.classList.toggle('hl', !full && on);
-    });
-  }
-
-  function relatedIds(node){
-    var ids=[];
-    if(node.id==='core'){ DATA.parts.forEach(function(p){ ids.push('p_'+p.key); }); }
-    else if(node.kind==='part'){ var pk=node.data.key; DATA.parts.forEach(function(p){ if(p.key===pk) p.chapters.forEach(function(ck){ ids.push('c_'+ck); }); }); }
-    else { var pk2=node.data.part; ids.push('p_'+pk2);
-      DATA.parts.forEach(function(p){ if(p.key===pk2) p.chapters.forEach(function(ck){ if('c_'+ck!==node.id) ids.push('c_'+ck); }); }); }
-    return ids;
-  }
-
-  function drow(cls,label,txt){ return '<div class="drow '+cls+'"><div class="dlab">'+label+'</div><div class="dtxt">'+txt+'</div></div>'; }
-
-  function select(id){
-    var n=byId(id); if(!n) return;
-    sel=id;
-    svg.querySelectorAll('.node').forEach(function(g){ g.classList.toggle('sel', g.getAttribute('data-id')===id); });
-    var selEl=svg.querySelector('.node[data-id="'+id+'"]'); if(selEl&&selEl.parentNode) selEl.parentNode.appendChild(selEl);  // raise on top
-    applyFocus(id);
-    var d=n.data, pv = n.kind==='core' ? '--core' : n.varc;
-    var kicker = n.kind==='core' ? (LANG==='fa'?'ایدهٔ مرکزی':'Core idea')
-             : n.kind==='part' ? (LANG==='fa'?'بخش':'Part') + ' · ' + TX(d.tag)
-             : (LANG==='fa'?"ترفندِ":"Tactic") + ' ' + num(d.n);
-    var prLab = (n.kind==='chap') ? (LANG==='fa'?'اصل':'Principle') : (LANG==='fa'?'ایدهٔ اصلی':'Big idea');
-    var html='<div class="dkick"><i style="background:var('+pv+')"></i>'+ (LANG==='fa'?faText(kicker):kicker) +'</div>'
-      +'<h4>'+TX(d.name)+'</h4>'
-      + drow('', prLab, TX(d.principle));
-    if(d.more)    html += drow('more', (LANG==='fa'?'بیشتر':'In depth'), TX(d.more));
-    if(d.example) html += drow('', (LANG==='fa'?'مثال':'Example'), TX(d.example));
-    if(d.tip)     html += drow('tip', (LANG==='fa'?'امتحان کن':'Try this'), TX(d.tip));
-    if(d.pitfall) html += drow('pit', (LANG==='fa'?'حواست باشد':'Watch out'), TX(d.pitfall));
-    // related chips
-    var rel=relatedIds(n);
-    if(rel.length){
-      var chips=rel.map(function(rid){ var rn=byId(rid); if(!rn) return '';
-        return '<span class="dchip" data-goto="'+rid+'"><i style="background:var('+rn.varc+')"></i>'+TX(rn.data.name)+'</span>'; }).join('');
-      html += '<div class="drow"><div class="dlab">'+(LANG==='fa'?'مرتبط':'Related')+'</div><div class="dchips">'+chips+'</div></div>';
+    ],
+    "kboxes": [
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Parts (hierarchy · spacing · text · color · depth)",
+          "fa": "بخش (سلسله‌مراتب · فاصله · نوشته · رنگ · عمق)"
+        }
+      },
+      {
+        "v": {
+          "en": "16",
+          "fa": "۱۶"
+        },
+        "l": {
+          "en": "Tactics you can use",
+          "fa": "ترفند برای استفاده"
+        }
+      },
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Levels, simple → expert",
+          "fa": "مرحله، ساده تا حرفه‌ای"
+        }
+      },
+      {
+        "v": {
+          "en": "3",
+          "fa": "۳"
+        },
+        "l": {
+          "en": "The flow: hierarchy · space · polish",
+          "fa": "جریان: سلسله‌مراتب · فضا · پرداخت"
+        }
+      }
+    ],
+    "core_callout": {
+      "label": {
+        "en": "The core idea:",
+        "fa": "ایدهٔ اصلی:"
+      },
+      "en": "Good design isn't a talent you're born with — it's a set of <i>practical tactics</i> anyone can learn. To make an interface look designed you don't need artistic flair; you need <i>hierarchy</i>, generous <i>white space</i>, a real <i>type</i> and <i>color</i> system, and a few finishing touches. Systemize your choices and let the details do the work.",
+      "fa": "طراحیِ خوب استعدادی نیست که با آن به دنیا آمده باشی — مجموعه‌ای از <i>ترفندهای عملی</i> است که هر کسی می‌تواند یاد بگیرد. برای اینکه یک رابط طراحی‌شده به‌نظر برسد به ذوقِ هنری نیاز نداری؛ به <i>سلسله‌مراتب</i>، <i>فضای خالیِ</i> دست‌ودل‌باز، یک نظامِ واقعیِ <i>نوشته</i> و <i>رنگ</i>، و چند دست‌کاریِ پایانی نیاز داری. انتخاب‌هایت را نظام‌مند کن و بگذار جزئیات کار را انجام بدهند."
+    },
+    "flow_callout": {
+      "label": {
+        "en": "Read it as a flow:",
+        "fa": "به‌صورتِ یک جریان بخوانش:"
+      },
+      "en": "get the <b>hierarchy</b> right first (what matters most, what fades back), give everything room with generous <b>space</b> and a real spacing system, set your <b>text</b> and <b>color</b> systems, then add <b>depth</b> and finishing <b>polish</b> — shadows, details, and great empty states.",
+      "fa": "اول <b>سلسله‌مراتب</b> را درست کن (چه چیزی مهم‌تر است، چه چیزی عقب می‌رود)، با <b>فضای</b> دست‌ودل‌باز و یک نظامِ واقعیِ فاصله به همه‌چیز جا بده، نظامِ <b>نوشته</b> و <b>رنگت</b> را بچین، بعد <b>عمق</b> و <b>پرداختِ</b> پایانی اضافه کن — سایه‌ها، جزئیات، و حالت‌های خالیِ خوب."
     }
-    var host=document.getElementById('detailHost');
-    host.innerHTML=html;
-    host.querySelectorAll('.dchip').forEach(function(c){
-      c.addEventListener('click', function(){ select(c.getAttribute('data-goto')); });
-    });
-  }
-
-  function relabel(){ if(!svg) return; draw(); select(sel||'core'); }
-
-  return {
-    build:build,
-    kick:function(){},                                    // no-op; layout is static
-    relabel:relabel,
-    reset:function(){ nodes.forEach(function(n){ n.x=n.hx; n.y=n.hy; }); positions(); },
-    resetFocus:function(){ select('core'); },
-    selectNode:function(id){ select(id); },
-    hasNodes:function(){ return nodes.length>0; }
-  };
-})();
-</script>
-
-<script>
-/* ── 6) 5-STAGE LADDER ────────────────────────────────────── */
-var curStage=0;
-function renderLadder(){
-  var host=document.getElementById('ladderHost'); host.innerHTML='';
-  DATA.stages.forEach(function(s,i){
-    var r=document.createElement('div'); r.className='rung'+(i===curStage?' active':'');
-    r.innerHTML='<div class="lv">'+ (LANG==='fa'?('سطحِ '+num(s.level)):('Level '+s.level)) +'</div>'
-      +'<div class="lt">'+TX(s.title)+'</div>'
-      +'<div class="lbar"><i style="width:'+(s.level*20)+'%"></i></div>';
-    r.addEventListener('click', function(){ curStage=i; renderLadder(); renderStage();
-      document.getElementById('stageHost').scrollIntoView({behavior:'smooth',block:'nearest'}); });
-    host.appendChild(r);
-  });
-}
-function renderStage(){
-  var s=DATA.stages[curStage];
-  var host=document.getElementById('stageHost');
-  var exLabel = LANG==='fa'?'مثال':'Example';
-  var prev = LANG==='fa'?'مرحلهٔ قبل':'‹ Prev', next = LANG==='fa'?'مرحلهٔ بعد':'Next ›';
-  host.innerHTML=''+
-    '<div class="stagecard">'
-    +'<div class="shead"><span class="badge">'+TX(s.badge)+'</span><h3>'+TX(s.title)+'</h3></div>'
-    +'<div class="tagline">'+TX(s.tagline)+'</div>'
-    +'<div class="sbody">'+TX(s.body)+'</div>'
-    +'<div class="exbox"><div class="exk">'+exLabel+'</div><div class="ext">'+TX(s.example)+'</div></div>'
-    +'<div class="gainrow"><span class="gi">✓</span><span>'+TX(s.gain)+'</span></div>'
-    +'<div class="stagenav">'
-      +'<button id="stPrev" '+(curStage===0?'disabled':'')+'>'+prev+'</button>'
-      +'<button id="stNext" '+(curStage===DATA.stages.length-1?'disabled':'')+'>'+next+'</button>'
-    +'</div></div>';
-  var pv=document.getElementById('stPrev'), nx=document.getElementById('stNext');
-  if(pv) pv.onclick=function(){ if(curStage>0){curStage--; renderLadder(); renderStage();} };
-  if(nx) nx.onclick=function(){ if(curStage<DATA.stages.length-1){curStage++; renderLadder(); renderStage();} };
-}
-</script>
-
-<script>
-/* ── 7) legend + graph tabs ───────────────────────────────── */
-function renderLegend(){
-  var host=document.getElementById('legendHost'); if(!host) return;
-  var items=[{c:'--core', en:'Core idea', fa:'ایدهٔ مرکزی'}]
-    .concat(DATA.parts.map(function(p){ return {c:p.varc, en:p.name.en, fa:p.name.fa}; }));
-  host.innerHTML = items.map(function(it){
-    return '<span><i style="background:var('+it.c+')"></i>'+(LANG==='fa'?faText(it.fa):it.en)+'</span>';
-  }).join('');
-  document.getElementById('ghint').textContent = LANG==='fa' ? 'روی هر دایره کلیک کن تا بیشتر بخوانی · می‌توانی بکشی‌شان' : 'Click a node to read more · drag to move';
-  document.getElementById('greset').textContent = LANG==='fa' ? '↺ چیدمان' : '↺ Reset';
-}
-function setupTabs(){
-  function show(net){
-    document.getElementById('netView').style.display = net?'':'none';
-    document.getElementById('mapView').style.display = net?'none':'';
-    document.getElementById('tabNet').classList.toggle('active',net);
-    document.getElementById('tabMap').classList.toggle('active',!net);
-    if(net) GRAPH.kick();
-  }
-  document.getElementById('tabNet').onclick=function(){show(true);};
-  document.getElementById('tabMap').onclick=function(){show(false);};
-  document.getElementById('greset').onclick=function(){ GRAPH.reset(); };
-  // click empty graph space resets the focus
-  var svg=document.getElementById('netsvg');
-  svg.addEventListener('click', function(e){ if(!e.target.closest('.node')) GRAPH.resetFocus(); });
-}
-</script>
-
-<script>
-/* ── 8) toggles + boot ────────────────────────────────────── */
-function setLang(lg){
-  LANG=lg;
-  document.documentElement.setAttribute('data-lang',lg);
-  document.documentElement.setAttribute('lang',lg);
-  document.documentElement.setAttribute('dir', lg==='fa'?'rtl':'ltr');
-  try{ localStorage.setItem('refactoringui-lang',lg); }catch(e){}
-  renderAll();
-}
-function renderAll(){
-  renderText();
-  renderMap();
-  renderLegend();
-  renderLadder();
-  renderStage();
-  if(GRAPH.hasNodes()) GRAPH.relabel(); else GRAPH.build();
-}
-(function(){
-  var lb=document.getElementById('langBtn');
-  lb && lb.addEventListener('click', function(){ setLang(LANG==='fa'?'en':'fa'); });
-
-  var tb=document.getElementById('themeBtn');
-  function curT(){ return document.documentElement.getAttribute('data-theme'); }
-  tb && tb.addEventListener('click', function(){
-    var t=curT()==='dark'?'light':'dark';
-    document.documentElement.setAttribute('data-theme',t);
-    try{ localStorage.setItem('refactoringui-theme',t); }catch(e){}
-  });
-  try{ matchMedia('(prefers-color-scheme: dark)').addEventListener('change',function(e){
-    if(!localStorage.getItem('refactoringui-theme')){ document.documentElement.setAttribute('data-theme', e.matches?'dark':'light'); }
-  }); }catch(e){}
-})();
-
-/* scroll-spy */
-(function(){
-  var links=[].slice.call(document.querySelectorAll('.toc a'));
-  var seen={}, ids=[];
-  links.forEach(function(a){ var id=a.getAttribute('href').slice(1); if(!seen[id]){seen[id]=1; ids.push(id);} });
-  var secs=ids.map(function(id){return document.getElementById(id);}).filter(Boolean);
-  function setActive(id){ links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('href')==='#'+id); }); }
-  if('IntersectionObserver' in window){
-    var obs=new IntersectionObserver(function(es){
-      es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
-    },{rootMargin:'-45% 0px -50% 0px',threshold:0});
-    secs.forEach(function(s){ obs.observe(s); });
-  }
-})();
-
-document.addEventListener('DOMContentLoaded', function(){
-  setupTabs();
-  renderAll();
+  },
+  "method": {
+    "en": "<p><b>Source:</b> the book <i>Refactoring UI</i> by Adam Wathan and Steve Schoger, published 2018.</p><p><b>How this was built:</b> the five-part structure and tactics were gathered and rewritten from the book and reputable sources; quotes were cross-checked and the linked videos verified.</p><p><b>Group:</b> Design — a practical handbook for anyone who builds user interfaces.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>",
+    "fa": "<p><b>منبع:</b> کتابِ «Refactoring UI» نوشتهٔ آدام واتان و استیو شوگر، چاپِ ۲۰۱۸.</p><p><b>روشِ کار:</b> ساختارِ پنج‌بخشی و ترفندها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده؛ نقل‌قول‌ها مقابله و ویدیوها بررسی شده‌اند.</p><p><b>گروه:</b> «طراحی» — یک راهنمای عملی برای هر کسی که رابطِ کاربری می‌سازد.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای متنِ کامل، خودِ کتاب را بخوان.</p>"
+  },
+  "flow": {
+    "en": [
+      "Hierarchy",
+      "Space",
+      "Polish"
+    ],
+    "fa": [
+      "سلسله‌مراتب",
+      "فضا",
+      "پرداخت"
+    ]
+  },
+  "graph": {
+    "W": 980,
+    "H": 780,
+    "R1": 220,
+    "R2": 126,
+    "span": 66
+  },
+  "tldr": [
+    {
+      "en": "The whole book in one line: you don't need talent to design good UI — you need a handful of practical, repeatable tactics.",
+      "fa": "خلاصهٔ کل کتاب در یک جمله: برای طراحیِ خوبِ رابط به استعداد نیاز نداری — به یک‌مشت ترفندِ عملی و تکرارپذیر نیاز داری."
+    },
+    {
+      "en": "Start with <b>hierarchy</b>: decide what matters most and what should fade back, using weight and color — not just size.",
+      "fa": "با <b>سلسله‌مراتب</b> شروع کن: با وزن و رنگ — نه فقط اندازه — تصمیم بگیر چه چیزی مهم‌تر است و چه چیزی باید عقب برود."
+    },
+    {
+      "en": "Give everything room. Start with <b>too much white space</b>, use a consistent spacing scale, and don't try to fill the screen.",
+      "fa": "به همه‌چیز جا بده. با <b>فضای خالیِ زیاد</b> شروع کن، از یک مقیاسِ فاصلهٔ یک‌دست استفاده کن، و سعی نکن صفحه را پُر کنی."
+    },
+    {
+      "en": "Systemize your <b>text</b> and <b>color</b>: limit fonts, use a type scale, think in <b>HSL</b>, and build a full palette of shades.",
+      "fa": "<b>نوشته</b> و <b>رنگت</b> را نظام‌مند کن: فونت‌ها را کم کن، از یک مقیاسِ اندازه استفاده کن، در <b>HSL</b> فکر کن، و یک پالتِ کامل از سایه‌ها بساز."
+    },
+    {
+      "en": "Then add <b>depth</b> and finishing touches — one light source for shadows, layered shadows, and details that make defaults feel designed.",
+      "fa": "بعد <b>عمق</b> و دست‌کاریِ پایانی اضافه کن — یک منبعِ نور برای سایه‌ها، سایه‌های لایه‌لایه، و جزئیاتی که حالتِ پیش‌فرض را طراحی‌شده نشان می‌دهند."
+    }
+  ],
+  "parts": [
+    {
+      "key": "hierarchy",
+      "varc": "--c-teal",
+      "name": {
+        "en": "Start with Hierarchy",
+        "fa": "با سلسله‌مراتب شروع کن"
+      },
+      "tag": {
+        "en": "What matters most",
+        "fa": "چه چیزی مهم‌تر است"
+      },
+      "gist": {
+        "en": "Design is about hierarchy, not decoration — make important things stand out and the rest recede.",
+        "fa": "طراحی دربارهٔ سلسله‌مراتب است، نه تزئین — کاری کن چیزهای مهم بیرون بزنند و بقیه عقب بروند."
+      },
+      "more": {
+        "en": "Before color or polish, decide what the user should notice first, second, and last. You do that with weight and color far more than size — and by de-emphasizing the secondary stuff instead of shouting louder everywhere. Get this right and even a plain design reads as intentional.",
+        "fa": "قبل از رنگ و پرداخت، تصمیم بگیر کاربر اول چه چیزی را ببیند، بعد چه چیزی، و آخر چه چیزی. این کار را بیشتر با وزن و رنگ انجام می‌دهی تا اندازه — و با کم‌رنگ‌کردنِ چیزهای فرعی، نه با بلندتر داد‌زدن در همه‌جا. این را که درست کنی، حتی یک طرحِ ساده هم عمدی و حساب‌شده به‌نظر می‌رسد."
+      },
+      "chapters": [
+        "hierarchy",
+        "weight",
+        "labels"
+      ]
+    },
+    {
+      "key": "layout",
+      "varc": "--c-blue",
+      "name": {
+        "en": "Layout & Spacing",
+        "fa": "چیدمان و فاصله"
+      },
+      "tag": {
+        "en": "Give it room",
+        "fa": "بهش جا بده"
+      },
+      "gist": {
+        "en": "Generous, systematic white space is the fastest way to make anything look cleaner.",
+        "fa": "فضای خالیِ دست‌ودل‌باز و نظام‌مند، سریع‌ترین راه است برای اینکه هر چیزی تمیزتر به‌نظر برسد."
+      },
+      "more": {
+        "en": "Amateur designs feel cramped; professional ones breathe. Start with way too much space and remove until it feels right, lean on one consistent spacing scale so nothing is arbitrary, and resist the urge to fill every empty area — white space is a feature, not wasted room.",
+        "fa": "طرح‌های آماتور تنگ و فشرده‌اند؛ طرح‌های حرفه‌ای نفس می‌کشند. با فضای خیلی زیاد شروع کن و کم کن تا درست شود، به یک مقیاسِ فاصلهٔ یک‌دست تکیه کن تا هیچ‌چیز سرِخود نباشد، و در برابرِ وسوسهٔ پُرکردنِ هر جای خالی مقاومت کن — فضای خالی یک ویژگی است، نه جای هدررفته."
+      },
+      "chapters": [
+        "whitespace",
+        "spacing",
+        "room"
+      ]
+    },
+    {
+      "key": "text",
+      "varc": "--c-amber",
+      "name": {
+        "en": "Designing Text",
+        "fa": "طراحیِ نوشته"
+      },
+      "tag": {
+        "en": "Make it readable",
+        "fa": "خوانا‌ش کن"
+      },
+      "gist": {
+        "en": "Limit fonts, use a type scale, and treat readability — line length, height, color — as a system.",
+        "fa": "فونت‌ها را کم کن، از یک مقیاسِ اندازه استفاده کن، و خوانایی — طولِ خط، ارتفاع، رنگ — را مثلِ یک نظام ببین."
+      },
+      "more": {
+        "en": "Typography carries most of an interface, so stop improvising it. Pick one or two good fonts, size them from a fixed scale instead of random pixels, keep lines 45–75 characters for comfortable reading, and remember that not every piece of text should be full black — use lighter shades to set secondary text back.",
+        "fa": "بیشترِ یک رابط را نوشته حمل می‌کند، پس دست از فی‌البداهه ساختنش بردار. یکی‌دو فونتِ خوب انتخاب کن، اندازه‌شان را به‌جای پیکسل‌های تصادفی از یک مقیاسِ ثابت بردار، خط‌ها را برای خواندنِ راحت ۴۵ تا ۷۵ نویسه نگه دار، و یادت باشد که هر تکه نوشته نباید کاملاً مشکی باشد — با سایه‌های روشن‌تر، نوشتهٔ فرعی را عقب بِبَر."
+      },
+      "chapters": [
+        "fonts",
+        "typescale",
+        "readability",
+        "textcolor"
+      ]
+    },
+    {
+      "key": "color",
+      "varc": "--c-violet",
+      "name": {
+        "en": "Working with Color",
+        "fa": "کار با رنگ"
+      },
+      "tag": {
+        "en": "Build a system",
+        "fa": "یک نظام بساز"
+      },
+      "gist": {
+        "en": "Think in HSL, build a full palette of shades, and never lean on color alone.",
+        "fa": "در HSL فکر کن، یک پالتِ کامل از سایه‌ها بساز، و هیچ‌وقت فقط به رنگ تکیه نکن."
+      },
+      "more": {
+        "en": "Hex codes make color math impossible; HSL lets you reason about hue, saturation and lightness directly. You'll need far more shades than you'd guess — usually eight or ten per color — so define them up front. And because some users can't distinguish colors, always back color up with a second cue, and check your contrast for real accessibility.",
+        "fa": "کدهای هگز محاسبهٔ رنگ را ناممکن می‌کنند؛ HSL می‌گذارد مستقیم دربارهٔ رنگ‌مایه، اشباع و روشنایی فکر کنی. به سایه‌های خیلی بیشتری از آنچه حدس می‌زنی نیاز داری — معمولاً هشت تا ده تا برای هر رنگ — پس از اول تعریفشان کن. و چون بعضی کاربرها رنگ‌ها را از هم تشخیص نمی‌دهند، همیشه رنگ را با یک نشانهٔ دوم پشتیبانی کن، و کنتراست را برای دسترس‌پذیریِ واقعی بررسی کن."
+      },
+      "chapters": [
+        "hsl",
+        "palette",
+        "contrast"
+      ]
+    },
+    {
+      "key": "depth",
+      "varc": "--c-green",
+      "name": {
+        "en": "Depth & Finishing Touches",
+        "fa": "عمق و پرداختِ پایانی"
+      },
+      "tag": {
+        "en": "Make it feel real",
+        "fa": "واقعی‌ش کن"
+      },
+      "gist": {
+        "en": "Emulate a light source for shadows, use contrast for depth, and sweat the small finishing details.",
+        "fa": "برای سایه‌ها یک منبعِ نور را شبیه‌سازی کن، برای عمق از کنتراست استفاده کن، و روی جزئیاتِ کوچکِ پایانی وقت بگذار."
+      },
+      "more": {
+        "en": "Depth is what makes flat UI feel tangible. Pretend light comes from a single source above, layer a soft and a sharp shadow together for realism, and use color and contrast to push things forward or back. Then finish the job: upgrade the boring defaults, and design your empty states and imagery with as much care as everything else.",
+        "fa": "عمق همان چیزی است که رابطِ تخت را ملموس می‌کند. وانمود کن نور از یک منبعِ واحد در بالا می‌آید، یک سایهٔ نرم و یک سایهٔ تیز را با هم لایه کن تا واقعی شود، و با رنگ و کنتراست چیزها را جلو یا عقب ببر. بعد کار را تمام کن: حالت‌های پیش‌فرضِ کسل‌کننده را ارتقا بده، و حالت‌های خالی و تصویرها را با همان دقتِ بقیهٔ چیزها طراحی کن."
+      },
+      "chapters": [
+        "light",
+        "depthcolor",
+        "details"
+      ]
+    }
+  ],
+  "chapters": {
+    "hierarchy": {
+      "part": "hierarchy",
+      "n": 1,
+      "name": {
+        "en": "Hierarchy Is Everything",
+        "fa": "سلسله‌مراتب همه‌چیز است"
+      },
+      "glabel": {
+        "en": "Hierarchy",
+        "fa": "سلسله‌مراتب"
+      },
+      "principle": {
+        "en": "Design isn't about making things pretty — it's about deciding what the user should notice first, second, and last.",
+        "fa": "طراحی دربارهٔ خوشگل‌کردنِ چیزها نیست — دربارهٔ این است که تصمیم بگیری کاربر اول چه چیزی را ببیند، بعد چه چیزی، و آخر چه چیزی."
+      },
+      "more": {
+        "en": "Visual hierarchy is how you guide attention. When everything competes for focus, the screen feels chaotic — like a room where everyone is shouting. Decide the relative importance of each element and make the design show it; that single decision does more for looking designed than any color or font.",
+        "fa": "سلسله‌مراتبِ بصری یعنی چطور توجه را هدایت می‌کنی. وقتی همه‌چیز برای جلب‌توجه با هم رقابت می‌کند، صفحه آشفته به‌نظر می‌رسد — مثلِ اتاقی که همه در آن داد می‌زنند. اهمیتِ نسبیِ هر عنصر را تعیین کن و کاری کن طرح نشانش بدهد؛ همین یک تصمیم، برای طراحی‌شده به‌نظر رسیدن بیشتر از هر رنگ و فونتی کار می‌کند."
+      },
+      "example": {
+        "en": "On a product card, the name and price should jump out while the SKU and metadata sit quiet and grey underneath.",
+        "fa": "روی کارتِ یک محصول، نام و قیمت باید بیرون بزنند، درحالی‌که کدِ کالا و اطلاعاتِ جانبی، آرام و خاکستری زیرش بنشینند."
+      },
+      "tip": {
+        "en": "Before styling anything, rank the elements: what's primary, secondary, tertiary?",
+        "fa": "قبل از اینکه چیزی را استایل بدهی، عنصرها را رتبه‌بندی کن: کدام اصلی است، کدام فرعی، کدام درجه‌سه؟"
+      },
+      "pitfall": {
+        "en": "Making everything bold and prominent, so nothing actually stands out.",
+        "fa": "همه‌چیز را پُررنگ و برجسته‌کردن، طوری که در عمل هیچ‌چیز بیرون نزند."
+      }
+    },
+    "weight": {
+      "part": "hierarchy",
+      "n": 2,
+      "name": {
+        "en": "Weight & Color, Not Size",
+        "fa": "وزن و رنگ، نه اندازه"
+      },
+      "glabel": {
+        "en": "Weight & Color",
+        "fa": "وزن و رنگ"
+      },
+      "principle": {
+        "en": "Size isn't the only tool for emphasis — font weight and color usually work better and keep the layout calm.",
+        "fa": "اندازه تنها ابزارِ تأکید نیست — وزنِ فونت و رنگ معمولاً بهتر جواب می‌دهند و چیدمان را آرام نگه می‌دارند."
+      },
+      "more": {
+        "en": "If you rely on size alone, important text turns huge and unimportant text turns tiny and unreadable. Instead lean on weight (bold vs normal) and color (dark vs soft grey) to signal importance. That way you can create clear hierarchy while keeping most text at a comfortable, readable size.",
+        "fa": "اگر فقط به اندازه تکیه کنی، نوشتهٔ مهم غول‌پیکر می‌شود و نوشتهٔ کم‌اهمیت آن‌قدر ریز که خوانده نمی‌شود. به‌جایش به وزن (پُررنگ در برابرِ معمولی) و رنگ (تیره در برابرِ خاکستریِ ملایم) تکیه کن تا اهمیت را نشان بدهی. این‌طوری می‌توانی سلسله‌مراتبِ روشن بسازی و در عین حال بیشترِ نوشته را در اندازهٔ راحت و خوانا نگه داری."
+      },
+      "example": {
+        "en": "Make a heading bold and dark instead of enormous; a soft grey label reads as secondary without shrinking to nothing.",
+        "fa": "یک تیتر را پُررنگ و تیره کن، نه غول‌پیکر؛ یک برچسبِ خاکستریِ ملایم بدونِ اینکه به هیچ کوچک شود، فرعی به‌نظر می‌رسد."
+      },
+      "tip": {
+        "en": "Emphasize by de-emphasizing: soften the secondary elements instead of enlarging the primary one.",
+        "fa": "با کم‌رنگ‌کردن تأکید کن: به‌جای بزرگ‌کردنِ عنصرِ اصلی، عنصرهای فرعی را ملایم کن."
+      },
+      "pitfall": {
+        "en": "Cranking up font size for every heading until the page feels clumsy and loud.",
+        "fa": "بالابردنِ اندازهٔ فونتِ هر تیتر تا جایی که صفحه دست‌وپا‌چلفتی و پُرسروصدا شود."
+      }
+    },
+    "labels": {
+      "part": "hierarchy",
+      "n": 3,
+      "name": {
+        "en": "Labels Are a Last Resort",
+        "fa": "برچسب، آخرین راه‌حل است"
+      },
+      "glabel": {
+        "en": "Labels",
+        "fa": "برچسب‌ها"
+      },
+      "principle": {
+        "en": "Don't label everything by default — often the value speaks for itself, and the label just adds noise.",
+        "fa": "همه‌چیز را به‌صورتِ پیش‌فرض برچسب نزن — اغلب خودِ مقدار گویاست، و برچسب فقط شلوغی اضافه می‌کند."
+      },
+      "more": {
+        "en": "Formatting a value clearly can remove the need for a label entirely — an email address looks like an email, a price looks like a price. When you do need a label, treat it as the least important part: make it smaller and lighter, and let the actual content dominate. Combine label and value only when it truly helps.",
+        "fa": "قالب‌بندیِ روشنِ یک مقدار می‌تواند نیاز به برچسب را کلاً از بین ببرد — یک آدرسِ ایمیل شبیهِ ایمیل است، یک قیمت شبیهِ قیمت. وقتی هم واقعاً به برچسب نیاز داری، آن را کم‌اهمیت‌ترین بخش بدان: کوچک‌تر و روشن‌ترش کن، و بگذار خودِ محتوا غالب باشد. برچسب و مقدار را فقط وقتی با هم بیاور که واقعاً کمک می‌کند."
+      },
+      "example": {
+        "en": "Instead of 'Phone: 555-0199', just show the number — it already looks like a phone number.",
+        "fa": "به‌جای «تلفن: ۵۵۵-۰۱۹۹»، فقط خودِ شماره را نشان بده — همین‌جوری‌اش شبیهِ شمارهٔ تلفن است."
+      },
+      "tip": {
+        "en": "When a label is needed, make it smaller and lighter than the value it describes.",
+        "fa": "وقتی برچسب لازم است، از مقداری که توصیفش می‌کند کوچک‌تر و روشن‌ترش کن."
+      },
+      "pitfall": {
+        "en": "Giving every field a bold label that competes with the data it's introducing.",
+        "fa": "دادنِ یک برچسبِ پُررنگ به هر فیلد، که با داده‌ای که معرفی‌اش می‌کند رقابت می‌کند."
+      }
+    },
+    "whitespace": {
+      "part": "layout",
+      "n": 4,
+      "name": {
+        "en": "Start With Too Much White Space",
+        "fa": "با فضای خالیِ زیاد شروع کن"
+      },
+      "glabel": {
+        "en": "White Space",
+        "fa": "فضای خالی"
+      },
+      "principle": {
+        "en": "Begin every design with way too much white space, then remove it until you're happy — not the other way around.",
+        "fa": "هر طرح را با فضای خالیِ خیلی زیاد شروع کن، بعد کم کن تا راضی شوی — نه برعکس."
+      },
+      "more": {
+        "en": "Dense, cramped interfaces are the number-one sign of amateur design. Adding generous space around and between elements instantly makes a layout feel calmer and more professional. Starting spacious and tightening up is much easier than trying to loosen a crowded design after the fact.",
+        "fa": "رابط‌های متراکم و فشرده، نشانهٔ شمارهٔ‌یکِ طراحیِ آماتور‌ند. اضافه‌کردنِ فضای دست‌ودل‌باز دورِ عنصرها و بینشان، فوری چیدمان را آرام‌تر و حرفه‌ای‌تر می‌کند. شروع‌کردن با فضای زیاد و بعد جمع‌وجورکردن، خیلی راحت‌تر از این است که بخواهی بعداً یک طرحِ شلوغ را باز کنی."
+      },
+      "example": {
+        "en": "Take a tight card, double the padding and the gaps, and it immediately looks more designed.",
+        "fa": "یک کارتِ فشرده را بردار، فاصلهٔ داخلی و شکاف‌ها را دو برابر کن، و همان لحظه طراحی‌شده‌تر به‌نظر می‌رسد."
+      },
+      "tip": {
+        "en": "When something feels off, try adding space before you try anything else.",
+        "fa": "وقتی چیزی درست به‌نظر نمی‌رسد، قبل از هر کارِ دیگری، اول فضا اضافه کن."
+      },
+      "pitfall": {
+        "en": "Cramming elements together to save space and making everything feel cheap.",
+        "fa": "چپاندنِ عنصرها کنارِ هم برای صرفه‌جویی در فضا، که همه‌چیز را بی‌کیفیت جلوه می‌دهد."
+      }
+    },
+    "spacing": {
+      "part": "layout",
+      "n": 5,
+      "name": {
+        "en": "Use a Spacing System",
+        "fa": "از یک نظامِ فاصله استفاده کن"
+      },
+      "glabel": {
+        "en": "Spacing",
+        "fa": "فاصله"
+      },
+      "principle": {
+        "en": "Pick a fixed set of spacing and sizing values and only use those — never arbitrary, hand-picked numbers.",
+        "fa": "یک مجموعهٔ ثابت از مقدارهای فاصله و اندازه انتخاب کن و فقط از همان‌ها استفاده کن — نه عددهای دلبخواه و دستی."
+      },
+      "more": {
+        "en": "If you eyeball every margin, you'll waste time nudging pixels and end up with subtle inconsistencies. A predefined scale — where each step is clearly bigger than the last — lets you choose spacing fast and keeps the whole interface visually consistent. Constraints here make you faster, not slower.",
+        "fa": "اگر هر حاشیه را چشمی تنظیم کنی، وقتت را با جابه‌جاکردنِ پیکسل‌ها هدر می‌دهی و آخرش به ناهماهنگی‌های ریز می‌رسی. یک مقیاسِ از‌پیش‌تعریف‌شده — که هر پله‌اش آشکارا از قبلی بزرگ‌تر است — می‌گذارد سریع فاصله را انتخاب کنی و کلِ رابط را از نظرِ بصری یک‌دست نگه می‌دارد. محدودیت اینجا تندترت می‌کند، نه کندتر."
+      },
+      "example": {
+        "en": "Use a scale like 4, 8, 12, 16, 24, 32, 48px and snap every gap to one of those values.",
+        "fa": "از مقیاسی مثلِ ۴، ۸، ۱۲، ۱۶، ۲۴، ۳۲، ۴۸ پیکسل استفاده کن و هر شکاف را به یکی از همین مقدارها بچسبان."
+      },
+      "tip": {
+        "en": "Make each step in your scale distinct — values that are too close are hard to tell apart.",
+        "fa": "هر پلهٔ مقیاست را متمایز کن — مقدارهایی که خیلی به هم نزدیک‌اند، سخت از هم تشخیص داده می‌شوند."
+      },
+      "pitfall": {
+        "en": "Choosing spacing values at random so nothing quite lines up.",
+        "fa": "انتخابِ تصادفیِ مقدارهای فاصله، طوری که هیچ‌چیز درست‌وحسابی رج نمی‌شود."
+      }
+    },
+    "room": {
+      "part": "layout",
+      "n": 6,
+      "name": {
+        "en": "Don't Fill the Whole Screen",
+        "fa": "کلِ صفحه را پُر نکن"
+      },
+      "glabel": {
+        "en": "Give Room",
+        "fa": "جا بده"
+      },
+      "principle": {
+        "en": "Just because you have space doesn't mean you have to use it — not every element should stretch to fill it.",
+        "fa": "اینکه فضا داری به این معنا نیست که باید ازش استفاده کنی — قرار نیست هر عنصری کش بیاید و پُرش کند."
+      },
+      "more": {
+        "en": "Designing for a big screen tempts you to spread content edge to edge, but full-width forms and stretched elements are hard to read and look unbalanced. Give elements only the width they actually need, and let the leftover space frame them. Sometimes the best use of extra room is to leave it empty.",
+        "fa": "طراحی برای یک صفحهٔ بزرگ وسوسه‌ات می‌کند که محتوا را از این لبه تا آن لبه پخش کنی، اما فرم‌های تمام‌عرض و عنصرهای کش‌آمده هم سخت خوانده می‌شوند و هم نامتوازن به‌نظر می‌رسند. به هر عنصر فقط همان عرضی را بده که واقعاً لازم دارد، و بگذار فضای باقی‌مانده قابش بگیرد. گاهی بهترین استفاده از فضای اضافه این است که خالی رهایش کنی."
+      },
+      "example": {
+        "en": "A login form doesn't need to be 100% wide on desktop — a narrow, centered box reads better.",
+        "fa": "یک فرمِ ورود لازم نیست روی دسکتاپ تمام‌عرض باشد — یک جعبهٔ باریکِ وسط‌چین بهتر خوانده می‌شود."
+      },
+      "tip": {
+        "en": "Give each element a max width based on its content, not on the size of the screen.",
+        "fa": "به هر عنصر یک حداکثرِ عرض بده بر اساسِ محتوایش، نه بر اساسِ اندازهٔ صفحه."
+      },
+      "pitfall": {
+        "en": "Stretching forms and text to full width just because the space is there.",
+        "fa": "کش‌دادنِ فرم‌ها و نوشته‌ها تا تمام‌عرض، فقط به این خاطر که فضایش هست."
+      }
+    },
+    "fonts": {
+      "part": "text",
+      "n": 7,
+      "name": {
+        "en": "Limit Your Font Choices",
+        "fa": "فونت‌هایت را کم کن"
+      },
+      "glabel": {
+        "en": "Fonts",
+        "fa": "فونت‌ها"
+      },
+      "principle": {
+        "en": "Use one, or at most two, good typefaces — and pick a font built for the job it's doing.",
+        "fa": "از یک، یا حداکثر دو، فونتِ خوب استفاده کن — و فونتی را انتخاب کن که برای همان کاری که می‌کند ساخته شده."
+      },
+      "more": {
+        "en": "Mixing many fonts makes an interface feel messy and unplanned. A single well-chosen typeface with a few weights covers almost everything. And match the font to the context: a characterful display font that shines in a big headline usually falls apart in small body text, where a clean, neutral font reads far better.",
+        "fa": "قاطیِ‌کردنِ فونت‌های زیاد، رابط را شلوغ و بی‌برنامه نشان می‌دهد. یک فونتِ خوب‌انتخاب‌شده با چند وزن، تقریباً همه‌چیز را پوشش می‌دهد. و فونت را با بافت جور کن: یک فونتِ نمایشیِ بااُبهت که در یک تیترِ بزرگ می‌درخشد، معمولاً در نوشتهٔ ریزِ متن از هم می‌پاشد، جایی که یک فونتِ تمیز و خنثی خیلی بهتر خوانده می‌شود."
+      },
+      "example": {
+        "en": "A quirky headline font can look great big, but set it at 14px in a paragraph and it becomes hard to read.",
+        "fa": "یک فونتِ تیترِ خاص می‌تواند بزرگ عالی به‌نظر برسد، اما همان را ۱۴ پیکسل توی یک پاراگراف بگذار و سخت‌خوان می‌شود."
+      },
+      "tip": {
+        "en": "Start from a single solid typeface; only add a second font if it earns its place.",
+        "fa": "از یک فونتِ محکمِ واحد شروع کن؛ فونتِ دوم را فقط وقتی اضافه کن که جایش را حق کرده باشد."
+      },
+      "pitfall": {
+        "en": "Combining several typefaces and using a display font for long body copy.",
+        "fa": "ترکیبِ چند فونت و استفاده از یک فونتِ نمایشی برای متنِ بلند."
+      }
+    },
+    "typescale": {
+      "part": "text",
+      "n": 8,
+      "name": {
+        "en": "Use a Modular Type Scale",
+        "fa": "از یک مقیاسِ اندازه استفاده کن"
+      },
+      "glabel": {
+        "en": "Type Scale",
+        "fa": "مقیاسِ نوشته"
+      },
+      "principle": {
+        "en": "Choose font sizes from a small, fixed scale instead of picking arbitrary pixel values.",
+        "fa": "اندازهٔ فونت را از یک مقیاسِ کوچک و ثابت انتخاب کن، نه از مقدارهای پیکسلیِ دلبخواه."
+      },
+      "more": {
+        "en": "Hand-picking sizes leads to values so close they look like mistakes — 15px next to 16px. A predefined type scale gives you a handful of clearly distinct sizes that work together, so your headings, subheadings and body text feel like a coherent system instead of a pile of near-misses.",
+        "fa": "دستی‌انتخاب‌کردنِ اندازه‌ها به مقدارهایی می‌رسد آن‌قدر نزدیک که شبیهِ اشتباه به‌نظر می‌رسند — ۱۵ پیکسل کنارِ ۱۶ پیکسل. یک مقیاسِ اندازهٔ از‌پیش‌تعریف‌شده، یک‌مشت اندازهٔ آشکارا متمایز به تو می‌دهد که با هم کار می‌کنند، طوری که تیترها، زیرتیترها و متن، به‌جای یک تودهٔ نزدیک‌به‌هم، مثلِ یک نظامِ منسجم به‌نظر می‌رسند."
+      },
+      "example": {
+        "en": "Use a set like 12, 14, 16, 18, 20, 24, 30, 36px rather than 15, 17, 23 chosen by feel.",
+        "fa": "از مجموعه‌ای مثلِ ۱۲، ۱۴، ۱۶، ۱۸، ۲۰، ۲۴، ۳۰، ۳۶ پیکسل استفاده کن، نه ۱۵، ۱۷، ۲۳ که چشمی انتخاب شده‌اند."
+      },
+      "tip": {
+        "en": "Define your scale once as a token set, then only ever pick from it.",
+        "fa": "مقیاست را یک‌بار به‌شکلِ یک مجموعه‌توکن تعریف کن، بعد همیشه فقط از همان انتخاب کن."
+      },
+      "pitfall": {
+        "en": "Setting sizes by eye until nearly identical values clash across the page.",
+        "fa": "چشمی‌گذاشتنِ اندازه‌ها تا جایی که مقدارهای تقریباً یکسان در صفحه با هم بزنند."
+      }
+    },
+    "readability": {
+      "part": "text",
+      "n": 9,
+      "name": {
+        "en": "Line Length & Line Height",
+        "fa": "طولِ خط و ارتفاعِ خط"
+      },
+      "glabel": {
+        "en": "Readability",
+        "fa": "خوانایی"
+      },
+      "principle": {
+        "en": "Keep lines around 45–75 characters, and give body text roomy line height so it's easy to read.",
+        "fa": "خط‌ها را حدودِ ۴۵ تا ۷۵ نویسه نگه دار، و به متن ارتفاعِ خطِ باز بده تا راحت خوانده شود."
+      },
+      "more": {
+        "en": "Lines that run too wide make it hard for the eye to find the next line; too narrow and the text feels choppy. A comfortable measure of roughly 45–75 characters is the sweet spot. Pair it with generous line height for paragraphs — and tighter line height for big headings, which need less breathing room.",
+        "fa": "خط‌هایی که زیادی پهن می‌شوند، پیدا‌کردنِ خطِ بعدی را برای چشم سخت می‌کنند؛ زیادی باریک هم، نوشته را بریده‌بریده می‌کند. یک عرضِ راحتِ حدودِ ۴۵ تا ۷۵ نویسه، همان نقطهٔ طلایی است. کنارش به پاراگراف‌ها ارتفاعِ خطِ باز بده — و به تیترهای بزرگ ارتفاعِ خطِ جمع‌تر، چون به فضای کمتری نیاز دارند."
+      },
+      "example": {
+        "en": "Constrain a paragraph to about 65 characters per line; don't let it stretch across a wide screen.",
+        "fa": "یک پاراگراف را به حدودِ ۶۵ نویسه در هر خط محدود کن؛ نگذار روی یک صفحهٔ پهن کش بیاید."
+      },
+      "tip": {
+        "en": "Set a max-width on text blocks and increase line height for smaller body copy.",
+        "fa": "روی بلوک‌های نوشته یک حداکثرِ عرض بگذار و برای متنِ ریزتر، ارتفاعِ خط را بیشتر کن."
+      },
+      "pitfall": {
+        "en": "Full-width paragraphs with tight line height that tire the reader's eyes.",
+        "fa": "پاراگراف‌های تمام‌عرض با ارتفاعِ خطِ فشرده که چشمِ خواننده را خسته می‌کنند."
+      }
+    },
+    "textcolor": {
+      "part": "text",
+      "n": 10,
+      "name": {
+        "en": "Not Everything Is Black",
+        "fa": "همه‌چیز مشکی نیست"
+      },
+      "glabel": {
+        "en": "Text Color",
+        "fa": "رنگِ نوشته"
+      },
+      "principle": {
+        "en": "Use color and softness — not just size — to set hierarchy in text; secondary text should be lighter, not full black.",
+        "fa": "برای سلسله‌مراتب در نوشته از رنگ و ملایمت استفاده کن — نه فقط اندازه؛ نوشتهٔ فرعی باید روشن‌تر باشد، نه مشکیِ تمام."
+      },
+      "more": {
+        "en": "Making all text pure black flattens the hierarchy and feels harsh. Use a dark, near-black for primary text and progressively lighter greys for secondary and tertiary content. On colored backgrounds, though, don't just use grey — that looks washed out; instead pick a hand-mixed shade of the background color for softer text.",
+        "fa": "مشکیِ خالص‌کردنِ همهٔ نوشته، سلسله‌مراتب را صاف می‌کند و خشن به‌نظر می‌رسد. برای نوشتهٔ اصلی از یک تیرهٔ نزدیک‌به‌مشکی استفاده کن و برای محتوای فرعی و درجه‌سه از خاکستری‌های به‌تدریج روشن‌تر. اما روی زمینه‌های رنگی فقط از خاکستری استفاده نکن — رنگ‌ورورفته به‌نظر می‌رسد؛ به‌جایش برای نوشتهٔ ملایم‌تر، یک سایهٔ دست‌سازِ همان رنگِ زمینه را انتخاب کن."
+      },
+      "example": {
+        "en": "On a blue button, a slightly lighter blue for a subtitle looks better than plain grey.",
+        "fa": "روی یک دکمهٔ آبی، یک آبیِ کمی روشن‌تر برای زیرنویس، بهتر از خاکستریِ ساده به‌نظر می‌رسد."
+      },
+      "tip": {
+        "en": "Build a few grey shades for text, and mix tinted shades for text on colored backgrounds.",
+        "fa": "چند سایهٔ خاکستری برای نوشته بساز، و برای نوشته روی زمینه‌های رنگی، سایه‌های ته‌رنگ‌دار بساز."
+      },
+      "pitfall": {
+        "en": "Pure black everywhere, and flat grey text sitting on a colored background.",
+        "fa": "مشکیِ خالص در همه‌جا، و نوشتهٔ خاکستریِ بی‌روح که روی یک زمینهٔ رنگی نشسته."
+      }
+    },
+    "hsl": {
+      "part": "color",
+      "n": 11,
+      "name": {
+        "en": "Think in HSL, Not Hex",
+        "fa": "در HSL فکر کن، نه هگز"
+      },
+      "glabel": {
+        "en": "HSL",
+        "fa": "HSL"
+      },
+      "principle": {
+        "en": "Use HSL — hue, saturation, lightness — so you can actually reason about and adjust color.",
+        "fa": "از HSL استفاده کن — رنگ‌مایه، اشباع، روشنایی — تا واقعاً بتوانی دربارهٔ رنگ فکر کنی و تنظیمش کنی."
+      },
+      "more": {
+        "en": "Hex and RGB describe color in a way humans can't intuit — you can't look at a hex code and know how to make it a bit lighter or less intense. HSL maps directly to how we think about color: spin the hue to change the color, raise saturation to make it more vivid, raise lightness to make it brighter. Adjustments become obvious.",
+        "fa": "هگز و RGB رنگ را جوری توصیف می‌کنند که آدم نمی‌تواند حسش کند — نمی‌توانی به یک کدِ هگز نگاه کنی و بفهمی چطور کمی روشن‌ترش کنی یا از شدتش کم کنی. HSL مستقیم به همان شکلی که ما به رنگ فکر می‌کنیم نگاشت می‌شود: رنگ‌مایه را بچرخان تا رنگ عوض شود، اشباع را بالا ببر تا زنده‌تر شود، روشنایی را بالا ببر تا روشن‌تر شود. تنظیم‌ها بدیهی می‌شوند."
+      },
+      "example": {
+        "en": "To make hsl(220, 60%, 50%) softer, just lower the saturation — no guesswork like with hex.",
+        "fa": "برای ملایم‌ترکردنِ hsl(۲۲۰، ۶۰٪، ۵۰٪)، فقط اشباع را کم کن — نه مثلِ هگز که باید حدس بزنی."
+      },
+      "tip": {
+        "en": "Switch your color tools to HSL and build every shade by adjusting S and L.",
+        "fa": "ابزارهای رنگت را روی HSL بگذار و هر سایه را با تنظیمِ اشباع و روشنایی بساز."
+      },
+      "pitfall": {
+        "en": "Juggling hex codes and guessing blindly when you need a lighter or duller shade.",
+        "fa": "وَرَفتن با کدهای هگز و حدسِ کورکورانه وقتی به یک سایهٔ روشن‌تر یا کدرتر نیاز داری."
+      }
+    },
+    "palette": {
+      "part": "color",
+      "n": 12,
+      "name": {
+        "en": "Build a Full Palette",
+        "fa": "یک پالتِ کامل بساز"
+      },
+      "glabel": {
+        "en": "Palette",
+        "fa": "پالت"
+      },
+      "principle": {
+        "en": "You need far more shades than you think — define a full range for every color up front.",
+        "fa": "به سایه‌های خیلی بیشتری از آنچه فکر می‌کنی نیاز داری — از اول برای هر رنگ یک دامنهٔ کامل تعریف کن."
+      },
+      "more": {
+        "en": "A single blue won't survive real UI: you need light tints for backgrounds, mid tones for buttons, and dark shades for text. Plan five to ten shades of each color (plus a good set of greys) before you start, and you'll never get stuck mid-design hunting for a shade that doesn't exist yet.",
+        "fa": "یک آبیِ تنها در رابطِ واقعی دوام نمی‌آورد: به ته‌رنگ‌های روشن برای زمینه‌ها، تُن‌های میانه برای دکمه‌ها، و سایه‌های تیره برای نوشته نیاز داری. قبل از شروع، برای هر رنگ پنج تا ده سایه (به‌علاوهٔ یک مجموعهٔ خوب از خاکستری‌ها) طرح‌ریزی کن، آن‌وقت هیچ‌وقت وسطِ کار گیر نمی‌کنی که دنبالِ سایه‌ای بگردی که هنوز وجود ندارد."
+      },
+      "example": {
+        "en": "Define blue-50 through blue-900, plus eight or nine greys, and reach only for those.",
+        "fa": "از آبیِ‌۵۰ تا آبیِ‌۹۰۰ را تعریف کن، به‌علاوهٔ هشت‌نُه خاکستری، و فقط سراغِ همان‌ها برو."
+      },
+      "tip": {
+        "en": "Pick a base color, then create lighter and darker steps by adjusting lightness in HSL.",
+        "fa": "یک رنگِ پایه انتخاب کن، بعد با تنظیمِ روشنایی در HSL، پله‌های روشن‌تر و تیره‌تر بساز."
+      },
+      "pitfall": {
+        "en": "Starting with just a few colors and inventing shades ad hoc as you go.",
+        "fa": "شروع با فقط چند رنگ و سرِهم‌کردنِ سایه‌ها همین‌طور که پیش می‌روی."
+      }
+    },
+    "contrast": {
+      "part": "color",
+      "n": 13,
+      "name": {
+        "en": "Don't Rely on Color Alone",
+        "fa": "فقط به رنگ تکیه نکن"
+      },
+      "glabel": {
+        "en": "Contrast",
+        "fa": "کنتراست"
+      },
+      "principle": {
+        "en": "Never use color as the only way to convey meaning, and keep contrast high enough to be accessible.",
+        "fa": "هیچ‌وقت رنگ را تنها راهِ رساندنِ معنا نکن، و کنتراست را آن‌قدر بالا نگه دار که دسترس‌پذیر باشد."
+      },
+      "more": {
+        "en": "Many people can't reliably tell certain colors apart, so a red-vs-green status with no other cue is invisible to them. Back color up with an icon, label or shape. And make sure text has enough contrast against its background — but when a required contrast makes text look heavy, adjust the color's saturation and lightness rather than just going darker.",
+        "fa": "خیلی‌ها نمی‌توانند بعضی رنگ‌ها را مطمئن از هم تشخیص بدهند، پس یک وضعیتِ قرمز‌در‌برابرِ‌سبز بدونِ نشانهٔ دیگر، برایشان نامرئی است. رنگ را با یک آیکون، برچسب یا شکل پشتیبانی کن. و مطمئن شو نوشته کنتراستِ کافی با زمینه‌اش دارد — اما وقتی کنتراستِ لازم نوشته را سنگین نشان می‌دهد، به‌جای اینکه فقط تیره‌ترش کنی، اشباع و روشناییِ رنگ را تنظیم کن."
+      },
+      "example": {
+        "en": "Add a checkmark or an 'X' icon next to green 'success' and red 'error', not just the color.",
+        "fa": "کنارِ سبزِ «موفق» و قرمزِ «خطا»، یک تیک یا یک آیکونِ ضربدر بگذار، نه فقط رنگ را."
+      },
+      "tip": {
+        "en": "Check text contrast against WCAG, and always pair color signals with a second cue.",
+        "fa": "کنتراستِ نوشته را با استانداردِ WCAG بررسی کن، و نشانه‌های رنگی را همیشه با یک نشانهٔ دوم همراه کن."
+      },
+      "pitfall": {
+        "en": "Signaling state with color only, and low-contrast text that many can't read.",
+        "fa": "نشان‌دادنِ وضعیت فقط با رنگ، و نوشتهٔ کم‌کنتراست که خیلی‌ها نمی‌توانند بخوانند."
+      }
+    },
+    "light": {
+      "part": "depth",
+      "n": 14,
+      "name": {
+        "en": "Emulate a Light Source",
+        "fa": "یک منبعِ نور را شبیه‌سازی کن"
+      },
+      "glabel": {
+        "en": "Light Source",
+        "fa": "منبعِ نور"
+      },
+      "principle": {
+        "en": "Shadows imply light — pretend it always comes from directly above, and be consistent everywhere.",
+        "fa": "سایه‌ها نور را می‌رسانند — وانمود کن نور همیشه از درست بالا می‌آید، و همه‌جا ثابت باشد."
+      },
+      "more": {
+        "en": "Because light usually comes from above, the top of a raised element catches light and its bottom casts a shadow below. Keep that mental model consistent: raised elements get a shadow beneath them, inset elements (like pressed buttons or inputs) get a shadow inside the top edge. For realism, layer two shadows — a tight dark one and a larger soft one.",
+        "fa": "چون نور معمولاً از بالا می‌آید، بالای یک عنصرِ برجسته نور را می‌گیرد و پایینش سایه‌ای زیرِ خودش می‌اندازد. این مدلِ ذهنی را ثابت نگه دار: عنصرهای برجسته زیرِ خودشان سایه می‌گیرند، عنصرهای فرورفته (مثلِ دکمه‌های فشرده‌شده یا فیلدهای ورودی) یک سایه در لبهٔ بالاییِ داخلشان می‌گیرند. برای واقعی‌شدن، دو سایه را لایه کن — یک سایهٔ تیرهٔ جمع و یک سایهٔ نرمِ بزرگ‌تر."
+      },
+      "example": {
+        "en": "A card sits above the page with a soft shadow below it; a text input looks slightly recessed.",
+        "fa": "یک کارت با یک سایهٔ نرمِ زیرش، بالای صفحه می‌نشیند؛ یک فیلدِ ورودی کمی فرورفته به‌نظر می‌رسد."
+      },
+      "tip": {
+        "en": "Combine a small sharp shadow with a larger blurry one to mimic real light.",
+        "fa": "یک سایهٔ کوچکِ تیز را با یک سایهٔ بزرگ‌ترِ محو ترکیب کن تا نورِ واقعی را تقلید کنی."
+      },
+      "pitfall": {
+        "en": "Harsh, uniform shadows that ignore where the light is supposed to come from.",
+        "fa": "سایه‌های خشن و یک‌نواخت که بی‌خیالِ این‌اند که نور قرار است از کجا بیاید."
+      }
+    },
+    "depthcolor": {
+      "part": "depth",
+      "n": 15,
+      "name": {
+        "en": "Use Color & Contrast for Depth",
+        "fa": "برای عمق از رنگ و کنتراست استفاده کن"
+      },
+      "glabel": {
+        "en": "Depth",
+        "fa": "عمق"
+      },
+      "principle": {
+        "en": "Elements that feel closer should have more contrast and warmth; distant ones fade back.",
+        "fa": "عنصرهایی که نزدیک‌تر حس می‌شوند باید کنتراست و گرمای بیشتری داشته باشند؛ عنصرهای دور عقب می‌روند."
+      },
+      "more": {
+        "en": "Depth isn't only shadows. Higher contrast and warmer, more saturated colors make an element feel like it's in front; lower contrast and cooler, softer colors make it recede into the background. Overlapping elements to create real layers reinforces the effect and makes flat interfaces feel three-dimensional.",
+        "fa": "عمق فقط سایه نیست. کنتراستِ بالاتر و رنگ‌های گرم‌تر و اشباع‌تر، کاری می‌کنند عنصر انگار جلو باشد؛ کنتراستِ پایین‌تر و رنگ‌های سردتر و ملایم‌تر، عقب می‌بَرَندش توی زمینه. هم‌پوشانیِ عنصرها برای ساختنِ لایه‌های واقعی، این اثر را تقویت می‌کند و رابطِ تخت را سه‌بعدی نشان می‌دهد."
+      },
+      "example": {
+        "en": "A bright, high-contrast primary button pops forward while a subtle outlined button stays back.",
+        "fa": "یک دکمهٔ اصلیِ روشن و پُرکنتراست جلو می‌زند، درحالی‌که یک دکمهٔ خط‌دارِ ملایم عقب می‌ماند."
+      },
+      "tip": {
+        "en": "To push something forward, raise its contrast; to send it back, soften and cool it.",
+        "fa": "برای اینکه چیزی را جلو بیاوری، کنتراستش را بالا ببر؛ برای عقب‌فرستادنش، ملایم و سردش کن."
+      },
+      "pitfall": {
+        "en": "Flat, same-contrast elements that all sit on one lifeless plane.",
+        "fa": "عنصرهای تخت و هم‌کنتراست که همه روی یک سطحِ بی‌روح نشسته‌اند."
+      }
+    },
+    "details": {
+      "part": "depth",
+      "n": 16,
+      "name": {
+        "en": "Supercharge the Details",
+        "fa": "جزئیات را شارژ کن"
+      },
+      "glabel": {
+        "en": "Finishing Touches",
+        "fa": "پرداختِ پایانی"
+      },
+      "principle": {
+        "en": "Great design lives in the details — upgrade the boring defaults and design your empty states with care.",
+        "fa": "طراحیِ عالی در جزئیات است — حالت‌های پیش‌فرضِ کسل‌کننده را ارتقا بده و حالت‌های خالی را با دقت طراحی کن."
+      },
+      "more": {
+        "en": "The last 10% is what makes UI feel polished. Replace default bullets and checkmarks with custom icons, style your links and quotes, use nicer images, and never ship a blank empty state — the first thing a new user sees is often an empty screen, so make it welcoming and helpful instead of a dead end.",
+        "fa": "همان ده‌درصدِ آخر است که رابط را صیقلی نشان می‌دهد. گلوله‌ها و تیک‌های پیش‌فرض را با آیکون‌های سفارشی عوض کن، لینک‌ها و نقلِ‌قول‌هایت را استایل بده، از تصویرهای بهتری استفاده کن، و هیچ‌وقت یک حالتِ خالیِ سفید تحویل نده — اولین چیزی که کاربرِ تازه می‌بیند اغلب یک صفحهٔ خالی است، پس به‌جای یک بن‌بست، خوشامدگو و کمک‌کننده‌اش کن."
+      },
+      "example": {
+        "en": "An empty 'no projects yet' screen with a friendly illustration and a clear 'Create one' button.",
+        "fa": "یک صفحهٔ خالیِ «هنوز پروژه‌ای نیست» با یک تصویرِ دوستانه و یک دکمهٔ روشنِ «یکی بساز»."
+      },
+      "tip": {
+        "en": "Design the empty state first — it's what users see before they have any data.",
+        "fa": "اول حالتِ خالی را طراحی کن — همان چیزی است که کاربرها قبل از داشتنِ هر داده‌ای می‌بینند."
+      },
+      "pitfall": {
+        "en": "Shipping raw browser defaults and blank screens with no thought given.",
+        "fa": "تحویل‌دادنِ پیش‌فرض‌های خامِ مرورگر و صفحه‌های خالیِ بی‌فکر."
+      }
+    }
+  },
+  "core": {
+    "name": {
+      "en": "MAKE IT LOOK DESIGNED",
+      "fa": "طراحی‌شده به‌نظر برسد"
+    },
+    "principle": {
+      "en": "You don't need to be a born artist to design a good interface. Refactoring UI turns design into a set of concrete, repeatable tactics: establish a clear hierarchy, give everything generous space, systemize your text and color, and finish with depth and detail. Make deliberate choices from small, fixed systems and the result looks designed — on purpose.",
+      "fa": "لازم نیست هنرمندِ مادرزاد باشی تا یک رابطِ خوب طراحی کنی. «Refactoring UI» طراحی را به مجموعه‌ای از ترفندهای مشخص و تکرارپذیر تبدیل می‌کند: یک سلسله‌مراتبِ روشن بساز، به همه‌چیز فضای دست‌ودل‌باز بده، نوشته و رنگت را نظام‌مند کن، و با عمق و جزئیات کار را تمام کن. از نظام‌های کوچک و ثابت، انتخاب‌های حساب‌شده بکن، آن‌وقت نتیجه طراحی‌شده به‌نظر می‌رسد — عمداً."
+    },
+    "more": {
+      "en": "Wathan and Schoger organize web design into practical areas — Hierarchy (weight and color over size, labels last), Layout & Spacing (start with too much white space, use a spacing system), Designing Text (limit fonts, a type scale, readable measure), Working with Color (HSL, a full palette, accessible contrast), and Depth & Finishing Touches (a consistent light source, layered shadows, empty states and imagery). The thread through all of it: tactics, not talent.",
+      "fa": "واتان و شوگر طراحیِ وب را در چند حوزهٔ عملی می‌چینند — سلسله‌مراتب (وزن و رنگ به‌جای اندازه، برچسب در آخر)، چیدمان و فاصله (شروع با فضای خالیِ زیاد، استفاده از یک نظامِ فاصله)، طراحیِ نوشته (کم‌کردنِ فونت، یک مقیاسِ اندازه، عرضِ خوانا)، کار با رنگ (HSL، یک پالتِ کامل، کنتراستِ دسترس‌پذیر)، و عمق و پرداختِ پایانی (یک منبعِ نورِ ثابت، سایه‌های لایه‌لایه، حالت‌های خالی و تصویرها). نخِ رابطِ همه‌شان: ترفند، نه استعداد."
+    },
+    "example": {
+      "en": "Click any node to read a tactic. You can also drag the nodes around.",
+      "fa": "روی هر دایره کلیک کن تا یک ترفند را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."
+    }
+  },
+  "stages": [
+    {
+      "level": 1,
+      "badge": {
+        "en": "Level 1 · Over-simplified",
+        "fa": "سطحِ ۱ · خیلی ساده"
+      },
+      "title": {
+        "en": "Tactics, not talent",
+        "fa": "ترفند، نه استعداد"
+      },
+      "tagline": {
+        "en": "The whole book in a sentence.",
+        "fa": "کلِ کتاب در یک جمله."
+      },
+      "body": {
+        "en": "Good UI design isn't a gift you're born with — it's a set of tricks you can copy. You don't have to be an artist; you just have to apply a few concrete rules on purpose.",
+        "fa": "طراحیِ خوبِ رابط، موهبتی نیست که با آن به دنیا آمده باشی — مجموعه‌ای از ترفندهاست که می‌توانی کپی‌شان کنی. لازم نیست هنرمند باشی؛ فقط باید چند قاعدهٔ مشخص را عمداً به کار ببری."
+      },
+      "example": {
+        "en": "Add more white space and make the important text bolder — it already looks better.",
+        "fa": "فضای خالی بیشتر کن و نوشتهٔ مهم را پُررنگ‌تر — همین حالا بهتر به‌نظر می‌رسد."
+      },
+      "gain": {
+        "en": "You believe design is learnable, and you know where to start.",
+        "fa": "باور می‌کنی طراحی یادگرفتنی است، و می‌دانی از کجا شروع کنی."
+      }
+    },
+    {
+      "level": 2,
+      "badge": {
+        "en": "Level 2 · Simple",
+        "fa": "سطحِ ۲ · ساده"
+      },
+      "title": {
+        "en": "Hierarchy & space",
+        "fa": "سلسله‌مراتب و فضا"
+      },
+      "tagline": {
+        "en": "Guide the eye, give it room.",
+        "fa": "چشم را هدایت کن، بهش جا بده."
+      },
+      "body": {
+        "en": "Start with two moves that fix most designs. Build a clear <b>hierarchy</b> — decide what matters most and use weight and color, not just size, to show it. Then add <b>white space</b>: start with too much and remove until it feels right, using a consistent spacing scale.",
+        "fa": "با دو حرکت شروع کن که بیشترِ طرح‌ها را درست می‌کنند. یک <b>سلسله‌مراتبِ</b> روشن بساز — تصمیم بگیر چه چیزی مهم‌تر است و با وزن و رنگ، نه فقط اندازه، نشانش بده. بعد <b>فضای خالی</b> اضافه کن: با فضای زیاد شروع کن و کم کن تا درست شود، با یک مقیاسِ فاصلهٔ یک‌دست."
+      },
+      "example": {
+        "en": "Make the price bold and dark, mute the SKU to grey, and double the padding around the card.",
+        "fa": "قیمت را پُررنگ و تیره کن، کدِ کالا را خاکستری و ملایم کن، و فاصلهٔ دورِ کارت را دو برابر کن."
+      },
+      "gain": {
+        "en": "You can make a cramped, flat design feel clean and intentional.",
+        "fa": "می‌توانی یک طرحِ فشرده و تخت را تمیز و حساب‌شده کنی."
+      }
+    },
+    {
+      "level": 3,
+      "badge": {
+        "en": "Level 3 · Balanced",
+        "fa": "سطحِ ۳ · متعادل"
+      },
+      "title": {
+        "en": "Systemize text & color",
+        "fa": "نوشته و رنگ را نظام‌مند کن"
+      },
+      "tagline": {
+        "en": "Type scale, HSL, a full palette.",
+        "fa": "مقیاسِ اندازه، HSL، یک پالتِ کامل."
+      },
+      "body": {
+        "en": "Now stop improvising. Limit yourself to one or two <b>fonts</b> and size them from a <b>type scale</b>. Keep lines 45–75 characters for <b>readability</b>. Move to <b>HSL</b> so you can reason about color, and build a <b>full palette</b> of shades up front — you'll need more than you think.",
+        "fa": "حالا دست از فی‌البداهه‌سازی بردار. خودت را به یکی‌دو <b>فونت</b> محدود کن و اندازه‌شان را از یک <b>مقیاسِ اندازه</b> بردار. خط‌ها را برای <b>خوانایی</b> ۴۵ تا ۷۵ نویسه نگه دار. به <b>HSL</b> برو تا بتوانی دربارهٔ رنگ فکر کنی، و از اول یک <b>پالتِ کامل</b> از سایه‌ها بساز — به بیشتر از آنچه فکر می‌کنی نیاز داری."
+      },
+      "example": {
+        "en": "Pick one clean font, a scale of 12–36px, and define blue-50 to blue-900 plus nine greys.",
+        "fa": "یک فونتِ تمیز انتخاب کن، یک مقیاسِ ۱۲ تا ۳۶ پیکسل، و از آبیِ‌۵۰ تا آبیِ‌۹۰۰ به‌علاوهٔ نُه خاکستری را تعریف کن."
+      },
+      "gain": {
+        "en": "Your text and color feel like one coherent system, not guesses.",
+        "fa": "نوشته و رنگت مثلِ یک نظامِ منسجم به‌نظر می‌رسند، نه حدس."
+      }
+    },
+    {
+      "level": 4,
+      "badge": {
+        "en": "Level 4 · Advanced",
+        "fa": "سطحِ ۴ · پیشرفته"
+      },
+      "title": {
+        "en": "Depth & accessibility",
+        "fa": "عمق و دسترس‌پذیری"
+      },
+      "tagline": {
+        "en": "Light source, layers, real contrast.",
+        "fa": "منبعِ نور، لایه‌ها، کنتراستِ واقعی."
+      },
+      "body": {
+        "en": "Make flat UI feel real. Add <b>depth</b> by emulating a single <b>light source</b> — layered shadows below raised elements — and by using contrast and warmth to bring things forward or push them back. And design for everyone: never rely on <b>color alone</b>, and keep <b>contrast</b> high enough to be accessible.",
+        "fa": "رابطِ تخت را واقعی کن. با شبیه‌سازیِ یک <b>منبعِ نورِ</b> واحد <b>عمق</b> اضافه کن — سایه‌های لایه‌لایه زیرِ عنصرهای برجسته — و با کنتراست و گرما چیزها را جلو بیاور یا عقب بِبَر. و برای همه طراحی کن: هیچ‌وقت فقط به <b>رنگ</b> تکیه نکن، و <b>کنتراست</b> را آن‌قدر بالا نگه دار که دسترس‌پذیر باشد."
+      },
+      "example": {
+        "en": "Give a card a soft layered shadow, and add an icon beside a colored status so it's never color-only.",
+        "fa": "به یک کارت یک سایهٔ نرمِ لایه‌لایه بده، و کنارِ یک وضعیتِ رنگی یک آیکون بگذار تا هیچ‌وقت فقط رنگی نباشد."
+      },
+      "gain": {
+        "en": "Your interfaces feel tangible and work for every user.",
+        "fa": "رابط‌هایت ملموس‌اند و برای هر کاربری کار می‌کنند."
+      }
+    },
+    {
+      "level": 5,
+      "badge": {
+        "en": "Level 5 · Expert",
+        "fa": "سطحِ ۵ · حرفه‌ای"
+      },
+      "title": {
+        "en": "Sweat the details",
+        "fa": "روی جزئیات وقت بگذار"
+      },
+      "tagline": {
+        "en": "Finishing touches that sell it.",
+        "fa": "پرداختِ پایانی که فروشش می‌کند."
+      },
+      "body": {
+        "en": "The expert has all the systems and then obsesses over the last 10%. <b>Supercharge the defaults</b>: custom icons instead of browser bullets, styled links and quotes, better imagery. Design <b>empty states</b> so a new user's first blank screen feels welcoming. At this level design is a set of deliberate decisions from your own systems — repeatable, teachable, and unmistakably intentional.",
+        "fa": "آدمِ حرفه‌ای همهٔ نظام‌ها را دارد و بعد روی همان ده‌درصدِ آخر وسواس به خرج می‌دهد. <b>پیش‌فرض‌ها را شارژ کن</b>: آیکون‌های سفارشی به‌جای گلوله‌های مرورگر، لینک‌ها و نقلِ‌قول‌های استایل‌خورده، تصویرهای بهتر. <b>حالت‌های خالی</b> را طوری طراحی کن که اولین صفحهٔ خالیِ کاربرِ تازه، خوشامدگو باشد. در این سطح، طراحی مجموعه‌ای از تصمیم‌های حساب‌شده از نظام‌های خودت است — تکرارپذیر، آموختنی، و بی‌شک عمدی."
+      },
+      "example": {
+        "en": "Your empty states, icons and micro-details all feel considered — the UI looks professionally designed.",
+        "fa": "حالت‌های خالی، آیکون‌ها و ریزه‌کاری‌هایت همه حساب‌شده به‌نظر می‌رسند — رابط، حرفه‌ای‌طراحی‌شده به‌نظر می‌رسد."
+      },
+      "gain": {
+        "en": "You can make any interface look designed — and show others how.",
+        "fa": "می‌توانی هر رابطی را طراحی‌شده نشان بدهی — و به دیگران هم یاد بدهی چطور."
+      }
+    }
+  ],
+  "quotes": [
+    {
+      "en": "Make your ideas look awesome, without relying on a designer.",
+      "fa": "کاری کن ایده‌هایت عالی به‌نظر برسند، بی‌آنکه به یک طراح تکیه کنی."
+    },
+    {
+      "en": "It's easy to throw your hands up and say, ‘I'll never be able to make this look good, I'm not an artist,’ but there are a ton of tricks you can use to level up your work that don't require a background in graphic design.",
+      "fa": "راحت است که دست‌هایت را بالا بیندازی و بگویی «هیچ‌وقت نمی‌توانم این را خوب کنم، من که هنرمند نیستم»، اما کلی ترفند هست که می‌توانی برای بهتر‌کردنِ کارت به کار ببری و هیچ‌کدام به پیشینهٔ طراحیِ گرافیک نیاز ندارند."
+    },
+    {
+      "en": "Not all elements are equal.",
+      "fa": "همهٔ عنصرها برابر نیستند."
+    },
+    {
+      "en": "Emphasize by de-emphasizing.",
+      "fa": "با کم‌رنگ‌کردن، تأکید کن."
+    },
+    {
+      "en": "When you start designing a new piece of UI, start with too much white space.",
+      "fa": "وقتی شروع می‌کنی به طراحیِ یک تکه رابطِ تازه، با فضای خالیِ زیاد شروع کن."
+    },
+    {
+      "en": "Don't use grey text on colored backgrounds.",
+      "fa": "روی زمینه‌های رنگی از نوشتهٔ خاکستری استفاده نکن."
+    },
+    {
+      "en": "You're going to need more shades than you think.",
+      "fa": "به سایه‌های بیشتری از آنچه فکر می‌کنی نیاز پیدا می‌کنی."
+    },
+    {
+      "en": "Emulate a light source.",
+      "fa": "یک منبعِ نور را شبیه‌سازی کن."
+    }
+  ],
+  "media": [
+    {
+      "kind": "yt",
+      "id": "7Z9rrryIOC4",
+      "src": {
+        "en": "YouTube · CSS Day",
+        "fa": "یوتیوب · CSS Day"
+      },
+      "title": {
+        "en": "Refactoring UI — Steve Schoger (CSS Day 2019)",
+        "fa": "بازطراحیِ رابط — استیو شوگر · CSS Day ۲۰۱۹"
+      },
+      "desc": {
+        "en": "Steve Schoger redesigns real interfaces live, narrating the tactics as he goes.",
+        "fa": "استیو شوگر زندهٔ زنده رابط‌های واقعی را بازطراحی می‌کند و همین‌طور که پیش می‌رود، ترفندها را توضیح می‌دهد."
+      },
+      "bullets": {
+        "en": [
+          "Live before/after redesigns",
+          "Hierarchy, spacing and color in action",
+          "Straight from a co-author"
+        ],
+        "fa": [
+          "بازطراحیِ زندهٔ قبل و بعد",
+          "سلسله‌مراتب، فاصله و رنگ در عمل",
+          "مستقیم از یکی از نویسنده‌ها"
+        ]
+      },
+      "best": {
+        "en": "Best for Stage 2–4.",
+        "fa": "خوب برای مرحلهٔ ۲ تا ۴."
+      }
+    },
+    {
+      "kind": "yt",
+      "id": "VfRE0ah3NxE",
+      "src": {
+        "en": "YouTube · Laracon Online",
+        "fa": "یوتیوب · Laracon Online"
+      },
+      "title": {
+        "en": "Practical Solutions to Common UI Design Problems",
+        "fa": "راه‌حل‌های عملی برای مشکل‌های رایجِ طراحیِ رابط"
+      },
+      "desc": {
+        "en": "A talk walking through frequent UI mistakes and the simple fixes from the book.",
+        "fa": "یک سخنرانی که مشکل‌های پرتکرارِ رابط و راه‌حل‌های سادهٔ کتاب را مرور می‌کند."
+      },
+      "bullets": {
+        "en": [
+          "Common mistakes, side by side",
+          "Quick, repeatable fixes",
+          "A practical overview"
+        ],
+        "fa": [
+          "اشتباه‌های رایج، کنارِ هم",
+          "راه‌حل‌های سریع و تکرارپذیر",
+          "یک مرورِ عملی"
+        ]
+      },
+      "best": {
+        "en": "Best for Stage 2–3.",
+        "fa": "خوب برای مرحلهٔ ۲ و ۳."
+      }
+    },
+    {
+      "kind": "yt",
+      "id": "EjEYTRD-W-M",
+      "src": {
+        "en": "YouTube · Laracon Online",
+        "fa": "یوتیوب · Laracon Online"
+      },
+      "title": {
+        "en": "The Little Details of UI Design — Steve Schoger",
+        "fa": "جزئیاتِ کوچکِ طراحیِ رابط — استیو شوگر"
+      },
+      "desc": {
+        "en": "A deep dive into the finishing touches that make interfaces feel polished.",
+        "fa": "یک واکاویِ عمیق در دست‌کاری‌های پایانی که رابط‌ها را صیقلی نشان می‌دهند."
+      },
+      "bullets": {
+        "en": [
+          "Depth, shadows and detail",
+          "Small touches, big payoff",
+          "Great for finishing work"
+        ],
+        "fa": [
+          "عمق، سایه و جزئیات",
+          "دست‌کاری‌های کوچک، نتیجهٔ بزرگ",
+          "عالی برای کارِ پایانی"
+        ]
+      },
+      "best": {
+        "en": "Best for Stage 4–5.",
+        "fa": "خوب برای مرحلهٔ ۴ و ۵."
+      }
+    },
+    {
+      "kind": "img",
+      "url": "https://refactoringui.com/",
+      "src": {
+        "en": "Refactoring UI · Publisher",
+        "fa": "Refactoring UI · ناشر"
+      },
+      "title": {
+        "en": "Refactoring UI — Official Site",
+        "fa": "بازطراحیِ رابط — سایتِ رسمی"
+      },
+      "desc": {
+        "en": "The official book site, with the full table of contents and sample chapters.",
+        "fa": "سایتِ رسمیِ کتاب، با فهرستِ کامل و فصل‌های نمونه."
+      },
+      "bullets": {
+        "en": [
+          "The complete contents",
+          "Sample tactics and previews",
+          "Straight from the source"
+        ],
+        "fa": [
+          "فهرستِ کامل",
+          "ترفندها و پیش‌نمایش‌های نمونه",
+          "مستقیم از خودِ منبع"
+        ]
+      },
+      "best": {
+        "en": "For the book itself.",
+        "fa": "برای خودِ کتاب."
+      }
+    }
+  ],
+  "go": [
+    {
+      "label": {
+        "en": "Official book site",
+        "fa": "سایتِ رسمیِ کتاب"
+      },
+      "url": "https://refactoringui.com/"
+    },
+    {
+      "label": {
+        "en": "Book on Goodreads",
+        "fa": "کتاب در گودریدز"
+      },
+      "url": "https://www.goodreads.com/book/show/43190966-refactoring-ui"
+    },
+    {
+      "label": {
+        "en": "Free article: 7 Practical Tips for Cheating at Design",
+        "fa": "مقالهٔ رایگان: هفت ترفندِ عملی برای تقلب در طراحی"
+      },
+      "url": "https://medium.com/refactoring-ui/7-practical-tips-for-cheating-at-design-40c736799886"
+    }
+  ],
+  "recs": [
+    {
+      "pri": "b",
+      "t": {
+        "en": "Fix hierarchy with weight and color",
+        "fa": "سلسله‌مراتب را با وزن و رنگ درست کن"
+      },
+      "d": {
+        "en": "Take one screen and re-rank its elements: bolden what matters, mute the rest to grey — without changing any sizes.",
+        "fa": "یک صفحه را بردار و عنصرهایش را از نو رتبه‌بندی کن: چیزِ مهم را پُررنگ کن، بقیه را خاکستری و ملایم — بدونِ عوض‌کردنِ هیچ اندازه‌ای."
+      }
+    },
+    {
+      "pri": "b",
+      "t": {
+        "en": "Add too much white space",
+        "fa": "فضای خالیِ زیاد اضافه کن"
+      },
+      "d": {
+        "en": "Double the padding and gaps on a cramped component, then trim back until it feels right.",
+        "fa": "فاصلهٔ داخلی و شکاف‌های یک عنصرِ فشرده را دو برابر کن، بعد کم کن تا درست شود."
+      }
+    },
+    {
+      "pri": "n",
+      "t": {
+        "en": "Define your scales",
+        "fa": "مقیاس‌هایت را تعریف کن"
+      },
+      "d": {
+        "en": "Write down a fixed spacing scale and a type scale, and only pick from them from now on.",
+        "fa": "یک مقیاسِ فاصلهٔ ثابت و یک مقیاسِ اندازهٔ نوشته بنویس، و از این به بعد فقط از همان‌ها انتخاب کن."
+      }
+    },
+    {
+      "pri": "n",
+      "t": {
+        "en": "Build your shades",
+        "fa": "سایه‌هایت را بساز"
+      },
+      "d": {
+        "en": "Pick one color and generate eight to ten shades in HSL, plus a set of greys, before your next design.",
+        "fa": "یک رنگ انتخاب کن و قبل از طرحِ بعدی‌ات، در HSL هشت تا ده سایه به‌علاوهٔ یک مجموعه خاکستری بساز."
+      }
+    }
+  ]
 });
 </script>
 </body>
