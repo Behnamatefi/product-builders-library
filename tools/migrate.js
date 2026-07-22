@@ -137,7 +137,7 @@ function pageHtml(title, dataObj) {
   if (/<\/script/i.test(json)) throw new Error(`DATA contains </script — cannot inline safely for ${title}`);
   return `<!DOCTYPE html>
 <!-- Generated page. Edit CONTENT in the DATA object below; shared UI lives in ../assets/book.css + ../assets/book.js -->
-<html lang="fa" dir="rtl" data-lang="fa">
+<html lang="en" dir="ltr" data-lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -151,7 +151,7 @@ function pageHtml(title, dataObj) {
     document.documentElement.setAttribute('data-theme', th);
   }catch(e){ document.documentElement.setAttribute('data-theme','light'); }
   try{
-    var lg = localStorage.getItem('pbl-lang') || 'fa';
+    var lg = localStorage.getItem('pbl-lang') || 'en';
     document.documentElement.setAttribute('data-lang', lg);
     document.documentElement.setAttribute('lang', lg);
     document.documentElement.setAttribute('dir', lg==='fa' ? 'rtl' : 'ltr');

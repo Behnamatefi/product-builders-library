@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- Product Builder's Library — bilingual EN/FA catalog of 45 essential books in 15 groups -->
-<html lang="fa" dir="rtl" data-lang="fa">
+<html lang="en" dir="ltr" data-lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,7 +14,7 @@
     document.documentElement.setAttribute('data-theme', th);
   }catch(e){ document.documentElement.setAttribute('data-theme','light'); }
   try{
-    var lg = localStorage.getItem('pbl-lang') || 'fa';
+    var lg = localStorage.getItem('pbl-lang') || 'en';
     document.documentElement.setAttribute('data-lang', lg);
     document.documentElement.setAttribute('lang', lg);
     document.documentElement.setAttribute('dir', lg==='fa' ? 'rtl' : 'ltr');
@@ -30,43 +30,57 @@
 <link href="assets/recommend.css" rel="stylesheet">
 
 <style>
-/* ── TOKENS ───────────────────────────────────────────────── */
+/* ── TOKENS — Linear × Raycast × Apple ────────────────────── */
 :root, [data-theme="light"]{
-  --bg:#f5f6f8; --bg2:#eef2f7; --card:#fff; --card2:#f8fafb;
-  --ink:#1c2330; --mut:#6b7280; --line:#e6e8ee;
-  --accent:#0e7c86; --accent-ink:#fff; --warm:#c2410c;
-  --shadow:0 1px 2px rgba(20,30,50,.05),0 6px 24px rgba(20,30,50,.06);
-  --hero-1:#0e7c86; --hero-2:#0b5e66;
-  --c-teal:#0e9aa6; --c-blue:#2f6fb0; --c-violet:#7c3aed; --c-amber:#d97706;
-  --c-green:#15a34a; --c-red:#e11d48; --c-gold:#c98a12; --c-gray:#6b7280;
+  --bg:#fbfbfd; --bg2:#f1f2f6; --card:#ffffff; --card2:#f6f7f9;
+  --ink:#14161c; --mut:#5c6472; --line:rgba(17,20,30,.09); --line2:rgba(17,20,30,.055);
+  --accent:#5b63e6; --accent-2:#7c5cff; --accent-ink:#ffffff; --warm:#d9603a;
+  --shadow:0 1px 2px rgba(17,22,40,.04),0 10px 30px rgba(17,22,40,.08);
+  --shadow-lg:0 2px 6px rgba(17,22,40,.06),0 24px 60px rgba(17,22,40,.16);
+  --hero-1:#171a29; --hero-2:#0c0d15;
+  --c-teal:#0f9d99; --c-blue:#3b6fe0; --c-violet:#7c5cff; --c-amber:#dd8a1c;
+  --c-green:#12a150; --c-red:#e0455e; --c-gold:#c08a12; --c-gray:#6b7280;
+  --ease:cubic-bezier(.2,.8,.2,1); --ease-out:cubic-bezier(.16,1,.3,1); --ease-io:cubic-bezier(.65,0,.35,1);
+  --d1:.16s; --d2:.28s;
 }
 [data-theme="dark"]{
-  --bg:#0e131a; --bg2:#161d27; --card:#151c26; --card2:#1b2430;
-  --ink:#e9eef5; --mut:#9aa7b6; --line:#27313d;
-  --accent:#2dd4bf; --accent-ink:#06231f; --warm:#fb923c;
-  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 28px rgba(0,0,0,.45);
-  --hero-1:#0c5f67; --hero-2:#07323a;
-  --c-teal:#2dd4bf; --c-blue:#5b9bd5; --c-violet:#a78bfa; --c-amber:#fbbf24;
-  --c-green:#34d399; --c-red:#fb7185; --c-gold:#e2b04a; --c-gray:#94a3b8;
+  --bg:#0a0a0d; --bg2:#101116; --card:#141519; --card2:#1a1c22;
+  --ink:#f2f3f6; --mut:#9198a4; --line:rgba(255,255,255,.09); --line2:rgba(255,255,255,.05);
+  --accent:#8b8fff; --accent-2:#a78bff; --accent-ink:#0a0a0d; --warm:#ff8f6b;
+  --shadow:0 1px 2px rgba(0,0,0,.5),0 10px 30px rgba(0,0,0,.5);
+  --shadow-lg:0 2px 8px rgba(0,0,0,.5),0 28px 70px rgba(0,0,0,.6);
+  --hero-1:#15161f; --hero-2:#0a0b10;
+  --c-teal:#2dd4bf; --c-blue:#6aa3ff; --c-violet:#a78bff; --c-amber:#f5b544;
+  --c-green:#4ade80; --c-red:#fb7185; --c-gold:#e2b04a; --c-gray:#98a2b3;
+  --ease:cubic-bezier(.2,.8,.2,1); --ease-out:cubic-bezier(.16,1,.3,1); --ease-io:cubic-bezier(.65,0,.35,1);
+  --d1:.16s; --d2:.28s;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);
-  font-family:Vazirmatn,"Segoe UI",Tahoma,Arial,sans-serif;line-height:1.85;font-size:15px;
-  transition:background .25s,color .25s}
-html[data-lang="en"] body{font-family:Inter,"Segoe UI",system-ui,Arial,sans-serif;line-height:1.7}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{margin:0;overflow-x:clip;background:var(--bg);color:var(--ink);
+  font-family:Vazirmatn,"Segoe UI",Tahoma,Arial,sans-serif;line-height:1.8;font-size:15px;
+  transition:background .4s var(--ease),color .4s var(--ease);-webkit-font-smoothing:antialiased}
+html[data-lang="en"] body{font-family:Inter,-apple-system,system-ui,Arial,sans-serif;line-height:1.65;letter-spacing:-.006em}
 .wrap{max-width:1040px;margin:0 auto;padding:0 18px 40px}
 html[data-lang="en"] [data-only="fa"]{display:none !important}
 html[data-lang="fa"] [data-only="en"]{display:none !important}
+button,a{-webkit-tap-highlight-color:transparent}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:8px}
+.langbtn,.themebtn,.rw-trigger{transition:transform var(--d1) var(--ease),border-color var(--d1) var(--ease),color var(--d1) var(--ease),background var(--d1) var(--ease)}
+.langbtn:active,.themebtn:active,.rw-trigger:active{transform:scale(.96)}
+@media(prefers-reduced-transparency:reduce){.navbar{backdrop-filter:none;-webkit-backdrop-filter:none;background:var(--card)}}
 
-/* ── HERO ─────────────────────────────────────────────────── */
-.hero{background:linear-gradient(135deg,var(--hero-1),var(--hero-2));color:#fff;padding:46px 0 36px;position:relative;overflow:hidden}
-.hero::after{content:"";position:absolute;inset-inline-end:-80px;top:-80px;width:300px;height:300px;
-  background:radial-gradient(circle,rgba(255,255,255,.12),transparent 70%);pointer-events:none}
+/* ── HERO — dark glass band with an accent aurora ─────────── */
+.hero{background:linear-gradient(160deg,var(--hero-1),var(--hero-2));color:#fff;padding:56px 0 42px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset-inline-end:-8%;top:-60%;width:64%;height:180%;pointer-events:none;
+  background:radial-gradient(closest-side,color-mix(in srgb,var(--accent) 50%,transparent),transparent 72%);opacity:.45}
+.hero::after{content:"";position:absolute;inset-inline-start:-6%;bottom:-70%;width:50%;height:150%;pointer-events:none;
+  background:radial-gradient(closest-side,color-mix(in srgb,var(--accent-2) 42%,transparent),transparent 72%);opacity:.3}
 .hero .wrap{padding-bottom:0;position:relative;z-index:1;max-width:1040px}
-.hero h1{margin:0 0 10px;font-size:32px;font-weight:800;letter-spacing:-.3px;line-height:1.22}
-html[data-lang="en"] .hero h1{font-family:Newsreader,Georgia,serif;font-weight:600;letter-spacing:-.5px}
-.hero .dek{margin:0;opacity:.94;font-size:16px;max-width:680px}
+.hero h1{margin:0 0 10px;font-size:clamp(28px,4.4vw,42px);font-weight:800;letter-spacing:-.03em;line-height:1.08}
+html[data-lang="en"] .hero h1{font-family:Inter,system-ui,sans-serif;font-weight:800}
+.hero .dek{margin:0;opacity:.86;font-size:16px;max-width:680px;line-height:1.6}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.001ms !important;transition-duration:.001ms !important}}
 .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;
   color:rgba(255,255,255,.95);background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.24);
   padding:5px 13px;border-radius:20px;margin-bottom:15px}
@@ -119,7 +133,7 @@ html[data-lang="en"] .hero h1{font-family:Newsreader,Georgia,serif;font-weight:6
   font-weight:800;font-size:16px;color:#fff;font-variant-numeric:tabular-nums;letter-spacing:-.5px}
 .gtext{flex:1 1 auto;min-width:0}
 .gname{font-weight:800;font-size:17px;line-height:1.3}
-html[data-lang="en"] .gname{font-family:Newsreader,Georgia,serif;font-weight:600}
+html[data-lang="en"] .gname{font-family:Inter,system-ui,sans-serif;font-weight:800;letter-spacing:-.02em}
 .gblurb{color:var(--mut);font-size:13px;line-height:1.55;margin-top:2px}
 .books{display:grid;grid-template-columns:repeat(3,1fr)}
 .book{padding:16px 18px;border-inline-start:1px solid var(--line);text-decoration:none;color:inherit;
@@ -156,7 +170,7 @@ html[data-lang="en"] .gname{font-family:Newsreader,Georgia,serif;font-weight:600
 .masthead .logomark svg{width:100%;height:100%;display:block}
 .masthead .logotype{display:flex;flex-direction:column;line-height:1.15}
 .masthead .logotype .lt-main{font-weight:800;font-size:15.5px;letter-spacing:-.2px}
-html[data-lang="en"] .masthead .logotype .lt-main{font-family:Newsreader,Georgia,serif;font-weight:600;letter-spacing:-.4px}
+html[data-lang="en"] .masthead .logotype .lt-main{font-family:Inter,system-ui,sans-serif;font-weight:800;letter-spacing:-.3px}
 .masthead .logotype .lt-sub{font-size:10.5px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;color:var(--mut);opacity:.9}
 .masthead .logo:hover .lt-main{color:var(--accent)}
 .hero-cta{margin-top:22px}
@@ -246,7 +260,7 @@ html[data-lang="en"] .masthead .logotype .lt-main{font-family:Newsreader,Georgia
 
 <script>
 /* ── language + RLM formatters (identical to book pages) ──── */
-var LANG = document.documentElement.getAttribute('data-lang') || 'fa';
+var LANG = document.documentElement.getAttribute('data-lang') || 'en';
 var FA_D = '۰۱۲۳۴۵۶۷۸۹';
 var RLM  = '‏';
 function faDigits(s){ return String(s).replace(/[0-9]/g, function(d){ return FA_D[+d]; }); }

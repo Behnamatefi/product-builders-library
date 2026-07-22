@@ -26,7 +26,7 @@
   };
 
   /* ── language + number formatting ──────────────────────────────────────── */
-  var LANG = document.documentElement.getAttribute('data-lang') || 'fa';
+  var LANG = document.documentElement.getAttribute('data-lang') || 'en';
   var FA_D = '۰۱۲۳۴۵۶۷۸۹';
   var RLM  = '‏';
   function faDigits(s) { return String(s).replace(/[0-9]/g, function (d) { return FA_D[+d]; }); }
@@ -157,12 +157,13 @@
         + '<button class="gtab active" id="tabNet"><span data-only="en">Interactive network</span><span data-only="fa">شبکهٔ تعاملی</span></button>'
         + '<button class="gtab" id="tabMap"><span data-only="en">Structured map</span><span data-only="fa">نقشهٔ مرتب</span></button>'
       + '</div>'
-      + '<div class="card graphcard" id="netView"><div class="legend" id="legendHost"></div>'
-        + '<div class="graphstage"><div class="svgwrap">'
-          + '<svg id="netsvg" viewBox="0 0 820 560" preserveAspectRatio="xMidYMid meet" role="img" aria-label="knowledge network"></svg>'
+      + '<div class="graphfull" id="netView"><div class="legend" id="legendHost"></div>'
+        + '<div class="svgwrap">'
+          + '<svg id="netsvg" viewBox="0 0 1200 760" preserveAspectRatio="xMidYMid meet" role="img" aria-label="knowledge network"></svg>'
           + '<div class="ghint" id="ghint"></div><button class="greset" id="greset"></button>'
-        + '</div><div class="detail" id="detailHost"></div></div></div>'
-      + '<div class="card graphcard" id="mapView" style="display:none">'
+          + '<aside class="detail" id="detailHost" aria-live="polite"></aside>'
+        + '</div></div>'
+      + '<div class="card" id="mapView" style="display:none">'
         + '<div class="flowline" id="flowTop"></div><div class="mapgrid" id="mapHost"></div>'
         + '<div class="callout" style="margin-top:16px">' + L(m.flow_callout.label)
           + '<span data-only="en"> ' + esc0(m.flow_callout.en) + '</span>'
@@ -360,33 +361,49 @@
 
   /* ── INTERACTIVE NETWORK GRAPH (deterministic radial layout, no physics) ── */
   var GRAPH = (function () {
-    var svg, W = 940, H = 740, nodes = [], links = [], sel = null, dragNode = null, moved = false, startPt = null;
+    var svg, nodes = [], links = [], sel = null, dragNode = null, moved = false, startPt = null;
+    var vbX = 0, vbY = 0, vbW = 1360, vbH = 760;   // fitted viewBox (computed from node bbox so nothing clips)
 
     function build() {
       svg = document.getElementById('netsvg');
       var gp = DATA.graph || {};
-      W = gp.W || 940; H = gp.H || 740;
-      var R1 = gp.R1 || 205, R2 = gp.R2 || 128, span = (gp.span || 74) * Math.PI / 180;
-      svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+      /* elliptical layout in a nominal space; the viewBox is then FITTED to the node
+         bounding box so no node/label ever clips, on any book (any part/chapter count). */
+      var cx = 680, cy = 380;
+      var Rx = 470, Ry = 210;                                   // parts ellipse (wide, short)
+      var R2 = Math.min((gp.R2 || 140) * 1.05, 150);            // chapter fan radius
+      var span = (gp.span || 74) * Math.PI / 180;
       nodes = []; links = [];
-      var cx = W / 2, cy = H / 2;
       var N = DATA.parts.length, partAng = DATA.parts.map(function (_, i) { return -Math.PI / 2 + i * (2 * Math.PI / N); });
-      nodes.push({ id: 'core', kind: 'core', varc: '--core', r: 38, x: cx, y: cy, label: DATA.core.name, data: DATA.core });
+      nodes.push({ id: 'core', kind: 'core', varc: '--core', r: 46, x: cx, y: cy, label: DATA.core.name, data: DATA.core });
       DATA.parts.forEach(function (p, i) {
-        var a = partAng[i], px = cx + Math.cos(a) * R1, py = cy + Math.sin(a) * R1;
-        nodes.push({ id: 'p_' + p.key, kind: 'part', varc: p.varc, r: 25, x: px, y: py,
+        var a = partAng[i], px = cx + Math.cos(a) * Rx, py = cy + Math.sin(a) * Ry;
+        nodes.push({ id: 'p_' + p.key, kind: 'part', varc: p.varc, r: 30, x: px, y: py,
           label: p.name, data: { name: p.name, principle: p.gist, more: p.more, tag: p.tag, key: p.key } });
         links.push({ s: 'core', t: 'p_' + p.key, strong: true });
         var nc = p.chapters.length, start = a - span / 2;
         p.chapters.forEach(function (ck, j) {
           var ca = nc > 1 ? start + span * (j / (nc - 1)) : a;
           var c = DATA.chapters[ck];
-          nodes.push({ id: 'c_' + ck, kind: 'chap', varc: p.varc, r: 15,
+          nodes.push({ id: 'c_' + ck, kind: 'chap', varc: p.varc, r: 18,
             x: px + Math.cos(ca) * R2, y: py + Math.sin(ca) * R2,
             label: (c.glabel || c.name), data: c, ck: ck });
           links.push({ s: 'p_' + p.key, t: 'c_' + ck });
         });
       });
+      /* fit viewBox to content: include node radius + the label that sits below each node */
+      var minX = 1e9, minY = 1e9, maxX = -1e9, maxY = -1e9;
+      nodes.forEach(function (n) {
+        var below = n.kind === 'core' ? n.r : n.r + 26;         // label extends below non-core nodes
+        var hw = n.kind === 'part' ? 78 : (n.kind === 'chap' ? 52 : n.r); // rough label half-width
+        minX = Math.min(minX, n.x - Math.max(n.r, hw));
+        maxX = Math.max(maxX, n.x + Math.max(n.r, hw));
+        minY = Math.min(minY, n.y - n.r);
+        maxY = Math.max(maxY, n.y + below);
+      });
+      var pad = 34;
+      vbX = minX - pad; vbY = minY - pad; vbW = (maxX - minX) + pad * 2; vbH = (maxY - minY) + pad * 2;
+      svg.setAttribute('viewBox', vbX.toFixed(0) + ' ' + vbY.toFixed(0) + ' ' + vbW.toFixed(0) + ' ' + vbH.toFixed(0));
       nodes.forEach(function (n) { n.hx = n.x; n.hy = n.y; });
       draw();
       select('core');
@@ -395,26 +412,28 @@
 
     function draw() {
       var ln = '', nd = '';
-      links.forEach(function (l) { ln += '<line class="glink" data-s="' + l.s + '" data-t="' + l.t + '" stroke="var(--line)" stroke-width="' + (l.strong ? 2.4 : 1.5) + '" stroke-linecap="round"/>'; });
+      links.forEach(function (l) { ln += '<path class="glink" data-s="' + l.s + '" data-t="' + l.t + '" stroke="var(--line)" stroke-width="' + (l.strong ? 2 : 1.4) + '"/>'; });
       nodes.forEach(function (n) {
         var inside = '', below = '';
         if (n.kind === 'core') {
-          inside = '<text text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="800" fill="#fff" letter-spacing="0.3">' + shortLabel(n) + '</text>';
+          inside = '<text text-anchor="middle" dominant-baseline="central" font-size="15" font-weight="800" fill="var(--accent-ink)" letter-spacing="0.3">' + shortLabel(n) + '</text>';
         } else {
           if (n.kind === 'chap') {
-            inside = '<text text-anchor="middle" dominant-baseline="central" font-size="11" font-weight="800" fill="#fff">' + num(n.data.n) + '</text>';
+            inside = '<text text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="800" fill="#fff">' + num(n.data.n) + '</text>';
           }
-          var ly = n.r + (n.kind === 'part' ? 17 : 14);
-          var fs = n.kind === 'part' ? 13 : 11;
-          var stroke = 'paint-order:stroke;stroke:var(--card2);stroke-width:3.6px;stroke-linejoin:round';
-          below = '<text class="nlab" text-anchor="middle" y="' + ly + '" font-size="' + fs + '" font-weight="' + (n.kind === 'part' ? '800' : '700') + '" fill="var(--ink)" style="' + stroke + '">' + shortLabel(n) + '</text>';
+          var ly = n.r + (n.kind === 'part' ? 19 : 15);
+          var fs = n.kind === 'part' ? 15 : 12;
+          var stroke = 'paint-order:stroke;stroke:var(--card2);stroke-width:4px;stroke-linejoin:round';
+          below = '<text class="nlab" text-anchor="middle" y="' + ly + '" font-size="' + fs + '" font-weight="' + (n.kind === 'part' ? '800' : '600') + '" fill="var(--ink)" style="' + stroke + '">' + shortLabel(n) + '</text>';
         }
-        nd += '<g class="node' + (n.kind === 'core' ? ' ncore' : '') + '" data-id="' + n.id + '"><g class="ns">'
-          + '<circle r="' + n.r + '" fill="var(' + n.varc + ')" fill-opacity="' + (n.kind === 'chap' ? 0.94 : 1) + '" stroke="var(--card)" stroke-width="2.5"/>'
+        nd += '<g class="node' + (n.kind === 'core' ? ' ncore' : '') + '" data-id="' + n.id + '"'
+          + ' tabindex="0" role="button" aria-label="' + esc(TX(n.label)) + '"><g class="ns">'
+          + '<circle r="' + n.r + '" fill="var(' + n.varc + ')" fill-opacity="' + (n.kind === 'chap' ? 0.96 : 1) + '" stroke="var(--card)" stroke-width="2.5"/>'
           + inside + below + '</g></g>';
       });
-      svg.innerHTML = '<g id="glinks">' + ln + '</g><g id="gnodes">' + nd + '</g>';
+      svg.innerHTML = '<g id="glinks">' + ln + '</g><g id="grel"></g><g id="gnodes">' + nd + '</g>';
       svg.querySelectorAll('.node').forEach(function (gEl) {
+        gEl.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); select(gEl.getAttribute('data-id')); } });
         gEl.addEventListener('pointerdown', onDown);
         gEl.addEventListener('click', function () { if (!moved) select(gEl.getAttribute('data-id')); });
         gEl.addEventListener('pointerenter', function () { if (!dragNode) gEl.classList.add('hover'); });
@@ -424,15 +443,21 @@
     }
     function shortLabel(n) { return TX(n.label); }
 
+    /* gentle quadratic arc between two nodes (Linear-style curved connectors) */
+    function linkPath(a, b, curv) {
+      var mx = (a.x + b.x) / 2, my = (a.y + b.y) / 2, dx = b.x - a.x, dy = b.y - a.y;
+      var k = curv == null ? 0.10 : curv;
+      var cxp = mx - dy * k, cyp = my + dx * k;
+      return 'M' + a.x.toFixed(1) + ' ' + a.y.toFixed(1) + ' Q' + cxp.toFixed(1) + ' ' + cyp.toFixed(1) + ' ' + b.x.toFixed(1) + ' ' + b.y.toFixed(1);
+    }
     function positions() {
       svg.querySelectorAll('.node').forEach(function (g) {
         var n = byId(g.getAttribute('data-id'));
         g.setAttribute('transform', 'translate(' + n.x.toFixed(1) + ',' + n.y.toFixed(1) + ')');
       });
-      svg.querySelectorAll('.glink').forEach(function (l) {
+      svg.querySelectorAll('.glink,.rel').forEach(function (l) {
         var a = byId(l.getAttribute('data-s')), b = byId(l.getAttribute('data-t'));
-        l.setAttribute('x1', a.x.toFixed(1)); l.setAttribute('y1', a.y.toFixed(1));
-        l.setAttribute('x2', b.x.toFixed(1)); l.setAttribute('y2', b.y.toFixed(1));
+        if (a && b) l.setAttribute('d', linkPath(a, b, l.classList.contains('rel') ? 0.14 : 0.10));
       });
     }
 
@@ -452,8 +477,8 @@
     function onMove(e) {
       if (!dragNode) return; var p = toSvg(e);
       if (startPt && (Math.abs(p.x - startPt.x) > 4 || Math.abs(p.y - startPt.y) > 4)) moved = true;
-      dragNode.x = Math.max(dragNode.r + 4, Math.min(W - dragNode.r - 4, p.x));
-      dragNode.y = Math.max(dragNode.r + 4, Math.min(H - dragNode.r - 24, p.y));
+      dragNode.x = Math.max(vbX + dragNode.r, Math.min(vbX + vbW - dragNode.r, p.x));
+      dragNode.y = Math.max(vbY + dragNode.r, Math.min(vbY + vbH - dragNode.r, p.y));
       positions();
     }
     function onUp() {
@@ -496,12 +521,26 @@
     }
     function drow(cls, label, txt) { return '<div class="drow ' + cls + '"><div class="dlab">' + label + '</div><div class="dtxt">' + txt + '</div></div>'; }
 
+    /* draw animated connector lines from the selected node to its related items/topics */
+    function drawRelations(node) {
+      var g = svg.querySelector('#grel'); if (!g) return;
+      var rel = relatedIds(node), html = '';
+      rel.forEach(function (rid) {
+        var b = byId(rid); if (!b) return;
+        var d = linkPath(node, b, 0.14);
+        var len = Math.hypot(b.x - node.x, b.y - node.y) * 1.5;
+        html += '<path class="rel draw" data-s="' + node.id + '" data-t="' + rid + '" style="--len:' + len.toFixed(0) + '" stroke-width="2.2" d="' + d + '"/>';
+      });
+      g.innerHTML = html;
+    }
+
     function select(id) {
       var n = byId(id); if (!n) return;
       sel = id;
       svg.querySelectorAll('.node').forEach(function (g) { g.classList.toggle('sel', g.getAttribute('data-id') === id); });
       var selEl = svg.querySelector('.node[data-id="' + id + '"]'); if (selEl && selEl.parentNode) selEl.parentNode.appendChild(selEl);
       applyFocus(id);
+      drawRelations(n);
       var d = n.data, pv = n.kind === 'core' ? '--core' : n.varc;
       var kicker = n.kind === 'core' ? (LANG === 'fa' ? 'ایدهٔ مرکزی' : 'Core idea')
         : n.kind === 'part' ? (LANG === 'fa' ? 'بخش' : 'Part') + ' · ' + TX(d.tag)
@@ -522,6 +561,7 @@
       }
       var host = document.getElementById('detailHost');
       host.innerHTML = html;
+      host.classList.remove('pop'); void host.offsetWidth; host.classList.add('pop');  // restart materialize on each select
       host.querySelectorAll('.dchip').forEach(function (c) {
         c.addEventListener('click', function () { select(c.getAttribute('data-goto')); });
       });
@@ -655,7 +695,7 @@
   function mount(data) {
     DATA = data;
     if (!DATA || !DATA.meta) { console.error('Book.mount: DATA.meta missing'); return; }
-    LANG = document.documentElement.getAttribute('data-lang') || 'fa';
+    LANG = document.documentElement.getAttribute('data-lang') || 'en';
     renderShell(DATA.meta);
     renderLibraryNav(DATA.meta);
     setupTabs();

@@ -17,7 +17,7 @@
   'use strict';
 
   var DL = document.documentElement;
-  function lang() { return DL.getAttribute('data-lang') || 'fa'; }
+  function lang() { return DL.getAttribute('data-lang') || 'en'; }
 
   /* ── bilingual helpers (mirror book.js) ─────────────────────────────────── */
   var FA_D = '۰۱۲۳۴۵۶۷۸۹', RLM = '‏';
