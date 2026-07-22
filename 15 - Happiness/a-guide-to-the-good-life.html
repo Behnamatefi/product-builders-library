@@ -1,21 +1,20 @@
 <!DOCTYPE html>
-<!-- complexity-level: 1→5 (this page teaches the SAME book at five depths, over-simplified … expert) -->
-<!-- Effortless (Greg McKeown) — bilingual EN/FA knowledge graph & 5-stage learning page -->
-<html lang="fa" dir="rtl" data-lang="fa">
+<!-- Generated page. Edit CONTENT in the DATA object below; shared UI lives in ../assets/book.css + ../assets/book.js -->
+<html lang="en" dir="ltr" data-lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>A Guide to the Good Life — نقشهٔ دانش و یادگیری ۵ مرحله‌ای</title>
 
-<!-- Boot theme + language BEFORE paint to avoid a flash -->
+<!-- Boot theme + language BEFORE paint to avoid a flash (shared library-wide keys) -->
 <script>
 (function(){
   try{
-    var th = localStorage.getItem('goodlife-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
+    var th = localStorage.getItem('pbl-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
     document.documentElement.setAttribute('data-theme', th);
   }catch(e){ document.documentElement.setAttribute('data-theme','light'); }
   try{
-    var lg = localStorage.getItem('goodlife-lang') || 'fa';
+    var lg = localStorage.getItem('pbl-lang') || 'en';
     document.documentElement.setAttribute('data-lang', lg);
     document.documentElement.setAttribute('lang', lg);
     document.documentElement.setAttribute('dir', lg==='fa' ? 'rtl' : 'ltr');
@@ -28,876 +27,1182 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:ital,opsz@0,6..72;1,6..72&display=swap" rel="stylesheet">
-
-<style>
-/* ── TOKENS ───────────────────────────────────────────────── */
-:root, [data-theme="light"]{
-  --bg:#f5f6f8; --bg2:#eef2f7; --card:#fff; --card2:#f8fafb;
-  --ink:#1c2330; --mut:#6b7280; --line:#e6e8ee;
-  --accent:#0e7c86; --accent-ink:#fff; --warm:#c2410c;
-  --shadow:0 1px 2px rgba(20,30,50,.05),0 6px 24px rgba(20,30,50,.06);
-  --hero-1:#0e7c86; --hero-2:#0b5e66;
-  --c-teal:#0e9aa6; --c-blue:#2f6fb0; --c-violet:#7c3aed; --c-amber:#d97706;
-  --c-green:#15a34a; --c-red:#e11d48; --c-gold:#c98a12; --c-gray:#6b7280;
-  --state:#0e9aa6; --action:#d97706; --results:#7c3aed; --core:#0e7c86;
-}
-[data-theme="dark"]{
-  --bg:#0e131a; --bg2:#161d27; --card:#151c26; --card2:#1b2430;
-  --ink:#e9eef5; --mut:#9aa7b6; --line:#27313d;
-  --accent:#2dd4bf; --accent-ink:#06231f; --warm:#fb923c;
-  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 28px rgba(0,0,0,.45);
-  --hero-1:#0c5f67; --hero-2:#07323a;
-  --c-teal:#2dd4bf; --c-blue:#5b9bd5; --c-violet:#a78bfa; --c-amber:#fbbf24;
-  --c-green:#34d399; --c-red:#fb7185; --c-gold:#e2b04a; --c-gray:#94a3b8;
-  --state:#2dd4bf; --action:#fbbf24; --results:#a78bfa; --core:#2dd4bf;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);
-  font-family:Vazirmatn,"Segoe UI",Tahoma,Arial,sans-serif;line-height:1.85;font-size:15px;
-  transition:background .25s,color .25s}
-html[data-lang="en"] body{font-family:Inter,"Segoe UI",system-ui,Arial,sans-serif;line-height:1.7}
-.wrap{max-width:960px;margin:0 auto;padding:0 18px 40px}
-
-/* language visibility */
-html[data-lang="en"] [data-only="fa"]{display:none !important}
-html[data-lang="fa"] [data-only="en"]{display:none !important}
-
-/* ── HERO ─────────────────────────────────────────────────── */
-.hero{background:linear-gradient(135deg,var(--hero-1),var(--hero-2));color:#fff;padding:44px 0 34px;position:relative;overflow:hidden}
-.hero::after{content:"";position:absolute;inset-inline-end:-80px;top:-80px;width:280px;height:280px;
-  background:radial-gradient(circle,rgba(255,255,255,.12),transparent 70%);pointer-events:none}
-.hero .wrap{padding-bottom:0;position:relative;z-index:1}
-.hero h1{margin:0 0 8px;font-size:30px;font-weight:800;letter-spacing:-.3px;line-height:1.25}
-html[data-lang="en"] .hero h1{font-family:Newsreader,Georgia,serif;font-weight:600;letter-spacing:-.5px}
-.hero .dek{margin:0;opacity:.94;font-size:15.5px;max-width:640px}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;
-  color:rgba(255,255,255,.95);background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.24);
-  padding:5px 13px;border-radius:20px;margin-bottom:15px}
-.eyebrow .edot{width:7px;height:7px;border-radius:50%;background:#fff;box-shadow:0 0 0 3px rgba(255,255,255,.25)}
-.metastrip{display:flex;flex-wrap:wrap;gap:14px 30px;margin-top:20px;padding-top:16px;
-  border-top:1px solid rgba(255,255,255,.18)}
-.metaitem{display:flex;flex-direction:column;gap:3px}
-.metaitem .mk{font-size:10.5px;color:rgba(255,255,255,.62);font-weight:700;letter-spacing:.6px;text-transform:uppercase}
-.metaitem .mv{font-size:14px;color:#fff;font-weight:700}
-.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
-.chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);
-  border-radius:11px;padding:9px 15px;font-size:13px}
-.chip b{font-size:20px;display:block;font-weight:800}
-
-/* ── NAV + TOC ────────────────────────────────────────────── */
-.navbar{position:sticky;top:0;z-index:60;background:color-mix(in srgb,var(--card) 92%,transparent);
-  backdrop-filter:saturate(180%) blur(10px);-webkit-backdrop-filter:saturate(180%) blur(10px);
-  border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
-.navin{max-width:960px;margin:0 auto;padding:8px 16px;display:flex;align-items:center;gap:12px}
-.brand{flex:0 0 auto;font-weight:800;font-size:12.5px;color:var(--accent);white-space:nowrap;
-  display:flex;align-items:center;gap:7px}
-.brand .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);
-  box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 18%,transparent)}
-.toc{flex:1 1 auto;display:flex;flex-wrap:wrap;gap:7px;justify-content:center}
-.toc a{font-size:12.5px;color:var(--mut);text-decoration:none;border:1px solid var(--line);
-  border-radius:20px;padding:5px 12px;background:var(--card);white-space:nowrap;
-  transition:background .15s,color .15s,border-color .15s}
-.toc a:hover{color:var(--accent);border-color:var(--accent)}
-.toc a.active{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
-.navctl{flex:0 0 auto;display:flex;align-items:center;gap:8px}
-.langbtn{height:34px;border-radius:18px;border:1px solid var(--line);background:var(--card);
-  color:var(--ink);cursor:pointer;font:inherit;font-size:12.5px;font-weight:700;padding:0 13px;
-  display:flex;align-items:center;gap:6px}
-.langbtn:hover{border-color:var(--accent);color:var(--accent)}
-.langbtn .globe{width:15px;height:15px;display:block}
-.themebtn{flex:0 0 auto;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);
-  background:var(--card);color:var(--ink);cursor:pointer;line-height:1;display:grid;place-items:center}
-.themebtn svg{width:17px;height:17px;display:block}
-.themebtn:hover{border-color:var(--accent);color:var(--accent)}
-[data-theme="light"] .themebtn .ic-sun{display:none}
-[data-theme="dark"]  .themebtn .ic-moon{display:none}
-
-/* ── BLOCKS ───────────────────────────────────────────────── */
-h2{font-size:21px;margin:44px 0 6px;font-weight:800;scroll-margin-top:92px;line-height:1.35}
-html[data-lang="en"] h2{font-family:Newsreader,Georgia,serif;font-weight:600}
-h2 .num{color:var(--accent);font-variant-numeric:tabular-nums}
-.sub{color:var(--mut);font-size:13.5px;margin:0 0 16px;max-width:680px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;
-  padding:20px 22px;margin:14px 0;box-shadow:var(--shadow)}
-.lead{font-size:15.5px}
-.lead b{color:var(--warm)}
-.kgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin:8px 0}
-.kbox{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:15px 16px;text-align:center}
-.kbox .v{font-size:26px;font-weight:800;color:var(--accent);font-variant-numeric:tabular-nums}
-.kbox .l{font-size:12.5px;color:var(--mut);margin-top:3px}
-ul.clean{margin:6px 0;padding-inline-start:20px} ul.clean li{margin:8px 0}
-.callout{background:color-mix(in srgb,var(--warm) 9%,var(--card));
-  border:1px solid color-mix(in srgb,var(--warm) 30%,var(--line));
-  border-radius:12px;padding:14px 18px;margin:12px 0}
-.callout b{color:var(--warm)}
-.callout.accent{background:color-mix(in srgb,var(--accent) 9%,var(--card));
-  border-color:color-mix(in srgb,var(--accent) 30%,var(--line))}
-.callout.accent b{color:var(--accent)}
-a{color:var(--accent)}
-
-/* ── GRAPH ────────────────────────────────────────────────── */
-.gtabs{display:inline-flex;gap:4px;background:var(--bg2);border:1px solid var(--line);
-  border-radius:11px;padding:4px;margin:6px 0 2px}
-.gtab{border:0;background:transparent;color:var(--mut);font:inherit;font-size:13px;font-weight:700;
-  padding:7px 15px;border-radius:8px;cursor:pointer}
-.gtab.active{background:var(--card);color:var(--accent);box-shadow:var(--shadow)}
-.graphcard{padding:14px}
-.legend{display:flex;flex-wrap:wrap;gap:14px;margin:2px 4px 12px;font-size:12.5px;color:var(--mut)}
-.legend span{display:inline-flex;align-items:center;gap:6px}
-.legend i{width:11px;height:11px;border-radius:50%;display:inline-block}
-.graphstage{display:grid;grid-template-columns:1fr;gap:14px}
-@media(min-width:760px){.graphstage{grid-template-columns:1.35fr .95fr}}
-.svgwrap{position:relative;background:var(--card2);border:1px solid var(--line);border-radius:12px;
-  overflow:hidden;min-height:300px}
-#netsvg{display:block;width:100%;height:560px;touch-action:none;cursor:grab}
-#netsvg text{pointer-events:none;user-select:none}
-.ghint{position:absolute;inset-inline-start:12px;top:10px;font-size:11.5px;color:var(--mut);
-  background:color-mix(in srgb,var(--card) 82%,transparent);border:1px solid var(--line);
-  border-radius:20px;padding:3px 11px;backdrop-filter:blur(4px);max-width:70%}
-.greset{position:absolute;inset-inline-end:10px;top:10px;border:1px solid var(--line);background:var(--card);
-  color:var(--mut);border-radius:8px;font:inherit;font-size:11.5px;padding:4px 10px;cursor:pointer}
-.greset:hover{color:var(--accent);border-color:var(--accent)}
-/* node + link interaction states */
-.node{cursor:pointer}
-/* the inner <g class="ns"> is what scales; fill-box keeps the pivot on the node itself, not the SVG viewport */
-.ns{transform-box:fill-box;transform-origin:center;transition:transform .2s cubic-bezier(.2,.75,.25,1)}
-.node.hover .ns{transform:scale(1.1)}
-.node.sel  .ns{transform:scale(1.34)}                 /* selected node grows */
-.node.ncore.hover .ns{transform:scale(1.06)}
-.node.ncore.sel   .ns{transform:none}                 /* the centre 'Effortless' node keeps default size */
-.node.sel circle{stroke:var(--ink);stroke-width:2.5;filter:drop-shadow(0 0 8px color-mix(in srgb,var(--accent) 60%,transparent))}
-.node.hl circle{stroke:var(--ink);stroke-opacity:.5;stroke-width:2.5}
-.node.dim{opacity:.2}
-.node text{font-family:Vazirmatn,Tahoma,sans-serif;font-weight:700}
-html[data-lang="en"] .node text{font-family:Inter,sans-serif}
-.glink{transition:opacity .2s,stroke .2s}
-.glink.dim{opacity:.08}
-.glink.hl{stroke:var(--accent) !important;stroke-opacity:.8}
-/* detail panel */
-.detail{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;min-height:220px}
-@media(min-width:760px){.detail{max-height:480px;overflow:auto}}
-.detail .dkick{font-size:11.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;display:flex;align-items:center;gap:7px;color:var(--mut)}
-.detail .dkick i{width:10px;height:10px;border-radius:50%}
-.detail h4{margin:8px 0 3px;font-size:18px;font-weight:800}
-html[data-lang="en"] .detail h4{font-family:Newsreader,serif;font-weight:600}
-.detail .drow{margin:11px 0}
-.detail .dlab{font-size:10.5px;font-weight:800;color:var(--accent);letter-spacing:.5px;text-transform:uppercase;
-  display:inline-flex;align-items:center;gap:5px}
-.detail .drow.tip .dlab{color:var(--c-green)}
-.detail .drow.pit .dlab{color:var(--warm)}
-.detail .drow.more{border-inline-start:2px solid color-mix(in srgb,var(--accent) 32%,var(--line));padding-inline-start:11px}
-.detail .drow.more .dlab{color:var(--mut)}
-.detail .dtxt{font-size:13.6px;margin-top:3px}
-.dchips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
-.dchip{font-size:12px;border:1px solid var(--line);background:var(--card2);border-radius:16px;padding:4px 11px;
-  cursor:pointer;color:var(--ink);display:inline-flex;align-items:center;gap:6px;font-family:inherit}
-.dchip:hover{border-color:var(--accent);color:var(--accent)}
-.dchip i{width:8px;height:8px;border-radius:50%;flex:0 0 auto}
-
-/* ── CONCEPT MAP ──────────────────────────────────────────── */
-.mapgrid{display:grid;grid-template-columns:1fr;gap:14px}
-@media(min-width:820px){.mapgrid{grid-template-columns:repeat(3,1fr)}}
-.partcol{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:16px;position:relative}
-.partcol .ph{display:flex;align-items:center;gap:9px;margin-bottom:3px}
-.partcol .pdot{width:13px;height:13px;border-radius:50%;flex:0 0 auto}
-.partcol .pnum{font-size:11px;font-weight:800;color:var(--mut)}
-.partcol h4{margin:0;font-size:16.5px;font-weight:800}
-html[data-lang="en"] .partcol h4{font-family:Newsreader,serif;font-weight:600}
-.partcol .ptag{font-size:12px;color:var(--mut);margin:2px 0 4px;font-weight:700}
-.partcol .pgist{font-size:12.8px;color:var(--mut);margin:0 0 12px}
-.chapchip{display:flex;align-items:baseline;gap:8px;padding:7px 10px;border:1px solid var(--line);
-  border-radius:9px;margin:6px 0;background:var(--card2);font-size:13px}
-.chapchip .cn{font-size:11px;font-weight:800;color:var(--mut);flex:0 0 auto;font-variant-numeric:tabular-nums}
-.chapchip b{font-weight:700}
-.chapchip small{color:var(--mut);display:block;font-size:11.5px;line-height:1.5}
-.flowline{display:flex;align-items:center;justify-content:center;gap:10px;color:var(--mut);
-  font-size:12.5px;font-weight:700;margin:6px 0 2px;flex-wrap:wrap}
-.flowline .ar{color:var(--accent)}
-
-/* ── STAGE LADDER ─────────────────────────────────────────── */
-.ladder{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 4px}
-.rung{flex:1 1 150px;border:1px solid var(--line);background:var(--card);border-radius:11px;
-  padding:11px 13px;cursor:pointer;transition:transform .12s,border-color .12s;position:relative}
-.rung:hover{border-color:var(--accent);transform:translateY(-2px)}
-.rung.active{border-color:var(--accent);box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 35%,transparent)}
-.rung .lv{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.4px}
-.rung .lt{font-size:13.5px;font-weight:800;margin-top:2px}
-.rung .lbar{height:5px;border-radius:4px;background:var(--bg2);margin-top:9px;overflow:hidden}
-.rung .lbar i{display:block;height:100%;background:linear-gradient(90deg,var(--c-teal),var(--c-violet))}
-.stagecard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 24px;
-  margin:14px 0;box-shadow:var(--shadow)}
-.stagecard .shead{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-.stagecard .badge{font-size:12px;font-weight:800;color:#fff;background:var(--accent);
-  border-radius:8px;padding:4px 11px;white-space:nowrap}
-.stagecard h3{margin:0;font-size:21px;font-weight:800}
-html[data-lang="en"] .stagecard h3{font-family:Newsreader,serif;font-weight:600}
-.stagecard .tagline{color:var(--mut);font-size:13.5px;margin:4px 0 14px;font-weight:700}
-.stagecard .sbody{font-size:15px}
-.exbox{background:var(--card2);border:1px solid var(--line);border-inline-start:3px solid var(--accent);
-  border-radius:0 11px 11px 0;padding:13px 16px;margin:14px 0 6px}
-.exbox .exk{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.5px;text-transform:uppercase}
-.exbox .ext{font-size:13.8px;margin-top:3px}
-.gainrow{display:flex;align-items:flex-start;gap:9px;margin-top:12px;font-size:13px;color:var(--mut)}
-.gainrow .gi{flex:0 0 auto;color:var(--c-green);font-weight:800}
-.stagenav{display:flex;justify-content:space-between;gap:10px;margin-top:16px}
-.stagenav button{border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit;
-  font-size:13px;font-weight:700;border-radius:9px;padding:8px 14px;cursor:pointer}
-.stagenav button:hover:not(:disabled){border-color:var(--accent);color:var(--accent)}
-.stagenav button:disabled{opacity:.4;cursor:default}
-
-/* ── QUOTES ───────────────────────────────────────────────── */
-.qgrid{display:grid;grid-template-columns:1fr;gap:12px}
-@media(min-width:720px){.qgrid{grid-template-columns:1fr 1fr}}
-blockquote{margin:0;background:var(--card2);border-inline-start:3px solid var(--accent);
-  border-radius:0 12px 12px 0;padding:15px 18px;font-size:14.5px;position:relative}
-blockquote .qm{font-size:34px;line-height:0;color:var(--accent);opacity:.35;font-family:Georgia,serif;
-  position:absolute;inset-inline-start:10px;top:20px}
-blockquote p{margin:0;padding-inline-start:22px}
-html[data-lang="en"] blockquote{font-family:Newsreader,Georgia,serif;font-size:15.5px}
-
-/* ── MEDIA ────────────────────────────────────────────────── */
-.mgrid{display:grid;grid-template-columns:1fr;gap:16px}
-@media(min-width:640px){.mgrid{grid-template-columns:1fr 1fr}}
-.mcard{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;
-  box-shadow:var(--shadow);display:flex;flex-direction:column}
-.mthumb{position:relative;display:block;aspect-ratio:16/9;background:var(--bg2);overflow:hidden;text-decoration:none}
-.mthumb img{width:100%;height:100%;object-fit:cover;display:block}
-.mthumb .play{position:absolute;inset:0;display:grid;place-items:center}
-.mthumb .play span{width:54px;height:54px;border-radius:50%;background:rgba(0,0,0,.6);
-  display:grid;place-items:center;border:2px solid rgba(255,255,255,.9)}
-.mthumb .play svg{width:22px;height:22px;fill:#fff;margin-inline-start:3px}
-.mthumb .ptype{position:absolute;inset-inline-start:9px;top:9px;background:rgba(0,0,0,.72);color:#fff;
-  font-size:11px;font-weight:700;border-radius:6px;padding:3px 9px;letter-spacing:.3px}
-.mfake{aspect-ratio:16/9;display:grid;place-items:center;
-  background:linear-gradient(135deg,color-mix(in srgb,var(--c-violet) 22%,var(--card)),color-mix(in srgb,var(--c-teal) 22%,var(--card)))}
-.mfake svg{width:52px;height:52px;color:var(--ink);opacity:.6}
-.mbody{padding:15px 17px;display:flex;flex-direction:column;gap:7px;flex:1}
-.mbody .msrc{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.3px;text-transform:uppercase}
-.mbody h4{margin:0;font-size:15.5px;font-weight:800;line-height:1.4}
-html[data-lang="en"] .mbody h4{font-family:Newsreader,serif;font-weight:600}
-.mbody .mdesc{font-size:13px;color:var(--mut);margin:0}
-.mbody ul{margin:4px 0 0;padding-inline-start:18px}
-.mbody ul li{font-size:12.8px;margin:5px 0}
-.mbody .mbest{font-size:12px;font-weight:700;color:var(--warm);margin-top:auto;padding-top:8px}
-.mlink{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;
-  text-decoration:none;color:var(--accent);margin-top:4px}
-.mlink:hover{text-decoration:underline}
-.golist{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
-.golist a{font-size:12.5px;text-decoration:none;color:var(--ink);border:1px solid var(--line);
-  border-radius:20px;padding:6px 13px;background:var(--card);font-weight:700}
-.golist a:hover{border-color:var(--accent);color:var(--accent)}
-
-/* ── RECS + METHOD + CREDIT ───────────────────────────────── */
-.rec{display:grid;gap:10px;margin:8px 0}
-.rec .item{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--card)}
-.rec .item .t{font-weight:800;font-size:14.5px;margin-bottom:3px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.rec .item .t .pri{font-size:11px;font-weight:700;color:#fff;background:var(--warm);border-radius:6px;padding:2px 9px}
-.rec .item .t .pri.b{background:var(--accent)}
-.rec .item .d{font-size:13.4px;color:var(--mut)}
-.method{color:var(--mut);font-size:13.4px}
-.method p{margin:8px 0}
-.method b{color:var(--ink)}
-.credit{text-align:center;margin-top:40px;padding:22px 0 8px;border-top:1px solid var(--line);
-  color:var(--mut);font-size:14px}
-.credit .cname{color:var(--ink);font-weight:800}
-.credit a{font-weight:700;text-decoration:none}
-.credit a:hover{text-decoration:underline}
-.credit .sep{opacity:.5;margin:0 8px}
-.credit .li{display:inline-flex;align-items:center;gap:5px;vertical-align:middle}
-.credit .li svg{width:15px;height:15px;vertical-align:-3px}
-
-@media (max-width:640px){
-  body{font-size:14px}
-  .wrap{padding:0 13px 30px}
-  .hero{padding:28px 0 22px} .hero h1{font-size:22px}
-  h2{font-size:18px;scroll-margin-top:66px}
-  .brand{display:none}
-  .toc{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;scrollbar-width:none}
-  .toc::-webkit-scrollbar{display:none}
-  #netsvg{height:420px}
-}
-</style>
+<link rel="stylesheet" href="../assets/book.css">
 </head>
 <body>
+<div id="app"></div>
 
-<!-- ── HERO ───────────────────────────────────────────────── -->
-<header class="hero"><div class="wrap">
-  <div class="eyebrow"><span class="edot"></span>
-    <span data-only="en">Book knowledge map · William B. Irvine</span>
-    <span data-only="fa">نقشهٔ کتاب · ویلیام بی. اروین</span>
-  </div>
-  <h1>
-    <span data-only="en">A Guide to the Good Life — The Ancient Art of Stoic Joy</span>
-    <span data-only="fa">راهنمای زندگیِ خوب — هنرِ کهنِ شادیِ رواقی</span>
-  </h1>
-  <p class="dek">
-    <span data-only="en">A knowledge graph of the whole book, plus a 5-stage path from a single idea to expert-level mastery — with an example at every step.</span>
-    <span data-only="fa">نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از یک ایدهٔ ساده تا حرفه‌ای — با یک مثال در هر مرحله.</span>
-  </p>
-  <div class="metastrip">
-    <div class="metaitem"><span class="mk" data-only="en">Book</span><span class="mk" data-only="fa">کتاب</span>
-      <span class="mv" data-only="en">A Guide to the Good Life</span><span class="mv" data-only="fa">راهنمای زندگیِ خوب</span></div>
-    <div class="metaitem"><span class="mk" data-only="en">Author</span><span class="mk" data-only="fa">نویسنده</span>
-      <span class="mv" data-only="en">William B. Irvine</span><span class="mv" data-only="fa">ویلیام بی. اروین</span></div>
-    <div class="metaitem"><span class="mk" data-only="en">Published</span><span class="mk" data-only="fa">سالِ چاپ</span>
-      <span class="mv" data-only="en">2009</span><span class="mv" data-only="fa">۲۰۰۹</span></div>
-    <div class="metaitem"><span class="mk" data-only="en">Group</span><span class="mk" data-only="fa">گروه</span>
-      <span class="mv" data-only="en">Happiness</span><span class="mv" data-only="fa">شادکامی</span></div>
-  </div>
-  <div class="chips">
-    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Parts</span><span data-only="fa">بخش</span></div>
-    <div class="chip"><b data-only="en">16</b><b data-only="fa">۱۶</b><span data-only="en">Ideas</span><span data-only="fa">ایده</span></div>
-    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Learning stages</span><span data-only="fa">مرحلهٔ یادگیری</span></div>
-  </div>
-</div></header>
-
-<!-- ── STICKY NAV ─────────────────────────────────────────── -->
-<div class="navbar"><div class="navin">
-  <span class="brand"><span class="dot"></span>A Guide to the Good Life</span>
-  <nav class="toc">
-    <a href="#tldr" data-only="en">In a nutshell</a><a href="#tldr" data-only="fa">خلاصه</a>
-    <a href="#graph" data-only="en">Knowledge graph</a><a href="#graph" data-only="fa">نقشهٔ دانش</a>
-    <a href="#stages" data-only="en">5 stages</a><a href="#stages" data-only="fa">۵ مرحله</a>
-    <a href="#quotes" data-only="en">Quotes</a><a href="#quotes" data-only="fa">جمله‌ها</a>
-    <a href="#media" data-only="en">Watch &amp; explore</a><a href="#media" data-only="fa">تماشا و منابع</a>
-    <a href="#apply" data-only="en">Apply it</a><a href="#apply" data-only="fa">کاربرد</a>
-  </nav>
-  <div class="navctl">
-    <button class="langbtn" id="langBtn" aria-label="Switch language">
-      <svg class="globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>
-      <span data-only="en">فارسی</span><span data-only="fa">English</span>
-    </button>
-    <button class="themebtn" id="themeBtn" aria-label="Toggle theme" title="Light / Dark">
-      <span class="ic-sun" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5 19 19M19 5l-1.5 1.5M6.5 17.5 5 19"/></svg></span>
-      <span class="ic-moon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.6 6.6 0 0 0 9.8 9.8Z"/></svg></span>
-    </button>
-  </div>
-</div></div>
-
-<div class="wrap">
-
-  <!-- ── TL;DR ────────────────────────────────────────────── -->
-  <h2 id="tldr"><span class="num" data-only="en">1.</span><span class="num" data-only="fa">۱.</span>
-    <span data-only="en"> In a nutshell</span><span data-only="fa"> خلاصه</span></h2>
-  <p class="sub" data-only="en">If you read only this, you still get the whole idea.</p>
-  <p class="sub" data-only="fa">اگر فقط همین بخش را بخوانی، کلِ ایده دستت می‌آید.</p>
-  <div class="card lead"><ul class="clean" id="tldrHost"></ul></div>
-  <div class="kgrid">
-    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Parts (why Stoicism · negative visualization · control · desire · daily practice)</div><div class="l" data-only="fa">بخش (چرا رواقی‌گری · تجسمِ منفی · کنترل · میل · تمرینِ روزمره)</div></div>
-    <div class="kbox"><div class="v" data-only="en">16</div><div class="v" data-only="fa">۱۶</div><div class="l" data-only="en">Ideas you can use</div><div class="l" data-only="fa">ایده برای استفاده</div></div>
-    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Levels, simple → expert</div><div class="l" data-only="fa">مرحله، ساده تا حرفه‌ای</div></div>
-    <div class="kbox"><div class="v" data-only="en">3</div><div class="v" data-only="fa">۳</div><div class="l" data-only="en">The trichotomy: up to us · not up to us · partly up to us</div><div class="l" data-only="fa">سه‌گانه: دستِ ما · نه دستِ ما · تا‌حدی دستِ ما</div></div>
-  </div>
-  
-  <div class="callout accent">
-    <b data-only="en">The core idea:</b>
-    <b data-only="fa">ایدهٔ اصلی:</b>
-    <span data-only="en"> Stoicism is a practical <i>philosophy of life</i>: its goal is <i>tranquility</i> — freedom from negative emotions — and real <i>joy</i>. You get there with simple psychological techniques: imagine losing what you have, focus only on what you control, and want the life you already have.</span>
-    <span data-only="fa"> رواقی‌گری یک <i>فلسفهٔ عملیِ زندگی</i> است: هدفش <i>آرامش</i> است — رهایی از احساس‌های منفی — و یک <i>شادیِ</i> واقعی. با چند تکنیکِ سادهٔ روان‌شناختی به آن می‌رسی: تصور کن چیزهایی را که داری از دست می‌دهی، فقط روی آنچه کنترل می‌کنی تمرکز کن، و همان زندگی‌ای را که داری بخواه.</span>
-  </div>
-
-  <!-- ── KNOWLEDGE GRAPH ──────────────────────────────────── -->
-  <h2 id="graph"><span class="num" data-only="en">2.</span><span class="num" data-only="fa">۲.</span>
-    <span data-only="en"> The knowledge graph</span><span data-only="fa"> نقشهٔ دانش</span></h2>
-  <p class="sub" data-only="en">The whole book as one picture. Click any node to focus its connections and read more — or switch to the structured map.</p>
-  <p class="sub" data-only="fa">کلِ کتاب در یک تصویر. روی هر دایره کلیک کن تا ارتباط‌هایش را ببینی و بیشتر بخوانی — یا به نقشهٔ مرتب برو.</p>
-
-  <div class="gtabs">
-    <button class="gtab active" id="tabNet"><span data-only="en">Interactive network</span><span data-only="fa">شبکهٔ تعاملی</span></button>
-    <button class="gtab" id="tabMap"><span data-only="en">Structured map</span><span data-only="fa">نقشهٔ مرتب</span></button>
-  </div>
-
-  <!-- network view -->
-  <div class="card graphcard" id="netView">
-    <div class="legend" id="legendHost"></div>
-    <div class="graphstage">
-      <div class="svgwrap">
-        <svg id="netsvg" viewBox="0 0 820 560" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Effortless knowledge network"></svg>
-        <div class="ghint" id="ghint"></div>
-        <button class="greset" id="greset"></button>
-      </div>
-      <div class="detail" id="detailHost"></div>
-    </div>
-  </div>
-
-  <!-- map view -->
-  <div class="card graphcard" id="mapView" style="display:none">
-    <div class="flowline" id="flowTop"></div>
-    <div class="mapgrid" id="mapHost"></div>
-    <div class="callout" style="margin-top:16px">
-      <b data-only="en">Read it as a flow:</b><b data-only="fa">به‌صورتِ یک جریان بخوانش:</b>
-      <span data-only="en"> start with <b>why</b> — a philosophy of life aimed at tranquility and joy — then practice <b>negative visualization</b>, apply the <b>trichotomy of control</b>, master <b>desire</b> with fatalism and self-denial, and carry it all into <b>daily life</b> against insults, anger and grief.</span>
-      <span data-only="fa"> با <b>چرا</b> شروع کن — یک فلسفهٔ زندگی که هدفش آرامش و شادی است — بعد <b>تجسمِ منفی</b> را تمرین کن، <b>سه‌گانهٔ کنترل</b> را به کار ببر، <b>میل</b> را با جبر و ریاضت رام کن، و همه را به <b>زندگیِ روزمره</b> ببر، در برابرِ توهین و خشم و غم.</span>
-    </div>
-  </div>
-
-  <!-- ── 5 STAGES ─────────────────────────────────────────── -->
-  <h2 id="stages"><span class="num" data-only="en">3.</span><span class="num" data-only="fa">۳.</span>
-    <span data-only="en"> Learn it in 5 stages</span><span data-only="fa"> یادگیری در ۵ مرحله</span></h2>
-  <p class="sub" data-only="en">The same book at five depths. Start over-simplified, climb to expert. Tap a rung to jump.</p>
-  <p class="sub" data-only="fa">یک کتاب در پنج عمق. از خیلی ساده شروع کن و تا حرفه‌ای بالا برو. روی هر پله بزن تا بپری.</p>
-  <div class="ladder" id="ladderHost"></div>
-  <div id="stageHost"></div>
-
-  <!-- ── QUOTES ───────────────────────────────────────────── -->
-  <h2 id="quotes"><span class="num" data-only="en">4.</span><span class="num" data-only="fa">۴.</span>
-    <span data-only="en"> Lines worth keeping</span><span data-only="fa"> جمله‌هایی که ارزشِ نگه‌داشتن دارند</span></h2>
-  <p class="sub" data-only="en">Verbatim quotes from the book, translated alongside.</p>
-  <p class="sub" data-only="fa">جمله‌های مستقیم از کتاب، همراه با ترجمه.</p>
-  <div class="qgrid" id="quoteHost"></div>
-
-  <!-- ── MEDIA ────────────────────────────────────────────── -->
-  <h2 id="media"><span class="num" data-only="en">5.</span><span class="num" data-only="fa">۵.</span>
-    <span data-only="en"> Watch &amp; explore</span><span data-only="fa"> تماشا و منابع</span></h2>
-  <p class="sub" data-only="en">Special resources found online — each with what it covers and who it's best for.</p>
-  <p class="sub" data-only="fa">منابعِ ویژه‌ای که آنلاین پیدا شد — هرکدام با اینکه چه می‌گوید و به چه دردی می‌خورد.</p>
-  <div class="mgrid" id="mediaHost"></div>
-  <div class="card" style="margin-top:16px">
-    <div style="font-weight:800;font-size:13.5px;margin-bottom:4px">
-      <span data-only="en">Go straight to the source</span><span data-only="fa">مستقیم سراغِ منبع برو</span>
-    </div>
-    <div class="golist" id="goHost"></div>
-  </div>
-
-  <!-- ── APPLY ────────────────────────────────────────────── -->
-  <h2 id="apply"><span class="num" data-only="en">6.</span><span class="num" data-only="fa">۶.</span>
-    <span data-only="en"> Apply it this week</span><span data-only="fa"> این هفته امتحانش کن</span></h2>
-  <p class="sub" data-only="en">Four small moves that turn the idea into a habit.</p>
-  <p class="sub" data-only="fa">چهار حرکتِ کوچک که این ایده را به عادت تبدیل می‌کنند.</p>
-  <div class="rec" id="recHost"></div>
-
-  <!-- ── METHOD ───────────────────────────────────────────── -->
-  <h2 id="method"><span class="num" data-only="en">7.</span><span class="num" data-only="fa">۷.</span>
-    <span data-only="en"> Sources &amp; notes</span><span data-only="fa"> منابع و توضیح</span></h2>
-  <div class="card method" id="methodHost"></div>
-
-  <!-- ── CREDIT FOOTER ────────────────────────────────────── -->
-  <div class="credit">
-    <span data-only="en">Created by <span class="cname">Behnam Atefi</span><span class="sep">·</span><a class="li" href="https://www.linkedin.com/in/behnamatefi/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.3c0-1.26-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9z"/></svg>LinkedIn</a></span>
-    <span data-only="fa">ساخته‌شده توسط <span class="cname">بهنام عاطفی</span><span class="sep">·</span><a class="li" href="https://www.linkedin.com/in/behnamatefi/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.3c0-1.26-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9z"/></svg>لینکدین</a></span>
-  </div>
-</div>
-
-<!-- ═══════════════════════ SCRIPTS ═══════════════════════ -->
+<script src="../assets/library.js"></script>
+<script src="../assets/book.js"></script>
 <script>
-/* ── 1) language + formatters ─────────────────────────────── */
-var LANG = document.documentElement.getAttribute('data-lang') || 'fa';
-var FA_D = '۰۱۲۳۴۵۶۷۸۹';
-var RLM  = '‏';
-function faDigits(s){ return String(s).replace(/[0-9]/g, function(d){ return FA_D[+d]; }); }
-/* honor the RTL preference: isolate Latin runs (word order preserved) and mark with U+200F */
-function rlm(s){
-  return String(s)
-    .replace(/[A-Za-zÀ-ɏ][A-Za-zÀ-ɏ0-9'’.&:\/\-]*(?:\s+[A-Za-zÀ-ɏ0-9'’.&:\/\-]+)*/g,
-      function(m){ return RLM+'⁦'+m+'⁩'+RLM; })
-    .replace(/[0-9۰-۹]+/g, function(m){ return m+RLM; });
-}
-/* transform only TEXT segments, never HTML tags (so <b>/<i> survive) */
-function faText(s){ return String(s).replace(/(<[^>]+>)|([^<]+)/g, function(m,tag,txt){ return tag ? tag : faDigits(rlm(txt)); }); }
-function TX(o){ if(o==null) return ''; if(typeof o==='string') return o; return LANG==='fa' ? faText(o.fa) : o.en; }
-function num(n){ return LANG==='fa' ? faDigits(n) : String(n); }
-function tok(name){ return getComputedStyle(document.documentElement).getPropertyValue(name).trim(); }
-</script>
-
-<script>
-/* ── DATA LAYER — Atomic Habits (bilingual, plain-spoken Persian) ── */
-var DATA = {"tldr":[{"en":"The whole book in one line: Stoicism is a practical recipe for a calm, joyful life — a grand goal, plus techniques to reach it.","fa":"خلاصهٔ کل کتاب در یک جمله: رواقی‌گری یک دستورِ عملی برای یک زندگیِ آرام و شاد است — یک هدفِ بزرگ، به‌علاوهٔ تکنیک‌هایی برای رسیدن به آن."},{"en":"The goal is <b>tranquility</b> — freedom from negative emotions — and a deep <b>joy</b> in being alive, won through <b>virtue</b>.","fa":"هدف <b>آرامش</b> است — رهایی از احساس‌های منفی — و یک <b>شادیِ</b> عمیق از زنده‌بودن، که با <b>فضیلت</b> به‌دست می‌آید."},{"en":"The best technique is <b>negative visualization</b>: imagine losing what you have, and appreciation floods back.","fa":"بهترین تکنیک <b>تجسمِ منفی</b> است: تصور کن چیزهایی را که داری از دست می‌دهی، و قدردانی سیل‌آسا برمی‌گردد."},{"en":"Use the <b>trichotomy of control</b> — pour effort into what's up to you, internalize your goals, and let the rest go.","fa":"از <b>سه‌گانهٔ کنترل</b> استفاده کن — تلاشت را روی آنچه دستِ توست بریز، هدف‌هایت را درونی کن، و بقیه را رها کن."},{"en":"Then live it: <b>want what you have</b>, accept the past, choose a little discomfort, and stay unprovoked by insults, anger and grief.","fa":"بعد زندگی‌اش کن: <b>همان را که داری بخواه</b>، گذشته را بپذیر، کمی سختی انتخاب کن، و در برابرِ توهین و خشم و غم تحریک‌نشده بمان."}],"parts":[{"key":"whystoic","varc":"--c-teal","name":{"en":"Why Stoicism","fa":"چرا رواقی‌گری"},"tag":{"en":"A philosophy of life","fa":"یک فلسفهٔ زندگی"},"gist":{"en":"You need a grand goal in living — the Stoics chose tranquility and joy, won through virtue.","fa":"به یک هدفِ بزرگ برای زندگی نیاز داری — رواقی‌ها آرامش و شادی را انتخاب کردند، که با فضیلت به‌دست می‌آید."},"more":{"en":"Stoicism is not grim endurance; it is a full philosophy of life aimed at joy. This part lays the foundation: why you need an overarching goal at all, what the Stoics were really after (tranquility plus delight), and why they built it on virtue and reason.","fa":"رواقی‌گری تحملِ عبوس نیست؛ یک فلسفهٔ کاملِ زندگی است که هدفش شادی است. این بخش پایه را می‌گذارد: اصلاً چرا به یک هدفِ کلی نیاز داری، رواقی‌ها واقعاً دنبالِ چه بودند (آرامش به‌علاوهٔ لذت)، و چرا آن را روی فضیلت و خرد بنا کردند."},"chapters":["philosophy","tranquility","virtue"]},{"key":"negviz","varc":"--c-blue","name":{"en":"Negative Visualization","fa":"تجسمِ منفی"},"tag":{"en":"Their best technique","fa":"بهترین تکنیکشان"},"gist":{"en":"Imagine losing what you have — it beats taking things for granted and revives your joy.","fa":"تصور کن چیزهایی را که داری از دست می‌دهی — این کار جلوی بدیهی‌پنداری را می‌گیرد و شادی‌ات را زنده می‌کند."},"more":{"en":"The single most valuable Stoic technique is to imagine, briefly, that you have lost what you value most. It sounds bleak but works like magic against hedonic adaptation — the habit of taking good things for granted — and hands the present moment back to you, freshly precious.","fa":"ارزشمندترین تکنیکِ رواقی این است که برای لحظه‌ای تصور کنی چیزی را که بیش از همه برایت ارزش دارد از دست داده‌ای. تیره به‌نظر می‌رسد اما مثلِ جادو در برابرِ عادت‌کردن جواب می‌دهد — همان عادتِ بدیهی‌گرفتنِ چیزهای خوب — و لحظهٔ حال را، تازه و عزیز، به تو پس می‌دهد."},"chapters":["imagine","hedonic","present"]},{"key":"control","varc":"--c-amber","name":{"en":"The Trichotomy of Control","fa":"سه‌گانهٔ کنترل"},"tag":{"en":"Where to aim","fa":"کجا را نشانه بگیری"},"gist":{"en":"Split things into up to you, not up to you, and partly up to you — then focus where you have power.","fa":"چیزها را سه‌دسته کن: دستِ تو، نه دستِ تو، و تا‌حدی دستِ تو — بعد جایی که قدرت داری تمرکز کن."},"more":{"en":"Building on Epictetus, Irvine sorts everything into three boxes and shows how to act in each. For things you only partly control, you internalize your goals — aiming at your own effort instead of the outcome — so you stay motivated without handing your peace of mind to fate.","fa":"اروین با تکیه بر اپیکتتوس، همه‌چیز را در سه جعبه می‌چیند و نشان می‌دهد در هرکدام چطور عمل کنی. برای چیزهایی که فقط تا‌حدی کنترلشان می‌کنی، هدف‌هایت را درونی می‌کنی — به‌جای نتیجه، تلاشِ خودت را نشانه می‌گیری — تا باانگیزه بمانی، بی‌آنکه آرامشت را دستِ سرنوشت بدهی."},"chapters":["trichotomy","internalize","focus"]},{"key":"desire","varc":"--c-violet","name":{"en":"Desire, Fatalism & Self-Denial","fa":"میل، جبر و ریاضت"},"tag":{"en":"Master your wants","fa":"بر خواسته‌هایت مسلط شو"},"gist":{"en":"Want what you already have, accept the past and present, and train with a little chosen discomfort.","fa":"همان را که داری بخواه، گذشته و حال را بپذیر، و با کمی سختیِ انتخابی تمرین کن."},"more":{"en":"Here the practices get personal. Master runaway desire by learning to want your existing life; make peace with the past and present by treating them as fixed; and toughen yourself with occasional voluntary discomfort, so misfortune loses its power to frighten you.","fa":"اینجا تمرین‌ها شخصی می‌شوند. با یادگرفتنِ اینکه همان زندگیِ موجودت را بخواهی، بر میلِ لجام‌گسیخته مسلط شو؛ با ثابت‌دانستنِ گذشته و حال با آن‌ها آشتی کن؛ و با سختیِ داوطلبانهٔ گاه‌به‌گاه خودت را سِفت کن، تا بدبختی قدرتِ ترساندنت را از دست بدهد."},"chapters":["wanting","fatalism","denial"]},{"key":"practice","varc":"--c-green","name":{"en":"Insults, Anger, Grief & Practice","fa":"توهین، خشم، غم و تمرین"},"tag":{"en":"Stoicism in daily life","fa":"رواقی‌گری در زندگیِ روزمره"},"gist":{"en":"Don't be provoked, defuse anger, meet grief and death with reason — and start practicing quietly.","fa":"تحریک نشو، خشم را خنثی کن، غم و مرگ را با خرد روبه‌رو کن — و آرام شروع به تمرین کن."},"more":{"en":"The final part applies Stoicism to the friction of daily life: brushing off insults, disarming anger, and meeting grief, old age and death with reason. It closes with Irvine's practical advice for becoming a Stoic — start now, practice in stealth, and be ready to be mocked.","fa":"بخشِ آخر رواقی‌گری را به اصطکاکِ زندگیِ روزمره می‌بندد: بی‌اعتنایی به توهین، خلعِ‌سلاحِ خشم، و روبه‌رو‌شدن با غم و پیری و مرگ با خرد. با توصیهٔ عملیِ اروین برای رواقی‌شدن تمام می‌شود — همین حالا شروع کن، پنهانی تمرین کن، و آماده باش که مسخره‌ات کنند."},"chapters":["insults","anger","grief","becoming"]}],"chapters":{"philosophy":{"part":"whystoic","n":1,"name":{"en":"A Philosophy of Life","fa":"یک فلسفهٔ زندگی"},"glabel":{"en":"Philosophy","fa":"فلسفهٔ زندگی"},"principle":{"en":"Decide what in life is truly worth wanting, then pursue it. Without a grand goal in living, you risk misliving.","fa":"تصمیم بگیر در زندگی چه چیزی واقعاً ارزشِ خواستن دارد، بعد دنبالش برو. بدونِ یک هدفِ بزرگ برای زندگی، خطرِ بد‌زندگی‌کردن هست."},"more":{"en":"A philosophy of life gives you one overarching goal and a strategy for reaching it. Most people never choose one, so they spend their days chasing whatever society dangles in front of them — and reach the end wondering if they missed the point of it all.","fa":"یک فلسفهٔ زندگی به تو یک هدفِ کلیِ واحد می‌دهد و یک راه برای رسیدن به آن. بیشترِ آدم‌ها هیچ‌وقت یکی را انتخاب نمی‌کنند، برای همین روزهایشان را دنبالِ هرچیزی که جامعه جلویشان می‌گیرد می‌دوند — و به آخر که می‌رسند، می‌مانند که نکند اصلِ ماجرا را از دست داده‌اند."},"example":{"en":"A person with no philosophy of life is like a sailor with no destination: every wind is the wrong wind, and no port ever feels like home.","fa":"آدمی که فلسفهٔ زندگی ندارد مثلِ ملوانی است بی‌مقصد: هر بادی بادِ بد است، و هیچ بندری هیچ‌وقت خانه به‌نظر نمی‌رسد."},"tip":{"en":"Write one line: what is the single thing your life is ultimately for? Start there.","fa":"یک خط بنویس: زندگی‌ات در نهایت برای چیست؟ از همان‌جا شروع کن."},"pitfall":{"en":"Drifting through life on autopilot, chasing whatever everyone around you is chasing.","fa":"شناور‌بودن در زندگی روی خلبانِ خودکار، و دویدن دنبالِ هرچیزی که بقیه دنبالش‌اند."}},"tranquility":{"part":"whystoic","n":2,"name":{"en":"Tranquility & Joy","fa":"آرامش و شادی"},"glabel":{"en":"Tranquility","fa":"آرامش"},"principle":{"en":"The Stoic goal is tranquility — a life with few negative emotions — and a deep joy in simply being alive.","fa":"هدفِ رواقی آرامش است — زندگی‌ای با کمترین احساسِ منفی — و یک شادیِ عمیق از همین زنده‌بودن."},"more":{"en":"Tranquility isn't a blank, emotionless state. It means freedom from anger, anxiety, grief and envy, which clears room for gratitude and delight. The Stoics weren't gloomy; they wanted to enjoy life fully — just without being enslaved by their cravings and fears.","fa":"آرامش یک حالتِ خالی و بی‌احساس نیست. یعنی رهایی از خشم و اضطراب و غم و حسادت، که جا باز می‌کند برای قدردانی و لذت. رواقی‌ها آدم‌های دلمرده نبودند؛ می‌خواستند از زندگی کامل لذت ببرند — فقط بی‌آنکه بردهٔ ولع‌ها و ترس‌هایشان باشند."},"example":{"en":"Seneca, a Stoic, was one of Rome's richest men and enjoyed his wealth — yet he practiced being ready to lose it all without losing his calm.","fa":"سِنِکا، که یک رواقی بود، از ثروتمندترین مردانِ رم بود و از ثروتش لذت می‌برد — اما تمرین می‌کرد که آمادهٔ از‌دست‌دادنِ همه‌اش باشد، بی‌آنکه آرامشش را از دست بدهد."},"tip":{"en":"Notice which negative emotion costs you the most peace this week, and target just that one.","fa":"ببین این هفته کدام احساسِ منفی بیشترین آرامش را از تو می‌گیرد، و فقط همان یکی را هدف بگیر."},"pitfall":{"en":"Confusing tranquility with numbness, or thinking joy requires getting everything you want.","fa":"اشتباه‌گرفتنِ آرامش با بی‌حسی، یا این فکر که شادی یعنی به هرچه می‌خواهی برسی."}},"virtue":{"part":"whystoic","n":3,"name":{"en":"Virtue & Reason","fa":"فضیلت و خرد"},"glabel":{"en":"Virtue","fa":"فضیلت"},"principle":{"en":"Live in accordance with reason and become the best human you can be; for the Stoics, virtue — not pleasure — is what a good life is built on.","fa":"بر‌اساسِ خرد زندگی کن و بهترین انسانی شو که می‌توانی؛ برای رواقی‌ها، فضیلت — نه لذت — چیزی است که زندگیِ خوب رویش بنا می‌شود."},"more":{"en":"To the Stoics, our defining gift is reason, so a good life means using it well: being honest, just, kind and self-controlled. Virtue is doing your duty as a human being — and tranquility is the reward that comes, almost as a side effect, from living this way.","fa":"برای رواقی‌ها، ویژگیِ اصلیِ ما خرد است، پس زندگیِ خوب یعنی خوب به‌کار‌بردنش: صادق، عادل، مهربان و خویشتن‌دار بودن. فضیلت یعنی انجامِ وظیفه‌ات به‌عنوانِ یک انسان — و آرامش پاداشی است که تقریباً مثلِ یک اثرِ جانبی از این‌طور زندگی‌کردن می‌آید."},"example":{"en":"Marcus Aurelius ran an empire yet judged himself each day by one question: was he just, honest and useful to others — not whether he had won more.","fa":"مارکوس اورلیوس یک امپراتوری را می‌گرداند، اما هر روز خودش را با یک پرسش می‌سنجید: آیا عادل و صادق و به‌دردِ دیگران‌خور بوده — نه اینکه بیشتر برده باشد."},"tip":{"en":"Before a hard choice, ask what the most honest, decent version of you would do — then do that.","fa":"قبل از یک انتخابِ سخت، بپرس صادق‌ترین و شریف‌ترین نسخه‌ات چه می‌کند — بعد همان را بکن."},"pitfall":{"en":"Chasing pleasure or status as the goal, and treating your character as optional.","fa":"دنبالِ لذت یا جایگاه رفتن به‌عنوانِ هدف، و اختیاری‌دانستنِ شخصیتت."}},"imagine":{"part":"negviz","n":4,"name":{"en":"Imagine Losing What You Have","fa":"تصور کن داشته‌هایت را از دست می‌دهی"},"glabel":{"en":"Negative Visualization","fa":"تجسمِ منفی"},"principle":{"en":"Regularly picture losing what you value — your health, your people, your life. It turns out to be the single most valuable Stoic technique.","fa":"مرتب تصور کن چیزهایی را که برایت ارزش دارند از دست می‌دهی — سلامتی‌ات، آدم‌هایت، زندگی‌ات. معلوم می‌شود که این ارزشمندترین تکنیکِ رواقی است."},"more":{"en":"The Stoics called it negative visualization: briefly imagining the worst so you don't sleepwalk past the good. It sounds morbid but does the opposite — a few seconds of imagined loss floods you with fresh appreciation for what is, right now, still here.","fa":"رواقی‌ها اسمش را تجسمِ منفی گذاشتند: برای لحظه‌ای بدترین حالت را تصور کنی تا خواب‌گردانه از کنارِ خوبی‌ها رد نشوی. تلخ به‌نظر می‌رسد اما عکسش را می‌کند — چند ثانیه تصورِ از‌دست‌دادن، تو را پُر می‌کند از قدردانیِ تازه برای چیزی که همین حالا هنوز هست."},"example":{"en":"Kiss your child goodnight, the Stoics advised, while quietly aware that she is mortal and you may not see the morning — so the goodnight actually lands.","fa":"رواقی‌ها می‌گفتند وقتِ خواب بچه‌ات را ببوس، درحالی‌که آرام آگاهی که او فانی است و شاید تو صبح را نبینی — تا آن شب‌به‌خیر واقعاً به دلت بنشیند."},"tip":{"en":"Once a day, imagine one person or thing you love is suddenly gone; then return to noticing that it isn't.","fa":"روزی یک‌بار تصور کن یکی از آدم‌ها یا چیزهایی که دوست داری ناگهان رفته؛ بعد برگرد به دیدنِ اینکه هنوز هست."},"pitfall":{"en":"Turning it into anxious brooding instead of a brief flash that ends in gratitude.","fa":"تبدیلش به نگرانیِ کِش‌دار، به‌جای یک جرقهٔ کوتاه که به قدردانی ختم می‌شود."}},"hedonic":{"part":"negviz","n":5,"name":{"en":"Defeat Hedonic Adaptation","fa":"شکستِ عادت به لذت"},"glabel":{"en":"Adaptation","fa":"عادت‌کردن"},"principle":{"en":"We adapt to whatever we get and quickly take it for granted. Negative visualization resets the meter and restores our delight.","fa":"ما به هرچه به‌دست می‌آوریم عادت می‌کنیم و زود بدیهی‌اش می‌گیریم. تجسمِ منفی، عقربه را از نو صفر می‌کند و لذتمان را برمی‌گرداند."},"more":{"en":"Get the raise, the house, the partner — and within weeks it feels normal, so you start craving the next thing. This treadmill is why more never satisfies. Imagining loss is the cure: it makes the familiar feel new again, so you can enjoy what you already worked so hard to get.","fa":"افزایشِ حقوق، خانه، شریک را که می‌گیری — چند هفته بعد عادی به‌نظر می‌رسد، پس ولعِ چیزِ بعدی به سرت می‌زند. همین چرخِ تردمیل است که «بیشتر» را همیشه ناکافی می‌کند. تصورِ از‌دست‌دادن، درمانش است: آشنا را دوباره تازه می‌کند، تا بتوانی از چیزی که این‌همه برایش زحمت کشیدی لذت ببری."},"example":{"en":"The new phone that thrilled you last year now bores you — not because it changed, but because you adapted to it.","fa":"همان گوشیِ نو که پارسال ذوق‌زده‌ات کرد حالا خسته‌ات می‌کند — نه چون عوض شده، بلکه چون تو به آن عادت کرده‌ای."},"tip":{"en":"Look at something ordinary you own and picture life without it; feel it become valuable again.","fa":"به یک چیزِ معمولی که داری نگاه کن و زندگیِ بی‌آن را تصور کن؛ حس کن که دوباره باارزش می‌شود."},"pitfall":{"en":"Believing the next purchase or promotion will finally make you content.","fa":"این باور که خریدِ بعدی یا ترفیعِ بعدی بالاخره راضی‌ات می‌کند."}},"present":{"part":"negviz","n":6,"name":{"en":"Enjoy the Present","fa":"از حال لذت ببر"},"glabel":{"en":"The Present","fa":"زمانِ حال"},"principle":{"en":"Treat what you have as a gift on loan — enjoy it fully now, while staying ready to give it back.","fa":"با چیزی که داری مثلِ یک هدیهٔ امانتی رفتار کن — همین حالا کامل ازش لذت ببر، درحالی‌که آماده‌ای پسش بدهی."},"more":{"en":"Negative visualization has a twin lesson: not just prepare for loss, but savor the present before it becomes the past. The Stoics urged us to live as if each moment could be the last time — the last conversation, the last ordinary Tuesday — because one day it will be.","fa":"تجسمِ منفی یک درسِ دوقلو دارد: نه‌فقط آماده‌شدن برای از‌دست‌دادن، بلکه چشیدنِ لحظهٔ حال پیش از اینکه گذشته شود. رواقی‌ها می‌گفتند طوری زندگی کن که انگار هر لحظه می‌تواند آخرین بار باشد — آخرین گفت‌وگو، آخرین سه‌شنبهٔ معمولی — چون یک روز واقعاً خواهد بود."},"example":{"en":"Doing something you love, pause and think 'this may be the last time' — and a routine afternoon suddenly turns precious.","fa":"وسطِ کاری که دوستش داری، مکث کن و فکر کن «شاید این آخرین بار باشد» — و یک بعدازظهرِ معمولی ناگهان عزیز می‌شود."},"tip":{"en":"Pick one everyday moment today and experience it as if it will never come again.","fa":"امروز یک لحظهٔ روزمره را انتخاب کن و طوری تجربه‌اش کن که انگار دیگر هیچ‌وقت برنمی‌گردد."},"pitfall":{"en":"Postponing enjoyment to a someday that quietly never arrives.","fa":"انداختنِ لذت به یک روزی‌که که بی‌سروصدا هیچ‌وقت نمی‌رسد."}},"trichotomy":{"part":"control","n":7,"name":{"en":"What Is & Isn't Up to Us","fa":"چه دستِ ماست و چه نیست"},"glabel":{"en":"Trichotomy","fa":"سه‌گانه"},"principle":{"en":"Sort everything into three: what's entirely up to you, what's entirely out of your hands, and what's partly up to you.","fa":"همه‌چیز را به سه دسته تقسیم کن: چیزی که کاملاً دستِ توست، چیزی که اصلاً دستِ تو نیست، و چیزی که تا‌حدی دستِ توست."},"more":{"en":"Epictetus split life into what we control and what we don't. Irvine adds a crucial third box for things we partly control — like winning a match. Knowing which box you're in tells you exactly where to spend your worry and effort, and where to let go.","fa":"اپیکتتوس زندگی را به آنچه در کنترلِ ماست و آنچه نیست تقسیم کرد. اروین یک جعبهٔ سومِ مهم برای چیزهایی که تا‌حدی کنترلشان می‌کنیم اضافه می‌کند — مثلِ بردنِ یک مسابقه. دانستنِ اینکه در کدام جعبه‌ای، دقیقاً می‌گوید نگرانی و تلاشت را کجا خرج کنی، و کجا رها کنی."},"example":{"en":"You fully control the effort you put into a job interview; you don't control who gets hired; you only partly influence the outcome.","fa":"تلاشی که در یک مصاحبهٔ کاری می‌گذاری کاملاً دستِ توست؛ اینکه چه‌کسی استخدام می‌شود دستِ تو نیست؛ روی نتیجه فقط تا‌حدی اثر می‌گذاری."},"tip":{"en":"Take today's biggest worry and ask: fully mine, not mine, or partly mine? Then act accordingly.","fa":"بزرگ‌ترین نگرانیِ امروزت را بردار و بپرس: کاملاً مالِ من، مالِ من نیست، یا تا‌حدی مالِ من؟ بعد بر‌همان‌اساس عمل کن."},"pitfall":{"en":"Pouring energy into outcomes you can't control while neglecting what you can.","fa":"ریختنِ انرژی روی نتیجه‌هایی که کنترلشان نمی‌کنی، درحالی‌که از چیزی که می‌توانی غافل می‌شوی."}},"internalize":{"part":"control","n":8,"name":{"en":"Internalize Your Goals","fa":"هدف‌هایت را درونی کن"},"glabel":{"en":"Internal Goals","fa":"هدفِ درونی"},"principle":{"en":"For things you only partly control, aim at your effort, not the result — set internal goals you can actually hit.","fa":"برای چیزهایی که فقط تا‌حدی کنترل می‌کنی، هدف را روی تلاشت بگذار، نه نتیجه — هدف‌های درونی‌ای بگذار که واقعاً می‌توانی به‌شان برسی."},"more":{"en":"A tennis player can't control winning, but she can control playing her best. By switching the goal from 'win' to 'play as well as I can', she keeps her drive but spares herself the anxiety and disappointment of an outcome that was never fully hers.","fa":"یک تنیس‌باز نمی‌تواند بردن را کنترل کند، اما می‌تواند بهترین بازی‌اش را کنترل کند. با عوض‌کردنِ هدف از «بردن» به «تا می‌توانم خوب بازی کنم»، انگیزه‌اش را نگه می‌دارد اما خودش را از اضطراب و سرخوردگیِ نتیجه‌ای که هیچ‌وقت کاملاً مالِ او نبود نجات می‌دهد."},"example":{"en":"Instead of 'I will land this client', aim at 'I will prepare thoroughly and pitch as well as I can' — the part that's truly yours.","fa":"به‌جای «این مشتری را می‌گیرم»، هدف بگذار «کامل آماده می‌شوم و تا می‌توانم خوب ارائه می‌دهم» — همان بخشی که واقعاً مالِ توست."},"tip":{"en":"Rewrite one goal so it depends only on what you do, not on how others respond.","fa":"یک هدف را طوری بازنویسی کن که فقط به کاری که تو می‌کنی بستگی داشته باشد، نه به واکنشِ دیگران."},"pitfall":{"en":"Staking your peace on results — applause, sales, winning — that others ultimately decide.","fa":"گِرو‌گذاشتنِ آرامشت به نتیجه‌هایی — تشویق، فروش، بردن — که در نهایت دیگران تعیینشان می‌کنند."}},"focus":{"part":"control","n":9,"name":{"en":"Focus on What You Control","fa":"روی آنچه کنترل می‌کنی تمرکز کن"},"glabel":{"en":"Focus","fa":"تمرکز"},"principle":{"en":"Spend your energy where you have power and calmly accept the rest; this is how a Stoic becomes hard to disturb.","fa":"انرژی‌ات را جایی خرج کن که قدرت داری و بقیه را با آرامش بپذیر؛ رواقی این‌طور دیرآشوب می‌شود."},"more":{"en":"Almost all our frustration comes from fighting what we can't change. Redirect that effort to the one thing always in your control — your own judgments and choices — and most of your distress simply has nowhere left to attach.","fa":"تقریباً همهٔ سرخوردگیِ ما از جنگیدن با چیزی می‌آید که نمی‌توانیم عوضش کنیم. آن تلاش را ببر به‌سمتِ تنها چیزی که همیشه در کنترلِ توست — قضاوت‌ها و انتخاب‌های خودت — و بیشترِ آشفتگی‌ات دیگر جایی برای چسبیدن ندارد."},"example":{"en":"Stuck in traffic you can't move the cars, but you fully control whether you seethe or use the time — so a Stoic just lets the anger go.","fa":"گیرافتاده در ترافیک نمی‌توانی ماشین‌ها را تکان بدهی، اما کاملاً دستِ توست که کِز کنی یا از وقت استفاده کنی — پس رواقی فقط خشم را رها می‌کند."},"tip":{"en":"When upset, name the part you control and act on it; consciously release the rest.","fa":"وقتی ناراحتی، همان بخشی را که کنترل می‌کنی نام ببر و رویش عمل کن؛ بقیه را آگاهانه رها کن."},"pitfall":{"en":"Rehearsing grievances about things no amount of worry can change.","fa":"مرور‌کردنِ گله‌ها دربارهٔ چیزهایی که هیچ‌مقدار نگرانی عوضشان نمی‌کند."}},"wanting":{"part":"desire","n":10,"name":{"en":"Want What You Already Have","fa":"همان را که داری بخواه"},"glabel":{"en":"Desire","fa":"میل"},"principle":{"en":"The surest path to happiness is not getting what you want, but wanting what you already have.","fa":"مطمئن‌ترین راهِ خوشبختی این نیست که به آنچه می‌خواهی برسی، بلکه این است که همان را که داری بخواهی."},"more":{"en":"We're insatiable by design: satisfy one desire and the mind manufactures another, so we stay perpetually a little unhappy. The Stoics worked to master desire itself — to look at their existing life and genuinely want it — which quietly ends the chase.","fa":"ما ذاتاً سیری‌ناپذیریم: یک خواسته را که برآورده کنی، ذهن یکی دیگر می‌سازد، پس همیشه کمی ناراضی می‌مانیم. رواقی‌ها تلاش می‌کردند بر خودِ میل مسلط شوند — به زندگیِ موجودشان نگاه کنند و واقعاً همان را بخواهند — که بی‌سروصدا به این دویدن پایان می‌دهد."},"example":{"en":"We spend to get what we think we want, then adapt — the Stoic instead learns to enjoy the life already in front of him, for free.","fa":"ما خرج می‌کنیم تا به چیزی که فکر می‌کنیم می‌خواهیم برسیم، بعد عادت می‌کنیم — رواقی به‌جایش یاد می‌گیرد از همان زندگیِ پیشِ‌رویش، رایگان، لذت ببرد."},"tip":{"en":"List three things you already have that you once longed for; let yourself want them again.","fa":"سه چیز را فهرست کن که همین حالا داری و روزی آرزویشان را داشتی؛ بگذار دوباره بخواهی‌شان."},"pitfall":{"en":"Believing satisfaction is always one more acquisition away.","fa":"این باور که رضایت همیشه یک به‌دست‌آوردنِ دیگر آن‌طرف‌تر است."}},"fatalism":{"part":"desire","n":11,"name":{"en":"Be Fatalistic About the Past & Present","fa":"دربارهٔ گذشته و حال جبری باش"},"glabel":{"en":"Fatalism","fa":"جبرگرایی"},"principle":{"en":"Treat the past and the present moment as fixed — accept them as they are, and stop wishing they were otherwise.","fa":"با گذشته و همین لحظهٔ حال مثلِ چیزی ثابت رفتار کن — همان‌طور که هستند بپذیرشان، و دست از آرزوی جور‌دیگر‌بودنشان بردار."},"more":{"en":"The Stoics were fatalists about the past and present — not the future. Since what has already happened cannot be changed, resenting it only adds suffering. Accept this moment as if you had chosen it, and you free enormous energy that was being wasted fighting reality.","fa":"رواقی‌ها دربارهٔ گذشته و حال جبری بودند — نه دربارهٔ آینده. چون آنچه رخ داده دیگر عوض نمی‌شود، کینه‌ورزیدن به آن فقط رنج اضافه می‌کند. این لحظه را طوری بپذیر که انگار خودت انتخابش کرده‌ای، آن‌وقت انرژیِ عظیمی را آزاد می‌کنی که صرفِ جنگ با واقعیت می‌شد."},"example":{"en":"Missed the train? A Stoic doesn't replay it for an hour; it already happened, so he accepts it and moves to the next thing.","fa":"قطار را از دست دادی؟ رواقی یک ساعت در ذهنش پخشش نمی‌کند؛ اتفاق افتاده، پس می‌پذیردش و می‌رود سراغِ کارِ بعدی."},"tip":{"en":"Catch yourself replaying an unchangeable event, then say 'it is what it is' and redirect.","fa":"خودت را حینِ مرورِ یک اتفاقِ برگشت‌ناپذیر بگیر، بعد بگو «همینی که هست» و مسیرت را عوض کن."},"pitfall":{"en":"Marinating in regret and 'if only', as if enough resentment could rewrite the past.","fa":"خیساندنِ خود در حسرت و «ای‌کاش»، انگار قدرِ کافی کینه می‌تواند گذشته را از نو بنویسد."}},"denial":{"part":"desire","n":12,"name":{"en":"Voluntary Discomfort","fa":"سختیِ داوطلبانه"},"glabel":{"en":"Self-Denial","fa":"ریاضت"},"principle":{"en":"Occasionally choose discomfort on purpose — cold, hunger, plain living — to build resilience and gratitude.","fa":"گاهی از قصد سختی را انتخاب کن — سرما، گرسنگی، سادگی — تا تاب‌آوری و قدردانی بسازی."},"more":{"en":"The Stoics periodically practiced poverty and discomfort: eating little, dressing thin, sleeping hard. Doing so does three things — it hardens you against future misfortune, shows you the worst isn't so bad, and makes ordinary comforts feel luxurious when you return to them.","fa":"رواقی‌ها هرازگاهی فقر و سختی را تمرین می‌کردند: کم می‌خوردند، نازک می‌پوشیدند، سخت می‌خوابیدند. این کار سه چیز می‌کند — تو را در برابرِ بدبختیِ آینده سِفت می‌کند، نشانت می‌دهد بدترین حالت آن‌قدرها هم بد نیست، و آسایش‌های معمولی را وقتی برمی‌گردی به‌شان مثلِ تجمل جلوه می‌دهد."},"example":{"en":"Take a cold shower or skip a meal now and then; the small hardship you chose makes you less afraid of the hardship you didn't.","fa":"گاهی یک دوشِ آبِ سرد بگیر یا یک وعده را رد کن؛ همان سختیِ کوچکی که خودت انتخاب کردی، تو را از سختی‌ای که انتخاب نکردی کمتر می‌ترساند."},"tip":{"en":"Once this week, voluntarily give up one comfort for a day and notice how little you actually needed it.","fa":"این هفته یک‌بار، داوطلبانه یک آسایش را برای یک روز کنار بگذار و ببین چقدر کم واقعاً بهش نیاز داشتی."},"pitfall":{"en":"Living so cushioned that any small deprivation starts to feel like a disaster.","fa":"آن‌قدر در پنبه زندگی‌کردن که هر کم‌وکاستِ کوچک مثلِ یک فاجعه حس شود."}},"insults":{"part":"practice","n":13,"name":{"en":"Handle Insults","fa":"با توهین کنار بیا"},"glabel":{"en":"Insults","fa":"توهین"},"principle":{"en":"An insult only wounds if you let it; refuse to be provoked and its power disappears.","fa":"توهین فقط وقتی زخم می‌زند که خودت بگذاری؛ نگذار تحریکت کند، آن‌وقت قدرتش محو می‌شود."},"more":{"en":"The Stoics noticed that most of an insult's sting is added by us. Pause and ask whether it's true (then thank them) or false (then it's simply absurd). Often the best reply is no reply — or light self-deprecating humor — which shows the barb didn't land.","fa":"رواقی‌ها دیدند که بیشترِ سوزشِ یک توهین را خودمان اضافه می‌کنیم. مکث کن و بپرس راست است (پس ازش تشکر کن) یا دروغ (پس فقط مسخره است). اغلب بهترین جواب، بی‌جوابی است — یا یک شوخیِ سبک به‌خرجِ خودت — که نشان می‌دهد آن تیر به هدف نخورده."},"example":{"en":"Mocked for something, a Stoic might calmly agree with a joke — leaving the insulter with nothing to push against.","fa":"اگر بابتِ چیزی مسخره‌اش کنند، رواقی ممکن است آرام با یک شوخی تأییدش کند — و توهین‌کننده را بی‌چیزی برای فشار‌آوردن رها کند."},"tip":{"en":"Next time you're stung, pause three seconds and choose your response instead of reacting.","fa":"دفعهٔ بعد که سوزشی حس کردی، سه ثانیه مکث کن و به‌جای واکنش، جوابت را انتخاب کن."},"pitfall":{"en":"Handing a stranger control of your whole day over one careless remark.","fa":"با یک حرفِ بی‌ملاحظه، کنترلِ کلِ روزت را دستِ یک غریبه دادن."}},"anger":{"part":"practice","n":14,"name":{"en":"Defuse Anger","fa":"خشم را خنثی کن"},"glabel":{"en":"Anger","fa":"خشم"},"principle":{"en":"Anger is anti-joy — a brief madness that costs more than the wrong that caused it. Head it off before it takes hold.","fa":"خشم ضدِ‌شادی است — یک دیوانگیِ کوتاه که بیشتر از آن بدی‌ای که باعثش شده خرج برمی‌دارد. پیش از اینکه بگیردت، جلویش را بگیر."},"more":{"en":"The Stoics treated anger as a serious threat to tranquility, not righteous fuel. Much of it comes from unrealistic expectations about how people and the world 'should' behave. Lower those expectations, add humor and perspective, and most provocations lose their grip before they start.","fa":"رواقی‌ها خشم را یک تهدیدِ جدی برای آرامش می‌دانستند، نه یک سوختِ برحق. بخشِ زیادی‌اش از انتظارهای غیرواقعی می‌آید دربارهٔ اینکه آدم‌ها و دنیا «باید» چطور رفتار کنند. آن انتظارها را پایین بیاور، کمی شوخی و فاصله اضافه کن، آن‌وقت بیشترِ تحریک‌ها پیش از اینکه شروع شوند چنگشان شل می‌شود."},"example":{"en":"When something small goes wrong, Seneca advised laughing at it — treating life's frictions as comedy rather than outrage.","fa":"سِنِکا می‌گفت وقتی یک چیزِ کوچک خراب می‌شود، به آن بخند — اصطکاک‌های زندگی را کمدی بدان، نه دلیلِ خشم."},"tip":{"en":"When anger rises, ask 'will this matter in a year?' — usually the answer shrinks it on the spot.","fa":"وقتی خشم بالا می‌آید، بپرس «یک سالِ دیگر این مهم است؟» — معمولاً همین جواب، همان‌جا کوچکش می‌کند."},"pitfall":{"en":"Mistaking anger for strength, and letting it ruin the very day you meant to enjoy.","fa":"اشتباه‌گرفتنِ خشم با قدرت، و گذاشتن که همان روزی را که می‌خواستی ازش لذت ببری خراب کند."}},"grief":{"part":"practice","n":15,"name":{"en":"Face Grief, Age & Death","fa":"با غم، پیری و مرگ روبه‌رو شو"},"glabel":{"en":"Grief & Death","fa":"غم و مرگ"},"principle":{"en":"Meet grief, aging and death with reason and acceptance — they are natural, and fearing them only spoils the life you have.","fa":"غم و پیری و مرگ را با خرد و پذیرش روبه‌رو کن — طبیعی‌اند، و ترسیدن از آن‌ها فقط همان زندگی‌ای را که داری خراب می‌کند."},"more":{"en":"The Stoics used reason to soften grief — not to deny loss, but to keep it from swallowing them — and they faced death by focusing on living well now. Reflecting on mortality isn't gloomy; it's what makes the present vivid and pushes you to become a Stoic today rather than someday.","fa":"رواقی‌ها از خرد استفاده می‌کردند تا غم را نرم کنند — نه اینکه از‌دست‌دادن را انکار کنند، بلکه نگذارند بلعیده شوند — و مرگ را با تمرکز بر خوب‌زندگی‌کردنِ حالا روبه‌رو می‌کردند. اندیشیدن به فناپذیری دلمرده‌کننده نیست؛ همان چیزی است که حال را زنده می‌کند و هُلت می‌دهد که همین امروز رواقی شوی، نه یک‌روزی."},"example":{"en":"Reminding himself each morning that he might die that day, Marcus Aurelius didn't grow morbid — he grew grateful and got on with doing good.","fa":"مارکوس اورلیوس که هر صبح به خودش یادآوری می‌کرد ممکن است همان روز بمیرد، دلمرده نشد — قدرشناس شد و رفت سراغِ خوبی‌کردن."},"tip":{"en":"Let the fact that life is finite sharpen today, not shadow it — do one thing that matters now.","fa":"بگذار این حقیقت که زندگی محدود است، امروزت را تیز کند، نه تاریک — همین حالا یک کارِ مهم بکن."},"pitfall":{"en":"Denying age and death so hard that fear of them quietly runs your life.","fa":"آن‌قدر سختْ پیری و مرگ را انکار‌کردن که ترسشان بی‌سروصدا زندگی‌ات را بگرداند."}},"becoming":{"part":"practice","n":16,"name":{"en":"Become a Stoic Quietly","fa":"آرام رواقی شو"},"glabel":{"en":"Becoming a Stoic","fa":"رواقی‌شدن"},"principle":{"en":"Start practicing now, and do it quietly — live it rather than preach it, and be ready to be mocked.","fa":"همین حالا شروع به تمرین کن، و آرام انجامش بده — زندگی‌اش کن نه اینکه موعظه‌اش کنی، و آماده باش که مسخره‌ات کنند."},"more":{"en":"Irvine's advice for the would-be Stoic is practical: don't announce it. Practice in stealth, let results show in how you act, and expect some people to scoff. Begin with negative visualization and the trichotomy of control, keep at it, and judge the philosophy by whether your days grow calmer and gladder.","fa":"توصیهٔ اروین به رواقیِ تازه‌کار عملی است: اعلامش نکن. پنهانی تمرین کن، بگذار نتیجه‌اش در رفتارت پیدا شود، و انتظار داشته باش بعضی‌ها پوزخند بزنند. با تجسمِ منفی و سه‌گانهٔ کنترل شروع کن، ادامه بده، و فلسفه را با این بسنج که آیا روزهایت آرام‌تر و شادتر می‌شوند."},"example":{"en":"Rather than debating Stoicism at dinner, a new Stoic simply becomes calmer and kinder — and lets people wonder why.","fa":"به‌جای بحث دربارهٔ رواقی‌گری سرِ شام، رواقیِ تازه فقط آرام‌تر و مهربان‌تر می‌شود — و می‌گذارد بقیه بمانند که چرا."},"tip":{"en":"Pick one technique from this map and practice it privately for a week — no announcements.","fa":"یک تکنیک از این نقشه انتخاب کن و یک هفته خصوصی تمرینش کن — بی هیچ اعلامی."},"pitfall":{"en":"Talking about Stoicism endlessly while never actually practicing any of it.","fa":"بی‌پایان دربارهٔ رواقی‌گری حرف‌زدن، بی‌آنکه هیچ‌کدامش را واقعاً تمرین کنی."}}},"core":{"name":{"en":"STOIC JOY","fa":"آرامشِ رواقی"},"principle":{"en":"Stoicism is a practical philosophy of life whose goal is tranquility — freedom from negative emotions — and a genuine joy in living. You reach it with psychological techniques: negatively visualize losing what you have, focus only on what's up to you, want the life you already have, and meet insults, anger, grief and death with reason.","fa":"رواقی‌گری یک فلسفهٔ عملیِ زندگی است که هدفش آرامش است — رهایی از احساس‌های منفی — و یک شادیِ واقعی از زندگی‌کردن. با تکنیک‌های روان‌شناختی به آن می‌رسی: از‌دست‌دادنِ چیزی را که داری منفی تجسم کن، فقط روی آنچه دستِ توست تمرکز کن، همان زندگی‌ای را که داری بخواه، و توهین و خشم و غم و مرگ را با خرد روبه‌رو کن."},"more":{"en":"Irvine revives Stoicism as a usable philosophy of life, not a museum piece. It has two parts: a grand goal — tranquility and joy through virtue — and a toolkit for reaching it. The core tools are negative visualization, the trichotomy of control, mastering desire, fatalism about the past, voluntary discomfort, and reasoned responses to insults, anger and grief. Practiced together, they quietly make a life calmer and gladder.","fa":"اروین رواقی‌گری را به‌عنوانِ یک فلسفهٔ زندگیِ قابلِ‌استفاده زنده می‌کند، نه یک شیءِ موزه‌ای. دو بخش دارد: یک هدفِ بزرگ — آرامش و شادی از راهِ فضیلت — و یک جعبه‌ابزار برای رسیدن به آن. ابزارهای اصلی‌اش تجسمِ منفی، سه‌گانهٔ کنترل، تسلط بر میل، جبرگرایی دربارهٔ گذشته، سختیِ داوطلبانه، و پاسخ‌های خردمندانه به توهین و خشم و غم‌اند. با هم که تمرین شوند، بی‌سروصدا زندگی را آرام‌تر و شادتر می‌کنند."},"example":{"en":"Click any node to read a principle or a practice. You can also drag the nodes around.","fa":"روی هر دایره کلیک کن تا یک اصل یا تمرین را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."}},"stages":[{"level":1,"badge":{"en":"Level 1 · Over-simplified","fa":"سطحِ ۱ · خیلی ساده"},"title":{"en":"Enjoy what you have","fa":"از آنچه داری لذت ببر"},"tagline":{"en":"The whole book in a sentence.","fa":"کلِ کتاب در یک جمله."},"body":{"en":"Stoicism isn't about grim self-denial. It's a method for being calm and happy: want the life you already have, and stop wasting energy on what you can't control.","fa":"رواقی‌گری دربارهٔ ریاضتِ عبوس نیست. یک روش است برای آرام و خوشحال بودن: همان زندگی‌ای را که داری بخواه، و دست از هدر‌دادنِ انرژی روی چیزی که نمی‌توانی کنترل کنی بردار."},"example":{"en":"Instead of pining for a bigger house, look around the one you have and actually enjoy it.","fa":"به‌جای آه‌کشیدن برای یک خانهٔ بزرگ‌تر، به همان که داری نگاه کن و واقعاً ازش لذت ببر."},"gain":{"en":"You hold the single idea the whole book expands on.","fa":"همان یک ایده‌ای را داری که کلِ کتاب بسطش می‌دهد."}},{"level":2,"badge":{"en":"Level 2 · Simple","fa":"سطحِ ۲ · ساده"},"title":{"en":"A goal for living","fa":"یک هدف برای زندگی"},"tagline":{"en":"Tranquility and joy, through virtue.","fa":"آرامش و شادی، از راهِ فضیلت."},"body":{"en":"You need a <b>philosophy of life</b> — one big goal, or you drift. The Stoics chose <b>tranquility</b> (freedom from negative emotions) and <b>joy</b>, reached by living with <b>virtue</b> and reason rather than chasing pleasure and status.","fa":"به یک <b>فلسفهٔ زندگی</b> نیاز داری — یک هدفِ بزرگ، وگرنه شناور می‌شوی. رواقی‌ها <b>آرامش</b> (رهایی از احساس‌های منفی) و <b>شادی</b> را انتخاب کردند، که با <b>فضیلت</b> و خرد به‌دست می‌آید، نه با دویدن دنبالِ لذت و جایگاه."},"example":{"en":"Marcus Aurelius ran an empire but measured each day by whether he'd been just and useful, not by what he'd gained.","fa":"مارکوس اورلیوس یک امپراتوری را می‌گرداند اما هر روز را با این می‌سنجید که آیا عادل و به‌درد‌خور بوده، نه با آنچه به‌دست آورده."},"gain":{"en":"You know what a good life is aimed at, and why.","fa":"می‌دانی زندگیِ خوب به چه چیزی نشانه رفته، و چرا."}},{"level":3,"badge":{"en":"Level 3 · Balanced","fa":"سطحِ ۳ · متعادل"},"title":{"en":"The two key techniques","fa":"دو تکنیکِ کلیدی"},"tagline":{"en":"Negative visualization and the trichotomy of control.","fa":"تجسمِ منفی و سه‌گانهٔ کنترل."},"body":{"en":"Now the core tools. <b>Negative visualization</b>: briefly imagine losing what you value, and gratitude comes rushing back, beating the habit of taking things for granted. The <b>trichotomy of control</b>: sort things into up to you, not up to you, and partly up to you — then pour effort only into the first, and <b>internalize your goals</b> for the third.","fa":"حالا ابزارهای اصلی. <b>تجسمِ منفی</b>: برای لحظه‌ای تصور کن چیزی را که برایت ارزش دارد از دست می‌دهی، و قدردانی سیل‌آسا برمی‌گردد و عادتِ بدیهی‌گرفتن را شکست می‌دهد. <b>سه‌گانهٔ کنترل</b>: چیزها را به دستِ تو، نه دستِ تو، و تا‌حدی دستِ تو تقسیم کن — بعد تلاش را فقط روی اولی بریز، و برای سومی <b>هدف‌هایت را درونی کن</b>."},"example":{"en":"Before a big meeting, picture it going badly (so you prepare and value the calm), then aim only at speaking as well as you can.","fa":"قبل از یک جلسهٔ مهم، تصور کن بد پیش می‌رود (تا آماده شوی و قدرِ آرامش را بدانی)، بعد فقط این را هدف بگیر که تا می‌توانی خوب حرف بزنی."},"gain":{"en":"You can practice the two habits that do most of the work.","fa":"می‌توانی همان دو عادتی را که بیشترِ کار را می‌کنند تمرین کنی."}},{"level":4,"badge":{"en":"Level 4 · Advanced","fa":"سطحِ ۴ · پیشرفته"},"title":{"en":"Master your desires","fa":"بر خواسته‌هایت مسلط شو"},"tagline":{"en":"Desire, fatalism, and voluntary discomfort.","fa":"میل، جبر، و سختیِ داوطلبانه."},"body":{"en":"Go deeper into daily practice. Tame runaway <b>desire</b> by learning to want what you already have. Be <b>fatalistic about the past and present</b> — accept what can't be changed instead of stewing over it. And practice <b>voluntary discomfort</b> now and then — cold, hunger, simplicity — to build resilience and make ordinary comforts feel rich again.","fa":"در تمرینِ روزمره عمیق‌تر برو. <b>میلِ</b> لجام‌گسیخته را با یادگرفتنِ خواستنِ همان که داری رام کن. دربارهٔ <b>گذشته و حال جبری</b> باش — آنچه را عوض‌نشدنی است بپذیر، به‌جای اینکه رویش کِز کنی. و هرازگاهی <b>سختیِ داوطلبانه</b> تمرین کن — سرما، گرسنگی، سادگی — تا تاب‌آوری بسازی و آسایش‌های معمولی را دوباره پُربها کنی."},"example":{"en":"Take a cold shower on purpose; the small discomfort you chose makes you calmer about the ones you didn't.","fa":"از قصد یک دوشِ آبِ سرد بگیر؛ همان سختیِ کوچکی که خودت انتخاب کردی، تو را دربارهٔ آن‌هایی که انتخاب نکردی آرام‌تر می‌کند."},"gain":{"en":"You can steady your inner life against wanting and worry.","fa":"می‌توانی زندگیِ درونی‌ات را در برابرِ خواستن و نگرانی پایدار کنی."}},{"level":5,"badge":{"en":"Level 5 · Expert","fa":"سطحِ ۵ · حرفه‌ای"},"title":{"en":"Stoicism in the world","fa":"رواقی‌گری در دلِ دنیا"},"tagline":{"en":"Insults, anger, grief, death — and quiet practice.","fa":"توهین، خشم، غم، مرگ — و تمرینِ آرام."},"body":{"en":"The expert carries Stoicism into other people and hard endings. Refuse to be provoked by <b>insults</b>. Disarm <b>anger</b>, the anti-joy, before it takes hold. Meet <b>grief, old age and death</b> with reason, letting mortality sharpen the present rather than darken it. And <b>become a Stoic quietly</b> — practice in stealth, judge it by your own growing calm, and be ready to be mocked. Live it; don't preach it.","fa":"آدمِ حرفه‌ای رواقی‌گری را به میانِ آدم‌ها و پایان‌های سخت می‌برد. نگذار <b>توهین</b> تحریکت کند. <b>خشم</b> را، همان ضدِ‌شادی، پیش از اینکه بگیردت خلعِ‌سلاح کن. <b>غم و پیری و مرگ</b> را با خرد روبه‌رو کن، و بگذار فناپذیری حال را تیز کند نه تاریک. و <b>آرام رواقی شو</b> — پنهانی تمرین کن، آن را با آرامشِ روزافزونِ خودت بسنج، و آماده باش که مسخره‌ات کنند. زندگی‌اش کن؛ موعظه‌اش نکن."},"example":{"en":"Insulted at work, you don't flare up or brood; you shrug, maybe joke, and get back to a day you still intend to enjoy.","fa":"در محلِ کار بهت توهین می‌شود، نه شعله می‌کشی نه کِز می‌کنی؛ شانه بالا می‌اندازی، شاید شوخی می‌کنی، و برمی‌گردی به روزی که هنوز قصد داری ازش لذت ببری."},"gain":{"en":"You can live Stoicism day to day and keep your joy through hard things.","fa":"می‌توانی رواقی‌گری را روزبه‌روز زندگی کنی و شادی‌ات را در سختی‌ها نگه داری."}}],"quotes":[{"en":"A grand goal in living is the first component of a philosophy of life.","fa":"یک هدفِ بزرگ در زندگی، اولین جزءِ یک فلسفهٔ زندگی است."},{"en":"Stoic tranquility was a psychological state marked by the absence of negative emotions, such as grief, anger, and anxiety, and the presence of positive emotions, such as joy.","fa":"آرامشِ رواقی یک حالتِ روانی بود که با نبودِ احساس‌های منفی مثلِ غم و خشم و اضطراب، و بودنِ احساس‌های مثبت مثلِ شادی، شناخته می‌شد."},{"en":"To be virtuous, then, is to live as we were designed to live; it is to live, as Zeno put it, in accordance with nature.","fa":"پس بافضیلت‌بودن یعنی همان‌طور زندگی کنیم که برای آن ساخته شده‌ایم؛ یعنی، به‌قولِ زنون، هماهنگ با طبیعت زندگی کنیم."},{"en":"Negative visualization, in other words, teaches us to embrace whatever life we happen to be living and to extract every bit of delight we can from it.","fa":"به‌بیانِ دیگر، تجسمِ منفی به ما یاد می‌دهد هر زندگی‌ای را که در آن هستیم در آغوش بگیریم و هر ذره لذتی را که می‌توانیم از آن بیرون بکشیم."},{"en":"We humans are unhappy in large part because we are insatiable; after working hard to get what we want, we routinely lose interest in the object of our desire.","fa":"ما آدم‌ها بخشِ بزرگی از ناخوشی‌مان از این است که سیری‌ناپذیریم؛ بعد از تلاشِ سخت برای رسیدن به آنچه می‌خواهیم، معمولاً علاقه‌مان را به آن چیز از دست می‌دهیم."},{"en":"The easiest way for us to gain happiness is to learn how to want the things we already have.","fa":"ساده‌ترین راهِ ما برای رسیدن به خوشبختی این است که یاد بگیریم همان چیزهایی را که داریم بخواهیم."},{"en":"If you consider yourself a victim, you are not going to have a good life; if, however, you refuse to think of yourself as a victim—if you refuse to let your inner self be conquered by your external circumstances—you are likely to have a good life.","fa":"اگر خودت را قربانی بدانی، زندگیِ خوبی نخواهی داشت؛ اما اگر نپذیری که قربانی‌ای — اگر نگذاری شرایطِ بیرونی، خودِ درونی‌ات را شکست بدهد — احتمالاً زندگیِ خوبی خواهی داشت."},{"en":"Indeed, anger can be thought of as anti-joy.","fa":"راستش، خشم را می‌شود نوعی ضدِ‌شادی دانست."}],"media":[{"kind":"yt","id":"4trH-Xbiy-I","src":{"en":"YouTube · The Intrinsic Value Podcast","fa":"یوتیوب · The Intrinsic Value Podcast"},"title":{"en":"William Irvine: Stoicism — A Guide to the Good Life","fa":"ویلیام اروین: رواقی‌گری — راهنمای زندگیِ خوب"},"desc":{"en":"The author explains Stoicism and the ideas behind the book.","fa":"خودِ نویسنده رواقی‌گری و ایده‌های پشتِ کتاب را توضیح می‌دهد."},"bullets":{"en":["Stoicism as a philosophy of life","Negative visualization, explained","In the author's own words"],"fa":["رواقی‌گری به‌عنوانِ یک فلسفهٔ زندگی","تجسمِ منفی، توضیح‌داده‌شده","به زبانِ خودِ نویسنده"]},"best":{"en":"Best for Stage 1–3.","fa":"خوب برای مرحلهٔ ۱ تا ۳."}},{"kind":"yt","id":"XJScZ4h3298","src":{"en":"YouTube · The Social Exchange","fa":"یوتیوب · The Social Exchange"},"title":{"en":"Irvine on Stoicism & Stoic Exercises","fa":"اروین دربارهٔ رواقی‌گری و تمرین‌های رواقی"},"desc":{"en":"A long conversation turning the book into daily practice.","fa":"یک گفت‌وگوی بلند که کتاب را به تمرینِ روزمره تبدیل می‌کند."},"bullets":{"en":["The trichotomy of control","Practical Stoic exercises","How to actually start"],"fa":["سه‌گانهٔ کنترل","تمرین‌های عملیِ رواقی","چطور واقعاً شروع کنی"]},"best":{"en":"Best for Stage 3–5.","fa":"خوب برای مرحلهٔ ۳ تا ۵."}},{"kind":"img","url":"https://global.oup.com/academic/product/a-guide-to-the-good-life-9780195374612","src":{"en":"Oxford University Press · Publisher","fa":"انتشاراتِ دانشگاهِ آکسفورد · ناشر"},"title":{"en":"A Guide to the Good Life — Publisher Page","fa":"راهنمای زندگیِ خوب — صفحهٔ ناشر"},"desc":{"en":"The publisher page for the book, with editions and details.","fa":"صفحهٔ ناشر برای کتاب، با نسخه‌ها و جزئیات."},"bullets":{"en":["The definitive edition","Background on Irvine","Straight from the source"],"fa":["نسخهٔ معتبر","پیشینه‌ای دربارهٔ اروین","مستقیم از خودِ منبع"]},"best":{"en":"For editions and the source.","fa":"برای نسخه‌ها و منبعِ اصلی."}}],"go":[{"label":{"en":"Publisher page","fa":"صفحهٔ ناشر"},"url":"https://global.oup.com/academic/product/a-guide-to-the-good-life-9780195374612"},{"label":{"en":"Book on Goodreads","fa":"کتاب در گودریدز"},"url":"https://www.goodreads.com/book/show/5617966-a-guide-to-the-good-life"},{"label":{"en":"Irvine interview: How to Live a Stoic Life","fa":"گفت‌وگو با اروین: چطور رواقی زندگی کنیم"},"url":"https://fs.blog/knowledge-project-podcast/william-irvine/"}],"recs":[{"pri":"b","t":{"en":"Try negative visualization today","fa":"امروز تجسمِ منفی را امتحان کن"},"d":{"en":"Once today, vividly imagine losing someone or something you love — then notice, with relief, that you haven’t.","fa":"امروز یک‌بار، زنده تصور کن کسی یا چیزی را که دوست داری از دست می‌دهی — بعد با آسودگی ببین که از دستش نداده‌ای."}},{"pri":"b","t":{"en":"Sort one worry by control","fa":"یک نگرانی را با کنترل دسته‌بندی کن"},"d":{"en":"Take what's stressing you and split it into what's up to you and what isn't; act on the first, release the rest.","fa":"چیزی را که استرست می‌دهد بردار و به دستِ‌تو و نه‌دستِ‌تو تقسیمش کن؛ روی اولی عمل کن، بقیه را رها کن."}},{"pri":"n","t":{"en":"Want what you already have","fa":"همان را که داری بخواه"},"d":{"en":"List three things you have that you once longed for, and let yourself appreciate them again.","fa":"سه چیز را فهرست کن که داری و روزی آرزویشان را داشتی، و بگذار دوباره قدرشان را بدانی."}},{"pri":"n","t":{"en":"Practice a little discomfort","fa":"کمی سختی تمرین کن"},"d":{"en":"Choose one small hardship this week — a cold shower, a skipped treat — to prove misfortune isn’t so fearsome.","fa":"این هفته یک سختیِ کوچک انتخاب کن — یک دوشِ آبِ سرد، یک خوشیِ نخورده — تا ثابت کنی بدبختی آن‌قدرها هم ترسناک نیست."}}]};
-</script>
-
-<script>
-/* ── 3) RENDER (text sections) ────────────────────────────── */
-function elClear(id){ var e=document.getElementById(id); if(e) e.innerHTML=''; return e; }
-
-function renderText(){
-  var t=elClear('tldrHost');
-  DATA.tldr.forEach(function(o){ var li=document.createElement('li'); li.innerHTML = TX(o); t.appendChild(li); });
-
-  var q=elClear('quoteHost');
-  DATA.quotes.forEach(function(o){
-    var bq=document.createElement('blockquote');
-    bq.innerHTML = '<span class="qm">“</span><p>'+TX(o)+'</p>';
-    q.appendChild(bq);
-  });
-
-  var m=elClear('mediaHost');
-  DATA.media.forEach(function(o){
-    var card=document.createElement('div'); card.className='mcard';
-    var thumb;
-    if(o.kind==='yt'){
-      var url='https://www.youtube.com/watch?v='+o.id;
-      var img='https://i.ytimg.com/vi/'+o.id+'/hqdefault.jpg';
-      thumb='<a class="mthumb" href="'+url+'" target="_blank" rel="noopener">'
-        +'<img src="'+img+'" alt="" loading="lazy" onerror="this.style.display=\'none\'">'
-        +'<span class="ptype">'+(LANG==='fa'?'ویدیو':'VIDEO')+'</span>'
-        +'<span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></span></a>';
-    } else {
-      thumb='<a class="mthumb" href="'+o.url+'" target="_blank" rel="noopener"><span class="mfake">'
-        +'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.6"/><path d="M21 15l-5-5L5 21"/></svg>'
-        +'</span><span class="ptype">'+(LANG==='fa'?'تصویر':'IMAGE')+'</span></a>';
-    }
-    var link = o.kind==='yt' ? 'https://www.youtube.com/watch?v='+o.id : o.url;
-    var bl = (LANG==='fa'?o.bullets.fa:o.bullets.en).map(function(b){ return '<li>'+ (LANG==='fa'?faText(b):b) +'</li>'; }).join('');
-    card.innerHTML = thumb + '<div class="mbody">'
-      + '<div class="msrc">'+TX(o.src)+'</div>'
-      + '<h4>'+TX(o.title)+'</h4>'
-      + '<p class="mdesc">'+TX(o.desc)+'</p>'
-      + '<ul>'+bl+'</ul>'
-      + '<a class="mlink" href="'+link+'" target="_blank" rel="noopener">'+(LANG==='fa'?'باز کردن ↗':'Open ↗')+'</a>'
-      + '<div class="mbest">'+TX(o.best)+'</div>'
-      + '</div>';
-    m.appendChild(card);
-  });
-
-  var g=elClear('goHost');
-  DATA.go.forEach(function(o){
-    var a=document.createElement('a'); a.href=o.url; a.target='_blank'; a.rel='noopener';
-    a.textContent=TX(o.label); g.appendChild(a);
-  });
-
-  var r=elClear('recHost');
-  DATA.recs.forEach(function(o){
-    var it=document.createElement('div'); it.className='item';
-    var priLabel = o.pri==='b' ? (LANG==='fa'?'از اینجا شروع کن':'Start here') : (LANG==='fa'?'بعدش این':'Then this');
-    it.innerHTML='<div class="t">'+TX(o.t)+'<span class="pri '+(o.pri==='b'?'b':'')+'">'+priLabel+'</span></div>'
-      +'<div class="d">'+TX(o.d)+'</div>';
-    r.appendChild(it);
-  });
-
-  var mth=document.getElementById('methodHost');
-  mth.innerHTML = LANG==='fa' ? faText("<p><b>منبع:</b> کتابِ «A Guide to the Good Life: The Ancient Art of Stoic Joy» نوشتهٔ ویلیام بی. اروین، چاپِ ۲۰۰۹ (انتشاراتِ دانشگاهِ آکسفورد).</p><p><b>روشِ کار:</b> ساختارِ پنج‌بخشی و ایده‌ها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده؛ نقل‌قول‌ها مقابله و ویدیوها بررسی شده‌اند.</p><p><b>گروه:</b> «شادکامی» — یک راهنمای عملی برای آرام‌تر و شادتر زندگی‌کردن.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای متنِ کامل، خودِ کتاب را بخوان.</p>") : "<p><b>Source:</b> the book <i>A Guide to the Good Life: The Ancient Art of Stoic Joy</i> by William B. Irvine, published 2009 (Oxford University Press).</p><p><b>How this was built:</b> the five-part structure and ideas were gathered and rewritten from the book and reputable sources; quotes were cross-checked and the linked videos verified.</p><p><b>Group:</b> Happiness — a practical guide to living a calmer, gladder life.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>";
-  var fl=document.getElementById('flowTop');
-  if(fl){
-    var loop = LANG==='fa' ? ["تأمل","پذیرش","لذت"] : ["Reflect","Accept","Enjoy"];
-    var ar = LANG==='fa' ? '⟵' : '⟶';
-    fl.innerHTML = loop.map(function(w){ return '<b>'+ (LANG==='fa'?faText(w):w) +'</b>'; }).join(' <span class="ar">'+ar+'</span> ');
-  }
-}
-</script>
-
-<script>
-/* ── 4) CONCEPT MAP ───────────────────────────────────────── */
-function renderMap(){
-  var host=document.getElementById('mapHost'); if(!host) return; host.innerHTML='';
-  DATA.parts.forEach(function(p, i){
-    var col=document.createElement('div'); col.className='partcol';
-    var chaps=p.chapters.map(function(ck){
-      var c=DATA.chapters[ck];
-      return '<div class="chapchip"><span class="cn">'+num(c.n)+'</span><div><b>'+TX(c.name)+'</b>'
-        +'<small>'+TX(c.principle).replace(/<[^>]+>/g,'').slice(0, LANG==='fa'?86:76)+'…</small></div></div>';
-    }).join('');
-    col.innerHTML='<div class="ph"><span class="pdot" style="background:var('+p.varc+')"></span>'
-      +'<span class="pnum">'+(LANG==='fa'?'بخشِ ':'PART ')+num(i+1)+'</span></div>'
-      +'<h4>'+TX(p.name)+'</h4>'
-      +'<div class="ptag" style="color:var('+p.varc+')">'+TX(p.tag)+'</div>'
-      +'<p class="pgist">'+TX(p.gist)+'</p>'+chaps;
-    host.appendChild(col);
-  });
-}
-</script>
-
-<script>
-/* ── 5) INTERACTIVE NETWORK GRAPH (deterministic radial layout, no physics) ── */
-var GRAPH = (function(){
-  var svg, W=980, H=780, nodes=[], links=[], sel=null, dragNode=null, moved=false, startPt=null;
-
-  function build(){
-    svg=document.getElementById('netsvg');
-    svg.setAttribute('viewBox','0 0 '+W+' '+H);
-    nodes=[]; links=[];
-    var cx=W/2, cy=H/2, R1=220, R2=126, span=66*Math.PI/180;
-    var N=DATA.parts.length, partAng=DATA.parts.map(function(_,i){ return -Math.PI/2 + i*(2*Math.PI/N); });
-    nodes.push({id:'core', kind:'core', varc:'--core', r:38, x:cx, y:cy, label:DATA.core.name, data:DATA.core});
-    DATA.parts.forEach(function(p,i){
-      var a=partAng[i], px=cx+Math.cos(a)*R1, py=cy+Math.sin(a)*R1;
-      nodes.push({id:'p_'+p.key, kind:'part', varc:p.varc, r:25, x:px, y:py,
-        label:p.name, data:{name:p.name, principle:p.gist, more:p.more, tag:p.tag, key:p.key}});
-      links.push({s:'core', t:'p_'+p.key, strong:true});
-      var nc=p.chapters.length, start=a-span/2;
-      p.chapters.forEach(function(ck,j){
-        var ca = nc>1 ? start+span*(j/(nc-1)) : a;   // fan the 5 chapters outward
-        var c=DATA.chapters[ck];
-        nodes.push({id:'c_'+ck, kind:'chap', varc:p.varc, r:15,
-          x:px+Math.cos(ca)*R2, y:py+Math.sin(ca)*R2,
-          label:(c.glabel||c.name), data:c, ck:ck});
-        links.push({s:'p_'+p.key, t:'c_'+ck});
-      });
-    });
-    nodes.forEach(function(n){ n.hx=n.x; n.hy=n.y; });   // remember home positions for reset
-    draw();
-    select('core');
-  }
-
-  function byId(id){ for(var i=0;i<nodes.length;i++) if(nodes[i].id===id) return nodes[i]; return null; }
-
-  function draw(){
-    var ln='', nd='';
-    links.forEach(function(l){ ln+='<line class="glink" data-s="'+l.s+'" data-t="'+l.t+'" stroke="var(--line)" stroke-width="'+(l.strong?2.4:1.5)+'" stroke-linecap="round"/>'; });
-    nodes.forEach(function(n){
-      var inside='', below='';
-      if(n.kind==='core'){
-        inside='<text text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="800" fill="#fff" letter-spacing="0.3">'+shortLabel(n)+'</text>';
-      } else {
-        if(n.kind==='chap'){
-          inside='<text text-anchor="middle" dominant-baseline="central" font-size="11" font-weight="800" fill="#fff">'+num(n.data.n)+'</text>';
+/* ── CONTENT — everything unique to this book lives here ── */
+Book.mount({
+  "meta": {
+    "slug": "a-guide-to-the-good-life",
+    "folder": "15 - Happiness",
+    "groupNum": 15,
+    "group": {
+      "en": "Happiness",
+      "fa": "شادکامی"
+    },
+    "author": {
+      "en": "William B. Irvine",
+      "fa": "ویلیام بی. اروین"
+    },
+    "eyebrow_author": {
+      "en": "William B. Irvine",
+      "fa": "ویلیام بی. اروین"
+    },
+    "book": {
+      "en": "A Guide to the Good Life",
+      "fa": "راهنمای زندگیِ خوب"
+    },
+    "hero_title": {
+      "en": "A Guide to the Good Life — The Ancient Art of Stoic Joy",
+      "fa": "راهنمای زندگیِ خوب — هنرِ کهنِ شادیِ رواقی"
+    },
+    "dek": {
+      "en": "A knowledge graph of the whole book, plus a 5-stage path from a single idea to expert-level mastery — with an example at every step.",
+      "fa": "نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از یک ایدهٔ ساده تا حرفه‌ای — با یک مثال در هر مرحله."
+    },
+    "published": {
+      "en": "2009",
+      "fa": "۲۰۰۹"
+    },
+    "chips": [
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Parts",
+          "fa": "بخش"
         }
-        var ly = n.r + (n.kind==='part'?17:14);
-        var fs = n.kind==='part'?13:11;
-        var stroke = 'paint-order:stroke;stroke:var(--card2);stroke-width:3.6px;stroke-linejoin:round';
-        below='<text class="nlab" text-anchor="middle" y="'+ly+'" font-size="'+fs+'" font-weight="'+(n.kind==='part'?'800':'700')+'" fill="var(--ink)" style="'+stroke+'">'+shortLabel(n)+'</text>';
+      },
+      {
+        "v": {
+          "en": "16",
+          "fa": "۱۶"
+        },
+        "l": {
+          "en": "Ideas",
+          "fa": "ایده"
+        }
+      },
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Learning stages",
+          "fa": "مرحلهٔ یادگیری"
+        }
       }
-      nd+='<g class="node'+(n.kind==='core'?' ncore':'')+'" data-id="'+n.id+'"><g class="ns">'
-        +'<circle r="'+n.r+'" fill="var('+n.varc+')" fill-opacity="'+(n.kind==='chap'?0.94:1)+'" stroke="var(--card)" stroke-width="2.5"/>'
-        +inside+below+'</g></g>';
-    });
-    svg.innerHTML='<g id="glinks">'+ln+'</g><g id="gnodes">'+nd+'</g>';
-    svg.querySelectorAll('.node').forEach(function(gEl){
-      gEl.addEventListener('pointerdown', onDown);
-      gEl.addEventListener('click', function(){ if(!moved) select(gEl.getAttribute('data-id')); });
-      gEl.addEventListener('pointerenter', function(){ if(!dragNode) gEl.classList.add('hover'); });
-      gEl.addEventListener('pointerleave', function(){ gEl.classList.remove('hover'); });
-    });
-    positions();
-  }
-  function shortLabel(n){ return TX(n.label); }
-
-  function positions(){
-    svg.querySelectorAll('.node').forEach(function(g){
-      var n=byId(g.getAttribute('data-id'));
-      g.setAttribute('transform','translate('+n.x.toFixed(1)+','+n.y.toFixed(1)+')');
-    });
-    svg.querySelectorAll('.glink').forEach(function(l){
-      var a=byId(l.getAttribute('data-s')), b=byId(l.getAttribute('data-t'));
-      l.setAttribute('x1',a.x.toFixed(1)); l.setAttribute('y1',a.y.toFixed(1));
-      l.setAttribute('x2',b.x.toFixed(1)); l.setAttribute('y2',b.y.toFixed(1));
-    });
-  }
-
-  /* drag: just move the grabbed node — no simulation, so nothing else shifts */
-  function toSvg(e){
-    var pt=svg.createSVGPoint(); pt.x=e.clientX; pt.y=e.clientY;
-    var m=svg.getScreenCTM(); if(!m) return {x:e.clientX,y:e.clientY};
-    return pt.matrixTransform(m.inverse());
-  }
-  function onDown(e){
-    e.preventDefault();
-    dragNode=byId(e.currentTarget.getAttribute('data-id'));
-    moved=false; startPt=toSvg(e); svg.style.cursor='grabbing';
-    e.currentTarget.classList.remove('hover');
-    window.addEventListener('pointermove', onMove);
-    window.addEventListener('pointerup', onUp);
-  }
-  function onMove(e){
-    if(!dragNode) return; var p=toSvg(e);
-    if(startPt && (Math.abs(p.x-startPt.x)>4 || Math.abs(p.y-startPt.y)>4)) moved=true;
-    dragNode.x=Math.max(dragNode.r+4, Math.min(W-dragNode.r-4, p.x));
-    dragNode.y=Math.max(dragNode.r+4, Math.min(H-dragNode.r-24, p.y));
-    positions();
-  }
-  function onUp(){
-    dragNode=null; svg.style.cursor='grab';
-    window.removeEventListener('pointermove', onMove);
-    window.removeEventListener('pointerup', onUp);
-  }
-
-  function keepSet(id){
-    var n=byId(id); if(!n || id==='core') return null;   // core → show everything
-    var keep={}; keep[id]=1; keep['core']=1;
-    var pk = (n.kind==='part') ? n.data.key : n.data.part;
-    keep['p_'+pk]=1;
-    DATA.parts.forEach(function(p){ if(p.key===pk) p.chapters.forEach(function(ck){ keep['c_'+ck]=1; }); });
-    return keep;   // highlight the whole branch: core → part → its chapters
-  }
-  function applyFocus(id){
-    var keep=keepSet(id), full=(keep===null);
-    svg.querySelectorAll('.node').forEach(function(g){
-      var nid=g.getAttribute('data-id');
-      g.classList.toggle('dim', !full && !keep[nid]);
-      g.classList.toggle('hl', !full && keep[nid] && nid!==id);
-    });
-    svg.querySelectorAll('.glink').forEach(function(l){
-      var s=l.getAttribute('data-s'), t=l.getAttribute('data-t');
-      var on = full || (keep[s] && keep[t]);
-      l.classList.toggle('dim', !on);
-      l.classList.toggle('hl', !full && on);
-    });
-  }
-
-  function relatedIds(node){
-    var ids=[];
-    if(node.id==='core'){ DATA.parts.forEach(function(p){ ids.push('p_'+p.key); }); }
-    else if(node.kind==='part'){ var pk=node.data.key; DATA.parts.forEach(function(p){ if(p.key===pk) p.chapters.forEach(function(ck){ ids.push('c_'+ck); }); }); }
-    else { var pk2=node.data.part; ids.push('p_'+pk2);
-      DATA.parts.forEach(function(p){ if(p.key===pk2) p.chapters.forEach(function(ck){ if('c_'+ck!==node.id) ids.push('c_'+ck); }); }); }
-    return ids;
-  }
-
-  function drow(cls,label,txt){ return '<div class="drow '+cls+'"><div class="dlab">'+label+'</div><div class="dtxt">'+txt+'</div></div>'; }
-
-  function select(id){
-    var n=byId(id); if(!n) return;
-    sel=id;
-    svg.querySelectorAll('.node').forEach(function(g){ g.classList.toggle('sel', g.getAttribute('data-id')===id); });
-    var selEl=svg.querySelector('.node[data-id="'+id+'"]'); if(selEl&&selEl.parentNode) selEl.parentNode.appendChild(selEl);  // raise on top
-    applyFocus(id);
-    var d=n.data, pv = n.kind==='core' ? '--core' : n.varc;
-    var kicker = n.kind==='core' ? (LANG==='fa'?'ایدهٔ مرکزی':'Core idea')
-             : n.kind==='part' ? (LANG==='fa'?'بخش':'Part') + ' · ' + TX(d.tag)
-             : (LANG==='fa'?"تمرینِ":"Practice") + ' ' + num(d.n);
-    var prLab = (n.kind==='chap') ? (LANG==='fa'?'اصل':'Principle') : (LANG==='fa'?'ایدهٔ اصلی':'Big idea');
-    var html='<div class="dkick"><i style="background:var('+pv+')"></i>'+ (LANG==='fa'?faText(kicker):kicker) +'</div>'
-      +'<h4>'+TX(d.name)+'</h4>'
-      + drow('', prLab, TX(d.principle));
-    if(d.more)    html += drow('more', (LANG==='fa'?'بیشتر':'In depth'), TX(d.more));
-    if(d.example) html += drow('', (LANG==='fa'?'مثال':'Example'), TX(d.example));
-    if(d.tip)     html += drow('tip', (LANG==='fa'?'امتحان کن':'Try this'), TX(d.tip));
-    if(d.pitfall) html += drow('pit', (LANG==='fa'?'حواست باشد':'Watch out'), TX(d.pitfall));
-    // related chips
-    var rel=relatedIds(n);
-    if(rel.length){
-      var chips=rel.map(function(rid){ var rn=byId(rid); if(!rn) return '';
-        return '<span class="dchip" data-goto="'+rid+'"><i style="background:var('+rn.varc+')"></i>'+TX(rn.data.name)+'</span>'; }).join('');
-      html += '<div class="drow"><div class="dlab">'+(LANG==='fa'?'مرتبط':'Related')+'</div><div class="dchips">'+chips+'</div></div>';
+    ],
+    "kboxes": [
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Parts (why Stoicism · negative visualization · control · desire · daily practice)",
+          "fa": "بخش (چرا رواقی‌گری · تجسمِ منفی · کنترل · میل · تمرینِ روزمره)"
+        }
+      },
+      {
+        "v": {
+          "en": "16",
+          "fa": "۱۶"
+        },
+        "l": {
+          "en": "Ideas you can use",
+          "fa": "ایده برای استفاده"
+        }
+      },
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Levels, simple → expert",
+          "fa": "مرحله، ساده تا حرفه‌ای"
+        }
+      },
+      {
+        "v": {
+          "en": "3",
+          "fa": "۳"
+        },
+        "l": {
+          "en": "The trichotomy: up to us · not up to us · partly up to us",
+          "fa": "سه‌گانه: دستِ ما · نه دستِ ما · تا‌حدی دستِ ما"
+        }
+      }
+    ],
+    "core_callout": {
+      "label": {
+        "en": "The core idea:",
+        "fa": "ایدهٔ اصلی:"
+      },
+      "en": "Stoicism is a practical <i>philosophy of life</i>: its goal is <i>tranquility</i> — freedom from negative emotions — and real <i>joy</i>. You get there with simple psychological techniques: imagine losing what you have, focus only on what you control, and want the life you already have.",
+      "fa": "رواقی‌گری یک <i>فلسفهٔ عملیِ زندگی</i> است: هدفش <i>آرامش</i> است — رهایی از احساس‌های منفی — و یک <i>شادیِ</i> واقعی. با چند تکنیکِ سادهٔ روان‌شناختی به آن می‌رسی: تصور کن چیزهایی را که داری از دست می‌دهی، فقط روی آنچه کنترل می‌کنی تمرکز کن، و همان زندگی‌ای را که داری بخواه."
+    },
+    "flow_callout": {
+      "label": {
+        "en": "Read it as a flow:",
+        "fa": "به‌صورتِ یک جریان بخوانش:"
+      },
+      "en": "start with <b>why</b> — a philosophy of life aimed at tranquility and joy — then practice <b>negative visualization</b>, apply the <b>trichotomy of control</b>, master <b>desire</b> with fatalism and self-denial, and carry it all into <b>daily life</b> against insults, anger and grief.",
+      "fa": "با <b>چرا</b> شروع کن — یک فلسفهٔ زندگی که هدفش آرامش و شادی است — بعد <b>تجسمِ منفی</b> را تمرین کن، <b>سه‌گانهٔ کنترل</b> را به کار ببر، <b>میل</b> را با جبر و ریاضت رام کن، و همه را به <b>زندگیِ روزمره</b> ببر، در برابرِ توهین و خشم و غم."
     }
-    var host=document.getElementById('detailHost');
-    host.innerHTML=html;
-    host.querySelectorAll('.dchip').forEach(function(c){
-      c.addEventListener('click', function(){ select(c.getAttribute('data-goto')); });
-    });
-  }
-
-  function relabel(){ if(!svg) return; draw(); select(sel||'core'); }
-
-  return {
-    build:build,
-    kick:function(){},                                    // no-op; layout is static
-    relabel:relabel,
-    reset:function(){ nodes.forEach(function(n){ n.x=n.hx; n.y=n.hy; }); positions(); },
-    resetFocus:function(){ select('core'); },
-    selectNode:function(id){ select(id); },
-    hasNodes:function(){ return nodes.length>0; }
-  };
-})();
-</script>
-
-<script>
-/* ── 6) 5-STAGE LADDER ────────────────────────────────────── */
-var curStage=0;
-function renderLadder(){
-  var host=document.getElementById('ladderHost'); host.innerHTML='';
-  DATA.stages.forEach(function(s,i){
-    var r=document.createElement('div'); r.className='rung'+(i===curStage?' active':'');
-    r.innerHTML='<div class="lv">'+ (LANG==='fa'?('سطحِ '+num(s.level)):('Level '+s.level)) +'</div>'
-      +'<div class="lt">'+TX(s.title)+'</div>'
-      +'<div class="lbar"><i style="width:'+(s.level*20)+'%"></i></div>';
-    r.addEventListener('click', function(){ curStage=i; renderLadder(); renderStage();
-      document.getElementById('stageHost').scrollIntoView({behavior:'smooth',block:'nearest'}); });
-    host.appendChild(r);
-  });
-}
-function renderStage(){
-  var s=DATA.stages[curStage];
-  var host=document.getElementById('stageHost');
-  var exLabel = LANG==='fa'?'مثال':'Example';
-  var prev = LANG==='fa'?'مرحلهٔ قبل':'‹ Prev', next = LANG==='fa'?'مرحلهٔ بعد':'Next ›';
-  host.innerHTML=''+
-    '<div class="stagecard">'
-    +'<div class="shead"><span class="badge">'+TX(s.badge)+'</span><h3>'+TX(s.title)+'</h3></div>'
-    +'<div class="tagline">'+TX(s.tagline)+'</div>'
-    +'<div class="sbody">'+TX(s.body)+'</div>'
-    +'<div class="exbox"><div class="exk">'+exLabel+'</div><div class="ext">'+TX(s.example)+'</div></div>'
-    +'<div class="gainrow"><span class="gi">✓</span><span>'+TX(s.gain)+'</span></div>'
-    +'<div class="stagenav">'
-      +'<button id="stPrev" '+(curStage===0?'disabled':'')+'>'+prev+'</button>'
-      +'<button id="stNext" '+(curStage===DATA.stages.length-1?'disabled':'')+'>'+next+'</button>'
-    +'</div></div>';
-  var pv=document.getElementById('stPrev'), nx=document.getElementById('stNext');
-  if(pv) pv.onclick=function(){ if(curStage>0){curStage--; renderLadder(); renderStage();} };
-  if(nx) nx.onclick=function(){ if(curStage<DATA.stages.length-1){curStage++; renderLadder(); renderStage();} };
-}
-</script>
-
-<script>
-/* ── 7) legend + graph tabs ───────────────────────────────── */
-function renderLegend(){
-  var host=document.getElementById('legendHost'); if(!host) return;
-  var items=[{c:'--core', en:'Core idea', fa:'ایدهٔ مرکزی'}]
-    .concat(DATA.parts.map(function(p){ return {c:p.varc, en:p.name.en, fa:p.name.fa}; }));
-  host.innerHTML = items.map(function(it){
-    return '<span><i style="background:var('+it.c+')"></i>'+(LANG==='fa'?faText(it.fa):it.en)+'</span>';
-  }).join('');
-  document.getElementById('ghint').textContent = LANG==='fa' ? 'روی هر دایره کلیک کن تا بیشتر بخوانی · می‌توانی بکشی‌شان' : 'Click a node to read more · drag to move';
-  document.getElementById('greset').textContent = LANG==='fa' ? '↺ چیدمان' : '↺ Reset';
-}
-function setupTabs(){
-  function show(net){
-    document.getElementById('netView').style.display = net?'':'none';
-    document.getElementById('mapView').style.display = net?'none':'';
-    document.getElementById('tabNet').classList.toggle('active',net);
-    document.getElementById('tabMap').classList.toggle('active',!net);
-    if(net) GRAPH.kick();
-  }
-  document.getElementById('tabNet').onclick=function(){show(true);};
-  document.getElementById('tabMap').onclick=function(){show(false);};
-  document.getElementById('greset').onclick=function(){ GRAPH.reset(); };
-  // click empty graph space resets the focus
-  var svg=document.getElementById('netsvg');
-  svg.addEventListener('click', function(e){ if(!e.target.closest('.node')) GRAPH.resetFocus(); });
-}
-</script>
-
-<script>
-/* ── 8) toggles + boot ────────────────────────────────────── */
-function setLang(lg){
-  LANG=lg;
-  document.documentElement.setAttribute('data-lang',lg);
-  document.documentElement.setAttribute('lang',lg);
-  document.documentElement.setAttribute('dir', lg==='fa'?'rtl':'ltr');
-  try{ localStorage.setItem('goodlife-lang',lg); }catch(e){}
-  renderAll();
-}
-function renderAll(){
-  renderText();
-  renderMap();
-  renderLegend();
-  renderLadder();
-  renderStage();
-  if(GRAPH.hasNodes()) GRAPH.relabel(); else GRAPH.build();
-}
-(function(){
-  var lb=document.getElementById('langBtn');
-  lb && lb.addEventListener('click', function(){ setLang(LANG==='fa'?'en':'fa'); });
-
-  var tb=document.getElementById('themeBtn');
-  function curT(){ return document.documentElement.getAttribute('data-theme'); }
-  tb && tb.addEventListener('click', function(){
-    var t=curT()==='dark'?'light':'dark';
-    document.documentElement.setAttribute('data-theme',t);
-    try{ localStorage.setItem('goodlife-theme',t); }catch(e){}
-  });
-  try{ matchMedia('(prefers-color-scheme: dark)').addEventListener('change',function(e){
-    if(!localStorage.getItem('goodlife-theme')){ document.documentElement.setAttribute('data-theme', e.matches?'dark':'light'); }
-  }); }catch(e){}
-})();
-
-/* scroll-spy */
-(function(){
-  var links=[].slice.call(document.querySelectorAll('.toc a'));
-  var seen={}, ids=[];
-  links.forEach(function(a){ var id=a.getAttribute('href').slice(1); if(!seen[id]){seen[id]=1; ids.push(id);} });
-  var secs=ids.map(function(id){return document.getElementById(id);}).filter(Boolean);
-  function setActive(id){ links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('href')==='#'+id); }); }
-  if('IntersectionObserver' in window){
-    var obs=new IntersectionObserver(function(es){
-      es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
-    },{rootMargin:'-45% 0px -50% 0px',threshold:0});
-    secs.forEach(function(s){ obs.observe(s); });
-  }
-})();
-
-document.addEventListener('DOMContentLoaded', function(){
-  setupTabs();
-  renderAll();
+  },
+  "method": {
+    "en": "<p><b>Source:</b> the book <i>A Guide to the Good Life: The Ancient Art of Stoic Joy</i> by William B. Irvine, published 2009 (Oxford University Press).</p><p><b>How this was built:</b> the five-part structure and ideas were gathered and rewritten from the book and reputable sources; quotes were cross-checked and the linked videos verified.</p><p><b>Group:</b> Happiness — a practical guide to living a calmer, gladder life.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>",
+    "fa": "<p><b>منبع:</b> کتابِ «A Guide to the Good Life: The Ancient Art of Stoic Joy» نوشتهٔ ویلیام بی. اروین، چاپِ ۲۰۰۹ (انتشاراتِ دانشگاهِ آکسفورد).</p><p><b>روشِ کار:</b> ساختارِ پنج‌بخشی و ایده‌ها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده؛ نقل‌قول‌ها مقابله و ویدیوها بررسی شده‌اند.</p><p><b>گروه:</b> «شادکامی» — یک راهنمای عملی برای آرام‌تر و شادتر زندگی‌کردن.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای متنِ کامل، خودِ کتاب را بخوان.</p>"
+  },
+  "flow": {
+    "en": [
+      "Reflect",
+      "Accept",
+      "Enjoy"
+    ],
+    "fa": [
+      "تأمل",
+      "پذیرش",
+      "لذت"
+    ]
+  },
+  "graph": {
+    "W": 980,
+    "H": 780,
+    "R1": 220,
+    "R2": 126,
+    "span": 66
+  },
+  "tldr": [
+    {
+      "en": "The whole book in one line: Stoicism is a practical recipe for a calm, joyful life — a grand goal, plus techniques to reach it.",
+      "fa": "خلاصهٔ کل کتاب در یک جمله: رواقی‌گری یک دستورِ عملی برای یک زندگیِ آرام و شاد است — یک هدفِ بزرگ، به‌علاوهٔ تکنیک‌هایی برای رسیدن به آن."
+    },
+    {
+      "en": "The goal is <b>tranquility</b> — freedom from negative emotions — and a deep <b>joy</b> in being alive, won through <b>virtue</b>.",
+      "fa": "هدف <b>آرامش</b> است — رهایی از احساس‌های منفی — و یک <b>شادیِ</b> عمیق از زنده‌بودن، که با <b>فضیلت</b> به‌دست می‌آید."
+    },
+    {
+      "en": "The best technique is <b>negative visualization</b>: imagine losing what you have, and appreciation floods back.",
+      "fa": "بهترین تکنیک <b>تجسمِ منفی</b> است: تصور کن چیزهایی را که داری از دست می‌دهی، و قدردانی سیل‌آسا برمی‌گردد."
+    },
+    {
+      "en": "Use the <b>trichotomy of control</b> — pour effort into what's up to you, internalize your goals, and let the rest go.",
+      "fa": "از <b>سه‌گانهٔ کنترل</b> استفاده کن — تلاشت را روی آنچه دستِ توست بریز، هدف‌هایت را درونی کن، و بقیه را رها کن."
+    },
+    {
+      "en": "Then live it: <b>want what you have</b>, accept the past, choose a little discomfort, and stay unprovoked by insults, anger and grief.",
+      "fa": "بعد زندگی‌اش کن: <b>همان را که داری بخواه</b>، گذشته را بپذیر، کمی سختی انتخاب کن، و در برابرِ توهین و خشم و غم تحریک‌نشده بمان."
+    }
+  ],
+  "parts": [
+    {
+      "key": "whystoic",
+      "varc": "--c-teal",
+      "name": {
+        "en": "Why Stoicism",
+        "fa": "چرا رواقی‌گری"
+      },
+      "tag": {
+        "en": "A philosophy of life",
+        "fa": "یک فلسفهٔ زندگی"
+      },
+      "gist": {
+        "en": "You need a grand goal in living — the Stoics chose tranquility and joy, won through virtue.",
+        "fa": "به یک هدفِ بزرگ برای زندگی نیاز داری — رواقی‌ها آرامش و شادی را انتخاب کردند، که با فضیلت به‌دست می‌آید."
+      },
+      "more": {
+        "en": "Stoicism is not grim endurance; it is a full philosophy of life aimed at joy. This part lays the foundation: why you need an overarching goal at all, what the Stoics were really after (tranquility plus delight), and why they built it on virtue and reason.",
+        "fa": "رواقی‌گری تحملِ عبوس نیست؛ یک فلسفهٔ کاملِ زندگی است که هدفش شادی است. این بخش پایه را می‌گذارد: اصلاً چرا به یک هدفِ کلی نیاز داری، رواقی‌ها واقعاً دنبالِ چه بودند (آرامش به‌علاوهٔ لذت)، و چرا آن را روی فضیلت و خرد بنا کردند."
+      },
+      "chapters": [
+        "philosophy",
+        "tranquility",
+        "virtue"
+      ]
+    },
+    {
+      "key": "negviz",
+      "varc": "--c-blue",
+      "name": {
+        "en": "Negative Visualization",
+        "fa": "تجسمِ منفی"
+      },
+      "tag": {
+        "en": "Their best technique",
+        "fa": "بهترین تکنیکشان"
+      },
+      "gist": {
+        "en": "Imagine losing what you have — it beats taking things for granted and revives your joy.",
+        "fa": "تصور کن چیزهایی را که داری از دست می‌دهی — این کار جلوی بدیهی‌پنداری را می‌گیرد و شادی‌ات را زنده می‌کند."
+      },
+      "more": {
+        "en": "The single most valuable Stoic technique is to imagine, briefly, that you have lost what you value most. It sounds bleak but works like magic against hedonic adaptation — the habit of taking good things for granted — and hands the present moment back to you, freshly precious.",
+        "fa": "ارزشمندترین تکنیکِ رواقی این است که برای لحظه‌ای تصور کنی چیزی را که بیش از همه برایت ارزش دارد از دست داده‌ای. تیره به‌نظر می‌رسد اما مثلِ جادو در برابرِ عادت‌کردن جواب می‌دهد — همان عادتِ بدیهی‌گرفتنِ چیزهای خوب — و لحظهٔ حال را، تازه و عزیز، به تو پس می‌دهد."
+      },
+      "chapters": [
+        "imagine",
+        "hedonic",
+        "present"
+      ]
+    },
+    {
+      "key": "control",
+      "varc": "--c-amber",
+      "name": {
+        "en": "The Trichotomy of Control",
+        "fa": "سه‌گانهٔ کنترل"
+      },
+      "tag": {
+        "en": "Where to aim",
+        "fa": "کجا را نشانه بگیری"
+      },
+      "gist": {
+        "en": "Split things into up to you, not up to you, and partly up to you — then focus where you have power.",
+        "fa": "چیزها را سه‌دسته کن: دستِ تو، نه دستِ تو، و تا‌حدی دستِ تو — بعد جایی که قدرت داری تمرکز کن."
+      },
+      "more": {
+        "en": "Building on Epictetus, Irvine sorts everything into three boxes and shows how to act in each. For things you only partly control, you internalize your goals — aiming at your own effort instead of the outcome — so you stay motivated without handing your peace of mind to fate.",
+        "fa": "اروین با تکیه بر اپیکتتوس، همه‌چیز را در سه جعبه می‌چیند و نشان می‌دهد در هرکدام چطور عمل کنی. برای چیزهایی که فقط تا‌حدی کنترلشان می‌کنی، هدف‌هایت را درونی می‌کنی — به‌جای نتیجه، تلاشِ خودت را نشانه می‌گیری — تا باانگیزه بمانی، بی‌آنکه آرامشت را دستِ سرنوشت بدهی."
+      },
+      "chapters": [
+        "trichotomy",
+        "internalize",
+        "focus"
+      ]
+    },
+    {
+      "key": "desire",
+      "varc": "--c-violet",
+      "name": {
+        "en": "Desire, Fatalism & Self-Denial",
+        "fa": "میل، جبر و ریاضت"
+      },
+      "tag": {
+        "en": "Master your wants",
+        "fa": "بر خواسته‌هایت مسلط شو"
+      },
+      "gist": {
+        "en": "Want what you already have, accept the past and present, and train with a little chosen discomfort.",
+        "fa": "همان را که داری بخواه، گذشته و حال را بپذیر، و با کمی سختیِ انتخابی تمرین کن."
+      },
+      "more": {
+        "en": "Here the practices get personal. Master runaway desire by learning to want your existing life; make peace with the past and present by treating them as fixed; and toughen yourself with occasional voluntary discomfort, so misfortune loses its power to frighten you.",
+        "fa": "اینجا تمرین‌ها شخصی می‌شوند. با یادگرفتنِ اینکه همان زندگیِ موجودت را بخواهی، بر میلِ لجام‌گسیخته مسلط شو؛ با ثابت‌دانستنِ گذشته و حال با آن‌ها آشتی کن؛ و با سختیِ داوطلبانهٔ گاه‌به‌گاه خودت را سِفت کن، تا بدبختی قدرتِ ترساندنت را از دست بدهد."
+      },
+      "chapters": [
+        "wanting",
+        "fatalism",
+        "denial"
+      ]
+    },
+    {
+      "key": "practice",
+      "varc": "--c-green",
+      "name": {
+        "en": "Insults, Anger, Grief & Practice",
+        "fa": "توهین، خشم، غم و تمرین"
+      },
+      "tag": {
+        "en": "Stoicism in daily life",
+        "fa": "رواقی‌گری در زندگیِ روزمره"
+      },
+      "gist": {
+        "en": "Don't be provoked, defuse anger, meet grief and death with reason — and start practicing quietly.",
+        "fa": "تحریک نشو، خشم را خنثی کن، غم و مرگ را با خرد روبه‌رو کن — و آرام شروع به تمرین کن."
+      },
+      "more": {
+        "en": "The final part applies Stoicism to the friction of daily life: brushing off insults, disarming anger, and meeting grief, old age and death with reason. It closes with Irvine's practical advice for becoming a Stoic — start now, practice in stealth, and be ready to be mocked.",
+        "fa": "بخشِ آخر رواقی‌گری را به اصطکاکِ زندگیِ روزمره می‌بندد: بی‌اعتنایی به توهین، خلعِ‌سلاحِ خشم، و روبه‌رو‌شدن با غم و پیری و مرگ با خرد. با توصیهٔ عملیِ اروین برای رواقی‌شدن تمام می‌شود — همین حالا شروع کن، پنهانی تمرین کن، و آماده باش که مسخره‌ات کنند."
+      },
+      "chapters": [
+        "insults",
+        "anger",
+        "grief",
+        "becoming"
+      ]
+    }
+  ],
+  "chapters": {
+    "philosophy": {
+      "part": "whystoic",
+      "n": 1,
+      "name": {
+        "en": "A Philosophy of Life",
+        "fa": "یک فلسفهٔ زندگی"
+      },
+      "glabel": {
+        "en": "Philosophy",
+        "fa": "فلسفهٔ زندگی"
+      },
+      "principle": {
+        "en": "Decide what in life is truly worth wanting, then pursue it. Without a grand goal in living, you risk misliving.",
+        "fa": "تصمیم بگیر در زندگی چه چیزی واقعاً ارزشِ خواستن دارد، بعد دنبالش برو. بدونِ یک هدفِ بزرگ برای زندگی، خطرِ بد‌زندگی‌کردن هست."
+      },
+      "more": {
+        "en": "A philosophy of life gives you one overarching goal and a strategy for reaching it. Most people never choose one, so they spend their days chasing whatever society dangles in front of them — and reach the end wondering if they missed the point of it all.",
+        "fa": "یک فلسفهٔ زندگی به تو یک هدفِ کلیِ واحد می‌دهد و یک راه برای رسیدن به آن. بیشترِ آدم‌ها هیچ‌وقت یکی را انتخاب نمی‌کنند، برای همین روزهایشان را دنبالِ هرچیزی که جامعه جلویشان می‌گیرد می‌دوند — و به آخر که می‌رسند، می‌مانند که نکند اصلِ ماجرا را از دست داده‌اند."
+      },
+      "example": {
+        "en": "A person with no philosophy of life is like a sailor with no destination: every wind is the wrong wind, and no port ever feels like home.",
+        "fa": "آدمی که فلسفهٔ زندگی ندارد مثلِ ملوانی است بی‌مقصد: هر بادی بادِ بد است، و هیچ بندری هیچ‌وقت خانه به‌نظر نمی‌رسد."
+      },
+      "tip": {
+        "en": "Write one line: what is the single thing your life is ultimately for? Start there.",
+        "fa": "یک خط بنویس: زندگی‌ات در نهایت برای چیست؟ از همان‌جا شروع کن."
+      },
+      "pitfall": {
+        "en": "Drifting through life on autopilot, chasing whatever everyone around you is chasing.",
+        "fa": "شناور‌بودن در زندگی روی خلبانِ خودکار، و دویدن دنبالِ هرچیزی که بقیه دنبالش‌اند."
+      }
+    },
+    "tranquility": {
+      "part": "whystoic",
+      "n": 2,
+      "name": {
+        "en": "Tranquility & Joy",
+        "fa": "آرامش و شادی"
+      },
+      "glabel": {
+        "en": "Tranquility",
+        "fa": "آرامش"
+      },
+      "principle": {
+        "en": "The Stoic goal is tranquility — a life with few negative emotions — and a deep joy in simply being alive.",
+        "fa": "هدفِ رواقی آرامش است — زندگی‌ای با کمترین احساسِ منفی — و یک شادیِ عمیق از همین زنده‌بودن."
+      },
+      "more": {
+        "en": "Tranquility isn't a blank, emotionless state. It means freedom from anger, anxiety, grief and envy, which clears room for gratitude and delight. The Stoics weren't gloomy; they wanted to enjoy life fully — just without being enslaved by their cravings and fears.",
+        "fa": "آرامش یک حالتِ خالی و بی‌احساس نیست. یعنی رهایی از خشم و اضطراب و غم و حسادت، که جا باز می‌کند برای قدردانی و لذت. رواقی‌ها آدم‌های دلمرده نبودند؛ می‌خواستند از زندگی کامل لذت ببرند — فقط بی‌آنکه بردهٔ ولع‌ها و ترس‌هایشان باشند."
+      },
+      "example": {
+        "en": "Seneca, a Stoic, was one of Rome's richest men and enjoyed his wealth — yet he practiced being ready to lose it all without losing his calm.",
+        "fa": "سِنِکا، که یک رواقی بود، از ثروتمندترین مردانِ رم بود و از ثروتش لذت می‌برد — اما تمرین می‌کرد که آمادهٔ از‌دست‌دادنِ همه‌اش باشد، بی‌آنکه آرامشش را از دست بدهد."
+      },
+      "tip": {
+        "en": "Notice which negative emotion costs you the most peace this week, and target just that one.",
+        "fa": "ببین این هفته کدام احساسِ منفی بیشترین آرامش را از تو می‌گیرد، و فقط همان یکی را هدف بگیر."
+      },
+      "pitfall": {
+        "en": "Confusing tranquility with numbness, or thinking joy requires getting everything you want.",
+        "fa": "اشتباه‌گرفتنِ آرامش با بی‌حسی، یا این فکر که شادی یعنی به هرچه می‌خواهی برسی."
+      }
+    },
+    "virtue": {
+      "part": "whystoic",
+      "n": 3,
+      "name": {
+        "en": "Virtue & Reason",
+        "fa": "فضیلت و خرد"
+      },
+      "glabel": {
+        "en": "Virtue",
+        "fa": "فضیلت"
+      },
+      "principle": {
+        "en": "Live in accordance with reason and become the best human you can be; for the Stoics, virtue — not pleasure — is what a good life is built on.",
+        "fa": "بر‌اساسِ خرد زندگی کن و بهترین انسانی شو که می‌توانی؛ برای رواقی‌ها، فضیلت — نه لذت — چیزی است که زندگیِ خوب رویش بنا می‌شود."
+      },
+      "more": {
+        "en": "To the Stoics, our defining gift is reason, so a good life means using it well: being honest, just, kind and self-controlled. Virtue is doing your duty as a human being — and tranquility is the reward that comes, almost as a side effect, from living this way.",
+        "fa": "برای رواقی‌ها، ویژگیِ اصلیِ ما خرد است، پس زندگیِ خوب یعنی خوب به‌کار‌بردنش: صادق، عادل، مهربان و خویشتن‌دار بودن. فضیلت یعنی انجامِ وظیفه‌ات به‌عنوانِ یک انسان — و آرامش پاداشی است که تقریباً مثلِ یک اثرِ جانبی از این‌طور زندگی‌کردن می‌آید."
+      },
+      "example": {
+        "en": "Marcus Aurelius ran an empire yet judged himself each day by one question: was he just, honest and useful to others — not whether he had won more.",
+        "fa": "مارکوس اورلیوس یک امپراتوری را می‌گرداند، اما هر روز خودش را با یک پرسش می‌سنجید: آیا عادل و صادق و به‌دردِ دیگران‌خور بوده — نه اینکه بیشتر برده باشد."
+      },
+      "tip": {
+        "en": "Before a hard choice, ask what the most honest, decent version of you would do — then do that.",
+        "fa": "قبل از یک انتخابِ سخت، بپرس صادق‌ترین و شریف‌ترین نسخه‌ات چه می‌کند — بعد همان را بکن."
+      },
+      "pitfall": {
+        "en": "Chasing pleasure or status as the goal, and treating your character as optional.",
+        "fa": "دنبالِ لذت یا جایگاه رفتن به‌عنوانِ هدف، و اختیاری‌دانستنِ شخصیتت."
+      }
+    },
+    "imagine": {
+      "part": "negviz",
+      "n": 4,
+      "name": {
+        "en": "Imagine Losing What You Have",
+        "fa": "تصور کن داشته‌هایت را از دست می‌دهی"
+      },
+      "glabel": {
+        "en": "Negative Visualization",
+        "fa": "تجسمِ منفی"
+      },
+      "principle": {
+        "en": "Regularly picture losing what you value — your health, your people, your life. It turns out to be the single most valuable Stoic technique.",
+        "fa": "مرتب تصور کن چیزهایی را که برایت ارزش دارند از دست می‌دهی — سلامتی‌ات، آدم‌هایت، زندگی‌ات. معلوم می‌شود که این ارزشمندترین تکنیکِ رواقی است."
+      },
+      "more": {
+        "en": "The Stoics called it negative visualization: briefly imagining the worst so you don't sleepwalk past the good. It sounds morbid but does the opposite — a few seconds of imagined loss floods you with fresh appreciation for what is, right now, still here.",
+        "fa": "رواقی‌ها اسمش را تجسمِ منفی گذاشتند: برای لحظه‌ای بدترین حالت را تصور کنی تا خواب‌گردانه از کنارِ خوبی‌ها رد نشوی. تلخ به‌نظر می‌رسد اما عکسش را می‌کند — چند ثانیه تصورِ از‌دست‌دادن، تو را پُر می‌کند از قدردانیِ تازه برای چیزی که همین حالا هنوز هست."
+      },
+      "example": {
+        "en": "Kiss your child goodnight, the Stoics advised, while quietly aware that she is mortal and you may not see the morning — so the goodnight actually lands.",
+        "fa": "رواقی‌ها می‌گفتند وقتِ خواب بچه‌ات را ببوس، درحالی‌که آرام آگاهی که او فانی است و شاید تو صبح را نبینی — تا آن شب‌به‌خیر واقعاً به دلت بنشیند."
+      },
+      "tip": {
+        "en": "Once a day, imagine one person or thing you love is suddenly gone; then return to noticing that it isn't.",
+        "fa": "روزی یک‌بار تصور کن یکی از آدم‌ها یا چیزهایی که دوست داری ناگهان رفته؛ بعد برگرد به دیدنِ اینکه هنوز هست."
+      },
+      "pitfall": {
+        "en": "Turning it into anxious brooding instead of a brief flash that ends in gratitude.",
+        "fa": "تبدیلش به نگرانیِ کِش‌دار، به‌جای یک جرقهٔ کوتاه که به قدردانی ختم می‌شود."
+      }
+    },
+    "hedonic": {
+      "part": "negviz",
+      "n": 5,
+      "name": {
+        "en": "Defeat Hedonic Adaptation",
+        "fa": "شکستِ عادت به لذت"
+      },
+      "glabel": {
+        "en": "Adaptation",
+        "fa": "عادت‌کردن"
+      },
+      "principle": {
+        "en": "We adapt to whatever we get and quickly take it for granted. Negative visualization resets the meter and restores our delight.",
+        "fa": "ما به هرچه به‌دست می‌آوریم عادت می‌کنیم و زود بدیهی‌اش می‌گیریم. تجسمِ منفی، عقربه را از نو صفر می‌کند و لذتمان را برمی‌گرداند."
+      },
+      "more": {
+        "en": "Get the raise, the house, the partner — and within weeks it feels normal, so you start craving the next thing. This treadmill is why more never satisfies. Imagining loss is the cure: it makes the familiar feel new again, so you can enjoy what you already worked so hard to get.",
+        "fa": "افزایشِ حقوق، خانه، شریک را که می‌گیری — چند هفته بعد عادی به‌نظر می‌رسد، پس ولعِ چیزِ بعدی به سرت می‌زند. همین چرخِ تردمیل است که «بیشتر» را همیشه ناکافی می‌کند. تصورِ از‌دست‌دادن، درمانش است: آشنا را دوباره تازه می‌کند، تا بتوانی از چیزی که این‌همه برایش زحمت کشیدی لذت ببری."
+      },
+      "example": {
+        "en": "The new phone that thrilled you last year now bores you — not because it changed, but because you adapted to it.",
+        "fa": "همان گوشیِ نو که پارسال ذوق‌زده‌ات کرد حالا خسته‌ات می‌کند — نه چون عوض شده، بلکه چون تو به آن عادت کرده‌ای."
+      },
+      "tip": {
+        "en": "Look at something ordinary you own and picture life without it; feel it become valuable again.",
+        "fa": "به یک چیزِ معمولی که داری نگاه کن و زندگیِ بی‌آن را تصور کن؛ حس کن که دوباره باارزش می‌شود."
+      },
+      "pitfall": {
+        "en": "Believing the next purchase or promotion will finally make you content.",
+        "fa": "این باور که خریدِ بعدی یا ترفیعِ بعدی بالاخره راضی‌ات می‌کند."
+      }
+    },
+    "present": {
+      "part": "negviz",
+      "n": 6,
+      "name": {
+        "en": "Enjoy the Present",
+        "fa": "از حال لذت ببر"
+      },
+      "glabel": {
+        "en": "The Present",
+        "fa": "زمانِ حال"
+      },
+      "principle": {
+        "en": "Treat what you have as a gift on loan — enjoy it fully now, while staying ready to give it back.",
+        "fa": "با چیزی که داری مثلِ یک هدیهٔ امانتی رفتار کن — همین حالا کامل ازش لذت ببر، درحالی‌که آماده‌ای پسش بدهی."
+      },
+      "more": {
+        "en": "Negative visualization has a twin lesson: not just prepare for loss, but savor the present before it becomes the past. The Stoics urged us to live as if each moment could be the last time — the last conversation, the last ordinary Tuesday — because one day it will be.",
+        "fa": "تجسمِ منفی یک درسِ دوقلو دارد: نه‌فقط آماده‌شدن برای از‌دست‌دادن، بلکه چشیدنِ لحظهٔ حال پیش از اینکه گذشته شود. رواقی‌ها می‌گفتند طوری زندگی کن که انگار هر لحظه می‌تواند آخرین بار باشد — آخرین گفت‌وگو، آخرین سه‌شنبهٔ معمولی — چون یک روز واقعاً خواهد بود."
+      },
+      "example": {
+        "en": "Doing something you love, pause and think 'this may be the last time' — and a routine afternoon suddenly turns precious.",
+        "fa": "وسطِ کاری که دوستش داری، مکث کن و فکر کن «شاید این آخرین بار باشد» — و یک بعدازظهرِ معمولی ناگهان عزیز می‌شود."
+      },
+      "tip": {
+        "en": "Pick one everyday moment today and experience it as if it will never come again.",
+        "fa": "امروز یک لحظهٔ روزمره را انتخاب کن و طوری تجربه‌اش کن که انگار دیگر هیچ‌وقت برنمی‌گردد."
+      },
+      "pitfall": {
+        "en": "Postponing enjoyment to a someday that quietly never arrives.",
+        "fa": "انداختنِ لذت به یک روزی‌که که بی‌سروصدا هیچ‌وقت نمی‌رسد."
+      }
+    },
+    "trichotomy": {
+      "part": "control",
+      "n": 7,
+      "name": {
+        "en": "What Is & Isn't Up to Us",
+        "fa": "چه دستِ ماست و چه نیست"
+      },
+      "glabel": {
+        "en": "Trichotomy",
+        "fa": "سه‌گانه"
+      },
+      "principle": {
+        "en": "Sort everything into three: what's entirely up to you, what's entirely out of your hands, and what's partly up to you.",
+        "fa": "همه‌چیز را به سه دسته تقسیم کن: چیزی که کاملاً دستِ توست، چیزی که اصلاً دستِ تو نیست، و چیزی که تا‌حدی دستِ توست."
+      },
+      "more": {
+        "en": "Epictetus split life into what we control and what we don't. Irvine adds a crucial third box for things we partly control — like winning a match. Knowing which box you're in tells you exactly where to spend your worry and effort, and where to let go.",
+        "fa": "اپیکتتوس زندگی را به آنچه در کنترلِ ماست و آنچه نیست تقسیم کرد. اروین یک جعبهٔ سومِ مهم برای چیزهایی که تا‌حدی کنترلشان می‌کنیم اضافه می‌کند — مثلِ بردنِ یک مسابقه. دانستنِ اینکه در کدام جعبه‌ای، دقیقاً می‌گوید نگرانی و تلاشت را کجا خرج کنی، و کجا رها کنی."
+      },
+      "example": {
+        "en": "You fully control the effort you put into a job interview; you don't control who gets hired; you only partly influence the outcome.",
+        "fa": "تلاشی که در یک مصاحبهٔ کاری می‌گذاری کاملاً دستِ توست؛ اینکه چه‌کسی استخدام می‌شود دستِ تو نیست؛ روی نتیجه فقط تا‌حدی اثر می‌گذاری."
+      },
+      "tip": {
+        "en": "Take today's biggest worry and ask: fully mine, not mine, or partly mine? Then act accordingly.",
+        "fa": "بزرگ‌ترین نگرانیِ امروزت را بردار و بپرس: کاملاً مالِ من، مالِ من نیست، یا تا‌حدی مالِ من؟ بعد بر‌همان‌اساس عمل کن."
+      },
+      "pitfall": {
+        "en": "Pouring energy into outcomes you can't control while neglecting what you can.",
+        "fa": "ریختنِ انرژی روی نتیجه‌هایی که کنترلشان نمی‌کنی، درحالی‌که از چیزی که می‌توانی غافل می‌شوی."
+      }
+    },
+    "internalize": {
+      "part": "control",
+      "n": 8,
+      "name": {
+        "en": "Internalize Your Goals",
+        "fa": "هدف‌هایت را درونی کن"
+      },
+      "glabel": {
+        "en": "Internal Goals",
+        "fa": "هدفِ درونی"
+      },
+      "principle": {
+        "en": "For things you only partly control, aim at your effort, not the result — set internal goals you can actually hit.",
+        "fa": "برای چیزهایی که فقط تا‌حدی کنترل می‌کنی، هدف را روی تلاشت بگذار، نه نتیجه — هدف‌های درونی‌ای بگذار که واقعاً می‌توانی به‌شان برسی."
+      },
+      "more": {
+        "en": "A tennis player can't control winning, but she can control playing her best. By switching the goal from 'win' to 'play as well as I can', she keeps her drive but spares herself the anxiety and disappointment of an outcome that was never fully hers.",
+        "fa": "یک تنیس‌باز نمی‌تواند بردن را کنترل کند، اما می‌تواند بهترین بازی‌اش را کنترل کند. با عوض‌کردنِ هدف از «بردن» به «تا می‌توانم خوب بازی کنم»، انگیزه‌اش را نگه می‌دارد اما خودش را از اضطراب و سرخوردگیِ نتیجه‌ای که هیچ‌وقت کاملاً مالِ او نبود نجات می‌دهد."
+      },
+      "example": {
+        "en": "Instead of 'I will land this client', aim at 'I will prepare thoroughly and pitch as well as I can' — the part that's truly yours.",
+        "fa": "به‌جای «این مشتری را می‌گیرم»، هدف بگذار «کامل آماده می‌شوم و تا می‌توانم خوب ارائه می‌دهم» — همان بخشی که واقعاً مالِ توست."
+      },
+      "tip": {
+        "en": "Rewrite one goal so it depends only on what you do, not on how others respond.",
+        "fa": "یک هدف را طوری بازنویسی کن که فقط به کاری که تو می‌کنی بستگی داشته باشد، نه به واکنشِ دیگران."
+      },
+      "pitfall": {
+        "en": "Staking your peace on results — applause, sales, winning — that others ultimately decide.",
+        "fa": "گِرو‌گذاشتنِ آرامشت به نتیجه‌هایی — تشویق، فروش، بردن — که در نهایت دیگران تعیینشان می‌کنند."
+      }
+    },
+    "focus": {
+      "part": "control",
+      "n": 9,
+      "name": {
+        "en": "Focus on What You Control",
+        "fa": "روی آنچه کنترل می‌کنی تمرکز کن"
+      },
+      "glabel": {
+        "en": "Focus",
+        "fa": "تمرکز"
+      },
+      "principle": {
+        "en": "Spend your energy where you have power and calmly accept the rest; this is how a Stoic becomes hard to disturb.",
+        "fa": "انرژی‌ات را جایی خرج کن که قدرت داری و بقیه را با آرامش بپذیر؛ رواقی این‌طور دیرآشوب می‌شود."
+      },
+      "more": {
+        "en": "Almost all our frustration comes from fighting what we can't change. Redirect that effort to the one thing always in your control — your own judgments and choices — and most of your distress simply has nowhere left to attach.",
+        "fa": "تقریباً همهٔ سرخوردگیِ ما از جنگیدن با چیزی می‌آید که نمی‌توانیم عوضش کنیم. آن تلاش را ببر به‌سمتِ تنها چیزی که همیشه در کنترلِ توست — قضاوت‌ها و انتخاب‌های خودت — و بیشترِ آشفتگی‌ات دیگر جایی برای چسبیدن ندارد."
+      },
+      "example": {
+        "en": "Stuck in traffic you can't move the cars, but you fully control whether you seethe or use the time — so a Stoic just lets the anger go.",
+        "fa": "گیرافتاده در ترافیک نمی‌توانی ماشین‌ها را تکان بدهی، اما کاملاً دستِ توست که کِز کنی یا از وقت استفاده کنی — پس رواقی فقط خشم را رها می‌کند."
+      },
+      "tip": {
+        "en": "When upset, name the part you control and act on it; consciously release the rest.",
+        "fa": "وقتی ناراحتی، همان بخشی را که کنترل می‌کنی نام ببر و رویش عمل کن؛ بقیه را آگاهانه رها کن."
+      },
+      "pitfall": {
+        "en": "Rehearsing grievances about things no amount of worry can change.",
+        "fa": "مرور‌کردنِ گله‌ها دربارهٔ چیزهایی که هیچ‌مقدار نگرانی عوضشان نمی‌کند."
+      }
+    },
+    "wanting": {
+      "part": "desire",
+      "n": 10,
+      "name": {
+        "en": "Want What You Already Have",
+        "fa": "همان را که داری بخواه"
+      },
+      "glabel": {
+        "en": "Desire",
+        "fa": "میل"
+      },
+      "principle": {
+        "en": "The surest path to happiness is not getting what you want, but wanting what you already have.",
+        "fa": "مطمئن‌ترین راهِ خوشبختی این نیست که به آنچه می‌خواهی برسی، بلکه این است که همان را که داری بخواهی."
+      },
+      "more": {
+        "en": "We're insatiable by design: satisfy one desire and the mind manufactures another, so we stay perpetually a little unhappy. The Stoics worked to master desire itself — to look at their existing life and genuinely want it — which quietly ends the chase.",
+        "fa": "ما ذاتاً سیری‌ناپذیریم: یک خواسته را که برآورده کنی، ذهن یکی دیگر می‌سازد، پس همیشه کمی ناراضی می‌مانیم. رواقی‌ها تلاش می‌کردند بر خودِ میل مسلط شوند — به زندگیِ موجودشان نگاه کنند و واقعاً همان را بخواهند — که بی‌سروصدا به این دویدن پایان می‌دهد."
+      },
+      "example": {
+        "en": "We spend to get what we think we want, then adapt — the Stoic instead learns to enjoy the life already in front of him, for free.",
+        "fa": "ما خرج می‌کنیم تا به چیزی که فکر می‌کنیم می‌خواهیم برسیم، بعد عادت می‌کنیم — رواقی به‌جایش یاد می‌گیرد از همان زندگیِ پیشِ‌رویش، رایگان، لذت ببرد."
+      },
+      "tip": {
+        "en": "List three things you already have that you once longed for; let yourself want them again.",
+        "fa": "سه چیز را فهرست کن که همین حالا داری و روزی آرزویشان را داشتی؛ بگذار دوباره بخواهی‌شان."
+      },
+      "pitfall": {
+        "en": "Believing satisfaction is always one more acquisition away.",
+        "fa": "این باور که رضایت همیشه یک به‌دست‌آوردنِ دیگر آن‌طرف‌تر است."
+      }
+    },
+    "fatalism": {
+      "part": "desire",
+      "n": 11,
+      "name": {
+        "en": "Be Fatalistic About the Past & Present",
+        "fa": "دربارهٔ گذشته و حال جبری باش"
+      },
+      "glabel": {
+        "en": "Fatalism",
+        "fa": "جبرگرایی"
+      },
+      "principle": {
+        "en": "Treat the past and the present moment as fixed — accept them as they are, and stop wishing they were otherwise.",
+        "fa": "با گذشته و همین لحظهٔ حال مثلِ چیزی ثابت رفتار کن — همان‌طور که هستند بپذیرشان، و دست از آرزوی جور‌دیگر‌بودنشان بردار."
+      },
+      "more": {
+        "en": "The Stoics were fatalists about the past and present — not the future. Since what has already happened cannot be changed, resenting it only adds suffering. Accept this moment as if you had chosen it, and you free enormous energy that was being wasted fighting reality.",
+        "fa": "رواقی‌ها دربارهٔ گذشته و حال جبری بودند — نه دربارهٔ آینده. چون آنچه رخ داده دیگر عوض نمی‌شود، کینه‌ورزیدن به آن فقط رنج اضافه می‌کند. این لحظه را طوری بپذیر که انگار خودت انتخابش کرده‌ای، آن‌وقت انرژیِ عظیمی را آزاد می‌کنی که صرفِ جنگ با واقعیت می‌شد."
+      },
+      "example": {
+        "en": "Missed the train? A Stoic doesn't replay it for an hour; it already happened, so he accepts it and moves to the next thing.",
+        "fa": "قطار را از دست دادی؟ رواقی یک ساعت در ذهنش پخشش نمی‌کند؛ اتفاق افتاده، پس می‌پذیردش و می‌رود سراغِ کارِ بعدی."
+      },
+      "tip": {
+        "en": "Catch yourself replaying an unchangeable event, then say 'it is what it is' and redirect.",
+        "fa": "خودت را حینِ مرورِ یک اتفاقِ برگشت‌ناپذیر بگیر، بعد بگو «همینی که هست» و مسیرت را عوض کن."
+      },
+      "pitfall": {
+        "en": "Marinating in regret and 'if only', as if enough resentment could rewrite the past.",
+        "fa": "خیساندنِ خود در حسرت و «ای‌کاش»، انگار قدرِ کافی کینه می‌تواند گذشته را از نو بنویسد."
+      }
+    },
+    "denial": {
+      "part": "desire",
+      "n": 12,
+      "name": {
+        "en": "Voluntary Discomfort",
+        "fa": "سختیِ داوطلبانه"
+      },
+      "glabel": {
+        "en": "Self-Denial",
+        "fa": "ریاضت"
+      },
+      "principle": {
+        "en": "Occasionally choose discomfort on purpose — cold, hunger, plain living — to build resilience and gratitude.",
+        "fa": "گاهی از قصد سختی را انتخاب کن — سرما، گرسنگی، سادگی — تا تاب‌آوری و قدردانی بسازی."
+      },
+      "more": {
+        "en": "The Stoics periodically practiced poverty and discomfort: eating little, dressing thin, sleeping hard. Doing so does three things — it hardens you against future misfortune, shows you the worst isn't so bad, and makes ordinary comforts feel luxurious when you return to them.",
+        "fa": "رواقی‌ها هرازگاهی فقر و سختی را تمرین می‌کردند: کم می‌خوردند، نازک می‌پوشیدند، سخت می‌خوابیدند. این کار سه چیز می‌کند — تو را در برابرِ بدبختیِ آینده سِفت می‌کند، نشانت می‌دهد بدترین حالت آن‌قدرها هم بد نیست، و آسایش‌های معمولی را وقتی برمی‌گردی به‌شان مثلِ تجمل جلوه می‌دهد."
+      },
+      "example": {
+        "en": "Take a cold shower or skip a meal now and then; the small hardship you chose makes you less afraid of the hardship you didn't.",
+        "fa": "گاهی یک دوشِ آبِ سرد بگیر یا یک وعده را رد کن؛ همان سختیِ کوچکی که خودت انتخاب کردی، تو را از سختی‌ای که انتخاب نکردی کمتر می‌ترساند."
+      },
+      "tip": {
+        "en": "Once this week, voluntarily give up one comfort for a day and notice how little you actually needed it.",
+        "fa": "این هفته یک‌بار، داوطلبانه یک آسایش را برای یک روز کنار بگذار و ببین چقدر کم واقعاً بهش نیاز داشتی."
+      },
+      "pitfall": {
+        "en": "Living so cushioned that any small deprivation starts to feel like a disaster.",
+        "fa": "آن‌قدر در پنبه زندگی‌کردن که هر کم‌وکاستِ کوچک مثلِ یک فاجعه حس شود."
+      }
+    },
+    "insults": {
+      "part": "practice",
+      "n": 13,
+      "name": {
+        "en": "Handle Insults",
+        "fa": "با توهین کنار بیا"
+      },
+      "glabel": {
+        "en": "Insults",
+        "fa": "توهین"
+      },
+      "principle": {
+        "en": "An insult only wounds if you let it; refuse to be provoked and its power disappears.",
+        "fa": "توهین فقط وقتی زخم می‌زند که خودت بگذاری؛ نگذار تحریکت کند، آن‌وقت قدرتش محو می‌شود."
+      },
+      "more": {
+        "en": "The Stoics noticed that most of an insult's sting is added by us. Pause and ask whether it's true (then thank them) or false (then it's simply absurd). Often the best reply is no reply — or light self-deprecating humor — which shows the barb didn't land.",
+        "fa": "رواقی‌ها دیدند که بیشترِ سوزشِ یک توهین را خودمان اضافه می‌کنیم. مکث کن و بپرس راست است (پس ازش تشکر کن) یا دروغ (پس فقط مسخره است). اغلب بهترین جواب، بی‌جوابی است — یا یک شوخیِ سبک به‌خرجِ خودت — که نشان می‌دهد آن تیر به هدف نخورده."
+      },
+      "example": {
+        "en": "Mocked for something, a Stoic might calmly agree with a joke — leaving the insulter with nothing to push against.",
+        "fa": "اگر بابتِ چیزی مسخره‌اش کنند، رواقی ممکن است آرام با یک شوخی تأییدش کند — و توهین‌کننده را بی‌چیزی برای فشار‌آوردن رها کند."
+      },
+      "tip": {
+        "en": "Next time you're stung, pause three seconds and choose your response instead of reacting.",
+        "fa": "دفعهٔ بعد که سوزشی حس کردی، سه ثانیه مکث کن و به‌جای واکنش، جوابت را انتخاب کن."
+      },
+      "pitfall": {
+        "en": "Handing a stranger control of your whole day over one careless remark.",
+        "fa": "با یک حرفِ بی‌ملاحظه، کنترلِ کلِ روزت را دستِ یک غریبه دادن."
+      }
+    },
+    "anger": {
+      "part": "practice",
+      "n": 14,
+      "name": {
+        "en": "Defuse Anger",
+        "fa": "خشم را خنثی کن"
+      },
+      "glabel": {
+        "en": "Anger",
+        "fa": "خشم"
+      },
+      "principle": {
+        "en": "Anger is anti-joy — a brief madness that costs more than the wrong that caused it. Head it off before it takes hold.",
+        "fa": "خشم ضدِ‌شادی است — یک دیوانگیِ کوتاه که بیشتر از آن بدی‌ای که باعثش شده خرج برمی‌دارد. پیش از اینکه بگیردت، جلویش را بگیر."
+      },
+      "more": {
+        "en": "The Stoics treated anger as a serious threat to tranquility, not righteous fuel. Much of it comes from unrealistic expectations about how people and the world 'should' behave. Lower those expectations, add humor and perspective, and most provocations lose their grip before they start.",
+        "fa": "رواقی‌ها خشم را یک تهدیدِ جدی برای آرامش می‌دانستند، نه یک سوختِ برحق. بخشِ زیادی‌اش از انتظارهای غیرواقعی می‌آید دربارهٔ اینکه آدم‌ها و دنیا «باید» چطور رفتار کنند. آن انتظارها را پایین بیاور، کمی شوخی و فاصله اضافه کن، آن‌وقت بیشترِ تحریک‌ها پیش از اینکه شروع شوند چنگشان شل می‌شود."
+      },
+      "example": {
+        "en": "When something small goes wrong, Seneca advised laughing at it — treating life's frictions as comedy rather than outrage.",
+        "fa": "سِنِکا می‌گفت وقتی یک چیزِ کوچک خراب می‌شود، به آن بخند — اصطکاک‌های زندگی را کمدی بدان، نه دلیلِ خشم."
+      },
+      "tip": {
+        "en": "When anger rises, ask 'will this matter in a year?' — usually the answer shrinks it on the spot.",
+        "fa": "وقتی خشم بالا می‌آید، بپرس «یک سالِ دیگر این مهم است؟» — معمولاً همین جواب، همان‌جا کوچکش می‌کند."
+      },
+      "pitfall": {
+        "en": "Mistaking anger for strength, and letting it ruin the very day you meant to enjoy.",
+        "fa": "اشتباه‌گرفتنِ خشم با قدرت، و گذاشتن که همان روزی را که می‌خواستی ازش لذت ببری خراب کند."
+      }
+    },
+    "grief": {
+      "part": "practice",
+      "n": 15,
+      "name": {
+        "en": "Face Grief, Age & Death",
+        "fa": "با غم، پیری و مرگ روبه‌رو شو"
+      },
+      "glabel": {
+        "en": "Grief & Death",
+        "fa": "غم و مرگ"
+      },
+      "principle": {
+        "en": "Meet grief, aging and death with reason and acceptance — they are natural, and fearing them only spoils the life you have.",
+        "fa": "غم و پیری و مرگ را با خرد و پذیرش روبه‌رو کن — طبیعی‌اند، و ترسیدن از آن‌ها فقط همان زندگی‌ای را که داری خراب می‌کند."
+      },
+      "more": {
+        "en": "The Stoics used reason to soften grief — not to deny loss, but to keep it from swallowing them — and they faced death by focusing on living well now. Reflecting on mortality isn't gloomy; it's what makes the present vivid and pushes you to become a Stoic today rather than someday.",
+        "fa": "رواقی‌ها از خرد استفاده می‌کردند تا غم را نرم کنند — نه اینکه از‌دست‌دادن را انکار کنند، بلکه نگذارند بلعیده شوند — و مرگ را با تمرکز بر خوب‌زندگی‌کردنِ حالا روبه‌رو می‌کردند. اندیشیدن به فناپذیری دلمرده‌کننده نیست؛ همان چیزی است که حال را زنده می‌کند و هُلت می‌دهد که همین امروز رواقی شوی، نه یک‌روزی."
+      },
+      "example": {
+        "en": "Reminding himself each morning that he might die that day, Marcus Aurelius didn't grow morbid — he grew grateful and got on with doing good.",
+        "fa": "مارکوس اورلیوس که هر صبح به خودش یادآوری می‌کرد ممکن است همان روز بمیرد، دلمرده نشد — قدرشناس شد و رفت سراغِ خوبی‌کردن."
+      },
+      "tip": {
+        "en": "Let the fact that life is finite sharpen today, not shadow it — do one thing that matters now.",
+        "fa": "بگذار این حقیقت که زندگی محدود است، امروزت را تیز کند، نه تاریک — همین حالا یک کارِ مهم بکن."
+      },
+      "pitfall": {
+        "en": "Denying age and death so hard that fear of them quietly runs your life.",
+        "fa": "آن‌قدر سختْ پیری و مرگ را انکار‌کردن که ترسشان بی‌سروصدا زندگی‌ات را بگرداند."
+      }
+    },
+    "becoming": {
+      "part": "practice",
+      "n": 16,
+      "name": {
+        "en": "Become a Stoic Quietly",
+        "fa": "آرام رواقی شو"
+      },
+      "glabel": {
+        "en": "Becoming a Stoic",
+        "fa": "رواقی‌شدن"
+      },
+      "principle": {
+        "en": "Start practicing now, and do it quietly — live it rather than preach it, and be ready to be mocked.",
+        "fa": "همین حالا شروع به تمرین کن، و آرام انجامش بده — زندگی‌اش کن نه اینکه موعظه‌اش کنی، و آماده باش که مسخره‌ات کنند."
+      },
+      "more": {
+        "en": "Irvine's advice for the would-be Stoic is practical: don't announce it. Practice in stealth, let results show in how you act, and expect some people to scoff. Begin with negative visualization and the trichotomy of control, keep at it, and judge the philosophy by whether your days grow calmer and gladder.",
+        "fa": "توصیهٔ اروین به رواقیِ تازه‌کار عملی است: اعلامش نکن. پنهانی تمرین کن، بگذار نتیجه‌اش در رفتارت پیدا شود، و انتظار داشته باش بعضی‌ها پوزخند بزنند. با تجسمِ منفی و سه‌گانهٔ کنترل شروع کن، ادامه بده، و فلسفه را با این بسنج که آیا روزهایت آرام‌تر و شادتر می‌شوند."
+      },
+      "example": {
+        "en": "Rather than debating Stoicism at dinner, a new Stoic simply becomes calmer and kinder — and lets people wonder why.",
+        "fa": "به‌جای بحث دربارهٔ رواقی‌گری سرِ شام، رواقیِ تازه فقط آرام‌تر و مهربان‌تر می‌شود — و می‌گذارد بقیه بمانند که چرا."
+      },
+      "tip": {
+        "en": "Pick one technique from this map and practice it privately for a week — no announcements.",
+        "fa": "یک تکنیک از این نقشه انتخاب کن و یک هفته خصوصی تمرینش کن — بی هیچ اعلامی."
+      },
+      "pitfall": {
+        "en": "Talking about Stoicism endlessly while never actually practicing any of it.",
+        "fa": "بی‌پایان دربارهٔ رواقی‌گری حرف‌زدن، بی‌آنکه هیچ‌کدامش را واقعاً تمرین کنی."
+      }
+    }
+  },
+  "core": {
+    "name": {
+      "en": "STOIC JOY",
+      "fa": "آرامشِ رواقی"
+    },
+    "principle": {
+      "en": "Stoicism is a practical philosophy of life whose goal is tranquility — freedom from negative emotions — and a genuine joy in living. You reach it with psychological techniques: negatively visualize losing what you have, focus only on what's up to you, want the life you already have, and meet insults, anger, grief and death with reason.",
+      "fa": "رواقی‌گری یک فلسفهٔ عملیِ زندگی است که هدفش آرامش است — رهایی از احساس‌های منفی — و یک شادیِ واقعی از زندگی‌کردن. با تکنیک‌های روان‌شناختی به آن می‌رسی: از‌دست‌دادنِ چیزی را که داری منفی تجسم کن، فقط روی آنچه دستِ توست تمرکز کن، همان زندگی‌ای را که داری بخواه، و توهین و خشم و غم و مرگ را با خرد روبه‌رو کن."
+    },
+    "more": {
+      "en": "Irvine revives Stoicism as a usable philosophy of life, not a museum piece. It has two parts: a grand goal — tranquility and joy through virtue — and a toolkit for reaching it. The core tools are negative visualization, the trichotomy of control, mastering desire, fatalism about the past, voluntary discomfort, and reasoned responses to insults, anger and grief. Practiced together, they quietly make a life calmer and gladder.",
+      "fa": "اروین رواقی‌گری را به‌عنوانِ یک فلسفهٔ زندگیِ قابلِ‌استفاده زنده می‌کند، نه یک شیءِ موزه‌ای. دو بخش دارد: یک هدفِ بزرگ — آرامش و شادی از راهِ فضیلت — و یک جعبه‌ابزار برای رسیدن به آن. ابزارهای اصلی‌اش تجسمِ منفی، سه‌گانهٔ کنترل، تسلط بر میل، جبرگرایی دربارهٔ گذشته، سختیِ داوطلبانه، و پاسخ‌های خردمندانه به توهین و خشم و غم‌اند. با هم که تمرین شوند، بی‌سروصدا زندگی را آرام‌تر و شادتر می‌کنند."
+    },
+    "example": {
+      "en": "Click any node to read a principle or a practice. You can also drag the nodes around.",
+      "fa": "روی هر دایره کلیک کن تا یک اصل یا تمرین را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."
+    }
+  },
+  "stages": [
+    {
+      "level": 1,
+      "badge": {
+        "en": "Level 1 · Over-simplified",
+        "fa": "سطحِ ۱ · خیلی ساده"
+      },
+      "title": {
+        "en": "Enjoy what you have",
+        "fa": "از آنچه داری لذت ببر"
+      },
+      "tagline": {
+        "en": "The whole book in a sentence.",
+        "fa": "کلِ کتاب در یک جمله."
+      },
+      "body": {
+        "en": "Stoicism isn't about grim self-denial. It's a method for being calm and happy: want the life you already have, and stop wasting energy on what you can't control.",
+        "fa": "رواقی‌گری دربارهٔ ریاضتِ عبوس نیست. یک روش است برای آرام و خوشحال بودن: همان زندگی‌ای را که داری بخواه، و دست از هدر‌دادنِ انرژی روی چیزی که نمی‌توانی کنترل کنی بردار."
+      },
+      "example": {
+        "en": "Instead of pining for a bigger house, look around the one you have and actually enjoy it.",
+        "fa": "به‌جای آه‌کشیدن برای یک خانهٔ بزرگ‌تر، به همان که داری نگاه کن و واقعاً ازش لذت ببر."
+      },
+      "gain": {
+        "en": "You hold the single idea the whole book expands on.",
+        "fa": "همان یک ایده‌ای را داری که کلِ کتاب بسطش می‌دهد."
+      }
+    },
+    {
+      "level": 2,
+      "badge": {
+        "en": "Level 2 · Simple",
+        "fa": "سطحِ ۲ · ساده"
+      },
+      "title": {
+        "en": "A goal for living",
+        "fa": "یک هدف برای زندگی"
+      },
+      "tagline": {
+        "en": "Tranquility and joy, through virtue.",
+        "fa": "آرامش و شادی، از راهِ فضیلت."
+      },
+      "body": {
+        "en": "You need a <b>philosophy of life</b> — one big goal, or you drift. The Stoics chose <b>tranquility</b> (freedom from negative emotions) and <b>joy</b>, reached by living with <b>virtue</b> and reason rather than chasing pleasure and status.",
+        "fa": "به یک <b>فلسفهٔ زندگی</b> نیاز داری — یک هدفِ بزرگ، وگرنه شناور می‌شوی. رواقی‌ها <b>آرامش</b> (رهایی از احساس‌های منفی) و <b>شادی</b> را انتخاب کردند، که با <b>فضیلت</b> و خرد به‌دست می‌آید، نه با دویدن دنبالِ لذت و جایگاه."
+      },
+      "example": {
+        "en": "Marcus Aurelius ran an empire but measured each day by whether he'd been just and useful, not by what he'd gained.",
+        "fa": "مارکوس اورلیوس یک امپراتوری را می‌گرداند اما هر روز را با این می‌سنجید که آیا عادل و به‌درد‌خور بوده، نه با آنچه به‌دست آورده."
+      },
+      "gain": {
+        "en": "You know what a good life is aimed at, and why.",
+        "fa": "می‌دانی زندگیِ خوب به چه چیزی نشانه رفته، و چرا."
+      }
+    },
+    {
+      "level": 3,
+      "badge": {
+        "en": "Level 3 · Balanced",
+        "fa": "سطحِ ۳ · متعادل"
+      },
+      "title": {
+        "en": "The two key techniques",
+        "fa": "دو تکنیکِ کلیدی"
+      },
+      "tagline": {
+        "en": "Negative visualization and the trichotomy of control.",
+        "fa": "تجسمِ منفی و سه‌گانهٔ کنترل."
+      },
+      "body": {
+        "en": "Now the core tools. <b>Negative visualization</b>: briefly imagine losing what you value, and gratitude comes rushing back, beating the habit of taking things for granted. The <b>trichotomy of control</b>: sort things into up to you, not up to you, and partly up to you — then pour effort only into the first, and <b>internalize your goals</b> for the third.",
+        "fa": "حالا ابزارهای اصلی. <b>تجسمِ منفی</b>: برای لحظه‌ای تصور کن چیزی را که برایت ارزش دارد از دست می‌دهی، و قدردانی سیل‌آسا برمی‌گردد و عادتِ بدیهی‌گرفتن را شکست می‌دهد. <b>سه‌گانهٔ کنترل</b>: چیزها را به دستِ تو، نه دستِ تو، و تا‌حدی دستِ تو تقسیم کن — بعد تلاش را فقط روی اولی بریز، و برای سومی <b>هدف‌هایت را درونی کن</b>."
+      },
+      "example": {
+        "en": "Before a big meeting, picture it going badly (so you prepare and value the calm), then aim only at speaking as well as you can.",
+        "fa": "قبل از یک جلسهٔ مهم، تصور کن بد پیش می‌رود (تا آماده شوی و قدرِ آرامش را بدانی)، بعد فقط این را هدف بگیر که تا می‌توانی خوب حرف بزنی."
+      },
+      "gain": {
+        "en": "You can practice the two habits that do most of the work.",
+        "fa": "می‌توانی همان دو عادتی را که بیشترِ کار را می‌کنند تمرین کنی."
+      }
+    },
+    {
+      "level": 4,
+      "badge": {
+        "en": "Level 4 · Advanced",
+        "fa": "سطحِ ۴ · پیشرفته"
+      },
+      "title": {
+        "en": "Master your desires",
+        "fa": "بر خواسته‌هایت مسلط شو"
+      },
+      "tagline": {
+        "en": "Desire, fatalism, and voluntary discomfort.",
+        "fa": "میل، جبر، و سختیِ داوطلبانه."
+      },
+      "body": {
+        "en": "Go deeper into daily practice. Tame runaway <b>desire</b> by learning to want what you already have. Be <b>fatalistic about the past and present</b> — accept what can't be changed instead of stewing over it. And practice <b>voluntary discomfort</b> now and then — cold, hunger, simplicity — to build resilience and make ordinary comforts feel rich again.",
+        "fa": "در تمرینِ روزمره عمیق‌تر برو. <b>میلِ</b> لجام‌گسیخته را با یادگرفتنِ خواستنِ همان که داری رام کن. دربارهٔ <b>گذشته و حال جبری</b> باش — آنچه را عوض‌نشدنی است بپذیر، به‌جای اینکه رویش کِز کنی. و هرازگاهی <b>سختیِ داوطلبانه</b> تمرین کن — سرما، گرسنگی، سادگی — تا تاب‌آوری بسازی و آسایش‌های معمولی را دوباره پُربها کنی."
+      },
+      "example": {
+        "en": "Take a cold shower on purpose; the small discomfort you chose makes you calmer about the ones you didn't.",
+        "fa": "از قصد یک دوشِ آبِ سرد بگیر؛ همان سختیِ کوچکی که خودت انتخاب کردی، تو را دربارهٔ آن‌هایی که انتخاب نکردی آرام‌تر می‌کند."
+      },
+      "gain": {
+        "en": "You can steady your inner life against wanting and worry.",
+        "fa": "می‌توانی زندگیِ درونی‌ات را در برابرِ خواستن و نگرانی پایدار کنی."
+      }
+    },
+    {
+      "level": 5,
+      "badge": {
+        "en": "Level 5 · Expert",
+        "fa": "سطحِ ۵ · حرفه‌ای"
+      },
+      "title": {
+        "en": "Stoicism in the world",
+        "fa": "رواقی‌گری در دلِ دنیا"
+      },
+      "tagline": {
+        "en": "Insults, anger, grief, death — and quiet practice.",
+        "fa": "توهین، خشم، غم، مرگ — و تمرینِ آرام."
+      },
+      "body": {
+        "en": "The expert carries Stoicism into other people and hard endings. Refuse to be provoked by <b>insults</b>. Disarm <b>anger</b>, the anti-joy, before it takes hold. Meet <b>grief, old age and death</b> with reason, letting mortality sharpen the present rather than darken it. And <b>become a Stoic quietly</b> — practice in stealth, judge it by your own growing calm, and be ready to be mocked. Live it; don't preach it.",
+        "fa": "آدمِ حرفه‌ای رواقی‌گری را به میانِ آدم‌ها و پایان‌های سخت می‌برد. نگذار <b>توهین</b> تحریکت کند. <b>خشم</b> را، همان ضدِ‌شادی، پیش از اینکه بگیردت خلعِ‌سلاح کن. <b>غم و پیری و مرگ</b> را با خرد روبه‌رو کن، و بگذار فناپذیری حال را تیز کند نه تاریک. و <b>آرام رواقی شو</b> — پنهانی تمرین کن، آن را با آرامشِ روزافزونِ خودت بسنج، و آماده باش که مسخره‌ات کنند. زندگی‌اش کن؛ موعظه‌اش نکن."
+      },
+      "example": {
+        "en": "Insulted at work, you don't flare up or brood; you shrug, maybe joke, and get back to a day you still intend to enjoy.",
+        "fa": "در محلِ کار بهت توهین می‌شود، نه شعله می‌کشی نه کِز می‌کنی؛ شانه بالا می‌اندازی، شاید شوخی می‌کنی، و برمی‌گردی به روزی که هنوز قصد داری ازش لذت ببری."
+      },
+      "gain": {
+        "en": "You can live Stoicism day to day and keep your joy through hard things.",
+        "fa": "می‌توانی رواقی‌گری را روزبه‌روز زندگی کنی و شادی‌ات را در سختی‌ها نگه داری."
+      }
+    }
+  ],
+  "quotes": [
+    {
+      "en": "A grand goal in living is the first component of a philosophy of life.",
+      "fa": "یک هدفِ بزرگ در زندگی، اولین جزءِ یک فلسفهٔ زندگی است."
+    },
+    {
+      "en": "Stoic tranquility was a psychological state marked by the absence of negative emotions, such as grief, anger, and anxiety, and the presence of positive emotions, such as joy.",
+      "fa": "آرامشِ رواقی یک حالتِ روانی بود که با نبودِ احساس‌های منفی مثلِ غم و خشم و اضطراب، و بودنِ احساس‌های مثبت مثلِ شادی، شناخته می‌شد."
+    },
+    {
+      "en": "To be virtuous, then, is to live as we were designed to live; it is to live, as Zeno put it, in accordance with nature.",
+      "fa": "پس بافضیلت‌بودن یعنی همان‌طور زندگی کنیم که برای آن ساخته شده‌ایم؛ یعنی، به‌قولِ زنون، هماهنگ با طبیعت زندگی کنیم."
+    },
+    {
+      "en": "Negative visualization, in other words, teaches us to embrace whatever life we happen to be living and to extract every bit of delight we can from it.",
+      "fa": "به‌بیانِ دیگر، تجسمِ منفی به ما یاد می‌دهد هر زندگی‌ای را که در آن هستیم در آغوش بگیریم و هر ذره لذتی را که می‌توانیم از آن بیرون بکشیم."
+    },
+    {
+      "en": "We humans are unhappy in large part because we are insatiable; after working hard to get what we want, we routinely lose interest in the object of our desire.",
+      "fa": "ما آدم‌ها بخشِ بزرگی از ناخوشی‌مان از این است که سیری‌ناپذیریم؛ بعد از تلاشِ سخت برای رسیدن به آنچه می‌خواهیم، معمولاً علاقه‌مان را به آن چیز از دست می‌دهیم."
+    },
+    {
+      "en": "The easiest way for us to gain happiness is to learn how to want the things we already have.",
+      "fa": "ساده‌ترین راهِ ما برای رسیدن به خوشبختی این است که یاد بگیریم همان چیزهایی را که داریم بخواهیم."
+    },
+    {
+      "en": "If you consider yourself a victim, you are not going to have a good life; if, however, you refuse to think of yourself as a victim—if you refuse to let your inner self be conquered by your external circumstances—you are likely to have a good life.",
+      "fa": "اگر خودت را قربانی بدانی، زندگیِ خوبی نخواهی داشت؛ اما اگر نپذیری که قربانی‌ای — اگر نگذاری شرایطِ بیرونی، خودِ درونی‌ات را شکست بدهد — احتمالاً زندگیِ خوبی خواهی داشت."
+    },
+    {
+      "en": "Indeed, anger can be thought of as anti-joy.",
+      "fa": "راستش، خشم را می‌شود نوعی ضدِ‌شادی دانست."
+    }
+  ],
+  "media": [
+    {
+      "kind": "yt",
+      "id": "4trH-Xbiy-I",
+      "src": {
+        "en": "YouTube · The Intrinsic Value Podcast",
+        "fa": "یوتیوب · The Intrinsic Value Podcast"
+      },
+      "title": {
+        "en": "William Irvine: Stoicism — A Guide to the Good Life",
+        "fa": "ویلیام اروین: رواقی‌گری — راهنمای زندگیِ خوب"
+      },
+      "desc": {
+        "en": "The author explains Stoicism and the ideas behind the book.",
+        "fa": "خودِ نویسنده رواقی‌گری و ایده‌های پشتِ کتاب را توضیح می‌دهد."
+      },
+      "bullets": {
+        "en": [
+          "Stoicism as a philosophy of life",
+          "Negative visualization, explained",
+          "In the author's own words"
+        ],
+        "fa": [
+          "رواقی‌گری به‌عنوانِ یک فلسفهٔ زندگی",
+          "تجسمِ منفی، توضیح‌داده‌شده",
+          "به زبانِ خودِ نویسنده"
+        ]
+      },
+      "best": {
+        "en": "Best for Stage 1–3.",
+        "fa": "خوب برای مرحلهٔ ۱ تا ۳."
+      }
+    },
+    {
+      "kind": "yt",
+      "id": "XJScZ4h3298",
+      "src": {
+        "en": "YouTube · The Social Exchange",
+        "fa": "یوتیوب · The Social Exchange"
+      },
+      "title": {
+        "en": "Irvine on Stoicism & Stoic Exercises",
+        "fa": "اروین دربارهٔ رواقی‌گری و تمرین‌های رواقی"
+      },
+      "desc": {
+        "en": "A long conversation turning the book into daily practice.",
+        "fa": "یک گفت‌وگوی بلند که کتاب را به تمرینِ روزمره تبدیل می‌کند."
+      },
+      "bullets": {
+        "en": [
+          "The trichotomy of control",
+          "Practical Stoic exercises",
+          "How to actually start"
+        ],
+        "fa": [
+          "سه‌گانهٔ کنترل",
+          "تمرین‌های عملیِ رواقی",
+          "چطور واقعاً شروع کنی"
+        ]
+      },
+      "best": {
+        "en": "Best for Stage 3–5.",
+        "fa": "خوب برای مرحلهٔ ۳ تا ۵."
+      }
+    },
+    {
+      "kind": "img",
+      "url": "https://global.oup.com/academic/product/a-guide-to-the-good-life-9780195374612",
+      "src": {
+        "en": "Oxford University Press · Publisher",
+        "fa": "انتشاراتِ دانشگاهِ آکسفورد · ناشر"
+      },
+      "title": {
+        "en": "A Guide to the Good Life — Publisher Page",
+        "fa": "راهنمای زندگیِ خوب — صفحهٔ ناشر"
+      },
+      "desc": {
+        "en": "The publisher page for the book, with editions and details.",
+        "fa": "صفحهٔ ناشر برای کتاب، با نسخه‌ها و جزئیات."
+      },
+      "bullets": {
+        "en": [
+          "The definitive edition",
+          "Background on Irvine",
+          "Straight from the source"
+        ],
+        "fa": [
+          "نسخهٔ معتبر",
+          "پیشینه‌ای دربارهٔ اروین",
+          "مستقیم از خودِ منبع"
+        ]
+      },
+      "best": {
+        "en": "For editions and the source.",
+        "fa": "برای نسخه‌ها و منبعِ اصلی."
+      }
+    }
+  ],
+  "go": [
+    {
+      "label": {
+        "en": "Publisher page",
+        "fa": "صفحهٔ ناشر"
+      },
+      "url": "https://global.oup.com/academic/product/a-guide-to-the-good-life-9780195374612"
+    },
+    {
+      "label": {
+        "en": "Book on Goodreads",
+        "fa": "کتاب در گودریدز"
+      },
+      "url": "https://www.goodreads.com/book/show/5617966-a-guide-to-the-good-life"
+    },
+    {
+      "label": {
+        "en": "Irvine interview: How to Live a Stoic Life",
+        "fa": "گفت‌وگو با اروین: چطور رواقی زندگی کنیم"
+      },
+      "url": "https://fs.blog/knowledge-project-podcast/william-irvine/"
+    }
+  ],
+  "recs": [
+    {
+      "pri": "b",
+      "t": {
+        "en": "Try negative visualization today",
+        "fa": "امروز تجسمِ منفی را امتحان کن"
+      },
+      "d": {
+        "en": "Once today, vividly imagine losing someone or something you love — then notice, with relief, that you haven’t.",
+        "fa": "امروز یک‌بار، زنده تصور کن کسی یا چیزی را که دوست داری از دست می‌دهی — بعد با آسودگی ببین که از دستش نداده‌ای."
+      }
+    },
+    {
+      "pri": "b",
+      "t": {
+        "en": "Sort one worry by control",
+        "fa": "یک نگرانی را با کنترل دسته‌بندی کن"
+      },
+      "d": {
+        "en": "Take what's stressing you and split it into what's up to you and what isn't; act on the first, release the rest.",
+        "fa": "چیزی را که استرست می‌دهد بردار و به دستِ‌تو و نه‌دستِ‌تو تقسیمش کن؛ روی اولی عمل کن، بقیه را رها کن."
+      }
+    },
+    {
+      "pri": "n",
+      "t": {
+        "en": "Want what you already have",
+        "fa": "همان را که داری بخواه"
+      },
+      "d": {
+        "en": "List three things you have that you once longed for, and let yourself appreciate them again.",
+        "fa": "سه چیز را فهرست کن که داری و روزی آرزویشان را داشتی، و بگذار دوباره قدرشان را بدانی."
+      }
+    },
+    {
+      "pri": "n",
+      "t": {
+        "en": "Practice a little discomfort",
+        "fa": "کمی سختی تمرین کن"
+      },
+      "d": {
+        "en": "Choose one small hardship this week — a cold shower, a skipped treat — to prove misfortune isn’t so fearsome.",
+        "fa": "این هفته یک سختیِ کوچک انتخاب کن — یک دوشِ آبِ سرد، یک خوشیِ نخورده — تا ثابت کنی بدبختی آن‌قدرها هم ترسناک نیست."
+      }
+    }
+  ]
 });
 </script>
 </body>

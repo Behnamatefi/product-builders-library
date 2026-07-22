@@ -1,21 +1,20 @@
 <!DOCTYPE html>
-<!-- complexity-level: 1→5 (this page teaches the SAME book at five depths, over-simplified … expert) -->
-<!-- Effortless (Greg McKeown) — bilingual EN/FA knowledge graph & 5-stage learning page -->
-<html lang="fa" dir="rtl" data-lang="fa">
+<!-- Generated page. Edit CONTENT in the DATA object below; shared UI lives in ../assets/book.css + ../assets/book.js -->
+<html lang="en" dir="ltr" data-lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Crossing the Chasm — نقشهٔ دانش و یادگیری ۵ مرحله‌ای</title>
 
-<!-- Boot theme + language BEFORE paint to avoid a flash -->
+<!-- Boot theme + language BEFORE paint to avoid a flash (shared library-wide keys) -->
 <script>
 (function(){
   try{
-    var th = localStorage.getItem('chasm-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
+    var th = localStorage.getItem('pbl-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
     document.documentElement.setAttribute('data-theme', th);
   }catch(e){ document.documentElement.setAttribute('data-theme','light'); }
   try{
-    var lg = localStorage.getItem('chasm-lang') || 'fa';
+    var lg = localStorage.getItem('pbl-lang') || 'en';
     document.documentElement.setAttribute('data-lang', lg);
     document.documentElement.setAttribute('lang', lg);
     document.documentElement.setAttribute('dir', lg==='fa' ? 'rtl' : 'ltr');
@@ -28,876 +27,1214 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:ital,opsz@0,6..72;1,6..72&display=swap" rel="stylesheet">
-
-<style>
-/* ── TOKENS ───────────────────────────────────────────────── */
-:root, [data-theme="light"]{
-  --bg:#f5f6f8; --bg2:#eef2f7; --card:#fff; --card2:#f8fafb;
-  --ink:#1c2330; --mut:#6b7280; --line:#e6e8ee;
-  --accent:#0e7c86; --accent-ink:#fff; --warm:#c2410c;
-  --shadow:0 1px 2px rgba(20,30,50,.05),0 6px 24px rgba(20,30,50,.06);
-  --hero-1:#0e7c86; --hero-2:#0b5e66;
-  --c-teal:#0e9aa6; --c-blue:#2f6fb0; --c-violet:#7c3aed; --c-amber:#d97706;
-  --c-green:#15a34a; --c-red:#e11d48; --c-gold:#c98a12; --c-gray:#6b7280;
-  --state:#0e9aa6; --action:#d97706; --results:#7c3aed; --core:#0e7c86;
-}
-[data-theme="dark"]{
-  --bg:#0e131a; --bg2:#161d27; --card:#151c26; --card2:#1b2430;
-  --ink:#e9eef5; --mut:#9aa7b6; --line:#27313d;
-  --accent:#2dd4bf; --accent-ink:#06231f; --warm:#fb923c;
-  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 28px rgba(0,0,0,.45);
-  --hero-1:#0c5f67; --hero-2:#07323a;
-  --c-teal:#2dd4bf; --c-blue:#5b9bd5; --c-violet:#a78bfa; --c-amber:#fbbf24;
-  --c-green:#34d399; --c-red:#fb7185; --c-gold:#e2b04a; --c-gray:#94a3b8;
-  --state:#2dd4bf; --action:#fbbf24; --results:#a78bfa; --core:#2dd4bf;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);
-  font-family:Vazirmatn,"Segoe UI",Tahoma,Arial,sans-serif;line-height:1.85;font-size:15px;
-  transition:background .25s,color .25s}
-html[data-lang="en"] body{font-family:Inter,"Segoe UI",system-ui,Arial,sans-serif;line-height:1.7}
-.wrap{max-width:960px;margin:0 auto;padding:0 18px 40px}
-
-/* language visibility */
-html[data-lang="en"] [data-only="fa"]{display:none !important}
-html[data-lang="fa"] [data-only="en"]{display:none !important}
-
-/* ── HERO ─────────────────────────────────────────────────── */
-.hero{background:linear-gradient(135deg,var(--hero-1),var(--hero-2));color:#fff;padding:44px 0 34px;position:relative;overflow:hidden}
-.hero::after{content:"";position:absolute;inset-inline-end:-80px;top:-80px;width:280px;height:280px;
-  background:radial-gradient(circle,rgba(255,255,255,.12),transparent 70%);pointer-events:none}
-.hero .wrap{padding-bottom:0;position:relative;z-index:1}
-.hero h1{margin:0 0 8px;font-size:30px;font-weight:800;letter-spacing:-.3px;line-height:1.25}
-html[data-lang="en"] .hero h1{font-family:Newsreader,Georgia,serif;font-weight:600;letter-spacing:-.5px}
-.hero .dek{margin:0;opacity:.94;font-size:15.5px;max-width:640px}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;
-  color:rgba(255,255,255,.95);background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.24);
-  padding:5px 13px;border-radius:20px;margin-bottom:15px}
-.eyebrow .edot{width:7px;height:7px;border-radius:50%;background:#fff;box-shadow:0 0 0 3px rgba(255,255,255,.25)}
-.metastrip{display:flex;flex-wrap:wrap;gap:14px 30px;margin-top:20px;padding-top:16px;
-  border-top:1px solid rgba(255,255,255,.18)}
-.metaitem{display:flex;flex-direction:column;gap:3px}
-.metaitem .mk{font-size:10.5px;color:rgba(255,255,255,.62);font-weight:700;letter-spacing:.6px;text-transform:uppercase}
-.metaitem .mv{font-size:14px;color:#fff;font-weight:700}
-.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
-.chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);
-  border-radius:11px;padding:9px 15px;font-size:13px}
-.chip b{font-size:20px;display:block;font-weight:800}
-
-/* ── NAV + TOC ────────────────────────────────────────────── */
-.navbar{position:sticky;top:0;z-index:60;background:color-mix(in srgb,var(--card) 92%,transparent);
-  backdrop-filter:saturate(180%) blur(10px);-webkit-backdrop-filter:saturate(180%) blur(10px);
-  border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
-.navin{max-width:960px;margin:0 auto;padding:8px 16px;display:flex;align-items:center;gap:12px}
-.brand{flex:0 0 auto;font-weight:800;font-size:12.5px;color:var(--accent);white-space:nowrap;
-  display:flex;align-items:center;gap:7px}
-.brand .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);
-  box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 18%,transparent)}
-.toc{flex:1 1 auto;display:flex;flex-wrap:wrap;gap:7px;justify-content:center}
-.toc a{font-size:12.5px;color:var(--mut);text-decoration:none;border:1px solid var(--line);
-  border-radius:20px;padding:5px 12px;background:var(--card);white-space:nowrap;
-  transition:background .15s,color .15s,border-color .15s}
-.toc a:hover{color:var(--accent);border-color:var(--accent)}
-.toc a.active{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
-.navctl{flex:0 0 auto;display:flex;align-items:center;gap:8px}
-.langbtn{height:34px;border-radius:18px;border:1px solid var(--line);background:var(--card);
-  color:var(--ink);cursor:pointer;font:inherit;font-size:12.5px;font-weight:700;padding:0 13px;
-  display:flex;align-items:center;gap:6px}
-.langbtn:hover{border-color:var(--accent);color:var(--accent)}
-.langbtn .globe{width:15px;height:15px;display:block}
-.themebtn{flex:0 0 auto;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);
-  background:var(--card);color:var(--ink);cursor:pointer;line-height:1;display:grid;place-items:center}
-.themebtn svg{width:17px;height:17px;display:block}
-.themebtn:hover{border-color:var(--accent);color:var(--accent)}
-[data-theme="light"] .themebtn .ic-sun{display:none}
-[data-theme="dark"]  .themebtn .ic-moon{display:none}
-
-/* ── BLOCKS ───────────────────────────────────────────────── */
-h2{font-size:21px;margin:44px 0 6px;font-weight:800;scroll-margin-top:92px;line-height:1.35}
-html[data-lang="en"] h2{font-family:Newsreader,Georgia,serif;font-weight:600}
-h2 .num{color:var(--accent);font-variant-numeric:tabular-nums}
-.sub{color:var(--mut);font-size:13.5px;margin:0 0 16px;max-width:680px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;
-  padding:20px 22px;margin:14px 0;box-shadow:var(--shadow)}
-.lead{font-size:15.5px}
-.lead b{color:var(--warm)}
-.kgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin:8px 0}
-.kbox{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:15px 16px;text-align:center}
-.kbox .v{font-size:26px;font-weight:800;color:var(--accent);font-variant-numeric:tabular-nums}
-.kbox .l{font-size:12.5px;color:var(--mut);margin-top:3px}
-ul.clean{margin:6px 0;padding-inline-start:20px} ul.clean li{margin:8px 0}
-.callout{background:color-mix(in srgb,var(--warm) 9%,var(--card));
-  border:1px solid color-mix(in srgb,var(--warm) 30%,var(--line));
-  border-radius:12px;padding:14px 18px;margin:12px 0}
-.callout b{color:var(--warm)}
-.callout.accent{background:color-mix(in srgb,var(--accent) 9%,var(--card));
-  border-color:color-mix(in srgb,var(--accent) 30%,var(--line))}
-.callout.accent b{color:var(--accent)}
-a{color:var(--accent)}
-
-/* ── GRAPH ────────────────────────────────────────────────── */
-.gtabs{display:inline-flex;gap:4px;background:var(--bg2);border:1px solid var(--line);
-  border-radius:11px;padding:4px;margin:6px 0 2px}
-.gtab{border:0;background:transparent;color:var(--mut);font:inherit;font-size:13px;font-weight:700;
-  padding:7px 15px;border-radius:8px;cursor:pointer}
-.gtab.active{background:var(--card);color:var(--accent);box-shadow:var(--shadow)}
-.graphcard{padding:14px}
-.legend{display:flex;flex-wrap:wrap;gap:14px;margin:2px 4px 12px;font-size:12.5px;color:var(--mut)}
-.legend span{display:inline-flex;align-items:center;gap:6px}
-.legend i{width:11px;height:11px;border-radius:50%;display:inline-block}
-.graphstage{display:grid;grid-template-columns:1fr;gap:14px}
-@media(min-width:760px){.graphstage{grid-template-columns:1.35fr .95fr}}
-.svgwrap{position:relative;background:var(--card2);border:1px solid var(--line);border-radius:12px;
-  overflow:hidden;min-height:300px}
-#netsvg{display:block;width:100%;height:560px;touch-action:none;cursor:grab}
-#netsvg text{pointer-events:none;user-select:none}
-.ghint{position:absolute;inset-inline-start:12px;top:10px;font-size:11.5px;color:var(--mut);
-  background:color-mix(in srgb,var(--card) 82%,transparent);border:1px solid var(--line);
-  border-radius:20px;padding:3px 11px;backdrop-filter:blur(4px);max-width:70%}
-.greset{position:absolute;inset-inline-end:10px;top:10px;border:1px solid var(--line);background:var(--card);
-  color:var(--mut);border-radius:8px;font:inherit;font-size:11.5px;padding:4px 10px;cursor:pointer}
-.greset:hover{color:var(--accent);border-color:var(--accent)}
-/* node + link interaction states */
-.node{cursor:pointer}
-/* the inner <g class="ns"> is what scales; fill-box keeps the pivot on the node itself, not the SVG viewport */
-.ns{transform-box:fill-box;transform-origin:center;transition:transform .2s cubic-bezier(.2,.75,.25,1)}
-.node.hover .ns{transform:scale(1.1)}
-.node.sel  .ns{transform:scale(1.34)}                 /* selected node grows */
-.node.ncore.hover .ns{transform:scale(1.06)}
-.node.ncore.sel   .ns{transform:none}                 /* the centre 'Effortless' node keeps default size */
-.node.sel circle{stroke:var(--ink);stroke-width:2.5;filter:drop-shadow(0 0 8px color-mix(in srgb,var(--accent) 60%,transparent))}
-.node.hl circle{stroke:var(--ink);stroke-opacity:.5;stroke-width:2.5}
-.node.dim{opacity:.2}
-.node text{font-family:Vazirmatn,Tahoma,sans-serif;font-weight:700}
-html[data-lang="en"] .node text{font-family:Inter,sans-serif}
-.glink{transition:opacity .2s,stroke .2s}
-.glink.dim{opacity:.08}
-.glink.hl{stroke:var(--accent) !important;stroke-opacity:.8}
-/* detail panel */
-.detail{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;min-height:220px}
-@media(min-width:760px){.detail{max-height:480px;overflow:auto}}
-.detail .dkick{font-size:11.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;display:flex;align-items:center;gap:7px;color:var(--mut)}
-.detail .dkick i{width:10px;height:10px;border-radius:50%}
-.detail h4{margin:8px 0 3px;font-size:18px;font-weight:800}
-html[data-lang="en"] .detail h4{font-family:Newsreader,serif;font-weight:600}
-.detail .drow{margin:11px 0}
-.detail .dlab{font-size:10.5px;font-weight:800;color:var(--accent);letter-spacing:.5px;text-transform:uppercase;
-  display:inline-flex;align-items:center;gap:5px}
-.detail .drow.tip .dlab{color:var(--c-green)}
-.detail .drow.pit .dlab{color:var(--warm)}
-.detail .drow.more{border-inline-start:2px solid color-mix(in srgb,var(--accent) 32%,var(--line));padding-inline-start:11px}
-.detail .drow.more .dlab{color:var(--mut)}
-.detail .dtxt{font-size:13.6px;margin-top:3px}
-.dchips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
-.dchip{font-size:12px;border:1px solid var(--line);background:var(--card2);border-radius:16px;padding:4px 11px;
-  cursor:pointer;color:var(--ink);display:inline-flex;align-items:center;gap:6px;font-family:inherit}
-.dchip:hover{border-color:var(--accent);color:var(--accent)}
-.dchip i{width:8px;height:8px;border-radius:50%;flex:0 0 auto}
-
-/* ── CONCEPT MAP ──────────────────────────────────────────── */
-.mapgrid{display:grid;grid-template-columns:1fr;gap:14px}
-@media(min-width:820px){.mapgrid{grid-template-columns:repeat(3,1fr)}}
-.partcol{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:16px;position:relative}
-.partcol .ph{display:flex;align-items:center;gap:9px;margin-bottom:3px}
-.partcol .pdot{width:13px;height:13px;border-radius:50%;flex:0 0 auto}
-.partcol .pnum{font-size:11px;font-weight:800;color:var(--mut)}
-.partcol h4{margin:0;font-size:16.5px;font-weight:800}
-html[data-lang="en"] .partcol h4{font-family:Newsreader,serif;font-weight:600}
-.partcol .ptag{font-size:12px;color:var(--mut);margin:2px 0 4px;font-weight:700}
-.partcol .pgist{font-size:12.8px;color:var(--mut);margin:0 0 12px}
-.chapchip{display:flex;align-items:baseline;gap:8px;padding:7px 10px;border:1px solid var(--line);
-  border-radius:9px;margin:6px 0;background:var(--card2);font-size:13px}
-.chapchip .cn{font-size:11px;font-weight:800;color:var(--mut);flex:0 0 auto;font-variant-numeric:tabular-nums}
-.chapchip b{font-weight:700}
-.chapchip small{color:var(--mut);display:block;font-size:11.5px;line-height:1.5}
-.flowline{display:flex;align-items:center;justify-content:center;gap:10px;color:var(--mut);
-  font-size:12.5px;font-weight:700;margin:6px 0 2px;flex-wrap:wrap}
-.flowline .ar{color:var(--accent)}
-
-/* ── STAGE LADDER ─────────────────────────────────────────── */
-.ladder{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 4px}
-.rung{flex:1 1 150px;border:1px solid var(--line);background:var(--card);border-radius:11px;
-  padding:11px 13px;cursor:pointer;transition:transform .12s,border-color .12s;position:relative}
-.rung:hover{border-color:var(--accent);transform:translateY(-2px)}
-.rung.active{border-color:var(--accent);box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 35%,transparent)}
-.rung .lv{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.4px}
-.rung .lt{font-size:13.5px;font-weight:800;margin-top:2px}
-.rung .lbar{height:5px;border-radius:4px;background:var(--bg2);margin-top:9px;overflow:hidden}
-.rung .lbar i{display:block;height:100%;background:linear-gradient(90deg,var(--c-teal),var(--c-violet))}
-.stagecard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 24px;
-  margin:14px 0;box-shadow:var(--shadow)}
-.stagecard .shead{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-.stagecard .badge{font-size:12px;font-weight:800;color:#fff;background:var(--accent);
-  border-radius:8px;padding:4px 11px;white-space:nowrap}
-.stagecard h3{margin:0;font-size:21px;font-weight:800}
-html[data-lang="en"] .stagecard h3{font-family:Newsreader,serif;font-weight:600}
-.stagecard .tagline{color:var(--mut);font-size:13.5px;margin:4px 0 14px;font-weight:700}
-.stagecard .sbody{font-size:15px}
-.exbox{background:var(--card2);border:1px solid var(--line);border-inline-start:3px solid var(--accent);
-  border-radius:0 11px 11px 0;padding:13px 16px;margin:14px 0 6px}
-.exbox .exk{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.5px;text-transform:uppercase}
-.exbox .ext{font-size:13.8px;margin-top:3px}
-.gainrow{display:flex;align-items:flex-start;gap:9px;margin-top:12px;font-size:13px;color:var(--mut)}
-.gainrow .gi{flex:0 0 auto;color:var(--c-green);font-weight:800}
-.stagenav{display:flex;justify-content:space-between;gap:10px;margin-top:16px}
-.stagenav button{border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit;
-  font-size:13px;font-weight:700;border-radius:9px;padding:8px 14px;cursor:pointer}
-.stagenav button:hover:not(:disabled){border-color:var(--accent);color:var(--accent)}
-.stagenav button:disabled{opacity:.4;cursor:default}
-
-/* ── QUOTES ───────────────────────────────────────────────── */
-.qgrid{display:grid;grid-template-columns:1fr;gap:12px}
-@media(min-width:720px){.qgrid{grid-template-columns:1fr 1fr}}
-blockquote{margin:0;background:var(--card2);border-inline-start:3px solid var(--accent);
-  border-radius:0 12px 12px 0;padding:15px 18px;font-size:14.5px;position:relative}
-blockquote .qm{font-size:34px;line-height:0;color:var(--accent);opacity:.35;font-family:Georgia,serif;
-  position:absolute;inset-inline-start:10px;top:20px}
-blockquote p{margin:0;padding-inline-start:22px}
-html[data-lang="en"] blockquote{font-family:Newsreader,Georgia,serif;font-size:15.5px}
-
-/* ── MEDIA ────────────────────────────────────────────────── */
-.mgrid{display:grid;grid-template-columns:1fr;gap:16px}
-@media(min-width:640px){.mgrid{grid-template-columns:1fr 1fr}}
-.mcard{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;
-  box-shadow:var(--shadow);display:flex;flex-direction:column}
-.mthumb{position:relative;display:block;aspect-ratio:16/9;background:var(--bg2);overflow:hidden;text-decoration:none}
-.mthumb img{width:100%;height:100%;object-fit:cover;display:block}
-.mthumb .play{position:absolute;inset:0;display:grid;place-items:center}
-.mthumb .play span{width:54px;height:54px;border-radius:50%;background:rgba(0,0,0,.6);
-  display:grid;place-items:center;border:2px solid rgba(255,255,255,.9)}
-.mthumb .play svg{width:22px;height:22px;fill:#fff;margin-inline-start:3px}
-.mthumb .ptype{position:absolute;inset-inline-start:9px;top:9px;background:rgba(0,0,0,.72);color:#fff;
-  font-size:11px;font-weight:700;border-radius:6px;padding:3px 9px;letter-spacing:.3px}
-.mfake{aspect-ratio:16/9;display:grid;place-items:center;
-  background:linear-gradient(135deg,color-mix(in srgb,var(--c-violet) 22%,var(--card)),color-mix(in srgb,var(--c-teal) 22%,var(--card)))}
-.mfake svg{width:52px;height:52px;color:var(--ink);opacity:.6}
-.mbody{padding:15px 17px;display:flex;flex-direction:column;gap:7px;flex:1}
-.mbody .msrc{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.3px;text-transform:uppercase}
-.mbody h4{margin:0;font-size:15.5px;font-weight:800;line-height:1.4}
-html[data-lang="en"] .mbody h4{font-family:Newsreader,serif;font-weight:600}
-.mbody .mdesc{font-size:13px;color:var(--mut);margin:0}
-.mbody ul{margin:4px 0 0;padding-inline-start:18px}
-.mbody ul li{font-size:12.8px;margin:5px 0}
-.mbody .mbest{font-size:12px;font-weight:700;color:var(--warm);margin-top:auto;padding-top:8px}
-.mlink{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;
-  text-decoration:none;color:var(--accent);margin-top:4px}
-.mlink:hover{text-decoration:underline}
-.golist{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
-.golist a{font-size:12.5px;text-decoration:none;color:var(--ink);border:1px solid var(--line);
-  border-radius:20px;padding:6px 13px;background:var(--card);font-weight:700}
-.golist a:hover{border-color:var(--accent);color:var(--accent)}
-
-/* ── RECS + METHOD + CREDIT ───────────────────────────────── */
-.rec{display:grid;gap:10px;margin:8px 0}
-.rec .item{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--card)}
-.rec .item .t{font-weight:800;font-size:14.5px;margin-bottom:3px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.rec .item .t .pri{font-size:11px;font-weight:700;color:#fff;background:var(--warm);border-radius:6px;padding:2px 9px}
-.rec .item .t .pri.b{background:var(--accent)}
-.rec .item .d{font-size:13.4px;color:var(--mut)}
-.method{color:var(--mut);font-size:13.4px}
-.method p{margin:8px 0}
-.method b{color:var(--ink)}
-.credit{text-align:center;margin-top:40px;padding:22px 0 8px;border-top:1px solid var(--line);
-  color:var(--mut);font-size:14px}
-.credit .cname{color:var(--ink);font-weight:800}
-.credit a{font-weight:700;text-decoration:none}
-.credit a:hover{text-decoration:underline}
-.credit .sep{opacity:.5;margin:0 8px}
-.credit .li{display:inline-flex;align-items:center;gap:5px;vertical-align:middle}
-.credit .li svg{width:15px;height:15px;vertical-align:-3px}
-
-@media (max-width:640px){
-  body{font-size:14px}
-  .wrap{padding:0 13px 30px}
-  .hero{padding:28px 0 22px} .hero h1{font-size:22px}
-  h2{font-size:18px;scroll-margin-top:66px}
-  .brand{display:none}
-  .toc{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;scrollbar-width:none}
-  .toc::-webkit-scrollbar{display:none}
-  #netsvg{height:420px}
-}
-</style>
+<link rel="stylesheet" href="../assets/book.css">
 </head>
 <body>
+<div id="app"></div>
 
-<!-- ── HERO ───────────────────────────────────────────────── -->
-<header class="hero"><div class="wrap">
-  <div class="eyebrow"><span class="edot"></span>
-    <span data-only="en">Book knowledge map · Geoffrey A. Moore</span>
-    <span data-only="fa">نقشهٔ کتاب · جفری مور</span>
-  </div>
-  <h1>
-    <span data-only="en">Crossing the Chasm — Marketing and Selling Disruptive Products to Mainstream Customers</span>
-    <span data-only="fa">عبور از شکاف — بازاریابی و فروشِ محصولاتِ نوآورانه به مشتریانِ بازارِ اصلی</span>
-  </h1>
-  <p class="dek">
-    <span data-only="en">A knowledge graph of the whole book, plus a 5-stage path from a single idea to expert-level mastery — with an example at every step.</span>
-    <span data-only="fa">نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از یک ایدهٔ ساده تا حرفه‌ای — با یک مثال در هر مرحله.</span>
-  </p>
-  <div class="metastrip">
-    <div class="metaitem"><span class="mk" data-only="en">Book</span><span class="mk" data-only="fa">کتاب</span>
-      <span class="mv" data-only="en">Crossing the Chasm</span><span class="mv" data-only="fa">عبور از شکاف</span></div>
-    <div class="metaitem"><span class="mk" data-only="en">Author</span><span class="mk" data-only="fa">نویسنده</span>
-      <span class="mv" data-only="en">Geoffrey A. Moore</span><span class="mv" data-only="fa">جفری مور</span></div>
-    <div class="metaitem"><span class="mk" data-only="en">Published</span><span class="mk" data-only="fa">سالِ چاپ</span>
-      <span class="mv" data-only="en">2014</span><span class="mv" data-only="fa">۲۰۱۴</span></div>
-    <div class="metaitem"><span class="mk" data-only="en">Group</span><span class="mk" data-only="fa">گروه</span>
-      <span class="mv" data-only="en">Starting a Company</span><span class="mv" data-only="fa">راه‌اندازیِ شرکت</span></div>
-  </div>
-  <div class="chips">
-    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Parts</span><span data-only="fa">بخش</span></div>
-    <div class="chip"><b data-only="en">16</b><b data-only="fa">۱۶</b><span data-only="en">Ideas</span><span data-only="fa">ایده</span></div>
-    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Learning stages</span><span data-only="fa">مرحلهٔ یادگیری</span></div>
-  </div>
-</div></header>
-
-<!-- ── STICKY NAV ─────────────────────────────────────────── -->
-<div class="navbar"><div class="navin">
-  <span class="brand"><span class="dot"></span>Crossing the Chasm</span>
-  <nav class="toc">
-    <a href="#tldr" data-only="en">In a nutshell</a><a href="#tldr" data-only="fa">خلاصه</a>
-    <a href="#graph" data-only="en">Knowledge graph</a><a href="#graph" data-only="fa">نقشهٔ دانش</a>
-    <a href="#stages" data-only="en">5 stages</a><a href="#stages" data-only="fa">۵ مرحله</a>
-    <a href="#quotes" data-only="en">Quotes</a><a href="#quotes" data-only="fa">جمله‌ها</a>
-    <a href="#media" data-only="en">Watch &amp; explore</a><a href="#media" data-only="fa">تماشا و منابع</a>
-    <a href="#apply" data-only="en">Apply it</a><a href="#apply" data-only="fa">کاربرد</a>
-  </nav>
-  <div class="navctl">
-    <button class="langbtn" id="langBtn" aria-label="Switch language">
-      <svg class="globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>
-      <span data-only="en">فارسی</span><span data-only="fa">English</span>
-    </button>
-    <button class="themebtn" id="themeBtn" aria-label="Toggle theme" title="Light / Dark">
-      <span class="ic-sun" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5 19 19M19 5l-1.5 1.5M6.5 17.5 5 19"/></svg></span>
-      <span class="ic-moon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.6 6.6 0 0 0 9.8 9.8Z"/></svg></span>
-    </button>
-  </div>
-</div></div>
-
-<div class="wrap">
-
-  <!-- ── TL;DR ────────────────────────────────────────────── -->
-  <h2 id="tldr"><span class="num" data-only="en">1.</span><span class="num" data-only="fa">۱.</span>
-    <span data-only="en"> In a nutshell</span><span data-only="fa"> خلاصه</span></h2>
-  <p class="sub" data-only="en">If you read only this, you still get the whole idea.</p>
-  <p class="sub" data-only="fa">اگر فقط همین بخش را بخوانی، کلِ ایده دستت می‌آید.</p>
-  <div class="card lead"><ul class="clean" id="tldrHost"></ul></div>
-  <div class="kgrid">
-    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Parts (life cycle · chasm · beachhead · whole product · go-to-market)</div><div class="l" data-only="fa">بخش (چرخهٔ پذیرش · شکاف · سرِپل · محصولِ کامل · ورود به بازار)</div></div>
-    <div class="kbox"><div class="v" data-only="en">16</div><div class="v" data-only="fa">۱۶</div><div class="l" data-only="en">Ideas you can use</div><div class="l" data-only="fa">ایده برای استفاده</div></div>
-    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Levels, simple → expert</div><div class="l" data-only="fa">مرحله، ساده تا حرفه‌ای</div></div>
-    <div class="kbox"><div class="v" data-only="en">1</div><div class="v" data-only="fa">۱</div><div class="l" data-only="en">One beachhead: focus everything on a niche you can dominate</div><div class="l" data-only="fa">یک سرِپل: همه‌چیز را روی گوشه‌ای که می‌توانی قبضه‌اش کنی متمرکز کن</div></div>
-  </div>
-  
-  <div class="callout accent">
-    <b data-only="en">The core idea:</b>
-    <b data-only="fa">ایدهٔ اصلی:</b>
-    <span data-only="en"> Between the visionaries who love new technology and the pragmatists who run the mainstream lies a <i>chasm</i> — and most startups die in it. You cross by focusing everything on one <i>niche</i> you can dominate, building the <i>whole product</i> pragmatists need, and becoming the low-risk <i>market leader</i> there.</span>
-    <span data-only="fa"> بینِ آرمان‌گراهایی که عاشقِ فناوریِ تازه‌اند و عمل‌گراهایی که بازارِ اصلی را می‌گردانند، یک <i>شکاف</i> هست — و بیشترِ استارتاپ‌ها تویش می‌میرند. عبور یعنی همه‌چیز را روی یک <i>گوشه</i> که می‌توانی قبضه‌اش کنی متمرکز کنی، <i>محصولِ کاملی</i> را که عمل‌گراها لازم دارند بسازی، و همان‌جا <i>رهبرِ کم‌ریسکِ بازار</i> شوی.</span>
-  </div>
-
-  <!-- ── KNOWLEDGE GRAPH ──────────────────────────────────── -->
-  <h2 id="graph"><span class="num" data-only="en">2.</span><span class="num" data-only="fa">۲.</span>
-    <span data-only="en"> The knowledge graph</span><span data-only="fa"> نقشهٔ دانش</span></h2>
-  <p class="sub" data-only="en">The whole book as one picture. Click any node to focus its connections and read more — or switch to the structured map.</p>
-  <p class="sub" data-only="fa">کلِ کتاب در یک تصویر. روی هر دایره کلیک کن تا ارتباط‌هایش را ببینی و بیشتر بخوانی — یا به نقشهٔ مرتب برو.</p>
-
-  <div class="gtabs">
-    <button class="gtab active" id="tabNet"><span data-only="en">Interactive network</span><span data-only="fa">شبکهٔ تعاملی</span></button>
-    <button class="gtab" id="tabMap"><span data-only="en">Structured map</span><span data-only="fa">نقشهٔ مرتب</span></button>
-  </div>
-
-  <!-- network view -->
-  <div class="card graphcard" id="netView">
-    <div class="legend" id="legendHost"></div>
-    <div class="graphstage">
-      <div class="svgwrap">
-        <svg id="netsvg" viewBox="0 0 820 560" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Effortless knowledge network"></svg>
-        <div class="ghint" id="ghint"></div>
-        <button class="greset" id="greset"></button>
-      </div>
-      <div class="detail" id="detailHost"></div>
-    </div>
-  </div>
-
-  <!-- map view -->
-  <div class="card graphcard" id="mapView" style="display:none">
-    <div class="flowline" id="flowTop"></div>
-    <div class="mapgrid" id="mapHost"></div>
-    <div class="callout" style="margin-top:16px">
-      <b data-only="en">Read it as a flow:</b><b data-only="fa">به‌صورتِ یک جریان بخوانش:</b>
-      <span data-only="en"> map the <b>adoption life cycle</b> and spot the <b>chasm</b>, then <b>target</b> one beachhead niche, assemble the <b>whole product</b> pragmatists need, and <b>cross</b> by positioning as the trusted market leader — before rolling into the next segment.</span>
-      <span data-only="fa"> <b>چرخهٔ پذیرش</b> را نقشه کن و <b>شکاف</b> را ببین، بعد یک <b>سرِپلِ</b> باریک را <b>هدف</b> بگیر، <b>محصولِ کاملی</b> را که عمل‌گراها لازم دارند سرِ هم کن، و با جایگاه‌گرفتن به‌عنوانِ رهبرِ مورد‌اعتمادِ بازار <b>عبور</b> کن — پیش از رفتن به بخشِ بعدی.</span>
-    </div>
-  </div>
-
-  <!-- ── 5 STAGES ─────────────────────────────────────────── -->
-  <h2 id="stages"><span class="num" data-only="en">3.</span><span class="num" data-only="fa">۳.</span>
-    <span data-only="en"> Learn it in 5 stages</span><span data-only="fa"> یادگیری در ۵ مرحله</span></h2>
-  <p class="sub" data-only="en">The same book at five depths. Start over-simplified, climb to expert. Tap a rung to jump.</p>
-  <p class="sub" data-only="fa">یک کتاب در پنج عمق. از خیلی ساده شروع کن و تا حرفه‌ای بالا برو. روی هر پله بزن تا بپری.</p>
-  <div class="ladder" id="ladderHost"></div>
-  <div id="stageHost"></div>
-
-  <!-- ── QUOTES ───────────────────────────────────────────── -->
-  <h2 id="quotes"><span class="num" data-only="en">4.</span><span class="num" data-only="fa">۴.</span>
-    <span data-only="en"> Lines worth keeping</span><span data-only="fa"> جمله‌هایی که ارزشِ نگه‌داشتن دارند</span></h2>
-  <p class="sub" data-only="en">Verbatim quotes from the book, translated alongside.</p>
-  <p class="sub" data-only="fa">جمله‌های مستقیم از کتاب، همراه با ترجمه.</p>
-  <div class="qgrid" id="quoteHost"></div>
-
-  <!-- ── MEDIA ────────────────────────────────────────────── -->
-  <h2 id="media"><span class="num" data-only="en">5.</span><span class="num" data-only="fa">۵.</span>
-    <span data-only="en"> Watch &amp; explore</span><span data-only="fa"> تماشا و منابع</span></h2>
-  <p class="sub" data-only="en">Special resources found online — each with what it covers and who it's best for.</p>
-  <p class="sub" data-only="fa">منابعِ ویژه‌ای که آنلاین پیدا شد — هرکدام با اینکه چه می‌گوید و به چه دردی می‌خورد.</p>
-  <div class="mgrid" id="mediaHost"></div>
-  <div class="card" style="margin-top:16px">
-    <div style="font-weight:800;font-size:13.5px;margin-bottom:4px">
-      <span data-only="en">Go straight to the source</span><span data-only="fa">مستقیم سراغِ منبع برو</span>
-    </div>
-    <div class="golist" id="goHost"></div>
-  </div>
-
-  <!-- ── APPLY ────────────────────────────────────────────── -->
-  <h2 id="apply"><span class="num" data-only="en">6.</span><span class="num" data-only="fa">۶.</span>
-    <span data-only="en"> Apply it this week</span><span data-only="fa"> این هفته امتحانش کن</span></h2>
-  <p class="sub" data-only="en">Four small moves that turn the idea into a habit.</p>
-  <p class="sub" data-only="fa">چهار حرکتِ کوچک که این ایده را به عادت تبدیل می‌کنند.</p>
-  <div class="rec" id="recHost"></div>
-
-  <!-- ── METHOD ───────────────────────────────────────────── -->
-  <h2 id="method"><span class="num" data-only="en">7.</span><span class="num" data-only="fa">۷.</span>
-    <span data-only="en"> Sources &amp; notes</span><span data-only="fa"> منابع و توضیح</span></h2>
-  <div class="card method" id="methodHost"></div>
-
-  <!-- ── CREDIT FOOTER ────────────────────────────────────── -->
-  <div class="credit">
-    <span data-only="en">Created by <span class="cname">Behnam Atefi</span><span class="sep">·</span><a class="li" href="https://www.linkedin.com/in/behnamatefi/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.3c0-1.26-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9z"/></svg>LinkedIn</a></span>
-    <span data-only="fa">ساخته‌شده توسط <span class="cname">بهنام عاطفی</span><span class="sep">·</span><a class="li" href="https://www.linkedin.com/in/behnamatefi/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.3c0-1.26-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9z"/></svg>لینکدین</a></span>
-  </div>
-</div>
-
-<!-- ═══════════════════════ SCRIPTS ═══════════════════════ -->
+<script src="../assets/library.js"></script>
+<script src="../assets/book.js"></script>
 <script>
-/* ── 1) language + formatters ─────────────────────────────── */
-var LANG = document.documentElement.getAttribute('data-lang') || 'fa';
-var FA_D = '۰۱۲۳۴۵۶۷۸۹';
-var RLM  = '‏';
-function faDigits(s){ return String(s).replace(/[0-9]/g, function(d){ return FA_D[+d]; }); }
-/* honor the RTL preference: isolate Latin runs (word order preserved) and mark with U+200F */
-function rlm(s){
-  return String(s)
-    .replace(/[A-Za-zÀ-ɏ][A-Za-zÀ-ɏ0-9'’.&:\/\-]*(?:\s+[A-Za-zÀ-ɏ0-9'’.&:\/\-]+)*/g,
-      function(m){ return RLM+'⁦'+m+'⁩'+RLM; })
-    .replace(/[0-9۰-۹]+/g, function(m){ return m+RLM; });
-}
-/* transform only TEXT segments, never HTML tags (so <b>/<i> survive) */
-function faText(s){ return String(s).replace(/(<[^>]+>)|([^<]+)/g, function(m,tag,txt){ return tag ? tag : faDigits(rlm(txt)); }); }
-function TX(o){ if(o==null) return ''; if(typeof o==='string') return o; return LANG==='fa' ? faText(o.fa) : o.en; }
-function num(n){ return LANG==='fa' ? faDigits(n) : String(n); }
-function tok(name){ return getComputedStyle(document.documentElement).getPropertyValue(name).trim(); }
-</script>
-
-<script>
-/* ── DATA LAYER — Atomic Habits (bilingual, plain-spoken Persian) ── */
-var DATA = {"tldr":[{"en":"The whole book in one line: there's a chasm between the early adopters and the mainstream market, and most tech products die trying to cross it.","fa":"خلاصهٔ کلِ کتاب در یک جمله: بینِ پذیرندگانِ نخست و بازارِ اصلی یک شکاف هست، و بیشترِ محصول‌های فناوری موقعِ عبور از آن می‌میرند."},{"en":"New tech is adopted along a bell curve — <b>innovators, early adopters, early majority, late majority, laggards</b> — each with different needs.","fa":"فناوریِ تازه روی یک منحنیِ زنگوله‌ای پذیرفته می‌شود — <b>نوآوران، پذیرندگانِ نخست، اکثریتِ نخست، اکثریتِ پسین، کندروها</b> — هرکدام با نیازی متفاوت."},{"en":"The <b>chasm</b> sits between visionaries and pragmatists: pragmatists won't buy on a visionary's say-so — they want proof and peers.","fa":"<b>شکاف</b> بینِ آرمان‌گراها و عمل‌گراهاست: عمل‌گراها با حرفِ یک آرمان‌گرا نمی‌خرند — دلیل و هم‌قطار می‌خواهند."},{"en":"Cross by targeting one <b>beachhead</b> niche, delivering the <b>whole product</b>, and becoming its clear leader.","fa":"با هدف‌گرفتنِ یک <b>سرِپلِ</b> باریک، تحویلِ <b>محصولِ کامل</b>، و رهبرِ روشنِ آن‌ شدن، عبور کن."},{"en":"Then <b>position</b> against a familiar category, lock in a trusted <b>channel</b>, and roll from niche to niche like bowling pins.","fa":"بعد در برابرِ یک دستهٔ آشنا <b>جایگاه</b> بگیر، یک <b>کانالِ</b> مورد‌اعتماد قفل کن، و مثلِ میله‌های بولینگ از گوشه‌ای به گوشهٔ بعدی بغلت."}],"parts":[{"key":"lifecycle","varc":"--c-teal","name":{"en":"The Adoption Life Cycle","fa":"چرخهٔ پذیرشِ فناوری"},"tag":{"en":"Who adopts, and when","fa":"چه کسی می‌پذیرد، و کِی"},"gist":{"en":"Five groups adopt any new technology in sequence — from techies to laggards.","fa":"هر فناوریِ تازه را پنج گروه به‌ترتیب می‌پذیرند — از فن‌بازها تا کندروها."},"more":{"en":"Every disruptive technology is adopted along a bell curve, one group at a time: innovators, early adopters, early majority, late majority, and laggards. Each group has its own reason to buy — and each takes its cue from the group before it. Understand who's who and you can see exactly where your product is stuck.","fa":"هر فناوریِ برهم‌زننده روی یک منحنیِ زنگوله‌ای پذیرفته می‌شود، هر بار یک گروه: نوآوران، پذیرندگانِ نخست، اکثریتِ نخست، اکثریتِ پسین، و کندروها. هر گروه دلیلِ خودش را برای خرید دارد — و هرکدام از گروهِ قبلی‌اش الگو می‌گیرد. بفهمی کی کیست، دقیقاً می‌بینی محصولت کجا گیر کرده."},"chapters":["innovators","visionaries","pragmatists","conservatives"]},{"key":"chasm","varc":"--c-blue","name":{"en":"The Chasm","fa":"شکاف"},"tag":{"en":"Where startups die","fa":"جایی که استارتاپ‌ها می‌میرند"},"gist":{"en":"A deep gap sits between the visionaries and the pragmatists — and most products fall in.","fa":"یک شکافِ عمیق بینِ آرمان‌گراها و عمل‌گراها هست — و بیشترِ محصول‌ها تویش می‌افتند."},"more":{"en":"Between the early adopters who love new tech and the early majority who just want their problem solved lies a chasm. The two groups don't talk to each other, so the enthusiasm of visionaries buys you nothing with pragmatists. Sales stall, references don't transfer, and the company that was flying suddenly can't find a next customer.","fa":"بینِ پذیرندگانِ نخست که عاشقِ فناوریِ تازه‌اند و اکثریتِ نخست که فقط می‌خواهند مشکلشان حل شود، یک شکاف هست. این دو گروه با هم حرف نمی‌زنند، برای همین هیجانِ آرمان‌گراها برایت پیشِ عمل‌گراها هیچ نمی‌خرد. فروش می‌خوابد، مرجع‌ها منتقل نمی‌شوند، و شرکتی که داشت پرواز می‌کرد ناگهان نمی‌تواند مشتریِ بعدی پیدا کند."},"chapters":["thechasm","references","pragmatistbuy"]},{"key":"beachhead","varc":"--c-amber","name":{"en":"Target the Beachhead","fa":"سرِپل را هدف بگیر"},"tag":{"en":"Win one niche first","fa":"اول یک گوشه را ببر"},"gist":{"en":"Cross by attacking one narrow segment you can dominate — like D-Day.","fa":"با حمله به یک بخشِ باریک که می‌توانی رویش مسلط شوی عبور کن — مثلِ روزِ دی."},"more":{"en":"You cross the chasm the way the Allies took Normandy: concentrate everything on a single beachhead. Pick one narrow segment with a compelling reason to buy, pour all your force there, and win it completely — because a niche you dominate gives you the pragmatist references that open the next one.","fa":"شکاف را همان‌طور عبور می‌کنی که متفقین نُرماندی را گرفتند: همه‌چیز را روی یک سرِپلِ واحد متمرکز کن. یک بخشِ باریک با یک دلیلِ محکم برای خرید انتخاب کن، همهٔ نیرویت را آنجا بریز، و کاملش را ببر — چون گوشه‌ای که قبضه‌اش کنی، همان مرجع‌های عمل‌گرایی را می‌دهد که گوشهٔ بعدی را باز می‌کنند."},"chapters":["dday","niche","scenarios"]},{"key":"wholeproduct","varc":"--c-violet","name":{"en":"The Whole Product","fa":"محصولِ کامل"},"tag":{"en":"Solve it end to end","fa":"کامل حلش کن"},"gist":{"en":"Pragmatists buy a complete solution, not a clever product — so assemble one.","fa":"عمل‌گراها یک راه‌حلِ کامل می‌خرند، نه یک محصولِ زیرک — پس یکی سرِ هم کن."},"more":{"en":"Your product is only the core; the pragmatist wants everything needed to solve the problem for real — training, support, integrations, partners. The gap between what you ship and what they need is the whole-product gap. Fill it, usually with allies, and you become the safe, complete choice.","fa":"محصولت فقط هسته است؛ عمل‌گرا هرچه را که برای حلِ واقعیِ مشکل لازم است می‌خواهد — آموزش، پشتیبانی، یکپارچه‌سازی، شریک. فاصلهٔ بینِ آنچه تحویل می‌دهی و آنچه لازم دارند، فاصلهٔ محصولِ کامل است. پُرش کن، معمولاً با هم‌پیمان‌ها، تا انتخابِ امن و کامل بشوی."},"chapters":["wholeprod","partners","solution"]},{"key":"gtm","varc":"--c-green","name":{"en":"Positioning & Go-to-Market","fa":"جایگاه‌سازی و ورود به بازار"},"tag":{"en":"Become the obvious choice","fa":"تبدیل شو به انتخابِ بدیهی"},"gist":{"en":"Create the competition, price for the channel, and lead your niche.","fa":"رقابت را بساز، برای کانال قیمت بگذار، و در گوشه‌ات رهبر شو."},"more":{"en":"To a pragmatist, a product with no competitors is a product with no market. So position yourself on a map of familiar alternatives, secure a distribution channel they trust, price to signal market leadership and motivate that channel — and then actually become the leader of your niche.","fa":"برای یک عمل‌گرا، محصولی که رقیب ندارد یعنی محصولی که بازار ندارد. پس خودت را روی نقشه‌ای از بدیل‌های آشنا بگذار، یک کانالِ توزیع که به آن اعتماد دارند جور کن، طوری قیمت بگذار که نشانهٔ رهبریِ بازار باشد و آن کانال را باانگیزه کند — و بعد واقعاً رهبرِ گوشه‌ات شو."},"chapters":["positioning","distribution","leader"]}],"chapters":{"innovators":{"part":"lifecycle","n":1,"name":{"en":"Innovators — Techies","fa":"نوآوران — فن‌بازها"},"glabel":{"en":"Innovators","fa":"نوآوران"},"principle":{"en":"Innovators, the technology enthusiasts, chase new tech for its own sake and will forgive rough edges.","fa":"نوآوران، همان شیفتگانِ فناوری، فناوریِ تازه را به‌خاطرِ خودش دنبال می‌کنند و از زبری‌هایش می‌گذرند."},"more":{"en":"They're few in number but they matter: they're the first to try anything new, they'll tinker with a half-finished product, and their blessing tells everyone else the technology actually works. They don't have money or power, but they open the door.","fa":"تعدادشان کم است اما مهم‌اند: اولین کسانی‌اند که هر چیزِ تازه را امتحان می‌کنند، با یک محصولِ نیمه‌کاره ور می‌روند، و تأییدشان به بقیه می‌گوید که فناوری واقعاً کار می‌کند. پول و قدرت ندارند، اما در را باز می‌کنند."},"example":{"en":"The engineer who installs a beta tool over the weekend just to see how it works is your innovator.","fa":"همان مهندسی که آخرِ هفته یک ابزارِ بتا را نصب می‌کند فقط ببیند چطور کار می‌کند، نوآورِ توست."},"tip":{"en":"Win a few techies early — their thumbs-up de-risks the product for everyone after them.","fa":"چند فن‌باز را زود با خودت همراه کن — تأییدشان محصول را برای همهٔ بعدی‌ها کم‌ریسک می‌کند."},"pitfall":{"en":"Mistaking techie excitement for a real market — they buy ones and twos, not at scale.","fa":"هیجانِ فن‌بازها را با یک بازارِ واقعی اشتباه‌گرفتن — آن‌ها یکی‌دوتا می‌خرند، نه در مقیاس."}},"visionaries":{"part":"lifecycle","n":2,"name":{"en":"Early Adopters — Visionaries","fa":"پذیرندگانِ نخست — آرمان‌گراها"},"glabel":{"en":"Visionaries","fa":"آرمان‌گراها"},"principle":{"en":"Visionaries buy a dream: they want a breakthrough that gives them a big strategic leap, not a small improvement.","fa":"آرمان‌گراها یک رؤیا می‌خرند: دنبالِ یک جهشِ بزرگِ راهبردی‌اند، نه یک بهبودِ کوچک."},"more":{"en":"Early adopters aren't technologists, but they can imagine what a new technology makes possible. They'll take a big risk and pay a premium for a project that puts them ahead of everyone else — which makes them your first real money and your first reference customers.","fa":"پذیرندگانِ نخست فن‌آدم نیستند، اما می‌توانند تصور کنند یک فناوریِ تازه چه چیزی را ممکن می‌کند. حاضرند ریسکِ بزرگ کنند و گران بپردازند برای پروژه‌ای که آن‌ها را از همه جلو می‌اندازد — و همین‌ها اولین پولِ واقعی و اولین مشتری‌های مرجعِ تو می‌شوند."},"example":{"en":"An exec who bankrolls a custom project to leapfrog rivals — betting big on a not-yet-proven product — is a visionary.","fa":"مدیری که پولِ یک پروژهٔ سفارشی را می‌دهد تا از رقبا جلو بزند — و روی محصولی هنوز اثبات‌نشده شرطِ بزرگ می‌بندد — یک آرمان‌گراست."},"tip":{"en":"Sell visionaries the dream and a project, but keep each deal deliverable — don't drown in custom work.","fa":"به آرمان‌گراها رؤیا و پروژه بفروش، اما هر قرارداد را قابلِ‌تحویل نگه دار — در کارِ سفارشی غرق نشو."},"pitfall":{"en":"Letting visionaries' endless custom demands pull you away from a repeatable product.","fa":"گذاشتن اینکه خواسته‌های سفارشیِ بی‌پایانِ آرمان‌گراها تو را از یک محصولِ تکرارپذیر دور کند."}},"pragmatists":{"part":"lifecycle","n":3,"name":{"en":"Early Majority — Pragmatists","fa":"اکثریتِ نخست — عمل‌گراها"},"glabel":{"en":"Pragmatists","fa":"عمل‌گراها"},"principle":{"en":"Pragmatists want evolution, not revolution — a proven productivity gain that won't blow up in their face.","fa":"عمل‌گراها تکامل می‌خواهند، نه انقلاب — یک بهرهٔ اثبات‌شده که تویِ صورتشان منفجر نشود."},"more":{"en":"The early majority is the big, profitable heart of the market. They're cautious: they wait for proof, buy from established leaders, ask their peers, and hate being anyone's guinea pig. Win them and you own the mainstream — but they won't move until they trust you.","fa":"اکثریتِ نخست، قلبِ بزرگ و پرسودِ بازار است. محتاط‌اند: منتظرِ دلیل و مدرک می‌مانند، از رهبرهای جاافتاده می‌خرند، از هم‌قطارهایشان می‌پرسند، و بدشان می‌آید موشِ آزمایشگاهیِ کسی باشند. اگر ببری‌شان، بدنهٔ اصلیِ بازار مالِ توست — اما تا به تو اعتماد نکنند تکان نمی‌خورند."},"example":{"en":"They want evolution, not revolution: a team that adopts a tool only after two competitors already rely on it.","fa":"تکامل می‌خواهند نه انقلاب: تیمی که یک ابزار را فقط وقتی می‌پذیرد که دو رقیب از قبل به آن تکیه کرده‌اند."},"tip":{"en":"Give pragmatists proof, peers, and a complete solution — reassurance beats novelty every time.","fa":"به عمل‌گراها مدرک، هم‌قطار، و یک راه‌حلِ کامل بده — دلگرمی همیشه از تازگی می‌بَرَد."},"pitfall":{"en":"Pitching pragmatists like visionaries — hyping a revolution they specifically don't want.","fa":"با عمل‌گراها مثلِ آرمان‌گراها حرف‌زدن — هیاهو برای انقلابی که دقیقاً نمی‌خواهندش."}},"conservatives":{"part":"lifecycle","n":4,"name":{"en":"Late Majority & Laggards","fa":"اکثریتِ پسین و کندروها"},"glabel":{"en":"Late & Skeptics","fa":"پسین‌ها و شکاکان"},"principle":{"en":"The late majority adopt only once tech is a cheap, safe standard; laggards resist to the end.","fa":"اکثریتِ پسین فقط وقتی می‌پذیرند که فناوری یک استانداردِ ارزان و بی‌خطر شده باشد؛ کندروها تا آخر مقاومت می‌کنند."},"more":{"en":"Conservatives buy when not buying becomes the bigger risk — they want everything preassembled, cheap, and idiot-proof. Laggards, the skeptics, buy only when the technology is buried invisibly inside something else. They're the tail of the curve, not where you start.","fa":"محافظه‌کارها وقتی می‌خرند که نخریدن ریسکِ بزرگ‌تری شده باشد — همه‌چیز را از پیش‌سرِهم‌شده، ارزان و بی‌دردسر می‌خواهند. کندروها، همان شکاکان، فقط وقتی می‌خرند که فناوری نامرئی توی چیزِ دیگری دفن شده باشد. این‌ها دُمِ منحنی‌اند، نه جایی که شروع می‌کنی."},"example":{"en":"The buyer who adopts a technology only when it's built silently into a product they already trust is a laggard.","fa":"خریداری که یک فناوری را فقط وقتی می‌پذیرد که بی‌سروصدا توی محصولی که از قبل به آن اعتماد دارد کار گذاشته شده، کندروست."},"tip":{"en":"Serve conservatives with simple, low-cost, whole-package versions once your niche is won.","fa":"وقتی گوشه‌ات را بردی، محافظه‌کارها را با نسخه‌های ساده، کم‌هزینه و بسته‌بندی‌کامل سرویس بده."},"pitfall":{"en":"Chasing the cautious tail before you've earned the pragmatist core in the middle.","fa":"دنبالِ دُمِ محتاط رفتن، پیش از اینکه قلبِ عمل‌گرای وسط را به دست آورده باشی."}},"thechasm":{"part":"chasm","n":5,"name":{"en":"The Chasm","fa":"شکاف"},"glabel":{"en":"The Chasm","fa":"شکاف"},"principle":{"en":"There's a deep gap between the early market and the mainstream — the point of greatest peril for a startup.","fa":"بینِ بازارِ نخستین و بازارِ اصلی یک شکافِ عمیق هست — خطرناک‌ترین نقطه برای یک استارتاپ."},"more":{"en":"Early sales to enthusiasts and visionaries make it look like you've arrived. But visionaries and pragmatists want completely different things, so momentum dies right at the handoff. Revenue that was climbing suddenly flattens, and many companies burn out here, in the chasm, never reaching the big market.","fa":"فروشِ اولیه به شیفتگان و آرمان‌گراها این حس را می‌دهد که رسیده‌ای. اما آرمان‌گراها و عمل‌گراها دو چیزِ کاملاً متفاوت می‌خواهند، برای همین درست سرِ همین تحویل، شتاب می‌میرد. درآمدی که داشت بالا می‌رفت ناگهان صاف می‌شود، و خیلی شرکت‌ها همین‌جا، توی شکاف، می‌سوزند و هیچ‌وقت به بازارِ بزرگ نمی‌رسند."},"example":{"en":"A hot startup wows a few visionary clients, then stalls for a year unable to land a single ordinary buyer — that's the chasm.","fa":"یک استارتاپِ داغ چند مشتریِ آرمان‌گرا را شگفت‌زده می‌کند، بعد یک سالِ تمام گیر می‌کند و نمی‌تواند حتی یک خریدارِ معمولی جذب کند — این همان شکاف است."},"tip":{"en":"Treat the jump to the mainstream as a different game, not just more of the same selling.","fa":"پرش به بازارِ اصلی را یک بازیِ متفاوت بدان، نه فقط ادامهٔ همان فروشِ قبلی."},"pitfall":{"en":"Reading early-market buzz as proof you've already made it.","fa":"سروصدای بازارِ نخستین را دلیلِ اینکه از قبل موفق شده‌ای خواندن."}},"references":{"part":"chasm","n":6,"name":{"en":"References Don't Transfer","fa":"مرجع‌ها منتقل نمی‌شوند"},"glabel":{"en":"References","fa":"مرجع‌ها"},"principle":{"en":"Pragmatists only trust references from other pragmatists — so a visionary's rave means nothing to them.","fa":"عمل‌گراها فقط به مرجعِ عمل‌گراهای دیگر اعتماد می‌کنند — پس تعریفِ یک آرمان‌گرا برایشان هیچ ارزشی ندارد."},"more":{"en":"Word of mouth is everything in the mainstream, but it only flows between people who see each other as peers. Visionaries and pragmatists don't reference each other — a pragmatist buyer wants to hear from someone in the same industry, with the same caution, who already made it work.","fa":"در بازارِ اصلی، حرفِ دهان‌به‌دهان همه‌چیز است، اما فقط بینِ آدم‌هایی جاری می‌شود که همدیگر را هم‌قطار می‌بینند. آرمان‌گراها و عمل‌گراها مرجعِ هم نیستند — خریدارِ عمل‌گرا می‌خواهد از کسی بشنود در همان صنعت، با همان احتیاط، که از قبل جواب گرفته."},"example":{"en":"A cautious bank won't be swayed by a flashy startup's success; it wants to hear from another cautious bank.","fa":"یک بانکِ محتاط با موفقیتِ یک استارتاپِ پرزرق‌وبرق قانع نمی‌شود؛ می‌خواهد از یک بانکِ محتاطِ دیگر بشنود."},"tip":{"en":"Build a cluster of reference customers inside one segment so they can vouch to each other.","fa":"یک خوشه از مشتری‌های مرجع درونِ یک بخش بساز تا بتوانند برای هم ضمانت کنند."},"pitfall":{"en":"Expecting glowing early-adopter logos to convince a risk-averse mainstream buyer.","fa":"انتظارِ اینکه لوگوهای درخشانِ پذیرندگانِ نخست، یک خریدارِ ریسک‌گریزِ بازارِ اصلی را قانع کند."}},"pragmatistbuy":{"part":"chasm","n":7,"name":{"en":"How Pragmatists Buy","fa":"عمل‌گراها چطور می‌خرند"},"glabel":{"en":"Pragmatist Buying","fa":"خریدِ عمل‌گرا"},"principle":{"en":"Pragmatists buy the whole package: the vendor, the product's quality, the ecosystem, and reliable support.","fa":"عمل‌گراها کلِ بسته را می‌خرند: خودِ فروشنده، کیفیتِ محصول، زیست‌بومِ پیرامونش، و پشتیبانیِ قابلِ‌اتکا."},"more":{"en":"When a pragmatist buys, price isn't the first question — safety is. They weigh whether you'll still be around, whether the product is solid, whether other tools work with it, and whether help is there when things break. That's why they gravitate to the market leader: it's the low-risk choice.","fa":"وقتی یک عمل‌گرا می‌خرد، اولین سؤالش قیمت نیست — امنیت است. می‌سنجد که آیا فردا هنوز هستی، آیا محصول محکم است، آیا ابزارهای دیگر با آن کار می‌کنند، و آیا وقتِ خراب‌شدن، کمک هست. برای همین به‌سمتِ رهبرِ بازار کشیده می‌شود: کم‌ریسک‌ترین انتخاب است."},"example":{"en":"Two similar tools, and the pragmatist picks the market leader — because the safe choice beats the clever one.","fa":"دو ابزارِ شبیهِ هم، و عمل‌گرا رهبرِ بازار را انتخاب می‌کند — چون انتخابِ امن از انتخابِ زیرک می‌بَرَد."},"tip":{"en":"Sell trust, completeness, and staying power — not just features and cleverness.","fa":"اعتماد، کامل‌بودن و ماندگاری بفروش — نه فقط قابلیت و زیرکی."},"pitfall":{"en":"Competing on raw features while ignoring the safety signals pragmatists actually weigh.","fa":"رقابت روی قابلیت‌های خام، درحالی‌که نشانه‌های امنیتی‌ای را که عمل‌گراها واقعاً می‌سنجند نادیده می‌گیری."}},"dday":{"part":"beachhead","n":8,"name":{"en":"The D-Day Strategy","fa":"راهبردِ روزِ دی"},"glabel":{"en":"D-Day","fa":"روزِ دی"},"principle":{"en":"Cross the chasm the way the Allies invaded Normandy: concentrate all your force on one narrow point.","fa":"شکاف را همان‌طور عبور کن که متفقین به نُرماندی حمله کردند: همهٔ نیرویت را روی یک نقطهٔ باریک متمرکز کن."},"more":{"en":"You don't have the resources to attack the whole mainstream at once. So pick one target segment as your beachhead, throw everything at it, and take it completely. A total win in one small place is worth far more than a thin presence everywhere.","fa":"منابعِ حمله به کلِ بازارِ اصلی را یک‌جا نداری. پس یک بخش را به‌عنوانِ سرِپلت انتخاب کن، همه‌چیز را رویش بریز، و کاملش را بگیر. یک بُردِ تمام‌وکمال در یک جای کوچک، خیلی بیشتر از یک حضورِ نازک در همه‌جا می‌ارزد."},"example":{"en":"Like landing at one stretch of beach instead of the whole coastline, you overwhelm a single segment rather than spreading thin.","fa":"مثلِ فرود روی یک تکه ساحل به‌جای کلِ خطِ ساحلی، یک بخشِ واحد را قُبضه می‌کنی، نه اینکه نازک پخش شوی."},"tip":{"en":"Concentrate your whole team, budget, and message on one winnable segment until you own it.","fa":"کلِ تیم، بودجه و پیامت را روی یک بخشِ بردنی متمرکز کن تا وقتی مالکش شوی."},"pitfall":{"en":"Spreading a small force across many segments and being decisive in none.","fa":"پخش‌کردنِ یک نیروی کوچک روی چند بخش و قاطع‌نبودن در هیچ‌کدام."}},"niche":{"part":"beachhead","n":9,"name":{"en":"Dominate One Niche","fa":"یک گوشه را قبضه کن"},"glabel":{"en":"Niche","fa":"گوشه"},"principle":{"en":"Pick a single narrow segment with a compelling reason to buy — and aim to own 100% of it.","fa":"یک بخشِ باریکِ واحد با یک دلیلِ محکم برای خرید انتخاب کن — و هدفت این باشد که صددرصدش را داشته باشی."},"more":{"en":"A niche small enough to dominate is the whole point: being the obvious leader for a specific customer with a burning problem. Big enough to matter, small enough to win, and connected enough that word spreads. Once you own it, it becomes the base camp for the next segment.","fa":"یک گوشهٔ آن‌قدر کوچک که بشود قبضه‌اش کرد، دقیقاً هدفِ کار است: رهبرِ بدیهی‌بودن برای یک مشتریِ مشخص با یک مشکلِ سوزان. آن‌قدر بزرگ که مهم باشد، آن‌قدر کوچک که بشود بُردش، و آن‌قدر به‌هم‌پیوسته که حرف پخش شود. وقتی مالکش شدی، اردوگاهِ پایه برای بخشِ بعدی می‌شود."},"example":{"en":"Documentum won by owning regulatory document management at big pharma before touching any other market.","fa":"داکیومنتوم با قبضه‌کردنِ مدیریتِ اسنادِ مقرراتی در شرکت‌های داروییِ بزرگ برد، پیش از اینکه دستش به هر بازارِ دیگری بخورد."},"tip":{"en":"Choose a segment so specific you could name the customers and the problem in one line.","fa":"بخشی را انتخاب کن آن‌قدر مشخص که بتوانی مشتری‌ها و مشکل را در یک خط نام ببری."},"pitfall":{"en":"Picking a 'niche' so broad or vague you can never become its clear leader.","fa":"انتخابِ یک «گوشهٔ»‌ آن‌قدر گسترده یا مبهم که هیچ‌وقت نتوانی رهبرِ روشنش شوی."}},"scenarios":{"part":"beachhead","n":10,"name":{"en":"Target-Customer Scenarios","fa":"سناریوهای مشتریِ هدف"},"glabel":{"en":"Scenarios","fa":"سناریوها"},"principle":{"en":"With little hard data, choose your beachhead using vivid target-customer scenarios and informed intuition.","fa":"وقتی دادهٔ محکم کم داری، سرِپلت را با سناریوهای زندهٔ مشتریِ هدف و شهودِ آگاهانه انتخاب کن."},"more":{"en":"You rarely have real market research this early, so Moore says pick the segment with a story, not a spreadsheet. Write a concrete scenario — a specific person, their day, their problem, what they'd do with your product — and score candidates on it. It turns a guess into a disciplined choice.","fa":"این‌قدر زود معمولاً پژوهشِ بازارِ واقعی نداری، برای همین مور می‌گوید بخش را با یک قصه انتخاب کن، نه با یک جدول. یک سناریوی ملموس بنویس — یک آدمِ مشخص، روزش، مشکلش، اینکه با محصولِ تو چه می‌کند — و گزینه‌ها را رویش امتیاز بده. این کار یک حدس را به یک انتخابِ منضبط تبدیل می‌کند."},"example":{"en":"Sketch a day in the life of one target user, then rank each candidate segment on how urgently that scenario needs you.","fa":"یک روز از زندگیِ یک کاربرِ هدف را ترسیم کن، بعد هر بخشِ کاندیدا را بر اساسِ اینکه آن سناریو چقدر فوری به تو نیاز دارد رتبه بده."},"tip":{"en":"Rate each candidate segment on the customer's pain, reachability, and whole-product fit.","fa":"هر بخشِ کاندیدا را بر اساسِ دردِ مشتری، دسترس‌پذیری و جورِ‌شدن با محصولِ کامل امتیاز بده."},"pitfall":{"en":"Waiting for perfect data instead of committing to one segment on informed judgment.","fa":"منتظرِ دادهٔ بی‌نقص ماندن، به‌جای اینکه با قضاوتِ آگاهانه به یک بخش متعهد شوی."}},"wholeprod":{"part":"wholeproduct","n":11,"name":{"en":"The Whole Product","fa":"محصولِ کامل"},"glabel":{"en":"Whole Product","fa":"محصولِ کامل"},"principle":{"en":"The whole product is everything a customer needs to fully solve their problem — not just your core product.","fa":"محصولِ کامل یعنی هرچه مشتری برای حلِ کاملِ مشکلش لازم دارد — نه فقط محصولِ هستهٔ تو."},"more":{"en":"There's a gap between the generic product you sell and the complete solution the customer actually needs: setup, training, integrations, add-ons, support. Visionaries will fill that gap themselves; pragmatists won't. To cross, you must close the whole-product gap for your one target segment.","fa":"بینِ محصولِ عمومی‌ای که می‌فروشی و راه‌حلِ کاملی که مشتری واقعاً لازم دارد یک فاصله هست: راه‌اندازی، آموزش، یکپارچه‌سازی، افزودنی‌ها، پشتیبانی. آرمان‌گراها این فاصله را خودشان پُر می‌کنند؛ عمل‌گراها نه. برای عبور، باید فاصلهٔ محصولِ کامل را برای همان یک بخشِ هدفت ببندی."},"example":{"en":"An operating system alone is useless; the whole product is the OS plus apps, drivers, and support that make it work.","fa":"یک سیستم‌عامل به‌تنهایی بی‌فایده است؛ محصولِ کامل یعنی همان سیستم‌عامل به‌علاوهٔ برنامه‌ها، راه‌اندازها و پشتیبانی‌ای که کارش می‌اندازد."},"tip":{"en":"List everything your target customer needs to succeed, then find who supplies each missing piece.","fa":"هرچه مشتریِ هدفت برای موفق‌شدن لازم دارد را فهرست کن، بعد پیدا کن هر تکهٔ گم‌شده را چه کسی می‌دهد."},"pitfall":{"en":"Assuming a great core product sells itself, and leaving the customer to assemble the rest.","fa":"فرضِ اینکه یک محصولِ هستهٔ عالی خودش خودش را می‌فروشد، و رهاکردنِ مشتری که بقیه‌اش را خودش سرِ هم کند."}},"partners":{"part":"wholeproduct","n":12,"name":{"en":"Partners & Allies","fa":"شریک‌ها و هم‌پیمان‌ها"},"glabel":{"en":"Partners","fa":"شریک‌ها"},"principle":{"en":"You can't build the whole product alone — recruit partners and allies to complete the solution.","fa":"محصولِ کامل را تنها نمی‌توانی بسازی — شریک و هم‌پیمان جذب کن تا راه‌حل را کامل کنند."},"more":{"en":"The missing pieces — integrations, services, complementary tools — are often best supplied by others. Build tactical alliances aimed squarely at delivering the whole product for your target segment, so the customer sees one complete, working solution instead of a pile of parts to assemble.","fa":"تکه‌های گم‌شده — یکپارچه‌سازی‌ها، خدمات، ابزارهای مکمل — را اغلب بهتر است دیگران بدهند. هم‌پیمانی‌های تاکتیکی بساز که دقیقاً هدفشان تحویلِ محصولِ کامل برای بخشِ هدفت باشد، تا مشتری یک راه‌حلِ کاملِ کارکن ببیند، نه تلنباری از قطعه که باید خودش سرِ هم کند."},"example":{"en":"A software vendor lines up integration and consulting partners so buyers get a turnkey system, not homework.","fa":"یک فروشندهٔ نرم‌افزار، شریک‌های یکپارچه‌سازی و مشاوره ردیف می‌کند تا خریدارها یک سیستمِ کلیدْدردست بگیرند، نه یک مشقِ شب."},"tip":{"en":"Form alliances whose only job is to fill the specific whole-product gaps for your niche.","fa":"هم‌پیمانی‌هایی بساز که تنها کارشان پُرکردنِ همان فاصله‌های مشخصِ محصولِ کامل برای گوشهٔ توست."},"pitfall":{"en":"Signing grand partnerships that don't actually close a real gap for the target customer.","fa":"بستنِ شراکت‌های پرطمطراق که در واقع هیچ فاصلهٔ واقعی‌ای را برای مشتریِ هدف نمی‌بندند."}},"solution":{"part":"wholeproduct","n":13,"name":{"en":"Sell the Complete Solution","fa":"راه‌حلِ کامل را بفروش"},"glabel":{"en":"Complete Solution","fa":"راه‌حلِ کامل"},"principle":{"en":"Pragmatists buy a solution to their whole problem, so commit to delivering 100% of it for one use case.","fa":"عمل‌گراها راه‌حلِ کلِ مشکلشان را می‌خرند، پس متعهد شو که صددرصدش را برای یک کاربردِ مشخص تحویل بدهی."},"more":{"en":"Because a niche is small, you can afford to solve its problem completely — end to end, done for them. That total, dependable solution is exactly what earns pragmatist trust and word of mouth. Trying to be 80% of the solution for everyone leaves every segment unconvinced.","fa":"چون گوشه کوچک است، می‌توانی از پسِ حلِ کاملِ مشکلش برآیی — از سر تا ته، انجام‌شده برایشان. همین راه‌حلِ کامل و قابلِ‌اتکاست که اعتماد و حرفِ دهان‌به‌دهانِ عمل‌گراها را می‌خرد. تلاش برای اینکه هشتاددرصدِ راه‌حلِ همه باشی، همهٔ بخش‌ها را ناقانع رها می‌کند."},"example":{"en":"Solving 100% of one narrow workflow beats solving 80% of ten — the narrow, complete win is the one pragmatists trust.","fa":"حلِ صددرصدِ یک جریانِ کاریِ باریک از حلِ هشتاددرصدِ دَه‌تا بهتر است — همان بُردِ باریک و کامل است که عمل‌گراها به آن اعتماد می‌کنند."},"tip":{"en":"Define 'done' from the customer's side and deliver all of it, even the unglamorous parts.","fa":"«تمام‌شده» را از سمتِ مشتری تعریف کن و همه‌اش را تحویل بده، حتی تکه‌های بی‌زرق‌وبرقش."},"pitfall":{"en":"Shipping a partial solution and expecting the pragmatist to finish the job.","fa":"تحویلِ یک راه‌حلِ ناقص و انتظارِ اینکه عمل‌گرا خودش کار را تمام کند."}},"positioning":{"part":"gtm","n":14,"name":{"en":"Create the Competition","fa":"رقابت را بساز"},"glabel":{"en":"Positioning","fa":"جایگاه‌سازی"},"principle":{"en":"Position yourself by naming the competition — pragmatists distrust a product with no alternatives.","fa":"با نام‌بردنِ رقابت، جایگاهت را بساز — عمل‌گراها به محصولی که هیچ بدیلی ندارد بی‌اعتمادند."},"more":{"en":"To a pragmatist, 'no competitors' means 'no market yet.' So place yourself on a map of familiar categories: a market alternative they'll shift budget from, and a product alternative that shares your new approach. That context lets them understand, compare, and safely choose you.","fa":"برای یک عمل‌گرا، «بی‌رقیب» یعنی «هنوز بازاری نیست». پس خودت را روی نقشه‌ای از دسته‌های آشنا بگذار: یک بدیلِ بازار که بودجه را از آن جابه‌جا می‌کنی، و یک بدیلِ محصول که رویکردِ تازه‌ات را با تو شریک است. همین زمینه به آن‌ها اجازه می‌دهد بفهمند، مقایسه کنند، و با خیالِ راحت تو را انتخاب کنند."},"example":{"en":"Framing a new tool as 'the safer alternative to the spreadsheet everyone hates' instantly makes it understandable and comparable.","fa":"معرفیِ یک ابزارِ تازه به‌عنوانِ «بدیلِ امن‌ترِ همان اکسلی که همه ازش بیزارند» بلافاصله فهمیدنی و مقایسه‌پذیرش می‌کند."},"tip":{"en":"Craft a one-line claim: for whom, the category, the key benefit, and versus what.","fa":"یک ادعای یک‌خطی بساز: برای چه کسی، در چه دسته‌ای، با چه فایدهٔ اصلی، و در برابرِ چه چیزی."},"pitfall":{"en":"Boasting you have no competition — which reads as 'no proven market' to a pragmatist.","fa":"پُز دادن که رقیب نداری — که برای عمل‌گرا یعنی «بازارِ اثبات‌شده‌ای نیست»."}},"distribution":{"part":"gtm","n":15,"name":{"en":"Distribution & Pricing","fa":"توزیع و قیمت‌گذاری"},"glabel":{"en":"Channel & Price","fa":"کانال و قیمت"},"principle":{"en":"Securing a distribution channel the pragmatist trusts is the number-one goal; price to feed that channel.","fa":"جورکردنِ یک کانالِ توزیع که عمل‌گرا به آن اعتماد دارد، هدفِ شمارهٔ یک است؛ قیمت را طوری بگذار که آن کانال را تغذیه کند."},"more":{"en":"Moore is blunt: when crossing, getting a channel into the mainstream comes before revenue, profit, even press. Pick the channel your target customer already uses to buy this kind of thing, and set a price that both signals market leadership and leaves the channel well-motivated to sell you.","fa":"مور رُک می‌گوید: هنگامِ عبور، جورکردنِ یک کانال به بازارِ اصلی، مقدم بر درآمد و سود و حتی سروصدای رسانه‌ای است. کانالی را انتخاب کن که مشتریِ هدفت از قبل برای خریدِ این‌جور چیزها به کار می‌برد، و قیمتی بگذار که هم نشانهٔ رهبریِ بازار باشد و هم کانال را خوب برای فروختنت باانگیزه نگه دارد."},"example":{"en":"Setting a confident, market-leader price — and rewarding the channel well — matters more early on than squeezing maximum margin.","fa":"گذاشتنِ یک قیمتِ بااعتمادِ رهبرِ بازار — و پاداشِ خوب به کانال — در ابتدا مهم‌تر از فشردنِ بیشترین حاشیهٔ سود است."},"tip":{"en":"Choose the channel your pragmatist already buys through, then price to keep it eager.","fa":"کانالی را انتخاب کن که عمل‌گرا از قبل از آن می‌خرد، بعد طوری قیمت بگذار که مشتاق بماند."},"pitfall":{"en":"Chasing early revenue or fat margins while neglecting to lock in a trusted channel.","fa":"دنبالِ درآمدِ زودرس یا حاشیهٔ سودِ چاق رفتن، درحالی‌که جا‌انداختنِ یک کانالِ مورد‌اعتماد را غفلت می‌کنی."}},"leader":{"part":"gtm","n":16,"name":{"en":"Be the Market Leader","fa":"رهبرِ بازار شو"},"glabel":{"en":"Market Leader","fa":"رهبرِ بازار"},"principle":{"en":"Win total leadership of your niche first — then use it as the launchpad into adjacent segments.","fa":"اول رهبریِ کاملِ گوشه‌ات را ببر — بعد از آن به‌عنوانِ سکوی پرتاب به بخش‌های همسایه استفاده کن."},"more":{"en":"Pragmatists flock to the leader, so becoming the obvious number one in one small segment sets off a virtuous cycle: more references, more partners, more word of mouth. From that secure base you knock over the next adjacent segment, then the next — like bowling pins — until you lead the broader market.","fa":"عمل‌گراها دورِ رهبر جمع می‌شوند، پس تبدیل‌شدن به شمارهٔ یکِ بدیهی در یک بخشِ کوچک یک چرخهٔ خوب راه می‌اندازد: مرجعِ بیشتر، شریکِ بیشتر، حرفِ دهان‌به‌دهانِ بیشتر. از آن پایگاهِ امن، بخشِ همسایهٔ بعدی را می‌اندازی، بعد بعدی را — مثلِ میله‌های بولینگ — تا رهبرِ بازارِ گسترده‌تر شوی."},"example":{"en":"Crossing the chasm is the beginning, not the end: dominate one segment, then bowl into the next with its references in hand.","fa":"عبور از شکاف آغاز است، نه پایان: بر یک بخش مسلط شو، بعد با مرجع‌هایش در دست، به بخشِ بعدی بزن."},"tip":{"en":"Only expand once you're the undisputed leader where you are; carry those references forward.","fa":"فقط وقتی گسترش بده که در جای فعلی‌ات رهبرِ بی‌چون‌وچرا شده‌ای؛ آن مرجع‌ها را با خودت جلو ببر."},"pitfall":{"en":"Racing into new segments before you've locked down leadership in the first one.","fa":"شتاب به بخش‌های تازه، پیش از اینکه رهبری را در اولی قفل کرده باشی."}}},"core":{"name":{"en":"CROSS THE CHASM","fa":"عبور از شکاف"},"principle":{"en":"Between the early adopters who love new technology and the early majority who just want a safe, complete solution lies a chasm — and most startups die in it. You cross by concentrating everything on one niche you can dominate, delivering the whole product pragmatists need, and positioning yourself as the low-risk market leader there.","fa":"بینِ پذیرندگانِ نخست که عاشقِ فناوریِ تازه‌اند و اکثریتِ نخست که فقط یک راه‌حلِ امن و کامل می‌خواهند، یک شکاف هست — و بیشترِ استارتاپ‌ها تویش می‌میرند. عبور یعنی همه‌چیز را روی یک گوشه که می‌توانی قبضه‌اش کنی متمرکز کنی، محصولِ کاملی را که عمل‌گراها لازم دارند تحویل بدهی، و خودت را همان‌جا به‌عنوانِ رهبرِ کم‌ریسکِ بازار جا بیندازی."},"more":{"en":"Moore maps the Technology Adoption Life Cycle — innovators, early adopters, early majority, late majority, laggards — and shows the fatal gap between the visionaries and the pragmatists. To cross it: attack a single beachhead segment like a D-Day invasion, assemble the whole product (often with partners) so the solution is complete, create the competition through positioning, secure a trusted distribution channel, and become the market leader of your niche before rolling into the next. The thread: focus utterly, then earn the pragmatist's trust.","fa":"مور چرخهٔ پذیرشِ فناوری را ترسیم می‌کند — نوآوران، پذیرندگانِ نخست، اکثریتِ نخست، اکثریتِ پسین، کندروها — و آن شکافِ کُشنده را بینِ آرمان‌گراها و عمل‌گراها نشان می‌دهد. برای عبور: مثلِ حملهٔ روزِ دی به یک سرِپلِ واحد بزن، محصولِ کامل را (اغلب با شریک‌ها) سرِ هم کن تا راه‌حل کامل شود، با جایگاه‌سازی رقابت را بساز، یک کانالِ توزیعِ مورد‌اعتماد جور کن، و پیش از رفتن به بخشِ بعدی، رهبرِ بازارِ گوشه‌ات شو. نخِ رابط: تمام‌وکمال تمرکز کن، بعد اعتمادِ عمل‌گرا را به دست بیاور."},"example":{"en":"Click any node to read a principle or a method. You can also drag the nodes around.","fa":"روی هر دایره کلیک کن تا یک اصل یا روش را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."}},"stages":[{"level":1,"badge":{"en":"Level 1 · Over-simplified","fa":"سطحِ ۱ · خیلی ساده"},"title":{"en":"Don't die in the gap","fa":"توی شکاف نمیر"},"tagline":{"en":"The whole book in a sentence.","fa":"کلِ کتاب در یک جمله."},"body":{"en":"Early fans love your new tech. The big, cautious market doesn't care about new — it wants a safe, finished solution. Between them is a chasm, and that's where most products die. Focus on one small group and win it completely.","fa":"طرفدارهای اولیه عاشقِ فناوریِ تازه‌ات‌اند. بازارِ بزرگ و محتاط اصلاً به «تازه» اهمیت نمی‌دهد — یک راه‌حلِ امن و تمام‌شده می‌خواهد. بینِ این دو یک شکاف است، و بیشترِ محصول‌ها همان‌جا می‌میرند. روی یک گروهِ کوچک تمرکز کن و کاملش را ببر."},"example":{"en":"A buzzy startup with a dozen excited fans still can't sell to a single ordinary company — it's stuck in the chasm.","fa":"یک استارتاپِ سروصدادار با دوجین طرفدارِ هیجان‌زده، هنوز نمی‌تواند به یک شرکتِ معمولی هم بفروشد — توی شکاف گیر کرده."},"gain":{"en":"You know the one trap that kills most tech startups.","fa":"همان یک تله‌ای را می‌شناسی که بیشترِ استارتاپ‌های فناوری را می‌کُشد."}},{"level":2,"badge":{"en":"Level 2 · Simple","fa":"سطحِ ۲ · ساده"},"title":{"en":"Know your five buyers","fa":"پنج خریدارت را بشناس"},"tagline":{"en":"Innovators to laggards.","fa":"از نوآوران تا کندروها."},"body":{"en":"Any new technology is adopted by five groups in order: <b>innovators</b> (techies), <b>early adopters</b> (visionaries after a big leap), <b>early majority</b> (pragmatists who want proof), <b>late majority</b> (conservatives who want it cheap and safe), and <b>laggards</b> (skeptics). The money is in the majority — but they buy completely differently from the enthusiasts.","fa":"هر فناوریِ تازه را پنج گروه به‌ترتیب می‌پذیرند: <b>نوآوران</b> (فن‌بازها)، <b>پذیرندگانِ نخست</b> (آرمان‌گراهایی که دنبالِ یک جهشِ بزرگ‌اند)، <b>اکثریتِ نخست</b> (عمل‌گراهایی که دلیل می‌خواهند)، <b>اکثریتِ پسین</b> (محافظه‌کارهایی که ارزان و امن می‌خواهند)، و <b>کندروها</b> (شکاکان). پول در اکثریت است — اما آن‌ها کاملاً جورِ دیگری از شیفتگان می‌خرند."},"example":{"en":"The visionary buys a dream and takes risks; the pragmatist next door waits until two rivals already use it.","fa":"آرمان‌گرا یک رؤیا می‌خرد و ریسک می‌کند؛ عمل‌گرای بغل‌دستی صبر می‌کند تا دو رقیب از قبل از آن استفاده کنند."},"gain":{"en":"You can tell which kind of customer you're actually talking to.","fa":"می‌توانی بگویی واقعاً با کدام نوع مشتری داری حرف می‌زنی."}},{"level":3,"badge":{"en":"Level 3 · Balanced","fa":"سطحِ ۳ · متعادل"},"title":{"en":"See the chasm","fa":"شکاف را ببین"},"tagline":{"en":"Why references don't transfer.","fa":"چرا مرجع‌ها منتقل نمی‌شوند."},"body":{"en":"The deadly gap is between the <b>visionaries</b> and the <b>pragmatists</b>. Pragmatists only trust references from other pragmatists, so all your early-adopter excitement counts for nothing with them. They want a proven, complete, low-risk solution and they buy from the market leader. Early buzz is not the same as a real market.","fa":"شکافِ کُشنده بینِ <b>آرمان‌گراها</b> و <b>عمل‌گراهاست</b>. عمل‌گراها فقط به مرجعِ عمل‌گراهای دیگر اعتماد می‌کنند، پس همهٔ هیجانِ پذیرندگانِ نخستت برایشان هیچ به‌حساب نمی‌آید. یک راه‌حلِ اثبات‌شده، کامل و کم‌ریسک می‌خواهند و از رهبرِ بازار می‌خرند. سروصدای اولیه با یک بازارِ واقعی یکی نیست."},"example":{"en":"A cautious buyer shrugs off a flashy startup's logos and asks, ‘Who like me is already using this?’","fa":"یک خریدارِ محتاط، لوگوهای یک استارتاپِ پرزرق‌وبرق را ندید می‌گیرد و می‌پرسد: «چه کسی مثلِ من از قبل از این استفاده می‌کند؟»"},"gain":{"en":"You can spot the chasm before it swallows you.","fa":"می‌توانی شکاف را ببینی، پیش از اینکه ببلعدت."}},{"level":4,"badge":{"en":"Level 4 · Advanced","fa":"سطحِ ۴ · پیشرفته"},"title":{"en":"Pick your beachhead","fa":"سرِپلت را انتخاب کن"},"tagline":{"en":"Target a niche, ship the whole product.","fa":"یک گوشه را هدف بگیر، محصولِ کامل را تحویل بده."},"body":{"en":"Cross like D-Day: concentrate everything on one narrow <b>niche</b> you can dominate, chosen with vivid target-customer <b>scenarios</b>. Then close the <b>whole-product</b> gap — assemble partners so the solution is complete end to end. A total win in one segment gives you the pragmatist references that open the next.","fa":"مثلِ روزِ دی عبور کن: همه‌چیز را روی یک <b>گوشهٔ</b> باریک که می‌توانی قبضه‌اش کنی متمرکز کن، با <b>سناریوهای</b> زندهٔ مشتریِ هدف انتخابش کن. بعد فاصلهٔ <b>محصولِ کامل</b> را ببند — شریک‌ها را سرِ هم کن تا راه‌حل سرتاته کامل شود. یک بُردِ تمام‌وکمال در یک بخش، همان مرجع‌های عمل‌گرایی را می‌دهد که بخشِ بعدی را باز می‌کنند."},"example":{"en":"Documentum ignored the whole market and won just regulatory documents at big pharma first — then expanded.","fa":"داکیومنتوم کلِ بازار را نادیده گرفت و اول فقط اسنادِ مقرراتیِ شرکت‌های داروییِ بزرگ را برد — بعد گسترش داد."},"gain":{"en":"You can plan a real crossing, not just hope to grow.","fa":"می‌توانی یک عبورِ واقعی را نقشه بریزی، نه اینکه فقط امیدِ رشد داشته باشی."}},{"level":5,"badge":{"en":"Level 5 · Expert","fa":"سطحِ ۵ · حرفه‌ای"},"title":{"en":"Lead the market","fa":"رهبرِ بازار شو"},"tagline":{"en":"Position, price, channel, dominate.","fa":"جایگاه، قیمت، کانال، تسلط."},"body":{"en":"The expert plays the whole go-to-market. <b>Create the competition</b> so pragmatists can place you on a familiar map. Secure a trusted <b>distribution channel</b> — the number-one crossing objective — and <b>price</b> to signal leadership and motivate that channel. Then <b>dominate</b> your niche and bowl into adjacent ones, each conquest funding the next. Crossing the chasm is the beginning of mainstream development, not the end.","fa":"آدمِ حرفه‌ای کلِ ورود به بازار را بازی می‌کند. <b>رقابت را بساز</b> تا عمل‌گراها بتوانند تو را روی نقشه‌ای آشنا بگذارند. یک <b>کانالِ توزیعِ</b> مورد‌اعتماد جور کن — هدفِ شمارهٔ یکِ عبور — و طوری <b>قیمت</b> بگذار که نشانهٔ رهبری باشد و آن کانال را باانگیزه کند. بعد بر گوشه‌ات <b>مسلط</b> شو و به گوشه‌های همسایه بزن، که هر فتح، فتحِ بعدی را تأمین می‌کند. عبور از شکاف، آغازِ توسعهٔ بازارِ اصلی است، نه پایانش."},"example":{"en":"You dominate one segment, carry its references and partners into the next, and keep leading as the market widens.","fa":"بر یک بخش مسلط می‌شوی، مرجع‌ها و شریک‌هایش را به بخشِ بعدی می‌بری، و همان‌طور که بازار پهن می‌شود رهبری را نگه می‌داری."},"gain":{"en":"You can take a product from a few fans to mainstream market leader.","fa":"می‌توانی یک محصول را از چند طرفدار به رهبرِ بازارِ اصلی برسانی."}}],"quotes":[{"en":"Most companies fail to cross the chasm because, confronted with the immensity of opportunity represented by a mainstream market, they lose their focus, chasing every opportunity that presents itself, but finding themselves unable to deliver a salable proposition to any true pragmatist buyer.","fa":"بیشترِ شرکت‌ها در عبور از شکاف شکست می‌خورند چون در برابرِ عظمتِ فرصتی که بازارِ اصلی نشان می‌دهد، تمرکزشان را از دست می‌دهند، دنبالِ هر فرصتی که پیش می‌آید می‌دوند، اما می‌بینند نمی‌توانند به هیچ خریدارِ عمل‌گرای واقعی یک پیشنهادِ فروختنی بدهند."},{"en":"They want evolution, not revolution. They want technology to enhance, not overthrow, the established ways of doing business. And above all, they do not want to debug somebody else's product.","fa":"تکامل می‌خواهند، نه انقلاب. می‌خواهند فناوری، روش‌های جاافتادهٔ کسب‌وکار را تقویت کند، نه سرنگون. و از همه مهم‌تر، نمی‌خواهند اشکالِ محصولِ کسِ دیگری را رفع کنند."},{"en":"When pragmatists buy, they care about the company they are buying from, the quality of the product they are buying, the infrastructure of supporting products and system interfaces, and the reliability of the service they are going to get.","fa":"وقتی عمل‌گراها می‌خرند، برایشان مهم است از چه شرکتی می‌خرند، کیفیتِ محصولی که می‌خرند، زیرساختِ محصول‌های پشتیبان و رابط‌های سیستمی، و قابلِ‌اتکا‌بودنِ خدمتی که قرار است بگیرند."},{"en":"Entering the mainstream market is an act of burglary, of breaking and entering, of deception, often even of stealth.","fa":"واردشدن به بازارِ اصلی یک کارِ دزدانه است، شکستن و واردشدن، فریب، و اغلب حتی پنهان‌کاری."},{"en":"Surround your disruptive core product, the thing that got you to the dance, with a whole product that solves for the target customer's problem end to end. That will keep you on the dance floor for a long time to come.","fa":"محصولِ هستهٔ برهم‌زننده‌ات را — همان چیزی که تو را به مهمانی رساند — با یک محصولِ کامل احاطه کن که مشکلِ مشتریِ هدف را سرتاته حل می‌کند. همین است که تو را مدت‌ها روی پیستِ رقص نگه می‌دارد."},{"en":"The number-one corporate objective, when crossing the chasm, is to secure a distribution channel into the mainstream market, one with which the pragmatist customer will be comfortable. This objective comes before revenues, before profits, before press, even before customer satisfaction.","fa":"هدفِ شمارهٔ یکِ شرکت هنگامِ عبور از شکاف، جورکردنِ یک کانالِ توزیع به بازارِ اصلی است؛ کانالی که مشتریِ عمل‌گرا با آن راحت باشد. این هدف مقدم است بر درآمد، بر سود، بر سروصدای رسانه‌ای، حتی بر رضایتِ مشتری."},{"en":"Positioning is the single largest influence on the buying decision.","fa":"جایگاه‌سازی، بزرگ‌ترین اثرِ منفرد را روی تصمیمِ خرید دارد."},{"en":"Chasm crossing is not the end, but rather the beginning, of mainstream market development.","fa":"عبور از شکاف پایان نیست، بلکه آغازِ توسعهٔ بازارِ اصلی است."}],"media":[{"kind":"yt","id":"RBbINB5HSHk","src":{"en":"YouTube · Lenny's Podcast","fa":"یوتیوب · پادکستِ لنی"},"title":{"en":"Geoffrey Moore on the Beachhead & Crossing the Chasm","fa":"جفری مور دربارهٔ سرِپل و عبور از شکاف"},"desc":{"en":"The author on finding your beachhead, crossing the chasm, and dominating a market.","fa":"خودِ نویسنده دربارهٔ پیدا‌کردنِ سرِپل، عبور از شکاف، و مسلط‌شدن بر یک بازار."},"bullets":{"en":["The beachhead, in the author's own words","Why pragmatists buy differently","Applied to real startups and products"],"fa":["سرِپل، به زبانِ خودِ نویسنده","چرا عمل‌گراها جورِ دیگری می‌خرند","به‌کار‌بسته روی استارتاپ‌ها و محصول‌های واقعی"]},"best":{"en":"Best for Stage 3–5.","fa":"خوب برای مرحلهٔ ۳ تا ۵."}},{"kind":"yt","id":"Giyqalua_S8","src":{"en":"YouTube · Lean Product Meetup","fa":"یوتیوب · Lean Product Meetup"},"title":{"en":"Geoffrey Moore — Advice from Crossing the Chasm","fa":"جفری مور — توصیه‌هایی از «عبور از شکاف»"},"desc":{"en":"A live talk where the author shares practical advice from the book (and Zone to Win).","fa":"یک سخنرانیِ زنده که نویسنده در آن توصیه‌های عملیِ کتاب (و «Zone to Win») را می‌گوید."},"bullets":{"en":["The framework straight from the author","Targeting and the whole product","Practical Q&A with product people"],"fa":["چارچوب، مستقیم از خودِ نویسنده","هدف‌گیری و محصولِ کامل","پرسش‌وپاسخِ عملی با آدم‌های محصول"]},"best":{"en":"Best for Stage 4–5.","fa":"خوب برای مرحلهٔ ۴ و ۵."}},{"kind":"yt","id":"Y0lGHn5QfJY","src":{"en":"YouTube · Mere Mortals","fa":"یوتیوب · Mere Mortals"},"title":{"en":"Crossing the Chasm — Book Review","fa":"عبور از شکاف — مرورِ کتاب"},"desc":{"en":"A concise review of the book's core ideas about making technology mainstream.","fa":"یک مرورِ فشرده از ایده‌های اصلیِ کتاب دربارهٔ همه‌گیر‌کردنِ فناوری."},"bullets":{"en":["The adoption life cycle, summarized","The chasm and the beachhead idea","A quick, friendly overview"],"fa":["چرخهٔ پذیرش، خلاصه‌شده","ایدهٔ شکاف و سرِپل","یک مرورِ سریع و صمیمی"]},"best":{"en":"Best for Stage 1–2.","fa":"خوب برای مرحلهٔ ۱ و ۲."}},{"kind":"img","url":"https://www.harperbusiness.com/book/9780062293008/Crossing-the-Chasm-3rd-Edition-Geoffrey-A.-Moore/","src":{"en":"HarperBusiness · Publisher","fa":"HarperBusiness · ناشر"},"title":{"en":"Crossing the Chasm, 3rd Edition — Publisher Page","fa":"عبور از شکاف، ویرایشِ سوم — صفحهٔ ناشر"},"desc":{"en":"The publisher page for the 3rd edition, with details and editions.","fa":"صفحهٔ ناشر برای ویرایشِ سوم، با جزئیات و نسخه‌ها."},"bullets":{"en":["The definitive 3rd edition","Background on Geoffrey Moore","Straight from the source"],"fa":["ویرایشِ سومِ معتبر","پیشینه‌ای دربارهٔ جفری مور","مستقیم از خودِ منبع"]},"best":{"en":"For editions and the source.","fa":"برای نسخه‌ها و منبعِ اصلی."}}],"go":[{"label":{"en":"Publisher page","fa":"صفحهٔ ناشر"},"url":"https://www.harperbusiness.com/book/9780062293008/Crossing-the-Chasm-3rd-Edition-Geoffrey-A.-Moore/"},{"label":{"en":"Book on Goodreads","fa":"کتاب در گودریدز"},"url":"https://www.goodreads.com/book/show/61329.Crossing_the_Chasm"},{"label":{"en":"Geoffrey Moore's site: the book","fa":"سایتِ جفری مور: کتاب"},"url":"https://geoffreyamoore.com/book/crossing-the-chasm/"}],"recs":[{"pri":"b","t":{"en":"Name your five buyer types","fa":"پنج نوع خریدارت را نام ببر"},"d":{"en":"For your product, write who the innovators, visionaries, and pragmatists actually are — and where you are now.","fa":"برای محصولت بنویس نوآوران، آرمان‌گراها و عمل‌گراها واقعاً چه کسانی‌اند — و الان کجای کاری."}},{"pri":"b","t":{"en":"Choose one beachhead niche","fa":"یک سرِپلِ باریک انتخاب کن"},"d":{"en":"Pick a single narrow segment you could dominate, and write a one-line target-customer scenario for it.","fa":"یک بخشِ باریکِ واحد که می‌توانی قبضه‌اش کنی انتخاب کن، و یک سناریوی یک‌خطیِ مشتریِ هدف برایش بنویس."}},{"pri":"n","t":{"en":"Map your whole-product gap","fa":"فاصلهٔ محصولِ کاملت را نقشه کن"},"d":{"en":"List everything the target customer needs to fully solve their problem, and mark what you're missing.","fa":"هرچه مشتریِ هدف برای حلِ کاملِ مشکلش لازم دارد را فهرست کن، و علامت بزن چه چیزی کم داری."}},{"pri":"n","t":{"en":"Write your positioning claim","fa":"ادعای جایگاه‌سازی‌ات را بنویس"},"d":{"en":"In one line: for whom, in what category, the key benefit, and versus which familiar alternative.","fa":"در یک خط: برای چه کسی، در چه دسته‌ای، فایدهٔ اصلی چیست، و در برابرِ کدام بدیلِ آشنا."}}]};
-</script>
-
-<script>
-/* ── 3) RENDER (text sections) ────────────────────────────── */
-function elClear(id){ var e=document.getElementById(id); if(e) e.innerHTML=''; return e; }
-
-function renderText(){
-  var t=elClear('tldrHost');
-  DATA.tldr.forEach(function(o){ var li=document.createElement('li'); li.innerHTML = TX(o); t.appendChild(li); });
-
-  var q=elClear('quoteHost');
-  DATA.quotes.forEach(function(o){
-    var bq=document.createElement('blockquote');
-    bq.innerHTML = '<span class="qm">“</span><p>'+TX(o)+'</p>';
-    q.appendChild(bq);
-  });
-
-  var m=elClear('mediaHost');
-  DATA.media.forEach(function(o){
-    var card=document.createElement('div'); card.className='mcard';
-    var thumb;
-    if(o.kind==='yt'){
-      var url='https://www.youtube.com/watch?v='+o.id;
-      var img='https://i.ytimg.com/vi/'+o.id+'/hqdefault.jpg';
-      thumb='<a class="mthumb" href="'+url+'" target="_blank" rel="noopener">'
-        +'<img src="'+img+'" alt="" loading="lazy" onerror="this.style.display=\'none\'">'
-        +'<span class="ptype">'+(LANG==='fa'?'ویدیو':'VIDEO')+'</span>'
-        +'<span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></span></a>';
-    } else {
-      thumb='<a class="mthumb" href="'+o.url+'" target="_blank" rel="noopener"><span class="mfake">'
-        +'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.6"/><path d="M21 15l-5-5L5 21"/></svg>'
-        +'</span><span class="ptype">'+(LANG==='fa'?'تصویر':'IMAGE')+'</span></a>';
-    }
-    var link = o.kind==='yt' ? 'https://www.youtube.com/watch?v='+o.id : o.url;
-    var bl = (LANG==='fa'?o.bullets.fa:o.bullets.en).map(function(b){ return '<li>'+ (LANG==='fa'?faText(b):b) +'</li>'; }).join('');
-    card.innerHTML = thumb + '<div class="mbody">'
-      + '<div class="msrc">'+TX(o.src)+'</div>'
-      + '<h4>'+TX(o.title)+'</h4>'
-      + '<p class="mdesc">'+TX(o.desc)+'</p>'
-      + '<ul>'+bl+'</ul>'
-      + '<a class="mlink" href="'+link+'" target="_blank" rel="noopener">'+(LANG==='fa'?'باز کردن ↗':'Open ↗')+'</a>'
-      + '<div class="mbest">'+TX(o.best)+'</div>'
-      + '</div>';
-    m.appendChild(card);
-  });
-
-  var g=elClear('goHost');
-  DATA.go.forEach(function(o){
-    var a=document.createElement('a'); a.href=o.url; a.target='_blank'; a.rel='noopener';
-    a.textContent=TX(o.label); g.appendChild(a);
-  });
-
-  var r=elClear('recHost');
-  DATA.recs.forEach(function(o){
-    var it=document.createElement('div'); it.className='item';
-    var priLabel = o.pri==='b' ? (LANG==='fa'?'از اینجا شروع کن':'Start here') : (LANG==='fa'?'بعدش این':'Then this');
-    it.innerHTML='<div class="t">'+TX(o.t)+'<span class="pri '+(o.pri==='b'?'b':'')+'">'+priLabel+'</span></div>'
-      +'<div class="d">'+TX(o.d)+'</div>';
-    r.appendChild(it);
-  });
-
-  var mth=document.getElementById('methodHost');
-  mth.innerHTML = LANG==='fa' ? faText("<p><b>منبع:</b> کتابِ «Crossing the Chasm» (عبور از شکاف) نوشتهٔ جفری مور، چاپِ نخست ۱۹۹۱، ویرایشِ سوم ۲۰۱۴ (نشرِ HarperBusiness).</p><p><b>روشِ کار:</b> ساختارِ پنج‌بخشی و ایده‌ها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده؛ نقل‌قول‌ها مقابله و ویدیوها بررسی شده‌اند.</p><p><b>گروه:</b> «راه‌اندازیِ شرکت» — یک خواندنیِ کلاسیک برای هر کسی که می‌خواهد یک محصولِ نو را به بازار برساند.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای متنِ کامل، خودِ کتاب را بخوان.</p>") : "<p><b>Source:</b> the book <i>Crossing the Chasm</i> by Geoffrey A. Moore, first published 1991, 3rd edition 2014 (HarperBusiness).</p><p><b>How this was built:</b> the five-part structure and ideas were gathered and rewritten from the book and reputable sources; quotes were cross-checked and the linked videos verified.</p><p><b>Group:</b> Starting a Company — a classic read for anyone taking a new product to market.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>";
-  var fl=document.getElementById('flowTop');
-  if(fl){
-    var loop = LANG==='fa' ? ["هدف‌گیری","محصولِ کامل","عبور"] : ["Target","Whole Product","Cross"];
-    var ar = LANG==='fa' ? '⟵' : '⟶';
-    fl.innerHTML = loop.map(function(w){ return '<b>'+ (LANG==='fa'?faText(w):w) +'</b>'; }).join(' <span class="ar">'+ar+'</span> ');
-  }
-}
-</script>
-
-<script>
-/* ── 4) CONCEPT MAP ───────────────────────────────────────── */
-function renderMap(){
-  var host=document.getElementById('mapHost'); if(!host) return; host.innerHTML='';
-  DATA.parts.forEach(function(p, i){
-    var col=document.createElement('div'); col.className='partcol';
-    var chaps=p.chapters.map(function(ck){
-      var c=DATA.chapters[ck];
-      return '<div class="chapchip"><span class="cn">'+num(c.n)+'</span><div><b>'+TX(c.name)+'</b>'
-        +'<small>'+TX(c.principle).replace(/<[^>]+>/g,'').slice(0, LANG==='fa'?86:76)+'…</small></div></div>';
-    }).join('');
-    col.innerHTML='<div class="ph"><span class="pdot" style="background:var('+p.varc+')"></span>'
-      +'<span class="pnum">'+(LANG==='fa'?'بخشِ ':'PART ')+num(i+1)+'</span></div>'
-      +'<h4>'+TX(p.name)+'</h4>'
-      +'<div class="ptag" style="color:var('+p.varc+')">'+TX(p.tag)+'</div>'
-      +'<p class="pgist">'+TX(p.gist)+'</p>'+chaps;
-    host.appendChild(col);
-  });
-}
-</script>
-
-<script>
-/* ── 5) INTERACTIVE NETWORK GRAPH (deterministic radial layout, no physics) ── */
-var GRAPH = (function(){
-  var svg, W=980, H=780, nodes=[], links=[], sel=null, dragNode=null, moved=false, startPt=null;
-
-  function build(){
-    svg=document.getElementById('netsvg');
-    svg.setAttribute('viewBox','0 0 '+W+' '+H);
-    nodes=[]; links=[];
-    var cx=W/2, cy=H/2, R1=220, R2=126, span=66*Math.PI/180;
-    var N=DATA.parts.length, partAng=DATA.parts.map(function(_,i){ return -Math.PI/2 + i*(2*Math.PI/N); });
-    nodes.push({id:'core', kind:'core', varc:'--core', r:38, x:cx, y:cy, label:DATA.core.name, data:DATA.core});
-    DATA.parts.forEach(function(p,i){
-      var a=partAng[i], px=cx+Math.cos(a)*R1, py=cy+Math.sin(a)*R1;
-      nodes.push({id:'p_'+p.key, kind:'part', varc:p.varc, r:25, x:px, y:py,
-        label:p.name, data:{name:p.name, principle:p.gist, more:p.more, tag:p.tag, key:p.key}});
-      links.push({s:'core', t:'p_'+p.key, strong:true});
-      var nc=p.chapters.length, start=a-span/2;
-      p.chapters.forEach(function(ck,j){
-        var ca = nc>1 ? start+span*(j/(nc-1)) : a;   // fan the 5 chapters outward
-        var c=DATA.chapters[ck];
-        nodes.push({id:'c_'+ck, kind:'chap', varc:p.varc, r:15,
-          x:px+Math.cos(ca)*R2, y:py+Math.sin(ca)*R2,
-          label:(c.glabel||c.name), data:c, ck:ck});
-        links.push({s:'p_'+p.key, t:'c_'+ck});
-      });
-    });
-    nodes.forEach(function(n){ n.hx=n.x; n.hy=n.y; });   // remember home positions for reset
-    draw();
-    select('core');
-  }
-
-  function byId(id){ for(var i=0;i<nodes.length;i++) if(nodes[i].id===id) return nodes[i]; return null; }
-
-  function draw(){
-    var ln='', nd='';
-    links.forEach(function(l){ ln+='<line class="glink" data-s="'+l.s+'" data-t="'+l.t+'" stroke="var(--line)" stroke-width="'+(l.strong?2.4:1.5)+'" stroke-linecap="round"/>'; });
-    nodes.forEach(function(n){
-      var inside='', below='';
-      if(n.kind==='core'){
-        inside='<text text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="800" fill="#fff" letter-spacing="0.3">'+shortLabel(n)+'</text>';
-      } else {
-        if(n.kind==='chap'){
-          inside='<text text-anchor="middle" dominant-baseline="central" font-size="11" font-weight="800" fill="#fff">'+num(n.data.n)+'</text>';
+/* ── CONTENT — everything unique to this book lives here ── */
+Book.mount({
+  "meta": {
+    "slug": "crossing-the-chasm",
+    "folder": "13 - Starting a Company",
+    "groupNum": 13,
+    "group": {
+      "en": "Starting a Company",
+      "fa": "راه‌اندازیِ شرکت"
+    },
+    "author": {
+      "en": "Geoffrey A. Moore",
+      "fa": "جفری مور"
+    },
+    "eyebrow_author": {
+      "en": "Geoffrey A. Moore",
+      "fa": "جفری مور"
+    },
+    "book": {
+      "en": "Crossing the Chasm",
+      "fa": "عبور از شکاف"
+    },
+    "hero_title": {
+      "en": "Crossing the Chasm — Marketing and Selling Disruptive Products to Mainstream Customers",
+      "fa": "عبور از شکاف — بازاریابی و فروشِ محصولاتِ نوآورانه به مشتریانِ بازارِ اصلی"
+    },
+    "dek": {
+      "en": "A knowledge graph of the whole book, plus a 5-stage path from a single idea to expert-level mastery — with an example at every step.",
+      "fa": "نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از یک ایدهٔ ساده تا حرفه‌ای — با یک مثال در هر مرحله."
+    },
+    "published": {
+      "en": "2014",
+      "fa": "۲۰۱۴"
+    },
+    "chips": [
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Parts",
+          "fa": "بخش"
         }
-        var ly = n.r + (n.kind==='part'?17:14);
-        var fs = n.kind==='part'?13:11;
-        var stroke = 'paint-order:stroke;stroke:var(--card2);stroke-width:3.6px;stroke-linejoin:round';
-        below='<text class="nlab" text-anchor="middle" y="'+ly+'" font-size="'+fs+'" font-weight="'+(n.kind==='part'?'800':'700')+'" fill="var(--ink)" style="'+stroke+'">'+shortLabel(n)+'</text>';
+      },
+      {
+        "v": {
+          "en": "16",
+          "fa": "۱۶"
+        },
+        "l": {
+          "en": "Ideas",
+          "fa": "ایده"
+        }
+      },
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Learning stages",
+          "fa": "مرحلهٔ یادگیری"
+        }
       }
-      nd+='<g class="node'+(n.kind==='core'?' ncore':'')+'" data-id="'+n.id+'"><g class="ns">'
-        +'<circle r="'+n.r+'" fill="var('+n.varc+')" fill-opacity="'+(n.kind==='chap'?0.94:1)+'" stroke="var(--card)" stroke-width="2.5"/>'
-        +inside+below+'</g></g>';
-    });
-    svg.innerHTML='<g id="glinks">'+ln+'</g><g id="gnodes">'+nd+'</g>';
-    svg.querySelectorAll('.node').forEach(function(gEl){
-      gEl.addEventListener('pointerdown', onDown);
-      gEl.addEventListener('click', function(){ if(!moved) select(gEl.getAttribute('data-id')); });
-      gEl.addEventListener('pointerenter', function(){ if(!dragNode) gEl.classList.add('hover'); });
-      gEl.addEventListener('pointerleave', function(){ gEl.classList.remove('hover'); });
-    });
-    positions();
-  }
-  function shortLabel(n){ return TX(n.label); }
-
-  function positions(){
-    svg.querySelectorAll('.node').forEach(function(g){
-      var n=byId(g.getAttribute('data-id'));
-      g.setAttribute('transform','translate('+n.x.toFixed(1)+','+n.y.toFixed(1)+')');
-    });
-    svg.querySelectorAll('.glink').forEach(function(l){
-      var a=byId(l.getAttribute('data-s')), b=byId(l.getAttribute('data-t'));
-      l.setAttribute('x1',a.x.toFixed(1)); l.setAttribute('y1',a.y.toFixed(1));
-      l.setAttribute('x2',b.x.toFixed(1)); l.setAttribute('y2',b.y.toFixed(1));
-    });
-  }
-
-  /* drag: just move the grabbed node — no simulation, so nothing else shifts */
-  function toSvg(e){
-    var pt=svg.createSVGPoint(); pt.x=e.clientX; pt.y=e.clientY;
-    var m=svg.getScreenCTM(); if(!m) return {x:e.clientX,y:e.clientY};
-    return pt.matrixTransform(m.inverse());
-  }
-  function onDown(e){
-    e.preventDefault();
-    dragNode=byId(e.currentTarget.getAttribute('data-id'));
-    moved=false; startPt=toSvg(e); svg.style.cursor='grabbing';
-    e.currentTarget.classList.remove('hover');
-    window.addEventListener('pointermove', onMove);
-    window.addEventListener('pointerup', onUp);
-  }
-  function onMove(e){
-    if(!dragNode) return; var p=toSvg(e);
-    if(startPt && (Math.abs(p.x-startPt.x)>4 || Math.abs(p.y-startPt.y)>4)) moved=true;
-    dragNode.x=Math.max(dragNode.r+4, Math.min(W-dragNode.r-4, p.x));
-    dragNode.y=Math.max(dragNode.r+4, Math.min(H-dragNode.r-24, p.y));
-    positions();
-  }
-  function onUp(){
-    dragNode=null; svg.style.cursor='grab';
-    window.removeEventListener('pointermove', onMove);
-    window.removeEventListener('pointerup', onUp);
-  }
-
-  function keepSet(id){
-    var n=byId(id); if(!n || id==='core') return null;   // core → show everything
-    var keep={}; keep[id]=1; keep['core']=1;
-    var pk = (n.kind==='part') ? n.data.key : n.data.part;
-    keep['p_'+pk]=1;
-    DATA.parts.forEach(function(p){ if(p.key===pk) p.chapters.forEach(function(ck){ keep['c_'+ck]=1; }); });
-    return keep;   // highlight the whole branch: core → part → its chapters
-  }
-  function applyFocus(id){
-    var keep=keepSet(id), full=(keep===null);
-    svg.querySelectorAll('.node').forEach(function(g){
-      var nid=g.getAttribute('data-id');
-      g.classList.toggle('dim', !full && !keep[nid]);
-      g.classList.toggle('hl', !full && keep[nid] && nid!==id);
-    });
-    svg.querySelectorAll('.glink').forEach(function(l){
-      var s=l.getAttribute('data-s'), t=l.getAttribute('data-t');
-      var on = full || (keep[s] && keep[t]);
-      l.classList.toggle('dim', !on);
-      l.classList.toggle('hl', !full && on);
-    });
-  }
-
-  function relatedIds(node){
-    var ids=[];
-    if(node.id==='core'){ DATA.parts.forEach(function(p){ ids.push('p_'+p.key); }); }
-    else if(node.kind==='part'){ var pk=node.data.key; DATA.parts.forEach(function(p){ if(p.key===pk) p.chapters.forEach(function(ck){ ids.push('c_'+ck); }); }); }
-    else { var pk2=node.data.part; ids.push('p_'+pk2);
-      DATA.parts.forEach(function(p){ if(p.key===pk2) p.chapters.forEach(function(ck){ if('c_'+ck!==node.id) ids.push('c_'+ck); }); }); }
-    return ids;
-  }
-
-  function drow(cls,label,txt){ return '<div class="drow '+cls+'"><div class="dlab">'+label+'</div><div class="dtxt">'+txt+'</div></div>'; }
-
-  function select(id){
-    var n=byId(id); if(!n) return;
-    sel=id;
-    svg.querySelectorAll('.node').forEach(function(g){ g.classList.toggle('sel', g.getAttribute('data-id')===id); });
-    var selEl=svg.querySelector('.node[data-id="'+id+'"]'); if(selEl&&selEl.parentNode) selEl.parentNode.appendChild(selEl);  // raise on top
-    applyFocus(id);
-    var d=n.data, pv = n.kind==='core' ? '--core' : n.varc;
-    var kicker = n.kind==='core' ? (LANG==='fa'?'ایدهٔ مرکزی':'Core idea')
-             : n.kind==='part' ? (LANG==='fa'?'بخش':'Part') + ' · ' + TX(d.tag)
-             : (LANG==='fa'?"ایدهٔ":"Idea") + ' ' + num(d.n);
-    var prLab = (n.kind==='chap') ? (LANG==='fa'?'اصل':'Principle') : (LANG==='fa'?'ایدهٔ اصلی':'Big idea');
-    var html='<div class="dkick"><i style="background:var('+pv+')"></i>'+ (LANG==='fa'?faText(kicker):kicker) +'</div>'
-      +'<h4>'+TX(d.name)+'</h4>'
-      + drow('', prLab, TX(d.principle));
-    if(d.more)    html += drow('more', (LANG==='fa'?'بیشتر':'In depth'), TX(d.more));
-    if(d.example) html += drow('', (LANG==='fa'?'مثال':'Example'), TX(d.example));
-    if(d.tip)     html += drow('tip', (LANG==='fa'?'امتحان کن':'Try this'), TX(d.tip));
-    if(d.pitfall) html += drow('pit', (LANG==='fa'?'حواست باشد':'Watch out'), TX(d.pitfall));
-    // related chips
-    var rel=relatedIds(n);
-    if(rel.length){
-      var chips=rel.map(function(rid){ var rn=byId(rid); if(!rn) return '';
-        return '<span class="dchip" data-goto="'+rid+'"><i style="background:var('+rn.varc+')"></i>'+TX(rn.data.name)+'</span>'; }).join('');
-      html += '<div class="drow"><div class="dlab">'+(LANG==='fa'?'مرتبط':'Related')+'</div><div class="dchips">'+chips+'</div></div>';
+    ],
+    "kboxes": [
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Parts (life cycle · chasm · beachhead · whole product · go-to-market)",
+          "fa": "بخش (چرخهٔ پذیرش · شکاف · سرِپل · محصولِ کامل · ورود به بازار)"
+        }
+      },
+      {
+        "v": {
+          "en": "16",
+          "fa": "۱۶"
+        },
+        "l": {
+          "en": "Ideas you can use",
+          "fa": "ایده برای استفاده"
+        }
+      },
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Levels, simple → expert",
+          "fa": "مرحله، ساده تا حرفه‌ای"
+        }
+      },
+      {
+        "v": {
+          "en": "1",
+          "fa": "۱"
+        },
+        "l": {
+          "en": "One beachhead: focus everything on a niche you can dominate",
+          "fa": "یک سرِپل: همه‌چیز را روی گوشه‌ای که می‌توانی قبضه‌اش کنی متمرکز کن"
+        }
+      }
+    ],
+    "core_callout": {
+      "label": {
+        "en": "The core idea:",
+        "fa": "ایدهٔ اصلی:"
+      },
+      "en": "Between the visionaries who love new technology and the pragmatists who run the mainstream lies a <i>chasm</i> — and most startups die in it. You cross by focusing everything on one <i>niche</i> you can dominate, building the <i>whole product</i> pragmatists need, and becoming the low-risk <i>market leader</i> there.",
+      "fa": "بینِ آرمان‌گراهایی که عاشقِ فناوریِ تازه‌اند و عمل‌گراهایی که بازارِ اصلی را می‌گردانند، یک <i>شکاف</i> هست — و بیشترِ استارتاپ‌ها تویش می‌میرند. عبور یعنی همه‌چیز را روی یک <i>گوشه</i> که می‌توانی قبضه‌اش کنی متمرکز کنی، <i>محصولِ کاملی</i> را که عمل‌گراها لازم دارند بسازی، و همان‌جا <i>رهبرِ کم‌ریسکِ بازار</i> شوی."
+    },
+    "flow_callout": {
+      "label": {
+        "en": "Read it as a flow:",
+        "fa": "به‌صورتِ یک جریان بخوانش:"
+      },
+      "en": "map the <b>adoption life cycle</b> and spot the <b>chasm</b>, then <b>target</b> one beachhead niche, assemble the <b>whole product</b> pragmatists need, and <b>cross</b> by positioning as the trusted market leader — before rolling into the next segment.",
+      "fa": "<b>چرخهٔ پذیرش</b> را نقشه کن و <b>شکاف</b> را ببین، بعد یک <b>سرِپلِ</b> باریک را <b>هدف</b> بگیر، <b>محصولِ کاملی</b> را که عمل‌گراها لازم دارند سرِ هم کن، و با جایگاه‌گرفتن به‌عنوانِ رهبرِ مورد‌اعتمادِ بازار <b>عبور</b> کن — پیش از رفتن به بخشِ بعدی."
     }
-    var host=document.getElementById('detailHost');
-    host.innerHTML=html;
-    host.querySelectorAll('.dchip').forEach(function(c){
-      c.addEventListener('click', function(){ select(c.getAttribute('data-goto')); });
-    });
-  }
-
-  function relabel(){ if(!svg) return; draw(); select(sel||'core'); }
-
-  return {
-    build:build,
-    kick:function(){},                                    // no-op; layout is static
-    relabel:relabel,
-    reset:function(){ nodes.forEach(function(n){ n.x=n.hx; n.y=n.hy; }); positions(); },
-    resetFocus:function(){ select('core'); },
-    selectNode:function(id){ select(id); },
-    hasNodes:function(){ return nodes.length>0; }
-  };
-})();
-</script>
-
-<script>
-/* ── 6) 5-STAGE LADDER ────────────────────────────────────── */
-var curStage=0;
-function renderLadder(){
-  var host=document.getElementById('ladderHost'); host.innerHTML='';
-  DATA.stages.forEach(function(s,i){
-    var r=document.createElement('div'); r.className='rung'+(i===curStage?' active':'');
-    r.innerHTML='<div class="lv">'+ (LANG==='fa'?('سطحِ '+num(s.level)):('Level '+s.level)) +'</div>'
-      +'<div class="lt">'+TX(s.title)+'</div>'
-      +'<div class="lbar"><i style="width:'+(s.level*20)+'%"></i></div>';
-    r.addEventListener('click', function(){ curStage=i; renderLadder(); renderStage();
-      document.getElementById('stageHost').scrollIntoView({behavior:'smooth',block:'nearest'}); });
-    host.appendChild(r);
-  });
-}
-function renderStage(){
-  var s=DATA.stages[curStage];
-  var host=document.getElementById('stageHost');
-  var exLabel = LANG==='fa'?'مثال':'Example';
-  var prev = LANG==='fa'?'مرحلهٔ قبل':'‹ Prev', next = LANG==='fa'?'مرحلهٔ بعد':'Next ›';
-  host.innerHTML=''+
-    '<div class="stagecard">'
-    +'<div class="shead"><span class="badge">'+TX(s.badge)+'</span><h3>'+TX(s.title)+'</h3></div>'
-    +'<div class="tagline">'+TX(s.tagline)+'</div>'
-    +'<div class="sbody">'+TX(s.body)+'</div>'
-    +'<div class="exbox"><div class="exk">'+exLabel+'</div><div class="ext">'+TX(s.example)+'</div></div>'
-    +'<div class="gainrow"><span class="gi">✓</span><span>'+TX(s.gain)+'</span></div>'
-    +'<div class="stagenav">'
-      +'<button id="stPrev" '+(curStage===0?'disabled':'')+'>'+prev+'</button>'
-      +'<button id="stNext" '+(curStage===DATA.stages.length-1?'disabled':'')+'>'+next+'</button>'
-    +'</div></div>';
-  var pv=document.getElementById('stPrev'), nx=document.getElementById('stNext');
-  if(pv) pv.onclick=function(){ if(curStage>0){curStage--; renderLadder(); renderStage();} };
-  if(nx) nx.onclick=function(){ if(curStage<DATA.stages.length-1){curStage++; renderLadder(); renderStage();} };
-}
-</script>
-
-<script>
-/* ── 7) legend + graph tabs ───────────────────────────────── */
-function renderLegend(){
-  var host=document.getElementById('legendHost'); if(!host) return;
-  var items=[{c:'--core', en:'Core idea', fa:'ایدهٔ مرکزی'}]
-    .concat(DATA.parts.map(function(p){ return {c:p.varc, en:p.name.en, fa:p.name.fa}; }));
-  host.innerHTML = items.map(function(it){
-    return '<span><i style="background:var('+it.c+')"></i>'+(LANG==='fa'?faText(it.fa):it.en)+'</span>';
-  }).join('');
-  document.getElementById('ghint').textContent = LANG==='fa' ? 'روی هر دایره کلیک کن تا بیشتر بخوانی · می‌توانی بکشی‌شان' : 'Click a node to read more · drag to move';
-  document.getElementById('greset').textContent = LANG==='fa' ? '↺ چیدمان' : '↺ Reset';
-}
-function setupTabs(){
-  function show(net){
-    document.getElementById('netView').style.display = net?'':'none';
-    document.getElementById('mapView').style.display = net?'none':'';
-    document.getElementById('tabNet').classList.toggle('active',net);
-    document.getElementById('tabMap').classList.toggle('active',!net);
-    if(net) GRAPH.kick();
-  }
-  document.getElementById('tabNet').onclick=function(){show(true);};
-  document.getElementById('tabMap').onclick=function(){show(false);};
-  document.getElementById('greset').onclick=function(){ GRAPH.reset(); };
-  // click empty graph space resets the focus
-  var svg=document.getElementById('netsvg');
-  svg.addEventListener('click', function(e){ if(!e.target.closest('.node')) GRAPH.resetFocus(); });
-}
-</script>
-
-<script>
-/* ── 8) toggles + boot ────────────────────────────────────── */
-function setLang(lg){
-  LANG=lg;
-  document.documentElement.setAttribute('data-lang',lg);
-  document.documentElement.setAttribute('lang',lg);
-  document.documentElement.setAttribute('dir', lg==='fa'?'rtl':'ltr');
-  try{ localStorage.setItem('chasm-lang',lg); }catch(e){}
-  renderAll();
-}
-function renderAll(){
-  renderText();
-  renderMap();
-  renderLegend();
-  renderLadder();
-  renderStage();
-  if(GRAPH.hasNodes()) GRAPH.relabel(); else GRAPH.build();
-}
-(function(){
-  var lb=document.getElementById('langBtn');
-  lb && lb.addEventListener('click', function(){ setLang(LANG==='fa'?'en':'fa'); });
-
-  var tb=document.getElementById('themeBtn');
-  function curT(){ return document.documentElement.getAttribute('data-theme'); }
-  tb && tb.addEventListener('click', function(){
-    var t=curT()==='dark'?'light':'dark';
-    document.documentElement.setAttribute('data-theme',t);
-    try{ localStorage.setItem('chasm-theme',t); }catch(e){}
-  });
-  try{ matchMedia('(prefers-color-scheme: dark)').addEventListener('change',function(e){
-    if(!localStorage.getItem('chasm-theme')){ document.documentElement.setAttribute('data-theme', e.matches?'dark':'light'); }
-  }); }catch(e){}
-})();
-
-/* scroll-spy */
-(function(){
-  var links=[].slice.call(document.querySelectorAll('.toc a'));
-  var seen={}, ids=[];
-  links.forEach(function(a){ var id=a.getAttribute('href').slice(1); if(!seen[id]){seen[id]=1; ids.push(id);} });
-  var secs=ids.map(function(id){return document.getElementById(id);}).filter(Boolean);
-  function setActive(id){ links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('href')==='#'+id); }); }
-  if('IntersectionObserver' in window){
-    var obs=new IntersectionObserver(function(es){
-      es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
-    },{rootMargin:'-45% 0px -50% 0px',threshold:0});
-    secs.forEach(function(s){ obs.observe(s); });
-  }
-})();
-
-document.addEventListener('DOMContentLoaded', function(){
-  setupTabs();
-  renderAll();
+  },
+  "method": {
+    "en": "<p><b>Source:</b> the book <i>Crossing the Chasm</i> by Geoffrey A. Moore, first published 1991, 3rd edition 2014 (HarperBusiness).</p><p><b>How this was built:</b> the five-part structure and ideas were gathered and rewritten from the book and reputable sources; quotes were cross-checked and the linked videos verified.</p><p><b>Group:</b> Starting a Company — a classic read for anyone taking a new product to market.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>",
+    "fa": "<p><b>منبع:</b> کتابِ «Crossing the Chasm» (عبور از شکاف) نوشتهٔ جفری مور، چاپِ نخست ۱۹۹۱، ویرایشِ سوم ۲۰۱۴ (نشرِ HarperBusiness).</p><p><b>روشِ کار:</b> ساختارِ پنج‌بخشی و ایده‌ها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده؛ نقل‌قول‌ها مقابله و ویدیوها بررسی شده‌اند.</p><p><b>گروه:</b> «راه‌اندازیِ شرکت» — یک خواندنیِ کلاسیک برای هر کسی که می‌خواهد یک محصولِ نو را به بازار برساند.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای متنِ کامل، خودِ کتاب را بخوان.</p>"
+  },
+  "flow": {
+    "en": [
+      "Target",
+      "Whole Product",
+      "Cross"
+    ],
+    "fa": [
+      "هدف‌گیری",
+      "محصولِ کامل",
+      "عبور"
+    ]
+  },
+  "graph": {
+    "W": 980,
+    "H": 780,
+    "R1": 220,
+    "R2": 126,
+    "span": 66
+  },
+  "tldr": [
+    {
+      "en": "The whole book in one line: there's a chasm between the early adopters and the mainstream market, and most tech products die trying to cross it.",
+      "fa": "خلاصهٔ کلِ کتاب در یک جمله: بینِ پذیرندگانِ نخست و بازارِ اصلی یک شکاف هست، و بیشترِ محصول‌های فناوری موقعِ عبور از آن می‌میرند."
+    },
+    {
+      "en": "New tech is adopted along a bell curve — <b>innovators, early adopters, early majority, late majority, laggards</b> — each with different needs.",
+      "fa": "فناوریِ تازه روی یک منحنیِ زنگوله‌ای پذیرفته می‌شود — <b>نوآوران، پذیرندگانِ نخست، اکثریتِ نخست، اکثریتِ پسین، کندروها</b> — هرکدام با نیازی متفاوت."
+    },
+    {
+      "en": "The <b>chasm</b> sits between visionaries and pragmatists: pragmatists won't buy on a visionary's say-so — they want proof and peers.",
+      "fa": "<b>شکاف</b> بینِ آرمان‌گراها و عمل‌گراهاست: عمل‌گراها با حرفِ یک آرمان‌گرا نمی‌خرند — دلیل و هم‌قطار می‌خواهند."
+    },
+    {
+      "en": "Cross by targeting one <b>beachhead</b> niche, delivering the <b>whole product</b>, and becoming its clear leader.",
+      "fa": "با هدف‌گرفتنِ یک <b>سرِپلِ</b> باریک، تحویلِ <b>محصولِ کامل</b>، و رهبرِ روشنِ آن‌ شدن، عبور کن."
+    },
+    {
+      "en": "Then <b>position</b> against a familiar category, lock in a trusted <b>channel</b>, and roll from niche to niche like bowling pins.",
+      "fa": "بعد در برابرِ یک دستهٔ آشنا <b>جایگاه</b> بگیر، یک <b>کانالِ</b> مورد‌اعتماد قفل کن، و مثلِ میله‌های بولینگ از گوشه‌ای به گوشهٔ بعدی بغلت."
+    }
+  ],
+  "parts": [
+    {
+      "key": "lifecycle",
+      "varc": "--c-teal",
+      "name": {
+        "en": "The Adoption Life Cycle",
+        "fa": "چرخهٔ پذیرشِ فناوری"
+      },
+      "tag": {
+        "en": "Who adopts, and when",
+        "fa": "چه کسی می‌پذیرد، و کِی"
+      },
+      "gist": {
+        "en": "Five groups adopt any new technology in sequence — from techies to laggards.",
+        "fa": "هر فناوریِ تازه را پنج گروه به‌ترتیب می‌پذیرند — از فن‌بازها تا کندروها."
+      },
+      "more": {
+        "en": "Every disruptive technology is adopted along a bell curve, one group at a time: innovators, early adopters, early majority, late majority, and laggards. Each group has its own reason to buy — and each takes its cue from the group before it. Understand who's who and you can see exactly where your product is stuck.",
+        "fa": "هر فناوریِ برهم‌زننده روی یک منحنیِ زنگوله‌ای پذیرفته می‌شود، هر بار یک گروه: نوآوران، پذیرندگانِ نخست، اکثریتِ نخست، اکثریتِ پسین، و کندروها. هر گروه دلیلِ خودش را برای خرید دارد — و هرکدام از گروهِ قبلی‌اش الگو می‌گیرد. بفهمی کی کیست، دقیقاً می‌بینی محصولت کجا گیر کرده."
+      },
+      "chapters": [
+        "innovators",
+        "visionaries",
+        "pragmatists",
+        "conservatives"
+      ]
+    },
+    {
+      "key": "chasm",
+      "varc": "--c-blue",
+      "name": {
+        "en": "The Chasm",
+        "fa": "شکاف"
+      },
+      "tag": {
+        "en": "Where startups die",
+        "fa": "جایی که استارتاپ‌ها می‌میرند"
+      },
+      "gist": {
+        "en": "A deep gap sits between the visionaries and the pragmatists — and most products fall in.",
+        "fa": "یک شکافِ عمیق بینِ آرمان‌گراها و عمل‌گراها هست — و بیشترِ محصول‌ها تویش می‌افتند."
+      },
+      "more": {
+        "en": "Between the early adopters who love new tech and the early majority who just want their problem solved lies a chasm. The two groups don't talk to each other, so the enthusiasm of visionaries buys you nothing with pragmatists. Sales stall, references don't transfer, and the company that was flying suddenly can't find a next customer.",
+        "fa": "بینِ پذیرندگانِ نخست که عاشقِ فناوریِ تازه‌اند و اکثریتِ نخست که فقط می‌خواهند مشکلشان حل شود، یک شکاف هست. این دو گروه با هم حرف نمی‌زنند، برای همین هیجانِ آرمان‌گراها برایت پیشِ عمل‌گراها هیچ نمی‌خرد. فروش می‌خوابد، مرجع‌ها منتقل نمی‌شوند، و شرکتی که داشت پرواز می‌کرد ناگهان نمی‌تواند مشتریِ بعدی پیدا کند."
+      },
+      "chapters": [
+        "thechasm",
+        "references",
+        "pragmatistbuy"
+      ]
+    },
+    {
+      "key": "beachhead",
+      "varc": "--c-amber",
+      "name": {
+        "en": "Target the Beachhead",
+        "fa": "سرِپل را هدف بگیر"
+      },
+      "tag": {
+        "en": "Win one niche first",
+        "fa": "اول یک گوشه را ببر"
+      },
+      "gist": {
+        "en": "Cross by attacking one narrow segment you can dominate — like D-Day.",
+        "fa": "با حمله به یک بخشِ باریک که می‌توانی رویش مسلط شوی عبور کن — مثلِ روزِ دی."
+      },
+      "more": {
+        "en": "You cross the chasm the way the Allies took Normandy: concentrate everything on a single beachhead. Pick one narrow segment with a compelling reason to buy, pour all your force there, and win it completely — because a niche you dominate gives you the pragmatist references that open the next one.",
+        "fa": "شکاف را همان‌طور عبور می‌کنی که متفقین نُرماندی را گرفتند: همه‌چیز را روی یک سرِپلِ واحد متمرکز کن. یک بخشِ باریک با یک دلیلِ محکم برای خرید انتخاب کن، همهٔ نیرویت را آنجا بریز، و کاملش را ببر — چون گوشه‌ای که قبضه‌اش کنی، همان مرجع‌های عمل‌گرایی را می‌دهد که گوشهٔ بعدی را باز می‌کنند."
+      },
+      "chapters": [
+        "dday",
+        "niche",
+        "scenarios"
+      ]
+    },
+    {
+      "key": "wholeproduct",
+      "varc": "--c-violet",
+      "name": {
+        "en": "The Whole Product",
+        "fa": "محصولِ کامل"
+      },
+      "tag": {
+        "en": "Solve it end to end",
+        "fa": "کامل حلش کن"
+      },
+      "gist": {
+        "en": "Pragmatists buy a complete solution, not a clever product — so assemble one.",
+        "fa": "عمل‌گراها یک راه‌حلِ کامل می‌خرند، نه یک محصولِ زیرک — پس یکی سرِ هم کن."
+      },
+      "more": {
+        "en": "Your product is only the core; the pragmatist wants everything needed to solve the problem for real — training, support, integrations, partners. The gap between what you ship and what they need is the whole-product gap. Fill it, usually with allies, and you become the safe, complete choice.",
+        "fa": "محصولت فقط هسته است؛ عمل‌گرا هرچه را که برای حلِ واقعیِ مشکل لازم است می‌خواهد — آموزش، پشتیبانی، یکپارچه‌سازی، شریک. فاصلهٔ بینِ آنچه تحویل می‌دهی و آنچه لازم دارند، فاصلهٔ محصولِ کامل است. پُرش کن، معمولاً با هم‌پیمان‌ها، تا انتخابِ امن و کامل بشوی."
+      },
+      "chapters": [
+        "wholeprod",
+        "partners",
+        "solution"
+      ]
+    },
+    {
+      "key": "gtm",
+      "varc": "--c-green",
+      "name": {
+        "en": "Positioning & Go-to-Market",
+        "fa": "جایگاه‌سازی و ورود به بازار"
+      },
+      "tag": {
+        "en": "Become the obvious choice",
+        "fa": "تبدیل شو به انتخابِ بدیهی"
+      },
+      "gist": {
+        "en": "Create the competition, price for the channel, and lead your niche.",
+        "fa": "رقابت را بساز، برای کانال قیمت بگذار، و در گوشه‌ات رهبر شو."
+      },
+      "more": {
+        "en": "To a pragmatist, a product with no competitors is a product with no market. So position yourself on a map of familiar alternatives, secure a distribution channel they trust, price to signal market leadership and motivate that channel — and then actually become the leader of your niche.",
+        "fa": "برای یک عمل‌گرا، محصولی که رقیب ندارد یعنی محصولی که بازار ندارد. پس خودت را روی نقشه‌ای از بدیل‌های آشنا بگذار، یک کانالِ توزیع که به آن اعتماد دارند جور کن، طوری قیمت بگذار که نشانهٔ رهبریِ بازار باشد و آن کانال را باانگیزه کند — و بعد واقعاً رهبرِ گوشه‌ات شو."
+      },
+      "chapters": [
+        "positioning",
+        "distribution",
+        "leader"
+      ]
+    }
+  ],
+  "chapters": {
+    "innovators": {
+      "part": "lifecycle",
+      "n": 1,
+      "name": {
+        "en": "Innovators — Techies",
+        "fa": "نوآوران — فن‌بازها"
+      },
+      "glabel": {
+        "en": "Innovators",
+        "fa": "نوآوران"
+      },
+      "principle": {
+        "en": "Innovators, the technology enthusiasts, chase new tech for its own sake and will forgive rough edges.",
+        "fa": "نوآوران، همان شیفتگانِ فناوری، فناوریِ تازه را به‌خاطرِ خودش دنبال می‌کنند و از زبری‌هایش می‌گذرند."
+      },
+      "more": {
+        "en": "They're few in number but they matter: they're the first to try anything new, they'll tinker with a half-finished product, and their blessing tells everyone else the technology actually works. They don't have money or power, but they open the door.",
+        "fa": "تعدادشان کم است اما مهم‌اند: اولین کسانی‌اند که هر چیزِ تازه را امتحان می‌کنند، با یک محصولِ نیمه‌کاره ور می‌روند، و تأییدشان به بقیه می‌گوید که فناوری واقعاً کار می‌کند. پول و قدرت ندارند، اما در را باز می‌کنند."
+      },
+      "example": {
+        "en": "The engineer who installs a beta tool over the weekend just to see how it works is your innovator.",
+        "fa": "همان مهندسی که آخرِ هفته یک ابزارِ بتا را نصب می‌کند فقط ببیند چطور کار می‌کند، نوآورِ توست."
+      },
+      "tip": {
+        "en": "Win a few techies early — their thumbs-up de-risks the product for everyone after them.",
+        "fa": "چند فن‌باز را زود با خودت همراه کن — تأییدشان محصول را برای همهٔ بعدی‌ها کم‌ریسک می‌کند."
+      },
+      "pitfall": {
+        "en": "Mistaking techie excitement for a real market — they buy ones and twos, not at scale.",
+        "fa": "هیجانِ فن‌بازها را با یک بازارِ واقعی اشتباه‌گرفتن — آن‌ها یکی‌دوتا می‌خرند، نه در مقیاس."
+      }
+    },
+    "visionaries": {
+      "part": "lifecycle",
+      "n": 2,
+      "name": {
+        "en": "Early Adopters — Visionaries",
+        "fa": "پذیرندگانِ نخست — آرمان‌گراها"
+      },
+      "glabel": {
+        "en": "Visionaries",
+        "fa": "آرمان‌گراها"
+      },
+      "principle": {
+        "en": "Visionaries buy a dream: they want a breakthrough that gives them a big strategic leap, not a small improvement.",
+        "fa": "آرمان‌گراها یک رؤیا می‌خرند: دنبالِ یک جهشِ بزرگِ راهبردی‌اند، نه یک بهبودِ کوچک."
+      },
+      "more": {
+        "en": "Early adopters aren't technologists, but they can imagine what a new technology makes possible. They'll take a big risk and pay a premium for a project that puts them ahead of everyone else — which makes them your first real money and your first reference customers.",
+        "fa": "پذیرندگانِ نخست فن‌آدم نیستند، اما می‌توانند تصور کنند یک فناوریِ تازه چه چیزی را ممکن می‌کند. حاضرند ریسکِ بزرگ کنند و گران بپردازند برای پروژه‌ای که آن‌ها را از همه جلو می‌اندازد — و همین‌ها اولین پولِ واقعی و اولین مشتری‌های مرجعِ تو می‌شوند."
+      },
+      "example": {
+        "en": "An exec who bankrolls a custom project to leapfrog rivals — betting big on a not-yet-proven product — is a visionary.",
+        "fa": "مدیری که پولِ یک پروژهٔ سفارشی را می‌دهد تا از رقبا جلو بزند — و روی محصولی هنوز اثبات‌نشده شرطِ بزرگ می‌بندد — یک آرمان‌گراست."
+      },
+      "tip": {
+        "en": "Sell visionaries the dream and a project, but keep each deal deliverable — don't drown in custom work.",
+        "fa": "به آرمان‌گراها رؤیا و پروژه بفروش، اما هر قرارداد را قابلِ‌تحویل نگه دار — در کارِ سفارشی غرق نشو."
+      },
+      "pitfall": {
+        "en": "Letting visionaries' endless custom demands pull you away from a repeatable product.",
+        "fa": "گذاشتن اینکه خواسته‌های سفارشیِ بی‌پایانِ آرمان‌گراها تو را از یک محصولِ تکرارپذیر دور کند."
+      }
+    },
+    "pragmatists": {
+      "part": "lifecycle",
+      "n": 3,
+      "name": {
+        "en": "Early Majority — Pragmatists",
+        "fa": "اکثریتِ نخست — عمل‌گراها"
+      },
+      "glabel": {
+        "en": "Pragmatists",
+        "fa": "عمل‌گراها"
+      },
+      "principle": {
+        "en": "Pragmatists want evolution, not revolution — a proven productivity gain that won't blow up in their face.",
+        "fa": "عمل‌گراها تکامل می‌خواهند، نه انقلاب — یک بهرهٔ اثبات‌شده که تویِ صورتشان منفجر نشود."
+      },
+      "more": {
+        "en": "The early majority is the big, profitable heart of the market. They're cautious: they wait for proof, buy from established leaders, ask their peers, and hate being anyone's guinea pig. Win them and you own the mainstream — but they won't move until they trust you.",
+        "fa": "اکثریتِ نخست، قلبِ بزرگ و پرسودِ بازار است. محتاط‌اند: منتظرِ دلیل و مدرک می‌مانند، از رهبرهای جاافتاده می‌خرند، از هم‌قطارهایشان می‌پرسند، و بدشان می‌آید موشِ آزمایشگاهیِ کسی باشند. اگر ببری‌شان، بدنهٔ اصلیِ بازار مالِ توست — اما تا به تو اعتماد نکنند تکان نمی‌خورند."
+      },
+      "example": {
+        "en": "They want evolution, not revolution: a team that adopts a tool only after two competitors already rely on it.",
+        "fa": "تکامل می‌خواهند نه انقلاب: تیمی که یک ابزار را فقط وقتی می‌پذیرد که دو رقیب از قبل به آن تکیه کرده‌اند."
+      },
+      "tip": {
+        "en": "Give pragmatists proof, peers, and a complete solution — reassurance beats novelty every time.",
+        "fa": "به عمل‌گراها مدرک، هم‌قطار، و یک راه‌حلِ کامل بده — دلگرمی همیشه از تازگی می‌بَرَد."
+      },
+      "pitfall": {
+        "en": "Pitching pragmatists like visionaries — hyping a revolution they specifically don't want.",
+        "fa": "با عمل‌گراها مثلِ آرمان‌گراها حرف‌زدن — هیاهو برای انقلابی که دقیقاً نمی‌خواهندش."
+      }
+    },
+    "conservatives": {
+      "part": "lifecycle",
+      "n": 4,
+      "name": {
+        "en": "Late Majority & Laggards",
+        "fa": "اکثریتِ پسین و کندروها"
+      },
+      "glabel": {
+        "en": "Late & Skeptics",
+        "fa": "پسین‌ها و شکاکان"
+      },
+      "principle": {
+        "en": "The late majority adopt only once tech is a cheap, safe standard; laggards resist to the end.",
+        "fa": "اکثریتِ پسین فقط وقتی می‌پذیرند که فناوری یک استانداردِ ارزان و بی‌خطر شده باشد؛ کندروها تا آخر مقاومت می‌کنند."
+      },
+      "more": {
+        "en": "Conservatives buy when not buying becomes the bigger risk — they want everything preassembled, cheap, and idiot-proof. Laggards, the skeptics, buy only when the technology is buried invisibly inside something else. They're the tail of the curve, not where you start.",
+        "fa": "محافظه‌کارها وقتی می‌خرند که نخریدن ریسکِ بزرگ‌تری شده باشد — همه‌چیز را از پیش‌سرِهم‌شده، ارزان و بی‌دردسر می‌خواهند. کندروها، همان شکاکان، فقط وقتی می‌خرند که فناوری نامرئی توی چیزِ دیگری دفن شده باشد. این‌ها دُمِ منحنی‌اند، نه جایی که شروع می‌کنی."
+      },
+      "example": {
+        "en": "The buyer who adopts a technology only when it's built silently into a product they already trust is a laggard.",
+        "fa": "خریداری که یک فناوری را فقط وقتی می‌پذیرد که بی‌سروصدا توی محصولی که از قبل به آن اعتماد دارد کار گذاشته شده، کندروست."
+      },
+      "tip": {
+        "en": "Serve conservatives with simple, low-cost, whole-package versions once your niche is won.",
+        "fa": "وقتی گوشه‌ات را بردی، محافظه‌کارها را با نسخه‌های ساده، کم‌هزینه و بسته‌بندی‌کامل سرویس بده."
+      },
+      "pitfall": {
+        "en": "Chasing the cautious tail before you've earned the pragmatist core in the middle.",
+        "fa": "دنبالِ دُمِ محتاط رفتن، پیش از اینکه قلبِ عمل‌گرای وسط را به دست آورده باشی."
+      }
+    },
+    "thechasm": {
+      "part": "chasm",
+      "n": 5,
+      "name": {
+        "en": "The Chasm",
+        "fa": "شکاف"
+      },
+      "glabel": {
+        "en": "The Chasm",
+        "fa": "شکاف"
+      },
+      "principle": {
+        "en": "There's a deep gap between the early market and the mainstream — the point of greatest peril for a startup.",
+        "fa": "بینِ بازارِ نخستین و بازارِ اصلی یک شکافِ عمیق هست — خطرناک‌ترین نقطه برای یک استارتاپ."
+      },
+      "more": {
+        "en": "Early sales to enthusiasts and visionaries make it look like you've arrived. But visionaries and pragmatists want completely different things, so momentum dies right at the handoff. Revenue that was climbing suddenly flattens, and many companies burn out here, in the chasm, never reaching the big market.",
+        "fa": "فروشِ اولیه به شیفتگان و آرمان‌گراها این حس را می‌دهد که رسیده‌ای. اما آرمان‌گراها و عمل‌گراها دو چیزِ کاملاً متفاوت می‌خواهند، برای همین درست سرِ همین تحویل، شتاب می‌میرد. درآمدی که داشت بالا می‌رفت ناگهان صاف می‌شود، و خیلی شرکت‌ها همین‌جا، توی شکاف، می‌سوزند و هیچ‌وقت به بازارِ بزرگ نمی‌رسند."
+      },
+      "example": {
+        "en": "A hot startup wows a few visionary clients, then stalls for a year unable to land a single ordinary buyer — that's the chasm.",
+        "fa": "یک استارتاپِ داغ چند مشتریِ آرمان‌گرا را شگفت‌زده می‌کند، بعد یک سالِ تمام گیر می‌کند و نمی‌تواند حتی یک خریدارِ معمولی جذب کند — این همان شکاف است."
+      },
+      "tip": {
+        "en": "Treat the jump to the mainstream as a different game, not just more of the same selling.",
+        "fa": "پرش به بازارِ اصلی را یک بازیِ متفاوت بدان، نه فقط ادامهٔ همان فروشِ قبلی."
+      },
+      "pitfall": {
+        "en": "Reading early-market buzz as proof you've already made it.",
+        "fa": "سروصدای بازارِ نخستین را دلیلِ اینکه از قبل موفق شده‌ای خواندن."
+      }
+    },
+    "references": {
+      "part": "chasm",
+      "n": 6,
+      "name": {
+        "en": "References Don't Transfer",
+        "fa": "مرجع‌ها منتقل نمی‌شوند"
+      },
+      "glabel": {
+        "en": "References",
+        "fa": "مرجع‌ها"
+      },
+      "principle": {
+        "en": "Pragmatists only trust references from other pragmatists — so a visionary's rave means nothing to them.",
+        "fa": "عمل‌گراها فقط به مرجعِ عمل‌گراهای دیگر اعتماد می‌کنند — پس تعریفِ یک آرمان‌گرا برایشان هیچ ارزشی ندارد."
+      },
+      "more": {
+        "en": "Word of mouth is everything in the mainstream, but it only flows between people who see each other as peers. Visionaries and pragmatists don't reference each other — a pragmatist buyer wants to hear from someone in the same industry, with the same caution, who already made it work.",
+        "fa": "در بازارِ اصلی، حرفِ دهان‌به‌دهان همه‌چیز است، اما فقط بینِ آدم‌هایی جاری می‌شود که همدیگر را هم‌قطار می‌بینند. آرمان‌گراها و عمل‌گراها مرجعِ هم نیستند — خریدارِ عمل‌گرا می‌خواهد از کسی بشنود در همان صنعت، با همان احتیاط، که از قبل جواب گرفته."
+      },
+      "example": {
+        "en": "A cautious bank won't be swayed by a flashy startup's success; it wants to hear from another cautious bank.",
+        "fa": "یک بانکِ محتاط با موفقیتِ یک استارتاپِ پرزرق‌وبرق قانع نمی‌شود؛ می‌خواهد از یک بانکِ محتاطِ دیگر بشنود."
+      },
+      "tip": {
+        "en": "Build a cluster of reference customers inside one segment so they can vouch to each other.",
+        "fa": "یک خوشه از مشتری‌های مرجع درونِ یک بخش بساز تا بتوانند برای هم ضمانت کنند."
+      },
+      "pitfall": {
+        "en": "Expecting glowing early-adopter logos to convince a risk-averse mainstream buyer.",
+        "fa": "انتظارِ اینکه لوگوهای درخشانِ پذیرندگانِ نخست، یک خریدارِ ریسک‌گریزِ بازارِ اصلی را قانع کند."
+      }
+    },
+    "pragmatistbuy": {
+      "part": "chasm",
+      "n": 7,
+      "name": {
+        "en": "How Pragmatists Buy",
+        "fa": "عمل‌گراها چطور می‌خرند"
+      },
+      "glabel": {
+        "en": "Pragmatist Buying",
+        "fa": "خریدِ عمل‌گرا"
+      },
+      "principle": {
+        "en": "Pragmatists buy the whole package: the vendor, the product's quality, the ecosystem, and reliable support.",
+        "fa": "عمل‌گراها کلِ بسته را می‌خرند: خودِ فروشنده، کیفیتِ محصول، زیست‌بومِ پیرامونش، و پشتیبانیِ قابلِ‌اتکا."
+      },
+      "more": {
+        "en": "When a pragmatist buys, price isn't the first question — safety is. They weigh whether you'll still be around, whether the product is solid, whether other tools work with it, and whether help is there when things break. That's why they gravitate to the market leader: it's the low-risk choice.",
+        "fa": "وقتی یک عمل‌گرا می‌خرد، اولین سؤالش قیمت نیست — امنیت است. می‌سنجد که آیا فردا هنوز هستی، آیا محصول محکم است، آیا ابزارهای دیگر با آن کار می‌کنند، و آیا وقتِ خراب‌شدن، کمک هست. برای همین به‌سمتِ رهبرِ بازار کشیده می‌شود: کم‌ریسک‌ترین انتخاب است."
+      },
+      "example": {
+        "en": "Two similar tools, and the pragmatist picks the market leader — because the safe choice beats the clever one.",
+        "fa": "دو ابزارِ شبیهِ هم، و عمل‌گرا رهبرِ بازار را انتخاب می‌کند — چون انتخابِ امن از انتخابِ زیرک می‌بَرَد."
+      },
+      "tip": {
+        "en": "Sell trust, completeness, and staying power — not just features and cleverness.",
+        "fa": "اعتماد، کامل‌بودن و ماندگاری بفروش — نه فقط قابلیت و زیرکی."
+      },
+      "pitfall": {
+        "en": "Competing on raw features while ignoring the safety signals pragmatists actually weigh.",
+        "fa": "رقابت روی قابلیت‌های خام، درحالی‌که نشانه‌های امنیتی‌ای را که عمل‌گراها واقعاً می‌سنجند نادیده می‌گیری."
+      }
+    },
+    "dday": {
+      "part": "beachhead",
+      "n": 8,
+      "name": {
+        "en": "The D-Day Strategy",
+        "fa": "راهبردِ روزِ دی"
+      },
+      "glabel": {
+        "en": "D-Day",
+        "fa": "روزِ دی"
+      },
+      "principle": {
+        "en": "Cross the chasm the way the Allies invaded Normandy: concentrate all your force on one narrow point.",
+        "fa": "شکاف را همان‌طور عبور کن که متفقین به نُرماندی حمله کردند: همهٔ نیرویت را روی یک نقطهٔ باریک متمرکز کن."
+      },
+      "more": {
+        "en": "You don't have the resources to attack the whole mainstream at once. So pick one target segment as your beachhead, throw everything at it, and take it completely. A total win in one small place is worth far more than a thin presence everywhere.",
+        "fa": "منابعِ حمله به کلِ بازارِ اصلی را یک‌جا نداری. پس یک بخش را به‌عنوانِ سرِپلت انتخاب کن، همه‌چیز را رویش بریز، و کاملش را بگیر. یک بُردِ تمام‌وکمال در یک جای کوچک، خیلی بیشتر از یک حضورِ نازک در همه‌جا می‌ارزد."
+      },
+      "example": {
+        "en": "Like landing at one stretch of beach instead of the whole coastline, you overwhelm a single segment rather than spreading thin.",
+        "fa": "مثلِ فرود روی یک تکه ساحل به‌جای کلِ خطِ ساحلی، یک بخشِ واحد را قُبضه می‌کنی، نه اینکه نازک پخش شوی."
+      },
+      "tip": {
+        "en": "Concentrate your whole team, budget, and message on one winnable segment until you own it.",
+        "fa": "کلِ تیم، بودجه و پیامت را روی یک بخشِ بردنی متمرکز کن تا وقتی مالکش شوی."
+      },
+      "pitfall": {
+        "en": "Spreading a small force across many segments and being decisive in none.",
+        "fa": "پخش‌کردنِ یک نیروی کوچک روی چند بخش و قاطع‌نبودن در هیچ‌کدام."
+      }
+    },
+    "niche": {
+      "part": "beachhead",
+      "n": 9,
+      "name": {
+        "en": "Dominate One Niche",
+        "fa": "یک گوشه را قبضه کن"
+      },
+      "glabel": {
+        "en": "Niche",
+        "fa": "گوشه"
+      },
+      "principle": {
+        "en": "Pick a single narrow segment with a compelling reason to buy — and aim to own 100% of it.",
+        "fa": "یک بخشِ باریکِ واحد با یک دلیلِ محکم برای خرید انتخاب کن — و هدفت این باشد که صددرصدش را داشته باشی."
+      },
+      "more": {
+        "en": "A niche small enough to dominate is the whole point: being the obvious leader for a specific customer with a burning problem. Big enough to matter, small enough to win, and connected enough that word spreads. Once you own it, it becomes the base camp for the next segment.",
+        "fa": "یک گوشهٔ آن‌قدر کوچک که بشود قبضه‌اش کرد، دقیقاً هدفِ کار است: رهبرِ بدیهی‌بودن برای یک مشتریِ مشخص با یک مشکلِ سوزان. آن‌قدر بزرگ که مهم باشد، آن‌قدر کوچک که بشود بُردش، و آن‌قدر به‌هم‌پیوسته که حرف پخش شود. وقتی مالکش شدی، اردوگاهِ پایه برای بخشِ بعدی می‌شود."
+      },
+      "example": {
+        "en": "Documentum won by owning regulatory document management at big pharma before touching any other market.",
+        "fa": "داکیومنتوم با قبضه‌کردنِ مدیریتِ اسنادِ مقرراتی در شرکت‌های داروییِ بزرگ برد، پیش از اینکه دستش به هر بازارِ دیگری بخورد."
+      },
+      "tip": {
+        "en": "Choose a segment so specific you could name the customers and the problem in one line.",
+        "fa": "بخشی را انتخاب کن آن‌قدر مشخص که بتوانی مشتری‌ها و مشکل را در یک خط نام ببری."
+      },
+      "pitfall": {
+        "en": "Picking a 'niche' so broad or vague you can never become its clear leader.",
+        "fa": "انتخابِ یک «گوشهٔ»‌ آن‌قدر گسترده یا مبهم که هیچ‌وقت نتوانی رهبرِ روشنش شوی."
+      }
+    },
+    "scenarios": {
+      "part": "beachhead",
+      "n": 10,
+      "name": {
+        "en": "Target-Customer Scenarios",
+        "fa": "سناریوهای مشتریِ هدف"
+      },
+      "glabel": {
+        "en": "Scenarios",
+        "fa": "سناریوها"
+      },
+      "principle": {
+        "en": "With little hard data, choose your beachhead using vivid target-customer scenarios and informed intuition.",
+        "fa": "وقتی دادهٔ محکم کم داری، سرِپلت را با سناریوهای زندهٔ مشتریِ هدف و شهودِ آگاهانه انتخاب کن."
+      },
+      "more": {
+        "en": "You rarely have real market research this early, so Moore says pick the segment with a story, not a spreadsheet. Write a concrete scenario — a specific person, their day, their problem, what they'd do with your product — and score candidates on it. It turns a guess into a disciplined choice.",
+        "fa": "این‌قدر زود معمولاً پژوهشِ بازارِ واقعی نداری، برای همین مور می‌گوید بخش را با یک قصه انتخاب کن، نه با یک جدول. یک سناریوی ملموس بنویس — یک آدمِ مشخص، روزش، مشکلش، اینکه با محصولِ تو چه می‌کند — و گزینه‌ها را رویش امتیاز بده. این کار یک حدس را به یک انتخابِ منضبط تبدیل می‌کند."
+      },
+      "example": {
+        "en": "Sketch a day in the life of one target user, then rank each candidate segment on how urgently that scenario needs you.",
+        "fa": "یک روز از زندگیِ یک کاربرِ هدف را ترسیم کن، بعد هر بخشِ کاندیدا را بر اساسِ اینکه آن سناریو چقدر فوری به تو نیاز دارد رتبه بده."
+      },
+      "tip": {
+        "en": "Rate each candidate segment on the customer's pain, reachability, and whole-product fit.",
+        "fa": "هر بخشِ کاندیدا را بر اساسِ دردِ مشتری، دسترس‌پذیری و جورِ‌شدن با محصولِ کامل امتیاز بده."
+      },
+      "pitfall": {
+        "en": "Waiting for perfect data instead of committing to one segment on informed judgment.",
+        "fa": "منتظرِ دادهٔ بی‌نقص ماندن، به‌جای اینکه با قضاوتِ آگاهانه به یک بخش متعهد شوی."
+      }
+    },
+    "wholeprod": {
+      "part": "wholeproduct",
+      "n": 11,
+      "name": {
+        "en": "The Whole Product",
+        "fa": "محصولِ کامل"
+      },
+      "glabel": {
+        "en": "Whole Product",
+        "fa": "محصولِ کامل"
+      },
+      "principle": {
+        "en": "The whole product is everything a customer needs to fully solve their problem — not just your core product.",
+        "fa": "محصولِ کامل یعنی هرچه مشتری برای حلِ کاملِ مشکلش لازم دارد — نه فقط محصولِ هستهٔ تو."
+      },
+      "more": {
+        "en": "There's a gap between the generic product you sell and the complete solution the customer actually needs: setup, training, integrations, add-ons, support. Visionaries will fill that gap themselves; pragmatists won't. To cross, you must close the whole-product gap for your one target segment.",
+        "fa": "بینِ محصولِ عمومی‌ای که می‌فروشی و راه‌حلِ کاملی که مشتری واقعاً لازم دارد یک فاصله هست: راه‌اندازی، آموزش، یکپارچه‌سازی، افزودنی‌ها، پشتیبانی. آرمان‌گراها این فاصله را خودشان پُر می‌کنند؛ عمل‌گراها نه. برای عبور، باید فاصلهٔ محصولِ کامل را برای همان یک بخشِ هدفت ببندی."
+      },
+      "example": {
+        "en": "An operating system alone is useless; the whole product is the OS plus apps, drivers, and support that make it work.",
+        "fa": "یک سیستم‌عامل به‌تنهایی بی‌فایده است؛ محصولِ کامل یعنی همان سیستم‌عامل به‌علاوهٔ برنامه‌ها، راه‌اندازها و پشتیبانی‌ای که کارش می‌اندازد."
+      },
+      "tip": {
+        "en": "List everything your target customer needs to succeed, then find who supplies each missing piece.",
+        "fa": "هرچه مشتریِ هدفت برای موفق‌شدن لازم دارد را فهرست کن، بعد پیدا کن هر تکهٔ گم‌شده را چه کسی می‌دهد."
+      },
+      "pitfall": {
+        "en": "Assuming a great core product sells itself, and leaving the customer to assemble the rest.",
+        "fa": "فرضِ اینکه یک محصولِ هستهٔ عالی خودش خودش را می‌فروشد، و رهاکردنِ مشتری که بقیه‌اش را خودش سرِ هم کند."
+      }
+    },
+    "partners": {
+      "part": "wholeproduct",
+      "n": 12,
+      "name": {
+        "en": "Partners & Allies",
+        "fa": "شریک‌ها و هم‌پیمان‌ها"
+      },
+      "glabel": {
+        "en": "Partners",
+        "fa": "شریک‌ها"
+      },
+      "principle": {
+        "en": "You can't build the whole product alone — recruit partners and allies to complete the solution.",
+        "fa": "محصولِ کامل را تنها نمی‌توانی بسازی — شریک و هم‌پیمان جذب کن تا راه‌حل را کامل کنند."
+      },
+      "more": {
+        "en": "The missing pieces — integrations, services, complementary tools — are often best supplied by others. Build tactical alliances aimed squarely at delivering the whole product for your target segment, so the customer sees one complete, working solution instead of a pile of parts to assemble.",
+        "fa": "تکه‌های گم‌شده — یکپارچه‌سازی‌ها، خدمات، ابزارهای مکمل — را اغلب بهتر است دیگران بدهند. هم‌پیمانی‌های تاکتیکی بساز که دقیقاً هدفشان تحویلِ محصولِ کامل برای بخشِ هدفت باشد، تا مشتری یک راه‌حلِ کاملِ کارکن ببیند، نه تلنباری از قطعه که باید خودش سرِ هم کند."
+      },
+      "example": {
+        "en": "A software vendor lines up integration and consulting partners so buyers get a turnkey system, not homework.",
+        "fa": "یک فروشندهٔ نرم‌افزار، شریک‌های یکپارچه‌سازی و مشاوره ردیف می‌کند تا خریدارها یک سیستمِ کلیدْدردست بگیرند، نه یک مشقِ شب."
+      },
+      "tip": {
+        "en": "Form alliances whose only job is to fill the specific whole-product gaps for your niche.",
+        "fa": "هم‌پیمانی‌هایی بساز که تنها کارشان پُرکردنِ همان فاصله‌های مشخصِ محصولِ کامل برای گوشهٔ توست."
+      },
+      "pitfall": {
+        "en": "Signing grand partnerships that don't actually close a real gap for the target customer.",
+        "fa": "بستنِ شراکت‌های پرطمطراق که در واقع هیچ فاصلهٔ واقعی‌ای را برای مشتریِ هدف نمی‌بندند."
+      }
+    },
+    "solution": {
+      "part": "wholeproduct",
+      "n": 13,
+      "name": {
+        "en": "Sell the Complete Solution",
+        "fa": "راه‌حلِ کامل را بفروش"
+      },
+      "glabel": {
+        "en": "Complete Solution",
+        "fa": "راه‌حلِ کامل"
+      },
+      "principle": {
+        "en": "Pragmatists buy a solution to their whole problem, so commit to delivering 100% of it for one use case.",
+        "fa": "عمل‌گراها راه‌حلِ کلِ مشکلشان را می‌خرند، پس متعهد شو که صددرصدش را برای یک کاربردِ مشخص تحویل بدهی."
+      },
+      "more": {
+        "en": "Because a niche is small, you can afford to solve its problem completely — end to end, done for them. That total, dependable solution is exactly what earns pragmatist trust and word of mouth. Trying to be 80% of the solution for everyone leaves every segment unconvinced.",
+        "fa": "چون گوشه کوچک است، می‌توانی از پسِ حلِ کاملِ مشکلش برآیی — از سر تا ته، انجام‌شده برایشان. همین راه‌حلِ کامل و قابلِ‌اتکاست که اعتماد و حرفِ دهان‌به‌دهانِ عمل‌گراها را می‌خرد. تلاش برای اینکه هشتاددرصدِ راه‌حلِ همه باشی، همهٔ بخش‌ها را ناقانع رها می‌کند."
+      },
+      "example": {
+        "en": "Solving 100% of one narrow workflow beats solving 80% of ten — the narrow, complete win is the one pragmatists trust.",
+        "fa": "حلِ صددرصدِ یک جریانِ کاریِ باریک از حلِ هشتاددرصدِ دَه‌تا بهتر است — همان بُردِ باریک و کامل است که عمل‌گراها به آن اعتماد می‌کنند."
+      },
+      "tip": {
+        "en": "Define 'done' from the customer's side and deliver all of it, even the unglamorous parts.",
+        "fa": "«تمام‌شده» را از سمتِ مشتری تعریف کن و همه‌اش را تحویل بده، حتی تکه‌های بی‌زرق‌وبرقش."
+      },
+      "pitfall": {
+        "en": "Shipping a partial solution and expecting the pragmatist to finish the job.",
+        "fa": "تحویلِ یک راه‌حلِ ناقص و انتظارِ اینکه عمل‌گرا خودش کار را تمام کند."
+      }
+    },
+    "positioning": {
+      "part": "gtm",
+      "n": 14,
+      "name": {
+        "en": "Create the Competition",
+        "fa": "رقابت را بساز"
+      },
+      "glabel": {
+        "en": "Positioning",
+        "fa": "جایگاه‌سازی"
+      },
+      "principle": {
+        "en": "Position yourself by naming the competition — pragmatists distrust a product with no alternatives.",
+        "fa": "با نام‌بردنِ رقابت، جایگاهت را بساز — عمل‌گراها به محصولی که هیچ بدیلی ندارد بی‌اعتمادند."
+      },
+      "more": {
+        "en": "To a pragmatist, 'no competitors' means 'no market yet.' So place yourself on a map of familiar categories: a market alternative they'll shift budget from, and a product alternative that shares your new approach. That context lets them understand, compare, and safely choose you.",
+        "fa": "برای یک عمل‌گرا، «بی‌رقیب» یعنی «هنوز بازاری نیست». پس خودت را روی نقشه‌ای از دسته‌های آشنا بگذار: یک بدیلِ بازار که بودجه را از آن جابه‌جا می‌کنی، و یک بدیلِ محصول که رویکردِ تازه‌ات را با تو شریک است. همین زمینه به آن‌ها اجازه می‌دهد بفهمند، مقایسه کنند، و با خیالِ راحت تو را انتخاب کنند."
+      },
+      "example": {
+        "en": "Framing a new tool as 'the safer alternative to the spreadsheet everyone hates' instantly makes it understandable and comparable.",
+        "fa": "معرفیِ یک ابزارِ تازه به‌عنوانِ «بدیلِ امن‌ترِ همان اکسلی که همه ازش بیزارند» بلافاصله فهمیدنی و مقایسه‌پذیرش می‌کند."
+      },
+      "tip": {
+        "en": "Craft a one-line claim: for whom, the category, the key benefit, and versus what.",
+        "fa": "یک ادعای یک‌خطی بساز: برای چه کسی، در چه دسته‌ای، با چه فایدهٔ اصلی، و در برابرِ چه چیزی."
+      },
+      "pitfall": {
+        "en": "Boasting you have no competition — which reads as 'no proven market' to a pragmatist.",
+        "fa": "پُز دادن که رقیب نداری — که برای عمل‌گرا یعنی «بازارِ اثبات‌شده‌ای نیست»."
+      }
+    },
+    "distribution": {
+      "part": "gtm",
+      "n": 15,
+      "name": {
+        "en": "Distribution & Pricing",
+        "fa": "توزیع و قیمت‌گذاری"
+      },
+      "glabel": {
+        "en": "Channel & Price",
+        "fa": "کانال و قیمت"
+      },
+      "principle": {
+        "en": "Securing a distribution channel the pragmatist trusts is the number-one goal; price to feed that channel.",
+        "fa": "جورکردنِ یک کانالِ توزیع که عمل‌گرا به آن اعتماد دارد، هدفِ شمارهٔ یک است؛ قیمت را طوری بگذار که آن کانال را تغذیه کند."
+      },
+      "more": {
+        "en": "Moore is blunt: when crossing, getting a channel into the mainstream comes before revenue, profit, even press. Pick the channel your target customer already uses to buy this kind of thing, and set a price that both signals market leadership and leaves the channel well-motivated to sell you.",
+        "fa": "مور رُک می‌گوید: هنگامِ عبور، جورکردنِ یک کانال به بازارِ اصلی، مقدم بر درآمد و سود و حتی سروصدای رسانه‌ای است. کانالی را انتخاب کن که مشتریِ هدفت از قبل برای خریدِ این‌جور چیزها به کار می‌برد، و قیمتی بگذار که هم نشانهٔ رهبریِ بازار باشد و هم کانال را خوب برای فروختنت باانگیزه نگه دارد."
+      },
+      "example": {
+        "en": "Setting a confident, market-leader price — and rewarding the channel well — matters more early on than squeezing maximum margin.",
+        "fa": "گذاشتنِ یک قیمتِ بااعتمادِ رهبرِ بازار — و پاداشِ خوب به کانال — در ابتدا مهم‌تر از فشردنِ بیشترین حاشیهٔ سود است."
+      },
+      "tip": {
+        "en": "Choose the channel your pragmatist already buys through, then price to keep it eager.",
+        "fa": "کانالی را انتخاب کن که عمل‌گرا از قبل از آن می‌خرد، بعد طوری قیمت بگذار که مشتاق بماند."
+      },
+      "pitfall": {
+        "en": "Chasing early revenue or fat margins while neglecting to lock in a trusted channel.",
+        "fa": "دنبالِ درآمدِ زودرس یا حاشیهٔ سودِ چاق رفتن، درحالی‌که جا‌انداختنِ یک کانالِ مورد‌اعتماد را غفلت می‌کنی."
+      }
+    },
+    "leader": {
+      "part": "gtm",
+      "n": 16,
+      "name": {
+        "en": "Be the Market Leader",
+        "fa": "رهبرِ بازار شو"
+      },
+      "glabel": {
+        "en": "Market Leader",
+        "fa": "رهبرِ بازار"
+      },
+      "principle": {
+        "en": "Win total leadership of your niche first — then use it as the launchpad into adjacent segments.",
+        "fa": "اول رهبریِ کاملِ گوشه‌ات را ببر — بعد از آن به‌عنوانِ سکوی پرتاب به بخش‌های همسایه استفاده کن."
+      },
+      "more": {
+        "en": "Pragmatists flock to the leader, so becoming the obvious number one in one small segment sets off a virtuous cycle: more references, more partners, more word of mouth. From that secure base you knock over the next adjacent segment, then the next — like bowling pins — until you lead the broader market.",
+        "fa": "عمل‌گراها دورِ رهبر جمع می‌شوند، پس تبدیل‌شدن به شمارهٔ یکِ بدیهی در یک بخشِ کوچک یک چرخهٔ خوب راه می‌اندازد: مرجعِ بیشتر، شریکِ بیشتر، حرفِ دهان‌به‌دهانِ بیشتر. از آن پایگاهِ امن، بخشِ همسایهٔ بعدی را می‌اندازی، بعد بعدی را — مثلِ میله‌های بولینگ — تا رهبرِ بازارِ گسترده‌تر شوی."
+      },
+      "example": {
+        "en": "Crossing the chasm is the beginning, not the end: dominate one segment, then bowl into the next with its references in hand.",
+        "fa": "عبور از شکاف آغاز است، نه پایان: بر یک بخش مسلط شو، بعد با مرجع‌هایش در دست، به بخشِ بعدی بزن."
+      },
+      "tip": {
+        "en": "Only expand once you're the undisputed leader where you are; carry those references forward.",
+        "fa": "فقط وقتی گسترش بده که در جای فعلی‌ات رهبرِ بی‌چون‌وچرا شده‌ای؛ آن مرجع‌ها را با خودت جلو ببر."
+      },
+      "pitfall": {
+        "en": "Racing into new segments before you've locked down leadership in the first one.",
+        "fa": "شتاب به بخش‌های تازه، پیش از اینکه رهبری را در اولی قفل کرده باشی."
+      }
+    }
+  },
+  "core": {
+    "name": {
+      "en": "CROSS THE CHASM",
+      "fa": "عبور از شکاف"
+    },
+    "principle": {
+      "en": "Between the early adopters who love new technology and the early majority who just want a safe, complete solution lies a chasm — and most startups die in it. You cross by concentrating everything on one niche you can dominate, delivering the whole product pragmatists need, and positioning yourself as the low-risk market leader there.",
+      "fa": "بینِ پذیرندگانِ نخست که عاشقِ فناوریِ تازه‌اند و اکثریتِ نخست که فقط یک راه‌حلِ امن و کامل می‌خواهند، یک شکاف هست — و بیشترِ استارتاپ‌ها تویش می‌میرند. عبور یعنی همه‌چیز را روی یک گوشه که می‌توانی قبضه‌اش کنی متمرکز کنی، محصولِ کاملی را که عمل‌گراها لازم دارند تحویل بدهی، و خودت را همان‌جا به‌عنوانِ رهبرِ کم‌ریسکِ بازار جا بیندازی."
+    },
+    "more": {
+      "en": "Moore maps the Technology Adoption Life Cycle — innovators, early adopters, early majority, late majority, laggards — and shows the fatal gap between the visionaries and the pragmatists. To cross it: attack a single beachhead segment like a D-Day invasion, assemble the whole product (often with partners) so the solution is complete, create the competition through positioning, secure a trusted distribution channel, and become the market leader of your niche before rolling into the next. The thread: focus utterly, then earn the pragmatist's trust.",
+      "fa": "مور چرخهٔ پذیرشِ فناوری را ترسیم می‌کند — نوآوران، پذیرندگانِ نخست، اکثریتِ نخست، اکثریتِ پسین، کندروها — و آن شکافِ کُشنده را بینِ آرمان‌گراها و عمل‌گراها نشان می‌دهد. برای عبور: مثلِ حملهٔ روزِ دی به یک سرِپلِ واحد بزن، محصولِ کامل را (اغلب با شریک‌ها) سرِ هم کن تا راه‌حل کامل شود، با جایگاه‌سازی رقابت را بساز، یک کانالِ توزیعِ مورد‌اعتماد جور کن، و پیش از رفتن به بخشِ بعدی، رهبرِ بازارِ گوشه‌ات شو. نخِ رابط: تمام‌وکمال تمرکز کن، بعد اعتمادِ عمل‌گرا را به دست بیاور."
+    },
+    "example": {
+      "en": "Click any node to read a principle or a method. You can also drag the nodes around.",
+      "fa": "روی هر دایره کلیک کن تا یک اصل یا روش را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."
+    }
+  },
+  "stages": [
+    {
+      "level": 1,
+      "badge": {
+        "en": "Level 1 · Over-simplified",
+        "fa": "سطحِ ۱ · خیلی ساده"
+      },
+      "title": {
+        "en": "Don't die in the gap",
+        "fa": "توی شکاف نمیر"
+      },
+      "tagline": {
+        "en": "The whole book in a sentence.",
+        "fa": "کلِ کتاب در یک جمله."
+      },
+      "body": {
+        "en": "Early fans love your new tech. The big, cautious market doesn't care about new — it wants a safe, finished solution. Between them is a chasm, and that's where most products die. Focus on one small group and win it completely.",
+        "fa": "طرفدارهای اولیه عاشقِ فناوریِ تازه‌ات‌اند. بازارِ بزرگ و محتاط اصلاً به «تازه» اهمیت نمی‌دهد — یک راه‌حلِ امن و تمام‌شده می‌خواهد. بینِ این دو یک شکاف است، و بیشترِ محصول‌ها همان‌جا می‌میرند. روی یک گروهِ کوچک تمرکز کن و کاملش را ببر."
+      },
+      "example": {
+        "en": "A buzzy startup with a dozen excited fans still can't sell to a single ordinary company — it's stuck in the chasm.",
+        "fa": "یک استارتاپِ سروصدادار با دوجین طرفدارِ هیجان‌زده، هنوز نمی‌تواند به یک شرکتِ معمولی هم بفروشد — توی شکاف گیر کرده."
+      },
+      "gain": {
+        "en": "You know the one trap that kills most tech startups.",
+        "fa": "همان یک تله‌ای را می‌شناسی که بیشترِ استارتاپ‌های فناوری را می‌کُشد."
+      }
+    },
+    {
+      "level": 2,
+      "badge": {
+        "en": "Level 2 · Simple",
+        "fa": "سطحِ ۲ · ساده"
+      },
+      "title": {
+        "en": "Know your five buyers",
+        "fa": "پنج خریدارت را بشناس"
+      },
+      "tagline": {
+        "en": "Innovators to laggards.",
+        "fa": "از نوآوران تا کندروها."
+      },
+      "body": {
+        "en": "Any new technology is adopted by five groups in order: <b>innovators</b> (techies), <b>early adopters</b> (visionaries after a big leap), <b>early majority</b> (pragmatists who want proof), <b>late majority</b> (conservatives who want it cheap and safe), and <b>laggards</b> (skeptics). The money is in the majority — but they buy completely differently from the enthusiasts.",
+        "fa": "هر فناوریِ تازه را پنج گروه به‌ترتیب می‌پذیرند: <b>نوآوران</b> (فن‌بازها)، <b>پذیرندگانِ نخست</b> (آرمان‌گراهایی که دنبالِ یک جهشِ بزرگ‌اند)، <b>اکثریتِ نخست</b> (عمل‌گراهایی که دلیل می‌خواهند)، <b>اکثریتِ پسین</b> (محافظه‌کارهایی که ارزان و امن می‌خواهند)، و <b>کندروها</b> (شکاکان). پول در اکثریت است — اما آن‌ها کاملاً جورِ دیگری از شیفتگان می‌خرند."
+      },
+      "example": {
+        "en": "The visionary buys a dream and takes risks; the pragmatist next door waits until two rivals already use it.",
+        "fa": "آرمان‌گرا یک رؤیا می‌خرد و ریسک می‌کند؛ عمل‌گرای بغل‌دستی صبر می‌کند تا دو رقیب از قبل از آن استفاده کنند."
+      },
+      "gain": {
+        "en": "You can tell which kind of customer you're actually talking to.",
+        "fa": "می‌توانی بگویی واقعاً با کدام نوع مشتری داری حرف می‌زنی."
+      }
+    },
+    {
+      "level": 3,
+      "badge": {
+        "en": "Level 3 · Balanced",
+        "fa": "سطحِ ۳ · متعادل"
+      },
+      "title": {
+        "en": "See the chasm",
+        "fa": "شکاف را ببین"
+      },
+      "tagline": {
+        "en": "Why references don't transfer.",
+        "fa": "چرا مرجع‌ها منتقل نمی‌شوند."
+      },
+      "body": {
+        "en": "The deadly gap is between the <b>visionaries</b> and the <b>pragmatists</b>. Pragmatists only trust references from other pragmatists, so all your early-adopter excitement counts for nothing with them. They want a proven, complete, low-risk solution and they buy from the market leader. Early buzz is not the same as a real market.",
+        "fa": "شکافِ کُشنده بینِ <b>آرمان‌گراها</b> و <b>عمل‌گراهاست</b>. عمل‌گراها فقط به مرجعِ عمل‌گراهای دیگر اعتماد می‌کنند، پس همهٔ هیجانِ پذیرندگانِ نخستت برایشان هیچ به‌حساب نمی‌آید. یک راه‌حلِ اثبات‌شده، کامل و کم‌ریسک می‌خواهند و از رهبرِ بازار می‌خرند. سروصدای اولیه با یک بازارِ واقعی یکی نیست."
+      },
+      "example": {
+        "en": "A cautious buyer shrugs off a flashy startup's logos and asks, ‘Who like me is already using this?’",
+        "fa": "یک خریدارِ محتاط، لوگوهای یک استارتاپِ پرزرق‌وبرق را ندید می‌گیرد و می‌پرسد: «چه کسی مثلِ من از قبل از این استفاده می‌کند؟»"
+      },
+      "gain": {
+        "en": "You can spot the chasm before it swallows you.",
+        "fa": "می‌توانی شکاف را ببینی، پیش از اینکه ببلعدت."
+      }
+    },
+    {
+      "level": 4,
+      "badge": {
+        "en": "Level 4 · Advanced",
+        "fa": "سطحِ ۴ · پیشرفته"
+      },
+      "title": {
+        "en": "Pick your beachhead",
+        "fa": "سرِپلت را انتخاب کن"
+      },
+      "tagline": {
+        "en": "Target a niche, ship the whole product.",
+        "fa": "یک گوشه را هدف بگیر، محصولِ کامل را تحویل بده."
+      },
+      "body": {
+        "en": "Cross like D-Day: concentrate everything on one narrow <b>niche</b> you can dominate, chosen with vivid target-customer <b>scenarios</b>. Then close the <b>whole-product</b> gap — assemble partners so the solution is complete end to end. A total win in one segment gives you the pragmatist references that open the next.",
+        "fa": "مثلِ روزِ دی عبور کن: همه‌چیز را روی یک <b>گوشهٔ</b> باریک که می‌توانی قبضه‌اش کنی متمرکز کن، با <b>سناریوهای</b> زندهٔ مشتریِ هدف انتخابش کن. بعد فاصلهٔ <b>محصولِ کامل</b> را ببند — شریک‌ها را سرِ هم کن تا راه‌حل سرتاته کامل شود. یک بُردِ تمام‌وکمال در یک بخش، همان مرجع‌های عمل‌گرایی را می‌دهد که بخشِ بعدی را باز می‌کنند."
+      },
+      "example": {
+        "en": "Documentum ignored the whole market and won just regulatory documents at big pharma first — then expanded.",
+        "fa": "داکیومنتوم کلِ بازار را نادیده گرفت و اول فقط اسنادِ مقرراتیِ شرکت‌های داروییِ بزرگ را برد — بعد گسترش داد."
+      },
+      "gain": {
+        "en": "You can plan a real crossing, not just hope to grow.",
+        "fa": "می‌توانی یک عبورِ واقعی را نقشه بریزی، نه اینکه فقط امیدِ رشد داشته باشی."
+      }
+    },
+    {
+      "level": 5,
+      "badge": {
+        "en": "Level 5 · Expert",
+        "fa": "سطحِ ۵ · حرفه‌ای"
+      },
+      "title": {
+        "en": "Lead the market",
+        "fa": "رهبرِ بازار شو"
+      },
+      "tagline": {
+        "en": "Position, price, channel, dominate.",
+        "fa": "جایگاه، قیمت، کانال، تسلط."
+      },
+      "body": {
+        "en": "The expert plays the whole go-to-market. <b>Create the competition</b> so pragmatists can place you on a familiar map. Secure a trusted <b>distribution channel</b> — the number-one crossing objective — and <b>price</b> to signal leadership and motivate that channel. Then <b>dominate</b> your niche and bowl into adjacent ones, each conquest funding the next. Crossing the chasm is the beginning of mainstream development, not the end.",
+        "fa": "آدمِ حرفه‌ای کلِ ورود به بازار را بازی می‌کند. <b>رقابت را بساز</b> تا عمل‌گراها بتوانند تو را روی نقشه‌ای آشنا بگذارند. یک <b>کانالِ توزیعِ</b> مورد‌اعتماد جور کن — هدفِ شمارهٔ یکِ عبور — و طوری <b>قیمت</b> بگذار که نشانهٔ رهبری باشد و آن کانال را باانگیزه کند. بعد بر گوشه‌ات <b>مسلط</b> شو و به گوشه‌های همسایه بزن، که هر فتح، فتحِ بعدی را تأمین می‌کند. عبور از شکاف، آغازِ توسعهٔ بازارِ اصلی است، نه پایانش."
+      },
+      "example": {
+        "en": "You dominate one segment, carry its references and partners into the next, and keep leading as the market widens.",
+        "fa": "بر یک بخش مسلط می‌شوی، مرجع‌ها و شریک‌هایش را به بخشِ بعدی می‌بری، و همان‌طور که بازار پهن می‌شود رهبری را نگه می‌داری."
+      },
+      "gain": {
+        "en": "You can take a product from a few fans to mainstream market leader.",
+        "fa": "می‌توانی یک محصول را از چند طرفدار به رهبرِ بازارِ اصلی برسانی."
+      }
+    }
+  ],
+  "quotes": [
+    {
+      "en": "Most companies fail to cross the chasm because, confronted with the immensity of opportunity represented by a mainstream market, they lose their focus, chasing every opportunity that presents itself, but finding themselves unable to deliver a salable proposition to any true pragmatist buyer.",
+      "fa": "بیشترِ شرکت‌ها در عبور از شکاف شکست می‌خورند چون در برابرِ عظمتِ فرصتی که بازارِ اصلی نشان می‌دهد، تمرکزشان را از دست می‌دهند، دنبالِ هر فرصتی که پیش می‌آید می‌دوند، اما می‌بینند نمی‌توانند به هیچ خریدارِ عمل‌گرای واقعی یک پیشنهادِ فروختنی بدهند."
+    },
+    {
+      "en": "They want evolution, not revolution. They want technology to enhance, not overthrow, the established ways of doing business. And above all, they do not want to debug somebody else's product.",
+      "fa": "تکامل می‌خواهند، نه انقلاب. می‌خواهند فناوری، روش‌های جاافتادهٔ کسب‌وکار را تقویت کند، نه سرنگون. و از همه مهم‌تر، نمی‌خواهند اشکالِ محصولِ کسِ دیگری را رفع کنند."
+    },
+    {
+      "en": "When pragmatists buy, they care about the company they are buying from, the quality of the product they are buying, the infrastructure of supporting products and system interfaces, and the reliability of the service they are going to get.",
+      "fa": "وقتی عمل‌گراها می‌خرند، برایشان مهم است از چه شرکتی می‌خرند، کیفیتِ محصولی که می‌خرند، زیرساختِ محصول‌های پشتیبان و رابط‌های سیستمی، و قابلِ‌اتکا‌بودنِ خدمتی که قرار است بگیرند."
+    },
+    {
+      "en": "Entering the mainstream market is an act of burglary, of breaking and entering, of deception, often even of stealth.",
+      "fa": "واردشدن به بازارِ اصلی یک کارِ دزدانه است، شکستن و واردشدن، فریب، و اغلب حتی پنهان‌کاری."
+    },
+    {
+      "en": "Surround your disruptive core product, the thing that got you to the dance, with a whole product that solves for the target customer's problem end to end. That will keep you on the dance floor for a long time to come.",
+      "fa": "محصولِ هستهٔ برهم‌زننده‌ات را — همان چیزی که تو را به مهمانی رساند — با یک محصولِ کامل احاطه کن که مشکلِ مشتریِ هدف را سرتاته حل می‌کند. همین است که تو را مدت‌ها روی پیستِ رقص نگه می‌دارد."
+    },
+    {
+      "en": "The number-one corporate objective, when crossing the chasm, is to secure a distribution channel into the mainstream market, one with which the pragmatist customer will be comfortable. This objective comes before revenues, before profits, before press, even before customer satisfaction.",
+      "fa": "هدفِ شمارهٔ یکِ شرکت هنگامِ عبور از شکاف، جورکردنِ یک کانالِ توزیع به بازارِ اصلی است؛ کانالی که مشتریِ عمل‌گرا با آن راحت باشد. این هدف مقدم است بر درآمد، بر سود، بر سروصدای رسانه‌ای، حتی بر رضایتِ مشتری."
+    },
+    {
+      "en": "Positioning is the single largest influence on the buying decision.",
+      "fa": "جایگاه‌سازی، بزرگ‌ترین اثرِ منفرد را روی تصمیمِ خرید دارد."
+    },
+    {
+      "en": "Chasm crossing is not the end, but rather the beginning, of mainstream market development.",
+      "fa": "عبور از شکاف پایان نیست، بلکه آغازِ توسعهٔ بازارِ اصلی است."
+    }
+  ],
+  "media": [
+    {
+      "kind": "yt",
+      "id": "RBbINB5HSHk",
+      "src": {
+        "en": "YouTube · Lenny's Podcast",
+        "fa": "یوتیوب · پادکستِ لنی"
+      },
+      "title": {
+        "en": "Geoffrey Moore on the Beachhead & Crossing the Chasm",
+        "fa": "جفری مور دربارهٔ سرِپل و عبور از شکاف"
+      },
+      "desc": {
+        "en": "The author on finding your beachhead, crossing the chasm, and dominating a market.",
+        "fa": "خودِ نویسنده دربارهٔ پیدا‌کردنِ سرِپل، عبور از شکاف، و مسلط‌شدن بر یک بازار."
+      },
+      "bullets": {
+        "en": [
+          "The beachhead, in the author's own words",
+          "Why pragmatists buy differently",
+          "Applied to real startups and products"
+        ],
+        "fa": [
+          "سرِپل، به زبانِ خودِ نویسنده",
+          "چرا عمل‌گراها جورِ دیگری می‌خرند",
+          "به‌کار‌بسته روی استارتاپ‌ها و محصول‌های واقعی"
+        ]
+      },
+      "best": {
+        "en": "Best for Stage 3–5.",
+        "fa": "خوب برای مرحلهٔ ۳ تا ۵."
+      }
+    },
+    {
+      "kind": "yt",
+      "id": "Giyqalua_S8",
+      "src": {
+        "en": "YouTube · Lean Product Meetup",
+        "fa": "یوتیوب · Lean Product Meetup"
+      },
+      "title": {
+        "en": "Geoffrey Moore — Advice from Crossing the Chasm",
+        "fa": "جفری مور — توصیه‌هایی از «عبور از شکاف»"
+      },
+      "desc": {
+        "en": "A live talk where the author shares practical advice from the book (and Zone to Win).",
+        "fa": "یک سخنرانیِ زنده که نویسنده در آن توصیه‌های عملیِ کتاب (و «Zone to Win») را می‌گوید."
+      },
+      "bullets": {
+        "en": [
+          "The framework straight from the author",
+          "Targeting and the whole product",
+          "Practical Q&A with product people"
+        ],
+        "fa": [
+          "چارچوب، مستقیم از خودِ نویسنده",
+          "هدف‌گیری و محصولِ کامل",
+          "پرسش‌وپاسخِ عملی با آدم‌های محصول"
+        ]
+      },
+      "best": {
+        "en": "Best for Stage 4–5.",
+        "fa": "خوب برای مرحلهٔ ۴ و ۵."
+      }
+    },
+    {
+      "kind": "yt",
+      "id": "Y0lGHn5QfJY",
+      "src": {
+        "en": "YouTube · Mere Mortals",
+        "fa": "یوتیوب · Mere Mortals"
+      },
+      "title": {
+        "en": "Crossing the Chasm — Book Review",
+        "fa": "عبور از شکاف — مرورِ کتاب"
+      },
+      "desc": {
+        "en": "A concise review of the book's core ideas about making technology mainstream.",
+        "fa": "یک مرورِ فشرده از ایده‌های اصلیِ کتاب دربارهٔ همه‌گیر‌کردنِ فناوری."
+      },
+      "bullets": {
+        "en": [
+          "The adoption life cycle, summarized",
+          "The chasm and the beachhead idea",
+          "A quick, friendly overview"
+        ],
+        "fa": [
+          "چرخهٔ پذیرش، خلاصه‌شده",
+          "ایدهٔ شکاف و سرِپل",
+          "یک مرورِ سریع و صمیمی"
+        ]
+      },
+      "best": {
+        "en": "Best for Stage 1–2.",
+        "fa": "خوب برای مرحلهٔ ۱ و ۲."
+      }
+    },
+    {
+      "kind": "img",
+      "url": "https://www.harperbusiness.com/book/9780062293008/Crossing-the-Chasm-3rd-Edition-Geoffrey-A.-Moore/",
+      "src": {
+        "en": "HarperBusiness · Publisher",
+        "fa": "HarperBusiness · ناشر"
+      },
+      "title": {
+        "en": "Crossing the Chasm, 3rd Edition — Publisher Page",
+        "fa": "عبور از شکاف، ویرایشِ سوم — صفحهٔ ناشر"
+      },
+      "desc": {
+        "en": "The publisher page for the 3rd edition, with details and editions.",
+        "fa": "صفحهٔ ناشر برای ویرایشِ سوم، با جزئیات و نسخه‌ها."
+      },
+      "bullets": {
+        "en": [
+          "The definitive 3rd edition",
+          "Background on Geoffrey Moore",
+          "Straight from the source"
+        ],
+        "fa": [
+          "ویرایشِ سومِ معتبر",
+          "پیشینه‌ای دربارهٔ جفری مور",
+          "مستقیم از خودِ منبع"
+        ]
+      },
+      "best": {
+        "en": "For editions and the source.",
+        "fa": "برای نسخه‌ها و منبعِ اصلی."
+      }
+    }
+  ],
+  "go": [
+    {
+      "label": {
+        "en": "Publisher page",
+        "fa": "صفحهٔ ناشر"
+      },
+      "url": "https://www.harperbusiness.com/book/9780062293008/Crossing-the-Chasm-3rd-Edition-Geoffrey-A.-Moore/"
+    },
+    {
+      "label": {
+        "en": "Book on Goodreads",
+        "fa": "کتاب در گودریدز"
+      },
+      "url": "https://www.goodreads.com/book/show/61329.Crossing_the_Chasm"
+    },
+    {
+      "label": {
+        "en": "Geoffrey Moore's site: the book",
+        "fa": "سایتِ جفری مور: کتاب"
+      },
+      "url": "https://geoffreyamoore.com/book/crossing-the-chasm/"
+    }
+  ],
+  "recs": [
+    {
+      "pri": "b",
+      "t": {
+        "en": "Name your five buyer types",
+        "fa": "پنج نوع خریدارت را نام ببر"
+      },
+      "d": {
+        "en": "For your product, write who the innovators, visionaries, and pragmatists actually are — and where you are now.",
+        "fa": "برای محصولت بنویس نوآوران، آرمان‌گراها و عمل‌گراها واقعاً چه کسانی‌اند — و الان کجای کاری."
+      }
+    },
+    {
+      "pri": "b",
+      "t": {
+        "en": "Choose one beachhead niche",
+        "fa": "یک سرِپلِ باریک انتخاب کن"
+      },
+      "d": {
+        "en": "Pick a single narrow segment you could dominate, and write a one-line target-customer scenario for it.",
+        "fa": "یک بخشِ باریکِ واحد که می‌توانی قبضه‌اش کنی انتخاب کن، و یک سناریوی یک‌خطیِ مشتریِ هدف برایش بنویس."
+      }
+    },
+    {
+      "pri": "n",
+      "t": {
+        "en": "Map your whole-product gap",
+        "fa": "فاصلهٔ محصولِ کاملت را نقشه کن"
+      },
+      "d": {
+        "en": "List everything the target customer needs to fully solve their problem, and mark what you're missing.",
+        "fa": "هرچه مشتریِ هدف برای حلِ کاملِ مشکلش لازم دارد را فهرست کن، و علامت بزن چه چیزی کم داری."
+      }
+    },
+    {
+      "pri": "n",
+      "t": {
+        "en": "Write your positioning claim",
+        "fa": "ادعای جایگاه‌سازی‌ات را بنویس"
+      },
+      "d": {
+        "en": "In one line: for whom, in what category, the key benefit, and versus which familiar alternative.",
+        "fa": "در یک خط: برای چه کسی، در چه دسته‌ای، فایدهٔ اصلی چیست، و در برابرِ کدام بدیلِ آشنا."
+      }
+    }
+  ]
 });
 </script>
 </body>

@@ -1,21 +1,20 @@
 <!DOCTYPE html>
-<!-- complexity-level: 1→5 (this page teaches the SAME book at five depths, over-simplified … expert) -->
-<!-- Effortless (Greg McKeown) — bilingual EN/FA knowledge graph & 5-stage learning page -->
-<html lang="fa" dir="rtl" data-lang="fa">
+<!-- Generated page. Edit CONTENT in the DATA object below; shared UI lives in ../assets/book.css + ../assets/book.js -->
+<html lang="en" dir="ltr" data-lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The Subtle Art of Not Giving a F*ck — نقشهٔ دانش و یادگیری ۵ مرحله‌ای</title>
 
-<!-- Boot theme + language BEFORE paint to avoid a flash -->
+<!-- Boot theme + language BEFORE paint to avoid a flash (shared library-wide keys) -->
 <script>
 (function(){
   try{
-    var th = localStorage.getItem('subtleart-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
+    var th = localStorage.getItem('pbl-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
     document.documentElement.setAttribute('data-theme', th);
   }catch(e){ document.documentElement.setAttribute('data-theme','light'); }
   try{
-    var lg = localStorage.getItem('subtleart-lang') || 'fa';
+    var lg = localStorage.getItem('pbl-lang') || 'en';
     document.documentElement.setAttribute('data-lang', lg);
     document.documentElement.setAttribute('lang', lg);
     document.documentElement.setAttribute('dir', lg==='fa' ? 'rtl' : 'ltr');
@@ -28,876 +27,1218 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:ital,opsz@0,6..72;1,6..72&display=swap" rel="stylesheet">
-
-<style>
-/* ── TOKENS ───────────────────────────────────────────────── */
-:root, [data-theme="light"]{
-  --bg:#f5f6f8; --bg2:#eef2f7; --card:#fff; --card2:#f8fafb;
-  --ink:#1c2330; --mut:#6b7280; --line:#e6e8ee;
-  --accent:#0e7c86; --accent-ink:#fff; --warm:#c2410c;
-  --shadow:0 1px 2px rgba(20,30,50,.05),0 6px 24px rgba(20,30,50,.06);
-  --hero-1:#0e7c86; --hero-2:#0b5e66;
-  --c-teal:#0e9aa6; --c-blue:#2f6fb0; --c-violet:#7c3aed; --c-amber:#d97706;
-  --c-green:#15a34a; --c-red:#e11d48; --c-gold:#c98a12; --c-gray:#6b7280;
-  --state:#0e9aa6; --action:#d97706; --results:#7c3aed; --core:#0e7c86;
-}
-[data-theme="dark"]{
-  --bg:#0e131a; --bg2:#161d27; --card:#151c26; --card2:#1b2430;
-  --ink:#e9eef5; --mut:#9aa7b6; --line:#27313d;
-  --accent:#2dd4bf; --accent-ink:#06231f; --warm:#fb923c;
-  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 28px rgba(0,0,0,.45);
-  --hero-1:#0c5f67; --hero-2:#07323a;
-  --c-teal:#2dd4bf; --c-blue:#5b9bd5; --c-violet:#a78bfa; --c-amber:#fbbf24;
-  --c-green:#34d399; --c-red:#fb7185; --c-gold:#e2b04a; --c-gray:#94a3b8;
-  --state:#2dd4bf; --action:#fbbf24; --results:#a78bfa; --core:#2dd4bf;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);
-  font-family:Vazirmatn,"Segoe UI",Tahoma,Arial,sans-serif;line-height:1.85;font-size:15px;
-  transition:background .25s,color .25s}
-html[data-lang="en"] body{font-family:Inter,"Segoe UI",system-ui,Arial,sans-serif;line-height:1.7}
-.wrap{max-width:960px;margin:0 auto;padding:0 18px 40px}
-
-/* language visibility */
-html[data-lang="en"] [data-only="fa"]{display:none !important}
-html[data-lang="fa"] [data-only="en"]{display:none !important}
-
-/* ── HERO ─────────────────────────────────────────────────── */
-.hero{background:linear-gradient(135deg,var(--hero-1),var(--hero-2));color:#fff;padding:44px 0 34px;position:relative;overflow:hidden}
-.hero::after{content:"";position:absolute;inset-inline-end:-80px;top:-80px;width:280px;height:280px;
-  background:radial-gradient(circle,rgba(255,255,255,.12),transparent 70%);pointer-events:none}
-.hero .wrap{padding-bottom:0;position:relative;z-index:1}
-.hero h1{margin:0 0 8px;font-size:30px;font-weight:800;letter-spacing:-.3px;line-height:1.25}
-html[data-lang="en"] .hero h1{font-family:Newsreader,Georgia,serif;font-weight:600;letter-spacing:-.5px}
-.hero .dek{margin:0;opacity:.94;font-size:15.5px;max-width:640px}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;
-  color:rgba(255,255,255,.95);background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.24);
-  padding:5px 13px;border-radius:20px;margin-bottom:15px}
-.eyebrow .edot{width:7px;height:7px;border-radius:50%;background:#fff;box-shadow:0 0 0 3px rgba(255,255,255,.25)}
-.metastrip{display:flex;flex-wrap:wrap;gap:14px 30px;margin-top:20px;padding-top:16px;
-  border-top:1px solid rgba(255,255,255,.18)}
-.metaitem{display:flex;flex-direction:column;gap:3px}
-.metaitem .mk{font-size:10.5px;color:rgba(255,255,255,.62);font-weight:700;letter-spacing:.6px;text-transform:uppercase}
-.metaitem .mv{font-size:14px;color:#fff;font-weight:700}
-.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
-.chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);
-  border-radius:11px;padding:9px 15px;font-size:13px}
-.chip b{font-size:20px;display:block;font-weight:800}
-
-/* ── NAV + TOC ────────────────────────────────────────────── */
-.navbar{position:sticky;top:0;z-index:60;background:color-mix(in srgb,var(--card) 92%,transparent);
-  backdrop-filter:saturate(180%) blur(10px);-webkit-backdrop-filter:saturate(180%) blur(10px);
-  border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
-.navin{max-width:960px;margin:0 auto;padding:8px 16px;display:flex;align-items:center;gap:12px}
-.brand{flex:0 0 auto;font-weight:800;font-size:12.5px;color:var(--accent);white-space:nowrap;
-  display:flex;align-items:center;gap:7px}
-.brand .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);
-  box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 18%,transparent)}
-.toc{flex:1 1 auto;display:flex;flex-wrap:wrap;gap:7px;justify-content:center}
-.toc a{font-size:12.5px;color:var(--mut);text-decoration:none;border:1px solid var(--line);
-  border-radius:20px;padding:5px 12px;background:var(--card);white-space:nowrap;
-  transition:background .15s,color .15s,border-color .15s}
-.toc a:hover{color:var(--accent);border-color:var(--accent)}
-.toc a.active{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
-.navctl{flex:0 0 auto;display:flex;align-items:center;gap:8px}
-.langbtn{height:34px;border-radius:18px;border:1px solid var(--line);background:var(--card);
-  color:var(--ink);cursor:pointer;font:inherit;font-size:12.5px;font-weight:700;padding:0 13px;
-  display:flex;align-items:center;gap:6px}
-.langbtn:hover{border-color:var(--accent);color:var(--accent)}
-.langbtn .globe{width:15px;height:15px;display:block}
-.themebtn{flex:0 0 auto;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);
-  background:var(--card);color:var(--ink);cursor:pointer;line-height:1;display:grid;place-items:center}
-.themebtn svg{width:17px;height:17px;display:block}
-.themebtn:hover{border-color:var(--accent);color:var(--accent)}
-[data-theme="light"] .themebtn .ic-sun{display:none}
-[data-theme="dark"]  .themebtn .ic-moon{display:none}
-
-/* ── BLOCKS ───────────────────────────────────────────────── */
-h2{font-size:21px;margin:44px 0 6px;font-weight:800;scroll-margin-top:92px;line-height:1.35}
-html[data-lang="en"] h2{font-family:Newsreader,Georgia,serif;font-weight:600}
-h2 .num{color:var(--accent);font-variant-numeric:tabular-nums}
-.sub{color:var(--mut);font-size:13.5px;margin:0 0 16px;max-width:680px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;
-  padding:20px 22px;margin:14px 0;box-shadow:var(--shadow)}
-.lead{font-size:15.5px}
-.lead b{color:var(--warm)}
-.kgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin:8px 0}
-.kbox{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:15px 16px;text-align:center}
-.kbox .v{font-size:26px;font-weight:800;color:var(--accent);font-variant-numeric:tabular-nums}
-.kbox .l{font-size:12.5px;color:var(--mut);margin-top:3px}
-ul.clean{margin:6px 0;padding-inline-start:20px} ul.clean li{margin:8px 0}
-.callout{background:color-mix(in srgb,var(--warm) 9%,var(--card));
-  border:1px solid color-mix(in srgb,var(--warm) 30%,var(--line));
-  border-radius:12px;padding:14px 18px;margin:12px 0}
-.callout b{color:var(--warm)}
-.callout.accent{background:color-mix(in srgb,var(--accent) 9%,var(--card));
-  border-color:color-mix(in srgb,var(--accent) 30%,var(--line))}
-.callout.accent b{color:var(--accent)}
-a{color:var(--accent)}
-
-/* ── GRAPH ────────────────────────────────────────────────── */
-.gtabs{display:inline-flex;gap:4px;background:var(--bg2);border:1px solid var(--line);
-  border-radius:11px;padding:4px;margin:6px 0 2px}
-.gtab{border:0;background:transparent;color:var(--mut);font:inherit;font-size:13px;font-weight:700;
-  padding:7px 15px;border-radius:8px;cursor:pointer}
-.gtab.active{background:var(--card);color:var(--accent);box-shadow:var(--shadow)}
-.graphcard{padding:14px}
-.legend{display:flex;flex-wrap:wrap;gap:14px;margin:2px 4px 12px;font-size:12.5px;color:var(--mut)}
-.legend span{display:inline-flex;align-items:center;gap:6px}
-.legend i{width:11px;height:11px;border-radius:50%;display:inline-block}
-.graphstage{display:grid;grid-template-columns:1fr;gap:14px}
-@media(min-width:760px){.graphstage{grid-template-columns:1.35fr .95fr}}
-.svgwrap{position:relative;background:var(--card2);border:1px solid var(--line);border-radius:12px;
-  overflow:hidden;min-height:300px}
-#netsvg{display:block;width:100%;height:560px;touch-action:none;cursor:grab}
-#netsvg text{pointer-events:none;user-select:none}
-.ghint{position:absolute;inset-inline-start:12px;top:10px;font-size:11.5px;color:var(--mut);
-  background:color-mix(in srgb,var(--card) 82%,transparent);border:1px solid var(--line);
-  border-radius:20px;padding:3px 11px;backdrop-filter:blur(4px);max-width:70%}
-.greset{position:absolute;inset-inline-end:10px;top:10px;border:1px solid var(--line);background:var(--card);
-  color:var(--mut);border-radius:8px;font:inherit;font-size:11.5px;padding:4px 10px;cursor:pointer}
-.greset:hover{color:var(--accent);border-color:var(--accent)}
-/* node + link interaction states */
-.node{cursor:pointer}
-/* the inner <g class="ns"> is what scales; fill-box keeps the pivot on the node itself, not the SVG viewport */
-.ns{transform-box:fill-box;transform-origin:center;transition:transform .2s cubic-bezier(.2,.75,.25,1)}
-.node.hover .ns{transform:scale(1.1)}
-.node.sel  .ns{transform:scale(1.34)}                 /* selected node grows */
-.node.ncore.hover .ns{transform:scale(1.06)}
-.node.ncore.sel   .ns{transform:none}                 /* the centre 'Effortless' node keeps default size */
-.node.sel circle{stroke:var(--ink);stroke-width:2.5;filter:drop-shadow(0 0 8px color-mix(in srgb,var(--accent) 60%,transparent))}
-.node.hl circle{stroke:var(--ink);stroke-opacity:.5;stroke-width:2.5}
-.node.dim{opacity:.2}
-.node text{font-family:Vazirmatn,Tahoma,sans-serif;font-weight:700}
-html[data-lang="en"] .node text{font-family:Inter,sans-serif}
-.glink{transition:opacity .2s,stroke .2s}
-.glink.dim{opacity:.08}
-.glink.hl{stroke:var(--accent) !important;stroke-opacity:.8}
-/* detail panel */
-.detail{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;min-height:220px}
-@media(min-width:760px){.detail{max-height:480px;overflow:auto}}
-.detail .dkick{font-size:11.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;display:flex;align-items:center;gap:7px;color:var(--mut)}
-.detail .dkick i{width:10px;height:10px;border-radius:50%}
-.detail h4{margin:8px 0 3px;font-size:18px;font-weight:800}
-html[data-lang="en"] .detail h4{font-family:Newsreader,serif;font-weight:600}
-.detail .drow{margin:11px 0}
-.detail .dlab{font-size:10.5px;font-weight:800;color:var(--accent);letter-spacing:.5px;text-transform:uppercase;
-  display:inline-flex;align-items:center;gap:5px}
-.detail .drow.tip .dlab{color:var(--c-green)}
-.detail .drow.pit .dlab{color:var(--warm)}
-.detail .drow.more{border-inline-start:2px solid color-mix(in srgb,var(--accent) 32%,var(--line));padding-inline-start:11px}
-.detail .drow.more .dlab{color:var(--mut)}
-.detail .dtxt{font-size:13.6px;margin-top:3px}
-.dchips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
-.dchip{font-size:12px;border:1px solid var(--line);background:var(--card2);border-radius:16px;padding:4px 11px;
-  cursor:pointer;color:var(--ink);display:inline-flex;align-items:center;gap:6px;font-family:inherit}
-.dchip:hover{border-color:var(--accent);color:var(--accent)}
-.dchip i{width:8px;height:8px;border-radius:50%;flex:0 0 auto}
-
-/* ── CONCEPT MAP ──────────────────────────────────────────── */
-.mapgrid{display:grid;grid-template-columns:1fr;gap:14px}
-@media(min-width:820px){.mapgrid{grid-template-columns:repeat(3,1fr)}}
-.partcol{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:16px;position:relative}
-.partcol .ph{display:flex;align-items:center;gap:9px;margin-bottom:3px}
-.partcol .pdot{width:13px;height:13px;border-radius:50%;flex:0 0 auto}
-.partcol .pnum{font-size:11px;font-weight:800;color:var(--mut)}
-.partcol h4{margin:0;font-size:16.5px;font-weight:800}
-html[data-lang="en"] .partcol h4{font-family:Newsreader,serif;font-weight:600}
-.partcol .ptag{font-size:12px;color:var(--mut);margin:2px 0 4px;font-weight:700}
-.partcol .pgist{font-size:12.8px;color:var(--mut);margin:0 0 12px}
-.chapchip{display:flex;align-items:baseline;gap:8px;padding:7px 10px;border:1px solid var(--line);
-  border-radius:9px;margin:6px 0;background:var(--card2);font-size:13px}
-.chapchip .cn{font-size:11px;font-weight:800;color:var(--mut);flex:0 0 auto;font-variant-numeric:tabular-nums}
-.chapchip b{font-weight:700}
-.chapchip small{color:var(--mut);display:block;font-size:11.5px;line-height:1.5}
-.flowline{display:flex;align-items:center;justify-content:center;gap:10px;color:var(--mut);
-  font-size:12.5px;font-weight:700;margin:6px 0 2px;flex-wrap:wrap}
-.flowline .ar{color:var(--accent)}
-
-/* ── STAGE LADDER ─────────────────────────────────────────── */
-.ladder{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 4px}
-.rung{flex:1 1 150px;border:1px solid var(--line);background:var(--card);border-radius:11px;
-  padding:11px 13px;cursor:pointer;transition:transform .12s,border-color .12s;position:relative}
-.rung:hover{border-color:var(--accent);transform:translateY(-2px)}
-.rung.active{border-color:var(--accent);box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 35%,transparent)}
-.rung .lv{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.4px}
-.rung .lt{font-size:13.5px;font-weight:800;margin-top:2px}
-.rung .lbar{height:5px;border-radius:4px;background:var(--bg2);margin-top:9px;overflow:hidden}
-.rung .lbar i{display:block;height:100%;background:linear-gradient(90deg,var(--c-teal),var(--c-violet))}
-.stagecard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 24px;
-  margin:14px 0;box-shadow:var(--shadow)}
-.stagecard .shead{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-.stagecard .badge{font-size:12px;font-weight:800;color:#fff;background:var(--accent);
-  border-radius:8px;padding:4px 11px;white-space:nowrap}
-.stagecard h3{margin:0;font-size:21px;font-weight:800}
-html[data-lang="en"] .stagecard h3{font-family:Newsreader,serif;font-weight:600}
-.stagecard .tagline{color:var(--mut);font-size:13.5px;margin:4px 0 14px;font-weight:700}
-.stagecard .sbody{font-size:15px}
-.exbox{background:var(--card2);border:1px solid var(--line);border-inline-start:3px solid var(--accent);
-  border-radius:0 11px 11px 0;padding:13px 16px;margin:14px 0 6px}
-.exbox .exk{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.5px;text-transform:uppercase}
-.exbox .ext{font-size:13.8px;margin-top:3px}
-.gainrow{display:flex;align-items:flex-start;gap:9px;margin-top:12px;font-size:13px;color:var(--mut)}
-.gainrow .gi{flex:0 0 auto;color:var(--c-green);font-weight:800}
-.stagenav{display:flex;justify-content:space-between;gap:10px;margin-top:16px}
-.stagenav button{border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit;
-  font-size:13px;font-weight:700;border-radius:9px;padding:8px 14px;cursor:pointer}
-.stagenav button:hover:not(:disabled){border-color:var(--accent);color:var(--accent)}
-.stagenav button:disabled{opacity:.4;cursor:default}
-
-/* ── QUOTES ───────────────────────────────────────────────── */
-.qgrid{display:grid;grid-template-columns:1fr;gap:12px}
-@media(min-width:720px){.qgrid{grid-template-columns:1fr 1fr}}
-blockquote{margin:0;background:var(--card2);border-inline-start:3px solid var(--accent);
-  border-radius:0 12px 12px 0;padding:15px 18px;font-size:14.5px;position:relative}
-blockquote .qm{font-size:34px;line-height:0;color:var(--accent);opacity:.35;font-family:Georgia,serif;
-  position:absolute;inset-inline-start:10px;top:20px}
-blockquote p{margin:0;padding-inline-start:22px}
-html[data-lang="en"] blockquote{font-family:Newsreader,Georgia,serif;font-size:15.5px}
-
-/* ── MEDIA ────────────────────────────────────────────────── */
-.mgrid{display:grid;grid-template-columns:1fr;gap:16px}
-@media(min-width:640px){.mgrid{grid-template-columns:1fr 1fr}}
-.mcard{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;
-  box-shadow:var(--shadow);display:flex;flex-direction:column}
-.mthumb{position:relative;display:block;aspect-ratio:16/9;background:var(--bg2);overflow:hidden;text-decoration:none}
-.mthumb img{width:100%;height:100%;object-fit:cover;display:block}
-.mthumb .play{position:absolute;inset:0;display:grid;place-items:center}
-.mthumb .play span{width:54px;height:54px;border-radius:50%;background:rgba(0,0,0,.6);
-  display:grid;place-items:center;border:2px solid rgba(255,255,255,.9)}
-.mthumb .play svg{width:22px;height:22px;fill:#fff;margin-inline-start:3px}
-.mthumb .ptype{position:absolute;inset-inline-start:9px;top:9px;background:rgba(0,0,0,.72);color:#fff;
-  font-size:11px;font-weight:700;border-radius:6px;padding:3px 9px;letter-spacing:.3px}
-.mfake{aspect-ratio:16/9;display:grid;place-items:center;
-  background:linear-gradient(135deg,color-mix(in srgb,var(--c-violet) 22%,var(--card)),color-mix(in srgb,var(--c-teal) 22%,var(--card)))}
-.mfake svg{width:52px;height:52px;color:var(--ink);opacity:.6}
-.mbody{padding:15px 17px;display:flex;flex-direction:column;gap:7px;flex:1}
-.mbody .msrc{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.3px;text-transform:uppercase}
-.mbody h4{margin:0;font-size:15.5px;font-weight:800;line-height:1.4}
-html[data-lang="en"] .mbody h4{font-family:Newsreader,serif;font-weight:600}
-.mbody .mdesc{font-size:13px;color:var(--mut);margin:0}
-.mbody ul{margin:4px 0 0;padding-inline-start:18px}
-.mbody ul li{font-size:12.8px;margin:5px 0}
-.mbody .mbest{font-size:12px;font-weight:700;color:var(--warm);margin-top:auto;padding-top:8px}
-.mlink{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;
-  text-decoration:none;color:var(--accent);margin-top:4px}
-.mlink:hover{text-decoration:underline}
-.golist{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
-.golist a{font-size:12.5px;text-decoration:none;color:var(--ink);border:1px solid var(--line);
-  border-radius:20px;padding:6px 13px;background:var(--card);font-weight:700}
-.golist a:hover{border-color:var(--accent);color:var(--accent)}
-
-/* ── RECS + METHOD + CREDIT ───────────────────────────────── */
-.rec{display:grid;gap:10px;margin:8px 0}
-.rec .item{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--card)}
-.rec .item .t{font-weight:800;font-size:14.5px;margin-bottom:3px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.rec .item .t .pri{font-size:11px;font-weight:700;color:#fff;background:var(--warm);border-radius:6px;padding:2px 9px}
-.rec .item .t .pri.b{background:var(--accent)}
-.rec .item .d{font-size:13.4px;color:var(--mut)}
-.method{color:var(--mut);font-size:13.4px}
-.method p{margin:8px 0}
-.method b{color:var(--ink)}
-.credit{text-align:center;margin-top:40px;padding:22px 0 8px;border-top:1px solid var(--line);
-  color:var(--mut);font-size:14px}
-.credit .cname{color:var(--ink);font-weight:800}
-.credit a{font-weight:700;text-decoration:none}
-.credit a:hover{text-decoration:underline}
-.credit .sep{opacity:.5;margin:0 8px}
-.credit .li{display:inline-flex;align-items:center;gap:5px;vertical-align:middle}
-.credit .li svg{width:15px;height:15px;vertical-align:-3px}
-
-@media (max-width:640px){
-  body{font-size:14px}
-  .wrap{padding:0 13px 30px}
-  .hero{padding:28px 0 22px} .hero h1{font-size:22px}
-  h2{font-size:18px;scroll-margin-top:66px}
-  .brand{display:none}
-  .toc{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;scrollbar-width:none}
-  .toc::-webkit-scrollbar{display:none}
-  #netsvg{height:420px}
-}
-</style>
+<link rel="stylesheet" href="../assets/book.css">
 </head>
 <body>
+<div id="app"></div>
 
-<!-- ── HERO ───────────────────────────────────────────────── -->
-<header class="hero"><div class="wrap">
-  <div class="eyebrow"><span class="edot"></span>
-    <span data-only="en">Book knowledge map · Mark Manson</span>
-    <span data-only="fa">نقشهٔ کتاب · مارک منسون</span>
-  </div>
-  <h1>
-    <span data-only="en">The Subtle Art of Not Giving a F*ck — A Counterintuitive Approach to Living a Good Life</span>
-    <span data-only="fa">هنرِ ظریفِ بی‌خیالی — رویکردی خلافِ‌جریان به یک زندگیِ خوب</span>
-  </h1>
-  <p class="dek">
-    <span data-only="en">A knowledge graph of the whole book, plus a 5-stage path from a single idea to expert-level mastery — with an example at every step.</span>
-    <span data-only="fa">نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از یک ایدهٔ ساده تا حرفه‌ای — با یک مثال در هر مرحله.</span>
-  </p>
-  <div class="metastrip">
-    <div class="metaitem"><span class="mk" data-only="en">Book</span><span class="mk" data-only="fa">کتاب</span>
-      <span class="mv" data-only="en">The Subtle Art of Not Giving a F*ck</span><span class="mv" data-only="fa">هنرِ ظریفِ بی‌خیالی</span></div>
-    <div class="metaitem"><span class="mk" data-only="en">Author</span><span class="mk" data-only="fa">نویسنده</span>
-      <span class="mv" data-only="en">Mark Manson</span><span class="mv" data-only="fa">مارک منسون</span></div>
-    <div class="metaitem"><span class="mk" data-only="en">Published</span><span class="mk" data-only="fa">سالِ چاپ</span>
-      <span class="mv" data-only="en">2016</span><span class="mv" data-only="fa">۲۰۱۶</span></div>
-    <div class="metaitem"><span class="mk" data-only="en">Group</span><span class="mk" data-only="fa">گروه</span>
-      <span class="mv" data-only="en">Happiness</span><span class="mv" data-only="fa">شادکامی</span></div>
-  </div>
-  <div class="chips">
-    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Parts</span><span data-only="fa">بخش</span></div>
-    <div class="chip"><b data-only="en">16</b><b data-only="fa">۱۶</b><span data-only="en">Ideas</span><span data-only="fa">ایده</span></div>
-    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Learning stages</span><span data-only="fa">مرحلهٔ یادگیری</span></div>
-  </div>
-</div></header>
-
-<!-- ── STICKY NAV ─────────────────────────────────────────── -->
-<div class="navbar"><div class="navin">
-  <span class="brand"><span class="dot"></span>The Subtle Art of Not Giving a F*ck</span>
-  <nav class="toc">
-    <a href="#tldr" data-only="en">In a nutshell</a><a href="#tldr" data-only="fa">خلاصه</a>
-    <a href="#graph" data-only="en">Knowledge graph</a><a href="#graph" data-only="fa">نقشهٔ دانش</a>
-    <a href="#stages" data-only="en">5 stages</a><a href="#stages" data-only="fa">۵ مرحله</a>
-    <a href="#quotes" data-only="en">Quotes</a><a href="#quotes" data-only="fa">جمله‌ها</a>
-    <a href="#media" data-only="en">Watch &amp; explore</a><a href="#media" data-only="fa">تماشا و منابع</a>
-    <a href="#apply" data-only="en">Apply it</a><a href="#apply" data-only="fa">کاربرد</a>
-  </nav>
-  <div class="navctl">
-    <button class="langbtn" id="langBtn" aria-label="Switch language">
-      <svg class="globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>
-      <span data-only="en">فارسی</span><span data-only="fa">English</span>
-    </button>
-    <button class="themebtn" id="themeBtn" aria-label="Toggle theme" title="Light / Dark">
-      <span class="ic-sun" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5 19 19M19 5l-1.5 1.5M6.5 17.5 5 19"/></svg></span>
-      <span class="ic-moon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.6 6.6 0 0 0 9.8 9.8Z"/></svg></span>
-    </button>
-  </div>
-</div></div>
-
-<div class="wrap">
-
-  <!-- ── TL;DR ────────────────────────────────────────────── -->
-  <h2 id="tldr"><span class="num" data-only="en">1.</span><span class="num" data-only="fa">۱.</span>
-    <span data-only="en"> In a nutshell</span><span data-only="fa"> خلاصه</span></h2>
-  <p class="sub" data-only="en">If you read only this, you still get the whole idea.</p>
-  <p class="sub" data-only="fa">اگر فقط همین بخش را بخوانی، کلِ ایده دستت می‌آید.</p>
-  <div class="card lead"><ul class="clean" id="tldrHost"></ul></div>
-  <div class="kgrid">
-    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Parts (backwards law · choose · responsibility · uncertainty · commitment)</div><div class="l" data-only="fa">بخش (قانونِ وارونه · انتخاب · مسئولیت · تردید · تعهد)</div></div>
-    <div class="kbox"><div class="v" data-only="en">16</div><div class="v" data-only="fa">۱۶</div><div class="l" data-only="en">Ideas you can use</div><div class="l" data-only="fa">ایده برای استفاده</div></div>
-    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Levels, simple → expert</div><div class="l" data-only="fa">مرحله، ساده تا حرفه‌ای</div></div>
-    <div class="kbox"><div class="v" data-only="en">3</div><div class="v" data-only="fa">۳</div><div class="l" data-only="en">The arc: choose · own · commit</div><div class="l" data-only="fa">مسیر: انتخاب کن · گردن بگیر · متعهد شو</div></div>
-  </div>
-  
-  <div class="callout accent">
-    <b data-only="en">The core idea:</b>
-    <b data-only="fa">ایدهٔ اصلی:</b>
-    <span data-only="en"> You only have so many f*cks to give — a limited supply — so spend them on what is <i>true, immediate</i> and <i>important</i>. Chasing an <i>always positive</i> life backfires; accepting struggle and choosing good values is what brings peace. Caring about less, but better, is the whole game.</span>
-    <span data-only="fa"> تعدادِ «اهمیت»‌هایی که می‌توانی بدهی محدود است — پس خرجِ چیزی‌شان کن که <i>واقعی، همین‌الانی</i> و <i>مهم</i> است. دنبالِ یک زندگیِ <i>همیشه‌مثبت</i> بودن نتیجهٔ عکس می‌دهد؛ پذیرفتنِ سختی و انتخابِ ارزش‌های خوب است که آرامش می‌آورد. به چیزهای کمتر، اما بهتر، اهمیت بده — کلِ بازی همین است.</span>
-  </div>
-
-  <!-- ── KNOWLEDGE GRAPH ──────────────────────────────────── -->
-  <h2 id="graph"><span class="num" data-only="en">2.</span><span class="num" data-only="fa">۲.</span>
-    <span data-only="en"> The knowledge graph</span><span data-only="fa"> نقشهٔ دانش</span></h2>
-  <p class="sub" data-only="en">The whole book as one picture. Click any node to focus its connections and read more — or switch to the structured map.</p>
-  <p class="sub" data-only="fa">کلِ کتاب در یک تصویر. روی هر دایره کلیک کن تا ارتباط‌هایش را ببینی و بیشتر بخوانی — یا به نقشهٔ مرتب برو.</p>
-
-  <div class="gtabs">
-    <button class="gtab active" id="tabNet"><span data-only="en">Interactive network</span><span data-only="fa">شبکهٔ تعاملی</span></button>
-    <button class="gtab" id="tabMap"><span data-only="en">Structured map</span><span data-only="fa">نقشهٔ مرتب</span></button>
-  </div>
-
-  <!-- network view -->
-  <div class="card graphcard" id="netView">
-    <div class="legend" id="legendHost"></div>
-    <div class="graphstage">
-      <div class="svgwrap">
-        <svg id="netsvg" viewBox="0 0 820 560" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Effortless knowledge network"></svg>
-        <div class="ghint" id="ghint"></div>
-        <button class="greset" id="greset"></button>
-      </div>
-      <div class="detail" id="detailHost"></div>
-    </div>
-  </div>
-
-  <!-- map view -->
-  <div class="card graphcard" id="mapView" style="display:none">
-    <div class="flowline" id="flowTop"></div>
-    <div class="mapgrid" id="mapHost"></div>
-    <div class="callout" style="margin-top:16px">
-      <b data-only="en">Read it as a flow:</b><b data-only="fa">به‌صورتِ یک جریان بخوانش:</b>
-      <span data-only="en"> stop forcing the positive and <b>accept</b> the negative (the backwards law); <b>choose</b> the few things worth caring about and the struggles behind them; <b>own</b> your response to everything, fault or not; stay uncertain enough to grow; then <b>commit</b>, set boundaries, and let death show you what matters.</span>
-      <span data-only="fa"> دست از زورزدن برای مثبت‌بودن بردار و منفی را <b>بپذیر</b> (قانونِ وارونه)؛ همان چند چیزی را که ارزشِ اهمیت‌دادن دارند و سختی‌های پشتشان را <b>انتخاب کن</b>؛ واکنشت به هر چیزی را — تقصیرت باشد یا نه — <b>گردن بگیر</b>؛ آن‌قدر بی‌تردید نباش که رشد کنی؛ بعد <b>متعهد شو</b>، مرز بگذار، و بگذار مرگ نشانت بدهد چه چیزی مهم است.</span>
-    </div>
-  </div>
-
-  <!-- ── 5 STAGES ─────────────────────────────────────────── -->
-  <h2 id="stages"><span class="num" data-only="en">3.</span><span class="num" data-only="fa">۳.</span>
-    <span data-only="en"> Learn it in 5 stages</span><span data-only="fa"> یادگیری در ۵ مرحله</span></h2>
-  <p class="sub" data-only="en">The same book at five depths. Start over-simplified, climb to expert. Tap a rung to jump.</p>
-  <p class="sub" data-only="fa">یک کتاب در پنج عمق. از خیلی ساده شروع کن و تا حرفه‌ای بالا برو. روی هر پله بزن تا بپری.</p>
-  <div class="ladder" id="ladderHost"></div>
-  <div id="stageHost"></div>
-
-  <!-- ── QUOTES ───────────────────────────────────────────── -->
-  <h2 id="quotes"><span class="num" data-only="en">4.</span><span class="num" data-only="fa">۴.</span>
-    <span data-only="en"> Lines worth keeping</span><span data-only="fa"> جمله‌هایی که ارزشِ نگه‌داشتن دارند</span></h2>
-  <p class="sub" data-only="en">Verbatim quotes from the book, translated alongside.</p>
-  <p class="sub" data-only="fa">جمله‌های مستقیم از کتاب، همراه با ترجمه.</p>
-  <div class="qgrid" id="quoteHost"></div>
-
-  <!-- ── MEDIA ────────────────────────────────────────────── -->
-  <h2 id="media"><span class="num" data-only="en">5.</span><span class="num" data-only="fa">۵.</span>
-    <span data-only="en"> Watch &amp; explore</span><span data-only="fa"> تماشا و منابع</span></h2>
-  <p class="sub" data-only="en">Special resources found online — each with what it covers and who it's best for.</p>
-  <p class="sub" data-only="fa">منابعِ ویژه‌ای که آنلاین پیدا شد — هرکدام با اینکه چه می‌گوید و به چه دردی می‌خورد.</p>
-  <div class="mgrid" id="mediaHost"></div>
-  <div class="card" style="margin-top:16px">
-    <div style="font-weight:800;font-size:13.5px;margin-bottom:4px">
-      <span data-only="en">Go straight to the source</span><span data-only="fa">مستقیم سراغِ منبع برو</span>
-    </div>
-    <div class="golist" id="goHost"></div>
-  </div>
-
-  <!-- ── APPLY ────────────────────────────────────────────── -->
-  <h2 id="apply"><span class="num" data-only="en">6.</span><span class="num" data-only="fa">۶.</span>
-    <span data-only="en"> Apply it this week</span><span data-only="fa"> این هفته امتحانش کن</span></h2>
-  <p class="sub" data-only="en">Four small moves that turn the idea into a habit.</p>
-  <p class="sub" data-only="fa">چهار حرکتِ کوچک که این ایده را به عادت تبدیل می‌کنند.</p>
-  <div class="rec" id="recHost"></div>
-
-  <!-- ── METHOD ───────────────────────────────────────────── -->
-  <h2 id="method"><span class="num" data-only="en">7.</span><span class="num" data-only="fa">۷.</span>
-    <span data-only="en"> Sources &amp; notes</span><span data-only="fa"> منابع و توضیح</span></h2>
-  <div class="card method" id="methodHost"></div>
-
-  <!-- ── CREDIT FOOTER ────────────────────────────────────── -->
-  <div class="credit">
-    <span data-only="en">Created by <span class="cname">Behnam Atefi</span><span class="sep">·</span><a class="li" href="https://www.linkedin.com/in/behnamatefi/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.3c0-1.26-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9z"/></svg>LinkedIn</a></span>
-    <span data-only="fa">ساخته‌شده توسط <span class="cname">بهنام عاطفی</span><span class="sep">·</span><a class="li" href="https://www.linkedin.com/in/behnamatefi/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.3c0-1.26-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9z"/></svg>لینکدین</a></span>
-  </div>
-</div>
-
-<!-- ═══════════════════════ SCRIPTS ═══════════════════════ -->
+<script src="../assets/library.js"></script>
+<script src="../assets/book.js"></script>
 <script>
-/* ── 1) language + formatters ─────────────────────────────── */
-var LANG = document.documentElement.getAttribute('data-lang') || 'fa';
-var FA_D = '۰۱۲۳۴۵۶۷۸۹';
-var RLM  = '‏';
-function faDigits(s){ return String(s).replace(/[0-9]/g, function(d){ return FA_D[+d]; }); }
-/* honor the RTL preference: isolate Latin runs (word order preserved) and mark with U+200F */
-function rlm(s){
-  return String(s)
-    .replace(/[A-Za-zÀ-ɏ][A-Za-zÀ-ɏ0-9'’.&:\/\-]*(?:\s+[A-Za-zÀ-ɏ0-9'’.&:\/\-]+)*/g,
-      function(m){ return RLM+'⁦'+m+'⁩'+RLM; })
-    .replace(/[0-9۰-۹]+/g, function(m){ return m+RLM; });
-}
-/* transform only TEXT segments, never HTML tags (so <b>/<i> survive) */
-function faText(s){ return String(s).replace(/(<[^>]+>)|([^<]+)/g, function(m,tag,txt){ return tag ? tag : faDigits(rlm(txt)); }); }
-function TX(o){ if(o==null) return ''; if(typeof o==='string') return o; return LANG==='fa' ? faText(o.fa) : o.en; }
-function num(n){ return LANG==='fa' ? faDigits(n) : String(n); }
-function tok(name){ return getComputedStyle(document.documentElement).getPropertyValue(name).trim(); }
-</script>
-
-<script>
-/* ── DATA LAYER — Atomic Habits (bilingual, plain-spoken Persian) ── */
-var DATA = {"tldr":[{"en":"The whole book in one line: you have a limited number of f*cks to give, so spend them only on what is true, immediate, and important.","fa":"خلاصهٔ کل کتاب در یک جمله: تعدادِ «اهمیت»‌هایی که می‌توانی بدهی محدود است، پس فقط خرجِ چیزی‌شان کن که واقعی، همین‌الانی و مهم است."},{"en":"Chasing a constantly <b>positive</b> life backfires — wanting it more makes you feel worse. Accepting the negative is what brings peace.","fa":"دنبالِ یک زندگیِ همیشه <b>مثبت</b> بودن نتیجهٔ عکس می‌دهد — هرچه بیشتر بخواهی‌اش، حالت بدتر می‌شود. پذیرفتنِ منفی است که آرامش می‌آورد."},{"en":"You are <b>always choosing</b> what to care about. Choose fewer things, and better ones, built on good values.","fa":"تو <b>همیشه</b> داری انتخاب می‌کنی به چه چیزی اهمیت بدهی. چیزهای کمتر انتخاب کن، و بهتر — بر پایهٔ ارزش‌های خوب."},{"en":"You are <b>responsible</b> for how you respond to everything that happens to you — even the parts that are not your fault.","fa":"تو <b>مسئولِ</b> این هستی که به هر چیزی که سرت می‌آید چطور واکنش نشان می‌دهی — حتی همان بخش‌هایی که تقصیرِ تو نیست."},{"en":"Then <b>commit</b>: go deep on a few things, set boundaries, and let the fact that you will die remind you what deserves your care.","fa":"بعد <b>متعهد شو</b>: روی چند چیز عمیق شو، مرز بگذار، و بگذار این واقعیت که روزی می‌میری یادت بیندازد چه چیزی ارزشِ اهمیت‌دادن دارد."}],"parts":[{"key":"dont_try","varc":"--c-teal","name":{"en":"Don't Try","fa":"زور نزن"},"tag":{"en":"The Backwards Law","fa":"قانونِ وارونه"},"gist":{"en":"Wanting a positive experience is a negative one; accepting the negative is positive.","fa":"خواستنِ تجربهٔ مثبت، خودش منفی است؛ پذیرفتنِ منفی، خودش مثبت است."},"more":{"en":"Manson opens with Charles Bukowski's epitaph — “Don't try.” The harder you chase feeling good, the more you notice you don't have it. The way out isn't more positivity; it's accepting struggle and pain as a normal part of a good life.","fa":"منسون کتاب را با سنگِ‌قبرِ چارلز بوکوفسکی باز می‌کند — «زور نزن.» هرچه سخت‌تر دنبالِ حالِ خوب بدوی، بیشتر می‌بینی که نداری‌اش. راهِ بیرون، مثبت‌بودنِ بیشتر نیست؛ پذیرفتنِ سختی و درد است، به‌عنوانِ بخشی عادی از یک زندگیِ خوب."},"chapters":["backwards","acceptance","feedbackloop"]},{"key":"choose_care","varc":"--c-blue","name":{"en":"Choose What to Care About","fa":"انتخاب کن به چی اهمیت بدهی"},"tag":{"en":"Spend your care well","fa":"اهمیتت را خوب خرج کن"},"gist":{"en":"You always pick what to give a f*ck about — so pick meaningful struggles and good values.","fa":"تو همیشه انتخاب می‌کنی به چه چیزی اهمیت بدهی — پس سختی‌های معنادار و ارزش‌های خوب را انتخاب کن."},"more":{"en":"Not giving a f*ck doesn't mean indifference; it means caring about less, and about the right things. Happiness comes from solving problems you find worth solving, so the real question is which struggles and values you'll commit to.","fa":"بی‌خیالی یعنی بی‌تفاوتی نیست؛ یعنی به چیزهای کمتر اهمیت بدهی، و به چیزهای درست. شادکامی از حلِ مشکل‌هایی می‌آید که به‌نظرت ارزشِ حل‌شدن دارند، پس پرسشِ اصلی این است که به کدام سختی‌ها و ارزش‌ها متعهد می‌شوی."},"chapters":["choosing","struggle","problems"]},{"key":"not_special","varc":"--c-amber","name":{"en":"You're Not Special & Radical Responsibility","fa":"تو خاص نیستی و مسئولیتِ کامل"},"tag":{"en":"Own your response","fa":"واکنشت را گردن بگیر"},"gist":{"en":"Entitlement is a trap; you're responsible for everything you experience, fault or not.","fa":"حسِ استحقاق یک تله است؛ تو مسئولِ هر چیزی هستی که تجربه می‌کنی، تقصیرت باشد یا نه."},"more":{"en":"Feeling exceptional — either “I'm amazing” or “I'm worthless” — is a form of entitlement that keeps you stuck. The antidote is radical responsibility: you don't control what happens, but you always control how you respond, so take ownership of it.","fa":"حسِ اینکه استثنایی هستی — چه «من فوق‌العاده‌ام» چه «من به‌دردنخورم» — نوعی حسِ استحقاق است که زمین‌گیرت می‌کند. پادزهرش مسئولیتِ کامل است: تو کنترلِ اتفاق‌ها را نداری، اما همیشه کنترلِ واکنشت را داری، پس گردنش بگیر."},"chapters":["entitlement","responsibility","faultresp"]},{"key":"uncertainty","varc":"--c-violet","name":{"en":"Uncertainty & Failure","fa":"تردید و شکست"},"tag":{"en":"Grow by being wrong","fa":"با اشتباه‌کردن رشد کن"},"gist":{"en":"Hold your identity loosely, stay a little wrong, and let failure move you forward.","fa":"هویتت را شل بگیر، کمی اشتباه بمان، و بگذار شکست جلو ببردت."},"more":{"en":"The more a fact threatens your self-image, the more you avoid it — that's Manson's law of avoidance. Certainty is the enemy of growth, so aim to be less wrong over time. Failure is the way forward, and action, not motivation, gets you started.","fa":"هرچه یک واقعیت بیشتر خودانگاره‌ات را تهدید کند، بیشتر از آن فرار می‌کنی — این قانونِ اجتنابِ منسون است. اطمینانِ کامل دشمنِ رشد است، پس هدفت این باشد که به‌مرور کمتر اشتباه کنی. شکست، راهِ جلو رفتن است، و این عمل است که راهت می‌اندازد، نه انگیزه."},"chapters":["avoidance","wrong","failure","dosomething"]},{"key":"commitment","varc":"--c-green","name":{"en":"Commitment, Boundaries & Death","fa":"تعهد، مرز، و مرگ"},"tag":{"en":"Go deep, then remember death","fa":"عمیق شو، بعد مرگ را یادت باشد"},"gist":{"en":"Commitment is freedom, boundaries protect what you value, and death clarifies it all.","fa":"تعهد یعنی آزادی، مرزها از چیزی که برایت مهم است محافظت می‌کنند، و مرگ همه‌چیز را روشن می‌کند."},"more":{"en":"Endless options keep you shallow; committing to a few things — a person, a craft, a purpose — is where depth and meaning live. That means saying no and holding boundaries. And the final clarifier is mortality: remembering you'll die burns off everything trivial.","fa":"گزینه‌های بی‌پایان سطحی نگهت می‌دارند؛ متعهد‌شدن به چند چیز — یک آدم، یک کار، یک هدف — همان‌جایی است که عمق و معنا زندگی می‌کنند. این یعنی نه‌گفتن و نگه‌داشتنِ مرزها. و روشن‌کنندهٔ نهایی مرگ است: یادِ اینکه می‌میری، هر چیزِ بی‌اهمیتی را می‌سوزاند."},"chapters":["commit","boundaries","death"]}],"chapters":{"backwards":{"part":"dont_try","n":1,"name":{"en":"The Backwards Law","fa":"قانونِ وارونه"},"glabel":{"en":"Backwards Law","fa":"قانونِ وارونه"},"principle":{"en":"Wanting a more positive experience is itself a negative experience. The harder you chase feeling good, the less satisfied you feel.","fa":"خواستنِ یک تجربهٔ مثبت‌تر، خودش یک تجربهٔ منفی است. هرچه سخت‌تر دنبالِ حالِ خوب بدوی، کمتر راضی می‌شوی."},"more":{"en":"Manson borrows Alan Watts's “backwards law”: pursuing something reminds you that you lack it. So the chase for constant positivity quietly reinforces the feeling that you're not enough — the wanting becomes the wound.","fa":"منسون «قانونِ وارونهٔ» آلن واتس را وام می‌گیرد: دنبالِ چیزی دویدن، یادت می‌اندازد که نداری‌اش. برای همین، دویدن دنبالِ مثبت‌بودنِ همیشگی، بی‌سروصدا همین حس را تقویت می‌کند که کافی نیستی — همان خواستن می‌شود زخم."},"example":{"en":"The more desperately someone wants to be happy or rich, the more their own mind keeps whispering that they are neither.","fa":"هرچه کسی دیوانه‌وارتر بخواهد خوشحال یا پولدار باشد، ذهنِ خودش بیشتر در گوشش می‌گوید که هیچ‌کدام نیست."},"tip":{"en":"When you feel restless, stop chasing the good feeling for a moment and just let the discomfort be there.","fa":"وقتی بی‌قراری، یک لحظه دست از دنبالِ حالِ خوب دویدن بردار و بگذار همان ناراحتی سرِ جایش باشد."},"pitfall":{"en":"Treating every negative feeling as a problem to be fixed immediately.","fa":"هر حسِ منفی را مشکلی دیدن که باید همین‌الان درستش کنی."}},"acceptance":{"part":"dont_try","n":2,"name":{"en":"Accept the Negative","fa":"منفی را بپذیر"},"glabel":{"en":"Acceptance","fa":"پذیرش"},"principle":{"en":"Accepting a negative experience is itself a positive experience. Pain and problems are part of a good life, not a sign it has gone wrong.","fa":"پذیرفتنِ یک تجربهٔ منفی، خودش یک تجربهٔ مثبت است. درد و مشکل بخشی از یک زندگیِ خوب‌اند، نه نشانهٔ اینکه چیزی خراب شده."},"more":{"en":"Everything worthwhile comes with an unpleasant side, and struggle is how anything meaningful gets built. When you stop demanding that life feel good all the time, ordinary struggles stop feeling like injustices.","fa":"هر چیزِ ارزشمندی یک طرفِ ناخوشایند دارد، و سختی همان راهی است که هر چیزِ معناداری با آن ساخته می‌شود. وقتی دست از این توقع برداری که زندگی همیشه خوب حس شود، سختی‌های معمولی دیگر مثلِ بی‌عدالتی حس نمی‌شوند."},"example":{"en":"The pain of the gym, the awkwardness of hard conversations, the risk of rejection — each is the price of something you actually want.","fa":"دردِ باشگاه، ناراحتیِ حرف‌های سخت، خطرِ ردشدن — هرکدام بهای چیزی است که واقعاً می‌خواهی‌اش."},"tip":{"en":"Name one struggle you're carrying and ask what good thing it is the price of.","fa":"یک سختی را که داری تحمل می‌کنی نام ببر و بپرس بهای کدام چیزِ خوب است."},"pitfall":{"en":"Believing a good life should be free of pain, so any pain means you failed.","fa":"باور به اینکه یک زندگیِ خوب باید بی‌درد باشد، پس هر دردی یعنی شکست خورده‌ای."}},"feedbackloop":{"part":"dont_try","n":3,"name":{"en":"The Feedback Loop from Hell","fa":"حلقهٔ بازخوردِ جهنمی"},"glabel":{"en":"Feedback Loop","fa":"حلقهٔ جهنمی"},"principle":{"en":"Getting upset about being upset stacks a second layer of suffering on the first. You feel bad about feeling bad.","fa":"ناراحت‌شدن از ناراحت‌بودن، یک لایهٔ دومِ رنج روی لایهٔ اول می‌گذارد. از بد‌بودنِ حالت، حالت بد می‌شود."},"more":{"en":"Anxiety about your anxiety, anger at your anger, guilt over your guilt — the judgment multiplies the emotion. The escape is to let the first feeling simply exist, without making it mean something is wrong with you.","fa":"اضطراب از اضطرابت، خشم از خشمت، عذابِ‌وجدان از عذابِ‌وجدانت — قضاوت، احساس را چند برابر می‌کند. راهِ فرار این است که بگذاری همان احساسِ اول فقط وجود داشته باشد، بی‌آنکه معنی‌اش کنی که یک‌جای تو خراب است."},"example":{"en":"You're anxious, then anxious that you're anxious, then ashamed of that — three problems where there was one.","fa":"مضطربی، بعد مضطرب از اینکه مضطربی، بعد شرمنده از همین — سه مشکل، جایی که یکی بود."},"tip":{"en":"Next time a hard feeling shows up, let it be there for a minute without judging yourself for having it.","fa":"دفعهٔ بعد که یک حسِ سخت آمد، یک دقیقه بگذار باشد، بی‌آنکه خودت را برای داشتنش قضاوت کنی."},"pitfall":{"en":"Beating yourself up for negative emotions, which only breeds more of them.","fa":"خودخوری برای احساس‌های منفی، که فقط بیشترشان می‌کند."}},"choosing":{"part":"choose_care","n":4,"name":{"en":"You Always Choose","fa":"انتخاب همیشه با توست"},"glabel":{"en":"You Choose","fa":"انتخاب با توست"},"principle":{"en":"You are always choosing what to give a f*ck about, even when it feels like you have no choice.","fa":"تو همیشه داری انتخاب می‌کنی به چه چیزی اهمیت بدهی، حتی وقتی حس می‌کنی هیچ انتخابی نداری."},"more":{"en":"Maturity is learning to give a f*ck only about what's truly f*ckworthy. As you get older, the goal isn't to care about nothing — it's to reserve your limited care for the few people and things that genuinely earn it.","fa":"بلوغ یعنی یاد بگیری فقط به چیزی اهمیت بدهی که واقعاً ارزشش را دارد. هرچه بزرگ‌تر می‌شوی، هدف این نیست که به هیچ‌چیز اهمیت ندهی — این است که اهمیتِ محدودت را برای همان چند آدم و چیزی نگه داری که واقعاً حقش را دارند."},"example":{"en":"The person who reacts to every small annoyance is spending their care on things that don't matter, and has none left for what does.","fa":"کسی که به هر آزارِ کوچکی واکنش نشان می‌دهد، اهمیتش را خرجِ چیزهایی می‌کند که مهم نیستند، و چیزی برای مهم‌ها نمی‌ماند."},"tip":{"en":"Pick one thing that regularly annoys you and consciously decide to stop giving it your care.","fa":"یک چیز را که مرتب حرصت می‌دهد انتخاب کن و آگاهانه تصمیم بگیر دیگر اهمیتش ندهی."},"pitfall":{"en":"Spreading your care so thin that everything, and therefore nothing, matters.","fa":"آن‌قدر نازک پخش‌کردنِ اهمیتت که همه‌چیز، و در نتیجه هیچ‌چیز، مهم شود."}},"struggle":{"part":"choose_care","n":5,"name":{"en":"Choose Your Struggle","fa":"سختی‌ات را انتخاب کن"},"glabel":{"en":"Struggle","fa":"سختی"},"principle":{"en":"Happiness comes from solving problems, so the real question isn't “what do you want?” but “what pain are you willing to sustain?”","fa":"شادکامی از حلِ مشکل می‌آید، پس پرسشِ اصلی این نیست که «چه می‌خواهی؟» بلکه «حاضری چه دردی را تحمل کنی؟»"},"more":{"en":"Everyone wants the reward; who you become is decided by the struggle you'll accept to get it. Good values make the struggle worth it — pick problems that come from things you actually care about, not borrowed shoulds.","fa":"همه پاداش را می‌خواهند؛ اینکه چه‌کسی می‌شوی را سختی‌ای تعیین می‌کند که حاضری برایش قبول کنی. ارزش‌های خوب، سختی را ارزشمند می‌کنند — مشکل‌هایی را انتخاب کن که از چیزی می‌آیند که واقعاً برایت مهم است، نه «باید»‌های قرضی."},"example":{"en":"Plenty of people want to write a book; the writer is the one willing to sustain the daily grind of bad drafts.","fa":"خیلی‌ها می‌خواهند کتاب بنویسند؛ نویسنده کسی است که حاضر است کلنجارِ روزانه با پیش‌نویس‌های بد را تحمل کند."},"tip":{"en":"For a goal you have, write down the ugly daily work it requires and ask if you want that work.","fa":"برای هدفی که داری، کارِ روزانه و زشتش را بنویس و بپرس آیا خودِ آن کار را می‌خواهی."},"pitfall":{"en":"Chasing the prize while refusing the process that actually produces it.","fa":"دنبالِ جایزه دویدن و رد‌کردنِ همان مسیری که واقعاً می‌سازدش."}},"problems":{"part":"choose_care","n":6,"name":{"en":"Problems Never End","fa":"مشکل‌ها تمام نمی‌شوند"},"glabel":{"en":"Problems","fa":"مشکل‌ها"},"principle":{"en":"Life is an endless series of problems; solving one just creates the next. You don't get rid of problems, you upgrade them.","fa":"زندگی یک زنجیرهٔ بی‌پایان از مشکل است؛ حلِ یکی فقط بعدی را می‌سازد. تو از شرِ مشکل‌ها خلاص نمی‌شوی، ارتقایشان می‌دهی."},"more":{"en":"Happiness isn't a place with no problems; it's the ongoing activity of solving them. The aim isn't a problem-free life but better problems — trading the problems of being broke for the richer problems of building something.","fa":"شادکامی جایی بدونِ مشکل نیست؛ خودِ کارِ مداومِ حل‌کردنِ آن‌هاست. هدف، زندگیِ بی‌مشکل نیست، بلکه مشکل‌های بهتر است — عوض‌کردنِ مشکل‌های بی‌پولی با مشکل‌های غنی‌ترِ ساختنِ یک چیز."},"example":{"en":"Solve the problem of no customers and you earn the problem of managing a team — a better problem, but still a problem.","fa":"مشکلِ نداشتنِ مشتری را حل کن، آن‌وقت مشکلِ ادارهٔ یک تیم را می‌گیری — مشکلی بهتر، اما بازهم مشکل."},"tip":{"en":"When a problem is solved, expect the next one and pick your next challenge on purpose.","fa":"وقتی مشکلی حل شد، منتظرِ بعدی باش و چالشِ بعدی‌ات را عمداً انتخاب کن."},"pitfall":{"en":"Believing that once you fix this one thing, life will finally be problem-free.","fa":"باور به اینکه همین که این یک چیز را درست کنی، زندگی بالاخره بی‌مشکل می‌شود."}},"entitlement":{"part":"not_special","n":7,"name":{"en":"You Are Not Special","fa":"تو خاص نیستی"},"glabel":{"en":"Entitlement","fa":"حسِ استحقاق"},"principle":{"en":"Feeling entitled — that you deserve good things without earning them — keeps you stuck. You are not exceptional, and that is freeing.","fa":"حسِ استحقاق — اینکه لایقِ چیزهای خوبی بدونِ به‌دست‌آوردنشان — زمین‌گیرت می‌کند. تو استثنایی نیستی، و همین آزادت می‌کند."},"more":{"en":"Entitlement wears two masks: “I'm better than everyone” and “I'm worse than everyone.” Both put you at the center of the universe. Accepting that you're pretty average at most things frees you to improve without the drama.","fa":"حسِ استحقاق دو نقاب دارد: «من از همه بهترم» و «من از همه بدترم». هر دو تو را مرکزِ عالم می‌گذارند. پذیرفتنِ اینکه در بیشترِ چیزها آدمِ متوسطی هستی، آزادت می‌کند که بدونِ نمایش بهتر شوی."},"example":{"en":"The person convinced they're a misunderstood genius and the one convinced they're worthless both dodge the ordinary work of getting better.","fa":"کسی که مطمئن است یک نابغهٔ درک‌نشده است و کسی که مطمئن است به‌دردنخور است، هر دو از کارِ معمولیِ بهتر‌شدن فرار می‌کنند."},"tip":{"en":"Let yourself be a beginner at something and be genuinely okay with being average at it.","fa":"بگذار در یک چیز تازه‌کار باشی و واقعاً با متوسط‌بودن در آن کنار بیا."},"pitfall":{"en":"Using either grandiosity or self-pity to avoid honest effort.","fa":"استفاده از خودبزرگ‌بینی یا خودترحمی برای فرار از تلاشِ صادقانه."}},"responsibility":{"part":"not_special","n":8,"name":{"en":"Radical Responsibility","fa":"مسئولیتِ کامل"},"glabel":{"en":"Responsibility","fa":"مسئولیت"},"principle":{"en":"You are responsible for everything that happens to you, even when it isn't your fault. You may not control events, but you always control your response.","fa":"تو مسئولِ هر چیزی هستی که سرت می‌آید، حتی وقتی تقصیرِ تو نیست. شاید کنترلِ اتفاق‌ها را نداشته باشی، اما همیشه کنترلِ واکنشت را داری."},"more":{"en":"With great responsibility comes great power — Manson flips the Spider-Man line on purpose. The more you take responsibility for your life, the more power you have over it; blaming circumstances feels righteous but hands your power away.","fa":"با مسئولیتِ بزرگ، قدرتِ بزرگ می‌آید — منسون عمداً جملهٔ مردِعنکبوتی را وارونه می‌کند. هرچه مسئولیتِ زندگی‌ات را بیشتر بپذیری، قدرتِ بیشتری رویش داری؛ مقصر‌دانستنِ شرایط حسِ حق‌به‌جانبی می‌دهد اما قدرتت را دو‌دستی تقدیم می‌کند."},"example":{"en":"You didn't choose the traffic, the rude boss, or the bad news — but you do choose whether it wrecks your whole day.","fa":"تو ترافیک، رئیسِ بی‌ادب، یا خبرِ بد را انتخاب نکردی — اما این را انتخاب می‌کنی که کلِ روزت را خراب کند یا نه."},"tip":{"en":"Take one thing you've been blaming on someone else and ask what your next move is anyway.","fa":"یک چیز را که داری گردنِ کسِ دیگری می‌اندازی بردار و بپرس به‌هرحال حرکتِ بعدیِ خودت چیست."},"pitfall":{"en":"Confusing “not my fault” with “not my problem to deal with.”","fa":"اشتباه‌گرفتنِ «تقصیرِ من نیست» با «مشکلِ من نیست که حلش کنم»."}},"faultresp":{"part":"not_special","n":9,"name":{"en":"Fault vs. Responsibility","fa":"تقصیر یا مسئولیت"},"glabel":{"en":"Fault vs. Responsibility","fa":"تقصیر یا مسئولیت"},"principle":{"en":"Fault is about the past — who caused it. Responsibility is about the present — who chooses to deal with it now. They are not the same.","fa":"تقصیر مالِ گذشته است — چه‌کسی باعثش شد. مسئولیت مالِ حال است — چه‌کسی الان انتخاب می‌کند که با آن کنار بیاید. این دو یکی نیستند."},"more":{"en":"Others can be at fault for hurting you, and you can still be the only one responsible for healing. Waiting for the person at fault to fix things leaves your life in their hands; taking responsibility takes it back.","fa":"دیگران می‌توانند مقصرِ زخمی باشند که به تو زده‌اند و بازهم تو تنها کسی باشی که مسئولِ خوب‌شدنش است. منتظر‌ماندن که مقصر درستش کند، زندگی‌ات را دستِ او می‌گذارد؛ پذیرفتنِ مسئولیت، پسش می‌گیرد."},"example":{"en":"If someone leaves you with an emotional mess, it may be their fault — but cleaning it up is still your responsibility.","fa":"اگر کسی برایت یک آشوبِ عاطفی به‌جا بگذارد، شاید تقصیرِ او باشد — اما جمع‌کردنش بازهم مسئولیتِ توست."},"tip":{"en":"Separate the two out loud: “This wasn't my fault, and it is still my responsibility to handle.”","fa":"این دو را بلند از هم جدا کن: «این تقصیرِ من نبود، و بازهم مسئولیتِ من است که با آن کنار بیایم.»"},"pitfall":{"en":"Staying stuck until whoever is at fault finally apologizes or changes.","fa":"گیر‌ماندن تا وقتی هرکه مقصر است بالاخره عذر بخواهد یا عوض شود."}},"avoidance":{"part":"uncertainty","n":10,"name":{"en":"Manson's Law of Avoidance","fa":"قانونِ اجتنابِ منسون"},"glabel":{"en":"Law of Avoidance","fa":"قانونِ اجتناب"},"principle":{"en":"The more something threatens your identity, the more you will avoid it. We dodge the very things that could change us.","fa":"هرچه چیزی بیشتر هویتت را تهدید کند، بیشتر از آن فرار می‌کنی. ما دقیقاً از همان چیزهایی طفره می‌رویم که می‌توانند عوضمان کنند."},"more":{"en":"A narrow self-image (“I'm not a math person,” “I'm the funny one”) makes any challenge to it feel dangerous. Keep your identity small and loose, and fewer things feel threatening, so you can try, fail, and grow.","fa":"یک خودانگارهٔ تنگ («من آدمِ ریاضی نیستم»، «من آدمِ بامزه‌ام») هر تهدیدی به آن را خطرناک جلوه می‌دهد. هویتت را کوچک و شل نگه دار، آن‌وقت چیزهای کمتری تهدید حس می‌شوند، و می‌توانی امتحان کنی، شکست بخوری، و رشد کنی."},"example":{"en":"Someone who defines himself as “a natural talent” avoids anything hard, because struggling would prove he isn't.","fa":"کسی که خودش را «یک استعدادِ ذاتی» تعریف می‌کند از هر چیزِ سختی فرار می‌کند، چون کلنجار‌رفتن ثابت می‌کند که نیست."},"tip":{"en":"Define yourself in the least specific way you can, so growth doesn't feel like losing who you are.","fa":"خودت را با کم‌ترین جزئیاتِ ممکن تعریف کن، تا رشد‌کردن مثلِ ازدست‌دادنِ خودت حس نشود."},"pitfall":{"en":"Guarding a rigid self-image at the cost of never growing.","fa":"نگهبانی از یک خودانگارهٔ خشک، به بهای هیچ‌وقت رشد‌نکردن."}},"wrong":{"part":"uncertainty","n":11,"name":{"en":"Be a Little Wrong","fa":"کمی اشتباه باش"},"glabel":{"en":"Be Less Wrong","fa":"کمتر اشتباه"},"principle":{"en":"Certainty is the enemy of growth. You're never fully right — the goal is to be a little less wrong tomorrow than today.","fa":"اطمینانِ کامل دشمنِ رشد است. تو هیچ‌وقت کاملاً درست نیستی — هدف این است که فردا کمی کمتر اشتباه کنی تا امروز."},"more":{"en":"The more certain you are, the more you shut out anything that could correct you. Holding your beliefs loosely — assuming you're probably wrong in some way — keeps you curious and open to becoming better.","fa":"هرچه مطمئن‌تر باشی، بیشتر درِ هر چیزی را که می‌تواند اصلاحت کند می‌بندی. شل‌گرفتنِ باورها — با این فرض که احتمالاً یک‌جوری اشتباه می‌کنی — کنجکاو نگهت می‌دارد و بازِ به بهتر‌شدن."},"example":{"en":"The person sure they already know how the world works stops learning; the one who assumes they might be wrong keeps growing.","fa":"کسی که مطمئن است از قبل می‌داند دنیا چطور کار می‌کند، از یادگیری می‌ایستد؛ کسی که فرض می‌کند شاید اشتباه کند، به رشد ادامه می‌دهد."},"tip":{"en":"Take one strong opinion you hold and honestly ask where it might be wrong.","fa":"یک عقیدهٔ محکم را که داری بردار و صادقانه بپرس کجایش ممکن است اشتباه باشد."},"pitfall":{"en":"Mistaking certainty for strength when it's really a refusal to learn.","fa":"اطمینان را با قدرت اشتباه‌گرفتن، درحالی‌که واقعاً سرباز‌زدن از یادگیری است."}},"failure":{"part":"uncertainty","n":12,"name":{"en":"Failure Is the Way Forward","fa":"شکست، راهِ جلو رفتن است"},"glabel":{"en":"Failure","fa":"شکست"},"principle":{"en":"Failure is how you learn and improve. Avoiding failure is really avoiding growth — the denial of failure is itself a failure.","fa":"شکست همان راهی است که با آن یاد می‌گیری و بهتر می‌شوی. فرار از شکست در واقع فرار از رشد است — انکارِ شکست، خودش یک شکست است."},"more":{"en":"We're taught to fear failure, but skill is built by failing and adjusting, over and over. The willingness to fail at something is the price of ever being good at it, so lower the stakes and let yourself be bad at first.","fa":"به ما یاد داده‌اند از شکست بترسیم، اما مهارت با شکست‌خوردن و تنظیم‌کردن، بارها و بارها ساخته می‌شود. آمادگی برای شکست در یک کار، بهای خوب‌شدن در آن است، پس فشار را کم کن و بگذار اولش بد باشی."},"example":{"en":"A child learning to walk falls a thousand times and never once concludes that walking isn't for them.","fa":"بچه‌ای که راه‌رفتن یاد می‌گیرد هزار بار می‌افتد و حتی یک‌بار هم نتیجه نمی‌گیرد که راه‌رفتن به دردش نمی‌خورد."},"tip":{"en":"Pick something you're afraid to be bad at and let yourself do it badly this week.","fa":"چیزی را که می‌ترسی در آن بد باشی انتخاب کن و این هفته بگذار بد انجامش بدهی."},"pitfall":{"en":"Avoiding anything you can't do well immediately, so you never start.","fa":"فرار از هر چیزی که نمی‌توانی فوری خوب انجامش بدهی، پس هیچ‌وقت شروع نمی‌کنی."}},"dosomething":{"part":"uncertainty","n":13,"name":{"en":"The Do-Something Principle","fa":"اصلِ یک‌کاری‌بکن"},"glabel":{"en":"Do Something","fa":"یک کاری بکن"},"principle":{"en":"Don't wait for motivation to act — action creates motivation, not just the other way around. Do something, and the answers follow.","fa":"منتظرِ انگیزه نمان تا کاری کنی — عمل، انگیزه می‌سازد، نه فقط برعکس. یک کاری بکن، و جواب‌ها می‌آیند."},"more":{"en":"We think it goes inspiration, then motivation, then action, so we wait to feel ready. Manson makes it a loop: any small action creates a little inspiration, which fuels more action. When stuck, do the tiniest thing and let momentum build.","fa":"فکر می‌کنیم مسیر این است: اول الهام، بعد انگیزه، بعد عمل، پس منتظر می‌مانیم آماده حس کنیم. منسون آن را یک حلقه می‌کند: هر عملِ کوچک کمی الهام می‌سازد، که عملِ بیشتری را سوخت می‌رساند. وقتی گیر کردی، کوچک‌ترین کار را بکن و بگذار حرکت جان بگیرد."},"example":{"en":"You don't feel like writing, so you write one bad sentence — and twenty minutes later you're in it.","fa":"حالِ نوشتن نداری، پس یک جملهٔ بد می‌نویسی — و بیست دقیقه بعد وسطِ کاری."},"tip":{"en":"When you can't get started, shrink the task until the first step feels almost too easy, then do it.","fa":"وقتی نمی‌توانی شروع کنی، کار را آن‌قدر کوچک کن که قدمِ اول تقریباً زیادی آسان حس شود، بعد انجامش بده."},"pitfall":{"en":"Waiting to feel motivated before you'll take the first step.","fa":"منتظر‌ماندن تا انگیزه پیدا کنی، پیش از آنکه قدمِ اول را برداری."}},"commit":{"part":"commitment","n":14,"name":{"en":"The Freedom of Commitment","fa":"آزادیِ تعهد"},"glabel":{"en":"Commitment","fa":"تعهد"},"principle":{"en":"Commitment gives you freedom, not less of it. Keeping every option open keeps you shallow and distracted.","fa":"تعهد به تو آزادی می‌دهد، نه کمتر. بازنگه‌داشتنِ همهٔ گزینه‌ها سطحی و حواس‌پرت نگهت می‌دارد."},"more":{"en":"An ocean of choices sounds like freedom but leaves you skimming the surface of everything. Committing to fewer things — one person, one craft, one purpose — is what lets you go deep, and depth is where the real rewards are.","fa":"اقیانوسی از انتخاب‌ها شبیهِ آزادی به‌نظر می‌رسد اما تو را روی سطحِ همه‌چیز سُر می‌دهد. متعهد‌شدن به چیزهای کمتر — یک آدم، یک کار، یک هدف — همان چیزی است که می‌گذارد عمیق شوی، و عمق همان‌جایی است که پاداش‌های واقعی‌اند."},"example":{"en":"Chasing every new hobby and relationship, you stay a beginner at all of them; commit to one and it finally becomes rich.","fa":"با دنبال‌کردنِ هر سرگرمی و رابطهٔ جدید، در همه‌شان تازه‌کار می‌مانی؛ به یکی متعهد شو تا بالاخره غنی شود."},"tip":{"en":"Choose one thing to go all-in on for a year and let the other shiny options go.","fa":"یک چیز را انتخاب کن که یک سال تمام‌قد پایش بایستی و بقیهٔ گزینه‌های براق را رها کن."},"pitfall":{"en":"Keeping every door open until you never truly walk through any of them.","fa":"بازنگه‌داشتنِ همهٔ درها تا وقتی هیچ‌وقت واقعاً از هیچ‌کدام رد نمی‌شوی."}},"boundaries":{"part":"commitment","n":15,"name":{"en":"Boundaries & Saying No","fa":"مرزها و نه‌گفتن"},"glabel":{"en":"Boundaries","fa":"مرزها"},"principle":{"en":"To truly value something you must reject the alternatives. Healthy relationships need honest boundaries and the ability to say no.","fa":"برای اینکه واقعاً به چیزی ارزش بدهی، باید بقیهٔ گزینه‌ها را رد کنی. رابطه‌های سالم به مرزهای صادقانه و توانِ نه‌گفتن نیاز دارند."},"more":{"en":"Rejection is part of caring: saying yes to one thing means saying no to others. Clear boundaries — being able to say no and to hear it — are what keep love and commitment healthy instead of tangled and resentful.","fa":"رد‌کردن بخشی از اهمیت‌دادن است: بله‌گفتن به یک چیز یعنی نه‌گفتن به بقیه. مرزهای روشن — توانِ نه‌گفتن و شنیدنِ نه — همان چیزی است که عشق و تعهد را سالم نگه می‌دارد، نه گره‌خورده و پُر‌از‌کینه."},"example":{"en":"In a healthy relationship, each person can say “no” and trust the bond will hold; without that, it curdles into control.","fa":"در یک رابطهٔ سالم، هر کدام می‌توانند «نه» بگویند و مطمئن باشند که پیوند دوام می‌آورد؛ بدونِ آن، رابطه به کنترل تبدیل می‌شود."},"tip":{"en":"Say a clear, kind no to one request this week instead of a resentful yes.","fa":"این هفته به یک درخواست، به‌جای یک بله‌ی پُر‌از‌کینه، یک نهِ روشن و مهربان بگو."},"pitfall":{"en":"Saying yes to everything to be liked, until you resent everyone.","fa":"به همه‌چیز بله‌گفتن برای دوست‌داشته‌شدن، تا وقتی از همه دلگیر می‌شوی."}},"death":{"part":"commitment","n":16,"name":{"en":"Death Is the Compass","fa":"مرگ، قطب‌نماست"},"glabel":{"en":"Mortality","fa":"مرگ"},"principle":{"en":"Confronting your own death clarifies what matters. Remembering you will die burns away the trivial and shows you what deserves your care.","fa":"روبه‌رو‌شدن با مرگِ خودت روشن می‌کند چه چیزی مهم است. یادِ اینکه می‌میری، چیزهای بی‌اهمیت را می‌سوزاند و نشانت می‌دهد چه چیزی ارزشِ اهمیتت را دارد."},"more":{"en":"Death is the one certainty, and Manson ends there on purpose: only against the fact that our time runs out do our choices get their weight. Keeping mortality in view is the simplest way to stop wasting f*cks on what won't matter.","fa":"مرگ تنها قطعیت است، و منسون عمداً همان‌جا تمام می‌کند: فقط در برابرِ این واقعیت که وقتمان تمام می‌شود، انتخاب‌هایمان وزن پیدا می‌کنند. پیشِ‌چشم نگه‌داشتنِ مرگ، ساده‌ترین راه است برای اینکه دست از تلف‌کردنِ اهمیت روی چیزهای بی‌ارزش برداری."},"example":{"en":"Picturing yourself at the end of your life makes today's petty worries shrink to their real size.","fa":"تصورِ خودت در پایانِ زندگی، نگرانی‌های کوچکِ امروز را تا اندازهٔ واقعی‌شان آب می‌کند."},"tip":{"en":"Ask what today's problem will look like from your deathbed; then act on the answer.","fa":"بپرس مشکلِ امروز از نگاهِ بسترِ مرگت چه شکلی است؛ بعد به همان جواب عمل کن."},"pitfall":{"en":"Filling life with distractions so you never have to think about the end.","fa":"پُر‌کردنِ زندگی از حواس‌پرتی تا مجبور نباشی هیچ‌وقت به پایان فکر کنی."}}},"core":{"name":{"en":"CHOOSE YOUR VALUES","fa":"ارزش‌هایت را انتخاب کن"},"principle":{"en":"You have a limited number of f*cks to give, so choose them wisely. Not giving a f*ck isn't indifference — it's caring about less, and about better things, chosen around good values. Accept struggle as the price of anything worthwhile, take responsibility for your response to everything, and commit. Caring about less brings peace.","fa":"تعدادِ «اهمیت»‌هایی که می‌توانی بدهی محدود است، پس عاقلانه انتخابشان کن. بی‌خیالی یعنی بی‌تفاوتی نیست — یعنی به چیزهای کمتر اهمیت بدهی، و به چیزهای بهتر، که دورِ ارزش‌های خوب انتخاب شده‌اند. سختی را به‌عنوانِ بهای هر چیزِ ارزشمند بپذیر، مسئولیتِ واکنشت به هر چیزی را گردن بگیر، و متعهد شو. اهمیت‌دادن به کمتر، آرامش می‌آورد."},"more":{"en":"Manson builds the book from five moves: the backwards law (chasing positivity backfires, accepting the negative helps), choosing what to care about (meaningful struggles and good values), radical responsibility (you own your response, fault or not), the value of uncertainty and failure (be a little wrong, act anyway), and commitment (go deep, set boundaries, remember death). The thread: spend your limited care on what's true, immediate, and important.","fa":"منسون کتاب را از پنج حرکت می‌سازد: قانونِ وارونه (دنبالِ مثبت‌بودن دویدن نتیجهٔ عکس می‌دهد، پذیرفتنِ منفی کمک می‌کند)، انتخابِ اینکه به چه چیزی اهمیت بدهی (سختی‌های معنادار و ارزش‌های خوب)، مسئولیتِ کامل (واکنشت را گردن می‌گیری، تقصیرت باشد یا نه)، ارزشِ تردید و شکست (کمی اشتباه باش، به‌هرحال عمل کن)، و تعهد (عمیق شو، مرز بگذار، مرگ را یادت باشد). نخِ رابط: اهمیتِ محدودت را خرجِ چیزی کن که واقعی، همین‌الانی و مهم است."},"example":{"en":"Click any node to read a principle or a method. You can also drag the nodes around.","fa":"روی هر دایره کلیک کن تا یک اصل یا روش را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."}},"stages":[{"level":1,"badge":{"en":"Level 1 · Over-simplified","fa":"سطحِ ۱ · خیلی ساده"},"title":{"en":"Care about less","fa":"به کمتر اهمیت بده"},"tagline":{"en":"The whole book in a sentence.","fa":"کلِ کتاب در یک جمله."},"body":{"en":"You only have so much energy to care with. Spend it on a few things that truly matter and stop wasting it on the rest. Caring about less, but better, is the whole point.","fa":"تو فقط به‌اندازهٔ محدودی انرژی برای اهمیت‌دادن داری. خرجِ چند چیزی کن که واقعاً مهم‌اند و بقیه را ول کن. اهمیت‌دادن به کمتر، اما بهتر، کلِ ماجراست."},"example":{"en":"Letting a rude stranger ruin your afternoon is spending your care on someone who'll never matter to you.","fa":"اینکه بگذاری یک غریبهٔ بی‌ادب بعدازظهرت را خراب کند، یعنی خرجِ اهمیتت برای کسی که هیچ‌وقت برایت مهم نخواهد بود."},"gain":{"en":"You hold the one idea the whole book expands on.","fa":"همان یک ایده‌ای را داری که کلِ کتاب بسطش می‌دهد."}},{"level":2,"badge":{"en":"Level 2 · Simple","fa":"سطحِ ۲ · ساده"},"title":{"en":"The backwards law","fa":"قانونِ وارونه"},"tagline":{"en":"Stop forcing the positive.","fa":"دست از زور‌زدن برای مثبت‌بودن بردار."},"body":{"en":"Chasing constant good feelings backfires: wanting them more makes you feel their absence. <b>Accept</b> the negative — pain, struggle, failure — as a normal part of any good life, and it stops feeling like something has gone wrong.","fa":"دنبالِ حالِ خوبِ همیشگی دویدن نتیجهٔ عکس می‌دهد: هرچه بیشتر بخواهی‌اش، نبودش را بیشتر حس می‌کنی. منفی را — درد، سختی، شکست — به‌عنوانِ بخشی عادی از هر زندگیِ خوب <b>بپذیر</b>، آن‌وقت دیگر حس نمی‌شود که چیزی خراب شده."},"example":{"en":"Instead of demanding to feel calm before a big talk, you let the nerves be there and speak anyway.","fa":"به‌جای اینکه پیش از یک سخنرانیِ مهم توقع داشته باشی آرام باشی، می‌گذاری استرس باشد و به‌هرحال حرف می‌زنی."},"gain":{"en":"You stop fighting every hard feeling and suffer less for it.","fa":"دست از جنگیدن با هر حسِ سخت برمی‌داری و کمتر رنج می‌کشی."}},{"level":3,"badge":{"en":"Level 3 · Balanced","fa":"سطحِ ۳ · متعادل"},"title":{"en":"Choose your struggles","fa":"سختی‌هایت را انتخاب کن"},"tagline":{"en":"Good values, meaningful problems.","fa":"ارزش‌های خوب، مشکل‌های معنادار."},"body":{"en":"Happiness comes from solving problems, and problems never end — you just <b>upgrade</b> them. So choose: which struggles are worth it, and which values are they built on? Ask not “what do I want?” but “what pain am I willing to sustain?”","fa":"شادکامی از حلِ مشکل می‌آید، و مشکل‌ها تمام نمی‌شوند — تو فقط <b>ارتقایشان</b> می‌دهی. پس انتخاب کن: کدام سختی‌ها ارزشش را دارند، و روی کدام ارزش‌ها بنا شده‌اند؟ نپرس «چه می‌خواهم؟» بلکه «حاضرم چه دردی را تحمل کنم؟»"},"example":{"en":"You want the fit body, but the real question is whether you want the sweat and the sore mornings that build it.","fa":"بدنِ روفرم را می‌خواهی، اما پرسشِ اصلی این است که آیا عرق و صبح‌های کوفتهٔ سازنده‌اش را می‌خواهی."},"gain":{"en":"You can pick problems worth having instead of drifting.","fa":"می‌توانی مشکل‌هایی را انتخاب کنی که ارزشِ داشتن دارند، به‌جای بی‌هدف رفتن."}},{"level":4,"badge":{"en":"Level 4 · Advanced","fa":"سطحِ ۴ · پیشرفته"},"title":{"en":"Own it, and be wrong","fa":"گردنش بگیر، و اشتباه کن"},"tagline":{"en":"Responsibility, uncertainty, failure.","fa":"مسئولیت، تردید، شکست."},"body":{"en":"Take <b>radical responsibility</b>: you didn't cause everything, but you answer for how you respond — fault and responsibility aren't the same. Then loosen your grip on being right. <b>Certainty</b> blocks growth, <b>failure</b> teaches it, and <b>action</b> (not motivation) gets you moving.","fa":"<b>مسئولیتِ کامل</b> را بپذیر: تو باعثِ همه‌چیز نبودی، اما جوابگوی این هستی که چطور واکنش نشان می‌دهی — تقصیر و مسئولیت یکی نیستند. بعد دستت را از درست‌بودن شل کن. <b>اطمینان</b> جلوِ رشد را می‌گیرد، <b>شکست</b> یادش می‌دهد، و <b>عمل</b> (نه انگیزه) راهت می‌اندازد."},"example":{"en":"A setback that wasn't your fault still becomes yours to answer — you act, fail a little, and adjust.","fa":"یک ضربهٔ ناخواسته که تقصیرت نبود، بازهم جوابش با توست — عمل می‌کنی، کمی شکست می‌خوری، و تنظیم می‌کنی."},"gain":{"en":"You take back power over your life and keep growing through failure.","fa":"قدرتت را روی زندگی‌ات پس می‌گیری و از دلِ شکست به رشد ادامه می‌دهی."}},{"level":5,"badge":{"en":"Level 5 · Expert","fa":"سطحِ ۵ · حرفه‌ای"},"title":{"en":"Commit, and remember death","fa":"متعهد شو، و مرگ را یادت باشد"},"tagline":{"en":"Depth, boundaries, mortality.","fa":"عمق، مرزها، مرگ."},"body":{"en":"The deepest freedom is <b>commitment</b>: going all-in on a few people and pursuits instead of skimming everything. That takes <b>boundaries</b> — saying no, and hearing it. And the final compass is <b>death</b>: measuring today's worries against the fact that your time ends is what finally sorts the important from the trivial. Care about less; care about it fully.","fa":"عمیق‌ترین آزادی، <b>تعهد</b> است: تمام‌قد پای چند آدم و چند کار ایستادن، به‌جای سُر‌خوردن روی همه‌چیز. این کار <b>مرز</b> می‌خواهد — نه‌گفتن، و نه‌شنیدن. و قطب‌نمای نهایی <b>مرگ</b> است: سنجیدنِ نگرانی‌های امروز در برابرِ این واقعیت که وقتت تمام می‌شود، همان چیزی است که بالاخره مهم را از بی‌اهمیت جدا می‌کند. به کمتر اهمیت بده؛ اما تمام‌وکمال."},"example":{"en":"You pour yourself into one relationship and one craft, guard them with clear boundaries, and let death keep your priorities honest.","fa":"خودت را در یک رابطه و یک کار می‌ریزی، با مرزهای روشن ازشان محافظت می‌کنی، و می‌گذاری مرگ اولویت‌هایت را صادق نگه دارد."},"gain":{"en":"You can live for a few chosen things and let everything else go.","fa":"می‌توانی برای چند چیزِ انتخاب‌شده زندگی کنی و بقیه را رها کنی."}}],"quotes":[{"en":"The desire for more positive experience is itself a negative experience. And, paradoxically, the acceptance of one's negative experience is itself a positive experience.","fa":"میلِ به تجربهٔ مثبت‌ترِ بیشتر، خودش یک تجربهٔ منفی است. و به‌طرزِ متناقضی، پذیرفتنِ تجربهٔ منفیِ آدم، خودش یک تجربهٔ مثبت است."},{"en":"The key to a good life is giving a fuck about less, giving a fuck about only what is true and immediate and important.","fa":"کلیدِ یک زندگیِ خوب این است که به چیزهای کمتری اهمیت بدهی، فقط به چیزی که واقعی و همین‌الانی و مهم است."},{"en":"Who you are is defined by what you're willing to struggle for.","fa":"اینکه چه‌کسی هستی را همان چیزی تعریف می‌کند که حاضری برایش سختی بکشی."},{"en":"Life is essentially an endless series of problems. The solution to one problem is merely the creation of another.","fa":"زندگی در اصل یک زنجیرهٔ بی‌پایان از مشکل است. حلِ یک مشکل، فقط ساختنِ مشکلی دیگر است."},{"en":"With great responsibility comes great power.","fa":"با مسئولیتِ بزرگ، قدرتِ بزرگ می‌آید."},{"en":"The more something threatens your identity, the more you will avoid it.","fa":"هرچه چیزی بیشتر هویتت را تهدید کند، بیشتر از آن فرار می‌کنی."},{"en":"Certainty is the enemy of growth.","fa":"اطمینانِ کامل دشمنِ رشد است."},{"en":"Don't just sit there. Do something. The answers will follow.","fa":"همین‌طور آنجا ننشین. یک کاری بکن. جواب‌ها خودشان می‌آیند."},{"en":"You too are going to die, and that's because you too were fortunate enough to have lived.","fa":"تو هم روزی می‌میری، و این فقط به این خاطر است که تو هم آن‌قدر خوش‌شانس بودی که زندگی کرده‌ای."}],"media":[{"kind":"yt","id":"lz8sUiXAnbs","src":{"en":"YouTube · Mark Manson","fa":"یوتیوب · Mark Manson"},"title":{"en":"The Subtle Art — Summarized by the Author","fa":"هنرِ ظریفِ بی‌خیالی — به‌روایتِ خودِ نویسنده"},"desc":{"en":"Mark Manson sums up his own book in a short talk.","fa":"مارک منسون در یک ویدیوی کوتاه، کتابِ خودش را جمع‌بندی می‌کند."},"bullets":{"en":["The core message from the author himself","The backwards law, briefly","A fast, faithful overview"],"fa":["پیامِ اصلی از زبانِ خودِ نویسنده","قانونِ وارونه، کوتاه","یک مرورِ سریع و وفادار"]},"best":{"en":"Best for Stage 1–2.","fa":"خوب برای مرحلهٔ ۱ و ۲."}},{"kind":"yt","id":"BuuDztcqnko","src":{"en":"YouTube · The Diary of a CEO","fa":"یوتیوب · The Diary of a CEO"},"title":{"en":"Mark Manson on The Subtle Art (Full Interview)","fa":"مارک منسون دربارهٔ «هنرِ ظریفِ بی‌خیالی» (گفت‌وگوی کامل)"},"desc":{"en":"A long, candid interview turning the book's ideas into real-life advice.","fa":"یک گفت‌وگوی بلند و رک که ایده‌های کتاب را به توصیه‌های واقعیِ زندگی تبدیل می‌کند."},"bullets":{"en":["Choosing what to care about","Responsibility and values in practice","Applied to work and relationships"],"fa":["انتخابِ اینکه به چه چیزی اهمیت بدهی","مسئولیت و ارزش‌ها در عمل","به‌کار‌بسته در کار و رابطه"]},"best":{"en":"Best for Stage 2–4.","fa":"خوب برای مرحلهٔ ۲ تا ۴."}},{"kind":"yt","id":"SMZjbWgWSUQ","src":{"en":"YouTube · André Duqum","fa":"یوتیوب · André Duqum"},"title":{"en":"The Subtle Art of Not Giving a F*ck — In Conversation","fa":"هنرِ ظریفِ بی‌خیالی — یک گفت‌وگو"},"desc":{"en":"A reflective conversation with Manson on values, commitment and meaning.","fa":"یک گفت‌وگوی تأملی با منسون دربارهٔ ارزش‌ها، تعهد و معنا."},"bullets":{"en":["Commitment and depth","Uncertainty and growth","Good after a first read"],"fa":["تعهد و عمق","تردید و رشد","خوب بعد از اولین خواندن"]},"best":{"en":"Best for Stage 3–4.","fa":"خوب برای مرحلهٔ ۳ و ۴."}},{"kind":"img","url":"https://www.harpercollins.ca/9780062457714/the-subtle-art-of-not-giving-a-fck/","src":{"en":"HarperCollins · Publisher","fa":"HarperCollins · ناشر"},"title":{"en":"The Subtle Art — Publisher Page","fa":"هنرِ ظریفِ بی‌خیالی — صفحهٔ ناشر"},"desc":{"en":"The publisher page for the book, with editions and details.","fa":"صفحهٔ ناشر برای کتاب، با نسخه‌ها و جزئیات."},"bullets":{"en":["The definitive editions","Background on Manson","Straight from the source"],"fa":["نسخه‌های معتبر","پیشینه‌ای دربارهٔ منسون","مستقیم از خودِ منبع"]},"best":{"en":"For editions and the source.","fa":"برای نسخه‌ها و منبعِ اصلی."}}],"go":[{"label":{"en":"Publisher page","fa":"صفحهٔ ناشر"},"url":"https://www.harpercollins.ca/9780062457714/the-subtle-art-of-not-giving-a-fck/"},{"label":{"en":"Book on Goodreads","fa":"کتاب در گودریدز"},"url":"https://www.goodreads.com/book/show/28257707-the-subtle-art-of-not-giving-a-f-ck"},{"label":{"en":"Manson's essay that started it all","fa":"جستارِ منسون که همه‌چیز از آن شروع شد"},"url":"https://markmanson.net/not-giving-a-fuck"}],"recs":[{"pri":"b","t":{"en":"Name what you actually give a f*ck about","fa":"اسم ببر واقعاً به چی اهمیت می‌دهی"},"d":{"en":"Write down the three things truly worth your care right now — and one you'll stop caring about.","fa":"سه چیزی را که همین‌الان واقعاً ارزشِ اهمیتت را دارند بنویس — و یک چیز را که دیگر اهمیتش نمی‌دهی."}},{"pri":"b","t":{"en":"Choose your struggle","fa":"سختی‌ات را انتخاب کن"},"d":{"en":"For one goal, ask “what pain am I willing to sustain?” and commit to that work, not just the reward.","fa":"برای یک هدف بپرس «حاضرم چه دردی را تحمل کنم؟» و به خودِ آن کار متعهد شو، نه فقط به پاداش."}},{"pri":"n","t":{"en":"Own one thing that isn't your fault","fa":"یک چیز را که تقصیرت نیست گردن بگیر"},"d":{"en":"Take something you've been blaming on others and decide your next move regardless.","fa":"چیزی را که داری گردنِ دیگران می‌اندازی بردار و صرفِ‌نظر از آن، حرکتِ بعدی‌ات را تصمیم بگیر."}},{"pri":"n","t":{"en":"Do the smallest something","fa":"کوچک‌ترین کار را بکن"},"d":{"en":"Where you're stuck, shrink the first step until it's almost too easy — then act, and let motivation catch up.","fa":"هرجا گیر کرده‌ای، قدمِ اول را آن‌قدر کوچک کن که تقریباً زیادی آسان شود — بعد عمل کن، و بگذار انگیزه برسد."}}]};
-</script>
-
-<script>
-/* ── 3) RENDER (text sections) ────────────────────────────── */
-function elClear(id){ var e=document.getElementById(id); if(e) e.innerHTML=''; return e; }
-
-function renderText(){
-  var t=elClear('tldrHost');
-  DATA.tldr.forEach(function(o){ var li=document.createElement('li'); li.innerHTML = TX(o); t.appendChild(li); });
-
-  var q=elClear('quoteHost');
-  DATA.quotes.forEach(function(o){
-    var bq=document.createElement('blockquote');
-    bq.innerHTML = '<span class="qm">“</span><p>'+TX(o)+'</p>';
-    q.appendChild(bq);
-  });
-
-  var m=elClear('mediaHost');
-  DATA.media.forEach(function(o){
-    var card=document.createElement('div'); card.className='mcard';
-    var thumb;
-    if(o.kind==='yt'){
-      var url='https://www.youtube.com/watch?v='+o.id;
-      var img='https://i.ytimg.com/vi/'+o.id+'/hqdefault.jpg';
-      thumb='<a class="mthumb" href="'+url+'" target="_blank" rel="noopener">'
-        +'<img src="'+img+'" alt="" loading="lazy" onerror="this.style.display=\'none\'">'
-        +'<span class="ptype">'+(LANG==='fa'?'ویدیو':'VIDEO')+'</span>'
-        +'<span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></span></a>';
-    } else {
-      thumb='<a class="mthumb" href="'+o.url+'" target="_blank" rel="noopener"><span class="mfake">'
-        +'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.6"/><path d="M21 15l-5-5L5 21"/></svg>'
-        +'</span><span class="ptype">'+(LANG==='fa'?'تصویر':'IMAGE')+'</span></a>';
-    }
-    var link = o.kind==='yt' ? 'https://www.youtube.com/watch?v='+o.id : o.url;
-    var bl = (LANG==='fa'?o.bullets.fa:o.bullets.en).map(function(b){ return '<li>'+ (LANG==='fa'?faText(b):b) +'</li>'; }).join('');
-    card.innerHTML = thumb + '<div class="mbody">'
-      + '<div class="msrc">'+TX(o.src)+'</div>'
-      + '<h4>'+TX(o.title)+'</h4>'
-      + '<p class="mdesc">'+TX(o.desc)+'</p>'
-      + '<ul>'+bl+'</ul>'
-      + '<a class="mlink" href="'+link+'" target="_blank" rel="noopener">'+(LANG==='fa'?'باز کردن ↗':'Open ↗')+'</a>'
-      + '<div class="mbest">'+TX(o.best)+'</div>'
-      + '</div>';
-    m.appendChild(card);
-  });
-
-  var g=elClear('goHost');
-  DATA.go.forEach(function(o){
-    var a=document.createElement('a'); a.href=o.url; a.target='_blank'; a.rel='noopener';
-    a.textContent=TX(o.label); g.appendChild(a);
-  });
-
-  var r=elClear('recHost');
-  DATA.recs.forEach(function(o){
-    var it=document.createElement('div'); it.className='item';
-    var priLabel = o.pri==='b' ? (LANG==='fa'?'از اینجا شروع کن':'Start here') : (LANG==='fa'?'بعدش این':'Then this');
-    it.innerHTML='<div class="t">'+TX(o.t)+'<span class="pri '+(o.pri==='b'?'b':'')+'">'+priLabel+'</span></div>'
-      +'<div class="d">'+TX(o.d)+'</div>';
-    r.appendChild(it);
-  });
-
-  var mth=document.getElementById('methodHost');
-  mth.innerHTML = LANG==='fa' ? faText("<p><b>منبع:</b> کتابِ «The Subtle Art of Not Giving a F*ck: A Counterintuitive Approach to Living a Good Life» نوشتهٔ مارک منسون، چاپِ ۲۰۱۶ (نشرِ HarperOne).</p><p><b>روشِ کار:</b> ساختارِ پنج‌بخشی و ایده‌ها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده؛ نقل‌قول‌ها مقابله و ویدیوها بررسی شده‌اند.</p><p><b>گروه:</b> «شادکامی» — یک کتابِ رک و بامزه دربارهٔ اینکه اهمیتِ محدودت را عاقلانه خرج کنی.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای متنِ کامل، خودِ کتاب را بخوان.</p>") : "<p><b>Source:</b> the book <i>The Subtle Art of Not Giving a F*ck: A Counterintuitive Approach to Living a Good Life</i> by Mark Manson, published 2016 (HarperOne).</p><p><b>How this was built:</b> the five-part structure and ideas were gathered and rewritten from the book and reputable sources; quotes were cross-checked and the linked videos verified.</p><p><b>Group:</b> Happiness — a blunt, funny book about spending your limited care wisely.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>";
-  var fl=document.getElementById('flowTop');
-  if(fl){
-    var loop = LANG==='fa' ? ["انتخاب کن","مسئولیتش را بپذیر","متعهد شو"] : ["Choose","Own","Commit"];
-    var ar = LANG==='fa' ? '⟵' : '⟶';
-    fl.innerHTML = loop.map(function(w){ return '<b>'+ (LANG==='fa'?faText(w):w) +'</b>'; }).join(' <span class="ar">'+ar+'</span> ');
-  }
-}
-</script>
-
-<script>
-/* ── 4) CONCEPT MAP ───────────────────────────────────────── */
-function renderMap(){
-  var host=document.getElementById('mapHost'); if(!host) return; host.innerHTML='';
-  DATA.parts.forEach(function(p, i){
-    var col=document.createElement('div'); col.className='partcol';
-    var chaps=p.chapters.map(function(ck){
-      var c=DATA.chapters[ck];
-      return '<div class="chapchip"><span class="cn">'+num(c.n)+'</span><div><b>'+TX(c.name)+'</b>'
-        +'<small>'+TX(c.principle).replace(/<[^>]+>/g,'').slice(0, LANG==='fa'?86:76)+'…</small></div></div>';
-    }).join('');
-    col.innerHTML='<div class="ph"><span class="pdot" style="background:var('+p.varc+')"></span>'
-      +'<span class="pnum">'+(LANG==='fa'?'بخشِ ':'PART ')+num(i+1)+'</span></div>'
-      +'<h4>'+TX(p.name)+'</h4>'
-      +'<div class="ptag" style="color:var('+p.varc+')">'+TX(p.tag)+'</div>'
-      +'<p class="pgist">'+TX(p.gist)+'</p>'+chaps;
-    host.appendChild(col);
-  });
-}
-</script>
-
-<script>
-/* ── 5) INTERACTIVE NETWORK GRAPH (deterministic radial layout, no physics) ── */
-var GRAPH = (function(){
-  var svg, W=980, H=780, nodes=[], links=[], sel=null, dragNode=null, moved=false, startPt=null;
-
-  function build(){
-    svg=document.getElementById('netsvg');
-    svg.setAttribute('viewBox','0 0 '+W+' '+H);
-    nodes=[]; links=[];
-    var cx=W/2, cy=H/2, R1=220, R2=126, span=66*Math.PI/180;
-    var N=DATA.parts.length, partAng=DATA.parts.map(function(_,i){ return -Math.PI/2 + i*(2*Math.PI/N); });
-    nodes.push({id:'core', kind:'core', varc:'--core', r:38, x:cx, y:cy, label:DATA.core.name, data:DATA.core});
-    DATA.parts.forEach(function(p,i){
-      var a=partAng[i], px=cx+Math.cos(a)*R1, py=cy+Math.sin(a)*R1;
-      nodes.push({id:'p_'+p.key, kind:'part', varc:p.varc, r:25, x:px, y:py,
-        label:p.name, data:{name:p.name, principle:p.gist, more:p.more, tag:p.tag, key:p.key}});
-      links.push({s:'core', t:'p_'+p.key, strong:true});
-      var nc=p.chapters.length, start=a-span/2;
-      p.chapters.forEach(function(ck,j){
-        var ca = nc>1 ? start+span*(j/(nc-1)) : a;   // fan the 5 chapters outward
-        var c=DATA.chapters[ck];
-        nodes.push({id:'c_'+ck, kind:'chap', varc:p.varc, r:15,
-          x:px+Math.cos(ca)*R2, y:py+Math.sin(ca)*R2,
-          label:(c.glabel||c.name), data:c, ck:ck});
-        links.push({s:'p_'+p.key, t:'c_'+ck});
-      });
-    });
-    nodes.forEach(function(n){ n.hx=n.x; n.hy=n.y; });   // remember home positions for reset
-    draw();
-    select('core');
-  }
-
-  function byId(id){ for(var i=0;i<nodes.length;i++) if(nodes[i].id===id) return nodes[i]; return null; }
-
-  function draw(){
-    var ln='', nd='';
-    links.forEach(function(l){ ln+='<line class="glink" data-s="'+l.s+'" data-t="'+l.t+'" stroke="var(--line)" stroke-width="'+(l.strong?2.4:1.5)+'" stroke-linecap="round"/>'; });
-    nodes.forEach(function(n){
-      var inside='', below='';
-      if(n.kind==='core'){
-        inside='<text text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="800" fill="#fff" letter-spacing="0.3">'+shortLabel(n)+'</text>';
-      } else {
-        if(n.kind==='chap'){
-          inside='<text text-anchor="middle" dominant-baseline="central" font-size="11" font-weight="800" fill="#fff">'+num(n.data.n)+'</text>';
+/* ── CONTENT — everything unique to this book lives here ── */
+Book.mount({
+  "meta": {
+    "slug": "subtle-art-of-not-giving-a-fck",
+    "folder": "15 - Happiness",
+    "groupNum": 15,
+    "group": {
+      "en": "Happiness",
+      "fa": "شادکامی"
+    },
+    "author": {
+      "en": "Mark Manson",
+      "fa": "مارک منسون"
+    },
+    "eyebrow_author": {
+      "en": "Mark Manson",
+      "fa": "مارک منسون"
+    },
+    "book": {
+      "en": "The Subtle Art of Not Giving a F*ck",
+      "fa": "هنرِ ظریفِ بی‌خیالی"
+    },
+    "hero_title": {
+      "en": "The Subtle Art of Not Giving a F*ck — A Counterintuitive Approach to Living a Good Life",
+      "fa": "هنرِ ظریفِ بی‌خیالی — رویکردی خلافِ‌جریان به یک زندگیِ خوب"
+    },
+    "dek": {
+      "en": "A knowledge graph of the whole book, plus a 5-stage path from a single idea to expert-level mastery — with an example at every step.",
+      "fa": "نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از یک ایدهٔ ساده تا حرفه‌ای — با یک مثال در هر مرحله."
+    },
+    "published": {
+      "en": "2016",
+      "fa": "۲۰۱۶"
+    },
+    "chips": [
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Parts",
+          "fa": "بخش"
         }
-        var ly = n.r + (n.kind==='part'?17:14);
-        var fs = n.kind==='part'?13:11;
-        var stroke = 'paint-order:stroke;stroke:var(--card2);stroke-width:3.6px;stroke-linejoin:round';
-        below='<text class="nlab" text-anchor="middle" y="'+ly+'" font-size="'+fs+'" font-weight="'+(n.kind==='part'?'800':'700')+'" fill="var(--ink)" style="'+stroke+'">'+shortLabel(n)+'</text>';
+      },
+      {
+        "v": {
+          "en": "16",
+          "fa": "۱۶"
+        },
+        "l": {
+          "en": "Ideas",
+          "fa": "ایده"
+        }
+      },
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Learning stages",
+          "fa": "مرحلهٔ یادگیری"
+        }
       }
-      nd+='<g class="node'+(n.kind==='core'?' ncore':'')+'" data-id="'+n.id+'"><g class="ns">'
-        +'<circle r="'+n.r+'" fill="var('+n.varc+')" fill-opacity="'+(n.kind==='chap'?0.94:1)+'" stroke="var(--card)" stroke-width="2.5"/>'
-        +inside+below+'</g></g>';
-    });
-    svg.innerHTML='<g id="glinks">'+ln+'</g><g id="gnodes">'+nd+'</g>';
-    svg.querySelectorAll('.node').forEach(function(gEl){
-      gEl.addEventListener('pointerdown', onDown);
-      gEl.addEventListener('click', function(){ if(!moved) select(gEl.getAttribute('data-id')); });
-      gEl.addEventListener('pointerenter', function(){ if(!dragNode) gEl.classList.add('hover'); });
-      gEl.addEventListener('pointerleave', function(){ gEl.classList.remove('hover'); });
-    });
-    positions();
-  }
-  function shortLabel(n){ return TX(n.label); }
-
-  function positions(){
-    svg.querySelectorAll('.node').forEach(function(g){
-      var n=byId(g.getAttribute('data-id'));
-      g.setAttribute('transform','translate('+n.x.toFixed(1)+','+n.y.toFixed(1)+')');
-    });
-    svg.querySelectorAll('.glink').forEach(function(l){
-      var a=byId(l.getAttribute('data-s')), b=byId(l.getAttribute('data-t'));
-      l.setAttribute('x1',a.x.toFixed(1)); l.setAttribute('y1',a.y.toFixed(1));
-      l.setAttribute('x2',b.x.toFixed(1)); l.setAttribute('y2',b.y.toFixed(1));
-    });
-  }
-
-  /* drag: just move the grabbed node — no simulation, so nothing else shifts */
-  function toSvg(e){
-    var pt=svg.createSVGPoint(); pt.x=e.clientX; pt.y=e.clientY;
-    var m=svg.getScreenCTM(); if(!m) return {x:e.clientX,y:e.clientY};
-    return pt.matrixTransform(m.inverse());
-  }
-  function onDown(e){
-    e.preventDefault();
-    dragNode=byId(e.currentTarget.getAttribute('data-id'));
-    moved=false; startPt=toSvg(e); svg.style.cursor='grabbing';
-    e.currentTarget.classList.remove('hover');
-    window.addEventListener('pointermove', onMove);
-    window.addEventListener('pointerup', onUp);
-  }
-  function onMove(e){
-    if(!dragNode) return; var p=toSvg(e);
-    if(startPt && (Math.abs(p.x-startPt.x)>4 || Math.abs(p.y-startPt.y)>4)) moved=true;
-    dragNode.x=Math.max(dragNode.r+4, Math.min(W-dragNode.r-4, p.x));
-    dragNode.y=Math.max(dragNode.r+4, Math.min(H-dragNode.r-24, p.y));
-    positions();
-  }
-  function onUp(){
-    dragNode=null; svg.style.cursor='grab';
-    window.removeEventListener('pointermove', onMove);
-    window.removeEventListener('pointerup', onUp);
-  }
-
-  function keepSet(id){
-    var n=byId(id); if(!n || id==='core') return null;   // core → show everything
-    var keep={}; keep[id]=1; keep['core']=1;
-    var pk = (n.kind==='part') ? n.data.key : n.data.part;
-    keep['p_'+pk]=1;
-    DATA.parts.forEach(function(p){ if(p.key===pk) p.chapters.forEach(function(ck){ keep['c_'+ck]=1; }); });
-    return keep;   // highlight the whole branch: core → part → its chapters
-  }
-  function applyFocus(id){
-    var keep=keepSet(id), full=(keep===null);
-    svg.querySelectorAll('.node').forEach(function(g){
-      var nid=g.getAttribute('data-id');
-      g.classList.toggle('dim', !full && !keep[nid]);
-      g.classList.toggle('hl', !full && keep[nid] && nid!==id);
-    });
-    svg.querySelectorAll('.glink').forEach(function(l){
-      var s=l.getAttribute('data-s'), t=l.getAttribute('data-t');
-      var on = full || (keep[s] && keep[t]);
-      l.classList.toggle('dim', !on);
-      l.classList.toggle('hl', !full && on);
-    });
-  }
-
-  function relatedIds(node){
-    var ids=[];
-    if(node.id==='core'){ DATA.parts.forEach(function(p){ ids.push('p_'+p.key); }); }
-    else if(node.kind==='part'){ var pk=node.data.key; DATA.parts.forEach(function(p){ if(p.key===pk) p.chapters.forEach(function(ck){ ids.push('c_'+ck); }); }); }
-    else { var pk2=node.data.part; ids.push('p_'+pk2);
-      DATA.parts.forEach(function(p){ if(p.key===pk2) p.chapters.forEach(function(ck){ if('c_'+ck!==node.id) ids.push('c_'+ck); }); }); }
-    return ids;
-  }
-
-  function drow(cls,label,txt){ return '<div class="drow '+cls+'"><div class="dlab">'+label+'</div><div class="dtxt">'+txt+'</div></div>'; }
-
-  function select(id){
-    var n=byId(id); if(!n) return;
-    sel=id;
-    svg.querySelectorAll('.node').forEach(function(g){ g.classList.toggle('sel', g.getAttribute('data-id')===id); });
-    var selEl=svg.querySelector('.node[data-id="'+id+'"]'); if(selEl&&selEl.parentNode) selEl.parentNode.appendChild(selEl);  // raise on top
-    applyFocus(id);
-    var d=n.data, pv = n.kind==='core' ? '--core' : n.varc;
-    var kicker = n.kind==='core' ? (LANG==='fa'?'ایدهٔ مرکزی':'Core idea')
-             : n.kind==='part' ? (LANG==='fa'?'بخش':'Part') + ' · ' + TX(d.tag)
-             : (LANG==='fa'?"ایدهٔ":"Idea") + ' ' + num(d.n);
-    var prLab = (n.kind==='chap') ? (LANG==='fa'?'اصل':'Principle') : (LANG==='fa'?'ایدهٔ اصلی':'Big idea');
-    var html='<div class="dkick"><i style="background:var('+pv+')"></i>'+ (LANG==='fa'?faText(kicker):kicker) +'</div>'
-      +'<h4>'+TX(d.name)+'</h4>'
-      + drow('', prLab, TX(d.principle));
-    if(d.more)    html += drow('more', (LANG==='fa'?'بیشتر':'In depth'), TX(d.more));
-    if(d.example) html += drow('', (LANG==='fa'?'مثال':'Example'), TX(d.example));
-    if(d.tip)     html += drow('tip', (LANG==='fa'?'امتحان کن':'Try this'), TX(d.tip));
-    if(d.pitfall) html += drow('pit', (LANG==='fa'?'حواست باشد':'Watch out'), TX(d.pitfall));
-    // related chips
-    var rel=relatedIds(n);
-    if(rel.length){
-      var chips=rel.map(function(rid){ var rn=byId(rid); if(!rn) return '';
-        return '<span class="dchip" data-goto="'+rid+'"><i style="background:var('+rn.varc+')"></i>'+TX(rn.data.name)+'</span>'; }).join('');
-      html += '<div class="drow"><div class="dlab">'+(LANG==='fa'?'مرتبط':'Related')+'</div><div class="dchips">'+chips+'</div></div>';
+    ],
+    "kboxes": [
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Parts (backwards law · choose · responsibility · uncertainty · commitment)",
+          "fa": "بخش (قانونِ وارونه · انتخاب · مسئولیت · تردید · تعهد)"
+        }
+      },
+      {
+        "v": {
+          "en": "16",
+          "fa": "۱۶"
+        },
+        "l": {
+          "en": "Ideas you can use",
+          "fa": "ایده برای استفاده"
+        }
+      },
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Levels, simple → expert",
+          "fa": "مرحله، ساده تا حرفه‌ای"
+        }
+      },
+      {
+        "v": {
+          "en": "3",
+          "fa": "۳"
+        },
+        "l": {
+          "en": "The arc: choose · own · commit",
+          "fa": "مسیر: انتخاب کن · گردن بگیر · متعهد شو"
+        }
+      }
+    ],
+    "core_callout": {
+      "label": {
+        "en": "The core idea:",
+        "fa": "ایدهٔ اصلی:"
+      },
+      "en": "You only have so many f*cks to give — a limited supply — so spend them on what is <i>true, immediate</i> and <i>important</i>. Chasing an <i>always positive</i> life backfires; accepting struggle and choosing good values is what brings peace. Caring about less, but better, is the whole game.",
+      "fa": "تعدادِ «اهمیت»‌هایی که می‌توانی بدهی محدود است — پس خرجِ چیزی‌شان کن که <i>واقعی، همین‌الانی</i> و <i>مهم</i> است. دنبالِ یک زندگیِ <i>همیشه‌مثبت</i> بودن نتیجهٔ عکس می‌دهد؛ پذیرفتنِ سختی و انتخابِ ارزش‌های خوب است که آرامش می‌آورد. به چیزهای کمتر، اما بهتر، اهمیت بده — کلِ بازی همین است."
+    },
+    "flow_callout": {
+      "label": {
+        "en": "Read it as a flow:",
+        "fa": "به‌صورتِ یک جریان بخوانش:"
+      },
+      "en": "stop forcing the positive and <b>accept</b> the negative (the backwards law); <b>choose</b> the few things worth caring about and the struggles behind them; <b>own</b> your response to everything, fault or not; stay uncertain enough to grow; then <b>commit</b>, set boundaries, and let death show you what matters.",
+      "fa": "دست از زورزدن برای مثبت‌بودن بردار و منفی را <b>بپذیر</b> (قانونِ وارونه)؛ همان چند چیزی را که ارزشِ اهمیت‌دادن دارند و سختی‌های پشتشان را <b>انتخاب کن</b>؛ واکنشت به هر چیزی را — تقصیرت باشد یا نه — <b>گردن بگیر</b>؛ آن‌قدر بی‌تردید نباش که رشد کنی؛ بعد <b>متعهد شو</b>، مرز بگذار، و بگذار مرگ نشانت بدهد چه چیزی مهم است."
     }
-    var host=document.getElementById('detailHost');
-    host.innerHTML=html;
-    host.querySelectorAll('.dchip').forEach(function(c){
-      c.addEventListener('click', function(){ select(c.getAttribute('data-goto')); });
-    });
-  }
-
-  function relabel(){ if(!svg) return; draw(); select(sel||'core'); }
-
-  return {
-    build:build,
-    kick:function(){},                                    // no-op; layout is static
-    relabel:relabel,
-    reset:function(){ nodes.forEach(function(n){ n.x=n.hx; n.y=n.hy; }); positions(); },
-    resetFocus:function(){ select('core'); },
-    selectNode:function(id){ select(id); },
-    hasNodes:function(){ return nodes.length>0; }
-  };
-})();
-</script>
-
-<script>
-/* ── 6) 5-STAGE LADDER ────────────────────────────────────── */
-var curStage=0;
-function renderLadder(){
-  var host=document.getElementById('ladderHost'); host.innerHTML='';
-  DATA.stages.forEach(function(s,i){
-    var r=document.createElement('div'); r.className='rung'+(i===curStage?' active':'');
-    r.innerHTML='<div class="lv">'+ (LANG==='fa'?('سطحِ '+num(s.level)):('Level '+s.level)) +'</div>'
-      +'<div class="lt">'+TX(s.title)+'</div>'
-      +'<div class="lbar"><i style="width:'+(s.level*20)+'%"></i></div>';
-    r.addEventListener('click', function(){ curStage=i; renderLadder(); renderStage();
-      document.getElementById('stageHost').scrollIntoView({behavior:'smooth',block:'nearest'}); });
-    host.appendChild(r);
-  });
-}
-function renderStage(){
-  var s=DATA.stages[curStage];
-  var host=document.getElementById('stageHost');
-  var exLabel = LANG==='fa'?'مثال':'Example';
-  var prev = LANG==='fa'?'مرحلهٔ قبل':'‹ Prev', next = LANG==='fa'?'مرحلهٔ بعد':'Next ›';
-  host.innerHTML=''+
-    '<div class="stagecard">'
-    +'<div class="shead"><span class="badge">'+TX(s.badge)+'</span><h3>'+TX(s.title)+'</h3></div>'
-    +'<div class="tagline">'+TX(s.tagline)+'</div>'
-    +'<div class="sbody">'+TX(s.body)+'</div>'
-    +'<div class="exbox"><div class="exk">'+exLabel+'</div><div class="ext">'+TX(s.example)+'</div></div>'
-    +'<div class="gainrow"><span class="gi">✓</span><span>'+TX(s.gain)+'</span></div>'
-    +'<div class="stagenav">'
-      +'<button id="stPrev" '+(curStage===0?'disabled':'')+'>'+prev+'</button>'
-      +'<button id="stNext" '+(curStage===DATA.stages.length-1?'disabled':'')+'>'+next+'</button>'
-    +'</div></div>';
-  var pv=document.getElementById('stPrev'), nx=document.getElementById('stNext');
-  if(pv) pv.onclick=function(){ if(curStage>0){curStage--; renderLadder(); renderStage();} };
-  if(nx) nx.onclick=function(){ if(curStage<DATA.stages.length-1){curStage++; renderLadder(); renderStage();} };
-}
-</script>
-
-<script>
-/* ── 7) legend + graph tabs ───────────────────────────────── */
-function renderLegend(){
-  var host=document.getElementById('legendHost'); if(!host) return;
-  var items=[{c:'--core', en:'Core idea', fa:'ایدهٔ مرکزی'}]
-    .concat(DATA.parts.map(function(p){ return {c:p.varc, en:p.name.en, fa:p.name.fa}; }));
-  host.innerHTML = items.map(function(it){
-    return '<span><i style="background:var('+it.c+')"></i>'+(LANG==='fa'?faText(it.fa):it.en)+'</span>';
-  }).join('');
-  document.getElementById('ghint').textContent = LANG==='fa' ? 'روی هر دایره کلیک کن تا بیشتر بخوانی · می‌توانی بکشی‌شان' : 'Click a node to read more · drag to move';
-  document.getElementById('greset').textContent = LANG==='fa' ? '↺ چیدمان' : '↺ Reset';
-}
-function setupTabs(){
-  function show(net){
-    document.getElementById('netView').style.display = net?'':'none';
-    document.getElementById('mapView').style.display = net?'none':'';
-    document.getElementById('tabNet').classList.toggle('active',net);
-    document.getElementById('tabMap').classList.toggle('active',!net);
-    if(net) GRAPH.kick();
-  }
-  document.getElementById('tabNet').onclick=function(){show(true);};
-  document.getElementById('tabMap').onclick=function(){show(false);};
-  document.getElementById('greset').onclick=function(){ GRAPH.reset(); };
-  // click empty graph space resets the focus
-  var svg=document.getElementById('netsvg');
-  svg.addEventListener('click', function(e){ if(!e.target.closest('.node')) GRAPH.resetFocus(); });
-}
-</script>
-
-<script>
-/* ── 8) toggles + boot ────────────────────────────────────── */
-function setLang(lg){
-  LANG=lg;
-  document.documentElement.setAttribute('data-lang',lg);
-  document.documentElement.setAttribute('lang',lg);
-  document.documentElement.setAttribute('dir', lg==='fa'?'rtl':'ltr');
-  try{ localStorage.setItem('subtleart-lang',lg); }catch(e){}
-  renderAll();
-}
-function renderAll(){
-  renderText();
-  renderMap();
-  renderLegend();
-  renderLadder();
-  renderStage();
-  if(GRAPH.hasNodes()) GRAPH.relabel(); else GRAPH.build();
-}
-(function(){
-  var lb=document.getElementById('langBtn');
-  lb && lb.addEventListener('click', function(){ setLang(LANG==='fa'?'en':'fa'); });
-
-  var tb=document.getElementById('themeBtn');
-  function curT(){ return document.documentElement.getAttribute('data-theme'); }
-  tb && tb.addEventListener('click', function(){
-    var t=curT()==='dark'?'light':'dark';
-    document.documentElement.setAttribute('data-theme',t);
-    try{ localStorage.setItem('subtleart-theme',t); }catch(e){}
-  });
-  try{ matchMedia('(prefers-color-scheme: dark)').addEventListener('change',function(e){
-    if(!localStorage.getItem('subtleart-theme')){ document.documentElement.setAttribute('data-theme', e.matches?'dark':'light'); }
-  }); }catch(e){}
-})();
-
-/* scroll-spy */
-(function(){
-  var links=[].slice.call(document.querySelectorAll('.toc a'));
-  var seen={}, ids=[];
-  links.forEach(function(a){ var id=a.getAttribute('href').slice(1); if(!seen[id]){seen[id]=1; ids.push(id);} });
-  var secs=ids.map(function(id){return document.getElementById(id);}).filter(Boolean);
-  function setActive(id){ links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('href')==='#'+id); }); }
-  if('IntersectionObserver' in window){
-    var obs=new IntersectionObserver(function(es){
-      es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
-    },{rootMargin:'-45% 0px -50% 0px',threshold:0});
-    secs.forEach(function(s){ obs.observe(s); });
-  }
-})();
-
-document.addEventListener('DOMContentLoaded', function(){
-  setupTabs();
-  renderAll();
+  },
+  "method": {
+    "en": "<p><b>Source:</b> the book <i>The Subtle Art of Not Giving a F*ck: A Counterintuitive Approach to Living a Good Life</i> by Mark Manson, published 2016 (HarperOne).</p><p><b>How this was built:</b> the five-part structure and ideas were gathered and rewritten from the book and reputable sources; quotes were cross-checked and the linked videos verified.</p><p><b>Group:</b> Happiness — a blunt, funny book about spending your limited care wisely.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>",
+    "fa": "<p><b>منبع:</b> کتابِ «The Subtle Art of Not Giving a F*ck: A Counterintuitive Approach to Living a Good Life» نوشتهٔ مارک منسون، چاپِ ۲۰۱۶ (نشرِ HarperOne).</p><p><b>روشِ کار:</b> ساختارِ پنج‌بخشی و ایده‌ها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده؛ نقل‌قول‌ها مقابله و ویدیوها بررسی شده‌اند.</p><p><b>گروه:</b> «شادکامی» — یک کتابِ رک و بامزه دربارهٔ اینکه اهمیتِ محدودت را عاقلانه خرج کنی.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای متنِ کامل، خودِ کتاب را بخوان.</p>"
+  },
+  "flow": {
+    "en": [
+      "Choose",
+      "Own",
+      "Commit"
+    ],
+    "fa": [
+      "انتخاب کن",
+      "مسئولیتش را بپذیر",
+      "متعهد شو"
+    ]
+  },
+  "graph": {
+    "W": 980,
+    "H": 780,
+    "R1": 220,
+    "R2": 126,
+    "span": 66
+  },
+  "tldr": [
+    {
+      "en": "The whole book in one line: you have a limited number of f*cks to give, so spend them only on what is true, immediate, and important.",
+      "fa": "خلاصهٔ کل کتاب در یک جمله: تعدادِ «اهمیت»‌هایی که می‌توانی بدهی محدود است، پس فقط خرجِ چیزی‌شان کن که واقعی، همین‌الانی و مهم است."
+    },
+    {
+      "en": "Chasing a constantly <b>positive</b> life backfires — wanting it more makes you feel worse. Accepting the negative is what brings peace.",
+      "fa": "دنبالِ یک زندگیِ همیشه <b>مثبت</b> بودن نتیجهٔ عکس می‌دهد — هرچه بیشتر بخواهی‌اش، حالت بدتر می‌شود. پذیرفتنِ منفی است که آرامش می‌آورد."
+    },
+    {
+      "en": "You are <b>always choosing</b> what to care about. Choose fewer things, and better ones, built on good values.",
+      "fa": "تو <b>همیشه</b> داری انتخاب می‌کنی به چه چیزی اهمیت بدهی. چیزهای کمتر انتخاب کن، و بهتر — بر پایهٔ ارزش‌های خوب."
+    },
+    {
+      "en": "You are <b>responsible</b> for how you respond to everything that happens to you — even the parts that are not your fault.",
+      "fa": "تو <b>مسئولِ</b> این هستی که به هر چیزی که سرت می‌آید چطور واکنش نشان می‌دهی — حتی همان بخش‌هایی که تقصیرِ تو نیست."
+    },
+    {
+      "en": "Then <b>commit</b>: go deep on a few things, set boundaries, and let the fact that you will die remind you what deserves your care.",
+      "fa": "بعد <b>متعهد شو</b>: روی چند چیز عمیق شو، مرز بگذار، و بگذار این واقعیت که روزی می‌میری یادت بیندازد چه چیزی ارزشِ اهمیت‌دادن دارد."
+    }
+  ],
+  "parts": [
+    {
+      "key": "dont_try",
+      "varc": "--c-teal",
+      "name": {
+        "en": "Don't Try",
+        "fa": "زور نزن"
+      },
+      "tag": {
+        "en": "The Backwards Law",
+        "fa": "قانونِ وارونه"
+      },
+      "gist": {
+        "en": "Wanting a positive experience is a negative one; accepting the negative is positive.",
+        "fa": "خواستنِ تجربهٔ مثبت، خودش منفی است؛ پذیرفتنِ منفی، خودش مثبت است."
+      },
+      "more": {
+        "en": "Manson opens with Charles Bukowski's epitaph — “Don't try.” The harder you chase feeling good, the more you notice you don't have it. The way out isn't more positivity; it's accepting struggle and pain as a normal part of a good life.",
+        "fa": "منسون کتاب را با سنگِ‌قبرِ چارلز بوکوفسکی باز می‌کند — «زور نزن.» هرچه سخت‌تر دنبالِ حالِ خوب بدوی، بیشتر می‌بینی که نداری‌اش. راهِ بیرون، مثبت‌بودنِ بیشتر نیست؛ پذیرفتنِ سختی و درد است، به‌عنوانِ بخشی عادی از یک زندگیِ خوب."
+      },
+      "chapters": [
+        "backwards",
+        "acceptance",
+        "feedbackloop"
+      ]
+    },
+    {
+      "key": "choose_care",
+      "varc": "--c-blue",
+      "name": {
+        "en": "Choose What to Care About",
+        "fa": "انتخاب کن به چی اهمیت بدهی"
+      },
+      "tag": {
+        "en": "Spend your care well",
+        "fa": "اهمیتت را خوب خرج کن"
+      },
+      "gist": {
+        "en": "You always pick what to give a f*ck about — so pick meaningful struggles and good values.",
+        "fa": "تو همیشه انتخاب می‌کنی به چه چیزی اهمیت بدهی — پس سختی‌های معنادار و ارزش‌های خوب را انتخاب کن."
+      },
+      "more": {
+        "en": "Not giving a f*ck doesn't mean indifference; it means caring about less, and about the right things. Happiness comes from solving problems you find worth solving, so the real question is which struggles and values you'll commit to.",
+        "fa": "بی‌خیالی یعنی بی‌تفاوتی نیست؛ یعنی به چیزهای کمتر اهمیت بدهی، و به چیزهای درست. شادکامی از حلِ مشکل‌هایی می‌آید که به‌نظرت ارزشِ حل‌شدن دارند، پس پرسشِ اصلی این است که به کدام سختی‌ها و ارزش‌ها متعهد می‌شوی."
+      },
+      "chapters": [
+        "choosing",
+        "struggle",
+        "problems"
+      ]
+    },
+    {
+      "key": "not_special",
+      "varc": "--c-amber",
+      "name": {
+        "en": "You're Not Special & Radical Responsibility",
+        "fa": "تو خاص نیستی و مسئولیتِ کامل"
+      },
+      "tag": {
+        "en": "Own your response",
+        "fa": "واکنشت را گردن بگیر"
+      },
+      "gist": {
+        "en": "Entitlement is a trap; you're responsible for everything you experience, fault or not.",
+        "fa": "حسِ استحقاق یک تله است؛ تو مسئولِ هر چیزی هستی که تجربه می‌کنی، تقصیرت باشد یا نه."
+      },
+      "more": {
+        "en": "Feeling exceptional — either “I'm amazing” or “I'm worthless” — is a form of entitlement that keeps you stuck. The antidote is radical responsibility: you don't control what happens, but you always control how you respond, so take ownership of it.",
+        "fa": "حسِ اینکه استثنایی هستی — چه «من فوق‌العاده‌ام» چه «من به‌دردنخورم» — نوعی حسِ استحقاق است که زمین‌گیرت می‌کند. پادزهرش مسئولیتِ کامل است: تو کنترلِ اتفاق‌ها را نداری، اما همیشه کنترلِ واکنشت را داری، پس گردنش بگیر."
+      },
+      "chapters": [
+        "entitlement",
+        "responsibility",
+        "faultresp"
+      ]
+    },
+    {
+      "key": "uncertainty",
+      "varc": "--c-violet",
+      "name": {
+        "en": "Uncertainty & Failure",
+        "fa": "تردید و شکست"
+      },
+      "tag": {
+        "en": "Grow by being wrong",
+        "fa": "با اشتباه‌کردن رشد کن"
+      },
+      "gist": {
+        "en": "Hold your identity loosely, stay a little wrong, and let failure move you forward.",
+        "fa": "هویتت را شل بگیر، کمی اشتباه بمان، و بگذار شکست جلو ببردت."
+      },
+      "more": {
+        "en": "The more a fact threatens your self-image, the more you avoid it — that's Manson's law of avoidance. Certainty is the enemy of growth, so aim to be less wrong over time. Failure is the way forward, and action, not motivation, gets you started.",
+        "fa": "هرچه یک واقعیت بیشتر خودانگاره‌ات را تهدید کند، بیشتر از آن فرار می‌کنی — این قانونِ اجتنابِ منسون است. اطمینانِ کامل دشمنِ رشد است، پس هدفت این باشد که به‌مرور کمتر اشتباه کنی. شکست، راهِ جلو رفتن است، و این عمل است که راهت می‌اندازد، نه انگیزه."
+      },
+      "chapters": [
+        "avoidance",
+        "wrong",
+        "failure",
+        "dosomething"
+      ]
+    },
+    {
+      "key": "commitment",
+      "varc": "--c-green",
+      "name": {
+        "en": "Commitment, Boundaries & Death",
+        "fa": "تعهد، مرز، و مرگ"
+      },
+      "tag": {
+        "en": "Go deep, then remember death",
+        "fa": "عمیق شو، بعد مرگ را یادت باشد"
+      },
+      "gist": {
+        "en": "Commitment is freedom, boundaries protect what you value, and death clarifies it all.",
+        "fa": "تعهد یعنی آزادی، مرزها از چیزی که برایت مهم است محافظت می‌کنند، و مرگ همه‌چیز را روشن می‌کند."
+      },
+      "more": {
+        "en": "Endless options keep you shallow; committing to a few things — a person, a craft, a purpose — is where depth and meaning live. That means saying no and holding boundaries. And the final clarifier is mortality: remembering you'll die burns off everything trivial.",
+        "fa": "گزینه‌های بی‌پایان سطحی نگهت می‌دارند؛ متعهد‌شدن به چند چیز — یک آدم، یک کار، یک هدف — همان‌جایی است که عمق و معنا زندگی می‌کنند. این یعنی نه‌گفتن و نگه‌داشتنِ مرزها. و روشن‌کنندهٔ نهایی مرگ است: یادِ اینکه می‌میری، هر چیزِ بی‌اهمیتی را می‌سوزاند."
+      },
+      "chapters": [
+        "commit",
+        "boundaries",
+        "death"
+      ]
+    }
+  ],
+  "chapters": {
+    "backwards": {
+      "part": "dont_try",
+      "n": 1,
+      "name": {
+        "en": "The Backwards Law",
+        "fa": "قانونِ وارونه"
+      },
+      "glabel": {
+        "en": "Backwards Law",
+        "fa": "قانونِ وارونه"
+      },
+      "principle": {
+        "en": "Wanting a more positive experience is itself a negative experience. The harder you chase feeling good, the less satisfied you feel.",
+        "fa": "خواستنِ یک تجربهٔ مثبت‌تر، خودش یک تجربهٔ منفی است. هرچه سخت‌تر دنبالِ حالِ خوب بدوی، کمتر راضی می‌شوی."
+      },
+      "more": {
+        "en": "Manson borrows Alan Watts's “backwards law”: pursuing something reminds you that you lack it. So the chase for constant positivity quietly reinforces the feeling that you're not enough — the wanting becomes the wound.",
+        "fa": "منسون «قانونِ وارونهٔ» آلن واتس را وام می‌گیرد: دنبالِ چیزی دویدن، یادت می‌اندازد که نداری‌اش. برای همین، دویدن دنبالِ مثبت‌بودنِ همیشگی، بی‌سروصدا همین حس را تقویت می‌کند که کافی نیستی — همان خواستن می‌شود زخم."
+      },
+      "example": {
+        "en": "The more desperately someone wants to be happy or rich, the more their own mind keeps whispering that they are neither.",
+        "fa": "هرچه کسی دیوانه‌وارتر بخواهد خوشحال یا پولدار باشد، ذهنِ خودش بیشتر در گوشش می‌گوید که هیچ‌کدام نیست."
+      },
+      "tip": {
+        "en": "When you feel restless, stop chasing the good feeling for a moment and just let the discomfort be there.",
+        "fa": "وقتی بی‌قراری، یک لحظه دست از دنبالِ حالِ خوب دویدن بردار و بگذار همان ناراحتی سرِ جایش باشد."
+      },
+      "pitfall": {
+        "en": "Treating every negative feeling as a problem to be fixed immediately.",
+        "fa": "هر حسِ منفی را مشکلی دیدن که باید همین‌الان درستش کنی."
+      }
+    },
+    "acceptance": {
+      "part": "dont_try",
+      "n": 2,
+      "name": {
+        "en": "Accept the Negative",
+        "fa": "منفی را بپذیر"
+      },
+      "glabel": {
+        "en": "Acceptance",
+        "fa": "پذیرش"
+      },
+      "principle": {
+        "en": "Accepting a negative experience is itself a positive experience. Pain and problems are part of a good life, not a sign it has gone wrong.",
+        "fa": "پذیرفتنِ یک تجربهٔ منفی، خودش یک تجربهٔ مثبت است. درد و مشکل بخشی از یک زندگیِ خوب‌اند، نه نشانهٔ اینکه چیزی خراب شده."
+      },
+      "more": {
+        "en": "Everything worthwhile comes with an unpleasant side, and struggle is how anything meaningful gets built. When you stop demanding that life feel good all the time, ordinary struggles stop feeling like injustices.",
+        "fa": "هر چیزِ ارزشمندی یک طرفِ ناخوشایند دارد، و سختی همان راهی است که هر چیزِ معناداری با آن ساخته می‌شود. وقتی دست از این توقع برداری که زندگی همیشه خوب حس شود، سختی‌های معمولی دیگر مثلِ بی‌عدالتی حس نمی‌شوند."
+      },
+      "example": {
+        "en": "The pain of the gym, the awkwardness of hard conversations, the risk of rejection — each is the price of something you actually want.",
+        "fa": "دردِ باشگاه، ناراحتیِ حرف‌های سخت، خطرِ ردشدن — هرکدام بهای چیزی است که واقعاً می‌خواهی‌اش."
+      },
+      "tip": {
+        "en": "Name one struggle you're carrying and ask what good thing it is the price of.",
+        "fa": "یک سختی را که داری تحمل می‌کنی نام ببر و بپرس بهای کدام چیزِ خوب است."
+      },
+      "pitfall": {
+        "en": "Believing a good life should be free of pain, so any pain means you failed.",
+        "fa": "باور به اینکه یک زندگیِ خوب باید بی‌درد باشد، پس هر دردی یعنی شکست خورده‌ای."
+      }
+    },
+    "feedbackloop": {
+      "part": "dont_try",
+      "n": 3,
+      "name": {
+        "en": "The Feedback Loop from Hell",
+        "fa": "حلقهٔ بازخوردِ جهنمی"
+      },
+      "glabel": {
+        "en": "Feedback Loop",
+        "fa": "حلقهٔ جهنمی"
+      },
+      "principle": {
+        "en": "Getting upset about being upset stacks a second layer of suffering on the first. You feel bad about feeling bad.",
+        "fa": "ناراحت‌شدن از ناراحت‌بودن، یک لایهٔ دومِ رنج روی لایهٔ اول می‌گذارد. از بد‌بودنِ حالت، حالت بد می‌شود."
+      },
+      "more": {
+        "en": "Anxiety about your anxiety, anger at your anger, guilt over your guilt — the judgment multiplies the emotion. The escape is to let the first feeling simply exist, without making it mean something is wrong with you.",
+        "fa": "اضطراب از اضطرابت، خشم از خشمت، عذابِ‌وجدان از عذابِ‌وجدانت — قضاوت، احساس را چند برابر می‌کند. راهِ فرار این است که بگذاری همان احساسِ اول فقط وجود داشته باشد، بی‌آنکه معنی‌اش کنی که یک‌جای تو خراب است."
+      },
+      "example": {
+        "en": "You're anxious, then anxious that you're anxious, then ashamed of that — three problems where there was one.",
+        "fa": "مضطربی، بعد مضطرب از اینکه مضطربی، بعد شرمنده از همین — سه مشکل، جایی که یکی بود."
+      },
+      "tip": {
+        "en": "Next time a hard feeling shows up, let it be there for a minute without judging yourself for having it.",
+        "fa": "دفعهٔ بعد که یک حسِ سخت آمد، یک دقیقه بگذار باشد، بی‌آنکه خودت را برای داشتنش قضاوت کنی."
+      },
+      "pitfall": {
+        "en": "Beating yourself up for negative emotions, which only breeds more of them.",
+        "fa": "خودخوری برای احساس‌های منفی، که فقط بیشترشان می‌کند."
+      }
+    },
+    "choosing": {
+      "part": "choose_care",
+      "n": 4,
+      "name": {
+        "en": "You Always Choose",
+        "fa": "انتخاب همیشه با توست"
+      },
+      "glabel": {
+        "en": "You Choose",
+        "fa": "انتخاب با توست"
+      },
+      "principle": {
+        "en": "You are always choosing what to give a f*ck about, even when it feels like you have no choice.",
+        "fa": "تو همیشه داری انتخاب می‌کنی به چه چیزی اهمیت بدهی، حتی وقتی حس می‌کنی هیچ انتخابی نداری."
+      },
+      "more": {
+        "en": "Maturity is learning to give a f*ck only about what's truly f*ckworthy. As you get older, the goal isn't to care about nothing — it's to reserve your limited care for the few people and things that genuinely earn it.",
+        "fa": "بلوغ یعنی یاد بگیری فقط به چیزی اهمیت بدهی که واقعاً ارزشش را دارد. هرچه بزرگ‌تر می‌شوی، هدف این نیست که به هیچ‌چیز اهمیت ندهی — این است که اهمیتِ محدودت را برای همان چند آدم و چیزی نگه داری که واقعاً حقش را دارند."
+      },
+      "example": {
+        "en": "The person who reacts to every small annoyance is spending their care on things that don't matter, and has none left for what does.",
+        "fa": "کسی که به هر آزارِ کوچکی واکنش نشان می‌دهد، اهمیتش را خرجِ چیزهایی می‌کند که مهم نیستند، و چیزی برای مهم‌ها نمی‌ماند."
+      },
+      "tip": {
+        "en": "Pick one thing that regularly annoys you and consciously decide to stop giving it your care.",
+        "fa": "یک چیز را که مرتب حرصت می‌دهد انتخاب کن و آگاهانه تصمیم بگیر دیگر اهمیتش ندهی."
+      },
+      "pitfall": {
+        "en": "Spreading your care so thin that everything, and therefore nothing, matters.",
+        "fa": "آن‌قدر نازک پخش‌کردنِ اهمیتت که همه‌چیز، و در نتیجه هیچ‌چیز، مهم شود."
+      }
+    },
+    "struggle": {
+      "part": "choose_care",
+      "n": 5,
+      "name": {
+        "en": "Choose Your Struggle",
+        "fa": "سختی‌ات را انتخاب کن"
+      },
+      "glabel": {
+        "en": "Struggle",
+        "fa": "سختی"
+      },
+      "principle": {
+        "en": "Happiness comes from solving problems, so the real question isn't “what do you want?” but “what pain are you willing to sustain?”",
+        "fa": "شادکامی از حلِ مشکل می‌آید، پس پرسشِ اصلی این نیست که «چه می‌خواهی؟» بلکه «حاضری چه دردی را تحمل کنی؟»"
+      },
+      "more": {
+        "en": "Everyone wants the reward; who you become is decided by the struggle you'll accept to get it. Good values make the struggle worth it — pick problems that come from things you actually care about, not borrowed shoulds.",
+        "fa": "همه پاداش را می‌خواهند؛ اینکه چه‌کسی می‌شوی را سختی‌ای تعیین می‌کند که حاضری برایش قبول کنی. ارزش‌های خوب، سختی را ارزشمند می‌کنند — مشکل‌هایی را انتخاب کن که از چیزی می‌آیند که واقعاً برایت مهم است، نه «باید»‌های قرضی."
+      },
+      "example": {
+        "en": "Plenty of people want to write a book; the writer is the one willing to sustain the daily grind of bad drafts.",
+        "fa": "خیلی‌ها می‌خواهند کتاب بنویسند؛ نویسنده کسی است که حاضر است کلنجارِ روزانه با پیش‌نویس‌های بد را تحمل کند."
+      },
+      "tip": {
+        "en": "For a goal you have, write down the ugly daily work it requires and ask if you want that work.",
+        "fa": "برای هدفی که داری، کارِ روزانه و زشتش را بنویس و بپرس آیا خودِ آن کار را می‌خواهی."
+      },
+      "pitfall": {
+        "en": "Chasing the prize while refusing the process that actually produces it.",
+        "fa": "دنبالِ جایزه دویدن و رد‌کردنِ همان مسیری که واقعاً می‌سازدش."
+      }
+    },
+    "problems": {
+      "part": "choose_care",
+      "n": 6,
+      "name": {
+        "en": "Problems Never End",
+        "fa": "مشکل‌ها تمام نمی‌شوند"
+      },
+      "glabel": {
+        "en": "Problems",
+        "fa": "مشکل‌ها"
+      },
+      "principle": {
+        "en": "Life is an endless series of problems; solving one just creates the next. You don't get rid of problems, you upgrade them.",
+        "fa": "زندگی یک زنجیرهٔ بی‌پایان از مشکل است؛ حلِ یکی فقط بعدی را می‌سازد. تو از شرِ مشکل‌ها خلاص نمی‌شوی، ارتقایشان می‌دهی."
+      },
+      "more": {
+        "en": "Happiness isn't a place with no problems; it's the ongoing activity of solving them. The aim isn't a problem-free life but better problems — trading the problems of being broke for the richer problems of building something.",
+        "fa": "شادکامی جایی بدونِ مشکل نیست؛ خودِ کارِ مداومِ حل‌کردنِ آن‌هاست. هدف، زندگیِ بی‌مشکل نیست، بلکه مشکل‌های بهتر است — عوض‌کردنِ مشکل‌های بی‌پولی با مشکل‌های غنی‌ترِ ساختنِ یک چیز."
+      },
+      "example": {
+        "en": "Solve the problem of no customers and you earn the problem of managing a team — a better problem, but still a problem.",
+        "fa": "مشکلِ نداشتنِ مشتری را حل کن، آن‌وقت مشکلِ ادارهٔ یک تیم را می‌گیری — مشکلی بهتر، اما بازهم مشکل."
+      },
+      "tip": {
+        "en": "When a problem is solved, expect the next one and pick your next challenge on purpose.",
+        "fa": "وقتی مشکلی حل شد، منتظرِ بعدی باش و چالشِ بعدی‌ات را عمداً انتخاب کن."
+      },
+      "pitfall": {
+        "en": "Believing that once you fix this one thing, life will finally be problem-free.",
+        "fa": "باور به اینکه همین که این یک چیز را درست کنی، زندگی بالاخره بی‌مشکل می‌شود."
+      }
+    },
+    "entitlement": {
+      "part": "not_special",
+      "n": 7,
+      "name": {
+        "en": "You Are Not Special",
+        "fa": "تو خاص نیستی"
+      },
+      "glabel": {
+        "en": "Entitlement",
+        "fa": "حسِ استحقاق"
+      },
+      "principle": {
+        "en": "Feeling entitled — that you deserve good things without earning them — keeps you stuck. You are not exceptional, and that is freeing.",
+        "fa": "حسِ استحقاق — اینکه لایقِ چیزهای خوبی بدونِ به‌دست‌آوردنشان — زمین‌گیرت می‌کند. تو استثنایی نیستی، و همین آزادت می‌کند."
+      },
+      "more": {
+        "en": "Entitlement wears two masks: “I'm better than everyone” and “I'm worse than everyone.” Both put you at the center of the universe. Accepting that you're pretty average at most things frees you to improve without the drama.",
+        "fa": "حسِ استحقاق دو نقاب دارد: «من از همه بهترم» و «من از همه بدترم». هر دو تو را مرکزِ عالم می‌گذارند. پذیرفتنِ اینکه در بیشترِ چیزها آدمِ متوسطی هستی، آزادت می‌کند که بدونِ نمایش بهتر شوی."
+      },
+      "example": {
+        "en": "The person convinced they're a misunderstood genius and the one convinced they're worthless both dodge the ordinary work of getting better.",
+        "fa": "کسی که مطمئن است یک نابغهٔ درک‌نشده است و کسی که مطمئن است به‌دردنخور است، هر دو از کارِ معمولیِ بهتر‌شدن فرار می‌کنند."
+      },
+      "tip": {
+        "en": "Let yourself be a beginner at something and be genuinely okay with being average at it.",
+        "fa": "بگذار در یک چیز تازه‌کار باشی و واقعاً با متوسط‌بودن در آن کنار بیا."
+      },
+      "pitfall": {
+        "en": "Using either grandiosity or self-pity to avoid honest effort.",
+        "fa": "استفاده از خودبزرگ‌بینی یا خودترحمی برای فرار از تلاشِ صادقانه."
+      }
+    },
+    "responsibility": {
+      "part": "not_special",
+      "n": 8,
+      "name": {
+        "en": "Radical Responsibility",
+        "fa": "مسئولیتِ کامل"
+      },
+      "glabel": {
+        "en": "Responsibility",
+        "fa": "مسئولیت"
+      },
+      "principle": {
+        "en": "You are responsible for everything that happens to you, even when it isn't your fault. You may not control events, but you always control your response.",
+        "fa": "تو مسئولِ هر چیزی هستی که سرت می‌آید، حتی وقتی تقصیرِ تو نیست. شاید کنترلِ اتفاق‌ها را نداشته باشی، اما همیشه کنترلِ واکنشت را داری."
+      },
+      "more": {
+        "en": "With great responsibility comes great power — Manson flips the Spider-Man line on purpose. The more you take responsibility for your life, the more power you have over it; blaming circumstances feels righteous but hands your power away.",
+        "fa": "با مسئولیتِ بزرگ، قدرتِ بزرگ می‌آید — منسون عمداً جملهٔ مردِعنکبوتی را وارونه می‌کند. هرچه مسئولیتِ زندگی‌ات را بیشتر بپذیری، قدرتِ بیشتری رویش داری؛ مقصر‌دانستنِ شرایط حسِ حق‌به‌جانبی می‌دهد اما قدرتت را دو‌دستی تقدیم می‌کند."
+      },
+      "example": {
+        "en": "You didn't choose the traffic, the rude boss, or the bad news — but you do choose whether it wrecks your whole day.",
+        "fa": "تو ترافیک، رئیسِ بی‌ادب، یا خبرِ بد را انتخاب نکردی — اما این را انتخاب می‌کنی که کلِ روزت را خراب کند یا نه."
+      },
+      "tip": {
+        "en": "Take one thing you've been blaming on someone else and ask what your next move is anyway.",
+        "fa": "یک چیز را که داری گردنِ کسِ دیگری می‌اندازی بردار و بپرس به‌هرحال حرکتِ بعدیِ خودت چیست."
+      },
+      "pitfall": {
+        "en": "Confusing “not my fault” with “not my problem to deal with.”",
+        "fa": "اشتباه‌گرفتنِ «تقصیرِ من نیست» با «مشکلِ من نیست که حلش کنم»."
+      }
+    },
+    "faultresp": {
+      "part": "not_special",
+      "n": 9,
+      "name": {
+        "en": "Fault vs. Responsibility",
+        "fa": "تقصیر یا مسئولیت"
+      },
+      "glabel": {
+        "en": "Fault vs. Responsibility",
+        "fa": "تقصیر یا مسئولیت"
+      },
+      "principle": {
+        "en": "Fault is about the past — who caused it. Responsibility is about the present — who chooses to deal with it now. They are not the same.",
+        "fa": "تقصیر مالِ گذشته است — چه‌کسی باعثش شد. مسئولیت مالِ حال است — چه‌کسی الان انتخاب می‌کند که با آن کنار بیاید. این دو یکی نیستند."
+      },
+      "more": {
+        "en": "Others can be at fault for hurting you, and you can still be the only one responsible for healing. Waiting for the person at fault to fix things leaves your life in their hands; taking responsibility takes it back.",
+        "fa": "دیگران می‌توانند مقصرِ زخمی باشند که به تو زده‌اند و بازهم تو تنها کسی باشی که مسئولِ خوب‌شدنش است. منتظر‌ماندن که مقصر درستش کند، زندگی‌ات را دستِ او می‌گذارد؛ پذیرفتنِ مسئولیت، پسش می‌گیرد."
+      },
+      "example": {
+        "en": "If someone leaves you with an emotional mess, it may be their fault — but cleaning it up is still your responsibility.",
+        "fa": "اگر کسی برایت یک آشوبِ عاطفی به‌جا بگذارد، شاید تقصیرِ او باشد — اما جمع‌کردنش بازهم مسئولیتِ توست."
+      },
+      "tip": {
+        "en": "Separate the two out loud: “This wasn't my fault, and it is still my responsibility to handle.”",
+        "fa": "این دو را بلند از هم جدا کن: «این تقصیرِ من نبود، و بازهم مسئولیتِ من است که با آن کنار بیایم.»"
+      },
+      "pitfall": {
+        "en": "Staying stuck until whoever is at fault finally apologizes or changes.",
+        "fa": "گیر‌ماندن تا وقتی هرکه مقصر است بالاخره عذر بخواهد یا عوض شود."
+      }
+    },
+    "avoidance": {
+      "part": "uncertainty",
+      "n": 10,
+      "name": {
+        "en": "Manson's Law of Avoidance",
+        "fa": "قانونِ اجتنابِ منسون"
+      },
+      "glabel": {
+        "en": "Law of Avoidance",
+        "fa": "قانونِ اجتناب"
+      },
+      "principle": {
+        "en": "The more something threatens your identity, the more you will avoid it. We dodge the very things that could change us.",
+        "fa": "هرچه چیزی بیشتر هویتت را تهدید کند، بیشتر از آن فرار می‌کنی. ما دقیقاً از همان چیزهایی طفره می‌رویم که می‌توانند عوضمان کنند."
+      },
+      "more": {
+        "en": "A narrow self-image (“I'm not a math person,” “I'm the funny one”) makes any challenge to it feel dangerous. Keep your identity small and loose, and fewer things feel threatening, so you can try, fail, and grow.",
+        "fa": "یک خودانگارهٔ تنگ («من آدمِ ریاضی نیستم»، «من آدمِ بامزه‌ام») هر تهدیدی به آن را خطرناک جلوه می‌دهد. هویتت را کوچک و شل نگه دار، آن‌وقت چیزهای کمتری تهدید حس می‌شوند، و می‌توانی امتحان کنی، شکست بخوری، و رشد کنی."
+      },
+      "example": {
+        "en": "Someone who defines himself as “a natural talent” avoids anything hard, because struggling would prove he isn't.",
+        "fa": "کسی که خودش را «یک استعدادِ ذاتی» تعریف می‌کند از هر چیزِ سختی فرار می‌کند، چون کلنجار‌رفتن ثابت می‌کند که نیست."
+      },
+      "tip": {
+        "en": "Define yourself in the least specific way you can, so growth doesn't feel like losing who you are.",
+        "fa": "خودت را با کم‌ترین جزئیاتِ ممکن تعریف کن، تا رشد‌کردن مثلِ ازدست‌دادنِ خودت حس نشود."
+      },
+      "pitfall": {
+        "en": "Guarding a rigid self-image at the cost of never growing.",
+        "fa": "نگهبانی از یک خودانگارهٔ خشک، به بهای هیچ‌وقت رشد‌نکردن."
+      }
+    },
+    "wrong": {
+      "part": "uncertainty",
+      "n": 11,
+      "name": {
+        "en": "Be a Little Wrong",
+        "fa": "کمی اشتباه باش"
+      },
+      "glabel": {
+        "en": "Be Less Wrong",
+        "fa": "کمتر اشتباه"
+      },
+      "principle": {
+        "en": "Certainty is the enemy of growth. You're never fully right — the goal is to be a little less wrong tomorrow than today.",
+        "fa": "اطمینانِ کامل دشمنِ رشد است. تو هیچ‌وقت کاملاً درست نیستی — هدف این است که فردا کمی کمتر اشتباه کنی تا امروز."
+      },
+      "more": {
+        "en": "The more certain you are, the more you shut out anything that could correct you. Holding your beliefs loosely — assuming you're probably wrong in some way — keeps you curious and open to becoming better.",
+        "fa": "هرچه مطمئن‌تر باشی، بیشتر درِ هر چیزی را که می‌تواند اصلاحت کند می‌بندی. شل‌گرفتنِ باورها — با این فرض که احتمالاً یک‌جوری اشتباه می‌کنی — کنجکاو نگهت می‌دارد و بازِ به بهتر‌شدن."
+      },
+      "example": {
+        "en": "The person sure they already know how the world works stops learning; the one who assumes they might be wrong keeps growing.",
+        "fa": "کسی که مطمئن است از قبل می‌داند دنیا چطور کار می‌کند، از یادگیری می‌ایستد؛ کسی که فرض می‌کند شاید اشتباه کند، به رشد ادامه می‌دهد."
+      },
+      "tip": {
+        "en": "Take one strong opinion you hold and honestly ask where it might be wrong.",
+        "fa": "یک عقیدهٔ محکم را که داری بردار و صادقانه بپرس کجایش ممکن است اشتباه باشد."
+      },
+      "pitfall": {
+        "en": "Mistaking certainty for strength when it's really a refusal to learn.",
+        "fa": "اطمینان را با قدرت اشتباه‌گرفتن، درحالی‌که واقعاً سرباز‌زدن از یادگیری است."
+      }
+    },
+    "failure": {
+      "part": "uncertainty",
+      "n": 12,
+      "name": {
+        "en": "Failure Is the Way Forward",
+        "fa": "شکست، راهِ جلو رفتن است"
+      },
+      "glabel": {
+        "en": "Failure",
+        "fa": "شکست"
+      },
+      "principle": {
+        "en": "Failure is how you learn and improve. Avoiding failure is really avoiding growth — the denial of failure is itself a failure.",
+        "fa": "شکست همان راهی است که با آن یاد می‌گیری و بهتر می‌شوی. فرار از شکست در واقع فرار از رشد است — انکارِ شکست، خودش یک شکست است."
+      },
+      "more": {
+        "en": "We're taught to fear failure, but skill is built by failing and adjusting, over and over. The willingness to fail at something is the price of ever being good at it, so lower the stakes and let yourself be bad at first.",
+        "fa": "به ما یاد داده‌اند از شکست بترسیم، اما مهارت با شکست‌خوردن و تنظیم‌کردن، بارها و بارها ساخته می‌شود. آمادگی برای شکست در یک کار، بهای خوب‌شدن در آن است، پس فشار را کم کن و بگذار اولش بد باشی."
+      },
+      "example": {
+        "en": "A child learning to walk falls a thousand times and never once concludes that walking isn't for them.",
+        "fa": "بچه‌ای که راه‌رفتن یاد می‌گیرد هزار بار می‌افتد و حتی یک‌بار هم نتیجه نمی‌گیرد که راه‌رفتن به دردش نمی‌خورد."
+      },
+      "tip": {
+        "en": "Pick something you're afraid to be bad at and let yourself do it badly this week.",
+        "fa": "چیزی را که می‌ترسی در آن بد باشی انتخاب کن و این هفته بگذار بد انجامش بدهی."
+      },
+      "pitfall": {
+        "en": "Avoiding anything you can't do well immediately, so you never start.",
+        "fa": "فرار از هر چیزی که نمی‌توانی فوری خوب انجامش بدهی، پس هیچ‌وقت شروع نمی‌کنی."
+      }
+    },
+    "dosomething": {
+      "part": "uncertainty",
+      "n": 13,
+      "name": {
+        "en": "The Do-Something Principle",
+        "fa": "اصلِ یک‌کاری‌بکن"
+      },
+      "glabel": {
+        "en": "Do Something",
+        "fa": "یک کاری بکن"
+      },
+      "principle": {
+        "en": "Don't wait for motivation to act — action creates motivation, not just the other way around. Do something, and the answers follow.",
+        "fa": "منتظرِ انگیزه نمان تا کاری کنی — عمل، انگیزه می‌سازد، نه فقط برعکس. یک کاری بکن، و جواب‌ها می‌آیند."
+      },
+      "more": {
+        "en": "We think it goes inspiration, then motivation, then action, so we wait to feel ready. Manson makes it a loop: any small action creates a little inspiration, which fuels more action. When stuck, do the tiniest thing and let momentum build.",
+        "fa": "فکر می‌کنیم مسیر این است: اول الهام، بعد انگیزه، بعد عمل، پس منتظر می‌مانیم آماده حس کنیم. منسون آن را یک حلقه می‌کند: هر عملِ کوچک کمی الهام می‌سازد، که عملِ بیشتری را سوخت می‌رساند. وقتی گیر کردی، کوچک‌ترین کار را بکن و بگذار حرکت جان بگیرد."
+      },
+      "example": {
+        "en": "You don't feel like writing, so you write one bad sentence — and twenty minutes later you're in it.",
+        "fa": "حالِ نوشتن نداری، پس یک جملهٔ بد می‌نویسی — و بیست دقیقه بعد وسطِ کاری."
+      },
+      "tip": {
+        "en": "When you can't get started, shrink the task until the first step feels almost too easy, then do it.",
+        "fa": "وقتی نمی‌توانی شروع کنی، کار را آن‌قدر کوچک کن که قدمِ اول تقریباً زیادی آسان حس شود، بعد انجامش بده."
+      },
+      "pitfall": {
+        "en": "Waiting to feel motivated before you'll take the first step.",
+        "fa": "منتظر‌ماندن تا انگیزه پیدا کنی، پیش از آنکه قدمِ اول را برداری."
+      }
+    },
+    "commit": {
+      "part": "commitment",
+      "n": 14,
+      "name": {
+        "en": "The Freedom of Commitment",
+        "fa": "آزادیِ تعهد"
+      },
+      "glabel": {
+        "en": "Commitment",
+        "fa": "تعهد"
+      },
+      "principle": {
+        "en": "Commitment gives you freedom, not less of it. Keeping every option open keeps you shallow and distracted.",
+        "fa": "تعهد به تو آزادی می‌دهد، نه کمتر. بازنگه‌داشتنِ همهٔ گزینه‌ها سطحی و حواس‌پرت نگهت می‌دارد."
+      },
+      "more": {
+        "en": "An ocean of choices sounds like freedom but leaves you skimming the surface of everything. Committing to fewer things — one person, one craft, one purpose — is what lets you go deep, and depth is where the real rewards are.",
+        "fa": "اقیانوسی از انتخاب‌ها شبیهِ آزادی به‌نظر می‌رسد اما تو را روی سطحِ همه‌چیز سُر می‌دهد. متعهد‌شدن به چیزهای کمتر — یک آدم، یک کار، یک هدف — همان چیزی است که می‌گذارد عمیق شوی، و عمق همان‌جایی است که پاداش‌های واقعی‌اند."
+      },
+      "example": {
+        "en": "Chasing every new hobby and relationship, you stay a beginner at all of them; commit to one and it finally becomes rich.",
+        "fa": "با دنبال‌کردنِ هر سرگرمی و رابطهٔ جدید، در همه‌شان تازه‌کار می‌مانی؛ به یکی متعهد شو تا بالاخره غنی شود."
+      },
+      "tip": {
+        "en": "Choose one thing to go all-in on for a year and let the other shiny options go.",
+        "fa": "یک چیز را انتخاب کن که یک سال تمام‌قد پایش بایستی و بقیهٔ گزینه‌های براق را رها کن."
+      },
+      "pitfall": {
+        "en": "Keeping every door open until you never truly walk through any of them.",
+        "fa": "بازنگه‌داشتنِ همهٔ درها تا وقتی هیچ‌وقت واقعاً از هیچ‌کدام رد نمی‌شوی."
+      }
+    },
+    "boundaries": {
+      "part": "commitment",
+      "n": 15,
+      "name": {
+        "en": "Boundaries & Saying No",
+        "fa": "مرزها و نه‌گفتن"
+      },
+      "glabel": {
+        "en": "Boundaries",
+        "fa": "مرزها"
+      },
+      "principle": {
+        "en": "To truly value something you must reject the alternatives. Healthy relationships need honest boundaries and the ability to say no.",
+        "fa": "برای اینکه واقعاً به چیزی ارزش بدهی، باید بقیهٔ گزینه‌ها را رد کنی. رابطه‌های سالم به مرزهای صادقانه و توانِ نه‌گفتن نیاز دارند."
+      },
+      "more": {
+        "en": "Rejection is part of caring: saying yes to one thing means saying no to others. Clear boundaries — being able to say no and to hear it — are what keep love and commitment healthy instead of tangled and resentful.",
+        "fa": "رد‌کردن بخشی از اهمیت‌دادن است: بله‌گفتن به یک چیز یعنی نه‌گفتن به بقیه. مرزهای روشن — توانِ نه‌گفتن و شنیدنِ نه — همان چیزی است که عشق و تعهد را سالم نگه می‌دارد، نه گره‌خورده و پُر‌از‌کینه."
+      },
+      "example": {
+        "en": "In a healthy relationship, each person can say “no” and trust the bond will hold; without that, it curdles into control.",
+        "fa": "در یک رابطهٔ سالم، هر کدام می‌توانند «نه» بگویند و مطمئن باشند که پیوند دوام می‌آورد؛ بدونِ آن، رابطه به کنترل تبدیل می‌شود."
+      },
+      "tip": {
+        "en": "Say a clear, kind no to one request this week instead of a resentful yes.",
+        "fa": "این هفته به یک درخواست، به‌جای یک بله‌ی پُر‌از‌کینه، یک نهِ روشن و مهربان بگو."
+      },
+      "pitfall": {
+        "en": "Saying yes to everything to be liked, until you resent everyone.",
+        "fa": "به همه‌چیز بله‌گفتن برای دوست‌داشته‌شدن، تا وقتی از همه دلگیر می‌شوی."
+      }
+    },
+    "death": {
+      "part": "commitment",
+      "n": 16,
+      "name": {
+        "en": "Death Is the Compass",
+        "fa": "مرگ، قطب‌نماست"
+      },
+      "glabel": {
+        "en": "Mortality",
+        "fa": "مرگ"
+      },
+      "principle": {
+        "en": "Confronting your own death clarifies what matters. Remembering you will die burns away the trivial and shows you what deserves your care.",
+        "fa": "روبه‌رو‌شدن با مرگِ خودت روشن می‌کند چه چیزی مهم است. یادِ اینکه می‌میری، چیزهای بی‌اهمیت را می‌سوزاند و نشانت می‌دهد چه چیزی ارزشِ اهمیتت را دارد."
+      },
+      "more": {
+        "en": "Death is the one certainty, and Manson ends there on purpose: only against the fact that our time runs out do our choices get their weight. Keeping mortality in view is the simplest way to stop wasting f*cks on what won't matter.",
+        "fa": "مرگ تنها قطعیت است، و منسون عمداً همان‌جا تمام می‌کند: فقط در برابرِ این واقعیت که وقتمان تمام می‌شود، انتخاب‌هایمان وزن پیدا می‌کنند. پیشِ‌چشم نگه‌داشتنِ مرگ، ساده‌ترین راه است برای اینکه دست از تلف‌کردنِ اهمیت روی چیزهای بی‌ارزش برداری."
+      },
+      "example": {
+        "en": "Picturing yourself at the end of your life makes today's petty worries shrink to their real size.",
+        "fa": "تصورِ خودت در پایانِ زندگی، نگرانی‌های کوچکِ امروز را تا اندازهٔ واقعی‌شان آب می‌کند."
+      },
+      "tip": {
+        "en": "Ask what today's problem will look like from your deathbed; then act on the answer.",
+        "fa": "بپرس مشکلِ امروز از نگاهِ بسترِ مرگت چه شکلی است؛ بعد به همان جواب عمل کن."
+      },
+      "pitfall": {
+        "en": "Filling life with distractions so you never have to think about the end.",
+        "fa": "پُر‌کردنِ زندگی از حواس‌پرتی تا مجبور نباشی هیچ‌وقت به پایان فکر کنی."
+      }
+    }
+  },
+  "core": {
+    "name": {
+      "en": "CHOOSE YOUR VALUES",
+      "fa": "ارزش‌هایت را انتخاب کن"
+    },
+    "principle": {
+      "en": "You have a limited number of f*cks to give, so choose them wisely. Not giving a f*ck isn't indifference — it's caring about less, and about better things, chosen around good values. Accept struggle as the price of anything worthwhile, take responsibility for your response to everything, and commit. Caring about less brings peace.",
+      "fa": "تعدادِ «اهمیت»‌هایی که می‌توانی بدهی محدود است، پس عاقلانه انتخابشان کن. بی‌خیالی یعنی بی‌تفاوتی نیست — یعنی به چیزهای کمتر اهمیت بدهی، و به چیزهای بهتر، که دورِ ارزش‌های خوب انتخاب شده‌اند. سختی را به‌عنوانِ بهای هر چیزِ ارزشمند بپذیر، مسئولیتِ واکنشت به هر چیزی را گردن بگیر، و متعهد شو. اهمیت‌دادن به کمتر، آرامش می‌آورد."
+    },
+    "more": {
+      "en": "Manson builds the book from five moves: the backwards law (chasing positivity backfires, accepting the negative helps), choosing what to care about (meaningful struggles and good values), radical responsibility (you own your response, fault or not), the value of uncertainty and failure (be a little wrong, act anyway), and commitment (go deep, set boundaries, remember death). The thread: spend your limited care on what's true, immediate, and important.",
+      "fa": "منسون کتاب را از پنج حرکت می‌سازد: قانونِ وارونه (دنبالِ مثبت‌بودن دویدن نتیجهٔ عکس می‌دهد، پذیرفتنِ منفی کمک می‌کند)، انتخابِ اینکه به چه چیزی اهمیت بدهی (سختی‌های معنادار و ارزش‌های خوب)، مسئولیتِ کامل (واکنشت را گردن می‌گیری، تقصیرت باشد یا نه)، ارزشِ تردید و شکست (کمی اشتباه باش، به‌هرحال عمل کن)، و تعهد (عمیق شو، مرز بگذار، مرگ را یادت باشد). نخِ رابط: اهمیتِ محدودت را خرجِ چیزی کن که واقعی، همین‌الانی و مهم است."
+    },
+    "example": {
+      "en": "Click any node to read a principle or a method. You can also drag the nodes around.",
+      "fa": "روی هر دایره کلیک کن تا یک اصل یا روش را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."
+    }
+  },
+  "stages": [
+    {
+      "level": 1,
+      "badge": {
+        "en": "Level 1 · Over-simplified",
+        "fa": "سطحِ ۱ · خیلی ساده"
+      },
+      "title": {
+        "en": "Care about less",
+        "fa": "به کمتر اهمیت بده"
+      },
+      "tagline": {
+        "en": "The whole book in a sentence.",
+        "fa": "کلِ کتاب در یک جمله."
+      },
+      "body": {
+        "en": "You only have so much energy to care with. Spend it on a few things that truly matter and stop wasting it on the rest. Caring about less, but better, is the whole point.",
+        "fa": "تو فقط به‌اندازهٔ محدودی انرژی برای اهمیت‌دادن داری. خرجِ چند چیزی کن که واقعاً مهم‌اند و بقیه را ول کن. اهمیت‌دادن به کمتر، اما بهتر، کلِ ماجراست."
+      },
+      "example": {
+        "en": "Letting a rude stranger ruin your afternoon is spending your care on someone who'll never matter to you.",
+        "fa": "اینکه بگذاری یک غریبهٔ بی‌ادب بعدازظهرت را خراب کند، یعنی خرجِ اهمیتت برای کسی که هیچ‌وقت برایت مهم نخواهد بود."
+      },
+      "gain": {
+        "en": "You hold the one idea the whole book expands on.",
+        "fa": "همان یک ایده‌ای را داری که کلِ کتاب بسطش می‌دهد."
+      }
+    },
+    {
+      "level": 2,
+      "badge": {
+        "en": "Level 2 · Simple",
+        "fa": "سطحِ ۲ · ساده"
+      },
+      "title": {
+        "en": "The backwards law",
+        "fa": "قانونِ وارونه"
+      },
+      "tagline": {
+        "en": "Stop forcing the positive.",
+        "fa": "دست از زور‌زدن برای مثبت‌بودن بردار."
+      },
+      "body": {
+        "en": "Chasing constant good feelings backfires: wanting them more makes you feel their absence. <b>Accept</b> the negative — pain, struggle, failure — as a normal part of any good life, and it stops feeling like something has gone wrong.",
+        "fa": "دنبالِ حالِ خوبِ همیشگی دویدن نتیجهٔ عکس می‌دهد: هرچه بیشتر بخواهی‌اش، نبودش را بیشتر حس می‌کنی. منفی را — درد، سختی، شکست — به‌عنوانِ بخشی عادی از هر زندگیِ خوب <b>بپذیر</b>، آن‌وقت دیگر حس نمی‌شود که چیزی خراب شده."
+      },
+      "example": {
+        "en": "Instead of demanding to feel calm before a big talk, you let the nerves be there and speak anyway.",
+        "fa": "به‌جای اینکه پیش از یک سخنرانیِ مهم توقع داشته باشی آرام باشی، می‌گذاری استرس باشد و به‌هرحال حرف می‌زنی."
+      },
+      "gain": {
+        "en": "You stop fighting every hard feeling and suffer less for it.",
+        "fa": "دست از جنگیدن با هر حسِ سخت برمی‌داری و کمتر رنج می‌کشی."
+      }
+    },
+    {
+      "level": 3,
+      "badge": {
+        "en": "Level 3 · Balanced",
+        "fa": "سطحِ ۳ · متعادل"
+      },
+      "title": {
+        "en": "Choose your struggles",
+        "fa": "سختی‌هایت را انتخاب کن"
+      },
+      "tagline": {
+        "en": "Good values, meaningful problems.",
+        "fa": "ارزش‌های خوب، مشکل‌های معنادار."
+      },
+      "body": {
+        "en": "Happiness comes from solving problems, and problems never end — you just <b>upgrade</b> them. So choose: which struggles are worth it, and which values are they built on? Ask not “what do I want?” but “what pain am I willing to sustain?”",
+        "fa": "شادکامی از حلِ مشکل می‌آید، و مشکل‌ها تمام نمی‌شوند — تو فقط <b>ارتقایشان</b> می‌دهی. پس انتخاب کن: کدام سختی‌ها ارزشش را دارند، و روی کدام ارزش‌ها بنا شده‌اند؟ نپرس «چه می‌خواهم؟» بلکه «حاضرم چه دردی را تحمل کنم؟»"
+      },
+      "example": {
+        "en": "You want the fit body, but the real question is whether you want the sweat and the sore mornings that build it.",
+        "fa": "بدنِ روفرم را می‌خواهی، اما پرسشِ اصلی این است که آیا عرق و صبح‌های کوفتهٔ سازنده‌اش را می‌خواهی."
+      },
+      "gain": {
+        "en": "You can pick problems worth having instead of drifting.",
+        "fa": "می‌توانی مشکل‌هایی را انتخاب کنی که ارزشِ داشتن دارند، به‌جای بی‌هدف رفتن."
+      }
+    },
+    {
+      "level": 4,
+      "badge": {
+        "en": "Level 4 · Advanced",
+        "fa": "سطحِ ۴ · پیشرفته"
+      },
+      "title": {
+        "en": "Own it, and be wrong",
+        "fa": "گردنش بگیر، و اشتباه کن"
+      },
+      "tagline": {
+        "en": "Responsibility, uncertainty, failure.",
+        "fa": "مسئولیت، تردید، شکست."
+      },
+      "body": {
+        "en": "Take <b>radical responsibility</b>: you didn't cause everything, but you answer for how you respond — fault and responsibility aren't the same. Then loosen your grip on being right. <b>Certainty</b> blocks growth, <b>failure</b> teaches it, and <b>action</b> (not motivation) gets you moving.",
+        "fa": "<b>مسئولیتِ کامل</b> را بپذیر: تو باعثِ همه‌چیز نبودی، اما جوابگوی این هستی که چطور واکنش نشان می‌دهی — تقصیر و مسئولیت یکی نیستند. بعد دستت را از درست‌بودن شل کن. <b>اطمینان</b> جلوِ رشد را می‌گیرد، <b>شکست</b> یادش می‌دهد، و <b>عمل</b> (نه انگیزه) راهت می‌اندازد."
+      },
+      "example": {
+        "en": "A setback that wasn't your fault still becomes yours to answer — you act, fail a little, and adjust.",
+        "fa": "یک ضربهٔ ناخواسته که تقصیرت نبود، بازهم جوابش با توست — عمل می‌کنی، کمی شکست می‌خوری، و تنظیم می‌کنی."
+      },
+      "gain": {
+        "en": "You take back power over your life and keep growing through failure.",
+        "fa": "قدرتت را روی زندگی‌ات پس می‌گیری و از دلِ شکست به رشد ادامه می‌دهی."
+      }
+    },
+    {
+      "level": 5,
+      "badge": {
+        "en": "Level 5 · Expert",
+        "fa": "سطحِ ۵ · حرفه‌ای"
+      },
+      "title": {
+        "en": "Commit, and remember death",
+        "fa": "متعهد شو، و مرگ را یادت باشد"
+      },
+      "tagline": {
+        "en": "Depth, boundaries, mortality.",
+        "fa": "عمق، مرزها، مرگ."
+      },
+      "body": {
+        "en": "The deepest freedom is <b>commitment</b>: going all-in on a few people and pursuits instead of skimming everything. That takes <b>boundaries</b> — saying no, and hearing it. And the final compass is <b>death</b>: measuring today's worries against the fact that your time ends is what finally sorts the important from the trivial. Care about less; care about it fully.",
+        "fa": "عمیق‌ترین آزادی، <b>تعهد</b> است: تمام‌قد پای چند آدم و چند کار ایستادن، به‌جای سُر‌خوردن روی همه‌چیز. این کار <b>مرز</b> می‌خواهد — نه‌گفتن، و نه‌شنیدن. و قطب‌نمای نهایی <b>مرگ</b> است: سنجیدنِ نگرانی‌های امروز در برابرِ این واقعیت که وقتت تمام می‌شود، همان چیزی است که بالاخره مهم را از بی‌اهمیت جدا می‌کند. به کمتر اهمیت بده؛ اما تمام‌وکمال."
+      },
+      "example": {
+        "en": "You pour yourself into one relationship and one craft, guard them with clear boundaries, and let death keep your priorities honest.",
+        "fa": "خودت را در یک رابطه و یک کار می‌ریزی، با مرزهای روشن ازشان محافظت می‌کنی، و می‌گذاری مرگ اولویت‌هایت را صادق نگه دارد."
+      },
+      "gain": {
+        "en": "You can live for a few chosen things and let everything else go.",
+        "fa": "می‌توانی برای چند چیزِ انتخاب‌شده زندگی کنی و بقیه را رها کنی."
+      }
+    }
+  ],
+  "quotes": [
+    {
+      "en": "The desire for more positive experience is itself a negative experience. And, paradoxically, the acceptance of one's negative experience is itself a positive experience.",
+      "fa": "میلِ به تجربهٔ مثبت‌ترِ بیشتر، خودش یک تجربهٔ منفی است. و به‌طرزِ متناقضی، پذیرفتنِ تجربهٔ منفیِ آدم، خودش یک تجربهٔ مثبت است."
+    },
+    {
+      "en": "The key to a good life is giving a fuck about less, giving a fuck about only what is true and immediate and important.",
+      "fa": "کلیدِ یک زندگیِ خوب این است که به چیزهای کمتری اهمیت بدهی، فقط به چیزی که واقعی و همین‌الانی و مهم است."
+    },
+    {
+      "en": "Who you are is defined by what you're willing to struggle for.",
+      "fa": "اینکه چه‌کسی هستی را همان چیزی تعریف می‌کند که حاضری برایش سختی بکشی."
+    },
+    {
+      "en": "Life is essentially an endless series of problems. The solution to one problem is merely the creation of another.",
+      "fa": "زندگی در اصل یک زنجیرهٔ بی‌پایان از مشکل است. حلِ یک مشکل، فقط ساختنِ مشکلی دیگر است."
+    },
+    {
+      "en": "With great responsibility comes great power.",
+      "fa": "با مسئولیتِ بزرگ، قدرتِ بزرگ می‌آید."
+    },
+    {
+      "en": "The more something threatens your identity, the more you will avoid it.",
+      "fa": "هرچه چیزی بیشتر هویتت را تهدید کند، بیشتر از آن فرار می‌کنی."
+    },
+    {
+      "en": "Certainty is the enemy of growth.",
+      "fa": "اطمینانِ کامل دشمنِ رشد است."
+    },
+    {
+      "en": "Don't just sit there. Do something. The answers will follow.",
+      "fa": "همین‌طور آنجا ننشین. یک کاری بکن. جواب‌ها خودشان می‌آیند."
+    },
+    {
+      "en": "You too are going to die, and that's because you too were fortunate enough to have lived.",
+      "fa": "تو هم روزی می‌میری، و این فقط به این خاطر است که تو هم آن‌قدر خوش‌شانس بودی که زندگی کرده‌ای."
+    }
+  ],
+  "media": [
+    {
+      "kind": "yt",
+      "id": "lz8sUiXAnbs",
+      "src": {
+        "en": "YouTube · Mark Manson",
+        "fa": "یوتیوب · Mark Manson"
+      },
+      "title": {
+        "en": "The Subtle Art — Summarized by the Author",
+        "fa": "هنرِ ظریفِ بی‌خیالی — به‌روایتِ خودِ نویسنده"
+      },
+      "desc": {
+        "en": "Mark Manson sums up his own book in a short talk.",
+        "fa": "مارک منسون در یک ویدیوی کوتاه، کتابِ خودش را جمع‌بندی می‌کند."
+      },
+      "bullets": {
+        "en": [
+          "The core message from the author himself",
+          "The backwards law, briefly",
+          "A fast, faithful overview"
+        ],
+        "fa": [
+          "پیامِ اصلی از زبانِ خودِ نویسنده",
+          "قانونِ وارونه، کوتاه",
+          "یک مرورِ سریع و وفادار"
+        ]
+      },
+      "best": {
+        "en": "Best for Stage 1–2.",
+        "fa": "خوب برای مرحلهٔ ۱ و ۲."
+      }
+    },
+    {
+      "kind": "yt",
+      "id": "BuuDztcqnko",
+      "src": {
+        "en": "YouTube · The Diary of a CEO",
+        "fa": "یوتیوب · The Diary of a CEO"
+      },
+      "title": {
+        "en": "Mark Manson on The Subtle Art (Full Interview)",
+        "fa": "مارک منسون دربارهٔ «هنرِ ظریفِ بی‌خیالی» (گفت‌وگوی کامل)"
+      },
+      "desc": {
+        "en": "A long, candid interview turning the book's ideas into real-life advice.",
+        "fa": "یک گفت‌وگوی بلند و رک که ایده‌های کتاب را به توصیه‌های واقعیِ زندگی تبدیل می‌کند."
+      },
+      "bullets": {
+        "en": [
+          "Choosing what to care about",
+          "Responsibility and values in practice",
+          "Applied to work and relationships"
+        ],
+        "fa": [
+          "انتخابِ اینکه به چه چیزی اهمیت بدهی",
+          "مسئولیت و ارزش‌ها در عمل",
+          "به‌کار‌بسته در کار و رابطه"
+        ]
+      },
+      "best": {
+        "en": "Best for Stage 2–4.",
+        "fa": "خوب برای مرحلهٔ ۲ تا ۴."
+      }
+    },
+    {
+      "kind": "yt",
+      "id": "SMZjbWgWSUQ",
+      "src": {
+        "en": "YouTube · André Duqum",
+        "fa": "یوتیوب · André Duqum"
+      },
+      "title": {
+        "en": "The Subtle Art of Not Giving a F*ck — In Conversation",
+        "fa": "هنرِ ظریفِ بی‌خیالی — یک گفت‌وگو"
+      },
+      "desc": {
+        "en": "A reflective conversation with Manson on values, commitment and meaning.",
+        "fa": "یک گفت‌وگوی تأملی با منسون دربارهٔ ارزش‌ها، تعهد و معنا."
+      },
+      "bullets": {
+        "en": [
+          "Commitment and depth",
+          "Uncertainty and growth",
+          "Good after a first read"
+        ],
+        "fa": [
+          "تعهد و عمق",
+          "تردید و رشد",
+          "خوب بعد از اولین خواندن"
+        ]
+      },
+      "best": {
+        "en": "Best for Stage 3–4.",
+        "fa": "خوب برای مرحلهٔ ۳ و ۴."
+      }
+    },
+    {
+      "kind": "img",
+      "url": "https://www.harpercollins.ca/9780062457714/the-subtle-art-of-not-giving-a-fck/",
+      "src": {
+        "en": "HarperCollins · Publisher",
+        "fa": "HarperCollins · ناشر"
+      },
+      "title": {
+        "en": "The Subtle Art — Publisher Page",
+        "fa": "هنرِ ظریفِ بی‌خیالی — صفحهٔ ناشر"
+      },
+      "desc": {
+        "en": "The publisher page for the book, with editions and details.",
+        "fa": "صفحهٔ ناشر برای کتاب، با نسخه‌ها و جزئیات."
+      },
+      "bullets": {
+        "en": [
+          "The definitive editions",
+          "Background on Manson",
+          "Straight from the source"
+        ],
+        "fa": [
+          "نسخه‌های معتبر",
+          "پیشینه‌ای دربارهٔ منسون",
+          "مستقیم از خودِ منبع"
+        ]
+      },
+      "best": {
+        "en": "For editions and the source.",
+        "fa": "برای نسخه‌ها و منبعِ اصلی."
+      }
+    }
+  ],
+  "go": [
+    {
+      "label": {
+        "en": "Publisher page",
+        "fa": "صفحهٔ ناشر"
+      },
+      "url": "https://www.harpercollins.ca/9780062457714/the-subtle-art-of-not-giving-a-fck/"
+    },
+    {
+      "label": {
+        "en": "Book on Goodreads",
+        "fa": "کتاب در گودریدز"
+      },
+      "url": "https://www.goodreads.com/book/show/28257707-the-subtle-art-of-not-giving-a-f-ck"
+    },
+    {
+      "label": {
+        "en": "Manson's essay that started it all",
+        "fa": "جستارِ منسون که همه‌چیز از آن شروع شد"
+      },
+      "url": "https://markmanson.net/not-giving-a-fuck"
+    }
+  ],
+  "recs": [
+    {
+      "pri": "b",
+      "t": {
+        "en": "Name what you actually give a f*ck about",
+        "fa": "اسم ببر واقعاً به چی اهمیت می‌دهی"
+      },
+      "d": {
+        "en": "Write down the three things truly worth your care right now — and one you'll stop caring about.",
+        "fa": "سه چیزی را که همین‌الان واقعاً ارزشِ اهمیتت را دارند بنویس — و یک چیز را که دیگر اهمیتش نمی‌دهی."
+      }
+    },
+    {
+      "pri": "b",
+      "t": {
+        "en": "Choose your struggle",
+        "fa": "سختی‌ات را انتخاب کن"
+      },
+      "d": {
+        "en": "For one goal, ask “what pain am I willing to sustain?” and commit to that work, not just the reward.",
+        "fa": "برای یک هدف بپرس «حاضرم چه دردی را تحمل کنم؟» و به خودِ آن کار متعهد شو، نه فقط به پاداش."
+      }
+    },
+    {
+      "pri": "n",
+      "t": {
+        "en": "Own one thing that isn't your fault",
+        "fa": "یک چیز را که تقصیرت نیست گردن بگیر"
+      },
+      "d": {
+        "en": "Take something you've been blaming on others and decide your next move regardless.",
+        "fa": "چیزی را که داری گردنِ دیگران می‌اندازی بردار و صرفِ‌نظر از آن، حرکتِ بعدی‌ات را تصمیم بگیر."
+      }
+    },
+    {
+      "pri": "n",
+      "t": {
+        "en": "Do the smallest something",
+        "fa": "کوچک‌ترین کار را بکن"
+      },
+      "d": {
+        "en": "Where you're stuck, shrink the first step until it's almost too easy — then act, and let motivation catch up.",
+        "fa": "هرجا گیر کرده‌ای، قدمِ اول را آن‌قدر کوچک کن که تقریباً زیادی آسان شود — بعد عمل کن، و بگذار انگیزه برسد."
+      }
+    }
+  ]
 });
 </script>
 </body>

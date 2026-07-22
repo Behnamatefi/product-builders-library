@@ -1,21 +1,20 @@
 <!DOCTYPE html>
-<!-- complexity-level: 1→5 (this page teaches the SAME book at five depths, over-simplified … expert) -->
-<!-- Effortless (Greg McKeown) — bilingual EN/FA knowledge graph & 5-stage learning page -->
-<html lang="fa" dir="rtl" data-lang="fa">
+<!-- Generated page. Edit CONTENT in the DATA object below; shared UI lives in ../assets/book.css + ../assets/book.js -->
+<html lang="en" dir="ltr" data-lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Creativity, Inc. — نقشهٔ دانش و یادگیری ۵ مرحله‌ای</title>
 
-<!-- Boot theme + language BEFORE paint to avoid a flash -->
+<!-- Boot theme + language BEFORE paint to avoid a flash (shared library-wide keys) -->
 <script>
 (function(){
   try{
-    var th = localStorage.getItem('creativityinc-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
+    var th = localStorage.getItem('pbl-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
     document.documentElement.setAttribute('data-theme', th);
   }catch(e){ document.documentElement.setAttribute('data-theme','light'); }
   try{
-    var lg = localStorage.getItem('creativityinc-lang') || 'fa';
+    var lg = localStorage.getItem('pbl-lang') || 'en';
     document.documentElement.setAttribute('data-lang', lg);
     document.documentElement.setAttribute('lang', lg);
     document.documentElement.setAttribute('dir', lg==='fa' ? 'rtl' : 'ltr');
@@ -28,876 +27,1218 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:ital,opsz@0,6..72;1,6..72&display=swap" rel="stylesheet">
-
-<style>
-/* ── TOKENS ───────────────────────────────────────────────── */
-:root, [data-theme="light"]{
-  --bg:#f5f6f8; --bg2:#eef2f7; --card:#fff; --card2:#f8fafb;
-  --ink:#1c2330; --mut:#6b7280; --line:#e6e8ee;
-  --accent:#0e7c86; --accent-ink:#fff; --warm:#c2410c;
-  --shadow:0 1px 2px rgba(20,30,50,.05),0 6px 24px rgba(20,30,50,.06);
-  --hero-1:#0e7c86; --hero-2:#0b5e66;
-  --c-teal:#0e9aa6; --c-blue:#2f6fb0; --c-violet:#7c3aed; --c-amber:#d97706;
-  --c-green:#15a34a; --c-red:#e11d48; --c-gold:#c98a12; --c-gray:#6b7280;
-  --state:#0e9aa6; --action:#d97706; --results:#7c3aed; --core:#0e7c86;
-}
-[data-theme="dark"]{
-  --bg:#0e131a; --bg2:#161d27; --card:#151c26; --card2:#1b2430;
-  --ink:#e9eef5; --mut:#9aa7b6; --line:#27313d;
-  --accent:#2dd4bf; --accent-ink:#06231f; --warm:#fb923c;
-  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 28px rgba(0,0,0,.45);
-  --hero-1:#0c5f67; --hero-2:#07323a;
-  --c-teal:#2dd4bf; --c-blue:#5b9bd5; --c-violet:#a78bfa; --c-amber:#fbbf24;
-  --c-green:#34d399; --c-red:#fb7185; --c-gold:#e2b04a; --c-gray:#94a3b8;
-  --state:#2dd4bf; --action:#fbbf24; --results:#a78bfa; --core:#2dd4bf;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);
-  font-family:Vazirmatn,"Segoe UI",Tahoma,Arial,sans-serif;line-height:1.85;font-size:15px;
-  transition:background .25s,color .25s}
-html[data-lang="en"] body{font-family:Inter,"Segoe UI",system-ui,Arial,sans-serif;line-height:1.7}
-.wrap{max-width:960px;margin:0 auto;padding:0 18px 40px}
-
-/* language visibility */
-html[data-lang="en"] [data-only="fa"]{display:none !important}
-html[data-lang="fa"] [data-only="en"]{display:none !important}
-
-/* ── HERO ─────────────────────────────────────────────────── */
-.hero{background:linear-gradient(135deg,var(--hero-1),var(--hero-2));color:#fff;padding:44px 0 34px;position:relative;overflow:hidden}
-.hero::after{content:"";position:absolute;inset-inline-end:-80px;top:-80px;width:280px;height:280px;
-  background:radial-gradient(circle,rgba(255,255,255,.12),transparent 70%);pointer-events:none}
-.hero .wrap{padding-bottom:0;position:relative;z-index:1}
-.hero h1{margin:0 0 8px;font-size:30px;font-weight:800;letter-spacing:-.3px;line-height:1.25}
-html[data-lang="en"] .hero h1{font-family:Newsreader,Georgia,serif;font-weight:600;letter-spacing:-.5px}
-.hero .dek{margin:0;opacity:.94;font-size:15.5px;max-width:640px}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;
-  color:rgba(255,255,255,.95);background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.24);
-  padding:5px 13px;border-radius:20px;margin-bottom:15px}
-.eyebrow .edot{width:7px;height:7px;border-radius:50%;background:#fff;box-shadow:0 0 0 3px rgba(255,255,255,.25)}
-.metastrip{display:flex;flex-wrap:wrap;gap:14px 30px;margin-top:20px;padding-top:16px;
-  border-top:1px solid rgba(255,255,255,.18)}
-.metaitem{display:flex;flex-direction:column;gap:3px}
-.metaitem .mk{font-size:10.5px;color:rgba(255,255,255,.62);font-weight:700;letter-spacing:.6px;text-transform:uppercase}
-.metaitem .mv{font-size:14px;color:#fff;font-weight:700}
-.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
-.chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);
-  border-radius:11px;padding:9px 15px;font-size:13px}
-.chip b{font-size:20px;display:block;font-weight:800}
-
-/* ── NAV + TOC ────────────────────────────────────────────── */
-.navbar{position:sticky;top:0;z-index:60;background:color-mix(in srgb,var(--card) 92%,transparent);
-  backdrop-filter:saturate(180%) blur(10px);-webkit-backdrop-filter:saturate(180%) blur(10px);
-  border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
-.navin{max-width:960px;margin:0 auto;padding:8px 16px;display:flex;align-items:center;gap:12px}
-.brand{flex:0 0 auto;font-weight:800;font-size:12.5px;color:var(--accent);white-space:nowrap;
-  display:flex;align-items:center;gap:7px}
-.brand .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);
-  box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 18%,transparent)}
-.toc{flex:1 1 auto;display:flex;flex-wrap:wrap;gap:7px;justify-content:center}
-.toc a{font-size:12.5px;color:var(--mut);text-decoration:none;border:1px solid var(--line);
-  border-radius:20px;padding:5px 12px;background:var(--card);white-space:nowrap;
-  transition:background .15s,color .15s,border-color .15s}
-.toc a:hover{color:var(--accent);border-color:var(--accent)}
-.toc a.active{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
-.navctl{flex:0 0 auto;display:flex;align-items:center;gap:8px}
-.langbtn{height:34px;border-radius:18px;border:1px solid var(--line);background:var(--card);
-  color:var(--ink);cursor:pointer;font:inherit;font-size:12.5px;font-weight:700;padding:0 13px;
-  display:flex;align-items:center;gap:6px}
-.langbtn:hover{border-color:var(--accent);color:var(--accent)}
-.langbtn .globe{width:15px;height:15px;display:block}
-.themebtn{flex:0 0 auto;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);
-  background:var(--card);color:var(--ink);cursor:pointer;line-height:1;display:grid;place-items:center}
-.themebtn svg{width:17px;height:17px;display:block}
-.themebtn:hover{border-color:var(--accent);color:var(--accent)}
-[data-theme="light"] .themebtn .ic-sun{display:none}
-[data-theme="dark"]  .themebtn .ic-moon{display:none}
-
-/* ── BLOCKS ───────────────────────────────────────────────── */
-h2{font-size:21px;margin:44px 0 6px;font-weight:800;scroll-margin-top:92px;line-height:1.35}
-html[data-lang="en"] h2{font-family:Newsreader,Georgia,serif;font-weight:600}
-h2 .num{color:var(--accent);font-variant-numeric:tabular-nums}
-.sub{color:var(--mut);font-size:13.5px;margin:0 0 16px;max-width:680px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;
-  padding:20px 22px;margin:14px 0;box-shadow:var(--shadow)}
-.lead{font-size:15.5px}
-.lead b{color:var(--warm)}
-.kgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin:8px 0}
-.kbox{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:15px 16px;text-align:center}
-.kbox .v{font-size:26px;font-weight:800;color:var(--accent);font-variant-numeric:tabular-nums}
-.kbox .l{font-size:12.5px;color:var(--mut);margin-top:3px}
-ul.clean{margin:6px 0;padding-inline-start:20px} ul.clean li{margin:8px 0}
-.callout{background:color-mix(in srgb,var(--warm) 9%,var(--card));
-  border:1px solid color-mix(in srgb,var(--warm) 30%,var(--line));
-  border-radius:12px;padding:14px 18px;margin:12px 0}
-.callout b{color:var(--warm)}
-.callout.accent{background:color-mix(in srgb,var(--accent) 9%,var(--card));
-  border-color:color-mix(in srgb,var(--accent) 30%,var(--line))}
-.callout.accent b{color:var(--accent)}
-a{color:var(--accent)}
-
-/* ── GRAPH ────────────────────────────────────────────────── */
-.gtabs{display:inline-flex;gap:4px;background:var(--bg2);border:1px solid var(--line);
-  border-radius:11px;padding:4px;margin:6px 0 2px}
-.gtab{border:0;background:transparent;color:var(--mut);font:inherit;font-size:13px;font-weight:700;
-  padding:7px 15px;border-radius:8px;cursor:pointer}
-.gtab.active{background:var(--card);color:var(--accent);box-shadow:var(--shadow)}
-.graphcard{padding:14px}
-.legend{display:flex;flex-wrap:wrap;gap:14px;margin:2px 4px 12px;font-size:12.5px;color:var(--mut)}
-.legend span{display:inline-flex;align-items:center;gap:6px}
-.legend i{width:11px;height:11px;border-radius:50%;display:inline-block}
-.graphstage{display:grid;grid-template-columns:1fr;gap:14px}
-@media(min-width:760px){.graphstage{grid-template-columns:1.35fr .95fr}}
-.svgwrap{position:relative;background:var(--card2);border:1px solid var(--line);border-radius:12px;
-  overflow:hidden;min-height:300px}
-#netsvg{display:block;width:100%;height:560px;touch-action:none;cursor:grab}
-#netsvg text{pointer-events:none;user-select:none}
-.ghint{position:absolute;inset-inline-start:12px;top:10px;font-size:11.5px;color:var(--mut);
-  background:color-mix(in srgb,var(--card) 82%,transparent);border:1px solid var(--line);
-  border-radius:20px;padding:3px 11px;backdrop-filter:blur(4px);max-width:70%}
-.greset{position:absolute;inset-inline-end:10px;top:10px;border:1px solid var(--line);background:var(--card);
-  color:var(--mut);border-radius:8px;font:inherit;font-size:11.5px;padding:4px 10px;cursor:pointer}
-.greset:hover{color:var(--accent);border-color:var(--accent)}
-/* node + link interaction states */
-.node{cursor:pointer}
-/* the inner <g class="ns"> is what scales; fill-box keeps the pivot on the node itself, not the SVG viewport */
-.ns{transform-box:fill-box;transform-origin:center;transition:transform .2s cubic-bezier(.2,.75,.25,1)}
-.node.hover .ns{transform:scale(1.1)}
-.node.sel  .ns{transform:scale(1.34)}                 /* selected node grows */
-.node.ncore.hover .ns{transform:scale(1.06)}
-.node.ncore.sel   .ns{transform:none}                 /* the centre 'Effortless' node keeps default size */
-.node.sel circle{stroke:var(--ink);stroke-width:2.5;filter:drop-shadow(0 0 8px color-mix(in srgb,var(--accent) 60%,transparent))}
-.node.hl circle{stroke:var(--ink);stroke-opacity:.5;stroke-width:2.5}
-.node.dim{opacity:.2}
-.node text{font-family:Vazirmatn,Tahoma,sans-serif;font-weight:700}
-html[data-lang="en"] .node text{font-family:Inter,sans-serif}
-.glink{transition:opacity .2s,stroke .2s}
-.glink.dim{opacity:.08}
-.glink.hl{stroke:var(--accent) !important;stroke-opacity:.8}
-/* detail panel */
-.detail{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;min-height:220px}
-@media(min-width:760px){.detail{max-height:480px;overflow:auto}}
-.detail .dkick{font-size:11.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;display:flex;align-items:center;gap:7px;color:var(--mut)}
-.detail .dkick i{width:10px;height:10px;border-radius:50%}
-.detail h4{margin:8px 0 3px;font-size:18px;font-weight:800}
-html[data-lang="en"] .detail h4{font-family:Newsreader,serif;font-weight:600}
-.detail .drow{margin:11px 0}
-.detail .dlab{font-size:10.5px;font-weight:800;color:var(--accent);letter-spacing:.5px;text-transform:uppercase;
-  display:inline-flex;align-items:center;gap:5px}
-.detail .drow.tip .dlab{color:var(--c-green)}
-.detail .drow.pit .dlab{color:var(--warm)}
-.detail .drow.more{border-inline-start:2px solid color-mix(in srgb,var(--accent) 32%,var(--line));padding-inline-start:11px}
-.detail .drow.more .dlab{color:var(--mut)}
-.detail .dtxt{font-size:13.6px;margin-top:3px}
-.dchips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
-.dchip{font-size:12px;border:1px solid var(--line);background:var(--card2);border-radius:16px;padding:4px 11px;
-  cursor:pointer;color:var(--ink);display:inline-flex;align-items:center;gap:6px;font-family:inherit}
-.dchip:hover{border-color:var(--accent);color:var(--accent)}
-.dchip i{width:8px;height:8px;border-radius:50%;flex:0 0 auto}
-
-/* ── CONCEPT MAP ──────────────────────────────────────────── */
-.mapgrid{display:grid;grid-template-columns:1fr;gap:14px}
-@media(min-width:820px){.mapgrid{grid-template-columns:repeat(3,1fr)}}
-.partcol{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:16px;position:relative}
-.partcol .ph{display:flex;align-items:center;gap:9px;margin-bottom:3px}
-.partcol .pdot{width:13px;height:13px;border-radius:50%;flex:0 0 auto}
-.partcol .pnum{font-size:11px;font-weight:800;color:var(--mut)}
-.partcol h4{margin:0;font-size:16.5px;font-weight:800}
-html[data-lang="en"] .partcol h4{font-family:Newsreader,serif;font-weight:600}
-.partcol .ptag{font-size:12px;color:var(--mut);margin:2px 0 4px;font-weight:700}
-.partcol .pgist{font-size:12.8px;color:var(--mut);margin:0 0 12px}
-.chapchip{display:flex;align-items:baseline;gap:8px;padding:7px 10px;border:1px solid var(--line);
-  border-radius:9px;margin:6px 0;background:var(--card2);font-size:13px}
-.chapchip .cn{font-size:11px;font-weight:800;color:var(--mut);flex:0 0 auto;font-variant-numeric:tabular-nums}
-.chapchip b{font-weight:700}
-.chapchip small{color:var(--mut);display:block;font-size:11.5px;line-height:1.5}
-.flowline{display:flex;align-items:center;justify-content:center;gap:10px;color:var(--mut);
-  font-size:12.5px;font-weight:700;margin:6px 0 2px;flex-wrap:wrap}
-.flowline .ar{color:var(--accent)}
-
-/* ── STAGE LADDER ─────────────────────────────────────────── */
-.ladder{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 4px}
-.rung{flex:1 1 150px;border:1px solid var(--line);background:var(--card);border-radius:11px;
-  padding:11px 13px;cursor:pointer;transition:transform .12s,border-color .12s;position:relative}
-.rung:hover{border-color:var(--accent);transform:translateY(-2px)}
-.rung.active{border-color:var(--accent);box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 35%,transparent)}
-.rung .lv{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.4px}
-.rung .lt{font-size:13.5px;font-weight:800;margin-top:2px}
-.rung .lbar{height:5px;border-radius:4px;background:var(--bg2);margin-top:9px;overflow:hidden}
-.rung .lbar i{display:block;height:100%;background:linear-gradient(90deg,var(--c-teal),var(--c-violet))}
-.stagecard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 24px;
-  margin:14px 0;box-shadow:var(--shadow)}
-.stagecard .shead{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-.stagecard .badge{font-size:12px;font-weight:800;color:#fff;background:var(--accent);
-  border-radius:8px;padding:4px 11px;white-space:nowrap}
-.stagecard h3{margin:0;font-size:21px;font-weight:800}
-html[data-lang="en"] .stagecard h3{font-family:Newsreader,serif;font-weight:600}
-.stagecard .tagline{color:var(--mut);font-size:13.5px;margin:4px 0 14px;font-weight:700}
-.stagecard .sbody{font-size:15px}
-.exbox{background:var(--card2);border:1px solid var(--line);border-inline-start:3px solid var(--accent);
-  border-radius:0 11px 11px 0;padding:13px 16px;margin:14px 0 6px}
-.exbox .exk{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.5px;text-transform:uppercase}
-.exbox .ext{font-size:13.8px;margin-top:3px}
-.gainrow{display:flex;align-items:flex-start;gap:9px;margin-top:12px;font-size:13px;color:var(--mut)}
-.gainrow .gi{flex:0 0 auto;color:var(--c-green);font-weight:800}
-.stagenav{display:flex;justify-content:space-between;gap:10px;margin-top:16px}
-.stagenav button{border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit;
-  font-size:13px;font-weight:700;border-radius:9px;padding:8px 14px;cursor:pointer}
-.stagenav button:hover:not(:disabled){border-color:var(--accent);color:var(--accent)}
-.stagenav button:disabled{opacity:.4;cursor:default}
-
-/* ── QUOTES ───────────────────────────────────────────────── */
-.qgrid{display:grid;grid-template-columns:1fr;gap:12px}
-@media(min-width:720px){.qgrid{grid-template-columns:1fr 1fr}}
-blockquote{margin:0;background:var(--card2);border-inline-start:3px solid var(--accent);
-  border-radius:0 12px 12px 0;padding:15px 18px;font-size:14.5px;position:relative}
-blockquote .qm{font-size:34px;line-height:0;color:var(--accent);opacity:.35;font-family:Georgia,serif;
-  position:absolute;inset-inline-start:10px;top:20px}
-blockquote p{margin:0;padding-inline-start:22px}
-html[data-lang="en"] blockquote{font-family:Newsreader,Georgia,serif;font-size:15.5px}
-
-/* ── MEDIA ────────────────────────────────────────────────── */
-.mgrid{display:grid;grid-template-columns:1fr;gap:16px}
-@media(min-width:640px){.mgrid{grid-template-columns:1fr 1fr}}
-.mcard{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;
-  box-shadow:var(--shadow);display:flex;flex-direction:column}
-.mthumb{position:relative;display:block;aspect-ratio:16/9;background:var(--bg2);overflow:hidden;text-decoration:none}
-.mthumb img{width:100%;height:100%;object-fit:cover;display:block}
-.mthumb .play{position:absolute;inset:0;display:grid;place-items:center}
-.mthumb .play span{width:54px;height:54px;border-radius:50%;background:rgba(0,0,0,.6);
-  display:grid;place-items:center;border:2px solid rgba(255,255,255,.9)}
-.mthumb .play svg{width:22px;height:22px;fill:#fff;margin-inline-start:3px}
-.mthumb .ptype{position:absolute;inset-inline-start:9px;top:9px;background:rgba(0,0,0,.72);color:#fff;
-  font-size:11px;font-weight:700;border-radius:6px;padding:3px 9px;letter-spacing:.3px}
-.mfake{aspect-ratio:16/9;display:grid;place-items:center;
-  background:linear-gradient(135deg,color-mix(in srgb,var(--c-violet) 22%,var(--card)),color-mix(in srgb,var(--c-teal) 22%,var(--card)))}
-.mfake svg{width:52px;height:52px;color:var(--ink);opacity:.6}
-.mbody{padding:15px 17px;display:flex;flex-direction:column;gap:7px;flex:1}
-.mbody .msrc{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.3px;text-transform:uppercase}
-.mbody h4{margin:0;font-size:15.5px;font-weight:800;line-height:1.4}
-html[data-lang="en"] .mbody h4{font-family:Newsreader,serif;font-weight:600}
-.mbody .mdesc{font-size:13px;color:var(--mut);margin:0}
-.mbody ul{margin:4px 0 0;padding-inline-start:18px}
-.mbody ul li{font-size:12.8px;margin:5px 0}
-.mbody .mbest{font-size:12px;font-weight:700;color:var(--warm);margin-top:auto;padding-top:8px}
-.mlink{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;
-  text-decoration:none;color:var(--accent);margin-top:4px}
-.mlink:hover{text-decoration:underline}
-.golist{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
-.golist a{font-size:12.5px;text-decoration:none;color:var(--ink);border:1px solid var(--line);
-  border-radius:20px;padding:6px 13px;background:var(--card);font-weight:700}
-.golist a:hover{border-color:var(--accent);color:var(--accent)}
-
-/* ── RECS + METHOD + CREDIT ───────────────────────────────── */
-.rec{display:grid;gap:10px;margin:8px 0}
-.rec .item{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--card)}
-.rec .item .t{font-weight:800;font-size:14.5px;margin-bottom:3px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.rec .item .t .pri{font-size:11px;font-weight:700;color:#fff;background:var(--warm);border-radius:6px;padding:2px 9px}
-.rec .item .t .pri.b{background:var(--accent)}
-.rec .item .d{font-size:13.4px;color:var(--mut)}
-.method{color:var(--mut);font-size:13.4px}
-.method p{margin:8px 0}
-.method b{color:var(--ink)}
-.credit{text-align:center;margin-top:40px;padding:22px 0 8px;border-top:1px solid var(--line);
-  color:var(--mut);font-size:14px}
-.credit .cname{color:var(--ink);font-weight:800}
-.credit a{font-weight:700;text-decoration:none}
-.credit a:hover{text-decoration:underline}
-.credit .sep{opacity:.5;margin:0 8px}
-.credit .li{display:inline-flex;align-items:center;gap:5px;vertical-align:middle}
-.credit .li svg{width:15px;height:15px;vertical-align:-3px}
-
-@media (max-width:640px){
-  body{font-size:14px}
-  .wrap{padding:0 13px 30px}
-  .hero{padding:28px 0 22px} .hero h1{font-size:22px}
-  h2{font-size:18px;scroll-margin-top:66px}
-  .brand{display:none}
-  .toc{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;scrollbar-width:none}
-  .toc::-webkit-scrollbar{display:none}
-  #netsvg{height:420px}
-}
-</style>
+<link rel="stylesheet" href="../assets/book.css">
 </head>
 <body>
+<div id="app"></div>
 
-<!-- ── HERO ───────────────────────────────────────────────── -->
-<header class="hero"><div class="wrap">
-  <div class="eyebrow"><span class="edot"></span>
-    <span data-only="en">Book knowledge map · Ed Catmull</span>
-    <span data-only="fa">نقشهٔ کتاب · اد کتمول</span>
-  </div>
-  <h1>
-    <span data-only="en">Creativity, Inc. — Overcoming the Unseen Forces That Stand in the Way of True Inspiration</span>
-    <span data-only="fa">کارخانهٔ خلاقیت — غلبه بر نیروهای پنهانی که جلوی الهامِ واقعی را می‌گیرند</span>
-  </h1>
-  <p class="dek">
-    <span data-only="en">A knowledge graph of the whole book, plus a 5-stage path from a single idea to expert-level mastery — with an example at every step.</span>
-    <span data-only="fa">نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از یک ایدهٔ ساده تا حرفه‌ای — با یک مثال در هر مرحله.</span>
-  </p>
-  <div class="metastrip">
-    <div class="metaitem"><span class="mk" data-only="en">Book</span><span class="mk" data-only="fa">کتاب</span>
-      <span class="mv" data-only="en">Creativity, Inc.</span><span class="mv" data-only="fa">کارخانهٔ خلاقیت</span></div>
-    <div class="metaitem"><span class="mk" data-only="en">Author</span><span class="mk" data-only="fa">نویسنده</span>
-      <span class="mv" data-only="en">Ed Catmull with Amy Wallace</span><span class="mv" data-only="fa">اد کتمول با ایمی والاس</span></div>
-    <div class="metaitem"><span class="mk" data-only="en">Published</span><span class="mk" data-only="fa">سالِ چاپ</span>
-      <span class="mv" data-only="en">2014</span><span class="mv" data-only="fa">۲۰۱۴</span></div>
-    <div class="metaitem"><span class="mk" data-only="en">Group</span><span class="mk" data-only="fa">گروه</span>
-      <span class="mv" data-only="en">Taste &amp; Craft</span><span class="mv" data-only="fa">ذوق و پیشه‌وری</span></div>
-  </div>
-  <div class="chips">
-    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Parts</span><span data-only="fa">بخش</span></div>
-    <div class="chip"><b data-only="en">16</b><b data-only="fa">۱۶</b><span data-only="en">Ideas</span><span data-only="fa">ایده</span></div>
-    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Learning stages</span><span data-only="fa">مرحلهٔ یادگیری</span></div>
-  </div>
-</div></header>
-
-<!-- ── STICKY NAV ─────────────────────────────────────────── -->
-<div class="navbar"><div class="navin">
-  <span class="brand"><span class="dot"></span>Creativity, Inc.</span>
-  <nav class="toc">
-    <a href="#tldr" data-only="en">In a nutshell</a><a href="#tldr" data-only="fa">خلاصه</a>
-    <a href="#graph" data-only="en">Knowledge graph</a><a href="#graph" data-only="fa">نقشهٔ دانش</a>
-    <a href="#stages" data-only="en">5 stages</a><a href="#stages" data-only="fa">۵ مرحله</a>
-    <a href="#quotes" data-only="en">Quotes</a><a href="#quotes" data-only="fa">جمله‌ها</a>
-    <a href="#media" data-only="en">Watch &amp; explore</a><a href="#media" data-only="fa">تماشا و منابع</a>
-    <a href="#apply" data-only="en">Apply it</a><a href="#apply" data-only="fa">کاربرد</a>
-  </nav>
-  <div class="navctl">
-    <button class="langbtn" id="langBtn" aria-label="Switch language">
-      <svg class="globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>
-      <span data-only="en">فارسی</span><span data-only="fa">English</span>
-    </button>
-    <button class="themebtn" id="themeBtn" aria-label="Toggle theme" title="Light / Dark">
-      <span class="ic-sun" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5 19 19M19 5l-1.5 1.5M6.5 17.5 5 19"/></svg></span>
-      <span class="ic-moon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.6 6.6 0 0 0 9.8 9.8Z"/></svg></span>
-    </button>
-  </div>
-</div></div>
-
-<div class="wrap">
-
-  <!-- ── TL;DR ────────────────────────────────────────────── -->
-  <h2 id="tldr"><span class="num" data-only="en">1.</span><span class="num" data-only="fa">۱.</span>
-    <span data-only="en"> In a nutshell</span><span data-only="fa"> خلاصه</span></h2>
-  <p class="sub" data-only="en">If you read only this, you still get the whole idea.</p>
-  <p class="sub" data-only="fa">اگر فقط همین بخش را بخوانی، کلِ ایده دستت می‌آید.</p>
-  <div class="card lead"><ul class="clean" id="tldrHost"></ul></div>
-  <div class="kgrid">
-    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Parts (culture · candor · failure · the unseen · sustaining)</div><div class="l" data-only="fa">بخش (فرهنگ · صراحت · شکست · نیروهای پنهان · تداوم)</div></div>
-    <div class="kbox"><div class="v" data-only="en">16</div><div class="v" data-only="fa">۱۶</div><div class="l" data-only="en">Ideas you can use</div><div class="l" data-only="fa">ایده برای استفاده</div></div>
-    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Levels, simple → expert</div><div class="l" data-only="fa">مرحله، ساده تا حرفه‌ای</div></div>
-    <div class="kbox"><div class="v" data-only="en">3</div><div class="v" data-only="fa">۳</div><div class="l" data-only="en">The rhythm: candor · trust · create</div><div class="l" data-only="fa">ریتمِ کار: صراحت · اعتماد · آفرینش</div></div>
-  </div>
-  
-  <div class="callout accent">
-    <b data-only="en">The core idea:</b>
-    <b data-only="fa">ایدهٔ اصلی:</b>
-    <span data-only="en"> Great creative work comes from <i>people</i>, not from any single idea — so a leader's real job is to protect the fragile creative process. Build a culture of <i>candor</i> where the truth comes out early, make it <i>safe to fail</i>, and keep hunting the <i>hidden problems</i> that quietly stand in the way of inspiration.</span>
-    <span data-only="fa"> کارِ خلاقانهٔ خوب از <i>آدم‌ها</i> می‌آید، نه از یک ایدهٔ تنها — پس کارِ واقعیِ یک رهبر این است که از فرایندِ شکنندهٔ خلاقیت محافظت کند. فرهنگی از <i>صراحت</i> بساز که حقیقت زود رو بیاید، <i>شکست را بی‌خطر</i> کن، و مدام دنبالِ <i>مشکل‌های پنهانی</i> بگرد که بی‌سروصدا جلوی الهام را می‌گیرند.</span>
-  </div>
-
-  <!-- ── KNOWLEDGE GRAPH ──────────────────────────────────── -->
-  <h2 id="graph"><span class="num" data-only="en">2.</span><span class="num" data-only="fa">۲.</span>
-    <span data-only="en"> The knowledge graph</span><span data-only="fa"> نقشهٔ دانش</span></h2>
-  <p class="sub" data-only="en">The whole book as one picture. Click any node to focus its connections and read more — or switch to the structured map.</p>
-  <p class="sub" data-only="fa">کلِ کتاب در یک تصویر. روی هر دایره کلیک کن تا ارتباط‌هایش را ببینی و بیشتر بخوانی — یا به نقشهٔ مرتب برو.</p>
-
-  <div class="gtabs">
-    <button class="gtab active" id="tabNet"><span data-only="en">Interactive network</span><span data-only="fa">شبکهٔ تعاملی</span></button>
-    <button class="gtab" id="tabMap"><span data-only="en">Structured map</span><span data-only="fa">نقشهٔ مرتب</span></button>
-  </div>
-
-  <!-- network view -->
-  <div class="card graphcard" id="netView">
-    <div class="legend" id="legendHost"></div>
-    <div class="graphstage">
-      <div class="svgwrap">
-        <svg id="netsvg" viewBox="0 0 820 560" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Effortless knowledge network"></svg>
-        <div class="ghint" id="ghint"></div>
-        <button class="greset" id="greset"></button>
-      </div>
-      <div class="detail" id="detailHost"></div>
-    </div>
-  </div>
-
-  <!-- map view -->
-  <div class="card graphcard" id="mapView" style="display:none">
-    <div class="flowline" id="flowTop"></div>
-    <div class="mapgrid" id="mapHost"></div>
-    <div class="callout" style="margin-top:16px">
-      <b data-only="en">Read it as a flow:</b><b data-only="fa">به‌صورتِ یک جریان بخوانش:</b>
-      <span data-only="en"> build a <b>people-first culture</b> and hire people smarter than you, run on <b>candor</b> through the Braintrust, make it <b>safe to fail</b>, then manage the <b>unseen forces</b> — feeding the Beast while protecting fragile new ideas — and <b>sustain</b> it by embracing change and never confusing your process with your goal.</span>
-      <span data-only="fa"> یک <b>فرهنگِ آدم‌محور</b> بساز و آدم‌هایی باهوش‌تر از خودت استخدام کن، کار را با <b>صراحت</b> و از راهِ برین‌تراست پیش ببر، <b>شکست را بی‌خطر</b> کن، بعد <b>نیروهای پنهان</b> را مدیریت کن — هیولا را سیر کن و در همان حال از ایده‌های تازه و شکننده محافظت کن — و با آغوش‌بازکردن به روی تغییر و اینکه هیچ‌وقت روند را با هدف اشتباه نگیری، <b>زنده‌اش</b> نگه دار.</span>
-    </div>
-  </div>
-
-  <!-- ── 5 STAGES ─────────────────────────────────────────── -->
-  <h2 id="stages"><span class="num" data-only="en">3.</span><span class="num" data-only="fa">۳.</span>
-    <span data-only="en"> Learn it in 5 stages</span><span data-only="fa"> یادگیری در ۵ مرحله</span></h2>
-  <p class="sub" data-only="en">The same book at five depths. Start over-simplified, climb to expert. Tap a rung to jump.</p>
-  <p class="sub" data-only="fa">یک کتاب در پنج عمق. از خیلی ساده شروع کن و تا حرفه‌ای بالا برو. روی هر پله بزن تا بپری.</p>
-  <div class="ladder" id="ladderHost"></div>
-  <div id="stageHost"></div>
-
-  <!-- ── QUOTES ───────────────────────────────────────────── -->
-  <h2 id="quotes"><span class="num" data-only="en">4.</span><span class="num" data-only="fa">۴.</span>
-    <span data-only="en"> Lines worth keeping</span><span data-only="fa"> جمله‌هایی که ارزشِ نگه‌داشتن دارند</span></h2>
-  <p class="sub" data-only="en">Verbatim quotes from the book, translated alongside.</p>
-  <p class="sub" data-only="fa">جمله‌های مستقیم از کتاب، همراه با ترجمه.</p>
-  <div class="qgrid" id="quoteHost"></div>
-
-  <!-- ── MEDIA ────────────────────────────────────────────── -->
-  <h2 id="media"><span class="num" data-only="en">5.</span><span class="num" data-only="fa">۵.</span>
-    <span data-only="en"> Watch &amp; explore</span><span data-only="fa"> تماشا و منابع</span></h2>
-  <p class="sub" data-only="en">Special resources found online — each with what it covers and who it's best for.</p>
-  <p class="sub" data-only="fa">منابعِ ویژه‌ای که آنلاین پیدا شد — هرکدام با اینکه چه می‌گوید و به چه دردی می‌خورد.</p>
-  <div class="mgrid" id="mediaHost"></div>
-  <div class="card" style="margin-top:16px">
-    <div style="font-weight:800;font-size:13.5px;margin-bottom:4px">
-      <span data-only="en">Go straight to the source</span><span data-only="fa">مستقیم سراغِ منبع برو</span>
-    </div>
-    <div class="golist" id="goHost"></div>
-  </div>
-
-  <!-- ── APPLY ────────────────────────────────────────────── -->
-  <h2 id="apply"><span class="num" data-only="en">6.</span><span class="num" data-only="fa">۶.</span>
-    <span data-only="en"> Apply it this week</span><span data-only="fa"> این هفته امتحانش کن</span></h2>
-  <p class="sub" data-only="en">Four small moves that turn the idea into a habit.</p>
-  <p class="sub" data-only="fa">چهار حرکتِ کوچک که این ایده را به عادت تبدیل می‌کنند.</p>
-  <div class="rec" id="recHost"></div>
-
-  <!-- ── METHOD ───────────────────────────────────────────── -->
-  <h2 id="method"><span class="num" data-only="en">7.</span><span class="num" data-only="fa">۷.</span>
-    <span data-only="en"> Sources &amp; notes</span><span data-only="fa"> منابع و توضیح</span></h2>
-  <div class="card method" id="methodHost"></div>
-
-  <!-- ── CREDIT FOOTER ────────────────────────────────────── -->
-  <div class="credit">
-    <span data-only="en">Created by <span class="cname">Behnam Atefi</span><span class="sep">·</span><a class="li" href="https://www.linkedin.com/in/behnamatefi/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.3c0-1.26-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9z"/></svg>LinkedIn</a></span>
-    <span data-only="fa">ساخته‌شده توسط <span class="cname">بهنام عاطفی</span><span class="sep">·</span><a class="li" href="https://www.linkedin.com/in/behnamatefi/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.3c0-1.26-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9z"/></svg>لینکدین</a></span>
-  </div>
-</div>
-
-<!-- ═══════════════════════ SCRIPTS ═══════════════════════ -->
+<script src="../assets/library.js"></script>
+<script src="../assets/book.js"></script>
 <script>
-/* ── 1) language + formatters ─────────────────────────────── */
-var LANG = document.documentElement.getAttribute('data-lang') || 'fa';
-var FA_D = '۰۱۲۳۴۵۶۷۸۹';
-var RLM  = '‏';
-function faDigits(s){ return String(s).replace(/[0-9]/g, function(d){ return FA_D[+d]; }); }
-/* honor the RTL preference: isolate Latin runs (word order preserved) and mark with U+200F */
-function rlm(s){
-  return String(s)
-    .replace(/[A-Za-zÀ-ɏ][A-Za-zÀ-ɏ0-9'’.&:\/\-]*(?:\s+[A-Za-zÀ-ɏ0-9'’.&:\/\-]+)*/g,
-      function(m){ return RLM+'⁦'+m+'⁩'+RLM; })
-    .replace(/[0-9۰-۹]+/g, function(m){ return m+RLM; });
-}
-/* transform only TEXT segments, never HTML tags (so <b>/<i> survive) */
-function faText(s){ return String(s).replace(/(<[^>]+>)|([^<]+)/g, function(m,tag,txt){ return tag ? tag : faDigits(rlm(txt)); }); }
-function TX(o){ if(o==null) return ''; if(typeof o==='string') return o; return LANG==='fa' ? faText(o.fa) : o.en; }
-function num(n){ return LANG==='fa' ? faDigits(n) : String(n); }
-function tok(name){ return getComputedStyle(document.documentElement).getPropertyValue(name).trim(); }
-</script>
-
-<script>
-/* ── DATA LAYER — Atomic Habits (bilingual, plain-spoken Persian) ── */
-var DATA = {"tldr":[{"en":"The whole book in one line: protect the fragile creative process by building a culture that surfaces and fixes hidden problems.","fa":"خلاصهٔ کل کتاب در یک جمله: از فرایندِ شکنندهٔ خلاقیت محافظت کن، با ساختنِ فرهنگی که مشکل‌های پنهان را رو می‌کند و حلشان می‌کند."},{"en":"It's the <b>people</b>, not the idea — give a good idea to a mediocre team and they'll ruin it.","fa":"مهم <b>آدم‌ها</b> هستند، نه ایده — یک ایدهٔ خوب را به یک تیمِ متوسط بده، خرابش می‌کنند."},{"en":"Run on <b>candor</b>: a trusted <b>Braintrust</b> gives frank feedback, and it's always about the work, never the person.","fa":"کار را با <b>صراحت</b> پیش ببر: یک <b>برین‌تراستِ</b> قابل‌اعتماد بازخوردِ رک می‌دهد، و همیشه دربارهٔ کار است، نه آدم."},{"en":"Make it safe to <b>fail</b> — failure is the price of doing something new, and fixing errors usually beats preventing them.","fa":"<b>شکست</b> را بی‌خطر کن — شکست بهای انجامِ کاری تازه است، و درست‌کردنِ خطاها معمولاً بهتر از جلوگیری از آن‌هاست."},{"en":"Watch the <b>unseen forces</b>, protect fragile new ideas, and sustain it by embracing change and never confusing process with goal.","fa":"مراقبِ <b>نیروهای پنهان</b> باش، از ایده‌های تازه و شکننده محافظت کن، و با آغوش‌بازکردن به تغییر و اشتباه‌نگرفتنِ روند با هدف، تداومش بده."}],"parts":[{"key":"culture","varc":"--c-teal","name":{"en":"Building the Culture","fa":"ساختنِ فرهنگ"},"tag":{"en":"People first","fa":"اول آدم‌ها"},"gist":{"en":"It's the people, not the idea — hire smart and build the team first.","fa":"مهم آدم‌ها هستند، نه ایده — باهوش استخدام کن و اول تیم را بساز."},"more":{"en":"Pixar's real product isn't any single film, it's the community that makes them. Ideas are worthless without talented people to grow them, so a leader's first job is to find, hire, and protect a great team — then trust it.","fa":"محصولِ واقعیِ پیکسار هیچ فیلمِ تنهایی نیست، همان جامعه‌ای است که فیلم‌ها را می‌سازد. ایده‌ها بدونِ آدم‌های بااستعدادی که پرورششان بدهند بی‌ارزش‌اند، پس اولین کارِ یک رهبر این است که یک تیمِ عالی را پیدا و استخدام کند و ازش محافظت کند — بعد به آن اعتماد کند."},"chapters":["people","hiresmart","greatteam"]},{"key":"candor","varc":"--c-blue","name":{"en":"Candor & the Braintrust","fa":"صراحت و برین‌تراست"},"tag":{"en":"How feedback works","fa":"بازخورد چطور کار می‌کند"},"gist":{"en":"Make it safe to tell the truth, and keep feedback about the work.","fa":"گفتنِ حقیقت را بی‌خطر کن، و بازخورد را روی کار نگه دار."},"more":{"en":"Hidden problems only surface when people feel safe being frank. The Braintrust is Pixar's engine for this: trusted peers give a project honest, expert notes, with no power to force any change — so the truth flows and the maker still decides.","fa":"مشکل‌های پنهان فقط وقتی رو می‌آیند که آدم‌ها احساسِ امنیت کنند و رک باشند. برین‌تراست موتورِ پیکسار برای همین است: همکارانِ قابل‌اعتماد به یک پروژه نظرِ صادقانه و کارشناسانه می‌دهند، بی‌آنکه قدرتی داشته باشند تغییری را تحمیل کنند — پس حقیقت جاری می‌شود و باز هم خودِ سازنده تصمیم می‌گیرد."},"chapters":["frank","braintrust","separate"]},{"key":"failure","varc":"--c-amber","name":{"en":"Fear & Failure","fa":"ترس و شکست"},"tag":{"en":"Risk & learning","fa":"خطر و یادگیری"},"gist":{"en":"Failure is the price of new work — make it safe, and fix rather than prevent.","fa":"شکست بهای کارِ تازه است — بی‌خطرش کن، و به‌جای جلوگیری، درست کن."},"more":{"en":"If you're doing something genuinely new, you will be wrong a lot. Punishing mistakes just teaches people to hide them and play safe. Make failing survivable, fail fast and cheap, and get good at recovering instead of trying to prevent every error.","fa":"اگر داری کاری واقعاً تازه می‌کنی، بارها اشتباه خواهی کرد. تنبیهِ اشتباه فقط به آدم‌ها یاد می‌دهد پنهانش کنند و محافظه‌کار بازی کنند. شکست را قابلِ‌تحمل کن، زود و کم‌هزینه شکست بخور، و به‌جای اینکه بخواهی جلوی هر خطا را بگیری، در بلندشدنِ دوباره ماهر شو."},"chapters":["failgood","safefail","fixnotprevent"]},{"key":"hidden","varc":"--c-violet","name":{"en":"Managing the Unseen","fa":"مدیریتِ نادیده‌ها"},"tag":{"en":"What you can't see","fa":"آنچه نمی‌بینی"},"gist":{"en":"Unseen forces shape everything — feed the Beast and protect the Ugly Baby.","fa":"نیروهای پنهان همه‌چیز را شکل می‌دهند — هیولا را سیر کن و بچهٔ زشت را نگه دار."},"more":{"en":"Much of what drives a company is invisible: fear, incentives, blind spots. Stay humble about your mental model. Balance the Hungry Beast — production's endless appetite — against the fragile, unformed new ideas it would happily devour.","fa":"بخشِ زیادی از آنچه یک شرکت را می‌راند نامرئی است: ترس، انگیزه‌ها، نقطه‌های کور. دربارهٔ مدلِ ذهنی‌ات فروتن بمان. میانِ هیولای گرسنه — اشتهای بی‌پایانِ تولید — و ایده‌های تازه و شکل‌نگرفته‌ای که هیولا با کمالِ میل می‌بلعدشان، تعادل برقرار کن."},"chapters":["unseen","beast","baby"]},{"key":"sustain","varc":"--c-green","name":{"en":"Sustaining Creativity","fa":"تداومِ خلاقیت"},"tag":{"en":"Keep it alive","fa":"زنده نگه‌اش دار"},"gist":{"en":"Embrace change, give everyone a voice, and keep learning.","fa":"تغییر را بپذیر، به همه صدا بده، و مدام یاد بگیر."},"more":{"en":"A creative culture isn't set up once; it has to be renewed. Learn from strong, difficult partners, welcome change and randomness instead of controlling them away, pull honest feedback from everyone, and never let a useful process harden into the goal itself.","fa":"یک فرهنگِ خلاق یک‌بار برای همیشه ساخته نمی‌شود؛ باید نو شود. از شریک‌های قوی و دشوار یاد بگیر، تغییر و تصادف را به‌جای اینکه با کنترل از میان برداری بپذیر، از همه بازخوردِ صادقانه بکش، و هیچ‌وقت نگذار یک روندِ مفید سفت شود و خودش تبدیل به هدف شود."},"chapters":["jobs","change","notesday","process"]}],"chapters":{"people":{"part":"culture","n":1,"name":{"en":"It's the People, Not the Idea","fa":"مهم آدم‌هاست، نه ایده"},"glabel":{"en":"People","fa":"آدم‌ها"},"principle":{"en":"Ideas come from people. A company's most valuable asset is its talented people and the way they work together — not any single idea.","fa":"ایده‌ها از آدم‌ها می‌آیند. باارزش‌ترین داراییِ یک شرکت آدم‌های بااستعدادش و شیوهٔ کارِ آن‌ها با هم است — نه یک ایدهٔ تنها."},"more":{"en":"We tend to worship ideas, but an idea is really a bundle of thousands of decisions made by a group of people. Get the team and the chemistry right first, and the good ideas follow — not the other way around.","fa":"ما عادت داریم ایده‌ها را بپرستیم، اما یک ایده در واقع دسته‌ای از هزاران تصمیم است که گروهی از آدم‌ها گرفته‌اند. اول تیم و شیمیِ بینشان را درست کن، ایده‌های خوب خودشان می‌آیند — نه برعکس."},"example":{"en":"Catmull says he'd sooner bet on a great team than a great idea; Pixar's real product is the community that makes the films.","fa":"کتمول می‌گوید ترجیح می‌دهد روی یک تیمِ عالی شرط ببندد تا یک ایدهٔ عالی؛ محصولِ واقعیِ پیکسار همان جامعه‌ای است که فیلم‌ها را می‌سازد."},"tip":{"en":"When a project is stuck, look at the team and how it's working together before you blame the idea.","fa":"وقتی یک پروژه گیر کرده، قبل از اینکه ایده را مقصر بدانی، به تیم و شیوهٔ کارش با هم نگاه کن."},"pitfall":{"en":"Chasing the perfect idea while ignoring whether the people can actually build it.","fa":"دنبالِ ایدهٔ کامل دویدن، درحالی‌که به این بی‌توجهی که آدم‌ها اصلاً می‌توانند بسازندش یا نه."}},"hiresmart":{"part":"culture","n":2,"name":{"en":"Hire People Smarter Than You","fa":"آدم‌هایی باهوش‌تر از خودت استخدام کن"},"glabel":{"en":"Hire smart","fa":"استخدامِ باهوش"},"principle":{"en":"Surround yourself with people smarter than you are, and be glad they can do things you can't. Their strength makes you stronger.","fa":"خودت را با آدم‌هایی باهوش‌تر از خودت احاطه کن، و خوشحال باش که کارهایی بلدند که تو نیستی. قدرتِ آن‌ها تو را قوی‌تر می‌کند."},"more":{"en":"A leader who needs to be the smartest person in the room caps the whole team at their own level. Hire for raw talent and potential, bet on people who challenge you, and let them raise everyone around them.","fa":"رهبری که لازم دارد باهوش‌ترین آدمِ اتاق باشد، سقفِ کلِ تیم را در حدِ خودش می‌بندد. برای استعدادِ خام و ظرفیت استخدام کن، روی آدم‌هایی شرط ببند که به چالشت می‌کشند، و بگذار همه را دورِ خودشان بالا بکشند."},"example":{"en":"Pixar hired for future potential over a polished résumé, trusting sharp people to grow into bigger roles.","fa":"پیکسار به‌جای رزومهٔ صیقلی برای ظرفیتِ آینده استخدام می‌کرد، و اعتماد داشت که آدم‌های تیز در نقش‌های بزرگ‌تر رشد می‌کنند."},"tip":{"en":"In your next hire, favor the person who could outgrow you over the safe, lesser choice.","fa":"در استخدامِ بعدی‌ات، آدمی را که ممکن است از تو جلو بزند به گزینهٔ امن و کم‌مایه ترجیح بده."},"pitfall":{"en":"Hiring people who won't threaten your ego — and quietly lowering the team's ceiling.","fa":"استخدامِ آدم‌هایی که غرورت را تهدید نمی‌کنند — و بی‌سروصدا پایین‌آوردنِ سقفِ تیم."}},"greatteam":{"part":"culture","n":3,"name":{"en":"Give It to a Great Team","fa":"به یک تیمِ عالی بسپارش"},"glabel":{"en":"Great team","fa":"تیمِ عالی"},"principle":{"en":"Give a good idea to a mediocre team and they'll ruin it; give a mediocre idea to a great team and they'll fix it or make something better.","fa":"یک ایدهٔ خوب را به یک تیمِ متوسط بده، خرابش می‌کنند؛ یک ایدهٔ متوسط را به یک تیمِ عالی بده، یا درستش می‌کنند یا چیزِ بهتری می‌سازند."},"more":{"en":"This is why the team matters more than the pitch. A great team can rescue a weak idea, while a weak team wastes a strong one — so put your energy into building the team, not polishing the premise.","fa":"برای همین است که تیم از خودِ ایده مهم‌تر است. یک تیمِ عالی می‌تواند یک ایدهٔ ضعیف را نجات بدهد، اما یک تیمِ ضعیف یک ایدهٔ قوی را هدر می‌دهد — پس انرژی‌ات را بگذار روی ساختنِ تیم، نه صیقل‌دادنِ ایده."},"example":{"en":"Catmull says every Pixar film starts out an ugly mess; it's the team, not the original idea, that turns it into something good.","fa":"کتمول می‌گوید هر فیلمِ پیکسار اولش یک آشفتگیِ زشت است؛ همان تیم است که آن را به چیزِ خوبی تبدیل می‌کند، نه ایدهٔ اولیه."},"tip":{"en":"Judge a project by the strength of its team, not the shine of its premise.","fa":"یک پروژه را با قدرتِ تیمش بسنج، نه با برقِ ایده‌اش."},"pitfall":{"en":"Betting everything on the concept and staffing it with whoever happens to be free.","fa":"همه‌چیز را روی ایده گذاشتن و هرکه سرش خلوت بود را رویش گذاشتن."}},"frank":{"part":"candor","n":4,"name":{"en":"Choose Candor","fa":"صراحت را انتخاب کن"},"glabel":{"en":"Candor","fa":"صراحت"},"principle":{"en":"Make it safe to tell the truth. Candor — real frankness — is the only way hidden problems come to the surface early.","fa":"گفتنِ حقیقت را بی‌خطر کن. صراحت — رک‌بودنِ واقعی — تنها راهی است که مشکل‌های پنهان زود رو می‌آیند."},"more":{"en":"People naturally hold back to protect themselves and each other, so silence feels safe even when it's costly. A culture has to actively make candor the easy, expected thing, or the important feedback stays unsaid until it's too late.","fa":"آدم‌ها به‌طورِ طبیعی برای حفظِ خودشان و همدیگر حرف را نگه می‌دارند، پس سکوت امن به‌نظر می‌رسد حتی وقتی گران تمام می‌شود. یک فرهنگ باید فعالانه صراحت را به کارِ ساده و مورد‌انتظار تبدیل کند، وگرنه بازخوردِ مهم ناگفته می‌ماند تا وقتی دیگر دیر شده."},"example":{"en":"Catmull found his open door wasn't enough — people still didn't bring him problems, so the culture had to be built to pull the truth out.","fa":"کتمول دید که درِ بازش کافی نیست — آدم‌ها باز هم مشکل‌ها را پیشش نمی‌آوردند، پس فرهنگ را باید طوری می‌ساخت که حقیقت را بیرون بکشد."},"tip":{"en":"Ask directly for the thing people are afraid to say, and thank them when they say it.","fa":"مستقیم همان چیزی را بپرس که آدم‌ها می‌ترسند بگویند، و وقتی گفتند ازشان تشکر کن."},"pitfall":{"en":"Assuming silence means everything is fine.","fa":"سکوت را به‌معنیِ اینکه همه‌چیز روبه‌راه است گرفتن."}},"braintrust":{"part":"candor","n":5,"name":{"en":"The Braintrust","fa":"برین‌تراست"},"glabel":{"en":"Braintrust","fa":"برین‌تراست"},"principle":{"en":"Gather a trusted group of peers to give a project frank, expert feedback — with no power to force any of it.","fa":"گروهی از همکارانِ قابل‌اعتماد را جمع کن تا به یک پروژه بازخوردِ رک و کارشناسانه بدهند — بی‌آنکه قدرتی برای تحمیلِ آن داشته باشند."},"more":{"en":"The Braintrust works because it's smart people who love storytelling, talking candidly, and because the director keeps full authority. Feedback is offered as a gift to help, never as an order to obey.","fa":"برین‌تراست کار می‌کند چون آدم‌هایی باهوش‌اند که عاشقِ قصه‌گویی‌اند و رک حرف می‌زنند، و چون کارگردان اختیارِ کامل را نگه می‌دارد. بازخورد مثلِ یک هدیه برای کمک داده می‌شود، نه یک دستور برای اطاعت."},"example":{"en":"At Pixar, directors screen unfinished films for the Braintrust, get blunt notes, and then decide for themselves what to change.","fa":"در پیکسار، کارگردان‌ها فیلمِ ناتمام را برای برین‌تراست نمایش می‌دهند، نظرِ بی‌پرده می‌گیرند، و بعد خودشان تصمیم می‌گیرند چه چیزی را عوض کنند."},"tip":{"en":"Build your own small circle of trusted, candid peers — and leave the final call with the owner.","fa":"حلقهٔ کوچکِ خودت از همکارانِ قابل‌اعتماد و رک را بساز — و تصمیمِ نهایی را به صاحبِ کار بسپار."},"pitfall":{"en":"Turning feedback into mandates, which makes people defensive and quiet.","fa":"تبدیل‌کردنِ بازخورد به دستور، که آدم‌ها را جبهه‌گیر و ساکت می‌کند."}},"separate":{"part":"candor","n":6,"name":{"en":"Separate the Problem From the Person","fa":"مشکل را از آدم جدا کن"},"glabel":{"en":"Not personal","fa":"شخصی نیست"},"principle":{"en":"Aim every note at the work, never at the person. People are not their ideas.","fa":"هر نظر را به کار نشانه بگیر، نه هیچ‌وقت به آدم. آدم‌ها همان ایده‌هایشان نیستند."},"more":{"en":"When feedback feels like an attack on the maker, they defend instead of listen. When it targets the problem in the work, everyone can join the same side of the table and fix it together.","fa":"وقتی بازخورد مثلِ حمله به سازنده حس می‌شود، به‌جای گوش‌دادن دفاع می‌کند. وقتی مشکلِ درونِ کار را نشانه می‌رود، همه می‌توانند یک‌طرفِ میز بنشینند و با هم درستش کنند."},"example":{"en":"Braintrust notes are about the movie on the screen, not the director's worth — so even hard feedback lands as help.","fa":"نظرهای برین‌تراست دربارهٔ فیلمِ روی پرده است، نه ارزشِ کارگردان — پس حتی بازخوردِ سخت هم مثلِ کمک می‌نشیند."},"tip":{"en":"Phrase feedback about the thing on the table, not the character of the person who made it.","fa":"بازخورد را دربارهٔ چیزی که روی میز است بگو، نه دربارهٔ شخصیتِ کسی که ساختتش."},"pitfall":{"en":"Letting critique of the work feel like a verdict on the person.","fa":"گذاشتن اینکه نقدِ کار مثلِ حکمی دربارهٔ خودِ آدم حس شود."}},"failgood":{"part":"failure","n":7,"name":{"en":"Failure Isn't Evil","fa":"شکست شر نیست"},"glabel":{"en":"Failure","fa":"شکست"},"principle":{"en":"Failure isn't a necessary evil — it isn't evil at all. It's the unavoidable cost of trying something new.","fa":"شکست یک شرِّ لازم نیست — اصلاً شر نیست. بهای ناگزیرِ امتحان‌کردنِ چیزی تازه است."},"more":{"en":"If you're doing genuinely new work, you will be wrong a lot. Treating failure as shameful just teaches people to avoid the very risks that make new things possible in the first place.","fa":"اگر داری کارِ واقعاً تازه‌ای می‌کنی، بارها اشتباه خواهی کرد. شکست را ننگ دانستن فقط به آدم‌ها یاد می‌دهد از همان خطرهایی دوری کنند که اصلاً چیزهای تازه را ممکن می‌کنند."},"example":{"en":"Every original Pixar film went through long stretches of being broken; the failures were part of finding the movie, not a sign of doing it wrong.","fa":"هر فیلمِ اصیلِ پیکسار دوره‌های طولانی‌ای را از سر گذراند که خراب بود؛ آن شکست‌ها بخشی از پیدا‌کردنِ فیلم بودند، نه نشانهٔ اشتباه‌کاری."},"tip":{"en":"Reframe a recent failure as data — what did it teach you that nothing else could?","fa":"یک شکستِ اخیر را مثلِ داده ببین — چه چیزی یادت داد که هیچ‌چیزِ دیگری نمی‌توانست؟"},"pitfall":{"en":"Treating every mistake as a verdict, so people stop taking real risks.","fa":"هر اشتباه را مثلِ یک حکم دیدن، طوری که آدم‌ها دیگر خطرِ واقعی نمی‌کنند."}},"safefail":{"part":"failure","n":8,"name":{"en":"Make It Safe to Fail","fa":"شکست را بی‌خطر کن"},"glabel":{"en":"Safe to fail","fa":"شکستِ بی‌خطر"},"principle":{"en":"People only take creative risks when they trust that failing won't be punished. Fear of failure is the quiet killer of originality.","fa":"آدم‌ها فقط وقتی خطرِ خلاقانه می‌کنند که مطمئن باشند شکست تنبیه نمی‌شود. ترس از شکست، قاتلِ خاموشِ اصالت است."},"more":{"en":"If leaders react to mistakes with blame, everyone learns to play it safe and hide problems. Make failing survivable and people will experiment, share work early, and learn fast.","fa":"اگر رهبرها به اشتباه با سرزنش واکنش نشان بدهند، همه یاد می‌گیرند محافظه‌کار بازی کنند و مشکل‌ها را پنهان کنند. شکست را قابلِ‌تحمل کن، آن‌وقت آدم‌ها آزمایش می‌کنند، کار را زود نشان می‌دهند، و تند یاد می‌گیرند."},"example":{"en":"Catmull's rule: to be wrong as fast as you can is to sign up for fast learning — so fail early and cheaply, on purpose.","fa":"قاعدهٔ کتمول: هرچه زودتر اشتباه کنی، یعنی برای یادگیریِ سریع ثبت‌نام کرده‌ای — پس عمداً زود و کم‌هزینه شکست بخور."},"tip":{"en":"When someone's honest failure surfaces, respond with curiosity, not blame.","fa":"وقتی شکستِ صادقانهٔ کسی رو می‌آید، با کنجکاوی جواب بده، نه با سرزنش."},"pitfall":{"en":"Punishing mistakes so hard that people bury them instead of fixing them.","fa":"آن‌قدر سختِ اشتباه‌ها را تنبیه‌کردن که آدم‌ها به‌جای درست‌کردن، دفنشان کنند."}},"fixnotprevent":{"part":"failure","n":9,"name":{"en":"Fix, Don't Prevent","fa":"درست کن، جلوگیری نکن"},"glabel":{"en":"Fix, not prevent","fa":"درست‌کردن، نه جلوگیری"},"principle":{"en":"The cost of preventing every error is usually higher than the cost of fixing errors as they happen. Build the ability to recover, not a cage.","fa":"هزینهٔ جلوگیری از هر خطا معمولاً از هزینهٔ درست‌کردنِ خطاها همان‌طور که پیش می‌آیند بیشتر است. توانِ بلندشدنِ دوباره را بساز، نه یک قفس."},"more":{"en":"Trying to stop all mistakes slows everyone down and still fails. Assume people mean well, let them act, and get very good at catching and repairing problems quickly.","fa":"تلاش برای متوقف‌کردنِ همهٔ اشتباه‌ها همه را کُند می‌کند و باز هم شکست می‌خورد. فرض کن نیتِ آدم‌ها خوب است، بگذار عمل کنند، و در گرفتن و تعمیرِ سریعِ مشکل‌ها خیلی ماهر شو."},"example":{"en":"Catmull puts it plainly: management's job is not to prevent risk but to build the ability to recover.","fa":"کتمول ساده می‌گویدش: کارِ مدیریت جلوگیری از خطر نیست، ساختنِ توانِ بلندشدنِ دوباره است."},"tip":{"en":"Trade one heavy approval step for a fast way to catch and fix problems after the fact.","fa":"یک مرحلهٔ سنگینِ تأیید را با یک راهِ سریع برای گرفتن و درست‌کردنِ مشکل‌ها بعد از وقوع عوض کن."},"pitfall":{"en":"Piling on controls that cost more than the mistakes they prevent.","fa":"روی هم انباشتنِ کنترل‌هایی که بیشتر از اشتباه‌هایی که جلویشان را می‌گیرند خرج برمی‌دارند."}},"unseen":{"part":"hidden","n":10,"name":{"en":"The Unseen Forces","fa":"نیروهای پنهان"},"glabel":{"en":"The unseen","fa":"نادیده‌ها"},"principle":{"en":"Powerful forces you can't see are always shaping how people behave. Your mental model of the company is never the whole truth.","fa":"نیروهای نیرومندی که نمی‌بینی‌شان همیشه دارند رفتارِ آدم‌ها را شکل می‌دهند. مدلِ ذهنیِ تو از شرکت هیچ‌وقت همهٔ حقیقت نیست."},"more":{"en":"Much of what drives an organization stays hidden — fear, incentives, blind spots, habits. Good leaders stay humble about what they can't see and keep actively hunting for it instead of trusting the tidy picture in their head.","fa":"بخشِ زیادی از آنچه یک سازمان را می‌راند پنهان می‌ماند — ترس، انگیزه‌ها، نقطه‌های کور، عادت‌ها. رهبرهای خوب دربارهٔ آنچه نمی‌بینند فروتن می‌مانند و به‌جای اعتماد به تصویرِ مرتبِ توی سرشان، فعالانه دنبالش می‌گردند."},"example":{"en":"Pixar's strength, Catmull says, is admitting there will always be problems hidden from view — and working hard to uncover them.","fa":"کتمول می‌گوید قوتِ پیکسار این است که قبول دارد همیشه مشکل‌هایی پنهان از دید خواهد بود — و سخت تلاش می‌کند رویشان کند."},"tip":{"en":"Regularly ask: what's really going on here that I'm not seeing?","fa":"مرتب بپرس: واقعاً اینجا چه خبر است که من نمی‌بینم؟"},"pitfall":{"en":"Mistaking your tidy mental model for reality.","fa":"مدلِ ذهنیِ مرتبت را به‌جای واقعیت گرفتن."}},"beast":{"part":"hidden","n":11,"name":{"en":"Feed the Beast — Carefully","fa":"هیولا را سیر کن — با احتیاط"},"glabel":{"en":"The Beast","fa":"هیولا"},"principle":{"en":"A studio has a Hungry Beast — the machinery and people that must be kept fed and busy — and it will happily eat quality if you let it.","fa":"یک استودیو یک هیولای گرسنه دارد — همان دستگاه و آدم‌هایی که باید سیر و مشغول نگه داشته شوند — و اگر بگذاری، با کمالِ میل کیفیت را می‌بلعد."},"more":{"en":"The Beast's appetite for output is necessary but dangerous. Left in charge, it pushes for more, faster, safer, and starves the fragile new work. You have to feed it without letting it give the orders.","fa":"اشتهای هیولا برای تولید لازم است اما خطرناک. اگر رهایش کنی سرِ کار، فشار می‌آورد برای بیشتر، سریع‌تر، امن‌تر، و کارِ تازه و شکننده را گرسنه می‌گذارد. باید سیرش کنی، بی‌آنکه بگذاری او دستور بدهد."},"example":{"en":"Catmull frames the tension as feeding the Beast — production's hunger — while refusing to let its demands dictate the art.","fa":"کتمول این کشمکش را این‌طور قاب می‌گیرد: سیر‌کردنِ هیولا — گرسنگیِ تولید — و در همان حال نگذاشتن که خواسته‌هایش به هنر دیکته کنند."},"tip":{"en":"Notice where the pressure to just ship is quietly lowering the bar.","fa":"حواست باشد کجا فشارِ اینکه فقط تحویل بده، بی‌سروصدا سطح را پایین می‌آورد."},"pitfall":{"en":"Letting the appetite for output run the creative decisions.","fa":"گذاشتن اینکه اشتها برای تولید، تصمیم‌های خلاقانه را بگرداند."}},"baby":{"part":"hidden","n":12,"name":{"en":"Protect the Ugly Baby","fa":"از بچهٔ زشت محافظت کن"},"glabel":{"en":"The Baby","fa":"بچهٔ نوپا"},"principle":{"en":"New ideas arrive as Ugly Babies — awkward, unformed, and fragile. Protect them, and balance that protection against the Beast's hunger.","fa":"ایده‌های تازه مثلِ بچه‌های زشت به دنیا می‌آیند — ناهنجار، شکل‌نگرفته و شکننده. ازشان محافظت کن، و این محافظت را با گرسنگیِ هیولا متعادل کن."},"more":{"en":"Originality is fragile and, in its first moments, far from pretty. Judge a newborn idea by the standard of a finished one and you'll kill it. Shield it until it can stand on its own, while keeping the whole system in balance.","fa":"اصالت شکننده است و در لحظه‌های اولش، اصلاً قشنگ نیست. یک ایدهٔ نوزاد را با معیارِ یک کارِ تمام‌شده بسنجی، می‌کُشی‌اش. سپرش باش تا وقتی روی پای خودش بایستد، و در همان حال کلِ سیستم را در تعادل نگه دار."},"example":{"en":"Catmull: originality is fragile, and in its first moments it's often far from pretty — so early work needs protectors, not critics.","fa":"کتمول: اصالت شکننده است، و در لحظه‌های اولش اغلب اصلاً قشنگ نیست — پس کارِ اولیه نگهبان می‌خواهد، نه منتقد."},"tip":{"en":"Give a raw new idea a safe space before you expose it to hard judgment.","fa":"به یک ایدهٔ تازه و خام یک فضای امن بده، پیش از اینکه در معرضِ قضاوتِ سخت بگذاری‌اش."},"pitfall":{"en":"Holding a newborn idea to the standard of a polished one.","fa":"یک ایدهٔ نوزاد را به معیارِ یک ایدهٔ صیقلی سنجیدن."}},"jobs":{"part":"sustain","n":13,"name":{"en":"The Steve Jobs Lessons","fa":"درس‌های استیو جابز"},"glabel":{"en":"Steve Jobs","fa":"استیو جابز"},"principle":{"en":"Over a long partnership with Steve Jobs, Catmull learned patience, listening, and how a demanding partner can grow — and how to hold your ground with one.","fa":"در طولِ یک شراکتِ بلند با استیو جابز، کتمول صبر، گوش‌دادن، و اینکه یک شریکِ سخت‌گیر چطور می‌تواند رشد کند را یاد گرفت — و اینکه چطور جلوی چنین آدمی سرِ حرفت بمانی."},"more":{"en":"Jobs evolved from brash to wise across their decades together. The lesson isn't to copy him but to keep learning from strong, difficult people — and to push back with reason rather than fear.","fa":"جابز در طولِ دهه‌هایی که با هم بودند از یک آدمِ گستاخ به یک آدمِ خردمند تبدیل شد. درس این نیست که کپی‌اش کنی، بلکه این است که مدام از آدم‌های قوی و دشوار یاد بگیری — و به‌جای ترس، با منطق جلویشان بایستی."},"example":{"en":"Catmull describes learning to disagree with Jobs by waiting, making the case with logic, and letting the better argument win.","fa":"کتمول تعریف می‌کند چطور یاد گرفت با جابز مخالفت کند: با صبر‌کردن، با منطق دلیل آوردن، و گذاشتن اینکه استدلالِ بهتر ببرد."},"tip":{"en":"With a forceful colleague, argue the merits calmly instead of either yielding or fighting.","fa":"با یک همکارِ زورمند، به‌جای اینکه یا تسلیم شوی یا بجنگی، آرام سرِ اصلِ ماجرا بحث کن."},"pitfall":{"en":"Either caving to the loudest voice or refusing to learn from it.","fa":"یا تسلیمِ بلندترین صدا شدن، یا اصلاً حاضر‌نبودن ازش یاد بگیری."}},"change":{"part":"sustain","n":14,"name":{"en":"Embrace Change & Randomness","fa":"تغییر و تصادف را بپذیر"},"glabel":{"en":"Change","fa":"تغییر"},"principle":{"en":"Change and randomness aren't threats to manage away — they're the raw material of creativity. There's no growth or success without change.","fa":"تغییر و تصادف تهدیدهایی نیستند که باید با مدیریت از میان برداری‌شان — مصالحِ خامِ خلاقیت‌اند. بدونِ تغییر، نه رشدی هست نه موفقیتی."},"more":{"en":"The instinct to control and stabilize can quietly strangle the new. Instead, expect the unexpected, make room for luck, and treat change as the normal condition of creative work rather than an emergency.","fa":"غریزهٔ کنترل و تثبیت می‌تواند بی‌سروصدا چیزِ تازه را خفه کند. به‌جایش، منتظرِ چیزِ غیرمنتظره باش، برای شانس جا باز کن، و تغییر را وضعیتِ عادیِ کارِ خلاق بدان، نه یک بحران."},"example":{"en":"Catmull argues that seeking too much stability makes a company fragile; welcoming change is what keeps it alive.","fa":"کتمول می‌گوید دنبالِ ثباتِ زیادی رفتن یک شرکت را شکننده می‌کند؛ خوش‌آمدگفتن به تغییر همان چیزی است که زنده نگهش می‌دارد."},"tip":{"en":"When something unplanned happens, ask what opportunity it opens before you move to resist it.","fa":"وقتی یک چیزِ برنامه‌ریزی‌نشده پیش می‌آید، قبل از اینکه در برابرش مقاومت کنی، بپرس چه فرصتی باز می‌کند."},"pitfall":{"en":"Craving stability so much that you smother new possibilities.","fa":"آن‌قدر تشنهٔ ثبات‌بودن که امکان‌های تازه را خفه کنی."}},"notesday":{"part":"sustain","n":15,"name":{"en":"Notes Day","fa":"روزِ یادداشت‌ها"},"glabel":{"en":"Notes Day","fa":"روزِ یادداشت"},"principle":{"en":"Give everyone, at every level, a real voice in fixing the company. Notes Day was Pixar's day of open, candid, company-wide problem-solving.","fa":"به همه، در هر رده‌ای، یک صدای واقعی در درست‌کردنِ شرکت بده. روزِ یادداشت‌ها روزِ حل‌مسئلهٔ باز، رک و سرتاسریِ پیکسار بود."},"more":{"en":"A healthy culture pulls ideas and honest feedback from everyone, not just leaders. Notes Day paused all of Pixar so people at every level could speak frankly about how to make things better.","fa":"یک فرهنگِ سالم ایده و بازخوردِ صادقانه را از همه می‌کشد، نه فقط از رهبرها. روزِ یادداشت‌ها کلِ پیکسار را متوقف کرد تا آدم‌ها در هر رده‌ای بتوانند رک بگویند چطور می‌شود کارها را بهتر کرد."},"example":{"en":"In 2013, Pixar shut down for a day so its whole staff could give candid notes on the studio itself.","fa":"در سالِ ۲۰۱۳، پیکسار یک روز تعطیل شد تا همهٔ کارکنانش دربارهٔ خودِ استودیو یادداشتِ رک بدهند."},"tip":{"en":"Create a regular, safe channel for the whole team to name problems and propose fixes.","fa":"یک کانالِ منظم و امن بساز تا کلِ تیم مشکل‌ها را نام ببرد و راهِ حل پیشنهاد بدهد."},"pitfall":{"en":"Letting only senior people define what needs fixing.","fa":"گذاشتن اینکه فقط آدم‌های ارشد تعیین کنند چه چیزی باید درست شود."}},"process":{"part":"sustain","n":16,"name":{"en":"Don't Confuse Process With Goal","fa":"روند را با هدف اشتباه نگیر"},"glabel":{"en":"Process vs goal","fa":"روند و هدف"},"principle":{"en":"Keep learning, and never mistake the process for the goal. Tools and rituals serve the work — they aren't the work.","fa":"مدام یاد بگیر، و هیچ‌وقت روند را با هدف اشتباه نگیر. ابزارها و آیین‌ها در خدمتِ کارند — خودشان کار نیستند."},"more":{"en":"Over time, healthy practices harden into box-ticking that people follow for its own sake. Keep asking whether each process still serves the real goal — and keep learning as the world changes around you.","fa":"با گذرِ زمان، عادت‌های سالم سفت می‌شوند و به تیک‌زدنِ خانه‌ها تبدیل می‌شوند که آدم‌ها فقط برای خودش دنبالش می‌کنند. مدام بپرس هر روند هنوز به هدفِ واقعی خدمت می‌کند یا نه — و همان‌طور که دنیا دورت عوض می‌شود، یاد بگیر."},"example":{"en":"Catmull warns that even Pixar's best mechanisms can ossify; the antidote is to keep questioning and keep learning.","fa":"کتمول هشدار می‌دهد که حتی بهترین ساز‌و‌کارهای پیکسار هم می‌توانند سنگ شوند؛ پادزهرش این است که مدام زیرِ سؤال ببری و مدام یاد بگیری."},"tip":{"en":"For a familiar process, ask what goal it's meant to serve — and whether it still does.","fa":"برای یک روندِ آشنا، بپرس قرار بوده به چه هدفی خدمت کند — و هنوز می‌کند یا نه."},"pitfall":{"en":"Following the ritual so faithfully you forget what it was for.","fa":"آن‌قدر وفادارانه دنبالِ آیین رفتن که یادت برود برای چه بوده."}}},"core":{"name":{"en":"PROTECT CREATIVITY","fa":"از خلاقیت محافظت کن"},"principle":{"en":"Great creative work comes from talented people, not from any single idea — so a leader's real job is to build and protect the culture around them. Make it safe to tell the truth, treat failure as the price of doing new things, and keep hunting for the hidden problems that quietly stand in the way of inspiration.","fa":"کارِ خلاقانهٔ خوب از آدم‌های بااستعداد می‌آید، نه از یک ایدهٔ تنها — پس کارِ واقعیِ یک رهبر ساختن و محافظت از فرهنگِ دورِ آن‌هاست. گفتنِ حقیقت را بی‌خطر کن، شکست را بهای انجامِ کارهای تازه بدان، و مدام دنبالِ مشکل‌های پنهانی بگرد که بی‌سروصدا جلوی الهام را می‌گیرند."},"more":{"en":"Catmull organizes it into five moves — build a people-first culture, run on candor through the Braintrust, make failure safe, manage the unseen forces while protecting fragile new ideas, and then sustain it all by embracing change and never confusing your process with your goal. The thread through everything: protect the fragile creative process from the forces that stand in its way.","fa":"کتمول آن را در پنج حرکت می‌چیند — یک فرهنگِ آدم‌محور بساز، کار را با صراحت و از راهِ برین‌تراست پیش ببر، شکست را بی‌خطر کن، نیروهای پنهان را مدیریت کن و در همان حال از ایده‌های تازه و شکننده محافظت کن، و بعد با پذیرفتنِ تغییر و اشتباه‌نگرفتنِ روند با هدف، همه‌اش را زنده نگه دار. نخِ رابطِ همه‌چیز: از فرایندِ شکنندهٔ خلاقیت در برابرِ نیروهایی که سرِ راهش می‌ایستند محافظت کن."},"example":{"en":"Click any node to read a principle or a lesson. You can also drag the nodes around.","fa":"روی هر دایره کلیک کن تا یک اصل یا درس را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."}},"stages":[{"level":1,"badge":{"en":"Level 1 · Over-simplified","fa":"سطحِ ۱ · خیلی ساده"},"title":{"en":"Protect the people","fa":"از آدم‌ها محافظت کن"},"tagline":{"en":"The whole book in a sentence.","fa":"کلِ کتاب در یک جمله."},"body":{"en":"Great work comes from people, not ideas. Your job is to build a place where talented people can do their best work and tell the truth about what's not working.","fa":"کارِ عالی از آدم‌ها می‌آید، نه از ایده‌ها. کارِ تو این است که جایی بسازی که آدم‌های بااستعداد بهترین کارشان را بکنند و حقیقتِ آنچه کار نمی‌کند را بگویند."},"example":{"en":"A good idea in the hands of a weak team goes nowhere; a great team can rescue a weak idea.","fa":"یک ایدهٔ خوب در دستِ یک تیمِ ضعیف به‌جایی نمی‌رسد؛ یک تیمِ عالی می‌تواند یک ایدهٔ ضعیف را نجات بدهد."},"gain":{"en":"You hold the one idea the whole book expands on.","fa":"همان یک ایده‌ای را داری که کلِ کتاب بسطش می‌دهد."}},{"level":2,"badge":{"en":"Level 2 · Simple","fa":"سطحِ ۲ · ساده"},"title":{"en":"People & candor","fa":"آدم‌ها و صراحت"},"tagline":{"en":"Build the team, then tell the truth.","fa":"تیم را بساز، بعد حقیقت را بگو."},"body":{"en":"Two foundations. First, put <b>people</b> first — hire people smarter than you and build a great team before you worry about the idea. Second, run on <b>candor</b>: make it safe for anyone to say what's wrong, early.","fa":"دو پایه. اول، <b>آدم‌ها</b> را مقدم بدار — آدم‌هایی باهوش‌تر از خودت استخدام کن و پیش از اینکه نگرانِ ایده شوی یک تیمِ عالی بساز. دوم، با <b>صراحت</b> کار کن: بی‌خطرش کن که هرکسی زود بگوید چه چیزی خراب است."},"example":{"en":"Instead of guarding your status, hire the person who could outgrow you — and thank people for hard feedback.","fa":"به‌جای اینکه از جایگاهت نگهبانی کنی، آدمی را استخدام کن که ممکن است از تو جلو بزند — و بابتِ بازخوردِ سخت از آدم‌ها تشکر کن."},"gain":{"en":"You can build a team and pull the truth out of it.","fa":"می‌توانی یک تیم بسازی و حقیقت را از آن بیرون بکشی."}},{"level":3,"badge":{"en":"Level 3 · Balanced","fa":"سطحِ ۳ · متعادل"},"title":{"en":"Braintrust & safe failure","fa":"برین‌تراست و شکستِ بی‌خطر"},"tagline":{"en":"Frank feedback; failure as learning.","fa":"بازخوردِ رک؛ شکست همچون یادگیری."},"body":{"en":"Now the mechanisms. Build a <b>Braintrust</b> — trusted peers who give honest notes with no power to force them, aimed at the work and never the person. And make failure <b>safe</b>: it's the price of new work, so fix errors as they come rather than trying to prevent them all.","fa":"حالا ساز‌و‌کارها. یک <b>برین‌تراست</b> بساز — همکارانِ قابل‌اعتمادی که نظرِ صادقانه می‌دهند بی‌آنکه قدرتِ تحمیلش را داشته باشند، نشانه‌گرفته به کار و نه هیچ‌وقت به آدم. و شکست را <b>بی‌خطر</b> کن: بهای کارِ تازه است، پس خطاها را همان‌طور که می‌آیند درست کن، نه اینکه بخواهی جلوی همه‌شان را بگیری."},"example":{"en":"A director shows an unfinished film, gets blunt notes, keeps the final call — and treats the messy early cut as normal.","fa":"یک کارگردان فیلمِ ناتمام را نشان می‌دهد، نظرِ بی‌پرده می‌گیرد، تصمیمِ نهایی را نگه می‌دارد — و نسخهٔ اولیهٔ درهم‌ریخته را عادی می‌داند."},"gain":{"en":"You can give and take candor, and let failure teach.","fa":"می‌توانی صراحت بدهی و بگیری، و بگذاری شکست یادت بدهد."}},{"level":4,"badge":{"en":"Level 4 · Advanced","fa":"سطحِ ۴ · پیشرفته"},"title":{"en":"Manage the unseen","fa":"نادیده‌ها را مدیریت کن"},"tagline":{"en":"Hidden forces, the Beast, the Baby.","fa":"نیروهای پنهان، هیولا، بچهٔ نوپا."},"body":{"en":"Much of what shapes a company is invisible. Stay humble about your <b>mental model</b> and keep hunting the <b>hidden problems</b>. Feed the <b>Hungry Beast</b> — the appetite for output — without letting it run the art, and protect the <b>Ugly Baby</b>: fragile new ideas that look ugly before they're good. The whole job is balance.","fa":"بخشِ زیادی از آنچه یک شرکت را شکل می‌دهد نامرئی است. دربارهٔ <b>مدلِ ذهنی‌ات</b> فروتن بمان و مدام دنبالِ <b>مشکل‌های پنهان</b> بگرد. <b>هیولای گرسنه</b> را سیر کن — اشتها برای تولید — بی‌آنکه بگذاری هنر را بگرداند، و از <b>بچهٔ زشت</b> محافظت کن: ایده‌های تازه و شکننده‌ای که پیش از خوب‌شدن زشت به‌نظر می‌رسند. کلِ کار، تعادل است."},"example":{"en":"You spot that the pressure to ship is quietly killing a risky new idea — so you shield it until it can stand.","fa":"می‌بینی که فشارِ تحویل‌دادن بی‌سروصدا دارد یک ایدهٔ تازه و پرخطر را می‌کُشد — پس سپرش می‌شوی تا وقتی روی پای خودش بایستد."},"gain":{"en":"You can manage the forces you can't directly see.","fa":"می‌توانی نیروهایی را که مستقیم نمی‌بینی مدیریت کنی."}},{"level":5,"badge":{"en":"Level 5 · Expert","fa":"سطحِ ۵ · حرفه‌ای"},"title":{"en":"Sustain it","fa":"زنده نگه‌اش دار"},"tagline":{"en":"Change, Notes Day, keep learning.","fa":"تغییر، روزِ یادداشت‌ها، یادگیریِ مدام."},"body":{"en":"The expert keeps the culture alive. Learn from strong, difficult partners the way Catmull learned from <b>Steve Jobs</b>. Embrace <b>change and randomness</b> instead of controlling them away. Give everyone a voice, as Pixar did on <b>Notes Day</b>. And <b>never confuse your process with your goal</b> — keep questioning, keep learning. A creative culture is renewed, never finished.","fa":"آدمِ حرفه‌ای فرهنگ را زنده نگه می‌دارد. از شریک‌های قوی و دشوار یاد بگیر، همان‌طور که کتمول از <b>استیو جابز</b> یاد گرفت. <b>تغییر و تصادف</b> را به‌جای اینکه با کنترل از میان برداری، بپذیر. به همه صدا بده، همان‌طور که پیکسار در <b>روزِ یادداشت‌ها</b> داد. و <b>هیچ‌وقت روند را با هدف اشتباه نگیر</b> — مدام زیرِ سؤال ببر، مدام یاد بگیر. یک فرهنگِ خلاق نو می‌شود، هیچ‌وقت تمام نمی‌شود."},"example":{"en":"You treat every process as a servant of the goal, invite candor from all levels, and renew the culture as the world shifts.","fa":"هر روند را خدمتگزارِ هدف می‌دانی، از همهٔ رده‌ها صراحت می‌خواهی، و فرهنگ را همان‌طور که دنیا جابه‌جا می‌شود نو می‌کنی."},"gain":{"en":"You can build a creative culture and keep it alive over time.","fa":"می‌توانی یک فرهنگِ خلاق بسازی و در طولِ زمان زنده نگهش داری."}}],"quotes":[{"en":"If you give a good idea to a mediocre team, they will screw it up. If you give a mediocre idea to a brilliant team, they will either fix it or throw it away and come up with something better.","fa":"یک ایدهٔ خوب را به یک تیمِ متوسط بده، خرابش می‌کنند. یک ایدهٔ متوسط را به یک تیمِ درخشان بده، یا درستش می‌کنند یا دورش می‌اندازند و چیزِ بهتری می‌سازند."},{"en":"Find, develop, and support good people, and they in turn will find, develop, and own good ideas.","fa":"آدم‌های خوب را پیدا کن، رشدشان بده و هوایشان را داشته باش؛ آن‌ها هم به‌نوبهٔ خودشان ایده‌های خوب را پیدا می‌کنند، می‌پرورانند و مالِ خودشان می‌کنند."},{"en":"Candor isn't cruel. It does not destroy. On the contrary, any successful feedback system is built on empathy, on the idea that we are all in this together, that we understand your pain because we've experienced it ourselves.","fa":"صراحت بی‌رحم نیست. چیزی را خراب نمی‌کند. برعکس، هر نظامِ بازخوردِ موفق روی همدلی بنا شده؛ روی این فکر که همه با هم در یک قایقیم، و دردت را می‌فهمیم چون خودمان هم تجربه‌اش کرده‌ایم."},{"en":"Failure isn't a necessary evil. In fact, it isn't evil at all. It is a necessary consequence of doing something new.","fa":"شکست یک شرِّ لازم نیست. راستش اصلاً شر نیست. نتیجهٔ ناگزیرِ انجامِ کاری تازه است."},{"en":"To be wrong as fast as you can is to sign up for aggressive, rapid learning.","fa":"هرچه زودتر اشتباه کنی، یعنی برای یک یادگیریِ تند و پرشتاب ثبت‌نام کرده‌ای."},{"en":"Management's job is not to prevent risk but to build the ability to recover.","fa":"کارِ مدیریت جلوگیری از خطر نیست؛ ساختنِ توانِ بلندشدنِ دوباره است."},{"en":"Originality is fragile. And, in its first moments, it's often far from pretty.","fa":"اصالت شکننده است. و در لحظه‌های اولش، اغلب اصلاً قشنگ نیست."},{"en":"What makes Pixar special is that we acknowledge we will always have problems, many of them hidden from our view; that we work hard to uncover these problems, even if doing so means making ourselves uncomfortable; and that, when we come across a problem, we marshal all of our energies to solve it.","fa":"چیزی که پیکسار را خاص می‌کند این است که قبول داریم همیشه مشکل خواهیم داشت، خیلی‌هایشان پنهان از چشمِ ما؛ که سخت تلاش می‌کنیم این مشکل‌ها را رو کنیم، حتی اگر یعنی خودمان را معذب کنیم؛ و وقتی به مشکلی برمی‌خوریم، همهٔ توانمان را جمع می‌کنیم تا حلش کنیم."},{"en":"There is no growth or success without change.","fa":"بدونِ تغییر، نه رشدی هست نه موفقیتی."}],"media":[{"kind":"yt","id":"ffixfwt654I","src":{"en":"YouTube · Stanford eCorner","fa":"یوتیوب · Stanford eCorner"},"title":{"en":"Ed Catmull: Creativity, Inc. [Entire Talk]","fa":"اد کتمول: کارخانهٔ خلاقیت [سخنرانیِ کامل]"},"desc":{"en":"The author gives a full talk on the ideas behind the book.","fa":"خودِ نویسنده یک سخنرانیِ کامل دربارهٔ ایده‌های پشتِ کتاب می‌دهد."},"bullets":{"en":["Culture, candor and failure in his own words","How Pixar surfaces hidden problems","A full, authoritative talk"],"fa":["فرهنگ، صراحت و شکست به زبانِ خودش","اینکه پیکسار چطور مشکل‌های پنهان را رو می‌کند","یک سخنرانیِ کامل و معتبر"]},"best":{"en":"Best for Stage 2–4.","fa":"خوب برای مرحلهٔ ۲ تا ۴."}},{"kind":"yt","id":"ZrjusPeOZRk","src":{"en":"YouTube · Milken Institute","fa":"یوتیوب · Milken Institute"},"title":{"en":"Creativity, Inc. — Overcoming the Unseen Forces","fa":"کارخانهٔ خلاقیت — غلبه بر نیروهای پنهان"},"desc":{"en":"A conversation with Ed Catmull built around the book.","fa":"یک گفت‌وگو با اد کتمول که حولِ کتاب شکل گرفته."},"bullets":{"en":["The Braintrust and honest feedback","Managing the forces you can't see","Applied to real teams"],"fa":["برین‌تراست و بازخوردِ صادقانه","مدیریتِ نیروهایی که نمی‌بینی","به‌کار‌بسته روی تیم‌های واقعی"]},"best":{"en":"Best for Stage 3–4.","fa":"خوب برای مرحلهٔ ۳ و ۴."}},{"kind":"yt","id":"wiIoySsG66U","src":{"en":"YouTube · 97th Floor","fa":"یوتیوب · 97th Floor"},"title":{"en":"How the World’s Most Creative Teams Produce Magic","fa":"خلاق‌ترین تیم‌های دنیا چطور جادو می‌سازند"},"desc":{"en":"Ed Catmull on sustaining a culture that keeps making great work.","fa":"اد کتمول دربارهٔ زنده نگه‌داشتنِ فرهنگی که مدام کارِ عالی می‌سازد."},"bullets":{"en":["Protecting fragile new ideas","Keeping candor alive at scale","A practical, applied talk"],"fa":["محافظت از ایده‌های تازه و شکننده","زنده نگه‌داشتنِ صراحت در مقیاسِ بزرگ","یک سخنرانیِ عملی و کاربردی"]},"best":{"en":"Best for Stage 4–5.","fa":"خوب برای مرحلهٔ ۴ و ۵."}},{"kind":"img","url":"https://www.penguinrandomhouse.com/books/216369/creativity-inc-the-expanded-edition-by-ed-catmull-with-amy-wallace/","src":{"en":"Penguin Random House · Publisher","fa":"Penguin Random House · ناشر"},"title":{"en":"Creativity, Inc. — Publisher Page","fa":"کارخانهٔ خلاقیت — صفحهٔ ناشر"},"desc":{"en":"The publisher page for the book, with editions and details.","fa":"صفحهٔ ناشر برای کتاب، با نسخه‌ها و جزئیات."},"bullets":{"en":["The definitive editions","Background on the authors","Straight from the source"],"fa":["نسخه‌های معتبر","پیشینه‌ای دربارهٔ نویسنده‌ها","مستقیم از خودِ منبع"]},"best":{"en":"For editions and the source.","fa":"برای نسخه‌ها و منبعِ اصلی."}}],"go":[{"label":{"en":"Publisher page","fa":"صفحهٔ ناشر"},"url":"https://www.penguinrandomhouse.com/books/216369/creativity-inc-the-expanded-edition-by-ed-catmull-with-amy-wallace/"},{"label":{"en":"Book on Goodreads","fa":"کتاب در گودریدز"},"url":"https://www.goodreads.com/book/show/18077903-creativity-inc"},{"label":{"en":"Excerpt: Inside the Pixar Braintrust","fa":"برشی از کتاب: درونِ برین‌تراستِ پیکسار"},"url":"https://www.fastcompany.com/3027135/inside-the-pixar-braintrust"}],"recs":[{"pri":"b","t":{"en":"Build your own Braintrust","fa":"برین‌تراستِ خودت را بساز"},"d":{"en":"Gather a few trusted, candid peers to give frank feedback on your work — with the decision left to you.","fa":"چند همکارِ قابل‌اعتماد و رک را جمع کن تا روی کارت بازخوردِ صادقانه بدهند — و تصمیم دستِ خودت بماند."}},{"pri":"b","t":{"en":"Ask for the hard truth","fa":"حقیقتِ سخت را بخواه"},"d":{"en":"In your next review, directly invite the feedback people are usually afraid to give — then thank them.","fa":"در بازبینیِ بعدی‌ات، مستقیم همان بازخوردی را بخواه که آدم‌ها معمولاً می‌ترسند بدهند — بعد ازشان تشکر کن."}},{"pri":"n","t":{"en":"Separate work from person","fa":"کار را از آدم جدا کن"},"d":{"en":"Reframe one piece of feedback so it targets the problem in the work, not the person who made it.","fa":"یک بازخورد را طوری از نو بگو که مشکلِ درونِ کار را نشانه بگیرد، نه کسی که ساختتش."}},{"pri":"n","t":{"en":"Let one failure teach you","fa":"بگذار یک شکست یادت بدهد"},"d":{"en":"Take a recent mistake, write down what it taught you, and share it so others can learn too.","fa":"یک اشتباهِ اخیر را بردار، بنویس چه یادت داد، و به اشتراک بگذارش تا بقیه هم یاد بگیرند."}}]};
-</script>
-
-<script>
-/* ── 3) RENDER (text sections) ────────────────────────────── */
-function elClear(id){ var e=document.getElementById(id); if(e) e.innerHTML=''; return e; }
-
-function renderText(){
-  var t=elClear('tldrHost');
-  DATA.tldr.forEach(function(o){ var li=document.createElement('li'); li.innerHTML = TX(o); t.appendChild(li); });
-
-  var q=elClear('quoteHost');
-  DATA.quotes.forEach(function(o){
-    var bq=document.createElement('blockquote');
-    bq.innerHTML = '<span class="qm">“</span><p>'+TX(o)+'</p>';
-    q.appendChild(bq);
-  });
-
-  var m=elClear('mediaHost');
-  DATA.media.forEach(function(o){
-    var card=document.createElement('div'); card.className='mcard';
-    var thumb;
-    if(o.kind==='yt'){
-      var url='https://www.youtube.com/watch?v='+o.id;
-      var img='https://i.ytimg.com/vi/'+o.id+'/hqdefault.jpg';
-      thumb='<a class="mthumb" href="'+url+'" target="_blank" rel="noopener">'
-        +'<img src="'+img+'" alt="" loading="lazy" onerror="this.style.display=\'none\'">'
-        +'<span class="ptype">'+(LANG==='fa'?'ویدیو':'VIDEO')+'</span>'
-        +'<span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></span></a>';
-    } else {
-      thumb='<a class="mthumb" href="'+o.url+'" target="_blank" rel="noopener"><span class="mfake">'
-        +'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.6"/><path d="M21 15l-5-5L5 21"/></svg>'
-        +'</span><span class="ptype">'+(LANG==='fa'?'تصویر':'IMAGE')+'</span></a>';
-    }
-    var link = o.kind==='yt' ? 'https://www.youtube.com/watch?v='+o.id : o.url;
-    var bl = (LANG==='fa'?o.bullets.fa:o.bullets.en).map(function(b){ return '<li>'+ (LANG==='fa'?faText(b):b) +'</li>'; }).join('');
-    card.innerHTML = thumb + '<div class="mbody">'
-      + '<div class="msrc">'+TX(o.src)+'</div>'
-      + '<h4>'+TX(o.title)+'</h4>'
-      + '<p class="mdesc">'+TX(o.desc)+'</p>'
-      + '<ul>'+bl+'</ul>'
-      + '<a class="mlink" href="'+link+'" target="_blank" rel="noopener">'+(LANG==='fa'?'باز کردن ↗':'Open ↗')+'</a>'
-      + '<div class="mbest">'+TX(o.best)+'</div>'
-      + '</div>';
-    m.appendChild(card);
-  });
-
-  var g=elClear('goHost');
-  DATA.go.forEach(function(o){
-    var a=document.createElement('a'); a.href=o.url; a.target='_blank'; a.rel='noopener';
-    a.textContent=TX(o.label); g.appendChild(a);
-  });
-
-  var r=elClear('recHost');
-  DATA.recs.forEach(function(o){
-    var it=document.createElement('div'); it.className='item';
-    var priLabel = o.pri==='b' ? (LANG==='fa'?'از اینجا شروع کن':'Start here') : (LANG==='fa'?'بعدش این':'Then this');
-    it.innerHTML='<div class="t">'+TX(o.t)+'<span class="pri '+(o.pri==='b'?'b':'')+'">'+priLabel+'</span></div>'
-      +'<div class="d">'+TX(o.d)+'</div>';
-    r.appendChild(it);
-  });
-
-  var mth=document.getElementById('methodHost');
-  mth.innerHTML = LANG==='fa' ? faText("<p><b>منبع:</b> کتابِ «Creativity, Inc.: Overcoming the Unseen Forces That Stand in the Way of True Inspiration» نوشتهٔ اد کتمول با ایمی والاس، چاپِ ۲۰۱۴ (نشرِ Random House).</p><p><b>روشِ کار:</b> ساختارِ پنج‌بخشی و ایده‌ها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده؛ نقل‌قول‌ها مقابله و ویدیوها بررسی شده‌اند.</p><p><b>گروه:</b> «ذوق و پیشه‌وری» — یک خواندنیِ پایه دربارهٔ ساختن و محافظت از یک فرهنگِ خلاق.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای متنِ کامل، خودِ کتاب را بخوان.</p>") : "<p><b>Source:</b> the book <i>Creativity, Inc.: Overcoming the Unseen Forces That Stand in the Way of True Inspiration</i> by Ed Catmull with Amy Wallace, published 2014 (Random House).</p><p><b>How this was built:</b> the five-part structure and ideas were gathered and rewritten from the book and reputable sources; quotes were cross-checked and the linked videos verified.</p><p><b>Group:</b> Taste &amp; Craft — a foundational read on building and protecting a creative culture.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>";
-  var fl=document.getElementById('flowTop');
-  if(fl){
-    var loop = LANG==='fa' ? ["صراحت","اعتماد","آفرینش"] : ["Candor","Trust","Create"];
-    var ar = LANG==='fa' ? '⟵' : '⟶';
-    fl.innerHTML = loop.map(function(w){ return '<b>'+ (LANG==='fa'?faText(w):w) +'</b>'; }).join(' <span class="ar">'+ar+'</span> ');
-  }
-}
-</script>
-
-<script>
-/* ── 4) CONCEPT MAP ───────────────────────────────────────── */
-function renderMap(){
-  var host=document.getElementById('mapHost'); if(!host) return; host.innerHTML='';
-  DATA.parts.forEach(function(p, i){
-    var col=document.createElement('div'); col.className='partcol';
-    var chaps=p.chapters.map(function(ck){
-      var c=DATA.chapters[ck];
-      return '<div class="chapchip"><span class="cn">'+num(c.n)+'</span><div><b>'+TX(c.name)+'</b>'
-        +'<small>'+TX(c.principle).replace(/<[^>]+>/g,'').slice(0, LANG==='fa'?86:76)+'…</small></div></div>';
-    }).join('');
-    col.innerHTML='<div class="ph"><span class="pdot" style="background:var('+p.varc+')"></span>'
-      +'<span class="pnum">'+(LANG==='fa'?'بخشِ ':'PART ')+num(i+1)+'</span></div>'
-      +'<h4>'+TX(p.name)+'</h4>'
-      +'<div class="ptag" style="color:var('+p.varc+')">'+TX(p.tag)+'</div>'
-      +'<p class="pgist">'+TX(p.gist)+'</p>'+chaps;
-    host.appendChild(col);
-  });
-}
-</script>
-
-<script>
-/* ── 5) INTERACTIVE NETWORK GRAPH (deterministic radial layout, no physics) ── */
-var GRAPH = (function(){
-  var svg, W=980, H=780, nodes=[], links=[], sel=null, dragNode=null, moved=false, startPt=null;
-
-  function build(){
-    svg=document.getElementById('netsvg');
-    svg.setAttribute('viewBox','0 0 '+W+' '+H);
-    nodes=[]; links=[];
-    var cx=W/2, cy=H/2, R1=220, R2=126, span=66*Math.PI/180;
-    var N=DATA.parts.length, partAng=DATA.parts.map(function(_,i){ return -Math.PI/2 + i*(2*Math.PI/N); });
-    nodes.push({id:'core', kind:'core', varc:'--core', r:38, x:cx, y:cy, label:DATA.core.name, data:DATA.core});
-    DATA.parts.forEach(function(p,i){
-      var a=partAng[i], px=cx+Math.cos(a)*R1, py=cy+Math.sin(a)*R1;
-      nodes.push({id:'p_'+p.key, kind:'part', varc:p.varc, r:25, x:px, y:py,
-        label:p.name, data:{name:p.name, principle:p.gist, more:p.more, tag:p.tag, key:p.key}});
-      links.push({s:'core', t:'p_'+p.key, strong:true});
-      var nc=p.chapters.length, start=a-span/2;
-      p.chapters.forEach(function(ck,j){
-        var ca = nc>1 ? start+span*(j/(nc-1)) : a;   // fan the 5 chapters outward
-        var c=DATA.chapters[ck];
-        nodes.push({id:'c_'+ck, kind:'chap', varc:p.varc, r:15,
-          x:px+Math.cos(ca)*R2, y:py+Math.sin(ca)*R2,
-          label:(c.glabel||c.name), data:c, ck:ck});
-        links.push({s:'p_'+p.key, t:'c_'+ck});
-      });
-    });
-    nodes.forEach(function(n){ n.hx=n.x; n.hy=n.y; });   // remember home positions for reset
-    draw();
-    select('core');
-  }
-
-  function byId(id){ for(var i=0;i<nodes.length;i++) if(nodes[i].id===id) return nodes[i]; return null; }
-
-  function draw(){
-    var ln='', nd='';
-    links.forEach(function(l){ ln+='<line class="glink" data-s="'+l.s+'" data-t="'+l.t+'" stroke="var(--line)" stroke-width="'+(l.strong?2.4:1.5)+'" stroke-linecap="round"/>'; });
-    nodes.forEach(function(n){
-      var inside='', below='';
-      if(n.kind==='core'){
-        inside='<text text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="800" fill="#fff" letter-spacing="0.3">'+shortLabel(n)+'</text>';
-      } else {
-        if(n.kind==='chap'){
-          inside='<text text-anchor="middle" dominant-baseline="central" font-size="11" font-weight="800" fill="#fff">'+num(n.data.n)+'</text>';
+/* ── CONTENT — everything unique to this book lives here ── */
+Book.mount({
+  "meta": {
+    "slug": "creativity-inc",
+    "folder": "11 - Taste & Craft",
+    "groupNum": 11,
+    "group": {
+      "en": "Taste &amp; Craft",
+      "fa": "ذوق و پیشه‌وری"
+    },
+    "author": {
+      "en": "Ed Catmull with Amy Wallace",
+      "fa": "اد کتمول با ایمی والاس"
+    },
+    "eyebrow_author": {
+      "en": "Ed Catmull",
+      "fa": "اد کتمول"
+    },
+    "book": {
+      "en": "Creativity, Inc.",
+      "fa": "کارخانهٔ خلاقیت"
+    },
+    "hero_title": {
+      "en": "Creativity, Inc. — Overcoming the Unseen Forces That Stand in the Way of True Inspiration",
+      "fa": "کارخانهٔ خلاقیت — غلبه بر نیروهای پنهانی که جلوی الهامِ واقعی را می‌گیرند"
+    },
+    "dek": {
+      "en": "A knowledge graph of the whole book, plus a 5-stage path from a single idea to expert-level mastery — with an example at every step.",
+      "fa": "نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از یک ایدهٔ ساده تا حرفه‌ای — با یک مثال در هر مرحله."
+    },
+    "published": {
+      "en": "2014",
+      "fa": "۲۰۱۴"
+    },
+    "chips": [
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Parts",
+          "fa": "بخش"
         }
-        var ly = n.r + (n.kind==='part'?17:14);
-        var fs = n.kind==='part'?13:11;
-        var stroke = 'paint-order:stroke;stroke:var(--card2);stroke-width:3.6px;stroke-linejoin:round';
-        below='<text class="nlab" text-anchor="middle" y="'+ly+'" font-size="'+fs+'" font-weight="'+(n.kind==='part'?'800':'700')+'" fill="var(--ink)" style="'+stroke+'">'+shortLabel(n)+'</text>';
+      },
+      {
+        "v": {
+          "en": "16",
+          "fa": "۱۶"
+        },
+        "l": {
+          "en": "Ideas",
+          "fa": "ایده"
+        }
+      },
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Learning stages",
+          "fa": "مرحلهٔ یادگیری"
+        }
       }
-      nd+='<g class="node'+(n.kind==='core'?' ncore':'')+'" data-id="'+n.id+'"><g class="ns">'
-        +'<circle r="'+n.r+'" fill="var('+n.varc+')" fill-opacity="'+(n.kind==='chap'?0.94:1)+'" stroke="var(--card)" stroke-width="2.5"/>'
-        +inside+below+'</g></g>';
-    });
-    svg.innerHTML='<g id="glinks">'+ln+'</g><g id="gnodes">'+nd+'</g>';
-    svg.querySelectorAll('.node').forEach(function(gEl){
-      gEl.addEventListener('pointerdown', onDown);
-      gEl.addEventListener('click', function(){ if(!moved) select(gEl.getAttribute('data-id')); });
-      gEl.addEventListener('pointerenter', function(){ if(!dragNode) gEl.classList.add('hover'); });
-      gEl.addEventListener('pointerleave', function(){ gEl.classList.remove('hover'); });
-    });
-    positions();
-  }
-  function shortLabel(n){ return TX(n.label); }
-
-  function positions(){
-    svg.querySelectorAll('.node').forEach(function(g){
-      var n=byId(g.getAttribute('data-id'));
-      g.setAttribute('transform','translate('+n.x.toFixed(1)+','+n.y.toFixed(1)+')');
-    });
-    svg.querySelectorAll('.glink').forEach(function(l){
-      var a=byId(l.getAttribute('data-s')), b=byId(l.getAttribute('data-t'));
-      l.setAttribute('x1',a.x.toFixed(1)); l.setAttribute('y1',a.y.toFixed(1));
-      l.setAttribute('x2',b.x.toFixed(1)); l.setAttribute('y2',b.y.toFixed(1));
-    });
-  }
-
-  /* drag: just move the grabbed node — no simulation, so nothing else shifts */
-  function toSvg(e){
-    var pt=svg.createSVGPoint(); pt.x=e.clientX; pt.y=e.clientY;
-    var m=svg.getScreenCTM(); if(!m) return {x:e.clientX,y:e.clientY};
-    return pt.matrixTransform(m.inverse());
-  }
-  function onDown(e){
-    e.preventDefault();
-    dragNode=byId(e.currentTarget.getAttribute('data-id'));
-    moved=false; startPt=toSvg(e); svg.style.cursor='grabbing';
-    e.currentTarget.classList.remove('hover');
-    window.addEventListener('pointermove', onMove);
-    window.addEventListener('pointerup', onUp);
-  }
-  function onMove(e){
-    if(!dragNode) return; var p=toSvg(e);
-    if(startPt && (Math.abs(p.x-startPt.x)>4 || Math.abs(p.y-startPt.y)>4)) moved=true;
-    dragNode.x=Math.max(dragNode.r+4, Math.min(W-dragNode.r-4, p.x));
-    dragNode.y=Math.max(dragNode.r+4, Math.min(H-dragNode.r-24, p.y));
-    positions();
-  }
-  function onUp(){
-    dragNode=null; svg.style.cursor='grab';
-    window.removeEventListener('pointermove', onMove);
-    window.removeEventListener('pointerup', onUp);
-  }
-
-  function keepSet(id){
-    var n=byId(id); if(!n || id==='core') return null;   // core → show everything
-    var keep={}; keep[id]=1; keep['core']=1;
-    var pk = (n.kind==='part') ? n.data.key : n.data.part;
-    keep['p_'+pk]=1;
-    DATA.parts.forEach(function(p){ if(p.key===pk) p.chapters.forEach(function(ck){ keep['c_'+ck]=1; }); });
-    return keep;   // highlight the whole branch: core → part → its chapters
-  }
-  function applyFocus(id){
-    var keep=keepSet(id), full=(keep===null);
-    svg.querySelectorAll('.node').forEach(function(g){
-      var nid=g.getAttribute('data-id');
-      g.classList.toggle('dim', !full && !keep[nid]);
-      g.classList.toggle('hl', !full && keep[nid] && nid!==id);
-    });
-    svg.querySelectorAll('.glink').forEach(function(l){
-      var s=l.getAttribute('data-s'), t=l.getAttribute('data-t');
-      var on = full || (keep[s] && keep[t]);
-      l.classList.toggle('dim', !on);
-      l.classList.toggle('hl', !full && on);
-    });
-  }
-
-  function relatedIds(node){
-    var ids=[];
-    if(node.id==='core'){ DATA.parts.forEach(function(p){ ids.push('p_'+p.key); }); }
-    else if(node.kind==='part'){ var pk=node.data.key; DATA.parts.forEach(function(p){ if(p.key===pk) p.chapters.forEach(function(ck){ ids.push('c_'+ck); }); }); }
-    else { var pk2=node.data.part; ids.push('p_'+pk2);
-      DATA.parts.forEach(function(p){ if(p.key===pk2) p.chapters.forEach(function(ck){ if('c_'+ck!==node.id) ids.push('c_'+ck); }); }); }
-    return ids;
-  }
-
-  function drow(cls,label,txt){ return '<div class="drow '+cls+'"><div class="dlab">'+label+'</div><div class="dtxt">'+txt+'</div></div>'; }
-
-  function select(id){
-    var n=byId(id); if(!n) return;
-    sel=id;
-    svg.querySelectorAll('.node').forEach(function(g){ g.classList.toggle('sel', g.getAttribute('data-id')===id); });
-    var selEl=svg.querySelector('.node[data-id="'+id+'"]'); if(selEl&&selEl.parentNode) selEl.parentNode.appendChild(selEl);  // raise on top
-    applyFocus(id);
-    var d=n.data, pv = n.kind==='core' ? '--core' : n.varc;
-    var kicker = n.kind==='core' ? (LANG==='fa'?'ایدهٔ مرکزی':'Core idea')
-             : n.kind==='part' ? (LANG==='fa'?'بخش':'Part') + ' · ' + TX(d.tag)
-             : (LANG==='fa'?"درسِ":"Lesson") + ' ' + num(d.n);
-    var prLab = (n.kind==='chap') ? (LANG==='fa'?'اصل':'Principle') : (LANG==='fa'?'ایدهٔ اصلی':'Big idea');
-    var html='<div class="dkick"><i style="background:var('+pv+')"></i>'+ (LANG==='fa'?faText(kicker):kicker) +'</div>'
-      +'<h4>'+TX(d.name)+'</h4>'
-      + drow('', prLab, TX(d.principle));
-    if(d.more)    html += drow('more', (LANG==='fa'?'بیشتر':'In depth'), TX(d.more));
-    if(d.example) html += drow('', (LANG==='fa'?'مثال':'Example'), TX(d.example));
-    if(d.tip)     html += drow('tip', (LANG==='fa'?'امتحان کن':'Try this'), TX(d.tip));
-    if(d.pitfall) html += drow('pit', (LANG==='fa'?'حواست باشد':'Watch out'), TX(d.pitfall));
-    // related chips
-    var rel=relatedIds(n);
-    if(rel.length){
-      var chips=rel.map(function(rid){ var rn=byId(rid); if(!rn) return '';
-        return '<span class="dchip" data-goto="'+rid+'"><i style="background:var('+rn.varc+')"></i>'+TX(rn.data.name)+'</span>'; }).join('');
-      html += '<div class="drow"><div class="dlab">'+(LANG==='fa'?'مرتبط':'Related')+'</div><div class="dchips">'+chips+'</div></div>';
+    ],
+    "kboxes": [
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Parts (culture · candor · failure · the unseen · sustaining)",
+          "fa": "بخش (فرهنگ · صراحت · شکست · نیروهای پنهان · تداوم)"
+        }
+      },
+      {
+        "v": {
+          "en": "16",
+          "fa": "۱۶"
+        },
+        "l": {
+          "en": "Ideas you can use",
+          "fa": "ایده برای استفاده"
+        }
+      },
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Levels, simple → expert",
+          "fa": "مرحله، ساده تا حرفه‌ای"
+        }
+      },
+      {
+        "v": {
+          "en": "3",
+          "fa": "۳"
+        },
+        "l": {
+          "en": "The rhythm: candor · trust · create",
+          "fa": "ریتمِ کار: صراحت · اعتماد · آفرینش"
+        }
+      }
+    ],
+    "core_callout": {
+      "label": {
+        "en": "The core idea:",
+        "fa": "ایدهٔ اصلی:"
+      },
+      "en": "Great creative work comes from <i>people</i>, not from any single idea — so a leader's real job is to protect the fragile creative process. Build a culture of <i>candor</i> where the truth comes out early, make it <i>safe to fail</i>, and keep hunting the <i>hidden problems</i> that quietly stand in the way of inspiration.",
+      "fa": "کارِ خلاقانهٔ خوب از <i>آدم‌ها</i> می‌آید، نه از یک ایدهٔ تنها — پس کارِ واقعیِ یک رهبر این است که از فرایندِ شکنندهٔ خلاقیت محافظت کند. فرهنگی از <i>صراحت</i> بساز که حقیقت زود رو بیاید، <i>شکست را بی‌خطر</i> کن، و مدام دنبالِ <i>مشکل‌های پنهانی</i> بگرد که بی‌سروصدا جلوی الهام را می‌گیرند."
+    },
+    "flow_callout": {
+      "label": {
+        "en": "Read it as a flow:",
+        "fa": "به‌صورتِ یک جریان بخوانش:"
+      },
+      "en": "build a <b>people-first culture</b> and hire people smarter than you, run on <b>candor</b> through the Braintrust, make it <b>safe to fail</b>, then manage the <b>unseen forces</b> — feeding the Beast while protecting fragile new ideas — and <b>sustain</b> it by embracing change and never confusing your process with your goal.",
+      "fa": "یک <b>فرهنگِ آدم‌محور</b> بساز و آدم‌هایی باهوش‌تر از خودت استخدام کن، کار را با <b>صراحت</b> و از راهِ برین‌تراست پیش ببر، <b>شکست را بی‌خطر</b> کن، بعد <b>نیروهای پنهان</b> را مدیریت کن — هیولا را سیر کن و در همان حال از ایده‌های تازه و شکننده محافظت کن — و با آغوش‌بازکردن به روی تغییر و اینکه هیچ‌وقت روند را با هدف اشتباه نگیری، <b>زنده‌اش</b> نگه دار."
     }
-    var host=document.getElementById('detailHost');
-    host.innerHTML=html;
-    host.querySelectorAll('.dchip').forEach(function(c){
-      c.addEventListener('click', function(){ select(c.getAttribute('data-goto')); });
-    });
-  }
-
-  function relabel(){ if(!svg) return; draw(); select(sel||'core'); }
-
-  return {
-    build:build,
-    kick:function(){},                                    // no-op; layout is static
-    relabel:relabel,
-    reset:function(){ nodes.forEach(function(n){ n.x=n.hx; n.y=n.hy; }); positions(); },
-    resetFocus:function(){ select('core'); },
-    selectNode:function(id){ select(id); },
-    hasNodes:function(){ return nodes.length>0; }
-  };
-})();
-</script>
-
-<script>
-/* ── 6) 5-STAGE LADDER ────────────────────────────────────── */
-var curStage=0;
-function renderLadder(){
-  var host=document.getElementById('ladderHost'); host.innerHTML='';
-  DATA.stages.forEach(function(s,i){
-    var r=document.createElement('div'); r.className='rung'+(i===curStage?' active':'');
-    r.innerHTML='<div class="lv">'+ (LANG==='fa'?('سطحِ '+num(s.level)):('Level '+s.level)) +'</div>'
-      +'<div class="lt">'+TX(s.title)+'</div>'
-      +'<div class="lbar"><i style="width:'+(s.level*20)+'%"></i></div>';
-    r.addEventListener('click', function(){ curStage=i; renderLadder(); renderStage();
-      document.getElementById('stageHost').scrollIntoView({behavior:'smooth',block:'nearest'}); });
-    host.appendChild(r);
-  });
-}
-function renderStage(){
-  var s=DATA.stages[curStage];
-  var host=document.getElementById('stageHost');
-  var exLabel = LANG==='fa'?'مثال':'Example';
-  var prev = LANG==='fa'?'مرحلهٔ قبل':'‹ Prev', next = LANG==='fa'?'مرحلهٔ بعد':'Next ›';
-  host.innerHTML=''+
-    '<div class="stagecard">'
-    +'<div class="shead"><span class="badge">'+TX(s.badge)+'</span><h3>'+TX(s.title)+'</h3></div>'
-    +'<div class="tagline">'+TX(s.tagline)+'</div>'
-    +'<div class="sbody">'+TX(s.body)+'</div>'
-    +'<div class="exbox"><div class="exk">'+exLabel+'</div><div class="ext">'+TX(s.example)+'</div></div>'
-    +'<div class="gainrow"><span class="gi">✓</span><span>'+TX(s.gain)+'</span></div>'
-    +'<div class="stagenav">'
-      +'<button id="stPrev" '+(curStage===0?'disabled':'')+'>'+prev+'</button>'
-      +'<button id="stNext" '+(curStage===DATA.stages.length-1?'disabled':'')+'>'+next+'</button>'
-    +'</div></div>';
-  var pv=document.getElementById('stPrev'), nx=document.getElementById('stNext');
-  if(pv) pv.onclick=function(){ if(curStage>0){curStage--; renderLadder(); renderStage();} };
-  if(nx) nx.onclick=function(){ if(curStage<DATA.stages.length-1){curStage++; renderLadder(); renderStage();} };
-}
-</script>
-
-<script>
-/* ── 7) legend + graph tabs ───────────────────────────────── */
-function renderLegend(){
-  var host=document.getElementById('legendHost'); if(!host) return;
-  var items=[{c:'--core', en:'Core idea', fa:'ایدهٔ مرکزی'}]
-    .concat(DATA.parts.map(function(p){ return {c:p.varc, en:p.name.en, fa:p.name.fa}; }));
-  host.innerHTML = items.map(function(it){
-    return '<span><i style="background:var('+it.c+')"></i>'+(LANG==='fa'?faText(it.fa):it.en)+'</span>';
-  }).join('');
-  document.getElementById('ghint').textContent = LANG==='fa' ? 'روی هر دایره کلیک کن تا بیشتر بخوانی · می‌توانی بکشی‌شان' : 'Click a node to read more · drag to move';
-  document.getElementById('greset').textContent = LANG==='fa' ? '↺ چیدمان' : '↺ Reset';
-}
-function setupTabs(){
-  function show(net){
-    document.getElementById('netView').style.display = net?'':'none';
-    document.getElementById('mapView').style.display = net?'none':'';
-    document.getElementById('tabNet').classList.toggle('active',net);
-    document.getElementById('tabMap').classList.toggle('active',!net);
-    if(net) GRAPH.kick();
-  }
-  document.getElementById('tabNet').onclick=function(){show(true);};
-  document.getElementById('tabMap').onclick=function(){show(false);};
-  document.getElementById('greset').onclick=function(){ GRAPH.reset(); };
-  // click empty graph space resets the focus
-  var svg=document.getElementById('netsvg');
-  svg.addEventListener('click', function(e){ if(!e.target.closest('.node')) GRAPH.resetFocus(); });
-}
-</script>
-
-<script>
-/* ── 8) toggles + boot ────────────────────────────────────── */
-function setLang(lg){
-  LANG=lg;
-  document.documentElement.setAttribute('data-lang',lg);
-  document.documentElement.setAttribute('lang',lg);
-  document.documentElement.setAttribute('dir', lg==='fa'?'rtl':'ltr');
-  try{ localStorage.setItem('creativityinc-lang',lg); }catch(e){}
-  renderAll();
-}
-function renderAll(){
-  renderText();
-  renderMap();
-  renderLegend();
-  renderLadder();
-  renderStage();
-  if(GRAPH.hasNodes()) GRAPH.relabel(); else GRAPH.build();
-}
-(function(){
-  var lb=document.getElementById('langBtn');
-  lb && lb.addEventListener('click', function(){ setLang(LANG==='fa'?'en':'fa'); });
-
-  var tb=document.getElementById('themeBtn');
-  function curT(){ return document.documentElement.getAttribute('data-theme'); }
-  tb && tb.addEventListener('click', function(){
-    var t=curT()==='dark'?'light':'dark';
-    document.documentElement.setAttribute('data-theme',t);
-    try{ localStorage.setItem('creativityinc-theme',t); }catch(e){}
-  });
-  try{ matchMedia('(prefers-color-scheme: dark)').addEventListener('change',function(e){
-    if(!localStorage.getItem('creativityinc-theme')){ document.documentElement.setAttribute('data-theme', e.matches?'dark':'light'); }
-  }); }catch(e){}
-})();
-
-/* scroll-spy */
-(function(){
-  var links=[].slice.call(document.querySelectorAll('.toc a'));
-  var seen={}, ids=[];
-  links.forEach(function(a){ var id=a.getAttribute('href').slice(1); if(!seen[id]){seen[id]=1; ids.push(id);} });
-  var secs=ids.map(function(id){return document.getElementById(id);}).filter(Boolean);
-  function setActive(id){ links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('href')==='#'+id); }); }
-  if('IntersectionObserver' in window){
-    var obs=new IntersectionObserver(function(es){
-      es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
-    },{rootMargin:'-45% 0px -50% 0px',threshold:0});
-    secs.forEach(function(s){ obs.observe(s); });
-  }
-})();
-
-document.addEventListener('DOMContentLoaded', function(){
-  setupTabs();
-  renderAll();
+  },
+  "method": {
+    "en": "<p><b>Source:</b> the book <i>Creativity, Inc.: Overcoming the Unseen Forces That Stand in the Way of True Inspiration</i> by Ed Catmull with Amy Wallace, published 2014 (Random House).</p><p><b>How this was built:</b> the five-part structure and ideas were gathered and rewritten from the book and reputable sources; quotes were cross-checked and the linked videos verified.</p><p><b>Group:</b> Taste &amp; Craft — a foundational read on building and protecting a creative culture.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>",
+    "fa": "<p><b>منبع:</b> کتابِ «Creativity, Inc.: Overcoming the Unseen Forces That Stand in the Way of True Inspiration» نوشتهٔ اد کتمول با ایمی والاس، چاپِ ۲۰۱۴ (نشرِ Random House).</p><p><b>روشِ کار:</b> ساختارِ پنج‌بخشی و ایده‌ها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده؛ نقل‌قول‌ها مقابله و ویدیوها بررسی شده‌اند.</p><p><b>گروه:</b> «ذوق و پیشه‌وری» — یک خواندنیِ پایه دربارهٔ ساختن و محافظت از یک فرهنگِ خلاق.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای متنِ کامل، خودِ کتاب را بخوان.</p>"
+  },
+  "flow": {
+    "en": [
+      "Candor",
+      "Trust",
+      "Create"
+    ],
+    "fa": [
+      "صراحت",
+      "اعتماد",
+      "آفرینش"
+    ]
+  },
+  "graph": {
+    "W": 980,
+    "H": 780,
+    "R1": 220,
+    "R2": 126,
+    "span": 66
+  },
+  "tldr": [
+    {
+      "en": "The whole book in one line: protect the fragile creative process by building a culture that surfaces and fixes hidden problems.",
+      "fa": "خلاصهٔ کل کتاب در یک جمله: از فرایندِ شکنندهٔ خلاقیت محافظت کن، با ساختنِ فرهنگی که مشکل‌های پنهان را رو می‌کند و حلشان می‌کند."
+    },
+    {
+      "en": "It's the <b>people</b>, not the idea — give a good idea to a mediocre team and they'll ruin it.",
+      "fa": "مهم <b>آدم‌ها</b> هستند، نه ایده — یک ایدهٔ خوب را به یک تیمِ متوسط بده، خرابش می‌کنند."
+    },
+    {
+      "en": "Run on <b>candor</b>: a trusted <b>Braintrust</b> gives frank feedback, and it's always about the work, never the person.",
+      "fa": "کار را با <b>صراحت</b> پیش ببر: یک <b>برین‌تراستِ</b> قابل‌اعتماد بازخوردِ رک می‌دهد، و همیشه دربارهٔ کار است، نه آدم."
+    },
+    {
+      "en": "Make it safe to <b>fail</b> — failure is the price of doing something new, and fixing errors usually beats preventing them.",
+      "fa": "<b>شکست</b> را بی‌خطر کن — شکست بهای انجامِ کاری تازه است، و درست‌کردنِ خطاها معمولاً بهتر از جلوگیری از آن‌هاست."
+    },
+    {
+      "en": "Watch the <b>unseen forces</b>, protect fragile new ideas, and sustain it by embracing change and never confusing process with goal.",
+      "fa": "مراقبِ <b>نیروهای پنهان</b> باش، از ایده‌های تازه و شکننده محافظت کن، و با آغوش‌بازکردن به تغییر و اشتباه‌نگرفتنِ روند با هدف، تداومش بده."
+    }
+  ],
+  "parts": [
+    {
+      "key": "culture",
+      "varc": "--c-teal",
+      "name": {
+        "en": "Building the Culture",
+        "fa": "ساختنِ فرهنگ"
+      },
+      "tag": {
+        "en": "People first",
+        "fa": "اول آدم‌ها"
+      },
+      "gist": {
+        "en": "It's the people, not the idea — hire smart and build the team first.",
+        "fa": "مهم آدم‌ها هستند، نه ایده — باهوش استخدام کن و اول تیم را بساز."
+      },
+      "more": {
+        "en": "Pixar's real product isn't any single film, it's the community that makes them. Ideas are worthless without talented people to grow them, so a leader's first job is to find, hire, and protect a great team — then trust it.",
+        "fa": "محصولِ واقعیِ پیکسار هیچ فیلمِ تنهایی نیست، همان جامعه‌ای است که فیلم‌ها را می‌سازد. ایده‌ها بدونِ آدم‌های بااستعدادی که پرورششان بدهند بی‌ارزش‌اند، پس اولین کارِ یک رهبر این است که یک تیمِ عالی را پیدا و استخدام کند و ازش محافظت کند — بعد به آن اعتماد کند."
+      },
+      "chapters": [
+        "people",
+        "hiresmart",
+        "greatteam"
+      ]
+    },
+    {
+      "key": "candor",
+      "varc": "--c-blue",
+      "name": {
+        "en": "Candor & the Braintrust",
+        "fa": "صراحت و برین‌تراست"
+      },
+      "tag": {
+        "en": "How feedback works",
+        "fa": "بازخورد چطور کار می‌کند"
+      },
+      "gist": {
+        "en": "Make it safe to tell the truth, and keep feedback about the work.",
+        "fa": "گفتنِ حقیقت را بی‌خطر کن، و بازخورد را روی کار نگه دار."
+      },
+      "more": {
+        "en": "Hidden problems only surface when people feel safe being frank. The Braintrust is Pixar's engine for this: trusted peers give a project honest, expert notes, with no power to force any change — so the truth flows and the maker still decides.",
+        "fa": "مشکل‌های پنهان فقط وقتی رو می‌آیند که آدم‌ها احساسِ امنیت کنند و رک باشند. برین‌تراست موتورِ پیکسار برای همین است: همکارانِ قابل‌اعتماد به یک پروژه نظرِ صادقانه و کارشناسانه می‌دهند، بی‌آنکه قدرتی داشته باشند تغییری را تحمیل کنند — پس حقیقت جاری می‌شود و باز هم خودِ سازنده تصمیم می‌گیرد."
+      },
+      "chapters": [
+        "frank",
+        "braintrust",
+        "separate"
+      ]
+    },
+    {
+      "key": "failure",
+      "varc": "--c-amber",
+      "name": {
+        "en": "Fear & Failure",
+        "fa": "ترس و شکست"
+      },
+      "tag": {
+        "en": "Risk & learning",
+        "fa": "خطر و یادگیری"
+      },
+      "gist": {
+        "en": "Failure is the price of new work — make it safe, and fix rather than prevent.",
+        "fa": "شکست بهای کارِ تازه است — بی‌خطرش کن، و به‌جای جلوگیری، درست کن."
+      },
+      "more": {
+        "en": "If you're doing something genuinely new, you will be wrong a lot. Punishing mistakes just teaches people to hide them and play safe. Make failing survivable, fail fast and cheap, and get good at recovering instead of trying to prevent every error.",
+        "fa": "اگر داری کاری واقعاً تازه می‌کنی، بارها اشتباه خواهی کرد. تنبیهِ اشتباه فقط به آدم‌ها یاد می‌دهد پنهانش کنند و محافظه‌کار بازی کنند. شکست را قابلِ‌تحمل کن، زود و کم‌هزینه شکست بخور، و به‌جای اینکه بخواهی جلوی هر خطا را بگیری، در بلندشدنِ دوباره ماهر شو."
+      },
+      "chapters": [
+        "failgood",
+        "safefail",
+        "fixnotprevent"
+      ]
+    },
+    {
+      "key": "hidden",
+      "varc": "--c-violet",
+      "name": {
+        "en": "Managing the Unseen",
+        "fa": "مدیریتِ نادیده‌ها"
+      },
+      "tag": {
+        "en": "What you can't see",
+        "fa": "آنچه نمی‌بینی"
+      },
+      "gist": {
+        "en": "Unseen forces shape everything — feed the Beast and protect the Ugly Baby.",
+        "fa": "نیروهای پنهان همه‌چیز را شکل می‌دهند — هیولا را سیر کن و بچهٔ زشت را نگه دار."
+      },
+      "more": {
+        "en": "Much of what drives a company is invisible: fear, incentives, blind spots. Stay humble about your mental model. Balance the Hungry Beast — production's endless appetite — against the fragile, unformed new ideas it would happily devour.",
+        "fa": "بخشِ زیادی از آنچه یک شرکت را می‌راند نامرئی است: ترس، انگیزه‌ها، نقطه‌های کور. دربارهٔ مدلِ ذهنی‌ات فروتن بمان. میانِ هیولای گرسنه — اشتهای بی‌پایانِ تولید — و ایده‌های تازه و شکل‌نگرفته‌ای که هیولا با کمالِ میل می‌بلعدشان، تعادل برقرار کن."
+      },
+      "chapters": [
+        "unseen",
+        "beast",
+        "baby"
+      ]
+    },
+    {
+      "key": "sustain",
+      "varc": "--c-green",
+      "name": {
+        "en": "Sustaining Creativity",
+        "fa": "تداومِ خلاقیت"
+      },
+      "tag": {
+        "en": "Keep it alive",
+        "fa": "زنده نگه‌اش دار"
+      },
+      "gist": {
+        "en": "Embrace change, give everyone a voice, and keep learning.",
+        "fa": "تغییر را بپذیر، به همه صدا بده، و مدام یاد بگیر."
+      },
+      "more": {
+        "en": "A creative culture isn't set up once; it has to be renewed. Learn from strong, difficult partners, welcome change and randomness instead of controlling them away, pull honest feedback from everyone, and never let a useful process harden into the goal itself.",
+        "fa": "یک فرهنگِ خلاق یک‌بار برای همیشه ساخته نمی‌شود؛ باید نو شود. از شریک‌های قوی و دشوار یاد بگیر، تغییر و تصادف را به‌جای اینکه با کنترل از میان برداری بپذیر، از همه بازخوردِ صادقانه بکش، و هیچ‌وقت نگذار یک روندِ مفید سفت شود و خودش تبدیل به هدف شود."
+      },
+      "chapters": [
+        "jobs",
+        "change",
+        "notesday",
+        "process"
+      ]
+    }
+  ],
+  "chapters": {
+    "people": {
+      "part": "culture",
+      "n": 1,
+      "name": {
+        "en": "It's the People, Not the Idea",
+        "fa": "مهم آدم‌هاست، نه ایده"
+      },
+      "glabel": {
+        "en": "People",
+        "fa": "آدم‌ها"
+      },
+      "principle": {
+        "en": "Ideas come from people. A company's most valuable asset is its talented people and the way they work together — not any single idea.",
+        "fa": "ایده‌ها از آدم‌ها می‌آیند. باارزش‌ترین داراییِ یک شرکت آدم‌های بااستعدادش و شیوهٔ کارِ آن‌ها با هم است — نه یک ایدهٔ تنها."
+      },
+      "more": {
+        "en": "We tend to worship ideas, but an idea is really a bundle of thousands of decisions made by a group of people. Get the team and the chemistry right first, and the good ideas follow — not the other way around.",
+        "fa": "ما عادت داریم ایده‌ها را بپرستیم، اما یک ایده در واقع دسته‌ای از هزاران تصمیم است که گروهی از آدم‌ها گرفته‌اند. اول تیم و شیمیِ بینشان را درست کن، ایده‌های خوب خودشان می‌آیند — نه برعکس."
+      },
+      "example": {
+        "en": "Catmull says he'd sooner bet on a great team than a great idea; Pixar's real product is the community that makes the films.",
+        "fa": "کتمول می‌گوید ترجیح می‌دهد روی یک تیمِ عالی شرط ببندد تا یک ایدهٔ عالی؛ محصولِ واقعیِ پیکسار همان جامعه‌ای است که فیلم‌ها را می‌سازد."
+      },
+      "tip": {
+        "en": "When a project is stuck, look at the team and how it's working together before you blame the idea.",
+        "fa": "وقتی یک پروژه گیر کرده، قبل از اینکه ایده را مقصر بدانی، به تیم و شیوهٔ کارش با هم نگاه کن."
+      },
+      "pitfall": {
+        "en": "Chasing the perfect idea while ignoring whether the people can actually build it.",
+        "fa": "دنبالِ ایدهٔ کامل دویدن، درحالی‌که به این بی‌توجهی که آدم‌ها اصلاً می‌توانند بسازندش یا نه."
+      }
+    },
+    "hiresmart": {
+      "part": "culture",
+      "n": 2,
+      "name": {
+        "en": "Hire People Smarter Than You",
+        "fa": "آدم‌هایی باهوش‌تر از خودت استخدام کن"
+      },
+      "glabel": {
+        "en": "Hire smart",
+        "fa": "استخدامِ باهوش"
+      },
+      "principle": {
+        "en": "Surround yourself with people smarter than you are, and be glad they can do things you can't. Their strength makes you stronger.",
+        "fa": "خودت را با آدم‌هایی باهوش‌تر از خودت احاطه کن، و خوشحال باش که کارهایی بلدند که تو نیستی. قدرتِ آن‌ها تو را قوی‌تر می‌کند."
+      },
+      "more": {
+        "en": "A leader who needs to be the smartest person in the room caps the whole team at their own level. Hire for raw talent and potential, bet on people who challenge you, and let them raise everyone around them.",
+        "fa": "رهبری که لازم دارد باهوش‌ترین آدمِ اتاق باشد، سقفِ کلِ تیم را در حدِ خودش می‌بندد. برای استعدادِ خام و ظرفیت استخدام کن، روی آدم‌هایی شرط ببند که به چالشت می‌کشند، و بگذار همه را دورِ خودشان بالا بکشند."
+      },
+      "example": {
+        "en": "Pixar hired for future potential over a polished résumé, trusting sharp people to grow into bigger roles.",
+        "fa": "پیکسار به‌جای رزومهٔ صیقلی برای ظرفیتِ آینده استخدام می‌کرد، و اعتماد داشت که آدم‌های تیز در نقش‌های بزرگ‌تر رشد می‌کنند."
+      },
+      "tip": {
+        "en": "In your next hire, favor the person who could outgrow you over the safe, lesser choice.",
+        "fa": "در استخدامِ بعدی‌ات، آدمی را که ممکن است از تو جلو بزند به گزینهٔ امن و کم‌مایه ترجیح بده."
+      },
+      "pitfall": {
+        "en": "Hiring people who won't threaten your ego — and quietly lowering the team's ceiling.",
+        "fa": "استخدامِ آدم‌هایی که غرورت را تهدید نمی‌کنند — و بی‌سروصدا پایین‌آوردنِ سقفِ تیم."
+      }
+    },
+    "greatteam": {
+      "part": "culture",
+      "n": 3,
+      "name": {
+        "en": "Give It to a Great Team",
+        "fa": "به یک تیمِ عالی بسپارش"
+      },
+      "glabel": {
+        "en": "Great team",
+        "fa": "تیمِ عالی"
+      },
+      "principle": {
+        "en": "Give a good idea to a mediocre team and they'll ruin it; give a mediocre idea to a great team and they'll fix it or make something better.",
+        "fa": "یک ایدهٔ خوب را به یک تیمِ متوسط بده، خرابش می‌کنند؛ یک ایدهٔ متوسط را به یک تیمِ عالی بده، یا درستش می‌کنند یا چیزِ بهتری می‌سازند."
+      },
+      "more": {
+        "en": "This is why the team matters more than the pitch. A great team can rescue a weak idea, while a weak team wastes a strong one — so put your energy into building the team, not polishing the premise.",
+        "fa": "برای همین است که تیم از خودِ ایده مهم‌تر است. یک تیمِ عالی می‌تواند یک ایدهٔ ضعیف را نجات بدهد، اما یک تیمِ ضعیف یک ایدهٔ قوی را هدر می‌دهد — پس انرژی‌ات را بگذار روی ساختنِ تیم، نه صیقل‌دادنِ ایده."
+      },
+      "example": {
+        "en": "Catmull says every Pixar film starts out an ugly mess; it's the team, not the original idea, that turns it into something good.",
+        "fa": "کتمول می‌گوید هر فیلمِ پیکسار اولش یک آشفتگیِ زشت است؛ همان تیم است که آن را به چیزِ خوبی تبدیل می‌کند، نه ایدهٔ اولیه."
+      },
+      "tip": {
+        "en": "Judge a project by the strength of its team, not the shine of its premise.",
+        "fa": "یک پروژه را با قدرتِ تیمش بسنج، نه با برقِ ایده‌اش."
+      },
+      "pitfall": {
+        "en": "Betting everything on the concept and staffing it with whoever happens to be free.",
+        "fa": "همه‌چیز را روی ایده گذاشتن و هرکه سرش خلوت بود را رویش گذاشتن."
+      }
+    },
+    "frank": {
+      "part": "candor",
+      "n": 4,
+      "name": {
+        "en": "Choose Candor",
+        "fa": "صراحت را انتخاب کن"
+      },
+      "glabel": {
+        "en": "Candor",
+        "fa": "صراحت"
+      },
+      "principle": {
+        "en": "Make it safe to tell the truth. Candor — real frankness — is the only way hidden problems come to the surface early.",
+        "fa": "گفتنِ حقیقت را بی‌خطر کن. صراحت — رک‌بودنِ واقعی — تنها راهی است که مشکل‌های پنهان زود رو می‌آیند."
+      },
+      "more": {
+        "en": "People naturally hold back to protect themselves and each other, so silence feels safe even when it's costly. A culture has to actively make candor the easy, expected thing, or the important feedback stays unsaid until it's too late.",
+        "fa": "آدم‌ها به‌طورِ طبیعی برای حفظِ خودشان و همدیگر حرف را نگه می‌دارند، پس سکوت امن به‌نظر می‌رسد حتی وقتی گران تمام می‌شود. یک فرهنگ باید فعالانه صراحت را به کارِ ساده و مورد‌انتظار تبدیل کند، وگرنه بازخوردِ مهم ناگفته می‌ماند تا وقتی دیگر دیر شده."
+      },
+      "example": {
+        "en": "Catmull found his open door wasn't enough — people still didn't bring him problems, so the culture had to be built to pull the truth out.",
+        "fa": "کتمول دید که درِ بازش کافی نیست — آدم‌ها باز هم مشکل‌ها را پیشش نمی‌آوردند، پس فرهنگ را باید طوری می‌ساخت که حقیقت را بیرون بکشد."
+      },
+      "tip": {
+        "en": "Ask directly for the thing people are afraid to say, and thank them when they say it.",
+        "fa": "مستقیم همان چیزی را بپرس که آدم‌ها می‌ترسند بگویند، و وقتی گفتند ازشان تشکر کن."
+      },
+      "pitfall": {
+        "en": "Assuming silence means everything is fine.",
+        "fa": "سکوت را به‌معنیِ اینکه همه‌چیز روبه‌راه است گرفتن."
+      }
+    },
+    "braintrust": {
+      "part": "candor",
+      "n": 5,
+      "name": {
+        "en": "The Braintrust",
+        "fa": "برین‌تراست"
+      },
+      "glabel": {
+        "en": "Braintrust",
+        "fa": "برین‌تراست"
+      },
+      "principle": {
+        "en": "Gather a trusted group of peers to give a project frank, expert feedback — with no power to force any of it.",
+        "fa": "گروهی از همکارانِ قابل‌اعتماد را جمع کن تا به یک پروژه بازخوردِ رک و کارشناسانه بدهند — بی‌آنکه قدرتی برای تحمیلِ آن داشته باشند."
+      },
+      "more": {
+        "en": "The Braintrust works because it's smart people who love storytelling, talking candidly, and because the director keeps full authority. Feedback is offered as a gift to help, never as an order to obey.",
+        "fa": "برین‌تراست کار می‌کند چون آدم‌هایی باهوش‌اند که عاشقِ قصه‌گویی‌اند و رک حرف می‌زنند، و چون کارگردان اختیارِ کامل را نگه می‌دارد. بازخورد مثلِ یک هدیه برای کمک داده می‌شود، نه یک دستور برای اطاعت."
+      },
+      "example": {
+        "en": "At Pixar, directors screen unfinished films for the Braintrust, get blunt notes, and then decide for themselves what to change.",
+        "fa": "در پیکسار، کارگردان‌ها فیلمِ ناتمام را برای برین‌تراست نمایش می‌دهند، نظرِ بی‌پرده می‌گیرند، و بعد خودشان تصمیم می‌گیرند چه چیزی را عوض کنند."
+      },
+      "tip": {
+        "en": "Build your own small circle of trusted, candid peers — and leave the final call with the owner.",
+        "fa": "حلقهٔ کوچکِ خودت از همکارانِ قابل‌اعتماد و رک را بساز — و تصمیمِ نهایی را به صاحبِ کار بسپار."
+      },
+      "pitfall": {
+        "en": "Turning feedback into mandates, which makes people defensive and quiet.",
+        "fa": "تبدیل‌کردنِ بازخورد به دستور، که آدم‌ها را جبهه‌گیر و ساکت می‌کند."
+      }
+    },
+    "separate": {
+      "part": "candor",
+      "n": 6,
+      "name": {
+        "en": "Separate the Problem From the Person",
+        "fa": "مشکل را از آدم جدا کن"
+      },
+      "glabel": {
+        "en": "Not personal",
+        "fa": "شخصی نیست"
+      },
+      "principle": {
+        "en": "Aim every note at the work, never at the person. People are not their ideas.",
+        "fa": "هر نظر را به کار نشانه بگیر، نه هیچ‌وقت به آدم. آدم‌ها همان ایده‌هایشان نیستند."
+      },
+      "more": {
+        "en": "When feedback feels like an attack on the maker, they defend instead of listen. When it targets the problem in the work, everyone can join the same side of the table and fix it together.",
+        "fa": "وقتی بازخورد مثلِ حمله به سازنده حس می‌شود، به‌جای گوش‌دادن دفاع می‌کند. وقتی مشکلِ درونِ کار را نشانه می‌رود، همه می‌توانند یک‌طرفِ میز بنشینند و با هم درستش کنند."
+      },
+      "example": {
+        "en": "Braintrust notes are about the movie on the screen, not the director's worth — so even hard feedback lands as help.",
+        "fa": "نظرهای برین‌تراست دربارهٔ فیلمِ روی پرده است، نه ارزشِ کارگردان — پس حتی بازخوردِ سخت هم مثلِ کمک می‌نشیند."
+      },
+      "tip": {
+        "en": "Phrase feedback about the thing on the table, not the character of the person who made it.",
+        "fa": "بازخورد را دربارهٔ چیزی که روی میز است بگو، نه دربارهٔ شخصیتِ کسی که ساختتش."
+      },
+      "pitfall": {
+        "en": "Letting critique of the work feel like a verdict on the person.",
+        "fa": "گذاشتن اینکه نقدِ کار مثلِ حکمی دربارهٔ خودِ آدم حس شود."
+      }
+    },
+    "failgood": {
+      "part": "failure",
+      "n": 7,
+      "name": {
+        "en": "Failure Isn't Evil",
+        "fa": "شکست شر نیست"
+      },
+      "glabel": {
+        "en": "Failure",
+        "fa": "شکست"
+      },
+      "principle": {
+        "en": "Failure isn't a necessary evil — it isn't evil at all. It's the unavoidable cost of trying something new.",
+        "fa": "شکست یک شرِّ لازم نیست — اصلاً شر نیست. بهای ناگزیرِ امتحان‌کردنِ چیزی تازه است."
+      },
+      "more": {
+        "en": "If you're doing genuinely new work, you will be wrong a lot. Treating failure as shameful just teaches people to avoid the very risks that make new things possible in the first place.",
+        "fa": "اگر داری کارِ واقعاً تازه‌ای می‌کنی، بارها اشتباه خواهی کرد. شکست را ننگ دانستن فقط به آدم‌ها یاد می‌دهد از همان خطرهایی دوری کنند که اصلاً چیزهای تازه را ممکن می‌کنند."
+      },
+      "example": {
+        "en": "Every original Pixar film went through long stretches of being broken; the failures were part of finding the movie, not a sign of doing it wrong.",
+        "fa": "هر فیلمِ اصیلِ پیکسار دوره‌های طولانی‌ای را از سر گذراند که خراب بود؛ آن شکست‌ها بخشی از پیدا‌کردنِ فیلم بودند، نه نشانهٔ اشتباه‌کاری."
+      },
+      "tip": {
+        "en": "Reframe a recent failure as data — what did it teach you that nothing else could?",
+        "fa": "یک شکستِ اخیر را مثلِ داده ببین — چه چیزی یادت داد که هیچ‌چیزِ دیگری نمی‌توانست؟"
+      },
+      "pitfall": {
+        "en": "Treating every mistake as a verdict, so people stop taking real risks.",
+        "fa": "هر اشتباه را مثلِ یک حکم دیدن، طوری که آدم‌ها دیگر خطرِ واقعی نمی‌کنند."
+      }
+    },
+    "safefail": {
+      "part": "failure",
+      "n": 8,
+      "name": {
+        "en": "Make It Safe to Fail",
+        "fa": "شکست را بی‌خطر کن"
+      },
+      "glabel": {
+        "en": "Safe to fail",
+        "fa": "شکستِ بی‌خطر"
+      },
+      "principle": {
+        "en": "People only take creative risks when they trust that failing won't be punished. Fear of failure is the quiet killer of originality.",
+        "fa": "آدم‌ها فقط وقتی خطرِ خلاقانه می‌کنند که مطمئن باشند شکست تنبیه نمی‌شود. ترس از شکست، قاتلِ خاموشِ اصالت است."
+      },
+      "more": {
+        "en": "If leaders react to mistakes with blame, everyone learns to play it safe and hide problems. Make failing survivable and people will experiment, share work early, and learn fast.",
+        "fa": "اگر رهبرها به اشتباه با سرزنش واکنش نشان بدهند، همه یاد می‌گیرند محافظه‌کار بازی کنند و مشکل‌ها را پنهان کنند. شکست را قابلِ‌تحمل کن، آن‌وقت آدم‌ها آزمایش می‌کنند، کار را زود نشان می‌دهند، و تند یاد می‌گیرند."
+      },
+      "example": {
+        "en": "Catmull's rule: to be wrong as fast as you can is to sign up for fast learning — so fail early and cheaply, on purpose.",
+        "fa": "قاعدهٔ کتمول: هرچه زودتر اشتباه کنی، یعنی برای یادگیریِ سریع ثبت‌نام کرده‌ای — پس عمداً زود و کم‌هزینه شکست بخور."
+      },
+      "tip": {
+        "en": "When someone's honest failure surfaces, respond with curiosity, not blame.",
+        "fa": "وقتی شکستِ صادقانهٔ کسی رو می‌آید، با کنجکاوی جواب بده، نه با سرزنش."
+      },
+      "pitfall": {
+        "en": "Punishing mistakes so hard that people bury them instead of fixing them.",
+        "fa": "آن‌قدر سختِ اشتباه‌ها را تنبیه‌کردن که آدم‌ها به‌جای درست‌کردن، دفنشان کنند."
+      }
+    },
+    "fixnotprevent": {
+      "part": "failure",
+      "n": 9,
+      "name": {
+        "en": "Fix, Don't Prevent",
+        "fa": "درست کن، جلوگیری نکن"
+      },
+      "glabel": {
+        "en": "Fix, not prevent",
+        "fa": "درست‌کردن، نه جلوگیری"
+      },
+      "principle": {
+        "en": "The cost of preventing every error is usually higher than the cost of fixing errors as they happen. Build the ability to recover, not a cage.",
+        "fa": "هزینهٔ جلوگیری از هر خطا معمولاً از هزینهٔ درست‌کردنِ خطاها همان‌طور که پیش می‌آیند بیشتر است. توانِ بلندشدنِ دوباره را بساز، نه یک قفس."
+      },
+      "more": {
+        "en": "Trying to stop all mistakes slows everyone down and still fails. Assume people mean well, let them act, and get very good at catching and repairing problems quickly.",
+        "fa": "تلاش برای متوقف‌کردنِ همهٔ اشتباه‌ها همه را کُند می‌کند و باز هم شکست می‌خورد. فرض کن نیتِ آدم‌ها خوب است، بگذار عمل کنند، و در گرفتن و تعمیرِ سریعِ مشکل‌ها خیلی ماهر شو."
+      },
+      "example": {
+        "en": "Catmull puts it plainly: management's job is not to prevent risk but to build the ability to recover.",
+        "fa": "کتمول ساده می‌گویدش: کارِ مدیریت جلوگیری از خطر نیست، ساختنِ توانِ بلندشدنِ دوباره است."
+      },
+      "tip": {
+        "en": "Trade one heavy approval step for a fast way to catch and fix problems after the fact.",
+        "fa": "یک مرحلهٔ سنگینِ تأیید را با یک راهِ سریع برای گرفتن و درست‌کردنِ مشکل‌ها بعد از وقوع عوض کن."
+      },
+      "pitfall": {
+        "en": "Piling on controls that cost more than the mistakes they prevent.",
+        "fa": "روی هم انباشتنِ کنترل‌هایی که بیشتر از اشتباه‌هایی که جلویشان را می‌گیرند خرج برمی‌دارند."
+      }
+    },
+    "unseen": {
+      "part": "hidden",
+      "n": 10,
+      "name": {
+        "en": "The Unseen Forces",
+        "fa": "نیروهای پنهان"
+      },
+      "glabel": {
+        "en": "The unseen",
+        "fa": "نادیده‌ها"
+      },
+      "principle": {
+        "en": "Powerful forces you can't see are always shaping how people behave. Your mental model of the company is never the whole truth.",
+        "fa": "نیروهای نیرومندی که نمی‌بینی‌شان همیشه دارند رفتارِ آدم‌ها را شکل می‌دهند. مدلِ ذهنیِ تو از شرکت هیچ‌وقت همهٔ حقیقت نیست."
+      },
+      "more": {
+        "en": "Much of what drives an organization stays hidden — fear, incentives, blind spots, habits. Good leaders stay humble about what they can't see and keep actively hunting for it instead of trusting the tidy picture in their head.",
+        "fa": "بخشِ زیادی از آنچه یک سازمان را می‌راند پنهان می‌ماند — ترس، انگیزه‌ها، نقطه‌های کور، عادت‌ها. رهبرهای خوب دربارهٔ آنچه نمی‌بینند فروتن می‌مانند و به‌جای اعتماد به تصویرِ مرتبِ توی سرشان، فعالانه دنبالش می‌گردند."
+      },
+      "example": {
+        "en": "Pixar's strength, Catmull says, is admitting there will always be problems hidden from view — and working hard to uncover them.",
+        "fa": "کتمول می‌گوید قوتِ پیکسار این است که قبول دارد همیشه مشکل‌هایی پنهان از دید خواهد بود — و سخت تلاش می‌کند رویشان کند."
+      },
+      "tip": {
+        "en": "Regularly ask: what's really going on here that I'm not seeing?",
+        "fa": "مرتب بپرس: واقعاً اینجا چه خبر است که من نمی‌بینم؟"
+      },
+      "pitfall": {
+        "en": "Mistaking your tidy mental model for reality.",
+        "fa": "مدلِ ذهنیِ مرتبت را به‌جای واقعیت گرفتن."
+      }
+    },
+    "beast": {
+      "part": "hidden",
+      "n": 11,
+      "name": {
+        "en": "Feed the Beast — Carefully",
+        "fa": "هیولا را سیر کن — با احتیاط"
+      },
+      "glabel": {
+        "en": "The Beast",
+        "fa": "هیولا"
+      },
+      "principle": {
+        "en": "A studio has a Hungry Beast — the machinery and people that must be kept fed and busy — and it will happily eat quality if you let it.",
+        "fa": "یک استودیو یک هیولای گرسنه دارد — همان دستگاه و آدم‌هایی که باید سیر و مشغول نگه داشته شوند — و اگر بگذاری، با کمالِ میل کیفیت را می‌بلعد."
+      },
+      "more": {
+        "en": "The Beast's appetite for output is necessary but dangerous. Left in charge, it pushes for more, faster, safer, and starves the fragile new work. You have to feed it without letting it give the orders.",
+        "fa": "اشتهای هیولا برای تولید لازم است اما خطرناک. اگر رهایش کنی سرِ کار، فشار می‌آورد برای بیشتر، سریع‌تر، امن‌تر، و کارِ تازه و شکننده را گرسنه می‌گذارد. باید سیرش کنی، بی‌آنکه بگذاری او دستور بدهد."
+      },
+      "example": {
+        "en": "Catmull frames the tension as feeding the Beast — production's hunger — while refusing to let its demands dictate the art.",
+        "fa": "کتمول این کشمکش را این‌طور قاب می‌گیرد: سیر‌کردنِ هیولا — گرسنگیِ تولید — و در همان حال نگذاشتن که خواسته‌هایش به هنر دیکته کنند."
+      },
+      "tip": {
+        "en": "Notice where the pressure to just ship is quietly lowering the bar.",
+        "fa": "حواست باشد کجا فشارِ اینکه فقط تحویل بده، بی‌سروصدا سطح را پایین می‌آورد."
+      },
+      "pitfall": {
+        "en": "Letting the appetite for output run the creative decisions.",
+        "fa": "گذاشتن اینکه اشتها برای تولید، تصمیم‌های خلاقانه را بگرداند."
+      }
+    },
+    "baby": {
+      "part": "hidden",
+      "n": 12,
+      "name": {
+        "en": "Protect the Ugly Baby",
+        "fa": "از بچهٔ زشت محافظت کن"
+      },
+      "glabel": {
+        "en": "The Baby",
+        "fa": "بچهٔ نوپا"
+      },
+      "principle": {
+        "en": "New ideas arrive as Ugly Babies — awkward, unformed, and fragile. Protect them, and balance that protection against the Beast's hunger.",
+        "fa": "ایده‌های تازه مثلِ بچه‌های زشت به دنیا می‌آیند — ناهنجار، شکل‌نگرفته و شکننده. ازشان محافظت کن، و این محافظت را با گرسنگیِ هیولا متعادل کن."
+      },
+      "more": {
+        "en": "Originality is fragile and, in its first moments, far from pretty. Judge a newborn idea by the standard of a finished one and you'll kill it. Shield it until it can stand on its own, while keeping the whole system in balance.",
+        "fa": "اصالت شکننده است و در لحظه‌های اولش، اصلاً قشنگ نیست. یک ایدهٔ نوزاد را با معیارِ یک کارِ تمام‌شده بسنجی، می‌کُشی‌اش. سپرش باش تا وقتی روی پای خودش بایستد، و در همان حال کلِ سیستم را در تعادل نگه دار."
+      },
+      "example": {
+        "en": "Catmull: originality is fragile, and in its first moments it's often far from pretty — so early work needs protectors, not critics.",
+        "fa": "کتمول: اصالت شکننده است، و در لحظه‌های اولش اغلب اصلاً قشنگ نیست — پس کارِ اولیه نگهبان می‌خواهد، نه منتقد."
+      },
+      "tip": {
+        "en": "Give a raw new idea a safe space before you expose it to hard judgment.",
+        "fa": "به یک ایدهٔ تازه و خام یک فضای امن بده، پیش از اینکه در معرضِ قضاوتِ سخت بگذاری‌اش."
+      },
+      "pitfall": {
+        "en": "Holding a newborn idea to the standard of a polished one.",
+        "fa": "یک ایدهٔ نوزاد را به معیارِ یک ایدهٔ صیقلی سنجیدن."
+      }
+    },
+    "jobs": {
+      "part": "sustain",
+      "n": 13,
+      "name": {
+        "en": "The Steve Jobs Lessons",
+        "fa": "درس‌های استیو جابز"
+      },
+      "glabel": {
+        "en": "Steve Jobs",
+        "fa": "استیو جابز"
+      },
+      "principle": {
+        "en": "Over a long partnership with Steve Jobs, Catmull learned patience, listening, and how a demanding partner can grow — and how to hold your ground with one.",
+        "fa": "در طولِ یک شراکتِ بلند با استیو جابز، کتمول صبر، گوش‌دادن، و اینکه یک شریکِ سخت‌گیر چطور می‌تواند رشد کند را یاد گرفت — و اینکه چطور جلوی چنین آدمی سرِ حرفت بمانی."
+      },
+      "more": {
+        "en": "Jobs evolved from brash to wise across their decades together. The lesson isn't to copy him but to keep learning from strong, difficult people — and to push back with reason rather than fear.",
+        "fa": "جابز در طولِ دهه‌هایی که با هم بودند از یک آدمِ گستاخ به یک آدمِ خردمند تبدیل شد. درس این نیست که کپی‌اش کنی، بلکه این است که مدام از آدم‌های قوی و دشوار یاد بگیری — و به‌جای ترس، با منطق جلویشان بایستی."
+      },
+      "example": {
+        "en": "Catmull describes learning to disagree with Jobs by waiting, making the case with logic, and letting the better argument win.",
+        "fa": "کتمول تعریف می‌کند چطور یاد گرفت با جابز مخالفت کند: با صبر‌کردن، با منطق دلیل آوردن، و گذاشتن اینکه استدلالِ بهتر ببرد."
+      },
+      "tip": {
+        "en": "With a forceful colleague, argue the merits calmly instead of either yielding or fighting.",
+        "fa": "با یک همکارِ زورمند، به‌جای اینکه یا تسلیم شوی یا بجنگی، آرام سرِ اصلِ ماجرا بحث کن."
+      },
+      "pitfall": {
+        "en": "Either caving to the loudest voice or refusing to learn from it.",
+        "fa": "یا تسلیمِ بلندترین صدا شدن، یا اصلاً حاضر‌نبودن ازش یاد بگیری."
+      }
+    },
+    "change": {
+      "part": "sustain",
+      "n": 14,
+      "name": {
+        "en": "Embrace Change & Randomness",
+        "fa": "تغییر و تصادف را بپذیر"
+      },
+      "glabel": {
+        "en": "Change",
+        "fa": "تغییر"
+      },
+      "principle": {
+        "en": "Change and randomness aren't threats to manage away — they're the raw material of creativity. There's no growth or success without change.",
+        "fa": "تغییر و تصادف تهدیدهایی نیستند که باید با مدیریت از میان برداری‌شان — مصالحِ خامِ خلاقیت‌اند. بدونِ تغییر، نه رشدی هست نه موفقیتی."
+      },
+      "more": {
+        "en": "The instinct to control and stabilize can quietly strangle the new. Instead, expect the unexpected, make room for luck, and treat change as the normal condition of creative work rather than an emergency.",
+        "fa": "غریزهٔ کنترل و تثبیت می‌تواند بی‌سروصدا چیزِ تازه را خفه کند. به‌جایش، منتظرِ چیزِ غیرمنتظره باش، برای شانس جا باز کن، و تغییر را وضعیتِ عادیِ کارِ خلاق بدان، نه یک بحران."
+      },
+      "example": {
+        "en": "Catmull argues that seeking too much stability makes a company fragile; welcoming change is what keeps it alive.",
+        "fa": "کتمول می‌گوید دنبالِ ثباتِ زیادی رفتن یک شرکت را شکننده می‌کند؛ خوش‌آمدگفتن به تغییر همان چیزی است که زنده نگهش می‌دارد."
+      },
+      "tip": {
+        "en": "When something unplanned happens, ask what opportunity it opens before you move to resist it.",
+        "fa": "وقتی یک چیزِ برنامه‌ریزی‌نشده پیش می‌آید، قبل از اینکه در برابرش مقاومت کنی، بپرس چه فرصتی باز می‌کند."
+      },
+      "pitfall": {
+        "en": "Craving stability so much that you smother new possibilities.",
+        "fa": "آن‌قدر تشنهٔ ثبات‌بودن که امکان‌های تازه را خفه کنی."
+      }
+    },
+    "notesday": {
+      "part": "sustain",
+      "n": 15,
+      "name": {
+        "en": "Notes Day",
+        "fa": "روزِ یادداشت‌ها"
+      },
+      "glabel": {
+        "en": "Notes Day",
+        "fa": "روزِ یادداشت"
+      },
+      "principle": {
+        "en": "Give everyone, at every level, a real voice in fixing the company. Notes Day was Pixar's day of open, candid, company-wide problem-solving.",
+        "fa": "به همه، در هر رده‌ای، یک صدای واقعی در درست‌کردنِ شرکت بده. روزِ یادداشت‌ها روزِ حل‌مسئلهٔ باز، رک و سرتاسریِ پیکسار بود."
+      },
+      "more": {
+        "en": "A healthy culture pulls ideas and honest feedback from everyone, not just leaders. Notes Day paused all of Pixar so people at every level could speak frankly about how to make things better.",
+        "fa": "یک فرهنگِ سالم ایده و بازخوردِ صادقانه را از همه می‌کشد، نه فقط از رهبرها. روزِ یادداشت‌ها کلِ پیکسار را متوقف کرد تا آدم‌ها در هر رده‌ای بتوانند رک بگویند چطور می‌شود کارها را بهتر کرد."
+      },
+      "example": {
+        "en": "In 2013, Pixar shut down for a day so its whole staff could give candid notes on the studio itself.",
+        "fa": "در سالِ ۲۰۱۳، پیکسار یک روز تعطیل شد تا همهٔ کارکنانش دربارهٔ خودِ استودیو یادداشتِ رک بدهند."
+      },
+      "tip": {
+        "en": "Create a regular, safe channel for the whole team to name problems and propose fixes.",
+        "fa": "یک کانالِ منظم و امن بساز تا کلِ تیم مشکل‌ها را نام ببرد و راهِ حل پیشنهاد بدهد."
+      },
+      "pitfall": {
+        "en": "Letting only senior people define what needs fixing.",
+        "fa": "گذاشتن اینکه فقط آدم‌های ارشد تعیین کنند چه چیزی باید درست شود."
+      }
+    },
+    "process": {
+      "part": "sustain",
+      "n": 16,
+      "name": {
+        "en": "Don't Confuse Process With Goal",
+        "fa": "روند را با هدف اشتباه نگیر"
+      },
+      "glabel": {
+        "en": "Process vs goal",
+        "fa": "روند و هدف"
+      },
+      "principle": {
+        "en": "Keep learning, and never mistake the process for the goal. Tools and rituals serve the work — they aren't the work.",
+        "fa": "مدام یاد بگیر، و هیچ‌وقت روند را با هدف اشتباه نگیر. ابزارها و آیین‌ها در خدمتِ کارند — خودشان کار نیستند."
+      },
+      "more": {
+        "en": "Over time, healthy practices harden into box-ticking that people follow for its own sake. Keep asking whether each process still serves the real goal — and keep learning as the world changes around you.",
+        "fa": "با گذرِ زمان، عادت‌های سالم سفت می‌شوند و به تیک‌زدنِ خانه‌ها تبدیل می‌شوند که آدم‌ها فقط برای خودش دنبالش می‌کنند. مدام بپرس هر روند هنوز به هدفِ واقعی خدمت می‌کند یا نه — و همان‌طور که دنیا دورت عوض می‌شود، یاد بگیر."
+      },
+      "example": {
+        "en": "Catmull warns that even Pixar's best mechanisms can ossify; the antidote is to keep questioning and keep learning.",
+        "fa": "کتمول هشدار می‌دهد که حتی بهترین ساز‌و‌کارهای پیکسار هم می‌توانند سنگ شوند؛ پادزهرش این است که مدام زیرِ سؤال ببری و مدام یاد بگیری."
+      },
+      "tip": {
+        "en": "For a familiar process, ask what goal it's meant to serve — and whether it still does.",
+        "fa": "برای یک روندِ آشنا، بپرس قرار بوده به چه هدفی خدمت کند — و هنوز می‌کند یا نه."
+      },
+      "pitfall": {
+        "en": "Following the ritual so faithfully you forget what it was for.",
+        "fa": "آن‌قدر وفادارانه دنبالِ آیین رفتن که یادت برود برای چه بوده."
+      }
+    }
+  },
+  "core": {
+    "name": {
+      "en": "PROTECT CREATIVITY",
+      "fa": "از خلاقیت محافظت کن"
+    },
+    "principle": {
+      "en": "Great creative work comes from talented people, not from any single idea — so a leader's real job is to build and protect the culture around them. Make it safe to tell the truth, treat failure as the price of doing new things, and keep hunting for the hidden problems that quietly stand in the way of inspiration.",
+      "fa": "کارِ خلاقانهٔ خوب از آدم‌های بااستعداد می‌آید، نه از یک ایدهٔ تنها — پس کارِ واقعیِ یک رهبر ساختن و محافظت از فرهنگِ دورِ آن‌هاست. گفتنِ حقیقت را بی‌خطر کن، شکست را بهای انجامِ کارهای تازه بدان، و مدام دنبالِ مشکل‌های پنهانی بگرد که بی‌سروصدا جلوی الهام را می‌گیرند."
+    },
+    "more": {
+      "en": "Catmull organizes it into five moves — build a people-first culture, run on candor through the Braintrust, make failure safe, manage the unseen forces while protecting fragile new ideas, and then sustain it all by embracing change and never confusing your process with your goal. The thread through everything: protect the fragile creative process from the forces that stand in its way.",
+      "fa": "کتمول آن را در پنج حرکت می‌چیند — یک فرهنگِ آدم‌محور بساز، کار را با صراحت و از راهِ برین‌تراست پیش ببر، شکست را بی‌خطر کن، نیروهای پنهان را مدیریت کن و در همان حال از ایده‌های تازه و شکننده محافظت کن، و بعد با پذیرفتنِ تغییر و اشتباه‌نگرفتنِ روند با هدف، همه‌اش را زنده نگه دار. نخِ رابطِ همه‌چیز: از فرایندِ شکنندهٔ خلاقیت در برابرِ نیروهایی که سرِ راهش می‌ایستند محافظت کن."
+    },
+    "example": {
+      "en": "Click any node to read a principle or a lesson. You can also drag the nodes around.",
+      "fa": "روی هر دایره کلیک کن تا یک اصل یا درس را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."
+    }
+  },
+  "stages": [
+    {
+      "level": 1,
+      "badge": {
+        "en": "Level 1 · Over-simplified",
+        "fa": "سطحِ ۱ · خیلی ساده"
+      },
+      "title": {
+        "en": "Protect the people",
+        "fa": "از آدم‌ها محافظت کن"
+      },
+      "tagline": {
+        "en": "The whole book in a sentence.",
+        "fa": "کلِ کتاب در یک جمله."
+      },
+      "body": {
+        "en": "Great work comes from people, not ideas. Your job is to build a place where talented people can do their best work and tell the truth about what's not working.",
+        "fa": "کارِ عالی از آدم‌ها می‌آید، نه از ایده‌ها. کارِ تو این است که جایی بسازی که آدم‌های بااستعداد بهترین کارشان را بکنند و حقیقتِ آنچه کار نمی‌کند را بگویند."
+      },
+      "example": {
+        "en": "A good idea in the hands of a weak team goes nowhere; a great team can rescue a weak idea.",
+        "fa": "یک ایدهٔ خوب در دستِ یک تیمِ ضعیف به‌جایی نمی‌رسد؛ یک تیمِ عالی می‌تواند یک ایدهٔ ضعیف را نجات بدهد."
+      },
+      "gain": {
+        "en": "You hold the one idea the whole book expands on.",
+        "fa": "همان یک ایده‌ای را داری که کلِ کتاب بسطش می‌دهد."
+      }
+    },
+    {
+      "level": 2,
+      "badge": {
+        "en": "Level 2 · Simple",
+        "fa": "سطحِ ۲ · ساده"
+      },
+      "title": {
+        "en": "People & candor",
+        "fa": "آدم‌ها و صراحت"
+      },
+      "tagline": {
+        "en": "Build the team, then tell the truth.",
+        "fa": "تیم را بساز، بعد حقیقت را بگو."
+      },
+      "body": {
+        "en": "Two foundations. First, put <b>people</b> first — hire people smarter than you and build a great team before you worry about the idea. Second, run on <b>candor</b>: make it safe for anyone to say what's wrong, early.",
+        "fa": "دو پایه. اول، <b>آدم‌ها</b> را مقدم بدار — آدم‌هایی باهوش‌تر از خودت استخدام کن و پیش از اینکه نگرانِ ایده شوی یک تیمِ عالی بساز. دوم، با <b>صراحت</b> کار کن: بی‌خطرش کن که هرکسی زود بگوید چه چیزی خراب است."
+      },
+      "example": {
+        "en": "Instead of guarding your status, hire the person who could outgrow you — and thank people for hard feedback.",
+        "fa": "به‌جای اینکه از جایگاهت نگهبانی کنی، آدمی را استخدام کن که ممکن است از تو جلو بزند — و بابتِ بازخوردِ سخت از آدم‌ها تشکر کن."
+      },
+      "gain": {
+        "en": "You can build a team and pull the truth out of it.",
+        "fa": "می‌توانی یک تیم بسازی و حقیقت را از آن بیرون بکشی."
+      }
+    },
+    {
+      "level": 3,
+      "badge": {
+        "en": "Level 3 · Balanced",
+        "fa": "سطحِ ۳ · متعادل"
+      },
+      "title": {
+        "en": "Braintrust & safe failure",
+        "fa": "برین‌تراست و شکستِ بی‌خطر"
+      },
+      "tagline": {
+        "en": "Frank feedback; failure as learning.",
+        "fa": "بازخوردِ رک؛ شکست همچون یادگیری."
+      },
+      "body": {
+        "en": "Now the mechanisms. Build a <b>Braintrust</b> — trusted peers who give honest notes with no power to force them, aimed at the work and never the person. And make failure <b>safe</b>: it's the price of new work, so fix errors as they come rather than trying to prevent them all.",
+        "fa": "حالا ساز‌و‌کارها. یک <b>برین‌تراست</b> بساز — همکارانِ قابل‌اعتمادی که نظرِ صادقانه می‌دهند بی‌آنکه قدرتِ تحمیلش را داشته باشند، نشانه‌گرفته به کار و نه هیچ‌وقت به آدم. و شکست را <b>بی‌خطر</b> کن: بهای کارِ تازه است، پس خطاها را همان‌طور که می‌آیند درست کن، نه اینکه بخواهی جلوی همه‌شان را بگیری."
+      },
+      "example": {
+        "en": "A director shows an unfinished film, gets blunt notes, keeps the final call — and treats the messy early cut as normal.",
+        "fa": "یک کارگردان فیلمِ ناتمام را نشان می‌دهد، نظرِ بی‌پرده می‌گیرد، تصمیمِ نهایی را نگه می‌دارد — و نسخهٔ اولیهٔ درهم‌ریخته را عادی می‌داند."
+      },
+      "gain": {
+        "en": "You can give and take candor, and let failure teach.",
+        "fa": "می‌توانی صراحت بدهی و بگیری، و بگذاری شکست یادت بدهد."
+      }
+    },
+    {
+      "level": 4,
+      "badge": {
+        "en": "Level 4 · Advanced",
+        "fa": "سطحِ ۴ · پیشرفته"
+      },
+      "title": {
+        "en": "Manage the unseen",
+        "fa": "نادیده‌ها را مدیریت کن"
+      },
+      "tagline": {
+        "en": "Hidden forces, the Beast, the Baby.",
+        "fa": "نیروهای پنهان، هیولا، بچهٔ نوپا."
+      },
+      "body": {
+        "en": "Much of what shapes a company is invisible. Stay humble about your <b>mental model</b> and keep hunting the <b>hidden problems</b>. Feed the <b>Hungry Beast</b> — the appetite for output — without letting it run the art, and protect the <b>Ugly Baby</b>: fragile new ideas that look ugly before they're good. The whole job is balance.",
+        "fa": "بخشِ زیادی از آنچه یک شرکت را شکل می‌دهد نامرئی است. دربارهٔ <b>مدلِ ذهنی‌ات</b> فروتن بمان و مدام دنبالِ <b>مشکل‌های پنهان</b> بگرد. <b>هیولای گرسنه</b> را سیر کن — اشتها برای تولید — بی‌آنکه بگذاری هنر را بگرداند، و از <b>بچهٔ زشت</b> محافظت کن: ایده‌های تازه و شکننده‌ای که پیش از خوب‌شدن زشت به‌نظر می‌رسند. کلِ کار، تعادل است."
+      },
+      "example": {
+        "en": "You spot that the pressure to ship is quietly killing a risky new idea — so you shield it until it can stand.",
+        "fa": "می‌بینی که فشارِ تحویل‌دادن بی‌سروصدا دارد یک ایدهٔ تازه و پرخطر را می‌کُشد — پس سپرش می‌شوی تا وقتی روی پای خودش بایستد."
+      },
+      "gain": {
+        "en": "You can manage the forces you can't directly see.",
+        "fa": "می‌توانی نیروهایی را که مستقیم نمی‌بینی مدیریت کنی."
+      }
+    },
+    {
+      "level": 5,
+      "badge": {
+        "en": "Level 5 · Expert",
+        "fa": "سطحِ ۵ · حرفه‌ای"
+      },
+      "title": {
+        "en": "Sustain it",
+        "fa": "زنده نگه‌اش دار"
+      },
+      "tagline": {
+        "en": "Change, Notes Day, keep learning.",
+        "fa": "تغییر، روزِ یادداشت‌ها، یادگیریِ مدام."
+      },
+      "body": {
+        "en": "The expert keeps the culture alive. Learn from strong, difficult partners the way Catmull learned from <b>Steve Jobs</b>. Embrace <b>change and randomness</b> instead of controlling them away. Give everyone a voice, as Pixar did on <b>Notes Day</b>. And <b>never confuse your process with your goal</b> — keep questioning, keep learning. A creative culture is renewed, never finished.",
+        "fa": "آدمِ حرفه‌ای فرهنگ را زنده نگه می‌دارد. از شریک‌های قوی و دشوار یاد بگیر، همان‌طور که کتمول از <b>استیو جابز</b> یاد گرفت. <b>تغییر و تصادف</b> را به‌جای اینکه با کنترل از میان برداری، بپذیر. به همه صدا بده، همان‌طور که پیکسار در <b>روزِ یادداشت‌ها</b> داد. و <b>هیچ‌وقت روند را با هدف اشتباه نگیر</b> — مدام زیرِ سؤال ببر، مدام یاد بگیر. یک فرهنگِ خلاق نو می‌شود، هیچ‌وقت تمام نمی‌شود."
+      },
+      "example": {
+        "en": "You treat every process as a servant of the goal, invite candor from all levels, and renew the culture as the world shifts.",
+        "fa": "هر روند را خدمتگزارِ هدف می‌دانی، از همهٔ رده‌ها صراحت می‌خواهی، و فرهنگ را همان‌طور که دنیا جابه‌جا می‌شود نو می‌کنی."
+      },
+      "gain": {
+        "en": "You can build a creative culture and keep it alive over time.",
+        "fa": "می‌توانی یک فرهنگِ خلاق بسازی و در طولِ زمان زنده نگهش داری."
+      }
+    }
+  ],
+  "quotes": [
+    {
+      "en": "If you give a good idea to a mediocre team, they will screw it up. If you give a mediocre idea to a brilliant team, they will either fix it or throw it away and come up with something better.",
+      "fa": "یک ایدهٔ خوب را به یک تیمِ متوسط بده، خرابش می‌کنند. یک ایدهٔ متوسط را به یک تیمِ درخشان بده، یا درستش می‌کنند یا دورش می‌اندازند و چیزِ بهتری می‌سازند."
+    },
+    {
+      "en": "Find, develop, and support good people, and they in turn will find, develop, and own good ideas.",
+      "fa": "آدم‌های خوب را پیدا کن، رشدشان بده و هوایشان را داشته باش؛ آن‌ها هم به‌نوبهٔ خودشان ایده‌های خوب را پیدا می‌کنند، می‌پرورانند و مالِ خودشان می‌کنند."
+    },
+    {
+      "en": "Candor isn't cruel. It does not destroy. On the contrary, any successful feedback system is built on empathy, on the idea that we are all in this together, that we understand your pain because we've experienced it ourselves.",
+      "fa": "صراحت بی‌رحم نیست. چیزی را خراب نمی‌کند. برعکس، هر نظامِ بازخوردِ موفق روی همدلی بنا شده؛ روی این فکر که همه با هم در یک قایقیم، و دردت را می‌فهمیم چون خودمان هم تجربه‌اش کرده‌ایم."
+    },
+    {
+      "en": "Failure isn't a necessary evil. In fact, it isn't evil at all. It is a necessary consequence of doing something new.",
+      "fa": "شکست یک شرِّ لازم نیست. راستش اصلاً شر نیست. نتیجهٔ ناگزیرِ انجامِ کاری تازه است."
+    },
+    {
+      "en": "To be wrong as fast as you can is to sign up for aggressive, rapid learning.",
+      "fa": "هرچه زودتر اشتباه کنی، یعنی برای یک یادگیریِ تند و پرشتاب ثبت‌نام کرده‌ای."
+    },
+    {
+      "en": "Management's job is not to prevent risk but to build the ability to recover.",
+      "fa": "کارِ مدیریت جلوگیری از خطر نیست؛ ساختنِ توانِ بلندشدنِ دوباره است."
+    },
+    {
+      "en": "Originality is fragile. And, in its first moments, it's often far from pretty.",
+      "fa": "اصالت شکننده است. و در لحظه‌های اولش، اغلب اصلاً قشنگ نیست."
+    },
+    {
+      "en": "What makes Pixar special is that we acknowledge we will always have problems, many of them hidden from our view; that we work hard to uncover these problems, even if doing so means making ourselves uncomfortable; and that, when we come across a problem, we marshal all of our energies to solve it.",
+      "fa": "چیزی که پیکسار را خاص می‌کند این است که قبول داریم همیشه مشکل خواهیم داشت، خیلی‌هایشان پنهان از چشمِ ما؛ که سخت تلاش می‌کنیم این مشکل‌ها را رو کنیم، حتی اگر یعنی خودمان را معذب کنیم؛ و وقتی به مشکلی برمی‌خوریم، همهٔ توانمان را جمع می‌کنیم تا حلش کنیم."
+    },
+    {
+      "en": "There is no growth or success without change.",
+      "fa": "بدونِ تغییر، نه رشدی هست نه موفقیتی."
+    }
+  ],
+  "media": [
+    {
+      "kind": "yt",
+      "id": "ffixfwt654I",
+      "src": {
+        "en": "YouTube · Stanford eCorner",
+        "fa": "یوتیوب · Stanford eCorner"
+      },
+      "title": {
+        "en": "Ed Catmull: Creativity, Inc. [Entire Talk]",
+        "fa": "اد کتمول: کارخانهٔ خلاقیت [سخنرانیِ کامل]"
+      },
+      "desc": {
+        "en": "The author gives a full talk on the ideas behind the book.",
+        "fa": "خودِ نویسنده یک سخنرانیِ کامل دربارهٔ ایده‌های پشتِ کتاب می‌دهد."
+      },
+      "bullets": {
+        "en": [
+          "Culture, candor and failure in his own words",
+          "How Pixar surfaces hidden problems",
+          "A full, authoritative talk"
+        ],
+        "fa": [
+          "فرهنگ، صراحت و شکست به زبانِ خودش",
+          "اینکه پیکسار چطور مشکل‌های پنهان را رو می‌کند",
+          "یک سخنرانیِ کامل و معتبر"
+        ]
+      },
+      "best": {
+        "en": "Best for Stage 2–4.",
+        "fa": "خوب برای مرحلهٔ ۲ تا ۴."
+      }
+    },
+    {
+      "kind": "yt",
+      "id": "ZrjusPeOZRk",
+      "src": {
+        "en": "YouTube · Milken Institute",
+        "fa": "یوتیوب · Milken Institute"
+      },
+      "title": {
+        "en": "Creativity, Inc. — Overcoming the Unseen Forces",
+        "fa": "کارخانهٔ خلاقیت — غلبه بر نیروهای پنهان"
+      },
+      "desc": {
+        "en": "A conversation with Ed Catmull built around the book.",
+        "fa": "یک گفت‌وگو با اد کتمول که حولِ کتاب شکل گرفته."
+      },
+      "bullets": {
+        "en": [
+          "The Braintrust and honest feedback",
+          "Managing the forces you can't see",
+          "Applied to real teams"
+        ],
+        "fa": [
+          "برین‌تراست و بازخوردِ صادقانه",
+          "مدیریتِ نیروهایی که نمی‌بینی",
+          "به‌کار‌بسته روی تیم‌های واقعی"
+        ]
+      },
+      "best": {
+        "en": "Best for Stage 3–4.",
+        "fa": "خوب برای مرحلهٔ ۳ و ۴."
+      }
+    },
+    {
+      "kind": "yt",
+      "id": "wiIoySsG66U",
+      "src": {
+        "en": "YouTube · 97th Floor",
+        "fa": "یوتیوب · 97th Floor"
+      },
+      "title": {
+        "en": "How the World’s Most Creative Teams Produce Magic",
+        "fa": "خلاق‌ترین تیم‌های دنیا چطور جادو می‌سازند"
+      },
+      "desc": {
+        "en": "Ed Catmull on sustaining a culture that keeps making great work.",
+        "fa": "اد کتمول دربارهٔ زنده نگه‌داشتنِ فرهنگی که مدام کارِ عالی می‌سازد."
+      },
+      "bullets": {
+        "en": [
+          "Protecting fragile new ideas",
+          "Keeping candor alive at scale",
+          "A practical, applied talk"
+        ],
+        "fa": [
+          "محافظت از ایده‌های تازه و شکننده",
+          "زنده نگه‌داشتنِ صراحت در مقیاسِ بزرگ",
+          "یک سخنرانیِ عملی و کاربردی"
+        ]
+      },
+      "best": {
+        "en": "Best for Stage 4–5.",
+        "fa": "خوب برای مرحلهٔ ۴ و ۵."
+      }
+    },
+    {
+      "kind": "img",
+      "url": "https://www.penguinrandomhouse.com/books/216369/creativity-inc-the-expanded-edition-by-ed-catmull-with-amy-wallace/",
+      "src": {
+        "en": "Penguin Random House · Publisher",
+        "fa": "Penguin Random House · ناشر"
+      },
+      "title": {
+        "en": "Creativity, Inc. — Publisher Page",
+        "fa": "کارخانهٔ خلاقیت — صفحهٔ ناشر"
+      },
+      "desc": {
+        "en": "The publisher page for the book, with editions and details.",
+        "fa": "صفحهٔ ناشر برای کتاب، با نسخه‌ها و جزئیات."
+      },
+      "bullets": {
+        "en": [
+          "The definitive editions",
+          "Background on the authors",
+          "Straight from the source"
+        ],
+        "fa": [
+          "نسخه‌های معتبر",
+          "پیشینه‌ای دربارهٔ نویسنده‌ها",
+          "مستقیم از خودِ منبع"
+        ]
+      },
+      "best": {
+        "en": "For editions and the source.",
+        "fa": "برای نسخه‌ها و منبعِ اصلی."
+      }
+    }
+  ],
+  "go": [
+    {
+      "label": {
+        "en": "Publisher page",
+        "fa": "صفحهٔ ناشر"
+      },
+      "url": "https://www.penguinrandomhouse.com/books/216369/creativity-inc-the-expanded-edition-by-ed-catmull-with-amy-wallace/"
+    },
+    {
+      "label": {
+        "en": "Book on Goodreads",
+        "fa": "کتاب در گودریدز"
+      },
+      "url": "https://www.goodreads.com/book/show/18077903-creativity-inc"
+    },
+    {
+      "label": {
+        "en": "Excerpt: Inside the Pixar Braintrust",
+        "fa": "برشی از کتاب: درونِ برین‌تراستِ پیکسار"
+      },
+      "url": "https://www.fastcompany.com/3027135/inside-the-pixar-braintrust"
+    }
+  ],
+  "recs": [
+    {
+      "pri": "b",
+      "t": {
+        "en": "Build your own Braintrust",
+        "fa": "برین‌تراستِ خودت را بساز"
+      },
+      "d": {
+        "en": "Gather a few trusted, candid peers to give frank feedback on your work — with the decision left to you.",
+        "fa": "چند همکارِ قابل‌اعتماد و رک را جمع کن تا روی کارت بازخوردِ صادقانه بدهند — و تصمیم دستِ خودت بماند."
+      }
+    },
+    {
+      "pri": "b",
+      "t": {
+        "en": "Ask for the hard truth",
+        "fa": "حقیقتِ سخت را بخواه"
+      },
+      "d": {
+        "en": "In your next review, directly invite the feedback people are usually afraid to give — then thank them.",
+        "fa": "در بازبینیِ بعدی‌ات، مستقیم همان بازخوردی را بخواه که آدم‌ها معمولاً می‌ترسند بدهند — بعد ازشان تشکر کن."
+      }
+    },
+    {
+      "pri": "n",
+      "t": {
+        "en": "Separate work from person",
+        "fa": "کار را از آدم جدا کن"
+      },
+      "d": {
+        "en": "Reframe one piece of feedback so it targets the problem in the work, not the person who made it.",
+        "fa": "یک بازخورد را طوری از نو بگو که مشکلِ درونِ کار را نشانه بگیرد، نه کسی که ساختتش."
+      }
+    },
+    {
+      "pri": "n",
+      "t": {
+        "en": "Let one failure teach you",
+        "fa": "بگذار یک شکست یادت بدهد"
+      },
+      "d": {
+        "en": "Take a recent mistake, write down what it taught you, and share it so others can learn too.",
+        "fa": "یک اشتباهِ اخیر را بردار، بنویس چه یادت داد، و به اشتراک بگذارش تا بقیه هم یاد بگیرند."
+      }
+    }
+  ]
 });
 </script>
 </body>

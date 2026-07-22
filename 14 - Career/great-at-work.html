@@ -1,21 +1,20 @@
 <!DOCTYPE html>
-<!-- complexity-level: 1→5 (this page teaches the SAME book at five depths, over-simplified … expert) -->
-<!-- Effortless (Greg McKeown) — bilingual EN/FA knowledge graph & 5-stage learning page -->
-<html lang="fa" dir="rtl" data-lang="fa">
+<!-- Generated page. Edit CONTENT in the DATA object below; shared UI lives in ../assets/book.css + ../assets/book.js -->
+<html lang="en" dir="ltr" data-lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Great at Work — نقشهٔ دانش و یادگیری ۵ مرحله‌ای</title>
 
-<!-- Boot theme + language BEFORE paint to avoid a flash -->
+<!-- Boot theme + language BEFORE paint to avoid a flash (shared library-wide keys) -->
 <script>
 (function(){
   try{
-    var th = localStorage.getItem('greatatwork-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
+    var th = localStorage.getItem('pbl-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
     document.documentElement.setAttribute('data-theme', th);
   }catch(e){ document.documentElement.setAttribute('data-theme','light'); }
   try{
-    var lg = localStorage.getItem('greatatwork-lang') || 'fa';
+    var lg = localStorage.getItem('pbl-lang') || 'en';
     document.documentElement.setAttribute('data-lang', lg);
     document.documentElement.setAttribute('lang', lg);
     document.documentElement.setAttribute('dir', lg==='fa' ? 'rtl' : 'ltr');
@@ -28,876 +27,1174 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:ital,opsz@0,6..72;1,6..72&display=swap" rel="stylesheet">
-
-<style>
-/* ── TOKENS ───────────────────────────────────────────────── */
-:root, [data-theme="light"]{
-  --bg:#f5f6f8; --bg2:#eef2f7; --card:#fff; --card2:#f8fafb;
-  --ink:#1c2330; --mut:#6b7280; --line:#e6e8ee;
-  --accent:#0e7c86; --accent-ink:#fff; --warm:#c2410c;
-  --shadow:0 1px 2px rgba(20,30,50,.05),0 6px 24px rgba(20,30,50,.06);
-  --hero-1:#0e7c86; --hero-2:#0b5e66;
-  --c-teal:#0e9aa6; --c-blue:#2f6fb0; --c-violet:#7c3aed; --c-amber:#d97706;
-  --c-green:#15a34a; --c-red:#e11d48; --c-gold:#c98a12; --c-gray:#6b7280;
-  --state:#0e9aa6; --action:#d97706; --results:#7c3aed; --core:#0e7c86;
-}
-[data-theme="dark"]{
-  --bg:#0e131a; --bg2:#161d27; --card:#151c26; --card2:#1b2430;
-  --ink:#e9eef5; --mut:#9aa7b6; --line:#27313d;
-  --accent:#2dd4bf; --accent-ink:#06231f; --warm:#fb923c;
-  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 28px rgba(0,0,0,.45);
-  --hero-1:#0c5f67; --hero-2:#07323a;
-  --c-teal:#2dd4bf; --c-blue:#5b9bd5; --c-violet:#a78bfa; --c-amber:#fbbf24;
-  --c-green:#34d399; --c-red:#fb7185; --c-gold:#e2b04a; --c-gray:#94a3b8;
-  --state:#2dd4bf; --action:#fbbf24; --results:#a78bfa; --core:#2dd4bf;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);
-  font-family:Vazirmatn,"Segoe UI",Tahoma,Arial,sans-serif;line-height:1.85;font-size:15px;
-  transition:background .25s,color .25s}
-html[data-lang="en"] body{font-family:Inter,"Segoe UI",system-ui,Arial,sans-serif;line-height:1.7}
-.wrap{max-width:960px;margin:0 auto;padding:0 18px 40px}
-
-/* language visibility */
-html[data-lang="en"] [data-only="fa"]{display:none !important}
-html[data-lang="fa"] [data-only="en"]{display:none !important}
-
-/* ── HERO ─────────────────────────────────────────────────── */
-.hero{background:linear-gradient(135deg,var(--hero-1),var(--hero-2));color:#fff;padding:44px 0 34px;position:relative;overflow:hidden}
-.hero::after{content:"";position:absolute;inset-inline-end:-80px;top:-80px;width:280px;height:280px;
-  background:radial-gradient(circle,rgba(255,255,255,.12),transparent 70%);pointer-events:none}
-.hero .wrap{padding-bottom:0;position:relative;z-index:1}
-.hero h1{margin:0 0 8px;font-size:30px;font-weight:800;letter-spacing:-.3px;line-height:1.25}
-html[data-lang="en"] .hero h1{font-family:Newsreader,Georgia,serif;font-weight:600;letter-spacing:-.5px}
-.hero .dek{margin:0;opacity:.94;font-size:15.5px;max-width:640px}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;
-  color:rgba(255,255,255,.95);background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.24);
-  padding:5px 13px;border-radius:20px;margin-bottom:15px}
-.eyebrow .edot{width:7px;height:7px;border-radius:50%;background:#fff;box-shadow:0 0 0 3px rgba(255,255,255,.25)}
-.metastrip{display:flex;flex-wrap:wrap;gap:14px 30px;margin-top:20px;padding-top:16px;
-  border-top:1px solid rgba(255,255,255,.18)}
-.metaitem{display:flex;flex-direction:column;gap:3px}
-.metaitem .mk{font-size:10.5px;color:rgba(255,255,255,.62);font-weight:700;letter-spacing:.6px;text-transform:uppercase}
-.metaitem .mv{font-size:14px;color:#fff;font-weight:700}
-.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
-.chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);
-  border-radius:11px;padding:9px 15px;font-size:13px}
-.chip b{font-size:20px;display:block;font-weight:800}
-
-/* ── NAV + TOC ────────────────────────────────────────────── */
-.navbar{position:sticky;top:0;z-index:60;background:color-mix(in srgb,var(--card) 92%,transparent);
-  backdrop-filter:saturate(180%) blur(10px);-webkit-backdrop-filter:saturate(180%) blur(10px);
-  border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
-.navin{max-width:960px;margin:0 auto;padding:8px 16px;display:flex;align-items:center;gap:12px}
-.brand{flex:0 0 auto;font-weight:800;font-size:12.5px;color:var(--accent);white-space:nowrap;
-  display:flex;align-items:center;gap:7px}
-.brand .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);
-  box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 18%,transparent)}
-.toc{flex:1 1 auto;display:flex;flex-wrap:wrap;gap:7px;justify-content:center}
-.toc a{font-size:12.5px;color:var(--mut);text-decoration:none;border:1px solid var(--line);
-  border-radius:20px;padding:5px 12px;background:var(--card);white-space:nowrap;
-  transition:background .15s,color .15s,border-color .15s}
-.toc a:hover{color:var(--accent);border-color:var(--accent)}
-.toc a.active{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
-.navctl{flex:0 0 auto;display:flex;align-items:center;gap:8px}
-.langbtn{height:34px;border-radius:18px;border:1px solid var(--line);background:var(--card);
-  color:var(--ink);cursor:pointer;font:inherit;font-size:12.5px;font-weight:700;padding:0 13px;
-  display:flex;align-items:center;gap:6px}
-.langbtn:hover{border-color:var(--accent);color:var(--accent)}
-.langbtn .globe{width:15px;height:15px;display:block}
-.themebtn{flex:0 0 auto;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);
-  background:var(--card);color:var(--ink);cursor:pointer;line-height:1;display:grid;place-items:center}
-.themebtn svg{width:17px;height:17px;display:block}
-.themebtn:hover{border-color:var(--accent);color:var(--accent)}
-[data-theme="light"] .themebtn .ic-sun{display:none}
-[data-theme="dark"]  .themebtn .ic-moon{display:none}
-
-/* ── BLOCKS ───────────────────────────────────────────────── */
-h2{font-size:21px;margin:44px 0 6px;font-weight:800;scroll-margin-top:92px;line-height:1.35}
-html[data-lang="en"] h2{font-family:Newsreader,Georgia,serif;font-weight:600}
-h2 .num{color:var(--accent);font-variant-numeric:tabular-nums}
-.sub{color:var(--mut);font-size:13.5px;margin:0 0 16px;max-width:680px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;
-  padding:20px 22px;margin:14px 0;box-shadow:var(--shadow)}
-.lead{font-size:15.5px}
-.lead b{color:var(--warm)}
-.kgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin:8px 0}
-.kbox{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:15px 16px;text-align:center}
-.kbox .v{font-size:26px;font-weight:800;color:var(--accent);font-variant-numeric:tabular-nums}
-.kbox .l{font-size:12.5px;color:var(--mut);margin-top:3px}
-ul.clean{margin:6px 0;padding-inline-start:20px} ul.clean li{margin:8px 0}
-.callout{background:color-mix(in srgb,var(--warm) 9%,var(--card));
-  border:1px solid color-mix(in srgb,var(--warm) 30%,var(--line));
-  border-radius:12px;padding:14px 18px;margin:12px 0}
-.callout b{color:var(--warm)}
-.callout.accent{background:color-mix(in srgb,var(--accent) 9%,var(--card));
-  border-color:color-mix(in srgb,var(--accent) 30%,var(--line))}
-.callout.accent b{color:var(--accent)}
-a{color:var(--accent)}
-
-/* ── GRAPH ────────────────────────────────────────────────── */
-.gtabs{display:inline-flex;gap:4px;background:var(--bg2);border:1px solid var(--line);
-  border-radius:11px;padding:4px;margin:6px 0 2px}
-.gtab{border:0;background:transparent;color:var(--mut);font:inherit;font-size:13px;font-weight:700;
-  padding:7px 15px;border-radius:8px;cursor:pointer}
-.gtab.active{background:var(--card);color:var(--accent);box-shadow:var(--shadow)}
-.graphcard{padding:14px}
-.legend{display:flex;flex-wrap:wrap;gap:14px;margin:2px 4px 12px;font-size:12.5px;color:var(--mut)}
-.legend span{display:inline-flex;align-items:center;gap:6px}
-.legend i{width:11px;height:11px;border-radius:50%;display:inline-block}
-.graphstage{display:grid;grid-template-columns:1fr;gap:14px}
-@media(min-width:760px){.graphstage{grid-template-columns:1.35fr .95fr}}
-.svgwrap{position:relative;background:var(--card2);border:1px solid var(--line);border-radius:12px;
-  overflow:hidden;min-height:300px}
-#netsvg{display:block;width:100%;height:560px;touch-action:none;cursor:grab}
-#netsvg text{pointer-events:none;user-select:none}
-.ghint{position:absolute;inset-inline-start:12px;top:10px;font-size:11.5px;color:var(--mut);
-  background:color-mix(in srgb,var(--card) 82%,transparent);border:1px solid var(--line);
-  border-radius:20px;padding:3px 11px;backdrop-filter:blur(4px);max-width:70%}
-.greset{position:absolute;inset-inline-end:10px;top:10px;border:1px solid var(--line);background:var(--card);
-  color:var(--mut);border-radius:8px;font:inherit;font-size:11.5px;padding:4px 10px;cursor:pointer}
-.greset:hover{color:var(--accent);border-color:var(--accent)}
-/* node + link interaction states */
-.node{cursor:pointer}
-/* the inner <g class="ns"> is what scales; fill-box keeps the pivot on the node itself, not the SVG viewport */
-.ns{transform-box:fill-box;transform-origin:center;transition:transform .2s cubic-bezier(.2,.75,.25,1)}
-.node.hover .ns{transform:scale(1.1)}
-.node.sel  .ns{transform:scale(1.34)}                 /* selected node grows */
-.node.ncore.hover .ns{transform:scale(1.06)}
-.node.ncore.sel   .ns{transform:none}                 /* the centre 'Effortless' node keeps default size */
-.node.sel circle{stroke:var(--ink);stroke-width:2.5;filter:drop-shadow(0 0 8px color-mix(in srgb,var(--accent) 60%,transparent))}
-.node.hl circle{stroke:var(--ink);stroke-opacity:.5;stroke-width:2.5}
-.node.dim{opacity:.2}
-.node text{font-family:Vazirmatn,Tahoma,sans-serif;font-weight:700}
-html[data-lang="en"] .node text{font-family:Inter,sans-serif}
-.glink{transition:opacity .2s,stroke .2s}
-.glink.dim{opacity:.08}
-.glink.hl{stroke:var(--accent) !important;stroke-opacity:.8}
-/* detail panel */
-.detail{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;min-height:220px}
-@media(min-width:760px){.detail{max-height:480px;overflow:auto}}
-.detail .dkick{font-size:11.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;display:flex;align-items:center;gap:7px;color:var(--mut)}
-.detail .dkick i{width:10px;height:10px;border-radius:50%}
-.detail h4{margin:8px 0 3px;font-size:18px;font-weight:800}
-html[data-lang="en"] .detail h4{font-family:Newsreader,serif;font-weight:600}
-.detail .drow{margin:11px 0}
-.detail .dlab{font-size:10.5px;font-weight:800;color:var(--accent);letter-spacing:.5px;text-transform:uppercase;
-  display:inline-flex;align-items:center;gap:5px}
-.detail .drow.tip .dlab{color:var(--c-green)}
-.detail .drow.pit .dlab{color:var(--warm)}
-.detail .drow.more{border-inline-start:2px solid color-mix(in srgb,var(--accent) 32%,var(--line));padding-inline-start:11px}
-.detail .drow.more .dlab{color:var(--mut)}
-.detail .dtxt{font-size:13.6px;margin-top:3px}
-.dchips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
-.dchip{font-size:12px;border:1px solid var(--line);background:var(--card2);border-radius:16px;padding:4px 11px;
-  cursor:pointer;color:var(--ink);display:inline-flex;align-items:center;gap:6px;font-family:inherit}
-.dchip:hover{border-color:var(--accent);color:var(--accent)}
-.dchip i{width:8px;height:8px;border-radius:50%;flex:0 0 auto}
-
-/* ── CONCEPT MAP ──────────────────────────────────────────── */
-.mapgrid{display:grid;grid-template-columns:1fr;gap:14px}
-@media(min-width:820px){.mapgrid{grid-template-columns:repeat(3,1fr)}}
-.partcol{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:16px;position:relative}
-.partcol .ph{display:flex;align-items:center;gap:9px;margin-bottom:3px}
-.partcol .pdot{width:13px;height:13px;border-radius:50%;flex:0 0 auto}
-.partcol .pnum{font-size:11px;font-weight:800;color:var(--mut)}
-.partcol h4{margin:0;font-size:16.5px;font-weight:800}
-html[data-lang="en"] .partcol h4{font-family:Newsreader,serif;font-weight:600}
-.partcol .ptag{font-size:12px;color:var(--mut);margin:2px 0 4px;font-weight:700}
-.partcol .pgist{font-size:12.8px;color:var(--mut);margin:0 0 12px}
-.chapchip{display:flex;align-items:baseline;gap:8px;padding:7px 10px;border:1px solid var(--line);
-  border-radius:9px;margin:6px 0;background:var(--card2);font-size:13px}
-.chapchip .cn{font-size:11px;font-weight:800;color:var(--mut);flex:0 0 auto;font-variant-numeric:tabular-nums}
-.chapchip b{font-weight:700}
-.chapchip small{color:var(--mut);display:block;font-size:11.5px;line-height:1.5}
-.flowline{display:flex;align-items:center;justify-content:center;gap:10px;color:var(--mut);
-  font-size:12.5px;font-weight:700;margin:6px 0 2px;flex-wrap:wrap}
-.flowline .ar{color:var(--accent)}
-
-/* ── STAGE LADDER ─────────────────────────────────────────── */
-.ladder{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 4px}
-.rung{flex:1 1 150px;border:1px solid var(--line);background:var(--card);border-radius:11px;
-  padding:11px 13px;cursor:pointer;transition:transform .12s,border-color .12s;position:relative}
-.rung:hover{border-color:var(--accent);transform:translateY(-2px)}
-.rung.active{border-color:var(--accent);box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 35%,transparent)}
-.rung .lv{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.4px}
-.rung .lt{font-size:13.5px;font-weight:800;margin-top:2px}
-.rung .lbar{height:5px;border-radius:4px;background:var(--bg2);margin-top:9px;overflow:hidden}
-.rung .lbar i{display:block;height:100%;background:linear-gradient(90deg,var(--c-teal),var(--c-violet))}
-.stagecard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 24px;
-  margin:14px 0;box-shadow:var(--shadow)}
-.stagecard .shead{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-.stagecard .badge{font-size:12px;font-weight:800;color:#fff;background:var(--accent);
-  border-radius:8px;padding:4px 11px;white-space:nowrap}
-.stagecard h3{margin:0;font-size:21px;font-weight:800}
-html[data-lang="en"] .stagecard h3{font-family:Newsreader,serif;font-weight:600}
-.stagecard .tagline{color:var(--mut);font-size:13.5px;margin:4px 0 14px;font-weight:700}
-.stagecard .sbody{font-size:15px}
-.exbox{background:var(--card2);border:1px solid var(--line);border-inline-start:3px solid var(--accent);
-  border-radius:0 11px 11px 0;padding:13px 16px;margin:14px 0 6px}
-.exbox .exk{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.5px;text-transform:uppercase}
-.exbox .ext{font-size:13.8px;margin-top:3px}
-.gainrow{display:flex;align-items:flex-start;gap:9px;margin-top:12px;font-size:13px;color:var(--mut)}
-.gainrow .gi{flex:0 0 auto;color:var(--c-green);font-weight:800}
-.stagenav{display:flex;justify-content:space-between;gap:10px;margin-top:16px}
-.stagenav button{border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit;
-  font-size:13px;font-weight:700;border-radius:9px;padding:8px 14px;cursor:pointer}
-.stagenav button:hover:not(:disabled){border-color:var(--accent);color:var(--accent)}
-.stagenav button:disabled{opacity:.4;cursor:default}
-
-/* ── QUOTES ───────────────────────────────────────────────── */
-.qgrid{display:grid;grid-template-columns:1fr;gap:12px}
-@media(min-width:720px){.qgrid{grid-template-columns:1fr 1fr}}
-blockquote{margin:0;background:var(--card2);border-inline-start:3px solid var(--accent);
-  border-radius:0 12px 12px 0;padding:15px 18px;font-size:14.5px;position:relative}
-blockquote .qm{font-size:34px;line-height:0;color:var(--accent);opacity:.35;font-family:Georgia,serif;
-  position:absolute;inset-inline-start:10px;top:20px}
-blockquote p{margin:0;padding-inline-start:22px}
-html[data-lang="en"] blockquote{font-family:Newsreader,Georgia,serif;font-size:15.5px}
-
-/* ── MEDIA ────────────────────────────────────────────────── */
-.mgrid{display:grid;grid-template-columns:1fr;gap:16px}
-@media(min-width:640px){.mgrid{grid-template-columns:1fr 1fr}}
-.mcard{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;
-  box-shadow:var(--shadow);display:flex;flex-direction:column}
-.mthumb{position:relative;display:block;aspect-ratio:16/9;background:var(--bg2);overflow:hidden;text-decoration:none}
-.mthumb img{width:100%;height:100%;object-fit:cover;display:block}
-.mthumb .play{position:absolute;inset:0;display:grid;place-items:center}
-.mthumb .play span{width:54px;height:54px;border-radius:50%;background:rgba(0,0,0,.6);
-  display:grid;place-items:center;border:2px solid rgba(255,255,255,.9)}
-.mthumb .play svg{width:22px;height:22px;fill:#fff;margin-inline-start:3px}
-.mthumb .ptype{position:absolute;inset-inline-start:9px;top:9px;background:rgba(0,0,0,.72);color:#fff;
-  font-size:11px;font-weight:700;border-radius:6px;padding:3px 9px;letter-spacing:.3px}
-.mfake{aspect-ratio:16/9;display:grid;place-items:center;
-  background:linear-gradient(135deg,color-mix(in srgb,var(--c-violet) 22%,var(--card)),color-mix(in srgb,var(--c-teal) 22%,var(--card)))}
-.mfake svg{width:52px;height:52px;color:var(--ink);opacity:.6}
-.mbody{padding:15px 17px;display:flex;flex-direction:column;gap:7px;flex:1}
-.mbody .msrc{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.3px;text-transform:uppercase}
-.mbody h4{margin:0;font-size:15.5px;font-weight:800;line-height:1.4}
-html[data-lang="en"] .mbody h4{font-family:Newsreader,serif;font-weight:600}
-.mbody .mdesc{font-size:13px;color:var(--mut);margin:0}
-.mbody ul{margin:4px 0 0;padding-inline-start:18px}
-.mbody ul li{font-size:12.8px;margin:5px 0}
-.mbody .mbest{font-size:12px;font-weight:700;color:var(--warm);margin-top:auto;padding-top:8px}
-.mlink{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;
-  text-decoration:none;color:var(--accent);margin-top:4px}
-.mlink:hover{text-decoration:underline}
-.golist{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
-.golist a{font-size:12.5px;text-decoration:none;color:var(--ink);border:1px solid var(--line);
-  border-radius:20px;padding:6px 13px;background:var(--card);font-weight:700}
-.golist a:hover{border-color:var(--accent);color:var(--accent)}
-
-/* ── RECS + METHOD + CREDIT ───────────────────────────────── */
-.rec{display:grid;gap:10px;margin:8px 0}
-.rec .item{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--card)}
-.rec .item .t{font-weight:800;font-size:14.5px;margin-bottom:3px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.rec .item .t .pri{font-size:11px;font-weight:700;color:#fff;background:var(--warm);border-radius:6px;padding:2px 9px}
-.rec .item .t .pri.b{background:var(--accent)}
-.rec .item .d{font-size:13.4px;color:var(--mut)}
-.method{color:var(--mut);font-size:13.4px}
-.method p{margin:8px 0}
-.method b{color:var(--ink)}
-.credit{text-align:center;margin-top:40px;padding:22px 0 8px;border-top:1px solid var(--line);
-  color:var(--mut);font-size:14px}
-.credit .cname{color:var(--ink);font-weight:800}
-.credit a{font-weight:700;text-decoration:none}
-.credit a:hover{text-decoration:underline}
-.credit .sep{opacity:.5;margin:0 8px}
-.credit .li{display:inline-flex;align-items:center;gap:5px;vertical-align:middle}
-.credit .li svg{width:15px;height:15px;vertical-align:-3px}
-
-@media (max-width:640px){
-  body{font-size:14px}
-  .wrap{padding:0 13px 30px}
-  .hero{padding:28px 0 22px} .hero h1{font-size:22px}
-  h2{font-size:18px;scroll-margin-top:66px}
-  .brand{display:none}
-  .toc{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;scrollbar-width:none}
-  .toc::-webkit-scrollbar{display:none}
-  #netsvg{height:420px}
-}
-</style>
+<link rel="stylesheet" href="../assets/book.css">
 </head>
 <body>
+<div id="app"></div>
 
-<!-- ── HERO ───────────────────────────────────────────────── -->
-<header class="hero"><div class="wrap">
-  <div class="eyebrow"><span class="edot"></span>
-    <span data-only="en">Book knowledge map · Morten Hansen</span>
-    <span data-only="fa">نقشهٔ کتاب · مورتن هانسن</span>
-  </div>
-  <h1>
-    <span data-only="en">Great at Work — How Top Performers Do Less, Work Better, and Achieve More</span>
-    <span data-only="fa">عالی در کار — بهترین‌ها چطور کمتر کار می‌کنند، بهتر کار می‌کنند و بیشتر به دست می‌آورند</span>
-  </h1>
-  <p class="dek">
-    <span data-only="en">A knowledge graph of the whole book, plus a 5-stage path from a single idea to expert-level mastery — with an example at every step.</span>
-    <span data-only="fa">نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از یک ایدهٔ ساده تا حرفه‌ای — با یک مثال در هر مرحله.</span>
-  </p>
-  <div class="metastrip">
-    <div class="metaitem"><span class="mk" data-only="en">Book</span><span class="mk" data-only="fa">کتاب</span>
-      <span class="mv" data-only="en">Great at Work</span><span class="mv" data-only="fa">عالی در کار</span></div>
-    <div class="metaitem"><span class="mk" data-only="en">Author</span><span class="mk" data-only="fa">نویسنده</span>
-      <span class="mv" data-only="en">Morten Hansen</span><span class="mv" data-only="fa">مورتن هانسن</span></div>
-    <div class="metaitem"><span class="mk" data-only="en">Published</span><span class="mk" data-only="fa">سالِ چاپ</span>
-      <span class="mv" data-only="en">2018</span><span class="mv" data-only="fa">۲۰۱۸</span></div>
-    <div class="metaitem"><span class="mk" data-only="en">Group</span><span class="mk" data-only="fa">گروه</span>
-      <span class="mv" data-only="en">Career</span><span class="mv" data-only="fa">مسیرِ شغلی</span></div>
-  </div>
-  <div class="chips">
-    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Parts</span><span data-only="fa">بخش</span></div>
-    <div class="chip"><b data-only="en">16</b><b data-only="fa">۱۶</b><span data-only="en">Practices</span><span data-only="fa">تمرین</span></div>
-    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Learning stages</span><span data-only="fa">مرحلهٔ یادگیری</span></div>
-  </div>
-</div></header>
-
-<!-- ── STICKY NAV ─────────────────────────────────────────── -->
-<div class="navbar"><div class="navin">
-  <span class="brand"><span class="dot"></span>Great at Work</span>
-  <nav class="toc">
-    <a href="#tldr" data-only="en">In a nutshell</a><a href="#tldr" data-only="fa">خلاصه</a>
-    <a href="#graph" data-only="en">Knowledge graph</a><a href="#graph" data-only="fa">نقشهٔ دانش</a>
-    <a href="#stages" data-only="en">5 stages</a><a href="#stages" data-only="fa">۵ مرحله</a>
-    <a href="#quotes" data-only="en">Quotes</a><a href="#quotes" data-only="fa">جمله‌ها</a>
-    <a href="#media" data-only="en">Watch &amp; explore</a><a href="#media" data-only="fa">تماشا و منابع</a>
-    <a href="#apply" data-only="en">Apply it</a><a href="#apply" data-only="fa">کاربرد</a>
-  </nav>
-  <div class="navctl">
-    <button class="langbtn" id="langBtn" aria-label="Switch language">
-      <svg class="globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>
-      <span data-only="en">فارسی</span><span data-only="fa">English</span>
-    </button>
-    <button class="themebtn" id="themeBtn" aria-label="Toggle theme" title="Light / Dark">
-      <span class="ic-sun" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5 19 19M19 5l-1.5 1.5M6.5 17.5 5 19"/></svg></span>
-      <span class="ic-moon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.6 6.6 0 0 0 9.8 9.8Z"/></svg></span>
-    </button>
-  </div>
-</div></div>
-
-<div class="wrap">
-
-  <!-- ── TL;DR ────────────────────────────────────────────── -->
-  <h2 id="tldr"><span class="num" data-only="en">1.</span><span class="num" data-only="fa">۱.</span>
-    <span data-only="en"> In a nutshell</span><span data-only="fa"> خلاصه</span></h2>
-  <p class="sub" data-only="en">If you read only this, you still get the whole idea.</p>
-  <p class="sub" data-only="fa">اگر فقط همین بخش را بخوانی، کلِ ایده دستت می‌آید.</p>
-  <div class="card lead"><ul class="clean" id="tldrHost"></ul></div>
-  <div class="kgrid">
-    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Parts (do less · redesign · learn · passion+purpose · collaborate)</div><div class="l" data-only="fa">بخش (کمتر کن · بازطراحی · یادگیری · اشتیاق+هدف · همکاری)</div></div>
-    <div class="kbox"><div class="v" data-only="en">16</div><div class="v" data-only="fa">۱۶</div><div class="l" data-only="en">Practices you can use</div><div class="l" data-only="fa">تمرین برای استفاده</div></div>
-    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Levels, simple → expert</div><div class="l" data-only="fa">مرحله، ساده تا حرفه‌ای</div></div>
-    <div class="kbox"><div class="v" data-only="en">66%</div><div class="v" data-only="fa">۶۶٪</div><div class="l" data-only="en">of the performance gap these practices explained</div><div class="l" data-only="fa">از فاصلهٔ کارکرد که این تمرین‌ها توضیح دادند</div></div>
-  </div>
-  
-  <div class="callout accent">
-    <b data-only="en">The core idea:</b>
-    <b data-only="fa">ایدهٔ اصلی:</b>
-    <span data-only="en"> Top performers don't work more hours — they <i>work smarter</i>. They pick a few priorities and obsess over quality, aim at the <i>value</i> they create for others, learn in tight feedback loops, pair <i>passion</i> with <i>purpose</i>, and collaborate with discipline while forcefully championing their work.</span>
-    <span data-only="fa"> بهترین‌ها ساعت‌های بیشتری کار نمی‌کنند — <i>هوشمندانه‌تر</i> کار می‌کنند. چند اولویت را انتخاب می‌کنند و روی کیفیتشان وسواس به خرج می‌دهند، به <i>ارزشی</i> که برای دیگران می‌سازند نشانه می‌روند، در چرخه‌های کوتاهِ بازخورد یاد می‌گیرند، <i>اشتیاق</i> را با <i>هدف</i> جفت می‌کنند، و با نظم همکاری می‌کنند و درعین‌حال محکم از کارشان دفاع می‌کنند.</span>
-  </div>
-
-  <!-- ── KNOWLEDGE GRAPH ──────────────────────────────────── -->
-  <h2 id="graph"><span class="num" data-only="en">2.</span><span class="num" data-only="fa">۲.</span>
-    <span data-only="en"> The knowledge graph</span><span data-only="fa"> نقشهٔ دانش</span></h2>
-  <p class="sub" data-only="en">The whole book as one picture. Click any node to focus its connections and read more — or switch to the structured map.</p>
-  <p class="sub" data-only="fa">کلِ کتاب در یک تصویر. روی هر دایره کلیک کن تا ارتباط‌هایش را ببینی و بیشتر بخوانی — یا به نقشهٔ مرتب برو.</p>
-
-  <div class="gtabs">
-    <button class="gtab active" id="tabNet"><span data-only="en">Interactive network</span><span data-only="fa">شبکهٔ تعاملی</span></button>
-    <button class="gtab" id="tabMap"><span data-only="en">Structured map</span><span data-only="fa">نقشهٔ مرتب</span></button>
-  </div>
-
-  <!-- network view -->
-  <div class="card graphcard" id="netView">
-    <div class="legend" id="legendHost"></div>
-    <div class="graphstage">
-      <div class="svgwrap">
-        <svg id="netsvg" viewBox="0 0 820 560" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Effortless knowledge network"></svg>
-        <div class="ghint" id="ghint"></div>
-        <button class="greset" id="greset"></button>
-      </div>
-      <div class="detail" id="detailHost"></div>
-    </div>
-  </div>
-
-  <!-- map view -->
-  <div class="card graphcard" id="mapView" style="display:none">
-    <div class="flowline" id="flowTop"></div>
-    <div class="mapgrid" id="mapHost"></div>
-    <div class="callout" style="margin-top:16px">
-      <b data-only="en">Read it as a flow:</b><b data-only="fa">به‌صورتِ یک جریان بخوانش:</b>
-      <span data-only="en"> first <b>do less, then obsess</b>, <b>redesign</b> your work around the value it creates, <b>learn in a loop</b> with fast feedback, fuse <b>passion with purpose</b>, and <b>collaborate</b> with discipline while championing your ideas.</span>
-      <span data-only="fa"> اول <b>کمتر کن، بعد وسواس</b>، کارت را <b>از نو طراحی</b> کن دورِ ارزشی که می‌سازد، در یک <b>چرخه با بازخوردِ سریع</b> یاد بگیر، <b>اشتیاق را با هدف</b> یکی کن، و با نظم <b>همکاری</b> کن و از ایده‌هایت دفاع کن.</span>
-    </div>
-  </div>
-
-  <!-- ── 5 STAGES ─────────────────────────────────────────── -->
-  <h2 id="stages"><span class="num" data-only="en">3.</span><span class="num" data-only="fa">۳.</span>
-    <span data-only="en"> Learn it in 5 stages</span><span data-only="fa"> یادگیری در ۵ مرحله</span></h2>
-  <p class="sub" data-only="en">The same book at five depths. Start over-simplified, climb to expert. Tap a rung to jump.</p>
-  <p class="sub" data-only="fa">یک کتاب در پنج عمق. از خیلی ساده شروع کن و تا حرفه‌ای بالا برو. روی هر پله بزن تا بپری.</p>
-  <div class="ladder" id="ladderHost"></div>
-  <div id="stageHost"></div>
-
-  <!-- ── QUOTES ───────────────────────────────────────────── -->
-  <h2 id="quotes"><span class="num" data-only="en">4.</span><span class="num" data-only="fa">۴.</span>
-    <span data-only="en"> Lines worth keeping</span><span data-only="fa"> جمله‌هایی که ارزشِ نگه‌داشتن دارند</span></h2>
-  <p class="sub" data-only="en">Verbatim quotes from the book, translated alongside.</p>
-  <p class="sub" data-only="fa">جمله‌های مستقیم از کتاب، همراه با ترجمه.</p>
-  <div class="qgrid" id="quoteHost"></div>
-
-  <!-- ── MEDIA ────────────────────────────────────────────── -->
-  <h2 id="media"><span class="num" data-only="en">5.</span><span class="num" data-only="fa">۵.</span>
-    <span data-only="en"> Watch &amp; explore</span><span data-only="fa"> تماشا و منابع</span></h2>
-  <p class="sub" data-only="en">Special resources found online — each with what it covers and who it's best for.</p>
-  <p class="sub" data-only="fa">منابعِ ویژه‌ای که آنلاین پیدا شد — هرکدام با اینکه چه می‌گوید و به چه دردی می‌خورد.</p>
-  <div class="mgrid" id="mediaHost"></div>
-  <div class="card" style="margin-top:16px">
-    <div style="font-weight:800;font-size:13.5px;margin-bottom:4px">
-      <span data-only="en">Go straight to the source</span><span data-only="fa">مستقیم سراغِ منبع برو</span>
-    </div>
-    <div class="golist" id="goHost"></div>
-  </div>
-
-  <!-- ── APPLY ────────────────────────────────────────────── -->
-  <h2 id="apply"><span class="num" data-only="en">6.</span><span class="num" data-only="fa">۶.</span>
-    <span data-only="en"> Apply it this week</span><span data-only="fa"> این هفته امتحانش کن</span></h2>
-  <p class="sub" data-only="en">Four small moves that turn the idea into a habit.</p>
-  <p class="sub" data-only="fa">چهار حرکتِ کوچک که این ایده را به عادت تبدیل می‌کنند.</p>
-  <div class="rec" id="recHost"></div>
-
-  <!-- ── METHOD ───────────────────────────────────────────── -->
-  <h2 id="method"><span class="num" data-only="en">7.</span><span class="num" data-only="fa">۷.</span>
-    <span data-only="en"> Sources &amp; notes</span><span data-only="fa"> منابع و توضیح</span></h2>
-  <div class="card method" id="methodHost"></div>
-
-  <!-- ── CREDIT FOOTER ────────────────────────────────────── -->
-  <div class="credit">
-    <span data-only="en">Created by <span class="cname">Behnam Atefi</span><span class="sep">·</span><a class="li" href="https://www.linkedin.com/in/behnamatefi/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.3c0-1.26-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9z"/></svg>LinkedIn</a></span>
-    <span data-only="fa">ساخته‌شده توسط <span class="cname">بهنام عاطفی</span><span class="sep">·</span><a class="li" href="https://www.linkedin.com/in/behnamatefi/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.3c0-1.26-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9z"/></svg>لینکدین</a></span>
-  </div>
-</div>
-
-<!-- ═══════════════════════ SCRIPTS ═══════════════════════ -->
+<script src="../assets/library.js"></script>
+<script src="../assets/book.js"></script>
 <script>
-/* ── 1) language + formatters ─────────────────────────────── */
-var LANG = document.documentElement.getAttribute('data-lang') || 'fa';
-var FA_D = '۰۱۲۳۴۵۶۷۸۹';
-var RLM  = '‏';
-function faDigits(s){ return String(s).replace(/[0-9]/g, function(d){ return FA_D[+d]; }); }
-/* honor the RTL preference: isolate Latin runs (word order preserved) and mark with U+200F */
-function rlm(s){
-  return String(s)
-    .replace(/[A-Za-zÀ-ɏ][A-Za-zÀ-ɏ0-9'’.&:\/\-]*(?:\s+[A-Za-zÀ-ɏ0-9'’.&:\/\-]+)*/g,
-      function(m){ return RLM+'⁦'+m+'⁩'+RLM; })
-    .replace(/[0-9۰-۹]+/g, function(m){ return m+RLM; });
-}
-/* transform only TEXT segments, never HTML tags (so <b>/<i> survive) */
-function faText(s){ return String(s).replace(/(<[^>]+>)|([^<]+)/g, function(m,tag,txt){ return tag ? tag : faDigits(rlm(txt)); }); }
-function TX(o){ if(o==null) return ''; if(typeof o==='string') return o; return LANG==='fa' ? faText(o.fa) : o.en; }
-function num(n){ return LANG==='fa' ? faDigits(n) : String(n); }
-function tok(name){ return getComputedStyle(document.documentElement).getPropertyValue(name).trim(); }
-</script>
-
-<script>
-/* ── DATA LAYER — Atomic Habits (bilingual, plain-spoken Persian) ── */
-var DATA = {"tldr":[{"en":"The whole book in one line: top performers don't work more — they work smarter, doing less but obsessing over the few things that matter.","fa":"خلاصهٔ کل کتاب در یک جمله: بهترین‌ها بیشتر کار نمی‌کنند — هوشمندانه‌تر کار می‌کنند، کمتر می‌کنند اما روی همان چند چیزِ مهم وسواس دارند."},{"en":"It's built on a five-year study of 5,000 managers and employees — and seven <b>work smart</b> practices explained most of the gap in performance, not talent or hours.","fa":"این کتاب روی یک پژوهشِ پنج‌ساله از ۵٬۰۰۰ مدیر و کارمند بنا شده — و هفت تمرینِ <b>کارِ هوشمندانه</b> بیشترِ فاصلهٔ کارکرد را توضیح می‌دادند، نه استعداد یا ساعت‌کاری."},{"en":"<b>Do Less, Then Obsess</b>: choose a few priorities, wield a razor to cut the rest, and pour intense effort into what's left.","fa":"<b>کمتر کن، بعد وسواس</b>: چند اولویت انتخاب کن، با یک تیغ بقیه را بزن کنار، و تلاشِ شدید بریز روی آنچه مانده."},{"en":"<b>Redesign</b> your work around value, <b>learn in a loop</b> with fast feedback, and fuse <b>passion with purpose</b> — energy plus direction.","fa":"کارت را دورِ <b>ارزش</b> از نو طراحی کن، در یک <b>چرخه با بازخوردِ سریع</b> یاد بگیر، و <b>اشتیاق را با هدف</b> یکی کن — انرژی به‌علاوهٔ جهت."},{"en":"<b>Collaborate with discipline</b> and <b>champion your work</b>: inspire plus smart grit, team up only when the prize is big, and fight-then-unite in meetings.","fa":"<b>حساب‌شده همکاری کن</b> و <b>از کارت دفاع کن</b>: انگیزش به‌علاوهٔ پشتکارِ هوشمند، فقط وقتی هم‌تیم شو که جایزه بزرگ است، و توی جلسه‌ها اول جدل کن بعد متحد شو."}],"parts":[{"key":"doless","varc":"--c-teal","name":{"en":"Do Less, Then Obsess","fa":"کمتر کن، بعد وسواس"},"tag":{"en":"Master your own work","fa":"کارِ خودت را استاد شو"},"gist":{"en":"Choose a few priorities, then pour obsessive effort into just those.","fa":"چند اولویت انتخاب کن، بعد فقط روی همان‌ها تلاشِ وسواس‌گونه بریز."},"more":{"en":"The first and biggest practice: instead of doing more, do less — pick a tiny set of priorities — and then obsess, applying intense effort until the quality is exceptional. Focus without intensity is scattered; intensity without focus is exhausting. You need both.","fa":"اولین و بزرگ‌ترین تمرین: به‌جای بیشتر کار کردن، کمتر کن — یک دستهٔ خیلی کوچک از اولویت‌ها را انتخاب کن — و بعد وسواس به خرج بده، آن‌قدر تلاشِ شدید بریز تا کیفیت فوق‌العاده شود. تمرکزِ بدونِ شدت، پخش‌وپلاست؛ شدتِ بدونِ تمرکز، فرساینده. به هر دو نیاز داری."},"chapters":["doless","obsess","razor"]},{"key":"redesign","varc":"--c-blue","name":{"en":"Redesign Your Work","fa":"کارت را از نو طراحی کن"},"tag":{"en":"Aim at value","fa":"به ارزش نشانه بگیر"},"gist":{"en":"Aim your work at the value it creates for others, not at hours or busyness.","fa":"کارت را به‌سمتِ ارزشی که برای دیگران می‌سازد نشانه بگیر، نه به‌سمتِ ساعت و شلوغی."},"more":{"en":"Don't just work harder inside the job you were handed — redesign it. Measure yourself by value: how much others benefit from what you do. Then cut the low-value tasks and reshape the rest so more of your effort turns into real value.","fa":"فقط توی همان کاری که به دستت داده‌اند سخت‌تر کار نکن — از نو طراحی‌اش کن. خودت را با ارزش بسنج: دیگران چقدر از کاری که می‌کنی سود می‌برند. بعد کارهای کم‌ارزش را حذف کن و بقیه را طوری از نو بچین که سهمِ بیشتری از تلاشت به ارزشِ واقعی تبدیل شود."},"chapters":["value","redesignjob","cutlow"]},{"key":"loop","varc":"--c-amber","name":{"en":"Learn in a Loop","fa":"در یک چرخه یاد بگیر"},"tag":{"en":"Get better every day","fa":"هر روز بهتر شو"},"gist":{"en":"Turn daily work into deliberate practice — small chunks, fast feedback, real growth.","fa":"کارِ روزمره را به تمرینِ هدفمند تبدیل کن — تکه‌های کوچک، بازخوردِ سریع، رشدِ واقعی."},"more":{"en":"Experience alone doesn't make you better; most people plateau. The fix is a learning loop folded into work: practice one small chunk of a skill, get feedback, adjust, repeat — and put your energy into the soft skills, where the biggest gains hide.","fa":"فقط تجربه تو را بهتر نمی‌کند؛ بیشترِ آدم‌ها یک‌جا متوقف می‌مانند. راهِ‌حل، یک چرخهٔ یادگیری است که توی کار جا داده شده: یک تکهٔ کوچک از یک مهارت را تمرین کن، بازخورد بگیر، تنظیم کن، تکرار کن — و انرژی‌ات را بگذار روی مهارت‌های نرم، جایی که بزرگ‌ترین پیشرفت‌ها پنهان‌اند."},"chapters":["loop","chunks","softskills"]},{"key":"psquared","varc":"--c-violet","name":{"en":"Passion + Purpose","fa":"اشتیاق + هدف"},"tag":{"en":"Energy with direction","fa":"انرژی به‌علاوهٔ جهت"},"gist":{"en":"Combine loving what you do with contributing value — passion and purpose together.","fa":"دوست‌داشتنِ کارت را با ساختنِ ارزش ترکیب کن — اشتیاق و هدف، با هم."},"more":{"en":"Energy matters, but the right kind. Match passion — what excites you — with purpose — a contribution that matters to others. Together they multiply your drive and your results. Passion alone, chased blindly, can just as easily burn you out or lead you astray.","fa":"انرژی مهم است، اما نوعِ درستش. اشتیاق — چیزی که به هیجانت می‌آورد — را با هدف — سهمی که برای دیگران ارزش دارد — جفت کن. با هم، هم انگیزه‌ات را چند برابر می‌کنند هم نتیجه‌ات را. اشتیاقِ تنها، اگر کورکورانه دنبالش بروی، به‌همان‌راحتی می‌تواند بسوزاندت یا به بیراهه ببردت."},"chapters":["combine","passionhurts","purpose"]},{"key":"collab","varc":"--c-green","name":{"en":"Collaboration & Influence","fa":"همکاری و نفوذ"},"tag":{"en":"Win people over","fa":"دیگران را همراه کن"},"gist":{"en":"Champion your work, collaborate with discipline, and fight-then-unite in meetings.","fa":"از کارت دفاع کن، حساب‌شده همکاری کن، و توی جلسه‌ها اول جدل کن بعد متحد شو."},"more":{"en":"Great work still has to win people over. Be a forceful champion — inspire people and push with smart grit. But collaborate with discipline: team up only when the prize is big, and run meetings that welcome a real fight and then unite behind the decision.","fa":"کارِ عالی باز هم باید دیگران را با خودش همراه کند. مدافعِ سرسخت باش — آدم‌ها را برانگیز و با پشتکارِ هوشمند جلو برو. اما حساب‌شده همکاری کن: فقط وقتی هم‌تیم شو که جایزه بزرگ است، و جلسه‌هایی بگذار که یک جدلِ واقعی را قدر می‌دانند و بعد پشتِ تصمیم متحد می‌شوند."},"chapters":["champion","inspire","disciplined","fightunite"]}],"chapters":{"doless":{"part":"doless","n":1,"name":{"en":"Do Less","fa":"کمتر کن"},"glabel":{"en":"Do Less","fa":"کمتر"},"principle":{"en":"Pick a very few priorities — as few as you can — and pour your effort only into those.","fa":"خیلی کم اولویت انتخاب کن — هرچه کمتر بهتر — و تلاشت را فقط روی همان‌ها بگذار."},"more":{"en":"The top performers didn't spread themselves across many things; they chose a tiny set that mattered and let the rest go. Doing less isn't laziness — it's choosing where to be great instead of being average everywhere.","fa":"بهترین‌ها خودشان را روی هزار کار پخش نمی‌کردند؛ یک دستهٔ خیلی کوچک از کارهای مهم را انتخاب می‌کردند و بقیه را رها می‌کردند. کمتر کار کردن تنبلی نیست — یعنی انتخاب کنی کجا عالی باشی، به‌جای اینکه همه‌جا معمولی باشی."},"example":{"en":"In Hansen's study, people who focused on a few priorities and did them exceptionally well outperformed those juggling many.","fa":"در پژوهشِ هانسن، آدم‌هایی که روی چند اولویت تمرکز می‌کردند و همان‌ها را عالی انجام می‌دادند، از آن‌هایی که هزار کار را با هم جلو می‌بردند جلو می‌زدند."},"tip":{"en":"List everything on your plate, then circle the two or three that truly matter — and protect them.","fa":"هرچه روی سرت ریخته را فهرست کن، بعد دورِ همان دو‌سه تای واقعاً مهم خط بکش — و ازشان محافظت کن."},"pitfall":{"en":"Saying yes to everything and ending up merely busy, not great.","fa":"به همه‌چیز بله گفتن و آخرش فقط سرت شلوغ می‌شود، نه اینکه عالی شوی."}},"obsess":{"part":"doless","n":2,"name":{"en":"Then Obsess","fa":"بعد وسواس به خرج بده"},"glabel":{"en":"Obsess","fa":"وسواس"},"principle":{"en":"Once you've chosen the few, obsess over them — pour disproportionate effort in until the quality is exceptional.","fa":"وقتی همان چند تا را انتخاب کردی، رویشان وسواس به خرج بده — آن‌قدر تلاشِ بیشتر بریز تا کیفیت فوق‌العاده شود."},"more":{"en":"Focus alone isn't enough; the magic is 'do less, then obsess.' After narrowing down, the best became relentless about quality — refining, checking and improving far past the point where others stopped.","fa":"فقط تمرکز کافی نیست؛ جادو در «کمتر کن، بعد وسواس» است. بعد از کم‌کردن، بهترین‌ها سرِ کیفیت کوتاه نمی‌آمدند — صیقل می‌دادند، وارسی می‌کردند و بهتر می‌کردند، خیلی جلوتر از جایی که بقیه دست می‌کشیدند."},"example":{"en":"The study found focus paid off only when paired with intensity: the highest performers kept refining their few priorities long after others called it 'good enough.'","fa":"پژوهش نشان داد تمرکز فقط وقتی جواب می‌داد که با شدت همراه باشد: بهترین‌ها همان چند اولویتشان را خیلی بعد از اینکه بقیه گفته بودند «همین خوب است» هنوز صیقل می‌دادند."},"tip":{"en":"Take your top priority this week and ask: what would make this not just done, but excellent?","fa":"مهم‌ترین اولویتِ این هفته‌ات را بردار و بپرس: چه‌کار کنم که این کار فقط «انجام‌شده» نباشد، بلکه عالی باشد؟"},"pitfall":{"en":"Narrowing your focus but still settling for 'good enough' on the few things left.","fa":"دایره‌ات را تنگ می‌کنی اما باز هم سرِ همان چند کارِ باقی‌مانده به «خوب است دیگر» رضایت می‌دهی."}},"razor":{"part":"doless","n":3,"name":{"en":"Wield the Razor","fa":"تیغ را بردار"},"glabel":{"en":"The Razor","fa":"تیغ"},"principle":{"en":"Cut hard. Use a razor to slice away the many trivial demands so only the vital few survive.","fa":"بی‌رحم ببُر. با یک تیغ، انبوهِ خواسته‌های کم‌اهمیت را بزن کنار تا فقط همان چند تای حیاتی بماند."},"more":{"en":"Doing less takes active pruning against constant pressure to add more. The best said no to good-but-not-great tasks, pushed back on their bosses, and resisted the complexity trap of piling on.","fa":"کمتر کار کردن یعنی مدام هَرَس کنی، درست زیرِ فشارِ همیشگیِ اضافه‌کردنِ کار. بهترین‌ها به کارهای «خوب اما نه عالی» نه می‌گفتند، جلوی رئیسشان هم می‌ایستادند، و در برابرِ تلهٔ پیچیدگی — یعنی روی‌هم‌تلنبار‌کردنِ کار — مقاومت می‌کردند."},"example":{"en":"When a boss keeps adding tasks, a top performer negotiates: which of these should I drop so this new one gets my best?","fa":"وقتی رئیس مدام کار اضافه می‌کند، آدمِ حرفه‌ای چانه می‌زند: کدامِ این‌ها را کنار بگذارم تا این کارِ جدید بهترینِ من را بگیرد؟"},"tip":{"en":"Before adding anything new, name what you'll remove to make room for it.","fa":"قبل از اینکه چیزِ جدیدی اضافه کنی، بگو چه چیزی را برمی‌داری تا جا برایش باز شود."},"pitfall":{"en":"Letting other people's priorities quietly fill your whole day.","fa":"می‌گذاری اولویت‌های بقیه بی‌سروصدا کلِ روزت را پر کنند."}},"value":{"part":"redesign","n":4,"name":{"en":"Value, Not Activity","fa":"ارزش، نه شلوغی"},"glabel":{"en":"Value","fa":"ارزش"},"principle":{"en":"Judge your work by the value it creates for others — not by hours logged or how busy you feel.","fa":"کارت را با ارزشی که برای دیگران می‌سازد بسنج — نه با ساعت‌هایی که گذاشته‌ای یا اینکه چقدر سرت شلوغ است."},"more":{"en":"Value means how much others benefit from your work, at a quality they care about. Effort and hours are inputs; value is the output. A busy day that helps no one is worth little — a focused hour that helps a lot is worth much.","fa":"ارزش یعنی دیگران چقدر از کارِ تو سود می‌برند، با کیفیتی که برایشان مهم است. تلاش و ساعت، ورودی‌اند؛ ارزش، خروجی است. یک روزِ شلوغ که به هیچ‌کس کمک نمی‌کند کم‌ارزش است — یک ساعتِ متمرکز که خیلی کمک می‌کند، پرارزش."},"example":{"en":"Two people work the same hours; the one whose output others actually use and rely on creates more value — and that's what the study rewarded.","fa":"دو نفر ساعت‌های برابری کار می‌کنند؛ آن‌که خروجی‌اش را دیگران واقعاً استفاده می‌کنند و به آن تکیه دارند، ارزشِ بیشتری می‌سازد — و پژوهش هم همین را پاداش می‌داد."},"tip":{"en":"Ask of any task: who benefits from this, and how much do they really care?","fa":"از هر کاری بپرس: چه کسی از این سود می‌برد، و واقعاً چقدر برایش مهم است؟"},"pitfall":{"en":"Measuring yourself by busyness and hours instead of the good your work does.","fa":"خودت را با شلوغی و ساعت می‌سنجی، نه با خیری که کارت می‌رساند."}},"redesignjob":{"part":"redesign","n":5,"name":{"en":"Redesign the Job","fa":"خودِ کار را از نو بچین"},"glabel":{"en":"Redesign","fa":"بازطراحی"},"principle":{"en":"Don't just do the job as handed to you — rethink it so it produces far more value.","fa":"کار را همان‌طور که به دستت داده‌اند فقط انجام نده — طوری از نو فکرش کن که ارزشِ خیلی بیشتری بسازد."},"more":{"en":"Most people accept their tasks as fixed. Top performers ask whether the work itself should change: which parts create real value, which are wasted, and what a better version of this job would look like.","fa":"بیشترِ آدم‌ها کارهایشان را ثابت فرض می‌کنند. بهترین‌ها می‌پرسند خودِ کار باید عوض شود یا نه: کدام بخش‌ها واقعاً ارزش می‌سازند، کدام‌ها هدر می‌روند، و یک نسخهٔ بهترِ این کار چه شکلی است."},"example":{"en":"A hotel housekeeper who reimagines her role around delighting guests — not just cleaning rooms — creates value no checklist asked for.","fa":"خدمتکارِ هتلی که نقشش را دورِ خوشحال‌کردنِ مهمان‌ها از نو تعریف می‌کند — نه فقط تمیزکردنِ اتاق — ارزشی می‌سازد که هیچ چک‌لیستی ازش نخواسته بود."},"tip":{"en":"Pick one routine task and redesign it: cut the low-value steps, amplify the high-value ones.","fa":"یک کارِ روتین را انتخاب کن و از نو بچینش: قدم‌های کم‌ارزش را حذف کن، پرارزش‌ها را پررنگ‌تر کن."},"pitfall":{"en":"Doing an inherited process faster instead of asking if it should exist at all.","fa":"یک روالِ ارث‌رسیده را فقط تندتر انجام می‌دهی، به‌جای اینکه بپرسی اصلاً باید باشد یا نه."}},"cutlow":{"part":"redesign","n":6,"name":{"en":"Cut Low-Value Work","fa":"کارِ کم‌ارزش را بزن کنار"},"glabel":{"en":"Cut Waste","fa":"حذفِ هدر"},"principle":{"en":"Find the tasks that produce little value and stop doing them — free that time for what matters.","fa":"کارهایی را که ارزشِ کمی می‌سازند پیدا کن و بس کن — آن وقت را برای چیزی که مهم است آزاد کن."},"more":{"en":"A lot of work is habit, not value: reports no one reads, meetings that decide nothing, steps kept 'because we always have.' Cutting them isn't neglect — it's how you make room to obsess over the few things that count.","fa":"خیلی از کارها عادت‌اند، نه ارزش: گزارش‌هایی که کسی نمی‌خواند، جلسه‌هایی که هیچ تصمیمی نمی‌گیرند، قدم‌هایی که فقط «چون همیشه بوده» مانده‌اند. حذفشان بی‌مسئولیتی نیست — این‌طوری جا باز می‌کنی که روی همان چند کارِ مهم وسواس به خرج بدهی."},"example":{"en":"Kill the weekly report nobody uses, and spend that hour on the project that actually moves the needle.","fa":"همان گزارشِ هفتگی‌ای که کسی استفاده‌اش نمی‌کند را بکُش، و آن یک ساعت را بگذار روی پروژه‌ای که واقعاً فرق ایجاد می‌کند."},"tip":{"en":"This week, find one recurring task with low value and stop it — see if anyone notices.","fa":"این هفته یک کارِ تکراریِ کم‌ارزش پیدا کن و متوقفش کن — ببین اصلاً کسی متوجه می‌شود."},"pitfall":{"en":"Keeping busywork alive out of habit or fear that cutting it looks lazy.","fa":"کارِ بی‌فایده را از سرِ عادت یا از ترسِ اینکه حذفش تنبلی به‌نظر برسد، زنده نگه می‌داری."}},"loop":{"part":"loop","n":7,"name":{"en":"The Learning Loop","fa":"چرخهٔ یادگیری"},"glabel":{"en":"The Loop","fa":"چرخه"},"principle":{"en":"Build a loop into your work: do a small piece, get feedback, tweak, and go again.","fa":"یک چرخه توی کارت بگذار: یک تکهٔ کوچک انجام بده، بازخورد بگیر، اصلاحش کن، و دوباره برو."},"more":{"en":"You don't get better just by doing your job for years — many people plateau. Growth comes from deliberate practice: a tight cycle of trying, measuring the result, and adjusting, folded into everyday work.","fa":"با سال‌ها انجام‌دادنِ یک کار، خودبه‌خود بهتر نمی‌شوی — خیلی‌ها همان‌جا متوقف می‌مانند. رشد از تمرینِ هدفمند می‌آید: یک چرخهٔ فشرده از امتحان‌کردن، سنجیدنِ نتیجه، و تنظیم‌کردن، که توی کارِ روزمره جا داده شده."},"example":{"en":"A salesperson who reviews each call — what worked, what didn't — and changes one thing for the next call is running a learning loop.","fa":"فروشنده‌ای که هر تماس را مرور می‌کند — چه چیزی جواب داد، چه چیزی نه — و برای تماسِ بعدی یک چیز را عوض می‌کند، دارد یک چرخهٔ یادگیری را اجرا می‌کند."},"tip":{"en":"After your next task, spend two minutes on: what will I do differently next time?","fa":"بعد از کارِ بعدی‌ات، دو دقیقه بگذار روی این: دفعهٔ بعد چه چیزی را جور دیگری انجام می‌دهم؟"},"pitfall":{"en":"Repeating the same year of experience over and over and calling it growth.","fa":"یک سالِ تجربه را بارها و بارها تکرار می‌کنی و اسمش را رشد می‌گذاری."}},"chunks":{"part":"loop","n":8,"name":{"en":"Practice Small Chunks","fa":"تکه‌های کوچک تمرین کن"},"glabel":{"en":"Chunks","fa":"تکه‌ها"},"principle":{"en":"Break a skill into tiny pieces and work on one at a time — not the whole thing at once.","fa":"یک مهارت را به تکه‌های ریز بشکن و هر بار روی یکی کار کن — نه اینکه یک‌دفعه سراغِ کلش بروی."},"more":{"en":"Improvement is easier when it's small and specific. Isolate one micro-behavior — the opening line of a pitch, the way you run a check-in — practice just that, get feedback, then move to the next chunk. Fifteen focused minutes beats hours of vague effort.","fa":"بهتر‌شدن وقتی کوچک و مشخص باشد راحت‌تر است. یک رفتارِ ریز را جدا کن — جملهٔ اولِ یک ارائه، شیوهٔ اداره‌کردنِ یک جلسهٔ کوتاه — فقط همان را تمرین کن، بازخورد بگیر، بعد برو سراغِ تکهٔ بعدی. پانزده دقیقهٔ متمرکز از ساعت‌ها تلاشِ مبهم بهتر است."},"example":{"en":"Instead of 'get better at presenting,' practice just your first thirty seconds until they're sharp.","fa":"به‌جای «توی ارائه بهتر شوم»، فقط همان سی ثانیهٔ اول را تمرین کن تا تیز شود."},"tip":{"en":"Choose one small skill to sharpen this week and practice it in short, daily reps.","fa":"این هفته یک مهارتِ کوچک را برای تیزکردن انتخاب کن و در تکرارهای کوتاهِ روزانه تمرینش کن."},"pitfall":{"en":"Trying to improve everything at once, so nothing actually changes.","fa":"می‌خواهی یک‌دفعه همه‌چیز را بهتر کنی، آخرش هیچ‌چیز واقعاً عوض نمی‌شود."}},"softskills":{"part":"loop","n":9,"name":{"en":"Tackle the Soft Skills","fa":"سراغِ مهارت‌های نرم برو"},"glabel":{"en":"Soft Skills","fa":"مهارتِ نرم"},"principle":{"en":"The hardest and most valuable things to improve are the soft skills — and don't forget to unlearn what's stale.","fa":"سخت‌ترین و پرارزش‌ترین چیزها برای بهتر‌کردن، همان مهارت‌های نرم‌اند — و یادت نرود چیزهای کهنه را هم از یاد ببری."},"more":{"en":"It's easy to keep drilling technical skills; it's harder — and often more rewarding — to get better at feedback, listening, collaboration and handling conflict. Also unlearn: drop habits and beliefs that used to work but now hold you back.","fa":"کارِ راحت این است که مدام مهارت‌های فنی را تمرین کنی؛ کارِ سخت‌تر — و اغلب باارزش‌تر — این است که در بازخورد‌دادن، گوش‌دادن، همکاری و کنار‌آمدن با تعارض بهتر شوی. یک کارِ دیگر هم هست: از یاد ببر — عادت‌ها و باورهایی را که زمانی جواب می‌دادند اما حالا پایت را می‌گیرند، کنار بگذار."},"example":{"en":"An engineer who's technically strong grows most by learning to give hard feedback well — the skill no course taught.","fa":"مهندسی که از نظرِ فنی قوی است، بیشترین رشدش وقتی است که یاد بگیرد بازخوردِ سخت را خوب بدهد — همان مهارتی که هیچ درسی یادش نداده بود."},"tip":{"en":"Name one soft skill that would change your results, and start a loop on it.","fa":"یک مهارتِ نرم را نام ببر که نتیجه‌هایت را عوض می‌کند، و یک چرخه رویش شروع کن."},"pitfall":{"en":"Polishing skills you already have while dodging the awkward human ones.","fa":"مهارت‌هایی را که همین حالا داری صیقل می‌دهی و از مهارت‌های آدم‌محورِ سخت طفره می‌روی."}},"combine":{"part":"psquared","n":10,"name":{"en":"Passion Meets Purpose","fa":"اشتیاق به هدف می‌رسد"},"glabel":{"en":"P + P","fa":"اشتیاق+هدف"},"principle":{"en":"Top performance comes from pairing passion (what energizes you) with purpose (a contribution that matters).","fa":"بهترین کارکرد وقتی می‌آید که اشتیاق (چیزی که به تو انرژی می‌دهد) را با هدف (سهمی که ارزش دارد) جفت کنی."},"more":{"en":"Passion is the fuel; purpose is the direction. Hansen calls it P-squared: people who both love what they do and feel they're contributing real value bring far more energy — and get far better results — than people with only one of the two.","fa":"اشتیاق سوخت است؛ هدف جهت. هانسن اسمش را می‌گذارد پی‌به‌توانِ‌دو: آدم‌هایی که هم کارشان را دوست دارند و هم حس می‌کنند دارند ارزشی واقعی می‌سازند، انرژیِ خیلی بیشتری می‌آورند — و نتیجهٔ خیلی بهتری می‌گیرند — از کسانی که فقط یکی از این دو را دارند."},"example":{"en":"A nurse who loves the craft and believes she's easing real suffering has both — and outworks someone running on passion alone.","fa":"پرستاری که هم کارش را دوست دارد و هم باور دارد دارد از یک رنجِ واقعی کم می‌کند، هر دو را دارد — و از کسی که فقط با اشتیاق پیش می‌رود جلو می‌زند."},"tip":{"en":"For your role, write one line on what energizes you and one on who you're really helping.","fa":"برای نقشت، یک خط بنویس که چه چیزی به تو انرژی می‌دهد و یک خط که واقعاً داری به چه کسی کمک می‌کنی."},"pitfall":{"en":"Chasing a job you love that helps no one — or a worthy job that drains you.","fa":"دنبالِ کاری می‌روی که دوستش داری اما به کسی کمک نمی‌کند — یا کاری ارزشمند که تو را می‌فرساید."}},"passionhurts":{"part":"psquared","n":11,"name":{"en":"Passion Alone Can Hurt","fa":"اشتیاقِ تنها می‌تواند ضرر بزند"},"glabel":{"en":"Careful","fa":"احتیاط"},"principle":{"en":"'Follow your passion' is risky by itself — without purpose or judgment it can burn you out or mislead you.","fa":"«دنبالِ اشتیاقت برو» به‌تنهایی خطرناک است — بدونِ هدف یا عقل، می‌تواند تو را بسوزاند یا به بیراهه ببرد."},"more":{"en":"Passion feels good, but chased blindly it leads people to over-invest in things that don't pay off, take reckless risks, or work themselves to exhaustion. Follow passion wisely: aim it at real value, and keep it in check.","fa":"اشتیاق حسِ خوبی دارد، اما اگر کورکورانه دنبالش بروی، آدم‌ها را می‌کشاند به این‌که روی چیزهایی که جواب نمی‌دهند بیش‌ازحد سرمایه‌گذاری کنند، ریسک‌های بی‌گدار بکنند، یا خودشان را تا مرزِ فرسودگی کار بکشند. عاقلانه دنبالِ اشتیاق برو: به‌سمتِ ارزشِ واقعی نشانه‌اش بگیر، و مهارش کن."},"example":{"en":"Someone passionate about a pet project can pour months into it while the work that actually matters slips.","fa":"کسی که عاشقِ یک پروژهٔ دلخواه است، ممکن است ماه‌ها رویش بریزد درحالی‌که کاری که واقعاً مهم است از دستش در می‌رود."},"tip":{"en":"Before you go all-in on something you love, check that it creates value others need.","fa":"قبل از اینکه با تمامِ وجود بروی سراغِ چیزی که دوستش داری، مطمئن شو ارزشی می‌سازد که دیگران به آن نیاز دارند."},"pitfall":{"en":"Treating passion as a free pass and ignoring whether the work pays off.","fa":"اشتیاق را یک مجوزِ بی‌قید‌وشرط می‌گیری و به این‌که کار جواب می‌دهد یا نه بی‌اعتنایی."}},"purpose":{"part":"psquared","n":12,"name":{"en":"Find Your Purpose","fa":"هدفت را پیدا کن"},"glabel":{"en":"Purpose","fa":"هدف"},"principle":{"en":"Purpose is the value you add to others and the world — not just meaning you take for yourself.","fa":"هدف یعنی ارزشی که به دیگران و به دنیا اضافه می‌کنی — نه فقط معنایی که برای خودت برمی‌داری."},"more":{"en":"You don't have to save the world; purpose can be as ordinary as making a customer's day easier or a teammate's job better. The question is whether your work contributes something beyond you — that's what turns effort into meaning.","fa":"لازم نیست دنیا را نجات بدهی؛ هدف می‌تواند به‌سادگیِ راحت‌ترکردنِ روزِ یک مشتری یا بهترکردنِ کارِ یک هم‌تیمی باشد. سؤال این است که کارت چیزی فراتر از خودت می‌افزاید یا نه — همین است که تلاش را به معنا تبدیل می‌کند."},"example":{"en":"A support rep who sees her job as 'rescuing frustrated people,' not 'closing tickets,' has found a purpose that lifts her work.","fa":"کارشناسِ پشتیبانی‌ای که کارش را «نجاتِ آدم‌های کلافه» می‌بیند، نه «بستنِ تیکت»، هدفی پیدا کرده که کارش را بالا می‌کشد."},"tip":{"en":"Rewrite your job description in one line about who you help and how.","fa":"شرحِ شغلت را در یک خط بازنویسی کن، دربارهٔ اینکه به چه کسی و چطور کمک می‌کنی."},"pitfall":{"en":"Waiting for a grand mission instead of finding purpose in the work in front of you.","fa":"منتظرِ یک رسالتِ بزرگ می‌مانی به‌جای اینکه هدف را در همین کارِ جلوی رویت پیدا کنی."}},"champion":{"part":"collab","n":13,"name":{"en":"Be a Forceful Champion","fa":"مدافعِ سرسختِ کارت باش"},"glabel":{"en":"Champion","fa":"مدافع"},"principle":{"en":"To get your work adopted, champion it forcefully — win people over instead of just doing good work quietly.","fa":"برای اینکه کارت پذیرفته شود، سرسختانه ازش دفاع کن — دیگران را همراهِ خودت کن، نه اینکه فقط بی‌سروصدا خوب کار کنی."},"more":{"en":"Good work doesn't sell itself. Top performers push their ideas through resistance by doing two things at once: inspiring people to care, and applying smart, persistent effort to overcome the inevitable pushback.","fa":"کارِ خوب خودش خودش را نمی‌فروشد. بهترین‌ها ایده‌هایشان را از میانِ مقاومت جلو می‌برند، با انجامِ هم‌زمانِ دو کار: هم دیگران را به اهمیت‌دادن برمی‌انگیزند، و هم با تلاشِ هوشمند و پیگیر بر مخالفتِ ناگزیر غلبه می‌کنند."},"example":{"en":"Two people have the same good idea; the one who rallies support and keeps pushing gets it built — the quiet one is ignored.","fa":"دو نفر یک ایدهٔ خوبِ یکسان دارند؛ آن‌که حمایت جمع می‌کند و پیگیری را ول نمی‌کند، ایده‌اش را می‌سازد — آن‌که ساکت است نادیده گرفته می‌شود."},"tip":{"en":"For an idea you believe in, line up who you need to convince — and start winning them over.","fa":"برای ایده‌ای که بهش باور داری، فهرست کن چه کسانی را باید قانع کنی — و شروع کن به همراه‌کردنشان."},"pitfall":{"en":"Assuming your results speak for themselves while someone louder gets the backing.","fa":"خیال می‌کنی نتیجه‌هایت خودشان حرف می‌زنند، درحالی‌که یک نفرِ پرسروصداتر حمایت را می‌برد."}},"inspire":{"part":"collab","n":14,"name":{"en":"Move People, Not Just Facts","fa":"آدم‌ها را تکان بده، نه فقط با آمار"},"glabel":{"en":"Inspire","fa":"انگیزش"},"principle":{"en":"People back what moves them, not what's merely logical — connect your work to what they care about.","fa":"آدم‌ها از چیزی حمایت می‌کنند که تکانشان می‌دهد، نه چیزی که فقط منطقی است — کارت را به چیزی که برایشان مهم است وصل کن."},"more":{"en":"We try to win support with more data, more slides, more emails — and people tune out. The best evoke emotion instead: they tell a vivid story, show why it matters, and make people feel the stakes, not just see the numbers.","fa":"ما سعی می‌کنیم با آمارِ بیشتر، اسلایدِ بیشتر، ایمیلِ بیشتر حمایت جمع کنیم — و آدم‌ها گوششان را می‌بندند. بهترین‌ها به‌جایش احساس را بیدار می‌کنند: یک داستانِ زنده می‌گویند، نشان می‌دهند چرا مهم است، و کاری می‌کنند آدم‌ها اهمیتِ ماجرا را حس کنند، نه فقط عددها را ببینند."},"example":{"en":"A pitch that opens with one real customer's frustration lands harder than ten slides of statistics.","fa":"ارائه‌ای که با کلافگیِ یک مشتریِ واقعی شروع می‌شود، بیشتر از ده اسلاید آمار می‌نشیند."},"tip":{"en":"Add one concrete story or human stake to your next proposal, before any chart.","fa":"به پیشنهادِ بعدی‌ات یک داستانِ ملموس یا یک نفعِ انسانی اضافه کن، قبل از هر نمودار."},"pitfall":{"en":"Hammering the same logical argument harder when people aren't listening.","fa":"وقتی کسی گوش نمی‌دهد، همان استدلالِ منطقی را محکم‌تر می‌کوبی."}},"disciplined":{"part":"collab","n":15,"name":{"en":"Disciplined Collaboration","fa":"همکاریِ حساب‌شده"},"glabel":{"en":"Collaborate","fa":"همکاری"},"principle":{"en":"Collaborate only when the prize is big — say no to teamwork that isn't worth it.","fa":"فقط وقتی همکاری کن که جایزه‌اش بزرگ باشد — به هم‌کاری‌ای که نمی‌ارزد نه بگو."},"more":{"en":"There are two sins: too little collaboration (siloed, reinventing the wheel) and too much (endless meetings, diluted effort). Disciplined collaboration means choosing: join only the projects where working together clearly creates more value than working alone.","fa":"دو گناه هست: همکاریِ خیلی کم (جزیره‌ای، اختراعِ دوبارهٔ چرخ) و همکاریِ خیلی زیاد (جلسه‌های بی‌پایان، تلاشِ رقیق‌شده). همکاریِ حساب‌شده یعنی انتخاب کنی: فقط واردِ پروژه‌هایی شو که با هم کارکردن آشکارا ارزشِ بیشتری از تنها کارکردن می‌سازد."},"example":{"en":"Turning down a cross-team task force that would eat your week for a tiny payoff is disciplined, not uncooperative.","fa":"ردکردنِ یک کارگروهِ بین‌تیمی که یک هفته‌ات را می‌خورد برای یک دستاوردِ ناچیز، حساب‌شده است، نه ناهمکاری."},"tip":{"en":"Before joining a collaboration, ask: is the prize here big enough to justify the time?","fa":"قبل از پیوستن به یک همکاری بپرس: جایزهٔ اینجا آن‌قدر بزرگ هست که وقتش را توجیه کند؟"},"pitfall":{"en":"Collaborating for its own sake until your calendar has no room to do the work.","fa":"همکاری می‌کنی فقط به‌خاطرِ خودِ همکاری، تا جایی که تقویمت دیگر جا برای کارکردن ندارد."}},"fightunite":{"part":"collab","n":16,"name":{"en":"Fight and Unite","fa":"جدل کن، بعد متحد شو"},"glabel":{"en":"Fight & Unite","fa":"جدل و اتحاد"},"principle":{"en":"Run team meetings that welcome real debate — then, once decided, everyone commits fully.","fa":"جلسه‌های تیمی‌ای بگذار که جدلِ واقعی را قدر بدانند — بعد که تصمیم گرفته شد، همه کامل پایش بایستند."},"more":{"en":"The best teams argue hard to surface the truth: they invite dissent, poke holes, and let the strongest idea win — not the loudest voice. But the fight ends at the decision; then they unite behind it and act as one, instead of relitigating in the hallway.","fa":"بهترین تیم‌ها سختْ جدل می‌کنند تا حقیقت بیرون بیاید: مخالفت را دعوت می‌کنند، به ایده‌ها ایراد می‌گیرند، و می‌گذارند قوی‌ترین ایده ببرد — نه بلندترین صدا. اما جدل سرِ تصمیم تمام می‌شود؛ بعد همه پشتش متحد می‌شوند و مثلِ یک تن عمل می‌کنند، نه اینکه توی راهرو دوباره سرش دعوا کنند."},"example":{"en":"A team that debates a plan openly, then leaves the room speaking with one voice, beats one that nods in the meeting and grumbles after.","fa":"تیمی که سرِ یک برنامه رو‌راست بحث می‌کند و بعد با یک صدا از اتاق بیرون می‌آید، از تیمی که توی جلسه سر تکان می‌دهد و بیرون غر می‌زند بهتر است."},"tip":{"en":"In your next meeting, actively invite the strongest objection — then ask for commitment.","fa":"توی جلسهٔ بعدی‌ات، فعالانه قوی‌ترین مخالفت را دعوت کن — بعد از همه تعهد بخواه."},"pitfall":{"en":"Fake harmony in the room that turns into second-guessing outside it.","fa":"توافقِ ظاهری توی اتاق که بیرونش به زیرِ‌سؤال‌بردن تبدیل می‌شود."}}},"core":{"name":{"en":"WORK SMARTER","fa":"هوشمندانه کار کن"},"principle":{"en":"Top performers aren't the ones who work the most hours — they work smart. They do less but obsess over quality, redesign their work around the value it creates for others, learn in tight feedback loops, match passion with purpose, and collaborate with discipline while championing their ideas. Seven practices, one idea: maximize value, not effort.","fa":"بهترین‌ها آن‌هایی نیستند که بیشترین ساعت را کار می‌کنند — هوشمندانه کار می‌کنند. کمتر می‌کنند اما روی کیفیت وسواس دارند، کارشان را دورِ ارزشی که برای دیگران می‌سازد از نو می‌چینند، در چرخه‌های کوتاهِ بازخورد یاد می‌گیرند، اشتیاق را با هدف جفت می‌کنند، و با نظم همکاری می‌کنند و درعین‌حال از ایده‌هایشان دفاع می‌کنند. هفت تمرین، یک ایده: ارزش را بیشینه کن، نه تلاش را."},"more":{"en":"Hansen groups the findings of a five-year study of 5,000 people into seven 'work smart' practices, shown here as five parts: Do Less, Then Obsess; Redesign Your Work around value; Learn in a Loop; combine Passion and Purpose; and Collaborate and influence with discipline. Together, these practices explained about two-thirds of the difference between top and average performers — far more than talent, effort or luck.","fa":"هانسن یافته‌های یک پژوهشِ پنج‌ساله روی ۵٬۰۰۰ نفر را در هفت تمرینِ «کارِ هوشمندانه» می‌چیند، که اینجا در پنج بخش نشان داده شده: کمتر کن، بعد وسواس؛ کارت را دورِ ارزش از نو طراحی کن؛ در یک چرخه یاد بگیر؛ اشتیاق و هدف را ترکیب کن؛ و با نظم همکاری کن و نفوذ بگذار. این تمرین‌ها با هم، حدودِ دو‌سومِ تفاوتِ میانِ بهترین‌ها و آدم‌های معمولی را توضیح می‌دادند — خیلی بیشتر از استعداد، تلاش، یا شانس."},"example":{"en":"Click any node to read a practice or a method. You can also drag the nodes around.","fa":"روی هر دایره کلیک کن تا یک تمرین یا روش را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."}},"stages":[{"level":1,"badge":{"en":"Level 1 · Over-simplified","fa":"سطحِ ۱ · خیلی ساده"},"title":{"en":"Work smart, not just hard","fa":"هوشمندانه کار کن، نه فقط سخت"},"tagline":{"en":"The whole book in a sentence.","fa":"کلِ کتاب در یک جمله."},"body":{"en":"Great performance isn't about more hours or raw talent. It's about how you work. Do less, but obsess over doing it exceptionally well.","fa":"کارکردِ عالی به ساعتِ بیشتر یا استعدادِ خام نیست. به این است که چطور کار می‌کنی. کمتر کن، اما وسواس داشته باش که همان را عالی انجام بدهی."},"example":{"en":"Two people, same job, same hours — the one who focused on a few things done brilliantly wins.","fa":"دو نفر، یک کار، ساعت‌های برابر — آن‌که روی چند چیزِ عالی‌انجام‌شده تمرکز کرد می‌برد."},"gain":{"en":"You hold the single idea the whole book expands on.","fa":"همان یک ایده‌ای را داری که کلِ کتاب بسطش می‌دهد."}},{"level":2,"badge":{"en":"Level 2 · Simple","fa":"سطحِ ۲ · ساده"},"title":{"en":"Do less, then obsess","fa":"کمتر کن، بعد وسواس"},"tagline":{"en":"Focus on a few things, then go deep.","fa":"روی چند چیز تمرکز کن، بعد عمیق شو."},"body":{"en":"Pick a very few priorities — as few as you can — and cut the rest with a razor. Then obsess: pour disproportionate effort in until the quality is exceptional. Focus and intensity, together.","fa":"خیلی کم اولویت انتخاب کن — هرچه کمتر بهتر — و بقیه را با یک تیغ ببُر. بعد وسواس به خرج بده: آن‌قدر تلاشِ بیشتر بریز تا کیفیت فوق‌العاده شود. تمرکز و شدت، با هم."},"example":{"en":"Say no to a dozen good-enough tasks so two truly matter — and make those flawless.","fa":"به ده‌ها کارِ «بد‌نیست» نه بگو تا دو تا واقعاً مهم شوند — و همان دو را بی‌نقص کن."},"gain":{"en":"You can turn a scattered week into a focused, high-quality one.","fa":"می‌توانی یک هفتهٔ پخش‌وپلا را به یک هفتهٔ متمرکز و باکیفیت تبدیل کنی."}},{"level":3,"badge":{"en":"Level 3 · Balanced","fa":"سطحِ ۳ · متعادل"},"title":{"en":"Redesign and learn","fa":"از نو طراحی کن و یاد بگیر"},"tagline":{"en":"Aim at value; get better every day.","fa":"به ارزش نشانه بگیر؛ هر روز بهتر شو."},"body":{"en":"Now shift from effort to value: measure your work by how much others benefit, <b>redesign</b> it to create more, and <b>cut low-value tasks</b>. And stop plateauing — build a <b>learning loop</b>: practice small chunks, get feedback, and tackle the soft skills.","fa":"حالا از تلاش به ارزش برو: کارت را با اینکه دیگران چقدر سود می‌برند بسنج، <b>از نو طراحی‌اش کن</b> تا ارزشِ بیشتری بسازد، و <b>کارهای کم‌ارزش را حذف کن</b>. و از توقف در بیا — یک <b>چرخهٔ یادگیری</b> بساز: تکه‌های کوچک تمرین کن، بازخورد بگیر، و سراغِ مهارت‌های نرم برو."},"example":{"en":"Kill a report nobody reads; use that hour to practice the one skill holding you back.","fa":"یک گزارش که کسی نمی‌خواندش را بکُش؛ آن یک ساعت را بگذار برای تمرینِ همان مهارتی که پایت را گرفته."},"gain":{"en":"Your effort starts turning into real value — and steady growth.","fa":"تلاشت کم‌کم به ارزشِ واقعی — و رشدِ پیوسته — تبدیل می‌شود."}},{"level":4,"badge":{"en":"Level 4 · Advanced","fa":"سطحِ ۴ · پیشرفته"},"title":{"en":"Passion with purpose","fa":"اشتیاق همراهِ هدف"},"tagline":{"en":"Energy in the right direction.","fa":"انرژی در جهتِ درست."},"body":{"en":"Fuel matters, but aimed well. Combine <b>passion</b> — what energizes you — with <b>purpose</b> — a contribution that matters to others. Together they multiply drive and results. But follow passion wisely: chased blindly, it can burn you out or lead you astray.","fa":"سوخت مهم است، اما درست نشانه‌رفته. <b>اشتیاق</b> — چیزی که به تو انرژی می‌دهد — را با <b>هدف</b> — سهمی که برای دیگران ارزش دارد — ترکیب کن. با هم، انگیزه و نتیجه را چند برابر می‌کنند. اما عاقلانه دنبالِ اشتیاق برو: کورکورانه که دنبالش بروی، می‌تواند بسوزاندت یا به بیراهه ببردت."},"example":{"en":"A nurse who loves the craft and believes she eases real suffering outworks one running on passion alone.","fa":"پرستاری که هم کارش را دوست دارد و هم باور دارد از یک رنجِ واقعی کم می‌کند، از کسی که فقط با اشتیاق پیش می‌رود پرکارتر است."},"gain":{"en":"You bring energy that lasts, pointed where it creates value.","fa":"انرژی‌ای می‌آوری که دوام دارد و به جایی نشانه رفته که ارزش می‌سازد."}},{"level":5,"badge":{"en":"Level 5 · Expert","fa":"سطحِ ۵ · حرفه‌ای"},"title":{"en":"Influence and collaborate","fa":"نفوذ کن و همکاری کن"},"tagline":{"en":"Champion, collaborate with discipline, fight and unite.","fa":"دفاع کن، حساب‌شده همکاری کن، جدل کن و متحد شو."},"body":{"en":"The expert puts it all together and wins others over. Be a <b>forceful champion</b> — inspire people and push with smart grit. <b>Collaborate with discipline</b>: team up only when the prize is big. And run meetings that <b>fight and unite</b> — real debate, then full commitment. Seven practices, one habit: maximize value, not effort.","fa":"آدمِ حرفه‌ای همهٔ این‌ها را کنارِ هم می‌گذارد و دیگران را همراهِ خودش می‌کند. <b>مدافعِ سرسخت</b> باش — آدم‌ها را برانگیز و با پشتکارِ هوشمند جلو برو. <b>حساب‌شده همکاری کن</b>: فقط وقتی هم‌تیم شو که جایزه بزرگ است. و جلسه‌هایی بگذار که <b>جدل و اتحاد</b> دارند — بحثِ واقعی، بعد تعهدِ کامل. هفت تمرین، یک عادت: ارزش را بیشینه کن، نه تلاش را."},"example":{"en":"You champion your ideas, say no to low-value meetings, and lead debates that end in one clear decision.","fa":"از ایده‌هایت دفاع می‌کنی، به جلسه‌های کم‌ارزش نه می‌گویی، و بحث‌هایی را رهبری می‌کنی که به یک تصمیمِ روشن ختم می‌شوند."},"gain":{"en":"You can perform at the top and lift the people around you.","fa":"می‌توانی در سطحِ بالا کار کنی و آدم‌های دورت را هم بالا بکشی."}}],"quotes":[{"en":"To work smart means to maximize the value of your work by selecting a few activities and applying intense targeted effort.","fa":"کارِ هوشمندانه یعنی ارزشِ کارت را بیشینه کنی، با انتخابِ چند فعالیت و گذاشتنِ تلاشِ شدید و هدف‌دار روی همان‌ها."},{"en":"Whenever they could, top performers carefully selected which priorities, tasks, collaborations, team meetings, committees, analyses, customers, new ideas, steps in a process, and interactions to undertake, and which to neglect or reject.","fa":"بهترین‌ها هر جا می‌توانستند، با دقت انتخاب می‌کردند کدام اولویت‌ها، کارها، همکاری‌ها، جلسه‌های تیمی، کمیته‌ها، تحلیل‌ها، مشتری‌ها، ایده‌های نو، قدم‌های یک فرایند و تعامل‌ها را انجام بدهند، و کدام را کنار بگذارند یا رد کنند."},{"en":"Variation—trying new ideas—is essential to learning.","fa":"تنوع — امتحان‌کردنِ ایده‌های نو — برای یادگیری ضروری است."},{"en":"small changes in behaviors can have a disproportionate effect on outcomes.","fa":"تغییرهای کوچک در رفتار می‌توانند اثری نامتناسب و بزرگ روی نتیجه‌ها بگذارند."},{"en":"Avoid colleagues who sap your energy.","fa":"از همکارهایی که انرژی‌ات را می‌مکند دوری کن."},{"en":"In 2011, I launched one of the most comprehensive research projects ever undertaken on individual performance at work.","fa":"در سالِ ۲۰۱۱، یکی از جامع‌ترین پروژه‌های پژوهشیِ تاریخ دربارهٔ کارکردِ فردی در کار را راه انداختم."}],"media":[{"kind":"yt","id":"h27zMWAeHdg","src":{"en":"YouTube · Bregman Leadership Podcast","fa":"یوتیوب · پادکستِ رهبریِ برگمن"},"title":{"en":"Morten Hansen on Great at Work","fa":"مورتن هانسن دربارهٔ عالی در کار"},"desc":{"en":"The author unpacks the seven practices in a focused interview.","fa":"نویسنده در یک گفت‌وگوی متمرکز، هفت تمرین را باز می‌کند."},"bullets":{"en":["The seven work-smart practices","Do less, then obsess, explained","Straight from the author"],"fa":["هفت تمرینِ کارِ هوشمندانه","«کمتر کن، بعد وسواس»، به زبانِ ساده","مستقیم از خودِ نویسنده"]},"best":{"en":"Best for Stage 1–3.","fa":"خوب برای مرحلهٔ ۱ تا ۳."}},{"kind":"yt","id":"S3-Qk0ffyxw","src":{"en":"YouTube · Google Play Books","fa":"یوتیوب · گوگل پلی بوکس"},"title":{"en":"Great at Work — Audiobook Preview","fa":"عالی در کار — پیش‌نمایشِ کتابِ صوتی"},"desc":{"en":"An audiobook preview in the book’s own words.","fa":"پیش‌نمایشِ کتابِ صوتی، با کلماتِ خودِ کتاب."},"bullets":{"en":["Hear the introduction and setup","The core argument up front","A quick audio taste"],"fa":["مقدمه و زمینه‌چینی را بشنو","ایدهٔ اصلی، همان اول","یک مزهٔ صوتیِ سریع"]},"best":{"en":"For a taste of the book.","fa":"برای یک مزهٔ کتاب."}},{"kind":"img","url":"https://www.simonandschuster.com/books/Great-at-Work/Morten-T-Hansen/9781476765822","src":{"en":"Simon & Schuster · Publisher","fa":"Simon & Schuster · ناشر"},"title":{"en":"Great at Work — Publisher Page","fa":"عالی در کار — صفحهٔ ناشر"},"desc":{"en":"The publisher page for the book, with editions and details.","fa":"صفحهٔ ناشر برای کتاب، با نسخه‌ها و جزئیات."},"bullets":{"en":["The definitive editions","Background on Hansen","Straight from the source"],"fa":["نسخه‌های معتبر","پیشینه‌ای دربارهٔ هانسن","مستقیم از خودِ منبع"]},"best":{"en":"For editions and the source.","fa":"برای نسخه‌ها و منبعِ اصلی."}}],"go":[{"label":{"en":"Publisher page","fa":"صفحهٔ ناشر"},"url":"https://www.simonandschuster.com/books/Great-at-Work/Morten-T-Hansen/9781476765822"},{"label":{"en":"Book on Goodreads","fa":"کتاب در گودریدز"},"url":"https://www.goodreads.com/book/show/35297611-great-at-work"},{"label":{"en":"Author's page for the book","fa":"صفحهٔ نویسنده برای کتاب"},"url":"https://www.mortenhansen.com/book/great-at-work/"}],"recs":[{"pri":"b","t":{"en":"Cut to two priorities","fa":"به دو اولویت تقلیلش بده"},"d":{"en":"Look at everything on your plate this week and pick just two priorities to obsess over — renegotiate or drop the rest.","fa":"به هرچه این هفته روی سرت ریخته نگاه کن و فقط دو اولویت انتخاب کن که رویشان وسواس به خرج بدهی — بقیه را دوباره چانه بزن یا رها کن."}},{"pri":"b","t":{"en":"Redesign one task for value","fa":"یک کار را برای ارزش از نو بچین"},"d":{"en":"Take one routine task and rework it around the value it creates for others; cut the low-value steps.","fa":"یک کارِ روتین را بردار و دورِ ارزشی که برای دیگران می‌سازد از نو بچینش؛ قدم‌های کم‌ارزش را حذف کن."}},{"pri":"n","t":{"en":"Start one learning loop","fa":"یک چرخهٔ یادگیری شروع کن"},"d":{"en":"Pick one small skill, practice it in short daily reps, and ask for feedback after each try.","fa":"یک مهارتِ کوچک انتخاب کن، در تکرارهای کوتاهِ روزانه تمرینش کن، و بعد از هر بار بازخورد بخواه."}},{"pri":"n","t":{"en":"Say no to one collaboration","fa":"به یک همکاری نه بگو"},"d":{"en":"Decline one low-value meeting or project this week — collaborate only where the prize is big.","fa":"این هفته یک جلسه یا پروژهٔ کم‌ارزش را رد کن — فقط جایی همکاری کن که جایزه بزرگ است."}}]};
-</script>
-
-<script>
-/* ── 3) RENDER (text sections) ────────────────────────────── */
-function elClear(id){ var e=document.getElementById(id); if(e) e.innerHTML=''; return e; }
-
-function renderText(){
-  var t=elClear('tldrHost');
-  DATA.tldr.forEach(function(o){ var li=document.createElement('li'); li.innerHTML = TX(o); t.appendChild(li); });
-
-  var q=elClear('quoteHost');
-  DATA.quotes.forEach(function(o){
-    var bq=document.createElement('blockquote');
-    bq.innerHTML = '<span class="qm">“</span><p>'+TX(o)+'</p>';
-    q.appendChild(bq);
-  });
-
-  var m=elClear('mediaHost');
-  DATA.media.forEach(function(o){
-    var card=document.createElement('div'); card.className='mcard';
-    var thumb;
-    if(o.kind==='yt'){
-      var url='https://www.youtube.com/watch?v='+o.id;
-      var img='https://i.ytimg.com/vi/'+o.id+'/hqdefault.jpg';
-      thumb='<a class="mthumb" href="'+url+'" target="_blank" rel="noopener">'
-        +'<img src="'+img+'" alt="" loading="lazy" onerror="this.style.display=\'none\'">'
-        +'<span class="ptype">'+(LANG==='fa'?'ویدیو':'VIDEO')+'</span>'
-        +'<span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></span></a>';
-    } else {
-      thumb='<a class="mthumb" href="'+o.url+'" target="_blank" rel="noopener"><span class="mfake">'
-        +'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.6"/><path d="M21 15l-5-5L5 21"/></svg>'
-        +'</span><span class="ptype">'+(LANG==='fa'?'تصویر':'IMAGE')+'</span></a>';
-    }
-    var link = o.kind==='yt' ? 'https://www.youtube.com/watch?v='+o.id : o.url;
-    var bl = (LANG==='fa'?o.bullets.fa:o.bullets.en).map(function(b){ return '<li>'+ (LANG==='fa'?faText(b):b) +'</li>'; }).join('');
-    card.innerHTML = thumb + '<div class="mbody">'
-      + '<div class="msrc">'+TX(o.src)+'</div>'
-      + '<h4>'+TX(o.title)+'</h4>'
-      + '<p class="mdesc">'+TX(o.desc)+'</p>'
-      + '<ul>'+bl+'</ul>'
-      + '<a class="mlink" href="'+link+'" target="_blank" rel="noopener">'+(LANG==='fa'?'باز کردن ↗':'Open ↗')+'</a>'
-      + '<div class="mbest">'+TX(o.best)+'</div>'
-      + '</div>';
-    m.appendChild(card);
-  });
-
-  var g=elClear('goHost');
-  DATA.go.forEach(function(o){
-    var a=document.createElement('a'); a.href=o.url; a.target='_blank'; a.rel='noopener';
-    a.textContent=TX(o.label); g.appendChild(a);
-  });
-
-  var r=elClear('recHost');
-  DATA.recs.forEach(function(o){
-    var it=document.createElement('div'); it.className='item';
-    var priLabel = o.pri==='b' ? (LANG==='fa'?'از اینجا شروع کن':'Start here') : (LANG==='fa'?'بعدش این':'Then this');
-    it.innerHTML='<div class="t">'+TX(o.t)+'<span class="pri '+(o.pri==='b'?'b':'')+'">'+priLabel+'</span></div>'
-      +'<div class="d">'+TX(o.d)+'</div>';
-    r.appendChild(it);
-  });
-
-  var mth=document.getElementById('methodHost');
-  mth.innerHTML = LANG==='fa' ? faText("<p><b>منبع:</b> کتابِ «Great at Work: How Top Performers Do Less, Work Better, and Achieve More» نوشتهٔ مورتن هانسن، چاپِ ۲۰۱۸ (نشرِ Simon & Schuster)، بر پایهٔ یک پژوهشِ پنج‌ساله روی ۵٬۰۰۰ نفر.</p><p><b>روشِ کار:</b> ساختارِ پنج‌بخشی و ایده‌ها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده؛ نقل‌قول‌ها مقابله و ویدیوها بررسی شده‌اند.</p><p><b>گروه:</b> «مسیرِ شغلی» — یک خواندنیِ کاربردی برای هر کسی که می‌خواهد بهتر کار کند، نه بیشتر.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای متنِ کامل، خودِ کتاب را بخوان.</p>") : "<p><b>Source:</b> the book <i>Great at Work: How Top Performers Do Less, Work Better, and Achieve More</i> by Morten T. Hansen, published 2018 (Simon & Schuster), based on a five-year study of 5,000 people.</p><p><b>How this was built:</b> the five-part structure and ideas were gathered and rewritten from the book and reputable sources; quotes were cross-checked and the linked videos verified.</p><p><b>Group:</b> Career — a practical read for anyone who wants to work better, not just more.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>";
-  var fl=document.getElementById('flowTop');
-  if(fl){
-    var loop = LANG==='fa' ? ["تمرکز","بازطراحی","تسلط"] : ["Focus","Redesign","Master"];
-    var ar = LANG==='fa' ? '⟵' : '⟶';
-    fl.innerHTML = loop.map(function(w){ return '<b>'+ (LANG==='fa'?faText(w):w) +'</b>'; }).join(' <span class="ar">'+ar+'</span> ');
-  }
-}
-</script>
-
-<script>
-/* ── 4) CONCEPT MAP ───────────────────────────────────────── */
-function renderMap(){
-  var host=document.getElementById('mapHost'); if(!host) return; host.innerHTML='';
-  DATA.parts.forEach(function(p, i){
-    var col=document.createElement('div'); col.className='partcol';
-    var chaps=p.chapters.map(function(ck){
-      var c=DATA.chapters[ck];
-      return '<div class="chapchip"><span class="cn">'+num(c.n)+'</span><div><b>'+TX(c.name)+'</b>'
-        +'<small>'+TX(c.principle).replace(/<[^>]+>/g,'').slice(0, LANG==='fa'?86:76)+'…</small></div></div>';
-    }).join('');
-    col.innerHTML='<div class="ph"><span class="pdot" style="background:var('+p.varc+')"></span>'
-      +'<span class="pnum">'+(LANG==='fa'?'بخشِ ':'PART ')+num(i+1)+'</span></div>'
-      +'<h4>'+TX(p.name)+'</h4>'
-      +'<div class="ptag" style="color:var('+p.varc+')">'+TX(p.tag)+'</div>'
-      +'<p class="pgist">'+TX(p.gist)+'</p>'+chaps;
-    host.appendChild(col);
-  });
-}
-</script>
-
-<script>
-/* ── 5) INTERACTIVE NETWORK GRAPH (deterministic radial layout, no physics) ── */
-var GRAPH = (function(){
-  var svg, W=980, H=780, nodes=[], links=[], sel=null, dragNode=null, moved=false, startPt=null;
-
-  function build(){
-    svg=document.getElementById('netsvg');
-    svg.setAttribute('viewBox','0 0 '+W+' '+H);
-    nodes=[]; links=[];
-    var cx=W/2, cy=H/2, R1=220, R2=126, span=66*Math.PI/180;
-    var N=DATA.parts.length, partAng=DATA.parts.map(function(_,i){ return -Math.PI/2 + i*(2*Math.PI/N); });
-    nodes.push({id:'core', kind:'core', varc:'--core', r:38, x:cx, y:cy, label:DATA.core.name, data:DATA.core});
-    DATA.parts.forEach(function(p,i){
-      var a=partAng[i], px=cx+Math.cos(a)*R1, py=cy+Math.sin(a)*R1;
-      nodes.push({id:'p_'+p.key, kind:'part', varc:p.varc, r:25, x:px, y:py,
-        label:p.name, data:{name:p.name, principle:p.gist, more:p.more, tag:p.tag, key:p.key}});
-      links.push({s:'core', t:'p_'+p.key, strong:true});
-      var nc=p.chapters.length, start=a-span/2;
-      p.chapters.forEach(function(ck,j){
-        var ca = nc>1 ? start+span*(j/(nc-1)) : a;   // fan the 5 chapters outward
-        var c=DATA.chapters[ck];
-        nodes.push({id:'c_'+ck, kind:'chap', varc:p.varc, r:15,
-          x:px+Math.cos(ca)*R2, y:py+Math.sin(ca)*R2,
-          label:(c.glabel||c.name), data:c, ck:ck});
-        links.push({s:'p_'+p.key, t:'c_'+ck});
-      });
-    });
-    nodes.forEach(function(n){ n.hx=n.x; n.hy=n.y; });   // remember home positions for reset
-    draw();
-    select('core');
-  }
-
-  function byId(id){ for(var i=0;i<nodes.length;i++) if(nodes[i].id===id) return nodes[i]; return null; }
-
-  function draw(){
-    var ln='', nd='';
-    links.forEach(function(l){ ln+='<line class="glink" data-s="'+l.s+'" data-t="'+l.t+'" stroke="var(--line)" stroke-width="'+(l.strong?2.4:1.5)+'" stroke-linecap="round"/>'; });
-    nodes.forEach(function(n){
-      var inside='', below='';
-      if(n.kind==='core'){
-        inside='<text text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="800" fill="#fff" letter-spacing="0.3">'+shortLabel(n)+'</text>';
-      } else {
-        if(n.kind==='chap'){
-          inside='<text text-anchor="middle" dominant-baseline="central" font-size="11" font-weight="800" fill="#fff">'+num(n.data.n)+'</text>';
+/* ── CONTENT — everything unique to this book lives here ── */
+Book.mount({
+  "meta": {
+    "slug": "great-at-work",
+    "folder": "14 - Career",
+    "groupNum": 14,
+    "group": {
+      "en": "Career",
+      "fa": "مسیرِ شغلی"
+    },
+    "author": {
+      "en": "Morten Hansen",
+      "fa": "مورتن هانسن"
+    },
+    "eyebrow_author": {
+      "en": "Morten Hansen",
+      "fa": "مورتن هانسن"
+    },
+    "book": {
+      "en": "Great at Work",
+      "fa": "عالی در کار"
+    },
+    "hero_title": {
+      "en": "Great at Work — How Top Performers Do Less, Work Better, and Achieve More",
+      "fa": "عالی در کار — بهترین‌ها چطور کمتر کار می‌کنند، بهتر کار می‌کنند و بیشتر به دست می‌آورند"
+    },
+    "dek": {
+      "en": "A knowledge graph of the whole book, plus a 5-stage path from a single idea to expert-level mastery — with an example at every step.",
+      "fa": "نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از یک ایدهٔ ساده تا حرفه‌ای — با یک مثال در هر مرحله."
+    },
+    "published": {
+      "en": "2018",
+      "fa": "۲۰۱۸"
+    },
+    "chips": [
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Parts",
+          "fa": "بخش"
         }
-        var ly = n.r + (n.kind==='part'?17:14);
-        var fs = n.kind==='part'?13:11;
-        var stroke = 'paint-order:stroke;stroke:var(--card2);stroke-width:3.6px;stroke-linejoin:round';
-        below='<text class="nlab" text-anchor="middle" y="'+ly+'" font-size="'+fs+'" font-weight="'+(n.kind==='part'?'800':'700')+'" fill="var(--ink)" style="'+stroke+'">'+shortLabel(n)+'</text>';
+      },
+      {
+        "v": {
+          "en": "16",
+          "fa": "۱۶"
+        },
+        "l": {
+          "en": "Practices",
+          "fa": "تمرین"
+        }
+      },
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Learning stages",
+          "fa": "مرحلهٔ یادگیری"
+        }
       }
-      nd+='<g class="node'+(n.kind==='core'?' ncore':'')+'" data-id="'+n.id+'"><g class="ns">'
-        +'<circle r="'+n.r+'" fill="var('+n.varc+')" fill-opacity="'+(n.kind==='chap'?0.94:1)+'" stroke="var(--card)" stroke-width="2.5"/>'
-        +inside+below+'</g></g>';
-    });
-    svg.innerHTML='<g id="glinks">'+ln+'</g><g id="gnodes">'+nd+'</g>';
-    svg.querySelectorAll('.node').forEach(function(gEl){
-      gEl.addEventListener('pointerdown', onDown);
-      gEl.addEventListener('click', function(){ if(!moved) select(gEl.getAttribute('data-id')); });
-      gEl.addEventListener('pointerenter', function(){ if(!dragNode) gEl.classList.add('hover'); });
-      gEl.addEventListener('pointerleave', function(){ gEl.classList.remove('hover'); });
-    });
-    positions();
-  }
-  function shortLabel(n){ return TX(n.label); }
-
-  function positions(){
-    svg.querySelectorAll('.node').forEach(function(g){
-      var n=byId(g.getAttribute('data-id'));
-      g.setAttribute('transform','translate('+n.x.toFixed(1)+','+n.y.toFixed(1)+')');
-    });
-    svg.querySelectorAll('.glink').forEach(function(l){
-      var a=byId(l.getAttribute('data-s')), b=byId(l.getAttribute('data-t'));
-      l.setAttribute('x1',a.x.toFixed(1)); l.setAttribute('y1',a.y.toFixed(1));
-      l.setAttribute('x2',b.x.toFixed(1)); l.setAttribute('y2',b.y.toFixed(1));
-    });
-  }
-
-  /* drag: just move the grabbed node — no simulation, so nothing else shifts */
-  function toSvg(e){
-    var pt=svg.createSVGPoint(); pt.x=e.clientX; pt.y=e.clientY;
-    var m=svg.getScreenCTM(); if(!m) return {x:e.clientX,y:e.clientY};
-    return pt.matrixTransform(m.inverse());
-  }
-  function onDown(e){
-    e.preventDefault();
-    dragNode=byId(e.currentTarget.getAttribute('data-id'));
-    moved=false; startPt=toSvg(e); svg.style.cursor='grabbing';
-    e.currentTarget.classList.remove('hover');
-    window.addEventListener('pointermove', onMove);
-    window.addEventListener('pointerup', onUp);
-  }
-  function onMove(e){
-    if(!dragNode) return; var p=toSvg(e);
-    if(startPt && (Math.abs(p.x-startPt.x)>4 || Math.abs(p.y-startPt.y)>4)) moved=true;
-    dragNode.x=Math.max(dragNode.r+4, Math.min(W-dragNode.r-4, p.x));
-    dragNode.y=Math.max(dragNode.r+4, Math.min(H-dragNode.r-24, p.y));
-    positions();
-  }
-  function onUp(){
-    dragNode=null; svg.style.cursor='grab';
-    window.removeEventListener('pointermove', onMove);
-    window.removeEventListener('pointerup', onUp);
-  }
-
-  function keepSet(id){
-    var n=byId(id); if(!n || id==='core') return null;   // core → show everything
-    var keep={}; keep[id]=1; keep['core']=1;
-    var pk = (n.kind==='part') ? n.data.key : n.data.part;
-    keep['p_'+pk]=1;
-    DATA.parts.forEach(function(p){ if(p.key===pk) p.chapters.forEach(function(ck){ keep['c_'+ck]=1; }); });
-    return keep;   // highlight the whole branch: core → part → its chapters
-  }
-  function applyFocus(id){
-    var keep=keepSet(id), full=(keep===null);
-    svg.querySelectorAll('.node').forEach(function(g){
-      var nid=g.getAttribute('data-id');
-      g.classList.toggle('dim', !full && !keep[nid]);
-      g.classList.toggle('hl', !full && keep[nid] && nid!==id);
-    });
-    svg.querySelectorAll('.glink').forEach(function(l){
-      var s=l.getAttribute('data-s'), t=l.getAttribute('data-t');
-      var on = full || (keep[s] && keep[t]);
-      l.classList.toggle('dim', !on);
-      l.classList.toggle('hl', !full && on);
-    });
-  }
-
-  function relatedIds(node){
-    var ids=[];
-    if(node.id==='core'){ DATA.parts.forEach(function(p){ ids.push('p_'+p.key); }); }
-    else if(node.kind==='part'){ var pk=node.data.key; DATA.parts.forEach(function(p){ if(p.key===pk) p.chapters.forEach(function(ck){ ids.push('c_'+ck); }); }); }
-    else { var pk2=node.data.part; ids.push('p_'+pk2);
-      DATA.parts.forEach(function(p){ if(p.key===pk2) p.chapters.forEach(function(ck){ if('c_'+ck!==node.id) ids.push('c_'+ck); }); }); }
-    return ids;
-  }
-
-  function drow(cls,label,txt){ return '<div class="drow '+cls+'"><div class="dlab">'+label+'</div><div class="dtxt">'+txt+'</div></div>'; }
-
-  function select(id){
-    var n=byId(id); if(!n) return;
-    sel=id;
-    svg.querySelectorAll('.node').forEach(function(g){ g.classList.toggle('sel', g.getAttribute('data-id')===id); });
-    var selEl=svg.querySelector('.node[data-id="'+id+'"]'); if(selEl&&selEl.parentNode) selEl.parentNode.appendChild(selEl);  // raise on top
-    applyFocus(id);
-    var d=n.data, pv = n.kind==='core' ? '--core' : n.varc;
-    var kicker = n.kind==='core' ? (LANG==='fa'?'ایدهٔ مرکزی':'Core idea')
-             : n.kind==='part' ? (LANG==='fa'?'بخش':'Part') + ' · ' + TX(d.tag)
-             : (LANG==='fa'?"تمرینِ":"Practice") + ' ' + num(d.n);
-    var prLab = (n.kind==='chap') ? (LANG==='fa'?'اصل':'Principle') : (LANG==='fa'?'ایدهٔ اصلی':'Big idea');
-    var html='<div class="dkick"><i style="background:var('+pv+')"></i>'+ (LANG==='fa'?faText(kicker):kicker) +'</div>'
-      +'<h4>'+TX(d.name)+'</h4>'
-      + drow('', prLab, TX(d.principle));
-    if(d.more)    html += drow('more', (LANG==='fa'?'بیشتر':'In depth'), TX(d.more));
-    if(d.example) html += drow('', (LANG==='fa'?'مثال':'Example'), TX(d.example));
-    if(d.tip)     html += drow('tip', (LANG==='fa'?'امتحان کن':'Try this'), TX(d.tip));
-    if(d.pitfall) html += drow('pit', (LANG==='fa'?'حواست باشد':'Watch out'), TX(d.pitfall));
-    // related chips
-    var rel=relatedIds(n);
-    if(rel.length){
-      var chips=rel.map(function(rid){ var rn=byId(rid); if(!rn) return '';
-        return '<span class="dchip" data-goto="'+rid+'"><i style="background:var('+rn.varc+')"></i>'+TX(rn.data.name)+'</span>'; }).join('');
-      html += '<div class="drow"><div class="dlab">'+(LANG==='fa'?'مرتبط':'Related')+'</div><div class="dchips">'+chips+'</div></div>';
+    ],
+    "kboxes": [
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Parts (do less · redesign · learn · passion+purpose · collaborate)",
+          "fa": "بخش (کمتر کن · بازطراحی · یادگیری · اشتیاق+هدف · همکاری)"
+        }
+      },
+      {
+        "v": {
+          "en": "16",
+          "fa": "۱۶"
+        },
+        "l": {
+          "en": "Practices you can use",
+          "fa": "تمرین برای استفاده"
+        }
+      },
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Levels, simple → expert",
+          "fa": "مرحله، ساده تا حرفه‌ای"
+        }
+      },
+      {
+        "v": {
+          "en": "66%",
+          "fa": "۶۶٪"
+        },
+        "l": {
+          "en": "of the performance gap these practices explained",
+          "fa": "از فاصلهٔ کارکرد که این تمرین‌ها توضیح دادند"
+        }
+      }
+    ],
+    "core_callout": {
+      "label": {
+        "en": "The core idea:",
+        "fa": "ایدهٔ اصلی:"
+      },
+      "en": "Top performers don't work more hours — they <i>work smarter</i>. They pick a few priorities and obsess over quality, aim at the <i>value</i> they create for others, learn in tight feedback loops, pair <i>passion</i> with <i>purpose</i>, and collaborate with discipline while forcefully championing their work.",
+      "fa": "بهترین‌ها ساعت‌های بیشتری کار نمی‌کنند — <i>هوشمندانه‌تر</i> کار می‌کنند. چند اولویت را انتخاب می‌کنند و روی کیفیتشان وسواس به خرج می‌دهند، به <i>ارزشی</i> که برای دیگران می‌سازند نشانه می‌روند، در چرخه‌های کوتاهِ بازخورد یاد می‌گیرند، <i>اشتیاق</i> را با <i>هدف</i> جفت می‌کنند، و با نظم همکاری می‌کنند و درعین‌حال محکم از کارشان دفاع می‌کنند."
+    },
+    "flow_callout": {
+      "label": {
+        "en": "Read it as a flow:",
+        "fa": "به‌صورتِ یک جریان بخوانش:"
+      },
+      "en": "first <b>do less, then obsess</b>, <b>redesign</b> your work around the value it creates, <b>learn in a loop</b> with fast feedback, fuse <b>passion with purpose</b>, and <b>collaborate</b> with discipline while championing your ideas.",
+      "fa": "اول <b>کمتر کن، بعد وسواس</b>، کارت را <b>از نو طراحی</b> کن دورِ ارزشی که می‌سازد، در یک <b>چرخه با بازخوردِ سریع</b> یاد بگیر، <b>اشتیاق را با هدف</b> یکی کن، و با نظم <b>همکاری</b> کن و از ایده‌هایت دفاع کن."
     }
-    var host=document.getElementById('detailHost');
-    host.innerHTML=html;
-    host.querySelectorAll('.dchip').forEach(function(c){
-      c.addEventListener('click', function(){ select(c.getAttribute('data-goto')); });
-    });
-  }
-
-  function relabel(){ if(!svg) return; draw(); select(sel||'core'); }
-
-  return {
-    build:build,
-    kick:function(){},                                    // no-op; layout is static
-    relabel:relabel,
-    reset:function(){ nodes.forEach(function(n){ n.x=n.hx; n.y=n.hy; }); positions(); },
-    resetFocus:function(){ select('core'); },
-    selectNode:function(id){ select(id); },
-    hasNodes:function(){ return nodes.length>0; }
-  };
-})();
-</script>
-
-<script>
-/* ── 6) 5-STAGE LADDER ────────────────────────────────────── */
-var curStage=0;
-function renderLadder(){
-  var host=document.getElementById('ladderHost'); host.innerHTML='';
-  DATA.stages.forEach(function(s,i){
-    var r=document.createElement('div'); r.className='rung'+(i===curStage?' active':'');
-    r.innerHTML='<div class="lv">'+ (LANG==='fa'?('سطحِ '+num(s.level)):('Level '+s.level)) +'</div>'
-      +'<div class="lt">'+TX(s.title)+'</div>'
-      +'<div class="lbar"><i style="width:'+(s.level*20)+'%"></i></div>';
-    r.addEventListener('click', function(){ curStage=i; renderLadder(); renderStage();
-      document.getElementById('stageHost').scrollIntoView({behavior:'smooth',block:'nearest'}); });
-    host.appendChild(r);
-  });
-}
-function renderStage(){
-  var s=DATA.stages[curStage];
-  var host=document.getElementById('stageHost');
-  var exLabel = LANG==='fa'?'مثال':'Example';
-  var prev = LANG==='fa'?'مرحلهٔ قبل':'‹ Prev', next = LANG==='fa'?'مرحلهٔ بعد':'Next ›';
-  host.innerHTML=''+
-    '<div class="stagecard">'
-    +'<div class="shead"><span class="badge">'+TX(s.badge)+'</span><h3>'+TX(s.title)+'</h3></div>'
-    +'<div class="tagline">'+TX(s.tagline)+'</div>'
-    +'<div class="sbody">'+TX(s.body)+'</div>'
-    +'<div class="exbox"><div class="exk">'+exLabel+'</div><div class="ext">'+TX(s.example)+'</div></div>'
-    +'<div class="gainrow"><span class="gi">✓</span><span>'+TX(s.gain)+'</span></div>'
-    +'<div class="stagenav">'
-      +'<button id="stPrev" '+(curStage===0?'disabled':'')+'>'+prev+'</button>'
-      +'<button id="stNext" '+(curStage===DATA.stages.length-1?'disabled':'')+'>'+next+'</button>'
-    +'</div></div>';
-  var pv=document.getElementById('stPrev'), nx=document.getElementById('stNext');
-  if(pv) pv.onclick=function(){ if(curStage>0){curStage--; renderLadder(); renderStage();} };
-  if(nx) nx.onclick=function(){ if(curStage<DATA.stages.length-1){curStage++; renderLadder(); renderStage();} };
-}
-</script>
-
-<script>
-/* ── 7) legend + graph tabs ───────────────────────────────── */
-function renderLegend(){
-  var host=document.getElementById('legendHost'); if(!host) return;
-  var items=[{c:'--core', en:'Core idea', fa:'ایدهٔ مرکزی'}]
-    .concat(DATA.parts.map(function(p){ return {c:p.varc, en:p.name.en, fa:p.name.fa}; }));
-  host.innerHTML = items.map(function(it){
-    return '<span><i style="background:var('+it.c+')"></i>'+(LANG==='fa'?faText(it.fa):it.en)+'</span>';
-  }).join('');
-  document.getElementById('ghint').textContent = LANG==='fa' ? 'روی هر دایره کلیک کن تا بیشتر بخوانی · می‌توانی بکشی‌شان' : 'Click a node to read more · drag to move';
-  document.getElementById('greset').textContent = LANG==='fa' ? '↺ چیدمان' : '↺ Reset';
-}
-function setupTabs(){
-  function show(net){
-    document.getElementById('netView').style.display = net?'':'none';
-    document.getElementById('mapView').style.display = net?'none':'';
-    document.getElementById('tabNet').classList.toggle('active',net);
-    document.getElementById('tabMap').classList.toggle('active',!net);
-    if(net) GRAPH.kick();
-  }
-  document.getElementById('tabNet').onclick=function(){show(true);};
-  document.getElementById('tabMap').onclick=function(){show(false);};
-  document.getElementById('greset').onclick=function(){ GRAPH.reset(); };
-  // click empty graph space resets the focus
-  var svg=document.getElementById('netsvg');
-  svg.addEventListener('click', function(e){ if(!e.target.closest('.node')) GRAPH.resetFocus(); });
-}
-</script>
-
-<script>
-/* ── 8) toggles + boot ────────────────────────────────────── */
-function setLang(lg){
-  LANG=lg;
-  document.documentElement.setAttribute('data-lang',lg);
-  document.documentElement.setAttribute('lang',lg);
-  document.documentElement.setAttribute('dir', lg==='fa'?'rtl':'ltr');
-  try{ localStorage.setItem('greatatwork-lang',lg); }catch(e){}
-  renderAll();
-}
-function renderAll(){
-  renderText();
-  renderMap();
-  renderLegend();
-  renderLadder();
-  renderStage();
-  if(GRAPH.hasNodes()) GRAPH.relabel(); else GRAPH.build();
-}
-(function(){
-  var lb=document.getElementById('langBtn');
-  lb && lb.addEventListener('click', function(){ setLang(LANG==='fa'?'en':'fa'); });
-
-  var tb=document.getElementById('themeBtn');
-  function curT(){ return document.documentElement.getAttribute('data-theme'); }
-  tb && tb.addEventListener('click', function(){
-    var t=curT()==='dark'?'light':'dark';
-    document.documentElement.setAttribute('data-theme',t);
-    try{ localStorage.setItem('greatatwork-theme',t); }catch(e){}
-  });
-  try{ matchMedia('(prefers-color-scheme: dark)').addEventListener('change',function(e){
-    if(!localStorage.getItem('greatatwork-theme')){ document.documentElement.setAttribute('data-theme', e.matches?'dark':'light'); }
-  }); }catch(e){}
-})();
-
-/* scroll-spy */
-(function(){
-  var links=[].slice.call(document.querySelectorAll('.toc a'));
-  var seen={}, ids=[];
-  links.forEach(function(a){ var id=a.getAttribute('href').slice(1); if(!seen[id]){seen[id]=1; ids.push(id);} });
-  var secs=ids.map(function(id){return document.getElementById(id);}).filter(Boolean);
-  function setActive(id){ links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('href')==='#'+id); }); }
-  if('IntersectionObserver' in window){
-    var obs=new IntersectionObserver(function(es){
-      es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
-    },{rootMargin:'-45% 0px -50% 0px',threshold:0});
-    secs.forEach(function(s){ obs.observe(s); });
-  }
-})();
-
-document.addEventListener('DOMContentLoaded', function(){
-  setupTabs();
-  renderAll();
+  },
+  "method": {
+    "en": "<p><b>Source:</b> the book <i>Great at Work: How Top Performers Do Less, Work Better, and Achieve More</i> by Morten T. Hansen, published 2018 (Simon & Schuster), based on a five-year study of 5,000 people.</p><p><b>How this was built:</b> the five-part structure and ideas were gathered and rewritten from the book and reputable sources; quotes were cross-checked and the linked videos verified.</p><p><b>Group:</b> Career — a practical read for anyone who wants to work better, not just more.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>",
+    "fa": "<p><b>منبع:</b> کتابِ «Great at Work: How Top Performers Do Less, Work Better, and Achieve More» نوشتهٔ مورتن هانسن، چاپِ ۲۰۱۸ (نشرِ Simon & Schuster)، بر پایهٔ یک پژوهشِ پنج‌ساله روی ۵٬۰۰۰ نفر.</p><p><b>روشِ کار:</b> ساختارِ پنج‌بخشی و ایده‌ها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده؛ نقل‌قول‌ها مقابله و ویدیوها بررسی شده‌اند.</p><p><b>گروه:</b> «مسیرِ شغلی» — یک خواندنیِ کاربردی برای هر کسی که می‌خواهد بهتر کار کند، نه بیشتر.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای متنِ کامل، خودِ کتاب را بخوان.</p>"
+  },
+  "flow": {
+    "en": [
+      "Focus",
+      "Redesign",
+      "Master"
+    ],
+    "fa": [
+      "تمرکز",
+      "بازطراحی",
+      "تسلط"
+    ]
+  },
+  "graph": {
+    "W": 980,
+    "H": 780,
+    "R1": 220,
+    "R2": 126,
+    "span": 66
+  },
+  "tldr": [
+    {
+      "en": "The whole book in one line: top performers don't work more — they work smarter, doing less but obsessing over the few things that matter.",
+      "fa": "خلاصهٔ کل کتاب در یک جمله: بهترین‌ها بیشتر کار نمی‌کنند — هوشمندانه‌تر کار می‌کنند، کمتر می‌کنند اما روی همان چند چیزِ مهم وسواس دارند."
+    },
+    {
+      "en": "It's built on a five-year study of 5,000 managers and employees — and seven <b>work smart</b> practices explained most of the gap in performance, not talent or hours.",
+      "fa": "این کتاب روی یک پژوهشِ پنج‌ساله از ۵٬۰۰۰ مدیر و کارمند بنا شده — و هفت تمرینِ <b>کارِ هوشمندانه</b> بیشترِ فاصلهٔ کارکرد را توضیح می‌دادند، نه استعداد یا ساعت‌کاری."
+    },
+    {
+      "en": "<b>Do Less, Then Obsess</b>: choose a few priorities, wield a razor to cut the rest, and pour intense effort into what's left.",
+      "fa": "<b>کمتر کن، بعد وسواس</b>: چند اولویت انتخاب کن، با یک تیغ بقیه را بزن کنار، و تلاشِ شدید بریز روی آنچه مانده."
+    },
+    {
+      "en": "<b>Redesign</b> your work around value, <b>learn in a loop</b> with fast feedback, and fuse <b>passion with purpose</b> — energy plus direction.",
+      "fa": "کارت را دورِ <b>ارزش</b> از نو طراحی کن، در یک <b>چرخه با بازخوردِ سریع</b> یاد بگیر، و <b>اشتیاق را با هدف</b> یکی کن — انرژی به‌علاوهٔ جهت."
+    },
+    {
+      "en": "<b>Collaborate with discipline</b> and <b>champion your work</b>: inspire plus smart grit, team up only when the prize is big, and fight-then-unite in meetings.",
+      "fa": "<b>حساب‌شده همکاری کن</b> و <b>از کارت دفاع کن</b>: انگیزش به‌علاوهٔ پشتکارِ هوشمند، فقط وقتی هم‌تیم شو که جایزه بزرگ است، و توی جلسه‌ها اول جدل کن بعد متحد شو."
+    }
+  ],
+  "parts": [
+    {
+      "key": "doless",
+      "varc": "--c-teal",
+      "name": {
+        "en": "Do Less, Then Obsess",
+        "fa": "کمتر کن، بعد وسواس"
+      },
+      "tag": {
+        "en": "Master your own work",
+        "fa": "کارِ خودت را استاد شو"
+      },
+      "gist": {
+        "en": "Choose a few priorities, then pour obsessive effort into just those.",
+        "fa": "چند اولویت انتخاب کن، بعد فقط روی همان‌ها تلاشِ وسواس‌گونه بریز."
+      },
+      "more": {
+        "en": "The first and biggest practice: instead of doing more, do less — pick a tiny set of priorities — and then obsess, applying intense effort until the quality is exceptional. Focus without intensity is scattered; intensity without focus is exhausting. You need both.",
+        "fa": "اولین و بزرگ‌ترین تمرین: به‌جای بیشتر کار کردن، کمتر کن — یک دستهٔ خیلی کوچک از اولویت‌ها را انتخاب کن — و بعد وسواس به خرج بده، آن‌قدر تلاشِ شدید بریز تا کیفیت فوق‌العاده شود. تمرکزِ بدونِ شدت، پخش‌وپلاست؛ شدتِ بدونِ تمرکز، فرساینده. به هر دو نیاز داری."
+      },
+      "chapters": [
+        "doless",
+        "obsess",
+        "razor"
+      ]
+    },
+    {
+      "key": "redesign",
+      "varc": "--c-blue",
+      "name": {
+        "en": "Redesign Your Work",
+        "fa": "کارت را از نو طراحی کن"
+      },
+      "tag": {
+        "en": "Aim at value",
+        "fa": "به ارزش نشانه بگیر"
+      },
+      "gist": {
+        "en": "Aim your work at the value it creates for others, not at hours or busyness.",
+        "fa": "کارت را به‌سمتِ ارزشی که برای دیگران می‌سازد نشانه بگیر، نه به‌سمتِ ساعت و شلوغی."
+      },
+      "more": {
+        "en": "Don't just work harder inside the job you were handed — redesign it. Measure yourself by value: how much others benefit from what you do. Then cut the low-value tasks and reshape the rest so more of your effort turns into real value.",
+        "fa": "فقط توی همان کاری که به دستت داده‌اند سخت‌تر کار نکن — از نو طراحی‌اش کن. خودت را با ارزش بسنج: دیگران چقدر از کاری که می‌کنی سود می‌برند. بعد کارهای کم‌ارزش را حذف کن و بقیه را طوری از نو بچین که سهمِ بیشتری از تلاشت به ارزشِ واقعی تبدیل شود."
+      },
+      "chapters": [
+        "value",
+        "redesignjob",
+        "cutlow"
+      ]
+    },
+    {
+      "key": "loop",
+      "varc": "--c-amber",
+      "name": {
+        "en": "Learn in a Loop",
+        "fa": "در یک چرخه یاد بگیر"
+      },
+      "tag": {
+        "en": "Get better every day",
+        "fa": "هر روز بهتر شو"
+      },
+      "gist": {
+        "en": "Turn daily work into deliberate practice — small chunks, fast feedback, real growth.",
+        "fa": "کارِ روزمره را به تمرینِ هدفمند تبدیل کن — تکه‌های کوچک، بازخوردِ سریع، رشدِ واقعی."
+      },
+      "more": {
+        "en": "Experience alone doesn't make you better; most people plateau. The fix is a learning loop folded into work: practice one small chunk of a skill, get feedback, adjust, repeat — and put your energy into the soft skills, where the biggest gains hide.",
+        "fa": "فقط تجربه تو را بهتر نمی‌کند؛ بیشترِ آدم‌ها یک‌جا متوقف می‌مانند. راهِ‌حل، یک چرخهٔ یادگیری است که توی کار جا داده شده: یک تکهٔ کوچک از یک مهارت را تمرین کن، بازخورد بگیر، تنظیم کن، تکرار کن — و انرژی‌ات را بگذار روی مهارت‌های نرم، جایی که بزرگ‌ترین پیشرفت‌ها پنهان‌اند."
+      },
+      "chapters": [
+        "loop",
+        "chunks",
+        "softskills"
+      ]
+    },
+    {
+      "key": "psquared",
+      "varc": "--c-violet",
+      "name": {
+        "en": "Passion + Purpose",
+        "fa": "اشتیاق + هدف"
+      },
+      "tag": {
+        "en": "Energy with direction",
+        "fa": "انرژی به‌علاوهٔ جهت"
+      },
+      "gist": {
+        "en": "Combine loving what you do with contributing value — passion and purpose together.",
+        "fa": "دوست‌داشتنِ کارت را با ساختنِ ارزش ترکیب کن — اشتیاق و هدف، با هم."
+      },
+      "more": {
+        "en": "Energy matters, but the right kind. Match passion — what excites you — with purpose — a contribution that matters to others. Together they multiply your drive and your results. Passion alone, chased blindly, can just as easily burn you out or lead you astray.",
+        "fa": "انرژی مهم است، اما نوعِ درستش. اشتیاق — چیزی که به هیجانت می‌آورد — را با هدف — سهمی که برای دیگران ارزش دارد — جفت کن. با هم، هم انگیزه‌ات را چند برابر می‌کنند هم نتیجه‌ات را. اشتیاقِ تنها، اگر کورکورانه دنبالش بروی، به‌همان‌راحتی می‌تواند بسوزاندت یا به بیراهه ببردت."
+      },
+      "chapters": [
+        "combine",
+        "passionhurts",
+        "purpose"
+      ]
+    },
+    {
+      "key": "collab",
+      "varc": "--c-green",
+      "name": {
+        "en": "Collaboration & Influence",
+        "fa": "همکاری و نفوذ"
+      },
+      "tag": {
+        "en": "Win people over",
+        "fa": "دیگران را همراه کن"
+      },
+      "gist": {
+        "en": "Champion your work, collaborate with discipline, and fight-then-unite in meetings.",
+        "fa": "از کارت دفاع کن، حساب‌شده همکاری کن، و توی جلسه‌ها اول جدل کن بعد متحد شو."
+      },
+      "more": {
+        "en": "Great work still has to win people over. Be a forceful champion — inspire people and push with smart grit. But collaborate with discipline: team up only when the prize is big, and run meetings that welcome a real fight and then unite behind the decision.",
+        "fa": "کارِ عالی باز هم باید دیگران را با خودش همراه کند. مدافعِ سرسخت باش — آدم‌ها را برانگیز و با پشتکارِ هوشمند جلو برو. اما حساب‌شده همکاری کن: فقط وقتی هم‌تیم شو که جایزه بزرگ است، و جلسه‌هایی بگذار که یک جدلِ واقعی را قدر می‌دانند و بعد پشتِ تصمیم متحد می‌شوند."
+      },
+      "chapters": [
+        "champion",
+        "inspire",
+        "disciplined",
+        "fightunite"
+      ]
+    }
+  ],
+  "chapters": {
+    "doless": {
+      "part": "doless",
+      "n": 1,
+      "name": {
+        "en": "Do Less",
+        "fa": "کمتر کن"
+      },
+      "glabel": {
+        "en": "Do Less",
+        "fa": "کمتر"
+      },
+      "principle": {
+        "en": "Pick a very few priorities — as few as you can — and pour your effort only into those.",
+        "fa": "خیلی کم اولویت انتخاب کن — هرچه کمتر بهتر — و تلاشت را فقط روی همان‌ها بگذار."
+      },
+      "more": {
+        "en": "The top performers didn't spread themselves across many things; they chose a tiny set that mattered and let the rest go. Doing less isn't laziness — it's choosing where to be great instead of being average everywhere.",
+        "fa": "بهترین‌ها خودشان را روی هزار کار پخش نمی‌کردند؛ یک دستهٔ خیلی کوچک از کارهای مهم را انتخاب می‌کردند و بقیه را رها می‌کردند. کمتر کار کردن تنبلی نیست — یعنی انتخاب کنی کجا عالی باشی، به‌جای اینکه همه‌جا معمولی باشی."
+      },
+      "example": {
+        "en": "In Hansen's study, people who focused on a few priorities and did them exceptionally well outperformed those juggling many.",
+        "fa": "در پژوهشِ هانسن، آدم‌هایی که روی چند اولویت تمرکز می‌کردند و همان‌ها را عالی انجام می‌دادند، از آن‌هایی که هزار کار را با هم جلو می‌بردند جلو می‌زدند."
+      },
+      "tip": {
+        "en": "List everything on your plate, then circle the two or three that truly matter — and protect them.",
+        "fa": "هرچه روی سرت ریخته را فهرست کن، بعد دورِ همان دو‌سه تای واقعاً مهم خط بکش — و ازشان محافظت کن."
+      },
+      "pitfall": {
+        "en": "Saying yes to everything and ending up merely busy, not great.",
+        "fa": "به همه‌چیز بله گفتن و آخرش فقط سرت شلوغ می‌شود، نه اینکه عالی شوی."
+      }
+    },
+    "obsess": {
+      "part": "doless",
+      "n": 2,
+      "name": {
+        "en": "Then Obsess",
+        "fa": "بعد وسواس به خرج بده"
+      },
+      "glabel": {
+        "en": "Obsess",
+        "fa": "وسواس"
+      },
+      "principle": {
+        "en": "Once you've chosen the few, obsess over them — pour disproportionate effort in until the quality is exceptional.",
+        "fa": "وقتی همان چند تا را انتخاب کردی، رویشان وسواس به خرج بده — آن‌قدر تلاشِ بیشتر بریز تا کیفیت فوق‌العاده شود."
+      },
+      "more": {
+        "en": "Focus alone isn't enough; the magic is 'do less, then obsess.' After narrowing down, the best became relentless about quality — refining, checking and improving far past the point where others stopped.",
+        "fa": "فقط تمرکز کافی نیست؛ جادو در «کمتر کن، بعد وسواس» است. بعد از کم‌کردن، بهترین‌ها سرِ کیفیت کوتاه نمی‌آمدند — صیقل می‌دادند، وارسی می‌کردند و بهتر می‌کردند، خیلی جلوتر از جایی که بقیه دست می‌کشیدند."
+      },
+      "example": {
+        "en": "The study found focus paid off only when paired with intensity: the highest performers kept refining their few priorities long after others called it 'good enough.'",
+        "fa": "پژوهش نشان داد تمرکز فقط وقتی جواب می‌داد که با شدت همراه باشد: بهترین‌ها همان چند اولویتشان را خیلی بعد از اینکه بقیه گفته بودند «همین خوب است» هنوز صیقل می‌دادند."
+      },
+      "tip": {
+        "en": "Take your top priority this week and ask: what would make this not just done, but excellent?",
+        "fa": "مهم‌ترین اولویتِ این هفته‌ات را بردار و بپرس: چه‌کار کنم که این کار فقط «انجام‌شده» نباشد، بلکه عالی باشد؟"
+      },
+      "pitfall": {
+        "en": "Narrowing your focus but still settling for 'good enough' on the few things left.",
+        "fa": "دایره‌ات را تنگ می‌کنی اما باز هم سرِ همان چند کارِ باقی‌مانده به «خوب است دیگر» رضایت می‌دهی."
+      }
+    },
+    "razor": {
+      "part": "doless",
+      "n": 3,
+      "name": {
+        "en": "Wield the Razor",
+        "fa": "تیغ را بردار"
+      },
+      "glabel": {
+        "en": "The Razor",
+        "fa": "تیغ"
+      },
+      "principle": {
+        "en": "Cut hard. Use a razor to slice away the many trivial demands so only the vital few survive.",
+        "fa": "بی‌رحم ببُر. با یک تیغ، انبوهِ خواسته‌های کم‌اهمیت را بزن کنار تا فقط همان چند تای حیاتی بماند."
+      },
+      "more": {
+        "en": "Doing less takes active pruning against constant pressure to add more. The best said no to good-but-not-great tasks, pushed back on their bosses, and resisted the complexity trap of piling on.",
+        "fa": "کمتر کار کردن یعنی مدام هَرَس کنی، درست زیرِ فشارِ همیشگیِ اضافه‌کردنِ کار. بهترین‌ها به کارهای «خوب اما نه عالی» نه می‌گفتند، جلوی رئیسشان هم می‌ایستادند، و در برابرِ تلهٔ پیچیدگی — یعنی روی‌هم‌تلنبار‌کردنِ کار — مقاومت می‌کردند."
+      },
+      "example": {
+        "en": "When a boss keeps adding tasks, a top performer negotiates: which of these should I drop so this new one gets my best?",
+        "fa": "وقتی رئیس مدام کار اضافه می‌کند، آدمِ حرفه‌ای چانه می‌زند: کدامِ این‌ها را کنار بگذارم تا این کارِ جدید بهترینِ من را بگیرد؟"
+      },
+      "tip": {
+        "en": "Before adding anything new, name what you'll remove to make room for it.",
+        "fa": "قبل از اینکه چیزِ جدیدی اضافه کنی، بگو چه چیزی را برمی‌داری تا جا برایش باز شود."
+      },
+      "pitfall": {
+        "en": "Letting other people's priorities quietly fill your whole day.",
+        "fa": "می‌گذاری اولویت‌های بقیه بی‌سروصدا کلِ روزت را پر کنند."
+      }
+    },
+    "value": {
+      "part": "redesign",
+      "n": 4,
+      "name": {
+        "en": "Value, Not Activity",
+        "fa": "ارزش، نه شلوغی"
+      },
+      "glabel": {
+        "en": "Value",
+        "fa": "ارزش"
+      },
+      "principle": {
+        "en": "Judge your work by the value it creates for others — not by hours logged or how busy you feel.",
+        "fa": "کارت را با ارزشی که برای دیگران می‌سازد بسنج — نه با ساعت‌هایی که گذاشته‌ای یا اینکه چقدر سرت شلوغ است."
+      },
+      "more": {
+        "en": "Value means how much others benefit from your work, at a quality they care about. Effort and hours are inputs; value is the output. A busy day that helps no one is worth little — a focused hour that helps a lot is worth much.",
+        "fa": "ارزش یعنی دیگران چقدر از کارِ تو سود می‌برند، با کیفیتی که برایشان مهم است. تلاش و ساعت، ورودی‌اند؛ ارزش، خروجی است. یک روزِ شلوغ که به هیچ‌کس کمک نمی‌کند کم‌ارزش است — یک ساعتِ متمرکز که خیلی کمک می‌کند، پرارزش."
+      },
+      "example": {
+        "en": "Two people work the same hours; the one whose output others actually use and rely on creates more value — and that's what the study rewarded.",
+        "fa": "دو نفر ساعت‌های برابری کار می‌کنند؛ آن‌که خروجی‌اش را دیگران واقعاً استفاده می‌کنند و به آن تکیه دارند، ارزشِ بیشتری می‌سازد — و پژوهش هم همین را پاداش می‌داد."
+      },
+      "tip": {
+        "en": "Ask of any task: who benefits from this, and how much do they really care?",
+        "fa": "از هر کاری بپرس: چه کسی از این سود می‌برد، و واقعاً چقدر برایش مهم است؟"
+      },
+      "pitfall": {
+        "en": "Measuring yourself by busyness and hours instead of the good your work does.",
+        "fa": "خودت را با شلوغی و ساعت می‌سنجی، نه با خیری که کارت می‌رساند."
+      }
+    },
+    "redesignjob": {
+      "part": "redesign",
+      "n": 5,
+      "name": {
+        "en": "Redesign the Job",
+        "fa": "خودِ کار را از نو بچین"
+      },
+      "glabel": {
+        "en": "Redesign",
+        "fa": "بازطراحی"
+      },
+      "principle": {
+        "en": "Don't just do the job as handed to you — rethink it so it produces far more value.",
+        "fa": "کار را همان‌طور که به دستت داده‌اند فقط انجام نده — طوری از نو فکرش کن که ارزشِ خیلی بیشتری بسازد."
+      },
+      "more": {
+        "en": "Most people accept their tasks as fixed. Top performers ask whether the work itself should change: which parts create real value, which are wasted, and what a better version of this job would look like.",
+        "fa": "بیشترِ آدم‌ها کارهایشان را ثابت فرض می‌کنند. بهترین‌ها می‌پرسند خودِ کار باید عوض شود یا نه: کدام بخش‌ها واقعاً ارزش می‌سازند، کدام‌ها هدر می‌روند، و یک نسخهٔ بهترِ این کار چه شکلی است."
+      },
+      "example": {
+        "en": "A hotel housekeeper who reimagines her role around delighting guests — not just cleaning rooms — creates value no checklist asked for.",
+        "fa": "خدمتکارِ هتلی که نقشش را دورِ خوشحال‌کردنِ مهمان‌ها از نو تعریف می‌کند — نه فقط تمیزکردنِ اتاق — ارزشی می‌سازد که هیچ چک‌لیستی ازش نخواسته بود."
+      },
+      "tip": {
+        "en": "Pick one routine task and redesign it: cut the low-value steps, amplify the high-value ones.",
+        "fa": "یک کارِ روتین را انتخاب کن و از نو بچینش: قدم‌های کم‌ارزش را حذف کن، پرارزش‌ها را پررنگ‌تر کن."
+      },
+      "pitfall": {
+        "en": "Doing an inherited process faster instead of asking if it should exist at all.",
+        "fa": "یک روالِ ارث‌رسیده را فقط تندتر انجام می‌دهی، به‌جای اینکه بپرسی اصلاً باید باشد یا نه."
+      }
+    },
+    "cutlow": {
+      "part": "redesign",
+      "n": 6,
+      "name": {
+        "en": "Cut Low-Value Work",
+        "fa": "کارِ کم‌ارزش را بزن کنار"
+      },
+      "glabel": {
+        "en": "Cut Waste",
+        "fa": "حذفِ هدر"
+      },
+      "principle": {
+        "en": "Find the tasks that produce little value and stop doing them — free that time for what matters.",
+        "fa": "کارهایی را که ارزشِ کمی می‌سازند پیدا کن و بس کن — آن وقت را برای چیزی که مهم است آزاد کن."
+      },
+      "more": {
+        "en": "A lot of work is habit, not value: reports no one reads, meetings that decide nothing, steps kept 'because we always have.' Cutting them isn't neglect — it's how you make room to obsess over the few things that count.",
+        "fa": "خیلی از کارها عادت‌اند، نه ارزش: گزارش‌هایی که کسی نمی‌خواند، جلسه‌هایی که هیچ تصمیمی نمی‌گیرند، قدم‌هایی که فقط «چون همیشه بوده» مانده‌اند. حذفشان بی‌مسئولیتی نیست — این‌طوری جا باز می‌کنی که روی همان چند کارِ مهم وسواس به خرج بدهی."
+      },
+      "example": {
+        "en": "Kill the weekly report nobody uses, and spend that hour on the project that actually moves the needle.",
+        "fa": "همان گزارشِ هفتگی‌ای که کسی استفاده‌اش نمی‌کند را بکُش، و آن یک ساعت را بگذار روی پروژه‌ای که واقعاً فرق ایجاد می‌کند."
+      },
+      "tip": {
+        "en": "This week, find one recurring task with low value and stop it — see if anyone notices.",
+        "fa": "این هفته یک کارِ تکراریِ کم‌ارزش پیدا کن و متوقفش کن — ببین اصلاً کسی متوجه می‌شود."
+      },
+      "pitfall": {
+        "en": "Keeping busywork alive out of habit or fear that cutting it looks lazy.",
+        "fa": "کارِ بی‌فایده را از سرِ عادت یا از ترسِ اینکه حذفش تنبلی به‌نظر برسد، زنده نگه می‌داری."
+      }
+    },
+    "loop": {
+      "part": "loop",
+      "n": 7,
+      "name": {
+        "en": "The Learning Loop",
+        "fa": "چرخهٔ یادگیری"
+      },
+      "glabel": {
+        "en": "The Loop",
+        "fa": "چرخه"
+      },
+      "principle": {
+        "en": "Build a loop into your work: do a small piece, get feedback, tweak, and go again.",
+        "fa": "یک چرخه توی کارت بگذار: یک تکهٔ کوچک انجام بده، بازخورد بگیر، اصلاحش کن، و دوباره برو."
+      },
+      "more": {
+        "en": "You don't get better just by doing your job for years — many people plateau. Growth comes from deliberate practice: a tight cycle of trying, measuring the result, and adjusting, folded into everyday work.",
+        "fa": "با سال‌ها انجام‌دادنِ یک کار، خودبه‌خود بهتر نمی‌شوی — خیلی‌ها همان‌جا متوقف می‌مانند. رشد از تمرینِ هدفمند می‌آید: یک چرخهٔ فشرده از امتحان‌کردن، سنجیدنِ نتیجه، و تنظیم‌کردن، که توی کارِ روزمره جا داده شده."
+      },
+      "example": {
+        "en": "A salesperson who reviews each call — what worked, what didn't — and changes one thing for the next call is running a learning loop.",
+        "fa": "فروشنده‌ای که هر تماس را مرور می‌کند — چه چیزی جواب داد، چه چیزی نه — و برای تماسِ بعدی یک چیز را عوض می‌کند، دارد یک چرخهٔ یادگیری را اجرا می‌کند."
+      },
+      "tip": {
+        "en": "After your next task, spend two minutes on: what will I do differently next time?",
+        "fa": "بعد از کارِ بعدی‌ات، دو دقیقه بگذار روی این: دفعهٔ بعد چه چیزی را جور دیگری انجام می‌دهم؟"
+      },
+      "pitfall": {
+        "en": "Repeating the same year of experience over and over and calling it growth.",
+        "fa": "یک سالِ تجربه را بارها و بارها تکرار می‌کنی و اسمش را رشد می‌گذاری."
+      }
+    },
+    "chunks": {
+      "part": "loop",
+      "n": 8,
+      "name": {
+        "en": "Practice Small Chunks",
+        "fa": "تکه‌های کوچک تمرین کن"
+      },
+      "glabel": {
+        "en": "Chunks",
+        "fa": "تکه‌ها"
+      },
+      "principle": {
+        "en": "Break a skill into tiny pieces and work on one at a time — not the whole thing at once.",
+        "fa": "یک مهارت را به تکه‌های ریز بشکن و هر بار روی یکی کار کن — نه اینکه یک‌دفعه سراغِ کلش بروی."
+      },
+      "more": {
+        "en": "Improvement is easier when it's small and specific. Isolate one micro-behavior — the opening line of a pitch, the way you run a check-in — practice just that, get feedback, then move to the next chunk. Fifteen focused minutes beats hours of vague effort.",
+        "fa": "بهتر‌شدن وقتی کوچک و مشخص باشد راحت‌تر است. یک رفتارِ ریز را جدا کن — جملهٔ اولِ یک ارائه، شیوهٔ اداره‌کردنِ یک جلسهٔ کوتاه — فقط همان را تمرین کن، بازخورد بگیر، بعد برو سراغِ تکهٔ بعدی. پانزده دقیقهٔ متمرکز از ساعت‌ها تلاشِ مبهم بهتر است."
+      },
+      "example": {
+        "en": "Instead of 'get better at presenting,' practice just your first thirty seconds until they're sharp.",
+        "fa": "به‌جای «توی ارائه بهتر شوم»، فقط همان سی ثانیهٔ اول را تمرین کن تا تیز شود."
+      },
+      "tip": {
+        "en": "Choose one small skill to sharpen this week and practice it in short, daily reps.",
+        "fa": "این هفته یک مهارتِ کوچک را برای تیزکردن انتخاب کن و در تکرارهای کوتاهِ روزانه تمرینش کن."
+      },
+      "pitfall": {
+        "en": "Trying to improve everything at once, so nothing actually changes.",
+        "fa": "می‌خواهی یک‌دفعه همه‌چیز را بهتر کنی، آخرش هیچ‌چیز واقعاً عوض نمی‌شود."
+      }
+    },
+    "softskills": {
+      "part": "loop",
+      "n": 9,
+      "name": {
+        "en": "Tackle the Soft Skills",
+        "fa": "سراغِ مهارت‌های نرم برو"
+      },
+      "glabel": {
+        "en": "Soft Skills",
+        "fa": "مهارتِ نرم"
+      },
+      "principle": {
+        "en": "The hardest and most valuable things to improve are the soft skills — and don't forget to unlearn what's stale.",
+        "fa": "سخت‌ترین و پرارزش‌ترین چیزها برای بهتر‌کردن، همان مهارت‌های نرم‌اند — و یادت نرود چیزهای کهنه را هم از یاد ببری."
+      },
+      "more": {
+        "en": "It's easy to keep drilling technical skills; it's harder — and often more rewarding — to get better at feedback, listening, collaboration and handling conflict. Also unlearn: drop habits and beliefs that used to work but now hold you back.",
+        "fa": "کارِ راحت این است که مدام مهارت‌های فنی را تمرین کنی؛ کارِ سخت‌تر — و اغلب باارزش‌تر — این است که در بازخورد‌دادن، گوش‌دادن، همکاری و کنار‌آمدن با تعارض بهتر شوی. یک کارِ دیگر هم هست: از یاد ببر — عادت‌ها و باورهایی را که زمانی جواب می‌دادند اما حالا پایت را می‌گیرند، کنار بگذار."
+      },
+      "example": {
+        "en": "An engineer who's technically strong grows most by learning to give hard feedback well — the skill no course taught.",
+        "fa": "مهندسی که از نظرِ فنی قوی است، بیشترین رشدش وقتی است که یاد بگیرد بازخوردِ سخت را خوب بدهد — همان مهارتی که هیچ درسی یادش نداده بود."
+      },
+      "tip": {
+        "en": "Name one soft skill that would change your results, and start a loop on it.",
+        "fa": "یک مهارتِ نرم را نام ببر که نتیجه‌هایت را عوض می‌کند، و یک چرخه رویش شروع کن."
+      },
+      "pitfall": {
+        "en": "Polishing skills you already have while dodging the awkward human ones.",
+        "fa": "مهارت‌هایی را که همین حالا داری صیقل می‌دهی و از مهارت‌های آدم‌محورِ سخت طفره می‌روی."
+      }
+    },
+    "combine": {
+      "part": "psquared",
+      "n": 10,
+      "name": {
+        "en": "Passion Meets Purpose",
+        "fa": "اشتیاق به هدف می‌رسد"
+      },
+      "glabel": {
+        "en": "P + P",
+        "fa": "اشتیاق+هدف"
+      },
+      "principle": {
+        "en": "Top performance comes from pairing passion (what energizes you) with purpose (a contribution that matters).",
+        "fa": "بهترین کارکرد وقتی می‌آید که اشتیاق (چیزی که به تو انرژی می‌دهد) را با هدف (سهمی که ارزش دارد) جفت کنی."
+      },
+      "more": {
+        "en": "Passion is the fuel; purpose is the direction. Hansen calls it P-squared: people who both love what they do and feel they're contributing real value bring far more energy — and get far better results — than people with only one of the two.",
+        "fa": "اشتیاق سوخت است؛ هدف جهت. هانسن اسمش را می‌گذارد پی‌به‌توانِ‌دو: آدم‌هایی که هم کارشان را دوست دارند و هم حس می‌کنند دارند ارزشی واقعی می‌سازند، انرژیِ خیلی بیشتری می‌آورند — و نتیجهٔ خیلی بهتری می‌گیرند — از کسانی که فقط یکی از این دو را دارند."
+      },
+      "example": {
+        "en": "A nurse who loves the craft and believes she's easing real suffering has both — and outworks someone running on passion alone.",
+        "fa": "پرستاری که هم کارش را دوست دارد و هم باور دارد دارد از یک رنجِ واقعی کم می‌کند، هر دو را دارد — و از کسی که فقط با اشتیاق پیش می‌رود جلو می‌زند."
+      },
+      "tip": {
+        "en": "For your role, write one line on what energizes you and one on who you're really helping.",
+        "fa": "برای نقشت، یک خط بنویس که چه چیزی به تو انرژی می‌دهد و یک خط که واقعاً داری به چه کسی کمک می‌کنی."
+      },
+      "pitfall": {
+        "en": "Chasing a job you love that helps no one — or a worthy job that drains you.",
+        "fa": "دنبالِ کاری می‌روی که دوستش داری اما به کسی کمک نمی‌کند — یا کاری ارزشمند که تو را می‌فرساید."
+      }
+    },
+    "passionhurts": {
+      "part": "psquared",
+      "n": 11,
+      "name": {
+        "en": "Passion Alone Can Hurt",
+        "fa": "اشتیاقِ تنها می‌تواند ضرر بزند"
+      },
+      "glabel": {
+        "en": "Careful",
+        "fa": "احتیاط"
+      },
+      "principle": {
+        "en": "'Follow your passion' is risky by itself — without purpose or judgment it can burn you out or mislead you.",
+        "fa": "«دنبالِ اشتیاقت برو» به‌تنهایی خطرناک است — بدونِ هدف یا عقل، می‌تواند تو را بسوزاند یا به بیراهه ببرد."
+      },
+      "more": {
+        "en": "Passion feels good, but chased blindly it leads people to over-invest in things that don't pay off, take reckless risks, or work themselves to exhaustion. Follow passion wisely: aim it at real value, and keep it in check.",
+        "fa": "اشتیاق حسِ خوبی دارد، اما اگر کورکورانه دنبالش بروی، آدم‌ها را می‌کشاند به این‌که روی چیزهایی که جواب نمی‌دهند بیش‌ازحد سرمایه‌گذاری کنند، ریسک‌های بی‌گدار بکنند، یا خودشان را تا مرزِ فرسودگی کار بکشند. عاقلانه دنبالِ اشتیاق برو: به‌سمتِ ارزشِ واقعی نشانه‌اش بگیر، و مهارش کن."
+      },
+      "example": {
+        "en": "Someone passionate about a pet project can pour months into it while the work that actually matters slips.",
+        "fa": "کسی که عاشقِ یک پروژهٔ دلخواه است، ممکن است ماه‌ها رویش بریزد درحالی‌که کاری که واقعاً مهم است از دستش در می‌رود."
+      },
+      "tip": {
+        "en": "Before you go all-in on something you love, check that it creates value others need.",
+        "fa": "قبل از اینکه با تمامِ وجود بروی سراغِ چیزی که دوستش داری، مطمئن شو ارزشی می‌سازد که دیگران به آن نیاز دارند."
+      },
+      "pitfall": {
+        "en": "Treating passion as a free pass and ignoring whether the work pays off.",
+        "fa": "اشتیاق را یک مجوزِ بی‌قید‌وشرط می‌گیری و به این‌که کار جواب می‌دهد یا نه بی‌اعتنایی."
+      }
+    },
+    "purpose": {
+      "part": "psquared",
+      "n": 12,
+      "name": {
+        "en": "Find Your Purpose",
+        "fa": "هدفت را پیدا کن"
+      },
+      "glabel": {
+        "en": "Purpose",
+        "fa": "هدف"
+      },
+      "principle": {
+        "en": "Purpose is the value you add to others and the world — not just meaning you take for yourself.",
+        "fa": "هدف یعنی ارزشی که به دیگران و به دنیا اضافه می‌کنی — نه فقط معنایی که برای خودت برمی‌داری."
+      },
+      "more": {
+        "en": "You don't have to save the world; purpose can be as ordinary as making a customer's day easier or a teammate's job better. The question is whether your work contributes something beyond you — that's what turns effort into meaning.",
+        "fa": "لازم نیست دنیا را نجات بدهی؛ هدف می‌تواند به‌سادگیِ راحت‌ترکردنِ روزِ یک مشتری یا بهترکردنِ کارِ یک هم‌تیمی باشد. سؤال این است که کارت چیزی فراتر از خودت می‌افزاید یا نه — همین است که تلاش را به معنا تبدیل می‌کند."
+      },
+      "example": {
+        "en": "A support rep who sees her job as 'rescuing frustrated people,' not 'closing tickets,' has found a purpose that lifts her work.",
+        "fa": "کارشناسِ پشتیبانی‌ای که کارش را «نجاتِ آدم‌های کلافه» می‌بیند، نه «بستنِ تیکت»، هدفی پیدا کرده که کارش را بالا می‌کشد."
+      },
+      "tip": {
+        "en": "Rewrite your job description in one line about who you help and how.",
+        "fa": "شرحِ شغلت را در یک خط بازنویسی کن، دربارهٔ اینکه به چه کسی و چطور کمک می‌کنی."
+      },
+      "pitfall": {
+        "en": "Waiting for a grand mission instead of finding purpose in the work in front of you.",
+        "fa": "منتظرِ یک رسالتِ بزرگ می‌مانی به‌جای اینکه هدف را در همین کارِ جلوی رویت پیدا کنی."
+      }
+    },
+    "champion": {
+      "part": "collab",
+      "n": 13,
+      "name": {
+        "en": "Be a Forceful Champion",
+        "fa": "مدافعِ سرسختِ کارت باش"
+      },
+      "glabel": {
+        "en": "Champion",
+        "fa": "مدافع"
+      },
+      "principle": {
+        "en": "To get your work adopted, champion it forcefully — win people over instead of just doing good work quietly.",
+        "fa": "برای اینکه کارت پذیرفته شود، سرسختانه ازش دفاع کن — دیگران را همراهِ خودت کن، نه اینکه فقط بی‌سروصدا خوب کار کنی."
+      },
+      "more": {
+        "en": "Good work doesn't sell itself. Top performers push their ideas through resistance by doing two things at once: inspiring people to care, and applying smart, persistent effort to overcome the inevitable pushback.",
+        "fa": "کارِ خوب خودش خودش را نمی‌فروشد. بهترین‌ها ایده‌هایشان را از میانِ مقاومت جلو می‌برند، با انجامِ هم‌زمانِ دو کار: هم دیگران را به اهمیت‌دادن برمی‌انگیزند، و هم با تلاشِ هوشمند و پیگیر بر مخالفتِ ناگزیر غلبه می‌کنند."
+      },
+      "example": {
+        "en": "Two people have the same good idea; the one who rallies support and keeps pushing gets it built — the quiet one is ignored.",
+        "fa": "دو نفر یک ایدهٔ خوبِ یکسان دارند؛ آن‌که حمایت جمع می‌کند و پیگیری را ول نمی‌کند، ایده‌اش را می‌سازد — آن‌که ساکت است نادیده گرفته می‌شود."
+      },
+      "tip": {
+        "en": "For an idea you believe in, line up who you need to convince — and start winning them over.",
+        "fa": "برای ایده‌ای که بهش باور داری، فهرست کن چه کسانی را باید قانع کنی — و شروع کن به همراه‌کردنشان."
+      },
+      "pitfall": {
+        "en": "Assuming your results speak for themselves while someone louder gets the backing.",
+        "fa": "خیال می‌کنی نتیجه‌هایت خودشان حرف می‌زنند، درحالی‌که یک نفرِ پرسروصداتر حمایت را می‌برد."
+      }
+    },
+    "inspire": {
+      "part": "collab",
+      "n": 14,
+      "name": {
+        "en": "Move People, Not Just Facts",
+        "fa": "آدم‌ها را تکان بده، نه فقط با آمار"
+      },
+      "glabel": {
+        "en": "Inspire",
+        "fa": "انگیزش"
+      },
+      "principle": {
+        "en": "People back what moves them, not what's merely logical — connect your work to what they care about.",
+        "fa": "آدم‌ها از چیزی حمایت می‌کنند که تکانشان می‌دهد، نه چیزی که فقط منطقی است — کارت را به چیزی که برایشان مهم است وصل کن."
+      },
+      "more": {
+        "en": "We try to win support with more data, more slides, more emails — and people tune out. The best evoke emotion instead: they tell a vivid story, show why it matters, and make people feel the stakes, not just see the numbers.",
+        "fa": "ما سعی می‌کنیم با آمارِ بیشتر، اسلایدِ بیشتر، ایمیلِ بیشتر حمایت جمع کنیم — و آدم‌ها گوششان را می‌بندند. بهترین‌ها به‌جایش احساس را بیدار می‌کنند: یک داستانِ زنده می‌گویند، نشان می‌دهند چرا مهم است، و کاری می‌کنند آدم‌ها اهمیتِ ماجرا را حس کنند، نه فقط عددها را ببینند."
+      },
+      "example": {
+        "en": "A pitch that opens with one real customer's frustration lands harder than ten slides of statistics.",
+        "fa": "ارائه‌ای که با کلافگیِ یک مشتریِ واقعی شروع می‌شود، بیشتر از ده اسلاید آمار می‌نشیند."
+      },
+      "tip": {
+        "en": "Add one concrete story or human stake to your next proposal, before any chart.",
+        "fa": "به پیشنهادِ بعدی‌ات یک داستانِ ملموس یا یک نفعِ انسانی اضافه کن، قبل از هر نمودار."
+      },
+      "pitfall": {
+        "en": "Hammering the same logical argument harder when people aren't listening.",
+        "fa": "وقتی کسی گوش نمی‌دهد، همان استدلالِ منطقی را محکم‌تر می‌کوبی."
+      }
+    },
+    "disciplined": {
+      "part": "collab",
+      "n": 15,
+      "name": {
+        "en": "Disciplined Collaboration",
+        "fa": "همکاریِ حساب‌شده"
+      },
+      "glabel": {
+        "en": "Collaborate",
+        "fa": "همکاری"
+      },
+      "principle": {
+        "en": "Collaborate only when the prize is big — say no to teamwork that isn't worth it.",
+        "fa": "فقط وقتی همکاری کن که جایزه‌اش بزرگ باشد — به هم‌کاری‌ای که نمی‌ارزد نه بگو."
+      },
+      "more": {
+        "en": "There are two sins: too little collaboration (siloed, reinventing the wheel) and too much (endless meetings, diluted effort). Disciplined collaboration means choosing: join only the projects where working together clearly creates more value than working alone.",
+        "fa": "دو گناه هست: همکاریِ خیلی کم (جزیره‌ای، اختراعِ دوبارهٔ چرخ) و همکاریِ خیلی زیاد (جلسه‌های بی‌پایان، تلاشِ رقیق‌شده). همکاریِ حساب‌شده یعنی انتخاب کنی: فقط واردِ پروژه‌هایی شو که با هم کارکردن آشکارا ارزشِ بیشتری از تنها کارکردن می‌سازد."
+      },
+      "example": {
+        "en": "Turning down a cross-team task force that would eat your week for a tiny payoff is disciplined, not uncooperative.",
+        "fa": "ردکردنِ یک کارگروهِ بین‌تیمی که یک هفته‌ات را می‌خورد برای یک دستاوردِ ناچیز، حساب‌شده است، نه ناهمکاری."
+      },
+      "tip": {
+        "en": "Before joining a collaboration, ask: is the prize here big enough to justify the time?",
+        "fa": "قبل از پیوستن به یک همکاری بپرس: جایزهٔ اینجا آن‌قدر بزرگ هست که وقتش را توجیه کند؟"
+      },
+      "pitfall": {
+        "en": "Collaborating for its own sake until your calendar has no room to do the work.",
+        "fa": "همکاری می‌کنی فقط به‌خاطرِ خودِ همکاری، تا جایی که تقویمت دیگر جا برای کارکردن ندارد."
+      }
+    },
+    "fightunite": {
+      "part": "collab",
+      "n": 16,
+      "name": {
+        "en": "Fight and Unite",
+        "fa": "جدل کن، بعد متحد شو"
+      },
+      "glabel": {
+        "en": "Fight & Unite",
+        "fa": "جدل و اتحاد"
+      },
+      "principle": {
+        "en": "Run team meetings that welcome real debate — then, once decided, everyone commits fully.",
+        "fa": "جلسه‌های تیمی‌ای بگذار که جدلِ واقعی را قدر بدانند — بعد که تصمیم گرفته شد، همه کامل پایش بایستند."
+      },
+      "more": {
+        "en": "The best teams argue hard to surface the truth: they invite dissent, poke holes, and let the strongest idea win — not the loudest voice. But the fight ends at the decision; then they unite behind it and act as one, instead of relitigating in the hallway.",
+        "fa": "بهترین تیم‌ها سختْ جدل می‌کنند تا حقیقت بیرون بیاید: مخالفت را دعوت می‌کنند، به ایده‌ها ایراد می‌گیرند، و می‌گذارند قوی‌ترین ایده ببرد — نه بلندترین صدا. اما جدل سرِ تصمیم تمام می‌شود؛ بعد همه پشتش متحد می‌شوند و مثلِ یک تن عمل می‌کنند، نه اینکه توی راهرو دوباره سرش دعوا کنند."
+      },
+      "example": {
+        "en": "A team that debates a plan openly, then leaves the room speaking with one voice, beats one that nods in the meeting and grumbles after.",
+        "fa": "تیمی که سرِ یک برنامه رو‌راست بحث می‌کند و بعد با یک صدا از اتاق بیرون می‌آید، از تیمی که توی جلسه سر تکان می‌دهد و بیرون غر می‌زند بهتر است."
+      },
+      "tip": {
+        "en": "In your next meeting, actively invite the strongest objection — then ask for commitment.",
+        "fa": "توی جلسهٔ بعدی‌ات، فعالانه قوی‌ترین مخالفت را دعوت کن — بعد از همه تعهد بخواه."
+      },
+      "pitfall": {
+        "en": "Fake harmony in the room that turns into second-guessing outside it.",
+        "fa": "توافقِ ظاهری توی اتاق که بیرونش به زیرِ‌سؤال‌بردن تبدیل می‌شود."
+      }
+    }
+  },
+  "core": {
+    "name": {
+      "en": "WORK SMARTER",
+      "fa": "هوشمندانه کار کن"
+    },
+    "principle": {
+      "en": "Top performers aren't the ones who work the most hours — they work smart. They do less but obsess over quality, redesign their work around the value it creates for others, learn in tight feedback loops, match passion with purpose, and collaborate with discipline while championing their ideas. Seven practices, one idea: maximize value, not effort.",
+      "fa": "بهترین‌ها آن‌هایی نیستند که بیشترین ساعت را کار می‌کنند — هوشمندانه کار می‌کنند. کمتر می‌کنند اما روی کیفیت وسواس دارند، کارشان را دورِ ارزشی که برای دیگران می‌سازد از نو می‌چینند، در چرخه‌های کوتاهِ بازخورد یاد می‌گیرند، اشتیاق را با هدف جفت می‌کنند، و با نظم همکاری می‌کنند و درعین‌حال از ایده‌هایشان دفاع می‌کنند. هفت تمرین، یک ایده: ارزش را بیشینه کن، نه تلاش را."
+    },
+    "more": {
+      "en": "Hansen groups the findings of a five-year study of 5,000 people into seven 'work smart' practices, shown here as five parts: Do Less, Then Obsess; Redesign Your Work around value; Learn in a Loop; combine Passion and Purpose; and Collaborate and influence with discipline. Together, these practices explained about two-thirds of the difference between top and average performers — far more than talent, effort or luck.",
+      "fa": "هانسن یافته‌های یک پژوهشِ پنج‌ساله روی ۵٬۰۰۰ نفر را در هفت تمرینِ «کارِ هوشمندانه» می‌چیند، که اینجا در پنج بخش نشان داده شده: کمتر کن، بعد وسواس؛ کارت را دورِ ارزش از نو طراحی کن؛ در یک چرخه یاد بگیر؛ اشتیاق و هدف را ترکیب کن؛ و با نظم همکاری کن و نفوذ بگذار. این تمرین‌ها با هم، حدودِ دو‌سومِ تفاوتِ میانِ بهترین‌ها و آدم‌های معمولی را توضیح می‌دادند — خیلی بیشتر از استعداد، تلاش، یا شانس."
+    },
+    "example": {
+      "en": "Click any node to read a practice or a method. You can also drag the nodes around.",
+      "fa": "روی هر دایره کلیک کن تا یک تمرین یا روش را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."
+    }
+  },
+  "stages": [
+    {
+      "level": 1,
+      "badge": {
+        "en": "Level 1 · Over-simplified",
+        "fa": "سطحِ ۱ · خیلی ساده"
+      },
+      "title": {
+        "en": "Work smart, not just hard",
+        "fa": "هوشمندانه کار کن، نه فقط سخت"
+      },
+      "tagline": {
+        "en": "The whole book in a sentence.",
+        "fa": "کلِ کتاب در یک جمله."
+      },
+      "body": {
+        "en": "Great performance isn't about more hours or raw talent. It's about how you work. Do less, but obsess over doing it exceptionally well.",
+        "fa": "کارکردِ عالی به ساعتِ بیشتر یا استعدادِ خام نیست. به این است که چطور کار می‌کنی. کمتر کن، اما وسواس داشته باش که همان را عالی انجام بدهی."
+      },
+      "example": {
+        "en": "Two people, same job, same hours — the one who focused on a few things done brilliantly wins.",
+        "fa": "دو نفر، یک کار، ساعت‌های برابر — آن‌که روی چند چیزِ عالی‌انجام‌شده تمرکز کرد می‌برد."
+      },
+      "gain": {
+        "en": "You hold the single idea the whole book expands on.",
+        "fa": "همان یک ایده‌ای را داری که کلِ کتاب بسطش می‌دهد."
+      }
+    },
+    {
+      "level": 2,
+      "badge": {
+        "en": "Level 2 · Simple",
+        "fa": "سطحِ ۲ · ساده"
+      },
+      "title": {
+        "en": "Do less, then obsess",
+        "fa": "کمتر کن، بعد وسواس"
+      },
+      "tagline": {
+        "en": "Focus on a few things, then go deep.",
+        "fa": "روی چند چیز تمرکز کن، بعد عمیق شو."
+      },
+      "body": {
+        "en": "Pick a very few priorities — as few as you can — and cut the rest with a razor. Then obsess: pour disproportionate effort in until the quality is exceptional. Focus and intensity, together.",
+        "fa": "خیلی کم اولویت انتخاب کن — هرچه کمتر بهتر — و بقیه را با یک تیغ ببُر. بعد وسواس به خرج بده: آن‌قدر تلاشِ بیشتر بریز تا کیفیت فوق‌العاده شود. تمرکز و شدت، با هم."
+      },
+      "example": {
+        "en": "Say no to a dozen good-enough tasks so two truly matter — and make those flawless.",
+        "fa": "به ده‌ها کارِ «بد‌نیست» نه بگو تا دو تا واقعاً مهم شوند — و همان دو را بی‌نقص کن."
+      },
+      "gain": {
+        "en": "You can turn a scattered week into a focused, high-quality one.",
+        "fa": "می‌توانی یک هفتهٔ پخش‌وپلا را به یک هفتهٔ متمرکز و باکیفیت تبدیل کنی."
+      }
+    },
+    {
+      "level": 3,
+      "badge": {
+        "en": "Level 3 · Balanced",
+        "fa": "سطحِ ۳ · متعادل"
+      },
+      "title": {
+        "en": "Redesign and learn",
+        "fa": "از نو طراحی کن و یاد بگیر"
+      },
+      "tagline": {
+        "en": "Aim at value; get better every day.",
+        "fa": "به ارزش نشانه بگیر؛ هر روز بهتر شو."
+      },
+      "body": {
+        "en": "Now shift from effort to value: measure your work by how much others benefit, <b>redesign</b> it to create more, and <b>cut low-value tasks</b>. And stop plateauing — build a <b>learning loop</b>: practice small chunks, get feedback, and tackle the soft skills.",
+        "fa": "حالا از تلاش به ارزش برو: کارت را با اینکه دیگران چقدر سود می‌برند بسنج، <b>از نو طراحی‌اش کن</b> تا ارزشِ بیشتری بسازد، و <b>کارهای کم‌ارزش را حذف کن</b>. و از توقف در بیا — یک <b>چرخهٔ یادگیری</b> بساز: تکه‌های کوچک تمرین کن، بازخورد بگیر، و سراغِ مهارت‌های نرم برو."
+      },
+      "example": {
+        "en": "Kill a report nobody reads; use that hour to practice the one skill holding you back.",
+        "fa": "یک گزارش که کسی نمی‌خواندش را بکُش؛ آن یک ساعت را بگذار برای تمرینِ همان مهارتی که پایت را گرفته."
+      },
+      "gain": {
+        "en": "Your effort starts turning into real value — and steady growth.",
+        "fa": "تلاشت کم‌کم به ارزشِ واقعی — و رشدِ پیوسته — تبدیل می‌شود."
+      }
+    },
+    {
+      "level": 4,
+      "badge": {
+        "en": "Level 4 · Advanced",
+        "fa": "سطحِ ۴ · پیشرفته"
+      },
+      "title": {
+        "en": "Passion with purpose",
+        "fa": "اشتیاق همراهِ هدف"
+      },
+      "tagline": {
+        "en": "Energy in the right direction.",
+        "fa": "انرژی در جهتِ درست."
+      },
+      "body": {
+        "en": "Fuel matters, but aimed well. Combine <b>passion</b> — what energizes you — with <b>purpose</b> — a contribution that matters to others. Together they multiply drive and results. But follow passion wisely: chased blindly, it can burn you out or lead you astray.",
+        "fa": "سوخت مهم است، اما درست نشانه‌رفته. <b>اشتیاق</b> — چیزی که به تو انرژی می‌دهد — را با <b>هدف</b> — سهمی که برای دیگران ارزش دارد — ترکیب کن. با هم، انگیزه و نتیجه را چند برابر می‌کنند. اما عاقلانه دنبالِ اشتیاق برو: کورکورانه که دنبالش بروی، می‌تواند بسوزاندت یا به بیراهه ببردت."
+      },
+      "example": {
+        "en": "A nurse who loves the craft and believes she eases real suffering outworks one running on passion alone.",
+        "fa": "پرستاری که هم کارش را دوست دارد و هم باور دارد از یک رنجِ واقعی کم می‌کند، از کسی که فقط با اشتیاق پیش می‌رود پرکارتر است."
+      },
+      "gain": {
+        "en": "You bring energy that lasts, pointed where it creates value.",
+        "fa": "انرژی‌ای می‌آوری که دوام دارد و به جایی نشانه رفته که ارزش می‌سازد."
+      }
+    },
+    {
+      "level": 5,
+      "badge": {
+        "en": "Level 5 · Expert",
+        "fa": "سطحِ ۵ · حرفه‌ای"
+      },
+      "title": {
+        "en": "Influence and collaborate",
+        "fa": "نفوذ کن و همکاری کن"
+      },
+      "tagline": {
+        "en": "Champion, collaborate with discipline, fight and unite.",
+        "fa": "دفاع کن، حساب‌شده همکاری کن، جدل کن و متحد شو."
+      },
+      "body": {
+        "en": "The expert puts it all together and wins others over. Be a <b>forceful champion</b> — inspire people and push with smart grit. <b>Collaborate with discipline</b>: team up only when the prize is big. And run meetings that <b>fight and unite</b> — real debate, then full commitment. Seven practices, one habit: maximize value, not effort.",
+        "fa": "آدمِ حرفه‌ای همهٔ این‌ها را کنارِ هم می‌گذارد و دیگران را همراهِ خودش می‌کند. <b>مدافعِ سرسخت</b> باش — آدم‌ها را برانگیز و با پشتکارِ هوشمند جلو برو. <b>حساب‌شده همکاری کن</b>: فقط وقتی هم‌تیم شو که جایزه بزرگ است. و جلسه‌هایی بگذار که <b>جدل و اتحاد</b> دارند — بحثِ واقعی، بعد تعهدِ کامل. هفت تمرین، یک عادت: ارزش را بیشینه کن، نه تلاش را."
+      },
+      "example": {
+        "en": "You champion your ideas, say no to low-value meetings, and lead debates that end in one clear decision.",
+        "fa": "از ایده‌هایت دفاع می‌کنی، به جلسه‌های کم‌ارزش نه می‌گویی، و بحث‌هایی را رهبری می‌کنی که به یک تصمیمِ روشن ختم می‌شوند."
+      },
+      "gain": {
+        "en": "You can perform at the top and lift the people around you.",
+        "fa": "می‌توانی در سطحِ بالا کار کنی و آدم‌های دورت را هم بالا بکشی."
+      }
+    }
+  ],
+  "quotes": [
+    {
+      "en": "To work smart means to maximize the value of your work by selecting a few activities and applying intense targeted effort.",
+      "fa": "کارِ هوشمندانه یعنی ارزشِ کارت را بیشینه کنی، با انتخابِ چند فعالیت و گذاشتنِ تلاشِ شدید و هدف‌دار روی همان‌ها."
+    },
+    {
+      "en": "Whenever they could, top performers carefully selected which priorities, tasks, collaborations, team meetings, committees, analyses, customers, new ideas, steps in a process, and interactions to undertake, and which to neglect or reject.",
+      "fa": "بهترین‌ها هر جا می‌توانستند، با دقت انتخاب می‌کردند کدام اولویت‌ها، کارها، همکاری‌ها، جلسه‌های تیمی، کمیته‌ها، تحلیل‌ها، مشتری‌ها، ایده‌های نو، قدم‌های یک فرایند و تعامل‌ها را انجام بدهند، و کدام را کنار بگذارند یا رد کنند."
+    },
+    {
+      "en": "Variation—trying new ideas—is essential to learning.",
+      "fa": "تنوع — امتحان‌کردنِ ایده‌های نو — برای یادگیری ضروری است."
+    },
+    {
+      "en": "small changes in behaviors can have a disproportionate effect on outcomes.",
+      "fa": "تغییرهای کوچک در رفتار می‌توانند اثری نامتناسب و بزرگ روی نتیجه‌ها بگذارند."
+    },
+    {
+      "en": "Avoid colleagues who sap your energy.",
+      "fa": "از همکارهایی که انرژی‌ات را می‌مکند دوری کن."
+    },
+    {
+      "en": "In 2011, I launched one of the most comprehensive research projects ever undertaken on individual performance at work.",
+      "fa": "در سالِ ۲۰۱۱، یکی از جامع‌ترین پروژه‌های پژوهشیِ تاریخ دربارهٔ کارکردِ فردی در کار را راه انداختم."
+    }
+  ],
+  "media": [
+    {
+      "kind": "yt",
+      "id": "h27zMWAeHdg",
+      "src": {
+        "en": "YouTube · Bregman Leadership Podcast",
+        "fa": "یوتیوب · پادکستِ رهبریِ برگمن"
+      },
+      "title": {
+        "en": "Morten Hansen on Great at Work",
+        "fa": "مورتن هانسن دربارهٔ عالی در کار"
+      },
+      "desc": {
+        "en": "The author unpacks the seven practices in a focused interview.",
+        "fa": "نویسنده در یک گفت‌وگوی متمرکز، هفت تمرین را باز می‌کند."
+      },
+      "bullets": {
+        "en": [
+          "The seven work-smart practices",
+          "Do less, then obsess, explained",
+          "Straight from the author"
+        ],
+        "fa": [
+          "هفت تمرینِ کارِ هوشمندانه",
+          "«کمتر کن، بعد وسواس»، به زبانِ ساده",
+          "مستقیم از خودِ نویسنده"
+        ]
+      },
+      "best": {
+        "en": "Best for Stage 1–3.",
+        "fa": "خوب برای مرحلهٔ ۱ تا ۳."
+      }
+    },
+    {
+      "kind": "yt",
+      "id": "S3-Qk0ffyxw",
+      "src": {
+        "en": "YouTube · Google Play Books",
+        "fa": "یوتیوب · گوگل پلی بوکس"
+      },
+      "title": {
+        "en": "Great at Work — Audiobook Preview",
+        "fa": "عالی در کار — پیش‌نمایشِ کتابِ صوتی"
+      },
+      "desc": {
+        "en": "An audiobook preview in the book’s own words.",
+        "fa": "پیش‌نمایشِ کتابِ صوتی، با کلماتِ خودِ کتاب."
+      },
+      "bullets": {
+        "en": [
+          "Hear the introduction and setup",
+          "The core argument up front",
+          "A quick audio taste"
+        ],
+        "fa": [
+          "مقدمه و زمینه‌چینی را بشنو",
+          "ایدهٔ اصلی، همان اول",
+          "یک مزهٔ صوتیِ سریع"
+        ]
+      },
+      "best": {
+        "en": "For a taste of the book.",
+        "fa": "برای یک مزهٔ کتاب."
+      }
+    },
+    {
+      "kind": "img",
+      "url": "https://www.simonandschuster.com/books/Great-at-Work/Morten-T-Hansen/9781476765822",
+      "src": {
+        "en": "Simon & Schuster · Publisher",
+        "fa": "Simon & Schuster · ناشر"
+      },
+      "title": {
+        "en": "Great at Work — Publisher Page",
+        "fa": "عالی در کار — صفحهٔ ناشر"
+      },
+      "desc": {
+        "en": "The publisher page for the book, with editions and details.",
+        "fa": "صفحهٔ ناشر برای کتاب، با نسخه‌ها و جزئیات."
+      },
+      "bullets": {
+        "en": [
+          "The definitive editions",
+          "Background on Hansen",
+          "Straight from the source"
+        ],
+        "fa": [
+          "نسخه‌های معتبر",
+          "پیشینه‌ای دربارهٔ هانسن",
+          "مستقیم از خودِ منبع"
+        ]
+      },
+      "best": {
+        "en": "For editions and the source.",
+        "fa": "برای نسخه‌ها و منبعِ اصلی."
+      }
+    }
+  ],
+  "go": [
+    {
+      "label": {
+        "en": "Publisher page",
+        "fa": "صفحهٔ ناشر"
+      },
+      "url": "https://www.simonandschuster.com/books/Great-at-Work/Morten-T-Hansen/9781476765822"
+    },
+    {
+      "label": {
+        "en": "Book on Goodreads",
+        "fa": "کتاب در گودریدز"
+      },
+      "url": "https://www.goodreads.com/book/show/35297611-great-at-work"
+    },
+    {
+      "label": {
+        "en": "Author's page for the book",
+        "fa": "صفحهٔ نویسنده برای کتاب"
+      },
+      "url": "https://www.mortenhansen.com/book/great-at-work/"
+    }
+  ],
+  "recs": [
+    {
+      "pri": "b",
+      "t": {
+        "en": "Cut to two priorities",
+        "fa": "به دو اولویت تقلیلش بده"
+      },
+      "d": {
+        "en": "Look at everything on your plate this week and pick just two priorities to obsess over — renegotiate or drop the rest.",
+        "fa": "به هرچه این هفته روی سرت ریخته نگاه کن و فقط دو اولویت انتخاب کن که رویشان وسواس به خرج بدهی — بقیه را دوباره چانه بزن یا رها کن."
+      }
+    },
+    {
+      "pri": "b",
+      "t": {
+        "en": "Redesign one task for value",
+        "fa": "یک کار را برای ارزش از نو بچین"
+      },
+      "d": {
+        "en": "Take one routine task and rework it around the value it creates for others; cut the low-value steps.",
+        "fa": "یک کارِ روتین را بردار و دورِ ارزشی که برای دیگران می‌سازد از نو بچینش؛ قدم‌های کم‌ارزش را حذف کن."
+      }
+    },
+    {
+      "pri": "n",
+      "t": {
+        "en": "Start one learning loop",
+        "fa": "یک چرخهٔ یادگیری شروع کن"
+      },
+      "d": {
+        "en": "Pick one small skill, practice it in short daily reps, and ask for feedback after each try.",
+        "fa": "یک مهارتِ کوچک انتخاب کن، در تکرارهای کوتاهِ روزانه تمرینش کن، و بعد از هر بار بازخورد بخواه."
+      }
+    },
+    {
+      "pri": "n",
+      "t": {
+        "en": "Say no to one collaboration",
+        "fa": "به یک همکاری نه بگو"
+      },
+      "d": {
+        "en": "Decline one low-value meeting or project this week — collaborate only where the prize is big.",
+        "fa": "این هفته یک جلسه یا پروژهٔ کم‌ارزش را رد کن — فقط جایی همکاری کن که جایزه بزرگ است."
+      }
+    }
+  ]
 });
 </script>
 </body>

@@ -1,21 +1,20 @@
 <!DOCTYPE html>
-<!-- complexity-level: 1→5 (this page teaches the SAME book at five depths, over-simplified … expert) -->
-<!-- Effortless (Greg McKeown) — bilingual EN/FA knowledge graph & 5-stage learning page -->
-<html lang="fa" dir="rtl" data-lang="fa">
+<!-- Generated page. Edit CONTENT in the DATA object below; shared UI lives in ../assets/book.css + ../assets/book.js -->
+<html lang="en" dir="ltr" data-lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Good Strategy / Bad Strategy — نقشهٔ دانش و یادگیری ۵ مرحله‌ای</title>
 
-<!-- Boot theme + language BEFORE paint to avoid a flash -->
+<!-- Boot theme + language BEFORE paint to avoid a flash (shared library-wide keys) -->
 <script>
 (function(){
   try{
-    var th = localStorage.getItem('gsbs-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
+    var th = localStorage.getItem('pbl-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
     document.documentElement.setAttribute('data-theme', th);
   }catch(e){ document.documentElement.setAttribute('data-theme','light'); }
   try{
-    var lg = localStorage.getItem('gsbs-lang') || 'fa';
+    var lg = localStorage.getItem('pbl-lang') || 'en';
     document.documentElement.setAttribute('data-lang', lg);
     document.documentElement.setAttribute('lang', lg);
     document.documentElement.setAttribute('dir', lg==='fa' ? 'rtl' : 'ltr');
@@ -28,876 +27,1218 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:ital,opsz@0,6..72;1,6..72&display=swap" rel="stylesheet">
-
-<style>
-/* ── TOKENS ───────────────────────────────────────────────── */
-:root, [data-theme="light"]{
-  --bg:#f5f6f8; --bg2:#eef2f7; --card:#fff; --card2:#f8fafb;
-  --ink:#1c2330; --mut:#6b7280; --line:#e6e8ee;
-  --accent:#0e7c86; --accent-ink:#fff; --warm:#c2410c;
-  --shadow:0 1px 2px rgba(20,30,50,.05),0 6px 24px rgba(20,30,50,.06);
-  --hero-1:#0e7c86; --hero-2:#0b5e66;
-  --c-teal:#0e9aa6; --c-blue:#2f6fb0; --c-violet:#7c3aed; --c-amber:#d97706;
-  --c-green:#15a34a; --c-red:#e11d48; --c-gold:#c98a12; --c-gray:#6b7280;
-  --state:#0e9aa6; --action:#d97706; --results:#7c3aed; --core:#0e7c86;
-}
-[data-theme="dark"]{
-  --bg:#0e131a; --bg2:#161d27; --card:#151c26; --card2:#1b2430;
-  --ink:#e9eef5; --mut:#9aa7b6; --line:#27313d;
-  --accent:#2dd4bf; --accent-ink:#06231f; --warm:#fb923c;
-  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 28px rgba(0,0,0,.45);
-  --hero-1:#0c5f67; --hero-2:#07323a;
-  --c-teal:#2dd4bf; --c-blue:#5b9bd5; --c-violet:#a78bfa; --c-amber:#fbbf24;
-  --c-green:#34d399; --c-red:#fb7185; --c-gold:#e2b04a; --c-gray:#94a3b8;
-  --state:#2dd4bf; --action:#fbbf24; --results:#a78bfa; --core:#2dd4bf;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);
-  font-family:Vazirmatn,"Segoe UI",Tahoma,Arial,sans-serif;line-height:1.85;font-size:15px;
-  transition:background .25s,color .25s}
-html[data-lang="en"] body{font-family:Inter,"Segoe UI",system-ui,Arial,sans-serif;line-height:1.7}
-.wrap{max-width:960px;margin:0 auto;padding:0 18px 40px}
-
-/* language visibility */
-html[data-lang="en"] [data-only="fa"]{display:none !important}
-html[data-lang="fa"] [data-only="en"]{display:none !important}
-
-/* ── HERO ─────────────────────────────────────────────────── */
-.hero{background:linear-gradient(135deg,var(--hero-1),var(--hero-2));color:#fff;padding:44px 0 34px;position:relative;overflow:hidden}
-.hero::after{content:"";position:absolute;inset-inline-end:-80px;top:-80px;width:280px;height:280px;
-  background:radial-gradient(circle,rgba(255,255,255,.12),transparent 70%);pointer-events:none}
-.hero .wrap{padding-bottom:0;position:relative;z-index:1}
-.hero h1{margin:0 0 8px;font-size:30px;font-weight:800;letter-spacing:-.3px;line-height:1.25}
-html[data-lang="en"] .hero h1{font-family:Newsreader,Georgia,serif;font-weight:600;letter-spacing:-.5px}
-.hero .dek{margin:0;opacity:.94;font-size:15.5px;max-width:640px}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;
-  color:rgba(255,255,255,.95);background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.24);
-  padding:5px 13px;border-radius:20px;margin-bottom:15px}
-.eyebrow .edot{width:7px;height:7px;border-radius:50%;background:#fff;box-shadow:0 0 0 3px rgba(255,255,255,.25)}
-.metastrip{display:flex;flex-wrap:wrap;gap:14px 30px;margin-top:20px;padding-top:16px;
-  border-top:1px solid rgba(255,255,255,.18)}
-.metaitem{display:flex;flex-direction:column;gap:3px}
-.metaitem .mk{font-size:10.5px;color:rgba(255,255,255,.62);font-weight:700;letter-spacing:.6px;text-transform:uppercase}
-.metaitem .mv{font-size:14px;color:#fff;font-weight:700}
-.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
-.chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);
-  border-radius:11px;padding:9px 15px;font-size:13px}
-.chip b{font-size:20px;display:block;font-weight:800}
-
-/* ── NAV + TOC ────────────────────────────────────────────── */
-.navbar{position:sticky;top:0;z-index:60;background:color-mix(in srgb,var(--card) 92%,transparent);
-  backdrop-filter:saturate(180%) blur(10px);-webkit-backdrop-filter:saturate(180%) blur(10px);
-  border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
-.navin{max-width:960px;margin:0 auto;padding:8px 16px;display:flex;align-items:center;gap:12px}
-.brand{flex:0 0 auto;font-weight:800;font-size:12.5px;color:var(--accent);white-space:nowrap;
-  display:flex;align-items:center;gap:7px}
-.brand .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);
-  box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 18%,transparent)}
-.toc{flex:1 1 auto;display:flex;flex-wrap:wrap;gap:7px;justify-content:center}
-.toc a{font-size:12.5px;color:var(--mut);text-decoration:none;border:1px solid var(--line);
-  border-radius:20px;padding:5px 12px;background:var(--card);white-space:nowrap;
-  transition:background .15s,color .15s,border-color .15s}
-.toc a:hover{color:var(--accent);border-color:var(--accent)}
-.toc a.active{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
-.navctl{flex:0 0 auto;display:flex;align-items:center;gap:8px}
-.langbtn{height:34px;border-radius:18px;border:1px solid var(--line);background:var(--card);
-  color:var(--ink);cursor:pointer;font:inherit;font-size:12.5px;font-weight:700;padding:0 13px;
-  display:flex;align-items:center;gap:6px}
-.langbtn:hover{border-color:var(--accent);color:var(--accent)}
-.langbtn .globe{width:15px;height:15px;display:block}
-.themebtn{flex:0 0 auto;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);
-  background:var(--card);color:var(--ink);cursor:pointer;line-height:1;display:grid;place-items:center}
-.themebtn svg{width:17px;height:17px;display:block}
-.themebtn:hover{border-color:var(--accent);color:var(--accent)}
-[data-theme="light"] .themebtn .ic-sun{display:none}
-[data-theme="dark"]  .themebtn .ic-moon{display:none}
-
-/* ── BLOCKS ───────────────────────────────────────────────── */
-h2{font-size:21px;margin:44px 0 6px;font-weight:800;scroll-margin-top:92px;line-height:1.35}
-html[data-lang="en"] h2{font-family:Newsreader,Georgia,serif;font-weight:600}
-h2 .num{color:var(--accent);font-variant-numeric:tabular-nums}
-.sub{color:var(--mut);font-size:13.5px;margin:0 0 16px;max-width:680px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;
-  padding:20px 22px;margin:14px 0;box-shadow:var(--shadow)}
-.lead{font-size:15.5px}
-.lead b{color:var(--warm)}
-.kgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin:8px 0}
-.kbox{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:15px 16px;text-align:center}
-.kbox .v{font-size:26px;font-weight:800;color:var(--accent);font-variant-numeric:tabular-nums}
-.kbox .l{font-size:12.5px;color:var(--mut);margin-top:3px}
-ul.clean{margin:6px 0;padding-inline-start:20px} ul.clean li{margin:8px 0}
-.callout{background:color-mix(in srgb,var(--warm) 9%,var(--card));
-  border:1px solid color-mix(in srgb,var(--warm) 30%,var(--line));
-  border-radius:12px;padding:14px 18px;margin:12px 0}
-.callout b{color:var(--warm)}
-.callout.accent{background:color-mix(in srgb,var(--accent) 9%,var(--card));
-  border-color:color-mix(in srgb,var(--accent) 30%,var(--line))}
-.callout.accent b{color:var(--accent)}
-a{color:var(--accent)}
-
-/* ── GRAPH ────────────────────────────────────────────────── */
-.gtabs{display:inline-flex;gap:4px;background:var(--bg2);border:1px solid var(--line);
-  border-radius:11px;padding:4px;margin:6px 0 2px}
-.gtab{border:0;background:transparent;color:var(--mut);font:inherit;font-size:13px;font-weight:700;
-  padding:7px 15px;border-radius:8px;cursor:pointer}
-.gtab.active{background:var(--card);color:var(--accent);box-shadow:var(--shadow)}
-.graphcard{padding:14px}
-.legend{display:flex;flex-wrap:wrap;gap:14px;margin:2px 4px 12px;font-size:12.5px;color:var(--mut)}
-.legend span{display:inline-flex;align-items:center;gap:6px}
-.legend i{width:11px;height:11px;border-radius:50%;display:inline-block}
-.graphstage{display:grid;grid-template-columns:1fr;gap:14px}
-@media(min-width:760px){.graphstage{grid-template-columns:1.35fr .95fr}}
-.svgwrap{position:relative;background:var(--card2);border:1px solid var(--line);border-radius:12px;
-  overflow:hidden;min-height:300px}
-#netsvg{display:block;width:100%;height:560px;touch-action:none;cursor:grab}
-#netsvg text{pointer-events:none;user-select:none}
-.ghint{position:absolute;inset-inline-start:12px;top:10px;font-size:11.5px;color:var(--mut);
-  background:color-mix(in srgb,var(--card) 82%,transparent);border:1px solid var(--line);
-  border-radius:20px;padding:3px 11px;backdrop-filter:blur(4px);max-width:70%}
-.greset{position:absolute;inset-inline-end:10px;top:10px;border:1px solid var(--line);background:var(--card);
-  color:var(--mut);border-radius:8px;font:inherit;font-size:11.5px;padding:4px 10px;cursor:pointer}
-.greset:hover{color:var(--accent);border-color:var(--accent)}
-/* node + link interaction states */
-.node{cursor:pointer}
-/* the inner <g class="ns"> is what scales; fill-box keeps the pivot on the node itself, not the SVG viewport */
-.ns{transform-box:fill-box;transform-origin:center;transition:transform .2s cubic-bezier(.2,.75,.25,1)}
-.node.hover .ns{transform:scale(1.1)}
-.node.sel  .ns{transform:scale(1.34)}                 /* selected node grows */
-.node.ncore.hover .ns{transform:scale(1.06)}
-.node.ncore.sel   .ns{transform:none}                 /* the centre 'Effortless' node keeps default size */
-.node.sel circle{stroke:var(--ink);stroke-width:2.5;filter:drop-shadow(0 0 8px color-mix(in srgb,var(--accent) 60%,transparent))}
-.node.hl circle{stroke:var(--ink);stroke-opacity:.5;stroke-width:2.5}
-.node.dim{opacity:.2}
-.node text{font-family:Vazirmatn,Tahoma,sans-serif;font-weight:700}
-html[data-lang="en"] .node text{font-family:Inter,sans-serif}
-.glink{transition:opacity .2s,stroke .2s}
-.glink.dim{opacity:.08}
-.glink.hl{stroke:var(--accent) !important;stroke-opacity:.8}
-/* detail panel */
-.detail{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;min-height:220px}
-@media(min-width:760px){.detail{max-height:480px;overflow:auto}}
-.detail .dkick{font-size:11.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;display:flex;align-items:center;gap:7px;color:var(--mut)}
-.detail .dkick i{width:10px;height:10px;border-radius:50%}
-.detail h4{margin:8px 0 3px;font-size:18px;font-weight:800}
-html[data-lang="en"] .detail h4{font-family:Newsreader,serif;font-weight:600}
-.detail .drow{margin:11px 0}
-.detail .dlab{font-size:10.5px;font-weight:800;color:var(--accent);letter-spacing:.5px;text-transform:uppercase;
-  display:inline-flex;align-items:center;gap:5px}
-.detail .drow.tip .dlab{color:var(--c-green)}
-.detail .drow.pit .dlab{color:var(--warm)}
-.detail .drow.more{border-inline-start:2px solid color-mix(in srgb,var(--accent) 32%,var(--line));padding-inline-start:11px}
-.detail .drow.more .dlab{color:var(--mut)}
-.detail .dtxt{font-size:13.6px;margin-top:3px}
-.dchips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
-.dchip{font-size:12px;border:1px solid var(--line);background:var(--card2);border-radius:16px;padding:4px 11px;
-  cursor:pointer;color:var(--ink);display:inline-flex;align-items:center;gap:6px;font-family:inherit}
-.dchip:hover{border-color:var(--accent);color:var(--accent)}
-.dchip i{width:8px;height:8px;border-radius:50%;flex:0 0 auto}
-
-/* ── CONCEPT MAP ──────────────────────────────────────────── */
-.mapgrid{display:grid;grid-template-columns:1fr;gap:14px}
-@media(min-width:820px){.mapgrid{grid-template-columns:repeat(3,1fr)}}
-.partcol{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:16px;position:relative}
-.partcol .ph{display:flex;align-items:center;gap:9px;margin-bottom:3px}
-.partcol .pdot{width:13px;height:13px;border-radius:50%;flex:0 0 auto}
-.partcol .pnum{font-size:11px;font-weight:800;color:var(--mut)}
-.partcol h4{margin:0;font-size:16.5px;font-weight:800}
-html[data-lang="en"] .partcol h4{font-family:Newsreader,serif;font-weight:600}
-.partcol .ptag{font-size:12px;color:var(--mut);margin:2px 0 4px;font-weight:700}
-.partcol .pgist{font-size:12.8px;color:var(--mut);margin:0 0 12px}
-.chapchip{display:flex;align-items:baseline;gap:8px;padding:7px 10px;border:1px solid var(--line);
-  border-radius:9px;margin:6px 0;background:var(--card2);font-size:13px}
-.chapchip .cn{font-size:11px;font-weight:800;color:var(--mut);flex:0 0 auto;font-variant-numeric:tabular-nums}
-.chapchip b{font-weight:700}
-.chapchip small{color:var(--mut);display:block;font-size:11.5px;line-height:1.5}
-.flowline{display:flex;align-items:center;justify-content:center;gap:10px;color:var(--mut);
-  font-size:12.5px;font-weight:700;margin:6px 0 2px;flex-wrap:wrap}
-.flowline .ar{color:var(--accent)}
-
-/* ── STAGE LADDER ─────────────────────────────────────────── */
-.ladder{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 4px}
-.rung{flex:1 1 150px;border:1px solid var(--line);background:var(--card);border-radius:11px;
-  padding:11px 13px;cursor:pointer;transition:transform .12s,border-color .12s;position:relative}
-.rung:hover{border-color:var(--accent);transform:translateY(-2px)}
-.rung.active{border-color:var(--accent);box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 35%,transparent)}
-.rung .lv{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.4px}
-.rung .lt{font-size:13.5px;font-weight:800;margin-top:2px}
-.rung .lbar{height:5px;border-radius:4px;background:var(--bg2);margin-top:9px;overflow:hidden}
-.rung .lbar i{display:block;height:100%;background:linear-gradient(90deg,var(--c-teal),var(--c-violet))}
-.stagecard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 24px;
-  margin:14px 0;box-shadow:var(--shadow)}
-.stagecard .shead{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-.stagecard .badge{font-size:12px;font-weight:800;color:#fff;background:var(--accent);
-  border-radius:8px;padding:4px 11px;white-space:nowrap}
-.stagecard h3{margin:0;font-size:21px;font-weight:800}
-html[data-lang="en"] .stagecard h3{font-family:Newsreader,serif;font-weight:600}
-.stagecard .tagline{color:var(--mut);font-size:13.5px;margin:4px 0 14px;font-weight:700}
-.stagecard .sbody{font-size:15px}
-.exbox{background:var(--card2);border:1px solid var(--line);border-inline-start:3px solid var(--accent);
-  border-radius:0 11px 11px 0;padding:13px 16px;margin:14px 0 6px}
-.exbox .exk{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.5px;text-transform:uppercase}
-.exbox .ext{font-size:13.8px;margin-top:3px}
-.gainrow{display:flex;align-items:flex-start;gap:9px;margin-top:12px;font-size:13px;color:var(--mut)}
-.gainrow .gi{flex:0 0 auto;color:var(--c-green);font-weight:800}
-.stagenav{display:flex;justify-content:space-between;gap:10px;margin-top:16px}
-.stagenav button{border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit;
-  font-size:13px;font-weight:700;border-radius:9px;padding:8px 14px;cursor:pointer}
-.stagenav button:hover:not(:disabled){border-color:var(--accent);color:var(--accent)}
-.stagenav button:disabled{opacity:.4;cursor:default}
-
-/* ── QUOTES ───────────────────────────────────────────────── */
-.qgrid{display:grid;grid-template-columns:1fr;gap:12px}
-@media(min-width:720px){.qgrid{grid-template-columns:1fr 1fr}}
-blockquote{margin:0;background:var(--card2);border-inline-start:3px solid var(--accent);
-  border-radius:0 12px 12px 0;padding:15px 18px;font-size:14.5px;position:relative}
-blockquote .qm{font-size:34px;line-height:0;color:var(--accent);opacity:.35;font-family:Georgia,serif;
-  position:absolute;inset-inline-start:10px;top:20px}
-blockquote p{margin:0;padding-inline-start:22px}
-html[data-lang="en"] blockquote{font-family:Newsreader,Georgia,serif;font-size:15.5px}
-
-/* ── MEDIA ────────────────────────────────────────────────── */
-.mgrid{display:grid;grid-template-columns:1fr;gap:16px}
-@media(min-width:640px){.mgrid{grid-template-columns:1fr 1fr}}
-.mcard{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;
-  box-shadow:var(--shadow);display:flex;flex-direction:column}
-.mthumb{position:relative;display:block;aspect-ratio:16/9;background:var(--bg2);overflow:hidden;text-decoration:none}
-.mthumb img{width:100%;height:100%;object-fit:cover;display:block}
-.mthumb .play{position:absolute;inset:0;display:grid;place-items:center}
-.mthumb .play span{width:54px;height:54px;border-radius:50%;background:rgba(0,0,0,.6);
-  display:grid;place-items:center;border:2px solid rgba(255,255,255,.9)}
-.mthumb .play svg{width:22px;height:22px;fill:#fff;margin-inline-start:3px}
-.mthumb .ptype{position:absolute;inset-inline-start:9px;top:9px;background:rgba(0,0,0,.72);color:#fff;
-  font-size:11px;font-weight:700;border-radius:6px;padding:3px 9px;letter-spacing:.3px}
-.mfake{aspect-ratio:16/9;display:grid;place-items:center;
-  background:linear-gradient(135deg,color-mix(in srgb,var(--c-violet) 22%,var(--card)),color-mix(in srgb,var(--c-teal) 22%,var(--card)))}
-.mfake svg{width:52px;height:52px;color:var(--ink);opacity:.6}
-.mbody{padding:15px 17px;display:flex;flex-direction:column;gap:7px;flex:1}
-.mbody .msrc{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.3px;text-transform:uppercase}
-.mbody h4{margin:0;font-size:15.5px;font-weight:800;line-height:1.4}
-html[data-lang="en"] .mbody h4{font-family:Newsreader,serif;font-weight:600}
-.mbody .mdesc{font-size:13px;color:var(--mut);margin:0}
-.mbody ul{margin:4px 0 0;padding-inline-start:18px}
-.mbody ul li{font-size:12.8px;margin:5px 0}
-.mbody .mbest{font-size:12px;font-weight:700;color:var(--warm);margin-top:auto;padding-top:8px}
-.mlink{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;
-  text-decoration:none;color:var(--accent);margin-top:4px}
-.mlink:hover{text-decoration:underline}
-.golist{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
-.golist a{font-size:12.5px;text-decoration:none;color:var(--ink);border:1px solid var(--line);
-  border-radius:20px;padding:6px 13px;background:var(--card);font-weight:700}
-.golist a:hover{border-color:var(--accent);color:var(--accent)}
-
-/* ── RECS + METHOD + CREDIT ───────────────────────────────── */
-.rec{display:grid;gap:10px;margin:8px 0}
-.rec .item{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--card)}
-.rec .item .t{font-weight:800;font-size:14.5px;margin-bottom:3px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.rec .item .t .pri{font-size:11px;font-weight:700;color:#fff;background:var(--warm);border-radius:6px;padding:2px 9px}
-.rec .item .t .pri.b{background:var(--accent)}
-.rec .item .d{font-size:13.4px;color:var(--mut)}
-.method{color:var(--mut);font-size:13.4px}
-.method p{margin:8px 0}
-.method b{color:var(--ink)}
-.credit{text-align:center;margin-top:40px;padding:22px 0 8px;border-top:1px solid var(--line);
-  color:var(--mut);font-size:14px}
-.credit .cname{color:var(--ink);font-weight:800}
-.credit a{font-weight:700;text-decoration:none}
-.credit a:hover{text-decoration:underline}
-.credit .sep{opacity:.5;margin:0 8px}
-.credit .li{display:inline-flex;align-items:center;gap:5px;vertical-align:middle}
-.credit .li svg{width:15px;height:15px;vertical-align:-3px}
-
-@media (max-width:640px){
-  body{font-size:14px}
-  .wrap{padding:0 13px 30px}
-  .hero{padding:28px 0 22px} .hero h1{font-size:22px}
-  h2{font-size:18px;scroll-margin-top:66px}
-  .brand{display:none}
-  .toc{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;scrollbar-width:none}
-  .toc::-webkit-scrollbar{display:none}
-  #netsvg{height:420px}
-}
-</style>
+<link rel="stylesheet" href="../assets/book.css">
 </head>
 <body>
+<div id="app"></div>
 
-<!-- ── HERO ───────────────────────────────────────────────── -->
-<header class="hero"><div class="wrap">
-  <div class="eyebrow"><span class="edot"></span>
-    <span data-only="en">Book knowledge map · Richard Rumelt</span>
-    <span data-only="fa">نقشهٔ کتاب · ریچارد روملت</span>
-  </div>
-  <h1>
-    <span data-only="en">Good Strategy / Bad Strategy — The Difference and Why It Matters</span>
-    <span data-only="fa">استراتژیِ خوب / استراتژیِ بد — تفاوت، و چرا مهم است</span>
-  </h1>
-  <p class="dek">
-    <span data-only="en">A knowledge graph of the whole book, plus a 5-stage path from a single idea to expert-level mastery — with an example at every step.</span>
-    <span data-only="fa">نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از یک ایدهٔ ساده تا حرفه‌ای — با یک مثال در هر مرحله.</span>
-  </p>
-  <div class="metastrip">
-    <div class="metaitem"><span class="mk" data-only="en">Book</span><span class="mk" data-only="fa">کتاب</span>
-      <span class="mv" data-only="en">Good Strategy / Bad Strategy</span><span class="mv" data-only="fa">استراتژیِ خوب / بد</span></div>
-    <div class="metaitem"><span class="mk" data-only="en">Author</span><span class="mk" data-only="fa">نویسنده</span>
-      <span class="mv" data-only="en">Richard Rumelt</span><span class="mv" data-only="fa">ریچارد روملت</span></div>
-    <div class="metaitem"><span class="mk" data-only="en">Published</span><span class="mk" data-only="fa">سالِ چاپ</span>
-      <span class="mv" data-only="en">2011</span><span class="mv" data-only="fa">۲۰۱۱</span></div>
-    <div class="metaitem"><span class="mk" data-only="en">Group</span><span class="mk" data-only="fa">گروه</span>
-      <span class="mv" data-only="en">Strategy</span><span class="mv" data-only="fa">استراتژی</span></div>
-  </div>
-  <div class="chips">
-    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Parts</span><span data-only="fa">بخش</span></div>
-    <div class="chip"><b data-only="en">16</b><b data-only="fa">۱۶</b><span data-only="en">Ideas</span><span data-only="fa">ایده</span></div>
-    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Learning stages</span><span data-only="fa">مرحلهٔ یادگیری</span></div>
-  </div>
-</div></header>
-
-<!-- ── STICKY NAV ─────────────────────────────────────────── -->
-<div class="navbar"><div class="navin">
-  <span class="brand"><span class="dot"></span>Good Strategy / Bad Strategy</span>
-  <nav class="toc">
-    <a href="#tldr" data-only="en">In a nutshell</a><a href="#tldr" data-only="fa">خلاصه</a>
-    <a href="#graph" data-only="en">Knowledge graph</a><a href="#graph" data-only="fa">نقشهٔ دانش</a>
-    <a href="#stages" data-only="en">5 stages</a><a href="#stages" data-only="fa">۵ مرحله</a>
-    <a href="#quotes" data-only="en">Quotes</a><a href="#quotes" data-only="fa">جمله‌ها</a>
-    <a href="#media" data-only="en">Watch &amp; explore</a><a href="#media" data-only="fa">تماشا و منابع</a>
-    <a href="#apply" data-only="en">Apply it</a><a href="#apply" data-only="fa">کاربرد</a>
-  </nav>
-  <div class="navctl">
-    <button class="langbtn" id="langBtn" aria-label="Switch language">
-      <svg class="globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>
-      <span data-only="en">فارسی</span><span data-only="fa">English</span>
-    </button>
-    <button class="themebtn" id="themeBtn" aria-label="Toggle theme" title="Light / Dark">
-      <span class="ic-sun" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5 19 19M19 5l-1.5 1.5M6.5 17.5 5 19"/></svg></span>
-      <span class="ic-moon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.6 6.6 0 0 0 9.8 9.8Z"/></svg></span>
-    </button>
-  </div>
-</div></div>
-
-<div class="wrap">
-
-  <!-- ── TL;DR ────────────────────────────────────────────── -->
-  <h2 id="tldr"><span class="num" data-only="en">1.</span><span class="num" data-only="fa">۱.</span>
-    <span data-only="en"> In a nutshell</span><span data-only="fa"> خلاصه</span></h2>
-  <p class="sub" data-only="en">If you read only this, you still get the whole idea.</p>
-  <p class="sub" data-only="fa">اگر فقط همین بخش را بخوانی، کلِ ایده دستت می‌آید.</p>
-  <div class="card lead"><ul class="clean" id="tldrHost"></ul></div>
-  <div class="kgrid">
-    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Parts (kernel · bad strategy · power · strategist · dynamics)</div><div class="l" data-only="fa">بخش (هسته · استراتژیِ بد · قدرت · استراتژیست · پویایی)</div></div>
-    <div class="kbox"><div class="v" data-only="en">16</div><div class="v" data-only="fa">۱۶</div><div class="l" data-only="en">Ideas you can use</div><div class="l" data-only="fa">ایده برای استفاده</div></div>
-    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Levels, simple → expert</div><div class="l" data-only="fa">مرحله، ساده تا حرفه‌ای</div></div>
-    <div class="kbox"><div class="v" data-only="en">3</div><div class="v" data-only="fa">۳</div><div class="l" data-only="en">The kernel: diagnosis · guiding policy · coherent action</div><div class="l" data-only="fa">هسته: تشخیص · سیاستِ راهنما · اقدامِ هماهنگ</div></div>
-  </div>
-  
-  <div class="callout accent">
-    <b data-only="en">The core idea:</b>
-    <b data-only="fa">ایدهٔ اصلی:</b>
-    <span data-only="en"> Strategy isn't a vision or a set of goals — it's how you tackle a challenge. Every good strategy has a <i>kernel</i>: an honest <i>diagnosis</i> of the real problem, a <i>guiding policy</i> to deal with it, and <i>coherent actions</i> that actually carry it out. Bad strategy skips the hard part and hides behind fluff and wish-list goals.</span>
-    <span data-only="fa"> استراتژی یک چشم‌انداز یا فهرستی از هدف‌ها نیست — اینکه چطور با یک چالش روبه‌رو می‌شوی است. هر استراتژیِ خوب یک <i>هسته</i> دارد: یک <i>تشخیصِ</i> صادقانه از مشکلِ واقعی، یک <i>سیاستِ راهنما</i> برای کنار آمدن با آن، و <i>اقدام‌هایی هماهنگ</i> که واقعاً انجامش می‌دهند. استراتژیِ بد از بخشِ سخت فرار می‌کند و پشتِ حرف‌های توخالی و فهرستِ آرزوها قایم می‌شود.</span>
-  </div>
-
-  <!-- ── KNOWLEDGE GRAPH ──────────────────────────────────── -->
-  <h2 id="graph"><span class="num" data-only="en">2.</span><span class="num" data-only="fa">۲.</span>
-    <span data-only="en"> The knowledge graph</span><span data-only="fa"> نقشهٔ دانش</span></h2>
-  <p class="sub" data-only="en">The whole book as one picture. Click any node to focus its connections and read more — or switch to the structured map.</p>
-  <p class="sub" data-only="fa">کلِ کتاب در یک تصویر. روی هر دایره کلیک کن تا ارتباط‌هایش را ببینی و بیشتر بخوانی — یا به نقشهٔ مرتب برو.</p>
-
-  <div class="gtabs">
-    <button class="gtab active" id="tabNet"><span data-only="en">Interactive network</span><span data-only="fa">شبکهٔ تعاملی</span></button>
-    <button class="gtab" id="tabMap"><span data-only="en">Structured map</span><span data-only="fa">نقشهٔ مرتب</span></button>
-  </div>
-
-  <!-- network view -->
-  <div class="card graphcard" id="netView">
-    <div class="legend" id="legendHost"></div>
-    <div class="graphstage">
-      <div class="svgwrap">
-        <svg id="netsvg" viewBox="0 0 820 560" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Effortless knowledge network"></svg>
-        <div class="ghint" id="ghint"></div>
-        <button class="greset" id="greset"></button>
-      </div>
-      <div class="detail" id="detailHost"></div>
-    </div>
-  </div>
-
-  <!-- map view -->
-  <div class="card graphcard" id="mapView" style="display:none">
-    <div class="flowline" id="flowTop"></div>
-    <div class="mapgrid" id="mapHost"></div>
-    <div class="callout" style="margin-top:16px">
-      <b data-only="en">Read it as a flow:</b><b data-only="fa">به‌صورتِ یک جریان بخوانش:</b>
-      <span data-only="en"> write an honest <b>diagnosis</b> of the real challenge, choose a <b>guiding policy</b> to deal with it, and line up <b>coherent actions</b> that carry it out — then power it with leverage, focus and advantage, and ride the <b>dynamics</b> of change while rivals sit still.</span>
-      <span data-only="fa"> یک <b>تشخیصِ</b> صادقانه از چالشِ واقعی بنویس، یک <b>سیاستِ راهنما</b> برای کنار آمدن با آن انتخاب کن، و یک‌دسته <b>اقدامِ هماهنگ</b> که انجامش می‌دهند ردیف کن — بعد با اهرم و تمرکز و مزیت نیرومندش کن، و <b>موجِ</b> تغییر را سوار شو وقتی رقبا بی‌حرکت نشسته‌اند.</span>
-    </div>
-  </div>
-
-  <!-- ── 5 STAGES ─────────────────────────────────────────── -->
-  <h2 id="stages"><span class="num" data-only="en">3.</span><span class="num" data-only="fa">۳.</span>
-    <span data-only="en"> Learn it in 5 stages</span><span data-only="fa"> یادگیری در ۵ مرحله</span></h2>
-  <p class="sub" data-only="en">The same book at five depths. Start over-simplified, climb to expert. Tap a rung to jump.</p>
-  <p class="sub" data-only="fa">یک کتاب در پنج عمق. از خیلی ساده شروع کن و تا حرفه‌ای بالا برو. روی هر پله بزن تا بپری.</p>
-  <div class="ladder" id="ladderHost"></div>
-  <div id="stageHost"></div>
-
-  <!-- ── QUOTES ───────────────────────────────────────────── -->
-  <h2 id="quotes"><span class="num" data-only="en">4.</span><span class="num" data-only="fa">۴.</span>
-    <span data-only="en"> Lines worth keeping</span><span data-only="fa"> جمله‌هایی که ارزشِ نگه‌داشتن دارند</span></h2>
-  <p class="sub" data-only="en">Verbatim quotes from the book, translated alongside.</p>
-  <p class="sub" data-only="fa">جمله‌های مستقیم از کتاب، همراه با ترجمه.</p>
-  <div class="qgrid" id="quoteHost"></div>
-
-  <!-- ── MEDIA ────────────────────────────────────────────── -->
-  <h2 id="media"><span class="num" data-only="en">5.</span><span class="num" data-only="fa">۵.</span>
-    <span data-only="en"> Watch &amp; explore</span><span data-only="fa"> تماشا و منابع</span></h2>
-  <p class="sub" data-only="en">Special resources found online — each with what it covers and who it's best for.</p>
-  <p class="sub" data-only="fa">منابعِ ویژه‌ای که آنلاین پیدا شد — هرکدام با اینکه چه می‌گوید و به چه دردی می‌خورد.</p>
-  <div class="mgrid" id="mediaHost"></div>
-  <div class="card" style="margin-top:16px">
-    <div style="font-weight:800;font-size:13.5px;margin-bottom:4px">
-      <span data-only="en">Go straight to the source</span><span data-only="fa">مستقیم سراغِ منبع برو</span>
-    </div>
-    <div class="golist" id="goHost"></div>
-  </div>
-
-  <!-- ── APPLY ────────────────────────────────────────────── -->
-  <h2 id="apply"><span class="num" data-only="en">6.</span><span class="num" data-only="fa">۶.</span>
-    <span data-only="en"> Apply it this week</span><span data-only="fa"> این هفته امتحانش کن</span></h2>
-  <p class="sub" data-only="en">Four small moves that turn the idea into a habit.</p>
-  <p class="sub" data-only="fa">چهار حرکتِ کوچک که این ایده را به عادت تبدیل می‌کنند.</p>
-  <div class="rec" id="recHost"></div>
-
-  <!-- ── METHOD ───────────────────────────────────────────── -->
-  <h2 id="method"><span class="num" data-only="en">7.</span><span class="num" data-only="fa">۷.</span>
-    <span data-only="en"> Sources &amp; notes</span><span data-only="fa"> منابع و توضیح</span></h2>
-  <div class="card method" id="methodHost"></div>
-
-  <!-- ── CREDIT FOOTER ────────────────────────────────────── -->
-  <div class="credit">
-    <span data-only="en">Created by <span class="cname">Behnam Atefi</span><span class="sep">·</span><a class="li" href="https://www.linkedin.com/in/behnamatefi/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.3c0-1.26-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9z"/></svg>LinkedIn</a></span>
-    <span data-only="fa">ساخته‌شده توسط <span class="cname">بهنام عاطفی</span><span class="sep">·</span><a class="li" href="https://www.linkedin.com/in/behnamatefi/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.3c0-1.26-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9z"/></svg>لینکدین</a></span>
-  </div>
-</div>
-
-<!-- ═══════════════════════ SCRIPTS ═══════════════════════ -->
+<script src="../assets/library.js"></script>
+<script src="../assets/book.js"></script>
 <script>
-/* ── 1) language + formatters ─────────────────────────────── */
-var LANG = document.documentElement.getAttribute('data-lang') || 'fa';
-var FA_D = '۰۱۲۳۴۵۶۷۸۹';
-var RLM  = '‏';
-function faDigits(s){ return String(s).replace(/[0-9]/g, function(d){ return FA_D[+d]; }); }
-/* honor the RTL preference: isolate Latin runs (word order preserved) and mark with U+200F */
-function rlm(s){
-  return String(s)
-    .replace(/[A-Za-zÀ-ɏ][A-Za-zÀ-ɏ0-9'’.&:\/\-]*(?:\s+[A-Za-zÀ-ɏ0-9'’.&:\/\-]+)*/g,
-      function(m){ return RLM+'⁦'+m+'⁩'+RLM; })
-    .replace(/[0-9۰-۹]+/g, function(m){ return m+RLM; });
-}
-/* transform only TEXT segments, never HTML tags (so <b>/<i> survive) */
-function faText(s){ return String(s).replace(/(<[^>]+>)|([^<]+)/g, function(m,tag,txt){ return tag ? tag : faDigits(rlm(txt)); }); }
-function TX(o){ if(o==null) return ''; if(typeof o==='string') return o; return LANG==='fa' ? faText(o.fa) : o.en; }
-function num(n){ return LANG==='fa' ? faDigits(n) : String(n); }
-function tok(name){ return getComputedStyle(document.documentElement).getPropertyValue(name).trim(); }
-</script>
-
-<script>
-/* ── DATA LAYER — Atomic Habits (bilingual, plain-spoken Persian) ── */
-var DATA = {"tldr":[{"en":"The whole book in one line: a real strategy is how you overcome a challenge — not a goal, a vision, or a wish.","fa":"خلاصهٔ کل کتاب در یک جمله: استراتژیِ واقعی یعنی اینکه چطور بر یک چالش غلبه می‌کنی — نه یک هدف، یک چشم‌انداز، یا یک آرزو."},{"en":"Every good strategy has a <b>kernel</b>: a <b>diagnosis</b>, a <b>guiding policy</b>, and <b>coherent action</b>.","fa":"هر استراتژیِ خوب یک <b>هسته</b> دارد: یک <b>تشخیص</b>، یک <b>سیاستِ راهنما</b>، و <b>اقدامِ هماهنگ</b>."},{"en":"<b>Bad strategy</b> is easy to spot: fluff, dodging the real challenge, goals dressed up as strategy, and a dog's dinner of objectives.","fa":"<b>استراتژیِ بد</b> را راحت می‌شود شناخت: حرفِ توخالی، فرار از چالشِ واقعی، هدف‌هایی که لباسِ استراتژی پوشیده‌اند، و فهرستی درهم‌وبرهم از هدف‌ها."},{"en":"Good strategy draws its <b>power</b> from focus: leverage, a close-enough objective, and pressing where you have an advantage.","fa":"استراتژیِ خوب <b>قدرتش</b> را از تمرکز می‌گیرد: اهرم، یک هدفِ به‌قدرِ کافی نزدیک، و فشار آوردن جایی که مزیت داری."},{"en":"Then think like a strategist — treat your strategy as a <b>hypothesis</b>, ride the waves of change, and use rivals' <b>inertia</b>.","fa":"بعد مثلِ یک استراتژیست فکر کن — استراتژی‌ات را یک <b>فرضیه</b> بدان، موج‌های تغییر را سوار شو، و از <b>لَختیِ</b> رقبا استفاده کن."}],"parts":[{"key":"kernel","varc":"--c-teal","name":{"en":"The Kernel","fa":"هسته"},"tag":{"en":"The core logic","fa":"منطقِ اصلی"},"gist":{"en":"Diagnosis, guiding policy, and coherent action — the skeleton of any real strategy.","fa":"تشخیص، سیاستِ راهنما، و اقدامِ هماهنگ — اسکلتِ هر استراتژیِ واقعی."},"more":{"en":"Strip away the buzzwords and every good strategy has the same three-part skeleton. Name the real challenge, choose an overall approach to it, then take coordinated actions that fit together. Miss any one of the three and it isn't a strategy yet.","fa":"اصطلاحاتِ مُدروز را که کنار بزنی، هر استراتژیِ خوب همان اسکلتِ سه‌تکه را دارد. چالشِ واقعی را نام ببر، یک رویکردِ کلی برایش انتخاب کن، بعد اقدام‌هایی هماهنگ بردار که به هم جفت می‌شوند. هر کدام از این سه را جا بیندازی، هنوز استراتژی نیست."},"chapters":["diagnosis","guiding","action"]},{"key":"badstrat","varc":"--c-blue","name":{"en":"Bad Strategy","fa":"استراتژیِ بد"},"tag":{"en":"What to avoid","fa":"چیزی که باید دور بزنی"},"gist":{"en":"Fluff, dodging the challenge, goals-as-strategy, and a dog's dinner of objectives.","fa":"حرفِ توخالی، فرار از چالش، هدف‌به‌جای‌استراتژی، و فهرستی درهم‌وبرهم از هدف‌ها."},"more":{"en":"Bad strategy isn't just the absence of good strategy; it has its own tell-tale signs. Learn the four hallmarks — fluff, failing to face the challenge, mistaking goals for strategy, and jumbled objectives — and you can spot, and stop, most of the empty 'strategy' you'll ever meet.","fa":"استراتژیِ بد فقط نبودِ استراتژیِ خوب نیست؛ نشانه‌های لو‌دهندهٔ خودش را دارد. چهار نشانه را یاد بگیر — حرفِ توخالی، روبه‌رو نشدن با چالش، هدف را به‌جای استراتژی گرفتن، و هدف‌های درهم — آن‌وقت می‌توانی بیشترِ «استراتژی»‌های پوچی را که در عمرت می‌بینی تشخیص بدهی و جلویشان را بگیری."},"chapters":["fluff","challenge","goals","objectives"]},{"key":"power","varc":"--c-amber","name":{"en":"Sources of Power","fa":"سرچشمه‌های قدرت"},"tag":{"en":"Where strength comes from","fa":"قدرت از کجا می‌آید"},"gist":{"en":"Leverage, a close-enough objective, and systems that stand or fall together.","fa":"اهرم، یک هدفِ به‌قدرِ کافی نزدیک، و سیستم‌هایی که با هم می‌ایستند یا می‌افتند."},"more":{"en":"A good strategy doesn't just use strength — it creates it. These are the ways power gets concentrated: finding the pivot point, picking an objective you can actually reach, and understanding chain-link systems whose weakest part sets the ceiling.","fa":"استراتژیِ خوب فقط قدرت را خرج نمی‌کند — می‌سازدش. این‌ها راه‌های متمرکز‌شدنِ قدرت‌اند: پیدا‌کردنِ نقطهٔ اتکا، انتخابِ هدفی که واقعاً به آن می‌رسی، و فهمِ سیستم‌های زنجیره‌ای که ضعیف‌ترین قسمتشان سقف را تعیین می‌کند."},"chapters":["leverage","proximate","chainlink"]},{"key":"strategist","varc":"--c-violet","name":{"en":"Thinking Like a Strategist","fa":"فکرکردن مثلِ یک استراتژیست"},"tag":{"en":"The mindset","fa":"طرزِ فکر"},"gist":{"en":"Focus your power, press your advantage, and treat strategy as a testable hypothesis.","fa":"قدرتت را متمرکز کن، روی مزیتت فشار بیاور، و استراتژی را یک فرضیهٔ آزمون‌پذیر بدان."},"more":{"en":"Tools don't make a strategist; a way of thinking does. Concentrate force on a few pivotal points, fight where you're strong and sidestep where you're not, and hold your strategy lightly — as a bet about what will work, ready to be tested.","fa":"ابزار، استراتژیست نمی‌سازد؛ یک طرزِ فکر می‌سازد. نیرو را روی چند نقطهٔ کلیدی متمرکز کن، جایی که قوی هستی بجنگ و جایی که نیستی دور بزن، و استراتژی‌ات را شل نگه دار — مثلِ شرطی روی چیزی که جواب می‌دهد، آمادهٔ آزمایش‌شدن."},"chapters":["focus","advantage","hypothesis"]},{"key":"dynamics","varc":"--c-green","name":{"en":"Dynamics & Inertia","fa":"دگرگونی و لَختی"},"tag":{"en":"Change over time","fa":"تغییر در طولِ زمان"},"gist":{"en":"Ride waves of change, exploit rivals' inertia, and fight your own slide into disorder.","fa":"موج‌های تغییر را سوار شو، از لَختیِ رقبا استفاده کن، و با فروپاشیِ تدریجیِ خودت بجنگ."},"more":{"en":"Big shifts — in technology, regulation, tastes — reshuffle the deck and hand advantages to whoever moves first. Meanwhile rivals stay stuck in old habits, and even your own organization drifts toward disorder unless you keep pushing back.","fa":"جابه‌جایی‌های بزرگ — در فناوری، مقررات، سلیقه‌ها — ورق را از نو می‌زنند و مزیت‌ها را به کسی می‌دهند که زودتر حرکت کند. در همین حال رقبا در عادت‌های قدیمی گیر می‌مانند، و حتی سازمانِ خودت هم به‌سمتِ بی‌نظمی می‌لغزد مگر اینکه مدام هُلش بدهی عقب."},"chapters":["dynamics","inertia","entropy"]}],"chapters":{"diagnosis":{"part":"kernel","n":1,"name":{"en":"Diagnosis","fa":"تشخیص"},"glabel":{"en":"Diagnosis","fa":"تشخیص"},"principle":{"en":"Start by naming the real challenge. A diagnosis cuts through the noise and says what's actually going on.","fa":"با نام‌بردنِ چالشِ واقعی شروع کن. تشخیص، شلوغی را کنار می‌زند و می‌گوید واقعاً چه خبر است."},"more":{"en":"Most situations are overwhelming until someone simplifies them. A good diagnosis picks out the one or two things that really matter and often reframes the problem — turning a fog of symptoms into a challenge you can actually act on.","fa":"بیشترِ موقعیت‌ها گیج‌کننده‌اند تا وقتی یک نفر ساده‌شان کند. یک تشخیصِ خوب همان یکی‌دو چیزی را که واقعاً مهم است بیرون می‌کشد و اغلب مسئله را از نو قاب می‌گیرد — مِهی از نشانه‌ها را به چالشی تبدیل می‌کند که واقعاً می‌شود رویش کاری کرد."},"example":{"en":"When Lou Gerstner arrived at IBM, he decided the challenge wasn't to break the company up but to use its rare ability to integrate everything for the customer.","fa":"وقتی لو گرستنر به آی‌بی‌ام رسید، تشخیص داد چالش این نیست که شرکت را تکه‌تکه کند، بلکه استفاده از توانِ کمیابش برای یکپارچه‌کردنِ همه‌چیز برای مشتری است."},"tip":{"en":"Before any plan, write one sentence: 'The real problem here is ___.' Make it specific.","fa":"قبل از هر برنامه‌ای، یک جمله بنویس: «مشکلِ واقعی اینجا ___ است.» مشخصش کن."},"pitfall":{"en":"Jumping to solutions before you've named what's actually wrong.","fa":"پریدن سراغِ راه‌حل، قبل از اینکه اسمِ اشکالِ واقعی را گفته باشی."}},"guiding":{"part":"kernel","n":2,"name":{"en":"Guiding Policy","fa":"سیاستِ راهنما"},"glabel":{"en":"Policy","fa":"سیاست"},"principle":{"en":"Choose one overall approach to the challenge — a guiding policy that rules some things in and others out.","fa":"یک رویکردِ کلی برای چالش انتخاب کن — یک سیاستِ راهنما که بعضی چیزها را تأیید و بعضی را رد می‌کند."},"more":{"en":"The guiding policy isn't a goal or a detailed plan; it's the method you'll use, like a signpost pointing the way. Because it commits you to one road, it draws its power from what it says no to.","fa":"سیاستِ راهنما نه هدف است نه برنامهٔ ریز؛ روشی است که به کار می‌بری، مثلِ تابلویی که راه را نشان می‌دهد. چون تو را به یک جاده متعهد می‌کند، قدرتش را از چیزی می‌گیرد که به آن نه می‌گوید."},"example":{"en":"In the Gulf War, the guiding policy wasn't a frontal assault — it was the 'left hook': pin the enemy in front while swinging the main force around an undefended flank.","fa":"در جنگِ خلیج‌فارس، سیاستِ راهنما حملهٔ روبه‌رو نبود — «قلابِ چپ» بود: دشمن را از جلو زمین‌گیر کن و نیروی اصلی را از یک جناحِ بی‌دفاع دور بزن."},"tip":{"en":"State your approach in one line — and notice what it commits you not to do.","fa":"رویکردت را در یک خط بگو — و ببین به چه کارهایی متعهدت می‌کند که نکنی."},"pitfall":{"en":"A 'policy' so vague it fits any situation and rules nothing out.","fa":"یک «سیاست» آن‌قدر مبهم که به هر موقعیتی می‌خورد و هیچ‌چیز را کنار نمی‌گذارد."}},"action":{"part":"kernel","n":3,"name":{"en":"Coherent Action","fa":"اقدامِ هماهنگ"},"glabel":{"en":"Action","fa":"اقدام"},"principle":{"en":"Back the policy with coordinated actions that reinforce each other — not a scattered to-do list.","fa":"سیاست را با اقدام‌هایی هماهنگ پشتیبانی کن که همدیگر را تقویت کنند — نه یک فهرستِ پراکنده از کارها."},"more":{"en":"This is where most strategies fall apart: the steps don't fit together, or they quietly fight each other. Coherent action means each move supports the others and the guiding policy, so the whole thing pushes in one direction.","fa":"اینجاست که بیشترِ استراتژی‌ها از هم می‌پاشند: قدم‌ها به هم نمی‌خورند، یا بی‌سروصدا با هم می‌جنگند. اقدامِ هماهنگ یعنی هر حرکت، بقیه و سیاستِ راهنما را پشتیبانی کند، تا کلِ کار در یک جهت هُل بدهد."},"example":{"en":"Rumelt calls a master strategist a designer: like a great bridge, the parts are fitted to each other and to the load, not just chosen off a menu.","fa":"روملت استراتژیستِ کاردان را یک طراح می‌داند: مثلِ یک پلِ عالی، اجزا به هم و به بار جفت‌وجور شده‌اند، نه اینکه فقط از یک منو انتخاب شده باشند."},"tip":{"en":"Check every action against the policy and against each other; cut whatever doesn't fit.","fa":"هر اقدام را با سیاست و با بقیهٔ اقدام‌ها بسنج؛ هرچه جفت نمی‌شود را حذف کن."},"pitfall":{"en":"A pile of initiatives that pull in different directions and cancel out.","fa":"تلنباری از طرح‌ها که هرکدام به سمتی می‌کشند و همدیگر را خنثی می‌کنند."}},"fluff":{"part":"badstrat","n":4,"name":{"en":"Fluff","fa":"حرفِ توخالی"},"glabel":{"en":"Fluff","fa":"توخالی"},"principle":{"en":"Fluff is fancy words and buzzwords dressed up as insight — restating the obvious to sound deep.","fa":"حرفِ توخالی یعنی کلماتِ قلمبه و مُدروز که لباسِ بینش پوشیده‌اند — تکرارِ چیزِ بدیهی تا عمیق به‌نظر برسد."},"more":{"en":"When a 'strategy' is stuffed with grand, empty phrases, that's usually a cover for having nothing to say. Translate it into plain words and the insight — if there is any — either appears or vanishes.","fa":"وقتی یک «استراتژی» پُر است از عبارت‌های پرطمطراق و توخالی، معمولاً پرده‌ای است روی نداشتنِ حرف. به زبانِ ساده ترجمه‌اش کن؛ آن‌وقت بینش — اگر باشد — یا پیدا می‌شود یا غیب."},"example":{"en":"Rumelt's example: a bank calling its strategy 'customer-centric intermediation' — which just means it's a bank that takes deposits and makes loans.","fa":"مثالِ روملت: بانکی که استراتژی‌اش را «واسطه‌گریِ مشتری‌محور» می‌نامد — که فقط یعنی یک بانک است که سپرده می‌گیرد و وام می‌دهد."},"tip":{"en":"Rewrite any strategy in plain language; if it now says nothing, it was fluff.","fa":"هر استراتژی را به زبانِ ساده بازنویسی کن؛ اگر حالا هیچ نمی‌گوید، توخالی بوده."},"pitfall":{"en":"Mistaking impressive-sounding jargon for real thinking.","fa":"اصطلاحاتِ پرطمطراق را با فکرِ واقعی اشتباه‌گرفتن."}},"challenge":{"part":"badstrat","n":5,"name":{"en":"Failing to Face the Challenge","fa":"روبه‌رو نشدن با چالش"},"glabel":{"en":"Challenge","fa":"چالش"},"principle":{"en":"If a strategy never names the obstacle, it can't overcome it — and it can't even be judged.","fa":"اگر یک استراتژی هیچ‌وقت اسمِ مانع را نبرد، نمی‌تواند از آن عبور کند — و اصلاً نمی‌شود قضاوتش کرد."},"more":{"en":"Some leaders skip the problem because facing it feels negative. But a strategy you can't test against a challenge is just a wish. Define the difficulty honestly and everything downstream gets sharper.","fa":"بعضی رهبرها از مشکل رد می‌شوند چون روبه‌رو شدن با آن منفی به‌نظر می‌رسد. اما استراتژی‌ای که نشود با یک چالش سنجیدش، فقط یک آرزوست. سختی را صادقانه تعریف کن، آن‌وقت هرچه بعدش می‌آید تیزتر می‌شود."},"example":{"en":"A school district's plan lists dozens of goals for test scores and 'excellence' but never says why students are failing now — so no one can tell if it will work.","fa":"برنامهٔ یک منطقهٔ آموزشی ده‌ها هدف برای نمره‌ها و «تعالی» ردیف می‌کند اما هیچ‌جا نمی‌گوید چرا دانش‌آموزها الان شکست می‌خورند — پس هیچ‌کس نمی‌تواند بگوید جواب می‌دهد یا نه."},"tip":{"en":"Ask of any plan: what exactly is the obstacle here? If there's no answer, stop.","fa":"از هر برنامه‌ای بپرس: مانع دقیقاً اینجا چیست؟ اگر جوابی نیست، بایست."},"pitfall":{"en":"Treating strategy as goal-setting and skipping the problem entirely.","fa":"استراتژی را هدف‌گذاری پنداشتن و کلاً از مشکل پریدن."}},"goals":{"part":"badstrat","n":6,"name":{"en":"Goals Are Not Strategy","fa":"هدف، استراتژی نیست"},"glabel":{"en":"Goals","fa":"هدف"},"principle":{"en":"Wanting a result isn't a plan for getting it. 'Grow 20%' is a goal, not a strategy.","fa":"خواستنِ یک نتیجه، نقشهٔ رسیدن به آن نیست. «۲۰٪ رشد» یک هدف است، نه استراتژی."},"more":{"en":"Bad strategy is long on goals and short on how. Real strategy names the obstacle between you and the goal, then shows the approach that gets you past it. Growth, in particular, is an outcome — not something you can simply order up.","fa":"استراتژیِ بد پُر است از هدف و خالی از چگونگی. استراتژیِ واقعی مانعِ بینِ تو و هدف را نام می‌برد، بعد رویکردی را نشان می‌دهد که از آن ردت می‌کند. رشد، به‌خصوص، یک نتیجه است — نه چیزی که بشود همین‌طوری سفارشش داد."},"example":{"en":"A CEO whose whole 'strategy' was 'grow 20% a year' had set a goal and called it a plan — with no idea where the growth would come from.","fa":"مدیرعاملی که کلِ «استراتژی»‌اش «سالی ۲۰٪ رشد» بود، یک هدف گذاشته و اسمش را نقشه گذاشته بود — بی هیچ ایده‌ای که این رشد از کجا می‌آید."},"tip":{"en":"For every goal, write the obstacle in the way and how you'll get past it.","fa":"برای هر هدف، مانعِ سرِ راه و راهِ عبور از آن را بنویس."},"pitfall":{"en":"Restating ambitions as if naming them makes them happen.","fa":"تکرارِ آرزوها، انگار که نام‌بردنشان محققشان می‌کند."}},"objectives":{"part":"badstrat","n":7,"name":{"en":"Dog's-Dinner Objectives","fa":"هدف‌های درهم‌وبرهم"},"glabel":{"en":"Objectives","fa":"اهداف"},"principle":{"en":"A long, jumbled list of objectives isn't strategy — it's a to-do list that dodges the hard choices.","fa":"یک فهرستِ بلند و درهم از هدف‌ها استراتژی نیست — یک فهرستِ کار است که از انتخاب‌های سخت فرار می‌کند."},"more":{"en":"When leaders won't choose, they staple every wish into one document. The result is a 'dog's dinner': a heap of objectives with no priorities and nothing connected. Strategy means picking the few that matter and dropping the rest.","fa":"وقتی رهبرها انتخاب نمی‌کنند، هر آرزو را به یک سند منگنه می‌کنند. نتیجه یک آش‌درهم‌جوش است: تلنباری از هدف، بی‌اولویت و بی‌ارتباط. استراتژی یعنی همان چند تای مهم را انتخاب کنی و بقیه را کنار بگذاری."},"example":{"en":"A plan stacked with dozens of 'strategies' and scores of action items is a heap of tasks — not a strategy anyone could actually prioritize.","fa":"برنامه‌ای انباشته از ده‌ها «استراتژی» و صدها اقدام، یک تودهٔ کار است — نه استراتژی‌ای که کسی واقعاً بتواند اولویت‌بندی‌اش کند."},"tip":{"en":"If your strategy has more than a few objectives, you haven't chosen yet.","fa":"اگر استراتژی‌ات بیش از چند هدف دارد، هنوز انتخاب نکرده‌ای."},"pitfall":{"en":"Blending every stakeholder's wish into one incoherent list.","fa":"قاطیِ کردنِ آرزوی هر ذی‌نفع در یک فهرستِ بی‌سروته."}},"leverage":{"part":"power","n":8,"name":{"en":"Leverage","fa":"اهرم"},"glabel":{"en":"Leverage","fa":"اهرم"},"principle":{"en":"Find the pivot point where a concentrated push produces an outsized result.","fa":"همان نقطهٔ اتکایی را پیدا کن که یک فشارِ متمرکز رویش، نتیجه‌ای بزرگ‌تر از خودش می‌دهد."},"more":{"en":"Leverage comes from anticipation, insight into what matters most, and concentration of force on that spot. Like a lever, a small well-placed effort moves a heavy load — but only if you aim it at the right pivot.","fa":"اهرم از پیش‌بینی می‌آید، از فهمِ اینکه چه چیزی بیشترین اهمیت را دارد، و از تمرکزِ نیرو روی همان نقطه. مثلِ یک اهرم، یک تلاشِ کوچکِ درست‌جاگذاشته‌شده بارِ سنگین را جابه‌جا می‌کند — اما فقط اگر به نقطهٔ اتکای درست نشانه بروی."},"example":{"en":"Rumelt likens strategy to a lever that magnifies force: a network of stores rolled out town by town gave Wal-Mart power no single store could.","fa":"روملت استراتژی را به اهرمی تشبیه می‌کند که نیرو را چند برابر می‌کند: شبکه‌ای از فروشگاه‌ها که شهر‌به‌شهر باز شدند، به وال‌مارت قدرتی دادند که هیچ فروشگاهِ تنهایی نمی‌توانست."},"tip":{"en":"Ask where a small, focused effort would ripple into a big outcome.","fa":"بپرس کجا یک تلاشِ کوچک و متمرکز به یک نتیجهٔ بزرگ موج می‌زند."},"pitfall":{"en":"Spreading effort thinly instead of concentrating it on one pivot.","fa":"پخش‌کردنِ نازکِ تلاش به‌جای متمرکزکردنش روی یک نقطه."}},"proximate":{"part":"power","n":9,"name":{"en":"Proximate Objectives","fa":"هدف‌های دمِ‌دست"},"glabel":{"en":"Proximate","fa":"دمِ‌دست"},"principle":{"en":"Aim at an objective close enough to actually be achievable — one your organization can reach.","fa":"هدفی را نشانه بگیر که به‌قدرِ کافی نزدیک باشد که واقعاً شدنی است — هدفی که سازمانت می‌تواند به آن برسد."},"more":{"en":"A proximate objective turns a vague ambition into a solvable problem. Set the bar close enough that people can see the path and clear it; each win makes the next objective reachable. Set it too far, and effort scatters into hope.","fa":"هدفِ دمِ‌دست یک آرزوی مبهم را به مسئله‌ای حل‌شدنی تبدیل می‌کند. میله را آن‌قدر نزدیک بگذار که آدم‌ها راه را ببینند و از رویش رد شوند؛ هر بُرد، هدفِ بعدی را دست‌یافتنی می‌کند. زیادی دور بگذاری‌اش، تلاش در امید پخش می‌شود."},"example":{"en":"Kennedy's 'land a man on the Moon' worked because the science was close enough to reach; a vague call to 'lead in space' would not have.","fa":"«فرودِ انسان روی ماه»ِ کندی جواب داد چون علمش به‌قدرِ کافی نزدیک بود؛ یک فراخوانِ مبهم برای «پیشتازی در فضا» جواب نمی‌داد."},"tip":{"en":"Pick the nearest objective that, once done, opens up the next one.","fa":"نزدیک‌ترین هدفی را انتخاب کن که وقتی انجام شد، هدفِ بعدی را باز می‌کند."},"pitfall":{"en":"Setting objectives so distant no one can chart a path to them.","fa":"گذاشتنِ هدف‌هایی آن‌قدر دور که هیچ‌کس نمی‌تواند راهی به سویشان بکشد."}},"chainlink":{"part":"power","n":10,"name":{"en":"Chain-Link Systems","fa":"سیستم‌های زنجیره‌ای"},"glabel":{"en":"Chain-Link","fa":"زنجیره"},"principle":{"en":"When a system is only as strong as its weakest link, fixing one link alone changes nothing.","fa":"وقتی یک سیستم فقط به‌اندازهٔ ضعیف‌ترین حلقه‌اش قوی است، درست‌کردنِ تنهای یک حلقه هیچ‌چیز را عوض نمی‌کند."},"more":{"en":"In a chain-link system, performance is capped by the weakest part, so improving any single link is wasted until the others catch up. The flip side: once you painstakingly fix every link, the whole becomes very hard for rivals to copy.","fa":"در یک سیستمِ زنجیره‌ای، کارایی را ضعیف‌ترین قسمت سقف می‌زند، پس بهترکردنِ هر حلقهٔ تنها هدر می‌رود تا وقتی بقیه هم برسند. رویِ دیگرِ سکه: وقتی با زحمت همهٔ حلقه‌ها را درست کردی، کل، برای رقبا خیلی سخت‌کپی‌شدنی می‌شود."},"example":{"en":"Rumelt's rule: a chain-link system is limited by its weakest link — so a factory where design, parts and assembly must all be excellent rises or falls together.","fa":"قاعدهٔ روملت: یک سیستمِ زنجیره‌ای را ضعیف‌ترین حلقه‌اش محدود می‌کند — پس کارخانه‌ای که طراحی و قطعه و مونتاژش همه باید عالی باشند، با هم بالا می‌رود یا با هم می‌افتد."},"tip":{"en":"Find the binding constraint first; improving anything else is wasted effort.","fa":"اول همان قیدِ تعیین‌کننده را پیدا کن؛ بهترکردنِ هرچیزِ دیگر، تلاشِ هدررفته است."},"pitfall":{"en":"Polishing one strong link while the weakest one still caps the whole.","fa":"صیقل‌دادنِ یک حلقهٔ قوی، درحالی‌که ضعیف‌ترین حلقه هنوز سقفِ کل را می‌زند."}},"focus":{"part":"strategist","n":11,"name":{"en":"Focus","fa":"تمرکز"},"glabel":{"en":"Focus","fa":"تمرکز"},"principle":{"en":"Concentrate power on a few pivotal targets; strategy is as much about what you don't do.","fa":"قدرت را روی چند هدفِ کلیدی متمرکز کن؛ استراتژی به‌همان‌اندازه دربارهٔ کاری است که نمی‌کنی."},"more":{"en":"Focus means two things at once: pointing energy at a target, and choosing that target because a win there cascades into more. Scattering across everything guarantees you're strong nowhere.","fa":"تمرکز هم‌زمان دو چیز است: نشانه‌گرفتنِ نیرو به سوی یک هدف، و انتخابِ آن هدف چون بُرد در آنجا به بُردهای بیشتر سرریز می‌شود. پخش‌شدن روی همه‌چیز تضمین می‌کند که هیچ‌جا قوی نباشی."},"example":{"en":"Returning to Apple in 1997, Jobs cut the product line to a simple four-square grid — a handful of products done well instead of dozens done poorly.","fa":"جابز که در ۱۹۹۷ به اپل برگشت، خطِ محصول را به یک جدولِ سادهٔ چهارخانه‌ای تقلیل داد — چند محصولِ خوب‌ساخته‌شده، به‌جای ده‌ها محصولِ بد."},"tip":{"en":"Name the one or two targets that matter most and starve the rest.","fa":"همان یکی‌دو هدفی را که بیشترین اهمیت را دارد نام ببر و بقیه را گرسنه بگذار."},"pitfall":{"en":"Chasing every opportunity until your force is spread too thin to matter.","fa":"دنبال‌کردنِ هر فرصت تا وقتی نیرویت آن‌قدر پخش شود که دیگر مهم نباشد."}},"advantage":{"part":"strategist","n":12,"name":{"en":"Using Advantage","fa":"استفاده از مزیت"},"glabel":{"en":"Advantage","fa":"مزیت"},"principle":{"en":"Press where you're strong and sidestep where you're not — apply strength against weakness.","fa":"جایی که قوی هستی فشار بیاور و جایی که نیستی دور بزن — قوّت را در برابرِ ضعف به کار ببر."},"more":{"en":"Every advantage is relative: you're better than a rival at something, somewhere. The art is to compete on that ground and avoid the fights where the edge belongs to them. An advantage only pays if you can keep rivals from copying it.","fa":"هر مزیتی نسبی است: تو جایی، در چیزی، از یک رقیب بهتری. هنر این است که روی همان زمین رقابت کنی و از نبردهایی که برتری مالِ آن‌هاست پرهیز کنی. مزیت فقط وقتی می‌ارزد که بتوانی نگذاری رقبا کپی‌اش کنند."},"example":{"en":"The most basic idea of strategy, Rumelt says, is applying strength against weakness — like David refusing Goliath's kind of fight and using a sling instead.","fa":"روملت می‌گوید بنیادی‌ترین ایدهٔ استراتژی، به‌کار‌بردنِ قوّت در برابرِ ضعف است — مثلِ داوود که تنِ به نبردِ گلیات نمی‌دهد و به‌جایش از فلاخن استفاده می‌کند."},"tip":{"en":"List where you're genuinely stronger, then steer the contest onto that ground.","fa":"فهرست کن کجا واقعاً قوی‌تری، بعد رقابت را به سمتِ همان زمین بِبَر."},"pitfall":{"en":"Fighting on the ground where your rival holds every edge.","fa":"جنگیدن روی زمینی که همهٔ برتری‌ها دستِ رقیب است."}},"hypothesis":{"part":"strategist","n":13,"name":{"en":"Strategy Is a Hypothesis","fa":"استراتژی یک فرضیه است"},"glabel":{"en":"Hypothesis","fa":"فرضیه"},"principle":{"en":"Treat a strategy as your best bet about what will work — then test it and adjust.","fa":"استراتژی را بهترین شرط‌بندی‌ات دربارهٔ چیزی که جواب می‌دهد بدان — بعد آزمایشش کن و تنظیمش کن."},"more":{"en":"A good strategy is an educated guess about how the world works and where the leverage is. Like a scientist, hold it firmly enough to act but loosely enough to learn — anticipate, act, watch what happens, and revise.","fa":"استراتژیِ خوب یک حدسِ آگاهانه است دربارهٔ اینکه دنیا چطور کار می‌کند و اهرم کجاست. مثلِ یک دانشمند، آن‌قدر محکم بگیرش که بشود عمل کرد، اما آن‌قدر شل که بشود یاد گرفت — پیش‌بینی کن، عمل کن، ببین چه می‌شود، و بازنگری کن."},"example":{"en":"Rumelt frames good strategy as a hypothesis about advantage — an anticipation to be proven or corrected by results, not a fixed prophecy.","fa":"روملت استراتژیِ خوب را یک فرضیه دربارهٔ مزیت قاب می‌گیرد — یک پیش‌بینی که نتیجه‌ها یا اثباتش می‌کنند یا اصلاحش، نه یک پیشگوییِ ثابت."},"tip":{"en":"Write down what you expect to happen; check reality against it and update.","fa":"بنویس انتظار داری چه بشود؛ واقعیت را با آن بسنج و به‌روزش کن."},"pitfall":{"en":"Clinging to the original plan after the evidence has moved on.","fa":"چسبیدن به نقشهٔ اولیه، بعد از اینکه شواهد جلو رفته‌اند."}},"dynamics":{"part":"dynamics","n":14,"name":{"en":"Riding the Dynamics","fa":"سوارِ موجِ تغییر شو"},"glabel":{"en":"Dynamics","fa":"دگرگونی"},"principle":{"en":"Big waves of change reshuffle advantage — spot them early and ride them.","fa":"موج‌های بزرگِ تغییر، مزیت‌ها را از نو می‌چینند — زود ببینشان و سوارشان شو."},"more":{"en":"Shifts in technology, regulation, costs or habits create openings that didn't exist before. The strategist watches for these transitions and positions to catch the wave as it forms, instead of defending a spot the wave is about to wash away.","fa":"جابه‌جایی در فناوری، مقررات، هزینه‌ها یا عادت‌ها، درهایی باز می‌کند که پیش‌تر نبودند. استراتژیست مراقبِ این گذارهاست و خودش را طوری جا می‌دهد که موج را همان‌طور که شکل می‌گیرد بگیرد، نه اینکه از جایی دفاع کند که موج دارد می‌شویدش."},"example":{"en":"As the web arrived, some firms rode the wave while others defended dying storefronts — the same change made one and ruined the other.","fa":"وقتی وب آمد، بعضی شرکت‌ها موج را سوار شدند و بعضی از ویترین‌های روبه‌مرگ دفاع کردند — همان یک تغییر، یکی را ساخت و دیگری را نابود کرد."},"tip":{"en":"List the big shifts already underway and ask which one you can ride.","fa":"جابه‌جایی‌های بزرگی را که همین حالا در جریان‌اند فهرست کن و بپرس کدام را می‌توانی سوار شوی."},"pitfall":{"en":"Defending yesterday's position while the ground shifts under it.","fa":"دفاع از جایگاهِ دیروز، درحالی‌که زمین زیرش دارد جابه‌جا می‌شود."}},"inertia":{"part":"dynamics","n":15,"name":{"en":"Others' Inertia","fa":"لَختیِ رقبا"},"glabel":{"en":"Inertia","fa":"لَختی"},"principle":{"en":"Rivals are often too slow to change — their inertia is your opportunity.","fa":"رقبا اغلب زیادی کُند تغییر می‌کنند — لَختیِ آن‌ها فرصتِ توست."},"more":{"en":"Big organizations get stuck in old routines, structures and habits. That stickiness is predictable, so you can plan around it: move into the space they're too slow to defend, before they can respond.","fa":"سازمان‌های بزرگ در روال‌ها و ساختارها و عادت‌های قدیمی گیر می‌کنند. این چسبندگی قابلِ‌پیش‌بینی است، پس می‌توانی رویش برنامه بریزی: به فضایی برو که آن‌ها زیادی کُندند تا از آن دفاع کنند، پیش از اینکه بتوانند واکنش نشان دهند."},"example":{"en":"Netflix rode streaming into the space Blockbuster's store-and-late-fee model was too slow and too invested to defend.","fa":"نتفلیکس با پخشِ اینترنتی به فضایی رفت که مدلِ فروشگاه‌و‌جریمهٔ بلاک‌باستر زیادی کُند و زیادی درگیر بود که از آن دفاع کند."},"tip":{"en":"Ask what your competitors can't easily change — and aim there.","fa":"بپرس رقبایت چه چیزی را نمی‌توانند راحت عوض کنند — و همان‌جا را نشانه بگیر."},"pitfall":{"en":"Assuming a slow-moving rival will suddenly react fast.","fa":"فرض‌کردنِ اینکه یک رقیبِ کُند ناگهان تند واکنش نشان می‌دهد."}},"entropy":{"part":"dynamics","n":16,"name":{"en":"Fighting Entropy","fa":"جنگ با بی‌نظمی"},"glabel":{"en":"Entropy","fa":"بی‌نظمی"},"principle":{"en":"Left alone, any organization drifts toward disorder — good management constantly pushes back.","fa":"هر سازمانی به‌حالِ‌خود رها شود، به‌سمتِ بی‌نظمی می‌لغزد — مدیریتِ خوب مدام هُلش می‌دهد عقب."},"more":{"en":"Entropy is the slow loss of focus and coherence: product lines sprawl, standards slip, once-sharp strategies blur. Fighting it is unglamorous maintenance work — pruning, realigning, re-focusing — but it's what keeps an advantage alive.","fa":"بی‌نظمی یعنی از‌دست‌رفتنِ آهستهٔ تمرکز و انسجام: خطِ محصول‌ها ولنگ می‌شوند، استانداردها اُفت می‌کنند، استراتژی‌های زمانی‌تیز محو می‌شوند. جنگ با آن یک کارِ نگهداریِ بی‌زرق‌وبرق است — هَرَس، هم‌تراز‌کردنِ دوباره، تمرکزِ مجدد — اما همین است که مزیت را زنده نگه می‌دارد."},"example":{"en":"Rumelt shows GM slowly losing the clear distinctions between its car brands until they blurred into near-copies competing with each other.","fa":"روملت نشان می‌دهد که جنرال‌موتورز کم‌کم تمایزهای روشنِ بینِ برندهای خودرویش را از دست داد تا جایی که به کپی‌های تقریباً یکسانی تبدیل شدند که با هم رقابت می‌کردند."},"tip":{"en":"Regularly prune whatever has drifted off-focus before it becomes a mess.","fa":"مرتب، هرچه را از تمرکز خارج شده هَرَس کن، پیش از اینکه به آشوب تبدیل شود."},"pitfall":{"en":"Letting the portfolio sprawl until nothing has a clear edge.","fa":"رها‌کردنِ سبدِ محصول تا آن‌قدر ولنگ شود که هیچ‌چیز برتریِ روشنی نداشته باشد."}}},"core":{"name":{"en":"THE KERNEL","fa":"هستهٔ استراتژی"},"principle":{"en":"A real strategy is a coherent response to a challenge, built on a kernel: an honest diagnosis of the problem, a guiding policy for dealing with it, and coherent actions that carry the policy out. Good strategy applies strength against weakness and focuses power where it counts; bad strategy hides behind fluff and goals.","fa":"استراتژیِ واقعی یک پاسخِ منسجم به یک چالش است که روی یک هسته بنا شده: یک تشخیصِ صادقانه از مشکل، یک سیاستِ راهنما برای کنار آمدن با آن، و اقدام‌هایی هماهنگ که سیاست را انجام می‌دهند. استراتژیِ خوب قوّت را در برابرِ ضعف به کار می‌برد و قدرت را جایی که مهم است متمرکز می‌کند؛ استراتژیِ بد پشتِ حرفِ توخالی و هدف قایم می‌شود."},"more":{"en":"Rumelt organizes strategy into a few big ideas — the Kernel (diagnosis, guiding policy, coherent action), the hallmarks of Bad Strategy (fluff, dodging the challenge, goals-as-strategy, jumbled objectives), the Sources of Power (leverage, proximate objectives, chain-link systems), how to Think Like a Strategist (focus, advantage, strategy as hypothesis), and the Dynamics and inertia that reshuffle advantage over time. The thread through all of it: name the real problem, then concentrate coherent action on it.","fa":"روملت استراتژی را در چند ایدهٔ بزرگ می‌چیند — هسته (تشخیص، سیاستِ راهنما، اقدامِ هماهنگ)، نشانه‌های استراتژیِ بد (حرفِ توخالی، فرار از چالش، هدف‌به‌جای‌استراتژی، هدف‌های درهم)، سرچشمه‌های قدرت (اهرم، هدف‌های دمِ‌دست، سیستم‌های زنجیره‌ای)، اینکه چطور مثلِ یک استراتژیست فکر کنی (تمرکز، مزیت، استراتژی به‌مثابهٔ فرضیه)، و پویایی و لَختی‌ای که مزیت را در طولِ زمان از نو می‌چینند. نخِ رابطِ همه‌شان: مشکلِ واقعی را نام ببر، بعد اقدامِ هماهنگ را رویش متمرکز کن."},"example":{"en":"Click any node to read a principle or a method. You can also drag the nodes around.","fa":"روی هر دایره کلیک کن تا یک اصل یا روش را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."}},"stages":[{"level":1,"badge":{"en":"Level 1 · Over-simplified","fa":"سطحِ ۱ · خیلی ساده"},"title":{"en":"Solve a real problem","fa":"یک مشکلِ واقعی را حل کن"},"tagline":{"en":"The whole book in a sentence.","fa":"کلِ کتاب در یک جمله."},"body":{"en":"Strategy isn't a goal or a slogan. It's how you get past a real obstacle. Name the problem, then pick a way through it.","fa":"استراتژی یک هدف یا شعار نیست. اینکه چطور از یک مانعِ واقعی رد می‌شوی است. مشکل را نام ببر، بعد راهی از میانش انتخاب کن."},"example":{"en":"'Grow 20%' isn't a strategy. 'Win small towns first, where big rivals won't bother to compete' is.","fa":"«۲۰٪ رشد» استراتژی نیست. «اول شهرهای کوچک را ببر، جایی که رقبای بزرگ زحمتِ رقابت به خودشان نمی‌دهند» هست."},"gain":{"en":"You can tell a strategy from a wish.","fa":"می‌توانی استراتژی را از آرزو تشخیص بدهی."}},{"level":2,"badge":{"en":"Level 2 · Simple","fa":"سطحِ ۲ · ساده"},"title":{"en":"The kernel","fa":"هسته"},"tagline":{"en":"Diagnosis, guiding policy, coherent action.","fa":"تشخیص، سیاستِ راهنما، اقدامِ هماهنگ."},"body":{"en":"Every good strategy has three parts. A <b>diagnosis</b> names the real challenge. A <b>guiding policy</b> is your overall approach to it. <b>Coherent actions</b> are the coordinated steps that carry the policy out.","fa":"هر استراتژیِ خوب سه بخش دارد. <b>تشخیص</b> چالشِ واقعی را نام می‌برد. <b>سیاستِ راهنما</b> رویکردِ کلیِ توست به آن. <b>اقدام‌های هماهنگ</b> قدم‌های همسویی‌اند که سیاست را انجام می‌دهند."},"example":{"en":"Diagnosis: rivals ignore small towns. Policy: saturate them with stores. Action: build the distribution network to match.","fa":"تشخیص: رقبا شهرهای کوچک را نادیده می‌گیرند. سیاست: با فروشگاه اشباعشان کن. اقدام: شبکهٔ توزیعِ متناسبش را بساز."},"gain":{"en":"You can build a strategy with a real skeleton.","fa":"می‌توانی استراتژی‌ای با یک اسکلتِ واقعی بسازی."}},{"level":3,"badge":{"en":"Level 3 · Balanced","fa":"سطحِ ۳ · متعادل"},"title":{"en":"Spot bad strategy","fa":"استراتژیِ بد را ببین"},"tagline":{"en":"Fluff, no challenge, goals, jumble.","fa":"توخالی، بی‌چالش، هدف، درهم‌وبرهم."},"body":{"en":"Now the warning signs. <b>Fluff</b> hides emptiness in buzzwords. <b>Failing to face the challenge</b> skips the problem. <b>Goals-as-strategy</b> just restates wishes. A <b>dog's dinner</b> of objectives dodges the hard choices. Spot these and you'll reject most bad plans on sight.","fa":"حالا نشانه‌های هشدار. <b>حرفِ توخالی</b> پوچی را در اصطلاحاتِ مُدروز پنهان می‌کند. <b>روبه‌رو نشدن با چالش</b> از مشکل رد می‌شود. <b>هدف‌به‌جای‌استراتژی</b> فقط آرزوها را تکرار می‌کند. یک <b>فهرستِ درهمِ</b> هدف‌ها از انتخاب‌های سخت فرار می‌کند. این‌ها را ببین، آن‌وقت بیشترِ نقشه‌های بد را همان‌جا رد می‌کنی."},"example":{"en":"A plan full of grand phrases with no named obstacle and 20 'priorities' is bad strategy in every way at once.","fa":"برنامه‌ای پُر از عبارت‌های قلمبه، بی هیچ مانعِ نام‌برده و با ۲۰ «اولویت»، از هر نظر یک‌جا استراتژیِ بد است."},"gain":{"en":"You can diagnose and reject empty strategy.","fa":"می‌توانی استراتژیِ پوچ را تشخیص بدهی و رد کنی."}},{"level":4,"badge":{"en":"Level 4 · Advanced","fa":"سطحِ ۴ · پیشرفته"},"title":{"en":"Find the power","fa":"قدرت را پیدا کن"},"tagline":{"en":"Leverage, focus, proximate objectives, advantage.","fa":"اهرم، تمرکز، هدف‌های دمِ‌دست، مزیت."},"body":{"en":"Good strategy creates strength, it doesn't just spend it. Find the <b>leverage</b> point where a focused push pays off. Set a <b>proximate objective</b> you can actually reach. <b>Focus</b> power on a few targets and press your <b>advantage</b> — strength against weakness. Respect <b>chain-link</b> systems, where the weakest part caps the whole.","fa":"استراتژیِ خوب قدرت می‌سازد، فقط خرجش نمی‌کند. نقطهٔ <b>اهرم</b> را پیدا کن، جایی که یک فشارِ متمرکز جواب می‌دهد. یک <b>هدفِ دمِ‌دست</b> بگذار که واقعاً به آن می‌رسی. قدرت را روی چند هدف <b>متمرکز</b> کن و روی <b>مزیتت</b> فشار بیاور — قوّت در برابرِ ضعف. حرمتِ سیستم‌های <b>زنجیره‌ای</b> را نگه دار، جایی که ضعیف‌ترین قسمت سقفِ کل را می‌زند."},"example":{"en":"Back at Apple, Jobs cut dozens of products to a handful — focus turned a dying company into a coherent one.","fa":"جابز در اپل، ده‌ها محصول را به چند تا تقلیل داد — تمرکز، یک شرکتِ روبه‌مرگ را به یک شرکتِ منسجم تبدیل کرد."},"gain":{"en":"You can build power into a strategy, not just wish for it.","fa":"می‌توانی قدرت را در استراتژی بسازی، نه اینکه فقط آرزویش را کنی."}},{"level":5,"badge":{"en":"Level 5 · Expert","fa":"سطحِ ۵ · حرفه‌ای"},"title":{"en":"Think in motion","fa":"در حرکت فکر کن"},"tagline":{"en":"Hypothesis, dynamics, inertia, entropy.","fa":"فرضیه، دگرگونی، لَختی، بی‌نظمی."},"body":{"en":"The expert holds strategy as a <b>hypothesis</b> — a bet about what will work, tested against results and revised. They ride the <b>dynamics</b> of change, moving into the space rivals are too slow to defend, using others' <b>inertia</b>. And they fight the <b>entropy</b> that quietly erodes focus over time. Strategy becomes a living design: diagnose, act coherently, watch, and re-focus — again and again.","fa":"آدمِ حرفه‌ای استراتژی را یک <b>فرضیه</b> می‌داند — شرطی دربارهٔ چیزی که جواب می‌دهد، که با نتیجه‌ها آزمایش و بازنگری می‌شود. موجِ <b>دگرگونی</b> را سوار می‌شود، به فضایی می‌رود که رقبا زیادی کُندند تا از آن دفاع کنند، و از <b>لَختیِ</b> بقیه استفاده می‌کند. و با <b>بی‌نظمی‌ای</b> که آهسته تمرکز را در طولِ زمان می‌فرساید می‌جنگد. استراتژی به یک طرحِ زنده تبدیل می‌شود: تشخیص بده، هماهنگ عمل کن، ببین، و دوباره متمرکز شو — بارها و بارها."},"example":{"en":"You treat each strategy as a testable bet, ride the next big shift, exploit a slow rival, and prune your own drift — on repeat.","fa":"هر استراتژی را یک شرطِ آزمون‌پذیر می‌دانی، جابه‌جاییِ بزرگِ بعدی را سوار می‌شوی، از یک رقیبِ کُند استفاده می‌کنی، و لغزشِ خودت را هَرَس می‌کنی — پشتِ‌سرِ هم."},"gain":{"en":"You can craft and renew strategy as the world keeps moving.","fa":"می‌توانی استراتژی را همان‌طور که دنیا مدام حرکت می‌کند بسازی و نو کنی."}}],"quotes":[{"en":"The kernel of a strategy contains three elements: a diagnosis, a guiding policy, and coherent action.","fa":"هستهٔ یک استراتژی سه عنصر دارد: یک تشخیص، یک سیاستِ راهنما، و اقدامِ هماهنگ."},{"en":"The most basic idea of strategy is the application of strength against weakness. Or, if you prefer, strength applied to the most promising opportunity.","fa":"بنیادی‌ترین ایدهٔ استراتژی، به‌کار‌بردنِ قوّت در برابرِ ضعف است. یا اگر بخواهی، قوّتی که روی امیدوارکننده‌ترین فرصت گذاشته می‌شود."},{"en":"Bad strategy is long on goals and short on policy or action. It assumes that goals are all you need.","fa":"استراتژیِ بد پُر از هدف است و کم از سیاست یا اقدام. فرض می‌کند هدف تنها چیزی است که لازم داری."},{"en":"If you fail to identify and analyze the obstacles, you don't have a strategy. Instead, you have either a stretch goal, a budget, or a list of things you wish would happen.","fa":"اگر موانع را شناسایی و تحلیل نکنی، استراتژی نداری. در عوض، یا یک هدفِ بلندپروازانه داری، یا یک بودجه، یا فهرستی از چیزهایی که آرزو داری اتفاق بیفتند."},{"en":"Fluff is superficial restatement of the obvious combined with a generous sprinkling of buzzwords.","fa":"حرفِ توخالی یعنی تکرارِ سطحیِ چیزِ بدیهی، همراه با پاشیدنِ سخاوتمندانهٔ اصطلاحاتِ مُدروز."},{"en":"The core of strategy work is always the same: discovering the critical factors in a situation and designing a way of coordinating and focusing actions to deal with those factors.","fa":"قلبِ کارِ استراتژی همیشه یکی است: کشفِ عامل‌های سرنوشت‌ساز در یک موقعیت و طراحیِ راهی برای هماهنگ و متمرکز‌کردنِ اقدام‌ها برای کنار آمدن با آن عامل‌ها."},{"en":"Good strategy works by focusing energy and resources on one, or a very few, pivotal objectives whose accomplishment will lead to a cascade of favorable outcomes.","fa":"استراتژیِ خوب با متمرکز‌کردنِ انرژی و منابع روی یک، یا خیلی کم، هدفِ کلیدی کار می‌کند که رسیدن به آن‌ها به آبشاری از نتیجه‌های خوب می‌انجامد."},{"en":"A system has a chain-link logic when its performance is limited by its weakest subunit, or 'link.'","fa":"یک سیستم منطقِ زنجیره‌ای دارد وقتی کارایی‌اش را ضعیف‌ترین زیرواحد یا «حلقه»‌اش محدود می‌کند."},{"en":"A strategy is like a lever that magnifies force.","fa":"استراتژی مثلِ اهرمی است که نیرو را چند برابر می‌کند."}],"media":[{"kind":"yt","id":"UZrTl16hZdk","src":{"en":"YouTube · LSE","fa":"یوتیوب · LSE"},"title":{"en":"Rumelt at LSE — Good Strategy / Bad Strategy","fa":"روملت در LSE — استراتژیِ خوب / بد"},"desc":{"en":"The author gives a full public lecture on the difference and why it matters.","fa":"خودِ نویسنده یک سخنرانیِ عمومیِ کامل دربارهٔ تفاوت و چرا مهم است می‌دهد."},"bullets":{"en":["The kernel, in the author's own words","Real cases of good and bad strategy","A full, authoritative talk"],"fa":["هسته، به زبانِ خودِ نویسنده","نمونه‌های واقعی از استراتژیِ خوب و بد","یک سخنرانیِ کامل و معتبر"]},"best":{"en":"Best for Stage 2–4.","fa":"خوب برای مرحلهٔ ۲ تا ۴."}},{"kind":"yt","id":"4uWKEG0s9Kc","src":{"en":"YouTube · Lenny's Podcast","fa":"یوتیوب · پادکستِ لنی"},"title":{"en":"Rumelt on Good Strategy, Bad Strategy","fa":"روملت دربارهٔ استراتژیِ خوب و بد"},"desc":{"en":"A long interview turning the book into practical advice for product and company builders.","fa":"یک گفت‌وگوی بلند که کتاب را به توصیه‌های عملی برای سازندگانِ محصول و شرکت تبدیل می‌کند."},"bullets":{"en":["Diagnosis before solutions","How to avoid fluff and wish-lists","Applied to startups and product"],"fa":["تشخیص قبل از راه‌حل","چطور از حرفِ توخالی و فهرستِ آرزو پرهیز کنی","به‌کار‌بسته در استارتاپ و محصول"]},"best":{"en":"Best for Stage 3–4.","fa":"خوب برای مرحلهٔ ۳ و ۴."}},{"kind":"yt","id":"3vG3S6fG0gA","src":{"en":"YouTube · Ci2012","fa":"یوتیوب · Ci2012"},"title":{"en":"Keys to Good Strategy in Volatile Times","fa":"کلیدهای استراتژیِ خوب در روزگارِ پرتلاطم"},"desc":{"en":"A shorter conference talk on applying good strategy when everything is changing.","fa":"یک سخنرانیِ کنفرانسیِ کوتاه‌تر دربارهٔ به‌کار‌بستنِ استراتژیِ خوب وقتی همه‌چیز در حالِ تغییر است."},"bullets":{"en":["Focus and leverage under uncertainty","Riding change instead of fearing it","A concise, practical overview"],"fa":["تمرکز و اهرم زیرِ بارِ نااطمینانی","سوارشدن بر تغییر به‌جای ترسیدن از آن","یک مرورِ فشرده و عملی"]},"best":{"en":"Best for Stage 4–5.","fa":"خوب برای مرحلهٔ ۴ و ۵."}},{"kind":"img","url":"https://www.penguinrandomhouse.com/books/208668/good-strategy-bad-strategy-by-richard-rumelt/","src":{"en":"Penguin Random House · Publisher","fa":"Penguin Random House · ناشر"},"title":{"en":"Good Strategy / Bad Strategy — Publisher Page","fa":"استراتژیِ خوب / بد — صفحهٔ ناشر"},"desc":{"en":"The publisher page for the book, with editions and details.","fa":"صفحهٔ ناشر برای کتاب، با نسخه‌ها و جزئیات."},"bullets":{"en":["The definitive editions","Background on Rumelt","Straight from the source"],"fa":["نسخه‌های معتبر","پیشینه‌ای دربارهٔ روملت","مستقیم از خودِ منبع"]},"best":{"en":"For editions and the source.","fa":"برای نسخه‌ها و منبعِ اصلی."}}],"go":[{"label":{"en":"Publisher page","fa":"صفحهٔ ناشر"},"url":"https://www.penguinrandomhouse.com/books/208668/good-strategy-bad-strategy-by-richard-rumelt/"},{"label":{"en":"Book on Goodreads","fa":"کتاب در گودریدز"},"url":"https://www.goodreads.com/book/show/11721966-good-strategy-bad-strategy"},{"label":{"en":"Rumelt essay: The Perils of Bad Strategy","fa":"جستارِ روملت: خطرهای استراتژیِ بد"},"url":"https://www.mckinsey.com/capabilities/strategy-and-corporate-finance/our-insights/the-perils-of-bad-strategy"}],"recs":[{"pri":"b","t":{"en":"Write the real diagnosis","fa":"تشخیصِ واقعی را بنویس"},"d":{"en":"Take a current plan and write one sentence naming the actual challenge it must overcome.","fa":"یک برنامهٔ فعلی را بردار و در یک جمله چالشِ واقعی‌ای را که باید بر آن غلبه کند نام ببر."}},{"pri":"b","t":{"en":"Cut it to one guiding policy","fa":"به یک سیاستِ راهنما تقلیلش بده"},"d":{"en":"Replace a list of goals with a single overall approach — and note what it rules out.","fa":"یک فهرست از هدف‌ها را با یک رویکردِ کلیِ واحد عوض کن — و بنویس چه چیزهایی را کنار می‌گذارد."}},{"pri":"n","t":{"en":"Hunt the fluff","fa":"حرفِ توخالی را شکار کن"},"d":{"en":"Rewrite your strategy in plain words; delete every buzzword that adds no meaning.","fa":"استراتژی‌ات را به زبانِ ساده بازنویسی کن؛ هر اصطلاحِ مُدروزی که معنایی اضافه نمی‌کند را حذف کن."}},{"pri":"n","t":{"en":"Find your one pivot","fa":"یک نقطهٔ اهرمت را پیدا کن"},"d":{"en":"Pick the single point where a focused push would cascade into the biggest result.","fa":"همان یک نقطه‌ای را انتخاب کن که یک فشارِ متمرکز رویش به بزرگ‌ترین نتیجه سرریز می‌شود."}}]};
-</script>
-
-<script>
-/* ── 3) RENDER (text sections) ────────────────────────────── */
-function elClear(id){ var e=document.getElementById(id); if(e) e.innerHTML=''; return e; }
-
-function renderText(){
-  var t=elClear('tldrHost');
-  DATA.tldr.forEach(function(o){ var li=document.createElement('li'); li.innerHTML = TX(o); t.appendChild(li); });
-
-  var q=elClear('quoteHost');
-  DATA.quotes.forEach(function(o){
-    var bq=document.createElement('blockquote');
-    bq.innerHTML = '<span class="qm">“</span><p>'+TX(o)+'</p>';
-    q.appendChild(bq);
-  });
-
-  var m=elClear('mediaHost');
-  DATA.media.forEach(function(o){
-    var card=document.createElement('div'); card.className='mcard';
-    var thumb;
-    if(o.kind==='yt'){
-      var url='https://www.youtube.com/watch?v='+o.id;
-      var img='https://i.ytimg.com/vi/'+o.id+'/hqdefault.jpg';
-      thumb='<a class="mthumb" href="'+url+'" target="_blank" rel="noopener">'
-        +'<img src="'+img+'" alt="" loading="lazy" onerror="this.style.display=\'none\'">'
-        +'<span class="ptype">'+(LANG==='fa'?'ویدیو':'VIDEO')+'</span>'
-        +'<span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></span></a>';
-    } else {
-      thumb='<a class="mthumb" href="'+o.url+'" target="_blank" rel="noopener"><span class="mfake">'
-        +'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.6"/><path d="M21 15l-5-5L5 21"/></svg>'
-        +'</span><span class="ptype">'+(LANG==='fa'?'تصویر':'IMAGE')+'</span></a>';
-    }
-    var link = o.kind==='yt' ? 'https://www.youtube.com/watch?v='+o.id : o.url;
-    var bl = (LANG==='fa'?o.bullets.fa:o.bullets.en).map(function(b){ return '<li>'+ (LANG==='fa'?faText(b):b) +'</li>'; }).join('');
-    card.innerHTML = thumb + '<div class="mbody">'
-      + '<div class="msrc">'+TX(o.src)+'</div>'
-      + '<h4>'+TX(o.title)+'</h4>'
-      + '<p class="mdesc">'+TX(o.desc)+'</p>'
-      + '<ul>'+bl+'</ul>'
-      + '<a class="mlink" href="'+link+'" target="_blank" rel="noopener">'+(LANG==='fa'?'باز کردن ↗':'Open ↗')+'</a>'
-      + '<div class="mbest">'+TX(o.best)+'</div>'
-      + '</div>';
-    m.appendChild(card);
-  });
-
-  var g=elClear('goHost');
-  DATA.go.forEach(function(o){
-    var a=document.createElement('a'); a.href=o.url; a.target='_blank'; a.rel='noopener';
-    a.textContent=TX(o.label); g.appendChild(a);
-  });
-
-  var r=elClear('recHost');
-  DATA.recs.forEach(function(o){
-    var it=document.createElement('div'); it.className='item';
-    var priLabel = o.pri==='b' ? (LANG==='fa'?'از اینجا شروع کن':'Start here') : (LANG==='fa'?'بعدش این':'Then this');
-    it.innerHTML='<div class="t">'+TX(o.t)+'<span class="pri '+(o.pri==='b'?'b':'')+'">'+priLabel+'</span></div>'
-      +'<div class="d">'+TX(o.d)+'</div>';
-    r.appendChild(it);
-  });
-
-  var mth=document.getElementById('methodHost');
-  mth.innerHTML = LANG==='fa' ? faText("<p><b>منبع:</b> کتابِ «Good Strategy / Bad Strategy: The Difference and Why It Matters» نوشتهٔ ریچارد روملت، چاپِ ۲۰۱۱ (نشرِ Crown Business).</p><p><b>روشِ کار:</b> ساختارِ پنج‌بخشی و ایده‌ها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده؛ نقل‌قول‌ها مقابله و ویدیوها بررسی شده‌اند.</p><p><b>گروه:</b> «استراتژی» — یک خواندنیِ پایه برای هر کسی که باید مسیر تعیین کند.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای متنِ کامل، خودِ کتاب را بخوان.</p>") : "<p><b>Source:</b> the book <i>Good Strategy / Bad Strategy: The Difference and Why It Matters</i> by Richard Rumelt, published 2011 (Crown Business).</p><p><b>How this was built:</b> the five-part structure and ideas were gathered and rewritten from the book and reputable sources; quotes were cross-checked and the linked videos verified.</p><p><b>Group:</b> Strategy — a foundational read for anyone who has to set direction.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>";
-  var fl=document.getElementById('flowTop');
-  if(fl){
-    var loop = LANG==='fa' ? ["تشخیص","سیاستِ راهنما","اقدامِ هماهنگ"] : ["Diagnosis","Guiding Policy","Coherent Action"];
-    var ar = LANG==='fa' ? '⟵' : '⟶';
-    fl.innerHTML = loop.map(function(w){ return '<b>'+ (LANG==='fa'?faText(w):w) +'</b>'; }).join(' <span class="ar">'+ar+'</span> ');
-  }
-}
-</script>
-
-<script>
-/* ── 4) CONCEPT MAP ───────────────────────────────────────── */
-function renderMap(){
-  var host=document.getElementById('mapHost'); if(!host) return; host.innerHTML='';
-  DATA.parts.forEach(function(p, i){
-    var col=document.createElement('div'); col.className='partcol';
-    var chaps=p.chapters.map(function(ck){
-      var c=DATA.chapters[ck];
-      return '<div class="chapchip"><span class="cn">'+num(c.n)+'</span><div><b>'+TX(c.name)+'</b>'
-        +'<small>'+TX(c.principle).replace(/<[^>]+>/g,'').slice(0, LANG==='fa'?86:76)+'…</small></div></div>';
-    }).join('');
-    col.innerHTML='<div class="ph"><span class="pdot" style="background:var('+p.varc+')"></span>'
-      +'<span class="pnum">'+(LANG==='fa'?'بخشِ ':'PART ')+num(i+1)+'</span></div>'
-      +'<h4>'+TX(p.name)+'</h4>'
-      +'<div class="ptag" style="color:var('+p.varc+')">'+TX(p.tag)+'</div>'
-      +'<p class="pgist">'+TX(p.gist)+'</p>'+chaps;
-    host.appendChild(col);
-  });
-}
-</script>
-
-<script>
-/* ── 5) INTERACTIVE NETWORK GRAPH (deterministic radial layout, no physics) ── */
-var GRAPH = (function(){
-  var svg, W=980, H=780, nodes=[], links=[], sel=null, dragNode=null, moved=false, startPt=null;
-
-  function build(){
-    svg=document.getElementById('netsvg');
-    svg.setAttribute('viewBox','0 0 '+W+' '+H);
-    nodes=[]; links=[];
-    var cx=W/2, cy=H/2, R1=220, R2=126, span=66*Math.PI/180;
-    var N=DATA.parts.length, partAng=DATA.parts.map(function(_,i){ return -Math.PI/2 + i*(2*Math.PI/N); });
-    nodes.push({id:'core', kind:'core', varc:'--core', r:38, x:cx, y:cy, label:DATA.core.name, data:DATA.core});
-    DATA.parts.forEach(function(p,i){
-      var a=partAng[i], px=cx+Math.cos(a)*R1, py=cy+Math.sin(a)*R1;
-      nodes.push({id:'p_'+p.key, kind:'part', varc:p.varc, r:25, x:px, y:py,
-        label:p.name, data:{name:p.name, principle:p.gist, more:p.more, tag:p.tag, key:p.key}});
-      links.push({s:'core', t:'p_'+p.key, strong:true});
-      var nc=p.chapters.length, start=a-span/2;
-      p.chapters.forEach(function(ck,j){
-        var ca = nc>1 ? start+span*(j/(nc-1)) : a;   // fan the 5 chapters outward
-        var c=DATA.chapters[ck];
-        nodes.push({id:'c_'+ck, kind:'chap', varc:p.varc, r:15,
-          x:px+Math.cos(ca)*R2, y:py+Math.sin(ca)*R2,
-          label:(c.glabel||c.name), data:c, ck:ck});
-        links.push({s:'p_'+p.key, t:'c_'+ck});
-      });
-    });
-    nodes.forEach(function(n){ n.hx=n.x; n.hy=n.y; });   // remember home positions for reset
-    draw();
-    select('core');
-  }
-
-  function byId(id){ for(var i=0;i<nodes.length;i++) if(nodes[i].id===id) return nodes[i]; return null; }
-
-  function draw(){
-    var ln='', nd='';
-    links.forEach(function(l){ ln+='<line class="glink" data-s="'+l.s+'" data-t="'+l.t+'" stroke="var(--line)" stroke-width="'+(l.strong?2.4:1.5)+'" stroke-linecap="round"/>'; });
-    nodes.forEach(function(n){
-      var inside='', below='';
-      if(n.kind==='core'){
-        inside='<text text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="800" fill="#fff" letter-spacing="0.3">'+shortLabel(n)+'</text>';
-      } else {
-        if(n.kind==='chap'){
-          inside='<text text-anchor="middle" dominant-baseline="central" font-size="11" font-weight="800" fill="#fff">'+num(n.data.n)+'</text>';
+/* ── CONTENT — everything unique to this book lives here ── */
+Book.mount({
+  "meta": {
+    "slug": "good-strategy-bad-strategy",
+    "folder": "03 - Strategy",
+    "groupNum": 3,
+    "group": {
+      "en": "Strategy",
+      "fa": "استراتژی"
+    },
+    "author": {
+      "en": "Richard Rumelt",
+      "fa": "ریچارد روملت"
+    },
+    "eyebrow_author": {
+      "en": "Richard Rumelt",
+      "fa": "ریچارد روملت"
+    },
+    "book": {
+      "en": "Good Strategy / Bad Strategy",
+      "fa": "استراتژیِ خوب / بد"
+    },
+    "hero_title": {
+      "en": "Good Strategy / Bad Strategy — The Difference and Why It Matters",
+      "fa": "استراتژیِ خوب / استراتژیِ بد — تفاوت، و چرا مهم است"
+    },
+    "dek": {
+      "en": "A knowledge graph of the whole book, plus a 5-stage path from a single idea to expert-level mastery — with an example at every step.",
+      "fa": "نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از یک ایدهٔ ساده تا حرفه‌ای — با یک مثال در هر مرحله."
+    },
+    "published": {
+      "en": "2011",
+      "fa": "۲۰۱۱"
+    },
+    "chips": [
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Parts",
+          "fa": "بخش"
         }
-        var ly = n.r + (n.kind==='part'?17:14);
-        var fs = n.kind==='part'?13:11;
-        var stroke = 'paint-order:stroke;stroke:var(--card2);stroke-width:3.6px;stroke-linejoin:round';
-        below='<text class="nlab" text-anchor="middle" y="'+ly+'" font-size="'+fs+'" font-weight="'+(n.kind==='part'?'800':'700')+'" fill="var(--ink)" style="'+stroke+'">'+shortLabel(n)+'</text>';
+      },
+      {
+        "v": {
+          "en": "16",
+          "fa": "۱۶"
+        },
+        "l": {
+          "en": "Ideas",
+          "fa": "ایده"
+        }
+      },
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Learning stages",
+          "fa": "مرحلهٔ یادگیری"
+        }
       }
-      nd+='<g class="node'+(n.kind==='core'?' ncore':'')+'" data-id="'+n.id+'"><g class="ns">'
-        +'<circle r="'+n.r+'" fill="var('+n.varc+')" fill-opacity="'+(n.kind==='chap'?0.94:1)+'" stroke="var(--card)" stroke-width="2.5"/>'
-        +inside+below+'</g></g>';
-    });
-    svg.innerHTML='<g id="glinks">'+ln+'</g><g id="gnodes">'+nd+'</g>';
-    svg.querySelectorAll('.node').forEach(function(gEl){
-      gEl.addEventListener('pointerdown', onDown);
-      gEl.addEventListener('click', function(){ if(!moved) select(gEl.getAttribute('data-id')); });
-      gEl.addEventListener('pointerenter', function(){ if(!dragNode) gEl.classList.add('hover'); });
-      gEl.addEventListener('pointerleave', function(){ gEl.classList.remove('hover'); });
-    });
-    positions();
-  }
-  function shortLabel(n){ return TX(n.label); }
-
-  function positions(){
-    svg.querySelectorAll('.node').forEach(function(g){
-      var n=byId(g.getAttribute('data-id'));
-      g.setAttribute('transform','translate('+n.x.toFixed(1)+','+n.y.toFixed(1)+')');
-    });
-    svg.querySelectorAll('.glink').forEach(function(l){
-      var a=byId(l.getAttribute('data-s')), b=byId(l.getAttribute('data-t'));
-      l.setAttribute('x1',a.x.toFixed(1)); l.setAttribute('y1',a.y.toFixed(1));
-      l.setAttribute('x2',b.x.toFixed(1)); l.setAttribute('y2',b.y.toFixed(1));
-    });
-  }
-
-  /* drag: just move the grabbed node — no simulation, so nothing else shifts */
-  function toSvg(e){
-    var pt=svg.createSVGPoint(); pt.x=e.clientX; pt.y=e.clientY;
-    var m=svg.getScreenCTM(); if(!m) return {x:e.clientX,y:e.clientY};
-    return pt.matrixTransform(m.inverse());
-  }
-  function onDown(e){
-    e.preventDefault();
-    dragNode=byId(e.currentTarget.getAttribute('data-id'));
-    moved=false; startPt=toSvg(e); svg.style.cursor='grabbing';
-    e.currentTarget.classList.remove('hover');
-    window.addEventListener('pointermove', onMove);
-    window.addEventListener('pointerup', onUp);
-  }
-  function onMove(e){
-    if(!dragNode) return; var p=toSvg(e);
-    if(startPt && (Math.abs(p.x-startPt.x)>4 || Math.abs(p.y-startPt.y)>4)) moved=true;
-    dragNode.x=Math.max(dragNode.r+4, Math.min(W-dragNode.r-4, p.x));
-    dragNode.y=Math.max(dragNode.r+4, Math.min(H-dragNode.r-24, p.y));
-    positions();
-  }
-  function onUp(){
-    dragNode=null; svg.style.cursor='grab';
-    window.removeEventListener('pointermove', onMove);
-    window.removeEventListener('pointerup', onUp);
-  }
-
-  function keepSet(id){
-    var n=byId(id); if(!n || id==='core') return null;   // core → show everything
-    var keep={}; keep[id]=1; keep['core']=1;
-    var pk = (n.kind==='part') ? n.data.key : n.data.part;
-    keep['p_'+pk]=1;
-    DATA.parts.forEach(function(p){ if(p.key===pk) p.chapters.forEach(function(ck){ keep['c_'+ck]=1; }); });
-    return keep;   // highlight the whole branch: core → part → its chapters
-  }
-  function applyFocus(id){
-    var keep=keepSet(id), full=(keep===null);
-    svg.querySelectorAll('.node').forEach(function(g){
-      var nid=g.getAttribute('data-id');
-      g.classList.toggle('dim', !full && !keep[nid]);
-      g.classList.toggle('hl', !full && keep[nid] && nid!==id);
-    });
-    svg.querySelectorAll('.glink').forEach(function(l){
-      var s=l.getAttribute('data-s'), t=l.getAttribute('data-t');
-      var on = full || (keep[s] && keep[t]);
-      l.classList.toggle('dim', !on);
-      l.classList.toggle('hl', !full && on);
-    });
-  }
-
-  function relatedIds(node){
-    var ids=[];
-    if(node.id==='core'){ DATA.parts.forEach(function(p){ ids.push('p_'+p.key); }); }
-    else if(node.kind==='part'){ var pk=node.data.key; DATA.parts.forEach(function(p){ if(p.key===pk) p.chapters.forEach(function(ck){ ids.push('c_'+ck); }); }); }
-    else { var pk2=node.data.part; ids.push('p_'+pk2);
-      DATA.parts.forEach(function(p){ if(p.key===pk2) p.chapters.forEach(function(ck){ if('c_'+ck!==node.id) ids.push('c_'+ck); }); }); }
-    return ids;
-  }
-
-  function drow(cls,label,txt){ return '<div class="drow '+cls+'"><div class="dlab">'+label+'</div><div class="dtxt">'+txt+'</div></div>'; }
-
-  function select(id){
-    var n=byId(id); if(!n) return;
-    sel=id;
-    svg.querySelectorAll('.node').forEach(function(g){ g.classList.toggle('sel', g.getAttribute('data-id')===id); });
-    var selEl=svg.querySelector('.node[data-id="'+id+'"]'); if(selEl&&selEl.parentNode) selEl.parentNode.appendChild(selEl);  // raise on top
-    applyFocus(id);
-    var d=n.data, pv = n.kind==='core' ? '--core' : n.varc;
-    var kicker = n.kind==='core' ? (LANG==='fa'?'ایدهٔ مرکزی':'Core idea')
-             : n.kind==='part' ? (LANG==='fa'?'بخش':'Part') + ' · ' + TX(d.tag)
-             : (LANG==='fa'?"ایدهٔ":"Idea") + ' ' + num(d.n);
-    var prLab = (n.kind==='chap') ? (LANG==='fa'?'اصل':'Principle') : (LANG==='fa'?'ایدهٔ اصلی':'Big idea');
-    var html='<div class="dkick"><i style="background:var('+pv+')"></i>'+ (LANG==='fa'?faText(kicker):kicker) +'</div>'
-      +'<h4>'+TX(d.name)+'</h4>'
-      + drow('', prLab, TX(d.principle));
-    if(d.more)    html += drow('more', (LANG==='fa'?'بیشتر':'In depth'), TX(d.more));
-    if(d.example) html += drow('', (LANG==='fa'?'مثال':'Example'), TX(d.example));
-    if(d.tip)     html += drow('tip', (LANG==='fa'?'امتحان کن':'Try this'), TX(d.tip));
-    if(d.pitfall) html += drow('pit', (LANG==='fa'?'حواست باشد':'Watch out'), TX(d.pitfall));
-    // related chips
-    var rel=relatedIds(n);
-    if(rel.length){
-      var chips=rel.map(function(rid){ var rn=byId(rid); if(!rn) return '';
-        return '<span class="dchip" data-goto="'+rid+'"><i style="background:var('+rn.varc+')"></i>'+TX(rn.data.name)+'</span>'; }).join('');
-      html += '<div class="drow"><div class="dlab">'+(LANG==='fa'?'مرتبط':'Related')+'</div><div class="dchips">'+chips+'</div></div>';
+    ],
+    "kboxes": [
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Parts (kernel · bad strategy · power · strategist · dynamics)",
+          "fa": "بخش (هسته · استراتژیِ بد · قدرت · استراتژیست · پویایی)"
+        }
+      },
+      {
+        "v": {
+          "en": "16",
+          "fa": "۱۶"
+        },
+        "l": {
+          "en": "Ideas you can use",
+          "fa": "ایده برای استفاده"
+        }
+      },
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Levels, simple → expert",
+          "fa": "مرحله، ساده تا حرفه‌ای"
+        }
+      },
+      {
+        "v": {
+          "en": "3",
+          "fa": "۳"
+        },
+        "l": {
+          "en": "The kernel: diagnosis · guiding policy · coherent action",
+          "fa": "هسته: تشخیص · سیاستِ راهنما · اقدامِ هماهنگ"
+        }
+      }
+    ],
+    "core_callout": {
+      "label": {
+        "en": "The core idea:",
+        "fa": "ایدهٔ اصلی:"
+      },
+      "en": "Strategy isn't a vision or a set of goals — it's how you tackle a challenge. Every good strategy has a <i>kernel</i>: an honest <i>diagnosis</i> of the real problem, a <i>guiding policy</i> to deal with it, and <i>coherent actions</i> that actually carry it out. Bad strategy skips the hard part and hides behind fluff and wish-list goals.",
+      "fa": "استراتژی یک چشم‌انداز یا فهرستی از هدف‌ها نیست — اینکه چطور با یک چالش روبه‌رو می‌شوی است. هر استراتژیِ خوب یک <i>هسته</i> دارد: یک <i>تشخیصِ</i> صادقانه از مشکلِ واقعی، یک <i>سیاستِ راهنما</i> برای کنار آمدن با آن، و <i>اقدام‌هایی هماهنگ</i> که واقعاً انجامش می‌دهند. استراتژیِ بد از بخشِ سخت فرار می‌کند و پشتِ حرف‌های توخالی و فهرستِ آرزوها قایم می‌شود."
+    },
+    "flow_callout": {
+      "label": {
+        "en": "Read it as a flow:",
+        "fa": "به‌صورتِ یک جریان بخوانش:"
+      },
+      "en": "write an honest <b>diagnosis</b> of the real challenge, choose a <b>guiding policy</b> to deal with it, and line up <b>coherent actions</b> that carry it out — then power it with leverage, focus and advantage, and ride the <b>dynamics</b> of change while rivals sit still.",
+      "fa": "یک <b>تشخیصِ</b> صادقانه از چالشِ واقعی بنویس، یک <b>سیاستِ راهنما</b> برای کنار آمدن با آن انتخاب کن، و یک‌دسته <b>اقدامِ هماهنگ</b> که انجامش می‌دهند ردیف کن — بعد با اهرم و تمرکز و مزیت نیرومندش کن، و <b>موجِ</b> تغییر را سوار شو وقتی رقبا بی‌حرکت نشسته‌اند."
     }
-    var host=document.getElementById('detailHost');
-    host.innerHTML=html;
-    host.querySelectorAll('.dchip').forEach(function(c){
-      c.addEventListener('click', function(){ select(c.getAttribute('data-goto')); });
-    });
-  }
-
-  function relabel(){ if(!svg) return; draw(); select(sel||'core'); }
-
-  return {
-    build:build,
-    kick:function(){},                                    // no-op; layout is static
-    relabel:relabel,
-    reset:function(){ nodes.forEach(function(n){ n.x=n.hx; n.y=n.hy; }); positions(); },
-    resetFocus:function(){ select('core'); },
-    selectNode:function(id){ select(id); },
-    hasNodes:function(){ return nodes.length>0; }
-  };
-})();
-</script>
-
-<script>
-/* ── 6) 5-STAGE LADDER ────────────────────────────────────── */
-var curStage=0;
-function renderLadder(){
-  var host=document.getElementById('ladderHost'); host.innerHTML='';
-  DATA.stages.forEach(function(s,i){
-    var r=document.createElement('div'); r.className='rung'+(i===curStage?' active':'');
-    r.innerHTML='<div class="lv">'+ (LANG==='fa'?('سطحِ '+num(s.level)):('Level '+s.level)) +'</div>'
-      +'<div class="lt">'+TX(s.title)+'</div>'
-      +'<div class="lbar"><i style="width:'+(s.level*20)+'%"></i></div>';
-    r.addEventListener('click', function(){ curStage=i; renderLadder(); renderStage();
-      document.getElementById('stageHost').scrollIntoView({behavior:'smooth',block:'nearest'}); });
-    host.appendChild(r);
-  });
-}
-function renderStage(){
-  var s=DATA.stages[curStage];
-  var host=document.getElementById('stageHost');
-  var exLabel = LANG==='fa'?'مثال':'Example';
-  var prev = LANG==='fa'?'مرحلهٔ قبل':'‹ Prev', next = LANG==='fa'?'مرحلهٔ بعد':'Next ›';
-  host.innerHTML=''+
-    '<div class="stagecard">'
-    +'<div class="shead"><span class="badge">'+TX(s.badge)+'</span><h3>'+TX(s.title)+'</h3></div>'
-    +'<div class="tagline">'+TX(s.tagline)+'</div>'
-    +'<div class="sbody">'+TX(s.body)+'</div>'
-    +'<div class="exbox"><div class="exk">'+exLabel+'</div><div class="ext">'+TX(s.example)+'</div></div>'
-    +'<div class="gainrow"><span class="gi">✓</span><span>'+TX(s.gain)+'</span></div>'
-    +'<div class="stagenav">'
-      +'<button id="stPrev" '+(curStage===0?'disabled':'')+'>'+prev+'</button>'
-      +'<button id="stNext" '+(curStage===DATA.stages.length-1?'disabled':'')+'>'+next+'</button>'
-    +'</div></div>';
-  var pv=document.getElementById('stPrev'), nx=document.getElementById('stNext');
-  if(pv) pv.onclick=function(){ if(curStage>0){curStage--; renderLadder(); renderStage();} };
-  if(nx) nx.onclick=function(){ if(curStage<DATA.stages.length-1){curStage++; renderLadder(); renderStage();} };
-}
-</script>
-
-<script>
-/* ── 7) legend + graph tabs ───────────────────────────────── */
-function renderLegend(){
-  var host=document.getElementById('legendHost'); if(!host) return;
-  var items=[{c:'--core', en:'Core idea', fa:'ایدهٔ مرکزی'}]
-    .concat(DATA.parts.map(function(p){ return {c:p.varc, en:p.name.en, fa:p.name.fa}; }));
-  host.innerHTML = items.map(function(it){
-    return '<span><i style="background:var('+it.c+')"></i>'+(LANG==='fa'?faText(it.fa):it.en)+'</span>';
-  }).join('');
-  document.getElementById('ghint').textContent = LANG==='fa' ? 'روی هر دایره کلیک کن تا بیشتر بخوانی · می‌توانی بکشی‌شان' : 'Click a node to read more · drag to move';
-  document.getElementById('greset').textContent = LANG==='fa' ? '↺ چیدمان' : '↺ Reset';
-}
-function setupTabs(){
-  function show(net){
-    document.getElementById('netView').style.display = net?'':'none';
-    document.getElementById('mapView').style.display = net?'none':'';
-    document.getElementById('tabNet').classList.toggle('active',net);
-    document.getElementById('tabMap').classList.toggle('active',!net);
-    if(net) GRAPH.kick();
-  }
-  document.getElementById('tabNet').onclick=function(){show(true);};
-  document.getElementById('tabMap').onclick=function(){show(false);};
-  document.getElementById('greset').onclick=function(){ GRAPH.reset(); };
-  // click empty graph space resets the focus
-  var svg=document.getElementById('netsvg');
-  svg.addEventListener('click', function(e){ if(!e.target.closest('.node')) GRAPH.resetFocus(); });
-}
-</script>
-
-<script>
-/* ── 8) toggles + boot ────────────────────────────────────── */
-function setLang(lg){
-  LANG=lg;
-  document.documentElement.setAttribute('data-lang',lg);
-  document.documentElement.setAttribute('lang',lg);
-  document.documentElement.setAttribute('dir', lg==='fa'?'rtl':'ltr');
-  try{ localStorage.setItem('gsbs-lang',lg); }catch(e){}
-  renderAll();
-}
-function renderAll(){
-  renderText();
-  renderMap();
-  renderLegend();
-  renderLadder();
-  renderStage();
-  if(GRAPH.hasNodes()) GRAPH.relabel(); else GRAPH.build();
-}
-(function(){
-  var lb=document.getElementById('langBtn');
-  lb && lb.addEventListener('click', function(){ setLang(LANG==='fa'?'en':'fa'); });
-
-  var tb=document.getElementById('themeBtn');
-  function curT(){ return document.documentElement.getAttribute('data-theme'); }
-  tb && tb.addEventListener('click', function(){
-    var t=curT()==='dark'?'light':'dark';
-    document.documentElement.setAttribute('data-theme',t);
-    try{ localStorage.setItem('gsbs-theme',t); }catch(e){}
-  });
-  try{ matchMedia('(prefers-color-scheme: dark)').addEventListener('change',function(e){
-    if(!localStorage.getItem('gsbs-theme')){ document.documentElement.setAttribute('data-theme', e.matches?'dark':'light'); }
-  }); }catch(e){}
-})();
-
-/* scroll-spy */
-(function(){
-  var links=[].slice.call(document.querySelectorAll('.toc a'));
-  var seen={}, ids=[];
-  links.forEach(function(a){ var id=a.getAttribute('href').slice(1); if(!seen[id]){seen[id]=1; ids.push(id);} });
-  var secs=ids.map(function(id){return document.getElementById(id);}).filter(Boolean);
-  function setActive(id){ links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('href')==='#'+id); }); }
-  if('IntersectionObserver' in window){
-    var obs=new IntersectionObserver(function(es){
-      es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
-    },{rootMargin:'-45% 0px -50% 0px',threshold:0});
-    secs.forEach(function(s){ obs.observe(s); });
-  }
-})();
-
-document.addEventListener('DOMContentLoaded', function(){
-  setupTabs();
-  renderAll();
+  },
+  "method": {
+    "en": "<p><b>Source:</b> the book <i>Good Strategy / Bad Strategy: The Difference and Why It Matters</i> by Richard Rumelt, published 2011 (Crown Business).</p><p><b>How this was built:</b> the five-part structure and ideas were gathered and rewritten from the book and reputable sources; quotes were cross-checked and the linked videos verified.</p><p><b>Group:</b> Strategy — a foundational read for anyone who has to set direction.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>",
+    "fa": "<p><b>منبع:</b> کتابِ «Good Strategy / Bad Strategy: The Difference and Why It Matters» نوشتهٔ ریچارد روملت، چاپِ ۲۰۱۱ (نشرِ Crown Business).</p><p><b>روشِ کار:</b> ساختارِ پنج‌بخشی و ایده‌ها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده؛ نقل‌قول‌ها مقابله و ویدیوها بررسی شده‌اند.</p><p><b>گروه:</b> «استراتژی» — یک خواندنیِ پایه برای هر کسی که باید مسیر تعیین کند.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای متنِ کامل، خودِ کتاب را بخوان.</p>"
+  },
+  "flow": {
+    "en": [
+      "Diagnosis",
+      "Guiding Policy",
+      "Coherent Action"
+    ],
+    "fa": [
+      "تشخیص",
+      "سیاستِ راهنما",
+      "اقدامِ هماهنگ"
+    ]
+  },
+  "graph": {
+    "W": 980,
+    "H": 780,
+    "R1": 220,
+    "R2": 126,
+    "span": 66
+  },
+  "tldr": [
+    {
+      "en": "The whole book in one line: a real strategy is how you overcome a challenge — not a goal, a vision, or a wish.",
+      "fa": "خلاصهٔ کل کتاب در یک جمله: استراتژیِ واقعی یعنی اینکه چطور بر یک چالش غلبه می‌کنی — نه یک هدف، یک چشم‌انداز، یا یک آرزو."
+    },
+    {
+      "en": "Every good strategy has a <b>kernel</b>: a <b>diagnosis</b>, a <b>guiding policy</b>, and <b>coherent action</b>.",
+      "fa": "هر استراتژیِ خوب یک <b>هسته</b> دارد: یک <b>تشخیص</b>، یک <b>سیاستِ راهنما</b>، و <b>اقدامِ هماهنگ</b>."
+    },
+    {
+      "en": "<b>Bad strategy</b> is easy to spot: fluff, dodging the real challenge, goals dressed up as strategy, and a dog's dinner of objectives.",
+      "fa": "<b>استراتژیِ بد</b> را راحت می‌شود شناخت: حرفِ توخالی، فرار از چالشِ واقعی، هدف‌هایی که لباسِ استراتژی پوشیده‌اند، و فهرستی درهم‌وبرهم از هدف‌ها."
+    },
+    {
+      "en": "Good strategy draws its <b>power</b> from focus: leverage, a close-enough objective, and pressing where you have an advantage.",
+      "fa": "استراتژیِ خوب <b>قدرتش</b> را از تمرکز می‌گیرد: اهرم، یک هدفِ به‌قدرِ کافی نزدیک، و فشار آوردن جایی که مزیت داری."
+    },
+    {
+      "en": "Then think like a strategist — treat your strategy as a <b>hypothesis</b>, ride the waves of change, and use rivals' <b>inertia</b>.",
+      "fa": "بعد مثلِ یک استراتژیست فکر کن — استراتژی‌ات را یک <b>فرضیه</b> بدان، موج‌های تغییر را سوار شو، و از <b>لَختیِ</b> رقبا استفاده کن."
+    }
+  ],
+  "parts": [
+    {
+      "key": "kernel",
+      "varc": "--c-teal",
+      "name": {
+        "en": "The Kernel",
+        "fa": "هسته"
+      },
+      "tag": {
+        "en": "The core logic",
+        "fa": "منطقِ اصلی"
+      },
+      "gist": {
+        "en": "Diagnosis, guiding policy, and coherent action — the skeleton of any real strategy.",
+        "fa": "تشخیص، سیاستِ راهنما، و اقدامِ هماهنگ — اسکلتِ هر استراتژیِ واقعی."
+      },
+      "more": {
+        "en": "Strip away the buzzwords and every good strategy has the same three-part skeleton. Name the real challenge, choose an overall approach to it, then take coordinated actions that fit together. Miss any one of the three and it isn't a strategy yet.",
+        "fa": "اصطلاحاتِ مُدروز را که کنار بزنی، هر استراتژیِ خوب همان اسکلتِ سه‌تکه را دارد. چالشِ واقعی را نام ببر، یک رویکردِ کلی برایش انتخاب کن، بعد اقدام‌هایی هماهنگ بردار که به هم جفت می‌شوند. هر کدام از این سه را جا بیندازی، هنوز استراتژی نیست."
+      },
+      "chapters": [
+        "diagnosis",
+        "guiding",
+        "action"
+      ]
+    },
+    {
+      "key": "badstrat",
+      "varc": "--c-blue",
+      "name": {
+        "en": "Bad Strategy",
+        "fa": "استراتژیِ بد"
+      },
+      "tag": {
+        "en": "What to avoid",
+        "fa": "چیزی که باید دور بزنی"
+      },
+      "gist": {
+        "en": "Fluff, dodging the challenge, goals-as-strategy, and a dog's dinner of objectives.",
+        "fa": "حرفِ توخالی، فرار از چالش، هدف‌به‌جای‌استراتژی، و فهرستی درهم‌وبرهم از هدف‌ها."
+      },
+      "more": {
+        "en": "Bad strategy isn't just the absence of good strategy; it has its own tell-tale signs. Learn the four hallmarks — fluff, failing to face the challenge, mistaking goals for strategy, and jumbled objectives — and you can spot, and stop, most of the empty 'strategy' you'll ever meet.",
+        "fa": "استراتژیِ بد فقط نبودِ استراتژیِ خوب نیست؛ نشانه‌های لو‌دهندهٔ خودش را دارد. چهار نشانه را یاد بگیر — حرفِ توخالی، روبه‌رو نشدن با چالش، هدف را به‌جای استراتژی گرفتن، و هدف‌های درهم — آن‌وقت می‌توانی بیشترِ «استراتژی»‌های پوچی را که در عمرت می‌بینی تشخیص بدهی و جلویشان را بگیری."
+      },
+      "chapters": [
+        "fluff",
+        "challenge",
+        "goals",
+        "objectives"
+      ]
+    },
+    {
+      "key": "power",
+      "varc": "--c-amber",
+      "name": {
+        "en": "Sources of Power",
+        "fa": "سرچشمه‌های قدرت"
+      },
+      "tag": {
+        "en": "Where strength comes from",
+        "fa": "قدرت از کجا می‌آید"
+      },
+      "gist": {
+        "en": "Leverage, a close-enough objective, and systems that stand or fall together.",
+        "fa": "اهرم، یک هدفِ به‌قدرِ کافی نزدیک، و سیستم‌هایی که با هم می‌ایستند یا می‌افتند."
+      },
+      "more": {
+        "en": "A good strategy doesn't just use strength — it creates it. These are the ways power gets concentrated: finding the pivot point, picking an objective you can actually reach, and understanding chain-link systems whose weakest part sets the ceiling.",
+        "fa": "استراتژیِ خوب فقط قدرت را خرج نمی‌کند — می‌سازدش. این‌ها راه‌های متمرکز‌شدنِ قدرت‌اند: پیدا‌کردنِ نقطهٔ اتکا، انتخابِ هدفی که واقعاً به آن می‌رسی، و فهمِ سیستم‌های زنجیره‌ای که ضعیف‌ترین قسمتشان سقف را تعیین می‌کند."
+      },
+      "chapters": [
+        "leverage",
+        "proximate",
+        "chainlink"
+      ]
+    },
+    {
+      "key": "strategist",
+      "varc": "--c-violet",
+      "name": {
+        "en": "Thinking Like a Strategist",
+        "fa": "فکرکردن مثلِ یک استراتژیست"
+      },
+      "tag": {
+        "en": "The mindset",
+        "fa": "طرزِ فکر"
+      },
+      "gist": {
+        "en": "Focus your power, press your advantage, and treat strategy as a testable hypothesis.",
+        "fa": "قدرتت را متمرکز کن، روی مزیتت فشار بیاور، و استراتژی را یک فرضیهٔ آزمون‌پذیر بدان."
+      },
+      "more": {
+        "en": "Tools don't make a strategist; a way of thinking does. Concentrate force on a few pivotal points, fight where you're strong and sidestep where you're not, and hold your strategy lightly — as a bet about what will work, ready to be tested.",
+        "fa": "ابزار، استراتژیست نمی‌سازد؛ یک طرزِ فکر می‌سازد. نیرو را روی چند نقطهٔ کلیدی متمرکز کن، جایی که قوی هستی بجنگ و جایی که نیستی دور بزن، و استراتژی‌ات را شل نگه دار — مثلِ شرطی روی چیزی که جواب می‌دهد، آمادهٔ آزمایش‌شدن."
+      },
+      "chapters": [
+        "focus",
+        "advantage",
+        "hypothesis"
+      ]
+    },
+    {
+      "key": "dynamics",
+      "varc": "--c-green",
+      "name": {
+        "en": "Dynamics & Inertia",
+        "fa": "دگرگونی و لَختی"
+      },
+      "tag": {
+        "en": "Change over time",
+        "fa": "تغییر در طولِ زمان"
+      },
+      "gist": {
+        "en": "Ride waves of change, exploit rivals' inertia, and fight your own slide into disorder.",
+        "fa": "موج‌های تغییر را سوار شو، از لَختیِ رقبا استفاده کن، و با فروپاشیِ تدریجیِ خودت بجنگ."
+      },
+      "more": {
+        "en": "Big shifts — in technology, regulation, tastes — reshuffle the deck and hand advantages to whoever moves first. Meanwhile rivals stay stuck in old habits, and even your own organization drifts toward disorder unless you keep pushing back.",
+        "fa": "جابه‌جایی‌های بزرگ — در فناوری، مقررات، سلیقه‌ها — ورق را از نو می‌زنند و مزیت‌ها را به کسی می‌دهند که زودتر حرکت کند. در همین حال رقبا در عادت‌های قدیمی گیر می‌مانند، و حتی سازمانِ خودت هم به‌سمتِ بی‌نظمی می‌لغزد مگر اینکه مدام هُلش بدهی عقب."
+      },
+      "chapters": [
+        "dynamics",
+        "inertia",
+        "entropy"
+      ]
+    }
+  ],
+  "chapters": {
+    "diagnosis": {
+      "part": "kernel",
+      "n": 1,
+      "name": {
+        "en": "Diagnosis",
+        "fa": "تشخیص"
+      },
+      "glabel": {
+        "en": "Diagnosis",
+        "fa": "تشخیص"
+      },
+      "principle": {
+        "en": "Start by naming the real challenge. A diagnosis cuts through the noise and says what's actually going on.",
+        "fa": "با نام‌بردنِ چالشِ واقعی شروع کن. تشخیص، شلوغی را کنار می‌زند و می‌گوید واقعاً چه خبر است."
+      },
+      "more": {
+        "en": "Most situations are overwhelming until someone simplifies them. A good diagnosis picks out the one or two things that really matter and often reframes the problem — turning a fog of symptoms into a challenge you can actually act on.",
+        "fa": "بیشترِ موقعیت‌ها گیج‌کننده‌اند تا وقتی یک نفر ساده‌شان کند. یک تشخیصِ خوب همان یکی‌دو چیزی را که واقعاً مهم است بیرون می‌کشد و اغلب مسئله را از نو قاب می‌گیرد — مِهی از نشانه‌ها را به چالشی تبدیل می‌کند که واقعاً می‌شود رویش کاری کرد."
+      },
+      "example": {
+        "en": "When Lou Gerstner arrived at IBM, he decided the challenge wasn't to break the company up but to use its rare ability to integrate everything for the customer.",
+        "fa": "وقتی لو گرستنر به آی‌بی‌ام رسید، تشخیص داد چالش این نیست که شرکت را تکه‌تکه کند، بلکه استفاده از توانِ کمیابش برای یکپارچه‌کردنِ همه‌چیز برای مشتری است."
+      },
+      "tip": {
+        "en": "Before any plan, write one sentence: 'The real problem here is ___.' Make it specific.",
+        "fa": "قبل از هر برنامه‌ای، یک جمله بنویس: «مشکلِ واقعی اینجا ___ است.» مشخصش کن."
+      },
+      "pitfall": {
+        "en": "Jumping to solutions before you've named what's actually wrong.",
+        "fa": "پریدن سراغِ راه‌حل، قبل از اینکه اسمِ اشکالِ واقعی را گفته باشی."
+      }
+    },
+    "guiding": {
+      "part": "kernel",
+      "n": 2,
+      "name": {
+        "en": "Guiding Policy",
+        "fa": "سیاستِ راهنما"
+      },
+      "glabel": {
+        "en": "Policy",
+        "fa": "سیاست"
+      },
+      "principle": {
+        "en": "Choose one overall approach to the challenge — a guiding policy that rules some things in and others out.",
+        "fa": "یک رویکردِ کلی برای چالش انتخاب کن — یک سیاستِ راهنما که بعضی چیزها را تأیید و بعضی را رد می‌کند."
+      },
+      "more": {
+        "en": "The guiding policy isn't a goal or a detailed plan; it's the method you'll use, like a signpost pointing the way. Because it commits you to one road, it draws its power from what it says no to.",
+        "fa": "سیاستِ راهنما نه هدف است نه برنامهٔ ریز؛ روشی است که به کار می‌بری، مثلِ تابلویی که راه را نشان می‌دهد. چون تو را به یک جاده متعهد می‌کند، قدرتش را از چیزی می‌گیرد که به آن نه می‌گوید."
+      },
+      "example": {
+        "en": "In the Gulf War, the guiding policy wasn't a frontal assault — it was the 'left hook': pin the enemy in front while swinging the main force around an undefended flank.",
+        "fa": "در جنگِ خلیج‌فارس، سیاستِ راهنما حملهٔ روبه‌رو نبود — «قلابِ چپ» بود: دشمن را از جلو زمین‌گیر کن و نیروی اصلی را از یک جناحِ بی‌دفاع دور بزن."
+      },
+      "tip": {
+        "en": "State your approach in one line — and notice what it commits you not to do.",
+        "fa": "رویکردت را در یک خط بگو — و ببین به چه کارهایی متعهدت می‌کند که نکنی."
+      },
+      "pitfall": {
+        "en": "A 'policy' so vague it fits any situation and rules nothing out.",
+        "fa": "یک «سیاست» آن‌قدر مبهم که به هر موقعیتی می‌خورد و هیچ‌چیز را کنار نمی‌گذارد."
+      }
+    },
+    "action": {
+      "part": "kernel",
+      "n": 3,
+      "name": {
+        "en": "Coherent Action",
+        "fa": "اقدامِ هماهنگ"
+      },
+      "glabel": {
+        "en": "Action",
+        "fa": "اقدام"
+      },
+      "principle": {
+        "en": "Back the policy with coordinated actions that reinforce each other — not a scattered to-do list.",
+        "fa": "سیاست را با اقدام‌هایی هماهنگ پشتیبانی کن که همدیگر را تقویت کنند — نه یک فهرستِ پراکنده از کارها."
+      },
+      "more": {
+        "en": "This is where most strategies fall apart: the steps don't fit together, or they quietly fight each other. Coherent action means each move supports the others and the guiding policy, so the whole thing pushes in one direction.",
+        "fa": "اینجاست که بیشترِ استراتژی‌ها از هم می‌پاشند: قدم‌ها به هم نمی‌خورند، یا بی‌سروصدا با هم می‌جنگند. اقدامِ هماهنگ یعنی هر حرکت، بقیه و سیاستِ راهنما را پشتیبانی کند، تا کلِ کار در یک جهت هُل بدهد."
+      },
+      "example": {
+        "en": "Rumelt calls a master strategist a designer: like a great bridge, the parts are fitted to each other and to the load, not just chosen off a menu.",
+        "fa": "روملت استراتژیستِ کاردان را یک طراح می‌داند: مثلِ یک پلِ عالی، اجزا به هم و به بار جفت‌وجور شده‌اند، نه اینکه فقط از یک منو انتخاب شده باشند."
+      },
+      "tip": {
+        "en": "Check every action against the policy and against each other; cut whatever doesn't fit.",
+        "fa": "هر اقدام را با سیاست و با بقیهٔ اقدام‌ها بسنج؛ هرچه جفت نمی‌شود را حذف کن."
+      },
+      "pitfall": {
+        "en": "A pile of initiatives that pull in different directions and cancel out.",
+        "fa": "تلنباری از طرح‌ها که هرکدام به سمتی می‌کشند و همدیگر را خنثی می‌کنند."
+      }
+    },
+    "fluff": {
+      "part": "badstrat",
+      "n": 4,
+      "name": {
+        "en": "Fluff",
+        "fa": "حرفِ توخالی"
+      },
+      "glabel": {
+        "en": "Fluff",
+        "fa": "توخالی"
+      },
+      "principle": {
+        "en": "Fluff is fancy words and buzzwords dressed up as insight — restating the obvious to sound deep.",
+        "fa": "حرفِ توخالی یعنی کلماتِ قلمبه و مُدروز که لباسِ بینش پوشیده‌اند — تکرارِ چیزِ بدیهی تا عمیق به‌نظر برسد."
+      },
+      "more": {
+        "en": "When a 'strategy' is stuffed with grand, empty phrases, that's usually a cover for having nothing to say. Translate it into plain words and the insight — if there is any — either appears or vanishes.",
+        "fa": "وقتی یک «استراتژی» پُر است از عبارت‌های پرطمطراق و توخالی، معمولاً پرده‌ای است روی نداشتنِ حرف. به زبانِ ساده ترجمه‌اش کن؛ آن‌وقت بینش — اگر باشد — یا پیدا می‌شود یا غیب."
+      },
+      "example": {
+        "en": "Rumelt's example: a bank calling its strategy 'customer-centric intermediation' — which just means it's a bank that takes deposits and makes loans.",
+        "fa": "مثالِ روملت: بانکی که استراتژی‌اش را «واسطه‌گریِ مشتری‌محور» می‌نامد — که فقط یعنی یک بانک است که سپرده می‌گیرد و وام می‌دهد."
+      },
+      "tip": {
+        "en": "Rewrite any strategy in plain language; if it now says nothing, it was fluff.",
+        "fa": "هر استراتژی را به زبانِ ساده بازنویسی کن؛ اگر حالا هیچ نمی‌گوید، توخالی بوده."
+      },
+      "pitfall": {
+        "en": "Mistaking impressive-sounding jargon for real thinking.",
+        "fa": "اصطلاحاتِ پرطمطراق را با فکرِ واقعی اشتباه‌گرفتن."
+      }
+    },
+    "challenge": {
+      "part": "badstrat",
+      "n": 5,
+      "name": {
+        "en": "Failing to Face the Challenge",
+        "fa": "روبه‌رو نشدن با چالش"
+      },
+      "glabel": {
+        "en": "Challenge",
+        "fa": "چالش"
+      },
+      "principle": {
+        "en": "If a strategy never names the obstacle, it can't overcome it — and it can't even be judged.",
+        "fa": "اگر یک استراتژی هیچ‌وقت اسمِ مانع را نبرد، نمی‌تواند از آن عبور کند — و اصلاً نمی‌شود قضاوتش کرد."
+      },
+      "more": {
+        "en": "Some leaders skip the problem because facing it feels negative. But a strategy you can't test against a challenge is just a wish. Define the difficulty honestly and everything downstream gets sharper.",
+        "fa": "بعضی رهبرها از مشکل رد می‌شوند چون روبه‌رو شدن با آن منفی به‌نظر می‌رسد. اما استراتژی‌ای که نشود با یک چالش سنجیدش، فقط یک آرزوست. سختی را صادقانه تعریف کن، آن‌وقت هرچه بعدش می‌آید تیزتر می‌شود."
+      },
+      "example": {
+        "en": "A school district's plan lists dozens of goals for test scores and 'excellence' but never says why students are failing now — so no one can tell if it will work.",
+        "fa": "برنامهٔ یک منطقهٔ آموزشی ده‌ها هدف برای نمره‌ها و «تعالی» ردیف می‌کند اما هیچ‌جا نمی‌گوید چرا دانش‌آموزها الان شکست می‌خورند — پس هیچ‌کس نمی‌تواند بگوید جواب می‌دهد یا نه."
+      },
+      "tip": {
+        "en": "Ask of any plan: what exactly is the obstacle here? If there's no answer, stop.",
+        "fa": "از هر برنامه‌ای بپرس: مانع دقیقاً اینجا چیست؟ اگر جوابی نیست، بایست."
+      },
+      "pitfall": {
+        "en": "Treating strategy as goal-setting and skipping the problem entirely.",
+        "fa": "استراتژی را هدف‌گذاری پنداشتن و کلاً از مشکل پریدن."
+      }
+    },
+    "goals": {
+      "part": "badstrat",
+      "n": 6,
+      "name": {
+        "en": "Goals Are Not Strategy",
+        "fa": "هدف، استراتژی نیست"
+      },
+      "glabel": {
+        "en": "Goals",
+        "fa": "هدف"
+      },
+      "principle": {
+        "en": "Wanting a result isn't a plan for getting it. 'Grow 20%' is a goal, not a strategy.",
+        "fa": "خواستنِ یک نتیجه، نقشهٔ رسیدن به آن نیست. «۲۰٪ رشد» یک هدف است، نه استراتژی."
+      },
+      "more": {
+        "en": "Bad strategy is long on goals and short on how. Real strategy names the obstacle between you and the goal, then shows the approach that gets you past it. Growth, in particular, is an outcome — not something you can simply order up.",
+        "fa": "استراتژیِ بد پُر است از هدف و خالی از چگونگی. استراتژیِ واقعی مانعِ بینِ تو و هدف را نام می‌برد، بعد رویکردی را نشان می‌دهد که از آن ردت می‌کند. رشد، به‌خصوص، یک نتیجه است — نه چیزی که بشود همین‌طوری سفارشش داد."
+      },
+      "example": {
+        "en": "A CEO whose whole 'strategy' was 'grow 20% a year' had set a goal and called it a plan — with no idea where the growth would come from.",
+        "fa": "مدیرعاملی که کلِ «استراتژی»‌اش «سالی ۲۰٪ رشد» بود، یک هدف گذاشته و اسمش را نقشه گذاشته بود — بی هیچ ایده‌ای که این رشد از کجا می‌آید."
+      },
+      "tip": {
+        "en": "For every goal, write the obstacle in the way and how you'll get past it.",
+        "fa": "برای هر هدف، مانعِ سرِ راه و راهِ عبور از آن را بنویس."
+      },
+      "pitfall": {
+        "en": "Restating ambitions as if naming them makes them happen.",
+        "fa": "تکرارِ آرزوها، انگار که نام‌بردنشان محققشان می‌کند."
+      }
+    },
+    "objectives": {
+      "part": "badstrat",
+      "n": 7,
+      "name": {
+        "en": "Dog's-Dinner Objectives",
+        "fa": "هدف‌های درهم‌وبرهم"
+      },
+      "glabel": {
+        "en": "Objectives",
+        "fa": "اهداف"
+      },
+      "principle": {
+        "en": "A long, jumbled list of objectives isn't strategy — it's a to-do list that dodges the hard choices.",
+        "fa": "یک فهرستِ بلند و درهم از هدف‌ها استراتژی نیست — یک فهرستِ کار است که از انتخاب‌های سخت فرار می‌کند."
+      },
+      "more": {
+        "en": "When leaders won't choose, they staple every wish into one document. The result is a 'dog's dinner': a heap of objectives with no priorities and nothing connected. Strategy means picking the few that matter and dropping the rest.",
+        "fa": "وقتی رهبرها انتخاب نمی‌کنند، هر آرزو را به یک سند منگنه می‌کنند. نتیجه یک آش‌درهم‌جوش است: تلنباری از هدف، بی‌اولویت و بی‌ارتباط. استراتژی یعنی همان چند تای مهم را انتخاب کنی و بقیه را کنار بگذاری."
+      },
+      "example": {
+        "en": "A plan stacked with dozens of 'strategies' and scores of action items is a heap of tasks — not a strategy anyone could actually prioritize.",
+        "fa": "برنامه‌ای انباشته از ده‌ها «استراتژی» و صدها اقدام، یک تودهٔ کار است — نه استراتژی‌ای که کسی واقعاً بتواند اولویت‌بندی‌اش کند."
+      },
+      "tip": {
+        "en": "If your strategy has more than a few objectives, you haven't chosen yet.",
+        "fa": "اگر استراتژی‌ات بیش از چند هدف دارد، هنوز انتخاب نکرده‌ای."
+      },
+      "pitfall": {
+        "en": "Blending every stakeholder's wish into one incoherent list.",
+        "fa": "قاطیِ کردنِ آرزوی هر ذی‌نفع در یک فهرستِ بی‌سروته."
+      }
+    },
+    "leverage": {
+      "part": "power",
+      "n": 8,
+      "name": {
+        "en": "Leverage",
+        "fa": "اهرم"
+      },
+      "glabel": {
+        "en": "Leverage",
+        "fa": "اهرم"
+      },
+      "principle": {
+        "en": "Find the pivot point where a concentrated push produces an outsized result.",
+        "fa": "همان نقطهٔ اتکایی را پیدا کن که یک فشارِ متمرکز رویش، نتیجه‌ای بزرگ‌تر از خودش می‌دهد."
+      },
+      "more": {
+        "en": "Leverage comes from anticipation, insight into what matters most, and concentration of force on that spot. Like a lever, a small well-placed effort moves a heavy load — but only if you aim it at the right pivot.",
+        "fa": "اهرم از پیش‌بینی می‌آید، از فهمِ اینکه چه چیزی بیشترین اهمیت را دارد، و از تمرکزِ نیرو روی همان نقطه. مثلِ یک اهرم، یک تلاشِ کوچکِ درست‌جاگذاشته‌شده بارِ سنگین را جابه‌جا می‌کند — اما فقط اگر به نقطهٔ اتکای درست نشانه بروی."
+      },
+      "example": {
+        "en": "Rumelt likens strategy to a lever that magnifies force: a network of stores rolled out town by town gave Wal-Mart power no single store could.",
+        "fa": "روملت استراتژی را به اهرمی تشبیه می‌کند که نیرو را چند برابر می‌کند: شبکه‌ای از فروشگاه‌ها که شهر‌به‌شهر باز شدند، به وال‌مارت قدرتی دادند که هیچ فروشگاهِ تنهایی نمی‌توانست."
+      },
+      "tip": {
+        "en": "Ask where a small, focused effort would ripple into a big outcome.",
+        "fa": "بپرس کجا یک تلاشِ کوچک و متمرکز به یک نتیجهٔ بزرگ موج می‌زند."
+      },
+      "pitfall": {
+        "en": "Spreading effort thinly instead of concentrating it on one pivot.",
+        "fa": "پخش‌کردنِ نازکِ تلاش به‌جای متمرکزکردنش روی یک نقطه."
+      }
+    },
+    "proximate": {
+      "part": "power",
+      "n": 9,
+      "name": {
+        "en": "Proximate Objectives",
+        "fa": "هدف‌های دمِ‌دست"
+      },
+      "glabel": {
+        "en": "Proximate",
+        "fa": "دمِ‌دست"
+      },
+      "principle": {
+        "en": "Aim at an objective close enough to actually be achievable — one your organization can reach.",
+        "fa": "هدفی را نشانه بگیر که به‌قدرِ کافی نزدیک باشد که واقعاً شدنی است — هدفی که سازمانت می‌تواند به آن برسد."
+      },
+      "more": {
+        "en": "A proximate objective turns a vague ambition into a solvable problem. Set the bar close enough that people can see the path and clear it; each win makes the next objective reachable. Set it too far, and effort scatters into hope.",
+        "fa": "هدفِ دمِ‌دست یک آرزوی مبهم را به مسئله‌ای حل‌شدنی تبدیل می‌کند. میله را آن‌قدر نزدیک بگذار که آدم‌ها راه را ببینند و از رویش رد شوند؛ هر بُرد، هدفِ بعدی را دست‌یافتنی می‌کند. زیادی دور بگذاری‌اش، تلاش در امید پخش می‌شود."
+      },
+      "example": {
+        "en": "Kennedy's 'land a man on the Moon' worked because the science was close enough to reach; a vague call to 'lead in space' would not have.",
+        "fa": "«فرودِ انسان روی ماه»ِ کندی جواب داد چون علمش به‌قدرِ کافی نزدیک بود؛ یک فراخوانِ مبهم برای «پیشتازی در فضا» جواب نمی‌داد."
+      },
+      "tip": {
+        "en": "Pick the nearest objective that, once done, opens up the next one.",
+        "fa": "نزدیک‌ترین هدفی را انتخاب کن که وقتی انجام شد، هدفِ بعدی را باز می‌کند."
+      },
+      "pitfall": {
+        "en": "Setting objectives so distant no one can chart a path to them.",
+        "fa": "گذاشتنِ هدف‌هایی آن‌قدر دور که هیچ‌کس نمی‌تواند راهی به سویشان بکشد."
+      }
+    },
+    "chainlink": {
+      "part": "power",
+      "n": 10,
+      "name": {
+        "en": "Chain-Link Systems",
+        "fa": "سیستم‌های زنجیره‌ای"
+      },
+      "glabel": {
+        "en": "Chain-Link",
+        "fa": "زنجیره"
+      },
+      "principle": {
+        "en": "When a system is only as strong as its weakest link, fixing one link alone changes nothing.",
+        "fa": "وقتی یک سیستم فقط به‌اندازهٔ ضعیف‌ترین حلقه‌اش قوی است، درست‌کردنِ تنهای یک حلقه هیچ‌چیز را عوض نمی‌کند."
+      },
+      "more": {
+        "en": "In a chain-link system, performance is capped by the weakest part, so improving any single link is wasted until the others catch up. The flip side: once you painstakingly fix every link, the whole becomes very hard for rivals to copy.",
+        "fa": "در یک سیستمِ زنجیره‌ای، کارایی را ضعیف‌ترین قسمت سقف می‌زند، پس بهترکردنِ هر حلقهٔ تنها هدر می‌رود تا وقتی بقیه هم برسند. رویِ دیگرِ سکه: وقتی با زحمت همهٔ حلقه‌ها را درست کردی، کل، برای رقبا خیلی سخت‌کپی‌شدنی می‌شود."
+      },
+      "example": {
+        "en": "Rumelt's rule: a chain-link system is limited by its weakest link — so a factory where design, parts and assembly must all be excellent rises or falls together.",
+        "fa": "قاعدهٔ روملت: یک سیستمِ زنجیره‌ای را ضعیف‌ترین حلقه‌اش محدود می‌کند — پس کارخانه‌ای که طراحی و قطعه و مونتاژش همه باید عالی باشند، با هم بالا می‌رود یا با هم می‌افتد."
+      },
+      "tip": {
+        "en": "Find the binding constraint first; improving anything else is wasted effort.",
+        "fa": "اول همان قیدِ تعیین‌کننده را پیدا کن؛ بهترکردنِ هرچیزِ دیگر، تلاشِ هدررفته است."
+      },
+      "pitfall": {
+        "en": "Polishing one strong link while the weakest one still caps the whole.",
+        "fa": "صیقل‌دادنِ یک حلقهٔ قوی، درحالی‌که ضعیف‌ترین حلقه هنوز سقفِ کل را می‌زند."
+      }
+    },
+    "focus": {
+      "part": "strategist",
+      "n": 11,
+      "name": {
+        "en": "Focus",
+        "fa": "تمرکز"
+      },
+      "glabel": {
+        "en": "Focus",
+        "fa": "تمرکز"
+      },
+      "principle": {
+        "en": "Concentrate power on a few pivotal targets; strategy is as much about what you don't do.",
+        "fa": "قدرت را روی چند هدفِ کلیدی متمرکز کن؛ استراتژی به‌همان‌اندازه دربارهٔ کاری است که نمی‌کنی."
+      },
+      "more": {
+        "en": "Focus means two things at once: pointing energy at a target, and choosing that target because a win there cascades into more. Scattering across everything guarantees you're strong nowhere.",
+        "fa": "تمرکز هم‌زمان دو چیز است: نشانه‌گرفتنِ نیرو به سوی یک هدف، و انتخابِ آن هدف چون بُرد در آنجا به بُردهای بیشتر سرریز می‌شود. پخش‌شدن روی همه‌چیز تضمین می‌کند که هیچ‌جا قوی نباشی."
+      },
+      "example": {
+        "en": "Returning to Apple in 1997, Jobs cut the product line to a simple four-square grid — a handful of products done well instead of dozens done poorly.",
+        "fa": "جابز که در ۱۹۹۷ به اپل برگشت، خطِ محصول را به یک جدولِ سادهٔ چهارخانه‌ای تقلیل داد — چند محصولِ خوب‌ساخته‌شده، به‌جای ده‌ها محصولِ بد."
+      },
+      "tip": {
+        "en": "Name the one or two targets that matter most and starve the rest.",
+        "fa": "همان یکی‌دو هدفی را که بیشترین اهمیت را دارد نام ببر و بقیه را گرسنه بگذار."
+      },
+      "pitfall": {
+        "en": "Chasing every opportunity until your force is spread too thin to matter.",
+        "fa": "دنبال‌کردنِ هر فرصت تا وقتی نیرویت آن‌قدر پخش شود که دیگر مهم نباشد."
+      }
+    },
+    "advantage": {
+      "part": "strategist",
+      "n": 12,
+      "name": {
+        "en": "Using Advantage",
+        "fa": "استفاده از مزیت"
+      },
+      "glabel": {
+        "en": "Advantage",
+        "fa": "مزیت"
+      },
+      "principle": {
+        "en": "Press where you're strong and sidestep where you're not — apply strength against weakness.",
+        "fa": "جایی که قوی هستی فشار بیاور و جایی که نیستی دور بزن — قوّت را در برابرِ ضعف به کار ببر."
+      },
+      "more": {
+        "en": "Every advantage is relative: you're better than a rival at something, somewhere. The art is to compete on that ground and avoid the fights where the edge belongs to them. An advantage only pays if you can keep rivals from copying it.",
+        "fa": "هر مزیتی نسبی است: تو جایی، در چیزی، از یک رقیب بهتری. هنر این است که روی همان زمین رقابت کنی و از نبردهایی که برتری مالِ آن‌هاست پرهیز کنی. مزیت فقط وقتی می‌ارزد که بتوانی نگذاری رقبا کپی‌اش کنند."
+      },
+      "example": {
+        "en": "The most basic idea of strategy, Rumelt says, is applying strength against weakness — like David refusing Goliath's kind of fight and using a sling instead.",
+        "fa": "روملت می‌گوید بنیادی‌ترین ایدهٔ استراتژی، به‌کار‌بردنِ قوّت در برابرِ ضعف است — مثلِ داوود که تنِ به نبردِ گلیات نمی‌دهد و به‌جایش از فلاخن استفاده می‌کند."
+      },
+      "tip": {
+        "en": "List where you're genuinely stronger, then steer the contest onto that ground.",
+        "fa": "فهرست کن کجا واقعاً قوی‌تری، بعد رقابت را به سمتِ همان زمین بِبَر."
+      },
+      "pitfall": {
+        "en": "Fighting on the ground where your rival holds every edge.",
+        "fa": "جنگیدن روی زمینی که همهٔ برتری‌ها دستِ رقیب است."
+      }
+    },
+    "hypothesis": {
+      "part": "strategist",
+      "n": 13,
+      "name": {
+        "en": "Strategy Is a Hypothesis",
+        "fa": "استراتژی یک فرضیه است"
+      },
+      "glabel": {
+        "en": "Hypothesis",
+        "fa": "فرضیه"
+      },
+      "principle": {
+        "en": "Treat a strategy as your best bet about what will work — then test it and adjust.",
+        "fa": "استراتژی را بهترین شرط‌بندی‌ات دربارهٔ چیزی که جواب می‌دهد بدان — بعد آزمایشش کن و تنظیمش کن."
+      },
+      "more": {
+        "en": "A good strategy is an educated guess about how the world works and where the leverage is. Like a scientist, hold it firmly enough to act but loosely enough to learn — anticipate, act, watch what happens, and revise.",
+        "fa": "استراتژیِ خوب یک حدسِ آگاهانه است دربارهٔ اینکه دنیا چطور کار می‌کند و اهرم کجاست. مثلِ یک دانشمند، آن‌قدر محکم بگیرش که بشود عمل کرد، اما آن‌قدر شل که بشود یاد گرفت — پیش‌بینی کن، عمل کن، ببین چه می‌شود، و بازنگری کن."
+      },
+      "example": {
+        "en": "Rumelt frames good strategy as a hypothesis about advantage — an anticipation to be proven or corrected by results, not a fixed prophecy.",
+        "fa": "روملت استراتژیِ خوب را یک فرضیه دربارهٔ مزیت قاب می‌گیرد — یک پیش‌بینی که نتیجه‌ها یا اثباتش می‌کنند یا اصلاحش، نه یک پیشگوییِ ثابت."
+      },
+      "tip": {
+        "en": "Write down what you expect to happen; check reality against it and update.",
+        "fa": "بنویس انتظار داری چه بشود؛ واقعیت را با آن بسنج و به‌روزش کن."
+      },
+      "pitfall": {
+        "en": "Clinging to the original plan after the evidence has moved on.",
+        "fa": "چسبیدن به نقشهٔ اولیه، بعد از اینکه شواهد جلو رفته‌اند."
+      }
+    },
+    "dynamics": {
+      "part": "dynamics",
+      "n": 14,
+      "name": {
+        "en": "Riding the Dynamics",
+        "fa": "سوارِ موجِ تغییر شو"
+      },
+      "glabel": {
+        "en": "Dynamics",
+        "fa": "دگرگونی"
+      },
+      "principle": {
+        "en": "Big waves of change reshuffle advantage — spot them early and ride them.",
+        "fa": "موج‌های بزرگِ تغییر، مزیت‌ها را از نو می‌چینند — زود ببینشان و سوارشان شو."
+      },
+      "more": {
+        "en": "Shifts in technology, regulation, costs or habits create openings that didn't exist before. The strategist watches for these transitions and positions to catch the wave as it forms, instead of defending a spot the wave is about to wash away.",
+        "fa": "جابه‌جایی در فناوری، مقررات، هزینه‌ها یا عادت‌ها، درهایی باز می‌کند که پیش‌تر نبودند. استراتژیست مراقبِ این گذارهاست و خودش را طوری جا می‌دهد که موج را همان‌طور که شکل می‌گیرد بگیرد، نه اینکه از جایی دفاع کند که موج دارد می‌شویدش."
+      },
+      "example": {
+        "en": "As the web arrived, some firms rode the wave while others defended dying storefronts — the same change made one and ruined the other.",
+        "fa": "وقتی وب آمد، بعضی شرکت‌ها موج را سوار شدند و بعضی از ویترین‌های روبه‌مرگ دفاع کردند — همان یک تغییر، یکی را ساخت و دیگری را نابود کرد."
+      },
+      "tip": {
+        "en": "List the big shifts already underway and ask which one you can ride.",
+        "fa": "جابه‌جایی‌های بزرگی را که همین حالا در جریان‌اند فهرست کن و بپرس کدام را می‌توانی سوار شوی."
+      },
+      "pitfall": {
+        "en": "Defending yesterday's position while the ground shifts under it.",
+        "fa": "دفاع از جایگاهِ دیروز، درحالی‌که زمین زیرش دارد جابه‌جا می‌شود."
+      }
+    },
+    "inertia": {
+      "part": "dynamics",
+      "n": 15,
+      "name": {
+        "en": "Others' Inertia",
+        "fa": "لَختیِ رقبا"
+      },
+      "glabel": {
+        "en": "Inertia",
+        "fa": "لَختی"
+      },
+      "principle": {
+        "en": "Rivals are often too slow to change — their inertia is your opportunity.",
+        "fa": "رقبا اغلب زیادی کُند تغییر می‌کنند — لَختیِ آن‌ها فرصتِ توست."
+      },
+      "more": {
+        "en": "Big organizations get stuck in old routines, structures and habits. That stickiness is predictable, so you can plan around it: move into the space they're too slow to defend, before they can respond.",
+        "fa": "سازمان‌های بزرگ در روال‌ها و ساختارها و عادت‌های قدیمی گیر می‌کنند. این چسبندگی قابلِ‌پیش‌بینی است، پس می‌توانی رویش برنامه بریزی: به فضایی برو که آن‌ها زیادی کُندند تا از آن دفاع کنند، پیش از اینکه بتوانند واکنش نشان دهند."
+      },
+      "example": {
+        "en": "Netflix rode streaming into the space Blockbuster's store-and-late-fee model was too slow and too invested to defend.",
+        "fa": "نتفلیکس با پخشِ اینترنتی به فضایی رفت که مدلِ فروشگاه‌و‌جریمهٔ بلاک‌باستر زیادی کُند و زیادی درگیر بود که از آن دفاع کند."
+      },
+      "tip": {
+        "en": "Ask what your competitors can't easily change — and aim there.",
+        "fa": "بپرس رقبایت چه چیزی را نمی‌توانند راحت عوض کنند — و همان‌جا را نشانه بگیر."
+      },
+      "pitfall": {
+        "en": "Assuming a slow-moving rival will suddenly react fast.",
+        "fa": "فرض‌کردنِ اینکه یک رقیبِ کُند ناگهان تند واکنش نشان می‌دهد."
+      }
+    },
+    "entropy": {
+      "part": "dynamics",
+      "n": 16,
+      "name": {
+        "en": "Fighting Entropy",
+        "fa": "جنگ با بی‌نظمی"
+      },
+      "glabel": {
+        "en": "Entropy",
+        "fa": "بی‌نظمی"
+      },
+      "principle": {
+        "en": "Left alone, any organization drifts toward disorder — good management constantly pushes back.",
+        "fa": "هر سازمانی به‌حالِ‌خود رها شود، به‌سمتِ بی‌نظمی می‌لغزد — مدیریتِ خوب مدام هُلش می‌دهد عقب."
+      },
+      "more": {
+        "en": "Entropy is the slow loss of focus and coherence: product lines sprawl, standards slip, once-sharp strategies blur. Fighting it is unglamorous maintenance work — pruning, realigning, re-focusing — but it's what keeps an advantage alive.",
+        "fa": "بی‌نظمی یعنی از‌دست‌رفتنِ آهستهٔ تمرکز و انسجام: خطِ محصول‌ها ولنگ می‌شوند، استانداردها اُفت می‌کنند، استراتژی‌های زمانی‌تیز محو می‌شوند. جنگ با آن یک کارِ نگهداریِ بی‌زرق‌وبرق است — هَرَس، هم‌تراز‌کردنِ دوباره، تمرکزِ مجدد — اما همین است که مزیت را زنده نگه می‌دارد."
+      },
+      "example": {
+        "en": "Rumelt shows GM slowly losing the clear distinctions between its car brands until they blurred into near-copies competing with each other.",
+        "fa": "روملت نشان می‌دهد که جنرال‌موتورز کم‌کم تمایزهای روشنِ بینِ برندهای خودرویش را از دست داد تا جایی که به کپی‌های تقریباً یکسانی تبدیل شدند که با هم رقابت می‌کردند."
+      },
+      "tip": {
+        "en": "Regularly prune whatever has drifted off-focus before it becomes a mess.",
+        "fa": "مرتب، هرچه را از تمرکز خارج شده هَرَس کن، پیش از اینکه به آشوب تبدیل شود."
+      },
+      "pitfall": {
+        "en": "Letting the portfolio sprawl until nothing has a clear edge.",
+        "fa": "رها‌کردنِ سبدِ محصول تا آن‌قدر ولنگ شود که هیچ‌چیز برتریِ روشنی نداشته باشد."
+      }
+    }
+  },
+  "core": {
+    "name": {
+      "en": "THE KERNEL",
+      "fa": "هستهٔ استراتژی"
+    },
+    "principle": {
+      "en": "A real strategy is a coherent response to a challenge, built on a kernel: an honest diagnosis of the problem, a guiding policy for dealing with it, and coherent actions that carry the policy out. Good strategy applies strength against weakness and focuses power where it counts; bad strategy hides behind fluff and goals.",
+      "fa": "استراتژیِ واقعی یک پاسخِ منسجم به یک چالش است که روی یک هسته بنا شده: یک تشخیصِ صادقانه از مشکل، یک سیاستِ راهنما برای کنار آمدن با آن، و اقدام‌هایی هماهنگ که سیاست را انجام می‌دهند. استراتژیِ خوب قوّت را در برابرِ ضعف به کار می‌برد و قدرت را جایی که مهم است متمرکز می‌کند؛ استراتژیِ بد پشتِ حرفِ توخالی و هدف قایم می‌شود."
+    },
+    "more": {
+      "en": "Rumelt organizes strategy into a few big ideas — the Kernel (diagnosis, guiding policy, coherent action), the hallmarks of Bad Strategy (fluff, dodging the challenge, goals-as-strategy, jumbled objectives), the Sources of Power (leverage, proximate objectives, chain-link systems), how to Think Like a Strategist (focus, advantage, strategy as hypothesis), and the Dynamics and inertia that reshuffle advantage over time. The thread through all of it: name the real problem, then concentrate coherent action on it.",
+      "fa": "روملت استراتژی را در چند ایدهٔ بزرگ می‌چیند — هسته (تشخیص، سیاستِ راهنما، اقدامِ هماهنگ)، نشانه‌های استراتژیِ بد (حرفِ توخالی، فرار از چالش، هدف‌به‌جای‌استراتژی، هدف‌های درهم)، سرچشمه‌های قدرت (اهرم، هدف‌های دمِ‌دست، سیستم‌های زنجیره‌ای)، اینکه چطور مثلِ یک استراتژیست فکر کنی (تمرکز، مزیت، استراتژی به‌مثابهٔ فرضیه)، و پویایی و لَختی‌ای که مزیت را در طولِ زمان از نو می‌چینند. نخِ رابطِ همه‌شان: مشکلِ واقعی را نام ببر، بعد اقدامِ هماهنگ را رویش متمرکز کن."
+    },
+    "example": {
+      "en": "Click any node to read a principle or a method. You can also drag the nodes around.",
+      "fa": "روی هر دایره کلیک کن تا یک اصل یا روش را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."
+    }
+  },
+  "stages": [
+    {
+      "level": 1,
+      "badge": {
+        "en": "Level 1 · Over-simplified",
+        "fa": "سطحِ ۱ · خیلی ساده"
+      },
+      "title": {
+        "en": "Solve a real problem",
+        "fa": "یک مشکلِ واقعی را حل کن"
+      },
+      "tagline": {
+        "en": "The whole book in a sentence.",
+        "fa": "کلِ کتاب در یک جمله."
+      },
+      "body": {
+        "en": "Strategy isn't a goal or a slogan. It's how you get past a real obstacle. Name the problem, then pick a way through it.",
+        "fa": "استراتژی یک هدف یا شعار نیست. اینکه چطور از یک مانعِ واقعی رد می‌شوی است. مشکل را نام ببر، بعد راهی از میانش انتخاب کن."
+      },
+      "example": {
+        "en": "'Grow 20%' isn't a strategy. 'Win small towns first, where big rivals won't bother to compete' is.",
+        "fa": "«۲۰٪ رشد» استراتژی نیست. «اول شهرهای کوچک را ببر، جایی که رقبای بزرگ زحمتِ رقابت به خودشان نمی‌دهند» هست."
+      },
+      "gain": {
+        "en": "You can tell a strategy from a wish.",
+        "fa": "می‌توانی استراتژی را از آرزو تشخیص بدهی."
+      }
+    },
+    {
+      "level": 2,
+      "badge": {
+        "en": "Level 2 · Simple",
+        "fa": "سطحِ ۲ · ساده"
+      },
+      "title": {
+        "en": "The kernel",
+        "fa": "هسته"
+      },
+      "tagline": {
+        "en": "Diagnosis, guiding policy, coherent action.",
+        "fa": "تشخیص، سیاستِ راهنما، اقدامِ هماهنگ."
+      },
+      "body": {
+        "en": "Every good strategy has three parts. A <b>diagnosis</b> names the real challenge. A <b>guiding policy</b> is your overall approach to it. <b>Coherent actions</b> are the coordinated steps that carry the policy out.",
+        "fa": "هر استراتژیِ خوب سه بخش دارد. <b>تشخیص</b> چالشِ واقعی را نام می‌برد. <b>سیاستِ راهنما</b> رویکردِ کلیِ توست به آن. <b>اقدام‌های هماهنگ</b> قدم‌های همسویی‌اند که سیاست را انجام می‌دهند."
+      },
+      "example": {
+        "en": "Diagnosis: rivals ignore small towns. Policy: saturate them with stores. Action: build the distribution network to match.",
+        "fa": "تشخیص: رقبا شهرهای کوچک را نادیده می‌گیرند. سیاست: با فروشگاه اشباعشان کن. اقدام: شبکهٔ توزیعِ متناسبش را بساز."
+      },
+      "gain": {
+        "en": "You can build a strategy with a real skeleton.",
+        "fa": "می‌توانی استراتژی‌ای با یک اسکلتِ واقعی بسازی."
+      }
+    },
+    {
+      "level": 3,
+      "badge": {
+        "en": "Level 3 · Balanced",
+        "fa": "سطحِ ۳ · متعادل"
+      },
+      "title": {
+        "en": "Spot bad strategy",
+        "fa": "استراتژیِ بد را ببین"
+      },
+      "tagline": {
+        "en": "Fluff, no challenge, goals, jumble.",
+        "fa": "توخالی، بی‌چالش، هدف، درهم‌وبرهم."
+      },
+      "body": {
+        "en": "Now the warning signs. <b>Fluff</b> hides emptiness in buzzwords. <b>Failing to face the challenge</b> skips the problem. <b>Goals-as-strategy</b> just restates wishes. A <b>dog's dinner</b> of objectives dodges the hard choices. Spot these and you'll reject most bad plans on sight.",
+        "fa": "حالا نشانه‌های هشدار. <b>حرفِ توخالی</b> پوچی را در اصطلاحاتِ مُدروز پنهان می‌کند. <b>روبه‌رو نشدن با چالش</b> از مشکل رد می‌شود. <b>هدف‌به‌جای‌استراتژی</b> فقط آرزوها را تکرار می‌کند. یک <b>فهرستِ درهمِ</b> هدف‌ها از انتخاب‌های سخت فرار می‌کند. این‌ها را ببین، آن‌وقت بیشترِ نقشه‌های بد را همان‌جا رد می‌کنی."
+      },
+      "example": {
+        "en": "A plan full of grand phrases with no named obstacle and 20 'priorities' is bad strategy in every way at once.",
+        "fa": "برنامه‌ای پُر از عبارت‌های قلمبه، بی هیچ مانعِ نام‌برده و با ۲۰ «اولویت»، از هر نظر یک‌جا استراتژیِ بد است."
+      },
+      "gain": {
+        "en": "You can diagnose and reject empty strategy.",
+        "fa": "می‌توانی استراتژیِ پوچ را تشخیص بدهی و رد کنی."
+      }
+    },
+    {
+      "level": 4,
+      "badge": {
+        "en": "Level 4 · Advanced",
+        "fa": "سطحِ ۴ · پیشرفته"
+      },
+      "title": {
+        "en": "Find the power",
+        "fa": "قدرت را پیدا کن"
+      },
+      "tagline": {
+        "en": "Leverage, focus, proximate objectives, advantage.",
+        "fa": "اهرم، تمرکز، هدف‌های دمِ‌دست، مزیت."
+      },
+      "body": {
+        "en": "Good strategy creates strength, it doesn't just spend it. Find the <b>leverage</b> point where a focused push pays off. Set a <b>proximate objective</b> you can actually reach. <b>Focus</b> power on a few targets and press your <b>advantage</b> — strength against weakness. Respect <b>chain-link</b> systems, where the weakest part caps the whole.",
+        "fa": "استراتژیِ خوب قدرت می‌سازد، فقط خرجش نمی‌کند. نقطهٔ <b>اهرم</b> را پیدا کن، جایی که یک فشارِ متمرکز جواب می‌دهد. یک <b>هدفِ دمِ‌دست</b> بگذار که واقعاً به آن می‌رسی. قدرت را روی چند هدف <b>متمرکز</b> کن و روی <b>مزیتت</b> فشار بیاور — قوّت در برابرِ ضعف. حرمتِ سیستم‌های <b>زنجیره‌ای</b> را نگه دار، جایی که ضعیف‌ترین قسمت سقفِ کل را می‌زند."
+      },
+      "example": {
+        "en": "Back at Apple, Jobs cut dozens of products to a handful — focus turned a dying company into a coherent one.",
+        "fa": "جابز در اپل، ده‌ها محصول را به چند تا تقلیل داد — تمرکز، یک شرکتِ روبه‌مرگ را به یک شرکتِ منسجم تبدیل کرد."
+      },
+      "gain": {
+        "en": "You can build power into a strategy, not just wish for it.",
+        "fa": "می‌توانی قدرت را در استراتژی بسازی، نه اینکه فقط آرزویش را کنی."
+      }
+    },
+    {
+      "level": 5,
+      "badge": {
+        "en": "Level 5 · Expert",
+        "fa": "سطحِ ۵ · حرفه‌ای"
+      },
+      "title": {
+        "en": "Think in motion",
+        "fa": "در حرکت فکر کن"
+      },
+      "tagline": {
+        "en": "Hypothesis, dynamics, inertia, entropy.",
+        "fa": "فرضیه، دگرگونی، لَختی، بی‌نظمی."
+      },
+      "body": {
+        "en": "The expert holds strategy as a <b>hypothesis</b> — a bet about what will work, tested against results and revised. They ride the <b>dynamics</b> of change, moving into the space rivals are too slow to defend, using others' <b>inertia</b>. And they fight the <b>entropy</b> that quietly erodes focus over time. Strategy becomes a living design: diagnose, act coherently, watch, and re-focus — again and again.",
+        "fa": "آدمِ حرفه‌ای استراتژی را یک <b>فرضیه</b> می‌داند — شرطی دربارهٔ چیزی که جواب می‌دهد، که با نتیجه‌ها آزمایش و بازنگری می‌شود. موجِ <b>دگرگونی</b> را سوار می‌شود، به فضایی می‌رود که رقبا زیادی کُندند تا از آن دفاع کنند، و از <b>لَختیِ</b> بقیه استفاده می‌کند. و با <b>بی‌نظمی‌ای</b> که آهسته تمرکز را در طولِ زمان می‌فرساید می‌جنگد. استراتژی به یک طرحِ زنده تبدیل می‌شود: تشخیص بده، هماهنگ عمل کن، ببین، و دوباره متمرکز شو — بارها و بارها."
+      },
+      "example": {
+        "en": "You treat each strategy as a testable bet, ride the next big shift, exploit a slow rival, and prune your own drift — on repeat.",
+        "fa": "هر استراتژی را یک شرطِ آزمون‌پذیر می‌دانی، جابه‌جاییِ بزرگِ بعدی را سوار می‌شوی، از یک رقیبِ کُند استفاده می‌کنی، و لغزشِ خودت را هَرَس می‌کنی — پشتِ‌سرِ هم."
+      },
+      "gain": {
+        "en": "You can craft and renew strategy as the world keeps moving.",
+        "fa": "می‌توانی استراتژی را همان‌طور که دنیا مدام حرکت می‌کند بسازی و نو کنی."
+      }
+    }
+  ],
+  "quotes": [
+    {
+      "en": "The kernel of a strategy contains three elements: a diagnosis, a guiding policy, and coherent action.",
+      "fa": "هستهٔ یک استراتژی سه عنصر دارد: یک تشخیص، یک سیاستِ راهنما، و اقدامِ هماهنگ."
+    },
+    {
+      "en": "The most basic idea of strategy is the application of strength against weakness. Or, if you prefer, strength applied to the most promising opportunity.",
+      "fa": "بنیادی‌ترین ایدهٔ استراتژی، به‌کار‌بردنِ قوّت در برابرِ ضعف است. یا اگر بخواهی، قوّتی که روی امیدوارکننده‌ترین فرصت گذاشته می‌شود."
+    },
+    {
+      "en": "Bad strategy is long on goals and short on policy or action. It assumes that goals are all you need.",
+      "fa": "استراتژیِ بد پُر از هدف است و کم از سیاست یا اقدام. فرض می‌کند هدف تنها چیزی است که لازم داری."
+    },
+    {
+      "en": "If you fail to identify and analyze the obstacles, you don't have a strategy. Instead, you have either a stretch goal, a budget, or a list of things you wish would happen.",
+      "fa": "اگر موانع را شناسایی و تحلیل نکنی، استراتژی نداری. در عوض، یا یک هدفِ بلندپروازانه داری، یا یک بودجه، یا فهرستی از چیزهایی که آرزو داری اتفاق بیفتند."
+    },
+    {
+      "en": "Fluff is superficial restatement of the obvious combined with a generous sprinkling of buzzwords.",
+      "fa": "حرفِ توخالی یعنی تکرارِ سطحیِ چیزِ بدیهی، همراه با پاشیدنِ سخاوتمندانهٔ اصطلاحاتِ مُدروز."
+    },
+    {
+      "en": "The core of strategy work is always the same: discovering the critical factors in a situation and designing a way of coordinating and focusing actions to deal with those factors.",
+      "fa": "قلبِ کارِ استراتژی همیشه یکی است: کشفِ عامل‌های سرنوشت‌ساز در یک موقعیت و طراحیِ راهی برای هماهنگ و متمرکز‌کردنِ اقدام‌ها برای کنار آمدن با آن عامل‌ها."
+    },
+    {
+      "en": "Good strategy works by focusing energy and resources on one, or a very few, pivotal objectives whose accomplishment will lead to a cascade of favorable outcomes.",
+      "fa": "استراتژیِ خوب با متمرکز‌کردنِ انرژی و منابع روی یک، یا خیلی کم، هدفِ کلیدی کار می‌کند که رسیدن به آن‌ها به آبشاری از نتیجه‌های خوب می‌انجامد."
+    },
+    {
+      "en": "A system has a chain-link logic when its performance is limited by its weakest subunit, or 'link.'",
+      "fa": "یک سیستم منطقِ زنجیره‌ای دارد وقتی کارایی‌اش را ضعیف‌ترین زیرواحد یا «حلقه»‌اش محدود می‌کند."
+    },
+    {
+      "en": "A strategy is like a lever that magnifies force.",
+      "fa": "استراتژی مثلِ اهرمی است که نیرو را چند برابر می‌کند."
+    }
+  ],
+  "media": [
+    {
+      "kind": "yt",
+      "id": "UZrTl16hZdk",
+      "src": {
+        "en": "YouTube · LSE",
+        "fa": "یوتیوب · LSE"
+      },
+      "title": {
+        "en": "Rumelt at LSE — Good Strategy / Bad Strategy",
+        "fa": "روملت در LSE — استراتژیِ خوب / بد"
+      },
+      "desc": {
+        "en": "The author gives a full public lecture on the difference and why it matters.",
+        "fa": "خودِ نویسنده یک سخنرانیِ عمومیِ کامل دربارهٔ تفاوت و چرا مهم است می‌دهد."
+      },
+      "bullets": {
+        "en": [
+          "The kernel, in the author's own words",
+          "Real cases of good and bad strategy",
+          "A full, authoritative talk"
+        ],
+        "fa": [
+          "هسته، به زبانِ خودِ نویسنده",
+          "نمونه‌های واقعی از استراتژیِ خوب و بد",
+          "یک سخنرانیِ کامل و معتبر"
+        ]
+      },
+      "best": {
+        "en": "Best for Stage 2–4.",
+        "fa": "خوب برای مرحلهٔ ۲ تا ۴."
+      }
+    },
+    {
+      "kind": "yt",
+      "id": "4uWKEG0s9Kc",
+      "src": {
+        "en": "YouTube · Lenny's Podcast",
+        "fa": "یوتیوب · پادکستِ لنی"
+      },
+      "title": {
+        "en": "Rumelt on Good Strategy, Bad Strategy",
+        "fa": "روملت دربارهٔ استراتژیِ خوب و بد"
+      },
+      "desc": {
+        "en": "A long interview turning the book into practical advice for product and company builders.",
+        "fa": "یک گفت‌وگوی بلند که کتاب را به توصیه‌های عملی برای سازندگانِ محصول و شرکت تبدیل می‌کند."
+      },
+      "bullets": {
+        "en": [
+          "Diagnosis before solutions",
+          "How to avoid fluff and wish-lists",
+          "Applied to startups and product"
+        ],
+        "fa": [
+          "تشخیص قبل از راه‌حل",
+          "چطور از حرفِ توخالی و فهرستِ آرزو پرهیز کنی",
+          "به‌کار‌بسته در استارتاپ و محصول"
+        ]
+      },
+      "best": {
+        "en": "Best for Stage 3–4.",
+        "fa": "خوب برای مرحلهٔ ۳ و ۴."
+      }
+    },
+    {
+      "kind": "yt",
+      "id": "3vG3S6fG0gA",
+      "src": {
+        "en": "YouTube · Ci2012",
+        "fa": "یوتیوب · Ci2012"
+      },
+      "title": {
+        "en": "Keys to Good Strategy in Volatile Times",
+        "fa": "کلیدهای استراتژیِ خوب در روزگارِ پرتلاطم"
+      },
+      "desc": {
+        "en": "A shorter conference talk on applying good strategy when everything is changing.",
+        "fa": "یک سخنرانیِ کنفرانسیِ کوتاه‌تر دربارهٔ به‌کار‌بستنِ استراتژیِ خوب وقتی همه‌چیز در حالِ تغییر است."
+      },
+      "bullets": {
+        "en": [
+          "Focus and leverage under uncertainty",
+          "Riding change instead of fearing it",
+          "A concise, practical overview"
+        ],
+        "fa": [
+          "تمرکز و اهرم زیرِ بارِ نااطمینانی",
+          "سوارشدن بر تغییر به‌جای ترسیدن از آن",
+          "یک مرورِ فشرده و عملی"
+        ]
+      },
+      "best": {
+        "en": "Best for Stage 4–5.",
+        "fa": "خوب برای مرحلهٔ ۴ و ۵."
+      }
+    },
+    {
+      "kind": "img",
+      "url": "https://www.penguinrandomhouse.com/books/208668/good-strategy-bad-strategy-by-richard-rumelt/",
+      "src": {
+        "en": "Penguin Random House · Publisher",
+        "fa": "Penguin Random House · ناشر"
+      },
+      "title": {
+        "en": "Good Strategy / Bad Strategy — Publisher Page",
+        "fa": "استراتژیِ خوب / بد — صفحهٔ ناشر"
+      },
+      "desc": {
+        "en": "The publisher page for the book, with editions and details.",
+        "fa": "صفحهٔ ناشر برای کتاب، با نسخه‌ها و جزئیات."
+      },
+      "bullets": {
+        "en": [
+          "The definitive editions",
+          "Background on Rumelt",
+          "Straight from the source"
+        ],
+        "fa": [
+          "نسخه‌های معتبر",
+          "پیشینه‌ای دربارهٔ روملت",
+          "مستقیم از خودِ منبع"
+        ]
+      },
+      "best": {
+        "en": "For editions and the source.",
+        "fa": "برای نسخه‌ها و منبعِ اصلی."
+      }
+    }
+  ],
+  "go": [
+    {
+      "label": {
+        "en": "Publisher page",
+        "fa": "صفحهٔ ناشر"
+      },
+      "url": "https://www.penguinrandomhouse.com/books/208668/good-strategy-bad-strategy-by-richard-rumelt/"
+    },
+    {
+      "label": {
+        "en": "Book on Goodreads",
+        "fa": "کتاب در گودریدز"
+      },
+      "url": "https://www.goodreads.com/book/show/11721966-good-strategy-bad-strategy"
+    },
+    {
+      "label": {
+        "en": "Rumelt essay: The Perils of Bad Strategy",
+        "fa": "جستارِ روملت: خطرهای استراتژیِ بد"
+      },
+      "url": "https://www.mckinsey.com/capabilities/strategy-and-corporate-finance/our-insights/the-perils-of-bad-strategy"
+    }
+  ],
+  "recs": [
+    {
+      "pri": "b",
+      "t": {
+        "en": "Write the real diagnosis",
+        "fa": "تشخیصِ واقعی را بنویس"
+      },
+      "d": {
+        "en": "Take a current plan and write one sentence naming the actual challenge it must overcome.",
+        "fa": "یک برنامهٔ فعلی را بردار و در یک جمله چالشِ واقعی‌ای را که باید بر آن غلبه کند نام ببر."
+      }
+    },
+    {
+      "pri": "b",
+      "t": {
+        "en": "Cut it to one guiding policy",
+        "fa": "به یک سیاستِ راهنما تقلیلش بده"
+      },
+      "d": {
+        "en": "Replace a list of goals with a single overall approach — and note what it rules out.",
+        "fa": "یک فهرست از هدف‌ها را با یک رویکردِ کلیِ واحد عوض کن — و بنویس چه چیزهایی را کنار می‌گذارد."
+      }
+    },
+    {
+      "pri": "n",
+      "t": {
+        "en": "Hunt the fluff",
+        "fa": "حرفِ توخالی را شکار کن"
+      },
+      "d": {
+        "en": "Rewrite your strategy in plain words; delete every buzzword that adds no meaning.",
+        "fa": "استراتژی‌ات را به زبانِ ساده بازنویسی کن؛ هر اصطلاحِ مُدروزی که معنایی اضافه نمی‌کند را حذف کن."
+      }
+    },
+    {
+      "pri": "n",
+      "t": {
+        "en": "Find your one pivot",
+        "fa": "یک نقطهٔ اهرمت را پیدا کن"
+      },
+      "d": {
+        "en": "Pick the single point where a focused push would cascade into the biggest result.",
+        "fa": "همان یک نقطه‌ای را انتخاب کن که یک فشارِ متمرکز رویش به بزرگ‌ترین نتیجه سرریز می‌شود."
+      }
+    }
+  ]
 });
 </script>
 </body>

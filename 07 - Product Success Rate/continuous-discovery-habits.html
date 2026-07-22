@@ -1,21 +1,20 @@
 <!DOCTYPE html>
-<!-- complexity-level: 1→5 (this page teaches the SAME book at five depths, over-simplified … expert) -->
-<!-- Effortless (Greg McKeown) — bilingual EN/FA knowledge graph & 5-stage learning page -->
-<html lang="fa" dir="rtl" data-lang="fa">
+<!-- Generated page. Edit CONTENT in the DATA object below; shared UI lives in ../assets/book.css + ../assets/book.js -->
+<html lang="en" dir="ltr" data-lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Continuous Discovery Habits — نقشهٔ دانش و یادگیری ۵ مرحله‌ای</title>
 
-<!-- Boot theme + language BEFORE paint to avoid a flash -->
+<!-- Boot theme + language BEFORE paint to avoid a flash (shared library-wide keys) -->
 <script>
 (function(){
   try{
-    var th = localStorage.getItem('cdh-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
+    var th = localStorage.getItem('pbl-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
     document.documentElement.setAttribute('data-theme', th);
   }catch(e){ document.documentElement.setAttribute('data-theme','light'); }
   try{
-    var lg = localStorage.getItem('cdh-lang') || 'fa';
+    var lg = localStorage.getItem('pbl-lang') || 'en';
     document.documentElement.setAttribute('data-lang', lg);
     document.documentElement.setAttribute('lang', lg);
     document.documentElement.setAttribute('dir', lg==='fa' ? 'rtl' : 'ltr');
@@ -28,876 +27,1182 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:ital,opsz@0,6..72;1,6..72&display=swap" rel="stylesheet">
-
-<style>
-/* ── TOKENS ───────────────────────────────────────────────── */
-:root, [data-theme="light"]{
-  --bg:#f5f6f8; --bg2:#eef2f7; --card:#fff; --card2:#f8fafb;
-  --ink:#1c2330; --mut:#6b7280; --line:#e6e8ee;
-  --accent:#0e7c86; --accent-ink:#fff; --warm:#c2410c;
-  --shadow:0 1px 2px rgba(20,30,50,.05),0 6px 24px rgba(20,30,50,.06);
-  --hero-1:#0e7c86; --hero-2:#0b5e66;
-  --c-teal:#0e9aa6; --c-blue:#2f6fb0; --c-violet:#7c3aed; --c-amber:#d97706;
-  --c-green:#15a34a; --c-red:#e11d48; --c-gold:#c98a12; --c-gray:#6b7280;
-  --state:#0e9aa6; --action:#d97706; --results:#7c3aed; --core:#0e7c86;
-}
-[data-theme="dark"]{
-  --bg:#0e131a; --bg2:#161d27; --card:#151c26; --card2:#1b2430;
-  --ink:#e9eef5; --mut:#9aa7b6; --line:#27313d;
-  --accent:#2dd4bf; --accent-ink:#06231f; --warm:#fb923c;
-  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 28px rgba(0,0,0,.45);
-  --hero-1:#0c5f67; --hero-2:#07323a;
-  --c-teal:#2dd4bf; --c-blue:#5b9bd5; --c-violet:#a78bfa; --c-amber:#fbbf24;
-  --c-green:#34d399; --c-red:#fb7185; --c-gold:#e2b04a; --c-gray:#94a3b8;
-  --state:#2dd4bf; --action:#fbbf24; --results:#a78bfa; --core:#2dd4bf;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);
-  font-family:Vazirmatn,"Segoe UI",Tahoma,Arial,sans-serif;line-height:1.85;font-size:15px;
-  transition:background .25s,color .25s}
-html[data-lang="en"] body{font-family:Inter,"Segoe UI",system-ui,Arial,sans-serif;line-height:1.7}
-.wrap{max-width:960px;margin:0 auto;padding:0 18px 40px}
-
-/* language visibility */
-html[data-lang="en"] [data-only="fa"]{display:none !important}
-html[data-lang="fa"] [data-only="en"]{display:none !important}
-
-/* ── HERO ─────────────────────────────────────────────────── */
-.hero{background:linear-gradient(135deg,var(--hero-1),var(--hero-2));color:#fff;padding:44px 0 34px;position:relative;overflow:hidden}
-.hero::after{content:"";position:absolute;inset-inline-end:-80px;top:-80px;width:280px;height:280px;
-  background:radial-gradient(circle,rgba(255,255,255,.12),transparent 70%);pointer-events:none}
-.hero .wrap{padding-bottom:0;position:relative;z-index:1}
-.hero h1{margin:0 0 8px;font-size:30px;font-weight:800;letter-spacing:-.3px;line-height:1.25}
-html[data-lang="en"] .hero h1{font-family:Newsreader,Georgia,serif;font-weight:600;letter-spacing:-.5px}
-.hero .dek{margin:0;opacity:.94;font-size:15.5px;max-width:640px}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;
-  color:rgba(255,255,255,.95);background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.24);
-  padding:5px 13px;border-radius:20px;margin-bottom:15px}
-.eyebrow .edot{width:7px;height:7px;border-radius:50%;background:#fff;box-shadow:0 0 0 3px rgba(255,255,255,.25)}
-.metastrip{display:flex;flex-wrap:wrap;gap:14px 30px;margin-top:20px;padding-top:16px;
-  border-top:1px solid rgba(255,255,255,.18)}
-.metaitem{display:flex;flex-direction:column;gap:3px}
-.metaitem .mk{font-size:10.5px;color:rgba(255,255,255,.62);font-weight:700;letter-spacing:.6px;text-transform:uppercase}
-.metaitem .mv{font-size:14px;color:#fff;font-weight:700}
-.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
-.chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);
-  border-radius:11px;padding:9px 15px;font-size:13px}
-.chip b{font-size:20px;display:block;font-weight:800}
-
-/* ── NAV + TOC ────────────────────────────────────────────── */
-.navbar{position:sticky;top:0;z-index:60;background:color-mix(in srgb,var(--card) 92%,transparent);
-  backdrop-filter:saturate(180%) blur(10px);-webkit-backdrop-filter:saturate(180%) blur(10px);
-  border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
-.navin{max-width:960px;margin:0 auto;padding:8px 16px;display:flex;align-items:center;gap:12px}
-.brand{flex:0 0 auto;font-weight:800;font-size:12.5px;color:var(--accent);white-space:nowrap;
-  display:flex;align-items:center;gap:7px}
-.brand .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);
-  box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 18%,transparent)}
-.toc{flex:1 1 auto;display:flex;flex-wrap:wrap;gap:7px;justify-content:center}
-.toc a{font-size:12.5px;color:var(--mut);text-decoration:none;border:1px solid var(--line);
-  border-radius:20px;padding:5px 12px;background:var(--card);white-space:nowrap;
-  transition:background .15s,color .15s,border-color .15s}
-.toc a:hover{color:var(--accent);border-color:var(--accent)}
-.toc a.active{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
-.navctl{flex:0 0 auto;display:flex;align-items:center;gap:8px}
-.langbtn{height:34px;border-radius:18px;border:1px solid var(--line);background:var(--card);
-  color:var(--ink);cursor:pointer;font:inherit;font-size:12.5px;font-weight:700;padding:0 13px;
-  display:flex;align-items:center;gap:6px}
-.langbtn:hover{border-color:var(--accent);color:var(--accent)}
-.langbtn .globe{width:15px;height:15px;display:block}
-.themebtn{flex:0 0 auto;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);
-  background:var(--card);color:var(--ink);cursor:pointer;line-height:1;display:grid;place-items:center}
-.themebtn svg{width:17px;height:17px;display:block}
-.themebtn:hover{border-color:var(--accent);color:var(--accent)}
-[data-theme="light"] .themebtn .ic-sun{display:none}
-[data-theme="dark"]  .themebtn .ic-moon{display:none}
-
-/* ── BLOCKS ───────────────────────────────────────────────── */
-h2{font-size:21px;margin:44px 0 6px;font-weight:800;scroll-margin-top:92px;line-height:1.35}
-html[data-lang="en"] h2{font-family:Newsreader,Georgia,serif;font-weight:600}
-h2 .num{color:var(--accent);font-variant-numeric:tabular-nums}
-.sub{color:var(--mut);font-size:13.5px;margin:0 0 16px;max-width:680px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;
-  padding:20px 22px;margin:14px 0;box-shadow:var(--shadow)}
-.lead{font-size:15.5px}
-.lead b{color:var(--warm)}
-.kgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin:8px 0}
-.kbox{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:15px 16px;text-align:center}
-.kbox .v{font-size:26px;font-weight:800;color:var(--accent);font-variant-numeric:tabular-nums}
-.kbox .l{font-size:12.5px;color:var(--mut);margin-top:3px}
-ul.clean{margin:6px 0;padding-inline-start:20px} ul.clean li{margin:8px 0}
-.callout{background:color-mix(in srgb,var(--warm) 9%,var(--card));
-  border:1px solid color-mix(in srgb,var(--warm) 30%,var(--line));
-  border-radius:12px;padding:14px 18px;margin:12px 0}
-.callout b{color:var(--warm)}
-.callout.accent{background:color-mix(in srgb,var(--accent) 9%,var(--card));
-  border-color:color-mix(in srgb,var(--accent) 30%,var(--line))}
-.callout.accent b{color:var(--accent)}
-a{color:var(--accent)}
-
-/* ── GRAPH ────────────────────────────────────────────────── */
-.gtabs{display:inline-flex;gap:4px;background:var(--bg2);border:1px solid var(--line);
-  border-radius:11px;padding:4px;margin:6px 0 2px}
-.gtab{border:0;background:transparent;color:var(--mut);font:inherit;font-size:13px;font-weight:700;
-  padding:7px 15px;border-radius:8px;cursor:pointer}
-.gtab.active{background:var(--card);color:var(--accent);box-shadow:var(--shadow)}
-.graphcard{padding:14px}
-.legend{display:flex;flex-wrap:wrap;gap:14px;margin:2px 4px 12px;font-size:12.5px;color:var(--mut)}
-.legend span{display:inline-flex;align-items:center;gap:6px}
-.legend i{width:11px;height:11px;border-radius:50%;display:inline-block}
-.graphstage{display:grid;grid-template-columns:1fr;gap:14px}
-@media(min-width:760px){.graphstage{grid-template-columns:1.35fr .95fr}}
-.svgwrap{position:relative;background:var(--card2);border:1px solid var(--line);border-radius:12px;
-  overflow:hidden;min-height:300px}
-#netsvg{display:block;width:100%;height:560px;touch-action:none;cursor:grab}
-#netsvg text{pointer-events:none;user-select:none}
-.ghint{position:absolute;inset-inline-start:12px;top:10px;font-size:11.5px;color:var(--mut);
-  background:color-mix(in srgb,var(--card) 82%,transparent);border:1px solid var(--line);
-  border-radius:20px;padding:3px 11px;backdrop-filter:blur(4px);max-width:70%}
-.greset{position:absolute;inset-inline-end:10px;top:10px;border:1px solid var(--line);background:var(--card);
-  color:var(--mut);border-radius:8px;font:inherit;font-size:11.5px;padding:4px 10px;cursor:pointer}
-.greset:hover{color:var(--accent);border-color:var(--accent)}
-/* node + link interaction states */
-.node{cursor:pointer}
-/* the inner <g class="ns"> is what scales; fill-box keeps the pivot on the node itself, not the SVG viewport */
-.ns{transform-box:fill-box;transform-origin:center;transition:transform .2s cubic-bezier(.2,.75,.25,1)}
-.node.hover .ns{transform:scale(1.1)}
-.node.sel  .ns{transform:scale(1.34)}                 /* selected node grows */
-.node.ncore.hover .ns{transform:scale(1.06)}
-.node.ncore.sel   .ns{transform:none}                 /* the centre 'Effortless' node keeps default size */
-.node.sel circle{stroke:var(--ink);stroke-width:2.5;filter:drop-shadow(0 0 8px color-mix(in srgb,var(--accent) 60%,transparent))}
-.node.hl circle{stroke:var(--ink);stroke-opacity:.5;stroke-width:2.5}
-.node.dim{opacity:.2}
-.node text{font-family:Vazirmatn,Tahoma,sans-serif;font-weight:700}
-html[data-lang="en"] .node text{font-family:Inter,sans-serif}
-.glink{transition:opacity .2s,stroke .2s}
-.glink.dim{opacity:.08}
-.glink.hl{stroke:var(--accent) !important;stroke-opacity:.8}
-/* detail panel */
-.detail{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;min-height:220px}
-@media(min-width:760px){.detail{max-height:480px;overflow:auto}}
-.detail .dkick{font-size:11.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;display:flex;align-items:center;gap:7px;color:var(--mut)}
-.detail .dkick i{width:10px;height:10px;border-radius:50%}
-.detail h4{margin:8px 0 3px;font-size:18px;font-weight:800}
-html[data-lang="en"] .detail h4{font-family:Newsreader,serif;font-weight:600}
-.detail .drow{margin:11px 0}
-.detail .dlab{font-size:10.5px;font-weight:800;color:var(--accent);letter-spacing:.5px;text-transform:uppercase;
-  display:inline-flex;align-items:center;gap:5px}
-.detail .drow.tip .dlab{color:var(--c-green)}
-.detail .drow.pit .dlab{color:var(--warm)}
-.detail .drow.more{border-inline-start:2px solid color-mix(in srgb,var(--accent) 32%,var(--line));padding-inline-start:11px}
-.detail .drow.more .dlab{color:var(--mut)}
-.detail .dtxt{font-size:13.6px;margin-top:3px}
-.dchips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
-.dchip{font-size:12px;border:1px solid var(--line);background:var(--card2);border-radius:16px;padding:4px 11px;
-  cursor:pointer;color:var(--ink);display:inline-flex;align-items:center;gap:6px;font-family:inherit}
-.dchip:hover{border-color:var(--accent);color:var(--accent)}
-.dchip i{width:8px;height:8px;border-radius:50%;flex:0 0 auto}
-
-/* ── CONCEPT MAP ──────────────────────────────────────────── */
-.mapgrid{display:grid;grid-template-columns:1fr;gap:14px}
-@media(min-width:820px){.mapgrid{grid-template-columns:repeat(3,1fr)}}
-.partcol{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:16px;position:relative}
-.partcol .ph{display:flex;align-items:center;gap:9px;margin-bottom:3px}
-.partcol .pdot{width:13px;height:13px;border-radius:50%;flex:0 0 auto}
-.partcol .pnum{font-size:11px;font-weight:800;color:var(--mut)}
-.partcol h4{margin:0;font-size:16.5px;font-weight:800}
-html[data-lang="en"] .partcol h4{font-family:Newsreader,serif;font-weight:600}
-.partcol .ptag{font-size:12px;color:var(--mut);margin:2px 0 4px;font-weight:700}
-.partcol .pgist{font-size:12.8px;color:var(--mut);margin:0 0 12px}
-.chapchip{display:flex;align-items:baseline;gap:8px;padding:7px 10px;border:1px solid var(--line);
-  border-radius:9px;margin:6px 0;background:var(--card2);font-size:13px}
-.chapchip .cn{font-size:11px;font-weight:800;color:var(--mut);flex:0 0 auto;font-variant-numeric:tabular-nums}
-.chapchip b{font-weight:700}
-.chapchip small{color:var(--mut);display:block;font-size:11.5px;line-height:1.5}
-.flowline{display:flex;align-items:center;justify-content:center;gap:10px;color:var(--mut);
-  font-size:12.5px;font-weight:700;margin:6px 0 2px;flex-wrap:wrap}
-.flowline .ar{color:var(--accent)}
-
-/* ── STAGE LADDER ─────────────────────────────────────────── */
-.ladder{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 4px}
-.rung{flex:1 1 150px;border:1px solid var(--line);background:var(--card);border-radius:11px;
-  padding:11px 13px;cursor:pointer;transition:transform .12s,border-color .12s;position:relative}
-.rung:hover{border-color:var(--accent);transform:translateY(-2px)}
-.rung.active{border-color:var(--accent);box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 35%,transparent)}
-.rung .lv{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.4px}
-.rung .lt{font-size:13.5px;font-weight:800;margin-top:2px}
-.rung .lbar{height:5px;border-radius:4px;background:var(--bg2);margin-top:9px;overflow:hidden}
-.rung .lbar i{display:block;height:100%;background:linear-gradient(90deg,var(--c-teal),var(--c-violet))}
-.stagecard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 24px;
-  margin:14px 0;box-shadow:var(--shadow)}
-.stagecard .shead{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-.stagecard .badge{font-size:12px;font-weight:800;color:#fff;background:var(--accent);
-  border-radius:8px;padding:4px 11px;white-space:nowrap}
-.stagecard h3{margin:0;font-size:21px;font-weight:800}
-html[data-lang="en"] .stagecard h3{font-family:Newsreader,serif;font-weight:600}
-.stagecard .tagline{color:var(--mut);font-size:13.5px;margin:4px 0 14px;font-weight:700}
-.stagecard .sbody{font-size:15px}
-.exbox{background:var(--card2);border:1px solid var(--line);border-inline-start:3px solid var(--accent);
-  border-radius:0 11px 11px 0;padding:13px 16px;margin:14px 0 6px}
-.exbox .exk{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.5px;text-transform:uppercase}
-.exbox .ext{font-size:13.8px;margin-top:3px}
-.gainrow{display:flex;align-items:flex-start;gap:9px;margin-top:12px;font-size:13px;color:var(--mut)}
-.gainrow .gi{flex:0 0 auto;color:var(--c-green);font-weight:800}
-.stagenav{display:flex;justify-content:space-between;gap:10px;margin-top:16px}
-.stagenav button{border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit;
-  font-size:13px;font-weight:700;border-radius:9px;padding:8px 14px;cursor:pointer}
-.stagenav button:hover:not(:disabled){border-color:var(--accent);color:var(--accent)}
-.stagenav button:disabled{opacity:.4;cursor:default}
-
-/* ── QUOTES ───────────────────────────────────────────────── */
-.qgrid{display:grid;grid-template-columns:1fr;gap:12px}
-@media(min-width:720px){.qgrid{grid-template-columns:1fr 1fr}}
-blockquote{margin:0;background:var(--card2);border-inline-start:3px solid var(--accent);
-  border-radius:0 12px 12px 0;padding:15px 18px;font-size:14.5px;position:relative}
-blockquote .qm{font-size:34px;line-height:0;color:var(--accent);opacity:.35;font-family:Georgia,serif;
-  position:absolute;inset-inline-start:10px;top:20px}
-blockquote p{margin:0;padding-inline-start:22px}
-html[data-lang="en"] blockquote{font-family:Newsreader,Georgia,serif;font-size:15.5px}
-
-/* ── MEDIA ────────────────────────────────────────────────── */
-.mgrid{display:grid;grid-template-columns:1fr;gap:16px}
-@media(min-width:640px){.mgrid{grid-template-columns:1fr 1fr}}
-.mcard{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;
-  box-shadow:var(--shadow);display:flex;flex-direction:column}
-.mthumb{position:relative;display:block;aspect-ratio:16/9;background:var(--bg2);overflow:hidden;text-decoration:none}
-.mthumb img{width:100%;height:100%;object-fit:cover;display:block}
-.mthumb .play{position:absolute;inset:0;display:grid;place-items:center}
-.mthumb .play span{width:54px;height:54px;border-radius:50%;background:rgba(0,0,0,.6);
-  display:grid;place-items:center;border:2px solid rgba(255,255,255,.9)}
-.mthumb .play svg{width:22px;height:22px;fill:#fff;margin-inline-start:3px}
-.mthumb .ptype{position:absolute;inset-inline-start:9px;top:9px;background:rgba(0,0,0,.72);color:#fff;
-  font-size:11px;font-weight:700;border-radius:6px;padding:3px 9px;letter-spacing:.3px}
-.mfake{aspect-ratio:16/9;display:grid;place-items:center;
-  background:linear-gradient(135deg,color-mix(in srgb,var(--c-violet) 22%,var(--card)),color-mix(in srgb,var(--c-teal) 22%,var(--card)))}
-.mfake svg{width:52px;height:52px;color:var(--ink);opacity:.6}
-.mbody{padding:15px 17px;display:flex;flex-direction:column;gap:7px;flex:1}
-.mbody .msrc{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.3px;text-transform:uppercase}
-.mbody h4{margin:0;font-size:15.5px;font-weight:800;line-height:1.4}
-html[data-lang="en"] .mbody h4{font-family:Newsreader,serif;font-weight:600}
-.mbody .mdesc{font-size:13px;color:var(--mut);margin:0}
-.mbody ul{margin:4px 0 0;padding-inline-start:18px}
-.mbody ul li{font-size:12.8px;margin:5px 0}
-.mbody .mbest{font-size:12px;font-weight:700;color:var(--warm);margin-top:auto;padding-top:8px}
-.mlink{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;
-  text-decoration:none;color:var(--accent);margin-top:4px}
-.mlink:hover{text-decoration:underline}
-.golist{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
-.golist a{font-size:12.5px;text-decoration:none;color:var(--ink);border:1px solid var(--line);
-  border-radius:20px;padding:6px 13px;background:var(--card);font-weight:700}
-.golist a:hover{border-color:var(--accent);color:var(--accent)}
-
-/* ── RECS + METHOD + CREDIT ───────────────────────────────── */
-.rec{display:grid;gap:10px;margin:8px 0}
-.rec .item{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--card)}
-.rec .item .t{font-weight:800;font-size:14.5px;margin-bottom:3px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.rec .item .t .pri{font-size:11px;font-weight:700;color:#fff;background:var(--warm);border-radius:6px;padding:2px 9px}
-.rec .item .t .pri.b{background:var(--accent)}
-.rec .item .d{font-size:13.4px;color:var(--mut)}
-.method{color:var(--mut);font-size:13.4px}
-.method p{margin:8px 0}
-.method b{color:var(--ink)}
-.credit{text-align:center;margin-top:40px;padding:22px 0 8px;border-top:1px solid var(--line);
-  color:var(--mut);font-size:14px}
-.credit .cname{color:var(--ink);font-weight:800}
-.credit a{font-weight:700;text-decoration:none}
-.credit a:hover{text-decoration:underline}
-.credit .sep{opacity:.5;margin:0 8px}
-.credit .li{display:inline-flex;align-items:center;gap:5px;vertical-align:middle}
-.credit .li svg{width:15px;height:15px;vertical-align:-3px}
-
-@media (max-width:640px){
-  body{font-size:14px}
-  .wrap{padding:0 13px 30px}
-  .hero{padding:28px 0 22px} .hero h1{font-size:22px}
-  h2{font-size:18px;scroll-margin-top:66px}
-  .brand{display:none}
-  .toc{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;scrollbar-width:none}
-  .toc::-webkit-scrollbar{display:none}
-  #netsvg{height:420px}
-}
-</style>
+<link rel="stylesheet" href="../assets/book.css">
 </head>
 <body>
+<div id="app"></div>
 
-<!-- ── HERO ───────────────────────────────────────────────── -->
-<header class="hero"><div class="wrap">
-  <div class="eyebrow"><span class="edot"></span>
-    <span data-only="en">Book knowledge map · Teresa Torres</span>
-    <span data-only="fa">نقشهٔ کتاب · ترزا تورس</span>
-  </div>
-  <h1>
-    <span data-only="en">Continuous Discovery Habits — Discover Products that Create Customer Value and Business Value</span>
-    <span data-only="fa">عادت‌های کشفِ پیوسته — محصولی کشف کن که هم برای مشتری ارزش دارد هم برای کسب‌وکار</span>
-  </h1>
-  <p class="dek">
-    <span data-only="en">A knowledge graph of the whole book, plus a 5-stage path from a single habit to expert-level mastery — with an example at every step.</span>
-    <span data-only="fa">نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از یک عادتِ ساده تا حرفه‌ای — با یک مثال در هر مرحله.</span>
-  </p>
-  <div class="metastrip">
-    <div class="metaitem"><span class="mk" data-only="en">Book</span><span class="mk" data-only="fa">کتاب</span>
-      <span class="mv" data-only="en">Continuous Discovery Habits</span><span class="mv" data-only="fa">عادت‌های کشفِ پیوسته</span></div>
-    <div class="metaitem"><span class="mk" data-only="en">Author</span><span class="mk" data-only="fa">نویسنده</span>
-      <span class="mv" data-only="en">Teresa Torres</span><span class="mv" data-only="fa">ترزا تورس</span></div>
-    <div class="metaitem"><span class="mk" data-only="en">Published</span><span class="mk" data-only="fa">سالِ چاپ</span>
-      <span class="mv" data-only="en">2021</span><span class="mv" data-only="fa">۲۰۲۱</span></div>
-    <div class="metaitem"><span class="mk" data-only="en">Group</span><span class="mk" data-only="fa">گروه</span>
-      <span class="mv" data-only="en">Product Success Rate</span><span class="mv" data-only="fa">نرخِ موفقیتِ محصول</span></div>
-  </div>
-  <div class="chips">
-    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Parts</span><span data-only="fa">بخش</span></div>
-    <div class="chip"><b data-only="en">16</b><b data-only="fa">۱۶</b><span data-only="en">Ideas</span><span data-only="fa">ایده</span></div>
-    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Learning stages</span><span data-only="fa">مرحلهٔ یادگیری</span></div>
-  </div>
-</div></header>
-
-<!-- ── STICKY NAV ─────────────────────────────────────────── -->
-<div class="navbar"><div class="navin">
-  <span class="brand"><span class="dot"></span>Continuous Discovery Habits</span>
-  <nav class="toc">
-    <a href="#tldr" data-only="en">In a nutshell</a><a href="#tldr" data-only="fa">خلاصه</a>
-    <a href="#graph" data-only="en">Knowledge graph</a><a href="#graph" data-only="fa">نقشهٔ دانش</a>
-    <a href="#stages" data-only="en">5 stages</a><a href="#stages" data-only="fa">۵ مرحله</a>
-    <a href="#quotes" data-only="en">Quotes</a><a href="#quotes" data-only="fa">جمله‌ها</a>
-    <a href="#media" data-only="en">Watch &amp; explore</a><a href="#media" data-only="fa">تماشا و منابع</a>
-    <a href="#apply" data-only="en">Apply it</a><a href="#apply" data-only="fa">کاربرد</a>
-  </nav>
-  <div class="navctl">
-    <button class="langbtn" id="langBtn" aria-label="Switch language">
-      <svg class="globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>
-      <span data-only="en">فارسی</span><span data-only="fa">English</span>
-    </button>
-    <button class="themebtn" id="themeBtn" aria-label="Toggle theme" title="Light / Dark">
-      <span class="ic-sun" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5 19 19M19 5l-1.5 1.5M6.5 17.5 5 19"/></svg></span>
-      <span class="ic-moon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.6 6.6 0 0 0 9.8 9.8Z"/></svg></span>
-    </button>
-  </div>
-</div></div>
-
-<div class="wrap">
-
-  <!-- ── TL;DR ────────────────────────────────────────────── -->
-  <h2 id="tldr"><span class="num" data-only="en">1.</span><span class="num" data-only="fa">۱.</span>
-    <span data-only="en"> In a nutshell</span><span data-only="fa"> خلاصه</span></h2>
-  <p class="sub" data-only="en">If you read only this, you still get the whole idea.</p>
-  <p class="sub" data-only="fa">اگر فقط همین بخش را بخوانی، کلِ ایده دستت می‌آید.</p>
-  <div class="card lead"><ul class="clean" id="tldrHost"></ul></div>
-  <div class="kgrid">
-    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Parts (what it is · outcomes · the tree · interviewing · ideation)</div><div class="l" data-only="fa">بخش (چیستی · نتیجه‌ها · درخت · مصاحبه · ایده‌پردازی)</div></div>
-    <div class="kbox"><div class="v" data-only="en">16</div><div class="v" data-only="fa">۱۶</div><div class="l" data-only="en">Ideas you can use</div><div class="l" data-only="fa">ایده برای استفاده</div></div>
-    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Levels, simple → expert</div><div class="l" data-only="fa">مرحله، ساده تا حرفه‌ای</div></div>
-    <div class="kbox"><div class="v" data-only="en">3</div><div class="v" data-only="fa">۳</div><div class="l" data-only="en">The weekly loop: interview · map · test</div><div class="l" data-only="fa">چرخهٔ هفتگی: مصاحبه · نقشه · آزمون</div></div>
-  </div>
-  
-  <div class="callout accent">
-    <b data-only="en">The core idea:</b>
-    <b data-only="fa">ایدهٔ اصلی:</b>
-    <span data-only="en"> Great products come from a weekly <i>habit</i>, not a one-time project. A small <i>product trio</i> — a product manager, a designer, and an engineer — talks to customers every week, anchors on a clear <i>outcome</i>, and maps its thinking on an <i>opportunity solution tree</i>: outcome → opportunities → solutions → experiments. You discover and deliver at the same time.</span>
-    <span data-only="fa"> محصولِ عالی از یک <i>عادتِ</i> هفتگی می‌آید، نه از یک پروژهٔ یک‌باره. یک <i>سه‌نفرهٔ محصولِ</i> کوچک — یک مدیرِ محصول، یک طراح و یک مهندس — هر هفته با مشتری‌ها حرف می‌زند، روی یک <i>نتیجهٔ</i> روشن لنگر می‌اندازد، و فکرش را روی یک <i>درختِ فرصت‌راه‌حل</i> نقشه می‌کند: نتیجه ← فرصت‌ها ← راه‌حل‌ها ← آزمایش‌ها. هم‌زمان هم کشف می‌کنی هم تحویل می‌دهی.</span>
-  </div>
-
-  <!-- ── KNOWLEDGE GRAPH ──────────────────────────────────── -->
-  <h2 id="graph"><span class="num" data-only="en">2.</span><span class="num" data-only="fa">۲.</span>
-    <span data-only="en"> The knowledge graph</span><span data-only="fa"> نقشهٔ دانش</span></h2>
-  <p class="sub" data-only="en">The whole book as one picture. Click any node to focus its connections and read more — or switch to the structured map.</p>
-  <p class="sub" data-only="fa">کلِ کتاب در یک تصویر. روی هر دایره کلیک کن تا ارتباط‌هایش را ببینی و بیشتر بخوانی — یا به نقشهٔ مرتب برو.</p>
-
-  <div class="gtabs">
-    <button class="gtab active" id="tabNet"><span data-only="en">Interactive network</span><span data-only="fa">شبکهٔ تعاملی</span></button>
-    <button class="gtab" id="tabMap"><span data-only="en">Structured map</span><span data-only="fa">نقشهٔ مرتب</span></button>
-  </div>
-
-  <!-- network view -->
-  <div class="card graphcard" id="netView">
-    <div class="legend" id="legendHost"></div>
-    <div class="graphstage">
-      <div class="svgwrap">
-        <svg id="netsvg" viewBox="0 0 820 560" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Effortless knowledge network"></svg>
-        <div class="ghint" id="ghint"></div>
-        <button class="greset" id="greset"></button>
-      </div>
-      <div class="detail" id="detailHost"></div>
-    </div>
-  </div>
-
-  <!-- map view -->
-  <div class="card graphcard" id="mapView" style="display:none">
-    <div class="flowline" id="flowTop"></div>
-    <div class="mapgrid" id="mapHost"></div>
-    <div class="callout" style="margin-top:16px">
-      <b data-only="en">Read it as a flow:</b><b data-only="fa">به‌صورتِ یک جریان بخوانش:</b>
-      <span data-only="en"> talk to a customer <b>every week</b>, anchor on an <b>outcome</b>, map the <b>opportunity space</b> on a tree, pick the opportunity that matters most, and run <b>small experiments</b> to test the assumptions behind your ideas — discovery and delivery, side by side.</span>
-      <span data-only="fa"> <b>هر هفته</b> با یک مشتری حرف بزن، روی یک <b>نتیجه</b> لنگر بینداز، <b>فضای فرصت</b> را روی یک درخت نقشه کن، همان فرصتی را که بیشترین اهمیت را دارد انتخاب کن، و <b>آزمایش‌های کوچک</b> بزن تا فرض‌های پشتِ ایده‌هایت را محک بزنی — کشف و تحویل، شانه‌به‌شانه.</span>
-    </div>
-  </div>
-
-  <!-- ── 5 STAGES ─────────────────────────────────────────── -->
-  <h2 id="stages"><span class="num" data-only="en">3.</span><span class="num" data-only="fa">۳.</span>
-    <span data-only="en"> Learn it in 5 stages</span><span data-only="fa"> یادگیری در ۵ مرحله</span></h2>
-  <p class="sub" data-only="en">The same book at five depths. Start over-simplified, climb to expert. Tap a rung to jump.</p>
-  <p class="sub" data-only="fa">یک کتاب در پنج عمق. از خیلی ساده شروع کن و تا حرفه‌ای بالا برو. روی هر پله بزن تا بپری.</p>
-  <div class="ladder" id="ladderHost"></div>
-  <div id="stageHost"></div>
-
-  <!-- ── QUOTES ───────────────────────────────────────────── -->
-  <h2 id="quotes"><span class="num" data-only="en">4.</span><span class="num" data-only="fa">۴.</span>
-    <span data-only="en"> Lines worth keeping</span><span data-only="fa"> جمله‌هایی که ارزشِ نگه‌داشتن دارند</span></h2>
-  <p class="sub" data-only="en">Verbatim quotes from the book, translated alongside.</p>
-  <p class="sub" data-only="fa">جمله‌های مستقیم از کتاب، همراه با ترجمه.</p>
-  <div class="qgrid" id="quoteHost"></div>
-
-  <!-- ── MEDIA ────────────────────────────────────────────── -->
-  <h2 id="media"><span class="num" data-only="en">5.</span><span class="num" data-only="fa">۵.</span>
-    <span data-only="en"> Watch &amp; explore</span><span data-only="fa"> تماشا و منابع</span></h2>
-  <p class="sub" data-only="en">Special resources found online — each with what it covers and who it's best for.</p>
-  <p class="sub" data-only="fa">منابعِ ویژه‌ای که آنلاین پیدا شد — هرکدام با اینکه چه می‌گوید و به چه دردی می‌خورد.</p>
-  <div class="mgrid" id="mediaHost"></div>
-  <div class="card" style="margin-top:16px">
-    <div style="font-weight:800;font-size:13.5px;margin-bottom:4px">
-      <span data-only="en">Go straight to the source</span><span data-only="fa">مستقیم سراغِ منبع برو</span>
-    </div>
-    <div class="golist" id="goHost"></div>
-  </div>
-
-  <!-- ── APPLY ────────────────────────────────────────────── -->
-  <h2 id="apply"><span class="num" data-only="en">6.</span><span class="num" data-only="fa">۶.</span>
-    <span data-only="en"> Apply it this week</span><span data-only="fa"> این هفته امتحانش کن</span></h2>
-  <p class="sub" data-only="en">Four small moves that turn the idea into a habit.</p>
-  <p class="sub" data-only="fa">چهار حرکتِ کوچک که این ایده را به عادت تبدیل می‌کنند.</p>
-  <div class="rec" id="recHost"></div>
-
-  <!-- ── METHOD ───────────────────────────────────────────── -->
-  <h2 id="method"><span class="num" data-only="en">7.</span><span class="num" data-only="fa">۷.</span>
-    <span data-only="en"> Sources &amp; notes</span><span data-only="fa"> منابع و توضیح</span></h2>
-  <div class="card method" id="methodHost"></div>
-
-  <!-- ── CREDIT FOOTER ────────────────────────────────────── -->
-  <div class="credit">
-    <span data-only="en">Created by <span class="cname">Behnam Atefi</span><span class="sep">·</span><a class="li" href="https://www.linkedin.com/in/behnamatefi/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.3c0-1.26-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9z"/></svg>LinkedIn</a></span>
-    <span data-only="fa">ساخته‌شده توسط <span class="cname">بهنام عاطفی</span><span class="sep">·</span><a class="li" href="https://www.linkedin.com/in/behnamatefi/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.3c0-1.26-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9z"/></svg>لینکدین</a></span>
-  </div>
-</div>
-
-<!-- ═══════════════════════ SCRIPTS ═══════════════════════ -->
+<script src="../assets/library.js"></script>
+<script src="../assets/book.js"></script>
 <script>
-/* ── 1) language + formatters ─────────────────────────────── */
-var LANG = document.documentElement.getAttribute('data-lang') || 'fa';
-var FA_D = '۰۱۲۳۴۵۶۷۸۹';
-var RLM  = '‏';
-function faDigits(s){ return String(s).replace(/[0-9]/g, function(d){ return FA_D[+d]; }); }
-/* honor the RTL preference: isolate Latin runs (word order preserved) and mark with U+200F */
-function rlm(s){
-  return String(s)
-    .replace(/[A-Za-zÀ-ɏ][A-Za-zÀ-ɏ0-9'’.&:\/\-]*(?:\s+[A-Za-zÀ-ɏ0-9'’.&:\/\-]+)*/g,
-      function(m){ return RLM+'⁦'+m+'⁩'+RLM; })
-    .replace(/[0-9۰-۹]+/g, function(m){ return m+RLM; });
-}
-/* transform only TEXT segments, never HTML tags (so <b>/<i> survive) */
-function faText(s){ return String(s).replace(/(<[^>]+>)|([^<]+)/g, function(m,tag,txt){ return tag ? tag : faDigits(rlm(txt)); }); }
-function TX(o){ if(o==null) return ''; if(typeof o==='string') return o; return LANG==='fa' ? faText(o.fa) : o.en; }
-function num(n){ return LANG==='fa' ? faDigits(n) : String(n); }
-function tok(name){ return getComputedStyle(document.documentElement).getPropertyValue(name).trim(); }
-</script>
-
-<script>
-/* ── DATA LAYER — Atomic Habits (bilingual, plain-spoken Persian) ── */
-var DATA = {"tldr":[{"en":"The whole book in one line: build a weekly habit of talking to customers, and let what you learn steer what you build.","fa":"خلاصهٔ کل کتاب در یک جمله: یک عادتِ هفتگیِ حرف‌زدن با مشتری بساز، و بگذار همان چیزی که یاد می‌گیری تعیین کند چه می‌سازی."},{"en":"Do it as a <b>product trio</b> — a product manager, a designer, and an engineer deciding together.","fa":"این کار را به‌شکلِ یک <b>سه‌نفرهٔ محصول</b> انجام بده — یک مدیرِ محصول، یک طراح و یک مهندس که با هم تصمیم می‌گیرند."},{"en":"Anchor on an <b>outcome</b> — a change in customer behavior — instead of a list of features.","fa":"روی یک <b>نتیجه</b> لنگر بینداز — یک تغییر در رفتارِ مشتری — به‌جای یک فهرست از قابلیت‌ها."},{"en":"Map it on an <b>opportunity solution tree</b>: outcome → opportunities → solutions → experiments.","fa":"رویش را با یک <b>درختِ فرصت‌راه‌حل</b> نقشه کن: نتیجه ← فرصت‌ها ← راه‌حل‌ها ← آزمایش‌ها."},{"en":"<b>Interview</b> for real stories, then <b>assumption-test</b> your ideas with small, fast experiments.","fa":"برای داستان‌های واقعی <b>مصاحبه</b> کن، بعد ایده‌هایت را با آزمایش‌های کوچک و سریع <b>آزمونِ فرض</b> کن."}],"parts":[{"key":"whatis","varc":"--c-teal","name":{"en":"What Continuous Discovery Is","fa":"کشفِ پیوسته چیست"},"tag":{"en":"The habit","fa":"عادت"},"gist":{"en":"Weekly customer touchpoints, done by the product trio, woven right through delivery.","fa":"تماسِ هفتگی با مشتری، به‌دستِ سه‌نفرهٔ محصول، بافته در دلِ تحویل."},"more":{"en":"Discovery isn't a phase you finish before building. It's a weekly rhythm: the trio that ships the product also keeps learning from customers, so what you build stays tied to what people actually need.","fa":"کشف یک مرحله نیست که قبل از ساختن تمامش کنی. یک ریتمِ هفتگی است: همان سه‌نفره‌ای که محصول را عرضه می‌کند، مدام از مشتری هم یاد می‌گیرد، تا آنچه می‌سازی به آنچه آدم‌ها واقعاً لازم دارند گره بخورد."},"chapters":["weekly","trio","disdel"]},{"key":"outcomes","varc":"--c-blue","name":{"en":"Anchor on Outcomes","fa":"روی نتیجه لنگر بینداز"},"tag":{"en":"The target","fa":"هدف"},"gist":{"en":"Chase a change in customer behavior, not outputs — and pick the right kind of outcome.","fa":"دنبالِ تغییر در رفتارِ مشتری برو، نه خروجی — و نوعِ درستِ نتیجه را انتخاب کن."},"more":{"en":"An output is what you ship; an outcome is the change it creates. Give the trio a product outcome — a customer behavior they can move that drives the business — and let them find the best way to reach it.","fa":"خروجی چیزی است که عرضه می‌کنی؛ نتیجه، تغییری است که می‌سازد. به سه‌نفره یک نتیجهٔ محصول بده — یک رفتارِ مشتری که می‌توانند تکانش بدهند و کسب‌وکار را جلو می‌برد — و بگذار خودشان بهترین راهِ رسیدن به آن را پیدا کنند."},"chapters":["shift","types","leading"]},{"key":"ost","varc":"--c-amber","name":{"en":"The Opportunity Solution Tree","fa":"درختِ فرصت‌راه‌حل"},"tag":{"en":"The map","fa":"نقشه"},"gist":{"en":"Visualize your thinking: outcome → opportunities → solutions → experiments.","fa":"فکرت را تصویر کن: نتیجه ← فرصت‌ها ← راه‌حل‌ها ← آزمایش‌ها."},"more":{"en":"The tree turns a fuzzy goal into a picture you can reason about. A clear outcome at the top, the opportunity space beneath it, candidate solutions under that, and the experiments that test them — all visible, so the trio stays aligned and stakeholders can follow along.","fa":"درخت یک هدفِ مبهم را به تصویری تبدیل می‌کند که می‌شود رویش فکر کرد. یک نتیجهٔ روشن در بالا، فضای فرصت زیرش، راه‌حل‌های نامزد زیرِ آن، و آزمایش‌هایی که محکشان می‌زنند — همه دیدنی، تا سه‌نفره هم‌راستا بماند و ذی‌نفع‌ها بتوانند دنبالش کنند."},"chapters":["root","oppspace","solutions","visualize"]},{"key":"interview","varc":"--c-violet","name":{"en":"Continuous Interviewing","fa":"مصاحبهٔ پیوسته"},"tag":{"en":"Listen","fa":"گوش‌دادن"},"gist":{"en":"Weekly, story-based interviews — collect specific stories, then synthesize them.","fa":"مصاحبهٔ هفتگی و داستان‌محور — داستان‌های مشخص جمع کن، بعد جمع‌بندی‌شان کن."},"more":{"en":"The fuel for the tree is real customer stories. Interview every week, ask about specific past moments instead of opinions, and turn each conversation into opportunities right away — so your map keeps growing from evidence, not guesses.","fa":"سوختِ درخت، داستان‌های واقعیِ مشتری است. هر هفته مصاحبه کن، به‌جای نظر، سراغِ لحظه‌های مشخصِ گذشته برو، و هر گفت‌وگو را همان‌موقع به فرصت تبدیل کن — تا نقشه‌ات از شواهد رشد کند، نه از حدس."},"chapters":["weeklyint","stories","synth"]},{"key":"ideate","varc":"--c-green","name":{"en":"Ideation & Assumption Testing","fa":"ایده‌پردازی و آزمونِ فرض"},"tag":{"en":"Experiment","fa":"آزمایش"},"gist":{"en":"Generate many ideas, find the hidden assumptions, and test them small and fast.","fa":"کلی ایده بساز، فرض‌های پنهان را پیدا کن، و کوچک و سریع محکشان بزن."},"more":{"en":"Don't fall for your first idea. For the opportunity you chose, produce many options, uncover the assumptions each one depends on, and test the riskiest belief with a tiny experiment — measuring real behavior before you spend a month of engineering.","fa":"عاشقِ اولین ایده‌ات نشو. برای فرصتی که انتخاب کردی، کلی گزینه بساز، فرض‌هایی را که هرکدام به آن‌ها بند است رو کن، و پرخطرترین باور را با یک آزمایشِ ریز محک بزن — رفتارِ واقعی را اندازه بگیر، قبل از اینکه یک ماه وقتِ مهندسی خرج کنی."},"chapters":["manyideas","assumptions","experiments"]}],"chapters":{"weekly":{"part":"whatis","n":1,"name":{"en":"Weekly Touchpoints","fa":"تماسِ هفتگی با مشتری"},"glabel":{"en":"Weekly","fa":"هفتگی"},"principle":{"en":"Make customer contact a weekly habit — small, regular touchpoints beat big, occasional research pushes.","fa":"تماس با مشتری را یک عادتِ هفتگی کن — چند تماسِ کوچک و مرتب، از یک تحقیقِ بزرگِ گاه‌به‌گاه بهتر است."},"more":{"en":"Continuous discovery means, at a minimum, weekly touchpoints with customers by the team building the product. You're not running one big study before a launch; you're learning a little every week and letting it steer what you build next.","fa":"کشفِ پیوسته یعنی دستِ‌کم هفته‌ای یک تماس با مشتری، به‌دستِ همان تیمی که محصول را می‌سازد. یک تحقیقِ بزرگ قبل از عرضه راه نمی‌اندازی؛ هر هفته یک‌کم یاد می‌گیری و می‌گذاری همان، مسیرِ ساختِ بعدی را تعیین کند."},"example":{"en":"Instead of a two-month research project once a year, the trio talks to one customer every Tuesday and adjusts as it learns.","fa":"به‌جای یک پروژهٔ تحقیقاتیِ دوماهه سالی یک‌بار، تیم هر سه‌شنبه با یک مشتری حرف می‌زند و همان‌طور که یاد می‌گیرد مسیر را تنظیم می‌کند."},"tip":{"en":"Put a standing weekly customer conversation on the calendar and protect it.","fa":"یک گفت‌وگوی هفتگیِ ثابت با مشتری را توی تقویم بگذار و ازش محافظت کن."},"pitfall":{"en":"Treating discovery as a one-time phase you finish before the “real” work starts.","fa":"کشف را یک مرحلهٔ یک‌باره دیدن که قبل از شروعِ کارِ «اصلی» تمامش می‌کنی."}},"trio":{"part":"whatis","n":2,"name":{"en":"The Product Trio","fa":"سه‌نفرهٔ محصول"},"glabel":{"en":"Trio","fa":"سه‌نفره"},"principle":{"en":"Discovery is a team sport: a product manager, a designer, and an engineer decide together.","fa":"کشف یک کارِ گروهی است: یک مدیرِ محصول، یک طراح و یک مهندس با هم تصمیم می‌گیرند."},"more":{"en":"The three roles see different risks — value, usability, feasibility — so deciding together beats handing work down a chain. The people who build the product should be the ones talking to customers and weighing the trade-offs.","fa":"این سه نقش، خطرهای مختلفی را می‌بینند — ارزش، کاربردپذیری، شدنی‌بودن — پس تصمیمِ مشترک از پاس‌کاری در یک زنجیره بهتر است. همان کسانی که محصول را می‌سازند باید با مشتری حرف بزنند و سبک‌سنگین کنند."},"example":{"en":"The PM, designer, and engineer join the same interviews and hear the same stories, so they build a shared picture instead of arguing from memos.","fa":"مدیرِ محصول و طراح و مهندس در یک مصاحبه‌ها شرکت می‌کنند و یک داستان‌ها را می‌شنوند، تا به‌جای بحث از روی گزارش، یک تصویرِ مشترک بسازند."},"tip":{"en":"Bring all three roles to interviews and decisions, not just the PM.","fa":"هر سه نقش را به مصاحبه‌ها و تصمیم‌ها بیاور، نه فقط مدیرِ محصول را."},"pitfall":{"en":"Letting one person act as the lone “voice of the customer” for everyone else.","fa":"گذاشتنِ اینکه یک نفر به‌تنهایی نقشِ «صدای مشتری» را برای بقیه بازی کند."}},"disdel":{"part":"whatis","n":3,"name":{"en":"Discovery vs Delivery","fa":"کشف در برابرِ تحویل"},"glabel":{"en":"Discovery","fa":"کشف"},"principle":{"en":"Discovery decides what to build; delivery builds it — run them side by side, not in sequence.","fa":"کشف تصمیم می‌گیرد چه بسازی؛ تحویل می‌سازدش — این دو را کنارِ هم پیش ببر، نه پشتِ‌سرِ هم."},"more":{"en":"Old-school teams finish “research,” then build for months. Continuous discovery weaves the two together: you keep learning from customers while you ship, so a weak idea gets caught in a week, not after a quarter of code.","fa":"تیم‌های قدیمی اول «تحقیق» را تمام می‌کنند، بعد ماه‌ها می‌سازند. کشفِ پیوسته این دو را در هم می‌بافد: همان‌طور که عرضه می‌کنی از مشتری یاد می‌گیری، پس یک ایدهٔ ضعیف در یک هفته لو می‌رود، نه بعد از سه ماه کدنویسی."},"example":{"en":"While engineers ship this week's feature, the trio is already interviewing to shape the next one.","fa":"همان هفته‌ای که مهندس‌ها قابلیتِ این هفته را عرضه می‌کنند، تیم دارد برای شکل‌دادن به قابلیتِ بعدی مصاحبه می‌کند."},"tip":{"en":"Keep a discovery track running every week alongside your delivery track.","fa":"کنارِ مسیرِ تحویل، هر هفته یک مسیرِ کشف را هم روشن نگه دار."},"pitfall":{"en":"Stopping discovery the moment delivery gets busy.","fa":"قطع‌کردنِ کشف همان لحظه‌ای که تحویل شلوغ می‌شود."}},"shift":{"part":"outcomes","n":4,"name":{"en":"Outcomes over Outputs","fa":"نتیجه به‌جای خروجی"},"glabel":{"en":"Outcomes","fa":"نتیجه"},"principle":{"en":"Measure success by a change in customer behavior, not by the features you ship.","fa":"موفقیت را با تغییر در رفتارِ مشتری بسنج، نه با قابلیت‌هایی که عرضه می‌کنی."},"more":{"en":"An output is what you build; an outcome is the change it creates. “An outcome is a change in human behavior that drives business results.” When you manage by outcomes, you give the team room to find the best way there.","fa":"خروجی چیزی است که می‌سازی؛ نتیجه، تغییری است که می‌سازد. نتیجه یعنی یک تغییر در رفتارِ آدم‌ها که کسب‌وکار را جلو می‌برد. وقتی با نتیجه مدیریت می‌کنی، به تیم جا می‌دهی بهترین راه را خودش پیدا کند."},"example":{"en":"Not “launch an Android app” but “increase mobile engagement” — the first is an output, the second is the change you actually want.","fa":"نه «یک اپِ اندروید عرضه کن» بلکه «درگیریِ کاربر در موبایل را بالا ببر» — اولی خروجی است، دومی همان تغییری است که واقعاً می‌خواهی."},"tip":{"en":"Write your goal as a number that describes a customer behavior, even if you're not sure yet how to measure it.","fa":"هدفت را به‌شکلِ یک عدد بنویس که یک رفتارِ مشتری را توصیف می‌کند، حتی اگر هنوز مطمئن نیستی چطور اندازه‌اش بگیری."},"pitfall":{"en":"Choosing an output (“ship X”) and calling it an outcome.","fa":"یک خروجی را انتخاب‌کردن («فلان‌چیز را عرضه کن») و اسمش را نتیجه گذاشتن."}},"types":{"part":"outcomes","n":5,"name":{"en":"Business, Product & Traction","fa":"کسب‌وکار، محصول و درگیری"},"glabel":{"en":"Which outcome","fa":"کدام نتیجه"},"principle":{"en":"Know the three kinds of outcome — business, product, and traction — and give your trio a product outcome.","fa":"سه نوع نتیجه را بشناس — کسب‌وکار، محصول، و درگیری — و به تیمت یک نتیجهٔ محصول بده."},"more":{"en":"Business outcomes like revenue are lagging and too big for one team. Traction metrics track a single feature. Product outcomes sit in between — a customer behavior your trio can move that drives the business. That's the sweet spot to own.","fa":"نتیجه‌های کسب‌وکار مثلِ درآمد، دیرهنگام‌اند و برای یک تیم زیادی بزرگ‌اند. سنجه‌های درگیری فقط یک قابلیت را دنبال می‌کنند. نتیجه‌های محصول وسطِ این دو می‌نشینند — یک رفتارِ مشتری که تیمت می‌تواند تکانش بدهد و کسب‌وکار را جلو می‌برد. همین نقطهٔ درست است که مالِ تو باشد."},"example":{"en":"“Grow revenue” is a business outcome; “increase the number of playlists a listener creates” is a product outcome a team can actually own.","fa":"«درآمد را زیاد کن» نتیجهٔ کسب‌وکار است؛ «تعدادِ لیستِ پخشی که هر شنونده می‌سازد را بالا ببر» نتیجهٔ محصولی است که تیم واقعاً می‌تواند مالِ خودش بداند."},"tip":{"en":"Ask “what customer behavior would drive our business goal?” and make that your product outcome.","fa":"بپرس «کدام رفتارِ مشتری هدفِ کسب‌وکارمان را جلو می‌برد؟» و همان را نتیجهٔ محصولت کن."},"pitfall":{"en":"Handing a team a giant business number with no product outcome to steer by.","fa":"دادنِ یک عددِ غول‌آسای کسب‌وکار به تیم، بی هیچ نتیجهٔ محصولی که باهاش مسیر بگیرد."}},"leading":{"part":"outcomes","n":6,"name":{"en":"Product Drives Business","fa":"محصول، کسب‌وکار را می‌راند"},"glabel":{"en":"Leading","fa":"پیشرو"},"principle":{"en":"A good product outcome is a leading indicator — it predicts the business result before it lands.","fa":"یک نتیجهٔ محصولِ خوب، یک نشانگرِ پیشرو است — نتیجهٔ کسب‌وکار را پیش از رسیدنش پیش‌بینی می‌کند."},"more":{"en":"Business numbers like retention are lagging: by the time they move, the customer has already decided. Find the earlier customer behavior that predicts them and steer by that, so the team can act instead of react. Assigning a team a leading indicator is always better than assigning a lagging one.","fa":"عددهای کسب‌وکار مثلِ نگه‌داشتِ مشتری، دیرهنگام‌اند: تا وقتی تکان بخورند، مشتری تصمیمش را گرفته. آن رفتارِ زودترِ مشتری را که پیش‌بینی‌شان می‌کند پیدا کن و با همان مسیر بگیر، تا تیم به‌جای واکنش، عمل کند. دادنِ یک نشانگرِ پیشرو به تیم همیشه از دادنِ یک نشانگرِ دیرهنگام بهتر است."},"example":{"en":"Instead of chasing 90-day retention, a team tracks whether new users hit their first “win” in week one — an early sign they'll stay.","fa":"به‌جای دویدن دنبالِ نگه‌داشتِ نودروزه، تیم دنبال می‌کند که آیا کاربرِ تازه در هفتهٔ اول به اولین «بُردش» می‌رسد یا نه — نشانه‌ای زودهنگام از اینکه می‌ماند."},"tip":{"en":"For any lagging goal, name an earlier behavior that reliably predicts it.","fa":"برای هر هدفِ دیرهنگام، یک رفتارِ زودترش را نام ببر که مطمئن پیش‌بینی‌اش می‌کند."},"pitfall":{"en":"Steering only by lagging numbers that move too late to help.","fa":"مسیر گرفتن فقط با عددهای دیرهنگامی که زیادی دیر تکان می‌خورند که به‌درد بخورند."}},"root":{"part":"ost","n":7,"name":{"en":"Start with the Outcome","fa":"از نتیجه شروع کن"},"glabel":{"en":"The root","fa":"ریشه"},"principle":{"en":"Put your desired outcome at the root of the tree — everything else hangs from it.","fa":"نتیجهٔ دلخواهت را در ریشهٔ درخت بگذار — بقیهٔ همه‌چیز از آن آویزان است."},"more":{"en":"The opportunity solution tree starts with one clear outcome at the top. That single anchor keeps the whole team pointed the same way and turns a vague goal into a structure you can actually reason about.","fa":"درختِ فرصت‌راه‌حل با یک نتیجهٔ روشن در بالا شروع می‌شود. همین یک لنگر، کلِ تیم را به یک سمت نگه می‌دارد و یک هدفِ مبهم را به ساختاری تبدیل می‌کند که واقعاً می‌شود رویش فکر کرد."},"example":{"en":"A team writes “increase weekly active teams” at the top and hangs every opportunity and idea beneath it.","fa":"یک تیم «تعدادِ تیم‌های فعالِ هفتگی را بالا ببر» را در بالا می‌نویسد و هر فرصت و ایده را زیرش می‌آویزد."},"tip":{"en":"Before mapping anything, write the one outcome the tree serves.","fa":"قبل از اینکه چیزی را نقشه کنی، همان یک نتیجه‌ای را که درخت به‌خاطرش هست بنویس."},"pitfall":{"en":"Building a tree with no single outcome anchoring the top.","fa":"ساختنِ درختی که هیچ نتیجهٔ واحدی بالایش را لنگر نکرده."}},"oppspace":{"part":"ost","n":8,"name":{"en":"Map the Opportunity Space","fa":"فضای فرصت را نقشه کن"},"glabel":{"en":"Opportunities","fa":"فرصت‌ها"},"principle":{"en":"Opportunities are customer needs, pain points, and desires — map them, and break big ones into small ones.","fa":"فرصت‌ها همان نیازها، دردها و خواسته‌های مشتری‌اند — نقشه‌شان کن، و بزرگ‌هاشان را به کوچک‌ها بشکن."},"more":{"en":"Torres calls needs, pains, and desires “opportunities” — chances to help, not just “problems to fix.” Breaking a big opportunity into smaller ones makes hard problems solvable and lets you deliver value step by step.","fa":"تورس به نیازها و دردها و خواسته‌ها می‌گوید «فرصت» — فرصتی برای کمک، نه فقط «مشکلی برای درست‌کردن». شکستنِ یک فرصتِ بزرگ به فرصت‌های کوچک‌تر، مشکل‌های سخت را حل‌شدنی می‌کند و می‌گذارد قدم‌به‌قدم ارزش برسانی."},"example":{"en":"“I can't find anything to watch” splits into “hard to browse,” “I don't trust the ratings,” and “too many choices” — each now solvable on its own.","fa":"«چیزی برای تماشا پیدا نمی‌کنم» می‌شکند به «مرور سخت است»، «به امتیازها اعتماد ندارم» و «انتخاب زیادی زیاد است» — حالا هرکدام جدا‌جدا حل‌شدنی است."},"tip":{"en":"Source opportunities straight from interview stories, then cluster and split them.","fa":"فرصت‌ها را مستقیم از داستان‌های مصاحبه دربیاور، بعد دسته‌شان کن و بشکنشان."},"pitfall":{"en":"Filling the tree with solutions dressed up as opportunities.","fa":"پرکردنِ درخت از راه‌حل‌هایی که لباسِ فرصت پوشیده‌اند."}},"solutions":{"part":"ost","n":9,"name":{"en":"Solutions & Experiments","fa":"راه‌حل‌ها و آزمایش‌ها"},"glabel":{"en":"Solutions","fa":"راه‌حل‌ها"},"principle":{"en":"Under each opportunity, branch out to several solutions — then to the experiments that test them.","fa":"زیرِ هر فرصت، به چند راه‌حل شاخه بزن — بعد به آزمایش‌هایی که محکشان می‌زنند."},"more":{"en":"The tree's lower branches hold candidate solutions, and beneath those, the experiments — assumption tests — that check them. Because you target one opportunity at a time, ideas compete on a level field instead of the loudest voice winning.","fa":"شاخه‌های پایینیِ درخت، راه‌حل‌های نامزد را نگه می‌دارند، و زیرِ آن‌ها، آزمایش‌ها — آزمونِ فرض‌ها — که محکشان می‌زنند. چون هر بار یک فرصت را هدف می‌گیری، ایده‌ها در یک زمینِ برابر رقابت می‌کنند، نه اینکه بلندترین صدا ببرد."},"example":{"en":"For “I don't trust the ratings,” the team lines up three solutions and a quick test for each, instead of building the first idea someone shouted.","fa":"برای «به امتیازها اعتماد ندارم»، تیم سه راه‌حل و یک آزمونِ سریع برای هرکدام ردیف می‌کند، به‌جای اینکه اولین ایده‌ای را که یکی داد زد بسازد."},"tip":{"en":"Keep solutions tied to a single opportunity so you can compare them fairly.","fa":"راه‌حل‌ها را به یک فرصتِ واحد گره بزن تا بتوانی منصفانه مقایسه‌شان کنی."},"pitfall":{"en":"Jumping to build one favorite solution before comparing any others.","fa":"پریدن به ساختِ یک راه‌حلِ محبوب، قبل از مقایسه با بقیه."}},"visualize":{"part":"ost","n":10,"name":{"en":"Visualize Your Thinking","fa":"فکرت را ببین"},"glabel":{"en":"Visualize","fa":"تصویر"},"principle":{"en":"Draw the tree to show your work — how you got here, not just what you concluded.","fa":"درخت را بکش تا کارت را نشان بدهی — اینکه چطور به اینجا رسیدی، نه فقط به چه نتیجه‌ای."},"more":{"en":"A visible tree keeps the trio aligned and brings stakeholders along by showing the options you weighed and the path you took. The key to bringing stakeholders along is to show your work.","fa":"یک درختِ دیدنی، تیم را هم‌راستا نگه می‌دارد و ذی‌نفع‌ها را همراه می‌کند، چون گزینه‌هایی را که سبک‌سنگین کردی و راهی را که رفتی نشان می‌دهد. کلیدِ همراه‌کردنِ ذی‌نفع‌ها این است که کارت را نشان بدهی."},"example":{"en":"In a review, the team points at the tree to explain why it dropped two paths — the debate turns to evidence, not opinions.","fa":"توی یک جلسهٔ مرور، تیم به درخت اشاره می‌کند تا توضیح بدهد چرا دو مسیر را کنار گذاشت — بحث می‌رود سراغِ شواهد، نه نظرها."},"tip":{"en":"Share the tree in every stakeholder update instead of a list of conclusions.","fa":"در هر گزارش به ذی‌نفع‌ها، به‌جای یک فهرست از نتیجه‌ها، خودِ درخت را نشان بده."},"pitfall":{"en":"Presenting only conclusions and hiding the thinking behind them.","fa":"نشان‌دادنِ فقط نتیجه‌ها و پنهان‌کردنِ فکری که پشتشان است."}},"weeklyint":{"part":"interview","n":11,"name":{"en":"Interview Every Week","fa":"هر هفته مصاحبه کن"},"glabel":{"en":"Interview","fa":"مصاحبه"},"principle":{"en":"Make interviewing automatic — a steady weekly stream beats occasional big rounds.","fa":"مصاحبه را خودکار کن — یک جریانِ هفتگیِ ثابت از دورهای بزرگِ گاه‌به‌گاه بهتر است."},"more":{"en":"The hardest part of interviewing is doing it regularly, so remove the friction: automate recruiting from your product's own traffic, so a conversation happens every week without a scramble.","fa":"سخت‌ترین قسمتِ مصاحبه، منظم انجام‌دادنش است، پس اصطکاک را بردار: جذبِ مصاحبه‌شونده را از دلِ ترافیکِ خودِ محصول خودکار کن، تا هر هفته بی‌دردسر یک گفت‌وگو اتفاق بیفتد."},"example":{"en":"A small pop-up invites one in every few users to book a chat, filling next week's interview slot on autopilot.","fa":"یک پنجرهٔ کوچک از هر چند کاربر یکی را دعوت می‌کند که یک گپ رزرو کند، و جای مصاحبهٔ هفتهٔ بعد خودبه‌خود پر می‌شود."},"tip":{"en":"Automate recruiting so the next interview is always already booked.","fa":"جذب را خودکار کن تا مصاحبهٔ بعدی همیشه از قبل رزرو شده باشد."},"pitfall":{"en":"Waiting for a “research phase” that never quite fits in the schedule.","fa":"منتظرِ یک «فازِ تحقیق» ماندن که هیچ‌وقت درست توی برنامه جا نمی‌شود."}},"stories":{"part":"interview","n":12,"name":{"en":"Ask for Stories, Not Opinions","fa":"داستان بخواه، نه نظر"},"glabel":{"en":"Stories","fa":"داستان‌ها"},"principle":{"en":"Collect specific stories about what actually happened — not opinions, predictions, or generalizations.","fa":"داستان‌های مشخص از آنچه واقعاً اتفاق افتاده جمع کن — نه نظر، نه پیش‌بینی، نه کلی‌گویی."},"more":{"en":"Ask “tell me about the last time you…” instead of “would you use…?” People are bad at predicting themselves but good at recalling real events, and a concrete story reveals needs a direct question never would.","fa":"بپرس «از آخرین باری که… بگو» به‌جای «آیا از این استفاده می‌کنی؟» آدم‌ها در پیش‌بینیِ خودشان بدند اما در به‌یادآوردنِ اتفاق‌های واقعی خوب‌اند، و یک داستانِ ملموس نیازهایی را لو می‌دهد که یک سؤالِ مستقیم هیچ‌وقت نمی‌داد."},"example":{"en":"“Walk me through the last time you booked a trip” surfaces real frustrations that “what do you want in a travel app?” would miss.","fa":"«قدم‌به‌قدم بگو آخرین باری که سفر رزرو کردی چه شد» دردهای واقعی‌ای را رو می‌آورد که «از یک اپِ سفر چه می‌خواهی؟» ازشان جا می‌ماند."},"tip":{"en":"Start questions with “tell me about a specific time…” and follow the details.","fa":"سؤال‌ها را با «از یک وقتِ مشخص بگو…» شروع کن و دنبالِ جزئیات برو."},"pitfall":{"en":"Asking hypothetical or leading questions that collect opinions, not behavior.","fa":"پرسیدنِ سؤال‌های فرضی یا جهت‌دار که نظر جمع می‌کنند، نه رفتار."}},"synth":{"part":"interview","n":13,"name":{"en":"Synthesize as You Go","fa":"همان‌طور که پیش می‌روی جمع‌بندی کن"},"glabel":{"en":"Synthesize","fa":"جمع‌بندی"},"principle":{"en":"Turn each interview into a snapshot right away, so stories become opportunities on your tree.","fa":"هر مصاحبه را همان‌موقع به یک نمای کوتاه تبدیل کن، تا داستان‌ها روی درختت به فرصت تبدیل شوند."},"more":{"en":"Don't let notes pile up. Map each interview into an experience map and a snapshot, pull out the opportunities, and add them to the tree — synthesis is where raw stories become decisions.","fa":"نگذار یادداشت‌ها روی هم تلنبار شوند. هر مصاحبه را به یک نقشهٔ تجربه و یک نمای کوتاه تبدیل کن، فرصت‌ها را بیرون بکش، و به درخت اضافه‌شان کن — جمع‌بندی همان‌جایی است که داستان‌های خام به تصمیم تبدیل می‌شوند."},"example":{"en":"After each chat, the trio spends ten minutes drawing the customer's journey and adding two new opportunities to the tree.","fa":"بعد از هر گپ، تیم ده دقیقه وقت می‌گذارد تا مسیرِ مشتری را بکشد و دو فرصتِ تازه به درخت اضافه کند."},"tip":{"en":"Synthesize together right after the interview, while it's still fresh.","fa":"درست بعد از مصاحبه، تا هنوز تازه است، با هم جمع‌بندی کنید."},"pitfall":{"en":"Hoarding transcripts you never turn into opportunities.","fa":"انبارکردنِ متنِ مصاحبه‌هایی که هیچ‌وقت به فرصت تبدیلشان نمی‌کنی."}},"manyideas":{"part":"ideate","n":14,"name":{"en":"Generate Many Ideas","fa":"کلی ایده بساز"},"glabel":{"en":"Ideate","fa":"ایده‌پردازی"},"principle":{"en":"For the opportunity you chose, produce lots of ideas — quantity first, judgment later.","fa":"برای فرصتی که انتخاب کردی، کلی ایده تولید کن — اول تعداد، بعد قضاوت."},"more":{"en":"Don't marry the first idea. Have each person ideate alone first, then combine — individuals working solo generate more and more varied ideas than a group brainstorm, which tends to feel productive while producing less.","fa":"با اولین ایده ازدواج نکن. اول بگذار هرکس تنها ایده بدهد، بعد رویِ هم بریزید — آدم‌هایی که جدا کار می‌کنند، از یک طوفانِ فکریِ گروهی ایده‌های بیشتر و متنوع‌تری می‌سازند؛ طوفانِ گروهی معمولاً پربار حس می‌شود ولی کم‌بار است."},"example":{"en":"Each of the trio brings fifteen sketches on Monday; together they now have forty-five starting points, not one.","fa":"هرکدام از سه‌نفره دوشنبه پانزده طرحِ خام می‌آورد؛ حالا با هم چهل‌وپنج نقطهٔ شروع دارند، نه یکی."},"tip":{"en":"Ideate solo first, then pool the ideas — don't open with a group brainstorm.","fa":"اول تنها ایده بده، بعد ایده‌ها را روی هم بریز — با طوفانِ فکریِ گروهی شروع نکن."},"pitfall":{"en":"Latching onto the first plausible idea and stopping there.","fa":"چسبیدن به اولین ایدهٔ به‌ظاهر معقول و همان‌جا ایستادن."}},"assumptions":{"part":"ideate","n":15,"name":{"en":"Find the Hidden Assumptions","fa":"فرض‌های پنهان را پیدا کن"},"glabel":{"en":"Assumptions","fa":"فرض‌ها"},"principle":{"en":"Every idea hides assumptions that must be true for it to work — surface them before you build.","fa":"هر ایده فرض‌هایی را پنهان کرده که باید درست باشند تا کار کند — قبل از ساختن، رویشان کن."},"more":{"en":"Instead of asking “is this a good idea?”, ask “what must be true for this to work?” List the desirability, viability, feasibility, and usability assumptions, then find the riskiest one — the belief that would sink the idea if it's wrong.","fa":"به‌جای «این ایدهٔ خوبی است؟» بپرس «چه چیزی باید درست باشد تا این کار کند؟» فرض‌های خواستنی‌بودن، به‌صرفه‌بودن، شدنی‌بودن و کاربردپذیری را فهرست کن، بعد پرخطرترینشان را پیدا کن — همان باوری که اگر غلط باشد ایده را غرق می‌کند."},"example":{"en":"A one-tap reorder button assumes people remember what they ordered and want the same again — test that before writing code.","fa":"یک دکمهٔ سفارشِ دوباره با یک لمس، فرض می‌کند آدم‌ها یادشان است چه سفارش داده‌اند و همان را دوباره می‌خواهند — این را قبل از کدنویسی محک بزن."},"tip":{"en":"For each idea, write “this works only if…” and circle the riskiest line.","fa":"برای هر ایده بنویس «این فقط وقتی کار می‌کند که…» و پرخطرترین خط را دور بزن."},"pitfall":{"en":"Building the whole idea before testing the belief it rests on.","fa":"ساختنِ کلِ ایده قبل از محک‌زدنِ باوری که رویش ایستاده."}},"experiments":{"part":"ideate","n":16,"name":{"en":"Small, Fast Tests","fa":"آزمون‌های کوچک و سریع"},"glabel":{"en":"Test","fa":"آزمون"},"principle":{"en":"Test the risky assumption with the smallest, fastest experiment that gives a real signal.","fa":"فرضِ پرخطر را با کوچک‌ترین و سریع‌ترین آزمایشی که یک نشانهٔ واقعی می‌دهد محک بزن."},"more":{"en":"You don't need to build the feature to learn. Simulate the experience, run it with a handful of customers, and measure real behavior — each cheap test shrinks the risk before you commit engineering time.","fa":"لازم نیست قابلیت را بسازی تا یاد بگیری. تجربه را شبیه‌سازی کن، با یک مشتِ مشتری اجرایش کن، و رفتارِ واقعی را اندازه بگیر — هر آزمونِ ارزان، خطر را قبل از اینکه وقتِ مهندسی خرج کنی کوچک می‌کند."},"example":{"en":"Before building, a fake “reorder” button measures how many people tap it — real demand, for a day of work, not a month.","fa":"قبل از ساختن، یک دکمهٔ «سفارشِ دوباره»ی قلابی اندازه می‌گیرد چند نفر لمسش می‌کنند — تقاضای واقعی، با یک روز کار، نه یک ماه."},"tip":{"en":"Ask “what's the fastest way to test this belief?” and run that today.","fa":"بپرس «سریع‌ترین راه برای محکِ این باور چیست؟» و همان را همین امروز اجرا کن."},"pitfall":{"en":"Running a study so big and slow the idea ships before it's tested.","fa":"اجرای یک آزمایشِ آن‌قدر بزرگ و کند که ایده قبل از محک‌خوردن عرضه می‌شود."}}},"core":{"name":{"en":"CONTINUOUS DISCOVERY","fa":"کشفِ پیوسته"},"principle":{"en":"Great products come from continuous discovery — at a minimum, weekly touchpoints with customers by the product trio, in pursuit of a clear outcome. You map your thinking on an opportunity solution tree (outcome → opportunities → solutions → experiments), interview for real stories, and test the assumptions behind your ideas with small, fast experiments — so you discover and deliver at the same time.","fa":"محصولِ عالی از کشفِ پیوسته می‌آید — دستِ‌کم هفته‌ای یک تماس با مشتری، به‌دستِ سه‌نفرهٔ محصول، در پیِ یک نتیجهٔ روشن. فکرت را روی یک درختِ فرصت‌راه‌حل نقشه می‌کنی (نتیجه ← فرصت‌ها ← راه‌حل‌ها ← آزمایش‌ها)، برای داستان‌های واقعی مصاحبه می‌کنی، و فرض‌های پشتِ ایده‌هایت را با آزمایش‌های کوچک و سریع محک می‌زنی — تا هم‌زمان هم کشف کنی هم تحویل بدهی."},"more":{"en":"Torres organizes the habit into five moves — what continuous discovery is (weekly touchpoints, the product trio, discovery beside delivery), anchoring on outcomes (business vs product vs traction, and the shift from output), the opportunity solution tree (visualize outcome, opportunities, solutions, experiments), continuous interviewing (collect specific stories, then synthesize), and ideation with assumption testing (many ideas, find the hidden assumptions, run small experiments). The thread through all of it: talk to customers every week and let what you learn steer what you build.","fa":"تورس این عادت را در پنج حرکت می‌چیند — کشفِ پیوسته چیست (تماسِ هفتگی، سه‌نفرهٔ محصول، کشف در کنارِ تحویل)، لنگرانداختن روی نتیجه‌ها (کسب‌وکار در برابرِ محصول در برابرِ درگیری، و گذر از خروجی)، درختِ فرصت‌راه‌حل (تصویرکردنِ نتیجه، فرصت‌ها، راه‌حل‌ها، آزمایش‌ها)، مصاحبهٔ پیوسته (جمع‌کردنِ داستان‌های مشخص، بعد جمع‌بندی)، و ایده‌پردازی همراه با آزمونِ فرض (کلی ایده، پیداکردنِ فرض‌های پنهان، اجرای آزمایش‌های کوچک). نخِ رابطِ همه‌شان: هر هفته با مشتری حرف بزن و بگذار آنچه یاد می‌گیری تعیین کند چه می‌سازی."},"example":{"en":"Click any node to read a principle or a method. You can also drag the nodes around.","fa":"روی هر دایره کلیک کن تا یک اصل یا روش را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."}},"stages":[{"level":1,"badge":{"en":"Level 1 · Over-simplified","fa":"سطحِ ۱ · خیلی ساده"},"title":{"en":"Talk to customers weekly","fa":"هر هفته با مشتری حرف بزن"},"tagline":{"en":"The whole book in a sentence.","fa":"کلِ کتاب در یک جمله."},"body":{"en":"Don't guess what to build. Make a habit of talking to a customer every week, and let what you hear shape your product. That single habit is the whole book.","fa":"حدس نزن چه بسازی. عادت کن هر هفته با یک مشتری حرف بزنی، و بگذار آنچه می‌شنوی محصولت را شکل بدهد. همین یک عادت، کلِ کتاب است."},"example":{"en":"One customer conversation every Tuesday beats a big survey once a year.","fa":"یک گفت‌وگو با مشتری هر سه‌شنبه، از یک نظرسنجیِ بزرگ سالی یک‌بار بهتر است."},"gain":{"en":"You hold the one habit everything else builds on.","fa":"همان یک عادتی را داری که بقیهٔ همه‌چیز رویش بنا می‌شود."}},{"level":2,"badge":{"en":"Level 2 · Simple","fa":"سطحِ ۲ · ساده"},"title":{"en":"Outcomes, not outputs","fa":"نتیجه، نه خروجی"},"tagline":{"en":"Chase behavior change, not features.","fa":"دنبالِ تغییرِ رفتار برو، نه قابلیت."},"body":{"en":"Stop measuring success by features shipped. Aim for an <b>outcome</b> — a change in customer behavior that helps the business — and do discovery as a <b>product trio</b>, so the people building the product are the ones learning from customers.","fa":"دست از سنجیدنِ موفقیت با تعدادِ قابلیت‌های عرضه‌شده بردار. سراغِ یک <b>نتیجه</b> برو — یک تغییر در رفتارِ مشتری که به کسب‌وکار کمک می‌کند — و کشف را به‌شکلِ یک <b>سه‌نفرهٔ محصول</b> انجام بده، تا همان کسانی که محصول را می‌سازند از مشتری یاد بگیرند."},"example":{"en":"Swap “launch the app” for “get more people booking from their phone.”","fa":"«اپ را عرضه کن» را با «کاری کن آدم‌های بیشتری از گوشی‌شان رزرو کنند» عوض کن."},"gain":{"en":"You can set a goal worth pursuing and a team to pursue it.","fa":"می‌توانی هدفی بگذاری که ارزشِ دنبال‌کردن دارد و تیمی که دنبالش کند."}},{"level":3,"badge":{"en":"Level 3 · Balanced","fa":"سطحِ ۳ · متعادل"},"title":{"en":"Map it on a tree","fa":"رویش را روی درخت نقشه کن"},"tagline":{"en":"Outcome → opportunities → solutions → experiments.","fa":"نتیجه ← فرصت‌ها ← راه‌حل‌ها ← آزمایش‌ها."},"body":{"en":"Put your outcome at the top of an <b>opportunity solution tree</b>. Branch down to <b>opportunities</b> (customer needs, pains, desires), then to <b>solutions</b>, then to the <b>experiments</b> that test them. The tree makes your thinking visible and keeps everyone aligned.","fa":"نتیجه‌ات را در بالای یک <b>درختِ فرصت‌راه‌حل</b> بگذار. شاخه بزن پایین به <b>فرصت‌ها</b> (نیازها، دردها، خواسته‌های مشتری)، بعد به <b>راه‌حل‌ها</b>، بعد به <b>آزمایش‌هایی</b> که محکشان می‌زنند. درخت، فکرت را دیدنی می‌کند و همه را هم‌راستا نگه می‌دارد."},"example":{"en":"“I can't find anything to watch” becomes three smaller opportunities, each with its own ideas.","fa":"«چیزی برای تماشا پیدا نمی‌کنم» به سه فرصتِ کوچک‌تر تبدیل می‌شود، هرکدام با ایده‌های خودش."},"gain":{"en":"You can structure a messy problem into a clear plan.","fa":"می‌توانی یک مشکلِ درهم‌وبرهم را به یک نقشهٔ روشن تبدیل کنی."}},{"level":4,"badge":{"en":"Level 4 · Advanced","fa":"سطحِ ۴ · پیشرفته"},"title":{"en":"Interview for stories","fa":"برای داستان مصاحبه کن"},"tagline":{"en":"Weekly, specific, story-based.","fa":"هفتگی، مشخص، داستان‌محور."},"body":{"en":"Feed the tree with real customer stories. Interview <b>every week</b>, ask “tell me about the last time you…” to get <b>specific stories</b> instead of opinions, and <b>synthesize</b> right away so each conversation adds opportunities to your tree.","fa":"درخت را با داستان‌های واقعیِ مشتری تغذیه کن. <b>هر هفته</b> مصاحبه کن، بپرس «از آخرین باری که… بگو» تا به‌جای نظر، <b>داستانِ مشخص</b> بگیری، و همان‌موقع <b>جمع‌بندی</b> کن تا هر گفت‌وگو فرصت‌هایی به درختت اضافه کند."},"example":{"en":"“Walk me through your last booking” reveals needs a “what do you want?” survey never would.","fa":"«قدم‌به‌قدم بگو آخرین رزروَت چه شد» نیازهایی را رو می‌کند که یک نظرسنجیِ «چه می‌خواهی؟» هیچ‌وقت نمی‌کرد."},"gain":{"en":"You can turn weekly conversations into a living map of what customers need.","fa":"می‌توانی گفت‌وگوهای هفتگی را به یک نقشهٔ زنده از نیازهای مشتری تبدیل کنی."}},{"level":5,"badge":{"en":"Level 5 · Expert","fa":"سطحِ ۵ · حرفه‌ای"},"title":{"en":"Test before you build","fa":"قبل از ساختن، محک بزن"},"tagline":{"en":"Many ideas, risky assumptions, fast tests.","fa":"کلی ایده، فرض‌های پرخطر، آزمون‌های سریع."},"body":{"en":"For each opportunity, generate <b>many ideas</b>, then find the <b>hidden assumptions</b> each one depends on. Test the riskiest belief with the <b>smallest, fastest experiment</b> that gives a real signal, and measure actual behavior — so you kill weak ideas cheaply and discover and deliver at the same time, week after week.","fa":"برای هر فرصت، <b>کلی ایده</b> بساز، بعد <b>فرض‌های پنهانی</b> را که هرکدام به آن‌ها بند است پیدا کن. پرخطرترین باور را با <b>کوچک‌ترین و سریع‌ترین آزمایشی</b> که یک نشانهٔ واقعی می‌دهد محک بزن، و رفتارِ واقعی را اندازه بگیر — تا ایده‌های ضعیف را ارزان بکُشی و هم‌زمان کشف و تحویل کنی، هفته پشتِ هفته."},"example":{"en":"A fake button measures real demand in a day, before a month of engineering.","fa":"یک دکمهٔ قلابی، تقاضای واقعی را در یک روز اندازه می‌گیرد، قبل از یک ماه مهندسی."},"gain":{"en":"You can run the full weekly habit end to end — and coach a team to do it too.","fa":"می‌توانی کلِ عادتِ هفتگی را سرتاسر اجرا کنی — و به یک تیم هم یادش بدهی."}}],"quotes":[{"en":"At a minimum, weekly touchpoints with customers, by the team building the product, where they conduct small research activities in pursuit of a desired outcome.","fa":"دستِ‌کم، هفته‌ای یک تماس با مشتری، به‌دستِ همان تیمی که محصول را می‌سازد، جایی که فعالیت‌های تحقیقاتیِ کوچک را در پیِ یک نتیجهٔ دلخواه انجام می‌دهند."},{"en":"An outcome is a change in human behavior that drives business results.","fa":"نتیجه، یک تغییر در رفتارِ آدم‌هاست که کسب‌وکار را جلو می‌برد."},{"en":"When we manage by outcomes, we give our teams the autonomy, responsibility, and ownership to chart their own path.","fa":"وقتی با نتیجه‌ها مدیریت می‌کنیم، به تیم‌هایمان استقلال، مسئولیت و مالکیت می‌دهیم تا مسیرِ خودشان را بکشند."},{"en":"Shifting to an outcome mindset is harder than it looks. We spend most of our time talking about outputs.","fa":"جابه‌جاشدن به ذهنیتِ نتیجه‌محور سخت‌تر از چیزی است که به‌نظر می‌رسد. ما بیشترِ وقتمان را دربارهٔ خروجی‌ها حرف می‌زنیم."},{"en":"In this book, I'll refer to customer needs, pain points, and desires collectively as “opportunities”—they represent opportunities to intervene in our customers' lives in a positive way.","fa":"در این کتاب، من به نیازها، دردها و خواسته‌های مشتری روی‌هم می‌گویم «فرصت» — این‌ها فرصت‌هایی‌اند برای اینکه به‌شکلی مثبت واردِ زندگیِ مشتری‌هایمان شویم."},{"en":"The value of breaking big opportunities into a series of smaller opportunities is twofold. First, it allows us to tackle problems that otherwise might seem unsolvable. And second, it allows us to deliver value over time.","fa":"ارزشِ شکستنِ فرصت‌های بزرگ به یک رشته فرصتِ کوچک‌تر دوتاست. اول، می‌گذارد سراغِ مشکل‌هایی برویم که وگرنه شاید حل‌نشدنی به‌نظر می‌رسیدند. و دوم، می‌گذارد در طولِ زمان ارزش برسانیم."},{"en":"The easiest way to distinguish between an opportunity and a solution is to ask, “Is there more than one way to address this opportunity?”","fa":"ساده‌ترین راه برای فرق‌گذاشتن بینِ یک فرصت و یک راه‌حل این است که بپرسی: «آیا بیش از یک راه برای پرداختن به این فرصت هست؟»"},{"en":"The key to bringing stakeholders along is to show your work.","fa":"کلیدِ همراه‌کردنِ ذی‌نفع‌ها این است که کارت را نشان بدهی."}],"media":[{"kind":"yt","id":"yNCcQODWYh0","src":{"en":"YouTube · Lean Product Meetup","fa":"یوتیوب · Lean Product Meetup"},"title":{"en":"The What & Why of Continuous Discovery","fa":"چه و چرای کشفِ پیوسته"},"desc":{"en":"Teresa Torres gives a full talk on what continuous discovery is and why it works.","fa":"ترزا تورس یک سخنرانیِ کامل دربارهٔ اینکه کشفِ پیوسته چیست و چرا جواب می‌دهد می‌دهد."},"bullets":{"en":["The habit, in the author's own words","Weekly touchpoints and the product trio","A full, authoritative talk"],"fa":["این عادت، به زبانِ خودِ نویسنده","تماسِ هفتگی و سه‌نفرهٔ محصول","یک سخنرانیِ کامل و معتبر"]},"best":{"en":"Best for Stage 1–3.","fa":"خوب برای مرحلهٔ ۱ تا ۳."}},{"kind":"yt","id":"hHzsau3t_zY","src":{"en":"YouTube · Mural","fa":"یوتیوب · Mural"},"title":{"en":"Driving Better Outcomes with the Opportunity Solution Tree","fa":"نتیجه‌های بهتر با درختِ فرصت‌راه‌حل"},"desc":{"en":"A working session on using Teresa Torres's opportunity solution tree to drive outcomes.","fa":"یک جلسهٔ کاری دربارهٔ استفاده از درختِ فرصت‌راه‌حلِ ترزا تورس برای رسیدن به نتیجه."},"bullets":{"en":["The tree, built step by step","Outcome, opportunities, solutions, tests","Great for seeing the map in action"],"fa":["درخت، قدم‌به‌قدم ساخته می‌شود","نتیجه، فرصت‌ها، راه‌حل‌ها، آزمون‌ها","خوب برای دیدنِ نقشه در عمل"]},"best":{"en":"Best for Stage 3–4.","fa":"خوب برای مرحلهٔ ۳ و ۴."}},{"kind":"img","url":"https://www.producttalk.org/continuous-discovery-habits/","src":{"en":"Product Talk · Publisher","fa":"پروداکت‌تاک · ناشر"},"title":{"en":"Continuous Discovery Habits — Publisher Page","fa":"عادت‌های کشفِ پیوسته — صفحهٔ ناشر"},"desc":{"en":"The author's own page for the book, with details and where to buy.","fa":"صفحهٔ خودِ نویسنده برای کتاب، با جزئیات و جای خرید."},"bullets":{"en":["Straight from the source","Background on the method","Editions and ordering"],"fa":["مستقیم از خودِ منبع","پیشینه‌ای دربارهٔ روش","نسخه‌ها و سفارش"]},"best":{"en":"For the source and editions.","fa":"برای منبع و نسخه‌ها."}}],"go":[{"label":{"en":"Publisher page","fa":"صفحهٔ ناشر"},"url":"https://www.producttalk.org/continuous-discovery-habits/"},{"label":{"en":"Book on Goodreads","fa":"کتاب در گودریدز"},"url":"https://www.goodreads.com/book/show/58046715-continuous-discovery-habits"},{"label":{"en":"Torres guide: Opportunity Solution Trees","fa":"راهنمای تورس: درختِ فرصت‌راه‌حل"},"url":"https://www.producttalk.org/opportunity-solution-trees/"}],"recs":[{"pri":"b","t":{"en":"Book one weekly customer chat","fa":"یک گفت‌وگوی هفتگی با مشتری بگذار"},"d":{"en":"Put a standing 30-minute customer interview on next week's calendar — and keep it every week.","fa":"یک مصاحبهٔ سی‌دقیقه‌ایِ ثابت با مشتری را توی تقویمِ هفتهٔ بعد بگذار — و هر هفته نگهش دار."}},{"pri":"b","t":{"en":"Turn your goal into an outcome","fa":"هدفت را به نتیجه تبدیل کن"},"d":{"en":"Rewrite a current feature goal as a change in customer behavior you can measure.","fa":"یک هدفِ قابلیتِ فعلی را به‌شکلِ یک تغییر در رفتارِ مشتری که می‌شود اندازه‌اش گرفت بازنویسی کن."}},{"pri":"n","t":{"en":"Sketch an opportunity solution tree","fa":"یک درختِ فرصت‌راه‌حل بکش"},"d":{"en":"Put one outcome at the top and hang the opportunities and ideas you already have beneath it.","fa":"یک نتیجه بالا بگذار و فرصت‌ها و ایده‌هایی که همین حالا داری را زیرش بیاویز."}},{"pri":"n","t":{"en":"Test one assumption this week","fa":"این هفته یک فرض را محک بزن"},"d":{"en":"Pick your riskiest assumption and design the smallest experiment that could prove it wrong.","fa":"پرخطرترین فرضت را انتخاب کن و کوچک‌ترین آزمایشی را که می‌تواند غلط‌بودنش را نشان بدهد طراحی کن."}}]};
-</script>
-
-<script>
-/* ── 3) RENDER (text sections) ────────────────────────────── */
-function elClear(id){ var e=document.getElementById(id); if(e) e.innerHTML=''; return e; }
-
-function renderText(){
-  var t=elClear('tldrHost');
-  DATA.tldr.forEach(function(o){ var li=document.createElement('li'); li.innerHTML = TX(o); t.appendChild(li); });
-
-  var q=elClear('quoteHost');
-  DATA.quotes.forEach(function(o){
-    var bq=document.createElement('blockquote');
-    bq.innerHTML = '<span class="qm">“</span><p>'+TX(o)+'</p>';
-    q.appendChild(bq);
-  });
-
-  var m=elClear('mediaHost');
-  DATA.media.forEach(function(o){
-    var card=document.createElement('div'); card.className='mcard';
-    var thumb;
-    if(o.kind==='yt'){
-      var url='https://www.youtube.com/watch?v='+o.id;
-      var img='https://i.ytimg.com/vi/'+o.id+'/hqdefault.jpg';
-      thumb='<a class="mthumb" href="'+url+'" target="_blank" rel="noopener">'
-        +'<img src="'+img+'" alt="" loading="lazy" onerror="this.style.display=\'none\'">'
-        +'<span class="ptype">'+(LANG==='fa'?'ویدیو':'VIDEO')+'</span>'
-        +'<span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></span></a>';
-    } else {
-      thumb='<a class="mthumb" href="'+o.url+'" target="_blank" rel="noopener"><span class="mfake">'
-        +'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.6"/><path d="M21 15l-5-5L5 21"/></svg>'
-        +'</span><span class="ptype">'+(LANG==='fa'?'تصویر':'IMAGE')+'</span></a>';
-    }
-    var link = o.kind==='yt' ? 'https://www.youtube.com/watch?v='+o.id : o.url;
-    var bl = (LANG==='fa'?o.bullets.fa:o.bullets.en).map(function(b){ return '<li>'+ (LANG==='fa'?faText(b):b) +'</li>'; }).join('');
-    card.innerHTML = thumb + '<div class="mbody">'
-      + '<div class="msrc">'+TX(o.src)+'</div>'
-      + '<h4>'+TX(o.title)+'</h4>'
-      + '<p class="mdesc">'+TX(o.desc)+'</p>'
-      + '<ul>'+bl+'</ul>'
-      + '<a class="mlink" href="'+link+'" target="_blank" rel="noopener">'+(LANG==='fa'?'باز کردن ↗':'Open ↗')+'</a>'
-      + '<div class="mbest">'+TX(o.best)+'</div>'
-      + '</div>';
-    m.appendChild(card);
-  });
-
-  var g=elClear('goHost');
-  DATA.go.forEach(function(o){
-    var a=document.createElement('a'); a.href=o.url; a.target='_blank'; a.rel='noopener';
-    a.textContent=TX(o.label); g.appendChild(a);
-  });
-
-  var r=elClear('recHost');
-  DATA.recs.forEach(function(o){
-    var it=document.createElement('div'); it.className='item';
-    var priLabel = o.pri==='b' ? (LANG==='fa'?'از اینجا شروع کن':'Start here') : (LANG==='fa'?'بعدش این':'Then this');
-    it.innerHTML='<div class="t">'+TX(o.t)+'<span class="pri '+(o.pri==='b'?'b':'')+'">'+priLabel+'</span></div>'
-      +'<div class="d">'+TX(o.d)+'</div>';
-    r.appendChild(it);
-  });
-
-  var mth=document.getElementById('methodHost');
-  mth.innerHTML = LANG==='fa' ? faText("<p><b>منبع:</b> کتابِ «Continuous Discovery Habits» نوشتهٔ ترزا تورس، چاپِ ۲۰۲۱ (نشرِ Product Talk).</p><p><b>روشِ کار:</b> ساختارِ پنج‌بخشی و ایده‌ها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده؛ نقل‌قول‌ها مقابله و ویدیوها بررسی شده‌اند.</p><p><b>گروه:</b> «نرخِ موفقیتِ محصول» — یک خواندنیِ کاربردی برای تیم‌هایی که می‌خواهند چیزی بسازند که آدم‌ها واقعاً ازش استفاده کنند.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای متنِ کامل، خودِ کتاب را بخوان.</p>") : "<p><b>Source:</b> the book <i>Continuous Discovery Habits: Discover Products that Create Customer Value and Business Value</i> by Teresa Torres, published 2021 (Product Talk LLC).</p><p><b>How this was built:</b> the five-part structure and ideas were gathered and rewritten from the book and reputable sources; quotes were cross-checked and the linked videos verified.</p><p><b>Group:</b> Product Success Rate — a practical read for teams that want to build things people actually use.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>";
-  var fl=document.getElementById('flowTop');
-  if(fl){
-    var loop = LANG==='fa' ? ["مصاحبه","نقشه","آزمون"] : ["Interview","Map","Test"];
-    var ar = LANG==='fa' ? '⟵' : '⟶';
-    fl.innerHTML = loop.map(function(w){ return '<b>'+ (LANG==='fa'?faText(w):w) +'</b>'; }).join(' <span class="ar">'+ar+'</span> ');
-  }
-}
-</script>
-
-<script>
-/* ── 4) CONCEPT MAP ───────────────────────────────────────── */
-function renderMap(){
-  var host=document.getElementById('mapHost'); if(!host) return; host.innerHTML='';
-  DATA.parts.forEach(function(p, i){
-    var col=document.createElement('div'); col.className='partcol';
-    var chaps=p.chapters.map(function(ck){
-      var c=DATA.chapters[ck];
-      return '<div class="chapchip"><span class="cn">'+num(c.n)+'</span><div><b>'+TX(c.name)+'</b>'
-        +'<small>'+TX(c.principle).replace(/<[^>]+>/g,'').slice(0, LANG==='fa'?86:76)+'…</small></div></div>';
-    }).join('');
-    col.innerHTML='<div class="ph"><span class="pdot" style="background:var('+p.varc+')"></span>'
-      +'<span class="pnum">'+(LANG==='fa'?'بخشِ ':'PART ')+num(i+1)+'</span></div>'
-      +'<h4>'+TX(p.name)+'</h4>'
-      +'<div class="ptag" style="color:var('+p.varc+')">'+TX(p.tag)+'</div>'
-      +'<p class="pgist">'+TX(p.gist)+'</p>'+chaps;
-    host.appendChild(col);
-  });
-}
-</script>
-
-<script>
-/* ── 5) INTERACTIVE NETWORK GRAPH (deterministic radial layout, no physics) ── */
-var GRAPH = (function(){
-  var svg, W=980, H=780, nodes=[], links=[], sel=null, dragNode=null, moved=false, startPt=null;
-
-  function build(){
-    svg=document.getElementById('netsvg');
-    svg.setAttribute('viewBox','0 0 '+W+' '+H);
-    nodes=[]; links=[];
-    var cx=W/2, cy=H/2, R1=220, R2=126, span=66*Math.PI/180;
-    var N=DATA.parts.length, partAng=DATA.parts.map(function(_,i){ return -Math.PI/2 + i*(2*Math.PI/N); });
-    nodes.push({id:'core', kind:'core', varc:'--core', r:38, x:cx, y:cy, label:DATA.core.name, data:DATA.core});
-    DATA.parts.forEach(function(p,i){
-      var a=partAng[i], px=cx+Math.cos(a)*R1, py=cy+Math.sin(a)*R1;
-      nodes.push({id:'p_'+p.key, kind:'part', varc:p.varc, r:25, x:px, y:py,
-        label:p.name, data:{name:p.name, principle:p.gist, more:p.more, tag:p.tag, key:p.key}});
-      links.push({s:'core', t:'p_'+p.key, strong:true});
-      var nc=p.chapters.length, start=a-span/2;
-      p.chapters.forEach(function(ck,j){
-        var ca = nc>1 ? start+span*(j/(nc-1)) : a;   // fan the 5 chapters outward
-        var c=DATA.chapters[ck];
-        nodes.push({id:'c_'+ck, kind:'chap', varc:p.varc, r:15,
-          x:px+Math.cos(ca)*R2, y:py+Math.sin(ca)*R2,
-          label:(c.glabel||c.name), data:c, ck:ck});
-        links.push({s:'p_'+p.key, t:'c_'+ck});
-      });
-    });
-    nodes.forEach(function(n){ n.hx=n.x; n.hy=n.y; });   // remember home positions for reset
-    draw();
-    select('core');
-  }
-
-  function byId(id){ for(var i=0;i<nodes.length;i++) if(nodes[i].id===id) return nodes[i]; return null; }
-
-  function draw(){
-    var ln='', nd='';
-    links.forEach(function(l){ ln+='<line class="glink" data-s="'+l.s+'" data-t="'+l.t+'" stroke="var(--line)" stroke-width="'+(l.strong?2.4:1.5)+'" stroke-linecap="round"/>'; });
-    nodes.forEach(function(n){
-      var inside='', below='';
-      if(n.kind==='core'){
-        inside='<text text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="800" fill="#fff" letter-spacing="0.3">'+shortLabel(n)+'</text>';
-      } else {
-        if(n.kind==='chap'){
-          inside='<text text-anchor="middle" dominant-baseline="central" font-size="11" font-weight="800" fill="#fff">'+num(n.data.n)+'</text>';
+/* ── CONTENT — everything unique to this book lives here ── */
+Book.mount({
+  "meta": {
+    "slug": "continuous-discovery-habits",
+    "folder": "07 - Product Success Rate",
+    "groupNum": 7,
+    "group": {
+      "en": "Product Success Rate",
+      "fa": "نرخِ موفقیتِ محصول"
+    },
+    "author": {
+      "en": "Teresa Torres",
+      "fa": "ترزا تورس"
+    },
+    "eyebrow_author": {
+      "en": "Teresa Torres",
+      "fa": "ترزا تورس"
+    },
+    "book": {
+      "en": "Continuous Discovery Habits",
+      "fa": "عادت‌های کشفِ پیوسته"
+    },
+    "hero_title": {
+      "en": "Continuous Discovery Habits — Discover Products that Create Customer Value and Business Value",
+      "fa": "عادت‌های کشفِ پیوسته — محصولی کشف کن که هم برای مشتری ارزش دارد هم برای کسب‌وکار"
+    },
+    "dek": {
+      "en": "A knowledge graph of the whole book, plus a 5-stage path from a single habit to expert-level mastery — with an example at every step.",
+      "fa": "نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از یک عادتِ ساده تا حرفه‌ای — با یک مثال در هر مرحله."
+    },
+    "published": {
+      "en": "2021",
+      "fa": "۲۰۲۱"
+    },
+    "chips": [
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Parts",
+          "fa": "بخش"
         }
-        var ly = n.r + (n.kind==='part'?17:14);
-        var fs = n.kind==='part'?13:11;
-        var stroke = 'paint-order:stroke;stroke:var(--card2);stroke-width:3.6px;stroke-linejoin:round';
-        below='<text class="nlab" text-anchor="middle" y="'+ly+'" font-size="'+fs+'" font-weight="'+(n.kind==='part'?'800':'700')+'" fill="var(--ink)" style="'+stroke+'">'+shortLabel(n)+'</text>';
+      },
+      {
+        "v": {
+          "en": "16",
+          "fa": "۱۶"
+        },
+        "l": {
+          "en": "Ideas",
+          "fa": "ایده"
+        }
+      },
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Learning stages",
+          "fa": "مرحلهٔ یادگیری"
+        }
       }
-      nd+='<g class="node'+(n.kind==='core'?' ncore':'')+'" data-id="'+n.id+'"><g class="ns">'
-        +'<circle r="'+n.r+'" fill="var('+n.varc+')" fill-opacity="'+(n.kind==='chap'?0.94:1)+'" stroke="var(--card)" stroke-width="2.5"/>'
-        +inside+below+'</g></g>';
-    });
-    svg.innerHTML='<g id="glinks">'+ln+'</g><g id="gnodes">'+nd+'</g>';
-    svg.querySelectorAll('.node').forEach(function(gEl){
-      gEl.addEventListener('pointerdown', onDown);
-      gEl.addEventListener('click', function(){ if(!moved) select(gEl.getAttribute('data-id')); });
-      gEl.addEventListener('pointerenter', function(){ if(!dragNode) gEl.classList.add('hover'); });
-      gEl.addEventListener('pointerleave', function(){ gEl.classList.remove('hover'); });
-    });
-    positions();
-  }
-  function shortLabel(n){ return TX(n.label); }
-
-  function positions(){
-    svg.querySelectorAll('.node').forEach(function(g){
-      var n=byId(g.getAttribute('data-id'));
-      g.setAttribute('transform','translate('+n.x.toFixed(1)+','+n.y.toFixed(1)+')');
-    });
-    svg.querySelectorAll('.glink').forEach(function(l){
-      var a=byId(l.getAttribute('data-s')), b=byId(l.getAttribute('data-t'));
-      l.setAttribute('x1',a.x.toFixed(1)); l.setAttribute('y1',a.y.toFixed(1));
-      l.setAttribute('x2',b.x.toFixed(1)); l.setAttribute('y2',b.y.toFixed(1));
-    });
-  }
-
-  /* drag: just move the grabbed node — no simulation, so nothing else shifts */
-  function toSvg(e){
-    var pt=svg.createSVGPoint(); pt.x=e.clientX; pt.y=e.clientY;
-    var m=svg.getScreenCTM(); if(!m) return {x:e.clientX,y:e.clientY};
-    return pt.matrixTransform(m.inverse());
-  }
-  function onDown(e){
-    e.preventDefault();
-    dragNode=byId(e.currentTarget.getAttribute('data-id'));
-    moved=false; startPt=toSvg(e); svg.style.cursor='grabbing';
-    e.currentTarget.classList.remove('hover');
-    window.addEventListener('pointermove', onMove);
-    window.addEventListener('pointerup', onUp);
-  }
-  function onMove(e){
-    if(!dragNode) return; var p=toSvg(e);
-    if(startPt && (Math.abs(p.x-startPt.x)>4 || Math.abs(p.y-startPt.y)>4)) moved=true;
-    dragNode.x=Math.max(dragNode.r+4, Math.min(W-dragNode.r-4, p.x));
-    dragNode.y=Math.max(dragNode.r+4, Math.min(H-dragNode.r-24, p.y));
-    positions();
-  }
-  function onUp(){
-    dragNode=null; svg.style.cursor='grab';
-    window.removeEventListener('pointermove', onMove);
-    window.removeEventListener('pointerup', onUp);
-  }
-
-  function keepSet(id){
-    var n=byId(id); if(!n || id==='core') return null;   // core → show everything
-    var keep={}; keep[id]=1; keep['core']=1;
-    var pk = (n.kind==='part') ? n.data.key : n.data.part;
-    keep['p_'+pk]=1;
-    DATA.parts.forEach(function(p){ if(p.key===pk) p.chapters.forEach(function(ck){ keep['c_'+ck]=1; }); });
-    return keep;   // highlight the whole branch: core → part → its chapters
-  }
-  function applyFocus(id){
-    var keep=keepSet(id), full=(keep===null);
-    svg.querySelectorAll('.node').forEach(function(g){
-      var nid=g.getAttribute('data-id');
-      g.classList.toggle('dim', !full && !keep[nid]);
-      g.classList.toggle('hl', !full && keep[nid] && nid!==id);
-    });
-    svg.querySelectorAll('.glink').forEach(function(l){
-      var s=l.getAttribute('data-s'), t=l.getAttribute('data-t');
-      var on = full || (keep[s] && keep[t]);
-      l.classList.toggle('dim', !on);
-      l.classList.toggle('hl', !full && on);
-    });
-  }
-
-  function relatedIds(node){
-    var ids=[];
-    if(node.id==='core'){ DATA.parts.forEach(function(p){ ids.push('p_'+p.key); }); }
-    else if(node.kind==='part'){ var pk=node.data.key; DATA.parts.forEach(function(p){ if(p.key===pk) p.chapters.forEach(function(ck){ ids.push('c_'+ck); }); }); }
-    else { var pk2=node.data.part; ids.push('p_'+pk2);
-      DATA.parts.forEach(function(p){ if(p.key===pk2) p.chapters.forEach(function(ck){ if('c_'+ck!==node.id) ids.push('c_'+ck); }); }); }
-    return ids;
-  }
-
-  function drow(cls,label,txt){ return '<div class="drow '+cls+'"><div class="dlab">'+label+'</div><div class="dtxt">'+txt+'</div></div>'; }
-
-  function select(id){
-    var n=byId(id); if(!n) return;
-    sel=id;
-    svg.querySelectorAll('.node').forEach(function(g){ g.classList.toggle('sel', g.getAttribute('data-id')===id); });
-    var selEl=svg.querySelector('.node[data-id="'+id+'"]'); if(selEl&&selEl.parentNode) selEl.parentNode.appendChild(selEl);  // raise on top
-    applyFocus(id);
-    var d=n.data, pv = n.kind==='core' ? '--core' : n.varc;
-    var kicker = n.kind==='core' ? (LANG==='fa'?'ایدهٔ مرکزی':'Core idea')
-             : n.kind==='part' ? (LANG==='fa'?'بخش':'Part') + ' · ' + TX(d.tag)
-             : (LANG==='fa'?"عادتِ":"Habit") + ' ' + num(d.n);
-    var prLab = (n.kind==='chap') ? (LANG==='fa'?'اصل':'Principle') : (LANG==='fa'?'ایدهٔ اصلی':'Big idea');
-    var html='<div class="dkick"><i style="background:var('+pv+')"></i>'+ (LANG==='fa'?faText(kicker):kicker) +'</div>'
-      +'<h4>'+TX(d.name)+'</h4>'
-      + drow('', prLab, TX(d.principle));
-    if(d.more)    html += drow('more', (LANG==='fa'?'بیشتر':'In depth'), TX(d.more));
-    if(d.example) html += drow('', (LANG==='fa'?'مثال':'Example'), TX(d.example));
-    if(d.tip)     html += drow('tip', (LANG==='fa'?'امتحان کن':'Try this'), TX(d.tip));
-    if(d.pitfall) html += drow('pit', (LANG==='fa'?'حواست باشد':'Watch out'), TX(d.pitfall));
-    // related chips
-    var rel=relatedIds(n);
-    if(rel.length){
-      var chips=rel.map(function(rid){ var rn=byId(rid); if(!rn) return '';
-        return '<span class="dchip" data-goto="'+rid+'"><i style="background:var('+rn.varc+')"></i>'+TX(rn.data.name)+'</span>'; }).join('');
-      html += '<div class="drow"><div class="dlab">'+(LANG==='fa'?'مرتبط':'Related')+'</div><div class="dchips">'+chips+'</div></div>';
+    ],
+    "kboxes": [
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Parts (what it is · outcomes · the tree · interviewing · ideation)",
+          "fa": "بخش (چیستی · نتیجه‌ها · درخت · مصاحبه · ایده‌پردازی)"
+        }
+      },
+      {
+        "v": {
+          "en": "16",
+          "fa": "۱۶"
+        },
+        "l": {
+          "en": "Ideas you can use",
+          "fa": "ایده برای استفاده"
+        }
+      },
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Levels, simple → expert",
+          "fa": "مرحله، ساده تا حرفه‌ای"
+        }
+      },
+      {
+        "v": {
+          "en": "3",
+          "fa": "۳"
+        },
+        "l": {
+          "en": "The weekly loop: interview · map · test",
+          "fa": "چرخهٔ هفتگی: مصاحبه · نقشه · آزمون"
+        }
+      }
+    ],
+    "core_callout": {
+      "label": {
+        "en": "The core idea:",
+        "fa": "ایدهٔ اصلی:"
+      },
+      "en": "Great products come from a weekly <i>habit</i>, not a one-time project. A small <i>product trio</i> — a product manager, a designer, and an engineer — talks to customers every week, anchors on a clear <i>outcome</i>, and maps its thinking on an <i>opportunity solution tree</i>: outcome → opportunities → solutions → experiments. You discover and deliver at the same time.",
+      "fa": "محصولِ عالی از یک <i>عادتِ</i> هفتگی می‌آید، نه از یک پروژهٔ یک‌باره. یک <i>سه‌نفرهٔ محصولِ</i> کوچک — یک مدیرِ محصول، یک طراح و یک مهندس — هر هفته با مشتری‌ها حرف می‌زند، روی یک <i>نتیجهٔ</i> روشن لنگر می‌اندازد، و فکرش را روی یک <i>درختِ فرصت‌راه‌حل</i> نقشه می‌کند: نتیجه ← فرصت‌ها ← راه‌حل‌ها ← آزمایش‌ها. هم‌زمان هم کشف می‌کنی هم تحویل می‌دهی."
+    },
+    "flow_callout": {
+      "label": {
+        "en": "Read it as a flow:",
+        "fa": "به‌صورتِ یک جریان بخوانش:"
+      },
+      "en": "talk to a customer <b>every week</b>, anchor on an <b>outcome</b>, map the <b>opportunity space</b> on a tree, pick the opportunity that matters most, and run <b>small experiments</b> to test the assumptions behind your ideas — discovery and delivery, side by side.",
+      "fa": "<b>هر هفته</b> با یک مشتری حرف بزن، روی یک <b>نتیجه</b> لنگر بینداز، <b>فضای فرصت</b> را روی یک درخت نقشه کن، همان فرصتی را که بیشترین اهمیت را دارد انتخاب کن، و <b>آزمایش‌های کوچک</b> بزن تا فرض‌های پشتِ ایده‌هایت را محک بزنی — کشف و تحویل، شانه‌به‌شانه."
     }
-    var host=document.getElementById('detailHost');
-    host.innerHTML=html;
-    host.querySelectorAll('.dchip').forEach(function(c){
-      c.addEventListener('click', function(){ select(c.getAttribute('data-goto')); });
-    });
-  }
-
-  function relabel(){ if(!svg) return; draw(); select(sel||'core'); }
-
-  return {
-    build:build,
-    kick:function(){},                                    // no-op; layout is static
-    relabel:relabel,
-    reset:function(){ nodes.forEach(function(n){ n.x=n.hx; n.y=n.hy; }); positions(); },
-    resetFocus:function(){ select('core'); },
-    selectNode:function(id){ select(id); },
-    hasNodes:function(){ return nodes.length>0; }
-  };
-})();
-</script>
-
-<script>
-/* ── 6) 5-STAGE LADDER ────────────────────────────────────── */
-var curStage=0;
-function renderLadder(){
-  var host=document.getElementById('ladderHost'); host.innerHTML='';
-  DATA.stages.forEach(function(s,i){
-    var r=document.createElement('div'); r.className='rung'+(i===curStage?' active':'');
-    r.innerHTML='<div class="lv">'+ (LANG==='fa'?('سطحِ '+num(s.level)):('Level '+s.level)) +'</div>'
-      +'<div class="lt">'+TX(s.title)+'</div>'
-      +'<div class="lbar"><i style="width:'+(s.level*20)+'%"></i></div>';
-    r.addEventListener('click', function(){ curStage=i; renderLadder(); renderStage();
-      document.getElementById('stageHost').scrollIntoView({behavior:'smooth',block:'nearest'}); });
-    host.appendChild(r);
-  });
-}
-function renderStage(){
-  var s=DATA.stages[curStage];
-  var host=document.getElementById('stageHost');
-  var exLabel = LANG==='fa'?'مثال':'Example';
-  var prev = LANG==='fa'?'مرحلهٔ قبل':'‹ Prev', next = LANG==='fa'?'مرحلهٔ بعد':'Next ›';
-  host.innerHTML=''+
-    '<div class="stagecard">'
-    +'<div class="shead"><span class="badge">'+TX(s.badge)+'</span><h3>'+TX(s.title)+'</h3></div>'
-    +'<div class="tagline">'+TX(s.tagline)+'</div>'
-    +'<div class="sbody">'+TX(s.body)+'</div>'
-    +'<div class="exbox"><div class="exk">'+exLabel+'</div><div class="ext">'+TX(s.example)+'</div></div>'
-    +'<div class="gainrow"><span class="gi">✓</span><span>'+TX(s.gain)+'</span></div>'
-    +'<div class="stagenav">'
-      +'<button id="stPrev" '+(curStage===0?'disabled':'')+'>'+prev+'</button>'
-      +'<button id="stNext" '+(curStage===DATA.stages.length-1?'disabled':'')+'>'+next+'</button>'
-    +'</div></div>';
-  var pv=document.getElementById('stPrev'), nx=document.getElementById('stNext');
-  if(pv) pv.onclick=function(){ if(curStage>0){curStage--; renderLadder(); renderStage();} };
-  if(nx) nx.onclick=function(){ if(curStage<DATA.stages.length-1){curStage++; renderLadder(); renderStage();} };
-}
-</script>
-
-<script>
-/* ── 7) legend + graph tabs ───────────────────────────────── */
-function renderLegend(){
-  var host=document.getElementById('legendHost'); if(!host) return;
-  var items=[{c:'--core', en:'Core idea', fa:'ایدهٔ مرکزی'}]
-    .concat(DATA.parts.map(function(p){ return {c:p.varc, en:p.name.en, fa:p.name.fa}; }));
-  host.innerHTML = items.map(function(it){
-    return '<span><i style="background:var('+it.c+')"></i>'+(LANG==='fa'?faText(it.fa):it.en)+'</span>';
-  }).join('');
-  document.getElementById('ghint').textContent = LANG==='fa' ? 'روی هر دایره کلیک کن تا بیشتر بخوانی · می‌توانی بکشی‌شان' : 'Click a node to read more · drag to move';
-  document.getElementById('greset').textContent = LANG==='fa' ? '↺ چیدمان' : '↺ Reset';
-}
-function setupTabs(){
-  function show(net){
-    document.getElementById('netView').style.display = net?'':'none';
-    document.getElementById('mapView').style.display = net?'none':'';
-    document.getElementById('tabNet').classList.toggle('active',net);
-    document.getElementById('tabMap').classList.toggle('active',!net);
-    if(net) GRAPH.kick();
-  }
-  document.getElementById('tabNet').onclick=function(){show(true);};
-  document.getElementById('tabMap').onclick=function(){show(false);};
-  document.getElementById('greset').onclick=function(){ GRAPH.reset(); };
-  // click empty graph space resets the focus
-  var svg=document.getElementById('netsvg');
-  svg.addEventListener('click', function(e){ if(!e.target.closest('.node')) GRAPH.resetFocus(); });
-}
-</script>
-
-<script>
-/* ── 8) toggles + boot ────────────────────────────────────── */
-function setLang(lg){
-  LANG=lg;
-  document.documentElement.setAttribute('data-lang',lg);
-  document.documentElement.setAttribute('lang',lg);
-  document.documentElement.setAttribute('dir', lg==='fa'?'rtl':'ltr');
-  try{ localStorage.setItem('cdh-lang',lg); }catch(e){}
-  renderAll();
-}
-function renderAll(){
-  renderText();
-  renderMap();
-  renderLegend();
-  renderLadder();
-  renderStage();
-  if(GRAPH.hasNodes()) GRAPH.relabel(); else GRAPH.build();
-}
-(function(){
-  var lb=document.getElementById('langBtn');
-  lb && lb.addEventListener('click', function(){ setLang(LANG==='fa'?'en':'fa'); });
-
-  var tb=document.getElementById('themeBtn');
-  function curT(){ return document.documentElement.getAttribute('data-theme'); }
-  tb && tb.addEventListener('click', function(){
-    var t=curT()==='dark'?'light':'dark';
-    document.documentElement.setAttribute('data-theme',t);
-    try{ localStorage.setItem('cdh-theme',t); }catch(e){}
-  });
-  try{ matchMedia('(prefers-color-scheme: dark)').addEventListener('change',function(e){
-    if(!localStorage.getItem('cdh-theme')){ document.documentElement.setAttribute('data-theme', e.matches?'dark':'light'); }
-  }); }catch(e){}
-})();
-
-/* scroll-spy */
-(function(){
-  var links=[].slice.call(document.querySelectorAll('.toc a'));
-  var seen={}, ids=[];
-  links.forEach(function(a){ var id=a.getAttribute('href').slice(1); if(!seen[id]){seen[id]=1; ids.push(id);} });
-  var secs=ids.map(function(id){return document.getElementById(id);}).filter(Boolean);
-  function setActive(id){ links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('href')==='#'+id); }); }
-  if('IntersectionObserver' in window){
-    var obs=new IntersectionObserver(function(es){
-      es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
-    },{rootMargin:'-45% 0px -50% 0px',threshold:0});
-    secs.forEach(function(s){ obs.observe(s); });
-  }
-})();
-
-document.addEventListener('DOMContentLoaded', function(){
-  setupTabs();
-  renderAll();
+  },
+  "method": {
+    "en": "<p><b>Source:</b> the book <i>Continuous Discovery Habits: Discover Products that Create Customer Value and Business Value</i> by Teresa Torres, published 2021 (Product Talk LLC).</p><p><b>How this was built:</b> the five-part structure and ideas were gathered and rewritten from the book and reputable sources; quotes were cross-checked and the linked videos verified.</p><p><b>Group:</b> Product Success Rate — a practical read for teams that want to build things people actually use.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>",
+    "fa": "<p><b>منبع:</b> کتابِ «Continuous Discovery Habits» نوشتهٔ ترزا تورس، چاپِ ۲۰۲۱ (نشرِ Product Talk).</p><p><b>روشِ کار:</b> ساختارِ پنج‌بخشی و ایده‌ها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده؛ نقل‌قول‌ها مقابله و ویدیوها بررسی شده‌اند.</p><p><b>گروه:</b> «نرخِ موفقیتِ محصول» — یک خواندنیِ کاربردی برای تیم‌هایی که می‌خواهند چیزی بسازند که آدم‌ها واقعاً ازش استفاده کنند.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای متنِ کامل، خودِ کتاب را بخوان.</p>"
+  },
+  "flow": {
+    "en": [
+      "Interview",
+      "Map",
+      "Test"
+    ],
+    "fa": [
+      "مصاحبه",
+      "نقشه",
+      "آزمون"
+    ]
+  },
+  "graph": {
+    "W": 980,
+    "H": 780,
+    "R1": 220,
+    "R2": 126,
+    "span": 66
+  },
+  "tldr": [
+    {
+      "en": "The whole book in one line: build a weekly habit of talking to customers, and let what you learn steer what you build.",
+      "fa": "خلاصهٔ کل کتاب در یک جمله: یک عادتِ هفتگیِ حرف‌زدن با مشتری بساز، و بگذار همان چیزی که یاد می‌گیری تعیین کند چه می‌سازی."
+    },
+    {
+      "en": "Do it as a <b>product trio</b> — a product manager, a designer, and an engineer deciding together.",
+      "fa": "این کار را به‌شکلِ یک <b>سه‌نفرهٔ محصول</b> انجام بده — یک مدیرِ محصول، یک طراح و یک مهندس که با هم تصمیم می‌گیرند."
+    },
+    {
+      "en": "Anchor on an <b>outcome</b> — a change in customer behavior — instead of a list of features.",
+      "fa": "روی یک <b>نتیجه</b> لنگر بینداز — یک تغییر در رفتارِ مشتری — به‌جای یک فهرست از قابلیت‌ها."
+    },
+    {
+      "en": "Map it on an <b>opportunity solution tree</b>: outcome → opportunities → solutions → experiments.",
+      "fa": "رویش را با یک <b>درختِ فرصت‌راه‌حل</b> نقشه کن: نتیجه ← فرصت‌ها ← راه‌حل‌ها ← آزمایش‌ها."
+    },
+    {
+      "en": "<b>Interview</b> for real stories, then <b>assumption-test</b> your ideas with small, fast experiments.",
+      "fa": "برای داستان‌های واقعی <b>مصاحبه</b> کن، بعد ایده‌هایت را با آزمایش‌های کوچک و سریع <b>آزمونِ فرض</b> کن."
+    }
+  ],
+  "parts": [
+    {
+      "key": "whatis",
+      "varc": "--c-teal",
+      "name": {
+        "en": "What Continuous Discovery Is",
+        "fa": "کشفِ پیوسته چیست"
+      },
+      "tag": {
+        "en": "The habit",
+        "fa": "عادت"
+      },
+      "gist": {
+        "en": "Weekly customer touchpoints, done by the product trio, woven right through delivery.",
+        "fa": "تماسِ هفتگی با مشتری، به‌دستِ سه‌نفرهٔ محصول، بافته در دلِ تحویل."
+      },
+      "more": {
+        "en": "Discovery isn't a phase you finish before building. It's a weekly rhythm: the trio that ships the product also keeps learning from customers, so what you build stays tied to what people actually need.",
+        "fa": "کشف یک مرحله نیست که قبل از ساختن تمامش کنی. یک ریتمِ هفتگی است: همان سه‌نفره‌ای که محصول را عرضه می‌کند، مدام از مشتری هم یاد می‌گیرد، تا آنچه می‌سازی به آنچه آدم‌ها واقعاً لازم دارند گره بخورد."
+      },
+      "chapters": [
+        "weekly",
+        "trio",
+        "disdel"
+      ]
+    },
+    {
+      "key": "outcomes",
+      "varc": "--c-blue",
+      "name": {
+        "en": "Anchor on Outcomes",
+        "fa": "روی نتیجه لنگر بینداز"
+      },
+      "tag": {
+        "en": "The target",
+        "fa": "هدف"
+      },
+      "gist": {
+        "en": "Chase a change in customer behavior, not outputs — and pick the right kind of outcome.",
+        "fa": "دنبالِ تغییر در رفتارِ مشتری برو، نه خروجی — و نوعِ درستِ نتیجه را انتخاب کن."
+      },
+      "more": {
+        "en": "An output is what you ship; an outcome is the change it creates. Give the trio a product outcome — a customer behavior they can move that drives the business — and let them find the best way to reach it.",
+        "fa": "خروجی چیزی است که عرضه می‌کنی؛ نتیجه، تغییری است که می‌سازد. به سه‌نفره یک نتیجهٔ محصول بده — یک رفتارِ مشتری که می‌توانند تکانش بدهند و کسب‌وکار را جلو می‌برد — و بگذار خودشان بهترین راهِ رسیدن به آن را پیدا کنند."
+      },
+      "chapters": [
+        "shift",
+        "types",
+        "leading"
+      ]
+    },
+    {
+      "key": "ost",
+      "varc": "--c-amber",
+      "name": {
+        "en": "The Opportunity Solution Tree",
+        "fa": "درختِ فرصت‌راه‌حل"
+      },
+      "tag": {
+        "en": "The map",
+        "fa": "نقشه"
+      },
+      "gist": {
+        "en": "Visualize your thinking: outcome → opportunities → solutions → experiments.",
+        "fa": "فکرت را تصویر کن: نتیجه ← فرصت‌ها ← راه‌حل‌ها ← آزمایش‌ها."
+      },
+      "more": {
+        "en": "The tree turns a fuzzy goal into a picture you can reason about. A clear outcome at the top, the opportunity space beneath it, candidate solutions under that, and the experiments that test them — all visible, so the trio stays aligned and stakeholders can follow along.",
+        "fa": "درخت یک هدفِ مبهم را به تصویری تبدیل می‌کند که می‌شود رویش فکر کرد. یک نتیجهٔ روشن در بالا، فضای فرصت زیرش، راه‌حل‌های نامزد زیرِ آن، و آزمایش‌هایی که محکشان می‌زنند — همه دیدنی، تا سه‌نفره هم‌راستا بماند و ذی‌نفع‌ها بتوانند دنبالش کنند."
+      },
+      "chapters": [
+        "root",
+        "oppspace",
+        "solutions",
+        "visualize"
+      ]
+    },
+    {
+      "key": "interview",
+      "varc": "--c-violet",
+      "name": {
+        "en": "Continuous Interviewing",
+        "fa": "مصاحبهٔ پیوسته"
+      },
+      "tag": {
+        "en": "Listen",
+        "fa": "گوش‌دادن"
+      },
+      "gist": {
+        "en": "Weekly, story-based interviews — collect specific stories, then synthesize them.",
+        "fa": "مصاحبهٔ هفتگی و داستان‌محور — داستان‌های مشخص جمع کن، بعد جمع‌بندی‌شان کن."
+      },
+      "more": {
+        "en": "The fuel for the tree is real customer stories. Interview every week, ask about specific past moments instead of opinions, and turn each conversation into opportunities right away — so your map keeps growing from evidence, not guesses.",
+        "fa": "سوختِ درخت، داستان‌های واقعیِ مشتری است. هر هفته مصاحبه کن، به‌جای نظر، سراغِ لحظه‌های مشخصِ گذشته برو، و هر گفت‌وگو را همان‌موقع به فرصت تبدیل کن — تا نقشه‌ات از شواهد رشد کند، نه از حدس."
+      },
+      "chapters": [
+        "weeklyint",
+        "stories",
+        "synth"
+      ]
+    },
+    {
+      "key": "ideate",
+      "varc": "--c-green",
+      "name": {
+        "en": "Ideation & Assumption Testing",
+        "fa": "ایده‌پردازی و آزمونِ فرض"
+      },
+      "tag": {
+        "en": "Experiment",
+        "fa": "آزمایش"
+      },
+      "gist": {
+        "en": "Generate many ideas, find the hidden assumptions, and test them small and fast.",
+        "fa": "کلی ایده بساز، فرض‌های پنهان را پیدا کن، و کوچک و سریع محکشان بزن."
+      },
+      "more": {
+        "en": "Don't fall for your first idea. For the opportunity you chose, produce many options, uncover the assumptions each one depends on, and test the riskiest belief with a tiny experiment — measuring real behavior before you spend a month of engineering.",
+        "fa": "عاشقِ اولین ایده‌ات نشو. برای فرصتی که انتخاب کردی، کلی گزینه بساز، فرض‌هایی را که هرکدام به آن‌ها بند است رو کن، و پرخطرترین باور را با یک آزمایشِ ریز محک بزن — رفتارِ واقعی را اندازه بگیر، قبل از اینکه یک ماه وقتِ مهندسی خرج کنی."
+      },
+      "chapters": [
+        "manyideas",
+        "assumptions",
+        "experiments"
+      ]
+    }
+  ],
+  "chapters": {
+    "weekly": {
+      "part": "whatis",
+      "n": 1,
+      "name": {
+        "en": "Weekly Touchpoints",
+        "fa": "تماسِ هفتگی با مشتری"
+      },
+      "glabel": {
+        "en": "Weekly",
+        "fa": "هفتگی"
+      },
+      "principle": {
+        "en": "Make customer contact a weekly habit — small, regular touchpoints beat big, occasional research pushes.",
+        "fa": "تماس با مشتری را یک عادتِ هفتگی کن — چند تماسِ کوچک و مرتب، از یک تحقیقِ بزرگِ گاه‌به‌گاه بهتر است."
+      },
+      "more": {
+        "en": "Continuous discovery means, at a minimum, weekly touchpoints with customers by the team building the product. You're not running one big study before a launch; you're learning a little every week and letting it steer what you build next.",
+        "fa": "کشفِ پیوسته یعنی دستِ‌کم هفته‌ای یک تماس با مشتری، به‌دستِ همان تیمی که محصول را می‌سازد. یک تحقیقِ بزرگ قبل از عرضه راه نمی‌اندازی؛ هر هفته یک‌کم یاد می‌گیری و می‌گذاری همان، مسیرِ ساختِ بعدی را تعیین کند."
+      },
+      "example": {
+        "en": "Instead of a two-month research project once a year, the trio talks to one customer every Tuesday and adjusts as it learns.",
+        "fa": "به‌جای یک پروژهٔ تحقیقاتیِ دوماهه سالی یک‌بار، تیم هر سه‌شنبه با یک مشتری حرف می‌زند و همان‌طور که یاد می‌گیرد مسیر را تنظیم می‌کند."
+      },
+      "tip": {
+        "en": "Put a standing weekly customer conversation on the calendar and protect it.",
+        "fa": "یک گفت‌وگوی هفتگیِ ثابت با مشتری را توی تقویم بگذار و ازش محافظت کن."
+      },
+      "pitfall": {
+        "en": "Treating discovery as a one-time phase you finish before the “real” work starts.",
+        "fa": "کشف را یک مرحلهٔ یک‌باره دیدن که قبل از شروعِ کارِ «اصلی» تمامش می‌کنی."
+      }
+    },
+    "trio": {
+      "part": "whatis",
+      "n": 2,
+      "name": {
+        "en": "The Product Trio",
+        "fa": "سه‌نفرهٔ محصول"
+      },
+      "glabel": {
+        "en": "Trio",
+        "fa": "سه‌نفره"
+      },
+      "principle": {
+        "en": "Discovery is a team sport: a product manager, a designer, and an engineer decide together.",
+        "fa": "کشف یک کارِ گروهی است: یک مدیرِ محصول، یک طراح و یک مهندس با هم تصمیم می‌گیرند."
+      },
+      "more": {
+        "en": "The three roles see different risks — value, usability, feasibility — so deciding together beats handing work down a chain. The people who build the product should be the ones talking to customers and weighing the trade-offs.",
+        "fa": "این سه نقش، خطرهای مختلفی را می‌بینند — ارزش، کاربردپذیری، شدنی‌بودن — پس تصمیمِ مشترک از پاس‌کاری در یک زنجیره بهتر است. همان کسانی که محصول را می‌سازند باید با مشتری حرف بزنند و سبک‌سنگین کنند."
+      },
+      "example": {
+        "en": "The PM, designer, and engineer join the same interviews and hear the same stories, so they build a shared picture instead of arguing from memos.",
+        "fa": "مدیرِ محصول و طراح و مهندس در یک مصاحبه‌ها شرکت می‌کنند و یک داستان‌ها را می‌شنوند، تا به‌جای بحث از روی گزارش، یک تصویرِ مشترک بسازند."
+      },
+      "tip": {
+        "en": "Bring all three roles to interviews and decisions, not just the PM.",
+        "fa": "هر سه نقش را به مصاحبه‌ها و تصمیم‌ها بیاور، نه فقط مدیرِ محصول را."
+      },
+      "pitfall": {
+        "en": "Letting one person act as the lone “voice of the customer” for everyone else.",
+        "fa": "گذاشتنِ اینکه یک نفر به‌تنهایی نقشِ «صدای مشتری» را برای بقیه بازی کند."
+      }
+    },
+    "disdel": {
+      "part": "whatis",
+      "n": 3,
+      "name": {
+        "en": "Discovery vs Delivery",
+        "fa": "کشف در برابرِ تحویل"
+      },
+      "glabel": {
+        "en": "Discovery",
+        "fa": "کشف"
+      },
+      "principle": {
+        "en": "Discovery decides what to build; delivery builds it — run them side by side, not in sequence.",
+        "fa": "کشف تصمیم می‌گیرد چه بسازی؛ تحویل می‌سازدش — این دو را کنارِ هم پیش ببر، نه پشتِ‌سرِ هم."
+      },
+      "more": {
+        "en": "Old-school teams finish “research,” then build for months. Continuous discovery weaves the two together: you keep learning from customers while you ship, so a weak idea gets caught in a week, not after a quarter of code.",
+        "fa": "تیم‌های قدیمی اول «تحقیق» را تمام می‌کنند، بعد ماه‌ها می‌سازند. کشفِ پیوسته این دو را در هم می‌بافد: همان‌طور که عرضه می‌کنی از مشتری یاد می‌گیری، پس یک ایدهٔ ضعیف در یک هفته لو می‌رود، نه بعد از سه ماه کدنویسی."
+      },
+      "example": {
+        "en": "While engineers ship this week's feature, the trio is already interviewing to shape the next one.",
+        "fa": "همان هفته‌ای که مهندس‌ها قابلیتِ این هفته را عرضه می‌کنند، تیم دارد برای شکل‌دادن به قابلیتِ بعدی مصاحبه می‌کند."
+      },
+      "tip": {
+        "en": "Keep a discovery track running every week alongside your delivery track.",
+        "fa": "کنارِ مسیرِ تحویل، هر هفته یک مسیرِ کشف را هم روشن نگه دار."
+      },
+      "pitfall": {
+        "en": "Stopping discovery the moment delivery gets busy.",
+        "fa": "قطع‌کردنِ کشف همان لحظه‌ای که تحویل شلوغ می‌شود."
+      }
+    },
+    "shift": {
+      "part": "outcomes",
+      "n": 4,
+      "name": {
+        "en": "Outcomes over Outputs",
+        "fa": "نتیجه به‌جای خروجی"
+      },
+      "glabel": {
+        "en": "Outcomes",
+        "fa": "نتیجه"
+      },
+      "principle": {
+        "en": "Measure success by a change in customer behavior, not by the features you ship.",
+        "fa": "موفقیت را با تغییر در رفتارِ مشتری بسنج، نه با قابلیت‌هایی که عرضه می‌کنی."
+      },
+      "more": {
+        "en": "An output is what you build; an outcome is the change it creates. “An outcome is a change in human behavior that drives business results.” When you manage by outcomes, you give the team room to find the best way there.",
+        "fa": "خروجی چیزی است که می‌سازی؛ نتیجه، تغییری است که می‌سازد. نتیجه یعنی یک تغییر در رفتارِ آدم‌ها که کسب‌وکار را جلو می‌برد. وقتی با نتیجه مدیریت می‌کنی، به تیم جا می‌دهی بهترین راه را خودش پیدا کند."
+      },
+      "example": {
+        "en": "Not “launch an Android app” but “increase mobile engagement” — the first is an output, the second is the change you actually want.",
+        "fa": "نه «یک اپِ اندروید عرضه کن» بلکه «درگیریِ کاربر در موبایل را بالا ببر» — اولی خروجی است، دومی همان تغییری است که واقعاً می‌خواهی."
+      },
+      "tip": {
+        "en": "Write your goal as a number that describes a customer behavior, even if you're not sure yet how to measure it.",
+        "fa": "هدفت را به‌شکلِ یک عدد بنویس که یک رفتارِ مشتری را توصیف می‌کند، حتی اگر هنوز مطمئن نیستی چطور اندازه‌اش بگیری."
+      },
+      "pitfall": {
+        "en": "Choosing an output (“ship X”) and calling it an outcome.",
+        "fa": "یک خروجی را انتخاب‌کردن («فلان‌چیز را عرضه کن») و اسمش را نتیجه گذاشتن."
+      }
+    },
+    "types": {
+      "part": "outcomes",
+      "n": 5,
+      "name": {
+        "en": "Business, Product & Traction",
+        "fa": "کسب‌وکار، محصول و درگیری"
+      },
+      "glabel": {
+        "en": "Which outcome",
+        "fa": "کدام نتیجه"
+      },
+      "principle": {
+        "en": "Know the three kinds of outcome — business, product, and traction — and give your trio a product outcome.",
+        "fa": "سه نوع نتیجه را بشناس — کسب‌وکار، محصول، و درگیری — و به تیمت یک نتیجهٔ محصول بده."
+      },
+      "more": {
+        "en": "Business outcomes like revenue are lagging and too big for one team. Traction metrics track a single feature. Product outcomes sit in between — a customer behavior your trio can move that drives the business. That's the sweet spot to own.",
+        "fa": "نتیجه‌های کسب‌وکار مثلِ درآمد، دیرهنگام‌اند و برای یک تیم زیادی بزرگ‌اند. سنجه‌های درگیری فقط یک قابلیت را دنبال می‌کنند. نتیجه‌های محصول وسطِ این دو می‌نشینند — یک رفتارِ مشتری که تیمت می‌تواند تکانش بدهد و کسب‌وکار را جلو می‌برد. همین نقطهٔ درست است که مالِ تو باشد."
+      },
+      "example": {
+        "en": "“Grow revenue” is a business outcome; “increase the number of playlists a listener creates” is a product outcome a team can actually own.",
+        "fa": "«درآمد را زیاد کن» نتیجهٔ کسب‌وکار است؛ «تعدادِ لیستِ پخشی که هر شنونده می‌سازد را بالا ببر» نتیجهٔ محصولی است که تیم واقعاً می‌تواند مالِ خودش بداند."
+      },
+      "tip": {
+        "en": "Ask “what customer behavior would drive our business goal?” and make that your product outcome.",
+        "fa": "بپرس «کدام رفتارِ مشتری هدفِ کسب‌وکارمان را جلو می‌برد؟» و همان را نتیجهٔ محصولت کن."
+      },
+      "pitfall": {
+        "en": "Handing a team a giant business number with no product outcome to steer by.",
+        "fa": "دادنِ یک عددِ غول‌آسای کسب‌وکار به تیم، بی هیچ نتیجهٔ محصولی که باهاش مسیر بگیرد."
+      }
+    },
+    "leading": {
+      "part": "outcomes",
+      "n": 6,
+      "name": {
+        "en": "Product Drives Business",
+        "fa": "محصول، کسب‌وکار را می‌راند"
+      },
+      "glabel": {
+        "en": "Leading",
+        "fa": "پیشرو"
+      },
+      "principle": {
+        "en": "A good product outcome is a leading indicator — it predicts the business result before it lands.",
+        "fa": "یک نتیجهٔ محصولِ خوب، یک نشانگرِ پیشرو است — نتیجهٔ کسب‌وکار را پیش از رسیدنش پیش‌بینی می‌کند."
+      },
+      "more": {
+        "en": "Business numbers like retention are lagging: by the time they move, the customer has already decided. Find the earlier customer behavior that predicts them and steer by that, so the team can act instead of react. Assigning a team a leading indicator is always better than assigning a lagging one.",
+        "fa": "عددهای کسب‌وکار مثلِ نگه‌داشتِ مشتری، دیرهنگام‌اند: تا وقتی تکان بخورند، مشتری تصمیمش را گرفته. آن رفتارِ زودترِ مشتری را که پیش‌بینی‌شان می‌کند پیدا کن و با همان مسیر بگیر، تا تیم به‌جای واکنش، عمل کند. دادنِ یک نشانگرِ پیشرو به تیم همیشه از دادنِ یک نشانگرِ دیرهنگام بهتر است."
+      },
+      "example": {
+        "en": "Instead of chasing 90-day retention, a team tracks whether new users hit their first “win” in week one — an early sign they'll stay.",
+        "fa": "به‌جای دویدن دنبالِ نگه‌داشتِ نودروزه، تیم دنبال می‌کند که آیا کاربرِ تازه در هفتهٔ اول به اولین «بُردش» می‌رسد یا نه — نشانه‌ای زودهنگام از اینکه می‌ماند."
+      },
+      "tip": {
+        "en": "For any lagging goal, name an earlier behavior that reliably predicts it.",
+        "fa": "برای هر هدفِ دیرهنگام، یک رفتارِ زودترش را نام ببر که مطمئن پیش‌بینی‌اش می‌کند."
+      },
+      "pitfall": {
+        "en": "Steering only by lagging numbers that move too late to help.",
+        "fa": "مسیر گرفتن فقط با عددهای دیرهنگامی که زیادی دیر تکان می‌خورند که به‌درد بخورند."
+      }
+    },
+    "root": {
+      "part": "ost",
+      "n": 7,
+      "name": {
+        "en": "Start with the Outcome",
+        "fa": "از نتیجه شروع کن"
+      },
+      "glabel": {
+        "en": "The root",
+        "fa": "ریشه"
+      },
+      "principle": {
+        "en": "Put your desired outcome at the root of the tree — everything else hangs from it.",
+        "fa": "نتیجهٔ دلخواهت را در ریشهٔ درخت بگذار — بقیهٔ همه‌چیز از آن آویزان است."
+      },
+      "more": {
+        "en": "The opportunity solution tree starts with one clear outcome at the top. That single anchor keeps the whole team pointed the same way and turns a vague goal into a structure you can actually reason about.",
+        "fa": "درختِ فرصت‌راه‌حل با یک نتیجهٔ روشن در بالا شروع می‌شود. همین یک لنگر، کلِ تیم را به یک سمت نگه می‌دارد و یک هدفِ مبهم را به ساختاری تبدیل می‌کند که واقعاً می‌شود رویش فکر کرد."
+      },
+      "example": {
+        "en": "A team writes “increase weekly active teams” at the top and hangs every opportunity and idea beneath it.",
+        "fa": "یک تیم «تعدادِ تیم‌های فعالِ هفتگی را بالا ببر» را در بالا می‌نویسد و هر فرصت و ایده را زیرش می‌آویزد."
+      },
+      "tip": {
+        "en": "Before mapping anything, write the one outcome the tree serves.",
+        "fa": "قبل از اینکه چیزی را نقشه کنی، همان یک نتیجه‌ای را که درخت به‌خاطرش هست بنویس."
+      },
+      "pitfall": {
+        "en": "Building a tree with no single outcome anchoring the top.",
+        "fa": "ساختنِ درختی که هیچ نتیجهٔ واحدی بالایش را لنگر نکرده."
+      }
+    },
+    "oppspace": {
+      "part": "ost",
+      "n": 8,
+      "name": {
+        "en": "Map the Opportunity Space",
+        "fa": "فضای فرصت را نقشه کن"
+      },
+      "glabel": {
+        "en": "Opportunities",
+        "fa": "فرصت‌ها"
+      },
+      "principle": {
+        "en": "Opportunities are customer needs, pain points, and desires — map them, and break big ones into small ones.",
+        "fa": "فرصت‌ها همان نیازها، دردها و خواسته‌های مشتری‌اند — نقشه‌شان کن، و بزرگ‌هاشان را به کوچک‌ها بشکن."
+      },
+      "more": {
+        "en": "Torres calls needs, pains, and desires “opportunities” — chances to help, not just “problems to fix.” Breaking a big opportunity into smaller ones makes hard problems solvable and lets you deliver value step by step.",
+        "fa": "تورس به نیازها و دردها و خواسته‌ها می‌گوید «فرصت» — فرصتی برای کمک، نه فقط «مشکلی برای درست‌کردن». شکستنِ یک فرصتِ بزرگ به فرصت‌های کوچک‌تر، مشکل‌های سخت را حل‌شدنی می‌کند و می‌گذارد قدم‌به‌قدم ارزش برسانی."
+      },
+      "example": {
+        "en": "“I can't find anything to watch” splits into “hard to browse,” “I don't trust the ratings,” and “too many choices” — each now solvable on its own.",
+        "fa": "«چیزی برای تماشا پیدا نمی‌کنم» می‌شکند به «مرور سخت است»، «به امتیازها اعتماد ندارم» و «انتخاب زیادی زیاد است» — حالا هرکدام جدا‌جدا حل‌شدنی است."
+      },
+      "tip": {
+        "en": "Source opportunities straight from interview stories, then cluster and split them.",
+        "fa": "فرصت‌ها را مستقیم از داستان‌های مصاحبه دربیاور، بعد دسته‌شان کن و بشکنشان."
+      },
+      "pitfall": {
+        "en": "Filling the tree with solutions dressed up as opportunities.",
+        "fa": "پرکردنِ درخت از راه‌حل‌هایی که لباسِ فرصت پوشیده‌اند."
+      }
+    },
+    "solutions": {
+      "part": "ost",
+      "n": 9,
+      "name": {
+        "en": "Solutions & Experiments",
+        "fa": "راه‌حل‌ها و آزمایش‌ها"
+      },
+      "glabel": {
+        "en": "Solutions",
+        "fa": "راه‌حل‌ها"
+      },
+      "principle": {
+        "en": "Under each opportunity, branch out to several solutions — then to the experiments that test them.",
+        "fa": "زیرِ هر فرصت، به چند راه‌حل شاخه بزن — بعد به آزمایش‌هایی که محکشان می‌زنند."
+      },
+      "more": {
+        "en": "The tree's lower branches hold candidate solutions, and beneath those, the experiments — assumption tests — that check them. Because you target one opportunity at a time, ideas compete on a level field instead of the loudest voice winning.",
+        "fa": "شاخه‌های پایینیِ درخت، راه‌حل‌های نامزد را نگه می‌دارند، و زیرِ آن‌ها، آزمایش‌ها — آزمونِ فرض‌ها — که محکشان می‌زنند. چون هر بار یک فرصت را هدف می‌گیری، ایده‌ها در یک زمینِ برابر رقابت می‌کنند، نه اینکه بلندترین صدا ببرد."
+      },
+      "example": {
+        "en": "For “I don't trust the ratings,” the team lines up three solutions and a quick test for each, instead of building the first idea someone shouted.",
+        "fa": "برای «به امتیازها اعتماد ندارم»، تیم سه راه‌حل و یک آزمونِ سریع برای هرکدام ردیف می‌کند، به‌جای اینکه اولین ایده‌ای را که یکی داد زد بسازد."
+      },
+      "tip": {
+        "en": "Keep solutions tied to a single opportunity so you can compare them fairly.",
+        "fa": "راه‌حل‌ها را به یک فرصتِ واحد گره بزن تا بتوانی منصفانه مقایسه‌شان کنی."
+      },
+      "pitfall": {
+        "en": "Jumping to build one favorite solution before comparing any others.",
+        "fa": "پریدن به ساختِ یک راه‌حلِ محبوب، قبل از مقایسه با بقیه."
+      }
+    },
+    "visualize": {
+      "part": "ost",
+      "n": 10,
+      "name": {
+        "en": "Visualize Your Thinking",
+        "fa": "فکرت را ببین"
+      },
+      "glabel": {
+        "en": "Visualize",
+        "fa": "تصویر"
+      },
+      "principle": {
+        "en": "Draw the tree to show your work — how you got here, not just what you concluded.",
+        "fa": "درخت را بکش تا کارت را نشان بدهی — اینکه چطور به اینجا رسیدی، نه فقط به چه نتیجه‌ای."
+      },
+      "more": {
+        "en": "A visible tree keeps the trio aligned and brings stakeholders along by showing the options you weighed and the path you took. The key to bringing stakeholders along is to show your work.",
+        "fa": "یک درختِ دیدنی، تیم را هم‌راستا نگه می‌دارد و ذی‌نفع‌ها را همراه می‌کند، چون گزینه‌هایی را که سبک‌سنگین کردی و راهی را که رفتی نشان می‌دهد. کلیدِ همراه‌کردنِ ذی‌نفع‌ها این است که کارت را نشان بدهی."
+      },
+      "example": {
+        "en": "In a review, the team points at the tree to explain why it dropped two paths — the debate turns to evidence, not opinions.",
+        "fa": "توی یک جلسهٔ مرور، تیم به درخت اشاره می‌کند تا توضیح بدهد چرا دو مسیر را کنار گذاشت — بحث می‌رود سراغِ شواهد، نه نظرها."
+      },
+      "tip": {
+        "en": "Share the tree in every stakeholder update instead of a list of conclusions.",
+        "fa": "در هر گزارش به ذی‌نفع‌ها، به‌جای یک فهرست از نتیجه‌ها، خودِ درخت را نشان بده."
+      },
+      "pitfall": {
+        "en": "Presenting only conclusions and hiding the thinking behind them.",
+        "fa": "نشان‌دادنِ فقط نتیجه‌ها و پنهان‌کردنِ فکری که پشتشان است."
+      }
+    },
+    "weeklyint": {
+      "part": "interview",
+      "n": 11,
+      "name": {
+        "en": "Interview Every Week",
+        "fa": "هر هفته مصاحبه کن"
+      },
+      "glabel": {
+        "en": "Interview",
+        "fa": "مصاحبه"
+      },
+      "principle": {
+        "en": "Make interviewing automatic — a steady weekly stream beats occasional big rounds.",
+        "fa": "مصاحبه را خودکار کن — یک جریانِ هفتگیِ ثابت از دورهای بزرگِ گاه‌به‌گاه بهتر است."
+      },
+      "more": {
+        "en": "The hardest part of interviewing is doing it regularly, so remove the friction: automate recruiting from your product's own traffic, so a conversation happens every week without a scramble.",
+        "fa": "سخت‌ترین قسمتِ مصاحبه، منظم انجام‌دادنش است، پس اصطکاک را بردار: جذبِ مصاحبه‌شونده را از دلِ ترافیکِ خودِ محصول خودکار کن، تا هر هفته بی‌دردسر یک گفت‌وگو اتفاق بیفتد."
+      },
+      "example": {
+        "en": "A small pop-up invites one in every few users to book a chat, filling next week's interview slot on autopilot.",
+        "fa": "یک پنجرهٔ کوچک از هر چند کاربر یکی را دعوت می‌کند که یک گپ رزرو کند، و جای مصاحبهٔ هفتهٔ بعد خودبه‌خود پر می‌شود."
+      },
+      "tip": {
+        "en": "Automate recruiting so the next interview is always already booked.",
+        "fa": "جذب را خودکار کن تا مصاحبهٔ بعدی همیشه از قبل رزرو شده باشد."
+      },
+      "pitfall": {
+        "en": "Waiting for a “research phase” that never quite fits in the schedule.",
+        "fa": "منتظرِ یک «فازِ تحقیق» ماندن که هیچ‌وقت درست توی برنامه جا نمی‌شود."
+      }
+    },
+    "stories": {
+      "part": "interview",
+      "n": 12,
+      "name": {
+        "en": "Ask for Stories, Not Opinions",
+        "fa": "داستان بخواه، نه نظر"
+      },
+      "glabel": {
+        "en": "Stories",
+        "fa": "داستان‌ها"
+      },
+      "principle": {
+        "en": "Collect specific stories about what actually happened — not opinions, predictions, or generalizations.",
+        "fa": "داستان‌های مشخص از آنچه واقعاً اتفاق افتاده جمع کن — نه نظر، نه پیش‌بینی، نه کلی‌گویی."
+      },
+      "more": {
+        "en": "Ask “tell me about the last time you…” instead of “would you use…?” People are bad at predicting themselves but good at recalling real events, and a concrete story reveals needs a direct question never would.",
+        "fa": "بپرس «از آخرین باری که… بگو» به‌جای «آیا از این استفاده می‌کنی؟» آدم‌ها در پیش‌بینیِ خودشان بدند اما در به‌یادآوردنِ اتفاق‌های واقعی خوب‌اند، و یک داستانِ ملموس نیازهایی را لو می‌دهد که یک سؤالِ مستقیم هیچ‌وقت نمی‌داد."
+      },
+      "example": {
+        "en": "“Walk me through the last time you booked a trip” surfaces real frustrations that “what do you want in a travel app?” would miss.",
+        "fa": "«قدم‌به‌قدم بگو آخرین باری که سفر رزرو کردی چه شد» دردهای واقعی‌ای را رو می‌آورد که «از یک اپِ سفر چه می‌خواهی؟» ازشان جا می‌ماند."
+      },
+      "tip": {
+        "en": "Start questions with “tell me about a specific time…” and follow the details.",
+        "fa": "سؤال‌ها را با «از یک وقتِ مشخص بگو…» شروع کن و دنبالِ جزئیات برو."
+      },
+      "pitfall": {
+        "en": "Asking hypothetical or leading questions that collect opinions, not behavior.",
+        "fa": "پرسیدنِ سؤال‌های فرضی یا جهت‌دار که نظر جمع می‌کنند، نه رفتار."
+      }
+    },
+    "synth": {
+      "part": "interview",
+      "n": 13,
+      "name": {
+        "en": "Synthesize as You Go",
+        "fa": "همان‌طور که پیش می‌روی جمع‌بندی کن"
+      },
+      "glabel": {
+        "en": "Synthesize",
+        "fa": "جمع‌بندی"
+      },
+      "principle": {
+        "en": "Turn each interview into a snapshot right away, so stories become opportunities on your tree.",
+        "fa": "هر مصاحبه را همان‌موقع به یک نمای کوتاه تبدیل کن، تا داستان‌ها روی درختت به فرصت تبدیل شوند."
+      },
+      "more": {
+        "en": "Don't let notes pile up. Map each interview into an experience map and a snapshot, pull out the opportunities, and add them to the tree — synthesis is where raw stories become decisions.",
+        "fa": "نگذار یادداشت‌ها روی هم تلنبار شوند. هر مصاحبه را به یک نقشهٔ تجربه و یک نمای کوتاه تبدیل کن، فرصت‌ها را بیرون بکش، و به درخت اضافه‌شان کن — جمع‌بندی همان‌جایی است که داستان‌های خام به تصمیم تبدیل می‌شوند."
+      },
+      "example": {
+        "en": "After each chat, the trio spends ten minutes drawing the customer's journey and adding two new opportunities to the tree.",
+        "fa": "بعد از هر گپ، تیم ده دقیقه وقت می‌گذارد تا مسیرِ مشتری را بکشد و دو فرصتِ تازه به درخت اضافه کند."
+      },
+      "tip": {
+        "en": "Synthesize together right after the interview, while it's still fresh.",
+        "fa": "درست بعد از مصاحبه، تا هنوز تازه است، با هم جمع‌بندی کنید."
+      },
+      "pitfall": {
+        "en": "Hoarding transcripts you never turn into opportunities.",
+        "fa": "انبارکردنِ متنِ مصاحبه‌هایی که هیچ‌وقت به فرصت تبدیلشان نمی‌کنی."
+      }
+    },
+    "manyideas": {
+      "part": "ideate",
+      "n": 14,
+      "name": {
+        "en": "Generate Many Ideas",
+        "fa": "کلی ایده بساز"
+      },
+      "glabel": {
+        "en": "Ideate",
+        "fa": "ایده‌پردازی"
+      },
+      "principle": {
+        "en": "For the opportunity you chose, produce lots of ideas — quantity first, judgment later.",
+        "fa": "برای فرصتی که انتخاب کردی، کلی ایده تولید کن — اول تعداد، بعد قضاوت."
+      },
+      "more": {
+        "en": "Don't marry the first idea. Have each person ideate alone first, then combine — individuals working solo generate more and more varied ideas than a group brainstorm, which tends to feel productive while producing less.",
+        "fa": "با اولین ایده ازدواج نکن. اول بگذار هرکس تنها ایده بدهد، بعد رویِ هم بریزید — آدم‌هایی که جدا کار می‌کنند، از یک طوفانِ فکریِ گروهی ایده‌های بیشتر و متنوع‌تری می‌سازند؛ طوفانِ گروهی معمولاً پربار حس می‌شود ولی کم‌بار است."
+      },
+      "example": {
+        "en": "Each of the trio brings fifteen sketches on Monday; together they now have forty-five starting points, not one.",
+        "fa": "هرکدام از سه‌نفره دوشنبه پانزده طرحِ خام می‌آورد؛ حالا با هم چهل‌وپنج نقطهٔ شروع دارند، نه یکی."
+      },
+      "tip": {
+        "en": "Ideate solo first, then pool the ideas — don't open with a group brainstorm.",
+        "fa": "اول تنها ایده بده، بعد ایده‌ها را روی هم بریز — با طوفانِ فکریِ گروهی شروع نکن."
+      },
+      "pitfall": {
+        "en": "Latching onto the first plausible idea and stopping there.",
+        "fa": "چسبیدن به اولین ایدهٔ به‌ظاهر معقول و همان‌جا ایستادن."
+      }
+    },
+    "assumptions": {
+      "part": "ideate",
+      "n": 15,
+      "name": {
+        "en": "Find the Hidden Assumptions",
+        "fa": "فرض‌های پنهان را پیدا کن"
+      },
+      "glabel": {
+        "en": "Assumptions",
+        "fa": "فرض‌ها"
+      },
+      "principle": {
+        "en": "Every idea hides assumptions that must be true for it to work — surface them before you build.",
+        "fa": "هر ایده فرض‌هایی را پنهان کرده که باید درست باشند تا کار کند — قبل از ساختن، رویشان کن."
+      },
+      "more": {
+        "en": "Instead of asking “is this a good idea?”, ask “what must be true for this to work?” List the desirability, viability, feasibility, and usability assumptions, then find the riskiest one — the belief that would sink the idea if it's wrong.",
+        "fa": "به‌جای «این ایدهٔ خوبی است؟» بپرس «چه چیزی باید درست باشد تا این کار کند؟» فرض‌های خواستنی‌بودن، به‌صرفه‌بودن، شدنی‌بودن و کاربردپذیری را فهرست کن، بعد پرخطرترینشان را پیدا کن — همان باوری که اگر غلط باشد ایده را غرق می‌کند."
+      },
+      "example": {
+        "en": "A one-tap reorder button assumes people remember what they ordered and want the same again — test that before writing code.",
+        "fa": "یک دکمهٔ سفارشِ دوباره با یک لمس، فرض می‌کند آدم‌ها یادشان است چه سفارش داده‌اند و همان را دوباره می‌خواهند — این را قبل از کدنویسی محک بزن."
+      },
+      "tip": {
+        "en": "For each idea, write “this works only if…” and circle the riskiest line.",
+        "fa": "برای هر ایده بنویس «این فقط وقتی کار می‌کند که…» و پرخطرترین خط را دور بزن."
+      },
+      "pitfall": {
+        "en": "Building the whole idea before testing the belief it rests on.",
+        "fa": "ساختنِ کلِ ایده قبل از محک‌زدنِ باوری که رویش ایستاده."
+      }
+    },
+    "experiments": {
+      "part": "ideate",
+      "n": 16,
+      "name": {
+        "en": "Small, Fast Tests",
+        "fa": "آزمون‌های کوچک و سریع"
+      },
+      "glabel": {
+        "en": "Test",
+        "fa": "آزمون"
+      },
+      "principle": {
+        "en": "Test the risky assumption with the smallest, fastest experiment that gives a real signal.",
+        "fa": "فرضِ پرخطر را با کوچک‌ترین و سریع‌ترین آزمایشی که یک نشانهٔ واقعی می‌دهد محک بزن."
+      },
+      "more": {
+        "en": "You don't need to build the feature to learn. Simulate the experience, run it with a handful of customers, and measure real behavior — each cheap test shrinks the risk before you commit engineering time.",
+        "fa": "لازم نیست قابلیت را بسازی تا یاد بگیری. تجربه را شبیه‌سازی کن، با یک مشتِ مشتری اجرایش کن، و رفتارِ واقعی را اندازه بگیر — هر آزمونِ ارزان، خطر را قبل از اینکه وقتِ مهندسی خرج کنی کوچک می‌کند."
+      },
+      "example": {
+        "en": "Before building, a fake “reorder” button measures how many people tap it — real demand, for a day of work, not a month.",
+        "fa": "قبل از ساختن، یک دکمهٔ «سفارشِ دوباره»ی قلابی اندازه می‌گیرد چند نفر لمسش می‌کنند — تقاضای واقعی، با یک روز کار، نه یک ماه."
+      },
+      "tip": {
+        "en": "Ask “what's the fastest way to test this belief?” and run that today.",
+        "fa": "بپرس «سریع‌ترین راه برای محکِ این باور چیست؟» و همان را همین امروز اجرا کن."
+      },
+      "pitfall": {
+        "en": "Running a study so big and slow the idea ships before it's tested.",
+        "fa": "اجرای یک آزمایشِ آن‌قدر بزرگ و کند که ایده قبل از محک‌خوردن عرضه می‌شود."
+      }
+    }
+  },
+  "core": {
+    "name": {
+      "en": "CONTINUOUS DISCOVERY",
+      "fa": "کشفِ پیوسته"
+    },
+    "principle": {
+      "en": "Great products come from continuous discovery — at a minimum, weekly touchpoints with customers by the product trio, in pursuit of a clear outcome. You map your thinking on an opportunity solution tree (outcome → opportunities → solutions → experiments), interview for real stories, and test the assumptions behind your ideas with small, fast experiments — so you discover and deliver at the same time.",
+      "fa": "محصولِ عالی از کشفِ پیوسته می‌آید — دستِ‌کم هفته‌ای یک تماس با مشتری، به‌دستِ سه‌نفرهٔ محصول، در پیِ یک نتیجهٔ روشن. فکرت را روی یک درختِ فرصت‌راه‌حل نقشه می‌کنی (نتیجه ← فرصت‌ها ← راه‌حل‌ها ← آزمایش‌ها)، برای داستان‌های واقعی مصاحبه می‌کنی، و فرض‌های پشتِ ایده‌هایت را با آزمایش‌های کوچک و سریع محک می‌زنی — تا هم‌زمان هم کشف کنی هم تحویل بدهی."
+    },
+    "more": {
+      "en": "Torres organizes the habit into five moves — what continuous discovery is (weekly touchpoints, the product trio, discovery beside delivery), anchoring on outcomes (business vs product vs traction, and the shift from output), the opportunity solution tree (visualize outcome, opportunities, solutions, experiments), continuous interviewing (collect specific stories, then synthesize), and ideation with assumption testing (many ideas, find the hidden assumptions, run small experiments). The thread through all of it: talk to customers every week and let what you learn steer what you build.",
+      "fa": "تورس این عادت را در پنج حرکت می‌چیند — کشفِ پیوسته چیست (تماسِ هفتگی، سه‌نفرهٔ محصول، کشف در کنارِ تحویل)، لنگرانداختن روی نتیجه‌ها (کسب‌وکار در برابرِ محصول در برابرِ درگیری، و گذر از خروجی)، درختِ فرصت‌راه‌حل (تصویرکردنِ نتیجه، فرصت‌ها، راه‌حل‌ها، آزمایش‌ها)، مصاحبهٔ پیوسته (جمع‌کردنِ داستان‌های مشخص، بعد جمع‌بندی)، و ایده‌پردازی همراه با آزمونِ فرض (کلی ایده، پیداکردنِ فرض‌های پنهان، اجرای آزمایش‌های کوچک). نخِ رابطِ همه‌شان: هر هفته با مشتری حرف بزن و بگذار آنچه یاد می‌گیری تعیین کند چه می‌سازی."
+    },
+    "example": {
+      "en": "Click any node to read a principle or a method. You can also drag the nodes around.",
+      "fa": "روی هر دایره کلیک کن تا یک اصل یا روش را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."
+    }
+  },
+  "stages": [
+    {
+      "level": 1,
+      "badge": {
+        "en": "Level 1 · Over-simplified",
+        "fa": "سطحِ ۱ · خیلی ساده"
+      },
+      "title": {
+        "en": "Talk to customers weekly",
+        "fa": "هر هفته با مشتری حرف بزن"
+      },
+      "tagline": {
+        "en": "The whole book in a sentence.",
+        "fa": "کلِ کتاب در یک جمله."
+      },
+      "body": {
+        "en": "Don't guess what to build. Make a habit of talking to a customer every week, and let what you hear shape your product. That single habit is the whole book.",
+        "fa": "حدس نزن چه بسازی. عادت کن هر هفته با یک مشتری حرف بزنی، و بگذار آنچه می‌شنوی محصولت را شکل بدهد. همین یک عادت، کلِ کتاب است."
+      },
+      "example": {
+        "en": "One customer conversation every Tuesday beats a big survey once a year.",
+        "fa": "یک گفت‌وگو با مشتری هر سه‌شنبه، از یک نظرسنجیِ بزرگ سالی یک‌بار بهتر است."
+      },
+      "gain": {
+        "en": "You hold the one habit everything else builds on.",
+        "fa": "همان یک عادتی را داری که بقیهٔ همه‌چیز رویش بنا می‌شود."
+      }
+    },
+    {
+      "level": 2,
+      "badge": {
+        "en": "Level 2 · Simple",
+        "fa": "سطحِ ۲ · ساده"
+      },
+      "title": {
+        "en": "Outcomes, not outputs",
+        "fa": "نتیجه، نه خروجی"
+      },
+      "tagline": {
+        "en": "Chase behavior change, not features.",
+        "fa": "دنبالِ تغییرِ رفتار برو، نه قابلیت."
+      },
+      "body": {
+        "en": "Stop measuring success by features shipped. Aim for an <b>outcome</b> — a change in customer behavior that helps the business — and do discovery as a <b>product trio</b>, so the people building the product are the ones learning from customers.",
+        "fa": "دست از سنجیدنِ موفقیت با تعدادِ قابلیت‌های عرضه‌شده بردار. سراغِ یک <b>نتیجه</b> برو — یک تغییر در رفتارِ مشتری که به کسب‌وکار کمک می‌کند — و کشف را به‌شکلِ یک <b>سه‌نفرهٔ محصول</b> انجام بده، تا همان کسانی که محصول را می‌سازند از مشتری یاد بگیرند."
+      },
+      "example": {
+        "en": "Swap “launch the app” for “get more people booking from their phone.”",
+        "fa": "«اپ را عرضه کن» را با «کاری کن آدم‌های بیشتری از گوشی‌شان رزرو کنند» عوض کن."
+      },
+      "gain": {
+        "en": "You can set a goal worth pursuing and a team to pursue it.",
+        "fa": "می‌توانی هدفی بگذاری که ارزشِ دنبال‌کردن دارد و تیمی که دنبالش کند."
+      }
+    },
+    {
+      "level": 3,
+      "badge": {
+        "en": "Level 3 · Balanced",
+        "fa": "سطحِ ۳ · متعادل"
+      },
+      "title": {
+        "en": "Map it on a tree",
+        "fa": "رویش را روی درخت نقشه کن"
+      },
+      "tagline": {
+        "en": "Outcome → opportunities → solutions → experiments.",
+        "fa": "نتیجه ← فرصت‌ها ← راه‌حل‌ها ← آزمایش‌ها."
+      },
+      "body": {
+        "en": "Put your outcome at the top of an <b>opportunity solution tree</b>. Branch down to <b>opportunities</b> (customer needs, pains, desires), then to <b>solutions</b>, then to the <b>experiments</b> that test them. The tree makes your thinking visible and keeps everyone aligned.",
+        "fa": "نتیجه‌ات را در بالای یک <b>درختِ فرصت‌راه‌حل</b> بگذار. شاخه بزن پایین به <b>فرصت‌ها</b> (نیازها، دردها، خواسته‌های مشتری)، بعد به <b>راه‌حل‌ها</b>، بعد به <b>آزمایش‌هایی</b> که محکشان می‌زنند. درخت، فکرت را دیدنی می‌کند و همه را هم‌راستا نگه می‌دارد."
+      },
+      "example": {
+        "en": "“I can't find anything to watch” becomes three smaller opportunities, each with its own ideas.",
+        "fa": "«چیزی برای تماشا پیدا نمی‌کنم» به سه فرصتِ کوچک‌تر تبدیل می‌شود، هرکدام با ایده‌های خودش."
+      },
+      "gain": {
+        "en": "You can structure a messy problem into a clear plan.",
+        "fa": "می‌توانی یک مشکلِ درهم‌وبرهم را به یک نقشهٔ روشن تبدیل کنی."
+      }
+    },
+    {
+      "level": 4,
+      "badge": {
+        "en": "Level 4 · Advanced",
+        "fa": "سطحِ ۴ · پیشرفته"
+      },
+      "title": {
+        "en": "Interview for stories",
+        "fa": "برای داستان مصاحبه کن"
+      },
+      "tagline": {
+        "en": "Weekly, specific, story-based.",
+        "fa": "هفتگی، مشخص، داستان‌محور."
+      },
+      "body": {
+        "en": "Feed the tree with real customer stories. Interview <b>every week</b>, ask “tell me about the last time you…” to get <b>specific stories</b> instead of opinions, and <b>synthesize</b> right away so each conversation adds opportunities to your tree.",
+        "fa": "درخت را با داستان‌های واقعیِ مشتری تغذیه کن. <b>هر هفته</b> مصاحبه کن، بپرس «از آخرین باری که… بگو» تا به‌جای نظر، <b>داستانِ مشخص</b> بگیری، و همان‌موقع <b>جمع‌بندی</b> کن تا هر گفت‌وگو فرصت‌هایی به درختت اضافه کند."
+      },
+      "example": {
+        "en": "“Walk me through your last booking” reveals needs a “what do you want?” survey never would.",
+        "fa": "«قدم‌به‌قدم بگو آخرین رزروَت چه شد» نیازهایی را رو می‌کند که یک نظرسنجیِ «چه می‌خواهی؟» هیچ‌وقت نمی‌کرد."
+      },
+      "gain": {
+        "en": "You can turn weekly conversations into a living map of what customers need.",
+        "fa": "می‌توانی گفت‌وگوهای هفتگی را به یک نقشهٔ زنده از نیازهای مشتری تبدیل کنی."
+      }
+    },
+    {
+      "level": 5,
+      "badge": {
+        "en": "Level 5 · Expert",
+        "fa": "سطحِ ۵ · حرفه‌ای"
+      },
+      "title": {
+        "en": "Test before you build",
+        "fa": "قبل از ساختن، محک بزن"
+      },
+      "tagline": {
+        "en": "Many ideas, risky assumptions, fast tests.",
+        "fa": "کلی ایده، فرض‌های پرخطر، آزمون‌های سریع."
+      },
+      "body": {
+        "en": "For each opportunity, generate <b>many ideas</b>, then find the <b>hidden assumptions</b> each one depends on. Test the riskiest belief with the <b>smallest, fastest experiment</b> that gives a real signal, and measure actual behavior — so you kill weak ideas cheaply and discover and deliver at the same time, week after week.",
+        "fa": "برای هر فرصت، <b>کلی ایده</b> بساز، بعد <b>فرض‌های پنهانی</b> را که هرکدام به آن‌ها بند است پیدا کن. پرخطرترین باور را با <b>کوچک‌ترین و سریع‌ترین آزمایشی</b> که یک نشانهٔ واقعی می‌دهد محک بزن، و رفتارِ واقعی را اندازه بگیر — تا ایده‌های ضعیف را ارزان بکُشی و هم‌زمان کشف و تحویل کنی، هفته پشتِ هفته."
+      },
+      "example": {
+        "en": "A fake button measures real demand in a day, before a month of engineering.",
+        "fa": "یک دکمهٔ قلابی، تقاضای واقعی را در یک روز اندازه می‌گیرد، قبل از یک ماه مهندسی."
+      },
+      "gain": {
+        "en": "You can run the full weekly habit end to end — and coach a team to do it too.",
+        "fa": "می‌توانی کلِ عادتِ هفتگی را سرتاسر اجرا کنی — و به یک تیم هم یادش بدهی."
+      }
+    }
+  ],
+  "quotes": [
+    {
+      "en": "At a minimum, weekly touchpoints with customers, by the team building the product, where they conduct small research activities in pursuit of a desired outcome.",
+      "fa": "دستِ‌کم، هفته‌ای یک تماس با مشتری، به‌دستِ همان تیمی که محصول را می‌سازد، جایی که فعالیت‌های تحقیقاتیِ کوچک را در پیِ یک نتیجهٔ دلخواه انجام می‌دهند."
+    },
+    {
+      "en": "An outcome is a change in human behavior that drives business results.",
+      "fa": "نتیجه، یک تغییر در رفتارِ آدم‌هاست که کسب‌وکار را جلو می‌برد."
+    },
+    {
+      "en": "When we manage by outcomes, we give our teams the autonomy, responsibility, and ownership to chart their own path.",
+      "fa": "وقتی با نتیجه‌ها مدیریت می‌کنیم، به تیم‌هایمان استقلال، مسئولیت و مالکیت می‌دهیم تا مسیرِ خودشان را بکشند."
+    },
+    {
+      "en": "Shifting to an outcome mindset is harder than it looks. We spend most of our time talking about outputs.",
+      "fa": "جابه‌جاشدن به ذهنیتِ نتیجه‌محور سخت‌تر از چیزی است که به‌نظر می‌رسد. ما بیشترِ وقتمان را دربارهٔ خروجی‌ها حرف می‌زنیم."
+    },
+    {
+      "en": "In this book, I'll refer to customer needs, pain points, and desires collectively as “opportunities”—they represent opportunities to intervene in our customers' lives in a positive way.",
+      "fa": "در این کتاب، من به نیازها، دردها و خواسته‌های مشتری روی‌هم می‌گویم «فرصت» — این‌ها فرصت‌هایی‌اند برای اینکه به‌شکلی مثبت واردِ زندگیِ مشتری‌هایمان شویم."
+    },
+    {
+      "en": "The value of breaking big opportunities into a series of smaller opportunities is twofold. First, it allows us to tackle problems that otherwise might seem unsolvable. And second, it allows us to deliver value over time.",
+      "fa": "ارزشِ شکستنِ فرصت‌های بزرگ به یک رشته فرصتِ کوچک‌تر دوتاست. اول، می‌گذارد سراغِ مشکل‌هایی برویم که وگرنه شاید حل‌نشدنی به‌نظر می‌رسیدند. و دوم، می‌گذارد در طولِ زمان ارزش برسانیم."
+    },
+    {
+      "en": "The easiest way to distinguish between an opportunity and a solution is to ask, “Is there more than one way to address this opportunity?”",
+      "fa": "ساده‌ترین راه برای فرق‌گذاشتن بینِ یک فرصت و یک راه‌حل این است که بپرسی: «آیا بیش از یک راه برای پرداختن به این فرصت هست؟»"
+    },
+    {
+      "en": "The key to bringing stakeholders along is to show your work.",
+      "fa": "کلیدِ همراه‌کردنِ ذی‌نفع‌ها این است که کارت را نشان بدهی."
+    }
+  ],
+  "media": [
+    {
+      "kind": "yt",
+      "id": "yNCcQODWYh0",
+      "src": {
+        "en": "YouTube · Lean Product Meetup",
+        "fa": "یوتیوب · Lean Product Meetup"
+      },
+      "title": {
+        "en": "The What & Why of Continuous Discovery",
+        "fa": "چه و چرای کشفِ پیوسته"
+      },
+      "desc": {
+        "en": "Teresa Torres gives a full talk on what continuous discovery is and why it works.",
+        "fa": "ترزا تورس یک سخنرانیِ کامل دربارهٔ اینکه کشفِ پیوسته چیست و چرا جواب می‌دهد می‌دهد."
+      },
+      "bullets": {
+        "en": [
+          "The habit, in the author's own words",
+          "Weekly touchpoints and the product trio",
+          "A full, authoritative talk"
+        ],
+        "fa": [
+          "این عادت، به زبانِ خودِ نویسنده",
+          "تماسِ هفتگی و سه‌نفرهٔ محصول",
+          "یک سخنرانیِ کامل و معتبر"
+        ]
+      },
+      "best": {
+        "en": "Best for Stage 1–3.",
+        "fa": "خوب برای مرحلهٔ ۱ تا ۳."
+      }
+    },
+    {
+      "kind": "yt",
+      "id": "hHzsau3t_zY",
+      "src": {
+        "en": "YouTube · Mural",
+        "fa": "یوتیوب · Mural"
+      },
+      "title": {
+        "en": "Driving Better Outcomes with the Opportunity Solution Tree",
+        "fa": "نتیجه‌های بهتر با درختِ فرصت‌راه‌حل"
+      },
+      "desc": {
+        "en": "A working session on using Teresa Torres's opportunity solution tree to drive outcomes.",
+        "fa": "یک جلسهٔ کاری دربارهٔ استفاده از درختِ فرصت‌راه‌حلِ ترزا تورس برای رسیدن به نتیجه."
+      },
+      "bullets": {
+        "en": [
+          "The tree, built step by step",
+          "Outcome, opportunities, solutions, tests",
+          "Great for seeing the map in action"
+        ],
+        "fa": [
+          "درخت، قدم‌به‌قدم ساخته می‌شود",
+          "نتیجه، فرصت‌ها، راه‌حل‌ها، آزمون‌ها",
+          "خوب برای دیدنِ نقشه در عمل"
+        ]
+      },
+      "best": {
+        "en": "Best for Stage 3–4.",
+        "fa": "خوب برای مرحلهٔ ۳ و ۴."
+      }
+    },
+    {
+      "kind": "img",
+      "url": "https://www.producttalk.org/continuous-discovery-habits/",
+      "src": {
+        "en": "Product Talk · Publisher",
+        "fa": "پروداکت‌تاک · ناشر"
+      },
+      "title": {
+        "en": "Continuous Discovery Habits — Publisher Page",
+        "fa": "عادت‌های کشفِ پیوسته — صفحهٔ ناشر"
+      },
+      "desc": {
+        "en": "The author's own page for the book, with details and where to buy.",
+        "fa": "صفحهٔ خودِ نویسنده برای کتاب، با جزئیات و جای خرید."
+      },
+      "bullets": {
+        "en": [
+          "Straight from the source",
+          "Background on the method",
+          "Editions and ordering"
+        ],
+        "fa": [
+          "مستقیم از خودِ منبع",
+          "پیشینه‌ای دربارهٔ روش",
+          "نسخه‌ها و سفارش"
+        ]
+      },
+      "best": {
+        "en": "For the source and editions.",
+        "fa": "برای منبع و نسخه‌ها."
+      }
+    }
+  ],
+  "go": [
+    {
+      "label": {
+        "en": "Publisher page",
+        "fa": "صفحهٔ ناشر"
+      },
+      "url": "https://www.producttalk.org/continuous-discovery-habits/"
+    },
+    {
+      "label": {
+        "en": "Book on Goodreads",
+        "fa": "کتاب در گودریدز"
+      },
+      "url": "https://www.goodreads.com/book/show/58046715-continuous-discovery-habits"
+    },
+    {
+      "label": {
+        "en": "Torres guide: Opportunity Solution Trees",
+        "fa": "راهنمای تورس: درختِ فرصت‌راه‌حل"
+      },
+      "url": "https://www.producttalk.org/opportunity-solution-trees/"
+    }
+  ],
+  "recs": [
+    {
+      "pri": "b",
+      "t": {
+        "en": "Book one weekly customer chat",
+        "fa": "یک گفت‌وگوی هفتگی با مشتری بگذار"
+      },
+      "d": {
+        "en": "Put a standing 30-minute customer interview on next week's calendar — and keep it every week.",
+        "fa": "یک مصاحبهٔ سی‌دقیقه‌ایِ ثابت با مشتری را توی تقویمِ هفتهٔ بعد بگذار — و هر هفته نگهش دار."
+      }
+    },
+    {
+      "pri": "b",
+      "t": {
+        "en": "Turn your goal into an outcome",
+        "fa": "هدفت را به نتیجه تبدیل کن"
+      },
+      "d": {
+        "en": "Rewrite a current feature goal as a change in customer behavior you can measure.",
+        "fa": "یک هدفِ قابلیتِ فعلی را به‌شکلِ یک تغییر در رفتارِ مشتری که می‌شود اندازه‌اش گرفت بازنویسی کن."
+      }
+    },
+    {
+      "pri": "n",
+      "t": {
+        "en": "Sketch an opportunity solution tree",
+        "fa": "یک درختِ فرصت‌راه‌حل بکش"
+      },
+      "d": {
+        "en": "Put one outcome at the top and hang the opportunities and ideas you already have beneath it.",
+        "fa": "یک نتیجه بالا بگذار و فرصت‌ها و ایده‌هایی که همین حالا داری را زیرش بیاویز."
+      }
+    },
+    {
+      "pri": "n",
+      "t": {
+        "en": "Test one assumption this week",
+        "fa": "این هفته یک فرض را محک بزن"
+      },
+      "d": {
+        "en": "Pick your riskiest assumption and design the smallest experiment that could prove it wrong.",
+        "fa": "پرخطرترین فرضت را انتخاب کن و کوچک‌ترین آزمایشی را که می‌تواند غلط‌بودنش را نشان بدهد طراحی کن."
+      }
+    }
+  ]
 });
 </script>
 </body>

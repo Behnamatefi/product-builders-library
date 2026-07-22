@@ -1,21 +1,20 @@
 <!DOCTYPE html>
-<!-- complexity-level: 1→5 (this page teaches the SAME book at five depths, over-simplified … expert) -->
-<!-- Effortless (Greg McKeown) — bilingual EN/FA knowledge graph & 5-stage learning page -->
-<html lang="fa" dir="rtl" data-lang="fa">
+<!-- Generated page. Edit CONTENT in the DATA object below; shared UI lives in ../assets/book.css + ../assets/book.js -->
+<html lang="en" dir="ltr" data-lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>On Writing Well — نقشهٔ دانش و یادگیری ۵ مرحله‌ای</title>
 
-<!-- Boot theme + language BEFORE paint to avoid a flash -->
+<!-- Boot theme + language BEFORE paint to avoid a flash (shared library-wide keys) -->
 <script>
 (function(){
   try{
-    var th = localStorage.getItem('oww-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
+    var th = localStorage.getItem('pbl-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
     document.documentElement.setAttribute('data-theme', th);
   }catch(e){ document.documentElement.setAttribute('data-theme','light'); }
   try{
-    var lg = localStorage.getItem('oww-lang') || 'fa';
+    var lg = localStorage.getItem('pbl-lang') || 'en';
     document.documentElement.setAttribute('data-lang', lg);
     document.documentElement.setAttribute('lang', lg);
     document.documentElement.setAttribute('dir', lg==='fa' ? 'rtl' : 'ltr');
@@ -28,876 +27,1132 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:ital,opsz@0,6..72;1,6..72&display=swap" rel="stylesheet">
-
-<style>
-/* ── TOKENS ───────────────────────────────────────────────── */
-:root, [data-theme="light"]{
-  --bg:#f5f6f8; --bg2:#eef2f7; --card:#fff; --card2:#f8fafb;
-  --ink:#1c2330; --mut:#6b7280; --line:#e6e8ee;
-  --accent:#0e7c86; --accent-ink:#fff; --warm:#c2410c;
-  --shadow:0 1px 2px rgba(20,30,50,.05),0 6px 24px rgba(20,30,50,.06);
-  --hero-1:#0e7c86; --hero-2:#0b5e66;
-  --c-teal:#0e9aa6; --c-blue:#2f6fb0; --c-violet:#7c3aed; --c-amber:#d97706;
-  --c-green:#15a34a; --c-red:#e11d48; --c-gold:#c98a12; --c-gray:#6b7280;
-  --state:#0e9aa6; --action:#d97706; --results:#7c3aed; --core:#0e7c86;
-}
-[data-theme="dark"]{
-  --bg:#0e131a; --bg2:#161d27; --card:#151c26; --card2:#1b2430;
-  --ink:#e9eef5; --mut:#9aa7b6; --line:#27313d;
-  --accent:#2dd4bf; --accent-ink:#06231f; --warm:#fb923c;
-  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 28px rgba(0,0,0,.45);
-  --hero-1:#0c5f67; --hero-2:#07323a;
-  --c-teal:#2dd4bf; --c-blue:#5b9bd5; --c-violet:#a78bfa; --c-amber:#fbbf24;
-  --c-green:#34d399; --c-red:#fb7185; --c-gold:#e2b04a; --c-gray:#94a3b8;
-  --state:#2dd4bf; --action:#fbbf24; --results:#a78bfa; --core:#2dd4bf;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);
-  font-family:Vazirmatn,"Segoe UI",Tahoma,Arial,sans-serif;line-height:1.85;font-size:15px;
-  transition:background .25s,color .25s}
-html[data-lang="en"] body{font-family:Inter,"Segoe UI",system-ui,Arial,sans-serif;line-height:1.7}
-.wrap{max-width:960px;margin:0 auto;padding:0 18px 40px}
-
-/* language visibility */
-html[data-lang="en"] [data-only="fa"]{display:none !important}
-html[data-lang="fa"] [data-only="en"]{display:none !important}
-
-/* ── HERO ─────────────────────────────────────────────────── */
-.hero{background:linear-gradient(135deg,var(--hero-1),var(--hero-2));color:#fff;padding:44px 0 34px;position:relative;overflow:hidden}
-.hero::after{content:"";position:absolute;inset-inline-end:-80px;top:-80px;width:280px;height:280px;
-  background:radial-gradient(circle,rgba(255,255,255,.12),transparent 70%);pointer-events:none}
-.hero .wrap{padding-bottom:0;position:relative;z-index:1}
-.hero h1{margin:0 0 8px;font-size:30px;font-weight:800;letter-spacing:-.3px;line-height:1.25}
-html[data-lang="en"] .hero h1{font-family:Newsreader,Georgia,serif;font-weight:600;letter-spacing:-.5px}
-.hero .dek{margin:0;opacity:.94;font-size:15.5px;max-width:640px}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;
-  color:rgba(255,255,255,.95);background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.24);
-  padding:5px 13px;border-radius:20px;margin-bottom:15px}
-.eyebrow .edot{width:7px;height:7px;border-radius:50%;background:#fff;box-shadow:0 0 0 3px rgba(255,255,255,.25)}
-.metastrip{display:flex;flex-wrap:wrap;gap:14px 30px;margin-top:20px;padding-top:16px;
-  border-top:1px solid rgba(255,255,255,.18)}
-.metaitem{display:flex;flex-direction:column;gap:3px}
-.metaitem .mk{font-size:10.5px;color:rgba(255,255,255,.62);font-weight:700;letter-spacing:.6px;text-transform:uppercase}
-.metaitem .mv{font-size:14px;color:#fff;font-weight:700}
-.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
-.chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);
-  border-radius:11px;padding:9px 15px;font-size:13px}
-.chip b{font-size:20px;display:block;font-weight:800}
-
-/* ── NAV + TOC ────────────────────────────────────────────── */
-.navbar{position:sticky;top:0;z-index:60;background:color-mix(in srgb,var(--card) 92%,transparent);
-  backdrop-filter:saturate(180%) blur(10px);-webkit-backdrop-filter:saturate(180%) blur(10px);
-  border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
-.navin{max-width:960px;margin:0 auto;padding:8px 16px;display:flex;align-items:center;gap:12px}
-.brand{flex:0 0 auto;font-weight:800;font-size:12.5px;color:var(--accent);white-space:nowrap;
-  display:flex;align-items:center;gap:7px}
-.brand .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);
-  box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 18%,transparent)}
-.toc{flex:1 1 auto;display:flex;flex-wrap:wrap;gap:7px;justify-content:center}
-.toc a{font-size:12.5px;color:var(--mut);text-decoration:none;border:1px solid var(--line);
-  border-radius:20px;padding:5px 12px;background:var(--card);white-space:nowrap;
-  transition:background .15s,color .15s,border-color .15s}
-.toc a:hover{color:var(--accent);border-color:var(--accent)}
-.toc a.active{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
-.navctl{flex:0 0 auto;display:flex;align-items:center;gap:8px}
-.langbtn{height:34px;border-radius:18px;border:1px solid var(--line);background:var(--card);
-  color:var(--ink);cursor:pointer;font:inherit;font-size:12.5px;font-weight:700;padding:0 13px;
-  display:flex;align-items:center;gap:6px}
-.langbtn:hover{border-color:var(--accent);color:var(--accent)}
-.langbtn .globe{width:15px;height:15px;display:block}
-.themebtn{flex:0 0 auto;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);
-  background:var(--card);color:var(--ink);cursor:pointer;line-height:1;display:grid;place-items:center}
-.themebtn svg{width:17px;height:17px;display:block}
-.themebtn:hover{border-color:var(--accent);color:var(--accent)}
-[data-theme="light"] .themebtn .ic-sun{display:none}
-[data-theme="dark"]  .themebtn .ic-moon{display:none}
-
-/* ── BLOCKS ───────────────────────────────────────────────── */
-h2{font-size:21px;margin:44px 0 6px;font-weight:800;scroll-margin-top:92px;line-height:1.35}
-html[data-lang="en"] h2{font-family:Newsreader,Georgia,serif;font-weight:600}
-h2 .num{color:var(--accent);font-variant-numeric:tabular-nums}
-.sub{color:var(--mut);font-size:13.5px;margin:0 0 16px;max-width:680px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;
-  padding:20px 22px;margin:14px 0;box-shadow:var(--shadow)}
-.lead{font-size:15.5px}
-.lead b{color:var(--warm)}
-.kgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin:8px 0}
-.kbox{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:15px 16px;text-align:center}
-.kbox .v{font-size:26px;font-weight:800;color:var(--accent);font-variant-numeric:tabular-nums}
-.kbox .l{font-size:12.5px;color:var(--mut);margin-top:3px}
-ul.clean{margin:6px 0;padding-inline-start:20px} ul.clean li{margin:8px 0}
-.callout{background:color-mix(in srgb,var(--warm) 9%,var(--card));
-  border:1px solid color-mix(in srgb,var(--warm) 30%,var(--line));
-  border-radius:12px;padding:14px 18px;margin:12px 0}
-.callout b{color:var(--warm)}
-.callout.accent{background:color-mix(in srgb,var(--accent) 9%,var(--card));
-  border-color:color-mix(in srgb,var(--accent) 30%,var(--line))}
-.callout.accent b{color:var(--accent)}
-a{color:var(--accent)}
-
-/* ── GRAPH ────────────────────────────────────────────────── */
-.gtabs{display:inline-flex;gap:4px;background:var(--bg2);border:1px solid var(--line);
-  border-radius:11px;padding:4px;margin:6px 0 2px}
-.gtab{border:0;background:transparent;color:var(--mut);font:inherit;font-size:13px;font-weight:700;
-  padding:7px 15px;border-radius:8px;cursor:pointer}
-.gtab.active{background:var(--card);color:var(--accent);box-shadow:var(--shadow)}
-.graphcard{padding:14px}
-.legend{display:flex;flex-wrap:wrap;gap:14px;margin:2px 4px 12px;font-size:12.5px;color:var(--mut)}
-.legend span{display:inline-flex;align-items:center;gap:6px}
-.legend i{width:11px;height:11px;border-radius:50%;display:inline-block}
-.graphstage{display:grid;grid-template-columns:1fr;gap:14px}
-@media(min-width:760px){.graphstage{grid-template-columns:1.35fr .95fr}}
-.svgwrap{position:relative;background:var(--card2);border:1px solid var(--line);border-radius:12px;
-  overflow:hidden;min-height:300px}
-#netsvg{display:block;width:100%;height:560px;touch-action:none;cursor:grab}
-#netsvg text{pointer-events:none;user-select:none}
-.ghint{position:absolute;inset-inline-start:12px;top:10px;font-size:11.5px;color:var(--mut);
-  background:color-mix(in srgb,var(--card) 82%,transparent);border:1px solid var(--line);
-  border-radius:20px;padding:3px 11px;backdrop-filter:blur(4px);max-width:70%}
-.greset{position:absolute;inset-inline-end:10px;top:10px;border:1px solid var(--line);background:var(--card);
-  color:var(--mut);border-radius:8px;font:inherit;font-size:11.5px;padding:4px 10px;cursor:pointer}
-.greset:hover{color:var(--accent);border-color:var(--accent)}
-/* node + link interaction states */
-.node{cursor:pointer}
-/* the inner <g class="ns"> is what scales; fill-box keeps the pivot on the node itself, not the SVG viewport */
-.ns{transform-box:fill-box;transform-origin:center;transition:transform .2s cubic-bezier(.2,.75,.25,1)}
-.node.hover .ns{transform:scale(1.1)}
-.node.sel  .ns{transform:scale(1.34)}                 /* selected node grows */
-.node.ncore.hover .ns{transform:scale(1.06)}
-.node.ncore.sel   .ns{transform:none}                 /* the centre 'Effortless' node keeps default size */
-.node.sel circle{stroke:var(--ink);stroke-width:2.5;filter:drop-shadow(0 0 8px color-mix(in srgb,var(--accent) 60%,transparent))}
-.node.hl circle{stroke:var(--ink);stroke-opacity:.5;stroke-width:2.5}
-.node.dim{opacity:.2}
-.node text{font-family:Vazirmatn,Tahoma,sans-serif;font-weight:700}
-html[data-lang="en"] .node text{font-family:Inter,sans-serif}
-.glink{transition:opacity .2s,stroke .2s}
-.glink.dim{opacity:.08}
-.glink.hl{stroke:var(--accent) !important;stroke-opacity:.8}
-/* detail panel */
-.detail{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;min-height:220px}
-@media(min-width:760px){.detail{max-height:480px;overflow:auto}}
-.detail .dkick{font-size:11.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;display:flex;align-items:center;gap:7px;color:var(--mut)}
-.detail .dkick i{width:10px;height:10px;border-radius:50%}
-.detail h4{margin:8px 0 3px;font-size:18px;font-weight:800}
-html[data-lang="en"] .detail h4{font-family:Newsreader,serif;font-weight:600}
-.detail .drow{margin:11px 0}
-.detail .dlab{font-size:10.5px;font-weight:800;color:var(--accent);letter-spacing:.5px;text-transform:uppercase;
-  display:inline-flex;align-items:center;gap:5px}
-.detail .drow.tip .dlab{color:var(--c-green)}
-.detail .drow.pit .dlab{color:var(--warm)}
-.detail .drow.more{border-inline-start:2px solid color-mix(in srgb,var(--accent) 32%,var(--line));padding-inline-start:11px}
-.detail .drow.more .dlab{color:var(--mut)}
-.detail .dtxt{font-size:13.6px;margin-top:3px}
-.dchips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
-.dchip{font-size:12px;border:1px solid var(--line);background:var(--card2);border-radius:16px;padding:4px 11px;
-  cursor:pointer;color:var(--ink);display:inline-flex;align-items:center;gap:6px;font-family:inherit}
-.dchip:hover{border-color:var(--accent);color:var(--accent)}
-.dchip i{width:8px;height:8px;border-radius:50%;flex:0 0 auto}
-
-/* ── CONCEPT MAP ──────────────────────────────────────────── */
-.mapgrid{display:grid;grid-template-columns:1fr;gap:14px}
-@media(min-width:820px){.mapgrid{grid-template-columns:repeat(3,1fr)}}
-.partcol{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:16px;position:relative}
-.partcol .ph{display:flex;align-items:center;gap:9px;margin-bottom:3px}
-.partcol .pdot{width:13px;height:13px;border-radius:50%;flex:0 0 auto}
-.partcol .pnum{font-size:11px;font-weight:800;color:var(--mut)}
-.partcol h4{margin:0;font-size:16.5px;font-weight:800}
-html[data-lang="en"] .partcol h4{font-family:Newsreader,serif;font-weight:600}
-.partcol .ptag{font-size:12px;color:var(--mut);margin:2px 0 4px;font-weight:700}
-.partcol .pgist{font-size:12.8px;color:var(--mut);margin:0 0 12px}
-.chapchip{display:flex;align-items:baseline;gap:8px;padding:7px 10px;border:1px solid var(--line);
-  border-radius:9px;margin:6px 0;background:var(--card2);font-size:13px}
-.chapchip .cn{font-size:11px;font-weight:800;color:var(--mut);flex:0 0 auto;font-variant-numeric:tabular-nums}
-.chapchip b{font-weight:700}
-.chapchip small{color:var(--mut);display:block;font-size:11.5px;line-height:1.5}
-.flowline{display:flex;align-items:center;justify-content:center;gap:10px;color:var(--mut);
-  font-size:12.5px;font-weight:700;margin:6px 0 2px;flex-wrap:wrap}
-.flowline .ar{color:var(--accent)}
-
-/* ── STAGE LADDER ─────────────────────────────────────────── */
-.ladder{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 4px}
-.rung{flex:1 1 150px;border:1px solid var(--line);background:var(--card);border-radius:11px;
-  padding:11px 13px;cursor:pointer;transition:transform .12s,border-color .12s;position:relative}
-.rung:hover{border-color:var(--accent);transform:translateY(-2px)}
-.rung.active{border-color:var(--accent);box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 35%,transparent)}
-.rung .lv{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.4px}
-.rung .lt{font-size:13.5px;font-weight:800;margin-top:2px}
-.rung .lbar{height:5px;border-radius:4px;background:var(--bg2);margin-top:9px;overflow:hidden}
-.rung .lbar i{display:block;height:100%;background:linear-gradient(90deg,var(--c-teal),var(--c-violet))}
-.stagecard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 24px;
-  margin:14px 0;box-shadow:var(--shadow)}
-.stagecard .shead{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-.stagecard .badge{font-size:12px;font-weight:800;color:#fff;background:var(--accent);
-  border-radius:8px;padding:4px 11px;white-space:nowrap}
-.stagecard h3{margin:0;font-size:21px;font-weight:800}
-html[data-lang="en"] .stagecard h3{font-family:Newsreader,serif;font-weight:600}
-.stagecard .tagline{color:var(--mut);font-size:13.5px;margin:4px 0 14px;font-weight:700}
-.stagecard .sbody{font-size:15px}
-.exbox{background:var(--card2);border:1px solid var(--line);border-inline-start:3px solid var(--accent);
-  border-radius:0 11px 11px 0;padding:13px 16px;margin:14px 0 6px}
-.exbox .exk{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.5px;text-transform:uppercase}
-.exbox .ext{font-size:13.8px;margin-top:3px}
-.gainrow{display:flex;align-items:flex-start;gap:9px;margin-top:12px;font-size:13px;color:var(--mut)}
-.gainrow .gi{flex:0 0 auto;color:var(--c-green);font-weight:800}
-.stagenav{display:flex;justify-content:space-between;gap:10px;margin-top:16px}
-.stagenav button{border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit;
-  font-size:13px;font-weight:700;border-radius:9px;padding:8px 14px;cursor:pointer}
-.stagenav button:hover:not(:disabled){border-color:var(--accent);color:var(--accent)}
-.stagenav button:disabled{opacity:.4;cursor:default}
-
-/* ── QUOTES ───────────────────────────────────────────────── */
-.qgrid{display:grid;grid-template-columns:1fr;gap:12px}
-@media(min-width:720px){.qgrid{grid-template-columns:1fr 1fr}}
-blockquote{margin:0;background:var(--card2);border-inline-start:3px solid var(--accent);
-  border-radius:0 12px 12px 0;padding:15px 18px;font-size:14.5px;position:relative}
-blockquote .qm{font-size:34px;line-height:0;color:var(--accent);opacity:.35;font-family:Georgia,serif;
-  position:absolute;inset-inline-start:10px;top:20px}
-blockquote p{margin:0;padding-inline-start:22px}
-html[data-lang="en"] blockquote{font-family:Newsreader,Georgia,serif;font-size:15.5px}
-
-/* ── MEDIA ────────────────────────────────────────────────── */
-.mgrid{display:grid;grid-template-columns:1fr;gap:16px}
-@media(min-width:640px){.mgrid{grid-template-columns:1fr 1fr}}
-.mcard{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;
-  box-shadow:var(--shadow);display:flex;flex-direction:column}
-.mthumb{position:relative;display:block;aspect-ratio:16/9;background:var(--bg2);overflow:hidden;text-decoration:none}
-.mthumb img{width:100%;height:100%;object-fit:cover;display:block}
-.mthumb .play{position:absolute;inset:0;display:grid;place-items:center}
-.mthumb .play span{width:54px;height:54px;border-radius:50%;background:rgba(0,0,0,.6);
-  display:grid;place-items:center;border:2px solid rgba(255,255,255,.9)}
-.mthumb .play svg{width:22px;height:22px;fill:#fff;margin-inline-start:3px}
-.mthumb .ptype{position:absolute;inset-inline-start:9px;top:9px;background:rgba(0,0,0,.72);color:#fff;
-  font-size:11px;font-weight:700;border-radius:6px;padding:3px 9px;letter-spacing:.3px}
-.mfake{aspect-ratio:16/9;display:grid;place-items:center;
-  background:linear-gradient(135deg,color-mix(in srgb,var(--c-violet) 22%,var(--card)),color-mix(in srgb,var(--c-teal) 22%,var(--card)))}
-.mfake svg{width:52px;height:52px;color:var(--ink);opacity:.6}
-.mbody{padding:15px 17px;display:flex;flex-direction:column;gap:7px;flex:1}
-.mbody .msrc{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.3px;text-transform:uppercase}
-.mbody h4{margin:0;font-size:15.5px;font-weight:800;line-height:1.4}
-html[data-lang="en"] .mbody h4{font-family:Newsreader,serif;font-weight:600}
-.mbody .mdesc{font-size:13px;color:var(--mut);margin:0}
-.mbody ul{margin:4px 0 0;padding-inline-start:18px}
-.mbody ul li{font-size:12.8px;margin:5px 0}
-.mbody .mbest{font-size:12px;font-weight:700;color:var(--warm);margin-top:auto;padding-top:8px}
-.mlink{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;
-  text-decoration:none;color:var(--accent);margin-top:4px}
-.mlink:hover{text-decoration:underline}
-.golist{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
-.golist a{font-size:12.5px;text-decoration:none;color:var(--ink);border:1px solid var(--line);
-  border-radius:20px;padding:6px 13px;background:var(--card);font-weight:700}
-.golist a:hover{border-color:var(--accent);color:var(--accent)}
-
-/* ── RECS + METHOD + CREDIT ───────────────────────────────── */
-.rec{display:grid;gap:10px;margin:8px 0}
-.rec .item{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--card)}
-.rec .item .t{font-weight:800;font-size:14.5px;margin-bottom:3px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.rec .item .t .pri{font-size:11px;font-weight:700;color:#fff;background:var(--warm);border-radius:6px;padding:2px 9px}
-.rec .item .t .pri.b{background:var(--accent)}
-.rec .item .d{font-size:13.4px;color:var(--mut)}
-.method{color:var(--mut);font-size:13.4px}
-.method p{margin:8px 0}
-.method b{color:var(--ink)}
-.credit{text-align:center;margin-top:40px;padding:22px 0 8px;border-top:1px solid var(--line);
-  color:var(--mut);font-size:14px}
-.credit .cname{color:var(--ink);font-weight:800}
-.credit a{font-weight:700;text-decoration:none}
-.credit a:hover{text-decoration:underline}
-.credit .sep{opacity:.5;margin:0 8px}
-.credit .li{display:inline-flex;align-items:center;gap:5px;vertical-align:middle}
-.credit .li svg{width:15px;height:15px;vertical-align:-3px}
-
-@media (max-width:640px){
-  body{font-size:14px}
-  .wrap{padding:0 13px 30px}
-  .hero{padding:28px 0 22px} .hero h1{font-size:22px}
-  h2{font-size:18px;scroll-margin-top:66px}
-  .brand{display:none}
-  .toc{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;scrollbar-width:none}
-  .toc::-webkit-scrollbar{display:none}
-  #netsvg{height:420px}
-}
-</style>
+<link rel="stylesheet" href="../assets/book.css">
 </head>
 <body>
+<div id="app"></div>
 
-<!-- ── HERO ───────────────────────────────────────────────── -->
-<header class="hero"><div class="wrap">
-  <div class="eyebrow"><span class="edot"></span>
-    <span data-only="en">Book knowledge map · William Zinsser</span>
-    <span data-only="fa">نقشهٔ کتاب · ویلیام زینسر</span>
-  </div>
-  <h1>
-    <span data-only="en">On Writing Well — The Classic Guide to Writing Nonfiction</span>
-    <span data-only="fa">خوب نوشتن — راهنمای کلاسیکِ نوشتنِ ناداستان</span>
-  </h1>
-  <p class="dek">
-    <span data-only="en">A knowledge graph of the whole book, plus a 5-stage path from a single sentence to expert-level mastery — with an example at every step.</span>
-    <span data-only="fa">نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از خیلی ساده تا حرفه‌ای — با یک مثال در هر مرحله.</span>
-  </p>
-  <div class="metastrip">
-    <div class="metaitem"><span class="mk" data-only="en">Book</span><span class="mk" data-only="fa">کتاب</span>
-      <span class="mv" data-only="en">On Writing Well</span><span class="mv" data-only="fa">خوب نوشتن</span></div>
-    <div class="metaitem"><span class="mk" data-only="en">Author</span><span class="mk" data-only="fa">نویسنده</span>
-      <span class="mv" data-only="en">William Zinsser</span><span class="mv" data-only="fa">ویلیام زینسر</span></div>
-    <div class="metaitem"><span class="mk" data-only="en">Published</span><span class="mk" data-only="fa">سالِ چاپ</span>
-      <span class="mv" data-only="en">1976</span><span class="mv" data-only="fa">۱۹۷۶</span></div>
-    <div class="metaitem"><span class="mk" data-only="en">Group</span><span class="mk" data-only="fa">گروه</span>
-      <span class="mv" data-only="en">Communication</span><span class="mv" data-only="fa">ارتباط</span></div>
-  </div>
-  <div class="chips">
-    <div class="chip"><b data-only="en">4</b><b data-only="fa">۴</b><span data-only="en">Parts</span><span data-only="fa">بخش</span></div>
-    <div class="chip"><b data-only="en">14</b><b data-only="fa">۱۴</b><span data-only="en">Ideas</span><span data-only="fa">ایده</span></div>
-    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Learning stages</span><span data-only="fa">مرحلهٔ یادگیری</span></div>
-  </div>
-</div></header>
-
-<!-- ── STICKY NAV ─────────────────────────────────────────── -->
-<div class="navbar"><div class="navin">
-  <span class="brand"><span class="dot"></span>On Writing Well</span>
-  <nav class="toc">
-    <a href="#tldr" data-only="en">In a nutshell</a><a href="#tldr" data-only="fa">خلاصه</a>
-    <a href="#graph" data-only="en">Knowledge graph</a><a href="#graph" data-only="fa">نقشهٔ دانش</a>
-    <a href="#stages" data-only="en">5 stages</a><a href="#stages" data-only="fa">۵ مرحله</a>
-    <a href="#quotes" data-only="en">Quotes</a><a href="#quotes" data-only="fa">جمله‌ها</a>
-    <a href="#media" data-only="en">Watch &amp; explore</a><a href="#media" data-only="fa">تماشا و منابع</a>
-    <a href="#apply" data-only="en">Apply it</a><a href="#apply" data-only="fa">کاربرد</a>
-  </nav>
-  <div class="navctl">
-    <button class="langbtn" id="langBtn" aria-label="Switch language">
-      <svg class="globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>
-      <span data-only="en">فارسی</span><span data-only="fa">English</span>
-    </button>
-    <button class="themebtn" id="themeBtn" aria-label="Toggle theme" title="Light / Dark">
-      <span class="ic-sun" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5 19 19M19 5l-1.5 1.5M6.5 17.5 5 19"/></svg></span>
-      <span class="ic-moon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.6 6.6 0 0 0 9.8 9.8Z"/></svg></span>
-    </button>
-  </div>
-</div></div>
-
-<div class="wrap">
-
-  <!-- ── TL;DR ────────────────────────────────────────────── -->
-  <h2 id="tldr"><span class="num" data-only="en">1.</span><span class="num" data-only="fa">۱.</span>
-    <span data-only="en"> In a nutshell</span><span data-only="fa"> خلاصه</span></h2>
-  <p class="sub" data-only="en">If you read only this, you still get the whole idea.</p>
-  <p class="sub" data-only="fa">اگر فقط همین بخش را بخوانی، کلِ ایده دستت می‌آید.</p>
-  <div class="card lead"><ul class="clean" id="tldrHost"></ul></div>
-  <div class="kgrid">
-    <div class="kbox"><div class="v" data-only="en">4</div><div class="v" data-only="fa">۴</div><div class="l" data-only="en">Parts (principles · methods · forms · attitudes)</div><div class="l" data-only="fa">بخش (اصول · روش‌ها · قالب‌ها · نگرش‌ها)</div></div>
-    <div class="kbox"><div class="v" data-only="en">14</div><div class="v" data-only="fa">۱۴</div><div class="l" data-only="en">Ideas you can use</div><div class="l" data-only="fa">ایده برای استفاده</div></div>
-    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Levels, simple → expert</div><div class="l" data-only="fa">مرحله، ساده تا حرفه‌ای</div></div>
-    <div class="kbox"><div class="v" data-only="en">4</div><div class="v" data-only="fa">۴</div><div class="l" data-only="en">Foundations: clear · simple · brief · human</div><div class="l" data-only="fa">پایه: روشن · ساده · کوتاه · انسانی</div></div>
-  </div>
-  
-  <div class="callout accent">
-    <b data-only="en">The core idea:</b>
-    <b data-only="fa">ایدهٔ اصلی:</b>
-    <span data-only="en"> Good writing is <i>clear, simple, brief</i> and <i>human</i>. Strip every sentence to its cleanest parts, fight clutter, and let your real voice show — clear writing comes from clear thinking and rewriting.</span>
-    <span data-only="fa"> نوشتهٔ خوب <i>روشن، ساده، کوتاه</i> و <i>انسانی</i> است. هر جمله را تا تمیزترین اجزایش کم کن، با زواید بجنگ، و بگذار صدای واقعی‌ات دیده شود — نوشتنِ روشن از فکرِ روشن و بازنویسی می‌آید.</span>
-  </div>
-
-  <!-- ── KNOWLEDGE GRAPH ──────────────────────────────────── -->
-  <h2 id="graph"><span class="num" data-only="en">2.</span><span class="num" data-only="fa">۲.</span>
-    <span data-only="en"> The knowledge graph</span><span data-only="fa"> نقشهٔ دانش</span></h2>
-  <p class="sub" data-only="en">The whole book as one picture. Click any node to focus its connections and read more — or switch to the structured map.</p>
-  <p class="sub" data-only="fa">کلِ کتاب در یک تصویر. روی هر دایره کلیک کن تا ارتباط‌هایش را ببینی و بیشتر بخوانی — یا به نقشهٔ مرتب برو.</p>
-
-  <div class="gtabs">
-    <button class="gtab active" id="tabNet"><span data-only="en">Interactive network</span><span data-only="fa">شبکهٔ تعاملی</span></button>
-    <button class="gtab" id="tabMap"><span data-only="en">Structured map</span><span data-only="fa">نقشهٔ مرتب</span></button>
-  </div>
-
-  <!-- network view -->
-  <div class="card graphcard" id="netView">
-    <div class="legend" id="legendHost"></div>
-    <div class="graphstage">
-      <div class="svgwrap">
-        <svg id="netsvg" viewBox="0 0 820 560" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Effortless knowledge network"></svg>
-        <div class="ghint" id="ghint"></div>
-        <button class="greset" id="greset"></button>
-      </div>
-      <div class="detail" id="detailHost"></div>
-    </div>
-  </div>
-
-  <!-- map view -->
-  <div class="card graphcard" id="mapView" style="display:none">
-    <div class="flowline" id="flowTop"></div>
-    <div class="mapgrid" id="mapHost"></div>
-    <div class="callout" style="margin-top:16px">
-      <b data-only="en">Read it as a flow:</b><b data-only="fa">به‌صورتِ یک جریان بخوانش:</b>
-      <span data-only="en"> get the <b>principles</b> right (clarity, cutting clutter), master the <b>methods</b> (unity, verbs, rewriting), adapt to the <b>forms</b>, and sustain the right <b>attitudes</b> — voice, enjoyment, standards.</span>
-      <span data-only="fa"> <b>اصول</b> را درست کن (شفافیت، حذفِ زواید)، <b>روش‌ها</b> را استاد شو (یکپارچگی، فعل، بازنویسی)، به <b>قالب‌ها</b> وفق بده، و <b>نگرش‌های</b> درست را نگه دار — صدا، لذت، استاندارد.</span>
-    </div>
-  </div>
-
-  <!-- ── 5 STAGES ─────────────────────────────────────────── -->
-  <h2 id="stages"><span class="num" data-only="en">3.</span><span class="num" data-only="fa">۳.</span>
-    <span data-only="en"> Learn it in 5 stages</span><span data-only="fa"> یادگیری در ۵ مرحله</span></h2>
-  <p class="sub" data-only="en">The same book at five depths. Start over-simplified, climb to expert. Tap a rung to jump.</p>
-  <p class="sub" data-only="fa">یک کتاب در پنج عمق. از خیلی ساده شروع کن و تا حرفه‌ای بالا برو. روی هر پله بزن تا بپری.</p>
-  <div class="ladder" id="ladderHost"></div>
-  <div id="stageHost"></div>
-
-  <!-- ── QUOTES ───────────────────────────────────────────── -->
-  <h2 id="quotes"><span class="num" data-only="en">4.</span><span class="num" data-only="fa">۴.</span>
-    <span data-only="en"> Lines worth keeping</span><span data-only="fa"> جمله‌هایی که ارزشِ نگه‌داشتن دارند</span></h2>
-  <p class="sub" data-only="en">Verbatim quotes from the book, translated alongside.</p>
-  <p class="sub" data-only="fa">جمله‌های مستقیم از کتاب، همراه با ترجمه.</p>
-  <div class="qgrid" id="quoteHost"></div>
-
-  <!-- ── MEDIA ────────────────────────────────────────────── -->
-  <h2 id="media"><span class="num" data-only="en">5.</span><span class="num" data-only="fa">۵.</span>
-    <span data-only="en"> Watch &amp; explore</span><span data-only="fa"> تماشا و منابع</span></h2>
-  <p class="sub" data-only="en">Special resources found online — each with what it covers and who it's best for.</p>
-  <p class="sub" data-only="fa">منابعِ ویژه‌ای که آنلاین پیدا شد — هرکدام با اینکه چه می‌گوید و به چه دردی می‌خورد.</p>
-  <div class="mgrid" id="mediaHost"></div>
-  <div class="card" style="margin-top:16px">
-    <div style="font-weight:800;font-size:13.5px;margin-bottom:4px">
-      <span data-only="en">Go straight to the source</span><span data-only="fa">مستقیم سراغِ منبع برو</span>
-    </div>
-    <div class="golist" id="goHost"></div>
-  </div>
-
-  <!-- ── APPLY ────────────────────────────────────────────── -->
-  <h2 id="apply"><span class="num" data-only="en">6.</span><span class="num" data-only="fa">۶.</span>
-    <span data-only="en"> Apply it this week</span><span data-only="fa"> این هفته امتحانش کن</span></h2>
-  <p class="sub" data-only="en">Four small moves that turn the idea into a habit.</p>
-  <p class="sub" data-only="fa">چهار حرکتِ کوچک که این ایده را به عادت تبدیل می‌کنند.</p>
-  <div class="rec" id="recHost"></div>
-
-  <!-- ── METHOD ───────────────────────────────────────────── -->
-  <h2 id="method"><span class="num" data-only="en">7.</span><span class="num" data-only="fa">۷.</span>
-    <span data-only="en"> Sources &amp; notes</span><span data-only="fa"> منابع و توضیح</span></h2>
-  <div class="card method" id="methodHost"></div>
-
-  <!-- ── CREDIT FOOTER ────────────────────────────────────── -->
-  <div class="credit">
-    <span data-only="en">Created by <span class="cname">Behnam Atefi</span><span class="sep">·</span><a class="li" href="https://www.linkedin.com/in/behnamatefi/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.3c0-1.26-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9z"/></svg>LinkedIn</a></span>
-    <span data-only="fa">ساخته‌شده توسط <span class="cname">بهنام عاطفی</span><span class="sep">·</span><a class="li" href="https://www.linkedin.com/in/behnamatefi/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.3c0-1.26-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9z"/></svg>لینکدین</a></span>
-  </div>
-</div>
-
-<!-- ═══════════════════════ SCRIPTS ═══════════════════════ -->
+<script src="../assets/library.js"></script>
+<script src="../assets/book.js"></script>
 <script>
-/* ── 1) language + formatters ─────────────────────────────── */
-var LANG = document.documentElement.getAttribute('data-lang') || 'fa';
-var FA_D = '۰۱۲۳۴۵۶۷۸۹';
-var RLM  = '‏';
-function faDigits(s){ return String(s).replace(/[0-9]/g, function(d){ return FA_D[+d]; }); }
-/* honor the RTL preference: isolate Latin runs (word order preserved) and mark with U+200F */
-function rlm(s){
-  return String(s)
-    .replace(/[A-Za-zÀ-ɏ][A-Za-zÀ-ɏ0-9'’.&:\/\-]*(?:\s+[A-Za-zÀ-ɏ0-9'’.&:\/\-]+)*/g,
-      function(m){ return RLM+'⁦'+m+'⁩'+RLM; })
-    .replace(/[0-9۰-۹]+/g, function(m){ return m+RLM; });
-}
-/* transform only TEXT segments, never HTML tags (so <b>/<i> survive) */
-function faText(s){ return String(s).replace(/(<[^>]+>)|([^<]+)/g, function(m,tag,txt){ return tag ? tag : faDigits(rlm(txt)); }); }
-function TX(o){ if(o==null) return ''; if(typeof o==='string') return o; return LANG==='fa' ? faText(o.fa) : o.en; }
-function num(n){ return LANG==='fa' ? faDigits(n) : String(n); }
-function tok(name){ return getComputedStyle(document.documentElement).getPropertyValue(name).trim(); }
-</script>
-
-<script>
-/* ── DATA LAYER — Atomic Habits (bilingual, plain-spoken Persian) ── */
-var DATA = {"tldr":[{"en":"The whole book in one line: write clearly by stripping every sentence to its cleanest components.","fa":"خلاصهٔ کل کتاب در یک جمله: روشن بنویس، با کم‌کردنِ هر جمله تا تمیزترین اجزایش."},{"en":"Four foundations run through everything: <b>clarity, simplicity, brevity</b>, and <b>humanity</b>.","fa":"چهار پایه در همه‌چیز جاری‌اند: <b>شفافیت، سادگی، کوتاهی</b>، و <b>انسانیت</b>."},{"en":"<b>Clutter</b> is the enemy — jargon and padding — and rewriting is where you defeat it.","fa":"<b>زواید</b> دشمن است — اصطلاحات و پُرکردن — و بازنویسی همان‌جایی است که شکستش می‌دهی."},{"en":"Master the methods: unity, a strong lead and ending, active verbs, and ruthless rewriting.","fa":"روش‌ها را استاد شو: یکپارچگی، شروع و پایانِ قوی، فعل‌های فعال، و بازنویسیِ بی‌رحم."},{"en":"Then let warmth show: find your voice, enjoy the subject, and write as well as you can — every time.","fa":"بعد بگذار گرما دیده شود: صدایت را پیدا کن، از موضوع لذت ببر، و تا می‌توانی خوب بنویس — هر بار."}],"parts":[{"key":"principles","varc":"--c-teal","name":{"en":"Principles","fa":"اصول"},"tag":{"en":"The foundations","fa":"پایه‌ها"},"gist":{"en":"Clarity, simplicity, and cutting clutter — the non-negotiables.","fa":"شفافیت، سادگی، و حذفِ زواید — اصولِ غیرقابل‌مذاکره."},"more":{"en":"Everything else rests on these. Most bad writing isn't wrong, it's cluttered: too many words, too much jargon, too little courage to be plain. Fix that first.","fa":"بقیهٔ همه‌چیز روی این‌ها بنا شده. بیشترِ نوشتهٔ بد غلط نیست، شلوغ است: کلماتِ زیادی، اصطلاحاتِ زیاد، و جرئتِ کمِ ساده‌بودن. اول همین را درست کن."},"chapters":["simplicity","clutter","style","audience"]},{"key":"methods","varc":"--c-blue","name":{"en":"Methods","fa":"روش‌ها"},"tag":{"en":"The craft","fa":"صنعتِ کار"},"gist":{"en":"Unity, strong leads and endings, active verbs, and rewriting.","fa":"یکپارچگی، شروع و پایانِ قوی، فعل‌های فعال، و بازنویسی."},"more":{"en":"Principles tell you what good writing is; methods are how you build it. The single most important one is rewriting — the first draft is only where you find out what you're trying to say.","fa":"اصول به تو می‌گویند نوشتهٔ خوب چیست؛ روش‌ها می‌گویند چطور بسازی‌اش. مهم‌ترینشان بازنویسی است — پیش‌نویسِ اول فقط جایی است که می‌فهمی می‌خواهی چه بگویی."},"chapters":["unity","leadend","verbs","rewrite"]},{"key":"forms","varc":"--c-amber","name":{"en":"Forms","fa":"قالب‌ها"},"tag":{"en":"Apply it","fa":"به‌کارگیری"},"gist":{"en":"How to write about people, places, and yourself.","fa":"چطور دربارهٔ آدم‌ها، مکان‌ها، و خودت بنویسی."},"more":{"en":"The same principles bend to fit any genre. Across interviews, travel and memoir, the rule repeats: find the human being and the specific, telling detail — that's what brings nonfiction to life.","fa":"همان اصول خم می‌شوند تا به هر قالبی بخورند. در مصاحبه، سفر و خاطره، یک قاعده تکرار می‌شود: آدم و آن جزئیاتِ مشخص و گویا را پیدا کن — همین است که ناداستان را زنده می‌کند."},"chapters":["people","places","yourself"]},{"key":"attitudes","varc":"--c-violet","name":{"en":"Attitudes","fa":"نگرش‌ها"},"tag":{"en":"The mindset","fa":"طرزِ فکر"},"gist":{"en":"Voice, confidence, enjoyment, and the will to do your best.","fa":"صدا، اعتماد، لذت، و ارادهٔ بهترین‌بودن."},"more":{"en":"Craft can be taught; attitude is what sustains it. Confidence and evident enjoyment travel straight from the page to the reader — and holding yourself to a high standard on every job is what makes a writer.","fa":"صنعت را می‌شود آموزش داد؛ نگرش همان چیزی است که نگهش می‌دارد. اعتماد و لذتِ آشکار مستقیم از صفحه به خواننده می‌رسند — و پایبندی به یک استانداردِ بالا در هر کار، همان چیزی است که یک نویسنده می‌سازد."},"chapters":["voice","enjoyment","best"]}],"chapters":{"simplicity":{"part":"principles","n":1,"name":{"en":"Simplicity","fa":"سادگی"},"glabel":{"en":"Simplicity","fa":"سادگی"},"principle":{"en":"Strip every sentence to its cleanest components; if a word does no work, cut it.","fa":"هر جمله را تا تمیزترین اجزایش کم کن؛ اگر کلمه‌ای کاری نمی‌کند، حذفش کن."},"more":{"en":"The clearest writing is the simplest. Short words, plain sentences, and one idea at a time carry more meaning than any fancy construction — and they cost the reader far less effort.","fa":"روشن‌ترین نوشته، ساده‌ترین است. کلماتِ کوتاه، جمله‌های ساده، و هر بار یک ایده، بیشتر از هر ساختارِ پُرزرق‌ومعنا می‌رسانند — و برای خواننده خیلی کم‌زحمت‌ترند."},"example":{"en":"Prefer 'now' to 'at the present time', and 'buy' to 'make a purchase'.","fa":"«حالا» را به «در حالِ حاضر» ترجیح بده، و «بخر» را به «اقدام به خرید کن»."},"tip":{"en":"Reread your draft and delete every word the sentence doesn't need.","fa":"پیش‌نویست را دوباره بخوان و هر کلمه‌ای که جمله لازمش ندارد را حذف کن."},"pitfall":{"en":"Padding and wordiness that bury the meaning.","fa":"پُرکردن و زیاده‌گویی که معنا را دفن می‌کند."}},"clutter":{"part":"principles","n":2,"name":{"en":"Cut the Clutter","fa":"حذفِ زواید"},"glabel":{"en":"Clutter","fa":"زواید"},"principle":{"en":"Clutter — jargon, euphemism, pompous frills — is the disease of writing; hunt it in every line.","fa":"زواید — اصطلاحاتِ تخصصی، حسن‌تعبیر، تزئیناتِ پُرطمطراق — بیماریِ نوشتن است؛ در هر خط شکارش کن."},"more":{"en":"We inflate to sound important, and the reader pays with confusion. Fighting clutter is like fighting weeds — you're always a little behind — so keep pruning.","fa":"برای مهم‌جلوه‌کردن باد می‌کنیم، و خواننده با سردرگمی تاوانش را می‌دهد. جنگ با زواید مثلِ جنگ با علفِ هرز است — همیشه کمی عقبی — پس مدام هَرَس کن."},"example":{"en":"'Experiencing significant pain' is just 'hurts' — cut back to the plain word.","fa":"«در حالِ تجربهٔ دردِ قابلِ‌توجه» فقط یعنی «درد می‌کند» — به همان کلمهٔ ساده برگرد."},"tip":{"en":"Bracket every word you could remove, then remove most of them.","fa":"هر کلمه‌ای که می‌شود برداشت را داخلِ قلاب بگذار، بعد بیشترشان را بردار."},"pitfall":{"en":"Using long words and buzzwords to sound impressive.","fa":"استفاده از کلماتِ بلند و مُدروز برای تأثیرگذار جلوه‌کردن."}},"style":{"part":"principles","n":3,"name":{"en":"Style Is Being Yourself","fa":"سبک یعنی خودت‌بودن"},"glabel":{"en":"Style","fa":"سبک"},"principle":{"en":"Style grows out of clarity and from being yourself — not from decoration added on top.","fa":"سبک از شفافیت و از خودت‌بودن می‌روید — نه از تزئیناتی که رویش می‌گذاری."},"more":{"en":"You can't add personality by dressing plain sentences in costume. Warmth comes through when you write plainly, in your own voice; the more you try to 'sound like a writer', the less like yourself you sound.","fa":"با پوشاندنِ جمله‌های ساده در لباسِ فاخر نمی‌توانی شخصیت اضافه کنی. گرما وقتی می‌آید که ساده و با صدای خودت بنویسی؛ هرچه بیشتر بخواهی «مثلِ یک نویسنده به‌نظر برسی»، کمتر شبیهِ خودت می‌شوی."},"example":{"en":"A plain 'I think' beats a stiff 'it is the opinion of this writer that'.","fa":"«فکر می‌کنم»ِ ساده از «نظرِ این نگارنده بر آن است که»ِ خشک بهتر است."},"tip":{"en":"Write the sentence the way you'd say it to a friend, then tidy it.","fa":"جمله را همان‌طور بنویس که به یک دوست می‌گویی، بعد مرتبش کن."},"pitfall":{"en":"Imitating a 'literary' voice that isn't your own.","fa":"تقلیدِ یک صدای «ادبی» که مالِ تو نیست."}},"audience":{"part":"principles","n":4,"name":{"en":"Write for Yourself","fa":"برای خودت بنویس"},"glabel":{"en":"Audience","fa":"مخاطب"},"principle":{"en":"Write to please yourself and to master the craft — don't chase a faceless mass audience.","fa":"برای رضایتِ خودت و برای تسلط بر صنعتِ کار بنویس — دنبالِ یک مخاطبِ تودهٔ بی‌چهره نرو."},"more":{"en":"You are the one reader you can truly know. Care about the craft and trust that readers who share your taste will follow; pandering to everyone drains the voice that made the writing worth reading.","fa":"تو تنها خواننده‌ای هستی که واقعاً می‌شناسی‌اش. به صنعتِ کار اهمیت بده و اعتماد کن که خواننده‌هایی با ذائقهٔ تو دنبال می‌کنند؛ خودشیرینی برای همه، همان صدایی را می‌خشکاند که نوشته را ارزشِ خواندن کرده بود."},"example":{"en":"Zinsser's own rule: 'You are writing for yourself' — every reader is a different person anyway.","fa":"قاعدهٔ خودِ زینسر: «تو برای خودت می‌نویسی» — به‌هرحال هر خواننده یک آدمِ متفاوت است."},"tip":{"en":"Write the piece you'd want to read; stop trying to please everyone.","fa":"همان نوشته‌ای را بنویس که خودت دوست داری بخوانی؛ دست از راضی‌کردنِ همه بردار."},"pitfall":{"en":"Second-guessing a faceless crowd until your voice disappears.","fa":"آن‌قدر گمانه‌زنی دربارهٔ یک جمعیتِ بی‌چهره تا صدایت محو شود."}},"unity":{"part":"methods","n":5,"name":{"en":"Choose Unity","fa":"یکپارچگی را انتخاب کن"},"glabel":{"en":"Unity","fa":"یکپارچگی"},"principle":{"en":"Pick one tense, one point of view, one mood, and hold them steady through the piece.","fa":"یک زمان، یک زاویهٔ دید، یک لحن را انتخاب کن و در کلِ نوشته ثابت نگهشان دار."},"more":{"en":"Unity is what keeps the reader oriented. Decide up front whether you're 'I', 'you' or 'we', past or present, formal or casual — then don't drift, because every unexplained shift quietly confuses.","fa":"یکپارچگی همان چیزی است که خواننده را سرِ جهت نگه می‌دارد. از اول تصمیم بگیر «من»ی، «تو»یی یا «ما»یی، گذشته یا حال، رسمی یا خودمانی — بعد منحرف نشو، چون هر تغییرِ بی‌توضیح، بی‌سروصدا گیج می‌کند."},"example":{"en":"Don't open in past tense and slide into present midway; pick one and stay.","fa":"با زمانِ گذشته شروع نکن و وسطِ راه به حال نلغز؛ یکی را انتخاب کن و بمان."},"tip":{"en":"Before drafting, decide your tense, person, and tone in one line.","fa":"قبل از نوشتن، زمان، شخص و لحنت را در یک خط تعیین کن."},"pitfall":{"en":"Jarring shifts of voice or tense that unsettle the reader.","fa":"تغییرهای ناگهانیِ صدا یا زمان که خواننده را به‌هم می‌ریزند."}},"leadend":{"part":"methods","n":6,"name":{"en":"The Lead & the Ending","fa":"شروع و پایان"},"glabel":{"en":"Lead & End","fa":"شروع و پایان"},"principle":{"en":"The first sentence must seize the reader; the ending should snap shut, often with a surprise.","fa":"جملهٔ اول باید خواننده را بگیرد؛ پایان باید ناگهان بسته شود، اغلب با یک غافلگیری."},"more":{"en":"The lead earns the second sentence, which earns the third. The ending should stop the moment the job is done — a strong quote or a clean turn, never a droning summary that keeps going after the reader has arrived.","fa":"شروع، جملهٔ دوم را حق می‌کند، و دومی سومی را. پایان باید همان لحظه‌ای بایستد که کار تمام شده — یک نقلِ‌قولِ قوی یا یک چرخشِ تمیز، نه یک خلاصهٔ یک‌نواخت که بعد از رسیدنِ خواننده هم ادامه دارد."},"example":{"en":"Open with one provocative fact the reader can't walk away from; end on a line that turns.","fa":"با یک واقعیتِ محرک شروع کن که خواننده نتواند رهایش کند؛ با خطی که می‌چرخد تمام کن."},"tip":{"en":"Cut your first paragraph and your last; often the piece is better.","fa":"پاراگرافِ اول و آخرت را حذف کن؛ اغلب نوشته بهتر می‌شود."},"pitfall":{"en":"A slow warm-up opening and an ending that won't stop.","fa":"یک شروعِ کُندِ گرم‌کننده و پایانی که تمام نمی‌شود."}},"verbs":{"part":"methods","n":7,"name":{"en":"Use Active Verbs","fa":"فعلِ فعال به کار ببر"},"glabel":{"en":"Verbs","fa":"فعل‌ها"},"principle":{"en":"Verbs are your strongest tool; use active ones and distrust adverbs, adjectives and qualifiers.","fa":"فعل، قوی‌ترین ابزارِ توست؛ فعلِ فعال به کار ببر و به قید و صفت و تعدیل‌کننده‌ها بدبین باش."},"more":{"en":"Active verbs push a sentence forward and give it momentum. Words like 'very', 'little', and 'sort of' usually signal a weak verb underneath — replace the verb, don't prop it up.","fa":"فعلِ فعال جمله را جلو می‌راند و به آن شتاب می‌دهد. کلماتی مثلِ «خیلی»، «کمی» و «یه‌جورایی» معمولاً نشانهٔ یک فعلِ ضعیف در زیرند — فعل را عوض کن، نه اینکه زیرِ بغلش را بگیری."},"example":{"en":"'Be confused. Be tired.' beats 'a bit confused and sort of tired.'","fa":"«گیج باش. خسته باش.» از «یه‌کم گیج و یه‌جورایی خسته» بهتر است."},"tip":{"en":"Find the strongest verb in each sentence; if it's weak, upgrade it.","fa":"قوی‌ترین فعلِ هر جمله را پیدا کن؛ اگر ضعیف است، ارتقایش بده."},"pitfall":{"en":"Weak passive verbs propped up by piles of modifiers.","fa":"فعل‌های مجهولِ ضعیف که با تلنباری از تعدیل‌کننده سرِپا نگه داشته شده‌اند."}},"rewrite":{"part":"methods","n":8,"name":{"en":"Rewrite, Rewrite","fa":"بازنویسی کن، بازنویسی"},"glabel":{"en":"Rewrite","fa":"بازنویسی"},"principle":{"en":"Rewriting is the essence of writing well — most first drafts can be cut by half.","fa":"بازنویسی، جوهرِ خوب‌نوشتن است — بیشترِ پیش‌نویس‌های اول را می‌شود نصف کرد."},"more":{"en":"Few sentences come out right the first time. The real work is trimming, tightening and reordering until only the essential remains; the writer who thinks the first draft is finished stops just before the writing gets good.","fa":"کمتر جمله‌ای بارِ اول درست از آب درمی‌آید. کارِ اصلی، کوتاه‌کردن، فشرده‌کردن و مرتب‌کردنِ دوباره است تا فقط ضروری بماند؛ نویسنده‌ای که فکر می‌کند پیش‌نویسِ اول تمام است، درست قبل از اینکه نوشته خوب شود دست می‌کشد."},"example":{"en":"Take a finished draft and cut it by a third; it almost always reads better.","fa":"یک پیش‌نویسِ تمام‌شده را بردار و یک‌سومش را حذف کن؛ تقریباً همیشه بهتر خوانده می‌شود."},"tip":{"en":"Treat the first draft as raw material, never as the final piece.","fa":"پیش‌نویسِ اول را مادهٔ خام بدان، نه هیچ‌وقت نوشتهٔ نهایی."},"pitfall":{"en":"Treating the first draft as finished.","fa":"پیش‌نویسِ اول را تمام‌شده پنداشتن."}},"people":{"part":"forms","n":9,"name":{"en":"Write About People","fa":"دربارهٔ آدم‌ها بنویس"},"glabel":{"en":"People","fa":"آدم‌ها"},"principle":{"en":"People and their own words bring nonfiction to life — get someone talking and quote them.","fa":"آدم‌ها و کلماتِ خودشان، ناداستان را زنده می‌کنند — کسی را به حرف بیاور و از او نقلِ‌قول بیاور."},"more":{"en":"Abstract writing goes dead; a real person speaking makes it breathe. Build a piece around someone's voice rather than your paraphrase, and readers lean in.","fa":"نوشتهٔ انتزاعی می‌میرد؛ یک آدمِ واقعی که حرف می‌زند، نفَسش می‌دهد. نوشته را دورِ صدای یک نفر بساز، نه دورِ بازگوییِ خودت، تا خواننده جلو بیاید."},"example":{"en":"An article built on a nurse's own quotes beats one that only describes the hospital.","fa":"مقاله‌ای که روی نقلِ‌قول‌های خودِ یک پرستار ساخته شده، از مقاله‌ای که فقط بیمارستان را توصیف می‌کند بهتر است."},"tip":{"en":"In your next piece, let a real person's words carry a key point.","fa":"در نوشتهٔ بعدی‌ات، بگذار کلماتِ یک آدمِ واقعی یک نکتهٔ کلیدی را حمل کند."},"pitfall":{"en":"Dry, abstract writing with no human voice in it.","fa":"نوشتهٔ خشک و انتزاعی که هیچ صدای انسانی در آن نیست."}},"places":{"part":"forms","n":10,"name":{"en":"Write About Places","fa":"دربارهٔ مکان‌ها بنویس"},"glabel":{"en":"Places","fa":"مکان‌ها"},"principle":{"en":"Report the one specific, telling detail — and resist the picturesque cliché.","fa":"همان یک جزئیاتِ مشخص و گویا را گزارش کن — و در برابرِ کلیشهٔ خوش‌منظره مقاومت کن."},"more":{"en":"'Charming', 'quaint', 'breathtaking' tell the reader nothing. One exact, observed detail puts them in the place better than a paragraph of scenery adjectives.","fa":"«دلنشین»، «بامزه»، «نفس‌گیر» هیچ به خواننده نمی‌گویند. یک جزئیاتِ دقیق و دیده‌شده، بهتر از یک پاراگراف صفتِ منظره، خواننده را در آن مکان می‌نشاند."},"example":{"en":"Not 'a charming café' but 'a café where the waiter knew every regular's order'.","fa":"نه «یک کافهٔ دلنشین» بلکه «کافه‌ای که پیش‌خدمتش سفارشِ هر مشتریِ همیشگی را از بر بود»."},"tip":{"en":"Replace one travel adjective with one concrete, observed detail.","fa":"یک صفتِ سفرنامه‌ای را با یک جزئیاتِ ملموس و دیده‌شده عوض کن."},"pitfall":{"en":"Clichéd travel-brochure adjectives and secondhand scenery.","fa":"صفت‌های کلیشه‌ایِ بروشورِ سفر و منظره‌های دستِ‌دوم."}},"yourself":{"part":"forms","n":11,"name":{"en":"Write About Yourself","fa":"دربارهٔ خودت بنویس"},"glabel":{"en":"Yourself","fa":"خودت"},"principle":{"en":"Write about yourself with candor and warmth — your own life is your best material.","fa":"دربارهٔ خودت با صداقت و گرما بنویس — زندگیِ خودت بهترین مصالحِ توست."},"more":{"en":"The memoir works when the writer stops hiding. Told in a genuine voice, family and personal history become universal; hedged and self-conscious, it stays flat.","fa":"خاطره وقتی جواب می‌دهد که نویسنده دست از پنهان‌شدن بردارد. با یک صدای صادق که گفته شود، تاریخِ خانوادگی و شخصی جهان‌شمول می‌شود؛ محتاط و خودآگاه، صاف و بی‌روح می‌ماند."},"example":{"en":"A memoir that admits real fear and doubt moves us more than a polished highlight reel.","fa":"خاطره‌ای که به ترس و تردیدِ واقعی اعتراف می‌کند، بیشتر از یک نمایشِ صیقلیِ لحظه‌های خوب تکانمان می‌دهد."},"tip":{"en":"Write one true, slightly uncomfortable memory in your own plain voice.","fa":"یک خاطرهٔ واقعی و کمی ناراحت‌کننده را با صدای سادهٔ خودت بنویس."},"pitfall":{"en":"Self-conscious hedging that hides the real person.","fa":"احتیاط‌کاریِ خودآگاه که آدمِ واقعی را پنهان می‌کند."}},"voice":{"part":"attitudes","n":12,"name":{"en":"Find Your Voice","fa":"صدایت را پیدا کن"},"glabel":{"en":"Voice","fa":"صدا"},"principle":{"en":"Develop a consistent, personal voice — write the way you naturally speak, only better.","fa":"یک صدای شخصی و یک‌دست بپروران — همان‌طور بنویس که طبیعی حرف می‌زنی، فقط بهتر."},"more":{"en":"Voice is what makes a reader trust and enjoy you. Read your prose aloud to hear its rhythm and catch the false, institutional notes that don't sound like a human being.","fa":"صدا همان چیزی است که خواننده به‌خاطرش به تو اعتماد و از تو لذت می‌برد. نوشته‌ات را بلند بخوان تا ریتمش را بشنوی و آن نت‌های دروغین و اداری را که شبیهِ یک انسان نیستند بگیری."},"example":{"en":"Reading aloud reveals the stiff sentence you'd never actually say out loud.","fa":"بلندخواندن، همان جملهٔ خشکی را لو می‌دهد که هیچ‌وقت واقعاً به زبان نمی‌آوری."},"tip":{"en":"Read today's draft out loud and fix whatever you'd never say.","fa":"پیش‌نویسِ امروز را بلند بخوان و هرچه را هیچ‌وقت نمی‌گویی درست کن."},"pitfall":{"en":"A flat, institutional tone with no human behind it.","fa":"یک لحنِ صاف و اداری که هیچ انسانی پشتش نیست."}},"enjoyment":{"part":"attitudes","n":13,"name":{"en":"Enjoyment & Confidence","fa":"لذت و اعتماد"},"glabel":{"en":"Enjoyment","fa":"لذت"},"principle":{"en":"Confidence and evident enjoyment transmit straight to the reader — so write what you care about.","fa":"اعتماد و لذتِ آشکار، مستقیم به خواننده منتقل می‌شوند — پس دربارهٔ چیزی بنویس که برایت مهم است."},"more":{"en":"When you enjoy the subject, the pleasure shows and pulls the reader along; when you write from fear, the hedging shows too. Interest is contagious in both directions.","fa":"وقتی از موضوع لذت می‌بری، آن لذت دیده می‌شود و خواننده را با خود می‌کشد؛ وقتی از سرِ ترس می‌نویسی، آن احتیاط هم دیده می‌شود. علاقه در هر دو جهت مسری است."},"example":{"en":"A piece by someone who loves their subject reads warm; a dutiful one reads cold.","fa":"نوشتهٔ کسی که موضوعش را دوست دارد گرم خوانده می‌شود؛ نوشتهٔ از سرِ وظیفه، سرد."},"tip":{"en":"Pick subjects you genuinely care about; the enjoyment carries.","fa":"موضوع‌هایی را انتخاب کن که واقعاً برایت مهم‌اند؛ لذتش خودش را می‌رساند."},"pitfall":{"en":"Timid, hedged writing driven by fear of being wrong.","fa":"نوشتهٔ ترسو و محتاط که از ترسِ اشتباه‌کردن می‌آید."}},"best":{"part":"attitudes","n":14,"name":{"en":"Write as Well as You Can","fa":"تا می‌توانی خوب بنویس"},"glabel":{"en":"Do your best","fa":"بهترینت"},"principle":{"en":"Hold yourself to your highest standard on every job, however humble.","fa":"در هر کار، هرچقدر هم ساده، خودت را به بالاترین استانداردت پایبند بدار."},"more":{"en":"Taste and standards are a decision, not a talent. Even a routine assignment deserves real craftsmanship; settle for 'good enough' a few times and you quietly lose the standard that made you good.","fa":"ذائقه و استاندارد یک تصمیم است، نه استعداد. حتی یک کارِ روزمره هم شایستهٔ صنعتگریِ واقعی است؛ چند بار به «به‌اندازهٔ کافی خوب» رضایت بده، و بی‌سروصدا همان استانداردی را از دست می‌دهی که خوبت کرده بود."},"example":{"en":"Give the same care to a short email as to an essay; the habit shows everywhere.","fa":"همان دقتی را که به یک جستار می‌دهی، به یک ایمیلِ کوتاه هم بده؛ این عادت همه‌جا خودش را نشان می‌دهد."},"tip":{"en":"Do the small, unglamorous piece as well as you possibly can.","fa":"همان کارِ کوچک و بی‌زرق‌وبرق را تا جایی که می‌توانی خوب انجام بده."},"pitfall":{"en":"Settling for 'good enough' until your standards erode.","fa":"رضایت به «به‌اندازهٔ کافی خوب» تا وقتی استانداردهایت فرو بریزند."}}},"core":{"name":{"en":"CLARITY","fa":"شفافیت"},"principle":{"en":"Good nonfiction is clear, simple, brief and human. Strip every sentence to its cleanest components, respect the reader's time, and let your real self show — because clear writing comes from clear thinking and relentless rewriting.","fa":"ناداستانِ خوب، روشن، ساده، کوتاه و انسانی است. هر جمله را تا تمیزترین اجزایش کم کن، به وقتِ خواننده احترام بگذار، و بگذار خودِ واقعی‌ات دیده شود — چون نوشتنِ روشن از فکرِ روشن و بازنویسیِ بی‌امان می‌آید."},"more":{"en":"Zinsser organizes the craft into four parts — Principles (clarity, simplicity, cutting clutter), Methods (unity, leads and endings, strong verbs, rewriting), Forms (writing about people, places, yourself), and Attitudes (voice, confidence, enjoyment). The thread through all of it: warmth and humanity survive only after the clutter is gone.","fa":"زینسر این صنعت را در چهار بخش می‌چیند — اصول (شفافیت، سادگی، حذفِ زواید)، روش‌ها (یکپارچگی، شروع و پایان، فعل‌های قوی، بازنویسی)، قالب‌ها (نوشتن دربارهٔ آدم‌ها، مکان‌ها، خودت)، و نگرش‌ها (صدا، اعتماد، لذت). نخِ رابطِ همه‌شان: گرما و انسانیت فقط بعد از رفتنِ زواید می‌مانند."},"example":{"en":"Click any node to read a principle or a method. You can also drag the nodes around.","fa":"روی هر دایره کلیک کن تا یک اصل یا روش را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."}},"stages":[{"level":1,"badge":{"en":"Level 1 · Over-simplified","fa":"سطحِ ۱ · خیلی ساده"},"title":{"en":"Cut the fat","fa":"چربی را بگیر"},"tagline":{"en":"The whole book in a sentence.","fa":"کلِ کتاب در یک جمله."},"body":{"en":"Good writing is clear writing, and clear writing is lean. Say what you mean in the fewest, plainest words — then delete the ones you didn't need.","fa":"نوشتهٔ خوب یعنی نوشتهٔ روشن، و نوشتهٔ روشن یعنی کم‌چربی. منظورت را با کمترین و ساده‌ترین کلمات بگو — بعد آن‌هایی را که لازم نداشتی حذف کن."},"example":{"en":"'At this point in time' is just 'now'. Make that swap a hundred times.","fa":"«در این برهه از زمان» فقط یعنی «حالا». این جایگزینی را صد بار انجام بده."},"gain":{"en":"You hold the single rule the whole book expands on.","fa":"همان یک قاعده‌ای را داری که کلِ کتاب بسطش می‌دهد."}},{"level":2,"badge":{"en":"Level 2 · Simple","fa":"سطحِ ۲ · ساده"},"title":{"en":"Four foundations","fa":"چهار پایه"},"tagline":{"en":"Clarity, simplicity, brevity, humanity.","fa":"شفافیت، سادگی، کوتاهی، انسانیت."},"body":{"en":"Every good sentence rests on four things: it's <b>clear</b>, it's <b>simple</b>, it's <b>brief</b>, and it keeps its <b>humanity</b>. Your main job is to hunt <b>clutter</b> — the jargon and padding that smother all four.","fa":"هر جملهٔ خوب روی چهار چیز بنا شده: <b>روشن</b> است، <b>ساده</b> است، <b>کوتاه</b> است، و <b>انسانیتش</b> را حفظ می‌کند. کارِ اصلی‌ات شکارِ <b>زواید</b> است — اصطلاحات و پُرکردنی که هر چهار را خفه می‌کند."},"example":{"en":"Turn 'we utilized' into 'we used', and 'in order to' into 'to'.","fa":"«ما بهره‌برداری کردیم» را به «ما استفاده کردیم»، و «به‌منظورِ» را به «برای» تبدیل کن."},"gain":{"en":"You can spot and cut clutter in any sentence.","fa":"می‌توانی زواید را در هر جمله ببینی و حذف کنی."}},{"level":3,"badge":{"en":"Level 3 · Balanced","fa":"سطحِ ۳ · متعادل"},"title":{"en":"Build it well","fa":"خوب بسازش"},"tagline":{"en":"Unity, leads, verbs, rewriting.","fa":"یکپارچگی، شروع، فعل، بازنویسی."},"body":{"en":"Now the methods. Hold <b>unity</b> of tense and voice. Open with a <b>lead</b> that grabs and close with an <b>ending</b> that snaps shut. Lean on <b>active verbs</b>. And above all, <b>rewrite</b> — the first draft is where you find out what you mean; the rewrite is where you say it.","fa":"حالا روش‌ها. <b>یکپارچگیِ</b> زمان و صدا را نگه دار. با یک <b>شروعِ</b> گیرا باز کن و با یک <b>پایانِ</b> ناگهانی ببند. به <b>فعل‌های فعال</b> تکیه کن. و از همه مهم‌تر، <b>بازنویسی</b> کن — پیش‌نویسِ اول جایی است که می‌فهمی چه می‌خواهی بگویی؛ بازنویسی جایی است که می‌گویی‌اش."},"example":{"en":"Halve a finished draft. What's left is almost always sharper.","fa":"یک پیش‌نویسِ تمام‌شده را نصف کن. آنچه می‌ماند تقریباً همیشه تیزتر است."},"gain":{"en":"You can build a clean piece from lead to ending.","fa":"می‌توانی یک نوشتهٔ تمیز را از شروع تا پایان بسازی."}},{"level":4,"badge":{"en":"Level 4 · Advanced","fa":"سطحِ ۴ · پیشرفته"},"title":{"en":"Fit the form","fa":"به قالب بنشان"},"tagline":{"en":"People, places, yourself — any genre.","fa":"آدم‌ها، مکان‌ها، خودت — هر قالب."},"body":{"en":"The same principles bend to fit any genre. Writing about <b>people</b>? Quote them. Writing about <b>places</b>? Give one exact detail, not travel-brochure adjectives. Writing about <b>yourself</b>? Do it with candor. Interview, travel, memoir, science, business — the rule holds: find the human and the specific detail.","fa":"همان اصول خم می‌شوند تا به هر قالبی بخورند. دربارهٔ <b>آدم‌ها</b> می‌نویسی؟ نقلِ‌قولشان کن. دربارهٔ <b>مکان‌ها</b>؟ یک جزئیاتِ دقیق بده، نه صفت‌های بروشورِ سفر. دربارهٔ <b>خودت</b>؟ با صداقت. مصاحبه، سفر، خاطره، علم، کسب‌وکار — قاعده پابرجاست: آدم و آن جزئیاتِ مشخص را پیدا کن."},"example":{"en":"A profile lives on its subject's own words; a travel piece on one vivid, exact scene.","fa":"یک نیم‌رخ با کلماتِ خودِ سوژه‌اش زنده است؛ یک سفرنامه با یک صحنهٔ زنده و دقیق."},"gain":{"en":"You can adapt the craft to whatever you need to write.","fa":"می‌توانی صنعتِ کار را با هر چیزی که باید بنویسی وفق بدهی."}},{"level":5,"badge":{"en":"Level 5 · Expert","fa":"سطحِ ۵ · حرفه‌ای"},"title":{"en":"Warmth & standards","fa":"گرما و استاندارد"},"tagline":{"en":"Voice, enjoyment, and doing your best.","fa":"صدا، لذت، و بهترین‌بودن."},"body":{"en":"The expert has the craft and adds the attitudes. A consistent <b>voice</b> and visible <b>enjoyment</b> travel straight to the reader — warmth survives only after the clutter is gone. And the deepest rule is a standard: <b>write as well as you can</b> on every job, however small, because taste is a decision you keep making. Clear thinking becomes clear writing; one can't exist without the other.","fa":"آدمِ حرفه‌ای صنعت را دارد و نگرش‌ها را به آن می‌افزاید. یک <b>صدای</b> یک‌دست و <b>لذتِ</b> آشکار مستقیم به خواننده می‌رسند — گرما فقط بعد از رفتنِ زواید می‌ماند. و عمیق‌ترین قاعده یک استاندارد است: در هر کار، هرچقدر کوچک، <b>تا می‌توانی خوب بنویس</b>، چون ذائقه تصمیمی است که مدام می‌گیری. فکرِ روشن به نوشتهٔ روشن تبدیل می‌شود؛ هیچ‌کدام بدونِ دیگری نمی‌تواند وجود داشته باشد."},"example":{"en":"You read every draft aloud, keep your voice, and give a two-line email the same care as an essay.","fa":"هر پیش‌نویس را بلند می‌خوانی، صدایت را نگه می‌داری، و به یک ایمیلِ دوخطی همان دقتِ یک جستار را می‌دهی."},"gain":{"en":"You can write clearly and warmly, and teach others to do the same.","fa":"می‌توانی روشن و گرم بنویسی، و همین را به دیگران یاد بدهی."}}],"quotes":[{"en":"Clutter is the disease of American writing. We are a society strangling in unnecessary words, circular constructions, pompous frills and meaningless jargon.","fa":"زواید، بیماریِ نوشتنِ آمریکایی است. ما جامعه‌ای هستیم که در کلماتِ غیرضروری، ساختارهای دورانی، تزئیناتِ پُرطمطراق و اصطلاحاتِ بی‌معنا خفه می‌شویم."},{"en":"The secret of good writing is to strip every sentence to its cleanest components.","fa":"رازِ خوب‌نوشتن این است که هر جمله را تا تمیزترین اجزایش کم کنی."},{"en":"Clear thinking becomes clear writing; one can't exist without the other.","fa":"فکرِ روشن به نوشتهٔ روشن تبدیل می‌شود؛ هیچ‌کدام بدونِ دیگری نمی‌تواند وجود داشته باشد."},{"en":"Fighting clutter is like fighting weeds — the writer is always slightly behind.","fa":"جنگ با زواید مثلِ جنگ با علفِ هرز است — نویسنده همیشه کمی عقب است."},{"en":"Writing is hard work. A clear sentence is no accident. Very few sentences come out right the first time.","fa":"نوشتن کارِ سختی است. یک جملهٔ روشن تصادفی نیست. کمتر جمله‌ای بارِ اول درست از آب درمی‌آید."},{"en":"You are writing for yourself. Don't try to visualize the great mass audience.","fa":"تو برای خودت می‌نویسی. سعی نکن آن مخاطبِ تودهٔ بزرگ را تصور کنی."},{"en":"Verbs are the most important of all your tools. They push the sentence forward and give it momentum.","fa":"فعل‌ها مهم‌ترینِ همهٔ ابزارهای تو هستند. جمله را جلو می‌رانند و به آن شتاب می‌دهند."},{"en":"Don't say you were a bit confused and sort of tired. Be confused. Be tired.","fa":"نگو یه‌کم گیج و یه‌جورایی خسته بودی. گیج باش. خسته باش."},{"en":"Writing is an intimate transaction between two people, conducted on paper.","fa":"نوشتن یک معاملهٔ صمیمانه بینِ دو نفر است که روی کاغذ انجام می‌شود."}],"media":[{"kind":"yt","id":"LgI_Nt-82Hk","src":{"en":"YouTube · Productivity Game","fa":"یوتیوب · Productivity Game"},"title":{"en":"On Writing Well — Core Message","fa":"خوب نوشتن — پیامِ اصلی"},"desc":{"en":"An animated core-message summary of the book.","fa":"یک خلاصهٔ انیمیشنی از پیامِ اصلیِ کتاب."},"bullets":{"en":["The four foundations in a few minutes","Cutting clutter, in pictures","A fast, memorable overview"],"fa":["چهار پایه در چند دقیقه","حذفِ زواید، به‌شکلِ تصویری","یک مرورِ سریع و به‌یادماندنی"]},"best":{"en":"Best for Stage 1–2.","fa":"خوب برای مرحلهٔ ۱ و ۲."}},{"kind":"yt","id":"lHbqoJpymRs","src":{"en":"YouTube · Alex and Books","fa":"یوتیوب · Alex and Books"},"title":{"en":"Lessons from On Writing Well","fa":"درس‌هایی از خوب نوشتن"},"desc":{"en":"A reader's practical lessons drawn from the book.","fa":"درس‌های کاربردیِ یک خواننده از کتاب."},"bullets":{"en":["Concrete before/after examples","How the principles apply day to day","Good after a first read"],"fa":["مثال‌های ملموسِ قبل و بعد","اینکه اصول روزبه‌روز چطور به کار می‌آیند","خوب بعد از اولین خواندن"]},"best":{"en":"Best for Stage 2–3.","fa":"خوب برای مرحلهٔ ۲ و ۳."}},{"kind":"yt","id":"VkCn7ga--aU","src":{"en":"YouTube · SnapTale","fa":"یوتیوب · SnapTale"},"title":{"en":"On Writing Well — 9-Minute Summary","fa":"خوب نوشتن — خلاصهٔ ۹ دقیقه‌ای"},"desc":{"en":"A quick summary of the key points.","fa":"یک خلاصهٔ سریع از نکات کلیدی."},"bullets":{"en":["The methods, condensed","Leads, verbs, and rewriting","A tidy recap"],"fa":["روش‌ها، فشرده","شروع، فعل، و بازنویسی","یک مرورِ مرتب"]},"best":{"en":"Best for Stage 3–4.","fa":"خوب برای مرحلهٔ ۳ و ۴."}},{"kind":"img","url":"https://www.harpercollins.com/products/on-writing-well-william-zinsser","src":{"en":"HarperCollins · Publisher","fa":"HarperCollins · ناشر"},"title":{"en":"On Writing Well — Publisher Page","fa":"خوب نوشتن — صفحهٔ ناشر"},"desc":{"en":"The publisher page for the classic guide, with editions and details.","fa":"صفحهٔ ناشر برای این راهنمای کلاسیک، با نسخه‌ها و جزئیات."},"bullets":{"en":["The definitive editions","Background on Zinsser","Straight from the source"],"fa":["نسخه‌های معتبر","پیشینه‌ای دربارهٔ زینسر","مستقیم از خودِ منبع"]},"best":{"en":"For editions and the source.","fa":"برای نسخه‌ها و منبعِ اصلی."}}],"go":[{"label":{"en":"Publisher page","fa":"صفحهٔ ناشر"},"url":"https://www.harpercollins.com/products/on-writing-well-william-zinsser"},{"label":{"en":"Book on Goodreads","fa":"کتاب در گودریدز"},"url":"https://www.goodreads.com/book/show/53343.On_Writing_Well"},{"label":{"en":"Zinsser essay: Writing English as a Second Language","fa":"جستارِ زینسر: نوشتن به انگلیسی"},"url":"https://theamericanscholar.org/writing-english-as-a-second-language/"}],"recs":[{"pri":"b","t":{"en":"Cut every sentence to the bone","fa":"هر جمله را تا استخوان بتراش"},"d":{"en":"Reread your last email or doc and delete every word that isn't doing work.","fa":"آخرین ایمیل یا سندت را دوباره بخوان و هر کلمه‌ای که کاری نمی‌کند را حذف کن."}},{"pri":"b","t":{"en":"Rewrite it once more","fa":"یک‌بارِ دیگر بازنویسی‌اش کن"},"d":{"en":"Take a finished draft and cut it by a third before you send it.","fa":"یک پیش‌نویسِ تمام‌شده را بردار و قبل از فرستادن، یک‌سومش را حذف کن."}},{"pri":"n","t":{"en":"Hunt one kind of clutter","fa":"یک نوع زواید را شکار کن"},"d":{"en":"Pick a crutch — 'very', 'in order to', 'utilize' — and remove it everywhere today.","fa":"یک عصا را انتخاب کن — «خیلی»، «به‌منظورِ»، «بهره‌برداری» — و امروز همه‌جا حذفش کن."}},{"pri":"n","t":{"en":"Read it aloud","fa":"بلند بخوانش"},"d":{"en":"Hear the stiff, inhuman sentences and rewrite them the way you'd speak.","fa":"جمله‌های خشک و غیرانسانی را بشنو و همان‌طور که حرف می‌زنی بازنویسی‌شان کن."}}]};
-</script>
-
-<script>
-/* ── 3) RENDER (text sections) ────────────────────────────── */
-function elClear(id){ var e=document.getElementById(id); if(e) e.innerHTML=''; return e; }
-
-function renderText(){
-  var t=elClear('tldrHost');
-  DATA.tldr.forEach(function(o){ var li=document.createElement('li'); li.innerHTML = TX(o); t.appendChild(li); });
-
-  var q=elClear('quoteHost');
-  DATA.quotes.forEach(function(o){
-    var bq=document.createElement('blockquote');
-    bq.innerHTML = '<span class="qm">“</span><p>'+TX(o)+'</p>';
-    q.appendChild(bq);
-  });
-
-  var m=elClear('mediaHost');
-  DATA.media.forEach(function(o){
-    var card=document.createElement('div'); card.className='mcard';
-    var thumb;
-    if(o.kind==='yt'){
-      var url='https://www.youtube.com/watch?v='+o.id;
-      var img='https://i.ytimg.com/vi/'+o.id+'/hqdefault.jpg';
-      thumb='<a class="mthumb" href="'+url+'" target="_blank" rel="noopener">'
-        +'<img src="'+img+'" alt="" loading="lazy" onerror="this.style.display=\'none\'">'
-        +'<span class="ptype">'+(LANG==='fa'?'ویدیو':'VIDEO')+'</span>'
-        +'<span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></span></a>';
-    } else {
-      thumb='<a class="mthumb" href="'+o.url+'" target="_blank" rel="noopener"><span class="mfake">'
-        +'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.6"/><path d="M21 15l-5-5L5 21"/></svg>'
-        +'</span><span class="ptype">'+(LANG==='fa'?'تصویر':'IMAGE')+'</span></a>';
-    }
-    var link = o.kind==='yt' ? 'https://www.youtube.com/watch?v='+o.id : o.url;
-    var bl = (LANG==='fa'?o.bullets.fa:o.bullets.en).map(function(b){ return '<li>'+ (LANG==='fa'?faText(b):b) +'</li>'; }).join('');
-    card.innerHTML = thumb + '<div class="mbody">'
-      + '<div class="msrc">'+TX(o.src)+'</div>'
-      + '<h4>'+TX(o.title)+'</h4>'
-      + '<p class="mdesc">'+TX(o.desc)+'</p>'
-      + '<ul>'+bl+'</ul>'
-      + '<a class="mlink" href="'+link+'" target="_blank" rel="noopener">'+(LANG==='fa'?'باز کردن ↗':'Open ↗')+'</a>'
-      + '<div class="mbest">'+TX(o.best)+'</div>'
-      + '</div>';
-    m.appendChild(card);
-  });
-
-  var g=elClear('goHost');
-  DATA.go.forEach(function(o){
-    var a=document.createElement('a'); a.href=o.url; a.target='_blank'; a.rel='noopener';
-    a.textContent=TX(o.label); g.appendChild(a);
-  });
-
-  var r=elClear('recHost');
-  DATA.recs.forEach(function(o){
-    var it=document.createElement('div'); it.className='item';
-    var priLabel = o.pri==='b' ? (LANG==='fa'?'از اینجا شروع کن':'Start here') : (LANG==='fa'?'بعدش این':'Then this');
-    it.innerHTML='<div class="t">'+TX(o.t)+'<span class="pri '+(o.pri==='b'?'b':'')+'">'+priLabel+'</span></div>'
-      +'<div class="d">'+TX(o.d)+'</div>';
-    r.appendChild(it);
-  });
-
-  var mth=document.getElementById('methodHost');
-  mth.innerHTML = LANG==='fa' ? faText("<p><b>منبع:</b> کتابِ «On Writing Well» نوشتهٔ ویلیام زینسر، چاپِ نخست ۱۹۷۶ (با ویرایش‌های متعدد).</p><p><b>روشِ کار:</b> ساختارِ چهاربخشی و ایده‌ها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده؛ نقل‌قول‌ها با متنِ کتاب مقابله و ویدیوها بررسی شده‌اند.</p><p><b>گروه:</b> «ارتباط» — از فهرستِ کتاب‌های ضروریِ سازندگانِ محصولِ لنی راچیتسکی.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای متنِ کامل، خودِ کتاب را بخوان.</p>") : "<p><b>Source:</b> the book <i>On Writing Well</i> by William Zinsser, first published 1976 (many revised editions).</p><p><b>How this was built:</b> the four-part structure and ideas were gathered and rewritten from the book and reputable sources; quotes were cross-checked and the linked videos verified.</p><p><b>Group:</b> Communication — from Lenny Rachitsky's essential books for product builders.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>";
-  var fl=document.getElementById('flowTop');
-  if(fl){
-    var loop = LANG==='fa' ? ["شفافیت","سادگی","کوتاهی","انسانیت"] : ["Clarity","Simplicity","Brevity","Humanity"];
-    var ar = LANG==='fa' ? '⟵' : '⟶';
-    fl.innerHTML = loop.map(function(w){ return '<b>'+ (LANG==='fa'?faText(w):w) +'</b>'; }).join(' <span class="ar">'+ar+'</span> ');
-  }
-}
-</script>
-
-<script>
-/* ── 4) CONCEPT MAP ───────────────────────────────────────── */
-function renderMap(){
-  var host=document.getElementById('mapHost'); if(!host) return; host.innerHTML='';
-  DATA.parts.forEach(function(p, i){
-    var col=document.createElement('div'); col.className='partcol';
-    var chaps=p.chapters.map(function(ck){
-      var c=DATA.chapters[ck];
-      return '<div class="chapchip"><span class="cn">'+num(c.n)+'</span><div><b>'+TX(c.name)+'</b>'
-        +'<small>'+TX(c.principle).replace(/<[^>]+>/g,'').slice(0, LANG==='fa'?86:76)+'…</small></div></div>';
-    }).join('');
-    col.innerHTML='<div class="ph"><span class="pdot" style="background:var('+p.varc+')"></span>'
-      +'<span class="pnum">'+(LANG==='fa'?'بخشِ ':'PART ')+num(i+1)+'</span></div>'
-      +'<h4>'+TX(p.name)+'</h4>'
-      +'<div class="ptag" style="color:var('+p.varc+')">'+TX(p.tag)+'</div>'
-      +'<p class="pgist">'+TX(p.gist)+'</p>'+chaps;
-    host.appendChild(col);
-  });
-}
-</script>
-
-<script>
-/* ── 5) INTERACTIVE NETWORK GRAPH (deterministic radial layout, no physics) ── */
-var GRAPH = (function(){
-  var svg, W=940, H=740, nodes=[], links=[], sel=null, dragNode=null, moved=false, startPt=null;
-
-  function build(){
-    svg=document.getElementById('netsvg');
-    svg.setAttribute('viewBox','0 0 '+W+' '+H);
-    nodes=[]; links=[];
-    var cx=W/2, cy=H/2, R1=205, R2=128, span=74*Math.PI/180;
-    var N=DATA.parts.length, partAng=DATA.parts.map(function(_,i){ return -Math.PI/2 + i*(2*Math.PI/N); });
-    nodes.push({id:'core', kind:'core', varc:'--core', r:38, x:cx, y:cy, label:DATA.core.name, data:DATA.core});
-    DATA.parts.forEach(function(p,i){
-      var a=partAng[i], px=cx+Math.cos(a)*R1, py=cy+Math.sin(a)*R1;
-      nodes.push({id:'p_'+p.key, kind:'part', varc:p.varc, r:25, x:px, y:py,
-        label:p.name, data:{name:p.name, principle:p.gist, more:p.more, tag:p.tag, key:p.key}});
-      links.push({s:'core', t:'p_'+p.key, strong:true});
-      var nc=p.chapters.length, start=a-span/2;
-      p.chapters.forEach(function(ck,j){
-        var ca = nc>1 ? start+span*(j/(nc-1)) : a;   // fan the 5 chapters outward
-        var c=DATA.chapters[ck];
-        nodes.push({id:'c_'+ck, kind:'chap', varc:p.varc, r:15,
-          x:px+Math.cos(ca)*R2, y:py+Math.sin(ca)*R2,
-          label:(c.glabel||c.name), data:c, ck:ck});
-        links.push({s:'p_'+p.key, t:'c_'+ck});
-      });
-    });
-    nodes.forEach(function(n){ n.hx=n.x; n.hy=n.y; });   // remember home positions for reset
-    draw();
-    select('core');
-  }
-
-  function byId(id){ for(var i=0;i<nodes.length;i++) if(nodes[i].id===id) return nodes[i]; return null; }
-
-  function draw(){
-    var ln='', nd='';
-    links.forEach(function(l){ ln+='<line class="glink" data-s="'+l.s+'" data-t="'+l.t+'" stroke="var(--line)" stroke-width="'+(l.strong?2.4:1.5)+'" stroke-linecap="round"/>'; });
-    nodes.forEach(function(n){
-      var inside='', below='';
-      if(n.kind==='core'){
-        inside='<text text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="800" fill="#fff" letter-spacing="0.3">'+shortLabel(n)+'</text>';
-      } else {
-        if(n.kind==='chap'){
-          inside='<text text-anchor="middle" dominant-baseline="central" font-size="11" font-weight="800" fill="#fff">'+num(n.data.n)+'</text>';
+/* ── CONTENT — everything unique to this book lives here ── */
+Book.mount({
+  "meta": {
+    "slug": "on-writing-well",
+    "folder": "01 - Communication",
+    "groupNum": 1,
+    "group": {
+      "en": "Communication",
+      "fa": "ارتباط"
+    },
+    "author": {
+      "en": "William Zinsser",
+      "fa": "ویلیام زینسر"
+    },
+    "eyebrow_author": {
+      "en": "William Zinsser",
+      "fa": "ویلیام زینسر"
+    },
+    "book": {
+      "en": "On Writing Well",
+      "fa": "خوب نوشتن"
+    },
+    "hero_title": {
+      "en": "On Writing Well — The Classic Guide to Writing Nonfiction",
+      "fa": "خوب نوشتن — راهنمای کلاسیکِ نوشتنِ ناداستان"
+    },
+    "dek": {
+      "en": "A knowledge graph of the whole book, plus a 5-stage path from a single sentence to expert-level mastery — with an example at every step.",
+      "fa": "نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از خیلی ساده تا حرفه‌ای — با یک مثال در هر مرحله."
+    },
+    "published": {
+      "en": "1976",
+      "fa": "۱۹۷۶"
+    },
+    "chips": [
+      {
+        "v": {
+          "en": "4",
+          "fa": "۴"
+        },
+        "l": {
+          "en": "Parts",
+          "fa": "بخش"
         }
-        var ly = n.r + (n.kind==='part'?17:14);
-        var fs = n.kind==='part'?13:11;
-        var stroke = 'paint-order:stroke;stroke:var(--card2);stroke-width:3.6px;stroke-linejoin:round';
-        below='<text class="nlab" text-anchor="middle" y="'+ly+'" font-size="'+fs+'" font-weight="'+(n.kind==='part'?'800':'700')+'" fill="var(--ink)" style="'+stroke+'">'+shortLabel(n)+'</text>';
+      },
+      {
+        "v": {
+          "en": "14",
+          "fa": "۱۴"
+        },
+        "l": {
+          "en": "Ideas",
+          "fa": "ایده"
+        }
+      },
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Learning stages",
+          "fa": "مرحلهٔ یادگیری"
+        }
       }
-      nd+='<g class="node'+(n.kind==='core'?' ncore':'')+'" data-id="'+n.id+'"><g class="ns">'
-        +'<circle r="'+n.r+'" fill="var('+n.varc+')" fill-opacity="'+(n.kind==='chap'?0.94:1)+'" stroke="var(--card)" stroke-width="2.5"/>'
-        +inside+below+'</g></g>';
-    });
-    svg.innerHTML='<g id="glinks">'+ln+'</g><g id="gnodes">'+nd+'</g>';
-    svg.querySelectorAll('.node').forEach(function(gEl){
-      gEl.addEventListener('pointerdown', onDown);
-      gEl.addEventListener('click', function(){ if(!moved) select(gEl.getAttribute('data-id')); });
-      gEl.addEventListener('pointerenter', function(){ if(!dragNode) gEl.classList.add('hover'); });
-      gEl.addEventListener('pointerleave', function(){ gEl.classList.remove('hover'); });
-    });
-    positions();
-  }
-  function shortLabel(n){ return TX(n.label); }
-
-  function positions(){
-    svg.querySelectorAll('.node').forEach(function(g){
-      var n=byId(g.getAttribute('data-id'));
-      g.setAttribute('transform','translate('+n.x.toFixed(1)+','+n.y.toFixed(1)+')');
-    });
-    svg.querySelectorAll('.glink').forEach(function(l){
-      var a=byId(l.getAttribute('data-s')), b=byId(l.getAttribute('data-t'));
-      l.setAttribute('x1',a.x.toFixed(1)); l.setAttribute('y1',a.y.toFixed(1));
-      l.setAttribute('x2',b.x.toFixed(1)); l.setAttribute('y2',b.y.toFixed(1));
-    });
-  }
-
-  /* drag: just move the grabbed node — no simulation, so nothing else shifts */
-  function toSvg(e){
-    var pt=svg.createSVGPoint(); pt.x=e.clientX; pt.y=e.clientY;
-    var m=svg.getScreenCTM(); if(!m) return {x:e.clientX,y:e.clientY};
-    return pt.matrixTransform(m.inverse());
-  }
-  function onDown(e){
-    e.preventDefault();
-    dragNode=byId(e.currentTarget.getAttribute('data-id'));
-    moved=false; startPt=toSvg(e); svg.style.cursor='grabbing';
-    e.currentTarget.classList.remove('hover');
-    window.addEventListener('pointermove', onMove);
-    window.addEventListener('pointerup', onUp);
-  }
-  function onMove(e){
-    if(!dragNode) return; var p=toSvg(e);
-    if(startPt && (Math.abs(p.x-startPt.x)>4 || Math.abs(p.y-startPt.y)>4)) moved=true;
-    dragNode.x=Math.max(dragNode.r+4, Math.min(W-dragNode.r-4, p.x));
-    dragNode.y=Math.max(dragNode.r+4, Math.min(H-dragNode.r-24, p.y));
-    positions();
-  }
-  function onUp(){
-    dragNode=null; svg.style.cursor='grab';
-    window.removeEventListener('pointermove', onMove);
-    window.removeEventListener('pointerup', onUp);
-  }
-
-  function keepSet(id){
-    var n=byId(id); if(!n || id==='core') return null;   // core → show everything
-    var keep={}; keep[id]=1; keep['core']=1;
-    var pk = (n.kind==='part') ? n.data.key : n.data.part;
-    keep['p_'+pk]=1;
-    DATA.parts.forEach(function(p){ if(p.key===pk) p.chapters.forEach(function(ck){ keep['c_'+ck]=1; }); });
-    return keep;   // highlight the whole branch: core → part → its chapters
-  }
-  function applyFocus(id){
-    var keep=keepSet(id), full=(keep===null);
-    svg.querySelectorAll('.node').forEach(function(g){
-      var nid=g.getAttribute('data-id');
-      g.classList.toggle('dim', !full && !keep[nid]);
-      g.classList.toggle('hl', !full && keep[nid] && nid!==id);
-    });
-    svg.querySelectorAll('.glink').forEach(function(l){
-      var s=l.getAttribute('data-s'), t=l.getAttribute('data-t');
-      var on = full || (keep[s] && keep[t]);
-      l.classList.toggle('dim', !on);
-      l.classList.toggle('hl', !full && on);
-    });
-  }
-
-  function relatedIds(node){
-    var ids=[];
-    if(node.id==='core'){ DATA.parts.forEach(function(p){ ids.push('p_'+p.key); }); }
-    else if(node.kind==='part'){ var pk=node.data.key; DATA.parts.forEach(function(p){ if(p.key===pk) p.chapters.forEach(function(ck){ ids.push('c_'+ck); }); }); }
-    else { var pk2=node.data.part; ids.push('p_'+pk2);
-      DATA.parts.forEach(function(p){ if(p.key===pk2) p.chapters.forEach(function(ck){ if('c_'+ck!==node.id) ids.push('c_'+ck); }); }); }
-    return ids;
-  }
-
-  function drow(cls,label,txt){ return '<div class="drow '+cls+'"><div class="dlab">'+label+'</div><div class="dtxt">'+txt+'</div></div>'; }
-
-  function select(id){
-    var n=byId(id); if(!n) return;
-    sel=id;
-    svg.querySelectorAll('.node').forEach(function(g){ g.classList.toggle('sel', g.getAttribute('data-id')===id); });
-    var selEl=svg.querySelector('.node[data-id="'+id+'"]'); if(selEl&&selEl.parentNode) selEl.parentNode.appendChild(selEl);  // raise on top
-    applyFocus(id);
-    var d=n.data, pv = n.kind==='core' ? '--core' : n.varc;
-    var kicker = n.kind==='core' ? (LANG==='fa'?'ایدهٔ مرکزی':'Core idea')
-             : n.kind==='part' ? (LANG==='fa'?'بخش':'Part') + ' · ' + TX(d.tag)
-             : (LANG==='fa'?"ایدهٔ":"Idea") + ' ' + num(d.n);
-    var prLab = (n.kind==='chap') ? (LANG==='fa'?'اصل':'Principle') : (LANG==='fa'?'ایدهٔ اصلی':'Big idea');
-    var html='<div class="dkick"><i style="background:var('+pv+')"></i>'+ (LANG==='fa'?faText(kicker):kicker) +'</div>'
-      +'<h4>'+TX(d.name)+'</h4>'
-      + drow('', prLab, TX(d.principle));
-    if(d.more)    html += drow('more', (LANG==='fa'?'بیشتر':'In depth'), TX(d.more));
-    if(d.example) html += drow('', (LANG==='fa'?'مثال':'Example'), TX(d.example));
-    if(d.tip)     html += drow('tip', (LANG==='fa'?'امتحان کن':'Try this'), TX(d.tip));
-    if(d.pitfall) html += drow('pit', (LANG==='fa'?'حواست باشد':'Watch out'), TX(d.pitfall));
-    // related chips
-    var rel=relatedIds(n);
-    if(rel.length){
-      var chips=rel.map(function(rid){ var rn=byId(rid); if(!rn) return '';
-        return '<span class="dchip" data-goto="'+rid+'"><i style="background:var('+rn.varc+')"></i>'+TX(rn.data.name)+'</span>'; }).join('');
-      html += '<div class="drow"><div class="dlab">'+(LANG==='fa'?'مرتبط':'Related')+'</div><div class="dchips">'+chips+'</div></div>';
+    ],
+    "kboxes": [
+      {
+        "v": {
+          "en": "4",
+          "fa": "۴"
+        },
+        "l": {
+          "en": "Parts (principles · methods · forms · attitudes)",
+          "fa": "بخش (اصول · روش‌ها · قالب‌ها · نگرش‌ها)"
+        }
+      },
+      {
+        "v": {
+          "en": "14",
+          "fa": "۱۴"
+        },
+        "l": {
+          "en": "Ideas you can use",
+          "fa": "ایده برای استفاده"
+        }
+      },
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Levels, simple → expert",
+          "fa": "مرحله، ساده تا حرفه‌ای"
+        }
+      },
+      {
+        "v": {
+          "en": "4",
+          "fa": "۴"
+        },
+        "l": {
+          "en": "Foundations: clear · simple · brief · human",
+          "fa": "پایه: روشن · ساده · کوتاه · انسانی"
+        }
+      }
+    ],
+    "core_callout": {
+      "label": {
+        "en": "The core idea:",
+        "fa": "ایدهٔ اصلی:"
+      },
+      "en": "Good writing is <i>clear, simple, brief</i> and <i>human</i>. Strip every sentence to its cleanest parts, fight clutter, and let your real voice show — clear writing comes from clear thinking and rewriting.",
+      "fa": "نوشتهٔ خوب <i>روشن، ساده، کوتاه</i> و <i>انسانی</i> است. هر جمله را تا تمیزترین اجزایش کم کن، با زواید بجنگ، و بگذار صدای واقعی‌ات دیده شود — نوشتنِ روشن از فکرِ روشن و بازنویسی می‌آید."
+    },
+    "flow_callout": {
+      "label": {
+        "en": "Read it as a flow:",
+        "fa": "به‌صورتِ یک جریان بخوانش:"
+      },
+      "en": "get the <b>principles</b> right (clarity, cutting clutter), master the <b>methods</b> (unity, verbs, rewriting), adapt to the <b>forms</b>, and sustain the right <b>attitudes</b> — voice, enjoyment, standards.",
+      "fa": "<b>اصول</b> را درست کن (شفافیت، حذفِ زواید)، <b>روش‌ها</b> را استاد شو (یکپارچگی، فعل، بازنویسی)، به <b>قالب‌ها</b> وفق بده، و <b>نگرش‌های</b> درست را نگه دار — صدا، لذت، استاندارد."
     }
-    var host=document.getElementById('detailHost');
-    host.innerHTML=html;
-    host.querySelectorAll('.dchip').forEach(function(c){
-      c.addEventListener('click', function(){ select(c.getAttribute('data-goto')); });
-    });
-  }
-
-  function relabel(){ if(!svg) return; draw(); select(sel||'core'); }
-
-  return {
-    build:build,
-    kick:function(){},                                    // no-op; layout is static
-    relabel:relabel,
-    reset:function(){ nodes.forEach(function(n){ n.x=n.hx; n.y=n.hy; }); positions(); },
-    resetFocus:function(){ select('core'); },
-    selectNode:function(id){ select(id); },
-    hasNodes:function(){ return nodes.length>0; }
-  };
-})();
-</script>
-
-<script>
-/* ── 6) 5-STAGE LADDER ────────────────────────────────────── */
-var curStage=0;
-function renderLadder(){
-  var host=document.getElementById('ladderHost'); host.innerHTML='';
-  DATA.stages.forEach(function(s,i){
-    var r=document.createElement('div'); r.className='rung'+(i===curStage?' active':'');
-    r.innerHTML='<div class="lv">'+ (LANG==='fa'?('سطحِ '+num(s.level)):('Level '+s.level)) +'</div>'
-      +'<div class="lt">'+TX(s.title)+'</div>'
-      +'<div class="lbar"><i style="width:'+(s.level*20)+'%"></i></div>';
-    r.addEventListener('click', function(){ curStage=i; renderLadder(); renderStage();
-      document.getElementById('stageHost').scrollIntoView({behavior:'smooth',block:'nearest'}); });
-    host.appendChild(r);
-  });
-}
-function renderStage(){
-  var s=DATA.stages[curStage];
-  var host=document.getElementById('stageHost');
-  var exLabel = LANG==='fa'?'مثال':'Example';
-  var prev = LANG==='fa'?'مرحلهٔ قبل':'‹ Prev', next = LANG==='fa'?'مرحلهٔ بعد':'Next ›';
-  host.innerHTML=''+
-    '<div class="stagecard">'
-    +'<div class="shead"><span class="badge">'+TX(s.badge)+'</span><h3>'+TX(s.title)+'</h3></div>'
-    +'<div class="tagline">'+TX(s.tagline)+'</div>'
-    +'<div class="sbody">'+TX(s.body)+'</div>'
-    +'<div class="exbox"><div class="exk">'+exLabel+'</div><div class="ext">'+TX(s.example)+'</div></div>'
-    +'<div class="gainrow"><span class="gi">✓</span><span>'+TX(s.gain)+'</span></div>'
-    +'<div class="stagenav">'
-      +'<button id="stPrev" '+(curStage===0?'disabled':'')+'>'+prev+'</button>'
-      +'<button id="stNext" '+(curStage===DATA.stages.length-1?'disabled':'')+'>'+next+'</button>'
-    +'</div></div>';
-  var pv=document.getElementById('stPrev'), nx=document.getElementById('stNext');
-  if(pv) pv.onclick=function(){ if(curStage>0){curStage--; renderLadder(); renderStage();} };
-  if(nx) nx.onclick=function(){ if(curStage<DATA.stages.length-1){curStage++; renderLadder(); renderStage();} };
-}
-</script>
-
-<script>
-/* ── 7) legend + graph tabs ───────────────────────────────── */
-function renderLegend(){
-  var host=document.getElementById('legendHost'); if(!host) return;
-  var items=[{c:'--core', en:'Core idea', fa:'ایدهٔ مرکزی'}]
-    .concat(DATA.parts.map(function(p){ return {c:p.varc, en:p.name.en, fa:p.name.fa}; }));
-  host.innerHTML = items.map(function(it){
-    return '<span><i style="background:var('+it.c+')"></i>'+(LANG==='fa'?faText(it.fa):it.en)+'</span>';
-  }).join('');
-  document.getElementById('ghint').textContent = LANG==='fa' ? 'روی هر دایره کلیک کن تا بیشتر بخوانی · می‌توانی بکشی‌شان' : 'Click a node to read more · drag to move';
-  document.getElementById('greset').textContent = LANG==='fa' ? '↺ چیدمان' : '↺ Reset';
-}
-function setupTabs(){
-  function show(net){
-    document.getElementById('netView').style.display = net?'':'none';
-    document.getElementById('mapView').style.display = net?'none':'';
-    document.getElementById('tabNet').classList.toggle('active',net);
-    document.getElementById('tabMap').classList.toggle('active',!net);
-    if(net) GRAPH.kick();
-  }
-  document.getElementById('tabNet').onclick=function(){show(true);};
-  document.getElementById('tabMap').onclick=function(){show(false);};
-  document.getElementById('greset').onclick=function(){ GRAPH.reset(); };
-  // click empty graph space resets the focus
-  var svg=document.getElementById('netsvg');
-  svg.addEventListener('click', function(e){ if(!e.target.closest('.node')) GRAPH.resetFocus(); });
-}
-</script>
-
-<script>
-/* ── 8) toggles + boot ────────────────────────────────────── */
-function setLang(lg){
-  LANG=lg;
-  document.documentElement.setAttribute('data-lang',lg);
-  document.documentElement.setAttribute('lang',lg);
-  document.documentElement.setAttribute('dir', lg==='fa'?'rtl':'ltr');
-  try{ localStorage.setItem('oww-lang',lg); }catch(e){}
-  renderAll();
-}
-function renderAll(){
-  renderText();
-  renderMap();
-  renderLegend();
-  renderLadder();
-  renderStage();
-  if(GRAPH.hasNodes()) GRAPH.relabel(); else GRAPH.build();
-}
-(function(){
-  var lb=document.getElementById('langBtn');
-  lb && lb.addEventListener('click', function(){ setLang(LANG==='fa'?'en':'fa'); });
-
-  var tb=document.getElementById('themeBtn');
-  function curT(){ return document.documentElement.getAttribute('data-theme'); }
-  tb && tb.addEventListener('click', function(){
-    var t=curT()==='dark'?'light':'dark';
-    document.documentElement.setAttribute('data-theme',t);
-    try{ localStorage.setItem('oww-theme',t); }catch(e){}
-  });
-  try{ matchMedia('(prefers-color-scheme: dark)').addEventListener('change',function(e){
-    if(!localStorage.getItem('oww-theme')){ document.documentElement.setAttribute('data-theme', e.matches?'dark':'light'); }
-  }); }catch(e){}
-})();
-
-/* scroll-spy */
-(function(){
-  var links=[].slice.call(document.querySelectorAll('.toc a'));
-  var seen={}, ids=[];
-  links.forEach(function(a){ var id=a.getAttribute('href').slice(1); if(!seen[id]){seen[id]=1; ids.push(id);} });
-  var secs=ids.map(function(id){return document.getElementById(id);}).filter(Boolean);
-  function setActive(id){ links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('href')==='#'+id); }); }
-  if('IntersectionObserver' in window){
-    var obs=new IntersectionObserver(function(es){
-      es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
-    },{rootMargin:'-45% 0px -50% 0px',threshold:0});
-    secs.forEach(function(s){ obs.observe(s); });
-  }
-})();
-
-document.addEventListener('DOMContentLoaded', function(){
-  setupTabs();
-  renderAll();
+  },
+  "method": {
+    "en": "<p><b>Source:</b> the book <i>On Writing Well</i> by William Zinsser, first published 1976 (many revised editions).</p><p><b>How this was built:</b> the four-part structure and ideas were gathered and rewritten from the book and reputable sources; quotes were cross-checked and the linked videos verified.</p><p><b>Group:</b> Communication — from Lenny Rachitsky's essential books for product builders.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>",
+    "fa": "<p><b>منبع:</b> کتابِ «On Writing Well» نوشتهٔ ویلیام زینسر، چاپِ نخست ۱۹۷۶ (با ویرایش‌های متعدد).</p><p><b>روشِ کار:</b> ساختارِ چهاربخشی و ایده‌ها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده؛ نقل‌قول‌ها با متنِ کتاب مقابله و ویدیوها بررسی شده‌اند.</p><p><b>گروه:</b> «ارتباط» — از فهرستِ کتاب‌های ضروریِ سازندگانِ محصولِ لنی راچیتسکی.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای متنِ کامل، خودِ کتاب را بخوان.</p>"
+  },
+  "flow": {
+    "en": [
+      "Clarity",
+      "Simplicity",
+      "Brevity",
+      "Humanity"
+    ],
+    "fa": [
+      "شفافیت",
+      "سادگی",
+      "کوتاهی",
+      "انسانیت"
+    ]
+  },
+  "graph": {
+    "W": 940,
+    "H": 740,
+    "R1": 205,
+    "R2": 128,
+    "span": 74
+  },
+  "tldr": [
+    {
+      "en": "The whole book in one line: write clearly by stripping every sentence to its cleanest components.",
+      "fa": "خلاصهٔ کل کتاب در یک جمله: روشن بنویس، با کم‌کردنِ هر جمله تا تمیزترین اجزایش."
+    },
+    {
+      "en": "Four foundations run through everything: <b>clarity, simplicity, brevity</b>, and <b>humanity</b>.",
+      "fa": "چهار پایه در همه‌چیز جاری‌اند: <b>شفافیت، سادگی، کوتاهی</b>، و <b>انسانیت</b>."
+    },
+    {
+      "en": "<b>Clutter</b> is the enemy — jargon and padding — and rewriting is where you defeat it.",
+      "fa": "<b>زواید</b> دشمن است — اصطلاحات و پُرکردن — و بازنویسی همان‌جایی است که شکستش می‌دهی."
+    },
+    {
+      "en": "Master the methods: unity, a strong lead and ending, active verbs, and ruthless rewriting.",
+      "fa": "روش‌ها را استاد شو: یکپارچگی، شروع و پایانِ قوی، فعل‌های فعال، و بازنویسیِ بی‌رحم."
+    },
+    {
+      "en": "Then let warmth show: find your voice, enjoy the subject, and write as well as you can — every time.",
+      "fa": "بعد بگذار گرما دیده شود: صدایت را پیدا کن، از موضوع لذت ببر، و تا می‌توانی خوب بنویس — هر بار."
+    }
+  ],
+  "parts": [
+    {
+      "key": "principles",
+      "varc": "--c-teal",
+      "name": {
+        "en": "Principles",
+        "fa": "اصول"
+      },
+      "tag": {
+        "en": "The foundations",
+        "fa": "پایه‌ها"
+      },
+      "gist": {
+        "en": "Clarity, simplicity, and cutting clutter — the non-negotiables.",
+        "fa": "شفافیت، سادگی، و حذفِ زواید — اصولِ غیرقابل‌مذاکره."
+      },
+      "more": {
+        "en": "Everything else rests on these. Most bad writing isn't wrong, it's cluttered: too many words, too much jargon, too little courage to be plain. Fix that first.",
+        "fa": "بقیهٔ همه‌چیز روی این‌ها بنا شده. بیشترِ نوشتهٔ بد غلط نیست، شلوغ است: کلماتِ زیادی، اصطلاحاتِ زیاد، و جرئتِ کمِ ساده‌بودن. اول همین را درست کن."
+      },
+      "chapters": [
+        "simplicity",
+        "clutter",
+        "style",
+        "audience"
+      ]
+    },
+    {
+      "key": "methods",
+      "varc": "--c-blue",
+      "name": {
+        "en": "Methods",
+        "fa": "روش‌ها"
+      },
+      "tag": {
+        "en": "The craft",
+        "fa": "صنعتِ کار"
+      },
+      "gist": {
+        "en": "Unity, strong leads and endings, active verbs, and rewriting.",
+        "fa": "یکپارچگی، شروع و پایانِ قوی، فعل‌های فعال، و بازنویسی."
+      },
+      "more": {
+        "en": "Principles tell you what good writing is; methods are how you build it. The single most important one is rewriting — the first draft is only where you find out what you're trying to say.",
+        "fa": "اصول به تو می‌گویند نوشتهٔ خوب چیست؛ روش‌ها می‌گویند چطور بسازی‌اش. مهم‌ترینشان بازنویسی است — پیش‌نویسِ اول فقط جایی است که می‌فهمی می‌خواهی چه بگویی."
+      },
+      "chapters": [
+        "unity",
+        "leadend",
+        "verbs",
+        "rewrite"
+      ]
+    },
+    {
+      "key": "forms",
+      "varc": "--c-amber",
+      "name": {
+        "en": "Forms",
+        "fa": "قالب‌ها"
+      },
+      "tag": {
+        "en": "Apply it",
+        "fa": "به‌کارگیری"
+      },
+      "gist": {
+        "en": "How to write about people, places, and yourself.",
+        "fa": "چطور دربارهٔ آدم‌ها، مکان‌ها، و خودت بنویسی."
+      },
+      "more": {
+        "en": "The same principles bend to fit any genre. Across interviews, travel and memoir, the rule repeats: find the human being and the specific, telling detail — that's what brings nonfiction to life.",
+        "fa": "همان اصول خم می‌شوند تا به هر قالبی بخورند. در مصاحبه، سفر و خاطره، یک قاعده تکرار می‌شود: آدم و آن جزئیاتِ مشخص و گویا را پیدا کن — همین است که ناداستان را زنده می‌کند."
+      },
+      "chapters": [
+        "people",
+        "places",
+        "yourself"
+      ]
+    },
+    {
+      "key": "attitudes",
+      "varc": "--c-violet",
+      "name": {
+        "en": "Attitudes",
+        "fa": "نگرش‌ها"
+      },
+      "tag": {
+        "en": "The mindset",
+        "fa": "طرزِ فکر"
+      },
+      "gist": {
+        "en": "Voice, confidence, enjoyment, and the will to do your best.",
+        "fa": "صدا، اعتماد، لذت، و ارادهٔ بهترین‌بودن."
+      },
+      "more": {
+        "en": "Craft can be taught; attitude is what sustains it. Confidence and evident enjoyment travel straight from the page to the reader — and holding yourself to a high standard on every job is what makes a writer.",
+        "fa": "صنعت را می‌شود آموزش داد؛ نگرش همان چیزی است که نگهش می‌دارد. اعتماد و لذتِ آشکار مستقیم از صفحه به خواننده می‌رسند — و پایبندی به یک استانداردِ بالا در هر کار، همان چیزی است که یک نویسنده می‌سازد."
+      },
+      "chapters": [
+        "voice",
+        "enjoyment",
+        "best"
+      ]
+    }
+  ],
+  "chapters": {
+    "simplicity": {
+      "part": "principles",
+      "n": 1,
+      "name": {
+        "en": "Simplicity",
+        "fa": "سادگی"
+      },
+      "glabel": {
+        "en": "Simplicity",
+        "fa": "سادگی"
+      },
+      "principle": {
+        "en": "Strip every sentence to its cleanest components; if a word does no work, cut it.",
+        "fa": "هر جمله را تا تمیزترین اجزایش کم کن؛ اگر کلمه‌ای کاری نمی‌کند، حذفش کن."
+      },
+      "more": {
+        "en": "The clearest writing is the simplest. Short words, plain sentences, and one idea at a time carry more meaning than any fancy construction — and they cost the reader far less effort.",
+        "fa": "روشن‌ترین نوشته، ساده‌ترین است. کلماتِ کوتاه، جمله‌های ساده، و هر بار یک ایده، بیشتر از هر ساختارِ پُرزرق‌ومعنا می‌رسانند — و برای خواننده خیلی کم‌زحمت‌ترند."
+      },
+      "example": {
+        "en": "Prefer 'now' to 'at the present time', and 'buy' to 'make a purchase'.",
+        "fa": "«حالا» را به «در حالِ حاضر» ترجیح بده، و «بخر» را به «اقدام به خرید کن»."
+      },
+      "tip": {
+        "en": "Reread your draft and delete every word the sentence doesn't need.",
+        "fa": "پیش‌نویست را دوباره بخوان و هر کلمه‌ای که جمله لازمش ندارد را حذف کن."
+      },
+      "pitfall": {
+        "en": "Padding and wordiness that bury the meaning.",
+        "fa": "پُرکردن و زیاده‌گویی که معنا را دفن می‌کند."
+      }
+    },
+    "clutter": {
+      "part": "principles",
+      "n": 2,
+      "name": {
+        "en": "Cut the Clutter",
+        "fa": "حذفِ زواید"
+      },
+      "glabel": {
+        "en": "Clutter",
+        "fa": "زواید"
+      },
+      "principle": {
+        "en": "Clutter — jargon, euphemism, pompous frills — is the disease of writing; hunt it in every line.",
+        "fa": "زواید — اصطلاحاتِ تخصصی، حسن‌تعبیر، تزئیناتِ پُرطمطراق — بیماریِ نوشتن است؛ در هر خط شکارش کن."
+      },
+      "more": {
+        "en": "We inflate to sound important, and the reader pays with confusion. Fighting clutter is like fighting weeds — you're always a little behind — so keep pruning.",
+        "fa": "برای مهم‌جلوه‌کردن باد می‌کنیم، و خواننده با سردرگمی تاوانش را می‌دهد. جنگ با زواید مثلِ جنگ با علفِ هرز است — همیشه کمی عقبی — پس مدام هَرَس کن."
+      },
+      "example": {
+        "en": "'Experiencing significant pain' is just 'hurts' — cut back to the plain word.",
+        "fa": "«در حالِ تجربهٔ دردِ قابلِ‌توجه» فقط یعنی «درد می‌کند» — به همان کلمهٔ ساده برگرد."
+      },
+      "tip": {
+        "en": "Bracket every word you could remove, then remove most of them.",
+        "fa": "هر کلمه‌ای که می‌شود برداشت را داخلِ قلاب بگذار، بعد بیشترشان را بردار."
+      },
+      "pitfall": {
+        "en": "Using long words and buzzwords to sound impressive.",
+        "fa": "استفاده از کلماتِ بلند و مُدروز برای تأثیرگذار جلوه‌کردن."
+      }
+    },
+    "style": {
+      "part": "principles",
+      "n": 3,
+      "name": {
+        "en": "Style Is Being Yourself",
+        "fa": "سبک یعنی خودت‌بودن"
+      },
+      "glabel": {
+        "en": "Style",
+        "fa": "سبک"
+      },
+      "principle": {
+        "en": "Style grows out of clarity and from being yourself — not from decoration added on top.",
+        "fa": "سبک از شفافیت و از خودت‌بودن می‌روید — نه از تزئیناتی که رویش می‌گذاری."
+      },
+      "more": {
+        "en": "You can't add personality by dressing plain sentences in costume. Warmth comes through when you write plainly, in your own voice; the more you try to 'sound like a writer', the less like yourself you sound.",
+        "fa": "با پوشاندنِ جمله‌های ساده در لباسِ فاخر نمی‌توانی شخصیت اضافه کنی. گرما وقتی می‌آید که ساده و با صدای خودت بنویسی؛ هرچه بیشتر بخواهی «مثلِ یک نویسنده به‌نظر برسی»، کمتر شبیهِ خودت می‌شوی."
+      },
+      "example": {
+        "en": "A plain 'I think' beats a stiff 'it is the opinion of this writer that'.",
+        "fa": "«فکر می‌کنم»ِ ساده از «نظرِ این نگارنده بر آن است که»ِ خشک بهتر است."
+      },
+      "tip": {
+        "en": "Write the sentence the way you'd say it to a friend, then tidy it.",
+        "fa": "جمله را همان‌طور بنویس که به یک دوست می‌گویی، بعد مرتبش کن."
+      },
+      "pitfall": {
+        "en": "Imitating a 'literary' voice that isn't your own.",
+        "fa": "تقلیدِ یک صدای «ادبی» که مالِ تو نیست."
+      }
+    },
+    "audience": {
+      "part": "principles",
+      "n": 4,
+      "name": {
+        "en": "Write for Yourself",
+        "fa": "برای خودت بنویس"
+      },
+      "glabel": {
+        "en": "Audience",
+        "fa": "مخاطب"
+      },
+      "principle": {
+        "en": "Write to please yourself and to master the craft — don't chase a faceless mass audience.",
+        "fa": "برای رضایتِ خودت و برای تسلط بر صنعتِ کار بنویس — دنبالِ یک مخاطبِ تودهٔ بی‌چهره نرو."
+      },
+      "more": {
+        "en": "You are the one reader you can truly know. Care about the craft and trust that readers who share your taste will follow; pandering to everyone drains the voice that made the writing worth reading.",
+        "fa": "تو تنها خواننده‌ای هستی که واقعاً می‌شناسی‌اش. به صنعتِ کار اهمیت بده و اعتماد کن که خواننده‌هایی با ذائقهٔ تو دنبال می‌کنند؛ خودشیرینی برای همه، همان صدایی را می‌خشکاند که نوشته را ارزشِ خواندن کرده بود."
+      },
+      "example": {
+        "en": "Zinsser's own rule: 'You are writing for yourself' — every reader is a different person anyway.",
+        "fa": "قاعدهٔ خودِ زینسر: «تو برای خودت می‌نویسی» — به‌هرحال هر خواننده یک آدمِ متفاوت است."
+      },
+      "tip": {
+        "en": "Write the piece you'd want to read; stop trying to please everyone.",
+        "fa": "همان نوشته‌ای را بنویس که خودت دوست داری بخوانی؛ دست از راضی‌کردنِ همه بردار."
+      },
+      "pitfall": {
+        "en": "Second-guessing a faceless crowd until your voice disappears.",
+        "fa": "آن‌قدر گمانه‌زنی دربارهٔ یک جمعیتِ بی‌چهره تا صدایت محو شود."
+      }
+    },
+    "unity": {
+      "part": "methods",
+      "n": 5,
+      "name": {
+        "en": "Choose Unity",
+        "fa": "یکپارچگی را انتخاب کن"
+      },
+      "glabel": {
+        "en": "Unity",
+        "fa": "یکپارچگی"
+      },
+      "principle": {
+        "en": "Pick one tense, one point of view, one mood, and hold them steady through the piece.",
+        "fa": "یک زمان، یک زاویهٔ دید، یک لحن را انتخاب کن و در کلِ نوشته ثابت نگهشان دار."
+      },
+      "more": {
+        "en": "Unity is what keeps the reader oriented. Decide up front whether you're 'I', 'you' or 'we', past or present, formal or casual — then don't drift, because every unexplained shift quietly confuses.",
+        "fa": "یکپارچگی همان چیزی است که خواننده را سرِ جهت نگه می‌دارد. از اول تصمیم بگیر «من»ی، «تو»یی یا «ما»یی، گذشته یا حال، رسمی یا خودمانی — بعد منحرف نشو، چون هر تغییرِ بی‌توضیح، بی‌سروصدا گیج می‌کند."
+      },
+      "example": {
+        "en": "Don't open in past tense and slide into present midway; pick one and stay.",
+        "fa": "با زمانِ گذشته شروع نکن و وسطِ راه به حال نلغز؛ یکی را انتخاب کن و بمان."
+      },
+      "tip": {
+        "en": "Before drafting, decide your tense, person, and tone in one line.",
+        "fa": "قبل از نوشتن، زمان، شخص و لحنت را در یک خط تعیین کن."
+      },
+      "pitfall": {
+        "en": "Jarring shifts of voice or tense that unsettle the reader.",
+        "fa": "تغییرهای ناگهانیِ صدا یا زمان که خواننده را به‌هم می‌ریزند."
+      }
+    },
+    "leadend": {
+      "part": "methods",
+      "n": 6,
+      "name": {
+        "en": "The Lead & the Ending",
+        "fa": "شروع و پایان"
+      },
+      "glabel": {
+        "en": "Lead & End",
+        "fa": "شروع و پایان"
+      },
+      "principle": {
+        "en": "The first sentence must seize the reader; the ending should snap shut, often with a surprise.",
+        "fa": "جملهٔ اول باید خواننده را بگیرد؛ پایان باید ناگهان بسته شود، اغلب با یک غافلگیری."
+      },
+      "more": {
+        "en": "The lead earns the second sentence, which earns the third. The ending should stop the moment the job is done — a strong quote or a clean turn, never a droning summary that keeps going after the reader has arrived.",
+        "fa": "شروع، جملهٔ دوم را حق می‌کند، و دومی سومی را. پایان باید همان لحظه‌ای بایستد که کار تمام شده — یک نقلِ‌قولِ قوی یا یک چرخشِ تمیز، نه یک خلاصهٔ یک‌نواخت که بعد از رسیدنِ خواننده هم ادامه دارد."
+      },
+      "example": {
+        "en": "Open with one provocative fact the reader can't walk away from; end on a line that turns.",
+        "fa": "با یک واقعیتِ محرک شروع کن که خواننده نتواند رهایش کند؛ با خطی که می‌چرخد تمام کن."
+      },
+      "tip": {
+        "en": "Cut your first paragraph and your last; often the piece is better.",
+        "fa": "پاراگرافِ اول و آخرت را حذف کن؛ اغلب نوشته بهتر می‌شود."
+      },
+      "pitfall": {
+        "en": "A slow warm-up opening and an ending that won't stop.",
+        "fa": "یک شروعِ کُندِ گرم‌کننده و پایانی که تمام نمی‌شود."
+      }
+    },
+    "verbs": {
+      "part": "methods",
+      "n": 7,
+      "name": {
+        "en": "Use Active Verbs",
+        "fa": "فعلِ فعال به کار ببر"
+      },
+      "glabel": {
+        "en": "Verbs",
+        "fa": "فعل‌ها"
+      },
+      "principle": {
+        "en": "Verbs are your strongest tool; use active ones and distrust adverbs, adjectives and qualifiers.",
+        "fa": "فعل، قوی‌ترین ابزارِ توست؛ فعلِ فعال به کار ببر و به قید و صفت و تعدیل‌کننده‌ها بدبین باش."
+      },
+      "more": {
+        "en": "Active verbs push a sentence forward and give it momentum. Words like 'very', 'little', and 'sort of' usually signal a weak verb underneath — replace the verb, don't prop it up.",
+        "fa": "فعلِ فعال جمله را جلو می‌راند و به آن شتاب می‌دهد. کلماتی مثلِ «خیلی»، «کمی» و «یه‌جورایی» معمولاً نشانهٔ یک فعلِ ضعیف در زیرند — فعل را عوض کن، نه اینکه زیرِ بغلش را بگیری."
+      },
+      "example": {
+        "en": "'Be confused. Be tired.' beats 'a bit confused and sort of tired.'",
+        "fa": "«گیج باش. خسته باش.» از «یه‌کم گیج و یه‌جورایی خسته» بهتر است."
+      },
+      "tip": {
+        "en": "Find the strongest verb in each sentence; if it's weak, upgrade it.",
+        "fa": "قوی‌ترین فعلِ هر جمله را پیدا کن؛ اگر ضعیف است، ارتقایش بده."
+      },
+      "pitfall": {
+        "en": "Weak passive verbs propped up by piles of modifiers.",
+        "fa": "فعل‌های مجهولِ ضعیف که با تلنباری از تعدیل‌کننده سرِپا نگه داشته شده‌اند."
+      }
+    },
+    "rewrite": {
+      "part": "methods",
+      "n": 8,
+      "name": {
+        "en": "Rewrite, Rewrite",
+        "fa": "بازنویسی کن، بازنویسی"
+      },
+      "glabel": {
+        "en": "Rewrite",
+        "fa": "بازنویسی"
+      },
+      "principle": {
+        "en": "Rewriting is the essence of writing well — most first drafts can be cut by half.",
+        "fa": "بازنویسی، جوهرِ خوب‌نوشتن است — بیشترِ پیش‌نویس‌های اول را می‌شود نصف کرد."
+      },
+      "more": {
+        "en": "Few sentences come out right the first time. The real work is trimming, tightening and reordering until only the essential remains; the writer who thinks the first draft is finished stops just before the writing gets good.",
+        "fa": "کمتر جمله‌ای بارِ اول درست از آب درمی‌آید. کارِ اصلی، کوتاه‌کردن، فشرده‌کردن و مرتب‌کردنِ دوباره است تا فقط ضروری بماند؛ نویسنده‌ای که فکر می‌کند پیش‌نویسِ اول تمام است، درست قبل از اینکه نوشته خوب شود دست می‌کشد."
+      },
+      "example": {
+        "en": "Take a finished draft and cut it by a third; it almost always reads better.",
+        "fa": "یک پیش‌نویسِ تمام‌شده را بردار و یک‌سومش را حذف کن؛ تقریباً همیشه بهتر خوانده می‌شود."
+      },
+      "tip": {
+        "en": "Treat the first draft as raw material, never as the final piece.",
+        "fa": "پیش‌نویسِ اول را مادهٔ خام بدان، نه هیچ‌وقت نوشتهٔ نهایی."
+      },
+      "pitfall": {
+        "en": "Treating the first draft as finished.",
+        "fa": "پیش‌نویسِ اول را تمام‌شده پنداشتن."
+      }
+    },
+    "people": {
+      "part": "forms",
+      "n": 9,
+      "name": {
+        "en": "Write About People",
+        "fa": "دربارهٔ آدم‌ها بنویس"
+      },
+      "glabel": {
+        "en": "People",
+        "fa": "آدم‌ها"
+      },
+      "principle": {
+        "en": "People and their own words bring nonfiction to life — get someone talking and quote them.",
+        "fa": "آدم‌ها و کلماتِ خودشان، ناداستان را زنده می‌کنند — کسی را به حرف بیاور و از او نقلِ‌قول بیاور."
+      },
+      "more": {
+        "en": "Abstract writing goes dead; a real person speaking makes it breathe. Build a piece around someone's voice rather than your paraphrase, and readers lean in.",
+        "fa": "نوشتهٔ انتزاعی می‌میرد؛ یک آدمِ واقعی که حرف می‌زند، نفَسش می‌دهد. نوشته را دورِ صدای یک نفر بساز، نه دورِ بازگوییِ خودت، تا خواننده جلو بیاید."
+      },
+      "example": {
+        "en": "An article built on a nurse's own quotes beats one that only describes the hospital.",
+        "fa": "مقاله‌ای که روی نقلِ‌قول‌های خودِ یک پرستار ساخته شده، از مقاله‌ای که فقط بیمارستان را توصیف می‌کند بهتر است."
+      },
+      "tip": {
+        "en": "In your next piece, let a real person's words carry a key point.",
+        "fa": "در نوشتهٔ بعدی‌ات، بگذار کلماتِ یک آدمِ واقعی یک نکتهٔ کلیدی را حمل کند."
+      },
+      "pitfall": {
+        "en": "Dry, abstract writing with no human voice in it.",
+        "fa": "نوشتهٔ خشک و انتزاعی که هیچ صدای انسانی در آن نیست."
+      }
+    },
+    "places": {
+      "part": "forms",
+      "n": 10,
+      "name": {
+        "en": "Write About Places",
+        "fa": "دربارهٔ مکان‌ها بنویس"
+      },
+      "glabel": {
+        "en": "Places",
+        "fa": "مکان‌ها"
+      },
+      "principle": {
+        "en": "Report the one specific, telling detail — and resist the picturesque cliché.",
+        "fa": "همان یک جزئیاتِ مشخص و گویا را گزارش کن — و در برابرِ کلیشهٔ خوش‌منظره مقاومت کن."
+      },
+      "more": {
+        "en": "'Charming', 'quaint', 'breathtaking' tell the reader nothing. One exact, observed detail puts them in the place better than a paragraph of scenery adjectives.",
+        "fa": "«دلنشین»، «بامزه»، «نفس‌گیر» هیچ به خواننده نمی‌گویند. یک جزئیاتِ دقیق و دیده‌شده، بهتر از یک پاراگراف صفتِ منظره، خواننده را در آن مکان می‌نشاند."
+      },
+      "example": {
+        "en": "Not 'a charming café' but 'a café where the waiter knew every regular's order'.",
+        "fa": "نه «یک کافهٔ دلنشین» بلکه «کافه‌ای که پیش‌خدمتش سفارشِ هر مشتریِ همیشگی را از بر بود»."
+      },
+      "tip": {
+        "en": "Replace one travel adjective with one concrete, observed detail.",
+        "fa": "یک صفتِ سفرنامه‌ای را با یک جزئیاتِ ملموس و دیده‌شده عوض کن."
+      },
+      "pitfall": {
+        "en": "Clichéd travel-brochure adjectives and secondhand scenery.",
+        "fa": "صفت‌های کلیشه‌ایِ بروشورِ سفر و منظره‌های دستِ‌دوم."
+      }
+    },
+    "yourself": {
+      "part": "forms",
+      "n": 11,
+      "name": {
+        "en": "Write About Yourself",
+        "fa": "دربارهٔ خودت بنویس"
+      },
+      "glabel": {
+        "en": "Yourself",
+        "fa": "خودت"
+      },
+      "principle": {
+        "en": "Write about yourself with candor and warmth — your own life is your best material.",
+        "fa": "دربارهٔ خودت با صداقت و گرما بنویس — زندگیِ خودت بهترین مصالحِ توست."
+      },
+      "more": {
+        "en": "The memoir works when the writer stops hiding. Told in a genuine voice, family and personal history become universal; hedged and self-conscious, it stays flat.",
+        "fa": "خاطره وقتی جواب می‌دهد که نویسنده دست از پنهان‌شدن بردارد. با یک صدای صادق که گفته شود، تاریخِ خانوادگی و شخصی جهان‌شمول می‌شود؛ محتاط و خودآگاه، صاف و بی‌روح می‌ماند."
+      },
+      "example": {
+        "en": "A memoir that admits real fear and doubt moves us more than a polished highlight reel.",
+        "fa": "خاطره‌ای که به ترس و تردیدِ واقعی اعتراف می‌کند، بیشتر از یک نمایشِ صیقلیِ لحظه‌های خوب تکانمان می‌دهد."
+      },
+      "tip": {
+        "en": "Write one true, slightly uncomfortable memory in your own plain voice.",
+        "fa": "یک خاطرهٔ واقعی و کمی ناراحت‌کننده را با صدای سادهٔ خودت بنویس."
+      },
+      "pitfall": {
+        "en": "Self-conscious hedging that hides the real person.",
+        "fa": "احتیاط‌کاریِ خودآگاه که آدمِ واقعی را پنهان می‌کند."
+      }
+    },
+    "voice": {
+      "part": "attitudes",
+      "n": 12,
+      "name": {
+        "en": "Find Your Voice",
+        "fa": "صدایت را پیدا کن"
+      },
+      "glabel": {
+        "en": "Voice",
+        "fa": "صدا"
+      },
+      "principle": {
+        "en": "Develop a consistent, personal voice — write the way you naturally speak, only better.",
+        "fa": "یک صدای شخصی و یک‌دست بپروران — همان‌طور بنویس که طبیعی حرف می‌زنی، فقط بهتر."
+      },
+      "more": {
+        "en": "Voice is what makes a reader trust and enjoy you. Read your prose aloud to hear its rhythm and catch the false, institutional notes that don't sound like a human being.",
+        "fa": "صدا همان چیزی است که خواننده به‌خاطرش به تو اعتماد و از تو لذت می‌برد. نوشته‌ات را بلند بخوان تا ریتمش را بشنوی و آن نت‌های دروغین و اداری را که شبیهِ یک انسان نیستند بگیری."
+      },
+      "example": {
+        "en": "Reading aloud reveals the stiff sentence you'd never actually say out loud.",
+        "fa": "بلندخواندن، همان جملهٔ خشکی را لو می‌دهد که هیچ‌وقت واقعاً به زبان نمی‌آوری."
+      },
+      "tip": {
+        "en": "Read today's draft out loud and fix whatever you'd never say.",
+        "fa": "پیش‌نویسِ امروز را بلند بخوان و هرچه را هیچ‌وقت نمی‌گویی درست کن."
+      },
+      "pitfall": {
+        "en": "A flat, institutional tone with no human behind it.",
+        "fa": "یک لحنِ صاف و اداری که هیچ انسانی پشتش نیست."
+      }
+    },
+    "enjoyment": {
+      "part": "attitudes",
+      "n": 13,
+      "name": {
+        "en": "Enjoyment & Confidence",
+        "fa": "لذت و اعتماد"
+      },
+      "glabel": {
+        "en": "Enjoyment",
+        "fa": "لذت"
+      },
+      "principle": {
+        "en": "Confidence and evident enjoyment transmit straight to the reader — so write what you care about.",
+        "fa": "اعتماد و لذتِ آشکار، مستقیم به خواننده منتقل می‌شوند — پس دربارهٔ چیزی بنویس که برایت مهم است."
+      },
+      "more": {
+        "en": "When you enjoy the subject, the pleasure shows and pulls the reader along; when you write from fear, the hedging shows too. Interest is contagious in both directions.",
+        "fa": "وقتی از موضوع لذت می‌بری، آن لذت دیده می‌شود و خواننده را با خود می‌کشد؛ وقتی از سرِ ترس می‌نویسی، آن احتیاط هم دیده می‌شود. علاقه در هر دو جهت مسری است."
+      },
+      "example": {
+        "en": "A piece by someone who loves their subject reads warm; a dutiful one reads cold.",
+        "fa": "نوشتهٔ کسی که موضوعش را دوست دارد گرم خوانده می‌شود؛ نوشتهٔ از سرِ وظیفه، سرد."
+      },
+      "tip": {
+        "en": "Pick subjects you genuinely care about; the enjoyment carries.",
+        "fa": "موضوع‌هایی را انتخاب کن که واقعاً برایت مهم‌اند؛ لذتش خودش را می‌رساند."
+      },
+      "pitfall": {
+        "en": "Timid, hedged writing driven by fear of being wrong.",
+        "fa": "نوشتهٔ ترسو و محتاط که از ترسِ اشتباه‌کردن می‌آید."
+      }
+    },
+    "best": {
+      "part": "attitudes",
+      "n": 14,
+      "name": {
+        "en": "Write as Well as You Can",
+        "fa": "تا می‌توانی خوب بنویس"
+      },
+      "glabel": {
+        "en": "Do your best",
+        "fa": "بهترینت"
+      },
+      "principle": {
+        "en": "Hold yourself to your highest standard on every job, however humble.",
+        "fa": "در هر کار، هرچقدر هم ساده، خودت را به بالاترین استانداردت پایبند بدار."
+      },
+      "more": {
+        "en": "Taste and standards are a decision, not a talent. Even a routine assignment deserves real craftsmanship; settle for 'good enough' a few times and you quietly lose the standard that made you good.",
+        "fa": "ذائقه و استاندارد یک تصمیم است، نه استعداد. حتی یک کارِ روزمره هم شایستهٔ صنعتگریِ واقعی است؛ چند بار به «به‌اندازهٔ کافی خوب» رضایت بده، و بی‌سروصدا همان استانداردی را از دست می‌دهی که خوبت کرده بود."
+      },
+      "example": {
+        "en": "Give the same care to a short email as to an essay; the habit shows everywhere.",
+        "fa": "همان دقتی را که به یک جستار می‌دهی، به یک ایمیلِ کوتاه هم بده؛ این عادت همه‌جا خودش را نشان می‌دهد."
+      },
+      "tip": {
+        "en": "Do the small, unglamorous piece as well as you possibly can.",
+        "fa": "همان کارِ کوچک و بی‌زرق‌وبرق را تا جایی که می‌توانی خوب انجام بده."
+      },
+      "pitfall": {
+        "en": "Settling for 'good enough' until your standards erode.",
+        "fa": "رضایت به «به‌اندازهٔ کافی خوب» تا وقتی استانداردهایت فرو بریزند."
+      }
+    }
+  },
+  "core": {
+    "name": {
+      "en": "CLARITY",
+      "fa": "شفافیت"
+    },
+    "principle": {
+      "en": "Good nonfiction is clear, simple, brief and human. Strip every sentence to its cleanest components, respect the reader's time, and let your real self show — because clear writing comes from clear thinking and relentless rewriting.",
+      "fa": "ناداستانِ خوب، روشن، ساده، کوتاه و انسانی است. هر جمله را تا تمیزترین اجزایش کم کن، به وقتِ خواننده احترام بگذار، و بگذار خودِ واقعی‌ات دیده شود — چون نوشتنِ روشن از فکرِ روشن و بازنویسیِ بی‌امان می‌آید."
+    },
+    "more": {
+      "en": "Zinsser organizes the craft into four parts — Principles (clarity, simplicity, cutting clutter), Methods (unity, leads and endings, strong verbs, rewriting), Forms (writing about people, places, yourself), and Attitudes (voice, confidence, enjoyment). The thread through all of it: warmth and humanity survive only after the clutter is gone.",
+      "fa": "زینسر این صنعت را در چهار بخش می‌چیند — اصول (شفافیت، سادگی، حذفِ زواید)، روش‌ها (یکپارچگی، شروع و پایان، فعل‌های قوی، بازنویسی)، قالب‌ها (نوشتن دربارهٔ آدم‌ها، مکان‌ها، خودت)، و نگرش‌ها (صدا، اعتماد، لذت). نخِ رابطِ همه‌شان: گرما و انسانیت فقط بعد از رفتنِ زواید می‌مانند."
+    },
+    "example": {
+      "en": "Click any node to read a principle or a method. You can also drag the nodes around.",
+      "fa": "روی هر دایره کلیک کن تا یک اصل یا روش را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."
+    }
+  },
+  "stages": [
+    {
+      "level": 1,
+      "badge": {
+        "en": "Level 1 · Over-simplified",
+        "fa": "سطحِ ۱ · خیلی ساده"
+      },
+      "title": {
+        "en": "Cut the fat",
+        "fa": "چربی را بگیر"
+      },
+      "tagline": {
+        "en": "The whole book in a sentence.",
+        "fa": "کلِ کتاب در یک جمله."
+      },
+      "body": {
+        "en": "Good writing is clear writing, and clear writing is lean. Say what you mean in the fewest, plainest words — then delete the ones you didn't need.",
+        "fa": "نوشتهٔ خوب یعنی نوشتهٔ روشن، و نوشتهٔ روشن یعنی کم‌چربی. منظورت را با کمترین و ساده‌ترین کلمات بگو — بعد آن‌هایی را که لازم نداشتی حذف کن."
+      },
+      "example": {
+        "en": "'At this point in time' is just 'now'. Make that swap a hundred times.",
+        "fa": "«در این برهه از زمان» فقط یعنی «حالا». این جایگزینی را صد بار انجام بده."
+      },
+      "gain": {
+        "en": "You hold the single rule the whole book expands on.",
+        "fa": "همان یک قاعده‌ای را داری که کلِ کتاب بسطش می‌دهد."
+      }
+    },
+    {
+      "level": 2,
+      "badge": {
+        "en": "Level 2 · Simple",
+        "fa": "سطحِ ۲ · ساده"
+      },
+      "title": {
+        "en": "Four foundations",
+        "fa": "چهار پایه"
+      },
+      "tagline": {
+        "en": "Clarity, simplicity, brevity, humanity.",
+        "fa": "شفافیت، سادگی، کوتاهی، انسانیت."
+      },
+      "body": {
+        "en": "Every good sentence rests on four things: it's <b>clear</b>, it's <b>simple</b>, it's <b>brief</b>, and it keeps its <b>humanity</b>. Your main job is to hunt <b>clutter</b> — the jargon and padding that smother all four.",
+        "fa": "هر جملهٔ خوب روی چهار چیز بنا شده: <b>روشن</b> است، <b>ساده</b> است، <b>کوتاه</b> است، و <b>انسانیتش</b> را حفظ می‌کند. کارِ اصلی‌ات شکارِ <b>زواید</b> است — اصطلاحات و پُرکردنی که هر چهار را خفه می‌کند."
+      },
+      "example": {
+        "en": "Turn 'we utilized' into 'we used', and 'in order to' into 'to'.",
+        "fa": "«ما بهره‌برداری کردیم» را به «ما استفاده کردیم»، و «به‌منظورِ» را به «برای» تبدیل کن."
+      },
+      "gain": {
+        "en": "You can spot and cut clutter in any sentence.",
+        "fa": "می‌توانی زواید را در هر جمله ببینی و حذف کنی."
+      }
+    },
+    {
+      "level": 3,
+      "badge": {
+        "en": "Level 3 · Balanced",
+        "fa": "سطحِ ۳ · متعادل"
+      },
+      "title": {
+        "en": "Build it well",
+        "fa": "خوب بسازش"
+      },
+      "tagline": {
+        "en": "Unity, leads, verbs, rewriting.",
+        "fa": "یکپارچگی، شروع، فعل، بازنویسی."
+      },
+      "body": {
+        "en": "Now the methods. Hold <b>unity</b> of tense and voice. Open with a <b>lead</b> that grabs and close with an <b>ending</b> that snaps shut. Lean on <b>active verbs</b>. And above all, <b>rewrite</b> — the first draft is where you find out what you mean; the rewrite is where you say it.",
+        "fa": "حالا روش‌ها. <b>یکپارچگیِ</b> زمان و صدا را نگه دار. با یک <b>شروعِ</b> گیرا باز کن و با یک <b>پایانِ</b> ناگهانی ببند. به <b>فعل‌های فعال</b> تکیه کن. و از همه مهم‌تر، <b>بازنویسی</b> کن — پیش‌نویسِ اول جایی است که می‌فهمی چه می‌خواهی بگویی؛ بازنویسی جایی است که می‌گویی‌اش."
+      },
+      "example": {
+        "en": "Halve a finished draft. What's left is almost always sharper.",
+        "fa": "یک پیش‌نویسِ تمام‌شده را نصف کن. آنچه می‌ماند تقریباً همیشه تیزتر است."
+      },
+      "gain": {
+        "en": "You can build a clean piece from lead to ending.",
+        "fa": "می‌توانی یک نوشتهٔ تمیز را از شروع تا پایان بسازی."
+      }
+    },
+    {
+      "level": 4,
+      "badge": {
+        "en": "Level 4 · Advanced",
+        "fa": "سطحِ ۴ · پیشرفته"
+      },
+      "title": {
+        "en": "Fit the form",
+        "fa": "به قالب بنشان"
+      },
+      "tagline": {
+        "en": "People, places, yourself — any genre.",
+        "fa": "آدم‌ها، مکان‌ها، خودت — هر قالب."
+      },
+      "body": {
+        "en": "The same principles bend to fit any genre. Writing about <b>people</b>? Quote them. Writing about <b>places</b>? Give one exact detail, not travel-brochure adjectives. Writing about <b>yourself</b>? Do it with candor. Interview, travel, memoir, science, business — the rule holds: find the human and the specific detail.",
+        "fa": "همان اصول خم می‌شوند تا به هر قالبی بخورند. دربارهٔ <b>آدم‌ها</b> می‌نویسی؟ نقلِ‌قولشان کن. دربارهٔ <b>مکان‌ها</b>؟ یک جزئیاتِ دقیق بده، نه صفت‌های بروشورِ سفر. دربارهٔ <b>خودت</b>؟ با صداقت. مصاحبه، سفر، خاطره، علم، کسب‌وکار — قاعده پابرجاست: آدم و آن جزئیاتِ مشخص را پیدا کن."
+      },
+      "example": {
+        "en": "A profile lives on its subject's own words; a travel piece on one vivid, exact scene.",
+        "fa": "یک نیم‌رخ با کلماتِ خودِ سوژه‌اش زنده است؛ یک سفرنامه با یک صحنهٔ زنده و دقیق."
+      },
+      "gain": {
+        "en": "You can adapt the craft to whatever you need to write.",
+        "fa": "می‌توانی صنعتِ کار را با هر چیزی که باید بنویسی وفق بدهی."
+      }
+    },
+    {
+      "level": 5,
+      "badge": {
+        "en": "Level 5 · Expert",
+        "fa": "سطحِ ۵ · حرفه‌ای"
+      },
+      "title": {
+        "en": "Warmth & standards",
+        "fa": "گرما و استاندارد"
+      },
+      "tagline": {
+        "en": "Voice, enjoyment, and doing your best.",
+        "fa": "صدا، لذت، و بهترین‌بودن."
+      },
+      "body": {
+        "en": "The expert has the craft and adds the attitudes. A consistent <b>voice</b> and visible <b>enjoyment</b> travel straight to the reader — warmth survives only after the clutter is gone. And the deepest rule is a standard: <b>write as well as you can</b> on every job, however small, because taste is a decision you keep making. Clear thinking becomes clear writing; one can't exist without the other.",
+        "fa": "آدمِ حرفه‌ای صنعت را دارد و نگرش‌ها را به آن می‌افزاید. یک <b>صدای</b> یک‌دست و <b>لذتِ</b> آشکار مستقیم به خواننده می‌رسند — گرما فقط بعد از رفتنِ زواید می‌ماند. و عمیق‌ترین قاعده یک استاندارد است: در هر کار، هرچقدر کوچک، <b>تا می‌توانی خوب بنویس</b>، چون ذائقه تصمیمی است که مدام می‌گیری. فکرِ روشن به نوشتهٔ روشن تبدیل می‌شود؛ هیچ‌کدام بدونِ دیگری نمی‌تواند وجود داشته باشد."
+      },
+      "example": {
+        "en": "You read every draft aloud, keep your voice, and give a two-line email the same care as an essay.",
+        "fa": "هر پیش‌نویس را بلند می‌خوانی، صدایت را نگه می‌داری، و به یک ایمیلِ دوخطی همان دقتِ یک جستار را می‌دهی."
+      },
+      "gain": {
+        "en": "You can write clearly and warmly, and teach others to do the same.",
+        "fa": "می‌توانی روشن و گرم بنویسی، و همین را به دیگران یاد بدهی."
+      }
+    }
+  ],
+  "quotes": [
+    {
+      "en": "Clutter is the disease of American writing. We are a society strangling in unnecessary words, circular constructions, pompous frills and meaningless jargon.",
+      "fa": "زواید، بیماریِ نوشتنِ آمریکایی است. ما جامعه‌ای هستیم که در کلماتِ غیرضروری، ساختارهای دورانی، تزئیناتِ پُرطمطراق و اصطلاحاتِ بی‌معنا خفه می‌شویم."
+    },
+    {
+      "en": "The secret of good writing is to strip every sentence to its cleanest components.",
+      "fa": "رازِ خوب‌نوشتن این است که هر جمله را تا تمیزترین اجزایش کم کنی."
+    },
+    {
+      "en": "Clear thinking becomes clear writing; one can't exist without the other.",
+      "fa": "فکرِ روشن به نوشتهٔ روشن تبدیل می‌شود؛ هیچ‌کدام بدونِ دیگری نمی‌تواند وجود داشته باشد."
+    },
+    {
+      "en": "Fighting clutter is like fighting weeds — the writer is always slightly behind.",
+      "fa": "جنگ با زواید مثلِ جنگ با علفِ هرز است — نویسنده همیشه کمی عقب است."
+    },
+    {
+      "en": "Writing is hard work. A clear sentence is no accident. Very few sentences come out right the first time.",
+      "fa": "نوشتن کارِ سختی است. یک جملهٔ روشن تصادفی نیست. کمتر جمله‌ای بارِ اول درست از آب درمی‌آید."
+    },
+    {
+      "en": "You are writing for yourself. Don't try to visualize the great mass audience.",
+      "fa": "تو برای خودت می‌نویسی. سعی نکن آن مخاطبِ تودهٔ بزرگ را تصور کنی."
+    },
+    {
+      "en": "Verbs are the most important of all your tools. They push the sentence forward and give it momentum.",
+      "fa": "فعل‌ها مهم‌ترینِ همهٔ ابزارهای تو هستند. جمله را جلو می‌رانند و به آن شتاب می‌دهند."
+    },
+    {
+      "en": "Don't say you were a bit confused and sort of tired. Be confused. Be tired.",
+      "fa": "نگو یه‌کم گیج و یه‌جورایی خسته بودی. گیج باش. خسته باش."
+    },
+    {
+      "en": "Writing is an intimate transaction between two people, conducted on paper.",
+      "fa": "نوشتن یک معاملهٔ صمیمانه بینِ دو نفر است که روی کاغذ انجام می‌شود."
+    }
+  ],
+  "media": [
+    {
+      "kind": "yt",
+      "id": "LgI_Nt-82Hk",
+      "src": {
+        "en": "YouTube · Productivity Game",
+        "fa": "یوتیوب · Productivity Game"
+      },
+      "title": {
+        "en": "On Writing Well — Core Message",
+        "fa": "خوب نوشتن — پیامِ اصلی"
+      },
+      "desc": {
+        "en": "An animated core-message summary of the book.",
+        "fa": "یک خلاصهٔ انیمیشنی از پیامِ اصلیِ کتاب."
+      },
+      "bullets": {
+        "en": [
+          "The four foundations in a few minutes",
+          "Cutting clutter, in pictures",
+          "A fast, memorable overview"
+        ],
+        "fa": [
+          "چهار پایه در چند دقیقه",
+          "حذفِ زواید، به‌شکلِ تصویری",
+          "یک مرورِ سریع و به‌یادماندنی"
+        ]
+      },
+      "best": {
+        "en": "Best for Stage 1–2.",
+        "fa": "خوب برای مرحلهٔ ۱ و ۲."
+      }
+    },
+    {
+      "kind": "yt",
+      "id": "lHbqoJpymRs",
+      "src": {
+        "en": "YouTube · Alex and Books",
+        "fa": "یوتیوب · Alex and Books"
+      },
+      "title": {
+        "en": "Lessons from On Writing Well",
+        "fa": "درس‌هایی از خوب نوشتن"
+      },
+      "desc": {
+        "en": "A reader's practical lessons drawn from the book.",
+        "fa": "درس‌های کاربردیِ یک خواننده از کتاب."
+      },
+      "bullets": {
+        "en": [
+          "Concrete before/after examples",
+          "How the principles apply day to day",
+          "Good after a first read"
+        ],
+        "fa": [
+          "مثال‌های ملموسِ قبل و بعد",
+          "اینکه اصول روزبه‌روز چطور به کار می‌آیند",
+          "خوب بعد از اولین خواندن"
+        ]
+      },
+      "best": {
+        "en": "Best for Stage 2–3.",
+        "fa": "خوب برای مرحلهٔ ۲ و ۳."
+      }
+    },
+    {
+      "kind": "yt",
+      "id": "VkCn7ga--aU",
+      "src": {
+        "en": "YouTube · SnapTale",
+        "fa": "یوتیوب · SnapTale"
+      },
+      "title": {
+        "en": "On Writing Well — 9-Minute Summary",
+        "fa": "خوب نوشتن — خلاصهٔ ۹ دقیقه‌ای"
+      },
+      "desc": {
+        "en": "A quick summary of the key points.",
+        "fa": "یک خلاصهٔ سریع از نکات کلیدی."
+      },
+      "bullets": {
+        "en": [
+          "The methods, condensed",
+          "Leads, verbs, and rewriting",
+          "A tidy recap"
+        ],
+        "fa": [
+          "روش‌ها، فشرده",
+          "شروع، فعل، و بازنویسی",
+          "یک مرورِ مرتب"
+        ]
+      },
+      "best": {
+        "en": "Best for Stage 3–4.",
+        "fa": "خوب برای مرحلهٔ ۳ و ۴."
+      }
+    },
+    {
+      "kind": "img",
+      "url": "https://www.harpercollins.com/products/on-writing-well-william-zinsser",
+      "src": {
+        "en": "HarperCollins · Publisher",
+        "fa": "HarperCollins · ناشر"
+      },
+      "title": {
+        "en": "On Writing Well — Publisher Page",
+        "fa": "خوب نوشتن — صفحهٔ ناشر"
+      },
+      "desc": {
+        "en": "The publisher page for the classic guide, with editions and details.",
+        "fa": "صفحهٔ ناشر برای این راهنمای کلاسیک، با نسخه‌ها و جزئیات."
+      },
+      "bullets": {
+        "en": [
+          "The definitive editions",
+          "Background on Zinsser",
+          "Straight from the source"
+        ],
+        "fa": [
+          "نسخه‌های معتبر",
+          "پیشینه‌ای دربارهٔ زینسر",
+          "مستقیم از خودِ منبع"
+        ]
+      },
+      "best": {
+        "en": "For editions and the source.",
+        "fa": "برای نسخه‌ها و منبعِ اصلی."
+      }
+    }
+  ],
+  "go": [
+    {
+      "label": {
+        "en": "Publisher page",
+        "fa": "صفحهٔ ناشر"
+      },
+      "url": "https://www.harpercollins.com/products/on-writing-well-william-zinsser"
+    },
+    {
+      "label": {
+        "en": "Book on Goodreads",
+        "fa": "کتاب در گودریدز"
+      },
+      "url": "https://www.goodreads.com/book/show/53343.On_Writing_Well"
+    },
+    {
+      "label": {
+        "en": "Zinsser essay: Writing English as a Second Language",
+        "fa": "جستارِ زینسر: نوشتن به انگلیسی"
+      },
+      "url": "https://theamericanscholar.org/writing-english-as-a-second-language/"
+    }
+  ],
+  "recs": [
+    {
+      "pri": "b",
+      "t": {
+        "en": "Cut every sentence to the bone",
+        "fa": "هر جمله را تا استخوان بتراش"
+      },
+      "d": {
+        "en": "Reread your last email or doc and delete every word that isn't doing work.",
+        "fa": "آخرین ایمیل یا سندت را دوباره بخوان و هر کلمه‌ای که کاری نمی‌کند را حذف کن."
+      }
+    },
+    {
+      "pri": "b",
+      "t": {
+        "en": "Rewrite it once more",
+        "fa": "یک‌بارِ دیگر بازنویسی‌اش کن"
+      },
+      "d": {
+        "en": "Take a finished draft and cut it by a third before you send it.",
+        "fa": "یک پیش‌نویسِ تمام‌شده را بردار و قبل از فرستادن، یک‌سومش را حذف کن."
+      }
+    },
+    {
+      "pri": "n",
+      "t": {
+        "en": "Hunt one kind of clutter",
+        "fa": "یک نوع زواید را شکار کن"
+      },
+      "d": {
+        "en": "Pick a crutch — 'very', 'in order to', 'utilize' — and remove it everywhere today.",
+        "fa": "یک عصا را انتخاب کن — «خیلی»، «به‌منظورِ»، «بهره‌برداری» — و امروز همه‌جا حذفش کن."
+      }
+    },
+    {
+      "pri": "n",
+      "t": {
+        "en": "Read it aloud",
+        "fa": "بلند بخوانش"
+      },
+      "d": {
+        "en": "Hear the stiff, inhuman sentences and rewrite them the way you'd speak.",
+        "fa": "جمله‌های خشک و غیرانسانی را بشنو و همان‌طور که حرف می‌زنی بازنویسی‌شان کن."
+      }
+    }
+  ]
 });
 </script>
 </body>

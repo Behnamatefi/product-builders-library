@@ -1,21 +1,20 @@
 <!DOCTYPE html>
-<!-- complexity-level: 1→5 (this page teaches the SAME book at five depths, over-simplified … expert) -->
-<!-- Effortless (Greg McKeown) — bilingual EN/FA knowledge graph & 5-stage learning page -->
-<html lang="fa" dir="rtl" data-lang="fa">
+<!-- Generated page. Edit CONTENT in the DATA object below; shared UI lives in ../assets/book.css + ../assets/book.js -->
+<html lang="en" dir="ltr" data-lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>INSPIRED — نقشهٔ دانش و یادگیری ۵ مرحله‌ای</title>
 
-<!-- Boot theme + language BEFORE paint to avoid a flash -->
+<!-- Boot theme + language BEFORE paint to avoid a flash (shared library-wide keys) -->
 <script>
 (function(){
   try{
-    var th = localStorage.getItem('inspired-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
+    var th = localStorage.getItem('pbl-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
     document.documentElement.setAttribute('data-theme', th);
   }catch(e){ document.documentElement.setAttribute('data-theme','light'); }
   try{
-    var lg = localStorage.getItem('inspired-lang') || 'fa';
+    var lg = localStorage.getItem('pbl-lang') || 'en';
     document.documentElement.setAttribute('data-lang', lg);
     document.documentElement.setAttribute('lang', lg);
     document.documentElement.setAttribute('dir', lg==='fa' ? 'rtl' : 'ltr');
@@ -28,876 +27,1210 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:ital,opsz@0,6..72;1,6..72&display=swap" rel="stylesheet">
-
-<style>
-/* ── TOKENS ───────────────────────────────────────────────── */
-:root, [data-theme="light"]{
-  --bg:#f5f6f8; --bg2:#eef2f7; --card:#fff; --card2:#f8fafb;
-  --ink:#1c2330; --mut:#6b7280; --line:#e6e8ee;
-  --accent:#0e7c86; --accent-ink:#fff; --warm:#c2410c;
-  --shadow:0 1px 2px rgba(20,30,50,.05),0 6px 24px rgba(20,30,50,.06);
-  --hero-1:#0e7c86; --hero-2:#0b5e66;
-  --c-teal:#0e9aa6; --c-blue:#2f6fb0; --c-violet:#7c3aed; --c-amber:#d97706;
-  --c-green:#15a34a; --c-red:#e11d48; --c-gold:#c98a12; --c-gray:#6b7280;
-  --state:#0e9aa6; --action:#d97706; --results:#7c3aed; --core:#0e7c86;
-}
-[data-theme="dark"]{
-  --bg:#0e131a; --bg2:#161d27; --card:#151c26; --card2:#1b2430;
-  --ink:#e9eef5; --mut:#9aa7b6; --line:#27313d;
-  --accent:#2dd4bf; --accent-ink:#06231f; --warm:#fb923c;
-  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 28px rgba(0,0,0,.45);
-  --hero-1:#0c5f67; --hero-2:#07323a;
-  --c-teal:#2dd4bf; --c-blue:#5b9bd5; --c-violet:#a78bfa; --c-amber:#fbbf24;
-  --c-green:#34d399; --c-red:#fb7185; --c-gold:#e2b04a; --c-gray:#94a3b8;
-  --state:#2dd4bf; --action:#fbbf24; --results:#a78bfa; --core:#2dd4bf;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);
-  font-family:Vazirmatn,"Segoe UI",Tahoma,Arial,sans-serif;line-height:1.85;font-size:15px;
-  transition:background .25s,color .25s}
-html[data-lang="en"] body{font-family:Inter,"Segoe UI",system-ui,Arial,sans-serif;line-height:1.7}
-.wrap{max-width:960px;margin:0 auto;padding:0 18px 40px}
-
-/* language visibility */
-html[data-lang="en"] [data-only="fa"]{display:none !important}
-html[data-lang="fa"] [data-only="en"]{display:none !important}
-
-/* ── HERO ─────────────────────────────────────────────────── */
-.hero{background:linear-gradient(135deg,var(--hero-1),var(--hero-2));color:#fff;padding:44px 0 34px;position:relative;overflow:hidden}
-.hero::after{content:"";position:absolute;inset-inline-end:-80px;top:-80px;width:280px;height:280px;
-  background:radial-gradient(circle,rgba(255,255,255,.12),transparent 70%);pointer-events:none}
-.hero .wrap{padding-bottom:0;position:relative;z-index:1}
-.hero h1{margin:0 0 8px;font-size:30px;font-weight:800;letter-spacing:-.3px;line-height:1.25}
-html[data-lang="en"] .hero h1{font-family:Newsreader,Georgia,serif;font-weight:600;letter-spacing:-.5px}
-.hero .dek{margin:0;opacity:.94;font-size:15.5px;max-width:640px}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;
-  color:rgba(255,255,255,.95);background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.24);
-  padding:5px 13px;border-radius:20px;margin-bottom:15px}
-.eyebrow .edot{width:7px;height:7px;border-radius:50%;background:#fff;box-shadow:0 0 0 3px rgba(255,255,255,.25)}
-.metastrip{display:flex;flex-wrap:wrap;gap:14px 30px;margin-top:20px;padding-top:16px;
-  border-top:1px solid rgba(255,255,255,.18)}
-.metaitem{display:flex;flex-direction:column;gap:3px}
-.metaitem .mk{font-size:10.5px;color:rgba(255,255,255,.62);font-weight:700;letter-spacing:.6px;text-transform:uppercase}
-.metaitem .mv{font-size:14px;color:#fff;font-weight:700}
-.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
-.chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);
-  border-radius:11px;padding:9px 15px;font-size:13px}
-.chip b{font-size:20px;display:block;font-weight:800}
-
-/* ── NAV + TOC ────────────────────────────────────────────── */
-.navbar{position:sticky;top:0;z-index:60;background:color-mix(in srgb,var(--card) 92%,transparent);
-  backdrop-filter:saturate(180%) blur(10px);-webkit-backdrop-filter:saturate(180%) blur(10px);
-  border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
-.navin{max-width:960px;margin:0 auto;padding:8px 16px;display:flex;align-items:center;gap:12px}
-.brand{flex:0 0 auto;font-weight:800;font-size:12.5px;color:var(--accent);white-space:nowrap;
-  display:flex;align-items:center;gap:7px}
-.brand .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);
-  box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 18%,transparent)}
-.toc{flex:1 1 auto;display:flex;flex-wrap:wrap;gap:7px;justify-content:center}
-.toc a{font-size:12.5px;color:var(--mut);text-decoration:none;border:1px solid var(--line);
-  border-radius:20px;padding:5px 12px;background:var(--card);white-space:nowrap;
-  transition:background .15s,color .15s,border-color .15s}
-.toc a:hover{color:var(--accent);border-color:var(--accent)}
-.toc a.active{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
-.navctl{flex:0 0 auto;display:flex;align-items:center;gap:8px}
-.langbtn{height:34px;border-radius:18px;border:1px solid var(--line);background:var(--card);
-  color:var(--ink);cursor:pointer;font:inherit;font-size:12.5px;font-weight:700;padding:0 13px;
-  display:flex;align-items:center;gap:6px}
-.langbtn:hover{border-color:var(--accent);color:var(--accent)}
-.langbtn .globe{width:15px;height:15px;display:block}
-.themebtn{flex:0 0 auto;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);
-  background:var(--card);color:var(--ink);cursor:pointer;line-height:1;display:grid;place-items:center}
-.themebtn svg{width:17px;height:17px;display:block}
-.themebtn:hover{border-color:var(--accent);color:var(--accent)}
-[data-theme="light"] .themebtn .ic-sun{display:none}
-[data-theme="dark"]  .themebtn .ic-moon{display:none}
-
-/* ── BLOCKS ───────────────────────────────────────────────── */
-h2{font-size:21px;margin:44px 0 6px;font-weight:800;scroll-margin-top:92px;line-height:1.35}
-html[data-lang="en"] h2{font-family:Newsreader,Georgia,serif;font-weight:600}
-h2 .num{color:var(--accent);font-variant-numeric:tabular-nums}
-.sub{color:var(--mut);font-size:13.5px;margin:0 0 16px;max-width:680px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;
-  padding:20px 22px;margin:14px 0;box-shadow:var(--shadow)}
-.lead{font-size:15.5px}
-.lead b{color:var(--warm)}
-.kgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin:8px 0}
-.kbox{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:15px 16px;text-align:center}
-.kbox .v{font-size:26px;font-weight:800;color:var(--accent);font-variant-numeric:tabular-nums}
-.kbox .l{font-size:12.5px;color:var(--mut);margin-top:3px}
-ul.clean{margin:6px 0;padding-inline-start:20px} ul.clean li{margin:8px 0}
-.callout{background:color-mix(in srgb,var(--warm) 9%,var(--card));
-  border:1px solid color-mix(in srgb,var(--warm) 30%,var(--line));
-  border-radius:12px;padding:14px 18px;margin:12px 0}
-.callout b{color:var(--warm)}
-.callout.accent{background:color-mix(in srgb,var(--accent) 9%,var(--card));
-  border-color:color-mix(in srgb,var(--accent) 30%,var(--line))}
-.callout.accent b{color:var(--accent)}
-a{color:var(--accent)}
-
-/* ── GRAPH ────────────────────────────────────────────────── */
-.gtabs{display:inline-flex;gap:4px;background:var(--bg2);border:1px solid var(--line);
-  border-radius:11px;padding:4px;margin:6px 0 2px}
-.gtab{border:0;background:transparent;color:var(--mut);font:inherit;font-size:13px;font-weight:700;
-  padding:7px 15px;border-radius:8px;cursor:pointer}
-.gtab.active{background:var(--card);color:var(--accent);box-shadow:var(--shadow)}
-.graphcard{padding:14px}
-.legend{display:flex;flex-wrap:wrap;gap:14px;margin:2px 4px 12px;font-size:12.5px;color:var(--mut)}
-.legend span{display:inline-flex;align-items:center;gap:6px}
-.legend i{width:11px;height:11px;border-radius:50%;display:inline-block}
-.graphstage{display:grid;grid-template-columns:1fr;gap:14px}
-@media(min-width:760px){.graphstage{grid-template-columns:1.35fr .95fr}}
-.svgwrap{position:relative;background:var(--card2);border:1px solid var(--line);border-radius:12px;
-  overflow:hidden;min-height:300px}
-#netsvg{display:block;width:100%;height:560px;touch-action:none;cursor:grab}
-#netsvg text{pointer-events:none;user-select:none}
-.ghint{position:absolute;inset-inline-start:12px;top:10px;font-size:11.5px;color:var(--mut);
-  background:color-mix(in srgb,var(--card) 82%,transparent);border:1px solid var(--line);
-  border-radius:20px;padding:3px 11px;backdrop-filter:blur(4px);max-width:70%}
-.greset{position:absolute;inset-inline-end:10px;top:10px;border:1px solid var(--line);background:var(--card);
-  color:var(--mut);border-radius:8px;font:inherit;font-size:11.5px;padding:4px 10px;cursor:pointer}
-.greset:hover{color:var(--accent);border-color:var(--accent)}
-/* node + link interaction states */
-.node{cursor:pointer}
-/* the inner <g class="ns"> is what scales; fill-box keeps the pivot on the node itself, not the SVG viewport */
-.ns{transform-box:fill-box;transform-origin:center;transition:transform .2s cubic-bezier(.2,.75,.25,1)}
-.node.hover .ns{transform:scale(1.1)}
-.node.sel  .ns{transform:scale(1.34)}                 /* selected node grows */
-.node.ncore.hover .ns{transform:scale(1.06)}
-.node.ncore.sel   .ns{transform:none}                 /* the centre 'Effortless' node keeps default size */
-.node.sel circle{stroke:var(--ink);stroke-width:2.5;filter:drop-shadow(0 0 8px color-mix(in srgb,var(--accent) 60%,transparent))}
-.node.hl circle{stroke:var(--ink);stroke-opacity:.5;stroke-width:2.5}
-.node.dim{opacity:.2}
-.node text{font-family:Vazirmatn,Tahoma,sans-serif;font-weight:700}
-html[data-lang="en"] .node text{font-family:Inter,sans-serif}
-.glink{transition:opacity .2s,stroke .2s}
-.glink.dim{opacity:.08}
-.glink.hl{stroke:var(--accent) !important;stroke-opacity:.8}
-/* detail panel */
-.detail{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;min-height:220px}
-@media(min-width:760px){.detail{max-height:480px;overflow:auto}}
-.detail .dkick{font-size:11.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;display:flex;align-items:center;gap:7px;color:var(--mut)}
-.detail .dkick i{width:10px;height:10px;border-radius:50%}
-.detail h4{margin:8px 0 3px;font-size:18px;font-weight:800}
-html[data-lang="en"] .detail h4{font-family:Newsreader,serif;font-weight:600}
-.detail .drow{margin:11px 0}
-.detail .dlab{font-size:10.5px;font-weight:800;color:var(--accent);letter-spacing:.5px;text-transform:uppercase;
-  display:inline-flex;align-items:center;gap:5px}
-.detail .drow.tip .dlab{color:var(--c-green)}
-.detail .drow.pit .dlab{color:var(--warm)}
-.detail .drow.more{border-inline-start:2px solid color-mix(in srgb,var(--accent) 32%,var(--line));padding-inline-start:11px}
-.detail .drow.more .dlab{color:var(--mut)}
-.detail .dtxt{font-size:13.6px;margin-top:3px}
-.dchips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
-.dchip{font-size:12px;border:1px solid var(--line);background:var(--card2);border-radius:16px;padding:4px 11px;
-  cursor:pointer;color:var(--ink);display:inline-flex;align-items:center;gap:6px;font-family:inherit}
-.dchip:hover{border-color:var(--accent);color:var(--accent)}
-.dchip i{width:8px;height:8px;border-radius:50%;flex:0 0 auto}
-
-/* ── CONCEPT MAP ──────────────────────────────────────────── */
-.mapgrid{display:grid;grid-template-columns:1fr;gap:14px}
-@media(min-width:820px){.mapgrid{grid-template-columns:repeat(3,1fr)}}
-.partcol{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:16px;position:relative}
-.partcol .ph{display:flex;align-items:center;gap:9px;margin-bottom:3px}
-.partcol .pdot{width:13px;height:13px;border-radius:50%;flex:0 0 auto}
-.partcol .pnum{font-size:11px;font-weight:800;color:var(--mut)}
-.partcol h4{margin:0;font-size:16.5px;font-weight:800}
-html[data-lang="en"] .partcol h4{font-family:Newsreader,serif;font-weight:600}
-.partcol .ptag{font-size:12px;color:var(--mut);margin:2px 0 4px;font-weight:700}
-.partcol .pgist{font-size:12.8px;color:var(--mut);margin:0 0 12px}
-.chapchip{display:flex;align-items:baseline;gap:8px;padding:7px 10px;border:1px solid var(--line);
-  border-radius:9px;margin:6px 0;background:var(--card2);font-size:13px}
-.chapchip .cn{font-size:11px;font-weight:800;color:var(--mut);flex:0 0 auto;font-variant-numeric:tabular-nums}
-.chapchip b{font-weight:700}
-.chapchip small{color:var(--mut);display:block;font-size:11.5px;line-height:1.5}
-.flowline{display:flex;align-items:center;justify-content:center;gap:10px;color:var(--mut);
-  font-size:12.5px;font-weight:700;margin:6px 0 2px;flex-wrap:wrap}
-.flowline .ar{color:var(--accent)}
-
-/* ── STAGE LADDER ─────────────────────────────────────────── */
-.ladder{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 4px}
-.rung{flex:1 1 150px;border:1px solid var(--line);background:var(--card);border-radius:11px;
-  padding:11px 13px;cursor:pointer;transition:transform .12s,border-color .12s;position:relative}
-.rung:hover{border-color:var(--accent);transform:translateY(-2px)}
-.rung.active{border-color:var(--accent);box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 35%,transparent)}
-.rung .lv{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.4px}
-.rung .lt{font-size:13.5px;font-weight:800;margin-top:2px}
-.rung .lbar{height:5px;border-radius:4px;background:var(--bg2);margin-top:9px;overflow:hidden}
-.rung .lbar i{display:block;height:100%;background:linear-gradient(90deg,var(--c-teal),var(--c-violet))}
-.stagecard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 24px;
-  margin:14px 0;box-shadow:var(--shadow)}
-.stagecard .shead{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-.stagecard .badge{font-size:12px;font-weight:800;color:#fff;background:var(--accent);
-  border-radius:8px;padding:4px 11px;white-space:nowrap}
-.stagecard h3{margin:0;font-size:21px;font-weight:800}
-html[data-lang="en"] .stagecard h3{font-family:Newsreader,serif;font-weight:600}
-.stagecard .tagline{color:var(--mut);font-size:13.5px;margin:4px 0 14px;font-weight:700}
-.stagecard .sbody{font-size:15px}
-.exbox{background:var(--card2);border:1px solid var(--line);border-inline-start:3px solid var(--accent);
-  border-radius:0 11px 11px 0;padding:13px 16px;margin:14px 0 6px}
-.exbox .exk{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.5px;text-transform:uppercase}
-.exbox .ext{font-size:13.8px;margin-top:3px}
-.gainrow{display:flex;align-items:flex-start;gap:9px;margin-top:12px;font-size:13px;color:var(--mut)}
-.gainrow .gi{flex:0 0 auto;color:var(--c-green);font-weight:800}
-.stagenav{display:flex;justify-content:space-between;gap:10px;margin-top:16px}
-.stagenav button{border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit;
-  font-size:13px;font-weight:700;border-radius:9px;padding:8px 14px;cursor:pointer}
-.stagenav button:hover:not(:disabled){border-color:var(--accent);color:var(--accent)}
-.stagenav button:disabled{opacity:.4;cursor:default}
-
-/* ── QUOTES ───────────────────────────────────────────────── */
-.qgrid{display:grid;grid-template-columns:1fr;gap:12px}
-@media(min-width:720px){.qgrid{grid-template-columns:1fr 1fr}}
-blockquote{margin:0;background:var(--card2);border-inline-start:3px solid var(--accent);
-  border-radius:0 12px 12px 0;padding:15px 18px;font-size:14.5px;position:relative}
-blockquote .qm{font-size:34px;line-height:0;color:var(--accent);opacity:.35;font-family:Georgia,serif;
-  position:absolute;inset-inline-start:10px;top:20px}
-blockquote p{margin:0;padding-inline-start:22px}
-html[data-lang="en"] blockquote{font-family:Newsreader,Georgia,serif;font-size:15.5px}
-
-/* ── MEDIA ────────────────────────────────────────────────── */
-.mgrid{display:grid;grid-template-columns:1fr;gap:16px}
-@media(min-width:640px){.mgrid{grid-template-columns:1fr 1fr}}
-.mcard{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;
-  box-shadow:var(--shadow);display:flex;flex-direction:column}
-.mthumb{position:relative;display:block;aspect-ratio:16/9;background:var(--bg2);overflow:hidden;text-decoration:none}
-.mthumb img{width:100%;height:100%;object-fit:cover;display:block}
-.mthumb .play{position:absolute;inset:0;display:grid;place-items:center}
-.mthumb .play span{width:54px;height:54px;border-radius:50%;background:rgba(0,0,0,.6);
-  display:grid;place-items:center;border:2px solid rgba(255,255,255,.9)}
-.mthumb .play svg{width:22px;height:22px;fill:#fff;margin-inline-start:3px}
-.mthumb .ptype{position:absolute;inset-inline-start:9px;top:9px;background:rgba(0,0,0,.72);color:#fff;
-  font-size:11px;font-weight:700;border-radius:6px;padding:3px 9px;letter-spacing:.3px}
-.mfake{aspect-ratio:16/9;display:grid;place-items:center;
-  background:linear-gradient(135deg,color-mix(in srgb,var(--c-violet) 22%,var(--card)),color-mix(in srgb,var(--c-teal) 22%,var(--card)))}
-.mfake svg{width:52px;height:52px;color:var(--ink);opacity:.6}
-.mbody{padding:15px 17px;display:flex;flex-direction:column;gap:7px;flex:1}
-.mbody .msrc{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.3px;text-transform:uppercase}
-.mbody h4{margin:0;font-size:15.5px;font-weight:800;line-height:1.4}
-html[data-lang="en"] .mbody h4{font-family:Newsreader,serif;font-weight:600}
-.mbody .mdesc{font-size:13px;color:var(--mut);margin:0}
-.mbody ul{margin:4px 0 0;padding-inline-start:18px}
-.mbody ul li{font-size:12.8px;margin:5px 0}
-.mbody .mbest{font-size:12px;font-weight:700;color:var(--warm);margin-top:auto;padding-top:8px}
-.mlink{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;
-  text-decoration:none;color:var(--accent);margin-top:4px}
-.mlink:hover{text-decoration:underline}
-.golist{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
-.golist a{font-size:12.5px;text-decoration:none;color:var(--ink);border:1px solid var(--line);
-  border-radius:20px;padding:6px 13px;background:var(--card);font-weight:700}
-.golist a:hover{border-color:var(--accent);color:var(--accent)}
-
-/* ── RECS + METHOD + CREDIT ───────────────────────────────── */
-.rec{display:grid;gap:10px;margin:8px 0}
-.rec .item{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--card)}
-.rec .item .t{font-weight:800;font-size:14.5px;margin-bottom:3px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.rec .item .t .pri{font-size:11px;font-weight:700;color:#fff;background:var(--warm);border-radius:6px;padding:2px 9px}
-.rec .item .t .pri.b{background:var(--accent)}
-.rec .item .d{font-size:13.4px;color:var(--mut)}
-.method{color:var(--mut);font-size:13.4px}
-.method p{margin:8px 0}
-.method b{color:var(--ink)}
-.credit{text-align:center;margin-top:40px;padding:22px 0 8px;border-top:1px solid var(--line);
-  color:var(--mut);font-size:14px}
-.credit .cname{color:var(--ink);font-weight:800}
-.credit a{font-weight:700;text-decoration:none}
-.credit a:hover{text-decoration:underline}
-.credit .sep{opacity:.5;margin:0 8px}
-.credit .li{display:inline-flex;align-items:center;gap:5px;vertical-align:middle}
-.credit .li svg{width:15px;height:15px;vertical-align:-3px}
-
-@media (max-width:640px){
-  body{font-size:14px}
-  .wrap{padding:0 13px 30px}
-  .hero{padding:28px 0 22px} .hero h1{font-size:22px}
-  h2{font-size:18px;scroll-margin-top:66px}
-  .brand{display:none}
-  .toc{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;scrollbar-width:none}
-  .toc::-webkit-scrollbar{display:none}
-  #netsvg{height:420px}
-}
-</style>
+<link rel="stylesheet" href="../assets/book.css">
 </head>
 <body>
+<div id="app"></div>
 
-<!-- ── HERO ───────────────────────────────────────────────── -->
-<header class="hero"><div class="wrap">
-  <div class="eyebrow"><span class="edot"></span>
-    <span data-only="en">Book knowledge map · Marty Cagan</span>
-    <span data-only="fa">نقشهٔ کتاب · مارتی کیگن</span>
-  </div>
-  <h1>
-    <span data-only="en">INSPIRED — How to Create Tech Products Customers Love</span>
-    <span data-only="fa">اینسپایرد — چطور محصولی بسازیم که مشتری‌ها عاشقش شوند</span>
-  </h1>
-  <p class="dek">
-    <span data-only="en">A knowledge graph of the whole book, plus a 5-stage path from a single idea to expert-level product craft — with an example at every step.</span>
-    <span data-only="fa">نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از یک ایدهٔ ساده تا کارِ حرفه‌ایِ محصول — با یک مثال در هر مرحله.</span>
-  </p>
-  <div class="metastrip">
-    <div class="metaitem"><span class="mk" data-only="en">Book</span><span class="mk" data-only="fa">کتاب</span>
-      <span class="mv" data-only="en">INSPIRED</span><span class="mv" data-only="fa">اینسپایرد</span></div>
-    <div class="metaitem"><span class="mk" data-only="en">Author</span><span class="mk" data-only="fa">نویسنده</span>
-      <span class="mv" data-only="en">Marty Cagan</span><span class="mv" data-only="fa">مارتی کیگن</span></div>
-    <div class="metaitem"><span class="mk" data-only="en">Published</span><span class="mk" data-only="fa">سالِ چاپ</span>
-      <span class="mv" data-only="en">2017 (2nd ed.)</span><span class="mv" data-only="fa">۲۰۱۷ (ویرایشِ دوم)</span></div>
-    <div class="metaitem"><span class="mk" data-only="en">Group</span><span class="mk" data-only="fa">گروه</span>
-      <span class="mv" data-only="en">Product Org</span><span class="mv" data-only="fa">سازمانِ محصول</span></div>
-  </div>
-  <div class="chips">
-    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Parts</span><span data-only="fa">بخش</span></div>
-    <div class="chip"><b data-only="en">16</b><b data-only="fa">۱۶</b><span data-only="en">Ideas</span><span data-only="fa">ایده</span></div>
-    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Learning stages</span><span data-only="fa">مرحلهٔ یادگیری</span></div>
-  </div>
-</div></header>
-
-<!-- ── STICKY NAV ─────────────────────────────────────────── -->
-<div class="navbar"><div class="navin">
-  <span class="brand"><span class="dot"></span>INSPIRED</span>
-  <nav class="toc">
-    <a href="#tldr" data-only="en">In a nutshell</a><a href="#tldr" data-only="fa">خلاصه</a>
-    <a href="#graph" data-only="en">Knowledge graph</a><a href="#graph" data-only="fa">نقشهٔ دانش</a>
-    <a href="#stages" data-only="en">5 stages</a><a href="#stages" data-only="fa">۵ مرحله</a>
-    <a href="#quotes" data-only="en">Quotes</a><a href="#quotes" data-only="fa">جمله‌ها</a>
-    <a href="#media" data-only="en">Watch &amp; explore</a><a href="#media" data-only="fa">تماشا و منابع</a>
-    <a href="#apply" data-only="en">Apply it</a><a href="#apply" data-only="fa">کاربرد</a>
-  </nav>
-  <div class="navctl">
-    <button class="langbtn" id="langBtn" aria-label="Switch language">
-      <svg class="globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>
-      <span data-only="en">فارسی</span><span data-only="fa">English</span>
-    </button>
-    <button class="themebtn" id="themeBtn" aria-label="Toggle theme" title="Light / Dark">
-      <span class="ic-sun" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5 19 19M19 5l-1.5 1.5M6.5 17.5 5 19"/></svg></span>
-      <span class="ic-moon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.6 6.6 0 0 0 9.8 9.8Z"/></svg></span>
-    </button>
-  </div>
-</div></div>
-
-<div class="wrap">
-
-  <!-- ── TL;DR ────────────────────────────────────────────── -->
-  <h2 id="tldr"><span class="num" data-only="en">1.</span><span class="num" data-only="fa">۱.</span>
-    <span data-only="en"> In a nutshell</span><span data-only="fa"> خلاصه</span></h2>
-  <p class="sub" data-only="en">If you read only this, you still get the whole idea.</p>
-  <p class="sub" data-only="fa">اگر فقط همین بخش را بخوانی، کلِ ایده دستت می‌آید.</p>
-  <div class="card lead"><ul class="clean" id="tldrHost"></ul></div>
-  <div class="kgrid">
-    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Parts (teams · people · product · process · culture)</div><div class="l" data-only="fa">بخش (تیم‌ها · آدم‌ها · محصول · فرایند · فرهنگ)</div></div>
-    <div class="kbox"><div class="v" data-only="en">16</div><div class="v" data-only="fa">۱۶</div><div class="l" data-only="en">Ideas you can use</div><div class="l" data-only="fa">ایده برای استفاده</div></div>
-    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Levels, simple → expert</div><div class="l" data-only="fa">مرحله، ساده تا حرفه‌ای</div></div>
-    <div class="kbox"><div class="v" data-only="en">4</div><div class="v" data-only="fa">۴</div><div class="l" data-only="en">Risks tested in discovery: value · usability · feasibility · viability</div><div class="l" data-only="fa">ریسکی که در کشف می‌آزمایی: ارزش · کاربردپذیری · ساختنی‌بودن · به‌صرفه‌بودن</div></div>
-  </div>
-  
-  <div class="callout accent">
-    <b data-only="en">The core idea:</b>
-    <b data-only="fa">ایدهٔ اصلی:</b>
-    <span data-only="en"> Great products come from <i>empowered</i> teams of missionaries doing real <i>product discovery</i> — testing ideas for value, usability, feasibility and viability <i>before</i> building — so you build what customers actually love.</span>
-    <span data-only="fa"> محصولِ عالی از تیم‌های <i>توانمند</i> و پُرانگیزه‌ای می‌آید که <i>کشفِ محصولِ</i> واقعی می‌کنند — ایده‌ها را از نظرِ ارزش، کاربردپذیری، ساختنی‌بودن و به‌صرفه‌بودن <i>پیش از</i> ساخت می‌آزمایند — تا چیزی بسازی که مشتری واقعاً دوستش دارد.</span>
-  </div>
-
-  <!-- ── KNOWLEDGE GRAPH ──────────────────────────────────── -->
-  <h2 id="graph"><span class="num" data-only="en">2.</span><span class="num" data-only="fa">۲.</span>
-    <span data-only="en"> The knowledge graph</span><span data-only="fa"> نقشهٔ دانش</span></h2>
-  <p class="sub" data-only="en">The whole book as one picture. Click any node to focus its connections and read more — or switch to the structured map.</p>
-  <p class="sub" data-only="fa">کلِ کتاب در یک تصویر. روی هر دایره کلیک کن تا ارتباط‌هایش را ببینی و بیشتر بخوانی — یا به نقشهٔ مرتب برو.</p>
-
-  <div class="gtabs">
-    <button class="gtab active" id="tabNet"><span data-only="en">Interactive network</span><span data-only="fa">شبکهٔ تعاملی</span></button>
-    <button class="gtab" id="tabMap"><span data-only="en">Structured map</span><span data-only="fa">نقشهٔ مرتب</span></button>
-  </div>
-
-  <!-- network view -->
-  <div class="card graphcard" id="netView">
-    <div class="legend" id="legendHost"></div>
-    <div class="graphstage">
-      <div class="svgwrap">
-        <svg id="netsvg" viewBox="0 0 820 560" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Effortless knowledge network"></svg>
-        <div class="ghint" id="ghint"></div>
-        <button class="greset" id="greset"></button>
-      </div>
-      <div class="detail" id="detailHost"></div>
-    </div>
-  </div>
-
-  <!-- map view -->
-  <div class="card graphcard" id="mapView" style="display:none">
-    <div class="flowline" id="flowTop"></div>
-    <div class="mapgrid" id="mapHost"></div>
-    <div class="callout" style="margin-top:16px">
-      <b data-only="en">Read it as a flow:</b><b data-only="fa">به‌صورتِ یک جریان بخوانش:</b>
-      <span data-only="en"> get the <b>teams</b> right (empowered, missionaries), staff the <b>right people</b> (PM, design, engineers, leaders), find the <b>right product</b> through discovery, run the <b>right process</b> (assess, prototype, test), and protect a <b>strong product culture</b>.</span>
-      <span data-only="fa"> <b>تیم‌ها</b> را درست کن (توانمند، پُرانگیزه)، <b>آدم‌های درست</b> را بچین (محصول، طراحی، مهندسی، رهبری)، <b>محصولِ درست</b> را با کشف پیدا کن، <b>فرایندِ درست</b> را اجرا کن (ارزیابی، پروتوتایپ، آزمون)، و از یک <b>فرهنگِ محصولِ قوی</b> محافظت کن.</span>
-    </div>
-  </div>
-
-  <!-- ── 5 STAGES ─────────────────────────────────────────── -->
-  <h2 id="stages"><span class="num" data-only="en">3.</span><span class="num" data-only="fa">۳.</span>
-    <span data-only="en"> Learn it in 5 stages</span><span data-only="fa"> یادگیری در ۵ مرحله</span></h2>
-  <p class="sub" data-only="en">The same book at five depths. Start over-simplified, climb to expert. Tap a rung to jump.</p>
-  <p class="sub" data-only="fa">یک کتاب در پنج عمق. از خیلی ساده شروع کن و تا حرفه‌ای بالا برو. روی هر پله بزن تا بپری.</p>
-  <div class="ladder" id="ladderHost"></div>
-  <div id="stageHost"></div>
-
-  <!-- ── QUOTES ───────────────────────────────────────────── -->
-  <h2 id="quotes"><span class="num" data-only="en">4.</span><span class="num" data-only="fa">۴.</span>
-    <span data-only="en"> Lines worth keeping</span><span data-only="fa"> جمله‌هایی که ارزشِ نگه‌داشتن دارند</span></h2>
-  <p class="sub" data-only="en">Verbatim quotes from the book, translated alongside.</p>
-  <p class="sub" data-only="fa">جمله‌های مستقیم از کتاب، همراه با ترجمه.</p>
-  <div class="qgrid" id="quoteHost"></div>
-
-  <!-- ── MEDIA ────────────────────────────────────────────── -->
-  <h2 id="media"><span class="num" data-only="en">5.</span><span class="num" data-only="fa">۵.</span>
-    <span data-only="en"> Watch &amp; explore</span><span data-only="fa"> تماشا و منابع</span></h2>
-  <p class="sub" data-only="en">Special resources found online — each with what it covers and who it's best for.</p>
-  <p class="sub" data-only="fa">منابعِ ویژه‌ای که آنلاین پیدا شد — هرکدام با اینکه چه می‌گوید و به چه دردی می‌خورد.</p>
-  <div class="mgrid" id="mediaHost"></div>
-  <div class="card" style="margin-top:16px">
-    <div style="font-weight:800;font-size:13.5px;margin-bottom:4px">
-      <span data-only="en">Go straight to the source</span><span data-only="fa">مستقیم سراغِ منبع برو</span>
-    </div>
-    <div class="golist" id="goHost"></div>
-  </div>
-
-  <!-- ── APPLY ────────────────────────────────────────────── -->
-  <h2 id="apply"><span class="num" data-only="en">6.</span><span class="num" data-only="fa">۶.</span>
-    <span data-only="en"> Apply it this week</span><span data-only="fa"> این هفته امتحانش کن</span></h2>
-  <p class="sub" data-only="en">Four small moves that turn the idea into a habit.</p>
-  <p class="sub" data-only="fa">چهار حرکتِ کوچک که این ایده را به عادت تبدیل می‌کنند.</p>
-  <div class="rec" id="recHost"></div>
-
-  <!-- ── METHOD ───────────────────────────────────────────── -->
-  <h2 id="method"><span class="num" data-only="en">7.</span><span class="num" data-only="fa">۷.</span>
-    <span data-only="en"> Sources &amp; notes</span><span data-only="fa"> منابع و توضیح</span></h2>
-  <div class="card method" id="methodHost"></div>
-
-  <!-- ── CREDIT FOOTER ────────────────────────────────────── -->
-  <div class="credit">
-    <span data-only="en">Created by <span class="cname">Behnam Atefi</span><span class="sep">·</span><a class="li" href="https://www.linkedin.com/in/behnamatefi/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.3c0-1.26-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9z"/></svg>LinkedIn</a></span>
-    <span data-only="fa">ساخته‌شده توسط <span class="cname">بهنام عاطفی</span><span class="sep">·</span><a class="li" href="https://www.linkedin.com/in/behnamatefi/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.3c0-1.26-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9z"/></svg>لینکدین</a></span>
-  </div>
-</div>
-
-<!-- ═══════════════════════ SCRIPTS ═══════════════════════ -->
+<script src="../assets/library.js"></script>
+<script src="../assets/book.js"></script>
 <script>
-/* ── 1) language + formatters ─────────────────────────────── */
-var LANG = document.documentElement.getAttribute('data-lang') || 'fa';
-var FA_D = '۰۱۲۳۴۵۶۷۸۹';
-var RLM  = '‏';
-function faDigits(s){ return String(s).replace(/[0-9]/g, function(d){ return FA_D[+d]; }); }
-/* honor the RTL preference: isolate Latin runs (word order preserved) and mark with U+200F */
-function rlm(s){
-  return String(s)
-    .replace(/[A-Za-zÀ-ɏ][A-Za-zÀ-ɏ0-9'’.&:\/\-]*(?:\s+[A-Za-zÀ-ɏ0-9'’.&:\/\-]+)*/g,
-      function(m){ return RLM+'⁦'+m+'⁩'+RLM; })
-    .replace(/[0-9۰-۹]+/g, function(m){ return m+RLM; });
-}
-/* transform only TEXT segments, never HTML tags (so <b>/<i> survive) */
-function faText(s){ return String(s).replace(/(<[^>]+>)|([^<]+)/g, function(m,tag,txt){ return tag ? tag : faDigits(rlm(txt)); }); }
-function TX(o){ if(o==null) return ''; if(typeof o==='string') return o; return LANG==='fa' ? faText(o.fa) : o.en; }
-function num(n){ return LANG==='fa' ? faDigits(n) : String(n); }
-function tok(name){ return getComputedStyle(document.documentElement).getPropertyValue(name).trim(); }
-</script>
-
-<script>
-/* ── DATA LAYER — Atomic Habits (bilingual, plain-spoken Persian) ── */
-var DATA = {"tldr":[{"en":"The whole book in one line: build products people love by doing real <b>product discovery</b> before you build — not just shipping features off a roadmap.","fa":"خلاصهٔ کل کتاب در یک جمله: محصولی بساز که مردم دوستش دارند، با <b>کشفِ محصولِ</b> واقعی پیش از ساخت — نه فقط تحویلِ فیچرها از روی یک نقشهٔ راه."},{"en":"Great products come from <b>empowered product teams</b> of missionaries — a product manager, a designer, and engineers who own an outcome.","fa":"محصولِ عالی از <b>تیم‌های توانمندِ</b> پُرانگیزه می‌آید — یک مدیرِ محصول، یک طراح، و مهندس‌هایی که مسئولِ یک نتیجه‌اند."},{"en":"Two inconvenient truths: <b>at least half your ideas won't work</b>, and the ones that do take several tries — so test cheaply first.","fa":"دو حقیقتِ ناخوشایند: <b>دستِ‌کم نصفِ ایده‌هایت جواب نمی‌دهند</b>، و آن‌هایی که جواب می‌دهند چند بار باید تکرار شوند — پس اول ارزان آزمایش کن."},{"en":"In discovery you tackle four risks: <b>value, usability, feasibility, and viability</b> — will they buy it, can they use it, can we build it, does it work for the business.","fa":"در کشف با چهار ریسک سروکار داری: <b>ارزش، کاربردپذیری، ساختنی‌بودن، و به‌صرفه‌بودن</b> — می‌خرندش، می‌توانند ازش استفاده کنند، می‌توانیم بسازیمش، برای کسب‌وکار جور درمی‌آید."},{"en":"Then protect a <b>strong product culture</b>: innovate and execute, and keep teams empowered to solve problems, not just build features.","fa":"بعد از یک <b>فرهنگِ محصولِ قوی</b> محافظت کن: هم نوآوری، هم اجرا، و تیم‌ها را توانمند نگه دار تا مسئله حل کنند، نه فقط فیچر بسازند."}],"parts":[{"key":"teams","varc":"--c-teal","name":{"en":"Product Teams","fa":"تیم‌های محصول"},"tag":{"en":"How teams work","fa":"تیم چطور کار می‌کند"},"gist":{"en":"Empowered, cross-functional teams of missionaries — not feature factories.","fa":"تیم‌های توانمند و بین‌رشته‌ای از آدم‌های پُرانگیزه — نه کارخانهٔ فیچر."},"more":{"en":"Everything starts here. The best products come from durable, cross-functional teams that own a problem and are trusted to solve it — a team of missionaries who believe in the vision, not mercenaries just building a list.","fa":"همه‌چیز از این‌جا شروع می‌شود. بهترین محصول‌ها از تیم‌های پایدار و بین‌رشته‌ای می‌آیند که مسئولِ یک مسئله‌اند و بهشان اعتماد شده حلش کنند — تیمی از آدم‌های پُرانگیزه که به چشم‌انداز باور دارند، نه مزدورهایی که فقط یک فهرست می‌سازند."},"chapters":["empowered","missionaries","crossfunc"]},{"key":"people","varc":"--c-blue","name":{"en":"The Right People","fa":"آدم‌های درست"},"tag":{"en":"Roles & leaders","fa":"نقش‌ها و رهبرها"},"gist":{"en":"The product manager, product designer, engineers, and product leadership.","fa":"مدیرِ محصول، طراحِ محصول، مهندس‌ها، و رهبریِ محصول."},"more":{"en":"A team is only as good as its people and how they work together. Each role is distinct: the PM owns value and viability, the designer owns the experience, engineers own how it gets built — and leaders coach them all.","fa":"یک تیم به‌اندازهٔ آدم‌هایش و طرزِ کارِ باهم‌شان خوب است. هر نقش جداست: مدیرِ محصول مسئولِ ارزش و به‌صرفه‌بودن است، طراح مسئولِ تجربه، مهندس‌ها مسئولِ اینکه چطور ساخته شود — و رهبرها همه‌شان را کوچ می‌کنند."},"chapters":["pm","designer","engineers","leadership"]},{"key":"product","varc":"--c-amber","name":{"en":"The Right Product","fa":"محصولِ درست"},"tag":{"en":"Discovery","fa":"کشف"},"gist":{"en":"Vision and strategy, the big risks, and discovery before delivery.","fa":"چشم‌انداز و راهبرد، ریسک‌های بزرگ، و کشف پیش از تحویل."},"more":{"en":"Knowing what to build is the hard part. A compelling vision and a focused strategy point the way; then product discovery figures out — quickly and cheaply — which ideas are actually worth building before engineering delivers them.","fa":"دانستنِ اینکه چه باید ساخت، بخشِ سخت است. یک چشم‌اندازِ گیرا و یک راهبردِ متمرکز مسیر را نشان می‌دهند؛ بعد کشفِ محصول — سریع و ارزان — می‌فهمد کدام ایده‌ها واقعاً ارزشِ ساخت دارند، پیش از اینکه مهندسی تحویلشان دهد."},"chapters":["vision","discovery","fourrisks"]},{"key":"process","varc":"--c-violet","name":{"en":"The Right Process","fa":"فرایندِ درست"},"tag":{"en":"Techniques","fa":"تکنیک‌ها"},"gist":{"en":"Assess the opportunity, prototype, and test with real users.","fa":"فرصت را بسنج، پروتوتایپ بساز، و با کاربرِ واقعی آزمایش کن."},"more":{"en":"Discovery is a set of concrete techniques, not a vibe. Frame the opportunity, map the work, build prototypes at the right fidelity, and put them in front of real users and stakeholders to test value, usability and feasibility.","fa":"کشف یک مشت تکنیکِ مشخص است، نه یک حسِ مبهم. فرصت را قاب بگیر، کار را نقشه کن، پروتوتایپ با درست‌ترین کیفیت بساز، و بگذارشان جلوی کاربر و ذی‌نفعِ واقعی تا ارزش، کاربردپذیری و ساختنی‌بودن را بیازمایی."},"chapters":["framing","prototypes","testing"]},{"key":"culture","varc":"--c-green","name":{"en":"The Right Culture","fa":"فرهنگِ درست"},"tag":{"en":"The environment","fa":"محیطِ کار"},"gist":{"en":"A strong product culture that innovates and executes.","fa":"یک فرهنگِ محصولِ قوی که هم نوآوری می‌کند هم اجرا."},"more":{"en":"Even great people fail in a bad environment. A strong product culture keeps teams innovating (experimenting, feeling safe to fail) and executing (delivering with high integrity) — and it defends the work against the objections that kill good products.","fa":"حتی آدم‌های عالی هم در محیطِ بد شکست می‌خورند. یک فرهنگِ محصولِ قوی تیم‌ها را هم در نوآوری نگه می‌دارد (آزمایش‌کردن، امنیت برای شکست) هم در اجرا (تحویلِ درست‌وحسابی) — و از کار در برابرِ مخالفت‌هایی که محصولِ خوب را می‌کُشند دفاع می‌کند."},"chapters":["culture","innovexec","objections"]}],"chapters":{"empowered":{"part":"teams","n":1,"name":{"en":"Empowered Product Teams","fa":"تیم‌های محصولِ توانمند"},"glabel":{"en":"Empowered","fa":"توانمند"},"principle":{"en":"Give a cross-functional team a problem to solve and the room to solve it — outcomes, not a feature list.","fa":"به یک تیمِ بین‌رشته‌ای یک مسئله بده که حلش کند و فضا بده که حلش کند — نتیجه بخواه، نه یک فهرستِ فیچر."},"more":{"en":"Empowered teams are handed problems and business outcomes, then trusted to discover the best solution. That is the opposite of a feature team that just builds whatever the roadmap dictates.","fa":"به تیم‌های توانمند مسئله و نتیجهٔ کاری داده می‌شود، بعد بهشان اعتماد می‌شود که بهترین راه‌حل را کشف کنند. این درست برعکسِ «تیمِ فیچری» است که فقط هرچه نقشهٔ راه بگوید می‌سازد."},"example":{"en":"Instead of 'build a referral page', the team gets 'grow signups 20%' and finds how.","fa":"به‌جای «یک صفحهٔ معرفی بساز»، به تیم می‌گویند «ثبت‌نام را ۲۰٪ بیشتر کن» و خودش راهش را پیدا می‌کند."},"tip":{"en":"State each team's mission as an outcome to reach, not an output to ship.","fa":"مأموریتِ هر تیم را به‌شکلِ نتیجه‌ای که باید برسد بنویس، نه خروجی‌ای که باید تحویل دهد."},"pitfall":{"en":"A feature factory shipping a roadmap nobody validated.","fa":"کارخانهٔ فیچری که یک نقشهٔ راهِ آزمایش‌نشده را تحویل می‌دهد."}},"missionaries":{"part":"teams","n":2,"name":{"en":"Missionaries, Not Mercenaries","fa":"پُرانگیزه، نه مزدور"},"glabel":{"en":"Missionaries","fa":"پُرانگیزه"},"principle":{"en":"Build a team that believes in the vision and owns the outcome — not one that just takes orders.","fa":"تیمی بساز که به چشم‌انداز باور دارد و مسئولِ نتیجه است — نه تیمی که فقط دستور می‌گیرد."},"more":{"en":"Missionaries care about the customer and the mission, so they push through hard problems; mercenaries build whatever they're told and leave when it's convenient. The difference shows up in the product.","fa":"آدمِ پُرانگیزه به مشتری و مأموریت اهمیت می‌دهد، برای همین از دلِ مسئله‌های سخت رد می‌شود؛ مزدور هرچه بهش بگویند می‌سازد و هر وقت به‌صرفه‌اش باشد می‌رود. این فرق خودش را در محصول نشان می‌دهد."},"example":{"en":"A missionary team keeps digging until users actually adopt; a mercenary ships and moves on.","fa":"تیمِ پُرانگیزه آن‌قدر می‌کاود تا کاربر واقعاً استفاده کند؛ مزدور تحویل می‌دهد و می‌رود سراغِ بعدی."},"tip":{"en":"Share the why and the customer with every engineer, not just the ticket.","fa":"«چرا»ی کار و خودِ مشتری را با هر مهندس در میان بگذار، نه فقط تیکت را."},"pitfall":{"en":"Teams handed tasks with no context, invested in nothing.","fa":"تیم‌هایی که کار را بدونِ هیچ زمینه‌ای می‌گیرند و به هیچ‌چیز دل نمی‌بندند."}},"crossfunc":{"part":"teams","n":3,"name":{"en":"One Cross-Functional Team","fa":"یک تیمِ بین‌رشته‌ای"},"glabel":{"en":"Cross-functional","fa":"بین‌رشته‌ای"},"principle":{"en":"Put product, design, and engineering side by side on one durable, co-located team.","fa":"محصول، طراحی و مهندسی را کنارِ هم در یک تیمِ پایدار و هم‌جا بگذار."},"more":{"en":"The team is a small, stable group — a product manager, a product designer, and a handful of engineers — who sit together and stay together. Durability builds the deep knowledge that quick wins need.","fa":"تیم یک گروهِ کوچک و باثبات است — یک مدیرِ محصول، یک طراحِ محصول، و چند مهندس — که کنارِ هم می‌نشینند و کنارِ هم می‌مانند. پایداری همان دانشِ عمیقی را می‌سازد که بردهای سریع لازم دارند."},"example":{"en":"Roughly a PM, a designer, and 2 to 10 engineers who own one product area for the long run.","fa":"تقریباً یک مدیرِ محصول، یک طراح، و ۲ تا ۱۰ مهندس که مدت‌ها مسئولِ یک بخشِ محصول‌اند."},"tip":{"en":"Keep teams together long enough to build real domain expertise.","fa":"تیم‌ها را آن‌قدر کنارِ هم نگه دار که تخصصِ واقعی در آن حوزه پیدا کنند."},"pitfall":{"en":"Shuffling people project to project so no one owns anything.","fa":"جابه‌جاکردنِ آدم‌ها از پروژه‌ای به پروژهٔ دیگر، تا هیچ‌کس مسئولِ هیچ‌چیز نباشد."}},"pm":{"part":"people","n":4,"name":{"en":"The Product Manager","fa":"مدیرِ محصول"},"glabel":{"en":"Product Manager","fa":"مدیرِ محصول"},"principle":{"en":"Own whether the product is valuable and viable — through deep knowledge of users, data, business, and market.","fa":"مسئولِ این باش که محصول ارزشمند و به‌صرفه است یا نه — با شناختِ عمیق از کاربر، داده، کسب‌وکار، و بازار."},"more":{"en":"The PM isn't the boss of the team; they're accountable for the product succeeding. That means knowing the customer better than anyone, knowing the data, the business constraints, and the market — and using judgment to decide what's worth building.","fa":"مدیرِ محصول رئیسِ تیم نیست؛ او پاسخگوی موفقیتِ محصول است. یعنی مشتری را از هرکسی بهتر بشناسد، داده را بداند، محدودیت‌های کسب‌وکار و بازار را بداند — و با قضاوت تصمیم بگیرد چه چیزی ارزشِ ساخت دارد."},"example":{"en":"Before pitching a feature, the PM can say who wants it, why, and how success is measured.","fa":"قبل از پیشنهادِ یک فیچر، مدیرِ محصول می‌تواند بگوید چه کسی می‌خواهدش، چرا، و موفقیت چطور اندازه گرفته می‌شود."},"tip":{"en":"Do the homework: know your users, your data, and your business cold.","fa":"تکلیفت را انجام بده: کاربر، داده، و کسب‌وکارت را مثلِ کفِ دستت بشناس."},"pitfall":{"en":"A PM who just gathers requirements and manages a backlog.","fa":"مدیرِ محصولی که فقط نیازمندی جمع می‌کند و یک صفِ کار را می‌چرخاند."}},"designer":{"part":"people","n":5,"name":{"en":"The Product Designer","fa":"طراحِ محصول"},"glabel":{"en":"Product Designer","fa":"طراحِ محصول"},"principle":{"en":"Own the whole customer experience and work in discovery from day one — design is how it works, not just how it looks.","fa":"مسئولِ کلِ تجربهٔ مشتری باش و از روزِ اول در کشف حاضر باش — طراحی یعنی چطور کار می‌کند، نه فقط چه شکلی است."},"more":{"en":"A great product designer is a partner in discovery, not a service you order screens from. They shape the experience end to end, build the prototypes, and run continuous user testing to learn what actually works.","fa":"طراحِ محصولِ خوب شریکِ کشف است، نه سرویسی که ازش صفحه سفارش می‌دهی. او تجربه را از سر تا ته شکل می‌دهد، پروتوتایپ‌ها را می‌سازد، و مدام آزمونِ کاربری اجرا می‌کند تا بفهمد واقعاً چه چیزی جواب می‌دهد."},"example":{"en":"The designer tests a prototype with users weekly, not polishing final screens at the end.","fa":"طراح هر هفته یک پروتوتایپ را با کاربر می‌آزماید، نه اینکه آخرِ کار صفحه‌های نهایی را برق بیندازد."},"tip":{"en":"Bring design into discovery early; don't hand off specs to be skinned later.","fa":"طراحی را زود واردِ کشف کن؛ نه اینکه سندِ آماده بدهی که بعداً فقط رویش «روکش» بکشند."},"pitfall":{"en":"Treating design as decoration bolted on after the decisions.","fa":"با طراحی مثلِ تزئینی رفتار کردن که بعد از تصمیم‌ها بهش می‌چسبانند."}},"engineers":{"part":"people","n":6,"name":{"en":"The Engineers","fa":"مهندس‌ها"},"glabel":{"en":"Engineers","fa":"مهندس‌ها"},"principle":{"en":"Bring engineers into discovery early — they know what's just now possible, and that sparks the best ideas.","fa":"مهندس‌ها را زود واردِ کشف کن — آن‌ها می‌دانند همین حالا چه چیزی ممکن شده، و همین بهترین ایده‌ها را جرقه می‌زند."},"more":{"en":"Engineers aren't just there to build the spec; brought in early, they surface possibilities no one else sees and flag feasibility risks before they get expensive. Some of the best product ideas come from them.","fa":"مهندس‌ها فقط برای ساختنِ سند آن‌جا نیستند؛ اگر زود بیایند، امکان‌هایی را رو می‌کنند که کسِ دیگری نمی‌بیند و ریسکِ ساختنی‌بودن را قبل از اینکه گران شود علامت می‌زنند. بعضی از بهترین ایده‌های محصول از خودِ آن‌ها می‌آید."},"example":{"en":"An engineer who knows a new API can suggest a solution the PM never imagined.","fa":"مهندسی که یک ای‌پی‌آیِ تازه را می‌شناسد، می‌تواند راه‌حلی پیشنهاد دهد که مدیرِ محصول اصلاً تصورش را نمی‌کرد."},"tip":{"en":"Show engineers the customer problem, not just the ticket to implement.","fa":"مسئلهٔ مشتری را به مهندس‌ها نشان بده، نه فقط تیکتی که باید پیاده کنند."},"pitfall":{"en":"Keeping engineers heads-down until the spec is ready.","fa":"سرِ مهندس‌ها را پایین نگه داشتن تا وقتی «سند آماده شود»."}},"leadership":{"part":"people","n":7,"name":{"en":"Product Leadership","fa":"رهبریِ محصول"},"glabel":{"en":"Leadership","fa":"رهبری"},"principle":{"en":"Leaders don't dictate features — they set vision and strategy, then coach teams to greatness.","fa":"رهبرها فیچر دیکته نمی‌کنند — چشم‌انداز و راهبرد را می‌گذارند، بعد تیم‌ها را کوچ می‌کنند تا عالی شوند."},"more":{"en":"Heads of product and design provide the vision, strategy, and consistent coaching that let empowered teams thrive. Their job is to develop people and align direction, not to hand down a to-do list.","fa":"رؤسای محصول و طراحی همان چشم‌انداز، راهبرد و کوچینگِ پایداری را می‌دهند که به تیم‌های توانمند اجازهٔ شکوفایی می‌دهد. کارشان پروراندنِ آدم‌ها و هم‌راستاکردنِ مسیر است، نه دادنِ یک فهرستِ کارها."},"example":{"en":"A leader spends time coaching each PM, not reviewing and approving every feature.","fa":"یک رهبر وقت می‌گذارد و هر مدیرِ محصول را کوچ می‌کند، نه اینکه هر فیچر را بررسی و تأیید کند."},"tip":{"en":"Invest in coaching your people; a strong team beats a clever plan.","fa":"روی کوچ‌کردنِ آدم‌هایت سرمایه‌گذاری کن؛ یک تیمِ قوی از یک نقشهٔ زیرکانه بهتر است."},"pitfall":{"en":"Micromanaging the roadmap while starving teams of real direction.","fa":"ریزبه‌ریزِ نقشهٔ راه را کنترل کردن، و در عوض تیم‌ها را از مسیرِ واقعی محروم کردن."}},"vision":{"part":"product","n":8,"name":{"en":"Product Vision & Strategy","fa":"چشم‌انداز و راهبردِ محصول"},"glabel":{"en":"Vision & Strategy","fa":"چشم‌انداز و راهبرد"},"principle":{"en":"A vision inspires the direction (2 to 5 years out); a strategy focuses effort on one market at a time.","fa":"چشم‌انداز مسیر را الهام می‌بخشد (۲ تا ۵ سالِ آینده)؛ راهبرد تلاش را هر بار روی یک بازار متمرکز می‌کند."},"more":{"en":"The vision is the compelling future you're trying to create — it recruits and motivates. The strategy is your sequence of steps to get there, focusing on one target market or persona at a time rather than trying to please everyone at once.","fa":"چشم‌انداز همان آینده‌ی گیرایی است که می‌خواهی بسازی — آدم جذب می‌کند و انگیزه می‌دهد. راهبرد ترتیبِ قدم‌هایی است که تو را به آن‌جا می‌رساند، با تمرکز هر بار روی یک بازار یا یک پرسونا، نه اینکه بخواهی یک‌دفعه همه را راضی کنی."},"example":{"en":"'Be the camera everyone carries' is a vision; 'win photographers first' is strategy.","fa":"«همان دوربینی باش که همه با خودشان دارند» چشم‌انداز است؛ «اول عکاس‌ها را ببر» راهبرد است."},"tip":{"en":"Be stubborn on the vision, but flexible on the details of how you get there.","fa":"سرِ چشم‌انداز کله‌شق باش، اما سرِ جزئیاتِ رسیدن به آن انعطاف داشته باش."},"pitfall":{"en":"A vague vision and a strategy that chases every market at once.","fa":"یک چشم‌اندازِ مبهم و راهبردی که هم‌زمان دنبالِ هر بازاری می‌دود."}},"discovery":{"part":"product","n":9,"name":{"en":"Discovery vs Delivery","fa":"کشف در برابرِ تحویل"},"glabel":{"en":"Discovery vs Delivery","fa":"کشف و تحویل"},"principle":{"en":"First figure out the right product to build (discovery); only then build it right (delivery).","fa":"اول بفهم محصولِ درست چیست که باید ساخت (کشف)؛ تازه بعد درست بسازش (تحویل)."},"more":{"en":"These are two different jobs. Discovery is fast, cheap experimentation to decide what's worth building; delivery is the slower, careful work of building it to ship. The two biggest risks are building something of no value, or something you can't actually build — discovery attacks both before you waste months.","fa":"این‌ها دو کارِ متفاوت‌اند. کشف یعنی آزمایشِ سریع و ارزان برای تصمیم دربارهٔ اینکه چه چیزی ارزشِ ساخت دارد؛ تحویل یعنی کارِ کندتر و دقیق‌ترِ ساختنش برای عرضه. دو ریسکِ بزرگ این است: چیزی بسازی که ارزشی ندارد، یا چیزی که اصلاً نمی‌توانی بسازی — کشف قبل از اینکه ماه‌ها هدر بدهی به هر دو حمله می‌کند."},"example":{"en":"Test a fake-door or a prototype this week; don't spend a quarter building the wrong thing.","fa":"این هفته یک درِ قلابی یا یک پروتوتایپ را آزمایش کن؛ یک فصل را صرفِ ساختنِ چیزِ اشتباه نکن."},"tip":{"en":"Run discovery and delivery in parallel — never wait for one to finish.","fa":"کشف و تحویل را هم‌زمان پیش ببر — هیچ‌وقت منتظرِ تمام‌شدنِ یکی نمان."},"pitfall":{"en":"Committing to a roadmap and building for months before validating anything.","fa":"قول‌دادنِ یک نقشهٔ راه و ماه‌ها ساختن، قبل از اینکه چیزی را اعتبارسنجی کنی."}},"fourrisks":{"part":"product","n":10,"name":{"en":"The Four Big Risks","fa":"چهار ریسکِ بزرگ"},"glabel":{"en":"Four Risks","fa":"چهار ریسک"},"principle":{"en":"Test every idea against four risks: value, usability, feasibility, and viability.","fa":"هر ایده را با چهار ریسک بسنج: ارزش، کاربردپذیری، ساختنی‌بودن، و به‌صرفه‌بودن."},"more":{"en":"Value: will people buy it or choose to use it? Usability: can they figure out how to use it? Feasibility: can our engineers actually build it? Viability: does it work for the rest of the business — legal, sales, finance, brand? Discovery exists to answer these cheaply.","fa":"ارزش: مردم می‌خرندش یا استفاده‌اش را انتخاب می‌کنند؟ کاربردپذیری: می‌توانند بفهمند چطور ازش استفاده کنند؟ ساختنی‌بودن: مهندس‌های ما واقعاً می‌توانند بسازندش؟ به‌صرفه‌بودن: با بقیهٔ کسب‌وکار جور است — حقوقی، فروش، مالی، برند؟ کشف هست تا این‌ها را ارزان جواب دهد."},"example":{"en":"A feature can be usable, buildable, and legal — and still fail on value if no one wants it.","fa":"یک فیچر می‌تواند کاربردپذیر، ساختنی و قانونی باشد — و باز سرِ ارزش شکست بخورد، اگر کسی نخواهدش."},"tip":{"en":"For any big idea, name which of the four risks scares you most, and test that first.","fa":"برای هر ایدهٔ بزرگ، بگو کدام‌یک از چهار ریسک بیشتر می‌ترساندت، و همان را اول بیازما."},"pitfall":{"en":"Only asking 'can we build it?' and ignoring whether anyone wants it.","fa":"فقط پرسیدنِ «می‌توانیم بسازیمش؟» و بی‌خیالِ اینکه اصلاً کسی می‌خواهدش یا نه."}},"framing":{"part":"process","n":11,"name":{"en":"Opportunity Assessment & Story Maps","fa":"ارزیابیِ فرصت و نقشهٔ داستان"},"glabel":{"en":"Framing","fa":"قاب‌بندی"},"principle":{"en":"Frame the work before you build it: what problem, for whom, and how you'll know it worked.","fa":"قبل از ساخت، کار را قاب بگیر: چه مسئله‌ای، برای چه کسی، و از کجا می‌فهمی جواب داده."},"more":{"en":"An opportunity assessment answers four quick questions: what business objective, how you'll measure success, what customer problem, and for which market. Then a story map lays the work out as a user's journey, so the whole team sees the shape of it and can slice a small first version.","fa":"ارزیابیِ فرصت چهار پرسشِ سریع را جواب می‌دهد: چه هدفِ کاری، موفقیت را چطور اندازه می‌گیری، چه مسئله‌ای از مشتری، و برای کدام بازار. بعد نقشهٔ داستان کار را به‌شکلِ سفرِ کاربر می‌چیند، تا کلِ تیم شکلِ کار را ببیند و بتواند یک نسخهٔ اولِ کوچک از آن ببُرد."},"example":{"en":"Four lines — objective, key result, problem, target market — beat a ten-page spec.","fa":"چهار خط — هدف، نتیجهٔ کلیدی، مسئله، بازارِ هدف — از یک سندِ ده‌صفحه‌ای بهتر است."},"tip":{"en":"Write the opportunity in four sentences before anyone opens a design tool.","fa":"قبل از اینکه کسی ابزارِ طراحی را باز کند، فرصت را در چهار جمله بنویس."},"pitfall":{"en":"Jumping to solutions before you can state the problem clearly.","fa":"پریدن به راه‌حل، قبل از اینکه بتوانی مسئله را روشن بیان کنی."}},"prototypes":{"part":"process","n":12,"name":{"en":"Prototypes","fa":"پروتوتایپ‌ها"},"glabel":{"en":"Prototypes","fa":"پروتوتایپ"},"principle":{"en":"Build a cheap prototype — not the real thing — to learn fast and tackle a specific risk.","fa":"یک پروتوتایپِ ارزان بساز — نه محصولِ واقعی — تا سریع یاد بگیری و به یک ریسکِ مشخص بپردازی."},"more":{"en":"A prototype is many times cheaper than a product and exists to answer a question. Choose the fidelity to fit the risk: a rough feasibility spike for engineers, a realistic user prototype to test value and usability. It can even double as the spec for delivery.","fa":"پروتوتایپ چند برابر از محصول ارزان‌تر است و هست تا یک سؤال را جواب دهد. کیفیتش را به اندازهٔ ریسک انتخاب کن: یک نمونهٔ خامِ ساختنی‌بودن برای مهندس‌ها، یک پروتوتایپِ واقع‌نمای کاربری برای آزمونِ ارزش و کاربردپذیری. حتی می‌تواند هم‌زمان نقشِ سندِ تحویل را هم بازی کند."},"example":{"en":"A clickable mockup users think is real teaches more than a finished, shipped feature.","fa":"یک ماکتِ کلیک‌شدنی که کاربر فکر می‌کند واقعی است، بیشتر از یک فیچرِ تمام‌شده و عرضه‌شده یاد می‌دهد."},"tip":{"en":"Match the prototype's fidelity to the one risk you're trying to retire.","fa":"کیفیتِ پروتوتایپ را به همان یک ریسکی که می‌خواهی از سرِ راه برداری، جور کن."},"pitfall":{"en":"Over-building the prototype until it's as costly as the real product.","fa":"آن‌قدر پروتوتایپ را سنگین ساختن که به گرانیِ خودِ محصول شود."}},"testing":{"part":"process","n":13,"name":{"en":"Testing Value, Usability & Feasibility","fa":"آزمونِ ارزش، کاربردپذیری و ساختنی‌بودن"},"glabel":{"en":"Testing","fa":"آزمون"},"principle":{"en":"Put prototypes in front of real users and stakeholders — test usability, value, feasibility, viability.","fa":"پروتوتایپ‌ها را بگذار جلوی کاربر و ذی‌نفعِ واقعی — کاربردپذیری، ارزش، ساختنی‌بودن و به‌صرفه‌بودن را بیازما."},"more":{"en":"Usability testing watches real users try to complete a task. Value testing is the hardest and most important — you're looking for evidence people will actually choose or pay, not just say they like it. Feasibility and viability get checked with engineers and the wider business.","fa":"آزمونِ کاربردپذیری یعنی تماشای کاربرِ واقعی که سعی می‌کند یک کار را انجام دهد. آزمونِ ارزش سخت‌ترین و مهم‌ترین است — دنبالِ شواهدی هستی که مردم واقعاً انتخاب یا پرداخت می‌کنند، نه فقط اینکه بگویند خوششان آمده. ساختنی‌بودن و به‌صرفه‌بودن هم با مهندس‌ها و کلِ کسب‌وکار بررسی می‌شوند."},"example":{"en":"Watch five users struggle with the flow — you'll learn more than from any opinion survey.","fa":"تماشا کن پنج کاربر با آن مسیر کلنجار می‌روند — بیشتر از هر نظرسنجی‌ای یاد می‌گیری."},"tip":{"en":"Test value with real commitment — money, reputation, or time — not just 'do you like it?'.","fa":"ارزش را با یک تعهدِ واقعی بیازما — پول، آبرو، یا وقت — نه فقط «خوشت می‌آید؟»."},"pitfall":{"en":"Mistaking a polite 'I'd use that' for real demand.","fa":"اشتباه‌گرفتنِ «آره استفاده می‌کنم»ِ از رویِ ادب با تقاضای واقعی."}},"culture":{"part":"culture","n":14,"name":{"en":"Strong Product Culture","fa":"فرهنگِ محصولِ قوی"},"glabel":{"en":"Product Culture","fa":"فرهنگِ محصول"},"principle":{"en":"The best teams live in a culture of customer obsession, experimentation, and trust.","fa":"بهترین تیم‌ها در فرهنگی زندگی می‌کنند از وسواسِ مشتری، آزمایش‌کردن، و اعتماد."},"more":{"en":"Culture is what surrounds the team: an obsession with customers, comfort with testing and being wrong, real empowerment, and continuous learning. Get it right and good people do their best work; get it wrong and even great people leave.","fa":"فرهنگ همان چیزی است که دورِ تیم را گرفته: وسواسِ مشتری، راحت‌بودن با آزمایش و اشتباه‌کردن، توانمندیِ واقعی، و یادگیریِ پیوسته. اگر درستش کنی، آدمِ خوب بهترین کارش را می‌کند؛ اگر خرابش کنی، حتی آدمِ عالی هم می‌رود."},"example":{"en":"In a strong culture, a failed test is a lesson to celebrate, not a mistake to hide.","fa":"در فرهنگِ قوی، آزمونِ شکست‌خورده درسی است برای جشن‌گرفتن، نه اشتباهی برای پنهان‌کردن."},"tip":{"en":"Celebrate learning and customer impact, not just shipping on schedule.","fa":"یادگیری و اثر روی مشتری را جشن بگیر، نه فقط تحویلِ سرِوقت را."},"pitfall":{"en":"A culture that punishes failed experiments and rewards shipping alone.","fa":"فرهنگی که آزمایشِ شکست‌خورده را تنبیه می‌کند و فقط به تحویل‌دادن پاداش می‌دهد."}},"innovexec":{"part":"culture","n":15,"name":{"en":"Innovation & Execution","fa":"نوآوری و اجرا"},"glabel":{"en":"Innovate & Execute","fa":"نوآوری و اجرا"},"principle":{"en":"A strong culture does both: it keeps innovating and it consistently delivers.","fa":"فرهنگِ قوی هر دو را می‌کند: هم مدام نوآوری می‌کند، هم پیوسته تحویل می‌دهد."},"more":{"en":"Innovation needs experimentation, safety to fail, and empowered teams. Execution needs accountability, urgency, and high-integrity commitments you can rely on. Most companies are decent at one; the strongest product cultures manage both at once.","fa":"نوآوری آزمایش‌کردن می‌خواهد، امنیت برای شکست، و تیم‌های توانمند. اجرا پاسخگویی می‌خواهد، فوریت، و تعهدهای درست‌وحسابی که بشود روی‌شان حساب کرد. بیشترِ شرکت‌ها در یکی خوب‌اند؛ قوی‌ترین فرهنگ‌های محصول هر دو را هم‌زمان اداره می‌کنند."},"example":{"en":"The team explores bold bets and still hits the dates it truly promises.","fa":"تیم سراغِ شرط‌های جسورانه می‌رود و باز به تاریخ‌هایی که واقعاً قول داده می‌رسد."},"tip":{"en":"Use high-integrity commitments for real deadlines; keep the rest open for discovery.","fa":"برای ضرب‌الاجل‌های واقعی از تعهدِ درست‌وحسابی استفاده کن؛ بقیه را برای کشف باز نگه دار."},"pitfall":{"en":"Being so obsessed with predictability that innovation never gets room.","fa":"آن‌قدر شیفتهٔ قابلِ‌پیش‌بینی‌بودن که نوآوری هیچ‌وقت جا پیدا نمی‌کند."}},"objections":{"part":"culture","n":16,"name":{"en":"Overcoming Objections","fa":"غلبه بر مخالفت‌ها"},"glabel":{"en":"Objections","fa":"مخالفت‌ها"},"principle":{"en":"Expect resistance from around the company — and win it with evidence, not authority.","fa":"توقعِ مقاومت از گوشه‌کنارِ شرکت را داشته باش — و با شواهد ببَرش، نه با زور و مقام."},"more":{"en":"Sales, legal, marketing, and finance all have real concerns, and good products can die on their objections. The way through is to understand each stakeholder, bring them along early, and answer with discovery evidence rather than opinion or org-chart power.","fa":"فروش، حقوقی، بازاریابی و مالی همه دغدغه‌های واقعی دارند، و محصولِ خوب می‌تواند سرِ مخالفتِ آن‌ها بمیرد. راهِ عبور این است که هر ذی‌نفع را بفهمی، زود همراهشان کنی، و با شواهدِ کشف جواب بدهی، نه با نظر یا قدرتِ روی چارتِ سازمان."},"example":{"en":"Bring legal a tested prototype and data, and 'no' often turns into 'how'.","fa":"برای حقوقی یک پروتوتایپِ آزموده و داده ببر، و اغلب «نه» تبدیل می‌شود به «چطور»."},"tip":{"en":"Meet each objecting team early; turn them into partners before launch, not blockers at the end.","fa":"زود با هر تیمِ مخالف بنشین؛ قبل از عرضه شریکشان کن، نه اینکه آخرِ کار سدِ راه شوند."},"pitfall":{"en":"Springing a finished product on stakeholders and getting vetoed at the finish line.","fa":"یک محصولِ تمام‌شده را ناگهان جلوی ذی‌نفع‌ها گذاشتن و سرِ خطِ پایان وتو شدن."}}},"core":{"name":{"en":"PRODUCTS CUSTOMERS LOVE","fa":"محصولی که دوستش دارند"},"principle":{"en":"Great products come from empowered teams of missionaries who do continuous product discovery — testing ideas for value, usability, feasibility, and viability before delivery — inside a strong product culture. You build what customers love by learning what's worth building first.","fa":"محصولِ عالی از تیم‌های توانمند و پُرانگیزه‌ای می‌آید که پیوسته کشفِ محصول می‌کنند — ایده‌ها را از نظرِ ارزش، کاربردپذیری، ساختنی‌بودن و به‌صرفه‌بودن، پیش از تحویل می‌آزمایند — آن هم داخلِ یک فرهنگِ محصولِ قوی. چیزی می‌سازی که مشتری دوستش دارد، چون اول یاد می‌گیری چه چیزی ارزشِ ساخت دارد."},"more":{"en":"Cagan organizes it into five parts — the empowered Product Teams, the Right People and roles, the Right Product found through discovery, the Right Process of discovery and delivery techniques, and the Right Culture that sustains it all. The thread: stop shipping features off a roadmap and start solving problems for customers.","fa":"کیگن این را در پنج بخش می‌چیند — تیم‌های محصولِ توانمند، آدم‌های درست و نقش‌ها، محصولِ درست که با کشف پیدا می‌شود، فرایندِ درست از تکنیک‌های کشف و تحویل، و فرهنگِ درست که همه را سرِپا نگه می‌دارد. نخِ رابط: دست از تحویلِ فیچر از روی نقشهٔ راه بردار و شروع کن به حلِ مسئلهٔ مشتری."},"example":{"en":"Click any node to read a principle or a role. You can also drag the nodes around.","fa":"روی هر دایره کلیک کن تا یک اصل یا نقش را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."}},"stages":[{"level":1,"badge":{"en":"Level 1 · Over-simplified","fa":"سطحِ ۱ · خیلی ساده"},"title":{"en":"Solve real problems","fa":"مسئلهٔ واقعی را حل کن"},"tagline":{"en":"The whole book in a sentence.","fa":"کلِ کتاب در یک جمله."},"body":{"en":"Don't just build the features someone asked for. Figure out the real problem customers have, and build something they actually want — then you get products people love.","fa":"فقط فیچرهایی را که یکی خواسته نساز. بفهم مشتری واقعاً چه مسئله‌ای دارد، و چیزی بساز که واقعاً می‌خواهد — آن‌وقت به محصولی می‌رسی که مردم دوستش دارند."},"example":{"en":"Before building, ask: what problem does this actually solve, and for whom?","fa":"قبل از ساخت بپرس: این واقعاً چه مسئله‌ای را حل می‌کند، و برای چه کسی؟"},"gain":{"en":"You hold the single idea the whole book expands on.","fa":"همان یک ایده‌ای را داری که کلِ کتاب بسطش می‌دهد."}},{"level":2,"badge":{"en":"Level 2 · Simple","fa":"سطحِ ۲ · ساده"},"title":{"en":"Teams and discovery","fa":"تیم‌ها و کشف"},"tagline":{"en":"Empowered teams, testing before building.","fa":"تیم‌های توانمند، آزمایش پیش از ساخت."},"body":{"en":"Two ideas do most of the work. First, use <b>empowered</b> cross-functional teams that own an outcome. Second, do <b>product discovery</b> — test ideas quickly and cheaply before you commit to building them.","fa":"دو ایده بیشترِ کار را می‌کنند. اول، از تیم‌های <b>توانمندِ</b> بین‌رشته‌ای استفاده کن که مسئولِ یک نتیجه‌اند. دوم، <b>کشفِ محصول</b> بکن — ایده‌ها را سریع و ارزان بیازما، قبل از اینکه به ساختشان قول بدهی."},"example":{"en":"Give a team 'reduce churn', not 'build these three screens'.","fa":"به تیم بگو «ریزش را کم کن»، نه «این سه صفحه را بساز»."},"gain":{"en":"You can tell a feature factory from a real product team.","fa":"می‌توانی کارخانهٔ فیچر را از یک تیمِ محصولِ واقعی تشخیص دهی."}},{"level":3,"badge":{"en":"Level 3 · Balanced","fa":"سطحِ ۳ · متعادل"},"title":{"en":"People and product","fa":"آدم‌ها و محصول"},"tagline":{"en":"Roles, vision, and the four risks.","fa":"نقش‌ها، چشم‌انداز، و چهار ریسک."},"body":{"en":"Now the substance. Staff each team with a real <b>product manager</b>, <b>designer</b>, and <b>engineers</b>, guided by <b>leaders</b> who coach. Point them with a <b>vision and strategy</b>, and in discovery test every idea against four risks: <b>value, usability, feasibility, viability</b>.","fa":"حالا اصلِ مطلب. هر تیم را با یک <b>مدیرِ محصولِ</b> واقعی، یک <b>طراح</b>، و <b>مهندس‌ها</b> بچین، با <b>رهبرهایی</b> که کوچ می‌کنند. با یک <b>چشم‌انداز و راهبرد</b> جهت‌شان بده، و در کشف هر ایده را با چهار ریسک بسنج: <b>ارزش، کاربردپذیری، ساختنی‌بودن، به‌صرفه‌بودن</b>."},"example":{"en":"Ask of any idea: do they want it, can they use it, can we build it, does it work for us?","fa":"از هر ایده بپرس: می‌خواهندش، می‌توانند ازش استفاده کنند، می‌توانیم بسازیمش، برای ما جور است؟"},"gain":{"en":"You can staff a team and pressure-test an idea before building.","fa":"می‌توانی یک تیم را بچینی و یک ایده را قبل از ساخت زیرِ فشار بیازمایی."}},{"level":4,"badge":{"en":"Level 4 · Advanced","fa":"سطحِ ۴ · پیشرفته"},"title":{"en":"Run the process","fa":"فرایند را اجرا کن"},"tagline":{"en":"Assess, prototype, and test with users.","fa":"بسنج، پروتوتایپ بساز، با کاربر آزمایش کن."},"body":{"en":"Discovery is concrete techniques. Write a quick <b>opportunity assessment</b> and map the work; build <b>prototypes</b> at the right fidelity for the risk; then <b>test</b> them with real users and stakeholders — especially the hard, crucial test of value.","fa":"کشف یعنی تکنیک‌های مشخص. یک <b>ارزیابیِ فرصتِ</b> سریع بنویس و کار را نقشه کن؛ <b>پروتوتایپ‌هایی</b> بساز با کیفیتی که به اندازهٔ آن ریسک باشد؛ بعد با کاربر و ذی‌نفعِ واقعی <b>آزمایششان</b> کن — به‌خصوص آن آزمونِ سخت و حیاتیِ ارزش."},"example":{"en":"A clickable prototype tested on five users retires more risk than a month of building.","fa":"یک پروتوتایپِ کلیک‌شدنی که روی پنج کاربر آزمایش شود، بیشتر از یک ماه ساختن ریسک را کم می‌کند."},"gain":{"en":"You can run a real discovery loop, not just talk about it.","fa":"می‌توانی یک حلقهٔ کشفِ واقعی را اجرا کنی، نه اینکه فقط درباره‌اش حرف بزنی."}},{"level":5,"badge":{"en":"Level 5 · Expert","fa":"سطحِ ۵ · حرفه‌ای"},"title":{"en":"Culture that lasts","fa":"فرهنگی که می‌ماند"},"tagline":{"en":"Innovate, execute, and win the objections.","fa":"نوآوری کن، اجرا کن، و مخالفت‌ها را ببَر."},"body":{"en":"The expert protects the environment. A <b>strong product culture</b> both <b>innovates</b> (experiments, safe to fail) and <b>executes</b> (delivers with high integrity), keeps teams empowered as the company scales, and <b>overcomes objections</b> with evidence. This is what INSPIRED builds; its companion EMPOWERED is the leadership book that goes deeper on coaching teams to get here.","fa":"آدمِ حرفه‌ای از محیط محافظت می‌کند. یک <b>فرهنگِ محصولِ قوی</b> هم <b>نوآوری</b> می‌کند (آزمایش، امنیت برای شکست) هم <b>اجرا</b> می‌کند (تحویلِ درست‌وحساب)، تیم‌ها را با بزرگ‌شدنِ شرکت توانمند نگه می‌دارد، و <b>مخالفت‌ها</b> را با شواهد <b>پشتِ سر می‌گذارد</b>. این همان چیزی است که اینسپایرد می‌سازد؛ کتابِ همراهش، امپاورد، کتابِ رهبری است که عمیق‌تر به کوچ‌کردنِ تیم‌ها برای رسیدن به این‌جا می‌پردازد."},"example":{"en":"Teams take bold bets, hit the dates that matter, and bring sales and legal along early.","fa":"تیم‌ها شرطِ جسورانه می‌بندند، به تاریخ‌های مهم می‌رسند، و فروش و حقوقی را زود همراه می‌کنند."},"gain":{"en":"You can build products customers love — and the culture that keeps doing it.","fa":"می‌توانی محصولی بسازی که مشتری دوستش دارد — و فرهنگی که مدام همین را می‌سازد."}}],"quotes":[{"en":"We need teams of missionaries, not teams of mercenaries.","fa":"ما به تیم‌هایی از آدم‌های پُرانگیزه نیاز داریم، نه تیم‌هایی از مزدور."},{"en":"Winning products come from the deep understanding of the user's needs combined with an equally deep understanding of what's just now possible.","fa":"محصولِ برنده از شناختِ عمیقِ نیازهای کاربر می‌آید، کنارِ شناختی به همان عمق از اینکه همین حالا چه چیزی ممکن شده."},{"en":"Software projects can be thought of as having two distinct stages: figuring out what to build (build the right product), and building it (building the product right).","fa":"پروژه‌های نرم‌افزاری را می‌شود دارای دو مرحلهٔ جدا دید: فهمیدنِ اینکه چه باید ساخت (محصولِ درست را بساز)، و ساختنش (محصول را درست بساز)."},{"en":"It doesn't matter how good your engineering team is if they are not given something worthwhile to build.","fa":"مهم نیست تیمِ مهندسی‌ات چقدر خوب است، اگر چیزی که ارزشِ ساخت داشته باشد به دستش ندهی."},{"en":"Product management is about insights and judgment, both of which require a sharp mind.","fa":"مدیریتِ محصول دربارهٔ بینش و قضاوت است، و هر دو ذهنی تیز می‌خواهند."},{"en":"Fall in love with the problem, not with the solution.","fa":"عاشقِ مسئله شو، نه عاشقِ راه‌حل."},{"en":"Great teams are made up of ordinary people who are inspired and empowered.","fa":"تیم‌های عالی از آدم‌های معمولی‌ای ساخته شده‌اند که الهام گرفته‌اند و توانمند شده‌اند."}],"media":[{"kind":"yt","id":"saF8fViOrO8","src":{"en":"YouTube · Product Faculty","fa":"یوتیوب · Product Faculty"},"title":{"en":"Marty Cagan — Product Discovery, Strategy & Empowered Teams","fa":"مارتی کیگن — کشفِ محصول، راهبرد، و تیم‌های توانمند"},"desc":{"en":"Cagan himself on the core ideas behind INSPIRED — discovery, strategy, and empowered product teams.","fa":"خودِ کیگن دربارهٔ ایده‌های اصلیِ پشتِ اینسپایرد — کشف، راهبرد، و تیم‌های توانمندِ محصول."},"bullets":{"en":["Discovery vs delivery, explained","Why empowered teams win","Straight from the author"],"fa":["فرقِ کشف و تحویل، توضیح‌داده‌شده","چرا تیم‌های توانمند می‌برند","مستقیم از خودِ نویسنده"]},"best":{"en":"Best for Stage 2–4.","fa":"خوب برای مرحلهٔ ۲ تا ۴."}},{"kind":"img","url":"https://www.wiley.com/en-us/INSPIRED:+How+to+Create+Tech+Products+Customers+Love,+2nd+Edition-p-9781119387503","src":{"en":"Wiley · Publisher","fa":"وایلی · ناشر"},"title":{"en":"INSPIRED, 2nd Edition — Publisher Page","fa":"اینسپایرد، ویرایشِ دوم — صفحهٔ ناشر"},"desc":{"en":"The publisher page for the second edition, with details and formats.","fa":"صفحهٔ ناشر برای ویرایشِ دوم، با جزئیات و قالب‌ها."},"bullets":{"en":["The definitive 2nd edition","Details and formats","Straight from the source"],"fa":["ویرایشِ دومِ معتبر","جزئیات و قالب‌ها","مستقیم از خودِ منبع"]},"best":{"en":"For editions and the source.","fa":"برای نسخه‌ها و منبعِ اصلی."}},{"kind":"img","url":"https://www.svpg.com/inspired-v2/","src":{"en":"SVPG · Marty Cagan","fa":"SVPG · مارتی کیگن"},"title":{"en":"INSPIRED on Silicon Valley Product Group","fa":"اینسپایرد در گروهِ محصولِ سیلیکون‌ولی"},"desc":{"en":"The author's own page on the book and why he rewrote it for the second edition.","fa":"صفحهٔ خودِ نویسنده دربارهٔ کتاب و اینکه چرا برای ویرایشِ دوم بازنویسی‌اش کرد."},"bullets":{"en":["Why the 2nd edition is all-new","The author's own framing","Links to related articles"],"fa":["چرا ویرایشِ دوم کاملاً نو است","قابِ خودِ نویسنده","لینک به مقاله‌های مرتبط"]},"best":{"en":"For the author's own take.","fa":"برای دیدگاهِ خودِ نویسنده."}},{"kind":"img","url":"https://www.goodreads.com/book/show/35249663-inspired","src":{"en":"Goodreads · Readers","fa":"گودریدز · خواننده‌ها"},"title":{"en":"INSPIRED on Goodreads","fa":"اینسپایرد در گودریدز"},"desc":{"en":"Reader ratings, reviews, and highlighted quotes from the book.","fa":"امتیاز و نقدِ خواننده‌ها، و نقل‌قول‌هایی از کتاب."},"bullets":{"en":["Thousands of reader reviews","Popular highlighted quotes","See what resonated"],"fa":["هزاران نقدِ خواننده","نقل‌قول‌های پرطرفدار","ببین چه چیزی روی مردم اثر گذاشته"]},"best":{"en":"For reviews and quotes.","fa":"برای نقد و نقل‌قول."}}],"go":[{"label":{"en":"Publisher page (2nd edition)","fa":"صفحهٔ ناشر (ویرایشِ دوم)"},"url":"https://www.wiley.com/en-us/INSPIRED:+How+to+Create+Tech+Products+Customers+Love,+2nd+Edition-p-9781119387503"},{"label":{"en":"Book on Goodreads","fa":"کتاب در گودریدز"},"url":"https://www.goodreads.com/book/show/35249663-inspired"},{"label":{"en":"SVPG: Product Discovery","fa":"SVPG: کشفِ محصول"},"url":"https://www.svpg.com/product-discovery/"}],"recs":[{"pri":"b","t":{"en":"Turn a feature into a problem","fa":"یک فیچر را به مسئله تبدیل کن"},"d":{"en":"Take the next thing on your roadmap and rewrite it as the customer problem and outcome it should hit.","fa":"کارِ بعدی روی نقشهٔ راهت را بردار و به‌شکلِ مسئلهٔ مشتری و نتیجه‌ای که باید بزند بازنویسی‌اش کن."}},{"pri":"b","t":{"en":"Name the riskiest assumption","fa":"پرریسک‌ترین فرض را نام ببر"},"d":{"en":"For a current idea, write which of the four risks — value, usability, feasibility, viability — is most likely to sink it, and test that first.","fa":"برای یک ایدهٔ فعلی بنویس کدام‌یک از چهار ریسک — ارزش، کاربردپذیری، ساختنی‌بودن، به‌صرفه‌بودن — بیشتر از همه ممکن است غرقش کند، و همان را اول بیازما."}},{"pri":"n","t":{"en":"Prototype before you build","fa":"قبل از ساخت، پروتوتایپ بساز"},"d":{"en":"Make a quick clickable prototype and put it in front of five real users this week.","fa":"یک پروتوتایپِ کلیک‌شدنیِ سریع بساز و این هفته بگذارش جلوی پنج کاربرِ واقعی."}},{"pri":"n","t":{"en":"Bring an objector along early","fa":"یک مخالف را زود همراه کن"},"d":{"en":"Pick one stakeholder who usually says no — sales, legal, finance — and involve them before the work is done.","fa":"یک ذی‌نفع را که معمولاً نه می‌گوید انتخاب کن — فروش، حقوقی، مالی — و قبل از تمام‌شدنِ کار درگیرش کن."}}]};
-</script>
-
-<script>
-/* ── 3) RENDER (text sections) ────────────────────────────── */
-function elClear(id){ var e=document.getElementById(id); if(e) e.innerHTML=''; return e; }
-
-function renderText(){
-  var t=elClear('tldrHost');
-  DATA.tldr.forEach(function(o){ var li=document.createElement('li'); li.innerHTML = TX(o); t.appendChild(li); });
-
-  var q=elClear('quoteHost');
-  DATA.quotes.forEach(function(o){
-    var bq=document.createElement('blockquote');
-    bq.innerHTML = '<span class="qm">“</span><p>'+TX(o)+'</p>';
-    q.appendChild(bq);
-  });
-
-  var m=elClear('mediaHost');
-  DATA.media.forEach(function(o){
-    var card=document.createElement('div'); card.className='mcard';
-    var thumb;
-    if(o.kind==='yt'){
-      var url='https://www.youtube.com/watch?v='+o.id;
-      var img='https://i.ytimg.com/vi/'+o.id+'/hqdefault.jpg';
-      thumb='<a class="mthumb" href="'+url+'" target="_blank" rel="noopener">'
-        +'<img src="'+img+'" alt="" loading="lazy" onerror="this.style.display=\'none\'">'
-        +'<span class="ptype">'+(LANG==='fa'?'ویدیو':'VIDEO')+'</span>'
-        +'<span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></span></a>';
-    } else {
-      thumb='<a class="mthumb" href="'+o.url+'" target="_blank" rel="noopener"><span class="mfake">'
-        +'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.6"/><path d="M21 15l-5-5L5 21"/></svg>'
-        +'</span><span class="ptype">'+(LANG==='fa'?'تصویر':'IMAGE')+'</span></a>';
-    }
-    var link = o.kind==='yt' ? 'https://www.youtube.com/watch?v='+o.id : o.url;
-    var bl = (LANG==='fa'?o.bullets.fa:o.bullets.en).map(function(b){ return '<li>'+ (LANG==='fa'?faText(b):b) +'</li>'; }).join('');
-    card.innerHTML = thumb + '<div class="mbody">'
-      + '<div class="msrc">'+TX(o.src)+'</div>'
-      + '<h4>'+TX(o.title)+'</h4>'
-      + '<p class="mdesc">'+TX(o.desc)+'</p>'
-      + '<ul>'+bl+'</ul>'
-      + '<a class="mlink" href="'+link+'" target="_blank" rel="noopener">'+(LANG==='fa'?'باز کردن ↗':'Open ↗')+'</a>'
-      + '<div class="mbest">'+TX(o.best)+'</div>'
-      + '</div>';
-    m.appendChild(card);
-  });
-
-  var g=elClear('goHost');
-  DATA.go.forEach(function(o){
-    var a=document.createElement('a'); a.href=o.url; a.target='_blank'; a.rel='noopener';
-    a.textContent=TX(o.label); g.appendChild(a);
-  });
-
-  var r=elClear('recHost');
-  DATA.recs.forEach(function(o){
-    var it=document.createElement('div'); it.className='item';
-    var priLabel = o.pri==='b' ? (LANG==='fa'?'از اینجا شروع کن':'Start here') : (LANG==='fa'?'بعدش این':'Then this');
-    it.innerHTML='<div class="t">'+TX(o.t)+'<span class="pri '+(o.pri==='b'?'b':'')+'">'+priLabel+'</span></div>'
-      +'<div class="d">'+TX(o.d)+'</div>';
-    r.appendChild(it);
-  });
-
-  var mth=document.getElementById('methodHost');
-  mth.innerHTML = LANG==='fa' ? faText("<p><b>منبع:</b> کتابِ «اینسپایرد: چطور محصولی بسازیم که مشتری‌ها عاشقش شوند» نوشتهٔ مارتی کیگن (ویرایشِ دوم، ۲۰۱۷)، از گروهِ محصولِ سیلیکون‌ولی.</p><p><b>روشِ کار:</b> ساختارِ پنج‌بخشی و ایده‌ها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده؛ نقل‌قول‌ها مقابله و ویدیوی لینک‌شده بررسی شده.</p><p><b>خوب است بدانی:</b> اینسپایرد کتابِ پایه‌ایِ «چطور محصول بسازیم» است. کتابِ همراهش، امپاورد، کتابِ رهبری است دربارهٔ کوچینگ و توانمندکردنِ تیم‌ها — این صفحه دربارهٔ اینسپایرد است.</p><p><b>گروه:</b> سازمانِ محصول — از فهرستِ کتاب‌های ضروریِ سازندگانِ محصولِ لنی راچیتسکی.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب.</p>") : "<p><b>Source:</b> the book <i>INSPIRED: How to Create Tech Products Customers Love</i> by Marty Cagan (2nd edition, 2017), from the Silicon Valley Product Group.</p><p><b>How this was built:</b> the five-part structure and ideas were gathered and rewritten from the book and reputable sources; quotes were cross-checked and the linked video verified.</p><p><b>Good to know:</b> INSPIRED is the foundational how-to-build-products book. Its companion, EMPOWERED, is the leadership book about coaching and empowering teams — this page is about INSPIRED.</p><p><b>Group:</b> Product Org — from Lenny Rachitsky's essential books for product builders.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>";
-  var fl=document.getElementById('flowTop');
-  if(fl){
-    var loop = LANG==='fa' ? ["کشف","آزمودن","تحویل"] : ["Discover","Validate","Deliver"];
-    var ar = LANG==='fa' ? '⟵' : '⟶';
-    fl.innerHTML = loop.map(function(w){ return '<b>'+ (LANG==='fa'?faText(w):w) +'</b>'; }).join(' <span class="ar">'+ar+'</span> ');
-  }
-}
-</script>
-
-<script>
-/* ── 4) CONCEPT MAP ───────────────────────────────────────── */
-function renderMap(){
-  var host=document.getElementById('mapHost'); if(!host) return; host.innerHTML='';
-  DATA.parts.forEach(function(p, i){
-    var col=document.createElement('div'); col.className='partcol';
-    var chaps=p.chapters.map(function(ck){
-      var c=DATA.chapters[ck];
-      return '<div class="chapchip"><span class="cn">'+num(c.n)+'</span><div><b>'+TX(c.name)+'</b>'
-        +'<small>'+TX(c.principle).replace(/<[^>]+>/g,'').slice(0, LANG==='fa'?86:76)+'…</small></div></div>';
-    }).join('');
-    col.innerHTML='<div class="ph"><span class="pdot" style="background:var('+p.varc+')"></span>'
-      +'<span class="pnum">'+(LANG==='fa'?'بخشِ ':'PART ')+num(i+1)+'</span></div>'
-      +'<h4>'+TX(p.name)+'</h4>'
-      +'<div class="ptag" style="color:var('+p.varc+')">'+TX(p.tag)+'</div>'
-      +'<p class="pgist">'+TX(p.gist)+'</p>'+chaps;
-    host.appendChild(col);
-  });
-}
-</script>
-
-<script>
-/* ── 5) INTERACTIVE NETWORK GRAPH (deterministic radial layout, no physics) ── */
-var GRAPH = (function(){
-  var svg, W=980, H=780, nodes=[], links=[], sel=null, dragNode=null, moved=false, startPt=null;
-
-  function build(){
-    svg=document.getElementById('netsvg');
-    svg.setAttribute('viewBox','0 0 '+W+' '+H);
-    nodes=[]; links=[];
-    var cx=W/2, cy=H/2, R1=220, R2=126, span=66*Math.PI/180;
-    var N=DATA.parts.length, partAng=DATA.parts.map(function(_,i){ return -Math.PI/2 + i*(2*Math.PI/N); });
-    nodes.push({id:'core', kind:'core', varc:'--core', r:38, x:cx, y:cy, label:DATA.core.name, data:DATA.core});
-    DATA.parts.forEach(function(p,i){
-      var a=partAng[i], px=cx+Math.cos(a)*R1, py=cy+Math.sin(a)*R1;
-      nodes.push({id:'p_'+p.key, kind:'part', varc:p.varc, r:25, x:px, y:py,
-        label:p.name, data:{name:p.name, principle:p.gist, more:p.more, tag:p.tag, key:p.key}});
-      links.push({s:'core', t:'p_'+p.key, strong:true});
-      var nc=p.chapters.length, start=a-span/2;
-      p.chapters.forEach(function(ck,j){
-        var ca = nc>1 ? start+span*(j/(nc-1)) : a;   // fan the 5 chapters outward
-        var c=DATA.chapters[ck];
-        nodes.push({id:'c_'+ck, kind:'chap', varc:p.varc, r:15,
-          x:px+Math.cos(ca)*R2, y:py+Math.sin(ca)*R2,
-          label:(c.glabel||c.name), data:c, ck:ck});
-        links.push({s:'p_'+p.key, t:'c_'+ck});
-      });
-    });
-    nodes.forEach(function(n){ n.hx=n.x; n.hy=n.y; });   // remember home positions for reset
-    draw();
-    select('core');
-  }
-
-  function byId(id){ for(var i=0;i<nodes.length;i++) if(nodes[i].id===id) return nodes[i]; return null; }
-
-  function draw(){
-    var ln='', nd='';
-    links.forEach(function(l){ ln+='<line class="glink" data-s="'+l.s+'" data-t="'+l.t+'" stroke="var(--line)" stroke-width="'+(l.strong?2.4:1.5)+'" stroke-linecap="round"/>'; });
-    nodes.forEach(function(n){
-      var inside='', below='';
-      if(n.kind==='core'){
-        inside='<text text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="800" fill="#fff" letter-spacing="0.3">'+shortLabel(n)+'</text>';
-      } else {
-        if(n.kind==='chap'){
-          inside='<text text-anchor="middle" dominant-baseline="central" font-size="11" font-weight="800" fill="#fff">'+num(n.data.n)+'</text>';
+/* ── CONTENT — everything unique to this book lives here ── */
+Book.mount({
+  "meta": {
+    "slug": "inspired",
+    "folder": "08 - Product Org",
+    "groupNum": 8,
+    "group": {
+      "en": "Product Org",
+      "fa": "سازمانِ محصول"
+    },
+    "author": {
+      "en": "Marty Cagan",
+      "fa": "مارتی کیگن"
+    },
+    "eyebrow_author": {
+      "en": "Marty Cagan",
+      "fa": "مارتی کیگن"
+    },
+    "book": {
+      "en": "INSPIRED",
+      "fa": "اینسپایرد"
+    },
+    "hero_title": {
+      "en": "INSPIRED — How to Create Tech Products Customers Love",
+      "fa": "اینسپایرد — چطور محصولی بسازیم که مشتری‌ها عاشقش شوند"
+    },
+    "dek": {
+      "en": "A knowledge graph of the whole book, plus a 5-stage path from a single idea to expert-level product craft — with an example at every step.",
+      "fa": "نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از یک ایدهٔ ساده تا کارِ حرفه‌ایِ محصول — با یک مثال در هر مرحله."
+    },
+    "published": {
+      "en": "2017 (2nd ed.)",
+      "fa": "۲۰۱۷ (ویرایشِ دوم)"
+    },
+    "chips": [
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Parts",
+          "fa": "بخش"
         }
-        var ly = n.r + (n.kind==='part'?17:14);
-        var fs = n.kind==='part'?13:11;
-        var stroke = 'paint-order:stroke;stroke:var(--card2);stroke-width:3.6px;stroke-linejoin:round';
-        below='<text class="nlab" text-anchor="middle" y="'+ly+'" font-size="'+fs+'" font-weight="'+(n.kind==='part'?'800':'700')+'" fill="var(--ink)" style="'+stroke+'">'+shortLabel(n)+'</text>';
+      },
+      {
+        "v": {
+          "en": "16",
+          "fa": "۱۶"
+        },
+        "l": {
+          "en": "Ideas",
+          "fa": "ایده"
+        }
+      },
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Learning stages",
+          "fa": "مرحلهٔ یادگیری"
+        }
       }
-      nd+='<g class="node'+(n.kind==='core'?' ncore':'')+'" data-id="'+n.id+'"><g class="ns">'
-        +'<circle r="'+n.r+'" fill="var('+n.varc+')" fill-opacity="'+(n.kind==='chap'?0.94:1)+'" stroke="var(--card)" stroke-width="2.5"/>'
-        +inside+below+'</g></g>';
-    });
-    svg.innerHTML='<g id="glinks">'+ln+'</g><g id="gnodes">'+nd+'</g>';
-    svg.querySelectorAll('.node').forEach(function(gEl){
-      gEl.addEventListener('pointerdown', onDown);
-      gEl.addEventListener('click', function(){ if(!moved) select(gEl.getAttribute('data-id')); });
-      gEl.addEventListener('pointerenter', function(){ if(!dragNode) gEl.classList.add('hover'); });
-      gEl.addEventListener('pointerleave', function(){ gEl.classList.remove('hover'); });
-    });
-    positions();
-  }
-  function shortLabel(n){ return TX(n.label); }
-
-  function positions(){
-    svg.querySelectorAll('.node').forEach(function(g){
-      var n=byId(g.getAttribute('data-id'));
-      g.setAttribute('transform','translate('+n.x.toFixed(1)+','+n.y.toFixed(1)+')');
-    });
-    svg.querySelectorAll('.glink').forEach(function(l){
-      var a=byId(l.getAttribute('data-s')), b=byId(l.getAttribute('data-t'));
-      l.setAttribute('x1',a.x.toFixed(1)); l.setAttribute('y1',a.y.toFixed(1));
-      l.setAttribute('x2',b.x.toFixed(1)); l.setAttribute('y2',b.y.toFixed(1));
-    });
-  }
-
-  /* drag: just move the grabbed node — no simulation, so nothing else shifts */
-  function toSvg(e){
-    var pt=svg.createSVGPoint(); pt.x=e.clientX; pt.y=e.clientY;
-    var m=svg.getScreenCTM(); if(!m) return {x:e.clientX,y:e.clientY};
-    return pt.matrixTransform(m.inverse());
-  }
-  function onDown(e){
-    e.preventDefault();
-    dragNode=byId(e.currentTarget.getAttribute('data-id'));
-    moved=false; startPt=toSvg(e); svg.style.cursor='grabbing';
-    e.currentTarget.classList.remove('hover');
-    window.addEventListener('pointermove', onMove);
-    window.addEventListener('pointerup', onUp);
-  }
-  function onMove(e){
-    if(!dragNode) return; var p=toSvg(e);
-    if(startPt && (Math.abs(p.x-startPt.x)>4 || Math.abs(p.y-startPt.y)>4)) moved=true;
-    dragNode.x=Math.max(dragNode.r+4, Math.min(W-dragNode.r-4, p.x));
-    dragNode.y=Math.max(dragNode.r+4, Math.min(H-dragNode.r-24, p.y));
-    positions();
-  }
-  function onUp(){
-    dragNode=null; svg.style.cursor='grab';
-    window.removeEventListener('pointermove', onMove);
-    window.removeEventListener('pointerup', onUp);
-  }
-
-  function keepSet(id){
-    var n=byId(id); if(!n || id==='core') return null;   // core → show everything
-    var keep={}; keep[id]=1; keep['core']=1;
-    var pk = (n.kind==='part') ? n.data.key : n.data.part;
-    keep['p_'+pk]=1;
-    DATA.parts.forEach(function(p){ if(p.key===pk) p.chapters.forEach(function(ck){ keep['c_'+ck]=1; }); });
-    return keep;   // highlight the whole branch: core → part → its chapters
-  }
-  function applyFocus(id){
-    var keep=keepSet(id), full=(keep===null);
-    svg.querySelectorAll('.node').forEach(function(g){
-      var nid=g.getAttribute('data-id');
-      g.classList.toggle('dim', !full && !keep[nid]);
-      g.classList.toggle('hl', !full && keep[nid] && nid!==id);
-    });
-    svg.querySelectorAll('.glink').forEach(function(l){
-      var s=l.getAttribute('data-s'), t=l.getAttribute('data-t');
-      var on = full || (keep[s] && keep[t]);
-      l.classList.toggle('dim', !on);
-      l.classList.toggle('hl', !full && on);
-    });
-  }
-
-  function relatedIds(node){
-    var ids=[];
-    if(node.id==='core'){ DATA.parts.forEach(function(p){ ids.push('p_'+p.key); }); }
-    else if(node.kind==='part'){ var pk=node.data.key; DATA.parts.forEach(function(p){ if(p.key===pk) p.chapters.forEach(function(ck){ ids.push('c_'+ck); }); }); }
-    else { var pk2=node.data.part; ids.push('p_'+pk2);
-      DATA.parts.forEach(function(p){ if(p.key===pk2) p.chapters.forEach(function(ck){ if('c_'+ck!==node.id) ids.push('c_'+ck); }); }); }
-    return ids;
-  }
-
-  function drow(cls,label,txt){ return '<div class="drow '+cls+'"><div class="dlab">'+label+'</div><div class="dtxt">'+txt+'</div></div>'; }
-
-  function select(id){
-    var n=byId(id); if(!n) return;
-    sel=id;
-    svg.querySelectorAll('.node').forEach(function(g){ g.classList.toggle('sel', g.getAttribute('data-id')===id); });
-    var selEl=svg.querySelector('.node[data-id="'+id+'"]'); if(selEl&&selEl.parentNode) selEl.parentNode.appendChild(selEl);  // raise on top
-    applyFocus(id);
-    var d=n.data, pv = n.kind==='core' ? '--core' : n.varc;
-    var kicker = n.kind==='core' ? (LANG==='fa'?'ایدهٔ مرکزی':'Core idea')
-             : n.kind==='part' ? (LANG==='fa'?'بخش':'Part') + ' · ' + TX(d.tag)
-             : (LANG==='fa'?"ایدهٔ":"Idea") + ' ' + num(d.n);
-    var prLab = (n.kind==='chap') ? (LANG==='fa'?'اصل':'Principle') : (LANG==='fa'?'ایدهٔ اصلی':'Big idea');
-    var html='<div class="dkick"><i style="background:var('+pv+')"></i>'+ (LANG==='fa'?faText(kicker):kicker) +'</div>'
-      +'<h4>'+TX(d.name)+'</h4>'
-      + drow('', prLab, TX(d.principle));
-    if(d.more)    html += drow('more', (LANG==='fa'?'بیشتر':'In depth'), TX(d.more));
-    if(d.example) html += drow('', (LANG==='fa'?'مثال':'Example'), TX(d.example));
-    if(d.tip)     html += drow('tip', (LANG==='fa'?'امتحان کن':'Try this'), TX(d.tip));
-    if(d.pitfall) html += drow('pit', (LANG==='fa'?'حواست باشد':'Watch out'), TX(d.pitfall));
-    // related chips
-    var rel=relatedIds(n);
-    if(rel.length){
-      var chips=rel.map(function(rid){ var rn=byId(rid); if(!rn) return '';
-        return '<span class="dchip" data-goto="'+rid+'"><i style="background:var('+rn.varc+')"></i>'+TX(rn.data.name)+'</span>'; }).join('');
-      html += '<div class="drow"><div class="dlab">'+(LANG==='fa'?'مرتبط':'Related')+'</div><div class="dchips">'+chips+'</div></div>';
+    ],
+    "kboxes": [
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Parts (teams · people · product · process · culture)",
+          "fa": "بخش (تیم‌ها · آدم‌ها · محصول · فرایند · فرهنگ)"
+        }
+      },
+      {
+        "v": {
+          "en": "16",
+          "fa": "۱۶"
+        },
+        "l": {
+          "en": "Ideas you can use",
+          "fa": "ایده برای استفاده"
+        }
+      },
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Levels, simple → expert",
+          "fa": "مرحله، ساده تا حرفه‌ای"
+        }
+      },
+      {
+        "v": {
+          "en": "4",
+          "fa": "۴"
+        },
+        "l": {
+          "en": "Risks tested in discovery: value · usability · feasibility · viability",
+          "fa": "ریسکی که در کشف می‌آزمایی: ارزش · کاربردپذیری · ساختنی‌بودن · به‌صرفه‌بودن"
+        }
+      }
+    ],
+    "core_callout": {
+      "label": {
+        "en": "The core idea:",
+        "fa": "ایدهٔ اصلی:"
+      },
+      "en": "Great products come from <i>empowered</i> teams of missionaries doing real <i>product discovery</i> — testing ideas for value, usability, feasibility and viability <i>before</i> building — so you build what customers actually love.",
+      "fa": "محصولِ عالی از تیم‌های <i>توانمند</i> و پُرانگیزه‌ای می‌آید که <i>کشفِ محصولِ</i> واقعی می‌کنند — ایده‌ها را از نظرِ ارزش، کاربردپذیری، ساختنی‌بودن و به‌صرفه‌بودن <i>پیش از</i> ساخت می‌آزمایند — تا چیزی بسازی که مشتری واقعاً دوستش دارد."
+    },
+    "flow_callout": {
+      "label": {
+        "en": "Read it as a flow:",
+        "fa": "به‌صورتِ یک جریان بخوانش:"
+      },
+      "en": "get the <b>teams</b> right (empowered, missionaries), staff the <b>right people</b> (PM, design, engineers, leaders), find the <b>right product</b> through discovery, run the <b>right process</b> (assess, prototype, test), and protect a <b>strong product culture</b>.",
+      "fa": "<b>تیم‌ها</b> را درست کن (توانمند، پُرانگیزه)، <b>آدم‌های درست</b> را بچین (محصول، طراحی، مهندسی، رهبری)، <b>محصولِ درست</b> را با کشف پیدا کن، <b>فرایندِ درست</b> را اجرا کن (ارزیابی، پروتوتایپ، آزمون)، و از یک <b>فرهنگِ محصولِ قوی</b> محافظت کن."
     }
-    var host=document.getElementById('detailHost');
-    host.innerHTML=html;
-    host.querySelectorAll('.dchip').forEach(function(c){
-      c.addEventListener('click', function(){ select(c.getAttribute('data-goto')); });
-    });
-  }
-
-  function relabel(){ if(!svg) return; draw(); select(sel||'core'); }
-
-  return {
-    build:build,
-    kick:function(){},                                    // no-op; layout is static
-    relabel:relabel,
-    reset:function(){ nodes.forEach(function(n){ n.x=n.hx; n.y=n.hy; }); positions(); },
-    resetFocus:function(){ select('core'); },
-    selectNode:function(id){ select(id); },
-    hasNodes:function(){ return nodes.length>0; }
-  };
-})();
-</script>
-
-<script>
-/* ── 6) 5-STAGE LADDER ────────────────────────────────────── */
-var curStage=0;
-function renderLadder(){
-  var host=document.getElementById('ladderHost'); host.innerHTML='';
-  DATA.stages.forEach(function(s,i){
-    var r=document.createElement('div'); r.className='rung'+(i===curStage?' active':'');
-    r.innerHTML='<div class="lv">'+ (LANG==='fa'?('سطحِ '+num(s.level)):('Level '+s.level)) +'</div>'
-      +'<div class="lt">'+TX(s.title)+'</div>'
-      +'<div class="lbar"><i style="width:'+(s.level*20)+'%"></i></div>';
-    r.addEventListener('click', function(){ curStage=i; renderLadder(); renderStage();
-      document.getElementById('stageHost').scrollIntoView({behavior:'smooth',block:'nearest'}); });
-    host.appendChild(r);
-  });
-}
-function renderStage(){
-  var s=DATA.stages[curStage];
-  var host=document.getElementById('stageHost');
-  var exLabel = LANG==='fa'?'مثال':'Example';
-  var prev = LANG==='fa'?'مرحلهٔ قبل':'‹ Prev', next = LANG==='fa'?'مرحلهٔ بعد':'Next ›';
-  host.innerHTML=''+
-    '<div class="stagecard">'
-    +'<div class="shead"><span class="badge">'+TX(s.badge)+'</span><h3>'+TX(s.title)+'</h3></div>'
-    +'<div class="tagline">'+TX(s.tagline)+'</div>'
-    +'<div class="sbody">'+TX(s.body)+'</div>'
-    +'<div class="exbox"><div class="exk">'+exLabel+'</div><div class="ext">'+TX(s.example)+'</div></div>'
-    +'<div class="gainrow"><span class="gi">✓</span><span>'+TX(s.gain)+'</span></div>'
-    +'<div class="stagenav">'
-      +'<button id="stPrev" '+(curStage===0?'disabled':'')+'>'+prev+'</button>'
-      +'<button id="stNext" '+(curStage===DATA.stages.length-1?'disabled':'')+'>'+next+'</button>'
-    +'</div></div>';
-  var pv=document.getElementById('stPrev'), nx=document.getElementById('stNext');
-  if(pv) pv.onclick=function(){ if(curStage>0){curStage--; renderLadder(); renderStage();} };
-  if(nx) nx.onclick=function(){ if(curStage<DATA.stages.length-1){curStage++; renderLadder(); renderStage();} };
-}
-</script>
-
-<script>
-/* ── 7) legend + graph tabs ───────────────────────────────── */
-function renderLegend(){
-  var host=document.getElementById('legendHost'); if(!host) return;
-  var items=[{c:'--core', en:'Core idea', fa:'ایدهٔ مرکزی'}]
-    .concat(DATA.parts.map(function(p){ return {c:p.varc, en:p.name.en, fa:p.name.fa}; }));
-  host.innerHTML = items.map(function(it){
-    return '<span><i style="background:var('+it.c+')"></i>'+(LANG==='fa'?faText(it.fa):it.en)+'</span>';
-  }).join('');
-  document.getElementById('ghint').textContent = LANG==='fa' ? 'روی هر دایره کلیک کن تا بیشتر بخوانی · می‌توانی بکشی‌شان' : 'Click a node to read more · drag to move';
-  document.getElementById('greset').textContent = LANG==='fa' ? '↺ چیدمان' : '↺ Reset';
-}
-function setupTabs(){
-  function show(net){
-    document.getElementById('netView').style.display = net?'':'none';
-    document.getElementById('mapView').style.display = net?'none':'';
-    document.getElementById('tabNet').classList.toggle('active',net);
-    document.getElementById('tabMap').classList.toggle('active',!net);
-    if(net) GRAPH.kick();
-  }
-  document.getElementById('tabNet').onclick=function(){show(true);};
-  document.getElementById('tabMap').onclick=function(){show(false);};
-  document.getElementById('greset').onclick=function(){ GRAPH.reset(); };
-  // click empty graph space resets the focus
-  var svg=document.getElementById('netsvg');
-  svg.addEventListener('click', function(e){ if(!e.target.closest('.node')) GRAPH.resetFocus(); });
-}
-</script>
-
-<script>
-/* ── 8) toggles + boot ────────────────────────────────────── */
-function setLang(lg){
-  LANG=lg;
-  document.documentElement.setAttribute('data-lang',lg);
-  document.documentElement.setAttribute('lang',lg);
-  document.documentElement.setAttribute('dir', lg==='fa'?'rtl':'ltr');
-  try{ localStorage.setItem('inspired-lang',lg); }catch(e){}
-  renderAll();
-}
-function renderAll(){
-  renderText();
-  renderMap();
-  renderLegend();
-  renderLadder();
-  renderStage();
-  if(GRAPH.hasNodes()) GRAPH.relabel(); else GRAPH.build();
-}
-(function(){
-  var lb=document.getElementById('langBtn');
-  lb && lb.addEventListener('click', function(){ setLang(LANG==='fa'?'en':'fa'); });
-
-  var tb=document.getElementById('themeBtn');
-  function curT(){ return document.documentElement.getAttribute('data-theme'); }
-  tb && tb.addEventListener('click', function(){
-    var t=curT()==='dark'?'light':'dark';
-    document.documentElement.setAttribute('data-theme',t);
-    try{ localStorage.setItem('inspired-theme',t); }catch(e){}
-  });
-  try{ matchMedia('(prefers-color-scheme: dark)').addEventListener('change',function(e){
-    if(!localStorage.getItem('inspired-theme')){ document.documentElement.setAttribute('data-theme', e.matches?'dark':'light'); }
-  }); }catch(e){}
-})();
-
-/* scroll-spy */
-(function(){
-  var links=[].slice.call(document.querySelectorAll('.toc a'));
-  var seen={}, ids=[];
-  links.forEach(function(a){ var id=a.getAttribute('href').slice(1); if(!seen[id]){seen[id]=1; ids.push(id);} });
-  var secs=ids.map(function(id){return document.getElementById(id);}).filter(Boolean);
-  function setActive(id){ links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('href')==='#'+id); }); }
-  if('IntersectionObserver' in window){
-    var obs=new IntersectionObserver(function(es){
-      es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
-    },{rootMargin:'-45% 0px -50% 0px',threshold:0});
-    secs.forEach(function(s){ obs.observe(s); });
-  }
-})();
-
-document.addEventListener('DOMContentLoaded', function(){
-  setupTabs();
-  renderAll();
+  },
+  "method": {
+    "en": "<p><b>Source:</b> the book <i>INSPIRED: How to Create Tech Products Customers Love</i> by Marty Cagan (2nd edition, 2017), from the Silicon Valley Product Group.</p><p><b>How this was built:</b> the five-part structure and ideas were gathered and rewritten from the book and reputable sources; quotes were cross-checked and the linked video verified.</p><p><b>Good to know:</b> INSPIRED is the foundational how-to-build-products book. Its companion, EMPOWERED, is the leadership book about coaching and empowering teams — this page is about INSPIRED.</p><p><b>Group:</b> Product Org — from Lenny Rachitsky's essential books for product builders.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>",
+    "fa": "<p><b>منبع:</b> کتابِ «اینسپایرد: چطور محصولی بسازیم که مشتری‌ها عاشقش شوند» نوشتهٔ مارتی کیگن (ویرایشِ دوم، ۲۰۱۷)، از گروهِ محصولِ سیلیکون‌ولی.</p><p><b>روشِ کار:</b> ساختارِ پنج‌بخشی و ایده‌ها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده؛ نقل‌قول‌ها مقابله و ویدیوی لینک‌شده بررسی شده.</p><p><b>خوب است بدانی:</b> اینسپایرد کتابِ پایه‌ایِ «چطور محصول بسازیم» است. کتابِ همراهش، امپاورد، کتابِ رهبری است دربارهٔ کوچینگ و توانمندکردنِ تیم‌ها — این صفحه دربارهٔ اینسپایرد است.</p><p><b>گروه:</b> سازمانِ محصول — از فهرستِ کتاب‌های ضروریِ سازندگانِ محصولِ لنی راچیتسکی.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب.</p>"
+  },
+  "flow": {
+    "en": [
+      "Discover",
+      "Validate",
+      "Deliver"
+    ],
+    "fa": [
+      "کشف",
+      "آزمودن",
+      "تحویل"
+    ]
+  },
+  "graph": {
+    "W": 980,
+    "H": 780,
+    "R1": 220,
+    "R2": 126,
+    "span": 66
+  },
+  "tldr": [
+    {
+      "en": "The whole book in one line: build products people love by doing real <b>product discovery</b> before you build — not just shipping features off a roadmap.",
+      "fa": "خلاصهٔ کل کتاب در یک جمله: محصولی بساز که مردم دوستش دارند، با <b>کشفِ محصولِ</b> واقعی پیش از ساخت — نه فقط تحویلِ فیچرها از روی یک نقشهٔ راه."
+    },
+    {
+      "en": "Great products come from <b>empowered product teams</b> of missionaries — a product manager, a designer, and engineers who own an outcome.",
+      "fa": "محصولِ عالی از <b>تیم‌های توانمندِ</b> پُرانگیزه می‌آید — یک مدیرِ محصول، یک طراح، و مهندس‌هایی که مسئولِ یک نتیجه‌اند."
+    },
+    {
+      "en": "Two inconvenient truths: <b>at least half your ideas won't work</b>, and the ones that do take several tries — so test cheaply first.",
+      "fa": "دو حقیقتِ ناخوشایند: <b>دستِ‌کم نصفِ ایده‌هایت جواب نمی‌دهند</b>، و آن‌هایی که جواب می‌دهند چند بار باید تکرار شوند — پس اول ارزان آزمایش کن."
+    },
+    {
+      "en": "In discovery you tackle four risks: <b>value, usability, feasibility, and viability</b> — will they buy it, can they use it, can we build it, does it work for the business.",
+      "fa": "در کشف با چهار ریسک سروکار داری: <b>ارزش، کاربردپذیری، ساختنی‌بودن، و به‌صرفه‌بودن</b> — می‌خرندش، می‌توانند ازش استفاده کنند، می‌توانیم بسازیمش، برای کسب‌وکار جور درمی‌آید."
+    },
+    {
+      "en": "Then protect a <b>strong product culture</b>: innovate and execute, and keep teams empowered to solve problems, not just build features.",
+      "fa": "بعد از یک <b>فرهنگِ محصولِ قوی</b> محافظت کن: هم نوآوری، هم اجرا، و تیم‌ها را توانمند نگه دار تا مسئله حل کنند، نه فقط فیچر بسازند."
+    }
+  ],
+  "parts": [
+    {
+      "key": "teams",
+      "varc": "--c-teal",
+      "name": {
+        "en": "Product Teams",
+        "fa": "تیم‌های محصول"
+      },
+      "tag": {
+        "en": "How teams work",
+        "fa": "تیم چطور کار می‌کند"
+      },
+      "gist": {
+        "en": "Empowered, cross-functional teams of missionaries — not feature factories.",
+        "fa": "تیم‌های توانمند و بین‌رشته‌ای از آدم‌های پُرانگیزه — نه کارخانهٔ فیچر."
+      },
+      "more": {
+        "en": "Everything starts here. The best products come from durable, cross-functional teams that own a problem and are trusted to solve it — a team of missionaries who believe in the vision, not mercenaries just building a list.",
+        "fa": "همه‌چیز از این‌جا شروع می‌شود. بهترین محصول‌ها از تیم‌های پایدار و بین‌رشته‌ای می‌آیند که مسئولِ یک مسئله‌اند و بهشان اعتماد شده حلش کنند — تیمی از آدم‌های پُرانگیزه که به چشم‌انداز باور دارند، نه مزدورهایی که فقط یک فهرست می‌سازند."
+      },
+      "chapters": [
+        "empowered",
+        "missionaries",
+        "crossfunc"
+      ]
+    },
+    {
+      "key": "people",
+      "varc": "--c-blue",
+      "name": {
+        "en": "The Right People",
+        "fa": "آدم‌های درست"
+      },
+      "tag": {
+        "en": "Roles & leaders",
+        "fa": "نقش‌ها و رهبرها"
+      },
+      "gist": {
+        "en": "The product manager, product designer, engineers, and product leadership.",
+        "fa": "مدیرِ محصول، طراحِ محصول، مهندس‌ها، و رهبریِ محصول."
+      },
+      "more": {
+        "en": "A team is only as good as its people and how they work together. Each role is distinct: the PM owns value and viability, the designer owns the experience, engineers own how it gets built — and leaders coach them all.",
+        "fa": "یک تیم به‌اندازهٔ آدم‌هایش و طرزِ کارِ باهم‌شان خوب است. هر نقش جداست: مدیرِ محصول مسئولِ ارزش و به‌صرفه‌بودن است، طراح مسئولِ تجربه، مهندس‌ها مسئولِ اینکه چطور ساخته شود — و رهبرها همه‌شان را کوچ می‌کنند."
+      },
+      "chapters": [
+        "pm",
+        "designer",
+        "engineers",
+        "leadership"
+      ]
+    },
+    {
+      "key": "product",
+      "varc": "--c-amber",
+      "name": {
+        "en": "The Right Product",
+        "fa": "محصولِ درست"
+      },
+      "tag": {
+        "en": "Discovery",
+        "fa": "کشف"
+      },
+      "gist": {
+        "en": "Vision and strategy, the big risks, and discovery before delivery.",
+        "fa": "چشم‌انداز و راهبرد، ریسک‌های بزرگ، و کشف پیش از تحویل."
+      },
+      "more": {
+        "en": "Knowing what to build is the hard part. A compelling vision and a focused strategy point the way; then product discovery figures out — quickly and cheaply — which ideas are actually worth building before engineering delivers them.",
+        "fa": "دانستنِ اینکه چه باید ساخت، بخشِ سخت است. یک چشم‌اندازِ گیرا و یک راهبردِ متمرکز مسیر را نشان می‌دهند؛ بعد کشفِ محصول — سریع و ارزان — می‌فهمد کدام ایده‌ها واقعاً ارزشِ ساخت دارند، پیش از اینکه مهندسی تحویلشان دهد."
+      },
+      "chapters": [
+        "vision",
+        "discovery",
+        "fourrisks"
+      ]
+    },
+    {
+      "key": "process",
+      "varc": "--c-violet",
+      "name": {
+        "en": "The Right Process",
+        "fa": "فرایندِ درست"
+      },
+      "tag": {
+        "en": "Techniques",
+        "fa": "تکنیک‌ها"
+      },
+      "gist": {
+        "en": "Assess the opportunity, prototype, and test with real users.",
+        "fa": "فرصت را بسنج، پروتوتایپ بساز، و با کاربرِ واقعی آزمایش کن."
+      },
+      "more": {
+        "en": "Discovery is a set of concrete techniques, not a vibe. Frame the opportunity, map the work, build prototypes at the right fidelity, and put them in front of real users and stakeholders to test value, usability and feasibility.",
+        "fa": "کشف یک مشت تکنیکِ مشخص است، نه یک حسِ مبهم. فرصت را قاب بگیر، کار را نقشه کن، پروتوتایپ با درست‌ترین کیفیت بساز، و بگذارشان جلوی کاربر و ذی‌نفعِ واقعی تا ارزش، کاربردپذیری و ساختنی‌بودن را بیازمایی."
+      },
+      "chapters": [
+        "framing",
+        "prototypes",
+        "testing"
+      ]
+    },
+    {
+      "key": "culture",
+      "varc": "--c-green",
+      "name": {
+        "en": "The Right Culture",
+        "fa": "فرهنگِ درست"
+      },
+      "tag": {
+        "en": "The environment",
+        "fa": "محیطِ کار"
+      },
+      "gist": {
+        "en": "A strong product culture that innovates and executes.",
+        "fa": "یک فرهنگِ محصولِ قوی که هم نوآوری می‌کند هم اجرا."
+      },
+      "more": {
+        "en": "Even great people fail in a bad environment. A strong product culture keeps teams innovating (experimenting, feeling safe to fail) and executing (delivering with high integrity) — and it defends the work against the objections that kill good products.",
+        "fa": "حتی آدم‌های عالی هم در محیطِ بد شکست می‌خورند. یک فرهنگِ محصولِ قوی تیم‌ها را هم در نوآوری نگه می‌دارد (آزمایش‌کردن، امنیت برای شکست) هم در اجرا (تحویلِ درست‌وحسابی) — و از کار در برابرِ مخالفت‌هایی که محصولِ خوب را می‌کُشند دفاع می‌کند."
+      },
+      "chapters": [
+        "culture",
+        "innovexec",
+        "objections"
+      ]
+    }
+  ],
+  "chapters": {
+    "empowered": {
+      "part": "teams",
+      "n": 1,
+      "name": {
+        "en": "Empowered Product Teams",
+        "fa": "تیم‌های محصولِ توانمند"
+      },
+      "glabel": {
+        "en": "Empowered",
+        "fa": "توانمند"
+      },
+      "principle": {
+        "en": "Give a cross-functional team a problem to solve and the room to solve it — outcomes, not a feature list.",
+        "fa": "به یک تیمِ بین‌رشته‌ای یک مسئله بده که حلش کند و فضا بده که حلش کند — نتیجه بخواه، نه یک فهرستِ فیچر."
+      },
+      "more": {
+        "en": "Empowered teams are handed problems and business outcomes, then trusted to discover the best solution. That is the opposite of a feature team that just builds whatever the roadmap dictates.",
+        "fa": "به تیم‌های توانمند مسئله و نتیجهٔ کاری داده می‌شود، بعد بهشان اعتماد می‌شود که بهترین راه‌حل را کشف کنند. این درست برعکسِ «تیمِ فیچری» است که فقط هرچه نقشهٔ راه بگوید می‌سازد."
+      },
+      "example": {
+        "en": "Instead of 'build a referral page', the team gets 'grow signups 20%' and finds how.",
+        "fa": "به‌جای «یک صفحهٔ معرفی بساز»، به تیم می‌گویند «ثبت‌نام را ۲۰٪ بیشتر کن» و خودش راهش را پیدا می‌کند."
+      },
+      "tip": {
+        "en": "State each team's mission as an outcome to reach, not an output to ship.",
+        "fa": "مأموریتِ هر تیم را به‌شکلِ نتیجه‌ای که باید برسد بنویس، نه خروجی‌ای که باید تحویل دهد."
+      },
+      "pitfall": {
+        "en": "A feature factory shipping a roadmap nobody validated.",
+        "fa": "کارخانهٔ فیچری که یک نقشهٔ راهِ آزمایش‌نشده را تحویل می‌دهد."
+      }
+    },
+    "missionaries": {
+      "part": "teams",
+      "n": 2,
+      "name": {
+        "en": "Missionaries, Not Mercenaries",
+        "fa": "پُرانگیزه، نه مزدور"
+      },
+      "glabel": {
+        "en": "Missionaries",
+        "fa": "پُرانگیزه"
+      },
+      "principle": {
+        "en": "Build a team that believes in the vision and owns the outcome — not one that just takes orders.",
+        "fa": "تیمی بساز که به چشم‌انداز باور دارد و مسئولِ نتیجه است — نه تیمی که فقط دستور می‌گیرد."
+      },
+      "more": {
+        "en": "Missionaries care about the customer and the mission, so they push through hard problems; mercenaries build whatever they're told and leave when it's convenient. The difference shows up in the product.",
+        "fa": "آدمِ پُرانگیزه به مشتری و مأموریت اهمیت می‌دهد، برای همین از دلِ مسئله‌های سخت رد می‌شود؛ مزدور هرچه بهش بگویند می‌سازد و هر وقت به‌صرفه‌اش باشد می‌رود. این فرق خودش را در محصول نشان می‌دهد."
+      },
+      "example": {
+        "en": "A missionary team keeps digging until users actually adopt; a mercenary ships and moves on.",
+        "fa": "تیمِ پُرانگیزه آن‌قدر می‌کاود تا کاربر واقعاً استفاده کند؛ مزدور تحویل می‌دهد و می‌رود سراغِ بعدی."
+      },
+      "tip": {
+        "en": "Share the why and the customer with every engineer, not just the ticket.",
+        "fa": "«چرا»ی کار و خودِ مشتری را با هر مهندس در میان بگذار، نه فقط تیکت را."
+      },
+      "pitfall": {
+        "en": "Teams handed tasks with no context, invested in nothing.",
+        "fa": "تیم‌هایی که کار را بدونِ هیچ زمینه‌ای می‌گیرند و به هیچ‌چیز دل نمی‌بندند."
+      }
+    },
+    "crossfunc": {
+      "part": "teams",
+      "n": 3,
+      "name": {
+        "en": "One Cross-Functional Team",
+        "fa": "یک تیمِ بین‌رشته‌ای"
+      },
+      "glabel": {
+        "en": "Cross-functional",
+        "fa": "بین‌رشته‌ای"
+      },
+      "principle": {
+        "en": "Put product, design, and engineering side by side on one durable, co-located team.",
+        "fa": "محصول، طراحی و مهندسی را کنارِ هم در یک تیمِ پایدار و هم‌جا بگذار."
+      },
+      "more": {
+        "en": "The team is a small, stable group — a product manager, a product designer, and a handful of engineers — who sit together and stay together. Durability builds the deep knowledge that quick wins need.",
+        "fa": "تیم یک گروهِ کوچک و باثبات است — یک مدیرِ محصول، یک طراحِ محصول، و چند مهندس — که کنارِ هم می‌نشینند و کنارِ هم می‌مانند. پایداری همان دانشِ عمیقی را می‌سازد که بردهای سریع لازم دارند."
+      },
+      "example": {
+        "en": "Roughly a PM, a designer, and 2 to 10 engineers who own one product area for the long run.",
+        "fa": "تقریباً یک مدیرِ محصول، یک طراح، و ۲ تا ۱۰ مهندس که مدت‌ها مسئولِ یک بخشِ محصول‌اند."
+      },
+      "tip": {
+        "en": "Keep teams together long enough to build real domain expertise.",
+        "fa": "تیم‌ها را آن‌قدر کنارِ هم نگه دار که تخصصِ واقعی در آن حوزه پیدا کنند."
+      },
+      "pitfall": {
+        "en": "Shuffling people project to project so no one owns anything.",
+        "fa": "جابه‌جاکردنِ آدم‌ها از پروژه‌ای به پروژهٔ دیگر، تا هیچ‌کس مسئولِ هیچ‌چیز نباشد."
+      }
+    },
+    "pm": {
+      "part": "people",
+      "n": 4,
+      "name": {
+        "en": "The Product Manager",
+        "fa": "مدیرِ محصول"
+      },
+      "glabel": {
+        "en": "Product Manager",
+        "fa": "مدیرِ محصول"
+      },
+      "principle": {
+        "en": "Own whether the product is valuable and viable — through deep knowledge of users, data, business, and market.",
+        "fa": "مسئولِ این باش که محصول ارزشمند و به‌صرفه است یا نه — با شناختِ عمیق از کاربر، داده، کسب‌وکار، و بازار."
+      },
+      "more": {
+        "en": "The PM isn't the boss of the team; they're accountable for the product succeeding. That means knowing the customer better than anyone, knowing the data, the business constraints, and the market — and using judgment to decide what's worth building.",
+        "fa": "مدیرِ محصول رئیسِ تیم نیست؛ او پاسخگوی موفقیتِ محصول است. یعنی مشتری را از هرکسی بهتر بشناسد، داده را بداند، محدودیت‌های کسب‌وکار و بازار را بداند — و با قضاوت تصمیم بگیرد چه چیزی ارزشِ ساخت دارد."
+      },
+      "example": {
+        "en": "Before pitching a feature, the PM can say who wants it, why, and how success is measured.",
+        "fa": "قبل از پیشنهادِ یک فیچر، مدیرِ محصول می‌تواند بگوید چه کسی می‌خواهدش، چرا، و موفقیت چطور اندازه گرفته می‌شود."
+      },
+      "tip": {
+        "en": "Do the homework: know your users, your data, and your business cold.",
+        "fa": "تکلیفت را انجام بده: کاربر، داده، و کسب‌وکارت را مثلِ کفِ دستت بشناس."
+      },
+      "pitfall": {
+        "en": "A PM who just gathers requirements and manages a backlog.",
+        "fa": "مدیرِ محصولی که فقط نیازمندی جمع می‌کند و یک صفِ کار را می‌چرخاند."
+      }
+    },
+    "designer": {
+      "part": "people",
+      "n": 5,
+      "name": {
+        "en": "The Product Designer",
+        "fa": "طراحِ محصول"
+      },
+      "glabel": {
+        "en": "Product Designer",
+        "fa": "طراحِ محصول"
+      },
+      "principle": {
+        "en": "Own the whole customer experience and work in discovery from day one — design is how it works, not just how it looks.",
+        "fa": "مسئولِ کلِ تجربهٔ مشتری باش و از روزِ اول در کشف حاضر باش — طراحی یعنی چطور کار می‌کند، نه فقط چه شکلی است."
+      },
+      "more": {
+        "en": "A great product designer is a partner in discovery, not a service you order screens from. They shape the experience end to end, build the prototypes, and run continuous user testing to learn what actually works.",
+        "fa": "طراحِ محصولِ خوب شریکِ کشف است، نه سرویسی که ازش صفحه سفارش می‌دهی. او تجربه را از سر تا ته شکل می‌دهد، پروتوتایپ‌ها را می‌سازد، و مدام آزمونِ کاربری اجرا می‌کند تا بفهمد واقعاً چه چیزی جواب می‌دهد."
+      },
+      "example": {
+        "en": "The designer tests a prototype with users weekly, not polishing final screens at the end.",
+        "fa": "طراح هر هفته یک پروتوتایپ را با کاربر می‌آزماید، نه اینکه آخرِ کار صفحه‌های نهایی را برق بیندازد."
+      },
+      "tip": {
+        "en": "Bring design into discovery early; don't hand off specs to be skinned later.",
+        "fa": "طراحی را زود واردِ کشف کن؛ نه اینکه سندِ آماده بدهی که بعداً فقط رویش «روکش» بکشند."
+      },
+      "pitfall": {
+        "en": "Treating design as decoration bolted on after the decisions.",
+        "fa": "با طراحی مثلِ تزئینی رفتار کردن که بعد از تصمیم‌ها بهش می‌چسبانند."
+      }
+    },
+    "engineers": {
+      "part": "people",
+      "n": 6,
+      "name": {
+        "en": "The Engineers",
+        "fa": "مهندس‌ها"
+      },
+      "glabel": {
+        "en": "Engineers",
+        "fa": "مهندس‌ها"
+      },
+      "principle": {
+        "en": "Bring engineers into discovery early — they know what's just now possible, and that sparks the best ideas.",
+        "fa": "مهندس‌ها را زود واردِ کشف کن — آن‌ها می‌دانند همین حالا چه چیزی ممکن شده، و همین بهترین ایده‌ها را جرقه می‌زند."
+      },
+      "more": {
+        "en": "Engineers aren't just there to build the spec; brought in early, they surface possibilities no one else sees and flag feasibility risks before they get expensive. Some of the best product ideas come from them.",
+        "fa": "مهندس‌ها فقط برای ساختنِ سند آن‌جا نیستند؛ اگر زود بیایند، امکان‌هایی را رو می‌کنند که کسِ دیگری نمی‌بیند و ریسکِ ساختنی‌بودن را قبل از اینکه گران شود علامت می‌زنند. بعضی از بهترین ایده‌های محصول از خودِ آن‌ها می‌آید."
+      },
+      "example": {
+        "en": "An engineer who knows a new API can suggest a solution the PM never imagined.",
+        "fa": "مهندسی که یک ای‌پی‌آیِ تازه را می‌شناسد، می‌تواند راه‌حلی پیشنهاد دهد که مدیرِ محصول اصلاً تصورش را نمی‌کرد."
+      },
+      "tip": {
+        "en": "Show engineers the customer problem, not just the ticket to implement.",
+        "fa": "مسئلهٔ مشتری را به مهندس‌ها نشان بده، نه فقط تیکتی که باید پیاده کنند."
+      },
+      "pitfall": {
+        "en": "Keeping engineers heads-down until the spec is ready.",
+        "fa": "سرِ مهندس‌ها را پایین نگه داشتن تا وقتی «سند آماده شود»."
+      }
+    },
+    "leadership": {
+      "part": "people",
+      "n": 7,
+      "name": {
+        "en": "Product Leadership",
+        "fa": "رهبریِ محصول"
+      },
+      "glabel": {
+        "en": "Leadership",
+        "fa": "رهبری"
+      },
+      "principle": {
+        "en": "Leaders don't dictate features — they set vision and strategy, then coach teams to greatness.",
+        "fa": "رهبرها فیچر دیکته نمی‌کنند — چشم‌انداز و راهبرد را می‌گذارند، بعد تیم‌ها را کوچ می‌کنند تا عالی شوند."
+      },
+      "more": {
+        "en": "Heads of product and design provide the vision, strategy, and consistent coaching that let empowered teams thrive. Their job is to develop people and align direction, not to hand down a to-do list.",
+        "fa": "رؤسای محصول و طراحی همان چشم‌انداز، راهبرد و کوچینگِ پایداری را می‌دهند که به تیم‌های توانمند اجازهٔ شکوفایی می‌دهد. کارشان پروراندنِ آدم‌ها و هم‌راستاکردنِ مسیر است، نه دادنِ یک فهرستِ کارها."
+      },
+      "example": {
+        "en": "A leader spends time coaching each PM, not reviewing and approving every feature.",
+        "fa": "یک رهبر وقت می‌گذارد و هر مدیرِ محصول را کوچ می‌کند، نه اینکه هر فیچر را بررسی و تأیید کند."
+      },
+      "tip": {
+        "en": "Invest in coaching your people; a strong team beats a clever plan.",
+        "fa": "روی کوچ‌کردنِ آدم‌هایت سرمایه‌گذاری کن؛ یک تیمِ قوی از یک نقشهٔ زیرکانه بهتر است."
+      },
+      "pitfall": {
+        "en": "Micromanaging the roadmap while starving teams of real direction.",
+        "fa": "ریزبه‌ریزِ نقشهٔ راه را کنترل کردن، و در عوض تیم‌ها را از مسیرِ واقعی محروم کردن."
+      }
+    },
+    "vision": {
+      "part": "product",
+      "n": 8,
+      "name": {
+        "en": "Product Vision & Strategy",
+        "fa": "چشم‌انداز و راهبردِ محصول"
+      },
+      "glabel": {
+        "en": "Vision & Strategy",
+        "fa": "چشم‌انداز و راهبرد"
+      },
+      "principle": {
+        "en": "A vision inspires the direction (2 to 5 years out); a strategy focuses effort on one market at a time.",
+        "fa": "چشم‌انداز مسیر را الهام می‌بخشد (۲ تا ۵ سالِ آینده)؛ راهبرد تلاش را هر بار روی یک بازار متمرکز می‌کند."
+      },
+      "more": {
+        "en": "The vision is the compelling future you're trying to create — it recruits and motivates. The strategy is your sequence of steps to get there, focusing on one target market or persona at a time rather than trying to please everyone at once.",
+        "fa": "چشم‌انداز همان آینده‌ی گیرایی است که می‌خواهی بسازی — آدم جذب می‌کند و انگیزه می‌دهد. راهبرد ترتیبِ قدم‌هایی است که تو را به آن‌جا می‌رساند، با تمرکز هر بار روی یک بازار یا یک پرسونا، نه اینکه بخواهی یک‌دفعه همه را راضی کنی."
+      },
+      "example": {
+        "en": "'Be the camera everyone carries' is a vision; 'win photographers first' is strategy.",
+        "fa": "«همان دوربینی باش که همه با خودشان دارند» چشم‌انداز است؛ «اول عکاس‌ها را ببر» راهبرد است."
+      },
+      "tip": {
+        "en": "Be stubborn on the vision, but flexible on the details of how you get there.",
+        "fa": "سرِ چشم‌انداز کله‌شق باش، اما سرِ جزئیاتِ رسیدن به آن انعطاف داشته باش."
+      },
+      "pitfall": {
+        "en": "A vague vision and a strategy that chases every market at once.",
+        "fa": "یک چشم‌اندازِ مبهم و راهبردی که هم‌زمان دنبالِ هر بازاری می‌دود."
+      }
+    },
+    "discovery": {
+      "part": "product",
+      "n": 9,
+      "name": {
+        "en": "Discovery vs Delivery",
+        "fa": "کشف در برابرِ تحویل"
+      },
+      "glabel": {
+        "en": "Discovery vs Delivery",
+        "fa": "کشف و تحویل"
+      },
+      "principle": {
+        "en": "First figure out the right product to build (discovery); only then build it right (delivery).",
+        "fa": "اول بفهم محصولِ درست چیست که باید ساخت (کشف)؛ تازه بعد درست بسازش (تحویل)."
+      },
+      "more": {
+        "en": "These are two different jobs. Discovery is fast, cheap experimentation to decide what's worth building; delivery is the slower, careful work of building it to ship. The two biggest risks are building something of no value, or something you can't actually build — discovery attacks both before you waste months.",
+        "fa": "این‌ها دو کارِ متفاوت‌اند. کشف یعنی آزمایشِ سریع و ارزان برای تصمیم دربارهٔ اینکه چه چیزی ارزشِ ساخت دارد؛ تحویل یعنی کارِ کندتر و دقیق‌ترِ ساختنش برای عرضه. دو ریسکِ بزرگ این است: چیزی بسازی که ارزشی ندارد، یا چیزی که اصلاً نمی‌توانی بسازی — کشف قبل از اینکه ماه‌ها هدر بدهی به هر دو حمله می‌کند."
+      },
+      "example": {
+        "en": "Test a fake-door or a prototype this week; don't spend a quarter building the wrong thing.",
+        "fa": "این هفته یک درِ قلابی یا یک پروتوتایپ را آزمایش کن؛ یک فصل را صرفِ ساختنِ چیزِ اشتباه نکن."
+      },
+      "tip": {
+        "en": "Run discovery and delivery in parallel — never wait for one to finish.",
+        "fa": "کشف و تحویل را هم‌زمان پیش ببر — هیچ‌وقت منتظرِ تمام‌شدنِ یکی نمان."
+      },
+      "pitfall": {
+        "en": "Committing to a roadmap and building for months before validating anything.",
+        "fa": "قول‌دادنِ یک نقشهٔ راه و ماه‌ها ساختن، قبل از اینکه چیزی را اعتبارسنجی کنی."
+      }
+    },
+    "fourrisks": {
+      "part": "product",
+      "n": 10,
+      "name": {
+        "en": "The Four Big Risks",
+        "fa": "چهار ریسکِ بزرگ"
+      },
+      "glabel": {
+        "en": "Four Risks",
+        "fa": "چهار ریسک"
+      },
+      "principle": {
+        "en": "Test every idea against four risks: value, usability, feasibility, and viability.",
+        "fa": "هر ایده را با چهار ریسک بسنج: ارزش، کاربردپذیری، ساختنی‌بودن، و به‌صرفه‌بودن."
+      },
+      "more": {
+        "en": "Value: will people buy it or choose to use it? Usability: can they figure out how to use it? Feasibility: can our engineers actually build it? Viability: does it work for the rest of the business — legal, sales, finance, brand? Discovery exists to answer these cheaply.",
+        "fa": "ارزش: مردم می‌خرندش یا استفاده‌اش را انتخاب می‌کنند؟ کاربردپذیری: می‌توانند بفهمند چطور ازش استفاده کنند؟ ساختنی‌بودن: مهندس‌های ما واقعاً می‌توانند بسازندش؟ به‌صرفه‌بودن: با بقیهٔ کسب‌وکار جور است — حقوقی، فروش، مالی، برند؟ کشف هست تا این‌ها را ارزان جواب دهد."
+      },
+      "example": {
+        "en": "A feature can be usable, buildable, and legal — and still fail on value if no one wants it.",
+        "fa": "یک فیچر می‌تواند کاربردپذیر، ساختنی و قانونی باشد — و باز سرِ ارزش شکست بخورد، اگر کسی نخواهدش."
+      },
+      "tip": {
+        "en": "For any big idea, name which of the four risks scares you most, and test that first.",
+        "fa": "برای هر ایدهٔ بزرگ، بگو کدام‌یک از چهار ریسک بیشتر می‌ترساندت، و همان را اول بیازما."
+      },
+      "pitfall": {
+        "en": "Only asking 'can we build it?' and ignoring whether anyone wants it.",
+        "fa": "فقط پرسیدنِ «می‌توانیم بسازیمش؟» و بی‌خیالِ اینکه اصلاً کسی می‌خواهدش یا نه."
+      }
+    },
+    "framing": {
+      "part": "process",
+      "n": 11,
+      "name": {
+        "en": "Opportunity Assessment & Story Maps",
+        "fa": "ارزیابیِ فرصت و نقشهٔ داستان"
+      },
+      "glabel": {
+        "en": "Framing",
+        "fa": "قاب‌بندی"
+      },
+      "principle": {
+        "en": "Frame the work before you build it: what problem, for whom, and how you'll know it worked.",
+        "fa": "قبل از ساخت، کار را قاب بگیر: چه مسئله‌ای، برای چه کسی، و از کجا می‌فهمی جواب داده."
+      },
+      "more": {
+        "en": "An opportunity assessment answers four quick questions: what business objective, how you'll measure success, what customer problem, and for which market. Then a story map lays the work out as a user's journey, so the whole team sees the shape of it and can slice a small first version.",
+        "fa": "ارزیابیِ فرصت چهار پرسشِ سریع را جواب می‌دهد: چه هدفِ کاری، موفقیت را چطور اندازه می‌گیری، چه مسئله‌ای از مشتری، و برای کدام بازار. بعد نقشهٔ داستان کار را به‌شکلِ سفرِ کاربر می‌چیند، تا کلِ تیم شکلِ کار را ببیند و بتواند یک نسخهٔ اولِ کوچک از آن ببُرد."
+      },
+      "example": {
+        "en": "Four lines — objective, key result, problem, target market — beat a ten-page spec.",
+        "fa": "چهار خط — هدف، نتیجهٔ کلیدی، مسئله، بازارِ هدف — از یک سندِ ده‌صفحه‌ای بهتر است."
+      },
+      "tip": {
+        "en": "Write the opportunity in four sentences before anyone opens a design tool.",
+        "fa": "قبل از اینکه کسی ابزارِ طراحی را باز کند، فرصت را در چهار جمله بنویس."
+      },
+      "pitfall": {
+        "en": "Jumping to solutions before you can state the problem clearly.",
+        "fa": "پریدن به راه‌حل، قبل از اینکه بتوانی مسئله را روشن بیان کنی."
+      }
+    },
+    "prototypes": {
+      "part": "process",
+      "n": 12,
+      "name": {
+        "en": "Prototypes",
+        "fa": "پروتوتایپ‌ها"
+      },
+      "glabel": {
+        "en": "Prototypes",
+        "fa": "پروتوتایپ"
+      },
+      "principle": {
+        "en": "Build a cheap prototype — not the real thing — to learn fast and tackle a specific risk.",
+        "fa": "یک پروتوتایپِ ارزان بساز — نه محصولِ واقعی — تا سریع یاد بگیری و به یک ریسکِ مشخص بپردازی."
+      },
+      "more": {
+        "en": "A prototype is many times cheaper than a product and exists to answer a question. Choose the fidelity to fit the risk: a rough feasibility spike for engineers, a realistic user prototype to test value and usability. It can even double as the spec for delivery.",
+        "fa": "پروتوتایپ چند برابر از محصول ارزان‌تر است و هست تا یک سؤال را جواب دهد. کیفیتش را به اندازهٔ ریسک انتخاب کن: یک نمونهٔ خامِ ساختنی‌بودن برای مهندس‌ها، یک پروتوتایپِ واقع‌نمای کاربری برای آزمونِ ارزش و کاربردپذیری. حتی می‌تواند هم‌زمان نقشِ سندِ تحویل را هم بازی کند."
+      },
+      "example": {
+        "en": "A clickable mockup users think is real teaches more than a finished, shipped feature.",
+        "fa": "یک ماکتِ کلیک‌شدنی که کاربر فکر می‌کند واقعی است، بیشتر از یک فیچرِ تمام‌شده و عرضه‌شده یاد می‌دهد."
+      },
+      "tip": {
+        "en": "Match the prototype's fidelity to the one risk you're trying to retire.",
+        "fa": "کیفیتِ پروتوتایپ را به همان یک ریسکی که می‌خواهی از سرِ راه برداری، جور کن."
+      },
+      "pitfall": {
+        "en": "Over-building the prototype until it's as costly as the real product.",
+        "fa": "آن‌قدر پروتوتایپ را سنگین ساختن که به گرانیِ خودِ محصول شود."
+      }
+    },
+    "testing": {
+      "part": "process",
+      "n": 13,
+      "name": {
+        "en": "Testing Value, Usability & Feasibility",
+        "fa": "آزمونِ ارزش، کاربردپذیری و ساختنی‌بودن"
+      },
+      "glabel": {
+        "en": "Testing",
+        "fa": "آزمون"
+      },
+      "principle": {
+        "en": "Put prototypes in front of real users and stakeholders — test usability, value, feasibility, viability.",
+        "fa": "پروتوتایپ‌ها را بگذار جلوی کاربر و ذی‌نفعِ واقعی — کاربردپذیری، ارزش، ساختنی‌بودن و به‌صرفه‌بودن را بیازما."
+      },
+      "more": {
+        "en": "Usability testing watches real users try to complete a task. Value testing is the hardest and most important — you're looking for evidence people will actually choose or pay, not just say they like it. Feasibility and viability get checked with engineers and the wider business.",
+        "fa": "آزمونِ کاربردپذیری یعنی تماشای کاربرِ واقعی که سعی می‌کند یک کار را انجام دهد. آزمونِ ارزش سخت‌ترین و مهم‌ترین است — دنبالِ شواهدی هستی که مردم واقعاً انتخاب یا پرداخت می‌کنند، نه فقط اینکه بگویند خوششان آمده. ساختنی‌بودن و به‌صرفه‌بودن هم با مهندس‌ها و کلِ کسب‌وکار بررسی می‌شوند."
+      },
+      "example": {
+        "en": "Watch five users struggle with the flow — you'll learn more than from any opinion survey.",
+        "fa": "تماشا کن پنج کاربر با آن مسیر کلنجار می‌روند — بیشتر از هر نظرسنجی‌ای یاد می‌گیری."
+      },
+      "tip": {
+        "en": "Test value with real commitment — money, reputation, or time — not just 'do you like it?'.",
+        "fa": "ارزش را با یک تعهدِ واقعی بیازما — پول، آبرو، یا وقت — نه فقط «خوشت می‌آید؟»."
+      },
+      "pitfall": {
+        "en": "Mistaking a polite 'I'd use that' for real demand.",
+        "fa": "اشتباه‌گرفتنِ «آره استفاده می‌کنم»ِ از رویِ ادب با تقاضای واقعی."
+      }
+    },
+    "culture": {
+      "part": "culture",
+      "n": 14,
+      "name": {
+        "en": "Strong Product Culture",
+        "fa": "فرهنگِ محصولِ قوی"
+      },
+      "glabel": {
+        "en": "Product Culture",
+        "fa": "فرهنگِ محصول"
+      },
+      "principle": {
+        "en": "The best teams live in a culture of customer obsession, experimentation, and trust.",
+        "fa": "بهترین تیم‌ها در فرهنگی زندگی می‌کنند از وسواسِ مشتری، آزمایش‌کردن، و اعتماد."
+      },
+      "more": {
+        "en": "Culture is what surrounds the team: an obsession with customers, comfort with testing and being wrong, real empowerment, and continuous learning. Get it right and good people do their best work; get it wrong and even great people leave.",
+        "fa": "فرهنگ همان چیزی است که دورِ تیم را گرفته: وسواسِ مشتری، راحت‌بودن با آزمایش و اشتباه‌کردن، توانمندیِ واقعی، و یادگیریِ پیوسته. اگر درستش کنی، آدمِ خوب بهترین کارش را می‌کند؛ اگر خرابش کنی، حتی آدمِ عالی هم می‌رود."
+      },
+      "example": {
+        "en": "In a strong culture, a failed test is a lesson to celebrate, not a mistake to hide.",
+        "fa": "در فرهنگِ قوی، آزمونِ شکست‌خورده درسی است برای جشن‌گرفتن، نه اشتباهی برای پنهان‌کردن."
+      },
+      "tip": {
+        "en": "Celebrate learning and customer impact, not just shipping on schedule.",
+        "fa": "یادگیری و اثر روی مشتری را جشن بگیر، نه فقط تحویلِ سرِوقت را."
+      },
+      "pitfall": {
+        "en": "A culture that punishes failed experiments and rewards shipping alone.",
+        "fa": "فرهنگی که آزمایشِ شکست‌خورده را تنبیه می‌کند و فقط به تحویل‌دادن پاداش می‌دهد."
+      }
+    },
+    "innovexec": {
+      "part": "culture",
+      "n": 15,
+      "name": {
+        "en": "Innovation & Execution",
+        "fa": "نوآوری و اجرا"
+      },
+      "glabel": {
+        "en": "Innovate & Execute",
+        "fa": "نوآوری و اجرا"
+      },
+      "principle": {
+        "en": "A strong culture does both: it keeps innovating and it consistently delivers.",
+        "fa": "فرهنگِ قوی هر دو را می‌کند: هم مدام نوآوری می‌کند، هم پیوسته تحویل می‌دهد."
+      },
+      "more": {
+        "en": "Innovation needs experimentation, safety to fail, and empowered teams. Execution needs accountability, urgency, and high-integrity commitments you can rely on. Most companies are decent at one; the strongest product cultures manage both at once.",
+        "fa": "نوآوری آزمایش‌کردن می‌خواهد، امنیت برای شکست، و تیم‌های توانمند. اجرا پاسخگویی می‌خواهد، فوریت، و تعهدهای درست‌وحسابی که بشود روی‌شان حساب کرد. بیشترِ شرکت‌ها در یکی خوب‌اند؛ قوی‌ترین فرهنگ‌های محصول هر دو را هم‌زمان اداره می‌کنند."
+      },
+      "example": {
+        "en": "The team explores bold bets and still hits the dates it truly promises.",
+        "fa": "تیم سراغِ شرط‌های جسورانه می‌رود و باز به تاریخ‌هایی که واقعاً قول داده می‌رسد."
+      },
+      "tip": {
+        "en": "Use high-integrity commitments for real deadlines; keep the rest open for discovery.",
+        "fa": "برای ضرب‌الاجل‌های واقعی از تعهدِ درست‌وحسابی استفاده کن؛ بقیه را برای کشف باز نگه دار."
+      },
+      "pitfall": {
+        "en": "Being so obsessed with predictability that innovation never gets room.",
+        "fa": "آن‌قدر شیفتهٔ قابلِ‌پیش‌بینی‌بودن که نوآوری هیچ‌وقت جا پیدا نمی‌کند."
+      }
+    },
+    "objections": {
+      "part": "culture",
+      "n": 16,
+      "name": {
+        "en": "Overcoming Objections",
+        "fa": "غلبه بر مخالفت‌ها"
+      },
+      "glabel": {
+        "en": "Objections",
+        "fa": "مخالفت‌ها"
+      },
+      "principle": {
+        "en": "Expect resistance from around the company — and win it with evidence, not authority.",
+        "fa": "توقعِ مقاومت از گوشه‌کنارِ شرکت را داشته باش — و با شواهد ببَرش، نه با زور و مقام."
+      },
+      "more": {
+        "en": "Sales, legal, marketing, and finance all have real concerns, and good products can die on their objections. The way through is to understand each stakeholder, bring them along early, and answer with discovery evidence rather than opinion or org-chart power.",
+        "fa": "فروش، حقوقی، بازاریابی و مالی همه دغدغه‌های واقعی دارند، و محصولِ خوب می‌تواند سرِ مخالفتِ آن‌ها بمیرد. راهِ عبور این است که هر ذی‌نفع را بفهمی، زود همراهشان کنی، و با شواهدِ کشف جواب بدهی، نه با نظر یا قدرتِ روی چارتِ سازمان."
+      },
+      "example": {
+        "en": "Bring legal a tested prototype and data, and 'no' often turns into 'how'.",
+        "fa": "برای حقوقی یک پروتوتایپِ آزموده و داده ببر، و اغلب «نه» تبدیل می‌شود به «چطور»."
+      },
+      "tip": {
+        "en": "Meet each objecting team early; turn them into partners before launch, not blockers at the end.",
+        "fa": "زود با هر تیمِ مخالف بنشین؛ قبل از عرضه شریکشان کن، نه اینکه آخرِ کار سدِ راه شوند."
+      },
+      "pitfall": {
+        "en": "Springing a finished product on stakeholders and getting vetoed at the finish line.",
+        "fa": "یک محصولِ تمام‌شده را ناگهان جلوی ذی‌نفع‌ها گذاشتن و سرِ خطِ پایان وتو شدن."
+      }
+    }
+  },
+  "core": {
+    "name": {
+      "en": "PRODUCTS CUSTOMERS LOVE",
+      "fa": "محصولی که دوستش دارند"
+    },
+    "principle": {
+      "en": "Great products come from empowered teams of missionaries who do continuous product discovery — testing ideas for value, usability, feasibility, and viability before delivery — inside a strong product culture. You build what customers love by learning what's worth building first.",
+      "fa": "محصولِ عالی از تیم‌های توانمند و پُرانگیزه‌ای می‌آید که پیوسته کشفِ محصول می‌کنند — ایده‌ها را از نظرِ ارزش، کاربردپذیری، ساختنی‌بودن و به‌صرفه‌بودن، پیش از تحویل می‌آزمایند — آن هم داخلِ یک فرهنگِ محصولِ قوی. چیزی می‌سازی که مشتری دوستش دارد، چون اول یاد می‌گیری چه چیزی ارزشِ ساخت دارد."
+    },
+    "more": {
+      "en": "Cagan organizes it into five parts — the empowered Product Teams, the Right People and roles, the Right Product found through discovery, the Right Process of discovery and delivery techniques, and the Right Culture that sustains it all. The thread: stop shipping features off a roadmap and start solving problems for customers.",
+      "fa": "کیگن این را در پنج بخش می‌چیند — تیم‌های محصولِ توانمند، آدم‌های درست و نقش‌ها، محصولِ درست که با کشف پیدا می‌شود، فرایندِ درست از تکنیک‌های کشف و تحویل، و فرهنگِ درست که همه را سرِپا نگه می‌دارد. نخِ رابط: دست از تحویلِ فیچر از روی نقشهٔ راه بردار و شروع کن به حلِ مسئلهٔ مشتری."
+    },
+    "example": {
+      "en": "Click any node to read a principle or a role. You can also drag the nodes around.",
+      "fa": "روی هر دایره کلیک کن تا یک اصل یا نقش را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."
+    }
+  },
+  "stages": [
+    {
+      "level": 1,
+      "badge": {
+        "en": "Level 1 · Over-simplified",
+        "fa": "سطحِ ۱ · خیلی ساده"
+      },
+      "title": {
+        "en": "Solve real problems",
+        "fa": "مسئلهٔ واقعی را حل کن"
+      },
+      "tagline": {
+        "en": "The whole book in a sentence.",
+        "fa": "کلِ کتاب در یک جمله."
+      },
+      "body": {
+        "en": "Don't just build the features someone asked for. Figure out the real problem customers have, and build something they actually want — then you get products people love.",
+        "fa": "فقط فیچرهایی را که یکی خواسته نساز. بفهم مشتری واقعاً چه مسئله‌ای دارد، و چیزی بساز که واقعاً می‌خواهد — آن‌وقت به محصولی می‌رسی که مردم دوستش دارند."
+      },
+      "example": {
+        "en": "Before building, ask: what problem does this actually solve, and for whom?",
+        "fa": "قبل از ساخت بپرس: این واقعاً چه مسئله‌ای را حل می‌کند، و برای چه کسی؟"
+      },
+      "gain": {
+        "en": "You hold the single idea the whole book expands on.",
+        "fa": "همان یک ایده‌ای را داری که کلِ کتاب بسطش می‌دهد."
+      }
+    },
+    {
+      "level": 2,
+      "badge": {
+        "en": "Level 2 · Simple",
+        "fa": "سطحِ ۲ · ساده"
+      },
+      "title": {
+        "en": "Teams and discovery",
+        "fa": "تیم‌ها و کشف"
+      },
+      "tagline": {
+        "en": "Empowered teams, testing before building.",
+        "fa": "تیم‌های توانمند، آزمایش پیش از ساخت."
+      },
+      "body": {
+        "en": "Two ideas do most of the work. First, use <b>empowered</b> cross-functional teams that own an outcome. Second, do <b>product discovery</b> — test ideas quickly and cheaply before you commit to building them.",
+        "fa": "دو ایده بیشترِ کار را می‌کنند. اول، از تیم‌های <b>توانمندِ</b> بین‌رشته‌ای استفاده کن که مسئولِ یک نتیجه‌اند. دوم، <b>کشفِ محصول</b> بکن — ایده‌ها را سریع و ارزان بیازما، قبل از اینکه به ساختشان قول بدهی."
+      },
+      "example": {
+        "en": "Give a team 'reduce churn', not 'build these three screens'.",
+        "fa": "به تیم بگو «ریزش را کم کن»، نه «این سه صفحه را بساز»."
+      },
+      "gain": {
+        "en": "You can tell a feature factory from a real product team.",
+        "fa": "می‌توانی کارخانهٔ فیچر را از یک تیمِ محصولِ واقعی تشخیص دهی."
+      }
+    },
+    {
+      "level": 3,
+      "badge": {
+        "en": "Level 3 · Balanced",
+        "fa": "سطحِ ۳ · متعادل"
+      },
+      "title": {
+        "en": "People and product",
+        "fa": "آدم‌ها و محصول"
+      },
+      "tagline": {
+        "en": "Roles, vision, and the four risks.",
+        "fa": "نقش‌ها، چشم‌انداز، و چهار ریسک."
+      },
+      "body": {
+        "en": "Now the substance. Staff each team with a real <b>product manager</b>, <b>designer</b>, and <b>engineers</b>, guided by <b>leaders</b> who coach. Point them with a <b>vision and strategy</b>, and in discovery test every idea against four risks: <b>value, usability, feasibility, viability</b>.",
+        "fa": "حالا اصلِ مطلب. هر تیم را با یک <b>مدیرِ محصولِ</b> واقعی، یک <b>طراح</b>، و <b>مهندس‌ها</b> بچین، با <b>رهبرهایی</b> که کوچ می‌کنند. با یک <b>چشم‌انداز و راهبرد</b> جهت‌شان بده، و در کشف هر ایده را با چهار ریسک بسنج: <b>ارزش، کاربردپذیری، ساختنی‌بودن، به‌صرفه‌بودن</b>."
+      },
+      "example": {
+        "en": "Ask of any idea: do they want it, can they use it, can we build it, does it work for us?",
+        "fa": "از هر ایده بپرس: می‌خواهندش، می‌توانند ازش استفاده کنند، می‌توانیم بسازیمش، برای ما جور است؟"
+      },
+      "gain": {
+        "en": "You can staff a team and pressure-test an idea before building.",
+        "fa": "می‌توانی یک تیم را بچینی و یک ایده را قبل از ساخت زیرِ فشار بیازمایی."
+      }
+    },
+    {
+      "level": 4,
+      "badge": {
+        "en": "Level 4 · Advanced",
+        "fa": "سطحِ ۴ · پیشرفته"
+      },
+      "title": {
+        "en": "Run the process",
+        "fa": "فرایند را اجرا کن"
+      },
+      "tagline": {
+        "en": "Assess, prototype, and test with users.",
+        "fa": "بسنج، پروتوتایپ بساز، با کاربر آزمایش کن."
+      },
+      "body": {
+        "en": "Discovery is concrete techniques. Write a quick <b>opportunity assessment</b> and map the work; build <b>prototypes</b> at the right fidelity for the risk; then <b>test</b> them with real users and stakeholders — especially the hard, crucial test of value.",
+        "fa": "کشف یعنی تکنیک‌های مشخص. یک <b>ارزیابیِ فرصتِ</b> سریع بنویس و کار را نقشه کن؛ <b>پروتوتایپ‌هایی</b> بساز با کیفیتی که به اندازهٔ آن ریسک باشد؛ بعد با کاربر و ذی‌نفعِ واقعی <b>آزمایششان</b> کن — به‌خصوص آن آزمونِ سخت و حیاتیِ ارزش."
+      },
+      "example": {
+        "en": "A clickable prototype tested on five users retires more risk than a month of building.",
+        "fa": "یک پروتوتایپِ کلیک‌شدنی که روی پنج کاربر آزمایش شود، بیشتر از یک ماه ساختن ریسک را کم می‌کند."
+      },
+      "gain": {
+        "en": "You can run a real discovery loop, not just talk about it.",
+        "fa": "می‌توانی یک حلقهٔ کشفِ واقعی را اجرا کنی، نه اینکه فقط درباره‌اش حرف بزنی."
+      }
+    },
+    {
+      "level": 5,
+      "badge": {
+        "en": "Level 5 · Expert",
+        "fa": "سطحِ ۵ · حرفه‌ای"
+      },
+      "title": {
+        "en": "Culture that lasts",
+        "fa": "فرهنگی که می‌ماند"
+      },
+      "tagline": {
+        "en": "Innovate, execute, and win the objections.",
+        "fa": "نوآوری کن، اجرا کن، و مخالفت‌ها را ببَر."
+      },
+      "body": {
+        "en": "The expert protects the environment. A <b>strong product culture</b> both <b>innovates</b> (experiments, safe to fail) and <b>executes</b> (delivers with high integrity), keeps teams empowered as the company scales, and <b>overcomes objections</b> with evidence. This is what INSPIRED builds; its companion EMPOWERED is the leadership book that goes deeper on coaching teams to get here.",
+        "fa": "آدمِ حرفه‌ای از محیط محافظت می‌کند. یک <b>فرهنگِ محصولِ قوی</b> هم <b>نوآوری</b> می‌کند (آزمایش، امنیت برای شکست) هم <b>اجرا</b> می‌کند (تحویلِ درست‌وحساب)، تیم‌ها را با بزرگ‌شدنِ شرکت توانمند نگه می‌دارد، و <b>مخالفت‌ها</b> را با شواهد <b>پشتِ سر می‌گذارد</b>. این همان چیزی است که اینسپایرد می‌سازد؛ کتابِ همراهش، امپاورد، کتابِ رهبری است که عمیق‌تر به کوچ‌کردنِ تیم‌ها برای رسیدن به این‌جا می‌پردازد."
+      },
+      "example": {
+        "en": "Teams take bold bets, hit the dates that matter, and bring sales and legal along early.",
+        "fa": "تیم‌ها شرطِ جسورانه می‌بندند، به تاریخ‌های مهم می‌رسند، و فروش و حقوقی را زود همراه می‌کنند."
+      },
+      "gain": {
+        "en": "You can build products customers love — and the culture that keeps doing it.",
+        "fa": "می‌توانی محصولی بسازی که مشتری دوستش دارد — و فرهنگی که مدام همین را می‌سازد."
+      }
+    }
+  ],
+  "quotes": [
+    {
+      "en": "We need teams of missionaries, not teams of mercenaries.",
+      "fa": "ما به تیم‌هایی از آدم‌های پُرانگیزه نیاز داریم، نه تیم‌هایی از مزدور."
+    },
+    {
+      "en": "Winning products come from the deep understanding of the user's needs combined with an equally deep understanding of what's just now possible.",
+      "fa": "محصولِ برنده از شناختِ عمیقِ نیازهای کاربر می‌آید، کنارِ شناختی به همان عمق از اینکه همین حالا چه چیزی ممکن شده."
+    },
+    {
+      "en": "Software projects can be thought of as having two distinct stages: figuring out what to build (build the right product), and building it (building the product right).",
+      "fa": "پروژه‌های نرم‌افزاری را می‌شود دارای دو مرحلهٔ جدا دید: فهمیدنِ اینکه چه باید ساخت (محصولِ درست را بساز)، و ساختنش (محصول را درست بساز)."
+    },
+    {
+      "en": "It doesn't matter how good your engineering team is if they are not given something worthwhile to build.",
+      "fa": "مهم نیست تیمِ مهندسی‌ات چقدر خوب است، اگر چیزی که ارزشِ ساخت داشته باشد به دستش ندهی."
+    },
+    {
+      "en": "Product management is about insights and judgment, both of which require a sharp mind.",
+      "fa": "مدیریتِ محصول دربارهٔ بینش و قضاوت است، و هر دو ذهنی تیز می‌خواهند."
+    },
+    {
+      "en": "Fall in love with the problem, not with the solution.",
+      "fa": "عاشقِ مسئله شو، نه عاشقِ راه‌حل."
+    },
+    {
+      "en": "Great teams are made up of ordinary people who are inspired and empowered.",
+      "fa": "تیم‌های عالی از آدم‌های معمولی‌ای ساخته شده‌اند که الهام گرفته‌اند و توانمند شده‌اند."
+    }
+  ],
+  "media": [
+    {
+      "kind": "yt",
+      "id": "saF8fViOrO8",
+      "src": {
+        "en": "YouTube · Product Faculty",
+        "fa": "یوتیوب · Product Faculty"
+      },
+      "title": {
+        "en": "Marty Cagan — Product Discovery, Strategy & Empowered Teams",
+        "fa": "مارتی کیگن — کشفِ محصول، راهبرد، و تیم‌های توانمند"
+      },
+      "desc": {
+        "en": "Cagan himself on the core ideas behind INSPIRED — discovery, strategy, and empowered product teams.",
+        "fa": "خودِ کیگن دربارهٔ ایده‌های اصلیِ پشتِ اینسپایرد — کشف، راهبرد، و تیم‌های توانمندِ محصول."
+      },
+      "bullets": {
+        "en": [
+          "Discovery vs delivery, explained",
+          "Why empowered teams win",
+          "Straight from the author"
+        ],
+        "fa": [
+          "فرقِ کشف و تحویل، توضیح‌داده‌شده",
+          "چرا تیم‌های توانمند می‌برند",
+          "مستقیم از خودِ نویسنده"
+        ]
+      },
+      "best": {
+        "en": "Best for Stage 2–4.",
+        "fa": "خوب برای مرحلهٔ ۲ تا ۴."
+      }
+    },
+    {
+      "kind": "img",
+      "url": "https://www.wiley.com/en-us/INSPIRED:+How+to+Create+Tech+Products+Customers+Love,+2nd+Edition-p-9781119387503",
+      "src": {
+        "en": "Wiley · Publisher",
+        "fa": "وایلی · ناشر"
+      },
+      "title": {
+        "en": "INSPIRED, 2nd Edition — Publisher Page",
+        "fa": "اینسپایرد، ویرایشِ دوم — صفحهٔ ناشر"
+      },
+      "desc": {
+        "en": "The publisher page for the second edition, with details and formats.",
+        "fa": "صفحهٔ ناشر برای ویرایشِ دوم، با جزئیات و قالب‌ها."
+      },
+      "bullets": {
+        "en": [
+          "The definitive 2nd edition",
+          "Details and formats",
+          "Straight from the source"
+        ],
+        "fa": [
+          "ویرایشِ دومِ معتبر",
+          "جزئیات و قالب‌ها",
+          "مستقیم از خودِ منبع"
+        ]
+      },
+      "best": {
+        "en": "For editions and the source.",
+        "fa": "برای نسخه‌ها و منبعِ اصلی."
+      }
+    },
+    {
+      "kind": "img",
+      "url": "https://www.svpg.com/inspired-v2/",
+      "src": {
+        "en": "SVPG · Marty Cagan",
+        "fa": "SVPG · مارتی کیگن"
+      },
+      "title": {
+        "en": "INSPIRED on Silicon Valley Product Group",
+        "fa": "اینسپایرد در گروهِ محصولِ سیلیکون‌ولی"
+      },
+      "desc": {
+        "en": "The author's own page on the book and why he rewrote it for the second edition.",
+        "fa": "صفحهٔ خودِ نویسنده دربارهٔ کتاب و اینکه چرا برای ویرایشِ دوم بازنویسی‌اش کرد."
+      },
+      "bullets": {
+        "en": [
+          "Why the 2nd edition is all-new",
+          "The author's own framing",
+          "Links to related articles"
+        ],
+        "fa": [
+          "چرا ویرایشِ دوم کاملاً نو است",
+          "قابِ خودِ نویسنده",
+          "لینک به مقاله‌های مرتبط"
+        ]
+      },
+      "best": {
+        "en": "For the author's own take.",
+        "fa": "برای دیدگاهِ خودِ نویسنده."
+      }
+    },
+    {
+      "kind": "img",
+      "url": "https://www.goodreads.com/book/show/35249663-inspired",
+      "src": {
+        "en": "Goodreads · Readers",
+        "fa": "گودریدز · خواننده‌ها"
+      },
+      "title": {
+        "en": "INSPIRED on Goodreads",
+        "fa": "اینسپایرد در گودریدز"
+      },
+      "desc": {
+        "en": "Reader ratings, reviews, and highlighted quotes from the book.",
+        "fa": "امتیاز و نقدِ خواننده‌ها، و نقل‌قول‌هایی از کتاب."
+      },
+      "bullets": {
+        "en": [
+          "Thousands of reader reviews",
+          "Popular highlighted quotes",
+          "See what resonated"
+        ],
+        "fa": [
+          "هزاران نقدِ خواننده",
+          "نقل‌قول‌های پرطرفدار",
+          "ببین چه چیزی روی مردم اثر گذاشته"
+        ]
+      },
+      "best": {
+        "en": "For reviews and quotes.",
+        "fa": "برای نقد و نقل‌قول."
+      }
+    }
+  ],
+  "go": [
+    {
+      "label": {
+        "en": "Publisher page (2nd edition)",
+        "fa": "صفحهٔ ناشر (ویرایشِ دوم)"
+      },
+      "url": "https://www.wiley.com/en-us/INSPIRED:+How+to+Create+Tech+Products+Customers+Love,+2nd+Edition-p-9781119387503"
+    },
+    {
+      "label": {
+        "en": "Book on Goodreads",
+        "fa": "کتاب در گودریدز"
+      },
+      "url": "https://www.goodreads.com/book/show/35249663-inspired"
+    },
+    {
+      "label": {
+        "en": "SVPG: Product Discovery",
+        "fa": "SVPG: کشفِ محصول"
+      },
+      "url": "https://www.svpg.com/product-discovery/"
+    }
+  ],
+  "recs": [
+    {
+      "pri": "b",
+      "t": {
+        "en": "Turn a feature into a problem",
+        "fa": "یک فیچر را به مسئله تبدیل کن"
+      },
+      "d": {
+        "en": "Take the next thing on your roadmap and rewrite it as the customer problem and outcome it should hit.",
+        "fa": "کارِ بعدی روی نقشهٔ راهت را بردار و به‌شکلِ مسئلهٔ مشتری و نتیجه‌ای که باید بزند بازنویسی‌اش کن."
+      }
+    },
+    {
+      "pri": "b",
+      "t": {
+        "en": "Name the riskiest assumption",
+        "fa": "پرریسک‌ترین فرض را نام ببر"
+      },
+      "d": {
+        "en": "For a current idea, write which of the four risks — value, usability, feasibility, viability — is most likely to sink it, and test that first.",
+        "fa": "برای یک ایدهٔ فعلی بنویس کدام‌یک از چهار ریسک — ارزش، کاربردپذیری، ساختنی‌بودن، به‌صرفه‌بودن — بیشتر از همه ممکن است غرقش کند، و همان را اول بیازما."
+      }
+    },
+    {
+      "pri": "n",
+      "t": {
+        "en": "Prototype before you build",
+        "fa": "قبل از ساخت، پروتوتایپ بساز"
+      },
+      "d": {
+        "en": "Make a quick clickable prototype and put it in front of five real users this week.",
+        "fa": "یک پروتوتایپِ کلیک‌شدنیِ سریع بساز و این هفته بگذارش جلوی پنج کاربرِ واقعی."
+      }
+    },
+    {
+      "pri": "n",
+      "t": {
+        "en": "Bring an objector along early",
+        "fa": "یک مخالف را زود همراه کن"
+      },
+      "d": {
+        "en": "Pick one stakeholder who usually says no — sales, legal, finance — and involve them before the work is done.",
+        "fa": "یک ذی‌نفع را که معمولاً نه می‌گوید انتخاب کن — فروش، حقوقی، مالی — و قبل از تمام‌شدنِ کار درگیرش کن."
+      }
+    }
+  ]
 });
 </script>
 </body>

@@ -1,21 +1,20 @@
 <!DOCTYPE html>
-<!-- complexity-level: 1→5 (this page teaches the SAME book at five depths, over-simplified … expert) -->
-<!-- Effortless (Greg McKeown) — bilingual EN/FA knowledge graph & 5-stage learning page -->
-<html lang="fa" dir="rtl" data-lang="fa">
+<!-- Generated page. Edit CONTENT in the DATA object below; shared UI lives in ../assets/book.css + ../assets/book.js -->
+<html lang="en" dir="ltr" data-lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The Making of a Manager — نقشهٔ دانش و یادگیری ۵ مرحله‌ای</title>
 
-<!-- Boot theme + language BEFORE paint to avoid a flash -->
+<!-- Boot theme + language BEFORE paint to avoid a flash (shared library-wide keys) -->
 <script>
 (function(){
   try{
-    var th = localStorage.getItem('mgr-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
+    var th = localStorage.getItem('pbl-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
     document.documentElement.setAttribute('data-theme', th);
   }catch(e){ document.documentElement.setAttribute('data-theme','light'); }
   try{
-    var lg = localStorage.getItem('mgr-lang') || 'fa';
+    var lg = localStorage.getItem('pbl-lang') || 'en';
     document.documentElement.setAttribute('data-lang', lg);
     document.documentElement.setAttribute('lang', lg);
     document.documentElement.setAttribute('dir', lg==='fa' ? 'rtl' : 'ltr');
@@ -28,876 +27,1218 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:ital,opsz@0,6..72;1,6..72&display=swap" rel="stylesheet">
-
-<style>
-/* ── TOKENS ───────────────────────────────────────────────── */
-:root, [data-theme="light"]{
-  --bg:#f5f6f8; --bg2:#eef2f7; --card:#fff; --card2:#f8fafb;
-  --ink:#1c2330; --mut:#6b7280; --line:#e6e8ee;
-  --accent:#0e7c86; --accent-ink:#fff; --warm:#c2410c;
-  --shadow:0 1px 2px rgba(20,30,50,.05),0 6px 24px rgba(20,30,50,.06);
-  --hero-1:#0e7c86; --hero-2:#0b5e66;
-  --c-teal:#0e9aa6; --c-blue:#2f6fb0; --c-violet:#7c3aed; --c-amber:#d97706;
-  --c-green:#15a34a; --c-red:#e11d48; --c-gold:#c98a12; --c-gray:#6b7280;
-  --state:#0e9aa6; --action:#d97706; --results:#7c3aed; --core:#0e7c86;
-}
-[data-theme="dark"]{
-  --bg:#0e131a; --bg2:#161d27; --card:#151c26; --card2:#1b2430;
-  --ink:#e9eef5; --mut:#9aa7b6; --line:#27313d;
-  --accent:#2dd4bf; --accent-ink:#06231f; --warm:#fb923c;
-  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 28px rgba(0,0,0,.45);
-  --hero-1:#0c5f67; --hero-2:#07323a;
-  --c-teal:#2dd4bf; --c-blue:#5b9bd5; --c-violet:#a78bfa; --c-amber:#fbbf24;
-  --c-green:#34d399; --c-red:#fb7185; --c-gold:#e2b04a; --c-gray:#94a3b8;
-  --state:#2dd4bf; --action:#fbbf24; --results:#a78bfa; --core:#2dd4bf;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);
-  font-family:Vazirmatn,"Segoe UI",Tahoma,Arial,sans-serif;line-height:1.85;font-size:15px;
-  transition:background .25s,color .25s}
-html[data-lang="en"] body{font-family:Inter,"Segoe UI",system-ui,Arial,sans-serif;line-height:1.7}
-.wrap{max-width:960px;margin:0 auto;padding:0 18px 40px}
-
-/* language visibility */
-html[data-lang="en"] [data-only="fa"]{display:none !important}
-html[data-lang="fa"] [data-only="en"]{display:none !important}
-
-/* ── HERO ─────────────────────────────────────────────────── */
-.hero{background:linear-gradient(135deg,var(--hero-1),var(--hero-2));color:#fff;padding:44px 0 34px;position:relative;overflow:hidden}
-.hero::after{content:"";position:absolute;inset-inline-end:-80px;top:-80px;width:280px;height:280px;
-  background:radial-gradient(circle,rgba(255,255,255,.12),transparent 70%);pointer-events:none}
-.hero .wrap{padding-bottom:0;position:relative;z-index:1}
-.hero h1{margin:0 0 8px;font-size:30px;font-weight:800;letter-spacing:-.3px;line-height:1.25}
-html[data-lang="en"] .hero h1{font-family:Newsreader,Georgia,serif;font-weight:600;letter-spacing:-.5px}
-.hero .dek{margin:0;opacity:.94;font-size:15.5px;max-width:640px}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;
-  color:rgba(255,255,255,.95);background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.24);
-  padding:5px 13px;border-radius:20px;margin-bottom:15px}
-.eyebrow .edot{width:7px;height:7px;border-radius:50%;background:#fff;box-shadow:0 0 0 3px rgba(255,255,255,.25)}
-.metastrip{display:flex;flex-wrap:wrap;gap:14px 30px;margin-top:20px;padding-top:16px;
-  border-top:1px solid rgba(255,255,255,.18)}
-.metaitem{display:flex;flex-direction:column;gap:3px}
-.metaitem .mk{font-size:10.5px;color:rgba(255,255,255,.62);font-weight:700;letter-spacing:.6px;text-transform:uppercase}
-.metaitem .mv{font-size:14px;color:#fff;font-weight:700}
-.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
-.chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);
-  border-radius:11px;padding:9px 15px;font-size:13px}
-.chip b{font-size:20px;display:block;font-weight:800}
-
-/* ── NAV + TOC ────────────────────────────────────────────── */
-.navbar{position:sticky;top:0;z-index:60;background:color-mix(in srgb,var(--card) 92%,transparent);
-  backdrop-filter:saturate(180%) blur(10px);-webkit-backdrop-filter:saturate(180%) blur(10px);
-  border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
-.navin{max-width:960px;margin:0 auto;padding:8px 16px;display:flex;align-items:center;gap:12px}
-.brand{flex:0 0 auto;font-weight:800;font-size:12.5px;color:var(--accent);white-space:nowrap;
-  display:flex;align-items:center;gap:7px}
-.brand .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);
-  box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 18%,transparent)}
-.toc{flex:1 1 auto;display:flex;flex-wrap:wrap;gap:7px;justify-content:center}
-.toc a{font-size:12.5px;color:var(--mut);text-decoration:none;border:1px solid var(--line);
-  border-radius:20px;padding:5px 12px;background:var(--card);white-space:nowrap;
-  transition:background .15s,color .15s,border-color .15s}
-.toc a:hover{color:var(--accent);border-color:var(--accent)}
-.toc a.active{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
-.navctl{flex:0 0 auto;display:flex;align-items:center;gap:8px}
-.langbtn{height:34px;border-radius:18px;border:1px solid var(--line);background:var(--card);
-  color:var(--ink);cursor:pointer;font:inherit;font-size:12.5px;font-weight:700;padding:0 13px;
-  display:flex;align-items:center;gap:6px}
-.langbtn:hover{border-color:var(--accent);color:var(--accent)}
-.langbtn .globe{width:15px;height:15px;display:block}
-.themebtn{flex:0 0 auto;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);
-  background:var(--card);color:var(--ink);cursor:pointer;line-height:1;display:grid;place-items:center}
-.themebtn svg{width:17px;height:17px;display:block}
-.themebtn:hover{border-color:var(--accent);color:var(--accent)}
-[data-theme="light"] .themebtn .ic-sun{display:none}
-[data-theme="dark"]  .themebtn .ic-moon{display:none}
-
-/* ── BLOCKS ───────────────────────────────────────────────── */
-h2{font-size:21px;margin:44px 0 6px;font-weight:800;scroll-margin-top:92px;line-height:1.35}
-html[data-lang="en"] h2{font-family:Newsreader,Georgia,serif;font-weight:600}
-h2 .num{color:var(--accent);font-variant-numeric:tabular-nums}
-.sub{color:var(--mut);font-size:13.5px;margin:0 0 16px;max-width:680px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;
-  padding:20px 22px;margin:14px 0;box-shadow:var(--shadow)}
-.lead{font-size:15.5px}
-.lead b{color:var(--warm)}
-.kgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin:8px 0}
-.kbox{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:15px 16px;text-align:center}
-.kbox .v{font-size:26px;font-weight:800;color:var(--accent);font-variant-numeric:tabular-nums}
-.kbox .l{font-size:12.5px;color:var(--mut);margin-top:3px}
-ul.clean{margin:6px 0;padding-inline-start:20px} ul.clean li{margin:8px 0}
-.callout{background:color-mix(in srgb,var(--warm) 9%,var(--card));
-  border:1px solid color-mix(in srgb,var(--warm) 30%,var(--line));
-  border-radius:12px;padding:14px 18px;margin:12px 0}
-.callout b{color:var(--warm)}
-.callout.accent{background:color-mix(in srgb,var(--accent) 9%,var(--card));
-  border-color:color-mix(in srgb,var(--accent) 30%,var(--line))}
-.callout.accent b{color:var(--accent)}
-a{color:var(--accent)}
-
-/* ── GRAPH ────────────────────────────────────────────────── */
-.gtabs{display:inline-flex;gap:4px;background:var(--bg2);border:1px solid var(--line);
-  border-radius:11px;padding:4px;margin:6px 0 2px}
-.gtab{border:0;background:transparent;color:var(--mut);font:inherit;font-size:13px;font-weight:700;
-  padding:7px 15px;border-radius:8px;cursor:pointer}
-.gtab.active{background:var(--card);color:var(--accent);box-shadow:var(--shadow)}
-.graphcard{padding:14px}
-.legend{display:flex;flex-wrap:wrap;gap:14px;margin:2px 4px 12px;font-size:12.5px;color:var(--mut)}
-.legend span{display:inline-flex;align-items:center;gap:6px}
-.legend i{width:11px;height:11px;border-radius:50%;display:inline-block}
-.graphstage{display:grid;grid-template-columns:1fr;gap:14px}
-@media(min-width:760px){.graphstage{grid-template-columns:1.35fr .95fr}}
-.svgwrap{position:relative;background:var(--card2);border:1px solid var(--line);border-radius:12px;
-  overflow:hidden;min-height:300px}
-#netsvg{display:block;width:100%;height:560px;touch-action:none;cursor:grab}
-#netsvg text{pointer-events:none;user-select:none}
-.ghint{position:absolute;inset-inline-start:12px;top:10px;font-size:11.5px;color:var(--mut);
-  background:color-mix(in srgb,var(--card) 82%,transparent);border:1px solid var(--line);
-  border-radius:20px;padding:3px 11px;backdrop-filter:blur(4px);max-width:70%}
-.greset{position:absolute;inset-inline-end:10px;top:10px;border:1px solid var(--line);background:var(--card);
-  color:var(--mut);border-radius:8px;font:inherit;font-size:11.5px;padding:4px 10px;cursor:pointer}
-.greset:hover{color:var(--accent);border-color:var(--accent)}
-/* node + link interaction states */
-.node{cursor:pointer}
-/* the inner <g class="ns"> is what scales; fill-box keeps the pivot on the node itself, not the SVG viewport */
-.ns{transform-box:fill-box;transform-origin:center;transition:transform .2s cubic-bezier(.2,.75,.25,1)}
-.node.hover .ns{transform:scale(1.1)}
-.node.sel  .ns{transform:scale(1.34)}                 /* selected node grows */
-.node.ncore.hover .ns{transform:scale(1.06)}
-.node.ncore.sel   .ns{transform:none}                 /* the centre 'Effortless' node keeps default size */
-.node.sel circle{stroke:var(--ink);stroke-width:2.5;filter:drop-shadow(0 0 8px color-mix(in srgb,var(--accent) 60%,transparent))}
-.node.hl circle{stroke:var(--ink);stroke-opacity:.5;stroke-width:2.5}
-.node.dim{opacity:.2}
-.node text{font-family:Vazirmatn,Tahoma,sans-serif;font-weight:700}
-html[data-lang="en"] .node text{font-family:Inter,sans-serif}
-.glink{transition:opacity .2s,stroke .2s}
-.glink.dim{opacity:.08}
-.glink.hl{stroke:var(--accent) !important;stroke-opacity:.8}
-/* detail panel */
-.detail{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;min-height:220px}
-@media(min-width:760px){.detail{max-height:480px;overflow:auto}}
-.detail .dkick{font-size:11.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;display:flex;align-items:center;gap:7px;color:var(--mut)}
-.detail .dkick i{width:10px;height:10px;border-radius:50%}
-.detail h4{margin:8px 0 3px;font-size:18px;font-weight:800}
-html[data-lang="en"] .detail h4{font-family:Newsreader,serif;font-weight:600}
-.detail .drow{margin:11px 0}
-.detail .dlab{font-size:10.5px;font-weight:800;color:var(--accent);letter-spacing:.5px;text-transform:uppercase;
-  display:inline-flex;align-items:center;gap:5px}
-.detail .drow.tip .dlab{color:var(--c-green)}
-.detail .drow.pit .dlab{color:var(--warm)}
-.detail .drow.more{border-inline-start:2px solid color-mix(in srgb,var(--accent) 32%,var(--line));padding-inline-start:11px}
-.detail .drow.more .dlab{color:var(--mut)}
-.detail .dtxt{font-size:13.6px;margin-top:3px}
-.dchips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
-.dchip{font-size:12px;border:1px solid var(--line);background:var(--card2);border-radius:16px;padding:4px 11px;
-  cursor:pointer;color:var(--ink);display:inline-flex;align-items:center;gap:6px;font-family:inherit}
-.dchip:hover{border-color:var(--accent);color:var(--accent)}
-.dchip i{width:8px;height:8px;border-radius:50%;flex:0 0 auto}
-
-/* ── CONCEPT MAP ──────────────────────────────────────────── */
-.mapgrid{display:grid;grid-template-columns:1fr;gap:14px}
-@media(min-width:820px){.mapgrid{grid-template-columns:repeat(3,1fr)}}
-.partcol{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:16px;position:relative}
-.partcol .ph{display:flex;align-items:center;gap:9px;margin-bottom:3px}
-.partcol .pdot{width:13px;height:13px;border-radius:50%;flex:0 0 auto}
-.partcol .pnum{font-size:11px;font-weight:800;color:var(--mut)}
-.partcol h4{margin:0;font-size:16.5px;font-weight:800}
-html[data-lang="en"] .partcol h4{font-family:Newsreader,serif;font-weight:600}
-.partcol .ptag{font-size:12px;color:var(--mut);margin:2px 0 4px;font-weight:700}
-.partcol .pgist{font-size:12.8px;color:var(--mut);margin:0 0 12px}
-.chapchip{display:flex;align-items:baseline;gap:8px;padding:7px 10px;border:1px solid var(--line);
-  border-radius:9px;margin:6px 0;background:var(--card2);font-size:13px}
-.chapchip .cn{font-size:11px;font-weight:800;color:var(--mut);flex:0 0 auto;font-variant-numeric:tabular-nums}
-.chapchip b{font-weight:700}
-.chapchip small{color:var(--mut);display:block;font-size:11.5px;line-height:1.5}
-.flowline{display:flex;align-items:center;justify-content:center;gap:10px;color:var(--mut);
-  font-size:12.5px;font-weight:700;margin:6px 0 2px;flex-wrap:wrap}
-.flowline .ar{color:var(--accent)}
-
-/* ── STAGE LADDER ─────────────────────────────────────────── */
-.ladder{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 4px}
-.rung{flex:1 1 150px;border:1px solid var(--line);background:var(--card);border-radius:11px;
-  padding:11px 13px;cursor:pointer;transition:transform .12s,border-color .12s;position:relative}
-.rung:hover{border-color:var(--accent);transform:translateY(-2px)}
-.rung.active{border-color:var(--accent);box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 35%,transparent)}
-.rung .lv{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.4px}
-.rung .lt{font-size:13.5px;font-weight:800;margin-top:2px}
-.rung .lbar{height:5px;border-radius:4px;background:var(--bg2);margin-top:9px;overflow:hidden}
-.rung .lbar i{display:block;height:100%;background:linear-gradient(90deg,var(--c-teal),var(--c-violet))}
-.stagecard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 24px;
-  margin:14px 0;box-shadow:var(--shadow)}
-.stagecard .shead{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-.stagecard .badge{font-size:12px;font-weight:800;color:#fff;background:var(--accent);
-  border-radius:8px;padding:4px 11px;white-space:nowrap}
-.stagecard h3{margin:0;font-size:21px;font-weight:800}
-html[data-lang="en"] .stagecard h3{font-family:Newsreader,serif;font-weight:600}
-.stagecard .tagline{color:var(--mut);font-size:13.5px;margin:4px 0 14px;font-weight:700}
-.stagecard .sbody{font-size:15px}
-.exbox{background:var(--card2);border:1px solid var(--line);border-inline-start:3px solid var(--accent);
-  border-radius:0 11px 11px 0;padding:13px 16px;margin:14px 0 6px}
-.exbox .exk{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.5px;text-transform:uppercase}
-.exbox .ext{font-size:13.8px;margin-top:3px}
-.gainrow{display:flex;align-items:flex-start;gap:9px;margin-top:12px;font-size:13px;color:var(--mut)}
-.gainrow .gi{flex:0 0 auto;color:var(--c-green);font-weight:800}
-.stagenav{display:flex;justify-content:space-between;gap:10px;margin-top:16px}
-.stagenav button{border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit;
-  font-size:13px;font-weight:700;border-radius:9px;padding:8px 14px;cursor:pointer}
-.stagenav button:hover:not(:disabled){border-color:var(--accent);color:var(--accent)}
-.stagenav button:disabled{opacity:.4;cursor:default}
-
-/* ── QUOTES ───────────────────────────────────────────────── */
-.qgrid{display:grid;grid-template-columns:1fr;gap:12px}
-@media(min-width:720px){.qgrid{grid-template-columns:1fr 1fr}}
-blockquote{margin:0;background:var(--card2);border-inline-start:3px solid var(--accent);
-  border-radius:0 12px 12px 0;padding:15px 18px;font-size:14.5px;position:relative}
-blockquote .qm{font-size:34px;line-height:0;color:var(--accent);opacity:.35;font-family:Georgia,serif;
-  position:absolute;inset-inline-start:10px;top:20px}
-blockquote p{margin:0;padding-inline-start:22px}
-html[data-lang="en"] blockquote{font-family:Newsreader,Georgia,serif;font-size:15.5px}
-
-/* ── MEDIA ────────────────────────────────────────────────── */
-.mgrid{display:grid;grid-template-columns:1fr;gap:16px}
-@media(min-width:640px){.mgrid{grid-template-columns:1fr 1fr}}
-.mcard{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;
-  box-shadow:var(--shadow);display:flex;flex-direction:column}
-.mthumb{position:relative;display:block;aspect-ratio:16/9;background:var(--bg2);overflow:hidden;text-decoration:none}
-.mthumb img{width:100%;height:100%;object-fit:cover;display:block}
-.mthumb .play{position:absolute;inset:0;display:grid;place-items:center}
-.mthumb .play span{width:54px;height:54px;border-radius:50%;background:rgba(0,0,0,.6);
-  display:grid;place-items:center;border:2px solid rgba(255,255,255,.9)}
-.mthumb .play svg{width:22px;height:22px;fill:#fff;margin-inline-start:3px}
-.mthumb .ptype{position:absolute;inset-inline-start:9px;top:9px;background:rgba(0,0,0,.72);color:#fff;
-  font-size:11px;font-weight:700;border-radius:6px;padding:3px 9px;letter-spacing:.3px}
-.mfake{aspect-ratio:16/9;display:grid;place-items:center;
-  background:linear-gradient(135deg,color-mix(in srgb,var(--c-violet) 22%,var(--card)),color-mix(in srgb,var(--c-teal) 22%,var(--card)))}
-.mfake svg{width:52px;height:52px;color:var(--ink);opacity:.6}
-.mbody{padding:15px 17px;display:flex;flex-direction:column;gap:7px;flex:1}
-.mbody .msrc{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.3px;text-transform:uppercase}
-.mbody h4{margin:0;font-size:15.5px;font-weight:800;line-height:1.4}
-html[data-lang="en"] .mbody h4{font-family:Newsreader,serif;font-weight:600}
-.mbody .mdesc{font-size:13px;color:var(--mut);margin:0}
-.mbody ul{margin:4px 0 0;padding-inline-start:18px}
-.mbody ul li{font-size:12.8px;margin:5px 0}
-.mbody .mbest{font-size:12px;font-weight:700;color:var(--warm);margin-top:auto;padding-top:8px}
-.mlink{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;
-  text-decoration:none;color:var(--accent);margin-top:4px}
-.mlink:hover{text-decoration:underline}
-.golist{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
-.golist a{font-size:12.5px;text-decoration:none;color:var(--ink);border:1px solid var(--line);
-  border-radius:20px;padding:6px 13px;background:var(--card);font-weight:700}
-.golist a:hover{border-color:var(--accent);color:var(--accent)}
-
-/* ── RECS + METHOD + CREDIT ───────────────────────────────── */
-.rec{display:grid;gap:10px;margin:8px 0}
-.rec .item{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--card)}
-.rec .item .t{font-weight:800;font-size:14.5px;margin-bottom:3px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.rec .item .t .pri{font-size:11px;font-weight:700;color:#fff;background:var(--warm);border-radius:6px;padding:2px 9px}
-.rec .item .t .pri.b{background:var(--accent)}
-.rec .item .d{font-size:13.4px;color:var(--mut)}
-.method{color:var(--mut);font-size:13.4px}
-.method p{margin:8px 0}
-.method b{color:var(--ink)}
-.credit{text-align:center;margin-top:40px;padding:22px 0 8px;border-top:1px solid var(--line);
-  color:var(--mut);font-size:14px}
-.credit .cname{color:var(--ink);font-weight:800}
-.credit a{font-weight:700;text-decoration:none}
-.credit a:hover{text-decoration:underline}
-.credit .sep{opacity:.5;margin:0 8px}
-.credit .li{display:inline-flex;align-items:center;gap:5px;vertical-align:middle}
-.credit .li svg{width:15px;height:15px;vertical-align:-3px}
-
-@media (max-width:640px){
-  body{font-size:14px}
-  .wrap{padding:0 13px 30px}
-  .hero{padding:28px 0 22px} .hero h1{font-size:22px}
-  h2{font-size:18px;scroll-margin-top:66px}
-  .brand{display:none}
-  .toc{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;scrollbar-width:none}
-  .toc::-webkit-scrollbar{display:none}
-  #netsvg{height:420px}
-}
-</style>
+<link rel="stylesheet" href="../assets/book.css">
 </head>
 <body>
+<div id="app"></div>
 
-<!-- ── HERO ───────────────────────────────────────────────── -->
-<header class="hero"><div class="wrap">
-  <div class="eyebrow"><span class="edot"></span>
-    <span data-only="en">Book knowledge map · Julie Zhuo</span>
-    <span data-only="fa">نقشهٔ کتاب · جولی ژو</span>
-  </div>
-  <h1>
-    <span data-only="en">The Making of a Manager — What to Do When Everyone Looks to You</span>
-    <span data-only="fa">ساختنِ یک مدیر — وقتی همه به تو نگاه می‌کنند چه کنی</span>
-  </h1>
-  <p class="dek">
-    <span data-only="en">A knowledge graph of the whole book, plus a 5-stage path from a one-line definition to leading at scale — with an example at every step.</span>
-    <span data-only="fa">نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از یک تعریفِ یک‌خطی تا رهبری در مقیاسِ بزرگ — با یک مثال در هر مرحله.</span>
-  </p>
-  <div class="metastrip">
-    <div class="metaitem"><span class="mk" data-only="en">Book</span><span class="mk" data-only="fa">کتاب</span>
-      <span class="mv" data-only="en">The Making of a Manager</span><span class="mv" data-only="fa">ساختنِ یک مدیر</span></div>
-    <div class="metaitem"><span class="mk" data-only="en">Author</span><span class="mk" data-only="fa">نویسنده</span>
-      <span class="mv" data-only="en">Julie Zhuo</span><span class="mv" data-only="fa">جولی ژو</span></div>
-    <div class="metaitem"><span class="mk" data-only="en">Published</span><span class="mk" data-only="fa">سالِ چاپ</span>
-      <span class="mv" data-only="en">2019</span><span class="mv" data-only="fa">۲۰۱۹</span></div>
-    <div class="metaitem"><span class="mk" data-only="en">Group</span><span class="mk" data-only="fa">گروه</span>
-      <span class="mv" data-only="en">Managing</span><span class="mv" data-only="fa">مدیریت</span></div>
-  </div>
-  <div class="chips">
-    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Parts</span><span data-only="fa">بخش</span></div>
-    <div class="chip"><b data-only="en">16</b><b data-only="fa">۱۶</b><span data-only="en">Ideas</span><span data-only="fa">ایده</span></div>
-    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Learning stages</span><span data-only="fa">مرحلهٔ یادگیری</span></div>
-  </div>
-</div></header>
-
-<!-- ── STICKY NAV ─────────────────────────────────────────── -->
-<div class="navbar"><div class="navin">
-  <span class="brand"><span class="dot"></span>The Making of a Manager</span>
-  <nav class="toc">
-    <a href="#tldr" data-only="en">In a nutshell</a><a href="#tldr" data-only="fa">خلاصه</a>
-    <a href="#graph" data-only="en">Knowledge graph</a><a href="#graph" data-only="fa">نقشهٔ دانش</a>
-    <a href="#stages" data-only="en">5 stages</a><a href="#stages" data-only="fa">۵ مرحله</a>
-    <a href="#quotes" data-only="en">Quotes</a><a href="#quotes" data-only="fa">جمله‌ها</a>
-    <a href="#media" data-only="en">Watch &amp; explore</a><a href="#media" data-only="fa">تماشا و منابع</a>
-    <a href="#apply" data-only="en">Apply it</a><a href="#apply" data-only="fa">کاربرد</a>
-  </nav>
-  <div class="navctl">
-    <button class="langbtn" id="langBtn" aria-label="Switch language">
-      <svg class="globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>
-      <span data-only="en">فارسی</span><span data-only="fa">English</span>
-    </button>
-    <button class="themebtn" id="themeBtn" aria-label="Toggle theme" title="Light / Dark">
-      <span class="ic-sun" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5 19 19M19 5l-1.5 1.5M6.5 17.5 5 19"/></svg></span>
-      <span class="ic-moon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.6 6.6 0 0 0 9.8 9.8Z"/></svg></span>
-    </button>
-  </div>
-</div></div>
-
-<div class="wrap">
-
-  <!-- ── TL;DR ────────────────────────────────────────────── -->
-  <h2 id="tldr"><span class="num" data-only="en">1.</span><span class="num" data-only="fa">۱.</span>
-    <span data-only="en"> In a nutshell</span><span data-only="fa"> خلاصه</span></h2>
-  <p class="sub" data-only="en">If you read only this, you still get the whole idea.</p>
-  <p class="sub" data-only="fa">اگر فقط همین بخش را بخوانی، کلِ ایده دستت می‌آید.</p>
-  <div class="card lead"><ul class="clean" id="tldrHost"></ul></div>
-  <div class="kgrid">
-    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Parts (what · first months · feedback · yourself · scaling)</div><div class="l" data-only="fa">بخش (چیستی · ماه‌های اول · بازخورد · خودت · بزرگ‌شدن)</div></div>
-    <div class="kbox"><div class="v" data-only="en">16</div><div class="v" data-only="fa">۱۶</div><div class="l" data-only="en">Ideas you can use</div><div class="l" data-only="fa">ایده برای استفاده</div></div>
-    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Levels, simple → expert</div><div class="l" data-only="fa">مرحله، ساده تا حرفه‌ای</div></div>
-    <div class="kbox"><div class="v" data-only="en">3</div><div class="v" data-only="fa">۳</div><div class="l" data-only="en">Levers: people · purpose · process</div><div class="l" data-only="fa">اهرم: آدم‌ها · هدف · فرایند</div></div>
-  </div>
-  
-  <div class="callout accent">
-    <b data-only="en">The core idea:</b>
-    <b data-only="fa">ایدهٔ اصلی:</b>
-    <span data-only="en"> A manager's job is to get <i>better outcomes from a group of people</i>. You don't do the work yourself — you multiply the team by improving its <i>people, purpose,</i> and <i>process</i>, earning trust and giving honest feedback along the way.</span>
-    <span data-only="fa"> کارِ مدیر این است که <i>از یک گروه آدم نتیجهٔ بهتری بگیرد</i>. خودت کار را انجام نمی‌دهی — تیم را با بهترکردنِ <i>آدم‌ها، هدف،</i> و <i>فرایند</i> چند‌برابر می‌کنی، و در این مسیر اعتماد می‌سازی و بازخوردِ روراست می‌دهی.</span>
-  </div>
-
-  <!-- ── KNOWLEDGE GRAPH ──────────────────────────────────── -->
-  <h2 id="graph"><span class="num" data-only="en">2.</span><span class="num" data-only="fa">۲.</span>
-    <span data-only="en"> The knowledge graph</span><span data-only="fa"> نقشهٔ دانش</span></h2>
-  <p class="sub" data-only="en">The whole book as one picture. Click any node to focus its connections and read more — or switch to the structured map.</p>
-  <p class="sub" data-only="fa">کلِ کتاب در یک تصویر. روی هر دایره کلیک کن تا ارتباط‌هایش را ببینی و بیشتر بخوانی — یا به نقشهٔ مرتب برو.</p>
-
-  <div class="gtabs">
-    <button class="gtab active" id="tabNet"><span data-only="en">Interactive network</span><span data-only="fa">شبکهٔ تعاملی</span></button>
-    <button class="gtab" id="tabMap"><span data-only="en">Structured map</span><span data-only="fa">نقشهٔ مرتب</span></button>
-  </div>
-
-  <!-- network view -->
-  <div class="card graphcard" id="netView">
-    <div class="legend" id="legendHost"></div>
-    <div class="graphstage">
-      <div class="svgwrap">
-        <svg id="netsvg" viewBox="0 0 820 560" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Effortless knowledge network"></svg>
-        <div class="ghint" id="ghint"></div>
-        <button class="greset" id="greset"></button>
-      </div>
-      <div class="detail" id="detailHost"></div>
-    </div>
-  </div>
-
-  <!-- map view -->
-  <div class="card graphcard" id="mapView" style="display:none">
-    <div class="flowline" id="flowTop"></div>
-    <div class="mapgrid" id="mapHost"></div>
-    <div class="callout" style="margin-top:16px">
-      <b data-only="en">Read it as a path:</b><b data-only="fa">به‌صورتِ یک مسیر بخوانش:</b>
-      <span data-only="en"> understand <b>what management is</b>, survive your <b>first months</b> and earn trust, master <b>feedback</b>, manage <b>yourself</b>, then <b>scale</b> the team through meetings, hiring, delegation, and culture.</span>
-      <span data-only="fa"> بفهم <b>مدیریت یعنی چه</b>، از <b>ماه‌های اولت</b> جان به‌در ببر و اعتماد بساز، <b>بازخورد</b> را استاد شو، <b>خودت</b> را مدیریت کن، بعد تیم را با جلسه، استخدام، واگذاری، و فرهنگ <b>بزرگ کن</b>.</span>
-    </div>
-  </div>
-
-  <!-- ── 5 STAGES ─────────────────────────────────────────── -->
-  <h2 id="stages"><span class="num" data-only="en">3.</span><span class="num" data-only="fa">۳.</span>
-    <span data-only="en"> Learn it in 5 stages</span><span data-only="fa"> یادگیری در ۵ مرحله</span></h2>
-  <p class="sub" data-only="en">The same book at five depths. Start over-simplified, climb to expert. Tap a rung to jump.</p>
-  <p class="sub" data-only="fa">یک کتاب در پنج عمق. از خیلی ساده شروع کن و تا حرفه‌ای بالا برو. روی هر پله بزن تا بپری.</p>
-  <div class="ladder" id="ladderHost"></div>
-  <div id="stageHost"></div>
-
-  <!-- ── QUOTES ───────────────────────────────────────────── -->
-  <h2 id="quotes"><span class="num" data-only="en">4.</span><span class="num" data-only="fa">۴.</span>
-    <span data-only="en"> Lines worth keeping</span><span data-only="fa"> جمله‌هایی که ارزشِ نگه‌داشتن دارند</span></h2>
-  <p class="sub" data-only="en">Verbatim quotes from the book, translated alongside.</p>
-  <p class="sub" data-only="fa">جمله‌های مستقیم از کتاب، همراه با ترجمه.</p>
-  <div class="qgrid" id="quoteHost"></div>
-
-  <!-- ── MEDIA ────────────────────────────────────────────── -->
-  <h2 id="media"><span class="num" data-only="en">5.</span><span class="num" data-only="fa">۵.</span>
-    <span data-only="en"> Watch &amp; explore</span><span data-only="fa"> تماشا و منابع</span></h2>
-  <p class="sub" data-only="en">Special resources found online — each with what it covers and who it's best for.</p>
-  <p class="sub" data-only="fa">منابعِ ویژه‌ای که آنلاین پیدا شد — هرکدام با اینکه چه می‌گوید و به چه دردی می‌خورد.</p>
-  <div class="mgrid" id="mediaHost"></div>
-  <div class="card" style="margin-top:16px">
-    <div style="font-weight:800;font-size:13.5px;margin-bottom:4px">
-      <span data-only="en">Go straight to the source</span><span data-only="fa">مستقیم سراغِ منبع برو</span>
-    </div>
-    <div class="golist" id="goHost"></div>
-  </div>
-
-  <!-- ── APPLY ────────────────────────────────────────────── -->
-  <h2 id="apply"><span class="num" data-only="en">6.</span><span class="num" data-only="fa">۶.</span>
-    <span data-only="en"> Apply it this week</span><span data-only="fa"> این هفته امتحانش کن</span></h2>
-  <p class="sub" data-only="en">Four small moves that turn the idea into a habit.</p>
-  <p class="sub" data-only="fa">چهار حرکتِ کوچک که این ایده را به عادت تبدیل می‌کنند.</p>
-  <div class="rec" id="recHost"></div>
-
-  <!-- ── METHOD ───────────────────────────────────────────── -->
-  <h2 id="method"><span class="num" data-only="en">7.</span><span class="num" data-only="fa">۷.</span>
-    <span data-only="en"> Sources &amp; notes</span><span data-only="fa"> منابع و توضیح</span></h2>
-  <div class="card method" id="methodHost"></div>
-
-  <!-- ── CREDIT FOOTER ────────────────────────────────────── -->
-  <div class="credit">
-    <span data-only="en">Created by <span class="cname">Behnam Atefi</span><span class="sep">·</span><a class="li" href="https://www.linkedin.com/in/behnamatefi/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.3c0-1.26-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9z"/></svg>LinkedIn</a></span>
-    <span data-only="fa">ساخته‌شده توسط <span class="cname">بهنام عاطفی</span><span class="sep">·</span><a class="li" href="https://www.linkedin.com/in/behnamatefi/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.3c0-1.26-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9z"/></svg>لینکدین</a></span>
-  </div>
-</div>
-
-<!-- ═══════════════════════ SCRIPTS ═══════════════════════ -->
+<script src="../assets/library.js"></script>
+<script src="../assets/book.js"></script>
 <script>
-/* ── 1) language + formatters ─────────────────────────────── */
-var LANG = document.documentElement.getAttribute('data-lang') || 'fa';
-var FA_D = '۰۱۲۳۴۵۶۷۸۹';
-var RLM  = '‏';
-function faDigits(s){ return String(s).replace(/[0-9]/g, function(d){ return FA_D[+d]; }); }
-/* honor the RTL preference: isolate Latin runs (word order preserved) and mark with U+200F */
-function rlm(s){
-  return String(s)
-    .replace(/[A-Za-zÀ-ɏ][A-Za-zÀ-ɏ0-9'’.&:\/\-]*(?:\s+[A-Za-zÀ-ɏ0-9'’.&:\/\-]+)*/g,
-      function(m){ return RLM+'⁦'+m+'⁩'+RLM; })
-    .replace(/[0-9۰-۹]+/g, function(m){ return m+RLM; });
-}
-/* transform only TEXT segments, never HTML tags (so <b>/<i> survive) */
-function faText(s){ return String(s).replace(/(<[^>]+>)|([^<]+)/g, function(m,tag,txt){ return tag ? tag : faDigits(rlm(txt)); }); }
-function TX(o){ if(o==null) return ''; if(typeof o==='string') return o; return LANG==='fa' ? faText(o.fa) : o.en; }
-function num(n){ return LANG==='fa' ? faDigits(n) : String(n); }
-function tok(name){ return getComputedStyle(document.documentElement).getPropertyValue(name).trim(); }
-</script>
-
-<script>
-/* ── DATA LAYER — Atomic Habits (bilingual, plain-spoken Persian) ── */
-var DATA = {"tldr":[{"en":"The whole book in one line: a manager's job is to get better outcomes from a group of people working together.","fa":"خلاصهٔ کلِ کتاب در یک جمله: کارِ مدیر این است که از یک گروه آدم که با هم کار می‌کنند، نتیجهٔ بهتری بگیرد."},{"en":"You're not paid to do the work yourself — you're a <b>multiplier</b> who improves the team's <b>people, purpose,</b> and <b>process</b>.","fa":"دستمزدت برای انجامِ خودِ کار نیست — تو یک <b>چند‌برابر‌کننده‌ای</b> که <b>آدم‌ها، هدف،</b> و <b>فرایندِ</b> تیم را بهتر می‌کند."},{"en":"In your first months, don't try to have every answer; <b>earn trust</b> with weekly one-on-ones and a little humility.","fa":"در ماه‌های اول، سعی نکن همهٔ جواب‌ها را داشته باشی؛ با جلسه‌های هفتگیِ تک‌به‌تک و کمی فروتنی، <b>اعتماد بساز</b>."},{"en":"What people want most is <b>more feedback</b> — specific, timely, kind, and clear, including the hard conversations.","fa":"چیزی که آدم‌ها بیشتر از همه می‌خواهند، <b>بازخوردِ بیشتر</b> است — مشخص، به‌موقع، مهربان، و روشن، حتی گفت‌وگوهای سخت."},{"en":"Manage <b>yourself</b> first, then <b>scale</b> through great meetings, strong hiring, delegation, and the culture you set.","fa":"اول <b>خودت</b> را مدیریت کن، بعد با جلسه‌های خوب، استخدامِ قوی، واگذاری، و فرهنگی که می‌سازی، <b>بزرگ شو</b>."}],"parts":[{"key":"what","varc":"--c-teal","name":{"en":"What Management Is","fa":"مدیریت یعنی چه"},"tag":{"en":"The purpose","fa":"هدفِ کار"},"gist":{"en":"Management exists to get better outcomes from a group of people.","fa":"مدیریت هست تا از یک گروه آدم، نتیجهٔ بهتری بگیرد."},"more":{"en":"A manager's job isn't to be the best individual contributor. It's to help a team produce better results together than any of them could alone — by improving its people, its purpose, and its process.","fa":"کارِ مدیر این نیست که بهترین فردِ تیم باشد. کارش این است که کمک کند یک گروه آدم با هم نتیجه‌ای بهتر از تک‌تکشان بسازند — با بهترکردنِ آدم‌ها، هدف، و فرایندِ تیم."},"chapters":["purpose","multiplier","ppp"]},{"key":"first","varc":"--c-blue","name":{"en":"Your First Three Months","fa":"سه ماهِ اول"},"tag":{"en":"Earning trust","fa":"ساختنِ اعتماد"},"gist":{"en":"Lead a small team and earn its trust in your first months.","fa":"در ماه‌های اول، یک تیمِ کوچک را رهبری کن و اعتمادش را بساز."},"more":{"en":"The early days set the tone. You don't need every answer; you need your team to trust that you care about them and will be honest. Regular one-on-ones and a bit of humility do more than any grand plan.","fa":"روزهای اول، فضا را می‌سازند. لازم نیست همهٔ جواب‌ها را داشته باشی؛ لازم است تیمت باور کند که برایت مهم است و باهاش روراستی. جلسه‌های منظمِ تک‌به‌تک و کمی فروتنی، بیشتر از هر نقشهٔ بزرگی کار می‌کنند."},"chapters":["trust","oneonone","newtraps"]},{"key":"feedback","varc":"--c-amber","name":{"en":"Feedback & Growth","fa":"بازخورد و رشد"},"tag":{"en":"Helping people grow","fa":"کمک به رشد"},"gist":{"en":"Give clear feedback and have the hard conversations.","fa":"بازخوردِ روشن بده و گفت‌وگوهای سخت را انجام بده."},"more":{"en":"The most common thing people want from a manager is more feedback. Give it early, make it specific, and don't dodge the uncomfortable talks — done with empathy, they're the ones that actually help someone grow.","fa":"پُرتکرارترین چیزی که آدم‌ها از یک مدیر می‌خواهند، بازخوردِ بیشتر است. زود بده، مشخص بده، و از حرف‌های ناراحت‌کننده فرار نکن — وقتی با همدلی گفته شوند، همان‌هایی‌اند که واقعاً به رشدِ کسی کمک می‌کنند."},"chapters":["feedback","hard","grow"]},{"key":"self","varc":"--c-violet","name":{"en":"Managing Yourself","fa":"مدیریتِ خودت"},"tag":{"en":"The inner game","fa":"بازیِ درونی"},"gist":{"en":"Know yourself, handle self-doubt, and protect your energy.","fa":"خودت را بشناس، با تردید کنار بیا، و انرژی‌ات را نگه دار."},"more":{"en":"You are your own hardest management problem. Knowing your strengths and triggers, making peace with the impostor feeling almost every manager has, and guarding your time and energy are what let you show up steady for everyone else.","fa":"سخت‌ترین مسئلهٔ مدیریتیِ تو، خودتی. شناختِ نقاطِ قوت و حساسیت‌هایت، کنارآمدن با آن حسِ قلابی‌بودن که تقریباً هر مدیری دارد، و مراقبت از وقت و انرژی‌ات، همان چیزهایی‌اند که می‌گذارند برای بقیه محکم و آرام حاضر باشی."},"chapters":["know","impostor","energy"]},{"key":"scale","varc":"--c-green","name":{"en":"Scaling","fa":"بزرگ‌شدن"},"tag":{"en":"Leading at scale","fa":"رهبری در مقیاس"},"gist":{"en":"Great meetings, great hires, delegation, and culture.","fa":"جلسه‌های خوب، استخدام‌های خوب، واگذاری، و فرهنگ."},"more":{"en":"As the team grows, your job changes from doing the work to designing how the work happens: running meetings that make people better, hiring well, delegating instead of doing, and shaping the culture through what you celebrate and tolerate.","fa":"وقتی تیم بزرگ می‌شود، کارِ تو از انجامِ کار به طراحیِ نحوهٔ انجامِ کار تغییر می‌کند: جلسه‌هایی که آدم‌ها را بهتر می‌کنند، استخدامِ خوب، واگذاری به‌جای انجام‌دادن، و شکل‌دادن به فرهنگ از طریقِ چیزی که تشویق یا تحمل می‌کنی."},"chapters":["meetings","hiring","growteam","culture"]}],"chapters":{"purpose":{"part":"what","n":1,"name":{"en":"The Purpose of Management","fa":"هدفِ مدیریت"},"glabel":{"en":"Purpose","fa":"هدف"},"principle":{"en":"A manager's job is to get better outcomes from a group of people working together.","fa":"کارِ مدیر این است که از یک گروه آدم که با هم کار می‌کنند، نتیجهٔ بهتری بگیرد."},"more":{"en":"That single sentence is the whole job. Not the smartest person, not the hardest worker — the one who helps the group produce more together than the sum of its parts. Everything else is in service of that outcome.","fa":"همین یک جمله، کلِ کار است. نه باهوش‌ترین آدم، نه پُرکارترین — کسی که کمک می‌کند گروه با هم بیشتر از جمعِ تک‌تکشان بسازد. بقیهٔ همه‌چیز در خدمتِ همین نتیجه است."},"example":{"en":"A team of five that ships one great product beats five people each doing their own thing.","fa":"تیمی پنج‌نفره که یک محصولِ خوب را به سرانجام می‌رساند، از پنج نفر که هرکدام کارِ خودشان را می‌کنند بهتر است."},"tip":{"en":"Ask each week: did my team get a better outcome because I was here?","fa":"هر هفته بپرس: آیا تیمم به‌خاطرِ بودنِ من نتیجهٔ بهتری گرفت؟"},"pitfall":{"en":"Measuring yourself by your own output instead of the team's.","fa":"سنجیدنِ خودت با کارِ خودت، به‌جای نتیجهٔ تیم."}},"multiplier":{"part":"what","n":2,"name":{"en":"You're a Multiplier","fa":"تو چند‌برابر‌کننده‌ای"},"glabel":{"en":"Multiplier","fa":"چند‌برابر"},"principle":{"en":"Your role is not to do the work yourself, even if you're the best at it — it's to multiply the team.","fa":"کارِ تو انجامِ خودِ کار نیست، حتی اگر بهترینش باشی — کارت این است که تیم را چند‌برابر کنی."},"more":{"en":"Doing it yourself only takes you as far as one person can go. When you make each person a little more effective, that gain multiplies across everyone — that's the leverage a manager has that a contributor doesn't.","fa":"خودت انجام‌دادن، فقط تا جایی می‌بردت که یک نفر می‌تواند برود. وقتی هر نفر را کمی مؤثرتر می‌کنی، آن سود روی همه ضرب می‌شود — همان اهرمی که مدیر دارد و یک نفرِ عادی ندارد."},"example":{"en":"Spending an hour unblocking five people beats spending it finishing one task yourself.","fa":"یک ساعت وقت‌گذاشتن برای بازکردنِ گیرِ پنج نفر، از تمام‌کردنِ یک کار توسطِ خودت بهتر است."},"tip":{"en":"Before doing a task, ask if teaching or unblocking someone would go further.","fa":"قبل از انجامِ یک کار، بپرس آیا یاد‌دادن یا بازکردنِ گیرِ کسی، بُردِ بیشتری ندارد."},"pitfall":{"en":"Hoarding the work because you can do it faster right now.","fa":"چنگ‌زدن به کارها چون همین حالا خودت سریع‌ترش می‌کنی."}},"ppp":{"part":"what","n":3,"name":{"en":"People, Purpose, Process","fa":"آدم‌ها، هدف، فرایند"},"glabel":{"en":"3 P’s","fa":"سه پی"},"principle":{"en":"Managers work on three things: people, purpose, and process — a motivated team, a clear why, and a way of getting things done.","fa":"مدیر روی سه چیز کار می‌کند: آدم‌ها، هدف، و فرایند — یک تیمِ باانگیزه، یک «چراییِ» روشن، و یک راهِ به‌سرانجام‌رساندنِ کارها."},"more":{"en":"When something's off, it's almost always one of these three. Is the team motivated and set up to succeed (people)? Does everyone know why the work matters (purpose)? Is there a good way decisions and work happen (process)? Fix the weak one.","fa":"وقتی چیزی می‌لنگد، تقریباً همیشه یکی از همین سه‌تاست. آیا تیم باانگیزه و آمادهٔ موفقیت است (آدم‌ها)؟ آیا همه می‌دانند چرا کار مهم است (هدف)؟ آیا راهِ خوبی برای تصمیم و انجامِ کار هست (فرایند)؟ همان ضعیف را درست کن."},"example":{"en":"A stalled project often isn't a people problem — it's a fuzzy purpose or a broken process.","fa":"یک پروژهٔ گیرکرده اغلب مشکلِ آدم‌ها نیست — یک هدفِ مبهم یا یک فرایندِ خراب است."},"tip":{"en":"When a team struggles, ask which of the three — people, purpose, or process — is actually weak.","fa":"وقتی یک تیم به‌زحمت می‌افتد، بپرس کدام‌یک — آدم‌ها، هدف، یا فرایند — واقعاً ضعیف است."},"pitfall":{"en":"Blaming people when the real problem is unclear purpose or process.","fa":"مقصر‌دانستنِ آدم‌ها وقتی مشکلِ واقعی، هدف یا فرایندِ نامشخص است."}},"trust":{"part":"first","n":4,"name":{"en":"Earn Trust","fa":"اعتماد بساز"},"glabel":{"en":"Trust","fa":"اعتماد"},"principle":{"en":"Trust is the foundation: your reports must believe you care about them and will be honest with them.","fa":"اعتماد، پایهٔ کار است: آدم‌هایت باید باور کنند که برایت مهم‌اند و باهاشان روراست خواهی بود."},"more":{"en":"Without trust, feedback sounds like an attack and support sounds fake. You build it slowly — by keeping your word, admitting what you don't know, and showing with your time that each person matters to you.","fa":"بدونِ اعتماد، بازخورد مثلِ حمله به‌گوش می‌رسد و حمایت، ساختگی. اعتماد را آرام می‌سازی — با سرِ حرفت ماندن، اعترافِ به آنچه نمی‌دانی، و نشان‌دادن با وقتت که هر نفر برایت مهم است."},"example":{"en":"Saying ‘I don't know, let me find out’ builds more trust than bluffing an answer.","fa":"گفتنِ «نمی‌دانم، بگذار بفهمم» بیشتر از سرِهم‌کردنِ یک جواب، اعتماد می‌سازد."},"tip":{"en":"Do the small things you promised; reliability is trust made visible.","fa":"همان کارهای کوچکی که قول دادی را انجام بده؛ قابلِ‌اتکا‌بودن، اعتمادِ دیده‌شده است."},"pitfall":{"en":"Pretending to have all the answers to look strong.","fa":"وانمود‌کردن به داشتنِ همهٔ جواب‌ها برای قوی‌جلوه‌کردن."}},"oneonone":{"part":"first","n":5,"name":{"en":"Great 1:1s","fa":"جلسه‌های تک‌به‌تک"},"glabel":{"en":"1:1s","fa":"تک‌به‌تک"},"principle":{"en":"Hold a weekly one-on-one with every report, focused on them and what would help them succeed.","fa":"هفته‌ای یک جلسهٔ تک‌به‌تک با هر نفر بگذار، متمرکز بر خودِ او و آنچه به موفقیتش کمک می‌کند."},"more":{"en":"The one-on-one is your single most important meeting. It's not a status update — it's where trust, feedback, and the real, sometimes awkward conversations happen. Prepare for it, and let your report set much of the agenda.","fa":"جلسهٔ تک‌به‌تک، مهم‌ترین جلسهٔ توست. گزارشِ وضعیت نیست — جایی است که اعتماد، بازخورد، و آن گفت‌وگوهای واقعی و گاهی معذب‌کننده اتفاق می‌افتند. برایش آماده شو، و بگذار بخشِ زیادی از دستورِ کار را خودِ او بچیند."},"example":{"en":"Open with ‘what's most on your mind this week?’ instead of a task checklist.","fa":"به‌جای فهرستِ کارها، با «این هفته بیشتر از همه ذهنت درگیرِ چیه؟» شروع کن."},"tip":{"en":"Come with one real question, not a status report; give them the floor.","fa":"با یک سؤالِ واقعی بیا، نه گزارشِ وضعیت؛ میدان را به او بده."},"pitfall":{"en":"Turning the 1:1 into a status meeting about your needs, not theirs.","fa":"تبدیلِ جلسهٔ تک‌به‌تک به جلسهٔ وضعیت دربارهٔ نیازهای تو، نه او."}},"newtraps":{"part":"first","n":6,"name":{"en":"Avoid the New-Manager Traps","fa":"تله‌های مدیرِ تازه‌کار"},"glabel":{"en":"New traps","fa":"تله‌ها"},"principle":{"en":"However you became a manager, don't try to prove yourself by doing everything or knowing everything.","fa":"هرطور که مدیر شدی، سعی نکن با انجامِ همه‌کار یا دانستنِ همه‌چیز، خودت را ثابت کنی."},"more":{"en":"New managers arrive in different ways — promoted over former peers, or hired to lead strangers — and each has its trap. The shared mistake is overcompensating: micromanaging, hiding uncertainty, or clinging to the old individual-contributor job.","fa":"مدیرهای تازه‌کار از راه‌های مختلف می‌آیند — ترفیع‌گرفته میانِ هم‌ردیف‌های قبلی، یا استخدام‌شده برای رهبریِ غریبه‌ها — و هرکدام تلهٔ خودش را دارد. اشتباهِ مشترک، جبرانِ بیش‌ازحد است: ریزه‌کاری‌مدیریتی، پنهان‌کردنِ تردید، یا چنگ‌زدن به کارِ فردیِ قبلی."},"example":{"en":"A newly promoted lead who keeps doing their old tasks never actually starts managing.","fa":"سرگروهی که تازه ترفیع گرفته و همچنان کارهای قبلی‌اش را می‌کند، هیچ‌وقت واقعاً شروع به مدیریت نمی‌کند."},"tip":{"en":"Name your situation honestly, then let go of the old job on purpose.","fa":"وضعیتت را صادقانه اسم ببر، بعد آگاهانه کارِ قبلی را رها کن."},"pitfall":{"en":"Overcompensating to look like you deserve the title.","fa":"جبرانِ بیش‌ازحد برای اینکه لایقِ عنوان به‌نظر برسی."}},"feedback":{"part":"feedback","n":7,"name":{"en":"Give Feedback Often","fa":"زود و زیاد بازخورد بده"},"glabel":{"en":"Feedback","fa":"بازخورد"},"principle":{"en":"People want more feedback than they get; make it specific, timely, and about behavior, not character.","fa":"آدم‌ها بازخوردِ بیشتری از آنچه می‌گیرند می‌خواهند؛ آن را مشخص، به‌موقع، و دربارهٔ رفتار بده، نه شخصیت."},"more":{"en":"The most common request managers hear is simply ‘give me more feedback.’ Vague praise and saved-up criticism both fail. Say exactly what you saw and what you'd like to see instead, close to when it happened.","fa":"پُرتکرارترین درخواستی که مدیرها می‌شنوند، همین است: «بیشتر بهم بازخورد بده.» تعریفِ مبهم و انتقادِ روی‌هم‌جمع‌شده، هردو شکست می‌خورند. دقیقاً بگو چه دیدی و به‌جایش چه می‌خواهی ببینی، نزدیک به همان زمان."},"example":{"en":"Not ‘great job’ but ‘the way you summarized the risks at the end made the decision easy.’","fa":"نه «کارت عالی بود» بلکه «طوری که آخرش ریسک‌ها را جمع‌بندی کردی، تصمیم را آسان کرد.»"},"tip":{"en":"Give one specific piece of feedback within a day of noticing it.","fa":"یک بازخوردِ مشخص را در همان یک‌روزِ اول که دیدی‌اش بده."},"pitfall":{"en":"Saving feedback for review season, when it's too late to use.","fa":"نگه‌داشتنِ بازخورد برای فصلِ ارزیابی، وقتی دیگر برای استفاده دیر است."}},"hard":{"part":"feedback","n":8,"name":{"en":"Handle Hard Conversations","fa":"گفت‌وگوهای سخت"},"glabel":{"en":"Hard talks","fa":"حرفِ سخت"},"principle":{"en":"Address problems early and directly, with empathy — pleasantries alone never build a real relationship.","fa":"مشکل‌ها را زود و مستقیم مطرح کن، با همدلی — تعارف‌ها به‌تنهایی هیچ‌وقت یک رابطهٔ واقعی نمی‌سازند."},"more":{"en":"The conversations you dread — a mistake, a tension, a performance issue — are the ones that matter most. Avoiding them lets small problems grow. Be kind and be clear at the same time; people can handle hard truths delivered with care.","fa":"همان گفت‌وگوهایی که ازشان می‌ترسی — یک اشتباه، یک تنش، یک مشکلِ عملکرد — مهم‌ترین‌هایند. فرار از آن‌ها می‌گذارد مشکلِ کوچک بزرگ شود. هم مهربان باش و هم روشن؛ آدم‌ها حقیقتِ سخت را وقتی با ملاحظه گفته شود، تاب می‌آورند."},"example":{"en":"Raise a slipping deadline this week, gently, instead of stewing until it blows up.","fa":"همین هفته، ملایم، دربارهٔ ضرب‌الاجلی که دارد از دست می‌رود حرف بزن، نه اینکه آن‌قدر بجوشی تا بترکد."},"tip":{"en":"Say the hard thing plainly, then ask ‘how do you see it?’","fa":"حرفِ سخت را ساده بگو، بعد بپرس «تو چطور می‌بینی‌اش؟»"},"pitfall":{"en":"Softening the message so much the real point disappears.","fa":"آن‌قدر نرم‌کردنِ پیام که نکتهٔ اصلی گم شود."}},"grow":{"part":"feedback","n":9,"name":{"en":"Grow Your People","fa":"رشدِ آدم‌هایت"},"glabel":{"en":"Growth","fa":"رشد"},"principle":{"en":"Set clear expectations, coach to each person's strengths, and empower them to find answers themselves.","fa":"انتظارها را روشن کن، هر کس را بر اساسِ نقاطِ قوتش راهنمایی کن، و توانمندش کن که خودش جواب را پیدا کند."},"more":{"en":"Growth isn't handing out advice. Tell people plainly where they stand and what great looks like, then help them get there by building on what they're already good at — and by asking questions instead of dictating answers.","fa":"رشد یعنی نصیحت‌کردن نیست. به آدم‌ها روراست بگو کجای کار ایستاده‌اند و «عالی» چه شکلی است، بعد کمکشان کن با تکیه بر همان چیزی که در آن خوب‌اند به آنجا برسند — و به‌جای دیکته‌کردنِ جواب، سؤال بپرس."},"example":{"en":"Instead of solving it, ask ‘what options have you considered?’ and build from there.","fa":"به‌جای حل‌کردنش، بپرس «چه گزینه‌هایی را بررسی کردی؟» و از همان‌جا جلو برو."},"tip":{"en":"Coach to strengths: grow what someone's great at, don't only fix gaps.","fa":"روی نقاطِ قوت کار کن: چیزی که کسی در آن عالی است را برشان بده، نه فقط رفعِ ضعف‌ها."},"pitfall":{"en":"Just giving answers, so people never build their own judgment.","fa":"فقط جواب‌دادن، طوری که آدم‌ها هیچ‌وقت قضاوتِ خودشان را نمی‌سازند."}},"know":{"part":"self","n":10,"name":{"en":"Know Yourself","fa":"خودت را بشناس"},"glabel":{"en":"Self-know","fa":"خودشناسی"},"principle":{"en":"You can't manage others well until you understand your own strengths, values, and triggers.","fa":"تا نقاطِ قوت، ارزش‌ها، و حساسیت‌های خودت را نفهمی، نمی‌توانی دیگران را خوب مدیریت کنی."},"more":{"en":"Your reactions shape the team's mood. Knowing what you're good at, what sets you off, and what you truly value lets you play to your strengths, catch yourself before a bad reaction, and lead in a way that's actually you.","fa":"واکنش‌های تو حال‌وهوای تیم را می‌سازند. دانستنِ اینکه در چه خوبی، چه چیزی از کوره درت می‌برد، و واقعاً به چه اهمیت می‌دهی، می‌گذارد از نقاطِ قوتت استفاده کنی، قبل از یک واکنشِ بد جلوی خودت را بگیری، و طوری رهبری کنی که واقعاً خودت باشی."},"example":{"en":"If tight deadlines make you snappy, notice it and warn yourself before the meeting.","fa":"اگر ضرب‌الاجلِ تنگ بداخلاقت می‌کند، این را بشناس و قبل از جلسه به خودت هشدار بده."},"tip":{"en":"Ask a trusted colleague what you're like on a bad day; listen without defending.","fa":"از یک همکارِ مورد‌اعتماد بپرس در یک روزِ بد چه‌جوری هستی؛ بدونِ دفاع گوش کن."},"pitfall":{"en":"Assuming everyone works and reacts the way you do.","fa":"فرض‌کردنِ اینکه همه مثلِ تو کار و واکنش می‌کنند."}},"impostor":{"part":"self","n":11,"name":{"en":"Befriend Impostor Feelings","fa":"با حسِ قلابی‌بودن کنار بیا"},"glabel":{"en":"Impostor","fa":"حسِ قلابی"},"principle":{"en":"Feeling like a fraud who'll be found out is normal — almost every manager feels it, especially early.","fa":"این حس که قلابی‌ای و بالاخره لو می‌روی، طبیعی است — تقریباً هر مدیری، مخصوصاً اوایل، این حس را دارد."},"more":{"en":"Impostor feelings don't mean you're not good enough; they mean you're doing something new and hard. Name the feeling, talk about it, and keep acting anyway. Confidence follows action, not the other way around.","fa":"حسِ قلابی‌بودن به این معنا نیست که به‌اندازهٔ کافی خوب نیستی؛ یعنی داری کارِ تازه و سختی می‌کنی. حس را اسم ببر، درباره‌اش حرف بزن، و به‌هرحال به عمل ادامه بده. اعتماد‌به‌نفس بعد از عمل می‌آید، نه برعکس."},"example":{"en":"Even senior managers admit they still sometimes feel out of their depth.","fa":"حتی مدیرهای باتجربه هم اعتراف می‌کنند گاهی هنوز حس می‌کنند از پسش برنمی‌آیند."},"tip":{"en":"Say the feeling out loud to a peer; naming it shrinks it.","fa":"حس را با یک هم‌ردیف بلند بگو؛ اسم‌بردنش، کوچکش می‌کند."},"pitfall":{"en":"Reading normal self-doubt as proof you're not cut out for it.","fa":"خواندنِ تردیدِ طبیعی به‌عنوانِ دلیلِ اینکه به‌دردِ این کار نمی‌خوری."}},"energy":{"part":"self","n":12,"name":{"en":"Guard Your Energy","fa":"انرژی‌ات را نگه دار"},"glabel":{"en":"Energy","fa":"انرژی"},"principle":{"en":"Your time and energy are your most precious resources — protect them so you can show up calm and present.","fa":"وقت و انرژی‌ات، باارزش‌ترین منابعِ تواند — نگهشان دار تا بتوانی آرام و حاضر ظاهر شوی."},"more":{"en":"A frazzled, overbooked manager makes worse decisions and spreads stress to the team. Guard your calendar, protect focus time, and manage your energy like a budget — because how you show up sets the tone for everyone.","fa":"مدیرِ کلافه و پُرمشغله، تصمیم‌های بدتری می‌گیرد و استرس را به تیم پخش می‌کند. مراقبِ تقویمت باش، وقتِ تمرکز را نگه دار، و انرژی‌ات را مثلِ یک بودجه مدیریت کن — چون طرزِ ظاهر‌شدنت، فضای همه را می‌سازد."},"example":{"en":"Blocking two hours of focus time can be worth more than five back-to-back meetings.","fa":"بلوکه‌کردنِ دو ساعت وقتِ تمرکز می‌تواند از پنج جلسهٔ پشتِ‌سرِ هم باارزش‌تر باشد."},"tip":{"en":"Protect one recurring block for deep work and guard it like a meeting.","fa":"یک بلوکِ همیشگی برای کارِ عمیق نگه دار و مثلِ یک جلسه ازش محافظت کن."},"pitfall":{"en":"Saying yes to every meeting until you have no time to think.","fa":"بله‌گفتن به هر جلسه تا جایی که وقتی برای فکر‌کردن نمی‌ماند."}},"meetings":{"part":"scale","n":13,"name":{"en":"Run Great Meetings","fa":"جلسه‌های خوب بگذار"},"glabel":{"en":"Meetings","fa":"جلسه"},"principle":{"en":"A great meeting has a clear purpose and leaves people clearer and more energized than before.","fa":"یک جلسهٔ خوب هدفِ روشن دارد و آدم‌ها را روشن‌تر و پُرانرژی‌تر از قبل رها می‌کند."},"more":{"en":"Every meeting should have one obvious reason to exist and the right people in the room. Decide what a good outcome is before you start, make sure quieter voices are heard, and end with clear next steps — or don't hold it at all.","fa":"هر جلسه باید یک دلیلِ روشن برای بودن داشته باشد و آدم‌های درست را در اتاق. قبل از شروع تصمیم بگیر نتیجهٔ خوب چیست، مطمئن شو صداهای آرام‌تر هم شنیده می‌شوند، و با قدم‌های بعدیِ روشن تمامش کن — یا اصلاً برگزارش نکن."},"example":{"en":"‘What decision do we need to make today?’ at the top keeps a meeting on the rails.","fa":"«امروز باید چه تصمیمی بگیریم؟» در ابتدای جلسه، آن را روی ریل نگه می‌دارد."},"tip":{"en":"Write the meeting's purpose and desired outcome at the top of the invite.","fa":"هدف و نتیجهٔ دلخواهِ جلسه را بالای دعوت‌نامه بنویس."},"pitfall":{"en":"Holding a meeting out of habit, with no clear purpose or decision.","fa":"برگزاریِ جلسه از رویِ عادت، بی‌هدفِ روشن یا تصمیم."}},"hiring":{"part":"scale","n":14,"name":{"en":"Hire Well","fa":"خوب استخدام کن"},"glabel":{"en":"Hiring","fa":"استخدام"},"principle":{"en":"Hiring is building the future of your team — treat it as a top priority, not an interruption.","fa":"استخدام یعنی ساختنِ آیندهٔ تیمت — آن را یک اولویتِ اصلی بدان، نه یک مزاحمت."},"more":{"en":"Every hire changes what your team can become. Invest real time in it: know what you're looking for, sell the mission, and hire for strengths and potential over a flawless but generic résumé. A great team is built one deliberate hire at a time.","fa":"هر استخدام، چیزی که تیمت می‌تواند بشود را عوض می‌کند. وقتِ واقعی برایش بگذار: بدان دنبالِ چه هستی، مأموریت را خوب معرفی کن، و به‌جای رزومهٔ بی‌نقص ولی معمولی، بر اساسِ نقاطِ قوت و ظرفیت استخدام کن. یک تیمِ عالی، استخدام‌به‌استخدام و با تصمیمِ آگاهانه ساخته می‌شود."},"example":{"en":"A curious, fast learner often outgrows a polished candidate who's already peaked.","fa":"یک آدمِ کنجکاو و زودآموز اغلب از یک نامزدِ صیقلی که به سقفش رسیده جلو می‌زند."},"tip":{"en":"Write down the strengths you need before you read a single résumé.","fa":"نقاطِ قوتی که لازم داری را قبل از خواندنِ حتی یک رزومه بنویس."},"pitfall":{"en":"Rushing a hire to fill a seat and paying for it for years.","fa":"عجله در استخدام برای پُرکردنِ یک صندلی، و سال‌ها تاوان‌دادن."}},"growteam":{"part":"scale","n":15,"name":{"en":"Lead a Growing Team","fa":"تیمِ روبه‌رشد را رهبری کن"},"glabel":{"en":"Delegate","fa":"واگذاری"},"principle":{"en":"As the team grows, shift from doing the work to enabling it: delegate, and hire people better than you.","fa":"وقتی تیم بزرگ می‌شود، از انجامِ کار به ممکن‌کردنش برو: واگذار کن، و آدم‌هایی بهتر از خودت استخدام کن."},"more":{"en":"What worked with three people breaks with thirty. You can no longer touch everything, so your job becomes hiring strong people, trusting them with real ownership, and building enough process that things run without you in every detail.","fa":"چیزی که با سه نفر جواب می‌داد، با سی نفر می‌شکند. دیگر نمی‌توانی به همه‌چیز دست بزنی، پس کارت می‌شود استخدامِ آدم‌های قوی، سپردنِ مالکیتِ واقعی به آن‌ها، و ساختنِ آن‌قدر فرایند که کارها بدونِ حضورِ تو در هر جزئیات بچرخند."},"example":{"en":"Handing a project fully to someone — decisions and all — scales you; shadowing it doesn't.","fa":"سپردنِ کاملِ یک پروژه به کسی — با همهٔ تصمیم‌هایش — تو را گسترش می‌دهد؛ بالای سرش ایستادن نه."},"tip":{"en":"Delegate outcomes, not tasks: hand over the goal and let them own the how.","fa":"نتیجه را واگذار کن، نه کار را: هدف را بسپار و بگذار «چطورش» مالِ خودشان باشد."},"pitfall":{"en":"Staying in the weeds and becoming the bottleneck for every decision.","fa":"ماندن در ریزه‌کاری‌ها و تبدیل‌شدن به گلوگاهِ هر تصمیم."}},"culture":{"part":"scale","n":16,"name":{"en":"Nurture Culture","fa":"فرهنگ را بپروران"},"glabel":{"en":"Culture","fa":"فرهنگ"},"principle":{"en":"Culture is what you celebrate and what you tolerate — your own behavior sets the norms.","fa":"فرهنگ یعنی چیزی که تشویق می‌کنی و چیزی که تحمل می‌کنی — رفتارِ خودت، هنجارها را می‌سازد."},"more":{"en":"You shape culture whether you mean to or not. People watch what actually gets rewarded and what quietly gets a pass, far more than any stated value. Live the behaviors you want, call out the ones you don't, and be explicit about what your team stands for.","fa":"چه بخواهی چه نخواهی، به فرهنگ شکل می‌دهی. آدم‌ها خیلی بیشتر از هر ارزشِ اعلام‌شده، حواسشان به این است که واقعاً چه چیزی پاداش می‌گیرد و چه چیزی بی‌سروصدا نادیده گرفته می‌شود. رفتاری که می‌خواهی را خودت زندگی کن، آن‌هایی که نمی‌خواهی را تذکر بده، و روشن بگو تیمت پایِ چه ایستاده است."},"example":{"en":"If you say you value balance but email at midnight, the late emails become the culture.","fa":"اگر بگویی برایت تعادل مهم است ولی نیمه‌شب ایمیل بزنی، همان ایمیل‌های شبانه می‌شوند فرهنگ."},"tip":{"en":"Pick two behaviors you want to be normal and model them visibly this week.","fa":"دو رفتار که می‌خواهی عادی باشند را انتخاب کن و همین هفته آشکارا انجامشان بده."},"pitfall":{"en":"Naming values on a poster while rewarding the opposite in practice.","fa":"نوشتنِ ارزش‌ها روی یک پوستر، درحالی‌که در عمل عکسشان پاداش می‌گیرد."}}},"core":{"name":{"en":"MANAGEMENT","fa":"مدیریت"},"principle":{"en":"Management is the craft of getting better outcomes from a group of people working together. Your job is not to do the work yourself but to multiply the team — by improving its people, sharpening its purpose, and fixing its process — while earning trust, giving honest feedback, and managing yourself first.","fa":"مدیریت، هنرِ گرفتنِ نتیجهٔ بهتر از یک گروه آدم است که با هم کار می‌کنند. کارِ تو انجامِ خودِ کار نیست، بلکه چند‌برابر‌کردنِ تیم است — با بهترکردنِ آدم‌ها، تیزکردنِ هدف، و درست‌کردنِ فرایند — درحالی‌که اعتماد می‌سازی، بازخوردِ روراست می‌دهی، و اول از همه خودت را مدیریت می‌کنی."},"more":{"en":"Zhuo organizes the job into a path: understand what management really is (purpose, people, process), survive and earn trust in your first months, master feedback and hard conversations, manage yourself — including the impostor feeling nearly everyone has — and finally scale through great meetings, strong hiring, delegation, and culture. The thread throughout: a manager succeeds only when the team does.","fa":"ژو این کار را در قالبِ یک مسیر می‌چیند: بفهم مدیریت واقعاً چیست (هدف، آدم‌ها، فرایند)، در ماه‌های اول دوام بیاور و اعتماد بساز، بازخورد و گفت‌وگوهای سخت را استاد شو، خودت را مدیریت کن — از جمله همان حسِ قلابی‌بودن که تقریباً همه دارند — و در آخر با جلسه‌های خوب، استخدامِ قوی، واگذاری، و فرهنگ، بزرگ شو. نخِ رابطِ همه: مدیر فقط وقتی موفق است که تیمش موفق باشد."},"example":{"en":"Click any node to read an idea. You can also drag the nodes around.","fa":"روی هر دایره کلیک کن تا یک ایده را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."}},"stages":[{"level":1,"badge":{"en":"Level 1 · Over-simplified","fa":"سطحِ ۱ · خیلی ساده"},"title":{"en":"Get better outcomes","fa":"نتیجهٔ بهتر بگیر"},"tagline":{"en":"The whole job in one sentence.","fa":"کلِ کار در یک جمله."},"body":{"en":"Management is simple to state: your job is to help a group of people get a better result together than they would apart. You win when the team wins — not when you personally do the most work.","fa":"گفتنِ مدیریت ساده است: کارت این است که کمک کنی یک گروه آدم با هم نتیجه‌ای بهتر از جدا‌جدا بگیرند. تو وقتی می‌بری که تیم می‌برد — نه وقتی خودت بیشترین کار را می‌کنی."},"example":{"en":"If your team ships something great, you did your job — even if you wrote none of it.","fa":"اگر تیمت چیزِ خوبی به سرانجام برساند، کارت را کرده‌ای — حتی اگر هیچ بخشش را خودت ننوشته باشی."},"gain":{"en":"You hold the one definition the whole book builds on.","fa":"همان یک تعریفی را داری که کلِ کتاب رویش ساخته می‌شود."}},{"level":2,"badge":{"en":"Level 2 · Simple","fa":"سطحِ ۲ · ساده"},"title":{"en":"People, purpose, process","fa":"آدم‌ها، هدف، فرایند"},"tagline":{"en":"The three things you actually work on.","fa":"سه چیزی که واقعاً روشان کار می‌کنی."},"body":{"en":"A manager improves three levers: <b>people</b> (a motivated, capable team), <b>purpose</b> (a clear, shared why), and <b>process</b> (how decisions and work happen). You're a <b>multiplier</b>: make each person a bit better and the whole team's output grows.","fa":"مدیر سه اهرم را بهتر می‌کند: <b>آدم‌ها</b> (تیمی باانگیزه و توانا)، <b>هدف</b> (یک «چراییِ» روشن و مشترک)، و <b>فرایند</b> (اینکه تصمیم و کار چطور اتفاق می‌افتند). تو یک <b>چند‌برابر‌کننده‌ای</b>: هر نفر را کمی بهتر کن تا خروجیِ کلِ تیم بزرگ شود."},"example":{"en":"A stuck team usually has one weak lever — often a fuzzy purpose, not lazy people.","fa":"یک تیمِ گیرکرده معمولاً یک اهرمِ ضعیف دارد — اغلب یک هدفِ مبهم، نه آدم‌های تنبل."},"gain":{"en":"You can diagnose why a team is struggling.","fa":"می‌توانی تشخیص بدهی چرا یک تیم به‌زحمت افتاده."}},{"level":3,"badge":{"en":"Level 3 · Balanced","fa":"سطحِ ۳ · متعادل"},"title":{"en":"Trust and feedback","fa":"اعتماد و بازخورد"},"tagline":{"en":"Earn trust, then tell the truth.","fa":"اعتماد بساز، بعد حقیقت را بگو."},"body":{"en":"The daily craft rests on two things. Build <b>trust</b> through regular <b>1:1s</b> and by admitting what you don't know. Then give lots of <b>feedback</b> — specific and timely — and don't dodge the <b>hard conversations</b>, because said with empathy they're what help people grow.","fa":"صنعتِ روزمره روی دو چیز بنا شده. با <b>جلسه‌های تک‌به‌تکِ</b> منظم و اعترافِ به آنچه نمی‌دانی، <b>اعتماد</b> بساز. بعد کلی <b>بازخورد</b> بده — مشخص و به‌موقع — و از <b>گفت‌وگوهای سخت</b> فرار نکن، چون وقتی با همدلی گفته شوند، همان‌هایی‌اند که به رشدِ آدم‌ها کمک می‌کنند."},"example":{"en":"‘The way you framed the tradeoffs made the call easy’ teaches more than ‘nice work.’","fa":"«طوری که سبک‌سنگین‌ها را چیدی تصمیم را آسان کرد» بیشتر از «خوب بود» یاد می‌دهد."},"gain":{"en":"You can build real relationships and coach people through them.","fa":"می‌توانی رابطهٔ واقعی بسازی و از دلِ آن آدم‌ها را راهنمایی کنی."}},{"level":4,"badge":{"en":"Level 4 · Advanced","fa":"سطحِ ۴ · پیشرفته"},"title":{"en":"Manage yourself","fa":"خودت را مدیریت کن"},"tagline":{"en":"Know yourself; guard your energy.","fa":"خودت را بشناس؛ انرژی‌ات را نگه دار."},"body":{"en":"The hardest person to manage is you. Learn your <b>strengths and triggers</b>, make peace with the <b>impostor feeling</b> nearly every manager has, and guard your <b>time and energy</b> — how you show up, calm or frazzled, sets the tone for the whole team.","fa":"سخت‌ترین آدمی که باید مدیریت کنی، خودتی. <b>نقاطِ قوت و حساسیت‌هایت</b> را بشناس، با آن <b>حسِ قلابی‌بودن</b> که تقریباً هر مدیری دارد کنار بیا، و از <b>وقت و انرژی‌ات</b> محافظت کن — طرزِ ظاهر‌شدنت، آرام یا کلافه، فضای کلِ تیم را می‌سازد."},"example":{"en":"Blocking focus time and naming your stress triggers keeps you steady for others.","fa":"نگه‌داشتنِ وقتِ تمرکز و شناختنِ محرک‌های استرست، تو را برای بقیه محکم نگه می‌دارد."},"gain":{"en":"You can stay steady and lead from a place that's actually you.","fa":"می‌توانی محکم بمانی و از جایی که واقعاً خودتی رهبری کنی."}},{"level":5,"badge":{"en":"Level 5 · Expert","fa":"سطحِ ۵ · حرفه‌ای"},"title":{"en":"Scale the team","fa":"تیم را بزرگ کن"},"tagline":{"en":"Meetings, hiring, delegation, culture.","fa":"جلسه، استخدام، واگذاری، فرهنگ."},"body":{"en":"At scale your job changes from doing to designing. Run <b>meetings</b> that leave people clearer and more energized. Treat <b>hiring</b> as building the future. <b>Delegate</b> outcomes and hire people better than you. And shape <b>culture</b> deliberately — it's what you celebrate and tolerate, set by your own behavior. A manager succeeds only when the team does.","fa":"در مقیاسِ بزرگ، کارت از انجام‌دادن به طراحی‌کردن تغییر می‌کند. <b>جلسه‌هایی</b> بگذار که آدم‌ها را روشن‌تر و پُرانرژی‌تر رها کنند. <b>استخدام</b> را ساختنِ آینده بدان. نتیجه‌ها را <b>واگذار</b> کن و آدم‌هایی بهتر از خودت بگیر. و <b>فرهنگ</b> را آگاهانه بساز — همان چیزی که تشویق و تحمل می‌کنی، که با رفتارِ خودت تعیین می‌شود. مدیر فقط وقتی موفق است که تیمش موفق باشد."},"example":{"en":"You hand a project over fully, hire someone sharper than you, and mean it.","fa":"یک پروژه را کامل واگذار می‌کنی، کسی تیزتر از خودت استخدام می‌کنی، و واقعاً پایش می‌ایستی."},"gain":{"en":"You can grow a team that thrives without you in every detail.","fa":"می‌توانی تیمی بسازی که بدونِ حضورِ تو در هر جزئیات، شکوفا می‌شود."}}],"quotes":[{"en":"Your job, as a manager, is to get better outcomes from a group of people working together.","fa":"کارِ تو به‌عنوانِ مدیر این است که از یک گروه آدم که با هم کار می‌کنند، نتیجهٔ بهتری بگیری."},{"en":"Your role as a manager is not to do the work yourself, even if you are the best at it, because that will only take you so far.","fa":"نقشِ تو به‌عنوانِ مدیر این نیست که خودت کار را انجام بدهی، حتی اگر بهترینش باشی، چون این فقط تا جایی تو را می‌برد."},{"en":"Your role is to improve the purpose, people, and process of your team to get as high a multiplier effect on your collective outcome as you can.","fa":"نقشِ تو این است که هدف، آدم‌ها، و فرایندِ تیمت را بهتر کنی تا بیشترین اثرِ چند‌برابری را روی نتیجهٔ جمعی‌تان بگیری."},{"en":"The most precious resource you have is your own time and energy, and when you spend it on your team, it goes a long way toward building healthy relationships.","fa":"باارزش‌ترین منبعی که داری، وقت و انرژیِ خودت است، و وقتی صرفِ تیمت می‌کنی‌اش، خیلی به ساختنِ رابطه‌های سالم کمک می‌کند."},{"en":"1:1s should be focused on your report and what would help him be more successful, not on you and what you need.","fa":"جلسه‌های تک‌به‌تک باید روی همان نفر و آنچه به موفقیتش کمک می‌کند متمرکز باشند، نه روی تو و آنچه تو لازم داری."},{"en":"Strive for all your one-on-one meetings to feel a little awkward. Why? Because the most important and meaningful conversations have that characteristic.","fa":"تلاش کن همهٔ جلسه‌های تک‌به‌تکت کمی معذب‌کننده باشند. چرا؟ چون مهم‌ترین و معنادارترین گفت‌وگوها همین ویژگی را دارند."},{"en":"The most common response to the question “How could your manager better support you?” is simply “Give me more feedback.”","fa":"پُرتکرارترین جواب به این سؤال که «مدیرت چطور می‌توانست بهتر پشتیبانی‌ات کند؟» فقط این است: «بیشتر بهم بازخورد بده.»"},{"en":"Your job as a manager isn't to dole out advice—it's to empower your report to find the answer herself.","fa":"کارِ تو به‌عنوانِ مدیر این نیست که نصیحت تحویل بدهی — این است که همان نفر را توانمند کنی تا خودش جواب را پیدا کند."},{"en":"When we are going through tough times, the thing that's often the most helpful isn't advice or answers but empathy.","fa":"وقتی روزهای سختی را می‌گذرانیم، چیزی که اغلب بیشترین کمک را می‌کند نصیحت یا جواب نیست، همدلی است."}],"media":[{"kind":"yt","id":"t1KskLsRECk","src":{"en":"YouTube · FranklinCovey","fa":"یوتیوب · FranklinCovey"},"title":{"en":"Understand Your Role as a Manager — Julie Zhuo","fa":"نقشت را به‌عنوانِ مدیر بفهم — جولی ژو"},"desc":{"en":"Julie Zhuo explains what a manager is really there to do.","fa":"جولی ژو توضیح می‌دهد که یک مدیر واقعاً برای چه کاری آنجاست."},"bullets":{"en":["The core definition of management","Why you're a multiplier, not a doer","Straight from the author"],"fa":["تعریفِ اصلیِ مدیریت","چرا تو چند‌برابر‌کننده‌ای، نه انجام‌دهنده","مستقیم از خودِ نویسنده"]},"best":{"en":"Best for Stage 1–2.","fa":"خوب برای مرحلهٔ ۱ و ۲."}},{"kind":"yt","id":"GmOlrQAdb5A","src":{"en":"YouTube · LEADx","fa":"یوتیوب · LEADx"},"title":{"en":"The Making of a Manager — Julie Zhuo Interview","fa":"ساختنِ یک مدیر — گفت‌وگو با جولی ژو"},"desc":{"en":"A conversation with Julie Zhuo on becoming a manager and the book's ideas.","fa":"گفت‌وگویی با جولی ژو دربارهٔ مدیر‌شدن و ایده‌های کتاب."},"bullets":{"en":["Lessons from leading at Facebook","Trust, feedback, and first months","Practical, real-world advice"],"fa":["درس‌هایی از رهبری در فیسبوک","اعتماد، بازخورد، و ماه‌های اول","توصیه‌های عملی و واقعی"]},"best":{"en":"Best for Stage 2–3.","fa":"خوب برای مرحلهٔ ۲ و ۳."}},{"kind":"yt","id":"Qyo8gETr5FI","src":{"en":"YouTube · Book Ginger","fa":"یوتیوب · Book Ginger"},"title":{"en":"The Making of a Manager — Animated Summary","fa":"ساختنِ یک مدیر — خلاصهٔ انیمیشنی"},"desc":{"en":"An animated summary of the book for new leaders.","fa":"یک خلاصهٔ انیمیشنی از کتاب برای رهبرانِ تازه‌کار."},"bullets":{"en":["The whole book in a few minutes","Key ideas, visualized","A fast, memorable recap"],"fa":["کلِ کتاب در چند دقیقه","ایده‌های کلیدی، تصویری","یک مرورِ سریع و به‌یادماندنی"]},"best":{"en":"Best for Stage 1–3.","fa":"خوب برای مرحلهٔ ۱ تا ۳."}},{"kind":"img","url":"https://www.penguinrandomhouse.com/books/558155/the-making-of-a-manager-by-julie-zhuo/","src":{"en":"Penguin Random House · Publisher","fa":"Penguin Random House · ناشر"},"title":{"en":"The Making of a Manager — Publisher Page","fa":"ساختنِ یک مدیر — صفحهٔ ناشر"},"desc":{"en":"The official publisher page, with editions and details.","fa":"صفحهٔ رسمیِ ناشر، با نسخه‌ها و جزئیات."},"bullets":{"en":["The official edition","About Julie Zhuo","Straight from the source"],"fa":["نسخهٔ رسمی","دربارهٔ جولی ژو","مستقیم از خودِ منبع"]},"best":{"en":"For editions and the source.","fa":"برای نسخه‌ها و منبعِ اصلی."}}],"go":[{"label":{"en":"Publisher page","fa":"صفحهٔ ناشر"},"url":"https://www.penguinrandomhouse.com/books/558155/the-making-of-a-manager-by-julie-zhuo/"},{"label":{"en":"Book on Goodreads","fa":"کتاب در گودریدز"},"url":"https://www.goodreads.com/book/show/38821039-the-making-of-a-manager"},{"label":{"en":"Author's page: The Making of a Manager","fa":"صفحهٔ نویسنده: ساختنِ یک مدیر"},"url":"https://www.juliezhuo.com/book/manager.html"}],"recs":[{"pri":"b","t":{"en":"Book a weekly 1:1 with every report","fa":"با هر نفر یک جلسهٔ هفتگیِ تک‌به‌تک بگذار"},"d":{"en":"Thirty minutes, focused on them — the single highest-leverage habit of a new manager.","fa":"سی دقیقه، متمرکز بر خودِ او — پُراهرم‌ترین عادتِ یک مدیرِ تازه‌کار."}},{"pri":"b","t":{"en":"Give one specific piece of feedback today","fa":"همین امروز یک بازخوردِ مشخص بده"},"d":{"en":"Name exactly what you saw and what you'd like to see next — don't wait for review season.","fa":"دقیقاً بگو چه دیدی و دفعهٔ بعد چه می‌خواهی ببینی — منتظرِ فصلِ ارزیابی نمان."}},{"pri":"n","t":{"en":"Have the conversation you're avoiding","fa":"همان گفت‌وگویی که ازش فرار می‌کنی را انجام بده"},"d":{"en":"Raise the small tension now, kindly and clearly, before it grows into a big one.","fa":"همان تنشِ کوچک را حالا، با مهربانی و روشنی، مطرح کن؛ قبل از اینکه بزرگ شود."}},{"pri":"n","t":{"en":"Protect two hours of focus time","fa":"دو ساعت وقتِ تمرکز را نگه دار"},"d":{"en":"Block it on your calendar and guard it like a meeting — your energy is a resource.","fa":"روی تقویمت بلوکه‌اش کن و مثلِ یک جلسه ازش محافظت کن — انرژی‌ات یک منبع است."}}]};
-</script>
-
-<script>
-/* ── 3) RENDER (text sections) ────────────────────────────── */
-function elClear(id){ var e=document.getElementById(id); if(e) e.innerHTML=''; return e; }
-
-function renderText(){
-  var t=elClear('tldrHost');
-  DATA.tldr.forEach(function(o){ var li=document.createElement('li'); li.innerHTML = TX(o); t.appendChild(li); });
-
-  var q=elClear('quoteHost');
-  DATA.quotes.forEach(function(o){
-    var bq=document.createElement('blockquote');
-    bq.innerHTML = '<span class="qm">“</span><p>'+TX(o)+'</p>';
-    q.appendChild(bq);
-  });
-
-  var m=elClear('mediaHost');
-  DATA.media.forEach(function(o){
-    var card=document.createElement('div'); card.className='mcard';
-    var thumb;
-    if(o.kind==='yt'){
-      var url='https://www.youtube.com/watch?v='+o.id;
-      var img='https://i.ytimg.com/vi/'+o.id+'/hqdefault.jpg';
-      thumb='<a class="mthumb" href="'+url+'" target="_blank" rel="noopener">'
-        +'<img src="'+img+'" alt="" loading="lazy" onerror="this.style.display=\'none\'">'
-        +'<span class="ptype">'+(LANG==='fa'?'ویدیو':'VIDEO')+'</span>'
-        +'<span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></span></a>';
-    } else {
-      thumb='<a class="mthumb" href="'+o.url+'" target="_blank" rel="noopener"><span class="mfake">'
-        +'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.6"/><path d="M21 15l-5-5L5 21"/></svg>'
-        +'</span><span class="ptype">'+(LANG==='fa'?'تصویر':'IMAGE')+'</span></a>';
-    }
-    var link = o.kind==='yt' ? 'https://www.youtube.com/watch?v='+o.id : o.url;
-    var bl = (LANG==='fa'?o.bullets.fa:o.bullets.en).map(function(b){ return '<li>'+ (LANG==='fa'?faText(b):b) +'</li>'; }).join('');
-    card.innerHTML = thumb + '<div class="mbody">'
-      + '<div class="msrc">'+TX(o.src)+'</div>'
-      + '<h4>'+TX(o.title)+'</h4>'
-      + '<p class="mdesc">'+TX(o.desc)+'</p>'
-      + '<ul>'+bl+'</ul>'
-      + '<a class="mlink" href="'+link+'" target="_blank" rel="noopener">'+(LANG==='fa'?'باز کردن ↗':'Open ↗')+'</a>'
-      + '<div class="mbest">'+TX(o.best)+'</div>'
-      + '</div>';
-    m.appendChild(card);
-  });
-
-  var g=elClear('goHost');
-  DATA.go.forEach(function(o){
-    var a=document.createElement('a'); a.href=o.url; a.target='_blank'; a.rel='noopener';
-    a.textContent=TX(o.label); g.appendChild(a);
-  });
-
-  var r=elClear('recHost');
-  DATA.recs.forEach(function(o){
-    var it=document.createElement('div'); it.className='item';
-    var priLabel = o.pri==='b' ? (LANG==='fa'?'از اینجا شروع کن':'Start here') : (LANG==='fa'?'بعدش این':'Then this');
-    it.innerHTML='<div class="t">'+TX(o.t)+'<span class="pri '+(o.pri==='b'?'b':'')+'">'+priLabel+'</span></div>'
-      +'<div class="d">'+TX(o.d)+'</div>';
-    r.appendChild(it);
-  });
-
-  var mth=document.getElementById('methodHost');
-  mth.innerHTML = LANG==='fa' ? faText("<p><b>منبع:</b> کتابِ «The Making of a Manager» (ساختنِ یک مدیر) نوشتهٔ جولی ژو، نشرِ Portfolio/Penguin، ۲۰۱۹.</p><p><b>روشِ کار:</b> مسیرِ پنج‌بخشی و ایده‌ها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده؛ نقل‌قول‌ها با متنِ اصلی مقابله و ویدیوها بررسی شده‌اند.</p><p><b>گروه:</b> «مدیریت» — یکی از موضوع‌های اصلی برای رهبرانِ تازه‌کار و سازندگانِ محصول.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای متنِ کامل، خودِ کتاب را بخوان.</p>") : "<p><b>Source:</b> the book <i>The Making of a Manager: What to Do When Everyone Looks to You</i> by Julie Zhuo (Portfolio/Penguin, 2019).</p><p><b>How this was built:</b> the five-part path and ideas were gathered and rewritten from the book and reputable sources; quotes were cross-checked against verbatim excerpts and the linked videos verified.</p><p><b>Group:</b> Managing — a core theme for new leaders and product builders.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book. Read the book itself for the full text.</p>";
-  var fl=document.getElementById('flowTop');
-  if(fl){
-    var loop = LANG==='fa' ? ["هدف","آدم‌ها","فرایند"] : ["Purpose","People","Process"];
-    var ar = LANG==='fa' ? '⟵' : '⟶';
-    fl.innerHTML = loop.map(function(w){ return '<b>'+ (LANG==='fa'?faText(w):w) +'</b>'; }).join(' <span class="ar">'+ar+'</span> ');
-  }
-}
-</script>
-
-<script>
-/* ── 4) CONCEPT MAP ───────────────────────────────────────── */
-function renderMap(){
-  var host=document.getElementById('mapHost'); if(!host) return; host.innerHTML='';
-  DATA.parts.forEach(function(p, i){
-    var col=document.createElement('div'); col.className='partcol';
-    var chaps=p.chapters.map(function(ck){
-      var c=DATA.chapters[ck];
-      return '<div class="chapchip"><span class="cn">'+num(c.n)+'</span><div><b>'+TX(c.name)+'</b>'
-        +'<small>'+TX(c.principle).replace(/<[^>]+>/g,'').slice(0, LANG==='fa'?86:76)+'…</small></div></div>';
-    }).join('');
-    col.innerHTML='<div class="ph"><span class="pdot" style="background:var('+p.varc+')"></span>'
-      +'<span class="pnum">'+(LANG==='fa'?'بخشِ ':'PART ')+num(i+1)+'</span></div>'
-      +'<h4>'+TX(p.name)+'</h4>'
-      +'<div class="ptag" style="color:var('+p.varc+')">'+TX(p.tag)+'</div>'
-      +'<p class="pgist">'+TX(p.gist)+'</p>'+chaps;
-    host.appendChild(col);
-  });
-}
-</script>
-
-<script>
-/* ── 5) INTERACTIVE NETWORK GRAPH (deterministic radial layout, no physics) ── */
-var GRAPH = (function(){
-  var svg, W=980, H=780, nodes=[], links=[], sel=null, dragNode=null, moved=false, startPt=null;
-
-  function build(){
-    svg=document.getElementById('netsvg');
-    svg.setAttribute('viewBox','0 0 '+W+' '+H);
-    nodes=[]; links=[];
-    var cx=W/2, cy=H/2, R1=220, R2=126, span=66*Math.PI/180;
-    var N=DATA.parts.length, partAng=DATA.parts.map(function(_,i){ return -Math.PI/2 + i*(2*Math.PI/N); });
-    nodes.push({id:'core', kind:'core', varc:'--core', r:38, x:cx, y:cy, label:DATA.core.name, data:DATA.core});
-    DATA.parts.forEach(function(p,i){
-      var a=partAng[i], px=cx+Math.cos(a)*R1, py=cy+Math.sin(a)*R1;
-      nodes.push({id:'p_'+p.key, kind:'part', varc:p.varc, r:25, x:px, y:py,
-        label:p.name, data:{name:p.name, principle:p.gist, more:p.more, tag:p.tag, key:p.key}});
-      links.push({s:'core', t:'p_'+p.key, strong:true});
-      var nc=p.chapters.length, start=a-span/2;
-      p.chapters.forEach(function(ck,j){
-        var ca = nc>1 ? start+span*(j/(nc-1)) : a;   // fan the 5 chapters outward
-        var c=DATA.chapters[ck];
-        nodes.push({id:'c_'+ck, kind:'chap', varc:p.varc, r:15,
-          x:px+Math.cos(ca)*R2, y:py+Math.sin(ca)*R2,
-          label:(c.glabel||c.name), data:c, ck:ck});
-        links.push({s:'p_'+p.key, t:'c_'+ck});
-      });
-    });
-    nodes.forEach(function(n){ n.hx=n.x; n.hy=n.y; });   // remember home positions for reset
-    draw();
-    select('core');
-  }
-
-  function byId(id){ for(var i=0;i<nodes.length;i++) if(nodes[i].id===id) return nodes[i]; return null; }
-
-  function draw(){
-    var ln='', nd='';
-    links.forEach(function(l){ ln+='<line class="glink" data-s="'+l.s+'" data-t="'+l.t+'" stroke="var(--line)" stroke-width="'+(l.strong?2.4:1.5)+'" stroke-linecap="round"/>'; });
-    nodes.forEach(function(n){
-      var inside='', below='';
-      if(n.kind==='core'){
-        inside='<text text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="800" fill="#fff" letter-spacing="0.3">'+shortLabel(n)+'</text>';
-      } else {
-        if(n.kind==='chap'){
-          inside='<text text-anchor="middle" dominant-baseline="central" font-size="11" font-weight="800" fill="#fff">'+num(n.data.n)+'</text>';
+/* ── CONTENT — everything unique to this book lives here ── */
+Book.mount({
+  "meta": {
+    "slug": "the-making-of-a-manager",
+    "folder": "05 - Managing",
+    "groupNum": 5,
+    "group": {
+      "en": "Managing",
+      "fa": "مدیریت"
+    },
+    "author": {
+      "en": "Julie Zhuo",
+      "fa": "جولی ژو"
+    },
+    "eyebrow_author": {
+      "en": "Julie Zhuo",
+      "fa": "جولی ژو"
+    },
+    "book": {
+      "en": "The Making of a Manager",
+      "fa": "ساختنِ یک مدیر"
+    },
+    "hero_title": {
+      "en": "The Making of a Manager — What to Do When Everyone Looks to You",
+      "fa": "ساختنِ یک مدیر — وقتی همه به تو نگاه می‌کنند چه کنی"
+    },
+    "dek": {
+      "en": "A knowledge graph of the whole book, plus a 5-stage path from a one-line definition to leading at scale — with an example at every step.",
+      "fa": "نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از یک تعریفِ یک‌خطی تا رهبری در مقیاسِ بزرگ — با یک مثال در هر مرحله."
+    },
+    "published": {
+      "en": "2019",
+      "fa": "۲۰۱۹"
+    },
+    "chips": [
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Parts",
+          "fa": "بخش"
         }
-        var ly = n.r + (n.kind==='part'?17:14);
-        var fs = n.kind==='part'?13:11;
-        var stroke = 'paint-order:stroke;stroke:var(--card2);stroke-width:3.6px;stroke-linejoin:round';
-        below='<text class="nlab" text-anchor="middle" y="'+ly+'" font-size="'+fs+'" font-weight="'+(n.kind==='part'?'800':'700')+'" fill="var(--ink)" style="'+stroke+'">'+shortLabel(n)+'</text>';
+      },
+      {
+        "v": {
+          "en": "16",
+          "fa": "۱۶"
+        },
+        "l": {
+          "en": "Ideas",
+          "fa": "ایده"
+        }
+      },
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Learning stages",
+          "fa": "مرحلهٔ یادگیری"
+        }
       }
-      nd+='<g class="node'+(n.kind==='core'?' ncore':'')+'" data-id="'+n.id+'"><g class="ns">'
-        +'<circle r="'+n.r+'" fill="var('+n.varc+')" fill-opacity="'+(n.kind==='chap'?0.94:1)+'" stroke="var(--card)" stroke-width="2.5"/>'
-        +inside+below+'</g></g>';
-    });
-    svg.innerHTML='<g id="glinks">'+ln+'</g><g id="gnodes">'+nd+'</g>';
-    svg.querySelectorAll('.node').forEach(function(gEl){
-      gEl.addEventListener('pointerdown', onDown);
-      gEl.addEventListener('click', function(){ if(!moved) select(gEl.getAttribute('data-id')); });
-      gEl.addEventListener('pointerenter', function(){ if(!dragNode) gEl.classList.add('hover'); });
-      gEl.addEventListener('pointerleave', function(){ gEl.classList.remove('hover'); });
-    });
-    positions();
-  }
-  function shortLabel(n){ return TX(n.label); }
-
-  function positions(){
-    svg.querySelectorAll('.node').forEach(function(g){
-      var n=byId(g.getAttribute('data-id'));
-      g.setAttribute('transform','translate('+n.x.toFixed(1)+','+n.y.toFixed(1)+')');
-    });
-    svg.querySelectorAll('.glink').forEach(function(l){
-      var a=byId(l.getAttribute('data-s')), b=byId(l.getAttribute('data-t'));
-      l.setAttribute('x1',a.x.toFixed(1)); l.setAttribute('y1',a.y.toFixed(1));
-      l.setAttribute('x2',b.x.toFixed(1)); l.setAttribute('y2',b.y.toFixed(1));
-    });
-  }
-
-  /* drag: just move the grabbed node — no simulation, so nothing else shifts */
-  function toSvg(e){
-    var pt=svg.createSVGPoint(); pt.x=e.clientX; pt.y=e.clientY;
-    var m=svg.getScreenCTM(); if(!m) return {x:e.clientX,y:e.clientY};
-    return pt.matrixTransform(m.inverse());
-  }
-  function onDown(e){
-    e.preventDefault();
-    dragNode=byId(e.currentTarget.getAttribute('data-id'));
-    moved=false; startPt=toSvg(e); svg.style.cursor='grabbing';
-    e.currentTarget.classList.remove('hover');
-    window.addEventListener('pointermove', onMove);
-    window.addEventListener('pointerup', onUp);
-  }
-  function onMove(e){
-    if(!dragNode) return; var p=toSvg(e);
-    if(startPt && (Math.abs(p.x-startPt.x)>4 || Math.abs(p.y-startPt.y)>4)) moved=true;
-    dragNode.x=Math.max(dragNode.r+4, Math.min(W-dragNode.r-4, p.x));
-    dragNode.y=Math.max(dragNode.r+4, Math.min(H-dragNode.r-24, p.y));
-    positions();
-  }
-  function onUp(){
-    dragNode=null; svg.style.cursor='grab';
-    window.removeEventListener('pointermove', onMove);
-    window.removeEventListener('pointerup', onUp);
-  }
-
-  function keepSet(id){
-    var n=byId(id); if(!n || id==='core') return null;   // core → show everything
-    var keep={}; keep[id]=1; keep['core']=1;
-    var pk = (n.kind==='part') ? n.data.key : n.data.part;
-    keep['p_'+pk]=1;
-    DATA.parts.forEach(function(p){ if(p.key===pk) p.chapters.forEach(function(ck){ keep['c_'+ck]=1; }); });
-    return keep;   // highlight the whole branch: core → part → its chapters
-  }
-  function applyFocus(id){
-    var keep=keepSet(id), full=(keep===null);
-    svg.querySelectorAll('.node').forEach(function(g){
-      var nid=g.getAttribute('data-id');
-      g.classList.toggle('dim', !full && !keep[nid]);
-      g.classList.toggle('hl', !full && keep[nid] && nid!==id);
-    });
-    svg.querySelectorAll('.glink').forEach(function(l){
-      var s=l.getAttribute('data-s'), t=l.getAttribute('data-t');
-      var on = full || (keep[s] && keep[t]);
-      l.classList.toggle('dim', !on);
-      l.classList.toggle('hl', !full && on);
-    });
-  }
-
-  function relatedIds(node){
-    var ids=[];
-    if(node.id==='core'){ DATA.parts.forEach(function(p){ ids.push('p_'+p.key); }); }
-    else if(node.kind==='part'){ var pk=node.data.key; DATA.parts.forEach(function(p){ if(p.key===pk) p.chapters.forEach(function(ck){ ids.push('c_'+ck); }); }); }
-    else { var pk2=node.data.part; ids.push('p_'+pk2);
-      DATA.parts.forEach(function(p){ if(p.key===pk2) p.chapters.forEach(function(ck){ if('c_'+ck!==node.id) ids.push('c_'+ck); }); }); }
-    return ids;
-  }
-
-  function drow(cls,label,txt){ return '<div class="drow '+cls+'"><div class="dlab">'+label+'</div><div class="dtxt">'+txt+'</div></div>'; }
-
-  function select(id){
-    var n=byId(id); if(!n) return;
-    sel=id;
-    svg.querySelectorAll('.node').forEach(function(g){ g.classList.toggle('sel', g.getAttribute('data-id')===id); });
-    var selEl=svg.querySelector('.node[data-id="'+id+'"]'); if(selEl&&selEl.parentNode) selEl.parentNode.appendChild(selEl);  // raise on top
-    applyFocus(id);
-    var d=n.data, pv = n.kind==='core' ? '--core' : n.varc;
-    var kicker = n.kind==='core' ? (LANG==='fa'?'ایدهٔ مرکزی':'Core idea')
-             : n.kind==='part' ? (LANG==='fa'?'بخش':'Part') + ' · ' + TX(d.tag)
-             : (LANG==='fa'?"ایدهٔ":"Idea") + ' ' + num(d.n);
-    var prLab = (n.kind==='chap') ? (LANG==='fa'?'اصل':'Principle') : (LANG==='fa'?'ایدهٔ اصلی':'Big idea');
-    var html='<div class="dkick"><i style="background:var('+pv+')"></i>'+ (LANG==='fa'?faText(kicker):kicker) +'</div>'
-      +'<h4>'+TX(d.name)+'</h4>'
-      + drow('', prLab, TX(d.principle));
-    if(d.more)    html += drow('more', (LANG==='fa'?'بیشتر':'In depth'), TX(d.more));
-    if(d.example) html += drow('', (LANG==='fa'?'مثال':'Example'), TX(d.example));
-    if(d.tip)     html += drow('tip', (LANG==='fa'?'امتحان کن':'Try this'), TX(d.tip));
-    if(d.pitfall) html += drow('pit', (LANG==='fa'?'حواست باشد':'Watch out'), TX(d.pitfall));
-    // related chips
-    var rel=relatedIds(n);
-    if(rel.length){
-      var chips=rel.map(function(rid){ var rn=byId(rid); if(!rn) return '';
-        return '<span class="dchip" data-goto="'+rid+'"><i style="background:var('+rn.varc+')"></i>'+TX(rn.data.name)+'</span>'; }).join('');
-      html += '<div class="drow"><div class="dlab">'+(LANG==='fa'?'مرتبط':'Related')+'</div><div class="dchips">'+chips+'</div></div>';
+    ],
+    "kboxes": [
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Parts (what · first months · feedback · yourself · scaling)",
+          "fa": "بخش (چیستی · ماه‌های اول · بازخورد · خودت · بزرگ‌شدن)"
+        }
+      },
+      {
+        "v": {
+          "en": "16",
+          "fa": "۱۶"
+        },
+        "l": {
+          "en": "Ideas you can use",
+          "fa": "ایده برای استفاده"
+        }
+      },
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Levels, simple → expert",
+          "fa": "مرحله، ساده تا حرفه‌ای"
+        }
+      },
+      {
+        "v": {
+          "en": "3",
+          "fa": "۳"
+        },
+        "l": {
+          "en": "Levers: people · purpose · process",
+          "fa": "اهرم: آدم‌ها · هدف · فرایند"
+        }
+      }
+    ],
+    "core_callout": {
+      "label": {
+        "en": "The core idea:",
+        "fa": "ایدهٔ اصلی:"
+      },
+      "en": "A manager's job is to get <i>better outcomes from a group of people</i>. You don't do the work yourself — you multiply the team by improving its <i>people, purpose,</i> and <i>process</i>, earning trust and giving honest feedback along the way.",
+      "fa": "کارِ مدیر این است که <i>از یک گروه آدم نتیجهٔ بهتری بگیرد</i>. خودت کار را انجام نمی‌دهی — تیم را با بهترکردنِ <i>آدم‌ها، هدف،</i> و <i>فرایند</i> چند‌برابر می‌کنی، و در این مسیر اعتماد می‌سازی و بازخوردِ روراست می‌دهی."
+    },
+    "flow_callout": {
+      "label": {
+        "en": "Read it as a path:",
+        "fa": "به‌صورتِ یک مسیر بخوانش:"
+      },
+      "en": "understand <b>what management is</b>, survive your <b>first months</b> and earn trust, master <b>feedback</b>, manage <b>yourself</b>, then <b>scale</b> the team through meetings, hiring, delegation, and culture.",
+      "fa": "بفهم <b>مدیریت یعنی چه</b>، از <b>ماه‌های اولت</b> جان به‌در ببر و اعتماد بساز، <b>بازخورد</b> را استاد شو، <b>خودت</b> را مدیریت کن، بعد تیم را با جلسه، استخدام، واگذاری، و فرهنگ <b>بزرگ کن</b>."
     }
-    var host=document.getElementById('detailHost');
-    host.innerHTML=html;
-    host.querySelectorAll('.dchip').forEach(function(c){
-      c.addEventListener('click', function(){ select(c.getAttribute('data-goto')); });
-    });
-  }
-
-  function relabel(){ if(!svg) return; draw(); select(sel||'core'); }
-
-  return {
-    build:build,
-    kick:function(){},                                    // no-op; layout is static
-    relabel:relabel,
-    reset:function(){ nodes.forEach(function(n){ n.x=n.hx; n.y=n.hy; }); positions(); },
-    resetFocus:function(){ select('core'); },
-    selectNode:function(id){ select(id); },
-    hasNodes:function(){ return nodes.length>0; }
-  };
-})();
-</script>
-
-<script>
-/* ── 6) 5-STAGE LADDER ────────────────────────────────────── */
-var curStage=0;
-function renderLadder(){
-  var host=document.getElementById('ladderHost'); host.innerHTML='';
-  DATA.stages.forEach(function(s,i){
-    var r=document.createElement('div'); r.className='rung'+(i===curStage?' active':'');
-    r.innerHTML='<div class="lv">'+ (LANG==='fa'?('سطحِ '+num(s.level)):('Level '+s.level)) +'</div>'
-      +'<div class="lt">'+TX(s.title)+'</div>'
-      +'<div class="lbar"><i style="width:'+(s.level*20)+'%"></i></div>';
-    r.addEventListener('click', function(){ curStage=i; renderLadder(); renderStage();
-      document.getElementById('stageHost').scrollIntoView({behavior:'smooth',block:'nearest'}); });
-    host.appendChild(r);
-  });
-}
-function renderStage(){
-  var s=DATA.stages[curStage];
-  var host=document.getElementById('stageHost');
-  var exLabel = LANG==='fa'?'مثال':'Example';
-  var prev = LANG==='fa'?'مرحلهٔ قبل':'‹ Prev', next = LANG==='fa'?'مرحلهٔ بعد':'Next ›';
-  host.innerHTML=''+
-    '<div class="stagecard">'
-    +'<div class="shead"><span class="badge">'+TX(s.badge)+'</span><h3>'+TX(s.title)+'</h3></div>'
-    +'<div class="tagline">'+TX(s.tagline)+'</div>'
-    +'<div class="sbody">'+TX(s.body)+'</div>'
-    +'<div class="exbox"><div class="exk">'+exLabel+'</div><div class="ext">'+TX(s.example)+'</div></div>'
-    +'<div class="gainrow"><span class="gi">✓</span><span>'+TX(s.gain)+'</span></div>'
-    +'<div class="stagenav">'
-      +'<button id="stPrev" '+(curStage===0?'disabled':'')+'>'+prev+'</button>'
-      +'<button id="stNext" '+(curStage===DATA.stages.length-1?'disabled':'')+'>'+next+'</button>'
-    +'</div></div>';
-  var pv=document.getElementById('stPrev'), nx=document.getElementById('stNext');
-  if(pv) pv.onclick=function(){ if(curStage>0){curStage--; renderLadder(); renderStage();} };
-  if(nx) nx.onclick=function(){ if(curStage<DATA.stages.length-1){curStage++; renderLadder(); renderStage();} };
-}
-</script>
-
-<script>
-/* ── 7) legend + graph tabs ───────────────────────────────── */
-function renderLegend(){
-  var host=document.getElementById('legendHost'); if(!host) return;
-  var items=[{c:'--core', en:'Core idea', fa:'ایدهٔ مرکزی'}]
-    .concat(DATA.parts.map(function(p){ return {c:p.varc, en:p.name.en, fa:p.name.fa}; }));
-  host.innerHTML = items.map(function(it){
-    return '<span><i style="background:var('+it.c+')"></i>'+(LANG==='fa'?faText(it.fa):it.en)+'</span>';
-  }).join('');
-  document.getElementById('ghint').textContent = LANG==='fa' ? 'روی هر دایره کلیک کن تا بیشتر بخوانی · می‌توانی بکشی‌شان' : 'Click a node to read more · drag to move';
-  document.getElementById('greset').textContent = LANG==='fa' ? '↺ چیدمان' : '↺ Reset';
-}
-function setupTabs(){
-  function show(net){
-    document.getElementById('netView').style.display = net?'':'none';
-    document.getElementById('mapView').style.display = net?'none':'';
-    document.getElementById('tabNet').classList.toggle('active',net);
-    document.getElementById('tabMap').classList.toggle('active',!net);
-    if(net) GRAPH.kick();
-  }
-  document.getElementById('tabNet').onclick=function(){show(true);};
-  document.getElementById('tabMap').onclick=function(){show(false);};
-  document.getElementById('greset').onclick=function(){ GRAPH.reset(); };
-  // click empty graph space resets the focus
-  var svg=document.getElementById('netsvg');
-  svg.addEventListener('click', function(e){ if(!e.target.closest('.node')) GRAPH.resetFocus(); });
-}
-</script>
-
-<script>
-/* ── 8) toggles + boot ────────────────────────────────────── */
-function setLang(lg){
-  LANG=lg;
-  document.documentElement.setAttribute('data-lang',lg);
-  document.documentElement.setAttribute('lang',lg);
-  document.documentElement.setAttribute('dir', lg==='fa'?'rtl':'ltr');
-  try{ localStorage.setItem('mgr-lang',lg); }catch(e){}
-  renderAll();
-}
-function renderAll(){
-  renderText();
-  renderMap();
-  renderLegend();
-  renderLadder();
-  renderStage();
-  if(GRAPH.hasNodes()) GRAPH.relabel(); else GRAPH.build();
-}
-(function(){
-  var lb=document.getElementById('langBtn');
-  lb && lb.addEventListener('click', function(){ setLang(LANG==='fa'?'en':'fa'); });
-
-  var tb=document.getElementById('themeBtn');
-  function curT(){ return document.documentElement.getAttribute('data-theme'); }
-  tb && tb.addEventListener('click', function(){
-    var t=curT()==='dark'?'light':'dark';
-    document.documentElement.setAttribute('data-theme',t);
-    try{ localStorage.setItem('mgr-theme',t); }catch(e){}
-  });
-  try{ matchMedia('(prefers-color-scheme: dark)').addEventListener('change',function(e){
-    if(!localStorage.getItem('mgr-theme')){ document.documentElement.setAttribute('data-theme', e.matches?'dark':'light'); }
-  }); }catch(e){}
-})();
-
-/* scroll-spy */
-(function(){
-  var links=[].slice.call(document.querySelectorAll('.toc a'));
-  var seen={}, ids=[];
-  links.forEach(function(a){ var id=a.getAttribute('href').slice(1); if(!seen[id]){seen[id]=1; ids.push(id);} });
-  var secs=ids.map(function(id){return document.getElementById(id);}).filter(Boolean);
-  function setActive(id){ links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('href')==='#'+id); }); }
-  if('IntersectionObserver' in window){
-    var obs=new IntersectionObserver(function(es){
-      es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
-    },{rootMargin:'-45% 0px -50% 0px',threshold:0});
-    secs.forEach(function(s){ obs.observe(s); });
-  }
-})();
-
-document.addEventListener('DOMContentLoaded', function(){
-  setupTabs();
-  renderAll();
+  },
+  "method": {
+    "en": "<p><b>Source:</b> the book <i>The Making of a Manager: What to Do When Everyone Looks to You</i> by Julie Zhuo (Portfolio/Penguin, 2019).</p><p><b>How this was built:</b> the five-part path and ideas were gathered and rewritten from the book and reputable sources; quotes were cross-checked against verbatim excerpts and the linked videos verified.</p><p><b>Group:</b> Managing — a core theme for new leaders and product builders.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book. Read the book itself for the full text.</p>",
+    "fa": "<p><b>منبع:</b> کتابِ «The Making of a Manager» (ساختنِ یک مدیر) نوشتهٔ جولی ژو، نشرِ Portfolio/Penguin، ۲۰۱۹.</p><p><b>روشِ کار:</b> مسیرِ پنج‌بخشی و ایده‌ها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده؛ نقل‌قول‌ها با متنِ اصلی مقابله و ویدیوها بررسی شده‌اند.</p><p><b>گروه:</b> «مدیریت» — یکی از موضوع‌های اصلی برای رهبرانِ تازه‌کار و سازندگانِ محصول.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای متنِ کامل، خودِ کتاب را بخوان.</p>"
+  },
+  "flow": {
+    "en": [
+      "Purpose",
+      "People",
+      "Process"
+    ],
+    "fa": [
+      "هدف",
+      "آدم‌ها",
+      "فرایند"
+    ]
+  },
+  "graph": {
+    "W": 980,
+    "H": 780,
+    "R1": 220,
+    "R2": 126,
+    "span": 66
+  },
+  "tldr": [
+    {
+      "en": "The whole book in one line: a manager's job is to get better outcomes from a group of people working together.",
+      "fa": "خلاصهٔ کلِ کتاب در یک جمله: کارِ مدیر این است که از یک گروه آدم که با هم کار می‌کنند، نتیجهٔ بهتری بگیرد."
+    },
+    {
+      "en": "You're not paid to do the work yourself — you're a <b>multiplier</b> who improves the team's <b>people, purpose,</b> and <b>process</b>.",
+      "fa": "دستمزدت برای انجامِ خودِ کار نیست — تو یک <b>چند‌برابر‌کننده‌ای</b> که <b>آدم‌ها، هدف،</b> و <b>فرایندِ</b> تیم را بهتر می‌کند."
+    },
+    {
+      "en": "In your first months, don't try to have every answer; <b>earn trust</b> with weekly one-on-ones and a little humility.",
+      "fa": "در ماه‌های اول، سعی نکن همهٔ جواب‌ها را داشته باشی؛ با جلسه‌های هفتگیِ تک‌به‌تک و کمی فروتنی، <b>اعتماد بساز</b>."
+    },
+    {
+      "en": "What people want most is <b>more feedback</b> — specific, timely, kind, and clear, including the hard conversations.",
+      "fa": "چیزی که آدم‌ها بیشتر از همه می‌خواهند، <b>بازخوردِ بیشتر</b> است — مشخص، به‌موقع، مهربان، و روشن، حتی گفت‌وگوهای سخت."
+    },
+    {
+      "en": "Manage <b>yourself</b> first, then <b>scale</b> through great meetings, strong hiring, delegation, and the culture you set.",
+      "fa": "اول <b>خودت</b> را مدیریت کن، بعد با جلسه‌های خوب، استخدامِ قوی، واگذاری، و فرهنگی که می‌سازی، <b>بزرگ شو</b>."
+    }
+  ],
+  "parts": [
+    {
+      "key": "what",
+      "varc": "--c-teal",
+      "name": {
+        "en": "What Management Is",
+        "fa": "مدیریت یعنی چه"
+      },
+      "tag": {
+        "en": "The purpose",
+        "fa": "هدفِ کار"
+      },
+      "gist": {
+        "en": "Management exists to get better outcomes from a group of people.",
+        "fa": "مدیریت هست تا از یک گروه آدم، نتیجهٔ بهتری بگیرد."
+      },
+      "more": {
+        "en": "A manager's job isn't to be the best individual contributor. It's to help a team produce better results together than any of them could alone — by improving its people, its purpose, and its process.",
+        "fa": "کارِ مدیر این نیست که بهترین فردِ تیم باشد. کارش این است که کمک کند یک گروه آدم با هم نتیجه‌ای بهتر از تک‌تکشان بسازند — با بهترکردنِ آدم‌ها، هدف، و فرایندِ تیم."
+      },
+      "chapters": [
+        "purpose",
+        "multiplier",
+        "ppp"
+      ]
+    },
+    {
+      "key": "first",
+      "varc": "--c-blue",
+      "name": {
+        "en": "Your First Three Months",
+        "fa": "سه ماهِ اول"
+      },
+      "tag": {
+        "en": "Earning trust",
+        "fa": "ساختنِ اعتماد"
+      },
+      "gist": {
+        "en": "Lead a small team and earn its trust in your first months.",
+        "fa": "در ماه‌های اول، یک تیمِ کوچک را رهبری کن و اعتمادش را بساز."
+      },
+      "more": {
+        "en": "The early days set the tone. You don't need every answer; you need your team to trust that you care about them and will be honest. Regular one-on-ones and a bit of humility do more than any grand plan.",
+        "fa": "روزهای اول، فضا را می‌سازند. لازم نیست همهٔ جواب‌ها را داشته باشی؛ لازم است تیمت باور کند که برایت مهم است و باهاش روراستی. جلسه‌های منظمِ تک‌به‌تک و کمی فروتنی، بیشتر از هر نقشهٔ بزرگی کار می‌کنند."
+      },
+      "chapters": [
+        "trust",
+        "oneonone",
+        "newtraps"
+      ]
+    },
+    {
+      "key": "feedback",
+      "varc": "--c-amber",
+      "name": {
+        "en": "Feedback & Growth",
+        "fa": "بازخورد و رشد"
+      },
+      "tag": {
+        "en": "Helping people grow",
+        "fa": "کمک به رشد"
+      },
+      "gist": {
+        "en": "Give clear feedback and have the hard conversations.",
+        "fa": "بازخوردِ روشن بده و گفت‌وگوهای سخت را انجام بده."
+      },
+      "more": {
+        "en": "The most common thing people want from a manager is more feedback. Give it early, make it specific, and don't dodge the uncomfortable talks — done with empathy, they're the ones that actually help someone grow.",
+        "fa": "پُرتکرارترین چیزی که آدم‌ها از یک مدیر می‌خواهند، بازخوردِ بیشتر است. زود بده، مشخص بده، و از حرف‌های ناراحت‌کننده فرار نکن — وقتی با همدلی گفته شوند، همان‌هایی‌اند که واقعاً به رشدِ کسی کمک می‌کنند."
+      },
+      "chapters": [
+        "feedback",
+        "hard",
+        "grow"
+      ]
+    },
+    {
+      "key": "self",
+      "varc": "--c-violet",
+      "name": {
+        "en": "Managing Yourself",
+        "fa": "مدیریتِ خودت"
+      },
+      "tag": {
+        "en": "The inner game",
+        "fa": "بازیِ درونی"
+      },
+      "gist": {
+        "en": "Know yourself, handle self-doubt, and protect your energy.",
+        "fa": "خودت را بشناس، با تردید کنار بیا، و انرژی‌ات را نگه دار."
+      },
+      "more": {
+        "en": "You are your own hardest management problem. Knowing your strengths and triggers, making peace with the impostor feeling almost every manager has, and guarding your time and energy are what let you show up steady for everyone else.",
+        "fa": "سخت‌ترین مسئلهٔ مدیریتیِ تو، خودتی. شناختِ نقاطِ قوت و حساسیت‌هایت، کنارآمدن با آن حسِ قلابی‌بودن که تقریباً هر مدیری دارد، و مراقبت از وقت و انرژی‌ات، همان چیزهایی‌اند که می‌گذارند برای بقیه محکم و آرام حاضر باشی."
+      },
+      "chapters": [
+        "know",
+        "impostor",
+        "energy"
+      ]
+    },
+    {
+      "key": "scale",
+      "varc": "--c-green",
+      "name": {
+        "en": "Scaling",
+        "fa": "بزرگ‌شدن"
+      },
+      "tag": {
+        "en": "Leading at scale",
+        "fa": "رهبری در مقیاس"
+      },
+      "gist": {
+        "en": "Great meetings, great hires, delegation, and culture.",
+        "fa": "جلسه‌های خوب، استخدام‌های خوب، واگذاری، و فرهنگ."
+      },
+      "more": {
+        "en": "As the team grows, your job changes from doing the work to designing how the work happens: running meetings that make people better, hiring well, delegating instead of doing, and shaping the culture through what you celebrate and tolerate.",
+        "fa": "وقتی تیم بزرگ می‌شود، کارِ تو از انجامِ کار به طراحیِ نحوهٔ انجامِ کار تغییر می‌کند: جلسه‌هایی که آدم‌ها را بهتر می‌کنند، استخدامِ خوب، واگذاری به‌جای انجام‌دادن، و شکل‌دادن به فرهنگ از طریقِ چیزی که تشویق یا تحمل می‌کنی."
+      },
+      "chapters": [
+        "meetings",
+        "hiring",
+        "growteam",
+        "culture"
+      ]
+    }
+  ],
+  "chapters": {
+    "purpose": {
+      "part": "what",
+      "n": 1,
+      "name": {
+        "en": "The Purpose of Management",
+        "fa": "هدفِ مدیریت"
+      },
+      "glabel": {
+        "en": "Purpose",
+        "fa": "هدف"
+      },
+      "principle": {
+        "en": "A manager's job is to get better outcomes from a group of people working together.",
+        "fa": "کارِ مدیر این است که از یک گروه آدم که با هم کار می‌کنند، نتیجهٔ بهتری بگیرد."
+      },
+      "more": {
+        "en": "That single sentence is the whole job. Not the smartest person, not the hardest worker — the one who helps the group produce more together than the sum of its parts. Everything else is in service of that outcome.",
+        "fa": "همین یک جمله، کلِ کار است. نه باهوش‌ترین آدم، نه پُرکارترین — کسی که کمک می‌کند گروه با هم بیشتر از جمعِ تک‌تکشان بسازد. بقیهٔ همه‌چیز در خدمتِ همین نتیجه است."
+      },
+      "example": {
+        "en": "A team of five that ships one great product beats five people each doing their own thing.",
+        "fa": "تیمی پنج‌نفره که یک محصولِ خوب را به سرانجام می‌رساند، از پنج نفر که هرکدام کارِ خودشان را می‌کنند بهتر است."
+      },
+      "tip": {
+        "en": "Ask each week: did my team get a better outcome because I was here?",
+        "fa": "هر هفته بپرس: آیا تیمم به‌خاطرِ بودنِ من نتیجهٔ بهتری گرفت؟"
+      },
+      "pitfall": {
+        "en": "Measuring yourself by your own output instead of the team's.",
+        "fa": "سنجیدنِ خودت با کارِ خودت، به‌جای نتیجهٔ تیم."
+      }
+    },
+    "multiplier": {
+      "part": "what",
+      "n": 2,
+      "name": {
+        "en": "You're a Multiplier",
+        "fa": "تو چند‌برابر‌کننده‌ای"
+      },
+      "glabel": {
+        "en": "Multiplier",
+        "fa": "چند‌برابر"
+      },
+      "principle": {
+        "en": "Your role is not to do the work yourself, even if you're the best at it — it's to multiply the team.",
+        "fa": "کارِ تو انجامِ خودِ کار نیست، حتی اگر بهترینش باشی — کارت این است که تیم را چند‌برابر کنی."
+      },
+      "more": {
+        "en": "Doing it yourself only takes you as far as one person can go. When you make each person a little more effective, that gain multiplies across everyone — that's the leverage a manager has that a contributor doesn't.",
+        "fa": "خودت انجام‌دادن، فقط تا جایی می‌بردت که یک نفر می‌تواند برود. وقتی هر نفر را کمی مؤثرتر می‌کنی، آن سود روی همه ضرب می‌شود — همان اهرمی که مدیر دارد و یک نفرِ عادی ندارد."
+      },
+      "example": {
+        "en": "Spending an hour unblocking five people beats spending it finishing one task yourself.",
+        "fa": "یک ساعت وقت‌گذاشتن برای بازکردنِ گیرِ پنج نفر، از تمام‌کردنِ یک کار توسطِ خودت بهتر است."
+      },
+      "tip": {
+        "en": "Before doing a task, ask if teaching or unblocking someone would go further.",
+        "fa": "قبل از انجامِ یک کار، بپرس آیا یاد‌دادن یا بازکردنِ گیرِ کسی، بُردِ بیشتری ندارد."
+      },
+      "pitfall": {
+        "en": "Hoarding the work because you can do it faster right now.",
+        "fa": "چنگ‌زدن به کارها چون همین حالا خودت سریع‌ترش می‌کنی."
+      }
+    },
+    "ppp": {
+      "part": "what",
+      "n": 3,
+      "name": {
+        "en": "People, Purpose, Process",
+        "fa": "آدم‌ها، هدف، فرایند"
+      },
+      "glabel": {
+        "en": "3 P’s",
+        "fa": "سه پی"
+      },
+      "principle": {
+        "en": "Managers work on three things: people, purpose, and process — a motivated team, a clear why, and a way of getting things done.",
+        "fa": "مدیر روی سه چیز کار می‌کند: آدم‌ها، هدف، و فرایند — یک تیمِ باانگیزه، یک «چراییِ» روشن، و یک راهِ به‌سرانجام‌رساندنِ کارها."
+      },
+      "more": {
+        "en": "When something's off, it's almost always one of these three. Is the team motivated and set up to succeed (people)? Does everyone know why the work matters (purpose)? Is there a good way decisions and work happen (process)? Fix the weak one.",
+        "fa": "وقتی چیزی می‌لنگد، تقریباً همیشه یکی از همین سه‌تاست. آیا تیم باانگیزه و آمادهٔ موفقیت است (آدم‌ها)؟ آیا همه می‌دانند چرا کار مهم است (هدف)؟ آیا راهِ خوبی برای تصمیم و انجامِ کار هست (فرایند)؟ همان ضعیف را درست کن."
+      },
+      "example": {
+        "en": "A stalled project often isn't a people problem — it's a fuzzy purpose or a broken process.",
+        "fa": "یک پروژهٔ گیرکرده اغلب مشکلِ آدم‌ها نیست — یک هدفِ مبهم یا یک فرایندِ خراب است."
+      },
+      "tip": {
+        "en": "When a team struggles, ask which of the three — people, purpose, or process — is actually weak.",
+        "fa": "وقتی یک تیم به‌زحمت می‌افتد، بپرس کدام‌یک — آدم‌ها، هدف، یا فرایند — واقعاً ضعیف است."
+      },
+      "pitfall": {
+        "en": "Blaming people when the real problem is unclear purpose or process.",
+        "fa": "مقصر‌دانستنِ آدم‌ها وقتی مشکلِ واقعی، هدف یا فرایندِ نامشخص است."
+      }
+    },
+    "trust": {
+      "part": "first",
+      "n": 4,
+      "name": {
+        "en": "Earn Trust",
+        "fa": "اعتماد بساز"
+      },
+      "glabel": {
+        "en": "Trust",
+        "fa": "اعتماد"
+      },
+      "principle": {
+        "en": "Trust is the foundation: your reports must believe you care about them and will be honest with them.",
+        "fa": "اعتماد، پایهٔ کار است: آدم‌هایت باید باور کنند که برایت مهم‌اند و باهاشان روراست خواهی بود."
+      },
+      "more": {
+        "en": "Without trust, feedback sounds like an attack and support sounds fake. You build it slowly — by keeping your word, admitting what you don't know, and showing with your time that each person matters to you.",
+        "fa": "بدونِ اعتماد، بازخورد مثلِ حمله به‌گوش می‌رسد و حمایت، ساختگی. اعتماد را آرام می‌سازی — با سرِ حرفت ماندن، اعترافِ به آنچه نمی‌دانی، و نشان‌دادن با وقتت که هر نفر برایت مهم است."
+      },
+      "example": {
+        "en": "Saying ‘I don't know, let me find out’ builds more trust than bluffing an answer.",
+        "fa": "گفتنِ «نمی‌دانم، بگذار بفهمم» بیشتر از سرِهم‌کردنِ یک جواب، اعتماد می‌سازد."
+      },
+      "tip": {
+        "en": "Do the small things you promised; reliability is trust made visible.",
+        "fa": "همان کارهای کوچکی که قول دادی را انجام بده؛ قابلِ‌اتکا‌بودن، اعتمادِ دیده‌شده است."
+      },
+      "pitfall": {
+        "en": "Pretending to have all the answers to look strong.",
+        "fa": "وانمود‌کردن به داشتنِ همهٔ جواب‌ها برای قوی‌جلوه‌کردن."
+      }
+    },
+    "oneonone": {
+      "part": "first",
+      "n": 5,
+      "name": {
+        "en": "Great 1:1s",
+        "fa": "جلسه‌های تک‌به‌تک"
+      },
+      "glabel": {
+        "en": "1:1s",
+        "fa": "تک‌به‌تک"
+      },
+      "principle": {
+        "en": "Hold a weekly one-on-one with every report, focused on them and what would help them succeed.",
+        "fa": "هفته‌ای یک جلسهٔ تک‌به‌تک با هر نفر بگذار، متمرکز بر خودِ او و آنچه به موفقیتش کمک می‌کند."
+      },
+      "more": {
+        "en": "The one-on-one is your single most important meeting. It's not a status update — it's where trust, feedback, and the real, sometimes awkward conversations happen. Prepare for it, and let your report set much of the agenda.",
+        "fa": "جلسهٔ تک‌به‌تک، مهم‌ترین جلسهٔ توست. گزارشِ وضعیت نیست — جایی است که اعتماد، بازخورد، و آن گفت‌وگوهای واقعی و گاهی معذب‌کننده اتفاق می‌افتند. برایش آماده شو، و بگذار بخشِ زیادی از دستورِ کار را خودِ او بچیند."
+      },
+      "example": {
+        "en": "Open with ‘what's most on your mind this week?’ instead of a task checklist.",
+        "fa": "به‌جای فهرستِ کارها، با «این هفته بیشتر از همه ذهنت درگیرِ چیه؟» شروع کن."
+      },
+      "tip": {
+        "en": "Come with one real question, not a status report; give them the floor.",
+        "fa": "با یک سؤالِ واقعی بیا، نه گزارشِ وضعیت؛ میدان را به او بده."
+      },
+      "pitfall": {
+        "en": "Turning the 1:1 into a status meeting about your needs, not theirs.",
+        "fa": "تبدیلِ جلسهٔ تک‌به‌تک به جلسهٔ وضعیت دربارهٔ نیازهای تو، نه او."
+      }
+    },
+    "newtraps": {
+      "part": "first",
+      "n": 6,
+      "name": {
+        "en": "Avoid the New-Manager Traps",
+        "fa": "تله‌های مدیرِ تازه‌کار"
+      },
+      "glabel": {
+        "en": "New traps",
+        "fa": "تله‌ها"
+      },
+      "principle": {
+        "en": "However you became a manager, don't try to prove yourself by doing everything or knowing everything.",
+        "fa": "هرطور که مدیر شدی، سعی نکن با انجامِ همه‌کار یا دانستنِ همه‌چیز، خودت را ثابت کنی."
+      },
+      "more": {
+        "en": "New managers arrive in different ways — promoted over former peers, or hired to lead strangers — and each has its trap. The shared mistake is overcompensating: micromanaging, hiding uncertainty, or clinging to the old individual-contributor job.",
+        "fa": "مدیرهای تازه‌کار از راه‌های مختلف می‌آیند — ترفیع‌گرفته میانِ هم‌ردیف‌های قبلی، یا استخدام‌شده برای رهبریِ غریبه‌ها — و هرکدام تلهٔ خودش را دارد. اشتباهِ مشترک، جبرانِ بیش‌ازحد است: ریزه‌کاری‌مدیریتی، پنهان‌کردنِ تردید، یا چنگ‌زدن به کارِ فردیِ قبلی."
+      },
+      "example": {
+        "en": "A newly promoted lead who keeps doing their old tasks never actually starts managing.",
+        "fa": "سرگروهی که تازه ترفیع گرفته و همچنان کارهای قبلی‌اش را می‌کند، هیچ‌وقت واقعاً شروع به مدیریت نمی‌کند."
+      },
+      "tip": {
+        "en": "Name your situation honestly, then let go of the old job on purpose.",
+        "fa": "وضعیتت را صادقانه اسم ببر، بعد آگاهانه کارِ قبلی را رها کن."
+      },
+      "pitfall": {
+        "en": "Overcompensating to look like you deserve the title.",
+        "fa": "جبرانِ بیش‌ازحد برای اینکه لایقِ عنوان به‌نظر برسی."
+      }
+    },
+    "feedback": {
+      "part": "feedback",
+      "n": 7,
+      "name": {
+        "en": "Give Feedback Often",
+        "fa": "زود و زیاد بازخورد بده"
+      },
+      "glabel": {
+        "en": "Feedback",
+        "fa": "بازخورد"
+      },
+      "principle": {
+        "en": "People want more feedback than they get; make it specific, timely, and about behavior, not character.",
+        "fa": "آدم‌ها بازخوردِ بیشتری از آنچه می‌گیرند می‌خواهند؛ آن را مشخص، به‌موقع، و دربارهٔ رفتار بده، نه شخصیت."
+      },
+      "more": {
+        "en": "The most common request managers hear is simply ‘give me more feedback.’ Vague praise and saved-up criticism both fail. Say exactly what you saw and what you'd like to see instead, close to when it happened.",
+        "fa": "پُرتکرارترین درخواستی که مدیرها می‌شنوند، همین است: «بیشتر بهم بازخورد بده.» تعریفِ مبهم و انتقادِ روی‌هم‌جمع‌شده، هردو شکست می‌خورند. دقیقاً بگو چه دیدی و به‌جایش چه می‌خواهی ببینی، نزدیک به همان زمان."
+      },
+      "example": {
+        "en": "Not ‘great job’ but ‘the way you summarized the risks at the end made the decision easy.’",
+        "fa": "نه «کارت عالی بود» بلکه «طوری که آخرش ریسک‌ها را جمع‌بندی کردی، تصمیم را آسان کرد.»"
+      },
+      "tip": {
+        "en": "Give one specific piece of feedback within a day of noticing it.",
+        "fa": "یک بازخوردِ مشخص را در همان یک‌روزِ اول که دیدی‌اش بده."
+      },
+      "pitfall": {
+        "en": "Saving feedback for review season, when it's too late to use.",
+        "fa": "نگه‌داشتنِ بازخورد برای فصلِ ارزیابی، وقتی دیگر برای استفاده دیر است."
+      }
+    },
+    "hard": {
+      "part": "feedback",
+      "n": 8,
+      "name": {
+        "en": "Handle Hard Conversations",
+        "fa": "گفت‌وگوهای سخت"
+      },
+      "glabel": {
+        "en": "Hard talks",
+        "fa": "حرفِ سخت"
+      },
+      "principle": {
+        "en": "Address problems early and directly, with empathy — pleasantries alone never build a real relationship.",
+        "fa": "مشکل‌ها را زود و مستقیم مطرح کن، با همدلی — تعارف‌ها به‌تنهایی هیچ‌وقت یک رابطهٔ واقعی نمی‌سازند."
+      },
+      "more": {
+        "en": "The conversations you dread — a mistake, a tension, a performance issue — are the ones that matter most. Avoiding them lets small problems grow. Be kind and be clear at the same time; people can handle hard truths delivered with care.",
+        "fa": "همان گفت‌وگوهایی که ازشان می‌ترسی — یک اشتباه، یک تنش، یک مشکلِ عملکرد — مهم‌ترین‌هایند. فرار از آن‌ها می‌گذارد مشکلِ کوچک بزرگ شود. هم مهربان باش و هم روشن؛ آدم‌ها حقیقتِ سخت را وقتی با ملاحظه گفته شود، تاب می‌آورند."
+      },
+      "example": {
+        "en": "Raise a slipping deadline this week, gently, instead of stewing until it blows up.",
+        "fa": "همین هفته، ملایم، دربارهٔ ضرب‌الاجلی که دارد از دست می‌رود حرف بزن، نه اینکه آن‌قدر بجوشی تا بترکد."
+      },
+      "tip": {
+        "en": "Say the hard thing plainly, then ask ‘how do you see it?’",
+        "fa": "حرفِ سخت را ساده بگو، بعد بپرس «تو چطور می‌بینی‌اش؟»"
+      },
+      "pitfall": {
+        "en": "Softening the message so much the real point disappears.",
+        "fa": "آن‌قدر نرم‌کردنِ پیام که نکتهٔ اصلی گم شود."
+      }
+    },
+    "grow": {
+      "part": "feedback",
+      "n": 9,
+      "name": {
+        "en": "Grow Your People",
+        "fa": "رشدِ آدم‌هایت"
+      },
+      "glabel": {
+        "en": "Growth",
+        "fa": "رشد"
+      },
+      "principle": {
+        "en": "Set clear expectations, coach to each person's strengths, and empower them to find answers themselves.",
+        "fa": "انتظارها را روشن کن، هر کس را بر اساسِ نقاطِ قوتش راهنمایی کن، و توانمندش کن که خودش جواب را پیدا کند."
+      },
+      "more": {
+        "en": "Growth isn't handing out advice. Tell people plainly where they stand and what great looks like, then help them get there by building on what they're already good at — and by asking questions instead of dictating answers.",
+        "fa": "رشد یعنی نصیحت‌کردن نیست. به آدم‌ها روراست بگو کجای کار ایستاده‌اند و «عالی» چه شکلی است، بعد کمکشان کن با تکیه بر همان چیزی که در آن خوب‌اند به آنجا برسند — و به‌جای دیکته‌کردنِ جواب، سؤال بپرس."
+      },
+      "example": {
+        "en": "Instead of solving it, ask ‘what options have you considered?’ and build from there.",
+        "fa": "به‌جای حل‌کردنش، بپرس «چه گزینه‌هایی را بررسی کردی؟» و از همان‌جا جلو برو."
+      },
+      "tip": {
+        "en": "Coach to strengths: grow what someone's great at, don't only fix gaps.",
+        "fa": "روی نقاطِ قوت کار کن: چیزی که کسی در آن عالی است را برشان بده، نه فقط رفعِ ضعف‌ها."
+      },
+      "pitfall": {
+        "en": "Just giving answers, so people never build their own judgment.",
+        "fa": "فقط جواب‌دادن، طوری که آدم‌ها هیچ‌وقت قضاوتِ خودشان را نمی‌سازند."
+      }
+    },
+    "know": {
+      "part": "self",
+      "n": 10,
+      "name": {
+        "en": "Know Yourself",
+        "fa": "خودت را بشناس"
+      },
+      "glabel": {
+        "en": "Self-know",
+        "fa": "خودشناسی"
+      },
+      "principle": {
+        "en": "You can't manage others well until you understand your own strengths, values, and triggers.",
+        "fa": "تا نقاطِ قوت، ارزش‌ها، و حساسیت‌های خودت را نفهمی، نمی‌توانی دیگران را خوب مدیریت کنی."
+      },
+      "more": {
+        "en": "Your reactions shape the team's mood. Knowing what you're good at, what sets you off, and what you truly value lets you play to your strengths, catch yourself before a bad reaction, and lead in a way that's actually you.",
+        "fa": "واکنش‌های تو حال‌وهوای تیم را می‌سازند. دانستنِ اینکه در چه خوبی، چه چیزی از کوره درت می‌برد، و واقعاً به چه اهمیت می‌دهی، می‌گذارد از نقاطِ قوتت استفاده کنی، قبل از یک واکنشِ بد جلوی خودت را بگیری، و طوری رهبری کنی که واقعاً خودت باشی."
+      },
+      "example": {
+        "en": "If tight deadlines make you snappy, notice it and warn yourself before the meeting.",
+        "fa": "اگر ضرب‌الاجلِ تنگ بداخلاقت می‌کند، این را بشناس و قبل از جلسه به خودت هشدار بده."
+      },
+      "tip": {
+        "en": "Ask a trusted colleague what you're like on a bad day; listen without defending.",
+        "fa": "از یک همکارِ مورد‌اعتماد بپرس در یک روزِ بد چه‌جوری هستی؛ بدونِ دفاع گوش کن."
+      },
+      "pitfall": {
+        "en": "Assuming everyone works and reacts the way you do.",
+        "fa": "فرض‌کردنِ اینکه همه مثلِ تو کار و واکنش می‌کنند."
+      }
+    },
+    "impostor": {
+      "part": "self",
+      "n": 11,
+      "name": {
+        "en": "Befriend Impostor Feelings",
+        "fa": "با حسِ قلابی‌بودن کنار بیا"
+      },
+      "glabel": {
+        "en": "Impostor",
+        "fa": "حسِ قلابی"
+      },
+      "principle": {
+        "en": "Feeling like a fraud who'll be found out is normal — almost every manager feels it, especially early.",
+        "fa": "این حس که قلابی‌ای و بالاخره لو می‌روی، طبیعی است — تقریباً هر مدیری، مخصوصاً اوایل، این حس را دارد."
+      },
+      "more": {
+        "en": "Impostor feelings don't mean you're not good enough; they mean you're doing something new and hard. Name the feeling, talk about it, and keep acting anyway. Confidence follows action, not the other way around.",
+        "fa": "حسِ قلابی‌بودن به این معنا نیست که به‌اندازهٔ کافی خوب نیستی؛ یعنی داری کارِ تازه و سختی می‌کنی. حس را اسم ببر، درباره‌اش حرف بزن، و به‌هرحال به عمل ادامه بده. اعتماد‌به‌نفس بعد از عمل می‌آید، نه برعکس."
+      },
+      "example": {
+        "en": "Even senior managers admit they still sometimes feel out of their depth.",
+        "fa": "حتی مدیرهای باتجربه هم اعتراف می‌کنند گاهی هنوز حس می‌کنند از پسش برنمی‌آیند."
+      },
+      "tip": {
+        "en": "Say the feeling out loud to a peer; naming it shrinks it.",
+        "fa": "حس را با یک هم‌ردیف بلند بگو؛ اسم‌بردنش، کوچکش می‌کند."
+      },
+      "pitfall": {
+        "en": "Reading normal self-doubt as proof you're not cut out for it.",
+        "fa": "خواندنِ تردیدِ طبیعی به‌عنوانِ دلیلِ اینکه به‌دردِ این کار نمی‌خوری."
+      }
+    },
+    "energy": {
+      "part": "self",
+      "n": 12,
+      "name": {
+        "en": "Guard Your Energy",
+        "fa": "انرژی‌ات را نگه دار"
+      },
+      "glabel": {
+        "en": "Energy",
+        "fa": "انرژی"
+      },
+      "principle": {
+        "en": "Your time and energy are your most precious resources — protect them so you can show up calm and present.",
+        "fa": "وقت و انرژی‌ات، باارزش‌ترین منابعِ تواند — نگهشان دار تا بتوانی آرام و حاضر ظاهر شوی."
+      },
+      "more": {
+        "en": "A frazzled, overbooked manager makes worse decisions and spreads stress to the team. Guard your calendar, protect focus time, and manage your energy like a budget — because how you show up sets the tone for everyone.",
+        "fa": "مدیرِ کلافه و پُرمشغله، تصمیم‌های بدتری می‌گیرد و استرس را به تیم پخش می‌کند. مراقبِ تقویمت باش، وقتِ تمرکز را نگه دار، و انرژی‌ات را مثلِ یک بودجه مدیریت کن — چون طرزِ ظاهر‌شدنت، فضای همه را می‌سازد."
+      },
+      "example": {
+        "en": "Blocking two hours of focus time can be worth more than five back-to-back meetings.",
+        "fa": "بلوکه‌کردنِ دو ساعت وقتِ تمرکز می‌تواند از پنج جلسهٔ پشتِ‌سرِ هم باارزش‌تر باشد."
+      },
+      "tip": {
+        "en": "Protect one recurring block for deep work and guard it like a meeting.",
+        "fa": "یک بلوکِ همیشگی برای کارِ عمیق نگه دار و مثلِ یک جلسه ازش محافظت کن."
+      },
+      "pitfall": {
+        "en": "Saying yes to every meeting until you have no time to think.",
+        "fa": "بله‌گفتن به هر جلسه تا جایی که وقتی برای فکر‌کردن نمی‌ماند."
+      }
+    },
+    "meetings": {
+      "part": "scale",
+      "n": 13,
+      "name": {
+        "en": "Run Great Meetings",
+        "fa": "جلسه‌های خوب بگذار"
+      },
+      "glabel": {
+        "en": "Meetings",
+        "fa": "جلسه"
+      },
+      "principle": {
+        "en": "A great meeting has a clear purpose and leaves people clearer and more energized than before.",
+        "fa": "یک جلسهٔ خوب هدفِ روشن دارد و آدم‌ها را روشن‌تر و پُرانرژی‌تر از قبل رها می‌کند."
+      },
+      "more": {
+        "en": "Every meeting should have one obvious reason to exist and the right people in the room. Decide what a good outcome is before you start, make sure quieter voices are heard, and end with clear next steps — or don't hold it at all.",
+        "fa": "هر جلسه باید یک دلیلِ روشن برای بودن داشته باشد و آدم‌های درست را در اتاق. قبل از شروع تصمیم بگیر نتیجهٔ خوب چیست، مطمئن شو صداهای آرام‌تر هم شنیده می‌شوند، و با قدم‌های بعدیِ روشن تمامش کن — یا اصلاً برگزارش نکن."
+      },
+      "example": {
+        "en": "‘What decision do we need to make today?’ at the top keeps a meeting on the rails.",
+        "fa": "«امروز باید چه تصمیمی بگیریم؟» در ابتدای جلسه، آن را روی ریل نگه می‌دارد."
+      },
+      "tip": {
+        "en": "Write the meeting's purpose and desired outcome at the top of the invite.",
+        "fa": "هدف و نتیجهٔ دلخواهِ جلسه را بالای دعوت‌نامه بنویس."
+      },
+      "pitfall": {
+        "en": "Holding a meeting out of habit, with no clear purpose or decision.",
+        "fa": "برگزاریِ جلسه از رویِ عادت، بی‌هدفِ روشن یا تصمیم."
+      }
+    },
+    "hiring": {
+      "part": "scale",
+      "n": 14,
+      "name": {
+        "en": "Hire Well",
+        "fa": "خوب استخدام کن"
+      },
+      "glabel": {
+        "en": "Hiring",
+        "fa": "استخدام"
+      },
+      "principle": {
+        "en": "Hiring is building the future of your team — treat it as a top priority, not an interruption.",
+        "fa": "استخدام یعنی ساختنِ آیندهٔ تیمت — آن را یک اولویتِ اصلی بدان، نه یک مزاحمت."
+      },
+      "more": {
+        "en": "Every hire changes what your team can become. Invest real time in it: know what you're looking for, sell the mission, and hire for strengths and potential over a flawless but generic résumé. A great team is built one deliberate hire at a time.",
+        "fa": "هر استخدام، چیزی که تیمت می‌تواند بشود را عوض می‌کند. وقتِ واقعی برایش بگذار: بدان دنبالِ چه هستی، مأموریت را خوب معرفی کن، و به‌جای رزومهٔ بی‌نقص ولی معمولی، بر اساسِ نقاطِ قوت و ظرفیت استخدام کن. یک تیمِ عالی، استخدام‌به‌استخدام و با تصمیمِ آگاهانه ساخته می‌شود."
+      },
+      "example": {
+        "en": "A curious, fast learner often outgrows a polished candidate who's already peaked.",
+        "fa": "یک آدمِ کنجکاو و زودآموز اغلب از یک نامزدِ صیقلی که به سقفش رسیده جلو می‌زند."
+      },
+      "tip": {
+        "en": "Write down the strengths you need before you read a single résumé.",
+        "fa": "نقاطِ قوتی که لازم داری را قبل از خواندنِ حتی یک رزومه بنویس."
+      },
+      "pitfall": {
+        "en": "Rushing a hire to fill a seat and paying for it for years.",
+        "fa": "عجله در استخدام برای پُرکردنِ یک صندلی، و سال‌ها تاوان‌دادن."
+      }
+    },
+    "growteam": {
+      "part": "scale",
+      "n": 15,
+      "name": {
+        "en": "Lead a Growing Team",
+        "fa": "تیمِ روبه‌رشد را رهبری کن"
+      },
+      "glabel": {
+        "en": "Delegate",
+        "fa": "واگذاری"
+      },
+      "principle": {
+        "en": "As the team grows, shift from doing the work to enabling it: delegate, and hire people better than you.",
+        "fa": "وقتی تیم بزرگ می‌شود، از انجامِ کار به ممکن‌کردنش برو: واگذار کن، و آدم‌هایی بهتر از خودت استخدام کن."
+      },
+      "more": {
+        "en": "What worked with three people breaks with thirty. You can no longer touch everything, so your job becomes hiring strong people, trusting them with real ownership, and building enough process that things run without you in every detail.",
+        "fa": "چیزی که با سه نفر جواب می‌داد، با سی نفر می‌شکند. دیگر نمی‌توانی به همه‌چیز دست بزنی، پس کارت می‌شود استخدامِ آدم‌های قوی، سپردنِ مالکیتِ واقعی به آن‌ها، و ساختنِ آن‌قدر فرایند که کارها بدونِ حضورِ تو در هر جزئیات بچرخند."
+      },
+      "example": {
+        "en": "Handing a project fully to someone — decisions and all — scales you; shadowing it doesn't.",
+        "fa": "سپردنِ کاملِ یک پروژه به کسی — با همهٔ تصمیم‌هایش — تو را گسترش می‌دهد؛ بالای سرش ایستادن نه."
+      },
+      "tip": {
+        "en": "Delegate outcomes, not tasks: hand over the goal and let them own the how.",
+        "fa": "نتیجه را واگذار کن، نه کار را: هدف را بسپار و بگذار «چطورش» مالِ خودشان باشد."
+      },
+      "pitfall": {
+        "en": "Staying in the weeds and becoming the bottleneck for every decision.",
+        "fa": "ماندن در ریزه‌کاری‌ها و تبدیل‌شدن به گلوگاهِ هر تصمیم."
+      }
+    },
+    "culture": {
+      "part": "scale",
+      "n": 16,
+      "name": {
+        "en": "Nurture Culture",
+        "fa": "فرهنگ را بپروران"
+      },
+      "glabel": {
+        "en": "Culture",
+        "fa": "فرهنگ"
+      },
+      "principle": {
+        "en": "Culture is what you celebrate and what you tolerate — your own behavior sets the norms.",
+        "fa": "فرهنگ یعنی چیزی که تشویق می‌کنی و چیزی که تحمل می‌کنی — رفتارِ خودت، هنجارها را می‌سازد."
+      },
+      "more": {
+        "en": "You shape culture whether you mean to or not. People watch what actually gets rewarded and what quietly gets a pass, far more than any stated value. Live the behaviors you want, call out the ones you don't, and be explicit about what your team stands for.",
+        "fa": "چه بخواهی چه نخواهی، به فرهنگ شکل می‌دهی. آدم‌ها خیلی بیشتر از هر ارزشِ اعلام‌شده، حواسشان به این است که واقعاً چه چیزی پاداش می‌گیرد و چه چیزی بی‌سروصدا نادیده گرفته می‌شود. رفتاری که می‌خواهی را خودت زندگی کن، آن‌هایی که نمی‌خواهی را تذکر بده، و روشن بگو تیمت پایِ چه ایستاده است."
+      },
+      "example": {
+        "en": "If you say you value balance but email at midnight, the late emails become the culture.",
+        "fa": "اگر بگویی برایت تعادل مهم است ولی نیمه‌شب ایمیل بزنی، همان ایمیل‌های شبانه می‌شوند فرهنگ."
+      },
+      "tip": {
+        "en": "Pick two behaviors you want to be normal and model them visibly this week.",
+        "fa": "دو رفتار که می‌خواهی عادی باشند را انتخاب کن و همین هفته آشکارا انجامشان بده."
+      },
+      "pitfall": {
+        "en": "Naming values on a poster while rewarding the opposite in practice.",
+        "fa": "نوشتنِ ارزش‌ها روی یک پوستر، درحالی‌که در عمل عکسشان پاداش می‌گیرد."
+      }
+    }
+  },
+  "core": {
+    "name": {
+      "en": "MANAGEMENT",
+      "fa": "مدیریت"
+    },
+    "principle": {
+      "en": "Management is the craft of getting better outcomes from a group of people working together. Your job is not to do the work yourself but to multiply the team — by improving its people, sharpening its purpose, and fixing its process — while earning trust, giving honest feedback, and managing yourself first.",
+      "fa": "مدیریت، هنرِ گرفتنِ نتیجهٔ بهتر از یک گروه آدم است که با هم کار می‌کنند. کارِ تو انجامِ خودِ کار نیست، بلکه چند‌برابر‌کردنِ تیم است — با بهترکردنِ آدم‌ها، تیزکردنِ هدف، و درست‌کردنِ فرایند — درحالی‌که اعتماد می‌سازی، بازخوردِ روراست می‌دهی، و اول از همه خودت را مدیریت می‌کنی."
+    },
+    "more": {
+      "en": "Zhuo organizes the job into a path: understand what management really is (purpose, people, process), survive and earn trust in your first months, master feedback and hard conversations, manage yourself — including the impostor feeling nearly everyone has — and finally scale through great meetings, strong hiring, delegation, and culture. The thread throughout: a manager succeeds only when the team does.",
+      "fa": "ژو این کار را در قالبِ یک مسیر می‌چیند: بفهم مدیریت واقعاً چیست (هدف، آدم‌ها، فرایند)، در ماه‌های اول دوام بیاور و اعتماد بساز، بازخورد و گفت‌وگوهای سخت را استاد شو، خودت را مدیریت کن — از جمله همان حسِ قلابی‌بودن که تقریباً همه دارند — و در آخر با جلسه‌های خوب، استخدامِ قوی، واگذاری، و فرهنگ، بزرگ شو. نخِ رابطِ همه: مدیر فقط وقتی موفق است که تیمش موفق باشد."
+    },
+    "example": {
+      "en": "Click any node to read an idea. You can also drag the nodes around.",
+      "fa": "روی هر دایره کلیک کن تا یک ایده را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."
+    }
+  },
+  "stages": [
+    {
+      "level": 1,
+      "badge": {
+        "en": "Level 1 · Over-simplified",
+        "fa": "سطحِ ۱ · خیلی ساده"
+      },
+      "title": {
+        "en": "Get better outcomes",
+        "fa": "نتیجهٔ بهتر بگیر"
+      },
+      "tagline": {
+        "en": "The whole job in one sentence.",
+        "fa": "کلِ کار در یک جمله."
+      },
+      "body": {
+        "en": "Management is simple to state: your job is to help a group of people get a better result together than they would apart. You win when the team wins — not when you personally do the most work.",
+        "fa": "گفتنِ مدیریت ساده است: کارت این است که کمک کنی یک گروه آدم با هم نتیجه‌ای بهتر از جدا‌جدا بگیرند. تو وقتی می‌بری که تیم می‌برد — نه وقتی خودت بیشترین کار را می‌کنی."
+      },
+      "example": {
+        "en": "If your team ships something great, you did your job — even if you wrote none of it.",
+        "fa": "اگر تیمت چیزِ خوبی به سرانجام برساند، کارت را کرده‌ای — حتی اگر هیچ بخشش را خودت ننوشته باشی."
+      },
+      "gain": {
+        "en": "You hold the one definition the whole book builds on.",
+        "fa": "همان یک تعریفی را داری که کلِ کتاب رویش ساخته می‌شود."
+      }
+    },
+    {
+      "level": 2,
+      "badge": {
+        "en": "Level 2 · Simple",
+        "fa": "سطحِ ۲ · ساده"
+      },
+      "title": {
+        "en": "People, purpose, process",
+        "fa": "آدم‌ها، هدف، فرایند"
+      },
+      "tagline": {
+        "en": "The three things you actually work on.",
+        "fa": "سه چیزی که واقعاً روشان کار می‌کنی."
+      },
+      "body": {
+        "en": "A manager improves three levers: <b>people</b> (a motivated, capable team), <b>purpose</b> (a clear, shared why), and <b>process</b> (how decisions and work happen). You're a <b>multiplier</b>: make each person a bit better and the whole team's output grows.",
+        "fa": "مدیر سه اهرم را بهتر می‌کند: <b>آدم‌ها</b> (تیمی باانگیزه و توانا)، <b>هدف</b> (یک «چراییِ» روشن و مشترک)، و <b>فرایند</b> (اینکه تصمیم و کار چطور اتفاق می‌افتند). تو یک <b>چند‌برابر‌کننده‌ای</b>: هر نفر را کمی بهتر کن تا خروجیِ کلِ تیم بزرگ شود."
+      },
+      "example": {
+        "en": "A stuck team usually has one weak lever — often a fuzzy purpose, not lazy people.",
+        "fa": "یک تیمِ گیرکرده معمولاً یک اهرمِ ضعیف دارد — اغلب یک هدفِ مبهم، نه آدم‌های تنبل."
+      },
+      "gain": {
+        "en": "You can diagnose why a team is struggling.",
+        "fa": "می‌توانی تشخیص بدهی چرا یک تیم به‌زحمت افتاده."
+      }
+    },
+    {
+      "level": 3,
+      "badge": {
+        "en": "Level 3 · Balanced",
+        "fa": "سطحِ ۳ · متعادل"
+      },
+      "title": {
+        "en": "Trust and feedback",
+        "fa": "اعتماد و بازخورد"
+      },
+      "tagline": {
+        "en": "Earn trust, then tell the truth.",
+        "fa": "اعتماد بساز، بعد حقیقت را بگو."
+      },
+      "body": {
+        "en": "The daily craft rests on two things. Build <b>trust</b> through regular <b>1:1s</b> and by admitting what you don't know. Then give lots of <b>feedback</b> — specific and timely — and don't dodge the <b>hard conversations</b>, because said with empathy they're what help people grow.",
+        "fa": "صنعتِ روزمره روی دو چیز بنا شده. با <b>جلسه‌های تک‌به‌تکِ</b> منظم و اعترافِ به آنچه نمی‌دانی، <b>اعتماد</b> بساز. بعد کلی <b>بازخورد</b> بده — مشخص و به‌موقع — و از <b>گفت‌وگوهای سخت</b> فرار نکن، چون وقتی با همدلی گفته شوند، همان‌هایی‌اند که به رشدِ آدم‌ها کمک می‌کنند."
+      },
+      "example": {
+        "en": "‘The way you framed the tradeoffs made the call easy’ teaches more than ‘nice work.’",
+        "fa": "«طوری که سبک‌سنگین‌ها را چیدی تصمیم را آسان کرد» بیشتر از «خوب بود» یاد می‌دهد."
+      },
+      "gain": {
+        "en": "You can build real relationships and coach people through them.",
+        "fa": "می‌توانی رابطهٔ واقعی بسازی و از دلِ آن آدم‌ها را راهنمایی کنی."
+      }
+    },
+    {
+      "level": 4,
+      "badge": {
+        "en": "Level 4 · Advanced",
+        "fa": "سطحِ ۴ · پیشرفته"
+      },
+      "title": {
+        "en": "Manage yourself",
+        "fa": "خودت را مدیریت کن"
+      },
+      "tagline": {
+        "en": "Know yourself; guard your energy.",
+        "fa": "خودت را بشناس؛ انرژی‌ات را نگه دار."
+      },
+      "body": {
+        "en": "The hardest person to manage is you. Learn your <b>strengths and triggers</b>, make peace with the <b>impostor feeling</b> nearly every manager has, and guard your <b>time and energy</b> — how you show up, calm or frazzled, sets the tone for the whole team.",
+        "fa": "سخت‌ترین آدمی که باید مدیریت کنی، خودتی. <b>نقاطِ قوت و حساسیت‌هایت</b> را بشناس، با آن <b>حسِ قلابی‌بودن</b> که تقریباً هر مدیری دارد کنار بیا، و از <b>وقت و انرژی‌ات</b> محافظت کن — طرزِ ظاهر‌شدنت، آرام یا کلافه، فضای کلِ تیم را می‌سازد."
+      },
+      "example": {
+        "en": "Blocking focus time and naming your stress triggers keeps you steady for others.",
+        "fa": "نگه‌داشتنِ وقتِ تمرکز و شناختنِ محرک‌های استرست، تو را برای بقیه محکم نگه می‌دارد."
+      },
+      "gain": {
+        "en": "You can stay steady and lead from a place that's actually you.",
+        "fa": "می‌توانی محکم بمانی و از جایی که واقعاً خودتی رهبری کنی."
+      }
+    },
+    {
+      "level": 5,
+      "badge": {
+        "en": "Level 5 · Expert",
+        "fa": "سطحِ ۵ · حرفه‌ای"
+      },
+      "title": {
+        "en": "Scale the team",
+        "fa": "تیم را بزرگ کن"
+      },
+      "tagline": {
+        "en": "Meetings, hiring, delegation, culture.",
+        "fa": "جلسه، استخدام، واگذاری، فرهنگ."
+      },
+      "body": {
+        "en": "At scale your job changes from doing to designing. Run <b>meetings</b> that leave people clearer and more energized. Treat <b>hiring</b> as building the future. <b>Delegate</b> outcomes and hire people better than you. And shape <b>culture</b> deliberately — it's what you celebrate and tolerate, set by your own behavior. A manager succeeds only when the team does.",
+        "fa": "در مقیاسِ بزرگ، کارت از انجام‌دادن به طراحی‌کردن تغییر می‌کند. <b>جلسه‌هایی</b> بگذار که آدم‌ها را روشن‌تر و پُرانرژی‌تر رها کنند. <b>استخدام</b> را ساختنِ آینده بدان. نتیجه‌ها را <b>واگذار</b> کن و آدم‌هایی بهتر از خودت بگیر. و <b>فرهنگ</b> را آگاهانه بساز — همان چیزی که تشویق و تحمل می‌کنی، که با رفتارِ خودت تعیین می‌شود. مدیر فقط وقتی موفق است که تیمش موفق باشد."
+      },
+      "example": {
+        "en": "You hand a project over fully, hire someone sharper than you, and mean it.",
+        "fa": "یک پروژه را کامل واگذار می‌کنی، کسی تیزتر از خودت استخدام می‌کنی، و واقعاً پایش می‌ایستی."
+      },
+      "gain": {
+        "en": "You can grow a team that thrives without you in every detail.",
+        "fa": "می‌توانی تیمی بسازی که بدونِ حضورِ تو در هر جزئیات، شکوفا می‌شود."
+      }
+    }
+  ],
+  "quotes": [
+    {
+      "en": "Your job, as a manager, is to get better outcomes from a group of people working together.",
+      "fa": "کارِ تو به‌عنوانِ مدیر این است که از یک گروه آدم که با هم کار می‌کنند، نتیجهٔ بهتری بگیری."
+    },
+    {
+      "en": "Your role as a manager is not to do the work yourself, even if you are the best at it, because that will only take you so far.",
+      "fa": "نقشِ تو به‌عنوانِ مدیر این نیست که خودت کار را انجام بدهی، حتی اگر بهترینش باشی، چون این فقط تا جایی تو را می‌برد."
+    },
+    {
+      "en": "Your role is to improve the purpose, people, and process of your team to get as high a multiplier effect on your collective outcome as you can.",
+      "fa": "نقشِ تو این است که هدف، آدم‌ها، و فرایندِ تیمت را بهتر کنی تا بیشترین اثرِ چند‌برابری را روی نتیجهٔ جمعی‌تان بگیری."
+    },
+    {
+      "en": "The most precious resource you have is your own time and energy, and when you spend it on your team, it goes a long way toward building healthy relationships.",
+      "fa": "باارزش‌ترین منبعی که داری، وقت و انرژیِ خودت است، و وقتی صرفِ تیمت می‌کنی‌اش، خیلی به ساختنِ رابطه‌های سالم کمک می‌کند."
+    },
+    {
+      "en": "1:1s should be focused on your report and what would help him be more successful, not on you and what you need.",
+      "fa": "جلسه‌های تک‌به‌تک باید روی همان نفر و آنچه به موفقیتش کمک می‌کند متمرکز باشند، نه روی تو و آنچه تو لازم داری."
+    },
+    {
+      "en": "Strive for all your one-on-one meetings to feel a little awkward. Why? Because the most important and meaningful conversations have that characteristic.",
+      "fa": "تلاش کن همهٔ جلسه‌های تک‌به‌تکت کمی معذب‌کننده باشند. چرا؟ چون مهم‌ترین و معنادارترین گفت‌وگوها همین ویژگی را دارند."
+    },
+    {
+      "en": "The most common response to the question “How could your manager better support you?” is simply “Give me more feedback.”",
+      "fa": "پُرتکرارترین جواب به این سؤال که «مدیرت چطور می‌توانست بهتر پشتیبانی‌ات کند؟» فقط این است: «بیشتر بهم بازخورد بده.»"
+    },
+    {
+      "en": "Your job as a manager isn't to dole out advice—it's to empower your report to find the answer herself.",
+      "fa": "کارِ تو به‌عنوانِ مدیر این نیست که نصیحت تحویل بدهی — این است که همان نفر را توانمند کنی تا خودش جواب را پیدا کند."
+    },
+    {
+      "en": "When we are going through tough times, the thing that's often the most helpful isn't advice or answers but empathy.",
+      "fa": "وقتی روزهای سختی را می‌گذرانیم، چیزی که اغلب بیشترین کمک را می‌کند نصیحت یا جواب نیست، همدلی است."
+    }
+  ],
+  "media": [
+    {
+      "kind": "yt",
+      "id": "t1KskLsRECk",
+      "src": {
+        "en": "YouTube · FranklinCovey",
+        "fa": "یوتیوب · FranklinCovey"
+      },
+      "title": {
+        "en": "Understand Your Role as a Manager — Julie Zhuo",
+        "fa": "نقشت را به‌عنوانِ مدیر بفهم — جولی ژو"
+      },
+      "desc": {
+        "en": "Julie Zhuo explains what a manager is really there to do.",
+        "fa": "جولی ژو توضیح می‌دهد که یک مدیر واقعاً برای چه کاری آنجاست."
+      },
+      "bullets": {
+        "en": [
+          "The core definition of management",
+          "Why you're a multiplier, not a doer",
+          "Straight from the author"
+        ],
+        "fa": [
+          "تعریفِ اصلیِ مدیریت",
+          "چرا تو چند‌برابر‌کننده‌ای، نه انجام‌دهنده",
+          "مستقیم از خودِ نویسنده"
+        ]
+      },
+      "best": {
+        "en": "Best for Stage 1–2.",
+        "fa": "خوب برای مرحلهٔ ۱ و ۲."
+      }
+    },
+    {
+      "kind": "yt",
+      "id": "GmOlrQAdb5A",
+      "src": {
+        "en": "YouTube · LEADx",
+        "fa": "یوتیوب · LEADx"
+      },
+      "title": {
+        "en": "The Making of a Manager — Julie Zhuo Interview",
+        "fa": "ساختنِ یک مدیر — گفت‌وگو با جولی ژو"
+      },
+      "desc": {
+        "en": "A conversation with Julie Zhuo on becoming a manager and the book's ideas.",
+        "fa": "گفت‌وگویی با جولی ژو دربارهٔ مدیر‌شدن و ایده‌های کتاب."
+      },
+      "bullets": {
+        "en": [
+          "Lessons from leading at Facebook",
+          "Trust, feedback, and first months",
+          "Practical, real-world advice"
+        ],
+        "fa": [
+          "درس‌هایی از رهبری در فیسبوک",
+          "اعتماد، بازخورد، و ماه‌های اول",
+          "توصیه‌های عملی و واقعی"
+        ]
+      },
+      "best": {
+        "en": "Best for Stage 2–3.",
+        "fa": "خوب برای مرحلهٔ ۲ و ۳."
+      }
+    },
+    {
+      "kind": "yt",
+      "id": "Qyo8gETr5FI",
+      "src": {
+        "en": "YouTube · Book Ginger",
+        "fa": "یوتیوب · Book Ginger"
+      },
+      "title": {
+        "en": "The Making of a Manager — Animated Summary",
+        "fa": "ساختنِ یک مدیر — خلاصهٔ انیمیشنی"
+      },
+      "desc": {
+        "en": "An animated summary of the book for new leaders.",
+        "fa": "یک خلاصهٔ انیمیشنی از کتاب برای رهبرانِ تازه‌کار."
+      },
+      "bullets": {
+        "en": [
+          "The whole book in a few minutes",
+          "Key ideas, visualized",
+          "A fast, memorable recap"
+        ],
+        "fa": [
+          "کلِ کتاب در چند دقیقه",
+          "ایده‌های کلیدی، تصویری",
+          "یک مرورِ سریع و به‌یادماندنی"
+        ]
+      },
+      "best": {
+        "en": "Best for Stage 1–3.",
+        "fa": "خوب برای مرحلهٔ ۱ تا ۳."
+      }
+    },
+    {
+      "kind": "img",
+      "url": "https://www.penguinrandomhouse.com/books/558155/the-making-of-a-manager-by-julie-zhuo/",
+      "src": {
+        "en": "Penguin Random House · Publisher",
+        "fa": "Penguin Random House · ناشر"
+      },
+      "title": {
+        "en": "The Making of a Manager — Publisher Page",
+        "fa": "ساختنِ یک مدیر — صفحهٔ ناشر"
+      },
+      "desc": {
+        "en": "The official publisher page, with editions and details.",
+        "fa": "صفحهٔ رسمیِ ناشر، با نسخه‌ها و جزئیات."
+      },
+      "bullets": {
+        "en": [
+          "The official edition",
+          "About Julie Zhuo",
+          "Straight from the source"
+        ],
+        "fa": [
+          "نسخهٔ رسمی",
+          "دربارهٔ جولی ژو",
+          "مستقیم از خودِ منبع"
+        ]
+      },
+      "best": {
+        "en": "For editions and the source.",
+        "fa": "برای نسخه‌ها و منبعِ اصلی."
+      }
+    }
+  ],
+  "go": [
+    {
+      "label": {
+        "en": "Publisher page",
+        "fa": "صفحهٔ ناشر"
+      },
+      "url": "https://www.penguinrandomhouse.com/books/558155/the-making-of-a-manager-by-julie-zhuo/"
+    },
+    {
+      "label": {
+        "en": "Book on Goodreads",
+        "fa": "کتاب در گودریدز"
+      },
+      "url": "https://www.goodreads.com/book/show/38821039-the-making-of-a-manager"
+    },
+    {
+      "label": {
+        "en": "Author's page: The Making of a Manager",
+        "fa": "صفحهٔ نویسنده: ساختنِ یک مدیر"
+      },
+      "url": "https://www.juliezhuo.com/book/manager.html"
+    }
+  ],
+  "recs": [
+    {
+      "pri": "b",
+      "t": {
+        "en": "Book a weekly 1:1 with every report",
+        "fa": "با هر نفر یک جلسهٔ هفتگیِ تک‌به‌تک بگذار"
+      },
+      "d": {
+        "en": "Thirty minutes, focused on them — the single highest-leverage habit of a new manager.",
+        "fa": "سی دقیقه، متمرکز بر خودِ او — پُراهرم‌ترین عادتِ یک مدیرِ تازه‌کار."
+      }
+    },
+    {
+      "pri": "b",
+      "t": {
+        "en": "Give one specific piece of feedback today",
+        "fa": "همین امروز یک بازخوردِ مشخص بده"
+      },
+      "d": {
+        "en": "Name exactly what you saw and what you'd like to see next — don't wait for review season.",
+        "fa": "دقیقاً بگو چه دیدی و دفعهٔ بعد چه می‌خواهی ببینی — منتظرِ فصلِ ارزیابی نمان."
+      }
+    },
+    {
+      "pri": "n",
+      "t": {
+        "en": "Have the conversation you're avoiding",
+        "fa": "همان گفت‌وگویی که ازش فرار می‌کنی را انجام بده"
+      },
+      "d": {
+        "en": "Raise the small tension now, kindly and clearly, before it grows into a big one.",
+        "fa": "همان تنشِ کوچک را حالا، با مهربانی و روشنی، مطرح کن؛ قبل از اینکه بزرگ شود."
+      }
+    },
+    {
+      "pri": "n",
+      "t": {
+        "en": "Protect two hours of focus time",
+        "fa": "دو ساعت وقتِ تمرکز را نگه دار"
+      },
+      "d": {
+        "en": "Block it on your calendar and guard it like a meeting — your energy is a resource.",
+        "fa": "روی تقویمت بلوکه‌اش کن و مثلِ یک جلسه ازش محافظت کن — انرژی‌ات یک منبع است."
+      }
+    }
+  ]
 });
 </script>
 </body>
