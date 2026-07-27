@@ -23,7 +23,7 @@
 .rw-overlay.open{display:flex}
 .rw-sheet{width:100%;max-width:600px;max-height:88vh;overflow:auto;background:var(--bg);
   border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow-lg);
-  animation:rwPop .22s cubic-bezier(.16,1,.3,1)}
+  animation:rwPop .22s var(--ease-out)}
 @keyframes rwPop{from{opacity:0;transform:translateY(10px) scale(.98)}to{opacity:1;transform:none}}
 .rw-body{position:relative;padding:32px}
 
@@ -122,7 +122,7 @@ html[dir="rtl"] .rw-cgo{transform:scaleX(-1)}
 @media(max-width:640px){
   .rw-overlay{align-items:flex-end;padding:0}
   .rw-sheet{max-width:none;max-height:92vh;border-radius:24px 24px 0 0;border-bottom:0;
-    animation:rwSlide .26s cubic-bezier(.16,1,.3,1)}
+    animation:rwSlide .3s var(--ease-drawer)}
   .rw-body{padding:24px 20px calc(24px + env(safe-area-inset-bottom))}
   .rw-body::before{content:"";position:absolute;top:10px;inset-inline-start:50%;transform:translateX(-50%);
     width:40px;height:4px;border-radius:9999px;background:var(--line-strong)}
@@ -138,4 +138,55 @@ html[dir="rtl"] .rw-cgo{transform:scaleX(-1)}
 }
 @media (prefers-reduced-transparency: reduce){
   .rw-overlay{backdrop-filter:none;-webkit-backdrop-filter:none;background:color-mix(in srgb,var(--ink) 55%,transparent)}
+}
+
+/* ══════════════════════════════════════════════════════════════
+   POLISH LAYER — design-engineering pass
+   ═══════════════════════════════════════════════════════════════ */
+
+/* press feedback on every pressable surface in the wizard */
+.rw-card,.rw-x,.rw-skip{transition:transform var(--d1) var(--ease-out),
+  background var(--d1) var(--ease),border-color var(--d1) var(--ease),box-shadow var(--d2) var(--ease-out)}
+.rw-card:active{transform:scale(.99)}
+.rw-x:active,.rw-skip:active{transform:scale(.94)}
+.rw-chip:active{transform:scale(.98)}
+
+/* hover only where a real pointer exists — no sticky states on touch */
+@media (hover:hover) and (pointer:fine){
+  .rw-card:hover{transform:translateY(-2px)}
+  .rw-card:hover .rw-cgo{transform:translateX(2px)}
+  html[dir="rtl"] .rw-card:hover .rw-cgo{transform:scaleX(-1) translateX(2px)}
+}
+@media (hover:none){
+  .rw-card:hover{transform:none;box-shadow:none}
+  .rw-card:active{background:var(--card2)}
+}
+.rw-cgo{transition:transform var(--d2) var(--ease-out),color var(--d1) var(--ease)}
+
+/* results cascade in — 45ms apart, decorative only, never blocking */
+@keyframes rwRise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.rw-cards .rw-card{animation:rwRise .34s var(--ease-out) both}
+.rw-cards .rw-card:nth-child(2){animation-delay:45ms}
+.rw-cards .rw-card:nth-child(3){animation-delay:90ms}
+.rw-cards .rw-card:nth-child(4){animation-delay:135ms}
+.rw-cards .rw-card:nth-child(5){animation-delay:180ms}
+.rw-cards .rw-card:nth-child(6){animation-delay:225ms}
+.rw-cards .rw-card:nth-child(n+7){animation-delay:270ms}
+
+/* step content swaps with a soft settle so the sheet doesn't jump */
+@keyframes rwStep{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.rw-q{animation:rwStep .26s var(--ease-out) both}
+/* the step dots fill like a progress bar rather than blinking */
+.rw-dot{transition:background var(--d2) var(--ease),transform var(--d2) var(--ease-out);transform-origin:left center}
+html[dir="rtl"] .rw-dot{transform-origin:right center}
+.rw-dot.on{transform:scaleX(1.08)}
+
+/* selection tick pops rather than appearing from nothing */
+@keyframes tickIn{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:none}}
+.rw-chip.on .rw-cktick{animation:tickIn .2s var(--ease-out) both}
+
+@media (prefers-reduced-motion: reduce){
+  .rw-cards .rw-card,.rw-q,.rw-chip.on .rw-cktick{animation:none}
+  .rw-card:hover{transform:none}
+  .rw-dot.on{transform:none}
 }

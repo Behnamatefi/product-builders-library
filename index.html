@@ -41,7 +41,7 @@
   --g-mint:#a7e5d3; --g-peach:#f4c5a8; --g-lavender:#c8b8e0; --g-sky:#a8c8e8; --g-rose:#e8b8c4;
   --c-teal:#a7e5d3; --c-blue:#a8c8e8; --c-violet:#c8b8e0; --c-amber:#f4c5a8;
   --c-green:#a7e5d3; --c-red:#e8b8c4; --c-gold:#f4c5a8; --c-gray:#d6d3d1;
-  --ease:cubic-bezier(.2,.8,.2,1); --ease-out:cubic-bezier(.16,1,.3,1);
+  --ease:cubic-bezier(.23,1,.32,1); --ease-out:cubic-bezier(.23,1,.32,1); --ease-io:cubic-bezier(.77,0,.175,1); --ease-drawer:cubic-bezier(.32,.72,0,1);
   --d1:.16s; --d2:.28s;
 }
 [data-theme="dark"]{
@@ -54,7 +54,7 @@
   --g-mint:#a7e5d3; --g-peach:#f4c5a8; --g-lavender:#c8b8e0; --g-sky:#a8c8e8; --g-rose:#e8b8c4;
   --c-teal:#a7e5d3; --c-blue:#a8c8e8; --c-violet:#c8b8e0; --c-amber:#f4c5a8;
   --c-green:#a7e5d3; --c-red:#e8b8c4; --c-gold:#f4c5a8; --c-gray:#57534e;
-  --ease:cubic-bezier(.2,.8,.2,1); --ease-out:cubic-bezier(.16,1,.3,1);
+  --ease:cubic-bezier(.23,1,.32,1); --ease-out:cubic-bezier(.23,1,.32,1); --ease-io:cubic-bezier(.77,0,.175,1); --ease-drawer:cubic-bezier(.32,.72,0,1);
   --d1:.16s; --d2:.28s;
 }
 *{box-sizing:border-box}
@@ -71,7 +71,10 @@ button,a{-webkit-tap-highlight-color:transparent}
 .langbtn,.themebtn,.rw-trigger,.navlink{transition:transform var(--d1) var(--ease),background var(--d1) var(--ease),color var(--d1) var(--ease)}
 .langbtn:active,.themebtn:active,.rw-trigger:active{transform:scale(.97)}
 @media(prefers-reduced-transparency:reduce){.navbar{backdrop-filter:none;-webkit-backdrop-filter:none;background:var(--bg)}}
-@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.001ms !important;transition-duration:.001ms !important}}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;
+    transition-property:opacity,color,background-color,border-color !important;
+    transition-duration:.15s !important;transform:none !important}}
 
 /* ── HERO — off-white editorial band with atmospheric orbs ── */
 .hero{background:var(--bg);color:var(--ink);padding:96px 0 80px;position:relative;overflow:hidden}
@@ -225,6 +228,77 @@ html[data-lang="en"] .masthead .logotype .lt-main{font-family:Newsreader,"Times 
   .masthead .logotype .lt-main{font-size:20px}
   .masthead .logotype .lt-sub{font-size:11px}
   .wrap{padding:0 20px 64px}
+}
+
+/* ══════════════════════════════════════════════════════════════
+   POLISH LAYER — design-engineering pass
+   Press feedback everywhere · hovers gated to fine pointers ·
+   staggered entries · origin-aware motion.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── press states ─────────────────────────────────────────── */
+.book,.navlink,.foot .li,.masthead .logo,.orbcard,.step{
+  transition:transform var(--d1) var(--ease-out),background var(--d1) var(--ease),
+             border-color var(--d1) var(--ease),box-shadow var(--d2) var(--ease-out)}
+.navlink:active,.foot .li:active,.masthead .logo:active{transform:scale(.97)}
+.book:active{transform:scale(.995)}
+
+/* ── hover only for real pointers ─────────────────────────── */
+@media (hover:hover) and (pointer:fine){
+  .book.live:hover{transform:translateY(-1px)}
+  .orbcard:hover,.step:hover{transform:translateY(-2px);border-color:var(--line-strong);box-shadow:var(--shadow-lg)}
+  .chip{transition:transform var(--d2) var(--ease-out),border-color var(--d2) var(--ease)}
+  .chip:hover{transform:translateY(-2px);border-color:var(--line-strong)}
+  .group{transition:box-shadow var(--d2) var(--ease-out),border-color var(--d2) var(--ease)}
+  .group:hover{border-color:var(--line-strong)}
+  /* title leads the card on hover — a small directional cue */
+  .book .btitle{transition:transform var(--d2) var(--ease-out)}
+  .book.live:hover .btitle{transform:translateX(2px)}
+  html[dir="rtl"] .book.live:hover .btitle{transform:translateX(-2px)}
+  .foot .li::after{content:"";position:absolute;inset-inline-start:0;bottom:-2px;width:100%;height:1px;
+    background:currentColor;transform:scaleX(0);transform-origin:inline-start;
+    transition:transform var(--d2) var(--ease-out)}
+  .foot .li{position:relative;text-decoration:none}
+  .foot .li:hover{text-decoration:none}
+  .foot .li:hover::after{transform:scaleX(1)}
+}
+@media (hover:none){
+  .book.live:hover{transform:none;background:transparent}
+  .book.live:active{background:var(--bg2)}
+  .orbcard:hover,.step:hover,.chip:hover{transform:none;box-shadow:none}
+}
+
+/* ── staggered entries ────────────────────────────────────── */
+@keyframes riseIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.hero .eyebrow,.hero h1,.hero .dek,.hero-cta,.chips{animation:riseIn .5s var(--ease-out) both}
+.hero h1{animation-delay:40ms}
+.hero .dek{animation-delay:80ms}
+.hero-cta{animation-delay:120ms}
+.chips{animation-delay:160ms}
+.orbgrid>*,.steps>*{animation:riseIn .4s var(--ease-out) both}
+.orbgrid>*:nth-child(2),.steps>*:nth-child(2){animation-delay:60ms}
+.orbgrid>*:nth-child(3),.steps>*:nth-child(3){animation-delay:120ms}
+
+/* sections settle as they scroll into view (progressive enhancement) */
+@supports (animation-timeline:view()){
+  @media (prefers-reduced-motion:no-preference) and (min-width:761px){
+    .group{animation:riseIn .5s var(--ease-out) both;
+      animation-timeline:view();animation-range:entry 0% entry 28%}
+    .orbgrid>*,.steps>*{animation-timeline:view();animation-range:entry 0% entry 40%}
+  }
+}
+
+/* ── details ──────────────────────────────────────────────── */
+::selection{background:color-mix(in srgb,var(--g-lavender) 70%,transparent);color:var(--ink)}
+.chip b,.gnum,.stepn{font-variant-numeric:tabular-nums}
+.group,.orbcard,.step,.chip{border-radius:16px}
+.book:focus-visible{outline-offset:-2px;border-radius:12px}
+/* the group number plate lifts subtly with its card */
+.gnum{transition:transform var(--d2) var(--ease-out)}
+@media (hover:hover) and (pointer:fine){.group:hover .gnum{transform:scale(1.04)}}
+
+@media (prefers-reduced-motion: reduce){
+  .hero .eyebrow,.hero h1,.hero .dek,.hero-cta,.chips,.orbgrid>*,.steps>*,.group{animation:none}
 }
 </style>
 </head>
