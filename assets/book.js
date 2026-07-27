@@ -416,19 +416,19 @@
       nodes.forEach(function (n) {
         var inside = '', below = '';
         if (n.kind === 'core') {
-          inside = '<text text-anchor="middle" dominant-baseline="central" font-size="15" font-weight="800" fill="var(--accent-ink)" letter-spacing="0.3">' + shortLabel(n) + '</text>';
+          inside = '<text text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="var(--accent-ink)" letter-spacing="0.5">' + shortLabel(n) + '</text>';
         } else {
           if (n.kind === 'chap') {
-            inside = '<text text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="800" fill="#fff">' + num(n.data.n) + '</text>';
+            inside = '<text text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="600" fill="var(--ink)">' + num(n.data.n) + '</text>';
           }
-          var ly = n.r + (n.kind === 'part' ? 19 : 15);
-          var fs = n.kind === 'part' ? 15 : 12;
-          var stroke = 'paint-order:stroke;stroke:var(--card2);stroke-width:4px;stroke-linejoin:round';
-          below = '<text class="nlab" text-anchor="middle" y="' + ly + '" font-size="' + fs + '" font-weight="' + (n.kind === 'part' ? '800' : '600') + '" fill="var(--ink)" style="' + stroke + '">' + shortLabel(n) + '</text>';
+          var ly = n.r + (n.kind === 'part' ? 21 : 17);
+          var fs = n.kind === 'part' ? 16 : 13;
+          var stroke = 'paint-order:stroke;stroke:var(--bg2);stroke-width:4px;stroke-linejoin:round';
+          below = '<text class="nlab" text-anchor="middle" y="' + ly + '" font-size="' + fs + '" font-weight="' + (n.kind === 'part' ? '500' : '400') + '" fill="var(--ink)" style="' + stroke + '">' + shortLabel(n) + '</text>';
         }
         nd += '<g class="node' + (n.kind === 'core' ? ' ncore' : '') + '" data-id="' + n.id + '"'
           + ' tabindex="0" role="button" aria-label="' + esc(TX(n.label)) + '"><g class="ns">'
-          + '<circle r="' + n.r + '" fill="var(' + n.varc + ')" fill-opacity="' + (n.kind === 'chap' ? 0.96 : 1) + '" stroke="var(--card)" stroke-width="2.5"/>'
+          + '<circle r="' + n.r + '" fill="var(' + n.varc + ')" fill-opacity="' + (n.kind === 'chap' ? 0.9 : 1) + '" stroke="var(--bg2)" stroke-width="2"/>'
           + inside + below + '</g></g>';
       });
       svg.innerHTML = '<g id="glinks">' + ln + '</g><g id="grel"></g><g id="gnodes">' + nd + '</g>';

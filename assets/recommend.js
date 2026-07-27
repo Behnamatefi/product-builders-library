@@ -227,9 +227,9 @@
     var L = lang();
     var closeBtn = '<button class="rw-x" id="rwClose" aria-label="Close">' + IC.close + '</button>';
 
-    if (state.step === 3) { body.innerHTML = closeBtn + renderResults(); wireResults(); return; }
+    if (state.step === 4) { body.innerHTML = closeBtn + renderResults(); wireResults(); return; }
 
-    var steps = 2;
+    var steps = 3;
     var dots = '';
     for (var i = 1; i <= steps; i++) dots += '<span class="rw-dot' + (i <= state.step ? ' on' : '') + '"></span>';
 
@@ -254,17 +254,26 @@
         + '<button class="rw-next" id="rwNext"' + (state.level ? '' : ' disabled') + '>'
           + '<span data-only="en">Next</span><span data-only="fa">بعدی</span>'
           + '<span class="rw-fwd">' + IC.fwd + '</span></button></div>';
-    } else {
+    } else if (state.step === 2) {
       var its = INTENTS.map(function (it) { return chip(state.intents.indexOf(it.key) !== -1, TX(it)); }).join('');
-      var tms = TIMES.map(function (t) { return chip(state.time === t.key, TX(t), TX(t.sub)); }).join('');
       content = '<div class="rw-q">'
         + '<h3><span data-only="en">What do you want to get better at?</span><span data-only="fa">می‌خواهی در چه چیزی بهتر شوی؟</span></h3>'
         + '<p><span data-only="en">Choose one or more — or none to see the essentials.</span><span data-only="fa">یکی یا چندتا انتخاب کن — یا هیچ‌کدام، تا کتاب‌های ضروری را ببینی.</span></p>'
-        + '<div class="rw-chips" data-group="intent">' + its + '</div>'
-        + '<h4><span data-only="en">How much time do you have?</span><span data-only="fa">چقدر وقت داری؟</span></h4>'
-        + '<div class="rw-chips rw-times" data-group="time">' + tms + '</div></div>';
+        + '<div class="rw-chips" data-group="intent">' + its + '</div></div>';
       foot = '<div class="rw-foot">'
         + '<button class="rw-ghost" id="rwBack"><span class="rw-bk">' + IC.back + '</span>'
+          + '<span data-only="en">Back</span><span data-only="fa">قبلی</span></button>'
+        + '<button class="rw-next" id="rwNext2">'
+          + '<span data-only="en">Next</span><span data-only="fa">بعدی</span>'
+          + '<span class="rw-fwd">' + IC.fwd + '</span></button></div>';
+    } else {
+      var tms = TIMES.map(function (t) { return chip(state.time === t.key, TX(t), TX(t.sub)); }).join('');
+      content = '<div class="rw-q">'
+        + '<h3><span data-only="en">How much time do you have?</span><span data-only="fa">چقدر وقت داری؟</span></h3>'
+        + '<p><span data-only="en">This sets how many books your path contains.</span><span data-only="fa">این تعیین می‌کند مسیرت چند کتاب داشته باشد.</span></p>'
+        + '<div class="rw-chips rw-times" data-group="time">' + tms + '</div></div>';
+      foot = '<div class="rw-foot">'
+        + '<button class="rw-ghost" id="rwBack2"><span class="rw-bk">' + IC.back + '</span>'
           + '<span data-only="en">Back</span><span data-only="fa">قبلی</span></button>'
         + '<button class="rw-next" id="rwGo">'
           + '<span data-only="en">Build my reading flow</span><span data-only="fa">مسیرِ خواندنم را بساز</span>'
@@ -293,10 +302,13 @@
         };
       });
     });
-    var nx = root.querySelector('#rwNext'); if (nx) nx.onclick = function () { if (state.level) { state.step = 2; render(); } };
-    var sk = root.querySelector('#rwSkip'); if (sk) sk.onclick = function () { state.step = 2; render(); };
-    var bk = root.querySelector('#rwBack'); if (bk) bk.onclick = function () { state.step = 1; render(); };
-    var go = root.querySelector('#rwGo'); if (go) go.onclick = function () { state.step = 3; render(); };
+    function goTo(step) { state.step = step; render(); }
+    var nx = root.querySelector('#rwNext');  if (nx) nx.onclick  = function () { if (state.level) goTo(2); };
+    var sk = root.querySelector('#rwSkip');  if (sk) sk.onclick  = function () { goTo(2); };
+    var bk = root.querySelector('#rwBack');  if (bk) bk.onclick  = function () { goTo(1); };
+    var n2 = root.querySelector('#rwNext2'); if (n2) n2.onclick  = function () { goTo(3); };
+    var b2 = root.querySelector('#rwBack2'); if (b2) b2.onclick  = function () { goTo(2); };
+    var go = root.querySelector('#rwGo');    if (go) go.onclick  = function () { goTo(4); };
   }
 
   function renderResults() {
