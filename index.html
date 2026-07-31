@@ -110,6 +110,9 @@ button,a{-webkit-tap-highlight-color:transparent}
   -webkit-mask-position:0 100%,64px 100%,128px 100%,192px 100%,256px 100%,320px 100%;
           mask-position:0 100%,64px 100%,128px 100%,192px 100%,256px 100%,320px 100%;
   -webkit-mask-repeat:no-repeat;mask-repeat:no-repeat}
+/* atlas band on the home page */
+.atlas-band{margin-top:96px;padding-top:48px;border-top:1px solid var(--line)}
+.atlas-cta{margin-top:32px}
 /* interactive dot field — canvas replaces the static ::before on pointer devices */
 .hero-grid{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;display:none}
 .hero.grid-live::before{display:none}
@@ -453,6 +456,7 @@ html[data-lang="en"] .masthead .logotype .lt-sub{font-family:var(--f-mono);lette
   <div class="brand"><span class="dot"></span><span data-only="en">Product Builder's Library</span><span data-only="fa">کتابخانهٔ سازندهٔ محصول</span></div>
   <nav class="navlinks">
     <a class="navlink" href="#library"><span class="slash" aria-hidden="true">/</span><span data-only="en">Library</span><span data-only="fa">کتابخانه</span></a>
+    <a class="navlink" href="graph.html"><span class="slash" aria-hidden="true">/</span><span data-only="en">Atlas</span><span data-only="fa">اطلس</span></a>
   </nav>
   <div class="navctl">
     <button class="langbtn" id="langBtn" aria-label="Switch language">
@@ -494,6 +498,18 @@ html[data-lang="en"] .masthead .logotype .lt-sub{font-family:var(--f-mono);lette
 
   <!-- GROUPS render here -->
   <div class="groups" id="groups"></div>
+
+  <!-- THE ATLAS -->
+  <section class="atlas-band" id="atlas">
+    <h2 class="sec-lib"><span class="num"><span data-only="en">02 //</span><span data-only="fa">۰۲ //</span></span><span data-only="en">The atlas</span><span data-only="fa">اطلس</span></h2>
+    <p class="lp-dek"><span data-only="en">One map of the whole library — every book, its group, and the kinships that cut across them. Drag anything; the map gives way.</span><span data-only="fa">یک نقشه از کلِ کتابخانه — هر کتاب، گروهش، و خویشاوندی‌هایی که از میانِ گروه‌ها می‌گذرند. هرچیزی را بکشی، نقشه جا باز می‌کند.</span></p>
+    <div class="atlas-cta">
+      <a class="rw-trigger" href="graph.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="6.5" r="2.2"/><circle cx="18.5" cy="5" r="2.2"/><circle cx="12" cy="12" r="2.6"/><circle cx="5" cy="18" r="2.2"/><circle cx="19" cy="18.5" r="2.2"/><path d="M7.4 7.8 10 10.4M14.3 10.6 16.8 6.6M9.9 13.8 6.6 16.4M14.4 13.5 17.3 16.9"/></svg>
+        <span data-only="en">Open the atlas</span><span data-only="fa">بازکردنِ اطلس</span>
+      </a>
+    </div>
+  </section>
 
 </div>
 

@@ -452,7 +452,12 @@
       var pad = 34;
       vbX = minX - pad; vbY = minY - pad; vbW = (maxX - minX) + pad * 2; vbH = (maxY - minY) + pad * 2;
       svg.setAttribute('viewBox', vbX.toFixed(0) + ' ' + vbY.toFixed(0) + ' ' + vbW.toFixed(0) + ' ' + vbH.toFixed(0));
-      nodes.forEach(function (n) { n.hx = n.x; n.hy = n.y; });
+      nodes.forEach(function (n) { n.hx = n.x; n.hy = n.y; n.vx = 0; n.vy = 0; });
+      /* each link remembers its designed length — the spring's rest state */
+      links.forEach(function (l) {
+        var a = byId(l.s), b = byId(l.t);
+        l.rest = Math.hypot(b.x - a.x, b.y - a.y);
+      });
       draw();
       select('core');
     }
@@ -518,28 +523,101 @@
       var m = svg.getScreenCTM(); if (!m) return { x: e.clientX, y: e.clientY };
       return pt.matrixTransform(m.inverse());
     }
+    /* ── FORCE SIMULATION — the graph is context-aware: dragging any node
+       makes its neighbours give way and follow. Springs on every link pull
+       toward the designed length, close nodes repel so nothing overlaps, and
+       a weak "home" anchor keeps the overall composition legible and settles
+       everything back to order after release. The loop parks itself when the
+       energy drops, and prefers-reduced-motion gets the old single-node drag. */
+    var SIM = { raf: null, on: true };
+    try { SIM.on = !matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+    var K_LINK = 0.028, K_HOME = 0.012, K_REPEL = 210, DAMP = 0.80, VMAX = 11, SLEEP = 0.035;
+
+    function clampNode(n) {
+      n.x = Math.max(vbX + n.r, Math.min(vbX + vbW - n.r, n.x));
+      n.y = Math.max(vbY + n.r, Math.min(vbY + vbH - n.r, n.y));
+    }
+    function simStep() {
+      var i, j, a, b, dx, dy, d, f;
+      /* springs along links */
+      for (i = 0; i < links.length; i++) {
+        var l = links[i]; a = byId(l.s); b = byId(l.t);
+        dx = b.x - a.x; dy = b.y - a.y; d = Math.hypot(dx, dy) || 1;
+        f = K_LINK * (d - l.rest) / d;
+        if (a !== dragNode) { a.vx += dx * f; a.vy += dy * f; }
+        if (b !== dragNode) { b.vx -= dx * f; b.vy -= dy * f; }
+      }
+      /* short-range repulsion (n is small — O(n²) is cheap here) */
+      for (i = 0; i < nodes.length; i++) for (j = i + 1; j < nodes.length; j++) {
+        a = nodes[i]; b = nodes[j];
+        dx = b.x - a.x; dy = b.y - a.y; d = dx * dx + dy * dy;
+        var min = a.r + b.r + 42;
+        if (d > min * min || d === 0) continue;
+        d = Math.sqrt(d); f = K_REPEL * (1 - d / min) / (d * d);
+        if (a !== dragNode) { a.vx -= dx * f * d; a.vy -= dy * f * d; }
+        if (b !== dragNode) { b.vx += dx * f * d; b.vy += dy * f * d; }
+      }
+      /* weak pull home + integrate */
+      var energy = 0;
+      for (i = 0; i < nodes.length; i++) {
+        a = nodes[i]; if (a === dragNode) continue;
+        a.vx += (a.hx - a.x) * K_HOME; a.vy += (a.hy - a.y) * K_HOME;
+        a.vx *= DAMP; a.vy *= DAMP;
+        /* terminal velocity — context shifts stay calm, never explosive */
+        var sp = Math.hypot(a.vx, a.vy);
+        if (sp > VMAX) { a.vx = a.vx / sp * VMAX; a.vy = a.vy / sp * VMAX; }
+        a.x += a.vx; a.y += a.vy;
+        clampNode(a);
+        energy += a.vx * a.vx + a.vy * a.vy;
+      }
+      return energy;
+    }
+    function simLoop() {
+      var e = simStep();
+      positions();
+      if (dragNode || e > SLEEP) { SIM.raf = requestAnimationFrame(simLoop); }
+      else { SIM.raf = null; }
+    }
+    function simWake() {
+      if (!SIM.on) { positions(); return; }
+      if (SIM.raf == null) SIM.raf = requestAnimationFrame(simLoop);
+    }
+
+    var lastPt = null, lastPrev = null;
     function onDown(e) {
       e.preventDefault();
       dragNode = byId(e.currentTarget.getAttribute('data-id'));
       dragEl = e.currentTarget;
       moved = false; startPt = toSvg(e); svg.style.cursor = 'grabbing';
+      lastPt = { x: dragNode.x, y: dragNode.y }; lastPrev = lastPt;
       dragEl.classList.remove('hover');
       dragEl.classList.add('drag');           /* CSS lift while it travels */
       window.addEventListener('pointermove', onMove);
       window.addEventListener('pointerup', onUp);
+      simWake();
     }
     function onMove(e) {
       if (!dragNode) return; var p = toSvg(e);
       if (startPt && (Math.abs(p.x - startPt.x) > 4 || Math.abs(p.y - startPt.y) > 4)) moved = true;
-      dragNode.x = Math.max(vbX + dragNode.r, Math.min(vbX + vbW - dragNode.r, p.x));
-      dragNode.y = Math.max(vbY + dragNode.r, Math.min(vbY + vbH - dragNode.r, p.y));
+      lastPrev = lastPt; lastPt = { x: p.x, y: p.y };
+      dragNode.x = p.x; dragNode.y = p.y; clampNode(dragNode);
+      dragNode.vx = 0; dragNode.vy = 0;
+      /* the grabbed node tracks 1:1 — never deferred to the next frame; one
+         synchronous sim step makes the neighbours give way immediately too */
+      if (SIM.on) { simStep(); simWake(); }
       positions();
     }
     function onUp() {
       if (dragEl) dragEl.classList.remove('drag');
+      /* hand the release velocity to the node so a flick carries momentum */
+      if (dragNode && lastPt && lastPrev && SIM.on) {
+        dragNode.vx = (lastPt.x - lastPrev.x) * 0.9;
+        dragNode.vy = (lastPt.y - lastPrev.y) * 0.9;
+      }
       dragNode = null; dragEl = null; svg.style.cursor = 'grab';
       window.removeEventListener('pointermove', onMove);
       window.removeEventListener('pointerup', onUp);
+      simWake();
     }
 
     function keepSet(id) {
@@ -642,7 +720,10 @@
       build: build,
       kick: function () {},
       relabel: relabel,
-      reset: function () { nodes.forEach(function (n) { n.x = n.hx; n.y = n.hy; }); positions(); },
+      reset: function () {
+        if (SIM.on) { nodes.forEach(function (n) { n.vx = (n.hx - n.x) * 0.2; n.vy = (n.hy - n.y) * 0.2; }); simWake(); }
+        else { nodes.forEach(function (n) { n.x = n.hx; n.y = n.hy; }); positions(); }
+      },
       resetFocus: function () { select('core'); },
       selectNode: function (id) { select(id); },
       hasNodes: function () { return nodes.length > 0; }

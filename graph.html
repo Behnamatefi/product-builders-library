@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<!-- The Atlas — one map of all 50 books, their groups, and the relationships
+     between them. Reuses the shared design system (assets/book.css) and the
+     same context-aware force simulation as the per-book knowledge graphs. -->
+<html lang="en" dir="ltr" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Atlas — نقشهٔ کلِ کتابخانه</title>
+
+<script>
+(function(){
+  try{
+    var th = localStorage.getItem('pbl-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
+    document.documentElement.setAttribute('data-theme', th);
+  }catch(e){ document.documentElement.setAttribute('data-theme','dark'); }
+  try{
+    var lg = localStorage.getItem('pbl-lang') || 'en';
+    document.documentElement.setAttribute('data-lang', lg);
+    document.documentElement.setAttribute('lang', lg);
+    document.documentElement.setAttribute('dir', lg==='fa' ? 'rtl' : 'ltr');
+  }catch(e){}
+})();
+</script>
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,200..700;1,6..72,200..700&family=Space+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/book.css">
+<style>
+/* atlas-only chrome: the graph owns the whole viewport under the bars */
+.atlas-head{max-width:1200px;margin:0 auto;padding:40px 24px 8px}
+.atlas-head h1{margin:0 0 10px;font-size:clamp(28px,4vw,44px);font-weight:300;letter-spacing:-.02em;line-height:1.08;color:var(--ink)}
+html[data-lang="en"] .atlas-head h1{font-family:Newsreader,"Times New Roman",serif;font-weight:300}
+.atlas-head .dek{margin:0 0 8px;font-size:15px;color:var(--mut);max-width:60ch}
+.atlas-hud{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut-soft);margin:0 0 4px}
+html[data-lang="en"] .atlas-hud{font-family:var(--f-mono,'JetBrains Mono',monospace)}
+.atlas-stage{padding:8px clamp(16px,3vw,40px) 40px}
+#atlassvg{position:relative;display:block;width:100%;height:min(78vh,860px);min-height:480px;touch-action:none;cursor:grab}
+#atlassvg:active{cursor:grabbing}
+#atlassvg text{pointer-events:none;user-select:none}
+/* cross-book relation hairlines */
+.xlink{fill:none;stroke:var(--line-strong);stroke-width:1;stroke-dasharray:2 5;opacity:.55}
+.xlink.hl{stroke:var(--sig);stroke-dasharray:none;opacity:.95;stroke-width:1.6}
+.xlink.dim{opacity:.1}
+/* atlas detail card: "open the book" pill */
+.detail .dgo{display:inline-flex;align-items:center;gap:8px;margin-top:14px;font-size:14px;font-weight:500;
+  text-decoration:none;background:var(--accent);color:var(--accent-ink);border-radius:9999px;padding:9px 18px;
+  transition:transform var(--d1) var(--ease-out),background var(--d1) var(--ease)}
+.detail .dgo:active{transform:scale(.97)}
+.detail .dglist{display:flex;flex-direction:column;gap:2px;margin-top:8px}
+.detail .dglist a{font-size:14px;color:var(--ink);text-decoration:none;padding:7px 10px;border-radius:8px}
+.detail .dglist a:hover{background:var(--card2)}
+</style>
+</head>
+<body>
+<div id="app">
+  <header class="masthead"><a class="logo" href="index.html" aria-label="Product Builder's Library — home">
+    <span class="logomark"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect x="1" y="1" width="30" height="30" rx="7" fill="var(--card2)" stroke="var(--line-strong)"/><g stroke="var(--ink)" stroke-width="1.7" stroke-linecap="round" opacity=".9"><path d="M16 16 8.5 9.5M16 16l8-4M16 16l-3 8.5"/></g><g fill="var(--ink)"><circle cx="8.5" cy="9.5" r="2.1"/><circle cx="24" cy="12" r="2.1"/><circle cx="13" cy="24.5" r="2.1"/></g><circle cx="16" cy="16" r="3.1" fill="var(--ink)"/></svg></span>
+    <span class="logotype">
+      <span class="lt-main"><span data-only="en">Product Builder’s Library</span><span data-only="fa">کتابخانهٔ سازندهٔ محصول</span></span>
+      <span class="lt-sub"><span data-only="en">The Atlas</span><span data-only="fa">اطلس</span></span>
+    </span>
+  </a></header>
+
+  <div class="navbar"><div class="navin">
+    <div class="libnav">
+      <a class="libbtn icon" href="index.html" title="Library" aria-label="Library">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg></a>
+    </div>
+    <span class="brand"><span class="dot"></span><span data-only="en">The Atlas</span><span data-only="fa">اطلس</span></span>
+    <nav class="toc"></nav>
+    <div class="navctl">
+      <button class="langbtn" id="langBtn" aria-label="Switch language">
+        <svg class="globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>
+        <span data-only="en">فارسی</span><span data-only="fa">English</span>
+      </button>
+      <button class="themebtn" id="themeBtn" aria-label="Toggle theme" title="Light / Dark">
+        <span class="ic-sun" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5 19 19M19 5l-1.5 1.5M6.5 17.5 5 19"/></svg></span>
+        <span class="ic-moon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.6 6.6 0 0 0 9.8 9.8Z"/></svg></span>
+      </button>
+    </div>
+  </div></div>
+
+  <div class="atlas-head">
+    <p class="atlas-hud" aria-hidden="true"><span data-only="en">Atlas // 50 books // 16 groups</span><span data-only="fa">اطلس // ۵۰ کتاب // ۱۶ گروه</span></p>
+    <h1><span data-only="en">Every book, one map.</span><span data-only="fa">همهٔ کتاب‌ها، یک نقشه.</span></h1>
+    <p class="dek"><span data-only="en">Sixteen skill groups and the fifty books inside them — dashed lines mark kinship across groups. Click any node to read it; drag anything and the map gives way.</span><span data-only="fa">شانزده گروهِ مهارتی و پنجاه کتابِ درونشان — خط‌چین‌ها خویشاوندیِ میانِ گروه‌ها را نشان می‌دهند. روی هر گره کلیک کن تا بخوانی‌اش؛ هرچیزی را بکشی، نقشه جا باز می‌کند.</span></p>
+  </div>
+
+  <div class="atlas-stage">
+    <div class="svgwrap">
+      <svg id="atlassvg" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Atlas of all books"></svg>
+      <div class="ghint" id="ghint"></div>
+      <button class="greset" id="greset"></button>
+      <aside class="detail" id="detailHost" aria-live="polite"></aside>
+    </div>
+  </div>
+</div>
+
+<script src="assets/atlas.js"></script>
+<script>
+(function () {
+  'use strict';
+  var DL = document.documentElement;
+  var LANG = DL.getAttribute('data-lang') || 'en';
+  var FA_D = '۰۱۲۳۴۵۶۷۸۹';
+  function faDigits(s){ return String(s).replace(/[0-9]/g, function(d){ return FA_D[+d]; }); }
+  function TX(o){ if(o==null) return ''; if(typeof o==='string') return o; return LANG==='fa' ? o.fa : o.en; }
+  function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;'); }
+
+  var A = window.ATLAS || { groups: [], books: [], relations: [] };
+  var svg = document.getElementById('atlassvg');
+  var nodes = [], links = [], xlinks = [], sel = null;
+  var vbX = 0, vbY = 0, vbW = 1600, vbH = 1100;
+  var dragNode = null, dragEl = null, moved = false, startPt = null;
+
+  function byId(id){ for (var i=0;i<nodes.length;i++) if (nodes[i].id===id) return nodes[i]; return null; }
+  function bookById(slug){ return A.books.filter(function(b){ return b.slug===slug; })[0]; }
+
+  /* ── layout: group hubs on an ellipse, books fanned outward ── */
+  function build(){
+    nodes = []; links = []; xlinks = [];
+    var W = 1700, H = 1150, cx = W/2, cy = H/2, Rx = 600, Ry = 400;
+    var G = A.groups.length;
+    A.groups.forEach(function(g, i){
+      var a = -Math.PI/2 + i * (2*Math.PI/G);
+      var gx = cx + Math.cos(a)*Rx, gy = cy + Math.sin(a)*Ry;
+      nodes.push({ id:'g_'+g.num, kind:'hub', varc:g.varc, r:26, x:gx, y:gy, label:g.name, g:g });
+      var mine = A.books.filter(function(b){ return b.groupNum===g.num; });
+      var span = Math.PI * (mine.length > 3 ? 0.62 : 0.44);
+      mine.forEach(function(b, j){
+        var ba = a - span/2 + (mine.length>1 ? span*(j/(mine.length-1)) : 0);
+        nodes.push({ id:'b_'+b.slug, kind:'book', varc:g.varc, r:13,
+          x:gx + Math.cos(ba)*130, y:gy + Math.sin(ba)*130, label:b.book, b:b });
+        links.push({ s:'g_'+g.num, t:'b_'+b.slug });
+      });
+    });
+    A.relations.forEach(function(r){
+      if (byId('b_'+r.a) && byId('b_'+r.b)) xlinks.push({ s:'b_'+r.a, t:'b_'+r.b, why:r.why });
+    });
+    /* fitted viewBox */
+    var mnX=1e9,mnY=1e9,mxX=-1e9,mxY=-1e9;
+    nodes.forEach(function(n){
+      var hw = n.kind==='hub' ? 84 : 66, below = n.r + 22;
+      mnX=Math.min(mnX,n.x-Math.max(n.r,hw)); mxX=Math.max(mxX,n.x+Math.max(n.r,hw));
+      mnY=Math.min(mnY,n.y-n.r); mxY=Math.max(mxY,n.y+below);
+    });
+    var pad=30;
+    vbX=mnX-pad; vbY=mnY-pad; vbW=(mxX-mnX)+pad*2; vbH=(mxY-mnY)+pad*2;
+    svg.setAttribute('viewBox', vbX.toFixed(0)+' '+vbY.toFixed(0)+' '+vbW.toFixed(0)+' '+vbH.toFixed(0));
+    nodes.forEach(function(n){ n.hx=n.x; n.hy=n.y; n.vx=0; n.vy=0; });
+    links.forEach(function(l){ var a=byId(l.s), b=byId(l.t); l.rest=Math.hypot(b.x-a.x,b.y-a.y); });
+    draw();
+    selectNode('g_1', true);
+  }
+
+  function shortTitle(n){
+    var t = TX(n.label);
+    return t.length > 26 ? t.slice(0, 24) + '…' : t;
+  }
+  function linkPath(a,b,curv){
+    var mx=(a.x+b.x)/2,my=(a.y+b.y)/2,dx=b.x-a.x,dy=b.y-a.y;
+    var k=curv==null?0.10:curv;
+    return 'M'+a.x.toFixed(1)+' '+a.y.toFixed(1)+' Q'+(mx-dy*k).toFixed(1)+' '+(my+dx*k).toFixed(1)+' '+b.x.toFixed(1)+' '+b.y.toFixed(1);
+  }
+  function draw(){
+    var xl='', ln='', nd='';
+    xlinks.forEach(function(l,i){ xl += '<path class="xlink" data-i="'+i+'" data-s="'+l.s+'" data-t="'+l.t+'"/>'; });
+    links.forEach(function(l){ ln += '<path class="glink" data-s="'+l.s+'" data-t="'+l.t+'" stroke="var(--line)" stroke-width="1.4"/>'; });
+    nodes.forEach(function(n){
+      var stroke='paint-order:stroke;stroke:var(--bg2);stroke-width:4px;stroke-linejoin:round';
+      var fs = n.kind==='hub' ? 15 : 11.5;
+      var lab = '<text class="nlab" text-anchor="middle" y="'+(n.r+(n.kind==='hub'?20:15))+'" font-size="'+fs+'" font-weight="'+(n.kind==='hub'?'500':'400')+'" fill="var(--ink)" style="'+stroke+'">'+esc(shortTitle(n))+'</text>';
+      var inside = n.kind==='hub'
+        ? '<text text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="600" fill="var(--cink-'+String(n.varc).replace('--c-','')+', var(--bg))">'+(LANG==='fa'?faDigits(n.g.num):n.g.num)+'</text>'
+        : '';
+      nd += '<g class="node'+(n.kind==='hub'?' ncore':'')+'" data-id="'+n.id+'" tabindex="0" role="button" aria-label="'+esc(TX(n.label))+'"><g class="ns">'
+        + '<circle r="'+n.r+'" fill="var('+n.varc+')" fill-opacity="'+(n.kind==='book'?0.9:1)+'" stroke="var(--bg2)" stroke-width="2"/>'
+        + inside + lab + '</g></g>';
+    });
+    svg.innerHTML = '<g id="gx">'+xl+'</g><g id="glinks">'+ln+'</g><g id="grel"></g><g id="gnodes">'+nd+'</g>';
+    svg.querySelectorAll('.node').forEach(function(gEl){
+      gEl.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); selectNode(gEl.getAttribute('data-id')); } });
+      gEl.addEventListener('pointerdown', onDown);
+      gEl.addEventListener('click', function(){ if(!moved) selectNode(gEl.getAttribute('data-id')); });
+      gEl.addEventListener('pointerenter', function(){ if(!dragNode) gEl.classList.add('hover'); });
+      gEl.addEventListener('pointerleave', function(){ gEl.classList.remove('hover'); });
+    });
+    positions();
+  }
+  function positions(){
+    svg.querySelectorAll('.node').forEach(function(g){
+      var n=byId(g.getAttribute('data-id'));
+      g.setAttribute('transform','translate('+n.x.toFixed(1)+','+n.y.toFixed(1)+')');
+    });
+    svg.querySelectorAll('.glink,.rel').forEach(function(l){
+      var a=byId(l.getAttribute('data-s')), b=byId(l.getAttribute('data-t'));
+      if(a&&b) l.setAttribute('d', linkPath(a,b,l.classList.contains('rel')?0.14:0.10));
+    });
+    svg.querySelectorAll('.xlink').forEach(function(l){
+      var a=byId(l.getAttribute('data-s')), b=byId(l.getAttribute('data-t'));
+      if(a&&b) l.setAttribute('d', linkPath(a,b,0.22));
+    });
+  }
+
+  /* ── the same context-aware force simulation as the book graphs ── */
+  var SIM={raf:null,on:true};
+  try{ SIM.on=!matchMedia('(prefers-reduced-motion: reduce)').matches; }catch(e){}
+  var K_LINK=0.026,K_HOME=0.014,K_REPEL=190,DAMP=0.80,VMAX=10,SLEEP=0.035;
+  function clampNode(n){
+    n.x=Math.max(vbX+n.r,Math.min(vbX+vbW-n.r,n.x));
+    n.y=Math.max(vbY+n.r,Math.min(vbY+vbH-n.r,n.y));
+  }
+  function simStep(){
+    var i,j,a,b,dx,dy,d,f;
+    for(i=0;i<links.length;i++){ var l=links[i]; a=byId(l.s); b=byId(l.t);
+      dx=b.x-a.x; dy=b.y-a.y; d=Math.hypot(dx,dy)||1; f=K_LINK*(d-l.rest)/d;
+      if(a!==dragNode){a.vx+=dx*f;a.vy+=dy*f;}
+      if(b!==dragNode){b.vx-=dx*f;b.vy-=dy*f;} }
+    for(i=0;i<nodes.length;i++) for(j=i+1;j<nodes.length;j++){
+      a=nodes[i]; b=nodes[j]; dx=b.x-a.x; dy=b.y-a.y; d=dx*dx+dy*dy;
+      var min=a.r+b.r+38; if(d>min*min||d===0) continue;
+      d=Math.sqrt(d); f=K_REPEL*(1-d/min)/(d*d);
+      if(a!==dragNode){a.vx-=dx*f*d;a.vy-=dy*f*d;}
+      if(b!==dragNode){b.vx+=dx*f*d;b.vy+=dy*f*d;} }
+    var energy=0;
+    for(i=0;i<nodes.length;i++){ a=nodes[i]; if(a===dragNode) continue;
+      a.vx+=(a.hx-a.x)*K_HOME; a.vy+=(a.hy-a.y)*K_HOME;
+      a.vx*=DAMP; a.vy*=DAMP;
+      var sp=Math.hypot(a.vx,a.vy); if(sp>VMAX){a.vx=a.vx/sp*VMAX;a.vy=a.vy/sp*VMAX;}
+      a.x+=a.vx; a.y+=a.vy; clampNode(a);
+      energy+=a.vx*a.vx+a.vy*a.vy; }
+    return energy;
+  }
+  function simLoop(){ var e=simStep(); positions();
+    if(dragNode||e>SLEEP){ SIM.raf=requestAnimationFrame(simLoop); } else { SIM.raf=null; } }
+  function simWake(){ if(!SIM.on){ positions(); return; } if(SIM.raf==null) SIM.raf=requestAnimationFrame(simLoop); }
+
+  function toSvg(e){ var pt=svg.createSVGPoint(); pt.x=e.clientX; pt.y=e.clientY;
+    var m=svg.getScreenCTM(); if(!m) return {x:e.clientX,y:e.clientY};
+    return pt.matrixTransform(m.inverse()); }
+  var lastPt=null,lastPrev=null;
+  function onDown(e){ e.preventDefault();
+    dragNode=byId(e.currentTarget.getAttribute('data-id')); dragEl=e.currentTarget;
+    moved=false; startPt=toSvg(e); svg.style.cursor='grabbing';
+    lastPt={x:dragNode.x,y:dragNode.y}; lastPrev=lastPt;
+    dragEl.classList.remove('hover'); dragEl.classList.add('drag');
+    window.addEventListener('pointermove',onMove);
+    window.addEventListener('pointerup',onUp);
+    simWake(); }
+  function onMove(e){ if(!dragNode) return; var p=toSvg(e);
+    if(startPt&&(Math.abs(p.x-startPt.x)>4||Math.abs(p.y-startPt.y)>4)) moved=true;
+    lastPrev=lastPt; lastPt={x:p.x,y:p.y};
+    dragNode.x=p.x; dragNode.y=p.y; clampNode(dragNode);
+    dragNode.vx=0; dragNode.vy=0;
+    if(SIM.on){ simStep(); simWake(); }
+    positions(); }
+  function onUp(){ if(dragEl) dragEl.classList.remove('drag');
+    if(dragNode&&lastPt&&lastPrev&&SIM.on){ dragNode.vx=(lastPt.x-lastPrev.x)*0.9; dragNode.vy=(lastPt.y-lastPrev.y)*0.9; }
+    dragNode=null; dragEl=null; svg.style.cursor='grab';
+    window.removeEventListener('pointermove',onMove);
+    window.removeEventListener('pointerup',onUp);
+    simWake(); }
+
+  /* ── selection: highlight kin, show the reading card ── */
+  function relatedOf(n){
+    var ids=[];
+    if(n.kind==='hub'){
+      nodes.forEach(function(o){ if(o.kind==='book'&&o.b.groupNum===n.g.num) ids.push(o.id); });
+    } else {
+      ids.push('g_'+n.b.groupNum);
+      xlinks.forEach(function(l){
+        if(l.s===n.id) ids.push(l.t);
+        if(l.t===n.id) ids.push(l.s);
+      });
+    }
+    return ids;
+  }
+  function selectNode(id, instant){
+    var n=byId(id); if(!n) return; sel=id;
+    svg.querySelectorAll('.node').forEach(function(g){ g.classList.toggle('sel', g.getAttribute('data-id')===id); });
+    var el=svg.querySelector('.node[data-id="'+id+'"]'); if(el&&el.parentNode) el.parentNode.appendChild(el);
+    var rel=relatedOf(n), keep={}; keep[id]=1; rel.forEach(function(r){ keep[r]=1; });
+    svg.querySelectorAll('.node').forEach(function(g){
+      var nid=g.getAttribute('data-id');
+      g.classList.toggle('dim', !keep[nid]);
+      g.classList.toggle('hl', !!keep[nid] && nid!==id);
+    });
+    svg.querySelectorAll('.xlink').forEach(function(l){
+      var on = l.getAttribute('data-s')===id || l.getAttribute('data-t')===id;
+      l.classList.toggle('hl', on);
+      l.classList.toggle('dim', !on);
+    });
+    svg.querySelectorAll('.glink').forEach(function(l){
+      var on = keep[l.getAttribute('data-s')] && keep[l.getAttribute('data-t')];
+      l.classList.toggle('dim', !on);
+    });
+    /* relation connectors draw from the selection */
+    var g=svg.querySelector('#grel'), html='';
+    rel.forEach(function(rid){
+      var b=byId(rid); if(!b) return;
+      var d=linkPath(n,b,0.14), len=Math.hypot(b.x-n.x,b.y-n.y)*1.5;
+      html+='<path class="rel'+(instant?'':' draw')+'" data-s="'+n.id+'" data-t="'+rid+'" style="--len:'+len.toFixed(0)+'" stroke-width="1.8" d="'+d+'"/>';
+    });
+    g.innerHTML=html;
+    renderDetail(n);
+  }
+  function renderDetail(n){
+    var host=document.getElementById('detailHost'), html='';
+    if(n.kind==='hub'){
+      var mine=A.books.filter(function(b){ return b.groupNum===n.g.num; });
+      html='<div class="dkick"><i style="background:var('+n.varc+')"></i>'
+        +(LANG==='fa'?'گروهِ '+faDigits(n.g.num):'Group '+('0'+n.g.num).slice(-2))+'</div>'
+        +'<h4>'+esc(TX(n.g.name))+'</h4>'
+        +'<div class="drow"><div class="dlab">'+(LANG==='fa'?faDigits(mine.length)+' کتاب':mine.length+' books')+'</div>'
+        +'<div class="dglist">'+mine.map(function(b){
+          return '<a href="'+encodeURI(b.folder+'/'+b.slug+'.html')+'">'+esc(TX(b.book))+'</a>';
+        }).join('')+'</div></div>';
+    } else {
+      var b=n.b;
+      html='<div class="dkick"><i style="background:var('+n.varc+')"></i>'
+        +esc(TX(b.group))+' · '+esc(TX(b.published))+'</div>'
+        +'<h4>'+esc(TX(b.book))+'</h4>'
+        +'<div class="drow"><div class="dlab">'+(LANG==='fa'?'ایدهٔ مرکزی':'Core idea')+'</div>'
+        +'<div class="dtxt">'+esc(TX(b.summary||b.coreLine))+'</div></div>'
+        +'<a class="dgo" href="'+encodeURI(b.folder+'/'+b.slug+'.html')+'">'
+        +(LANG==='fa'?'بازکردنِ کتاب':'Open the book')+'</a>';
+    }
+    host.innerHTML=html;
+    host.classList.remove('pop'); void host.offsetWidth; host.classList.add('pop');
+  }
+
+  /* ── chrome ── */
+  function chrome(){
+    document.getElementById('ghint').textContent = LANG==='fa'
+      ? 'روی هر گره کلیک کن · بکش تا نقشه جا باز کند'
+      : 'Click any node to read · drag and the map gives way';
+    document.getElementById('greset').textContent = LANG==='fa' ? '↺ چیدمان' : '↺ Reset';
+  }
+  document.getElementById('greset').addEventListener('click', function(){
+    if(SIM.on){ nodes.forEach(function(n){ n.vx=(n.hx-n.x)*0.2; n.vy=(n.hy-n.y)*0.2; }); simWake(); }
+    else { nodes.forEach(function(n){ n.x=n.hx; n.y=n.hy; }); positions(); }
+  });
+  svg.addEventListener('click', function(e){ if(!e.target.closest('.node')) selectNode(sel||'g_1', true); });
+
+  document.getElementById('langBtn').addEventListener('click', function(){
+    LANG = LANG==='fa' ? 'en' : 'fa';
+    DL.setAttribute('data-lang',LANG); DL.setAttribute('lang',LANG);
+    DL.setAttribute('dir', LANG==='fa'?'rtl':'ltr');
+    try{ localStorage.setItem('pbl-lang',LANG); }catch(e){}
+    var keepSel = sel; build(); chrome(); if(keepSel) selectNode(keepSel, true);
+  });
+  document.getElementById('themeBtn').addEventListener('click', function(){
+    var t = DL.getAttribute('data-theme')==='dark' ? 'light' : 'dark';
+    DL.setAttribute('data-theme',t);
+    try{ localStorage.setItem('pbl-theme',t); }catch(e){}
+  });
+
+  build(); chrome();
+})();
+</script>
+</body>
+</html>
