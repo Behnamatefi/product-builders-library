@@ -1,15 +1,15 @@
 # The Product Builder's Library — ‏کتابخانهٔ سازندهٔ محصول‏
 
-Bilingual (English / فارسی) interactive **knowledge-graph** summaries of **45 essential books for product builders**, organized into **15 skill groups** — based on Lenny Rachitsky's two-part *"Essential books for product builders"* reading list.
+Bilingual (English / فارسی) interactive **knowledge-graph** summaries of **50 essential books for product builders**, organized into **16 skill groups** — based on Lenny Rachitsky's two-part *"Essential books for product builders"* reading list.
 
-‏کتابخانه‌ای دوزبانه از خلاصهٔ ۴۵ کتابِ ضروری برای سازندگانِ محصول، در قالبِ نقشهٔ دانشِ تعاملی — ساده، خواندنی، و برای یادگیری.‏
+‏کتابخانه‌ای دوزبانه از خلاصهٔ ۵۰ کتابِ ضروری برای سازندگانِ محصول، در قالبِ نقشهٔ دانشِ تعاملی — ساده، خواندنی، و برای یادگیری.‏
 
 ## What's inside
 
 Open **[`index.html`](index.html)** for the catalog. It opens with a centered-logo
 header, and a **“Find my reading path”** wizard — answer two quick questions
 (your seniority, what you want to get better at, and how much time you have) and it
-builds a **sorted reading flow** from the 45 books. On desktop it's a modal; on mobile
+builds a **sorted reading flow** from the 50 books. On desktop it's a modal; on mobile
 it's a bottom sheet.
 
 Click any book to open its page. Each page is offline-ready and gives you:
@@ -17,14 +17,14 @@ Click any book to open its page. Each page is offline-ready and gives you:
 - an **interactive radial knowledge graph** you click through;
 - the book taught in **5 learning stages**, from over-simplified to expert;
 - click-to-grow nodes with in-depth detail, real examples, verified quotes, and a video or two;
-- a **library navigation header** — jump home, step to the previous/next book, or open the **“All books”** overlay to reach any of the 45 pages, grouped by the 15 skill groups;
+- a **library navigation header** — jump home, step to the previous/next book, or open the **“All books”** overlay to reach any of the 50 pages, grouped by the 16 skill groups;
 - an **EN / فارسی** language toggle and a **dark / light** theme toggle (both remembered across the whole library).
 
 These are learning aids, not replacements for the books. If a book helps you, buy it and read it.
 
 Under the hood the pages share a single stylesheet and runtime (`assets/`), so each page ships only its **content** — see [Project structure](#project-structure) and [Editing & adding books](#editing--adding-books-the-cms) below.
 
-## The 15 groups
+## The 16 groups
 
 1. **Communication** — Nobody Wants to Read Your Sh\*t · On Writing Well · Storyworthy
 2. **Executing** — The Great CEO Within · Scaling People · The Goal
@@ -41,6 +41,7 @@ Under the hood the pages share a single stylesheet and runtime (`assets/`), so e
 13. **Starting a Company** — The Lean Startup · Crossing the Chasm · Fall in Love with the Problem
 14. **Career** — Great at Work · 7 Rules of Power · The Effective Executive
 15. **Happiness** — The Subtle Art of Not Giving a F\*ck · A Guide to the Good Life · Stumbling on Happiness
+16. **Self Mastery** — Start with Why · The Art of Seduction · Surrounded by Psychopaths · The Way Forward · The Power of Now
 
 ## How to use
 
@@ -61,14 +62,14 @@ The book pages load `assets/book.css` + `assets/book.js` by relative path, so th
 ├── assets/
 │   ├── book.css               # shared styles for every book page
 │   ├── book.js                # shared runtime — renders a page from its DATA (Book.mount)
-│   ├── library.js             # generated manifest of all 45 books (nav header + wizard)
+│   ├── library.js             # generated manifest of all 50 books (nav header + wizard)
 │   ├── recommend.js           # "Find my reading path" wizard (modal / bottom-sheet)
 │   └── recommend.css          # wizard styles
 ├── tools/
 │   ├── migrate.js             # one-shot: legacy self-contained pages → shared-asset pages
 │   ├── build-manifest.js      # (re)generate assets/library.js from the pages — idempotent
 │   └── verify.js              # prove a migration is lossless vs the previous git commit
-└── NN - Group/slug.html       # 45 book pages (15 groups × 3), each = a thin shell + its DATA
+└── NN - Group/slug.html       # 50 book pages (15 groups × 3 + 1 × 5), each = a thin shell + its DATA
 ```
 
 Every book page is a thin shell that ends with:
@@ -87,7 +88,7 @@ All presentation lives in the two shared `assets/` files; the page carries only 
 
 - **Edit a book** — open its `NN - Group/slug.html` and change the fields inside the
   `Book.mount({ … })` object. Nothing else to touch; the shared runtime re-renders it.
-- **Restyle everything** — edit `assets/book.css` or `assets/book.js` once; all 45 pages update.
+- **Restyle everything** — edit `assets/book.css` or `assets/book.js` once; all 50 pages update.
 - **Add a book** — copy an existing page, swap in the new `DATA` (keep `meta.slug`,
   `meta.folder`, `meta.groupNum`, `meta.group`, `meta.book` accurate), then refresh the
   navigation manifest:

@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<!-- Generated page. Edit CONTENT in the DATA object below; shared UI lives in ../assets/book.css + ../assets/book.js -->
+<html lang="en" dir="ltr" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Surrounded by Psychopaths — نقشهٔ دانش و یادگیری ۵ مرحله‌ای</title>
+
+<!-- Boot theme + language BEFORE paint to avoid a flash (shared library-wide keys) -->
+<script>
+(function(){
+  try{
+    var th = localStorage.getItem('pbl-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
+    document.documentElement.setAttribute('data-theme', th);
+  }catch(e){ document.documentElement.setAttribute('data-theme','light'); }
+  try{
+    var lg = localStorage.getItem('pbl-lang') || 'en';
+    document.documentElement.setAttribute('data-lang', lg);
+    document.documentElement.setAttribute('lang', lg);
+    document.documentElement.setAttribute('dir', lg==='fa' ? 'rtl' : 'ltr');
+  }catch(e){}
+})();
+</script>
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,200..700;1,6..72,200..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/book.css">
+</head>
+<body>
+<div id="app"></div>
+
+<script src="../assets/library.js"></script>
+<script src="../assets/book.js"></script>
+<script>
+/* ── CONTENT — everything unique to this book lives here ── */
+Book.mount({
+  "meta": {
+    "slug": "surrounded-by-psychopaths",
+    "folder": "16 - Self Mastery",
+    "groupNum": 16,
+    "group": {
+      "en": "Self Mastery",
+      "fa": "تسلط بر خود"
+    },
+    "author": {
+      "en": "Thomas Erikson",
+      "fa": "توماس اریکسون"
+    },
+    "eyebrow_author": {
+      "en": "Thomas Erikson",
+      "fa": "توماس اریکسون"
+    },
+    "book": {
+      "en": "Surrounded by Psychopaths",
+      "fa": "محاصره‌شده با روان‌آزارها"
+    },
+    "hero_title": {
+      "en": "Surrounded by Psychopaths — How to Spot Manipulation and Protect Yourself",
+      "fa": "محاصره‌شده با روان‌آزارها — چطور دستکاری را ببینی و از خودت محافظت کنی"
+    },
+    "dek": {
+      "en": "A knowledge graph of the whole book, plus a 5-stage path from a single idea to expert-level mastery — with an example at every step.",
+      "fa": "نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از خیلی ساده تا حرفه‌ای — با یک مثال در هر مرحله."
+    },
+    "published": {
+      "en": "2017",
+      "fa": "۲۰۱۷"
+    },
+    "chips": [
+      {
+        "v": {
+          "en": "4",
+          "fa": "۴"
+        },
+        "l": {
+          "en": "Parts",
+          "fa": "بخش"
+        }
+      },
+      {
+        "v": {
+          "en": "12",
+          "fa": "۱۲"
+        },
+        "l": {
+          "en": "Ideas",
+          "fa": "ایده"
+        }
+      },
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Learning stages",
+          "fa": "مرحلهٔ یادگیری"
+        }
+      }
+    ],
+    "kboxes": [
+      {
+        "v": {
+          "en": "4",
+          "fa": "۴"
+        },
+        "l": {
+          "en": "Parts (the four types · recognising the manipulator · the tactics · building defences)",
+          "fa": "بخش (چهار گونه · شناختنِ دستکارگر · تاکتیک‌ها · ساختنِ دفاع)"
+        }
+      },
+      {
+        "v": {
+          "en": "12",
+          "fa": "۱۲"
+        },
+        "l": {
+          "en": "Ideas you can use",
+          "fa": "ایده برای استفاده"
+        }
+      },
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Levels, simple → expert",
+          "fa": "مرحله، ساده تا حرفه‌ای"
+        }
+      },
+      {
+        "v": {
+          "en": "4",
+          "fa": "۴"
+        },
+        "l": {
+          "en": "Behaviour colours: red · yellow · green · blue",
+          "fa": "رنگِ رفتار: قرمز · زرد · سبز · آبی"
+        }
+      }
+    ],
+    "core_callout": {
+      "label": {
+        "en": "The core idea:",
+        "fa": "ایدهٔ اصلی:"
+      },
+      "en": " Manipulation works because it is <i>tailored</i>. The manipulator reads your behaviour type and pushes the lever that type responds to. The defence is symmetrical: know your own type, know theirs, and recognise the tactics — <i>naming</i> the move is most of the protection.",
+      "fa": " دستکاری جواب می‌دهد چون <i>سفارشی</i> است. دستکارگر گونهٔ رفتاریِ تو را می‌خواند و همان اهرمی را می‌کشد که آن گونه به آن واکنش می‌دهد. دفاع هم قرینه است: گونهٔ خودت را بشناس، گونهٔ او را بشناس، و تاکتیک‌ها را تشخیص بده — <i>نام‌بردنِ</i> حرکت، بیشترِ محافظت است."
+    },
+    "flow_callout": {
+      "label": {
+        "en": "Read it as a flow:",
+        "fa": "به‌صورتِ یک جریان بخوانش:"
+      },
+      "en": " learn the <b>four colours</b> and your own default, then how to <b>recognise</b> a manipulator behind the charm, name the <b>tactics</b> they use, and finally build <b>defences</b> — boundaries, documentation, and an exit.",
+      "fa": " <b>چهار رنگ</b> و پیش‌فرضِ خودت را یاد بگیر، بعد اینکه چطور دستکارگر را پشتِ جذابیت <b>بشناسی</b>، <b>تاکتیک‌هایش</b> را نام ببری، و آخر <b>دفاع</b> بسازی — مرز، مستندسازی، و راهِ خروج."
+    }
+  },
+  "method": {
+    "en": "<p><b>Source:</b> the book <i>Surrounded by Psychopaths</i> by Thomas Erikson, first published 2017.</p><p><b>How this was built:</b> the structure and ideas were gathered and rewritten from the book and reputable sources.</p><p><b>Group:</b> Self Mastery.</p><p><b>A note:</b> the DISC-style four-colour model is a popular communication framework, not a validated clinical instrument, and \"psychopath\" here is used loosely for manipulative behaviour rather than as a diagnosis. Treat it as a lens, not a test.</p>",
+    "fa": "<p><b>منبع:</b> کتابِ «محاصره‌شده با روان‌آزارها» نوشتهٔ توماس اریکسون، چاپِ نخست ۲۰۱۷.</p><p><b>روشِ کار:</b> ساختار و ایده‌ها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده است.</p><p><b>گروه:</b> تسلط بر خود.</p><p><b>یک نکته:</b> مدلِ چهاررنگِ شبیه به DISC یک چارچوبِ رایجِ ارتباطی است، نه ابزارِ بالینیِ معتبر، و «روان‌آزار» اینجا به‌معنای رفتارِ دستکارگرانه به کار رفته نه یک تشخیصِ پزشکی. آن را یک عدسی بدان، نه یک آزمون.</p>"
+  },
+  "flow": {
+    "en": [
+      "Types",
+      "Recognise",
+      "Tactics",
+      "Defend"
+    ],
+    "fa": [
+      "گونه‌ها",
+      "شناخت",
+      "تاکتیک",
+      "دفاع"
+    ]
+  },
+  "graph": {
+    "R2": 132,
+    "span": 70
+  },
+  "tldr": [
+    {
+      "en": "The whole book in one line: <b>manipulation is tailored to your behaviour type — so know your type.</b>",
+      "fa": "خلاصهٔ کل کتاب در یک جمله: <b>دستکاری برای گونهٔ رفتاریِ تو دوخته می‌شود — پس گونه‌ات را بشناس.</b>"
+    },
+    {
+      "en": "Erikson sorts behaviour into four colours: <b>Red</b> (driving), <b>Yellow</b> (social), <b>Green</b> (steady), <b>Blue</b> (analytical).",
+      "fa": "اریکسون رفتار را در چهار رنگ می‌چیند: <b>قرمز</b> (پیش‌برنده)، <b>زرد</b> (اجتماعی)، <b>سبز</b> (باثبات)، <b>آبی</b> (تحلیلی)."
+    },
+    {
+      "en": "Manipulators are usually <b>charming first</b>. Charm is the entry tactic, not evidence of good intent.",
+      "fa": "دستکارگرها معمولاً <b>اول جذاب‌اند</b>. جذابیت تاکتیکِ ورود است، نه دلیلِ نیتِ خوب."
+    },
+    {
+      "en": "The recurring moves: <b>love bombing</b>, <b>gaslighting</b>, and <b>isolation</b> — each aimed at your judgement.",
+      "fa": "حرکت‌های تکرارشونده: <b>بمبارانِ محبت</b>، <b>گس‌لایتینگ</b>، و <b>انزوا</b> — هرکدام نشانه‌رفته به قضاوتِ تو."
+    },
+    {
+      "en": "Defence is unglamorous: <b>boundaries</b>, <b>written records</b>, outside perspective, and knowing when to leave.",
+      "fa": "دفاع بی‌زرق‌وبرق است: <b>مرزها</b>، <b>ثبتِ مکتوب</b>، نگاهِ بیرونی، و دانستنِ وقتِ رفتن."
+    }
+  ],
+  "parts": [
+    {
+      "key": "colours",
+      "varc": "--c-teal",
+      "name": {
+        "en": "The Four Colours",
+        "fa": "چهار رنگ"
+      },
+      "tag": {
+        "en": "Know the types",
+        "fa": "گونه‌ها را بشناس"
+      },
+      "gist": {
+        "en": "Red, Yellow, Green, Blue — and which one you default to under stress.",
+        "fa": "قرمز، زرد، سبز، آبی — و اینکه زیرِ فشار به کدام برمی‌گردی."
+      },
+      "more": {
+        "en": "The model is a communication shorthand, not a diagnosis. Its use here is specific: each type has a predictable lever, and manipulators pull the lever that matches you.",
+        "fa": "این مدل یک اختصارِ ارتباطی است، نه تشخیص. کاربردش اینجا مشخص است: هر گونه اهرمی قابلِ‌پیش‌بینی دارد، و دستکارگرها همان اهرمی را می‌کشند که به تو می‌خورد."
+      },
+      "chapters": [
+        "red",
+        "yellow",
+        "greenblue"
+      ]
+    },
+    {
+      "key": "recognise",
+      "varc": "--c-blue",
+      "name": {
+        "en": "Recognising the Manipulator",
+        "fa": "شناختنِ دستکارگر"
+      },
+      "tag": {
+        "en": "See it early",
+        "fa": "زود ببینش"
+      },
+      "gist": {
+        "en": "Charm arrives first; the absence of empathy shows up later.",
+        "fa": "اول جذابیت می‌آید؛ نبودِ همدلی بعداً پیدا می‌شود."
+      },
+      "more": {
+        "en": "The pattern is consistent: unusually fast intimacy, a flawless story, and — over time — no evidence of genuine concern for anyone who cannot do something for them.",
+        "fa": "الگو ثابت است: صمیمیتِ غیرعادی‌سریع، داستانی بی‌نقص، و — با گذشتِ زمان — هیچ نشانه‌ای از نگرانیِ واقعی برای کسی که کاری برایشان نمی‌تواند بکند."
+      },
+      "chapters": [
+        "charm",
+        "spectrum",
+        "workplace"
+      ]
+    },
+    {
+      "key": "tactics",
+      "varc": "--c-violet",
+      "name": {
+        "en": "How Manipulation Works",
+        "fa": "دستکاری چطور کار می‌کند"
+      },
+      "tag": {
+        "en": "Name the move",
+        "fa": "حرکت را نام ببر"
+      },
+      "gist": {
+        "en": "Love bombing, gaslighting, isolation — aimed at your judgement, not your feelings.",
+        "fa": "بمبارانِ محبت، گس‌لایتینگ، انزوا — نشانه‌رفته به قضاوتت، نه احساساتت."
+      },
+      "more": {
+        "en": "Each tactic degrades your ability to assess the situation. That is the actual target — not your mood, but your capacity to trust your own reading of events.",
+        "fa": "هر تاکتیک توانِ تو برای سنجشِ وضعیت را تضعیف می‌کند. هدفِ واقعی همین است — نه حال‌وهوایت، بلکه توانِ اعتماد به خوانشِ خودت از رویدادها."
+      },
+      "chapters": [
+        "lovebomb",
+        "gaslight",
+        "isolate"
+      ]
+    },
+    {
+      "key": "defence",
+      "varc": "--c-amber",
+      "name": {
+        "en": "Building Defences",
+        "fa": "ساختنِ دفاع"
+      },
+      "tag": {
+        "en": "Protect yourself",
+        "fa": "از خودت محافظت کن"
+      },
+      "gist": {
+        "en": "Boundaries, records, outside eyes — and a real exit.",
+        "fa": "مرز، ثبت، چشمِ بیرونی — و یک راهِ خروجِ واقعی."
+      },
+      "more": {
+        "en": "None of the defences are clever. They work precisely because they do not depend on out-arguing someone who does not argue in good faith.",
+        "fa": "هیچ‌کدام از دفاع‌ها زیرکانه نیستند. دقیقاً به این دلیل کار می‌کنند که وابسته به بردنِ بحث با کسی نیستند که با حسنِ‌نیت بحث نمی‌کند."
+      },
+      "chapters": [
+        "boundaries",
+        "document",
+        "exit"
+      ]
+    }
+  ],
+  "chapters": {
+    "red": {
+      "part": "colours",
+      "n": 1,
+      "name": {
+        "en": "Red — Driving",
+        "fa": "قرمز — پیش‌برنده"
+      },
+      "glabel": {
+        "en": "Red",
+        "fa": "قرمز"
+      },
+      "principle": {
+        "en": "Direct, fast, results-first. The lever is competition and control.",
+        "fa": "مستقیم، سریع، نتیجه‌محور. اهرمش رقابت و کنترل است."
+      },
+      "more": {
+        "en": "Reds decide quickly and dislike being slowed down. A manipulator handles a Red by framing everything as a contest they might lose, or by conceding control that was never theirs to give.",
+        "fa": "قرمزها سریع تصمیم می‌گیرند و از کندشدن بدشان می‌آید. دستکارگر با قرمز این‌طور رفتار می‌کند که همه‌چیز را مسابقه‌ای جلوه دهد که ممکن است ببازد، یا کنترلی را واگذار کند که اصلاً مالِ خودش نبوده."
+      },
+      "example": {
+        "en": "\"Everyone else already agreed\" is aimed squarely at a Red.",
+        "fa": "«بقیه همه موافقت کرده‌اند» دقیقاً نشانه‌رفته به یک قرمز است."
+      },
+      "tip": {
+        "en": "If you are Red, slow the decision by one day on purpose.",
+        "fa": "اگر قرمزی، تصمیم را عامدانه یک روز عقب بینداز."
+      },
+      "pitfall": {
+        "en": "Mistaking speed for judgement.",
+        "fa": "سرعت را با قضاوت اشتباه گرفتن."
+      }
+    },
+    "yellow": {
+      "part": "colours",
+      "n": 2,
+      "name": {
+        "en": "Yellow — Social",
+        "fa": "زرد — اجتماعی"
+      },
+      "glabel": {
+        "en": "Yellow",
+        "fa": "زرد"
+      },
+      "principle": {
+        "en": "Optimistic, expressive, people-first. The lever is approval and enthusiasm.",
+        "fa": "خوش‌بین، بیانگر، آدم‌محور. اهرمش تأیید و شور است."
+      },
+      "more": {
+        "en": "Yellows are moved by excitement and dislike conflict with people they like. Flattery and shared enthusiasm work on them long after the facts stop supporting the story.",
+        "fa": "زردها با هیجان حرکت می‌کنند و از تعارض با کسانی که دوستشان دارند بدشان می‌آید. چاپلوسی و شورِ مشترک مدت‌ها بعد از اینکه واقعیت‌ها دیگر داستان را تأیید نمی‌کنند، رویشان کار می‌کند."
+      },
+      "example": {
+        "en": "Constant praise followed by a small favour is the classic Yellow approach.",
+        "fa": "تحسینِ مداوم و بعد یک لطفِ کوچک، رویکردِ کلاسیک برای زرد است."
+      },
+      "tip": {
+        "en": "If you are Yellow, write the commitment down before you agree to it.",
+        "fa": "اگر زردی، تعهد را قبل از قبول‌کردن بنویس."
+      },
+      "pitfall": {
+        "en": "Agreeing because the room felt good.",
+        "fa": "موافقت‌کردن چون فضا خوب بود."
+      }
+    },
+    "greenblue": {
+      "part": "colours",
+      "n": 3,
+      "name": {
+        "en": "Green & Blue — Steady and Analytical",
+        "fa": "سبز و آبی — باثبات و تحلیلی"
+      },
+      "glabel": {
+        "en": "Green & Blue",
+        "fa": "سبز و آبی"
+      },
+      "principle": {
+        "en": "Green avoids conflict and values harmony; Blue wants evidence and precision.",
+        "fa": "سبز از تعارض پرهیز می‌کند و به هماهنگی اهمیت می‌دهد؛ آبی دنبالِ شواهد و دقت است."
+      },
+      "more": {
+        "en": "Greens are pressured through guilt and the fear of upsetting someone. Blues are pressured through doubt — a manipulator floods them with detail until certainty feels impossible.",
+        "fa": "به سبزها با احساسِ گناه و ترسِ از ناراحت‌کردنِ کسی فشار می‌آید. به آبی‌ها با تردید — دستکارگر آن‌قدر جزئیات می‌ریزد که اطمینان ناممکن حس شود."
+      },
+      "example": {
+        "en": "\"After everything I have done for you\" targets a Green; a blizzard of caveats targets a Blue.",
+        "fa": "«بعد از این‌همه کاری که برایت کردم» سبز را هدف می‌گیرد؛ بهمنی از قید و شرط، آبی را."
+      },
+      "tip": {
+        "en": "If you are Green, practise one plain \"no\" this week. If Blue, set a decision deadline.",
+        "fa": "اگر سبزی، این هفته یک «نه»ی ساده تمرین کن. اگر آبی، برای تصمیم مهلت بگذار."
+      },
+      "pitfall": {
+        "en": "Green confusing peace with agreement; Blue confusing more data with more clarity.",
+        "fa": "سبز آرامش را با موافقت اشتباه بگیرد؛ آبی دادهٔ بیشتر را با روشنیِ بیشتر."
+      }
+    },
+    "charm": {
+      "part": "recognise",
+      "n": 4,
+      "name": {
+        "en": "Charm Comes First",
+        "fa": "اول جذابیت می‌آید"
+      },
+      "glabel": {
+        "en": "Charm",
+        "fa": "جذابیت"
+      },
+      "principle": {
+        "en": "Charm is the entry tactic. It is evidence of skill, not of good intent.",
+        "fa": "جذابیت تاکتیکِ ورود است. نشانهٔ مهارت است، نه نیتِ خوب."
+      },
+      "more": {
+        "en": "The early phase feels unusually good — fast intimacy, intense interest, a sense of being understood. Erikson's point is that the speed itself is the signal worth noticing.",
+        "fa": "مرحلهٔ اول غیرعادی خوب حس می‌شود — صمیمیتِ سریع، علاقهٔ شدید، حسِ فهمیده‌شدن. نکتهٔ اریکسون این است که خودِ آن سرعت، همان نشانه‌ای است که باید دید."
+      },
+      "example": {
+        "en": "Someone who calls you their closest ally in week one is describing a strategy, not a bond.",
+        "fa": "کسی که در هفتهٔ اول تو را نزدیک‌ترین متحدش می‌خواند، دارد یک استراتژی را توصیف می‌کند نه یک پیوند."
+      },
+      "tip": {
+        "en": "Judge by behaviour over months, not by how the first meeting felt.",
+        "fa": "با رفتارِ چندماهه قضاوت کن، نه با حسِ جلسهٔ اول."
+      },
+      "pitfall": {
+        "en": "Treating likeability as character evidence.",
+        "fa": "دوست‌داشتنی‌بودن را دلیلِ شخصیت دانستن."
+      }
+    },
+    "spectrum": {
+      "part": "recognise",
+      "n": 5,
+      "name": {
+        "en": "A Spectrum, Not a Diagnosis",
+        "fa": "یک طیف، نه یک تشخیص"
+      },
+      "glabel": {
+        "en": "Spectrum",
+        "fa": "طیف"
+      },
+      "principle": {
+        "en": "Manipulative behaviour runs on a scale. Most people you meet are somewhere on it, not at the end.",
+        "fa": "رفتارِ دستکارگرانه روی یک طیف است. بیشترِ آدم‌هایی که می‌بینی جایی روی آن‌اند، نه در انتهایش."
+      },
+      "more": {
+        "en": "Reaching for a clinical label is both inaccurate and unhelpful. What matters is the observable pattern and whether it is repeating — behaviour is the only thing you can actually assess.",
+        "fa": "چسباندنِ برچسبِ بالینی هم نادرست است هم بی‌فایده. آنچه مهم است الگوی قابلِ‌مشاهده و تکرارشدنش است — رفتار تنها چیزی است که واقعاً می‌توانی بسنجی."
+      },
+      "example": {
+        "en": "A colleague who takes credit once is careless; one who does it every quarter is a pattern.",
+        "fa": "همکاری که یک‌بار اعتبار را برمی‌دارد بی‌دقت است؛ آنکه هر فصل این کار را می‌کند یک الگوست."
+      },
+      "tip": {
+        "en": "Count occurrences before you draw a conclusion.",
+        "fa": "قبل از نتیجه‌گیری، دفعات را بشمار."
+      },
+      "pitfall": {
+        "en": "Diagnosing people instead of describing behaviour.",
+        "fa": "تشخیص‌دادنِ آدم‌ها به‌جای توصیفِ رفتار."
+      }
+    },
+    "workplace": {
+      "part": "recognise",
+      "n": 6,
+      "name": {
+        "en": "Why the Workplace",
+        "fa": "چرا محلِ کار"
+      },
+      "glabel": {
+        "en": "Workplace",
+        "fa": "محلِ کار"
+      },
+      "principle": {
+        "en": "Organisations reward the exact traits that make manipulation effective.",
+        "fa": "سازمان‌ها دقیقاً همان صفاتی را پاداش می‌دهند که دستکاری را مؤثر می‌کند."
+      },
+      "more": {
+        "en": "Confidence, decisiveness and comfort with risk are promoted. Without empathy underneath, they become a toolkit. This is why the pattern shows up disproportionately in senior roles.",
+        "fa": "اعتمادبه‌نفس، قاطعیت و راحتی با ریسک ترفیع می‌گیرند. اگر همدلی زیرشان نباشد، تبدیل به جعبه‌ابزار می‌شوند. برای همین این الگو به‌طرزِ نامتناسبی در نقش‌های ارشد دیده می‌شود."
+      },
+      "example": {
+        "en": "The manager who is charming upward and dismissive downward is showing you the pattern.",
+        "fa": "مدیری که به بالا جذاب است و به پایین تحقیرگر، دارد الگو را نشانت می‌دهد."
+      },
+      "tip": {
+        "en": "Ask how someone treats people who cannot help them.",
+        "fa": "بپرس با کسانی که نمی‌توانند کمکش کنند چطور رفتار می‌کند."
+      },
+      "pitfall": {
+        "en": "Reading confidence as competence.",
+        "fa": "اعتمادبه‌نفس را شایستگی خواندن."
+      }
+    },
+    "lovebomb": {
+      "part": "tactics",
+      "n": 7,
+      "name": {
+        "en": "Love Bombing",
+        "fa": "بمبارانِ محبت"
+      },
+      "glabel": {
+        "en": "Love Bombing",
+        "fa": "بمبارانِ محبت"
+      },
+      "principle": {
+        "en": "Overwhelming early approval creates a debt you did not agree to.",
+        "fa": "تأییدِ کوبندهٔ اولیه بدهی‌ای می‌سازد که تو قبولش نکرده‌ای."
+      },
+      "more": {
+        "en": "The intensity sets a baseline. When it is later withdrawn, you work to restore it — and that work is the actual mechanism. The withdrawal is not a change of heart; it is the second half of the tactic.",
+        "fa": "شدت یک خطِ پایه می‌سازد. وقتی بعداً پس گرفته شود، تلاش می‌کنی برش گردانی — و همان تلاش، سازوکارِ اصلی است. پس‌گرفتن تغییرِ عقیده نیست؛ نیمهٔ دومِ تاکتیک است."
+      },
+      "example": {
+        "en": "Extraordinary praise in month one, then coldness in month three, then praise again.",
+        "fa": "تحسینِ فوق‌العاده در ماهِ اول، بعد سردی در ماهِ سوم، بعد دوباره تحسین."
+      },
+      "tip": {
+        "en": "Notice if you are working to get back to how it felt at the start.",
+        "fa": "ببین آیا داری تلاش می‌کنی به حسِ اول برگردی یا نه."
+      },
+      "pitfall": {
+        "en": "Reading the withdrawal as your fault.",
+        "fa": "پس‌گرفتن را تقصیرِ خودت خواندن."
+      }
+    },
+    "gaslight": {
+      "part": "tactics",
+      "n": 8,
+      "name": {
+        "en": "Gaslighting",
+        "fa": "گس‌لایتینگ"
+      },
+      "glabel": {
+        "en": "Gaslighting",
+        "fa": "گس‌لایتینگ"
+      },
+      "principle": {
+        "en": "Your memory of events is contradicted until you stop trusting it.",
+        "fa": "خاطره‌ات از اتفاق‌ها آن‌قدر انکار می‌شود تا دیگر به آن اعتماد نکنی."
+      },
+      "more": {
+        "en": "\"That never happened\", \"you are too sensitive\", \"you misunderstood\" — repeated steadily, these transfer authority over reality from you to them. It works slowly, which is why it works.",
+        "fa": "«اصلاً این‌طور نشد»، «تو زیادی حساسی»، «بد فهمیدی» — با تکرارِ پیوسته، اقتدار بر واقعیت را از تو به او منتقل می‌کنند. آهسته کار می‌کند، و برای همین کار می‌کند."
+      },
+      "example": {
+        "en": "You leave a conversation less sure of something you witnessed yourself.",
+        "fa": "از یک گفتگو بیرون می‌آیی و به چیزی که خودت دیدی کمتر مطمئنی."
+      },
+      "tip": {
+        "en": "Write events down the same day. Contemporaneous notes end the argument.",
+        "fa": "اتفاق‌ها را همان روز بنویس. یادداشتِ هم‌زمان بحث را تمام می‌کند."
+      },
+      "pitfall": {
+        "en": "Arguing about reality with someone who benefits from your doubt.",
+        "fa": "بحث دربارهٔ واقعیت با کسی که از تردیدِ تو نفع می‌برد."
+      }
+    },
+    "isolate": {
+      "part": "tactics",
+      "n": 9,
+      "name": {
+        "en": "Isolation",
+        "fa": "انزوا"
+      },
+      "glabel": {
+        "en": "Isolation",
+        "fa": "انزوا"
+      },
+      "principle": {
+        "en": "Cut off outside perspective and their version becomes the only version.",
+        "fa": "نگاهِ بیرونی را قطع کن و روایتِ او تنها روایت می‌شود."
+      },
+      "more": {
+        "en": "Isolation is rarely announced. It arrives as small frictions with the people who would have told you the truth — and by the time you notice, you have no one left to check against.",
+        "fa": "انزوا به‌ندرت اعلام می‌شود. به‌شکلِ اصطکاک‌های کوچک با کسانی می‌آید که حقیقت را می‌گفتند — و تا متوجه شوی، دیگر کسی نمانده که با او بسنجی."
+      },
+      "example": {
+        "en": "Every friend who raised a concern has somehow become \"difficult\".",
+        "fa": "هر دوستی که نگرانی‌ای مطرح کرد، یک‌جوری «آدمِ سختی» شده است."
+      },
+      "tip": {
+        "en": "Keep at least two people who never meet through them.",
+        "fa": "دستِ‌کم دو نفر را نگه دار که از راهِ او با تو آشنا نشده‌اند."
+      },
+      "pitfall": {
+        "en": "Letting your circle be curated for you.",
+        "fa": "اجازه‌دادن به اینکه دایره‌ات را برایت بچینند."
+      }
+    },
+    "boundaries": {
+      "part": "defence",
+      "n": 10,
+      "name": {
+        "en": "Boundaries",
+        "fa": "مرزها"
+      },
+      "glabel": {
+        "en": "Boundaries",
+        "fa": "مرزها"
+      },
+      "principle": {
+        "en": "State the limit once, plainly, and hold it without re-arguing.",
+        "fa": "حد را یک‌بار و ساده بگو، و بی‌بحثِ دوباره نگهش دار."
+      },
+      "more": {
+        "en": "A boundary that gets renegotiated every time is not a boundary. The strength is in the repetition without escalation — you do not need to win, you need to not move.",
+        "fa": "مرزی که هر بار دوباره چانه‌زنی شود مرز نیست. قدرتش در تکرارِ بدونِ تشدید است — لازم نیست ببری، لازم است تکان نخوری."
+      },
+      "example": {
+        "en": "\"I don't discuss this after work hours\" — said the same way the tenth time as the first.",
+        "fa": "«بعد از ساعتِ کاری دربارهٔ این حرف نمی‌زنم» — بارِ دهم همان‌طور که بارِ اول."
+      },
+      "tip": {
+        "en": "Write one sentence you will repeat verbatim next time.",
+        "fa": "یک جمله بنویس که دفعهٔ بعد عیناً تکرارش می‌کنی."
+      },
+      "pitfall": {
+        "en": "Explaining the boundary until it becomes negotiable.",
+        "fa": "آن‌قدر توضیح‌دادنِ مرز تا قابلِ‌مذاکره شود."
+      }
+    },
+    "document": {
+      "part": "defence",
+      "n": 11,
+      "name": {
+        "en": "Document and Verify",
+        "fa": "ثبت کن و بسنج"
+      },
+      "glabel": {
+        "en": "Document",
+        "fa": "ثبت"
+      },
+      "principle": {
+        "en": "Write it down and check it with someone outside the situation.",
+        "fa": "بنویسش و با کسی بیرون از ماجرا بسنجش."
+      },
+      "more": {
+        "en": "Records defeat gaslighting because they do not depend on memory, and an outside view defeats isolation because it does not depend on their framing. Both are boring, which is why they work.",
+        "fa": "ثبت، گس‌لایتینگ را شکست می‌دهد چون به حافظه وابسته نیست، و نگاهِ بیرونی انزوا را چون به قاب‌بندیِ او وابسته نیست. هر دو کسل‌کننده‌اند، و برای همین کار می‌کنند."
+      },
+      "example": {
+        "en": "A dated note or a follow-up email turns \"you misremembered\" into a settled fact.",
+        "fa": "یک یادداشتِ تاریخ‌دار یا یک ایمیلِ پیگیری، «اشتباه یادت مانده» را به یک واقعیتِ حل‌شده تبدیل می‌کند."
+      },
+      "tip": {
+        "en": "Send a short \"just to confirm what we agreed\" email after key conversations.",
+        "fa": "بعد از گفتگوهای کلیدی یک ایمیلِ کوتاهِ «فقط برای تأییدِ آنچه توافق کردیم» بفرست."
+      },
+      "pitfall": {
+        "en": "Relying on memory against someone who edits history.",
+        "fa": "تکیه به حافظه در برابرِ کسی که تاریخ را ویرایش می‌کند."
+      }
+    },
+    "exit": {
+      "part": "defence",
+      "n": 12,
+      "name": {
+        "en": "Know When to Leave",
+        "fa": "بدان کِی بروی"
+      },
+      "glabel": {
+        "en": "Exit",
+        "fa": "خروج"
+      },
+      "principle": {
+        "en": "You will not out-argue someone who is not arguing in good faith. Sometimes the answer is distance.",
+        "fa": "کسی را که با حسنِ‌نیت بحث نمی‌کند نمی‌توانی در بحث ببری. گاهی جواب، فاصله است."
+      },
+      "more": {
+        "en": "Erikson is blunt that some situations do not improve. Recognising an unwinnable dynamic early saves years — and leaving is a strategy, not a defeat.",
+        "fa": "اریکسون رک می‌گوید بعضی موقعیت‌ها بهتر نمی‌شوند. زود تشخیص‌دادنِ یک پویاییِ نبردنی، سال‌ها را نجات می‌دهد — و رفتن یک استراتژی است، نه شکست."
+      },
+      "example": {
+        "en": "After the third identical cycle, the pattern is the information.",
+        "fa": "بعد از سومین چرخهٔ یکسان، خودِ الگو همان اطلاعات است."
+      },
+      "tip": {
+        "en": "Decide in advance what would make you walk, while you are still clear-headed.",
+        "fa": "از قبل و وقتی هنوز ذهنت روشن است تصمیم بگیر چه چیزی باعث رفتنت می‌شود."
+      },
+      "pitfall": {
+        "en": "Staying because you have already invested so much.",
+        "fa": "ماندن چون تا حالا این‌همه گذاشته‌ای."
+      }
+    }
+  },
+  "core": {
+    "name": {
+      "en": "KNOW THE TYPE",
+      "fa": "گونه را بشناس"
+    },
+    "principle": {
+      "en": "Manipulation is effective because it is tailored: the manipulator reads your behaviour type and pulls the lever that type responds to. Knowing your own default — and being able to name the tactic — is most of the protection.",
+      "fa": "دستکاری مؤثر است چون سفارشی است: دستکارگر گونهٔ رفتاریِ تو را می‌خواند و همان اهرمی را می‌کشد که آن گونه به آن واکنش می‌دهد. دانستنِ پیش‌فرضِ خودت — و توانِ نام‌بردنِ تاکتیک — بیشترِ محافظت است."
+    },
+    "more": {
+      "en": "Erikson builds it in four moves: the four behaviour colours and the lever each one exposes; how to recognise a manipulator behind the charm, on a spectrum rather than as a diagnosis; the recurring tactics — love bombing, gaslighting, isolation — all aimed at your judgement; and finally the unglamorous defences: plain boundaries, written records, outside perspective, and a decided exit.",
+      "fa": "اریکسون آن را در چهار حرکت می‌سازد: چهار رنگِ رفتاری و اهرمی که هرکدام لو می‌دهد؛ چطور دستکارگر را پشتِ جذابیت بشناسی، روی یک طیف نه به‌شکلِ تشخیص؛ تاکتیک‌های تکرارشونده — بمبارانِ محبت، گس‌لایتینگ، انزوا — که همه قضاوتِ تو را نشانه رفته‌اند؛ و آخر، دفاع‌های بی‌زرق‌وبرق: مرزهای ساده، ثبتِ مکتوب، نگاهِ بیرونی، و خروجی که از قبل تصمیمش گرفته شده."
+    },
+    "example": {
+      "en": "Click any node to read a principle or a method. You can also drag the nodes around.",
+      "fa": "روی هر دایره کلیک کن تا یک اصل یا روش را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."
+    }
+  },
+  "stages": [
+    {
+      "level": 1,
+      "badge": {
+        "en": "Level 1 · Over-simplified",
+        "fa": "سطحِ ۱ · خیلی ساده"
+      },
+      "title": {
+        "en": "Charm is not character",
+        "fa": "جذابیت شخصیت نیست"
+      },
+      "tagline": {
+        "en": "The whole book in a sentence.",
+        "fa": "کلِ کتاب در یک جمله."
+      },
+      "body": {
+        "en": "The people who manipulate you are charming first. Judge by behaviour over time, not by how the first meeting felt.",
+        "fa": "کسانی که دستکاریت می‌کنند اول جذاب‌اند. با رفتار در طولِ زمان قضاوت کن، نه با حسِ جلسهٔ اول."
+      },
+      "example": {
+        "en": "Someone who calls you their closest ally in week one is describing a strategy.",
+        "fa": "کسی که در هفتهٔ اول تو را نزدیک‌ترین متحدش می‌خواند، دارد یک استراتژی را توصیف می‌کند."
+      },
+      "gain": {
+        "en": "You hold the rule the whole book expands on.",
+        "fa": "همان قاعده‌ای را داری که کلِ کتاب بسطش می‌دهد."
+      }
+    },
+    {
+      "level": 2,
+      "badge": {
+        "en": "Level 2 · Simple",
+        "fa": "سطحِ ۲ · ساده"
+      },
+      "title": {
+        "en": "Four colours",
+        "fa": "چهار رنگ"
+      },
+      "tagline": {
+        "en": "Red, Yellow, Green, Blue.",
+        "fa": "قرمز، زرد، سبز، آبی."
+      },
+      "body": {
+        "en": "<b>Red</b> drives for results, <b>Yellow</b> for approval, <b>Green</b> for harmony, <b>Blue</b> for precision. Each type has a predictable lever — and manipulation is simply pulling the one that matches you.",
+        "fa": "<b>قرمز</b> دنبالِ نتیجه است، <b>زرد</b> دنبالِ تأیید، <b>سبز</b> دنبالِ هماهنگی، <b>آبی</b> دنبالِ دقت. هر گونه اهرمی قابلِ‌پیش‌بینی دارد — و دستکاری فقط کشیدنِ همان اهرمی است که به تو می‌خورد."
+      },
+      "example": {
+        "en": "\"Everyone else already agreed\" targets a Red; \"after all I have done for you\" targets a Green.",
+        "fa": "«بقیه همه موافقت کرده‌اند» قرمز را هدف می‌گیرد؛ «بعد از این‌همه کاری که کردم» سبز را."
+      },
+      "gain": {
+        "en": "You know which lever is pointed at you.",
+        "fa": "می‌دانی کدام اهرم به سمتِ تو نشانه رفته."
+      }
+    },
+    {
+      "level": 3,
+      "badge": {
+        "en": "Level 3 · Balanced",
+        "fa": "سطحِ ۳ · متعادل"
+      },
+      "title": {
+        "en": "Name the tactic",
+        "fa": "تاکتیک را نام ببر"
+      },
+      "tagline": {
+        "en": "Love bombing, gaslighting, isolation.",
+        "fa": "بمبارانِ محبت، گس‌لایتینگ، انزوا."
+      },
+      "body": {
+        "en": "<b>Love bombing</b> sets a high baseline then withdraws it so you work to restore it. <b>Gaslighting</b> contradicts your memory until you stop trusting it. <b>Isolation</b> removes anyone who would tell you the truth. All three target your judgement, not your mood.",
+        "fa": "<b>بمبارانِ محبت</b> یک خطِ پایهٔ بالا می‌سازد بعد پس می‌گیرد تا تو برای برگرداندنش تلاش کنی. <b>گس‌لایتینگ</b> خاطره‌ات را انکار می‌کند تا دیگر به آن اعتماد نکنی. <b>انزوا</b> هرکسی را که حقیقت را می‌گفت برمی‌دارد. هر سه قضاوتت را هدف گرفته‌اند، نه حالت را."
+      },
+      "example": {
+        "en": "Every friend who raised a concern has somehow become \"difficult\".",
+        "fa": "هر دوستی که نگرانی‌ای مطرح کرد، یک‌جوری «آدمِ سختی» شده است."
+      },
+      "gain": {
+        "en": "You can name the move while it is happening.",
+        "fa": "می‌توانی حرکت را همان‌موقع که دارد اتفاق می‌افتد نام ببری."
+      }
+    },
+    {
+      "level": 4,
+      "badge": {
+        "en": "Level 4 · Advanced",
+        "fa": "سطحِ ۴ · پیشرفته"
+      },
+      "title": {
+        "en": "Build the defences",
+        "fa": "دفاع‌ها را بساز"
+      },
+      "tagline": {
+        "en": "Boundaries, records, outside eyes.",
+        "fa": "مرز، ثبت، چشمِ بیرونی."
+      },
+      "body": {
+        "en": "State a limit once, plainly, and repeat it verbatim without escalating — a boundary renegotiated time is not one. <b>Write events down the same day</b>; contemporaneous notes defeat gaslighting because they do not depend on memory. Keep two people who never met through them.",
+        "fa": "حد را یک‌بار و ساده بگو و عیناً تکرارش کن بی‌آنکه تشدید کنی — مرزی که هر بار دوباره چانه‌زنی شود مرز نیست. <b>اتفاق‌ها را همان روز بنویس</b>؛ یادداشتِ هم‌زمان گس‌لایتینگ را شکست می‌دهد چون به حافظه وابسته نیست. دو نفر را نگه دار که از راهِ او با تو آشنا نشده‌اند."
+      },
+      "example": {
+        "en": "Send a short \"just to confirm what we agreed\" email after key conversations.",
+        "fa": "بعد از گفتگوهای کلیدی یک ایمیلِ کوتاهِ «فقط برای تأییدِ آنچه توافق کردیم» بفرست."
+      },
+      "gain": {
+        "en": "You can protect your judgement without winning an argument.",
+        "fa": "می‌توانی از قضاوتت محافظت کنی بی‌آنکه بحثی را ببری."
+      }
+    },
+    {
+      "level": 5,
+      "badge": {
+        "en": "Level 5 · Expert",
+        "fa": "سطحِ ۵ · حرفه‌ای"
+      },
+      "title": {
+        "en": "Pattern, not diagnosis",
+        "fa": "الگو، نه تشخیص"
+      },
+      "tagline": {
+        "en": "Count the cycles; know your exit.",
+        "fa": "چرخه‌ها را بشمار؛ خروجت را بدان."
+      },
+      "body": {
+        "en": "Treat it as a <b>spectrum of behaviour</b>, not a clinical label — count occurrences before concluding, because behaviour is the only thing you can actually assess. Notice why organisations reward the traits (confidence, decisiveness, risk appetite) that make manipulation effective. And decide in advance what would make you walk: you will not out-argue someone who is not arguing in good faith, and leaving is a strategy, not a defeat.",
+        "fa": "آن را یک <b>طیفِ رفتاری</b> بدان، نه برچسبِ بالینی — قبل از نتیجه‌گیری دفعات را بشمار، چون رفتار تنها چیزی است که واقعاً می‌توانی بسنجی. ببین چرا سازمان‌ها همان صفاتی (اعتمادبه‌نفس، قاطعیت، ریسک‌پذیری) را پاداش می‌دهند که دستکاری را مؤثر می‌کند. و از قبل تصمیم بگیر چه چیزی باعثِ رفتنت می‌شود: کسی را که با حسنِ‌نیت بحث نمی‌کند در بحث نمی‌بری، و رفتن استراتژی است نه شکست."
+      },
+      "example": {
+        "en": "After the third identical cycle, the pattern itself is the information you needed.",
+        "fa": "بعد از سومین چرخهٔ یکسان، خودِ الگو همان اطلاعاتی است که لازم داشتی."
+      },
+      "gain": {
+        "en": "You can assess people by pattern and protect yourself without becoming cynical.",
+        "fa": "می‌توانی آدم‌ها را با الگو بسنجی و از خودت محافظت کنی بی‌آنکه بدبین شوی."
+      }
+    }
+  ],
+  "quotes": [
+    {
+      "en": "Everything you say is filtered through the listener's own way of seeing the world.",
+      "fa": "هرچه می‌گویی از فیلترِ نگاهِ خودِ شنونده به جهان رد می‌شود."
+    },
+    {
+      "en": "The manipulator's first tool is charm, and charm tells you nothing about character.",
+      "fa": "اولین ابزارِ دستکارگر جذابیت است، و جذابیت هیچ دربارهٔ شخصیت نمی‌گوید."
+    },
+    {
+      "en": "If you do not know your own weak points, you cannot guard them.",
+      "fa": "اگر نقاطِ ضعفِ خودت را ندانی، نمی‌توانی از آن‌ها محافظت کنی."
+    },
+    {
+      "en": "Write things down. Memory is exactly what a manipulator relies on you losing.",
+      "fa": "چیزها را بنویس. حافظه دقیقاً همان چیزی است که دستکارگر روی از دست دادنش حساب می‌کند."
+    },
+    {
+      "en": "You do not have to win the argument. You have to stop having it.",
+      "fa": "لازم نیست بحث را ببری. لازم است دیگر بحث نکنی."
+    }
+  ],
+  "media": [
+    {
+      "kind": "img",
+      "url": "https://www.thomaserikson.com/",
+      "src": {
+        "en": "thomaserikson.com · Author",
+        "fa": "thomaserikson.com · نویسنده"
+      },
+      "title": {
+        "en": "Thomas Erikson — the author's site",
+        "fa": "توماس اریکسون — سایتِ نویسنده"
+      },
+      "desc": {
+        "en": "The author's site, covering the four-colour model and the wider series.",
+        "fa": "سایتِ نویسنده، دربارهٔ مدلِ چهاررنگ و کلِ مجموعه."
+      },
+      "bullets": {
+        "en": [
+          "The four-colour model explained",
+          "The rest of the series",
+          "Straight from the source"
+        ],
+        "fa": [
+          "توضیحِ مدلِ چهاررنگ",
+          "بقیهٔ مجموعه",
+          "مستقیم از منبع"
+        ]
+      },
+      "best": {
+        "en": "Best for Stage 1–2.",
+        "fa": "خوب برای مرحلهٔ ۱ و ۲."
+      }
+    },
+    {
+      "kind": "img",
+      "url": "https://www.goodreads.com/book/show/50863737-surrounded-by-psychopaths",
+      "src": {
+        "en": "Goodreads · Readers",
+        "fa": "گودریدز · خوانندگان"
+      },
+      "title": {
+        "en": "Reader reviews and debate",
+        "fa": "نقدها و بحثِ خوانندگان"
+      },
+      "desc": {
+        "en": "Reader discussion, including the criticism of the DISC-style model.",
+        "fa": "بحثِ خوانندگان، از جمله نقدِ مدلِ شبیه به DISC."
+      },
+      "bullets": {
+        "en": [
+          "Where readers found it useful",
+          "Where the model is contested",
+          "Useful for a balanced view"
+        ],
+        "fa": [
+          "جایی که خوانندگان مفید یافتندش",
+          "جایی که مدل محلِ مناقشه است",
+          "مفید برای نگاهِ متوازن"
+        ]
+      },
+      "best": {
+        "en": "Best for Stage 5.",
+        "fa": "خوب برای مرحلهٔ ۵."
+      }
+    }
+  ],
+  "go": [
+    {
+      "label": {
+        "en": "Author's site",
+        "fa": "سایتِ نویسنده"
+      },
+      "url": "https://www.thomaserikson.com/"
+    },
+    {
+      "label": {
+        "en": "Book on Goodreads",
+        "fa": "کتاب در گودریدز"
+      },
+      "url": "https://www.goodreads.com/book/show/50863737-surrounded-by-psychopaths"
+    },
+    {
+      "label": {
+        "en": "Publisher page",
+        "fa": "صفحهٔ ناشر"
+      },
+      "url": "https://us.macmillan.com/books/9781250763884/surroundedbypsychopaths"
+    }
+  ],
+  "recs": [
+    {
+      "pri": "b",
+      "t": {
+        "en": "Identify your own colour",
+        "fa": "رنگِ خودت را پیدا کن"
+      },
+      "d": {
+        "en": "Knowing your default under stress tells you which lever will be pulled on you.",
+        "fa": "دانستنِ پیش‌فرضت زیرِ فشار می‌گوید کدام اهرم روی تو کشیده می‌شود."
+      }
+    },
+    {
+      "pri": "b",
+      "t": {
+        "en": "Start writing things down",
+        "fa": "شروع کن به نوشتن"
+      },
+      "d": {
+        "en": "After key conversations, send a short \"just to confirm what we agreed\" email.",
+        "fa": "بعد از گفتگوهای کلیدی، یک ایمیلِ کوتاهِ «فقط برای تأییدِ آنچه توافق کردیم» بفرست."
+      }
+    },
+    {
+      "pri": "n",
+      "t": {
+        "en": "Write one boundary sentence",
+        "fa": "یک جملهٔ مرزی بنویس"
+      },
+      "d": {
+        "en": "One plain sentence you will repeat verbatim, without explaining it further.",
+        "fa": "یک جملهٔ ساده که عیناً تکرارش می‌کنی، بی‌توضیحِ بیشتر."
+      }
+    },
+    {
+      "pri": "n",
+      "t": {
+        "en": "Check your circle",
+        "fa": "دایره‌ات را بررسی کن"
+      },
+      "d": {
+        "en": "Name two people in your life who did not come to you through the person you are worried about.",
+        "fa": "دو نفر را نام ببر که از راهِ آدمی که نگرانش هستی وارد زندگی‌ات نشده‌اند."
+      }
+    }
+  ]
+});
+</script>
+</body>
+</html>

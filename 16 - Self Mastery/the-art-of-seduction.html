@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<!-- Generated page. Edit CONTENT in the DATA object below; shared UI lives in ../assets/book.css + ../assets/book.js -->
+<html lang="en" dir="ltr" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Art of Seduction — نقشهٔ دانش و یادگیری ۵ مرحله‌ای</title>
+
+<!-- Boot theme + language BEFORE paint to avoid a flash (shared library-wide keys) -->
+<script>
+(function(){
+  try{
+    var th = localStorage.getItem('pbl-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
+    document.documentElement.setAttribute('data-theme', th);
+  }catch(e){ document.documentElement.setAttribute('data-theme','light'); }
+  try{
+    var lg = localStorage.getItem('pbl-lang') || 'en';
+    document.documentElement.setAttribute('data-lang', lg);
+    document.documentElement.setAttribute('lang', lg);
+    document.documentElement.setAttribute('dir', lg==='fa' ? 'rtl' : 'ltr');
+  }catch(e){}
+})();
+</script>
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,200..700;1,6..72,200..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/book.css">
+</head>
+<body>
+<div id="app"></div>
+
+<script src="../assets/library.js"></script>
+<script src="../assets/book.js"></script>
+<script>
+/* ── CONTENT — everything unique to this book lives here ── */
+Book.mount({
+  "meta": {
+    "slug": "the-art-of-seduction",
+    "folder": "16 - Self Mastery",
+    "groupNum": 16,
+    "group": {
+      "en": "Self Mastery",
+      "fa": "تسلط بر خود"
+    },
+    "author": {
+      "en": "Robert Greene",
+      "fa": "رابرت گرین"
+    },
+    "eyebrow_author": {
+      "en": "Robert Greene",
+      "fa": "رابرت گرین"
+    },
+    "book": {
+      "en": "The Art of Seduction",
+      "fa": "هنرِ اغوا"
+    },
+    "hero_title": {
+      "en": "The Art of Seduction — How Indirect Influence Actually Works",
+      "fa": "هنرِ اغوا — نفوذِ غیرمستقیم واقعاً چطور کار می‌کند"
+    },
+    "dek": {
+      "en": "A knowledge graph of the whole book, plus a 5-stage path from a single idea to expert-level mastery — with an example at every step.",
+      "fa": "نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از خیلی ساده تا حرفه‌ای — با یک مثال در هر مرحله."
+    },
+    "published": {
+      "en": "2001",
+      "fa": "۲۰۰۱"
+    },
+    "chips": [
+      {
+        "v": {
+          "en": "4",
+          "fa": "۴"
+        },
+        "l": {
+          "en": "Parts",
+          "fa": "بخش"
+        }
+      },
+      {
+        "v": {
+          "en": "12",
+          "fa": "۱۲"
+        },
+        "l": {
+          "en": "Ideas",
+          "fa": "ایده"
+        }
+      },
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Learning stages",
+          "fa": "مرحلهٔ یادگیری"
+        }
+      }
+    ],
+    "kboxes": [
+      {
+        "v": {
+          "en": "4",
+          "fa": "۴"
+        },
+        "l": {
+          "en": "Parts (the seductive character · reading the target · the process · power and its cost)",
+          "fa": "بخش (شخصیتِ اغواگر · خواندنِ طرف · فرایند · قدرت و بهایش)"
+        }
+      },
+      {
+        "v": {
+          "en": "12",
+          "fa": "۱۲"
+        },
+        "l": {
+          "en": "Ideas you can use",
+          "fa": "ایده برای استفاده"
+        }
+      },
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Levels, simple → expert",
+          "fa": "مرحله، ساده تا حرفه‌ای"
+        }
+      },
+      {
+        "v": {
+          "en": "9",
+          "fa": "۹"
+        },
+        "l": {
+          "en": "Seducer types Greene catalogues",
+          "fa": "گونهٔ اغواگر که گرین فهرست می‌کند"
+        }
+      }
+    ],
+    "core_callout": {
+      "label": {
+        "en": "The core idea:",
+        "fa": "ایدهٔ اصلی:"
+      },
+      "en": " Seduction is <i>indirect power</i>: instead of forcing people, you work on their imagination until they move themselves. Greene reads it as a strategy — find the void in someone's life, become the thing that fills it, and let anticipation do the work that pressure never could. Read it to <i>recognise</i> the pattern as much as to use it.",
+      "fa": " اغوا یعنی <i>قدرتِ غیرمستقیم</i>: به‌جای فشار بر آدم‌ها، روی تخیلشان کار می‌کنی تا خودشان حرکت کنند. گرین آن را یک استراتژی می‌خواند — خلأِ زندگیِ کسی را پیدا کن، همان چیزی شو که پُرش می‌کند، و بگذار انتظار کاری را بکند که فشار هرگز نمی‌توانست. این را بخوان تا الگو را <i>بشناسی</i>، به همان اندازه که به‌کارش ببری."
+    },
+    "flow_callout": {
+      "label": {
+        "en": "Read it as a flow:",
+        "fa": "به‌صورتِ یک جریان بخوانش:"
+      },
+      "en": " first know your own <b>seductive character</b> and what repels, then <b>read the target</b> and the void they carry, run the <b>process</b> from interest to tension, and finally weigh the <b>cost</b> — where influence stops being fair.",
+      "fa": " اول <b>شخصیتِ اغواگرِ</b> خودت و آنچه دفع می‌کند را بشناس، بعد <b>طرف</b> و خلأیی که با خود دارد را بخوان، <b>فرایند</b> را از علاقه تا تنش پیش ببر، و آخر <b>بها</b> را بسنج — جایی که نفوذ دیگر منصفانه نیست."
+    }
+  },
+  "method": {
+    "en": "<p><b>Source:</b> the book <i>The Art of Seduction</i> by Robert Greene, first published 2001.</p><p><b>How this was built:</b> the structure and ideas were gathered and rewritten from the book and reputable sources, and framed as a study of influence.</p><p><b>Group:</b> Self Mastery.</p><p><b>A note:</b> Greene describes tactics without endorsing them. This page presents them the same way — understanding manipulation is the best defence against it, and influence without consent is manipulation.</p>",
+    "fa": "<p><b>منبع:</b> کتابِ «هنرِ اغوا» نوشتهٔ رابرت گرین، چاپِ نخست ۲۰۰۱.</p><p><b>روشِ کار:</b> ساختار و ایده‌ها از خودِ کتاب و منابعِ معتبر گردآوری و به‌شکلِ مطالعه‌ای دربارهٔ نفوذ بازنویسی شده است.</p><p><b>گروه:</b> تسلط بر خود.</p><p><b>یک نکته:</b> گرین تاکتیک‌ها را توصیف می‌کند بی‌آنکه تأییدشان کند. این صفحه هم همان‌طور ارائه‌شان می‌دهد — شناختِ دستکاری بهترین دفاع در برابرِ آن است، و نفوذِ بدونِ رضایت، دستکاری است.</p>"
+  },
+  "flow": {
+    "en": [
+      "Character",
+      "Target",
+      "Process",
+      "Cost"
+    ],
+    "fa": [
+      "شخصیت",
+      "طرف",
+      "فرایند",
+      "بها"
+    ]
+  },
+  "graph": {
+    "R2": 132,
+    "span": 70
+  },
+  "tldr": [
+    {
+      "en": "The whole book in one line: <b>you cannot force attraction — you can only create the conditions for it.</b>",
+      "fa": "خلاصهٔ کل کتاب در یک جمله: <b>جذابیت را نمی‌شود به‌زور ساخت — فقط می‌شود شرایطش را فراهم کرد.</b>"
+    },
+    {
+      "en": "Greene catalogues nine <b>seducer types</b> and one anti-type; the first task is knowing which one you actually are.",
+      "fa": "گرین نُه <b>گونهٔ اغواگر</b> و یک ضدگونه را فهرست می‌کند؛ کارِ اول این است که بدانی واقعاً کدامی."
+    },
+    {
+      "en": "Everyone carries a <b>void</b> — something missing. Influence works by speaking to that, not to your own agenda.",
+      "fa": "هرکسی یک <b>خلأ</b> دارد — چیزی که کم است. نفوذ با حرف‌زدن با آن خلأ کار می‌کند، نه با نقشهٔ خودت."
+    },
+    {
+      "en": "The process runs in phases: stir interest, create pleasure and doubt, then deepen through tension — not pressure.",
+      "fa": "فرایند مرحله‌ای است: برانگیختنِ علاقه، ساختنِ لذت و تردید، بعد عمیق‌کردن از راهِ تنش — نه فشار."
+    },
+    {
+      "en": "The same mechanics run politics, branding and charisma. Knowing them is <b>defence</b> as much as offence.",
+      "fa": "همین سازوکار در سیاست، برندسازی و کاریزما هم کار می‌کند. شناختنشان به‌اندازهٔ حمله، <b>دفاع</b> است."
+    }
+  ],
+  "parts": [
+    {
+      "key": "character",
+      "varc": "--c-teal",
+      "name": {
+        "en": "The Seductive Character",
+        "fa": "شخصیتِ اغواگر"
+      },
+      "tag": {
+        "en": "Know yourself",
+        "fa": "خودت را بشناس"
+      },
+      "gist": {
+        "en": "Nine types, one anti-type — and the honest question of which you are.",
+        "fa": "نُه گونه، یک ضدگونه — و پرسشِ صادقانه که تو کدامی."
+      },
+      "more": {
+        "en": "Greene argues attraction is not universal but typed. The Siren works on presence, the Charmer on attention, the Natural on unforced ease. The value is diagnostic: you cannot perform a character that is not yours.",
+        "fa": "گرین می‌گوید جذابیت یکسان نیست، گونه‌گون است. سیرن با حضور کار می‌کند، افسونگر با توجه، طبیعی با راحتیِ بی‌تکلف. ارزشش تشخیصی است: نمی‌توانی شخصیتی را اجرا کنی که مالِ تو نیست."
+      },
+      "chapters": [
+        "types",
+        "antiseducer",
+        "ownchar"
+      ]
+    },
+    {
+      "key": "target",
+      "varc": "--c-blue",
+      "name": {
+        "en": "Reading the Target",
+        "fa": "خواندنِ طرف"
+      },
+      "tag": {
+        "en": "Know them",
+        "fa": "آن‌ها را بشناس"
+      },
+      "gist": {
+        "en": "Find the void, and speak to it rather than to yourself.",
+        "fa": "خلأ را پیدا کن و با آن حرف بزن، نه با خودت."
+      },
+      "more": {
+        "en": "Greene's claim is that every person has an unmet need — for adventure, recognition, safety, being seen. Influence that ignores the void is just noise, however well argued.",
+        "fa": "ادعای گرین این است که هر آدمی نیازی برآورده‌نشده دارد — به ماجرا، به دیده‌شدن، به امنیت. نفوذی که خلأ را نادیده بگیرد فقط سروصداست، هرچقدر هم خوب استدلال شود."
+      },
+      "chapters": [
+        "void",
+        "atmosphere",
+        "signals"
+      ]
+    },
+    {
+      "key": "process",
+      "varc": "--c-violet",
+      "name": {
+        "en": "The Seductive Process",
+        "fa": "فرایندِ اغوا"
+      },
+      "tag": {
+        "en": "The sequence",
+        "fa": "توالی"
+      },
+      "gist": {
+        "en": "Interest, then pleasure and doubt, then tension — in order.",
+        "fa": "علاقه، بعد لذت و تردید، بعد تنش — به همین ترتیب."
+      },
+      "more": {
+        "en": "The phases matter more than any single tactic. Skipping to the end reads as pressure; running them in order is what makes the other person feel they arrived on their own.",
+        "fa": "مرحله‌ها از هر تاکتیکِ منفردی مهم‌ترند. پریدن به انتها یعنی فشار؛ اجرای مرتبشان همان چیزی است که باعث می‌شود طرف حس کند خودش رسیده."
+      },
+      "chapters": [
+        "presence",
+        "pleasure",
+        "tension"
+      ]
+    },
+    {
+      "key": "cost",
+      "varc": "--c-amber",
+      "name": {
+        "en": "Power and Its Cost",
+        "fa": "قدرت و بهایش"
+      },
+      "tag": {
+        "en": "The ethics",
+        "fa": "اخلاق"
+      },
+      "gist": {
+        "en": "Where soft power ends and manipulation begins — and what it costs the seducer.",
+        "fa": "کجا قدرتِ نرم تمام می‌شود و دستکاری شروع — و برای اغواگر چه خرجی دارد."
+      },
+      "more": {
+        "en": "The book is a catalogue of tactics, not a moral licence. The most useful reading is defensive: the same moves used on you in a sales call, a campaign, or a relationship become visible once named.",
+        "fa": "کتاب فهرستی از تاکتیک‌هاست، نه مجوزی اخلاقی. مفیدترین خواندنش دفاعی است: همین حرکت‌ها وقتی در یک تماسِ فروش، یک کمپین یا یک رابطه روی تو اجرا می‌شوند، به‌محضِ نام‌گرفتن دیده می‌شوند."
+      },
+      "chapters": [
+        "softpower",
+        "consent",
+        "mirror"
+      ]
+    }
+  ],
+  "chapters": {
+    "types": {
+      "part": "character",
+      "n": 1,
+      "name": {
+        "en": "The Nine Types",
+        "fa": "نُه گونه"
+      },
+      "glabel": {
+        "en": "Types",
+        "fa": "گونه‌ها"
+      },
+      "principle": {
+        "en": "Attraction is typed, not universal: Siren, Rake, Ideal Lover, Dandy, Natural, Coquette, Charmer, Charismatic, Star.",
+        "fa": "جذابیت گونه‌گون است نه یکسان: سیرن، رِیک، معشوقِ آرمانی، دندی، طبیعی، عشوه‌گر، افسونگر، کاریزماتیک، ستاره."
+      },
+      "more": {
+        "en": "Each type works through a different mechanism — presence, desire, projection, style, innocence, withholding, attention, conviction, image. Knowing the catalogue lets you name what is happening instead of feeling it.",
+        "fa": "هر گونه از سازوکارِ متفاوتی کار می‌کند — حضور، میل، فرافکنی، سبک، معصومیت، دریغ‌کردن، توجه، اطمینان، تصویر. دانستنِ فهرست به تو اجازه می‌دهد اتفاق را نام ببری به‌جای اینکه فقط حسش کنی."
+      },
+      "example": {
+        "en": "The Charmer never argues; they make the other person the subject of every exchange.",
+        "fa": "افسونگر هرگز بحث نمی‌کند؛ طرفِ مقابل را موضوعِ هر گفتگو می‌کند."
+      },
+      "tip": {
+        "en": "Read the nine and mark which one describes someone who has influenced you.",
+        "fa": "نُه‌تا را بخوان و علامت بزن کدام کسی را توصیف می‌کند که بر تو اثر گذاشته."
+      },
+      "pitfall": {
+        "en": "Trying to be all nine and reading as none.",
+        "fa": "تلاش برای بودنِ هر نُه‌تا و درنتیجه هیچ‌کدام نبودن."
+      }
+    },
+    "antiseducer": {
+      "part": "character",
+      "n": 2,
+      "name": {
+        "en": "The Anti-Seducer",
+        "fa": "ضدِ اغواگر"
+      },
+      "glabel": {
+        "en": "Anti-Seducer",
+        "fa": "ضدِ اغواگر"
+      },
+      "principle": {
+        "en": "Most failure is not missing charm; it is committing the things that repel.",
+        "fa": "بیشترِ شکست، نداشتنِ جذابیت نیست؛ انجام‌دادنِ کارهایی است که دفع می‌کند."
+      },
+      "more": {
+        "en": "Neediness, self-absorption, talking over people, cheapness of attention, over-explaining — these undo any tactic. Removing the repellents beats adding techniques.",
+        "fa": "نیازمندی، خودشیفتگی، حرفِ کسی را بریدن، بخل در توجه، زیاده‌توضیح‌دادن — اینها هر تاکتیکی را خنثی می‌کنند. برداشتنِ دفع‌کننده‌ها از افزودنِ تکنیک بهتر است."
+      },
+      "example": {
+        "en": "Someone who checks whether they impressed you mid-conversation has already answered it.",
+        "fa": "کسی که وسطِ گفتگو چک می‌کند آیا تحتِ‌تأثیرت گذاشته یا نه، خودش جواب را داده."
+      },
+      "tip": {
+        "en": "Name your own anti-seductive habit before you learn a single technique.",
+        "fa": "قبل از یادگرفتنِ حتی یک تکنیک، عادتِ دفع‌کنندهٔ خودت را نام ببر."
+      },
+      "pitfall": {
+        "en": "Adding charm on top of neediness instead of removing the neediness.",
+        "fa": "افزودنِ جذابیت روی نیازمندی به‌جای برداشتنِ نیازمندی."
+      }
+    },
+    "ownchar": {
+      "part": "character",
+      "n": 3,
+      "name": {
+        "en": "Your Own Character",
+        "fa": "شخصیتِ خودت"
+      },
+      "glabel": {
+        "en": "Own Character",
+        "fa": "شخصیتِ خودت"
+      },
+      "principle": {
+        "en": "Build on the quality you already have. A performed character is detected instantly.",
+        "fa": "روی همان کیفیتی بساز که داری. شخصیتِ اجراشده فوری لو می‌رود."
+      },
+      "more": {
+        "en": "Greene's practical advice is unglamorous: find the trait people already respond to in you and amplify it, rather than importing someone else's persona.",
+        "fa": "توصیهٔ عملیِ گرین بی‌زرق‌وبرق است: همان صفتی را که آدم‌ها از قبل در تو به آن واکنش می‌دهند پیدا کن و بزرگش کن، به‌جای واردکردنِ شخصیتِ کسِ دیگر."
+      },
+      "example": {
+        "en": "If people relax around you, lean into ease — do not try to become intense.",
+        "fa": "اگر آدم‌ها کنارِ تو آرام می‌شوند، روی همان راحتی تکیه کن — سعی نکن پرشدت شوی."
+      },
+      "tip": {
+        "en": "Ask three people what they find easy about dealing with you. That is your material.",
+        "fa": "از سه نفر بپرس تعاملِ با تو چه چیزش آسان است. همان مصالحِ توست."
+      },
+      "pitfall": {
+        "en": "Copying a persona that contradicts your temperament.",
+        "fa": "کپی‌کردنِ شخصیتی که با خلق‌وخویت جور نیست."
+      }
+    },
+    "void": {
+      "part": "target",
+      "n": 4,
+      "name": {
+        "en": "The Void",
+        "fa": "خلأ"
+      },
+      "glabel": {
+        "en": "The Void",
+        "fa": "خلأ"
+      },
+      "principle": {
+        "en": "Everyone lacks something. Find that, and you are speaking to the person rather than at them.",
+        "fa": "هرکسی چیزی کم دارد. آن را پیدا کن، آن‌وقت با آدم حرف می‌زنی نه به آدم."
+      },
+      "more": {
+        "en": "The void might be adventure in a safe life, recognition in an overlooked one, calm in a chaotic one. It is discovered by listening for what someone keeps returning to, not by asking.",
+        "fa": "خلأ می‌تواند ماجرا در یک زندگیِ امن باشد، دیده‌شدن در زندگیِ نادیده، آرامش در زندگیِ پرآشوب. با گوش‌دادن به چیزی که کسی مدام به آن برمی‌گردد کشف می‌شود، نه با پرسیدن."
+      },
+      "example": {
+        "en": "Someone who mentions their old band three times is telling you what is missing.",
+        "fa": "کسی که سه بار از گروهِ موسیقیِ قدیمش می‌گوید، دارد می‌گوید چه چیزی کم است."
+      },
+      "tip": {
+        "en": "In your next long conversation, note the topic the other person returns to unprompted.",
+        "fa": "در گفتگوی طولانیِ بعدی، موضوعی را یادداشت کن که طرف بی‌آنکه بپرسی به آن برمی‌گردد."
+      },
+      "pitfall": {
+        "en": "Projecting your own void onto them.",
+        "fa": "فرافکنیِ خلأِ خودت روی آن‌ها."
+      }
+    },
+    "atmosphere": {
+      "part": "target",
+      "n": 5,
+      "name": {
+        "en": "Create an Atmosphere",
+        "fa": "فضا بساز"
+      },
+      "glabel": {
+        "en": "Atmosphere",
+        "fa": "فضا"
+      },
+      "principle": {
+        "en": "People are moved by mood and setting far more than by argument.",
+        "fa": "آدم‌ها را حال‌وهوا و صحنه خیلی بیشتر از استدلال تکان می‌دهد."
+      },
+      "more": {
+        "en": "Context does the persuading. The same sentence lands differently in a rushed corridor and over an unhurried dinner. Greene treats staging as a tool, not decoration.",
+        "fa": "بستر است که اقناع می‌کند. یک جمله در یک راهروی شتاب‌زده و سرِ یک شامِ بی‌عجله متفاوت می‌نشیند. گرین صحنه‌آرایی را ابزار می‌داند، نه تزئین."
+      },
+      "example": {
+        "en": "A difficult conversation moved to a walk outside becomes a different conversation.",
+        "fa": "یک گفتگوی سخت که به یک پیاده‌رویِ بیرون منتقل شود، گفتگوی دیگری می‌شود."
+      },
+      "tip": {
+        "en": "Before the next important talk, choose the setting deliberately.",
+        "fa": "قبل از گفتگوی مهمِ بعدی، صحنه را عامدانه انتخاب کن."
+      },
+      "pitfall": {
+        "en": "Delivering the right words in the wrong room.",
+        "fa": "گفتنِ کلماتِ درست در اتاقِ غلط."
+      }
+    },
+    "signals": {
+      "part": "target",
+      "n": 6,
+      "name": {
+        "en": "Presence and Absence",
+        "fa": "حضور و غیاب"
+      },
+      "glabel": {
+        "en": "Presence",
+        "fa": "حضور"
+      },
+      "principle": {
+        "en": "Constant availability kills interest; measured absence creates room for imagination.",
+        "fa": "در دسترسِ همیشگی‌بودن علاقه را می‌کشد؛ غیابِ حساب‌شده جا برای تخیل باز می‌کند."
+      },
+      "more": {
+        "en": "Greene's mechanism is that people fill absence with their own images, which are more flattering than anything you could supply. This is also the tactic most easily turned into cruelty.",
+        "fa": "سازوکارِ گرین این است که آدم‌ها غیاب را با تصویرهای خودشان پُر می‌کنند، که از هرچه تو بدهی دلپذیرتر است. این همان تاکتیکی است که راحت‌تر از همه به بی‌رحمی تبدیل می‌شود."
+      },
+      "example": {
+        "en": "The colleague who speaks rarely is listened to more closely than the one who speaks always.",
+        "fa": "همکاری که کم حرف می‌زند، دقیق‌تر شنیده می‌شود از آنکه همیشه حرف می‌زند."
+      },
+      "tip": {
+        "en": "Say less in one meeting this week and watch what changes.",
+        "fa": "این هفته در یک جلسه کمتر حرف بزن و ببین چه تغییر می‌کند."
+      },
+      "pitfall": {
+        "en": "Using absence to punish rather than to create space.",
+        "fa": "استفاده از غیاب برای تنبیه به‌جای بازکردنِ فضا."
+      }
+    },
+    "presence": {
+      "part": "process",
+      "n": 7,
+      "name": {
+        "en": "Phase One — Stir Interest",
+        "fa": "مرحلهٔ یک — برانگیختنِ علاقه"
+      },
+      "glabel": {
+        "en": "Interest",
+        "fa": "علاقه"
+      },
+      "principle": {
+        "en": "Begin indirectly. A direct approach invites a decision before any desire exists.",
+        "fa": "غیرمستقیم شروع کن. رویکردِ مستقیم پیش از آنکه میلی باشد، طلبِ تصمیم می‌کند."
+      },
+      "more": {
+        "en": "The opening is about becoming interesting, not about making a case. Anything that asks for a yes too early gets a defensive no.",
+        "fa": "شروع یعنی جالب‌شدن، نه ارائهٔ دلیل. هرچیزی که خیلی زود بله بخواهد، یک نهِ تدافعی می‌گیرد."
+      },
+      "example": {
+        "en": "A pitch that opens by asking for the deal gets negotiated; one that opens with a story gets heard.",
+        "fa": "معرفی‌ای که با درخواستِ قرارداد شروع شود چانه‌زنی می‌شود؛ آنکه با یک داستان شروع شود، شنیده می‌شود."
+      },
+      "tip": {
+        "en": "Delay your ask by one conversation and see if the answer changes.",
+        "fa": "درخواستت را یک گفتگو عقب بینداز و ببین جواب عوض می‌شود یا نه."
+      },
+      "pitfall": {
+        "en": "Mistaking directness for honesty when it is really impatience.",
+        "fa": "صراحت را صداقت دانستن وقتی در واقع بی‌صبری است."
+      }
+    },
+    "pleasure": {
+      "part": "process",
+      "n": 8,
+      "name": {
+        "en": "Phase Two — Pleasure and Doubt",
+        "fa": "مرحلهٔ دو — لذت و تردید"
+      },
+      "glabel": {
+        "en": "Pleasure",
+        "fa": "لذت"
+      },
+      "principle": {
+        "en": "Mix generosity with uncertainty. Pure certainty is comfortable and forgettable.",
+        "fa": "سخاوت را با نااطمینانی بیامیز. اطمینانِ محض راحت است و فراموش‌شدنی."
+      },
+      "more": {
+        "en": "Attention that never wavers stops registering. Greene's claim is that a small, honest unpredictability keeps a person alert — though pushed further, this is exactly how manipulation begins.",
+        "fa": "توجهی که هرگز نوسان ندارد دیگر ثبت نمی‌شود. ادعای گرین این است که یک پیش‌بینی‌ناپذیریِ کوچک و صادقانه آدم را هوشیار نگه می‌دارد — هرچند اگر جلوتر برود، دقیقاً همان‌جاست که دستکاری شروع می‌شود."
+      },
+      "example": {
+        "en": "Praise that is specific and occasional means more than praise that is constant.",
+        "fa": "تحسینی که مشخص و گاه‌به‌گاه باشد بیشتر از تحسینِ همیشگی می‌ارزد."
+      },
+      "tip": {
+        "en": "Replace habitual praise with one specific observation.",
+        "fa": "تحسینِ عادتی را با یک مشاهدهٔ مشخص عوض کن."
+      },
+      "pitfall": {
+        "en": "Manufacturing insecurity in someone and calling it mystery.",
+        "fa": "ساختنِ ناامنی در کسی و اسمش را رمز و راز گذاشتن."
+      }
+    },
+    "tension": {
+      "part": "process",
+      "n": 9,
+      "name": {
+        "en": "Phase Three — Tension",
+        "fa": "مرحلهٔ سه — تنش"
+      },
+      "glabel": {
+        "en": "Tension",
+        "fa": "تنش"
+      },
+      "principle": {
+        "en": "Depth comes from a real obstacle, not from more effort.",
+        "fa": "عمق از یک مانعِ واقعی می‌آید، نه از تلاشِ بیشتر."
+      },
+      "more": {
+        "en": "Something at stake — a risk, a difference, a limit — is what turns interest into commitment. Remove all friction and you also remove the reason to choose.",
+        "fa": "چیزی که در میان باشد — یک ریسک، یک تفاوت، یک حد — همان است که علاقه را به تعهد تبدیل می‌کند. تمامِ اصطکاک را برداری، دلیلِ انتخاب را هم برداشته‌ای."
+      },
+      "example": {
+        "en": "The offer that could disappear is weighed seriously; the one always available is deferred.",
+        "fa": "پیشنهادی که ممکن است از دست برود جدی سنجیده می‌شود؛ آنکه همیشه هست، عقب می‌افتد."
+      },
+      "tip": {
+        "en": "State one honest limit — a real deadline or a real boundary — instead of inventing urgency.",
+        "fa": "یک حدِ صادقانه بگو — یک مهلتِ واقعی یا یک مرزِ واقعی — به‌جای ساختنِ فوریتِ جعلی."
+      },
+      "pitfall": {
+        "en": "Fabricating scarcity, which is a lie with a marketing name.",
+        "fa": "ساختنِ کمیابیِ جعلی، که دروغی است با یک اسمِ بازاریابی."
+      }
+    },
+    "softpower": {
+      "part": "cost",
+      "n": 10,
+      "name": {
+        "en": "Soft Power",
+        "fa": "قدرتِ نرم"
+      },
+      "glabel": {
+        "en": "Soft Power",
+        "fa": "قدرتِ نرم"
+      },
+      "principle": {
+        "en": "The same mechanics drive branding, politics and charisma — attraction over coercion.",
+        "fa": "همین سازوکار برندسازی، سیاست و کاریزما را می‌راند — جذب به‌جای اجبار."
+      },
+      "more": {
+        "en": "Greene's wider claim is that indirect influence outperforms force in any arena where people can walk away. That is most arenas.",
+        "fa": "ادعای گسترده‌ترِ گرین این است که نفوذِ غیرمستقیم در هر میدانی که آدم‌ها بتوانند برَوند، از زور بهتر عمل می‌کند. و بیشترِ میدان‌ها همین‌طورند."
+      },
+      "example": {
+        "en": "A brand people want to be associated with never has to argue about price.",
+        "fa": "برندی که آدم‌ها می‌خواهند به آن منتسب شوند، هرگز مجبور نیست سرِ قیمت بحث کند."
+      },
+      "tip": {
+        "en": "Identify one place you are using pressure where attraction would work better.",
+        "fa": "یک جا را پیدا کن که در آن فشار می‌آوری و جذب بهتر جواب می‌دهد."
+      },
+      "pitfall": {
+        "en": "Assuming soft power is automatically ethical because it is gentle.",
+        "fa": "فرض‌کردنِ اینکه قدرتِ نرم چون ملایم است خودبه‌خود اخلاقی است."
+      }
+    },
+    "consent": {
+      "part": "cost",
+      "n": 11,
+      "name": {
+        "en": "Where It Becomes Manipulation",
+        "fa": "کجا دستکاری می‌شود"
+      },
+      "glabel": {
+        "en": "Consent",
+        "fa": "رضایت"
+      },
+      "principle": {
+        "en": "Influence that depends on the other person not seeing it is manipulation.",
+        "fa": "نفوذی که به ندیدنِ طرفِ مقابل وابسته است، دستکاری است."
+      },
+      "more": {
+        "en": "The workable test is disclosure: if explaining exactly what you are doing would end it, you are not persuading, you are exploiting. Greene documents the tactics; that test is what keeps them usable.",
+        "fa": "آزمونِ عملی، افشاست: اگر توضیحِ دقیقِ کاری که می‌کنی به آن پایان دهد، تو اقناع نمی‌کنی، بهره‌کشی می‌کنی. گرین تاکتیک‌ها را ثبت می‌کند؛ همین آزمون است که قابلِ‌استفاده نگهشان می‌دارد."
+      },
+      "example": {
+        "en": "\"I delayed replying so you would want it more\" — said aloud, the tactic collapses.",
+        "fa": "«دیر جواب دادم که بیشتر بخواهی‌اش» — بلند که گفته شود، تاکتیک فرو می‌ریزد."
+      },
+      "tip": {
+        "en": "Apply the disclosure test to your next persuasive move.",
+        "fa": "آزمونِ افشا را روی حرکتِ اقناعیِ بعدی‌ات اجرا کن."
+      },
+      "pitfall": {
+        "en": "Using the book as permission rather than as description.",
+        "fa": "استفاده از کتاب به‌عنوانِ مجوز به‌جای توصیف."
+      }
+    },
+    "mirror": {
+      "part": "cost",
+      "n": 12,
+      "name": {
+        "en": "What It Costs the Seducer",
+        "fa": "برای اغواگر چه خرجی دارد"
+      },
+      "glabel": {
+        "en": "The Cost",
+        "fa": "بها"
+      },
+      "principle": {
+        "en": "Treating people as targets eventually leaves you with no one who knows you.",
+        "fa": "با آدم‌ها مثلِ هدف رفتار کردن، آخرش تو را بی‌کسی می‌گذارد که بشناسدت."
+      },
+      "more": {
+        "en": "A strategy applied to everyone becomes a personality. The people you win by performance can only ever know the performance — which is the loneliness the historical figures in the book keep arriving at.",
+        "fa": "استراتژی‌ای که روی همه اجرا شود، تبدیل به شخصیت می‌شود. کسانی که با اجرا به‌دست می‌آوری فقط می‌توانند همان اجرا را بشناسند — و این همان تنهایی است که چهره‌های تاریخیِ کتاب مدام به آن می‌رسند."
+      },
+      "example": {
+        "en": "Nearly every seducer Greene profiles ends up isolated by the very skill that made them.",
+        "fa": "تقریباً هر اغواگری که گرین معرفی می‌کند، با همان مهارتی که ساختش منزوی می‌شود."
+      },
+      "tip": {
+        "en": "Keep at least one relationship where you use none of this.",
+        "fa": "دستِ‌کم یک رابطه نگه دار که در آن هیچ‌کدام از اینها را به کار نبری."
+      },
+      "pitfall": {
+        "en": "Becoming the strategy.",
+        "fa": "تبدیل‌شدن به خودِ استراتژی."
+      }
+    }
+  },
+  "core": {
+    "name": {
+      "en": "INDIRECT POWER",
+      "fa": "قدرتِ غیرمستقیم"
+    },
+    "principle": {
+      "en": "Seduction is influence that works on the imagination rather than the will: find what someone lacks, become associated with it, and let anticipation move them. Understanding the pattern is as much a defence as a tool.",
+      "fa": "اغوا نفوذی است که روی تخیل کار می‌کند نه اراده: پیدا کن کسی چه کم دارد، با آن پیوند بخور، و بگذار انتظار حرکتش دهد. شناختِ این الگو به‌اندازهٔ ابزاربودن، دفاع هم هست."
+    },
+    "more": {
+      "en": "Greene organises it in four moves: catalogue the seductive characters (and the anti-seducer that undoes them), read the target's void, run the process from interest through pleasure to tension, and finally reckon with the cost — where influence stops being fair and what the strategy does to the person running it.",
+      "fa": "گرین آن را در چهار حرکت می‌چیند: فهرست‌کردنِ شخصیت‌های اغواگر (و ضدِ اغواگری که خنثی‌شان می‌کند)، خواندنِ خلأِ طرف، اجرای فرایند از علاقه به لذت و تنش، و سرانجام حساب‌کردنِ بها — جایی که نفوذ دیگر منصفانه نیست و اینکه این استراتژی با خودِ اجراکننده چه می‌کند."
+    },
+    "example": {
+      "en": "Click any node to read a principle or a method. You can also drag the nodes around.",
+      "fa": "روی هر دایره کلیک کن تا یک اصل یا روش را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."
+    }
+  },
+  "stages": [
+    {
+      "level": 1,
+      "badge": {
+        "en": "Level 1 · Over-simplified",
+        "fa": "سطحِ ۱ · خیلی ساده"
+      },
+      "title": {
+        "en": "You cannot force it",
+        "fa": "نمی‌شود به‌زور"
+      },
+      "tagline": {
+        "en": "The whole book in a sentence.",
+        "fa": "کلِ کتاب در یک جمله."
+      },
+      "body": {
+        "en": "Attraction cannot be demanded, only invited. Work on the conditions, not on the person.",
+        "fa": "جذابیت را نمی‌شود طلب کرد، فقط می‌شود دعوتش کرد. روی شرایط کار کن، نه روی آدم."
+      },
+      "example": {
+        "en": "Pushing harder for a yes is the single most reliable way to get a no.",
+        "fa": "فشارِ بیشتر برای گرفتنِ بله، مطمئن‌ترین راهِ گرفتنِ نه است."
+      },
+      "gain": {
+        "en": "You hold the rule the whole book expands on.",
+        "fa": "همان قاعده‌ای را داری که کلِ کتاب بسطش می‌دهد."
+      }
+    },
+    {
+      "level": 2,
+      "badge": {
+        "en": "Level 2 · Simple",
+        "fa": "سطحِ ۲ · ساده"
+      },
+      "title": {
+        "en": "Know your type",
+        "fa": "گونه‌ات را بشناس"
+      },
+      "tagline": {
+        "en": "Nine characters, one anti-type.",
+        "fa": "نُه شخصیت، یک ضدگونه."
+      },
+      "body": {
+        "en": "Greene catalogues nine <b>seducer types</b> — Siren, Rake, Ideal Lover, Dandy, Natural, Coquette, Charmer, Charismatic, Star — and one <b>anti-seducer</b>. Most failure comes from the anti-seducer traits, not from missing charm.",
+        "fa": "گرین نُه <b>گونهٔ اغواگر</b> را فهرست می‌کند — سیرن، رِیک، معشوقِ آرمانی، دندی، طبیعی، عشوه‌گر، افسونگر، کاریزماتیک، ستاره — و یک <b>ضدِ اغواگر</b>. بیشترِ شکست از صفاتِ ضدِ اغواگر می‌آید، نه از نداشتنِ جذابیت."
+      },
+      "example": {
+        "en": "Neediness and self-absorption undo every technique, so remove them first.",
+        "fa": "نیازمندی و خودشیفتگی هر تکنیکی را خنثی می‌کنند، پس اول آن‌ها را بردار."
+      },
+      "gain": {
+        "en": "You can name what is happening instead of only feeling it.",
+        "fa": "می‌توانی اتفاق را نام ببری نه فقط حسش کنی."
+      }
+    },
+    {
+      "level": 3,
+      "badge": {
+        "en": "Level 3 · Balanced",
+        "fa": "سطحِ ۳ · متعادل"
+      },
+      "title": {
+        "en": "Find the void",
+        "fa": "خلأ را پیدا کن"
+      },
+      "tagline": {
+        "en": "Speak to what is missing.",
+        "fa": "با آنچه کم است حرف بزن."
+      },
+      "body": {
+        "en": "Everyone carries an unmet need — adventure in a safe life, recognition in an overlooked one. You find it by listening for what someone <b>returns to unprompted</b>, then you create an <b>atmosphere</b> where it can be met.",
+        "fa": "هرکسی نیازی برآورده‌نشده دارد — ماجرا در زندگیِ امن، دیده‌شدن در زندگیِ نادیده. با گوش‌دادن به چیزی که کسی <b>بی‌آنکه بپرسی به آن برمی‌گردد</b> پیدایش می‌کنی، بعد <b>فضایی</b> می‌سازی که در آن برآورده شود."
+      },
+      "example": {
+        "en": "Someone who mentions their old band three times has told you what is missing.",
+        "fa": "کسی که سه بار از گروهِ قدیمش می‌گوید، گفته چه چیزی کم است."
+      },
+      "gain": {
+        "en": "You can address the person rather than your own agenda.",
+        "fa": "می‌توانی به آدم بپردازی نه به نقشهٔ خودت."
+      }
+    },
+    {
+      "level": 4,
+      "badge": {
+        "en": "Level 4 · Advanced",
+        "fa": "سطحِ ۴ · پیشرفته"
+      },
+      "title": {
+        "en": "Run the phases",
+        "fa": "مرحله‌ها را اجرا کن"
+      },
+      "tagline": {
+        "en": "Interest, pleasure, tension — in order.",
+        "fa": "علاقه، لذت، تنش — به ترتیب."
+      },
+      "body": {
+        "en": "Open <b>indirectly</b> — a direct ask forces a decision before desire exists. Then mix generosity with a little uncertainty. Finally, depth needs a real <b>obstacle</b>: something at stake turns interest into commitment. Skipping to the end reads as pressure.",
+        "fa": "<b>غیرمستقیم</b> شروع کن — درخواستِ مستقیم پیش از وجودِ میل، طلبِ تصمیم می‌کند. بعد سخاوت را با کمی نااطمینانی بیامیز. آخر، عمق به یک <b>مانعِ واقعی</b> نیاز دارد: چیزی که در میان باشد، علاقه را به تعهد بدل می‌کند. پریدن به انتها یعنی فشار."
+      },
+      "example": {
+        "en": "A pitch that opens with a story gets heard; one that opens with the ask gets negotiated.",
+        "fa": "معرفی‌ای که با داستان شروع شود شنیده می‌شود؛ آنکه با درخواست شروع شود چانه‌زنی می‌شود."
+      },
+      "gain": {
+        "en": "You can sequence influence instead of improvising it.",
+        "fa": "می‌توانی نفوذ را مرحله‌بندی کنی نه بداهه."
+      }
+    },
+    {
+      "level": 5,
+      "badge": {
+        "en": "Level 5 · Expert",
+        "fa": "سطحِ ۵ · حرفه‌ای"
+      },
+      "title": {
+        "en": "Know the cost",
+        "fa": "بها را بدان"
+      },
+      "tagline": {
+        "en": "Where influence stops being fair.",
+        "fa": "کجا نفوذ دیگر منصفانه نیست."
+      },
+      "body": {
+        "en": "The same mechanics run branding, politics and charisma — <b>soft power</b> beats force wherever people can walk away. But apply the <b>disclosure test</b>: if saying out loud exactly what you are doing would end it, you are not persuading, you are exploiting. And note the cost — a strategy used on everyone becomes a personality, and the people you win by performance can only know the performance.",
+        "fa": "همین سازوکار برندسازی، سیاست و کاریزما را می‌راند — <b>قدرتِ نرم</b> هرجا آدم‌ها بتوانند بروند، از زور بهتر است. اما <b>آزمونِ افشا</b> را اجرا کن: اگر بلند گفتنِ دقیقِ کاری که می‌کنی به آن پایان دهد، اقناع نمی‌کنی، بهره‌کشی می‌کنی. و بها را ببین — استراتژی‌ای که روی همه اجرا شود شخصیت می‌شود، و کسانی که با اجرا می‌بری فقط اجرا را می‌شناسند."
+      },
+      "example": {
+        "en": "You keep at least one relationship where you use none of this — and you can spot the tactics when they are used on you.",
+        "fa": "دستِ‌کم یک رابطه نگه می‌داری که هیچ‌کدام از اینها را در آن به کار نمی‌بری — و تاکتیک‌ها را وقتی روی خودت اجرا می‌شوند می‌بینی."
+      },
+      "gain": {
+        "en": "You can read influence as a system — and defend against it.",
+        "fa": "می‌توانی نفوذ را به‌مثابهٔ یک سیستم بخوانی — و در برابرش دفاع کنی."
+      }
+    }
+  ],
+  "quotes": [
+    {
+      "en": "The great seducers do not offer the mundane pleasures; they promise an adventure.",
+      "fa": "اغواگرانِ بزرگ لذت‌های معمولی پیشنهاد نمی‌دهند؛ وعدهٔ ماجرا می‌دهند."
+    },
+    {
+      "en": "People are constantly under attack from others; they are dying for attention that is genuine.",
+      "fa": "آدم‌ها دائم زیرِ حملهٔ دیگران‌اند؛ برای توجهی که واقعی باشد جان می‌دهند."
+    },
+    {
+      "en": "Never make it clear what you are after; keep some mystery.",
+      "fa": "هرگز روشن نکن دنبالِ چه هستی؛ کمی رمز و راز نگه دار."
+    },
+    {
+      "en": "The moment people feel they are being manipulated, everything is lost.",
+      "fa": "لحظه‌ای که آدم‌ها حس کنند دارند دستکاری می‌شوند، همه‌چیز از دست رفته است."
+    },
+    {
+      "en": "Seduction is a form of power, and like all power it can be used well or badly.",
+      "fa": "اغوا شکلی از قدرت است، و مثلِ هر قدرتی می‌شود خوب یا بد به کارش برد."
+    }
+  ],
+  "media": [
+    {
+      "kind": "img",
+      "url": "https://www.penguinrandomhouse.com/books/288969/the-art-of-seduction-by-robert-greene/",
+      "src": {
+        "en": "Penguin Random House · Publisher",
+        "fa": "Penguin Random House · ناشر"
+      },
+      "title": {
+        "en": "The Art of Seduction — publisher page",
+        "fa": "هنرِ اغوا — صفحهٔ ناشر"
+      },
+      "desc": {
+        "en": "The publisher page, with editions and a summary of the book.",
+        "fa": "صفحهٔ ناشر، با نسخه‌ها و خلاصه‌ای از کتاب."
+      },
+      "bullets": {
+        "en": [
+          "Definitive editions",
+          "Publisher summary",
+          "Straight from the source"
+        ],
+        "fa": [
+          "نسخه‌های معتبر",
+          "خلاصهٔ ناشر",
+          "مستقیم از منبع"
+        ]
+      },
+      "best": {
+        "en": "For editions and the source.",
+        "fa": "برای نسخه‌ها و منبعِ اصلی."
+      }
+    },
+    {
+      "kind": "img",
+      "url": "https://powerseductionandwar.com/",
+      "src": {
+        "en": "powerseductionandwar.com · Author",
+        "fa": "powerseductionandwar.com · نویسنده"
+      },
+      "title": {
+        "en": "Robert Greene — the author's site",
+        "fa": "رابرت گرین — سایتِ نویسنده"
+      },
+      "desc": {
+        "en": "Greene's own writing on power, strategy and human nature.",
+        "fa": "نوشته‌های خودِ گرین دربارهٔ قدرت، استراتژی و طبیعتِ انسان."
+      },
+      "bullets": {
+        "en": [
+          "The wider body of work",
+          "Context for the tactics",
+          "Useful after a first read"
+        ],
+        "fa": [
+          "مجموعهٔ گسترده‌ترِ کارها",
+          "بستری برای تاکتیک‌ها",
+          "مفید بعد از خواندنِ اول"
+        ]
+      },
+      "best": {
+        "en": "Best for Stage 4–5.",
+        "fa": "خوب برای مرحلهٔ ۴ و ۵."
+      }
+    }
+  ],
+  "go": [
+    {
+      "label": {
+        "en": "Publisher page",
+        "fa": "صفحهٔ ناشر"
+      },
+      "url": "https://www.penguinrandomhouse.com/books/288969/the-art-of-seduction-by-robert-greene/"
+    },
+    {
+      "label": {
+        "en": "Author's site",
+        "fa": "سایتِ نویسنده"
+      },
+      "url": "https://powerseductionandwar.com/"
+    },
+    {
+      "label": {
+        "en": "Book on Goodreads",
+        "fa": "کتاب در گودریدز"
+      },
+      "url": "https://www.goodreads.com/book/show/1102.The_Art_of_Seduction"
+    }
+  ],
+  "recs": [
+    {
+      "pri": "b",
+      "t": {
+        "en": "Name your anti-seductive habit",
+        "fa": "عادتِ دفع‌کننده‌ات را نام ببر"
+      },
+      "d": {
+        "en": "Before any technique, find the one thing you do that repels — and stop doing it.",
+        "fa": "پیش از هر تکنیکی، همان یک کاری را که دفع می‌کند پیدا کن — و انجامش نده."
+      }
+    },
+    {
+      "pri": "b",
+      "t": {
+        "en": "Listen for the void",
+        "fa": "دنبالِ خلأ گوش کن"
+      },
+      "d": {
+        "en": "In your next long conversation, note the topic the other person returns to unprompted.",
+        "fa": "در گفتگوی طولانیِ بعدی، موضوعی را یادداشت کن که طرف بی‌آنکه بپرسی به آن برمی‌گردد."
+      }
+    },
+    {
+      "pri": "n",
+      "t": {
+        "en": "Apply the disclosure test",
+        "fa": "آزمونِ افشا را اجرا کن"
+      },
+      "d": {
+        "en": "If explaining your tactic out loud would end it, it is manipulation. Choose differently.",
+        "fa": "اگر بلند گفتنِ تاکتیکت به آن پایان دهد، دستکاری است. جورِ دیگری انتخاب کن."
+      }
+    },
+    {
+      "pri": "n",
+      "t": {
+        "en": "Choose the setting on purpose",
+        "fa": "صحنه را عامدانه انتخاب کن"
+      },
+      "d": {
+        "en": "Move one important conversation this week to a place that suits it.",
+        "fa": "این هفته یک گفتگوی مهم را به جایی ببر که به آن می‌خورد."
+      }
+    }
+  ]
+});
+</script>
+</body>
+</html>

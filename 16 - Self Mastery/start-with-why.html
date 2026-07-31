@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<!-- Generated page. Edit CONTENT in the DATA object below; shared UI lives in ../assets/book.css + ../assets/book.js -->
+<html lang="en" dir="ltr" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Start with Why — نقشهٔ دانش و یادگیری ۵ مرحله‌ای</title>
+
+<!-- Boot theme + language BEFORE paint to avoid a flash (shared library-wide keys) -->
+<script>
+(function(){
+  try{
+    var th = localStorage.getItem('pbl-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
+    document.documentElement.setAttribute('data-theme', th);
+  }catch(e){ document.documentElement.setAttribute('data-theme','light'); }
+  try{
+    var lg = localStorage.getItem('pbl-lang') || 'en';
+    document.documentElement.setAttribute('data-lang', lg);
+    document.documentElement.setAttribute('lang', lg);
+    document.documentElement.setAttribute('dir', lg==='fa' ? 'rtl' : 'ltr');
+  }catch(e){}
+})();
+</script>
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,200..700;1,6..72,200..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/book.css">
+</head>
+<body>
+<div id="app"></div>
+
+<script src="../assets/library.js"></script>
+<script src="../assets/book.js"></script>
+<script>
+/* ── CONTENT — everything unique to this book lives here ── */
+Book.mount({
+  "meta": {
+    "slug": "start-with-why",
+    "folder": "16 - Self Mastery",
+    "groupNum": 16,
+    "group": {
+      "en": "Self Mastery",
+      "fa": "تسلط بر خود"
+    },
+    "author": {
+      "en": "Simon Sinek",
+      "fa": "سایمون سینک"
+    },
+    "eyebrow_author": {
+      "en": "Simon Sinek",
+      "fa": "سایمون سینک"
+    },
+    "book": {
+      "en": "Start with Why",
+      "fa": "با چرا شروع کن"
+    },
+    "hero_title": {
+      "en": "Start with Why — How Great Leaders Inspire Everyone to Take Action",
+      "fa": "با چرا شروع کن — رهبرانِ بزرگ چطور همه را به حرکت وامی‌دارند"
+    },
+    "dek": {
+      "en": "A knowledge graph of the whole book, plus a 5-stage path from a single idea to expert-level mastery — with an example at every step.",
+      "fa": "نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از خیلی ساده تا حرفه‌ای — با یک مثال در هر مرحله."
+    },
+    "published": {
+      "en": "2009",
+      "fa": "۲۰۰۹"
+    },
+    "chips": [
+      {
+        "v": {
+          "en": "4",
+          "fa": "۴"
+        },
+        "l": {
+          "en": "Parts",
+          "fa": "بخش"
+        }
+      },
+      {
+        "v": {
+          "en": "12",
+          "fa": "۱۲"
+        },
+        "l": {
+          "en": "Ideas",
+          "fa": "ایده"
+        }
+      },
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Learning stages",
+          "fa": "مرحلهٔ یادگیری"
+        }
+      }
+    ],
+    "kboxes": [
+      {
+        "v": {
+          "en": "4",
+          "fa": "۴"
+        },
+        "l": {
+          "en": "Parts (a world without why · the golden circle · leaders need a following · how to rally)",
+          "fa": "بخش (دنیای بدونِ چرا · دایرهٔ طلایی · رهبر به پیرو نیاز دارد · بسیجِ باورمندان)"
+        }
+      },
+      {
+        "v": {
+          "en": "12",
+          "fa": "۱۲"
+        },
+        "l": {
+          "en": "Ideas you can use",
+          "fa": "ایده برای استفاده"
+        }
+      },
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Levels, simple → expert",
+          "fa": "مرحله، ساده تا حرفه‌ای"
+        }
+      },
+      {
+        "v": {
+          "en": "3",
+          "fa": "۳"
+        },
+        "l": {
+          "en": "Rings: why · how · what",
+          "fa": "حلقه: چرا · چطور · چه"
+        }
+      }
+    ],
+    "core_callout": {
+      "label": {
+        "en": "The core idea:",
+        "fa": "ایدهٔ اصلی:"
+      },
+      "en": " People don't buy <i>what</i> you do, they buy <i>why</i> you do it. Every organisation knows what it does; few can say why it exists. Start from the <i>why</i>, and the how and what follow with a clarity that attracts people who already believe what you believe.",
+      "fa": " مردم <i>آنچه</i> می‌کنی را نمی‌خرند، <i>چرایی‌اش</i> را می‌خرند. هر سازمانی می‌داند چه می‌کند؛ کمتر کسی می‌تواند بگوید چرا وجود دارد. از <i>چرا</i> شروع کن، آن‌وقت چطور و چه با روشنی‌ای می‌آیند که آدم‌هایی را جذب می‌کند که از قبل همان را باور دارند."
+    },
+    "flow_callout": {
+      "label": {
+        "en": "Read it as a flow:",
+        "fa": "به‌صورتِ یک جریان بخوانش:"
+      },
+      "en": " see why <b>manipulation</b> buys transactions but never loyalty, learn the <b>golden circle</b> and the biology beneath it, hold <b>clarity, discipline and consistency</b>, then rally the believers through the <b>law of diffusion</b>.",
+      "fa": " ببین چرا <b>دستکاری</b> معامله می‌خرد اما هرگز وفاداری، <b>دایرهٔ طلایی</b> و زیست‌شناسیِ زیرش را یاد بگیر، <b>شفافیت، انضباط و ثبات</b> را نگه دار، بعد باورمندان را با <b>قانونِ انتشار</b> بسیج کن."
+    }
+  },
+  "method": {
+    "en": "<p><b>Source:</b> the book <i>Start with Why</i> by Simon Sinek, first published 2009.</p><p><b>How this was built:</b> the four-part structure and ideas were gathered and rewritten from the book and reputable sources.</p><p><b>Group:</b> Self Mastery.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>",
+    "fa": "<p><b>منبع:</b> کتابِ «با چرا شروع کن» نوشتهٔ سایمون سینک، چاپِ نخست ۲۰۰۹.</p><p><b>روشِ کار:</b> ساختارِ چهاربخشی و ایده‌ها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده است.</p><p><b>گروه:</b> تسلط بر خود.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب.</p>"
+  },
+  "flow": {
+    "en": [
+      "Why",
+      "How",
+      "What"
+    ],
+    "fa": [
+      "چرا",
+      "چطور",
+      "چه"
+    ]
+  },
+  "graph": {
+    "R2": 132,
+    "span": 70
+  },
+  "tldr": [
+    {
+      "en": "The whole book in one line: <b>people don't buy what you do, they buy why you do it.</b>",
+      "fa": "خلاصهٔ کل کتاب در یک جمله: <b>مردم آنچه می‌کنی را نمی‌خرند، چراییِ آن را می‌خرند.</b>"
+    },
+    {
+      "en": "Most organisations communicate from the outside in — what, then how, rarely why. Inspiring ones reverse it.",
+      "fa": "بیشترِ سازمان‌ها از بیرون به درون حرف می‌زنند — چه، بعد چطور، به‌ندرت چرا. الهام‌بخش‌ها این را برعکس می‌کنند."
+    },
+    {
+      "en": "<b>Manipulations</b> — price, promotions, fear, novelty — drive transactions but never build loyalty.",
+      "fa": "<b>دستکاری‌ها</b> — قیمت، تخفیف، ترس، تازگی — معامله می‌آورند اما هرگز وفاداری نمی‌سازند."
+    },
+    {
+      "en": "The golden circle mirrors the brain: <b>why</b> and <b>how</b> live where feeling and decisions live; <b>what</b> lives where language does.",
+      "fa": "دایرهٔ طلایی آینهٔ مغز است: <b>چرا</b> و <b>چطور</b> آنجایی‌اند که احساس و تصمیم است؛ <b>چه</b> آنجایی که زبان است."
+    },
+    {
+      "en": "A why needs <b>clarity, discipline and consistency</b> — and it spreads through those who already believe.",
+      "fa": "یک چرا به <b>شفافیت، انضباط و ثبات</b> نیاز دارد — و از راهِ کسانی پخش می‌شود که از قبل باور دارند."
+    }
+  ],
+  "parts": [
+    {
+      "key": "nowhy",
+      "varc": "--c-teal",
+      "name": {
+        "en": "A World Without Why",
+        "fa": "دنیای بدونِ چرا"
+      },
+      "tag": {
+        "en": "The problem",
+        "fa": "مسئله"
+      },
+      "gist": {
+        "en": "Manipulation works — and quietly costs you every ounce of loyalty.",
+        "fa": "دستکاری جواب می‌دهد — و بی‌سروصدا تمامِ وفاداری را از تو می‌گیرد."
+      },
+      "more": {
+        "en": "Price cuts, promotions, fear, aspiration, peer pressure and novelty all move product. None of them create a reason to come back. They are rented behaviour, and the rent goes up every year.",
+        "fa": "کاهشِ قیمت، تخفیف، ترس، آرزو، فشارِ جمع و تازگی همه محصول را جابه‌جا می‌کنند. هیچ‌کدام دلیلی برای برگشتن نمی‌سازند. اینها رفتارِ اجاره‌ای‌اند و اجاره هر سال بالاتر می‌رود."
+      },
+      "chapters": [
+        "manipulation",
+        "renting",
+        "assumption"
+      ]
+    },
+    {
+      "key": "circle",
+      "varc": "--c-blue",
+      "name": {
+        "en": "The Golden Circle",
+        "fa": "دایرهٔ طلایی"
+      },
+      "tag": {
+        "en": "The framework",
+        "fa": "چارچوب"
+      },
+      "gist": {
+        "en": "Why, how, what — and why the order matters more than the words.",
+        "fa": "چرا، چطور، چه — و چرا ترتیبش از خودِ کلمات مهم‌تر است."
+      },
+      "more": {
+        "en": "Everyone can say what they do. Some can say how. Almost nobody starts with why — the purpose, cause or belief that gets them out of bed. The circle is not a slogan; it is an order of operations.",
+        "fa": "همه می‌توانند بگویند چه می‌کنند. بعضی می‌توانند بگویند چطور. تقریباً هیچ‌کس از چرا شروع نمی‌کند — همان هدف، آرمان یا باوری که صبح از تخت بلندش می‌کند. این دایره یک شعار نیست؛ یک ترتیبِ اجراست."
+      },
+      "chapters": [
+        "rings",
+        "insideout",
+        "biology"
+      ]
+    },
+    {
+      "key": "trust",
+      "varc": "--c-violet",
+      "name": {
+        "en": "Leaders Need a Following",
+        "fa": "رهبر به پیرو نیاز دارد"
+      },
+      "tag": {
+        "en": "Earning trust",
+        "fa": "کسبِ اعتماد"
+      },
+      "gist": {
+        "en": "Clarity of why, discipline of how, consistency of what.",
+        "fa": "شفافیتِ چرا، انضباطِ چطور، ثباتِ چه."
+      },
+      "more": {
+        "en": "Trust is not a checklist item; it emerges when what you say and what you do line up over time. The order runs from the inside out — a fuzzy why cannot be rescued by a polished what.",
+        "fa": "اعتماد یک بندِ چک‌لیست نیست؛ وقتی پیدا می‌شود که گفته و کردهٔ تو در طولِ زمان بر هم منطبق باشند. ترتیب از درون به بیرون است — چرایِ مبهم را نمی‌شود با چهٔ صیقلی نجات داد."
+      },
+      "chapters": [
+        "clarity",
+        "discipline",
+        "consistency"
+      ]
+    },
+    {
+      "key": "rally",
+      "varc": "--c-amber",
+      "name": {
+        "en": "How to Rally Those Who Believe",
+        "fa": "بسیجِ باورمندان"
+      },
+      "tag": {
+        "en": "Spreading it",
+        "fa": "گستراندنش"
+      },
+      "gist": {
+        "en": "Start with the believers, cross the tipping point, then guard the why.",
+        "fa": "از باورمندان شروع کن، از نقطهٔ سرریز عبور کن، بعد از چرا محافظت کن."
+      },
+      "more": {
+        "en": "Adoption follows a curve. Chasing the majority first is expensive and hollow; earning the early believers first makes the majority follow for free. Growth then puts the original why under real strain.",
+        "fa": "پذیرش از یک منحنی پیروی می‌کند. اول رفتن سراغِ اکثریت گران و توخالی است؛ اول به‌دست‌آوردنِ باورمندانِ اولیه باعث می‌شود اکثریت مجانی دنبال کنند. بعد رشد، چرایِ اولیه را زیرِ فشارِ واقعی می‌گذارد."
+      },
+      "chapters": [
+        "diffusion",
+        "celery",
+        "split"
+      ]
+    }
+  ],
+  "chapters": {
+    "manipulation": {
+      "part": "nowhy",
+      "n": 1,
+      "name": {
+        "en": "Manipulation",
+        "fa": "دستکاری"
+      },
+      "glabel": {
+        "en": "Manipulation",
+        "fa": "دستکاری"
+      },
+      "principle": {
+        "en": "Price, promotions, fear, aspiration, peer pressure and novelty move product without winning anyone.",
+        "fa": "قیمت، تخفیف، ترس، آرزو، فشارِ جمع و تازگی محصول را جابه‌جا می‌کنند بدونِ اینکه کسی را ببرند."
+      },
+      "more": {
+        "en": "Each of these works, which is exactly the trap. They produce a measurable bump, so they get repeated, and the organisation slowly forgets it ever had another way to grow.",
+        "fa": "هرکدامِ اینها جواب می‌دهد و دقیقاً همین تله است. یک جهشِ قابلِ‌اندازه‌گیری می‌سازند، پس تکرار می‌شوند، و سازمان کم‌کم یادش می‌رود که راهِ دیگری هم برای رشد داشت."
+      },
+      "example": {
+        "en": "A discount wins the sale today and trains the customer to wait for the next discount.",
+        "fa": "یک تخفیف فروشِ امروز را می‌برد و به مشتری یاد می‌دهد منتظرِ تخفیفِ بعدی بماند."
+      },
+      "tip": {
+        "en": "List every reason customers chose you last quarter. Circle the ones that were manipulations.",
+        "fa": "همهٔ دلایلی که فصلِ گذشته مشتری تو را انتخاب کرد بنویس. دورِ آن‌هایی که دستکاری بودند خط بکش."
+      },
+      "pitfall": {
+        "en": "Mistaking a repeat purchase for loyalty.",
+        "fa": "خریدِ دوباره را با وفاداری اشتباه گرفتن."
+      }
+    },
+    "renting": {
+      "part": "nowhy",
+      "n": 2,
+      "name": {
+        "en": "Rented Behaviour",
+        "fa": "رفتارِ اجاره‌ای"
+      },
+      "glabel": {
+        "en": "Rented",
+        "fa": "اجاره‌ای"
+      },
+      "principle": {
+        "en": "Manipulations rent behaviour. The moment you stop paying, the behaviour stops.",
+        "fa": "دستکاری رفتار را اجاره می‌کند. لحظه‌ای که پرداخت را قطع کنی، رفتار هم قطع می‌شود."
+      },
+      "more": {
+        "en": "Loyalty means someone turns down a better offer to stay with you. Rented behaviour never does that — it leaves for the next incentive without a second thought.",
+        "fa": "وفاداری یعنی کسی پیشنهادِ بهتری را رد کند تا با تو بماند. رفتارِ اجاره‌ای هرگز این کار را نمی‌کند — بی‌درنگ سراغِ مشوقِ بعدی می‌رود."
+      },
+      "example": {
+        "en": "Loyalty programmes often buy repeat transactions, not actual loyalty.",
+        "fa": "باشگاهِ مشتریان معمولاً خریدِ دوباره می‌خرد، نه وفاداریِ واقعی."
+      },
+      "tip": {
+        "en": "Ask whether your customers would defend you when you are more expensive.",
+        "fa": "بپرس آیا مشتریانت وقتی گران‌تری از تو دفاع می‌کنند یا نه."
+      },
+      "pitfall": {
+        "en": "Escalating incentives because the last one stopped working.",
+        "fa": "بالابردنِ مشوق‌ها چون قبلی دیگر کار نمی‌کند."
+      }
+    },
+    "assumption": {
+      "part": "nowhy",
+      "n": 3,
+      "name": {
+        "en": "The Wrong Assumption",
+        "fa": "فرضِ غلط"
+      },
+      "glabel": {
+        "en": "Assumption",
+        "fa": "فرض"
+      },
+      "principle": {
+        "en": "We assume we make decisions on facts. We decide on feeling, then justify with facts.",
+        "fa": "فکر می‌کنیم بر اساسِ واقعیت تصمیم می‌گیریم. با احساس تصمیم می‌گیریم، بعد با واقعیت توجیه می‌کنیم."
+      },
+      "more": {
+        "en": "More data does not settle a decision that was never rational to begin with. This is why feature comparisons rarely convert anyone who does not already want to believe you.",
+        "fa": "دادهٔ بیشتر تصمیمی را که از اول عقلانی نبوده حل نمی‌کند. برای همین است که مقایسهٔ ویژگی‌ها به‌ندرت کسی را جذب می‌کند که از قبل نمی‌خواسته باورت کند."
+      },
+      "example": {
+        "en": "Two products with identical specs; people still call one of them the obvious choice.",
+        "fa": "دو محصول با مشخصاتِ یکسان؛ باز هم مردم یکی را انتخابِ بدیهی می‌دانند."
+      },
+      "tip": {
+        "en": "Before adding a feature to win an argument, ask what feeling you are actually trying to create.",
+        "fa": "قبل از افزودنِ یک ویژگی برای بردنِ بحث، بپرس واقعاً می‌خواهی چه احساسی بسازی."
+      },
+      "pitfall": {
+        "en": "Answering an emotional objection with a spreadsheet.",
+        "fa": "جواب‌دادنِ یک اعتراضِ احساسی با یک صفحهٔ اکسل."
+      }
+    },
+    "rings": {
+      "part": "circle",
+      "n": 4,
+      "name": {
+        "en": "The Three Rings",
+        "fa": "سه حلقه"
+      },
+      "glabel": {
+        "en": "Rings",
+        "fa": "حلقه‌ها"
+      },
+      "principle": {
+        "en": "What you do, how you do it, and why you do it — three rings, only one of which inspires.",
+        "fa": "چه می‌کنی، چطور می‌کنی، و چرا می‌کنی — سه حلقه که فقط یکی‌شان الهام می‌دهد."
+      },
+      "more": {
+        "en": "What is the product. How is the differentiator. Why is the purpose, cause or belief — and it is the only ring most organisations cannot articulate on demand.",
+        "fa": "چه، همان محصول است. چطور، وجهِ تمایز. چرا، همان هدف، آرمان یا باور است — و تنها حلقه‌ای است که بیشترِ سازمان‌ها نمی‌توانند سرِ دست بگویندش."
+      },
+      "example": {
+        "en": "Anyone can list their features. Ask why the company exists and the room usually goes quiet.",
+        "fa": "هرکسی می‌تواند ویژگی‌هایش را بشمارد. بپرس شرکت چرا وجود دارد، معمولاً اتاق ساکت می‌شود."
+      },
+      "tip": {
+        "en": "Write your why in one sentence that contains no product noun.",
+        "fa": "چرایت را در یک جمله بنویس که هیچ اسمِ محصولی در آن نباشد."
+      },
+      "pitfall": {
+        "en": "Confusing the why with making money — that is a result, not a cause.",
+        "fa": "اشتباه‌گرفتنِ چرا با پول‌درآوردن — آن نتیجه است، نه علت."
+      }
+    },
+    "insideout": {
+      "part": "circle",
+      "n": 5,
+      "name": {
+        "en": "Inside Out",
+        "fa": "از درون به بیرون"
+      },
+      "glabel": {
+        "en": "Inside Out",
+        "fa": "درون به بیرون"
+      },
+      "principle": {
+        "en": "Communicate from why to how to what — not the other way round.",
+        "fa": "از چرا به چطور به چه حرف بزن — نه برعکس."
+      },
+      "more": {
+        "en": "The same facts land completely differently depending on the order. Leading with what invites comparison; leading with why invites belonging.",
+        "fa": "همان واقعیت‌ها بسته به ترتیب کاملاً متفاوت می‌نشینند. شروع با چه، دعوت به مقایسه است؛ شروع با چرا، دعوت به تعلق."
+      },
+      "example": {
+        "en": "\"We believe in challenging the status quo — and we happen to make computers\" beats the reverse.",
+        "fa": "«ما به به‌چالش‌کشیدنِ وضعِ موجود باور داریم — و اتفاقاً کامپیوتر می‌سازیم» از عکسش بهتر است."
+      },
+      "tip": {
+        "en": "Rewrite your homepage headline so the first clause is a belief, not a category.",
+        "fa": "تیترِ صفحهٔ اولت را طوری بازنویسی کن که جملهٔ اول یک باور باشد، نه یک دسته‌بندی."
+      },
+      "pitfall": {
+        "en": "Bolting a mission statement on top of a feature list and calling it a why.",
+        "fa": "چسباندنِ یک بیانیهٔ مأموریت روی فهرستِ ویژگی‌ها و اسمش را چرا گذاشتن."
+      }
+    },
+    "biology": {
+      "part": "circle",
+      "n": 6,
+      "name": {
+        "en": "The Biology Beneath",
+        "fa": "زیست‌شناسیِ زیرش"
+      },
+      "glabel": {
+        "en": "Biology",
+        "fa": "زیست‌شناسی"
+      },
+      "principle": {
+        "en": "The golden circle maps onto the brain: why and how sit where feeling and decision sit.",
+        "fa": "دایرهٔ طلایی روی مغز منطبق است: چرا و چطور همان‌جایی‌اند که احساس و تصمیم است."
+      },
+      "more": {
+        "en": "The limbic brain drives decisions and trust but has no capacity for language. That is why a right decision can feel right long before anyone can explain it.",
+        "fa": "مغزِ لیمبیک تصمیم و اعتماد را می‌راند اما توانِ زبان ندارد. برای همین یک تصمیمِ درست خیلی قبل از اینکه کسی بتواند توضیحش دهد، درست حس می‌شود."
+      },
+      "example": {
+        "en": "\"It just felt right\" is not a weak answer — it is the decision-making part of the brain reporting in.",
+        "fa": "«فقط درست حس شد» جوابِ ضعیفی نیست — بخشِ تصمیم‌گیرندهٔ مغز دارد گزارش می‌دهد."
+      },
+      "tip": {
+        "en": "Stop demanding that people rationalise a preference before you take it seriously.",
+        "fa": "دست بردار از اینکه مردم باید یک ترجیح را توجیه کنند تا جدی‌اش بگیری."
+      },
+      "pitfall": {
+        "en": "Designing only for the part of the brain that can talk.",
+        "fa": "طراحی فقط برای آن بخشی از مغز که می‌تواند حرف بزند."
+      }
+    },
+    "clarity": {
+      "part": "trust",
+      "n": 7,
+      "name": {
+        "en": "Clarity of Why",
+        "fa": "شفافیتِ چرا"
+      },
+      "glabel": {
+        "en": "Clarity",
+        "fa": "شفافیت"
+      },
+      "principle": {
+        "en": "If you cannot say why you exist, no one can be expected to care.",
+        "fa": "اگر نتوانی بگویی چرا وجود داری، نمی‌شود انتظار داشت کسی اهمیت بدهد."
+      },
+      "more": {
+        "en": "Clarity is not a wording exercise. It is the difference between a team that can make a hundred small decisions consistently and one that escalates every one of them.",
+        "fa": "شفافیت تمرینِ واژه‌گزینی نیست. فرقِ تیمی است که می‌تواند صد تصمیمِ کوچک را یک‌دست بگیرد با تیمی که همه را بالا ارجاع می‌دهد."
+      },
+      "example": {
+        "en": "A clear why lets a junior answer a hard call without asking anyone.",
+        "fa": "یک چرایِ روشن به یک تازه‌کار اجازه می‌دهد یک تصمیمِ سخت را بدونِ پرسیدن بگیرد."
+      },
+      "tip": {
+        "en": "Test it: ask three colleagues to write the why from memory and compare.",
+        "fa": "امتحانش کن: از سه همکار بخواه چرا را از حفظ بنویسند و مقایسه کن."
+      },
+      "pitfall": {
+        "en": "A why so broad it could belong to any company.",
+        "fa": "چرایی آن‌قدر کلی که می‌تواند مالِ هر شرکتی باشد."
+      }
+    },
+    "discipline": {
+      "part": "trust",
+      "n": 8,
+      "name": {
+        "en": "Discipline of How",
+        "fa": "انضباطِ چطور"
+      },
+      "glabel": {
+        "en": "Discipline",
+        "fa": "انضباط"
+      },
+      "principle": {
+        "en": "Values are worthless as nouns. Written as verbs, they become decidable.",
+        "fa": "ارزش‌ها به‌شکلِ اسم بی‌فایده‌اند. وقتی فعل نوشته شوند، قابلِ تصمیم می‌شوند."
+      },
+      "more": {
+        "en": "\"Integrity\" tells nobody what to do on Tuesday. \"Always tell the customer the bad news first\" does. The discipline is holding those verbs when they cost you something.",
+        "fa": "«صداقت» به هیچ‌کس نمی‌گوید سه‌شنبه چه کند. «همیشه خبرِ بد را اول به مشتری بگو» می‌گوید. انضباط یعنی نگه‌داشتنِ آن فعل‌ها وقتی برایت خرج دارد."
+      },
+      "example": {
+        "en": "Turn \"we value quality\" into \"we ship nothing we would not use ourselves\".",
+        "fa": "«ما به کیفیت اهمیت می‌دهیم» را به «چیزی را عرضه نمی‌کنیم که خودمان استفاده نکنیم» تبدیل کن."
+      },
+      "tip": {
+        "en": "Rewrite each company value as a sentence starting with a verb.",
+        "fa": "هر ارزشِ شرکت را به جمله‌ای بازنویسی کن که با فعل شروع شود."
+      },
+      "pitfall": {
+        "en": "Values that no decision could ever contradict.",
+        "fa": "ارزش‌هایی که هیچ تصمیمی نمی‌تواند نقضشان کند."
+      }
+    },
+    "consistency": {
+      "part": "trust",
+      "n": 9,
+      "name": {
+        "en": "Consistency of What",
+        "fa": "ثباتِ چه"
+      },
+      "glabel": {
+        "en": "Consistency",
+        "fa": "ثبات"
+      },
+      "principle": {
+        "en": "Everything you do must prove what you believe. Authenticity is just alignment.",
+        "fa": "هر کاری می‌کنی باید باورت را ثابت کند. اصالت فقط همان هم‌ترازی است."
+      },
+      "more": {
+        "en": "People do not read your why; they infer it from your what. A single inconsistent product decision says more than a year of messaging.",
+        "fa": "مردم چرایِ تو را نمی‌خوانند؛ از چهٔ تو استنباطش می‌کنند. یک تصمیمِ محصولیِ ناهمخوان بیشتر از یک سالِ پیام‌رسانی حرف می‌زند."
+      },
+      "example": {
+        "en": "A company preaching simplicity that ships a twelve-field signup form has answered the question.",
+        "fa": "شرکتی که از سادگی می‌گوید و فرمِ ثبت‌نامِ دوازده‌فیلدی عرضه می‌کند، جواب را داده است."
+      },
+      "tip": {
+        "en": "Audit one flow this week against the belief you claim.",
+        "fa": "این هفته یک مسیر را در برابرِ باوری که ادعا می‌کنی بازبینی کن."
+      },
+      "pitfall": {
+        "en": "Treating marketing as the place where the why lives.",
+        "fa": "بازاریابی را جایی دانستن که چرا در آن زندگی می‌کند."
+      }
+    },
+    "diffusion": {
+      "part": "rally",
+      "n": 10,
+      "name": {
+        "en": "The Law of Diffusion",
+        "fa": "قانونِ انتشار"
+      },
+      "glabel": {
+        "en": "Diffusion",
+        "fa": "انتشار"
+      },
+      "principle": {
+        "en": "Win the innovators and early adopters first; the majority follows them, not you.",
+        "fa": "اول نوآوران و پذیرندگانِ اولیه را ببر،؛ اکثریت دنبالِ آن‌ها می‌رود، نه دنبالِ تو."
+      },
+      "more": {
+        "en": "Roughly the first sixth of a market buys on belief. Everyone after them buys on recommendation. Marketing at the majority before crossing that threshold is money spent against the curve.",
+        "fa": "تقریباً یک‌ششمِ اولِ بازار بر اساسِ باور می‌خرد. بقیه بر اساسِ توصیه. بازاریابی برای اکثریت پیش از عبور از آن آستانه، خرجِ پول برخلافِ منحنی است."
+      },
+      "example": {
+        "en": "The people queuing overnight are not buying a product; they are buying what it says about them.",
+        "fa": "آن‌هایی که شب تا صبح صف می‌ایستند محصول نمی‌خرند؛ چیزی را می‌خرند که دربارهٔ خودشان می‌گوید."
+      },
+      "tip": {
+        "en": "Name the ten people who would defend you publicly. Serve them first.",
+        "fa": "ده نفری را نام ببر که علناً از تو دفاع می‌کنند. اول به آن‌ها خدمت کن."
+      },
+      "pitfall": {
+        "en": "Chasing the mass market before you have earned a single believer.",
+        "fa": "دنبالِ بازارِ انبوه رفتن پیش از به‌دست‌آوردنِ یک باورمند."
+      }
+    },
+    "celery": {
+      "part": "rally",
+      "n": 11,
+      "name": {
+        "en": "The Celery Test",
+        "fa": "آزمونِ کرفس"
+      },
+      "glabel": {
+        "en": "Celery Test",
+        "fa": "آزمونِ کرفس"
+      },
+      "principle": {
+        "en": "Filter every opportunity through your why. If it does not fit, do not buy it.",
+        "fa": "هر فرصت را از فیلترِ چرایت رد کن. اگر جور نبود، نخرش."
+      },
+      "more": {
+        "en": "Given endless advice, you can only act coherently if you have a filter. The visible result of a consistent filter is that people can tell what you stand for from your shopping trolley.",
+        "fa": "با انبوهِ توصیه‌ها، فقط وقتی می‌توانی منسجم عمل کنی که فیلتری داشته باشی. نتیجهٔ آشکارِ یک فیلترِ ثابت این است که مردم از سبدِ خریدت می‌فهمند پایبندِ چه هستی."
+      },
+      "example": {
+        "en": "Say no to a profitable partnership that contradicts the belief you sell.",
+        "fa": "به یک همکاریِ سودآور که باوری را که می‌فروشی نقض می‌کند، نه بگو."
+      },
+      "tip": {
+        "en": "Take the next three opportunities and score each against your why before the spreadsheet.",
+        "fa": "سه فرصتِ بعدی را بردار و پیش از اکسل، هرکدام را در برابرِ چرایت نمره بده."
+      },
+      "pitfall": {
+        "en": "Saying yes to everything and calling it optionality.",
+        "fa": "به همه‌چیز بله گفتن و اسمش را انعطاف گذاشتن."
+      }
+    },
+    "split": {
+      "part": "rally",
+      "n": 12,
+      "name": {
+        "en": "The Split",
+        "fa": "شکاف"
+      },
+      "glabel": {
+        "en": "The Split",
+        "fa": "شکاف"
+      },
+      "principle": {
+        "en": "As organisations scale, the what grows loud and the why goes quiet.",
+        "fa": "وقتی سازمان بزرگ می‌شود، چه بلند می‌شود و چرا ساکت."
+      },
+      "more": {
+        "en": "Founders carry the why in person; that does not survive headcount. Without deliberate work to re-tell it, growth converts an inspiring company into a competent one.",
+        "fa": "بنیان‌گذاران چرا را شخصاً حمل می‌کنند؛ این با زیادشدنِ نیرو دوام نمی‌آورد. بدونِ کارِ عامدانه برای بازگفتنش، رشد یک شرکتِ الهام‌بخش را به یک شرکتِ توانمند تبدیل می‌کند."
+      },
+      "example": {
+        "en": "A company that once had a cause ends up with quarterly targets and no answer to \"why us\".",
+        "fa": "شرکتی که زمانی آرمان داشت، سر از هدف‌های فصلی درمی‌آورد بی‌هیچ جوابی برای «چرا ما»."
+      },
+      "tip": {
+        "en": "Assign someone the job of telling the origin story to every new hire.",
+        "fa": "به کسی مأموریت بده داستانِ آغاز را برای هر نیروی جدید تعریف کند."
+      },
+      "pitfall": {
+        "en": "Assuming the why is obvious because it is obvious to you.",
+        "fa": "فرض‌کردنِ اینکه چرا بدیهی است چون برای تو بدیهی است."
+      }
+    }
+  },
+  "core": {
+    "name": {
+      "en": "WHY",
+      "fa": "چرا"
+    },
+    "principle": {
+      "en": "People don't buy what you do, they buy why you do it. Purpose, not product, is what earns loyalty — and the organisations that inspire all communicate from the inside out.",
+      "fa": "مردم آنچه می‌کنی را نمی‌خرند، چراییِ آن را می‌خرند. هدف است که وفاداری می‌آورد، نه محصول — و سازمان‌های الهام‌بخش همه از درون به بیرون حرف می‌زنند."
+    },
+    "more": {
+      "en": "Sinek organises the argument in four moves: show that manipulation buys transactions but not loyalty; introduce the golden circle and the biology that makes it work; establish that trust needs clarity, discipline and consistency; then explain how belief spreads through early adopters — and how scale threatens the why that started it.",
+      "fa": "سینک استدلال را در چهار حرکت می‌چیند: نشان می‌دهد دستکاری معامله می‌خرد نه وفاداری؛ دایرهٔ طلایی و زیست‌شناسیِ کارکردنش را معرفی می‌کند؛ ثابت می‌کند اعتماد به شفافیت، انضباط و ثبات نیاز دارد؛ بعد توضیح می‌دهد باور چطور از راهِ پذیرندگانِ اولیه پخش می‌شود — و رشد چطور همان چرایِ آغازین را تهدید می‌کند."
+    },
+    "example": {
+      "en": "Click any node to read a principle or a method. You can also drag the nodes around.",
+      "fa": "روی هر دایره کلیک کن تا یک اصل یا روش را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."
+    }
+  },
+  "stages": [
+    {
+      "level": 1,
+      "badge": {
+        "en": "Level 1 · Over-simplified",
+        "fa": "سطحِ ۱ · خیلی ساده"
+      },
+      "title": {
+        "en": "Lead with why",
+        "fa": "با چرا شروع کن"
+      },
+      "tagline": {
+        "en": "The whole book in a sentence.",
+        "fa": "کلِ کتاب در یک جمله."
+      },
+      "body": {
+        "en": "People don't buy what you do, they buy why you do it. Say the belief before the product.",
+        "fa": "مردم آنچه می‌کنی را نمی‌خرند، چراییِ آن را می‌خرند. باور را قبل از محصول بگو."
+      },
+      "example": {
+        "en": "Not \"we make good software\" but \"we believe work should feel less like work\".",
+        "fa": "نه «ما نرم‌افزارِ خوب می‌سازیم» بلکه «ما باور داریم کار باید کمتر شبیهِ کار باشد»."
+      },
+      "gain": {
+        "en": "You hold the single rule the whole book expands on.",
+        "fa": "همان یک قاعده‌ای را داری که کلِ کتاب بسطش می‌دهد."
+      }
+    },
+    {
+      "level": 2,
+      "badge": {
+        "en": "Level 2 · Simple",
+        "fa": "سطحِ ۲ · ساده"
+      },
+      "title": {
+        "en": "Three rings",
+        "fa": "سه حلقه"
+      },
+      "tagline": {
+        "en": "Why, how, what — in that order.",
+        "fa": "چرا، چطور، چه — به همین ترتیب."
+      },
+      "body": {
+        "en": "Every organisation knows <b>what</b> it does. Some know <b>how</b>. Few can state <b>why</b>. Inspiring ones communicate from the inside out, and that order is the whole trick.",
+        "fa": "هر سازمانی می‌داند <b>چه</b> می‌کند. بعضی می‌دانند <b>چطور</b>. کمی می‌توانند <b>چرا</b> را بگویند. الهام‌بخش‌ها از درون به بیرون حرف می‌زنند، و همین ترتیب تمامِ ترفند است."
+      },
+      "example": {
+        "en": "Rewrite your pitch so the first sentence contains a belief, not a category.",
+        "fa": "معرفی‌ات را طوری بازنویسی کن که جملهٔ اول یک باور باشد، نه یک دسته‌بندی."
+      },
+      "gain": {
+        "en": "You can diagnose why most messaging falls flat.",
+        "fa": "می‌توانی تشخیص دهی چرا بیشترِ پیام‌ها بی‌اثرند."
+      }
+    },
+    {
+      "level": 3,
+      "badge": {
+        "en": "Level 3 · Balanced",
+        "fa": "سطحِ ۳ · متعادل"
+      },
+      "title": {
+        "en": "Manipulation vs inspiration",
+        "fa": "دستکاری در برابرِ الهام"
+      },
+      "tagline": {
+        "en": "Why discounts never buy loyalty.",
+        "fa": "چرا تخفیف هرگز وفاداری نمی‌خرد."
+      },
+      "body": {
+        "en": "Price, promotions, fear and novelty all work — that is the trap. They <b>rent</b> behaviour. Loyalty is when someone turns down a better offer to stay with you, and only a <b>why</b> produces that.",
+        "fa": "قیمت، تخفیف، ترس و تازگی همه جواب می‌دهند — همین تله است. اینها رفتار را <b>اجاره</b> می‌کنند. وفاداری یعنی کسی پیشنهادِ بهتر را رد کند تا با تو بماند، و فقط یک <b>چرا</b> این را می‌سازد."
+      },
+      "example": {
+        "en": "Audit last quarter's wins: how many were bought with a discount?",
+        "fa": "بردهای فصلِ گذشته را بازبینی کن: چندتایشان با تخفیف خریده شدند؟"
+      },
+      "gain": {
+        "en": "You can tell rented behaviour from real loyalty.",
+        "fa": "می‌توانی رفتارِ اجاره‌ای را از وفاداریِ واقعی تشخیص دهی."
+      }
+    },
+    {
+      "level": 4,
+      "badge": {
+        "en": "Level 4 · Advanced",
+        "fa": "سطحِ ۴ · پیشرفته"
+      },
+      "title": {
+        "en": "Clarity, discipline, consistency",
+        "fa": "شفافیت، انضباط، ثبات"
+      },
+      "tagline": {
+        "en": "What it takes to be trusted.",
+        "fa": "آنچه لازم است تا به تو اعتماد شود."
+      },
+      "body": {
+        "en": "A why needs <b>clarity</b> (say it in one sentence), <b>discipline</b> (values written as verbs, held when costly), and <b>consistency</b> (every what proves the belief). Trust is simply these three aligned over time.",
+        "fa": "یک چرا به <b>شفافیت</b> (در یک جمله بگویش)، <b>انضباط</b> (ارزش‌ها به‌شکلِ فعل، نگه‌داشته‌شده وقتی خرج دارد) و <b>ثبات</b> (هر چه، باور را ثابت کند) نیاز دارد. اعتماد فقط هم‌ترازیِ همین سه در طولِ زمان است."
+      },
+      "example": {
+        "en": "Turn \"we value quality\" into \"we ship nothing we would not use ourselves\".",
+        "fa": "«ما به کیفیت اهمیت می‌دهیم» را به «چیزی عرضه نمی‌کنیم که خودمان استفاده نکنیم» تبدیل کن."
+      },
+      "gain": {
+        "en": "You can build the trust, not just describe it.",
+        "fa": "می‌توانی اعتماد را بسازی، نه فقط توصیفش کنی."
+      }
+    },
+    {
+      "level": 5,
+      "badge": {
+        "en": "Level 5 · Expert",
+        "fa": "سطحِ ۵ · حرفه‌ای"
+      },
+      "title": {
+        "en": "Rally and protect",
+        "fa": "بسیج کن و محافظت کن"
+      },
+      "tagline": {
+        "en": "Spread the belief; guard it at scale.",
+        "fa": "باور را پخش کن؛ در بزرگ‌شدن از آن محافظت کن."
+      },
+      "body": {
+        "en": "Belief spreads through the <b>early adopters</b> — win them and the majority follows on their recommendation, not yours. Filter every opportunity through the why (the <b>celery test</b>). Then watch for the <b>split</b>: as you scale, the what grows loud and the why goes quiet unless someone is deliberately re-telling it.",
+        "fa": "باور از راهِ <b>پذیرندگانِ اولیه</b> پخش می‌شود — آن‌ها را ببر، اکثریت به توصیهٔ آن‌ها می‌آید نه به حرفِ تو. هر فرصت را از فیلترِ چرا رد کن (<b>آزمونِ کرفس</b>). بعد مراقبِ <b>شکاف</b> باش: با بزرگ‌شدن، چه بلند می‌شود و چرا ساکت، مگر آنکه کسی عامدانه بازگویدش."
+      },
+      "example": {
+        "en": "You say no to a profitable partnership that contradicts the belief — and you assign someone to tell the origin story to every new hire.",
+        "fa": "به یک همکاریِ سودآور که باور را نقض می‌کند نه می‌گویی — و به کسی مأموریت می‌دهی داستانِ آغاز را برای هر نیروی جدید بگوید."
+      },
+      "gain": {
+        "en": "You can build an organisation that still knows why it exists at scale.",
+        "fa": "می‌توانی سازمانی بسازی که در بزرگی هم هنوز می‌داند چرا وجود دارد."
+      }
+    }
+  ],
+  "quotes": [
+    {
+      "en": "People don't buy what you do; they buy why you do it.",
+      "fa": "مردم آنچه می‌کنی را نمی‌خرند؛ چراییِ آن را می‌خرند."
+    },
+    {
+      "en": "There are only two ways to influence human behavior: you can manipulate it or you can inspire it.",
+      "fa": "فقط دو راه برای اثرگذاری بر رفتارِ انسان هست: می‌توانی دستکاری‌اش کنی یا الهامش بدهی."
+    },
+    {
+      "en": "Great companies don't hire skilled people and motivate them, they hire already motivated people and inspire them.",
+      "fa": "شرکت‌های بزرگ آدمِ ماهر استخدام نمی‌کنند تا انگیزه بدهند؛ آدمِ بی‌انگیزه‌نمانده می‌گیرند و الهامشان می‌دهند."
+    },
+    {
+      "en": "Working hard for something we do not care about is called stress; working hard for something we love is called passion.",
+      "fa": "سخت کارکردن برای چیزی که برایمان مهم نیست، استرس نام دارد؛ سخت کارکردن برای چیزی که دوستش داریم، اشتیاق."
+    },
+    {
+      "en": "The goal is not to do business with everybody who needs what you have.",
+      "fa": "هدف این نیست که با هرکسی که به داشته‌ات نیاز دارد کار کنی."
+    },
+    {
+      "en": "You don't hire for skills, you hire for attitude. You can always teach skills.",
+      "fa": "برای مهارت استخدام نکن، برای نگرش استخدام کن. مهارت را همیشه می‌شود یاد داد."
+    }
+  ],
+  "media": [
+    {
+      "kind": "img",
+      "url": "https://simonsinek.com/books/start-with-why/",
+      "src": {
+        "en": "simonsinek.com · Author",
+        "fa": "simonsinek.com · نویسنده"
+      },
+      "title": {
+        "en": "Start with Why — the author's page",
+        "fa": "با چرا شروع کن — صفحهٔ نویسنده"
+      },
+      "desc": {
+        "en": "The official page for the book, with background and related material.",
+        "fa": "صفحهٔ رسمیِ کتاب، همراه با پیشینه و منابعِ مرتبط."
+      },
+      "bullets": {
+        "en": [
+          "The argument in the author's words",
+          "Editions and formats",
+          "Straight from the source"
+        ],
+        "fa": [
+          "استدلال به زبانِ خودِ نویسنده",
+          "نسخه‌ها و قالب‌ها",
+          "مستقیم از منبع"
+        ]
+      },
+      "best": {
+        "en": "For editions and the source.",
+        "fa": "برای نسخه‌ها و منبعِ اصلی."
+      }
+    },
+    {
+      "kind": "img",
+      "url": "https://www.ted.com/talks/simon_sinek_how_great_leaders_inspire_action",
+      "src": {
+        "en": "TED · Talk",
+        "fa": "TED · سخنرانی"
+      },
+      "title": {
+        "en": "How great leaders inspire action",
+        "fa": "رهبرانِ بزرگ چطور به عمل الهام می‌دهند"
+      },
+      "desc": {
+        "en": "The talk that introduced the golden circle to a wide audience.",
+        "fa": "سخنرانی‌ای که دایرهٔ طلایی را به مخاطبِ گسترده معرفی کرد."
+      },
+      "bullets": {
+        "en": [
+          "The golden circle in eighteen minutes",
+          "The clearest short version of the idea",
+          "Good before or after the book"
+        ],
+        "fa": [
+          "دایرهٔ طلایی در هجده دقیقه",
+          "روشن‌ترین نسخهٔ کوتاهِ ایده",
+          "خوب، چه قبل و چه بعد از کتاب"
+        ]
+      },
+      "best": {
+        "en": "Best for Stage 1–2.",
+        "fa": "خوب برای مرحلهٔ ۱ و ۲."
+      }
+    }
+  ],
+  "go": [
+    {
+      "label": {
+        "en": "Author's page",
+        "fa": "صفحهٔ نویسنده"
+      },
+      "url": "https://simonsinek.com/books/start-with-why/"
+    },
+    {
+      "label": {
+        "en": "TED talk",
+        "fa": "سخنرانی TED"
+      },
+      "url": "https://www.ted.com/talks/simon_sinek_how_great_leaders_inspire_action"
+    },
+    {
+      "label": {
+        "en": "Book on Goodreads",
+        "fa": "کتاب در گودریدز"
+      },
+      "url": "https://www.goodreads.com/book/show/7108725-start-with-why"
+    }
+  ],
+  "recs": [
+    {
+      "pri": "b",
+      "t": {
+        "en": "Write your why in one sentence",
+        "fa": "چرایت را در یک جمله بنویس"
+      },
+      "d": {
+        "en": "No product nouns allowed. If three colleagues write it differently, it is not clear yet.",
+        "fa": "هیچ اسمِ محصولی مجاز نیست. اگر سه همکار متفاوت بنویسندش، هنوز روشن نیست."
+      }
+    },
+    {
+      "pri": "b",
+      "t": {
+        "en": "Reorder one piece of communication",
+        "fa": "ترتیبِ یک پیام را عوض کن"
+      },
+      "d": {
+        "en": "Take your homepage or your pitch and move the belief to the first sentence.",
+        "fa": "صفحهٔ اول یا معرفی‌ات را بردار و باور را به جملهٔ اول منتقل کن."
+      }
+    },
+    {
+      "pri": "n",
+      "t": {
+        "en": "Rewrite your values as verbs",
+        "fa": "ارزش‌هایت را فعل بنویس"
+      },
+      "d": {
+        "en": "\"Integrity\" becomes \"tell the customer the bad news first\". Now it is decidable.",
+        "fa": "«صداقت» می‌شود «خبرِ بد را اول به مشتری بگو». حالا قابلِ تصمیم است."
+      }
+    },
+    {
+      "pri": "n",
+      "t": {
+        "en": "Run the celery test once",
+        "fa": "یک‌بار آزمونِ کرفس را اجرا کن"
+      },
+      "d": {
+        "en": "Score your next three opportunities against the why before you open the spreadsheet.",
+        "fa": "سه فرصتِ بعدی را پیش از بازکردنِ اکسل در برابرِ چرا نمره بده."
+      }
+    }
+  ]
+});
+</script>
+</body>
+</html>

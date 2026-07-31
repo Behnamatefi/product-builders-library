@@ -79,7 +79,8 @@
     12: { intents: ['communicate', 'sell'],   snr: ['junior', 'mid', 'senior', 'manager'], len: 2 },
     13: { intents: ['startup', 'strategy'],   snr: ['senior', 'manager'],                 len: 2 },
     14: { intents: ['career'],                snr: ['junior', 'mid', 'senior', 'manager'], len: 2 },
-    15: { intents: ['mindset'],               snr: ['junior', 'mid', 'senior', 'manager'], len: 2 }
+    15: { intents: ['mindset'],               snr: ['junior', 'mid', 'senior', 'manager'], len: 2 },
+    16: { intents: ['mindset', 'lead', 'career'], snr: ['junior', 'mid', 'senior', 'manager'], len: 2 }
   };
 
   /* per-book overrides (only where the book differs from its group) */
@@ -101,7 +102,13 @@
     'influence':                 { len: 3, core: true },
     'shoe-dog':                  { len: 3 },
     'crossing-the-chasm':        { core: true },
-    'the-lean-startup':          { core: true }
+    'the-lean-startup':          { core: true },
+    /* 16 — Self Mastery */
+    'start-with-why':            { intents: ['lead', 'strategy', 'communicate'], core: true, len: 1 },
+    'the-art-of-seduction':      { intents: ['sell', 'communicate'], snr: ['mid', 'senior', 'manager'], len: 3 },
+    'surrounded-by-psychopaths': { intents: ['lead', 'communicate'], snr: ['mid', 'senior', 'manager'], len: 2 },
+    'the-way-forward':           { intents: ['mindset', 'career'], len: 1 },
+    'the-power-of-now':          { intents: ['mindset'], core: true, len: 2 }
   };
 
   function tagsFor(entry) {

@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<!-- Generated page. Edit CONTENT in the DATA object below; shared UI lives in ../assets/book.css + ../assets/book.js -->
+<html lang="en" dir="ltr" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Way Forward — نقشهٔ دانش و یادگیری ۵ مرحله‌ای</title>
+
+<!-- Boot theme + language BEFORE paint to avoid a flash (shared library-wide keys) -->
+<script>
+(function(){
+  try{
+    var th = localStorage.getItem('pbl-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
+    document.documentElement.setAttribute('data-theme', th);
+  }catch(e){ document.documentElement.setAttribute('data-theme','light'); }
+  try{
+    var lg = localStorage.getItem('pbl-lang') || 'en';
+    document.documentElement.setAttribute('data-lang', lg);
+    document.documentElement.setAttribute('lang', lg);
+    document.documentElement.setAttribute('dir', lg==='fa' ? 'rtl' : 'ltr');
+  }catch(e){}
+})();
+</script>
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,200..700;1,6..72,200..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/book.css">
+</head>
+<body>
+<div id="app"></div>
+
+<script src="../assets/library.js"></script>
+<script src="../assets/book.js"></script>
+<script>
+/* ── CONTENT — everything unique to this book lives here ── */
+Book.mount({
+  "meta": {
+    "slug": "the-way-forward",
+    "folder": "16 - Self Mastery",
+    "groupNum": 16,
+    "group": {
+      "en": "Self Mastery",
+      "fa": "تسلط بر خود"
+    },
+    "author": {
+      "en": "Robert O'Neill & Dakota Meyer",
+      "fa": "رابرت اونیل و داکوتا مه‌یر"
+    },
+    "eyebrow_author": {
+      "en": "Robert O'Neill & Dakota Meyer",
+      "fa": "رابرت اونیل و داکوتا مه‌یر"
+    },
+    "book": {
+      "en": "The Way Forward",
+      "fa": "راهِ پیش رو"
+    },
+    "hero_title": {
+      "en": "The Way Forward — Master Life's Toughest Battles and Create Your Lasting Legacy",
+      "fa": "راهِ پیش رو — بر سخت‌ترین نبردهای زندگی مسلط شو و میراثت را بساز"
+    },
+    "dek": {
+      "en": "A knowledge graph of the whole book, plus a 5-stage path from a single idea to expert-level mastery — with an example at every step.",
+      "fa": "نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از خیلی ساده تا حرفه‌ای — با یک مثال در هر مرحله."
+    },
+    "published": {
+      "en": "2022",
+      "fa": "۲۰۲۲"
+    },
+    "chips": [
+      {
+        "v": {
+          "en": "4",
+          "fa": "۴"
+        },
+        "l": {
+          "en": "Parts",
+          "fa": "بخش"
+        }
+      },
+      {
+        "v": {
+          "en": "12",
+          "fa": "۱۲"
+        },
+        "l": {
+          "en": "Ideas",
+          "fa": "ایده"
+        }
+      },
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Learning stages",
+          "fa": "مرحلهٔ یادگیری"
+        }
+      }
+    ],
+    "kboxes": [
+      {
+        "v": {
+          "en": "4",
+          "fa": "۴"
+        },
+        "l": {
+          "en": "Parts (mindset under pressure · preparation · adversity · legacy)",
+          "fa": "بخش (ذهنیت زیرِ فشار · آمادگی · سختی · میراث)"
+        }
+      },
+      {
+        "v": {
+          "en": "12",
+          "fa": "۱۲"
+        },
+        "l": {
+          "en": "Ideas you can use",
+          "fa": "ایده برای استفاده"
+        }
+      },
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Levels, simple → expert",
+          "fa": "مرحله، ساده تا حرفه‌ای"
+        }
+      },
+      {
+        "v": {
+          "en": "1",
+          "fa": "۱"
+        },
+        "l": {
+          "en": "Rule: take the next step",
+          "fa": "قاعده: قدمِ بعدی را بردار"
+        }
+      }
+    ],
+    "core_callout": {
+      "label": {
+        "en": "The core idea:",
+        "fa": "ایدهٔ اصلی:"
+      },
+      "en": " Two combat veterans arguing one thing: <i>you do not rise to the occasion, you fall to your level of training</i>. Courage is not the absence of fear but the decision to take the next step while afraid — and the discipline that makes that step possible is built long before the moment arrives.",
+      "fa": " دو کهنه‌سربازِ میدان که یک حرف می‌زنند: <i>در لحظه بالا نمی‌روی، به سطحِ تمرینت سقوط می‌کنی</i>. شجاعت نبودِ ترس نیست، تصمیم به برداشتنِ قدمِ بعدی در حالِ ترس است — و انضباطی که آن قدم را ممکن می‌کند، خیلی پیش از رسیدنِ آن لحظه ساخته می‌شود."
+    },
+    "flow_callout": {
+      "label": {
+        "en": "Read it as a flow:",
+        "fa": "به‌صورتِ یک جریان بخوانش:"
+      },
+      "en": " start with <b>mindset</b> — fear as information, ego as the real enemy — build it through <b>preparation</b> and standards, meet <b>adversity</b> by controlling the controllables, and turn it outward into <b>legacy</b>.",
+      "fa": " با <b>ذهنیت</b> شروع کن — ترس به‌مثابهٔ اطلاعات، خودخواهی به‌مثابهٔ دشمنِ اصلی — با <b>آمادگی</b> و استاندارد بسازش، <b>سختی</b> را با کنترلِ کنترل‌پذیرها ببین، و آن را به بیرون و به <b>میراث</b> بدل کن."
+    }
+  },
+  "method": {
+    "en": "<p><b>Source:</b> the book <i>The Way Forward</i> by Robert O'Neill and Dakota Meyer, published 2022.</p><p><b>How this was built:</b> the structure and ideas were gathered and rewritten from the book and reputable sources.</p><p><b>Group:</b> Self Mastery.</p><p><b>A note:</b> the authors write from military experience; the lessons are offered as general principles about pressure and preparation, not as a manual for combat.</p>",
+    "fa": "<p><b>منبع:</b> کتابِ «راهِ پیش رو» نوشتهٔ رابرت اونیل و داکوتا مه‌یر، چاپِ ۲۰۲۲.</p><p><b>روشِ کار:</b> ساختار و ایده‌ها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده است.</p><p><b>گروه:</b> تسلط بر خود.</p><p><b>یک نکته:</b> نویسندگان از تجربهٔ نظامی می‌نویسند؛ درس‌ها به‌عنوانِ اصولِ کلی دربارهٔ فشار و آمادگی ارائه شده‌اند، نه راهنمای میدانِ جنگ.</p>"
+  },
+  "flow": {
+    "en": [
+      "Prepare",
+      "Decide",
+      "Move",
+      "Serve"
+    ],
+    "fa": [
+      "آماده شو",
+      "تصمیم بگیر",
+      "حرکت کن",
+      "خدمت کن"
+    ]
+  },
+  "graph": {
+    "R2": 132,
+    "span": 70
+  },
+  "tldr": [
+    {
+      "en": "The whole book in one line: <b>you do not rise to the occasion — you fall to your level of training.</b>",
+      "fa": "خلاصهٔ کل کتاب در یک جمله: <b>در لحظه بالا نمی‌روی — به سطحِ تمرینت سقوط می‌کنی.</b>"
+    },
+    {
+      "en": "Courage is not the absence of fear. It is taking <b>the next step</b> while still afraid.",
+      "fa": "شجاعت نبودِ ترس نیست. برداشتنِ <b>قدمِ بعدی</b> است در حالی که هنوز می‌ترسی."
+    },
+    {
+      "en": "Fear is <b>information</b>, not an instruction. It tells you what matters; it does not tell you to stop.",
+      "fa": "ترس <b>اطلاعات</b> است، نه دستور. می‌گوید چه چیزی مهم است؛ نمی‌گوید بایست."
+    },
+    {
+      "en": "The real enemy is usually <b>ego</b> — it stops you asking, learning, and admitting the plan failed.",
+      "fa": "دشمنِ اصلی معمولاً <b>خودخواهی</b> است — نمی‌گذارد بپرسی، یاد بگیری، و اعتراف کنی نقشه شکست خورده."
+    },
+    {
+      "en": "Standards beat motivation. <b>Do the reps</b> when you do not feel like it; that is the whole method.",
+      "fa": "استاندارد از انگیزه بهتر است. <b>تکرارها را انجام بده</b> وقتی حسش را نداری؛ کلِ روش همین است."
+    }
+  ],
+  "parts": [
+    {
+      "key": "mindset",
+      "varc": "--c-teal",
+      "name": {
+        "en": "Mindset Under Pressure",
+        "fa": "ذهنیت زیرِ فشار"
+      },
+      "tag": {
+        "en": "How you think",
+        "fa": "چطور فکر می‌کنی"
+      },
+      "gist": {
+        "en": "Never quit, read fear correctly, and keep the ego out of it.",
+        "fa": "هرگز کنار نکش، ترس را درست بخوان، و خودخواهی را بیرون نگه دار."
+      },
+      "more": {
+        "en": "The authors return repeatedly to a single move: reduce the situation to the next action you can actually take. Overwhelm comes from looking at the whole distance; capability comes from looking at the next step.",
+        "fa": "نویسندگان مدام به یک حرکت برمی‌گردند: وضعیت را به قدمِ بعدی‌ای که واقعاً می‌توانی برداری کوچک کن. درماندگی از نگاه‌کردن به کلِ مسیر می‌آید؛ توانایی از نگاه‌کردن به قدمِ بعدی."
+      },
+      "chapters": [
+        "nextstep",
+        "fear",
+        "ego"
+      ]
+    },
+    {
+      "key": "prep",
+      "varc": "--c-blue",
+      "name": {
+        "en": "Preparation",
+        "fa": "آمادگی"
+      },
+      "tag": {
+        "en": "Before the moment",
+        "fa": "پیش از آن لحظه"
+      },
+      "gist": {
+        "en": "Reps beat talent; standards beat motivation; the team beats the individual.",
+        "fa": "تکرار از استعداد بهتر است؛ استاندارد از انگیزه؛ تیم از فرد."
+      },
+      "more": {
+        "en": "Preparation is the only part of a crisis you control, and you control it entirely in advance. What feels like composure under pressure is almost always rehearsal.",
+        "fa": "آمادگی تنها بخشی از یک بحران است که کنترلش می‌کنی، و کاملاً از قبل کنترلش می‌کنی. آنچه زیرِ فشار خونسردی به‌نظر می‌رسد، تقریباً همیشه تمرینِ قبلی است."
+      },
+      "chapters": [
+        "reps",
+        "standards",
+        "team"
+      ]
+    },
+    {
+      "key": "adversity",
+      "varc": "--c-violet",
+      "name": {
+        "en": "Facing Adversity",
+        "fa": "رویارویی با سختی"
+      },
+      "tag": {
+        "en": "In the moment",
+        "fa": "در آن لحظه"
+      },
+      "gist": {
+        "en": "Control what you control, treat failure as data, keep perspective.",
+        "fa": "آنچه در کنترلت است را کنترل کن، شکست را داده بدان، نگاهت را حفظ کن."
+      },
+      "more": {
+        "en": "Most of what happens is not yours to decide. The narrow band that is — your preparation, your attention, your next action — is where all the leverage lives.",
+        "fa": "بیشترِ آنچه اتفاق می‌افتد تصمیمِ تو نیست. همان نوارِ باریکی که هست — آمادگی، توجه، و اقدامِ بعدی‌ات — جایی است که تمامِ اهرم آنجاست."
+      },
+      "chapters": [
+        "control",
+        "failure",
+        "humour"
+      ]
+    },
+    {
+      "key": "legacy",
+      "varc": "--c-amber",
+      "name": {
+        "en": "The Way Forward",
+        "fa": "راهِ پیش رو"
+      },
+      "tag": {
+        "en": "After it",
+        "fa": "بعد از آن"
+      },
+      "gist": {
+        "en": "Serve something bigger, pass it on, and rebuild after loss.",
+        "fa": "به چیزی بزرگ‌تر خدمت کن، منتقلش کن، و بعد از باخت دوباره بساز."
+      },
+      "more": {
+        "en": "Both authors argue that the hardest part is not the crisis but what comes after it — and that the way through is turning the experience outward, toward other people.",
+        "fa": "هر دو نویسنده می‌گویند سخت‌ترین بخش خودِ بحران نیست، آن چیزی است که بعدش می‌آید — و راهِ عبور، رو‌کردنِ آن تجربه به بیرون است، به‌سوی آدم‌های دیگر."
+      },
+      "chapters": [
+        "purpose",
+        "mentor",
+        "rebuild"
+      ]
+    }
+  ],
+  "chapters": {
+    "nextstep": {
+      "part": "mindset",
+      "n": 1,
+      "name": {
+        "en": "The Next Step",
+        "fa": "قدمِ بعدی"
+      },
+      "glabel": {
+        "en": "Next Step",
+        "fa": "قدمِ بعدی"
+      },
+      "principle": {
+        "en": "Never quit. Shrink the problem to the one action available right now.",
+        "fa": "هرگز کنار نکش. مسئله را به همان یک اقدامی که همین حالا ممکن است کوچک کن."
+      },
+      "more": {
+        "en": "Quitting rarely happens at the hardest moment; it happens when someone looks at the whole remaining distance at once. The counter is deliberately narrowing your horizon.",
+        "fa": "کنارکشیدن به‌ندرت در سخت‌ترین لحظه اتفاق می‌افتد؛ وقتی اتفاق می‌افتد که کسی کلِ مسیرِ باقی‌مانده را یک‌جا ببیند. پادزهرش تنگ‌کردنِ عامدانهٔ افق است."
+      },
+      "example": {
+        "en": "Not \"six more months of this\" but \"finish today\".",
+        "fa": "نه «شش ماهِ دیگر از این»، بلکه «امروز را تمام کن»."
+      },
+      "tip": {
+        "en": "When overwhelmed, write down only the next physical action and do that.",
+        "fa": "وقتی درمانده‌ای، فقط اقدامِ فیزیکیِ بعدی را بنویس و همان را انجام بده."
+      },
+      "pitfall": {
+        "en": "Measuring today against the whole finish line.",
+        "fa": "سنجیدنِ امروز با کلِ خطِ پایان."
+      }
+    },
+    "fear": {
+      "part": "mindset",
+      "n": 2,
+      "name": {
+        "en": "Fear Is Information",
+        "fa": "ترس اطلاعات است"
+      },
+      "glabel": {
+        "en": "Fear",
+        "fa": "ترس"
+      },
+      "principle": {
+        "en": "Fear reports what matters. It does not issue instructions.",
+        "fa": "ترس گزارش می‌دهد چه چیزی مهم است. دستور نمی‌دهد."
+      },
+      "more": {
+        "en": "Trying to feel no fear is the wrong target and it fails. Trained people feel it and act anyway, because they have separated the signal from the command.",
+        "fa": "تلاش برای نترسیدن هدفِ غلطی است و شکست می‌خورد. آدم‌های آموزش‌دیده حسش می‌کنند و باز عمل می‌کنند، چون سیگنال را از دستور جدا کرده‌اند."
+      },
+      "example": {
+        "en": "Nerves before a hard conversation mean it matters — not that you should avoid it.",
+        "fa": "اضطراب پیش از یک گفتگوی سخت یعنی مهم است — نه اینکه باید از آن فرار کنی."
+      },
+      "tip": {
+        "en": "Name the fear out loud, then state the next action anyway.",
+        "fa": "ترس را بلند نام ببر، بعد به‌هرحال اقدامِ بعدی را بگو."
+      },
+      "pitfall": {
+        "en": "Waiting to feel ready.",
+        "fa": "منتظرِ حسِ آمادگی ماندن."
+      }
+    },
+    "ego": {
+      "part": "mindset",
+      "n": 3,
+      "name": {
+        "en": "Ego Is the Enemy",
+        "fa": "خودخواهی دشمن است"
+      },
+      "glabel": {
+        "en": "Ego",
+        "fa": "خودخواهی"
+      },
+      "principle": {
+        "en": "Ego stops you asking for help, changing your mind, and admitting the plan failed.",
+        "fa": "خودخواهی نمی‌گذارد کمک بخواهی، نظرت را عوض کنی، و بپذیری نقشه شکست خورد."
+      },
+      "more": {
+        "en": "The most expensive mistakes come from someone protecting how they look rather than solving what is in front of them. Competence and humility travel together.",
+        "fa": "گران‌ترین اشتباه‌ها از کسی می‌آید که به‌جای حلِ مسئلهٔ پیشِ رو، از ظاهرِ خودش محافظت می‌کند. شایستگی و فروتنی با هم سفر می‌کنند."
+      },
+      "example": {
+        "en": "The leader who cannot say \"I was wrong\" makes the whole team pay for it.",
+        "fa": "رهبری که نمی‌تواند بگوید «اشتباه کردم»، هزینه‌اش را کلِ تیم می‌دهد."
+      },
+      "tip": {
+        "en": "Say \"I don't know\" once this week, out loud, in front of your team.",
+        "fa": "این هفته یک‌بار بلند و جلوی تیمت بگو «نمی‌دانم»."
+      },
+      "pitfall": {
+        "en": "Defending a decision because you made it.",
+        "fa": "دفاع از یک تصمیم فقط چون تو گرفته‌ای‌اش."
+      }
+    },
+    "reps": {
+      "part": "prep",
+      "n": 4,
+      "name": {
+        "en": "Do the Reps",
+        "fa": "تکرارها را انجام بده"
+      },
+      "glabel": {
+        "en": "Reps",
+        "fa": "تکرار"
+      },
+      "principle": {
+        "en": "Repetition, not talent, is what shows up when the pressure arrives.",
+        "fa": "تکرار است که وقتِ فشار خودش را نشان می‌دهد، نه استعداد."
+      },
+      "more": {
+        "en": "Under stress you do not perform your best; you perform your most practised. That is why boring, repeated drilling is the actual preparation.",
+        "fa": "زیرِ فشار بهترین اجرایت را نمی‌کنی؛ تمرین‌شده‌ترین اجرایت را می‌کنی. برای همین است که تمرینِ کسل‌کننده و تکراری، همان آمادگیِ واقعی است."
+      },
+      "example": {
+        "en": "The team that rehearsed the incident runbook does not need to think during the incident.",
+        "fa": "تیمی که دفترچهٔ حادثه را تمرین کرده، وسطِ حادثه لازم نیست فکر کند."
+      },
+      "tip": {
+        "en": "Pick the one skill you would need under pressure and practise it while calm.",
+        "fa": "همان یک مهارتی که زیرِ فشار لازم داری را انتخاب کن و در آرامش تمرینش کن."
+      },
+      "pitfall": {
+        "en": "Confusing knowing how with having done it.",
+        "fa": "دانستنِ چگونگی را با انجام‌دادنش اشتباه گرفتن."
+      }
+    },
+    "standards": {
+      "part": "prep",
+      "n": 5,
+      "name": {
+        "en": "Standards Over Feelings",
+        "fa": "استاندارد بر احساس"
+      },
+      "glabel": {
+        "en": "Standards",
+        "fa": "استاندارد"
+      },
+      "principle": {
+        "en": "Motivation is weather. A standard is something you meet regardless.",
+        "fa": "انگیزه مثلِ هواست. استاندارد چیزی است که به‌هرحال به آن پایبندی."
+      },
+      "more": {
+        "en": "Waiting to feel like it hands your progress to your mood. A standard removes the negotiation: the bed is made, the run happens, the review gets written.",
+        "fa": "منتظرِ حسش ماندن یعنی سپردنِ پیشرفت به حال‌وهوایت. استاندارد چانه‌زنی را حذف می‌کند: تخت مرتب می‌شود، دویدن انجام می‌شود، بازبینی نوشته می‌شود."
+      },
+      "example": {
+        "en": "The small maintained habit is the proof you can be relied on — first by yourself.",
+        "fa": "عادتِ کوچکی که نگه داشته می‌شود، مدرکِ قابلِ‌اتکابودنِ توست — اول برای خودت."
+      },
+      "tip": {
+        "en": "Choose one non-negotiable daily standard and keep it for two weeks.",
+        "fa": "یک استانداردِ روزانهٔ غیرقابلِ‌مذاکره انتخاب کن و دو هفته نگهش دار."
+      },
+      "pitfall": {
+        "en": "Renegotiating the standard on a bad day.",
+        "fa": "مذاکرهٔ دوباره سرِ استاندارد در یک روزِ بد."
+      }
+    },
+    "team": {
+      "part": "prep",
+      "n": 6,
+      "name": {
+        "en": "Team Before Self",
+        "fa": "تیم پیش از خود"
+      },
+      "glabel": {
+        "en": "Team",
+        "fa": "تیم"
+      },
+      "principle": {
+        "en": "Your reliability to others is the thing that carries you when your own motivation is gone.",
+        "fa": "قابلِ‌اتکابودنت برای دیگران همان چیزی است که وقتی انگیزهٔ خودت تمام شده حملت می‌کند."
+      },
+      "more": {
+        "en": "People endure far more for a group that depends on them than for a personal goal. This is a design principle, not a sentiment — build the obligation deliberately.",
+        "fa": "آدم‌ها برای گروهی که به آن‌ها وابسته است خیلی بیشتر تحمل می‌کنند تا برای یک هدفِ شخصی. این یک اصلِ طراحی است، نه احساسات — آن تعهد را عامدانه بساز."
+      },
+      "example": {
+        "en": "You skip the solo run; you do not skip the one where someone is waiting.",
+        "fa": "دویدنِ تنهایی را می‌پیچانی؛ آنی را که کسی منتظرت است نمی‌پیچانی."
+      },
+      "tip": {
+        "en": "Attach one goal to a person who will notice if you drop it.",
+        "fa": "یک هدف را به آدمی وصل کن که اگر رهایش کنی متوجه می‌شود."
+      },
+      "pitfall": {
+        "en": "Building goals nobody else can see.",
+        "fa": "ساختنِ هدف‌هایی که هیچ‌کس دیگر نمی‌بیندشان."
+      }
+    },
+    "control": {
+      "part": "adversity",
+      "n": 7,
+      "name": {
+        "en": "Control the Controllables",
+        "fa": "کنترلِ کنترل‌پذیرها"
+      },
+      "glabel": {
+        "en": "Control",
+        "fa": "کنترل"
+      },
+      "principle": {
+        "en": "Spend nothing on what you cannot change; spend everything on the narrow band you can.",
+        "fa": "برای آنچه نمی‌توانی عوض کنی هیچ خرج نکن؛ همه را خرجِ همان نوارِ باریکی کن که می‌توانی."
+      },
+      "more": {
+        "en": "Preparation, attention and the next action are almost always the entire list. Writing that list during a crisis is itself calming, because it makes the situation finite.",
+        "fa": "آمادگی، توجه و اقدامِ بعدی تقریباً همیشه کلِ فهرست‌اند. نوشتنِ همان فهرست وسطِ بحران خودش آرام‌کننده است، چون وضعیت را متناهی می‌کند."
+      },
+      "example": {
+        "en": "You cannot control the outage's cause at 3am; you can control the comms and the runbook.",
+        "fa": "علتِ قطعی را ساعتِ سه صبح نمی‌توانی کنترل کنی؛ ارتباطات و دفترچهٔ اجرا را می‌توانی."
+      },
+      "tip": {
+        "en": "In the next crisis, write two columns: mine and not mine. Work only the first.",
+        "fa": "در بحرانِ بعدی دو ستون بنویس: مالِ من، مالِ من نیست. فقط روی اولی کار کن."
+      },
+      "pitfall": {
+        "en": "Burning energy on the second column.",
+        "fa": "سوزاندنِ انرژی روی ستونِ دوم."
+      }
+    },
+    "failure": {
+      "part": "adversity",
+      "n": 8,
+      "name": {
+        "en": "Failure Is Data",
+        "fa": "شکست داده است"
+      },
+      "glabel": {
+        "en": "Failure",
+        "fa": "شکست"
+      },
+      "principle": {
+        "en": "Debrief without blame. The point is the correction, not the verdict.",
+        "fa": "بدونِ سرزنش بازبینی کن. هدف اصلاح است، نه صدورِ حکم."
+      },
+      "more": {
+        "en": "A blameless debrief gets the truth on the table; a blaming one gets a story. Teams that separate the two learn several times faster than teams that do not.",
+        "fa": "بازبینیِ بدونِ سرزنش حقیقت را روی میز می‌آورد؛ بازبینیِ سرزنش‌گر یک داستان. تیم‌هایی که این دو را جدا می‌کنند چند برابر سریع‌تر یاد می‌گیرند."
+      },
+      "example": {
+        "en": "\"What did we assume that turned out false?\" beats \"whose fault was it?\".",
+        "fa": "«چه فرضی داشتیم که غلط از آب درآمد؟» از «تقصیرِ کی بود؟» بهتر است."
+      },
+      "tip": {
+        "en": "Run one blameless debrief on your last failure — written, not verbal.",
+        "fa": "یک بازبینیِ بدونِ سرزنش روی آخرین شکستت اجرا کن — مکتوب، نه شفاهی."
+      },
+      "pitfall": {
+        "en": "Debriefs that become performance reviews.",
+        "fa": "بازبینی‌هایی که تبدیل به ارزیابیِ عملکرد می‌شوند."
+      }
+    },
+    "humour": {
+      "part": "adversity",
+      "n": 9,
+      "name": {
+        "en": "Humour and Perspective",
+        "fa": "شوخی و نگاه"
+      },
+      "glabel": {
+        "en": "Perspective",
+        "fa": "نگاه"
+      },
+      "principle": {
+        "en": "Perspective is a tool. Being able to laugh keeps judgement online under stress.",
+        "fa": "نگاه یک ابزار است. توانِ خندیدن، قضاوت را زیرِ فشار روشن نگه می‌دارد."
+      },
+      "more": {
+        "en": "Humour under pressure is not avoidance; it is a way of resizing the threat so people can still think. Teams that lose it entirely make worse decisions.",
+        "fa": "شوخی زیرِ فشار فرار نیست؛ راهی است برای کوچک‌کردنِ تهدید تا آدم‌ها هنوز بتوانند فکر کنند. تیم‌هایی که کاملاً از دستش می‌دهند تصمیم‌های بدتری می‌گیرند."
+      },
+      "example": {
+        "en": "The crew that jokes during the hard night still runs the checklist correctly.",
+        "fa": "گروهی که در شبِ سخت شوخی می‌کند، هنوز چک‌لیست را درست اجرا می‌کند."
+      },
+      "tip": {
+        "en": "Ask \"will this matter in five years?\" before reacting to it today.",
+        "fa": "قبل از واکنش، بپرس «پنج سالِ دیگر این مهم است؟»."
+      },
+      "pitfall": {
+        "en": "Using humour to avoid the actual problem.",
+        "fa": "استفاده از شوخی برای فرار از خودِ مسئله."
+      }
+    },
+    "purpose": {
+      "part": "legacy",
+      "n": 10,
+      "name": {
+        "en": "Serve Something Bigger",
+        "fa": "به چیزی بزرگ‌تر خدمت کن"
+      },
+      "glabel": {
+        "en": "Purpose",
+        "fa": "هدف"
+      },
+      "principle": {
+        "en": "A reason beyond yourself outlasts any personal motivation.",
+        "fa": "دلیلی فراتر از خودت از هر انگیزهٔ شخصی بیشتر دوام می‌آورد."
+      },
+      "more": {
+        "en": "Personal goals run out of fuel at exactly the moment they become expensive. An obligation to other people does not, which is why purpose is a practical tool rather than a decoration.",
+        "fa": "هدف‌های شخصی دقیقاً همان‌جا که گران می‌شوند سوختشان تمام می‌شود. تعهد به آدم‌های دیگر تمام نمی‌شود، و برای همین هدف یک ابزارِ عملی است نه تزئین."
+      },
+      "example": {
+        "en": "People finish for their team what they would have abandoned for themselves.",
+        "fa": "آدم‌ها چیزی را برای تیمشان تمام می‌کنند که برای خودشان رهایش می‌کردند."
+      },
+      "tip": {
+        "en": "Write who is actually served by the hard thing you are doing.",
+        "fa": "بنویس کارِ سختی که می‌کنی واقعاً به چه کسی خدمت می‌کند."
+      },
+      "pitfall": {
+        "en": "A purpose that only benefits you.",
+        "fa": "هدفی که فقط به خودت نفع می‌رساند."
+      }
+    },
+    "mentor": {
+      "part": "legacy",
+      "n": 11,
+      "name": {
+        "en": "Mentorship Both Ways",
+        "fa": "مربی‌گری در هر دو جهت"
+      },
+      "glabel": {
+        "en": "Mentorship",
+        "fa": "مربی‌گری"
+      },
+      "principle": {
+        "en": "Find someone ahead of you and someone behind you. Both accelerate you.",
+        "fa": "کسی را جلوتر از خودت پیدا کن و کسی را عقب‌تر. هر دو سرعتت را زیاد می‌کنند."
+      },
+      "more": {
+        "en": "Being taught shortens the path; teaching exposes what you only half understood. The pairing is what makes experience compound instead of just accumulate.",
+        "fa": "آموزش‌دیدن مسیر را کوتاه می‌کند؛ آموزش‌دادن نشان می‌دهد چه چیزی را نصفه فهمیده‌ای. همین جفت‌شدن است که تجربه را مرکب می‌کند نه فقط انباشته."
+      },
+      "example": {
+        "en": "Explaining your process to a junior reveals the steps you cannot actually justify.",
+        "fa": "توضیحِ روشت به یک تازه‌کار، قدم‌هایی را لو می‌دهد که واقعاً نمی‌توانی توجیهشان کنی."
+      },
+      "tip": {
+        "en": "Name one person you learn from and one you are teaching. Fill the gap if either is empty.",
+        "fa": "یک نفر را نام ببر که از او یاد می‌گیری و یکی را که به او یاد می‌دهی. اگر یکی خالی است، پُرش کن."
+      },
+      "pitfall": {
+        "en": "Only ever being the most experienced person in the room.",
+        "fa": "همیشه باتجربه‌ترین آدمِ اتاق بودن."
+      }
+    },
+    "rebuild": {
+      "part": "legacy",
+      "n": 12,
+      "name": {
+        "en": "Rebuild After Loss",
+        "fa": "بعد از باخت دوباره بساز"
+      },
+      "glabel": {
+        "en": "Rebuild",
+        "fa": "بازسازی"
+      },
+      "principle": {
+        "en": "The hardest part is usually after the crisis, not during it.",
+        "fa": "سخت‌ترین بخش معمولاً بعد از بحران است، نه وسطش."
+      },
+      "more": {
+        "en": "During the emergency, adrenaline and clarity of task carry you. Afterwards there is no task, and that is where people struggle. The way through is the same as the way in: small standards, other people, the next step.",
+        "fa": "وسطِ بحران، آدرنالین و روشنیِ مأموریت حملت می‌کنند. بعدش مأموریتی نیست، و همان‌جاست که آدم‌ها می‌مانند. راهِ عبور همان راهِ ورود است: استانداردهای کوچک، آدم‌های دیگر، قدمِ بعدی."
+      },
+      "example": {
+        "en": "The quiet months after the launch failure are the real test, not launch night.",
+        "fa": "ماه‌های ساکتِ بعد از شکستِ عرضه آزمونِ واقعی‌اند، نه شبِ عرضه."
+      },
+      "tip": {
+        "en": "After a hard chapter, rebuild one small daily standard before anything ambitious.",
+        "fa": "بعد از یک فصلِ سخت، پیش از هر کارِ بلندپروازانه، یک استانداردِ کوچکِ روزانه را دوباره بساز."
+      },
+      "pitfall": {
+        "en": "Expecting to feel fine once the emergency ends.",
+        "fa": "انتظارِ خوب‌بودن به‌محضِ تمام‌شدنِ بحران."
+      }
+    }
+  },
+  "core": {
+    "name": {
+      "en": "NEXT STEP",
+      "fa": "قدمِ بعدی"
+    },
+    "principle": {
+      "en": "You do not rise to the occasion; you fall to your level of training. Courage is taking the next step while afraid, and the discipline that makes it possible is built long before the moment arrives.",
+      "fa": "در لحظه بالا نمی‌روی؛ به سطحِ تمرینت سقوط می‌کنی. شجاعت یعنی برداشتنِ قدمِ بعدی در حالِ ترس، و انضباطی که ممکنش می‌کند خیلی پیش از آن لحظه ساخته می‌شود."
+    },
+    "more": {
+      "en": "The book moves in four steps: the mindset that keeps you moving (shrink the problem, read fear as information, keep ego out); the preparation that makes composure possible (reps, standards, obligation to a team); how to meet adversity (control only the controllables, debrief without blame, keep perspective); and finally what it is all for — serving something beyond yourself, mentoring in both directions, and rebuilding after loss.",
+      "fa": "کتاب در چهار گام حرکت می‌کند: ذهنیتی که تو را در حرکت نگه می‌دارد (مسئله را کوچک کن، ترس را اطلاعات بخوان، خودخواهی را بیرون بگذار)؛ آمادگی‌ای که خونسردی را ممکن می‌کند (تکرار، استاندارد، تعهد به تیم)؛ چطور با سختی روبه‌رو شوی (فقط کنترل‌پذیرها را کنترل کن، بدونِ سرزنش بازبینی کن، نگاهت را حفظ کن)؛ و آخر اینکه همهٔ اینها برای چیست — خدمت به چیزی فراتر از خود، مربی‌گری در هر دو جهت، و بازسازی بعد از باخت."
+    },
+    "example": {
+      "en": "Click any node to read a principle or a method. You can also drag the nodes around.",
+      "fa": "روی هر دایره کلیک کن تا یک اصل یا روش را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."
+    }
+  },
+  "stages": [
+    {
+      "level": 1,
+      "badge": {
+        "en": "Level 1 · Over-simplified",
+        "fa": "سطحِ ۱ · خیلی ساده"
+      },
+      "title": {
+        "en": "Take the next step",
+        "fa": "قدمِ بعدی را بردار"
+      },
+      "tagline": {
+        "en": "The whole book in a sentence.",
+        "fa": "کلِ کتاب در یک جمله."
+      },
+      "body": {
+        "en": "When it is hard, do not look at the whole distance. Do the next thing you can actually do.",
+        "fa": "وقتی سخت است، به کلِ مسیر نگاه نکن. کارِ بعدی‌ای را که واقعاً می‌توانی انجام بده."
+      },
+      "example": {
+        "en": "Not \"six more months of this\" but \"finish today\".",
+        "fa": "نه «شش ماهِ دیگر از این»، بلکه «امروز را تمام کن»."
+      },
+      "gain": {
+        "en": "You hold the rule the whole book expands on.",
+        "fa": "همان قاعده‌ای را داری که کلِ کتاب بسطش می‌دهد."
+      }
+    },
+    {
+      "level": 2,
+      "badge": {
+        "en": "Level 2 · Simple",
+        "fa": "سطحِ ۲ · ساده"
+      },
+      "title": {
+        "en": "Fear and ego",
+        "fa": "ترس و خودخواهی"
+      },
+      "tagline": {
+        "en": "Read one correctly; keep the other out.",
+        "fa": "یکی را درست بخوان؛ آن یکی را بیرون نگه دار."
+      },
+      "body": {
+        "en": "<b>Fear is information</b>, not an instruction — it tells you something matters. And <b>ego is the enemy</b>: it stops you asking for help, changing your mind, or admitting the plan failed.",
+        "fa": "<b>ترس اطلاعات است</b>، نه دستور — می‌گوید چیزی مهم است. و <b>خودخواهی دشمن است</b>: نمی‌گذارد کمک بخواهی، نظرت را عوض کنی، یا بپذیری نقشه شکست خورد."
+      },
+      "example": {
+        "en": "Nerves before a hard conversation mean it matters — not that you should avoid it.",
+        "fa": "اضطراب پیش از یک گفتگوی سخت یعنی مهم است — نه اینکه باید فرار کنی."
+      },
+      "gain": {
+        "en": "You can act while afraid instead of waiting to feel ready.",
+        "fa": "می‌توانی در حالِ ترس عمل کنی به‌جای انتظار برای حسِ آمادگی."
+      }
+    },
+    {
+      "level": 3,
+      "badge": {
+        "en": "Level 3 · Balanced",
+        "fa": "سطحِ ۳ · متعادل"
+      },
+      "title": {
+        "en": "Reps and standards",
+        "fa": "تکرار و استاندارد"
+      },
+      "tagline": {
+        "en": "Composure is rehearsal.",
+        "fa": "خونسردی یعنی تمرینِ قبلی."
+      },
+      "body": {
+        "en": "Under stress you do not perform your best, you perform your <b>most practised</b>. So do the boring reps. And replace motivation with a <b>standard</b> — something you meet regardless of mood. Attach it to a <b>team</b> and it survives your worst days.",
+        "fa": "زیرِ فشار بهترین اجرایت را نمی‌کنی، <b>تمرین‌شده‌ترین</b> را می‌کنی. پس تکرارهای کسل‌کننده را انجام بده. و انگیزه را با <b>استاندارد</b> عوض کن — چیزی که فارغ از حال‌وهوا به آن پایبندی. به یک <b>تیم</b> وصلش کن تا بدترین روزهایت را دوام بیاورد."
+      },
+      "example": {
+        "en": "You skip the solo run; you do not skip the one where someone is waiting.",
+        "fa": "دویدنِ تنهایی را می‌پیچانی؛ آنی را که کسی منتظرت است نمی‌پیچانی."
+      },
+      "gain": {
+        "en": "You can build the capability before you need it.",
+        "fa": "می‌توانی توانایی را پیش از نیاز بسازی."
+      }
+    },
+    {
+      "level": 4,
+      "badge": {
+        "en": "Level 4 · Advanced",
+        "fa": "سطحِ ۴ · پیشرفته"
+      },
+      "title": {
+        "en": "Meet adversity",
+        "fa": "با سختی روبه‌رو شو"
+      },
+      "tagline": {
+        "en": "Control, debrief, perspective.",
+        "fa": "کنترل، بازبینی، نگاه."
+      },
+      "body": {
+        "en": "Write two columns — what is yours and what is not — and work only the first. Treat <b>failure as data</b>: a blameless debrief gets the truth on the table, a blaming one gets a story. And keep <b>perspective</b>; humour under pressure is how judgement stays online.",
+        "fa": "دو ستون بنویس — مالِ تو و آنچه مالِ تو نیست — و فقط روی اولی کار کن. <b>شکست را داده</b> بدان: بازبینیِ بدونِ سرزنش حقیقت را روی میز می‌آورد، بازبینیِ سرزنش‌گر یک داستان. و <b>نگاهت</b> را حفظ کن؛ شوخی زیرِ فشار همان چیزی است که قضاوت را روشن نگه می‌دارد."
+      },
+      "example": {
+        "en": "\"What did we assume that turned out false?\" beats \"whose fault was it?\".",
+        "fa": "«چه فرضی داشتیم که غلط از آب درآمد؟» از «تقصیرِ کی بود؟» بهتر است."
+      },
+      "gain": {
+        "en": "You can stay effective inside a crisis.",
+        "fa": "می‌توانی داخلِ بحران هم مؤثر بمانی."
+      }
+    },
+    {
+      "level": 5,
+      "badge": {
+        "en": "Level 5 · Expert",
+        "fa": "سطحِ ۵ · حرفه‌ای"
+      },
+      "title": {
+        "en": "The way forward",
+        "fa": "راهِ پیش رو"
+      },
+      "tagline": {
+        "en": "Purpose, mentorship, rebuilding.",
+        "fa": "هدف، مربی‌گری، بازسازی."
+      },
+      "body": {
+        "en": "Personal goals run out of fuel exactly when they get expensive; an obligation to <b>other people</b> does not. Keep someone ahead of you and someone behind you — teaching exposes what you only half understood. And know that the hardest part is usually <b>after</b> the crisis, when the task disappears. The way out is the way in: small standards, other people, the next step.",
+        "fa": "هدف‌های شخصی دقیقاً وقتی گران می‌شوند سوختشان تمام می‌شود؛ تعهد به <b>آدم‌های دیگر</b> تمام نمی‌شود. کسی را جلوتر و کسی را عقب‌تر از خودت نگه دار — آموزش‌دادن لو می‌دهد چه چیزی را نصفه فهمیده‌ای. و بدان سخت‌ترین بخش معمولاً <b>بعد</b> از بحران است، وقتی مأموریت ناپدید می‌شود. راهِ بیرون همان راهِ ورود است: استانداردهای کوچک، آدم‌های دیگر، قدمِ بعدی."
+      },
+      "example": {
+        "en": "After a hard chapter you rebuild one small daily standard before anything ambitious.",
+        "fa": "بعد از یک فصلِ سخت، پیش از هر کارِ بلندپروازانه، یک استانداردِ کوچکِ روزانه را دوباره می‌سازی."
+      },
+      "gain": {
+        "en": "You can carry others through what you came through.",
+        "fa": "می‌توانی دیگران را از همان راهی که آمدی عبور دهی."
+      }
+    }
+  ],
+  "quotes": [
+    {
+      "en": "You do not rise to the occasion; you sink to the level of your training.",
+      "fa": "در لحظه بالا نمی‌روی؛ به سطحِ تمرینت فرو می‌روی."
+    },
+    {
+      "en": "Courage is not the absence of fear. It is taking the next step anyway.",
+      "fa": "شجاعت نبودِ ترس نیست. برداشتنِ قدمِ بعدی است، به‌هرحال."
+    },
+    {
+      "en": "Never quit. Just take the next step, and then the one after that.",
+      "fa": "هرگز کنار نکش. فقط قدمِ بعدی را بردار، بعد آن یکی را."
+    },
+    {
+      "en": "The only easy day was yesterday.",
+      "fa": "تنها روزِ آسان، دیروز بود."
+    },
+    {
+      "en": "Discipline is what carries you when motivation is gone.",
+      "fa": "انضباط همان چیزی است که وقتی انگیزه رفته حملت می‌کند."
+    }
+  ],
+  "media": [
+    {
+      "kind": "img",
+      "url": "https://www.penguinrandomhouse.com/books/690921/the-way-forward-by-robert-oneill-and-dakota-meyer/",
+      "src": {
+        "en": "Penguin Random House · Publisher",
+        "fa": "Penguin Random House · ناشر"
+      },
+      "title": {
+        "en": "The Way Forward — publisher page",
+        "fa": "راهِ پیش رو — صفحهٔ ناشر"
+      },
+      "desc": {
+        "en": "The publisher page, with editions and a summary of the book.",
+        "fa": "صفحهٔ ناشر، با نسخه‌ها و خلاصه‌ای از کتاب."
+      },
+      "bullets": {
+        "en": [
+          "Definitive editions",
+          "Publisher summary",
+          "Straight from the source"
+        ],
+        "fa": [
+          "نسخه‌های معتبر",
+          "خلاصهٔ ناشر",
+          "مستقیم از منبع"
+        ]
+      },
+      "best": {
+        "en": "For editions and the source.",
+        "fa": "برای نسخه‌ها و منبعِ اصلی."
+      }
+    },
+    {
+      "kind": "img",
+      "url": "https://www.goodreads.com/book/show/58724960-the-way-forward",
+      "src": {
+        "en": "Goodreads · Readers",
+        "fa": "گودریدز · خوانندگان"
+      },
+      "title": {
+        "en": "Reader reviews",
+        "fa": "نقدهای خوانندگان"
+      },
+      "desc": {
+        "en": "What readers took from it, and where they found it thin.",
+        "fa": "خوانندگان چه گرفتند، و کجا کم‌مایه یافتندش."
+      },
+      "bullets": {
+        "en": [
+          "The lessons readers kept",
+          "Common criticisms",
+          "A balanced view"
+        ],
+        "fa": [
+          "درس‌هایی که خوانندگان نگه داشتند",
+          "نقدهای رایج",
+          "نگاهی متوازن"
+        ]
+      },
+      "best": {
+        "en": "Best for Stage 4–5.",
+        "fa": "خوب برای مرحلهٔ ۴ و ۵."
+      }
+    }
+  ],
+  "go": [
+    {
+      "label": {
+        "en": "Publisher page",
+        "fa": "صفحهٔ ناشر"
+      },
+      "url": "https://www.penguinrandomhouse.com/books/690921/the-way-forward-by-robert-oneill-and-dakota-meyer/"
+    },
+    {
+      "label": {
+        "en": "Book on Goodreads",
+        "fa": "کتاب در گودریدز"
+      },
+      "url": "https://www.goodreads.com/book/show/58724960-the-way-forward"
+    }
+  ],
+  "recs": [
+    {
+      "pri": "b",
+      "t": {
+        "en": "Shrink the horizon",
+        "fa": "افق را کوچک کن"
+      },
+      "d": {
+        "en": "When overwhelmed this week, write only the next physical action and do that one thing.",
+        "fa": "این هفته وقتی درمانده شدی، فقط اقدامِ فیزیکیِ بعدی را بنویس و همان یکی را انجام بده."
+      }
+    },
+    {
+      "pri": "b",
+      "t": {
+        "en": "Set one non-negotiable standard",
+        "fa": "یک استانداردِ غیرقابلِ‌مذاکره بگذار"
+      },
+      "d": {
+        "en": "One small daily thing you do regardless of mood. Keep it two weeks.",
+        "fa": "یک کارِ کوچکِ روزانه که فارغ از حال‌وهوا انجامش می‌دهی. دو هفته نگهش دار."
+      }
+    },
+    {
+      "pri": "n",
+      "t": {
+        "en": "Run a blameless debrief",
+        "fa": "یک بازبینیِ بدونِ سرزنش اجرا کن"
+      },
+      "d": {
+        "en": "On your last failure, ask what you assumed that turned out false — in writing.",
+        "fa": "روی آخرین شکستت بپرس چه فرضی داشتی که غلط از آب درآمد — مکتوب."
+      }
+    },
+    {
+      "pri": "n",
+      "t": {
+        "en": "Fill both mentorship slots",
+        "fa": "هر دو جای مربی‌گری را پُر کن"
+      },
+      "d": {
+        "en": "Name one person you learn from and one you teach. If either is empty, fix it.",
+        "fa": "یک نفر را نام ببر که از او یاد می‌گیری و یکی را که به او یاد می‌دهی. اگر یکی خالی است، درستش کن."
+      }
+    }
+  ]
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<!-- Generated page. Edit CONTENT in the DATA object below; shared UI lives in ../assets/book.css + ../assets/book.js -->
+<html lang="en" dir="ltr" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Power of Now — نقشهٔ دانش و یادگیری ۵ مرحله‌ای</title>
+
+<!-- Boot theme + language BEFORE paint to avoid a flash (shared library-wide keys) -->
+<script>
+(function(){
+  try{
+    var th = localStorage.getItem('pbl-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
+    document.documentElement.setAttribute('data-theme', th);
+  }catch(e){ document.documentElement.setAttribute('data-theme','light'); }
+  try{
+    var lg = localStorage.getItem('pbl-lang') || 'en';
+    document.documentElement.setAttribute('data-lang', lg);
+    document.documentElement.setAttribute('lang', lg);
+    document.documentElement.setAttribute('dir', lg==='fa' ? 'rtl' : 'ltr');
+  }catch(e){}
+})();
+</script>
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,200..700;1,6..72,200..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/book.css">
+</head>
+<body>
+<div id="app"></div>
+
+<script src="../assets/library.js"></script>
+<script src="../assets/book.js"></script>
+<script>
+/* ── CONTENT — everything unique to this book lives here ── */
+Book.mount({
+  "meta": {
+    "slug": "the-power-of-now",
+    "folder": "16 - Self Mastery",
+    "groupNum": 16,
+    "group": {
+      "en": "Self Mastery",
+      "fa": "تسلط بر خود"
+    },
+    "author": {
+      "en": "Eckhart Tolle",
+      "fa": "اکهارت تله"
+    },
+    "eyebrow_author": {
+      "en": "Eckhart Tolle",
+      "fa": "اکهارت تله"
+    },
+    "book": {
+      "en": "The Power of Now",
+      "fa": "نیروی حال"
+    },
+    "hero_title": {
+      "en": "The Power of Now — A Guide to Spiritual Enlightenment",
+      "fa": "نیروی حال — راهنمای روشن‌شدگیِ معنوی"
+    },
+    "dek": {
+      "en": "A knowledge graph of the whole book, plus a 5-stage path from a single idea to expert-level mastery — with an example at every step.",
+      "fa": "نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از خیلی ساده تا حرفه‌ای — با یک مثال در هر مرحله."
+    },
+    "published": {
+      "en": "1997",
+      "fa": "۱۹۹۷"
+    },
+    "chips": [
+      {
+        "v": {
+          "en": "4",
+          "fa": "۴"
+        },
+        "l": {
+          "en": "Parts",
+          "fa": "بخش"
+        }
+      },
+      {
+        "v": {
+          "en": "12",
+          "fa": "۱۲"
+        },
+        "l": {
+          "en": "Ideas",
+          "fa": "ایده"
+        }
+      },
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Learning stages",
+          "fa": "مرحلهٔ یادگیری"
+        }
+      }
+    ],
+    "kboxes": [
+      {
+        "v": {
+          "en": "4",
+          "fa": "۴"
+        },
+        "l": {
+          "en": "Parts (you are not your mind · pain and the pain-body · entering the now · surrender)",
+          "fa": "بخش (تو ذهنت نیستی · درد و بدنِ درد · ورود به اکنون · تسلیم)"
+        }
+      },
+      {
+        "v": {
+          "en": "12",
+          "fa": "۱۲"
+        },
+        "l": {
+          "en": "Ideas you can use",
+          "fa": "ایده برای استفاده"
+        }
+      },
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Levels, simple → expert",
+          "fa": "مرحله، ساده تا حرفه‌ای"
+        }
+      },
+      {
+        "v": {
+          "en": "1",
+          "fa": "۱"
+        },
+        "l": {
+          "en": "Moment you ever actually have",
+          "fa": "لحظه‌ای که واقعاً داری"
+        }
+      }
+    ],
+    "core_callout": {
+      "label": {
+        "en": "The core idea:",
+        "fa": "ایدهٔ اصلی:"
+      },
+      "en": " Almost all suffering is <i>created and sustained by the mind</i>, not by the present moment. Life only ever happens <i>now</i>; anxiety lives in an imagined future and regret in a remembered past. Step out of identification with thought — become the one who <i>watches</i> the thinking — and the suffering loses its fuel.",
+      "fa": " تقریباً تمامِ رنج را <i>ذهن می‌سازد و نگه می‌دارد</i>، نه لحظهٔ حال. زندگی همیشه فقط <i>اکنون</i> اتفاق می‌افتد؛ اضطراب در آینده‌ای خیالی زندگی می‌کند و افسوس در گذشته‌ای به‌یادآمده. از هم‌هویتی با فکر بیرون بیا — همان کسی شو که فکرکردن را <i>تماشا</i> می‌کند — و رنج سوختش را از دست می‌دهد."
+    },
+    "flow_callout": {
+      "label": {
+        "en": "Read it as a flow:",
+        "fa": "به‌صورتِ یک جریان بخوانش:"
+      },
+      "en": " first see that <b>you are not your mind</b>, then recognise the <b>pain-body</b> that feeds on suffering, learn to <b>enter the now</b> through the body and attention, and finally practise <b>surrender</b> — accepting what is, then acting.",
+      "fa": " اول ببین که <b>تو ذهنت نیستی</b>، بعد <b>بدنِ درد</b> را بشناس که از رنج تغذیه می‌کند، یاد بگیر از راهِ بدن و توجه <b>واردِ اکنون</b> شوی، و آخر <b>تسلیم</b> را تمرین کن — پذیرشِ آنچه هست، بعد عمل."
+    }
+  },
+  "method": {
+    "en": "<p><b>Source:</b> the book <i>The Power of Now</i> by Eckhart Tolle, first published 1997.</p><p><b>How this was built:</b> the structure and ideas were gathered and rewritten from the book and reputable sources.</p><p><b>Group:</b> Self Mastery.</p><p><b>A note:</b> this is a spiritual text, not a clinical one. Its practices are widely used alongside — never instead of — treatment for anxiety, depression or trauma.</p>",
+    "fa": "<p><b>منبع:</b> کتابِ «نیروی حال» نوشتهٔ اکهارت تله، چاپِ نخست ۱۹۹۷.</p><p><b>روشِ کار:</b> ساختار و ایده‌ها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده است.</p><p><b>گروه:</b> تسلط بر خود.</p><p><b>یک نکته:</b> این یک متنِ معنوی است، نه بالینی. تمرین‌هایش در کنارِ درمانِ اضطراب، افسردگی یا تروما به کار می‌روند — نه به‌جای آن.</p>"
+  },
+  "flow": {
+    "en": [
+      "Watch",
+      "Accept",
+      "Be here"
+    ],
+    "fa": [
+      "تماشا",
+      "پذیرش",
+      "اینجا بودن"
+    ]
+  },
+  "graph": {
+    "R2": 132,
+    "span": 70
+  },
+  "tldr": [
+    {
+      "en": "The whole book in one line: <b>life only ever happens now — suffering is what the mind adds.</b>",
+      "fa": "خلاصهٔ کل کتاب در یک جمله: <b>زندگی همیشه فقط اکنون اتفاق می‌افتد — رنج چیزی است که ذهن اضافه می‌کند.</b>"
+    },
+    {
+      "en": "You are not the voice in your head. You are the one who can <b>hear</b> it.",
+      "fa": "تو آن صدای درونِ سرت نیستی. تو کسی هستی که می‌تواند <b>بشنودش</b>."
+    },
+    {
+      "en": "The <b>pain-body</b> is old accumulated pain that feeds on new pain — and provokes it to eat.",
+      "fa": "<b>بدنِ درد</b> دردِ کهنهٔ انباشته است که از دردِ تازه تغذیه می‌کند — و برای خوردن، تحریکش می‌کند."
+    },
+    {
+      "en": "Anxiety needs a future and regret needs a past. Neither survives sustained attention to <b>now</b>.",
+      "fa": "اضطراب به آینده نیاز دارد و افسوس به گذشته. هیچ‌کدام در برابرِ توجهِ پیوسته به <b>اکنون</b> دوام نمی‌آورد."
+    },
+    {
+      "en": "<b>Surrender</b> is not resignation. It is accepting this moment, then acting from clarity instead of resistance.",
+      "fa": "<b>تسلیم</b> رهاکردن نیست. پذیرشِ این لحظه است، بعد عمل از سرِ روشنی به‌جای مقاومت."
+    }
+  ],
+  "parts": [
+    {
+      "key": "mind",
+      "varc": "--c-teal",
+      "name": {
+        "en": "You Are Not Your Mind",
+        "fa": "تو ذهنت نیستی"
+      },
+      "tag": {
+        "en": "The first move",
+        "fa": "حرکتِ اول"
+      },
+      "gist": {
+        "en": "There is a voice, and there is the one who hears it.",
+        "fa": "یک صدا هست، و کسی که می‌شنودش."
+      },
+      "more": {
+        "en": "Tolle's opening claim is that compulsive thinking is not you but a habit running in you. The instant you notice the thought as a thought, a gap appears — and that gap is the entire practice.",
+        "fa": "ادعای آغازینِ تله این است که فکرکردنِ اجباری تو نیستی بلکه عادتی است که در تو می‌دود. لحظه‌ای که فکر را به‌عنوانِ فکر ببینی، شکافی باز می‌شود — و همان شکاف، تمامِ تمرین است."
+      },
+      "chapters": [
+        "voice",
+        "ego",
+        "watcher"
+      ]
+    },
+    {
+      "key": "pain",
+      "varc": "--c-blue",
+      "name": {
+        "en": "Pain and the Pain-Body",
+        "fa": "درد و بدنِ درد"
+      },
+      "tag": {
+        "en": "What sustains it",
+        "fa": "چه نگهش می‌دارد"
+      },
+      "gist": {
+        "en": "Old pain accumulates, then goes looking for more.",
+        "fa": "دردِ کهنه انباشته می‌شود، بعد دنبالِ بیشترش می‌گردد."
+      },
+      "more": {
+        "en": "The pain-body is Tolle's name for the residue of unprocessed suffering. It is periodically active, it seeks situations that will feed it, and it is dissolved not by fighting but by attention.",
+        "fa": "بدنِ درد نامی است که تله به رسوبِ رنجِ هضم‌نشده می‌دهد. دوره‌ای فعال می‌شود، دنبالِ موقعیت‌هایی می‌گردد که تغذیه‌اش کنند، و نه با جنگیدن بلکه با توجه حل می‌شود."
+      },
+      "chapters": [
+        "painbody",
+        "emotion",
+        "dissolve"
+      ]
+    },
+    {
+      "key": "now",
+      "varc": "--c-violet",
+      "name": {
+        "en": "Entering the Now",
+        "fa": "ورود به اکنون"
+      },
+      "tag": {
+        "en": "The practice",
+        "fa": "تمرین"
+      },
+      "gist": {
+        "en": "Now is not a moment in time; it is the only place anything happens.",
+        "fa": "اکنون یک لحظه در زمان نیست؛ تنها جایی است که هر چیزی اتفاق می‌افتد."
+      },
+      "more": {
+        "en": "Tolle distinguishes clock time (useful, practical) from psychological time (living mentally in past or future). The body is the doorway back, because the body is never anywhere but here.",
+        "fa": "تله زمانِ ساعتی (مفید و عملی) را از زمانِ روانی (زندگیِ ذهنی در گذشته یا آینده) جدا می‌کند. بدن درِ بازگشت است، چون بدن هرگز جایی جز اینجا نیست."
+      },
+      "chapters": [
+        "onlynow",
+        "psychtime",
+        "body"
+      ]
+    },
+    {
+      "key": "surrender",
+      "varc": "--c-amber",
+      "name": {
+        "en": "Surrender",
+        "fa": "تسلیم"
+      },
+      "tag": {
+        "en": "The stance",
+        "fa": "ایستارِ کار"
+      },
+      "gist": {
+        "en": "Accept this moment, then act — resistance is the extra suffering.",
+        "fa": "این لحظه را بپذیر، بعد عمل کن — مقاومت همان رنجِ اضافه است."
+      },
+      "more": {
+        "en": "Surrender is routinely misread as passivity. Tolle means the opposite: dropping the internal argument with reality so that action comes from clarity rather than from resentment.",
+        "fa": "تسلیم را معمولاً انفعال می‌خوانند. منظورِ تله عکسِ آن است: کنارگذاشتنِ بحثِ درونی با واقعیت، تا عمل از روشنی بیاید نه از کینه."
+      },
+      "chapters": [
+        "accept",
+        "thenact",
+        "relationships"
+      ]
+    }
+  ],
+  "chapters": {
+    "voice": {
+      "part": "mind",
+      "n": 1,
+      "name": {
+        "en": "The Voice in Your Head",
+        "fa": "صدای درونِ سرت"
+      },
+      "glabel": {
+        "en": "The Voice",
+        "fa": "صدا"
+      },
+      "principle": {
+        "en": "There is a near-constant inner commentary. Noticing it is already stepping outside it.",
+        "fa": "یک تفسیرِ درونیِ تقریباً دائمی هست. دیدنش، خودش بیرون‌آمدن از آن است."
+      },
+      "more": {
+        "en": "Most people never notice the commentary because they are inside it. The moment you hear it as a voice — rather than as the truth — you are no longer fully identified with it.",
+        "fa": "بیشترِ آدم‌ها هرگز آن تفسیر را نمی‌بینند چون درونش هستند. لحظه‌ای که آن را به‌عنوانِ یک صدا بشنوی — نه به‌عنوانِ حقیقت — دیگر کاملاً با آن یکی نیستی."
+      },
+      "example": {
+        "en": "\"I always mess this up\" is a sentence in your head, not a fact about you.",
+        "fa": "«من همیشه این را خراب می‌کنم» یک جمله در سرِ توست، نه یک واقعیت دربارهٔ تو."
+      },
+      "tip": {
+        "en": "Once today, listen to a thought the way you would listen to a stranger talking.",
+        "fa": "امروز یک‌بار، به یک فکر همان‌طور گوش کن که به حرفِ یک غریبه گوش می‌دهی."
+      },
+      "pitfall": {
+        "en": "Arguing with the voice, which keeps you inside it.",
+        "fa": "بحث با آن صدا، که تو را همان‌جا نگه می‌دارد."
+      }
+    },
+    "ego": {
+      "part": "mind",
+      "n": 2,
+      "name": {
+        "en": "Identification Is Ego",
+        "fa": "هم‌هویتی یعنی ایگو"
+      },
+      "glabel": {
+        "en": "Ego",
+        "fa": "ایگو"
+      },
+      "principle": {
+        "en": "Ego is thought mistaken for identity — a self assembled from stories and roles.",
+        "fa": "ایگو یعنی فکری که به‌جای هویت گرفته شده — خودی سرِهم‌شده از داستان‌ها و نقش‌ها."
+      },
+      "more": {
+        "en": "Because it is made of narrative, ego needs constant defending. Most conflict is two constructed identities protecting themselves rather than two people talking.",
+        "fa": "چون از روایت ساخته شده، ایگو نیاز به دفاعِ دائمی دارد. بیشترِ تعارض‌ها دو هویتِ ساختگی‌اند که از خود دفاع می‌کنند، نه دو آدم که حرف می‌زنند."
+      },
+      "example": {
+        "en": "Needing to be right in an argument that no longer has any stakes.",
+        "fa": "نیاز به حق‌به‌جانب‌بودن در بحثی که دیگر هیچ چیزی در آن در میان نیست."
+      },
+      "tip": {
+        "en": "Notice one moment today where you defend a position to protect an image.",
+        "fa": "امروز یک لحظه را ببین که در آن از یک موضع دفاع می‌کنی تا از یک تصویر محافظت کنی."
+      },
+      "pitfall": {
+        "en": "Turning \"no ego\" into a new identity to defend.",
+        "fa": "تبدیلِ «بی‌ایگو بودن» به یک هویتِ تازه برای دفاع."
+      }
+    },
+    "watcher": {
+      "part": "mind",
+      "n": 3,
+      "name": {
+        "en": "Watch the Thinker",
+        "fa": "فکرکننده را تماشا کن"
+      },
+      "glabel": {
+        "en": "The Watcher",
+        "fa": "ناظر"
+      },
+      "principle": {
+        "en": "Observe thought without judging it. The observing itself creates the space.",
+        "fa": "فکر را بی‌قضاوت تماشا کن. خودِ تماشاکردن فضا می‌سازد."
+      },
+      "more": {
+        "en": "This is the book's central practice and it is deliberately simple: notice the thought, do not fight it, do not follow it. What is aware of thinking cannot itself be thought.",
+        "fa": "این تمرینِ مرکزیِ کتاب است و عامدانه ساده: فکر را ببین، با آن نجنگ، دنبالش نرو. آنچه از فکرکردن آگاه است، خودش نمی‌تواند فکر باشد."
+      },
+      "example": {
+        "en": "\"There is anger\" lands differently than \"I am angry\" — one leaves room, the other does not.",
+        "fa": "«خشمی هست» متفاوت می‌نشیند از «من عصبانی‌ام» — یکی جا باز می‌کند، آن یکی نه."
+      },
+      "tip": {
+        "en": "Label the next strong feeling as an event: \"there is anxiety\" rather than \"I am anxious\".",
+        "fa": "احساسِ قویِ بعدی را یک رویداد نام‌گذاری کن: «اضطرابی هست» به‌جای «من مضطربم»."
+      },
+      "pitfall": {
+        "en": "Trying to stop thinking instead of simply watching it.",
+        "fa": "تلاش برای متوقف‌کردنِ فکر به‌جای صرفاً تماشایش."
+      }
+    },
+    "painbody": {
+      "part": "pain",
+      "n": 4,
+      "name": {
+        "en": "The Pain-Body",
+        "fa": "بدنِ درد"
+      },
+      "glabel": {
+        "en": "Pain-Body",
+        "fa": "بدنِ درد"
+      },
+      "principle": {
+        "en": "Unprocessed pain accumulates into a pattern that periodically wakes and seeks feeding.",
+        "fa": "دردِ هضم‌نشده به الگویی انباشته می‌شود که دوره‌ای بیدار می‌شود و دنبالِ خوراک می‌گردد."
+      },
+      "more": {
+        "en": "When it is active, it will find or manufacture a reason. This is why an argument can flare from nothing: the reason is not the cause, it is the meal.",
+        "fa": "وقتی فعال است، دلیلی پیدا می‌کند یا می‌سازد. برای همین یک دعوا می‌تواند از هیچ شعله بکشد: آن دلیل، علت نیست، غذاست."
+      },
+      "example": {
+        "en": "A small remark triggers a reaction far larger than the remark.",
+        "fa": "یک حرفِ کوچک واکنشی خیلی بزرگ‌تر از خودش را برمی‌انگیزد."
+      },
+      "tip": {
+        "en": "When a reaction feels oversized, ask what it is actually feeding on.",
+        "fa": "وقتی واکنشی بزرگ‌تر از اندازه حس می‌شود، بپرس واقعاً از چه تغذیه می‌کند."
+      },
+      "pitfall": {
+        "en": "Believing the trigger was the cause.",
+        "fa": "باور به اینکه محرک همان علت بوده."
+      }
+    },
+    "emotion": {
+      "part": "pain",
+      "n": 5,
+      "name": {
+        "en": "Emotion Is the Body's Answer",
+        "fa": "احساس، پاسخِ بدن است"
+      },
+      "glabel": {
+        "en": "Emotion",
+        "fa": "احساس"
+      },
+      "principle": {
+        "en": "Emotion is the body reacting to the mind. Change what the mind repeats and the body follows.",
+        "fa": "احساس، واکنشِ بدن به ذهن است. آنچه ذهن تکرار می‌کند را عوض کن، بدن دنبال می‌آید."
+      },
+      "more": {
+        "en": "The feeling is real; the story generating it often is not. Watching the thought that precedes the feeling is more effective than trying to manage the feeling directly.",
+        "fa": "احساس واقعی است؛ داستانی که تولیدش می‌کند اغلب نه. تماشای فکری که پیش از احساس می‌آید، مؤثرتر از مدیریتِ مستقیمِ احساس است."
+      },
+      "example": {
+        "en": "Dread before a meeting is the body responding to a story about the meeting.",
+        "fa": "دلشورهٔ پیش از یک جلسه، پاسخِ بدن به داستانی دربارهٔ آن جلسه است."
+      },
+      "tip": {
+        "en": "Next time a feeling spikes, find the sentence that came just before it.",
+        "fa": "دفعهٔ بعد که احساسی اوج گرفت، جمله‌ای را پیدا کن که درست قبلش آمد."
+      },
+      "pitfall": {
+        "en": "Suppressing the feeling instead of seeing its source.",
+        "fa": "سرکوبِ احساس به‌جای دیدنِ منبعش."
+      }
+    },
+    "dissolve": {
+      "part": "pain",
+      "n": 6,
+      "name": {
+        "en": "Dissolve It With Presence",
+        "fa": "با حضور حلش کن"
+      },
+      "glabel": {
+        "en": "Dissolve",
+        "fa": "حل‌کردن"
+      },
+      "principle": {
+        "en": "Attention without resistance starves the pattern; fighting it feeds it.",
+        "fa": "توجهِ بدونِ مقاومت الگو را گرسنه می‌گذارد؛ جنگیدن با آن تغذیه‌اش می‌کند."
+      },
+      "more": {
+        "en": "The instruction is to stay present with the feeling as sensation, without narrating it. Deprived of the story, the charge subsides on its own — usually faster than expected.",
+        "fa": "دستور این است که با احساس به‌مثابهٔ حس، حاضر بمانی، بی‌آنکه روایتش کنی. بی‌داستان، آن بار خودبه‌خود فروکش می‌کند — معمولاً سریع‌تر از انتظار."
+      },
+      "example": {
+        "en": "Sitting with anger as heat in the chest, without rehearsing what you will say.",
+        "fa": "نشستن با خشم به‌شکلِ گرما در سینه، بی‌آنکه تمرین کنی چه خواهی گفت."
+      },
+      "tip": {
+        "en": "For sixty seconds, feel the sensation and add no words to it.",
+        "fa": "شصت ثانیه فقط آن حس را احساس کن و هیچ کلمه‌ای به آن اضافه نکن."
+      },
+      "pitfall": {
+        "en": "Using presence as another technique to make the feeling go away.",
+        "fa": "استفاده از حضور به‌عنوانِ تکنیکی دیگر برای دورکردنِ احساس."
+      }
+    },
+    "onlynow": {
+      "part": "now",
+      "n": 7,
+      "name": {
+        "en": "Now Is All There Is",
+        "fa": "اکنون تمامِ آن چیزی است که هست"
+      },
+      "glabel": {
+        "en": "Only Now",
+        "fa": "فقط اکنون"
+      },
+      "principle": {
+        "en": "Nothing has ever happened outside the present moment, and nothing ever will.",
+        "fa": "هیچ‌چیز هرگز بیرون از لحظهٔ حال اتفاق نیفتاده، و نخواهد افتاد."
+      },
+      "more": {
+        "en": "The past is a memory occurring now; the future is a projection occurring now. Treating them as places you can live is the root error the book keeps returning to.",
+        "fa": "گذشته خاطره‌ای است که اکنون رخ می‌دهد؛ آینده تصویری است که اکنون رخ می‌دهد. جادانستنِ آن‌ها همان خطای ریشه‌ای است که کتاب مدام به آن برمی‌گردد."
+      },
+      "example": {
+        "en": "You have never once experienced tomorrow.",
+        "fa": "تو حتی یک‌بار هم فردا را تجربه نکرده‌ای."
+      },
+      "tip": {
+        "en": "Ask \"what problem do I have right now, in this second?\" — usually none.",
+        "fa": "بپرس «همین حالا، در همین ثانیه چه مشکلی دارم؟» — معمولاً هیچ."
+      },
+      "pitfall": {
+        "en": "Using \"be present\" as a reason to avoid planning.",
+        "fa": "استفاده از «در حال باش» به‌عنوانِ بهانه‌ای برای برنامه‌ریزی‌نکردن."
+      }
+    },
+    "psychtime": {
+      "part": "now",
+      "n": 8,
+      "name": {
+        "en": "Psychological Time",
+        "fa": "زمانِ روانی"
+      },
+      "glabel": {
+        "en": "Psych Time",
+        "fa": "زمانِ روانی"
+      },
+      "principle": {
+        "en": "Clock time is useful. Psychological time — living mentally elsewhere — is the suffering.",
+        "fa": "زمانِ ساعتی مفید است. زمانِ روانی — زندگیِ ذهنی در جای دیگر — همان رنج است."
+      },
+      "more": {
+        "en": "You can plan a future without living in it. The difference is whether the planning ends and you return, or whether you take up residence there and call it thinking ahead.",
+        "fa": "می‌توانی برای آینده برنامه بریزی بی‌آنکه در آن زندگی کنی. فرقش این است که برنامه‌ریزی تمام شود و برگردی، یا آنجا ساکن شوی و اسمش را دوراندیشی بگذاری."
+      },
+      "example": {
+        "en": "Planning next week is fine. Rehearsing next week's anxiety all weekend is not.",
+        "fa": "برنامه‌ریزی برای هفتهٔ بعد اشکالی ندارد. تمرینِ اضطرابِ هفتهٔ بعد در تمامِ آخرِ هفته، چرا."
+      },
+      "tip": {
+        "en": "Set a time to think about the worry. Outside that time, return to the task in front of you.",
+        "fa": "برای فکرکردن به آن نگرانی وقت بگذار. بیرون از آن وقت، به کارِ پیشِ رویت برگرد."
+      },
+      "pitfall": {
+        "en": "Calling rumination preparation.",
+        "fa": "نشخوارِ فکری را آمادگی نامیدن."
+      }
+    },
+    "body": {
+      "part": "now",
+      "n": 9,
+      "name": {
+        "en": "The Inner Body",
+        "fa": "بدنِ درونی"
+      },
+      "glabel": {
+        "en": "Inner Body",
+        "fa": "بدنِ درونی"
+      },
+      "principle": {
+        "en": "Attention in the body is the fastest doorway back, because the body is only ever here.",
+        "fa": "توجه در بدن سریع‌ترین درِ بازگشت است، چون بدن همیشه فقط اینجاست."
+      },
+      "more": {
+        "en": "Thought can time-travel; sensation cannot. Feeling your hands, your breath, the weight of your feet relocates attention to the one place the mind cannot leave.",
+        "fa": "فکر می‌تواند در زمان سفر کند؛ حس نمی‌تواند. حس‌کردنِ دست‌ها، نفس، و وزنِ پاها توجه را به تنها جایی می‌برد که ذهن نمی‌تواند ترکش کند."
+      },
+      "example": {
+        "en": "Three slow breaths where you actually feel the breath, not count it.",
+        "fa": "سه نفسِ آهسته که واقعاً حسش کنی، نه بشماری‌اش."
+      },
+      "tip": {
+        "en": "Several times today, feel your hands for ten seconds without looking at them.",
+        "fa": "امروز چند بار، ده ثانیه دست‌هایت را بی‌آنکه نگاهشان کنی حس کن."
+      },
+      "pitfall": {
+        "en": "Thinking about the body instead of feeling it.",
+        "fa": "فکرکردن دربارهٔ بدن به‌جای حس‌کردنش."
+      }
+    },
+    "accept": {
+      "part": "surrender",
+      "n": 10,
+      "name": {
+        "en": "Accept What Is",
+        "fa": "آنچه هست را بپذیر"
+      },
+      "glabel": {
+        "en": "Accept",
+        "fa": "پذیرش"
+      },
+      "principle": {
+        "en": "Suffering is pain plus resistance. Drop the argument with what has already happened.",
+        "fa": "رنج یعنی درد به‌اضافهٔ مقاومت. بحث با آنچه قبلاً اتفاق افتاده را رها کن."
+      },
+      "more": {
+        "en": "Acceptance is about this moment, not about the future. You are not agreeing that the situation should continue; you are ending the internal fight with the fact that it currently is.",
+        "fa": "پذیرش دربارهٔ این لحظه است، نه دربارهٔ آینده. قبول نمی‌کنی که وضعیت باید ادامه یابد؛ به جنگِ درونی با این واقعیت که هست پایان می‌دهی."
+      },
+      "example": {
+        "en": "The train is late. The lateness is one problem; twenty minutes of protest is a second one.",
+        "fa": "قطار دیر کرده. دیرکرد یک مشکل است؛ بیست دقیقه اعتراضِ درونی مشکلِ دوم."
+      },
+      "tip": {
+        "en": "Next time something goes wrong, say \"this is what is\" once before deciding anything.",
+        "fa": "دفعهٔ بعد که چیزی خراب شد، پیش از هر تصمیمی یک‌بار بگو «این همان چیزی است که هست»."
+      },
+      "pitfall": {
+        "en": "Mistaking acceptance for approval.",
+        "fa": "اشتباه‌گرفتنِ پذیرش با تأیید."
+      }
+    },
+    "thenact": {
+      "part": "surrender",
+      "n": 11,
+      "name": {
+        "en": "Then Act",
+        "fa": "بعد عمل کن"
+      },
+      "glabel": {
+        "en": "Then Act",
+        "fa": "بعد عمل"
+      },
+      "principle": {
+        "en": "Surrender is not passivity. Accept the moment, then act from clarity rather than resentment.",
+        "fa": "تسلیم انفعال نیست. لحظه را بپذیر، بعد از سرِ روشنی عمل کن نه از کینه."
+      },
+      "more": {
+        "en": "Action taken from resistance is reactive and usually worse. The same action taken after acceptance tends to be cleaner, faster and more accurate — because none of the energy is going into the argument.",
+        "fa": "عملی که از مقاومت می‌آید واکنشی است و معمولاً بدتر. همان عمل بعد از پذیرش، تمیزتر، سریع‌تر و دقیق‌تر است — چون هیچ انرژی‌ای خرجِ آن بحث نمی‌شود."
+      },
+      "example": {
+        "en": "Accepting the project failed, then fixing it, beats months of insisting it should not have.",
+        "fa": "پذیرشِ شکستِ پروژه و بعد درست‌کردنش، از ماه‌ها اصرار بر اینکه «نباید می‌شد» بهتر است."
+      },
+      "tip": {
+        "en": "Separate the two steps out loud: \"this is what happened\" then \"here is what I will do\".",
+        "fa": "دو گام را بلند از هم جدا کن: «این اتفاق افتاد» بعد «این کاری است که می‌کنم»."
+      },
+      "pitfall": {
+        "en": "Using acceptance as a reason not to change anything.",
+        "fa": "استفاده از پذیرش به‌عنوانِ بهانه‌ای برای تغییرندادنِ هیچ‌چیز."
+      }
+    },
+    "relationships": {
+      "part": "surrender",
+      "n": 12,
+      "name": {
+        "en": "Relationships as Practice",
+        "fa": "رابطه به‌مثابهٔ تمرین"
+      },
+      "glabel": {
+        "en": "Relationships",
+        "fa": "رابطه‌ها"
+      },
+      "principle": {
+        "en": "Other people show you your patterns faster than solitude ever will.",
+        "fa": "آدم‌های دیگر الگوهایت را سریع‌تر از هر تنهایی‌ای نشانت می‌دهند."
+      },
+      "more": {
+        "en": "Tolle treats close relationships as the main training ground: they reliably activate the pain-body and the ego, which is precisely what makes them useful rather than merely difficult.",
+        "fa": "تله رابطه‌های نزدیک را میدانِ اصلیِ تمرین می‌داند: قابلِ‌اتکا بدنِ درد و ایگو را فعال می‌کنند، و دقیقاً همین است که مفیدشان می‌کند نه صرفاً سخت."
+      },
+      "example": {
+        "en": "The person who irritates you most is showing you something you have not looked at.",
+        "fa": "کسی که بیشتر از همه اذیتت می‌کند دارد چیزی را نشانت می‌دهد که به آن نگاه نکرده‌ای."
+      },
+      "tip": {
+        "en": "In the next conflict, notice your reaction before you address their behaviour.",
+        "fa": "در تعارضِ بعدی، پیش از پرداختن به رفتارِ طرف، واکنشِ خودت را ببین."
+      },
+      "pitfall": {
+        "en": "Using these ideas to explain away someone else's behaviour, or your own.",
+        "fa": "استفاده از این ایده‌ها برای توجیهِ رفتارِ دیگری، یا خودت."
+      }
+    }
+  },
+  "core": {
+    "name": {
+      "en": "PRESENCE",
+      "fa": "حضور"
+    },
+    "principle": {
+      "en": "Life only ever happens now. Almost all suffering is created by identification with the thinking mind — with a remembered past and an imagined future. Step back and watch the thinking, and the suffering loses its fuel.",
+      "fa": "زندگی همیشه فقط اکنون اتفاق می‌افتد. تقریباً تمامِ رنج از هم‌هویتی با ذهنِ فکرکننده ساخته می‌شود — با گذشته‌ای به‌یادآمده و آینده‌ای خیالی. یک قدم عقب بایست و فکرکردن را تماشا کن، رنج سوختش را از دست می‌دهد."
+    },
+    "more": {
+      "en": "The book proceeds in four movements: you are not the voice in your head (and noticing it is already freedom); the pain-body is accumulated suffering that seeks to be fed; entering the now is a practice you reach through the body and attention, distinguishing clock time from psychological time; and surrender means accepting this moment and then acting — with close relationships as the main training ground.",
+      "fa": "کتاب در چهار حرکت پیش می‌رود: تو آن صدای درونِ سرت نیستی (و دیدنش خودش آزادی است)؛ بدنِ درد رنجِ انباشته‌ای است که دنبالِ خوراک می‌گردد؛ ورود به اکنون تمرینی است که از راهِ بدن و توجه به آن می‌رسی، با تفکیکِ زمانِ ساعتی از زمانِ روانی؛ و تسلیم یعنی پذیرشِ این لحظه و بعد عمل — با رابطه‌های نزدیک به‌عنوانِ میدانِ اصلیِ تمرین."
+    },
+    "example": {
+      "en": "Click any node to read a principle or a method. You can also drag the nodes around.",
+      "fa": "روی هر دایره کلیک کن تا یک اصل یا روش را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."
+    }
+  },
+  "stages": [
+    {
+      "level": 1,
+      "badge": {
+        "en": "Level 1 · Over-simplified",
+        "fa": "سطحِ ۱ · خیلی ساده"
+      },
+      "title": {
+        "en": "You are here",
+        "fa": "تو اینجایی"
+      },
+      "tagline": {
+        "en": "The whole book in a sentence.",
+        "fa": "کلِ کتاب در یک جمله."
+      },
+      "body": {
+        "en": "Life only happens now. Most of what hurts is a thought about the past or the future.",
+        "fa": "زندگی فقط اکنون اتفاق می‌افتد. بیشترِ آنچه درد می‌کند فکری دربارهٔ گذشته یا آینده است."
+      },
+      "example": {
+        "en": "Ask \"what problem do I have in this exact second?\" — usually none.",
+        "fa": "بپرس «در همین ثانیه دقیقاً چه مشکلی دارم؟» — معمولاً هیچ."
+      },
+      "gain": {
+        "en": "You hold the rule the whole book expands on.",
+        "fa": "همان قاعده‌ای را داری که کلِ کتاب بسطش می‌دهد."
+      }
+    },
+    {
+      "level": 2,
+      "badge": {
+        "en": "Level 2 · Simple",
+        "fa": "سطحِ ۲ · ساده"
+      },
+      "title": {
+        "en": "Watch the thinker",
+        "fa": "فکرکننده را تماشا کن"
+      },
+      "tagline": {
+        "en": "There is a voice, and there is you.",
+        "fa": "یک صدا هست، و تو هستی."
+      },
+      "body": {
+        "en": "You are not the voice in your head — you are the one who can <b>hear</b> it. The moment you notice a thought as a thought, a gap appears. That gap is the entire practice.",
+        "fa": "تو آن صدای درونِ سرت نیستی — تو کسی هستی که می‌تواند <b>بشنودش</b>. لحظه‌ای که فکر را به‌عنوانِ فکر ببینی، شکافی باز می‌شود. همان شکاف تمامِ تمرین است."
+      },
+      "example": {
+        "en": "\"There is anger\" lands differently than \"I am angry\".",
+        "fa": "«خشمی هست» متفاوت می‌نشیند از «من عصبانی‌ام»."
+      },
+      "gain": {
+        "en": "You can step outside a thought instead of being it.",
+        "fa": "می‌توانی از یک فکر بیرون بایستی به‌جای بودنش."
+      }
+    },
+    {
+      "level": 3,
+      "badge": {
+        "en": "Level 3 · Balanced",
+        "fa": "سطحِ ۳ · متعادل"
+      },
+      "title": {
+        "en": "The pain-body",
+        "fa": "بدنِ درد"
+      },
+      "tagline": {
+        "en": "Old pain looking for new food.",
+        "fa": "دردِ کهنه در جستجوی غذای تازه."
+      },
+      "body": {
+        "en": "Unprocessed suffering accumulates into a pattern that periodically wakes and <b>seeks feeding</b> — which is why a small remark can trigger an enormous reaction. Fighting it feeds it; <b>attention without a story</b> starves it.",
+        "fa": "رنجِ هضم‌نشده به الگویی انباشته می‌شود که دوره‌ای بیدار می‌شود و <b>دنبالِ خوراک</b> می‌گردد — برای همین یک حرفِ کوچک می‌تواند واکنشی عظیم بسازد. جنگیدن با آن تغذیه‌اش می‌کند؛ <b>توجهِ بی‌داستان</b> گرسنه‌اش می‌گذارد."
+      },
+      "example": {
+        "en": "For sixty seconds, feel the sensation and add no words to it.",
+        "fa": "شصت ثانیه فقط آن حس را احساس کن و هیچ کلمه‌ای به آن اضافه نکن."
+      },
+      "gain": {
+        "en": "You can tell the trigger from the cause.",
+        "fa": "می‌توانی محرک را از علت تشخیص دهی."
+      }
+    },
+    {
+      "level": 4,
+      "badge": {
+        "en": "Level 4 · Advanced",
+        "fa": "سطحِ ۴ · پیشرفته"
+      },
+      "title": {
+        "en": "Clock time vs psychological time",
+        "fa": "زمانِ ساعتی در برابرِ زمانِ روانی"
+      },
+      "tagline": {
+        "en": "Plan the future without living there.",
+        "fa": "برای آینده برنامه بریز بی‌آنکه در آن زندگی کنی."
+      },
+      "body": {
+        "en": "<b>Clock time</b> is practical — appointments, plans, deadlines. <b>Psychological time</b> is taking up residence in a past or future and calling it thinking. The way back is the <b>body</b>: thought can time-travel, sensation cannot.",
+        "fa": "<b>زمانِ ساعتی</b> عملی است — قرار، برنامه، مهلت. <b>زمانِ روانی</b> یعنی ساکن‌شدن در گذشته یا آینده و اسمش را فکرکردن گذاشتن. راهِ بازگشت <b>بدن</b> است: فکر می‌تواند در زمان سفر کند، حس نمی‌تواند."
+      },
+      "example": {
+        "en": "Planning next week is fine; rehearsing next week's anxiety all weekend is not.",
+        "fa": "برنامه‌ریزی برای هفتهٔ بعد اشکالی ندارد؛ تمرینِ اضطرابِ آن در تمامِ آخرِ هفته، چرا."
+      },
+      "gain": {
+        "en": "You can use time without being used by it.",
+        "fa": "می‌توانی از زمان استفاده کنی بی‌آنکه استفاده‌ات کند."
+      }
+    },
+    {
+      "level": 5,
+      "badge": {
+        "en": "Level 5 · Expert",
+        "fa": "سطحِ ۵ · حرفه‌ای"
+      },
+      "title": {
+        "en": "Accept, then act",
+        "fa": "بپذیر، بعد عمل کن"
+      },
+      "tagline": {
+        "en": "Surrender is not passivity.",
+        "fa": "تسلیم انفعال نیست."
+      },
+      "body": {
+        "en": "Suffering is pain <b>plus resistance</b>. Surrender means ending the internal argument with what already is — not agreeing it should continue. Action taken from acceptance is cleaner and faster than action taken from resentment, because no energy is going into the fight. And <b>relationships</b> are the main training ground: they reliably activate the ego and the pain-body, which is exactly what makes them useful.",
+        "fa": "رنج یعنی درد <b>به‌اضافهٔ مقاومت</b>. تسلیم یعنی پایان‌دادن به بحثِ درونی با آنچه هست — نه پذیرفتنِ اینکه باید ادامه یابد. عملی که از پذیرش می‌آید تمیزتر و سریع‌تر از عملی است که از کینه می‌آید، چون هیچ انرژی‌ای خرجِ آن جنگ نمی‌شود. و <b>رابطه‌ها</b> میدانِ اصلیِ تمرین‌اند: قابلِ‌اتکا ایگو و بدنِ درد را فعال می‌کنند، و دقیقاً همین مفیدشان می‌کند."
+      },
+      "example": {
+        "en": "You accept the project failed, then fix it — instead of months insisting it should not have.",
+        "fa": "می‌پذیری پروژه شکست خورد، بعد درستش می‌کنی — به‌جای ماه‌ها اصرار بر اینکه «نباید می‌شد»."
+      },
+      "gain": {
+        "en": "You can act from clarity rather than from resistance.",
+        "fa": "می‌توانی از روشنی عمل کنی نه از مقاومت."
+      }
+    }
+  ],
+  "quotes": [
+    {
+      "en": "Realize deeply that the present moment is all you ever have.",
+      "fa": "عمیقاً دریاب که لحظهٔ حال تنها چیزی است که هرگز داری."
+    },
+    {
+      "en": "You are not your mind.",
+      "fa": "تو ذهنت نیستی."
+    },
+    {
+      "en": "The primary cause of unhappiness is never the situation but your thoughts about it.",
+      "fa": "علتِ اصلیِ ناشادی هرگز خودِ وضعیت نیست، فکرِ تو دربارهٔ آن است."
+    },
+    {
+      "en": "Life is now. There was never a time when your life was not now, nor will there be.",
+      "fa": "زندگی اکنون است. هرگز زمانی نبوده که زندگی‌ات اکنون نباشد، و نخواهد بود."
+    },
+    {
+      "en": "Where there is anger there is always pain underneath.",
+      "fa": "هرجا خشم هست، همیشه دردی زیرش هست."
+    },
+    {
+      "en": "Accept — then act. Whatever the present moment contains, accept it as if you had chosen it.",
+      "fa": "بپذیر — بعد عمل کن. هرچه لحظهٔ حال در خود دارد، چنان بپذیرش که انگار خودت انتخابش کرده‌ای."
+    }
+  ],
+  "media": [
+    {
+      "kind": "img",
+      "url": "https://eckharttolle.com/",
+      "src": {
+        "en": "eckharttolle.com · Author",
+        "fa": "eckharttolle.com · نویسنده"
+      },
+      "title": {
+        "en": "Eckhart Tolle — the author's site",
+        "fa": "اکهارت تله — سایتِ نویسنده"
+      },
+      "desc": {
+        "en": "The author's own material on presence and the ideas in the book.",
+        "fa": "مطالبِ خودِ نویسنده دربارهٔ حضور و ایده‌های کتاب."
+      },
+      "bullets": {
+        "en": [
+          "The ideas in the author's words",
+          "Talks and further material",
+          "Straight from the source"
+        ],
+        "fa": [
+          "ایده‌ها به زبانِ خودِ نویسنده",
+          "سخنرانی‌ها و مطالبِ بیشتر",
+          "مستقیم از منبع"
+        ]
+      },
+      "best": {
+        "en": "For the source and further practice.",
+        "fa": "برای منبع و تمرینِ بیشتر."
+      }
+    },
+    {
+      "kind": "img",
+      "url": "https://www.penguinrandomhouse.com/books/292465/the-power-of-now-by-eckhart-tolle/",
+      "src": {
+        "en": "Penguin Random House · Publisher",
+        "fa": "Penguin Random House · ناشر"
+      },
+      "title": {
+        "en": "The Power of Now — publisher page",
+        "fa": "نیروی حال — صفحهٔ ناشر"
+      },
+      "desc": {
+        "en": "The publisher page, with editions and background.",
+        "fa": "صفحهٔ ناشر، با نسخه‌ها و پیشینه."
+      },
+      "bullets": {
+        "en": [
+          "Definitive editions",
+          "Publisher summary",
+          "Background on the book"
+        ],
+        "fa": [
+          "نسخه‌های معتبر",
+          "خلاصهٔ ناشر",
+          "پیشینهٔ کتاب"
+        ]
+      },
+      "best": {
+        "en": "For editions and the source.",
+        "fa": "برای نسخه‌ها و منبعِ اصلی."
+      }
+    }
+  ],
+  "go": [
+    {
+      "label": {
+        "en": "Author's site",
+        "fa": "سایتِ نویسنده"
+      },
+      "url": "https://eckharttolle.com/"
+    },
+    {
+      "label": {
+        "en": "Publisher page",
+        "fa": "صفحهٔ ناشر"
+      },
+      "url": "https://www.penguinrandomhouse.com/books/292465/the-power-of-now-by-eckhart-tolle/"
+    },
+    {
+      "label": {
+        "en": "Book on Goodreads",
+        "fa": "کتاب در گودریدز"
+      },
+      "url": "https://www.goodreads.com/book/show/6708.The_Power_of_Now"
+    }
+  ],
+  "recs": [
+    {
+      "pri": "b",
+      "t": {
+        "en": "Label one feeling as an event",
+        "fa": "یک احساس را رویداد نام‌گذاری کن"
+      },
+      "d": {
+        "en": "Say \"there is anxiety\" instead of \"I am anxious\" and notice the space it creates.",
+        "fa": "بگو «اضطرابی هست» به‌جای «من مضطربم» و فضایی را که می‌سازد ببین."
+      }
+    },
+    {
+      "pri": "b",
+      "t": {
+        "en": "Return through the body",
+        "fa": "از راهِ بدن برگرد"
+      },
+      "d": {
+        "en": "Several times today, feel your hands for ten seconds without looking at them.",
+        "fa": "امروز چند بار، ده ثانیه دست‌هایت را بی‌آنکه نگاهشان کنی حس کن."
+      }
+    },
+    {
+      "pri": "n",
+      "t": {
+        "en": "Ask the present-second question",
+        "fa": "پرسشِ همین‌ثانیه را بپرس"
+      },
+      "d": {
+        "en": "When anxious, ask \"what problem do I have right now, in this second?\"",
+        "fa": "وقتی مضطربی بپرس «همین حالا، در همین ثانیه چه مشکلی دارم؟»"
+      }
+    },
+    {
+      "pri": "n",
+      "t": {
+        "en": "Separate accept from act",
+        "fa": "پذیرش را از عمل جدا کن"
+      },
+      "d": {
+        "en": "Say \"this is what happened\", then \"here is what I will do\" — out loud, in that order.",
+        "fa": "بگو «این اتفاق افتاد»، بعد «این کاری است که می‌کنم» — بلند، به همین ترتیب."
+      }
+    }
+  ]
+});
+</script>
+</body>
+</html>

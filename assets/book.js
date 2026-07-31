@@ -1,13 +1,13 @@
 /* ============================================================================
    book.js — shared runtime for The Product Builder's Library
    ----------------------------------------------------------------------------
-   One file drives all 45 book pages. Each page ships only its DATA object
+   One file drives all 50 book pages. Each page ships only its DATA object
    (content) + a thin shell; this script renders the hero, sticky nav, the
    library navigation header, the interactive knowledge graph, the 5-stage
    ladder, quotes, media, and footer — all from DATA.
 
    Entry point:  Book.mount(DATA)   (called by every book page)
-   Depends on:   window.LIBRARY     (assets/library.js — the 45-book manifest)
+   Depends on:   window.LIBRARY     (assets/library.js — the 50-book manifest)
    ========================================================================== */
 (function () {
   'use strict';
@@ -64,7 +64,7 @@
     + '<span class="logomark">' + IC.logo + '</span>'
     + '<span class="logotype">'
       + '<span class="lt-main"><span data-only="en">Product Builder’s Library</span><span data-only="fa">کتابخانهٔ سازندهٔ محصول</span></span>'
-      + '<span class="lt-sub"><span data-only="en">45 books · 15 groups</span><span data-only="fa">۴۵ کتاب · ۱۵ گروه</span></span>'
+      + '<span class="lt-sub"><span data-only="en">50 books · 16 groups</span><span data-only="fa">۵۰ کتاب · ۱۶ گروه</span></span>'
     + '</span></a></header>';
 
   /* ── SHELL — build hero + nav + section skeleton from DATA.meta ─────────── */
@@ -134,7 +134,7 @@
     + '<div class="liboverlay" id="libOverlay" role="dialog" aria-modal="true" aria-label="All books"><div class="libsheet">'
       + '<div class="lhead"><div>'
         + '<h3><span data-only="en">The Product Builder’s Library</span><span data-only="fa">کتابخانهٔ سازندهٔ محصول</span></h3>'
-        + '<p><span data-only="en">45 books · 15 skill groups — jump to any page</span><span data-only="fa">۴۵ کتاب · ۱۵ گروهِ مهارت — به هر صفحه برو</span></p>'
+        + '<p><span data-only="en">50 books · 16 skill groups — jump to any page</span><span data-only="fa">۵۰ کتاب · ۱۶ گروهِ مهارت — به هر صفحه برو</span></p>'
       + '</div><button class="libclose" id="libClose" aria-label="Close">' + IC.close + '</button></div>'
       + '<div class="libgrid" id="libGrid"></div>'
     + '</div></div>'
