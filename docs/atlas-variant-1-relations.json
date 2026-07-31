@@ -1,0 +1,612 @@
+{
+  "relations": [
+    {
+      "a": "on-writing-well",
+      "b": "working-backwards",
+      "why": {
+        "en": "Clear writing is clear thinking — the craft behind Amazon's memos.",
+        "fa": "نوشتنِ روشن همان فکرِ روشن است — پیشهٔ پشتِ سندهای آمازون."
+      }
+    },
+    {
+      "a": "nobody-wants-to-read-your-shit",
+      "b": "purple-cow",
+      "why": {
+        "en": "Both teach earning attention from busy, indifferent audiences.",
+        "fa": "هر دو مهارتِ جلبِ توجهِ مخاطبِ گرفتار و بی‌اعتنا را یاد می‌دهند."
+      }
+    },
+    {
+      "a": "nobody-wants-to-read-your-shit",
+      "b": "obviously-awesome",
+      "why": {
+        "en": "Frame the work so its value lands at a glance.",
+        "fa": "کار را طوری قاب بگیر که ارزشش با یک نگاه بنشیند."
+      }
+    },
+    {
+      "a": "storyworthy",
+      "b": "founding-sales",
+      "why": {
+        "en": "Telling a true human story is the founder's first sales craft.",
+        "fa": "روایتِ یک داستانِ انسانیِ واقعی، اولین مهارتِ فروشِ بنیان‌گذار است."
+      }
+    },
+    {
+      "a": "storyworthy",
+      "b": "build",
+      "why": {
+        "en": "Both craft the honest story behind the thing you make.",
+        "fa": "هر دو پیشهٔ روایتِ صادقانهٔ ساخته‌ات را یاد می‌دهند."
+      }
+    },
+    {
+      "a": "on-writing-well",
+      "b": "dont-make-me-think",
+      "why": {
+        "en": "The same craft: strip the needless from sentences and screens.",
+        "fa": "یک پیشه: زدودنِ زوائد از جمله‌ها و صفحه‌ها."
+      }
+    },
+    {
+      "a": "nobody-wants-to-read-your-shit",
+      "b": "the-war-of-art",
+      "why": {
+        "en": "Pressfield twice: turn pro and respect the reader's time.",
+        "fa": "پرسفیلد دوبار: حرفه‌ای شو و به وقتِ خواننده احترام بگذار."
+      }
+    },
+    {
+      "a": "storyworthy",
+      "b": "how-to-win-friends",
+      "why": {
+        "en": "Small human moments are how you truly reach people.",
+        "fa": "لحظه‌های کوچکِ انسانی راهِ رسیدن به آدم‌هاست."
+      }
+    },
+    {
+      "a": "obviously-awesome",
+      "b": "crossing-the-chasm",
+      "why": {
+        "en": "Positioning is the craft that carries you across the chasm.",
+        "fa": "جایگاه‌سازی همان پیشه‌ای است که از شکاف عبورت می‌دهد."
+      }
+    },
+    {
+      "a": "purple-cow",
+      "b": "crossing-the-chasm",
+      "why": {
+        "en": "Whom to be remarkable for, and when to go mainstream.",
+        "fa": "برای که چشمگیر باشی، و کی به بازارِ اصلی بروی."
+      }
+    },
+    {
+      "a": "obviously-awesome",
+      "b": "good-strategy-bad-strategy",
+      "why": {
+        "en": "Both focus strength where a defined market cares most.",
+        "fa": "هر دو قدرت را جایی متمرکز می‌کنند که بازار بیشتر اهمیت می‌دهد."
+      }
+    },
+    {
+      "a": "founding-sales",
+      "b": "the-mom-test",
+      "why": {
+        "en": "Two halves of the customer conversation: listen first, then sell.",
+        "fa": "دو نیمهٔ گفت‌وگو با مشتری: اول شنیدن، بعد فروختن."
+      }
+    },
+    {
+      "a": "purple-cow",
+      "b": "inspired",
+      "why": {
+        "en": "Remarkability is built into the product, not bolted on.",
+        "fa": "چشمگیری را در خودِ محصول می‌سازند، نه اینکه بعداً بچسبانند."
+      }
+    },
+    {
+      "a": "founding-sales",
+      "b": "crossing-the-chasm",
+      "why": {
+        "en": "Founder-led selling wins over the early visionaries.",
+        "fa": "فروشِ خودِ بنیان‌گذار است که آینده‌نگرهای اول را همراه می‌کند."
+      }
+    },
+    {
+      "a": "obviously-awesome",
+      "b": "start-with-why",
+      "why": {
+        "en": "People buy the frame — context or purpose — before the product.",
+        "fa": "آدم‌ها پیش از محصول، قاب را می‌خرند — زمینه یا چرا."
+      }
+    },
+    {
+      "a": "never-split-the-difference",
+      "b": "the-mom-test",
+      "why": {
+        "en": "Both master questions that surface the truth people hide.",
+        "fa": "هر دو استادِ سؤال‌هایی‌اند که حقیقتِ پنهان را بیرون می‌کشند."
+      }
+    },
+    {
+      "a": "influence",
+      "b": "the-art-of-seduction",
+      "why": {
+        "en": "Persuasion's levers, named — as tool and as defence.",
+        "fa": "اهرم‌های اقناع، با اسم و رسم — هم ابزار، هم سپر."
+      }
+    },
+    {
+      "a": "influence",
+      "b": "surrounded-by-psychopaths",
+      "why": {
+        "en": "Naming the manipulation tactic is most of the defence.",
+        "fa": "اسم‌گذاشتن روی ترفندِ دست‌کاری، بیشترِ دفاع است."
+      }
+    },
+    {
+      "a": "how-to-win-friends",
+      "b": "radical-candor",
+      "why": {
+        "en": "Genuine care for the person comes before the challenge.",
+        "fa": "توجهِ صادقانه به خودِ آدم، پیش از چالش می‌آید."
+      }
+    },
+    {
+      "a": "never-split-the-difference",
+      "b": "15-commitments-conscious-leadership",
+      "why": {
+        "en": "Curiosity, not winning the argument, moves the conversation.",
+        "fa": "کنجکاوی گفت‌وگو را جلو می‌برد، نه بردنِ بحث."
+      }
+    },
+    {
+      "a": "influence",
+      "b": "purple-cow",
+      "why": {
+        "en": "Word of mouth runs on the psychology of social proof.",
+        "fa": "تبلیغِ دهان‌به‌دهان با روان‌شناسیِ تأییدِ اجتماعی کار می‌کند."
+      }
+    },
+    {
+      "a": "how-to-win-friends",
+      "b": "founding-sales",
+      "why": {
+        "en": "Selling starts with seeing from the buyer's side.",
+        "fa": "فروش با دیدن از چشمِ خریدار شروع می‌شود."
+      }
+    },
+    {
+      "a": "the-art-of-seduction",
+      "b": "storyworthy",
+      "why": {
+        "en": "Both move people through imagination, not argument.",
+        "fa": "هر دو آدم‌ها را با خیال می‌برند، نه با استدلال."
+      }
+    },
+    {
+      "a": "surrounded-by-psychopaths",
+      "b": "never-split-the-difference",
+      "why": {
+        "en": "Reading the person across the table is the skill.",
+        "fa": "مهارتِ اصلی، خواندنِ آدمِ آن‌سویِ میز است."
+      }
+    },
+    {
+      "a": "high-output-management",
+      "b": "the-goal",
+      "why": {
+        "en": "Manage the one leverage point that governs system output.",
+        "fa": "مدیریتِ همان یک نقطه‌ای که خروجیِ کلِ سیستم را تعیین می‌کند."
+      }
+    },
+    {
+      "a": "high-output-management",
+      "b": "the-effective-executive",
+      "why": {
+        "en": "Grove's leverage sharpens Drucker's habit of effectiveness.",
+        "fa": "اهرمِ گروو، عادتِ اثربخشیِ دراکر را تیز می‌کند."
+      }
+    },
+    {
+      "a": "the-making-of-a-manager",
+      "b": "scaling-people",
+      "why": {
+        "en": "The manager's craft, from first team to whole company.",
+        "fa": "پیشهٔ مدیری، از اولین تیم تا کلِ شرکت."
+      }
+    },
+    {
+      "a": "radical-candor",
+      "b": "creativity-inc",
+      "why": {
+        "en": "Candor is the craft that keeps creative teams honest.",
+        "fa": "صراحت همان پیشه‌ای است که تیمِ خلاق را صادق نگه می‌دارد."
+      }
+    },
+    {
+      "a": "radical-candor",
+      "b": "15-commitments-conscious-leadership",
+      "why": {
+        "en": "Challenging directly requires staying open, not defensive.",
+        "fa": "چالشِ مستقیم، گشوده‌ماندن می‌خواهد، نه گارد‌گرفتن."
+      }
+    },
+    {
+      "a": "the-making-of-a-manager",
+      "b": "empowered",
+      "why": {
+        "en": "Coaching people is the manager's highest-value work.",
+        "fa": "مربی‌گریِ آدم‌ها ارزشمندترین کارِ مدیر است."
+      }
+    },
+    {
+      "a": "high-output-management",
+      "b": "amp-it-up",
+      "why": {
+        "en": "Raising output through standards, focus, and intensity.",
+        "fa": "بالابردنِ خروجی با استاندارد، تمرکز و شدت."
+      }
+    },
+    {
+      "a": "the-score-takes-care-of-itself",
+      "b": "scaling-people",
+      "why": {
+        "en": "Teach the standard explicitly; the results follow.",
+        "fa": "استاندارد را صریح یاد بده؛ نتیجه خودش می‌آید."
+      }
+    },
+    {
+      "a": "the-score-takes-care-of-itself",
+      "b": "great-at-work",
+      "why": {
+        "en": "Mastery of detail beats obsession with the scoreboard.",
+        "fa": "تسلط بر جزئیات، از وسواسِ تابلوی امتیاز جلو می‌زند."
+      }
+    },
+    {
+      "a": "the-great-ceo-within",
+      "b": "high-output-management",
+      "why": {
+        "en": "Delegation systems are how leaders multiply their leverage.",
+        "fa": "سیستم‌های تفویض، راهِ چندبرابرکردنِ اهرمِ رهبرند."
+      }
+    },
+    {
+      "a": "the-great-ceo-within",
+      "b": "the-effective-executive",
+      "why": {
+        "en": "Manage yourself first; the organisation follows.",
+        "fa": "اول خودت را مدیریت کن؛ سازمان دنبالت می‌آید."
+      }
+    },
+    {
+      "a": "scaling-people",
+      "b": "empowered",
+      "why": {
+        "en": "Org design as a people craft: hire, coach, empower.",
+        "fa": "طراحیِ سازمان به‌مثابهٔ پیشهٔ آدم‌ها: استخدام، مربی‌گری، توانمندسازی."
+      }
+    },
+    {
+      "a": "7-rules-of-power",
+      "b": "influence",
+      "why": {
+        "en": "Influence at the personal scale, power at the career scale.",
+        "fa": "نفوذ در مقیاسِ فردی، قدرت در مقیاسِ مسیرِ شغلی."
+      }
+    },
+    {
+      "a": "playing-to-win",
+      "b": "crossing-the-chasm",
+      "why": {
+        "en": "Where-to-play choices decide which beachhead you storm.",
+        "fa": "انتخابِ زمینِ بازی تعیین می‌کند به کدام ساحل حمله کنی."
+      }
+    },
+    {
+      "a": "good-strategy-bad-strategy",
+      "b": "the-goal",
+      "why": {
+        "en": "Diagnosis first: find the one constraint that matters.",
+        "fa": "اول تشخیص: پیداکردنِ همان یک گلوگاهِ مهم."
+      }
+    },
+    {
+      "a": "working-backwards",
+      "b": "continuous-discovery-habits",
+      "why": {
+        "en": "Start from the customer and work backwards, continuously.",
+        "fa": "از مشتری شروع کن و پیوسته به عقب برگرد."
+      }
+    },
+    {
+      "a": "working-backwards",
+      "b": "inspired",
+      "why": {
+        "en": "Two schools of customer-first product culture.",
+        "fa": "دو مکتبِ فرهنگِ محصولِ مشتری‌محور."
+      }
+    },
+    {
+      "a": "playing-to-win",
+      "b": "thinking-in-bets",
+      "why": {
+        "en": "Strategic choice is a bet made explicit.",
+        "fa": "انتخابِ استراتژیک همان شرط‌بندی است، فقط صریح‌شده."
+      }
+    },
+    {
+      "a": "good-strategy-bad-strategy",
+      "b": "escaping-the-build-trap",
+      "why": {
+        "en": "Feature lists are bad strategy; outcomes are the kernel.",
+        "fa": "فهرستِ فیچرها استراتژیِ بد است؛ هسته، دستاورد است."
+      }
+    },
+    {
+      "a": "continuous-discovery-habits",
+      "b": "the-lean-startup",
+      "why": {
+        "en": "Weekly discovery is Build-Measure-Learn made a habit.",
+        "fa": "کشفِ هفتگی همان بساز-بسنج-بیاموز است، عادت‌شده."
+      }
+    },
+    {
+      "a": "the-mom-test",
+      "b": "the-lean-startup",
+      "why": {
+        "en": "Honest interviews feed honest learning loops.",
+        "fa": "مصاحبهٔ صادقانه، خوراکِ حلقه‌های یادگیریِ صادقانه است."
+      }
+    },
+    {
+      "a": "escaping-the-build-trap",
+      "b": "the-lean-startup",
+      "why": {
+        "en": "Shipping features isn't progress; validated value is.",
+        "fa": "انتشارِ فیچر پیشرفت نیست؛ ارزشِ سنجیده‌شده هست."
+      }
+    },
+    {
+      "a": "inspired",
+      "b": "continuous-discovery-habits",
+      "why": {
+        "en": "Discovery is the shared craft behind products customers love.",
+        "fa": "کشف، پیشهٔ مشترکِ پشتِ محصول‌هایی است که مشتری دوستشان دارد."
+      }
+    },
+    {
+      "a": "empowered",
+      "b": "good-strategy-bad-strategy",
+      "why": {
+        "en": "Empowered teams need a real strategy for context.",
+        "fa": "تیمِ توانمند، برای زمینه، استراتژیِ واقعی می‌خواهد."
+      }
+    },
+    {
+      "a": "thinking-in-bets",
+      "b": "the-lean-startup",
+      "why": {
+        "en": "Treat every launch as a bet, then update.",
+        "fa": "هر انتشار را یک شرط ببین، بعد خودت را به‌روز کن."
+      }
+    },
+    {
+      "a": "thinking-in-bets",
+      "b": "stumbling-on-happiness",
+      "why": {
+        "en": "Both expose how badly we predict the future.",
+        "fa": "هر دو نشان می‌دهند چقدر بد آینده را پیش‌بینی می‌کنیم."
+      }
+    },
+    {
+      "a": "the-design-of-everyday-things",
+      "b": "working-backwards",
+      "why": {
+        "en": "Design from the human's ideal experience backwards.",
+        "fa": "طراحی از تجربهٔ ایده‌آلِ انسان، رو به عقب."
+      }
+    },
+    {
+      "a": "dont-make-me-think",
+      "b": "nobody-wants-to-read-your-shit",
+      "why": {
+        "en": "Assume a busy, indifferent audience; make it effortless.",
+        "fa": "مخاطب را گرفتار و بی‌اعتنا فرض کن؛ کار را بی‌زحمت کن."
+      }
+    },
+    {
+      "a": "refactoring-ui",
+      "b": "on-writing-well",
+      "why": {
+        "en": "Craft as teachable tactics: strip, systemize, revise.",
+        "fa": "پیشه به‌شکلِ تاکتیک‌های آموختنی: کم کن، نظام بده، بازنویسی کن."
+      }
+    },
+    {
+      "a": "refactoring-ui",
+      "b": "the-work-of-art",
+      "why": {
+        "en": "Craft demystified: deliberate moves, not born talent.",
+        "fa": "پیشهٔ رازگشایی‌شده: حرکت‌های عامدانه، نه استعدادِ مادرزاد."
+      }
+    },
+    {
+      "a": "the-war-of-art",
+      "b": "the-making-of-prince-of-persia",
+      "why": {
+        "en": "Beating Resistance daily, one journal page at a time.",
+        "fa": "شکست‌دادنِ هرروزهٔ مقاومت، صفحه‌به‌صفحهٔ دفترچه."
+      }
+    },
+    {
+      "a": "the-war-of-art",
+      "b": "the-power-of-now",
+      "why": {
+        "en": "The mind's chatter is the enemy; presence disarms it.",
+        "fa": "وراجیِ ذهن دشمن است؛ حضور خلعِ سلاحش می‌کند."
+      }
+    },
+    {
+      "a": "creativity-inc",
+      "b": "empowered",
+      "why": {
+        "en": "Leaders protect the people, not the ideas.",
+        "fa": "رهبرها از آدم‌ها محافظت می‌کنند، نه از ایده‌ها."
+      }
+    },
+    {
+      "a": "the-work-of-art",
+      "b": "storyworthy",
+      "why": {
+        "en": "Both show how raw life becomes finished work.",
+        "fa": "هر دو نشان می‌دهند زندگیِ خام چطور کارِ تمام‌شده می‌شود."
+      }
+    },
+    {
+      "a": "shoe-dog",
+      "b": "the-lean-startup",
+      "why": {
+        "en": "Perseverance is the fuel; lean is the method.",
+        "fa": "استقامت سوخت است؛ ناب، روش."
+      }
+    },
+    {
+      "a": "build",
+      "b": "start-with-why",
+      "why": {
+        "en": "Everything worth building starts from a clear why.",
+        "fa": "هر چیزِ ارزشِ ساختن، از یک چرای روشن شروع می‌شود."
+      }
+    },
+    {
+      "a": "shoe-dog",
+      "b": "fall-in-love-with-the-problem",
+      "why": {
+        "en": "A startup is failures survived; love keeps you going.",
+        "fa": "استارتاپ یعنی شکست‌هایی که از سر گذراندی؛ عشق نگهت می‌دارد."
+      }
+    },
+    {
+      "a": "the-making-of-prince-of-persia",
+      "b": "the-way-forward",
+      "why": {
+        "en": "Discipline built daily carries you through the doubt.",
+        "fa": "انضباطِ هرروزه است که از دلِ تردید عبورت می‌دهد."
+      }
+    },
+    {
+      "a": "7-rules-of-power",
+      "b": "the-art-of-seduction",
+      "why": {
+        "en": "The power playbook, direct and indirect.",
+        "fa": "دفترچهٔ بازیِ قدرت، مستقیم و غیرمستقیم."
+      }
+    },
+    {
+      "a": "great-at-work",
+      "b": "subtle-art-of-not-giving-a-fck",
+      "why": {
+        "en": "Do less, care about less — chosen deliberately.",
+        "fa": "کمتر انجام بده، به کمتر اهمیت بده — اما آگاهانه انتخاب‌شده."
+      }
+    },
+    {
+      "a": "the-effective-executive",
+      "b": "a-guide-to-the-good-life",
+      "why": {
+        "en": "Focus only on what is yours to control and contribute.",
+        "fa": "فقط روی آنچه در اختیارِ توست تمرکز کن — کنترل و سهمت."
+      }
+    },
+    {
+      "a": "a-guide-to-the-good-life",
+      "b": "the-power-of-now",
+      "why": {
+        "en": "Two practices for a quiet mind: Stoic and present.",
+        "fa": "دو تمرین برای ذهنِ آرام: رواقی و حاضر."
+      }
+    },
+    {
+      "a": "subtle-art-of-not-giving-a-fck",
+      "b": "good-strategy-bad-strategy",
+      "why": {
+        "en": "Strategy for the self: choose little, refuse the rest.",
+        "fa": "استراتژی برای خود: کم انتخاب کن، باقی را پس بزن."
+      }
+    },
+    {
+      "a": "stumbling-on-happiness",
+      "b": "the-power-of-now",
+      "why": {
+        "en": "The imagined future misleads; the present is the data.",
+        "fa": "آیندهٔ خیالی گمراه می‌کند؛ داده، همین حالاست."
+      }
+    },
+    {
+      "a": "15-commitments-conscious-leadership",
+      "b": "the-power-of-now",
+      "why": {
+        "en": "Awareness of your own state is the first leadership craft.",
+        "fa": "آگاهی از حالِ خودت، اولین پیشهٔ رهبری است."
+      }
+    },
+    {
+      "a": "surrounded-by-psychopaths",
+      "b": "how-to-win-friends",
+      "why": {
+        "en": "Reading people — to connect, or to defend yourself.",
+        "fa": "خواندنِ آدم‌ها — برای پیوند، یا برای دفاع."
+      }
+    },
+    {
+      "a": "thinking-in-bets",
+      "b": "15-commitments-conscious-leadership",
+      "why": {
+        "en": "Trade being right for being curious and calibrated.",
+        "fa": "حق‌به‌جانبی را بده، کنجکاوی و سنجیدگی بگیر."
+      }
+    },
+    {
+      "a": "working-backwards",
+      "b": "escaping-the-build-trap",
+      "why": {
+        "en": "Start from customer value, not what you can build.",
+        "fa": "از ارزشِ مشتری شروع کن، نه از آنچه بلدی بسازی."
+      }
+    },
+    {
+      "a": "founding-sales",
+      "b": "never-split-the-difference",
+      "why": {
+        "en": "Empathy closes: hear the pain, then help fix it.",
+        "fa": "همدلی معامله را می‌بندد: درد را بشنو، بعد کمک کن."
+      }
+    },
+    {
+      "a": "stumbling-on-happiness",
+      "b": "influence",
+      "why": {
+        "en": "Mental shortcuts rule us — in choices and in compliance.",
+        "fa": "میان‌برهای ذهنی بر ما حاکم‌اند — در انتخاب و در تن‌دادن."
+      }
+    },
+    {
+      "a": "the-design-of-everyday-things",
+      "b": "the-mom-test",
+      "why": {
+        "en": "Design questions and objects people cannot get wrong.",
+        "fa": "سؤال و ابزار را طوری طراحی کن که نشود اشتباهشان کرد."
+      }
+    },
+    {
+      "a": "fall-in-love-with-the-problem",
+      "b": "the-mom-test",
+      "why": {
+        "en": "Love the problem; interviews keep that love honest.",
+        "fa": "عاشقِ مسئله شو؛ مصاحبه‌ها این عشق را صادق نگه می‌دارند."
+      }
+    }
+  ]
+}

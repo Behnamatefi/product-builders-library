@@ -1,0 +1,204 @@
+{
+  "summaries": {
+    "nobody-wants-to-read-your-shit": {
+      "en": "The writer's first craft: assume nobody cares, then shape every piece — concept, theme, three acts — until it earns attention.",
+      "fa": "نخستین مهارتِ نویسنده: فرض کن هیچ‌کس اهمیتی نمی‌دهد، بعد هر نوشته را — ایده، مضمون، سه پرده — آن‌قدر شکل بده تا توجه را به‌دست بیاورد."
+    },
+    "on-writing-well": {
+      "en": "Clear writing is a craft of subtraction: strip every sentence to its cleanest parts, and let a human voice remain.",
+      "fa": "نوشتنِ روشن هنرِ کم‌کردن است: هر جمله را تا تمیزترین اجزایش بتراش، و بگذار یک صدای انسانی باقی بماند."
+    },
+    "storyworthy": {
+      "en": "Storytelling is learnable: mine ordinary days for five-second moments of change, then shape them until any room leans in.",
+      "fa": "قصه‌گویی یادگرفتنی است: از دلِ روزهای معمولی «لحظه‌های پنج‌ثانیه‌ای»ِ تغییر را بیرون بکش، و آن‌قدر شکلشان بده تا هر جمعی گوش بسپارد."
+    },
+    "scaling-people": {
+      "en": "The craft of scaling a company is scaling its people: written principles, careful hiring, honest communication — practiced deliberately as you grow.",
+      "fa": "مهارتِ بزرگ‌کردنِ شرکت همان بزرگ‌کردنِ آدم‌هاست: اصولِ مکتوب، استخدامِ بادقت، ارتباطِ صادقانه — که حینِ رشد عمداً تمرین می‌شود."
+    },
+    "the-goal": {
+      "en": "Operations as a craft of seeing: find the one constraint that caps the whole system, and manage everything around it.",
+      "fa": "اجرا هنرِ دیدن است: آن یک محدودیتی را پیدا کن که سقفِ کلِ سیستم است، و همه‌چیز را دورِ همان مدیریت کن."
+    },
+    "the-great-ceo-within": {
+      "en": "Running a company is a craft of systems: empty your head into trusted lists, default to transparency, delegate past yourself.",
+      "fa": "شرکت‌داری مهارتِ سیستم‌سازی است: کارها را از سرت بریز توی فهرست‌های مطمئن، پیش‌فرضت شفافیت باشد، و آن‌قدر واگذار کن که گلوگاه نمانی."
+    },
+    "good-strategy-bad-strategy": {
+      "en": "Strategy-making as a craft: diagnose the real challenge, choose a guiding policy, then act coherently — no fluff, no wish-lists.",
+      "fa": "استراتژی‌سازی یک مهارت است: چالشِ واقعی را تشخیص بده، یک سیاستِ راهنما انتخاب کن، بعد هماهنگ عمل کن — بدونِ حرفِ توخالی و فهرستِ آرزو."
+    },
+    "playing-to-win": {
+      "en": "The craft of choosing: five linked decisions — aspiration, where to play, how to win, capabilities, systems — all aimed at winning.",
+      "fa": "مهارتِ انتخاب‌کردن: پنج تصمیمِ به‌هم‌پیوسته — آرمان، کجا بازی کنی، چطور ببری، قابلیت‌ها، سیستم‌ها — که همه به بردن نشانه رفته‌اند."
+    },
+    "working-backwards": {
+      "en": "Amazon's working craft: start from the customer's ideal experience, write it down clearly, and build backwards with mechanisms, not intentions.",
+      "fa": "مهارتِ کاریِ آمازون: از تجربهٔ آرمانیِ مشتری شروع کن، روشن بنویسش، و با سازوکار — نه نیتِ خوب — از آخر به اول بساز."
+    },
+    "build": {
+      "en": "Product-building starts with self-building: chase work that teaches you, tell honest stories, sweat details — because only products and people matter.",
+      "fa": "محصول‌سازی از خودسازی شروع می‌شود: دنبالِ کاری برو که یادت می‌دهد، قصهٔ صادقانه بگو، روی جزئیات زحمت بکش — چون در نهایت فقط محصول‌ها و آدم‌ها می‌مانند."
+    },
+    "shoe-dog": {
+      "en": "Endurance is the founder's core craft: Nike survived betrayals, cash crises and doubt because one man refused to stop.",
+      "fa": "تاب‌آوری مهارتِ اصلیِ بنیان‌گذار است: نایکی از خیانت‌ها و بحران‌های پول و تردید جان به در برد، چون یک نفر حاضر نشد بایستد."
+    },
+    "the-making-of-prince-of-persia": {
+      "en": "Finishing is a craft of its own: show up through years of doubt, cut what you love, and ship anyway.",
+      "fa": "تمام‌کردن خودش یک مهارت است: سال‌ها از دلِ تردید سرِ کار بیا، چیزهایی را که دوست داری ببُر، و به‌هرحال بیرونش بده."
+    },
+    "high-output-management": {
+      "en": "Managing is the craft of leverage: spend scarce time on training, one-on-ones and clear goals — moves that multiply everyone's output.",
+      "fa": "مدیریت مهارتِ اهرم است: وقتِ کمیابت را روی آموزش، جلسه‌های یک‌به‌یک و هدف‌های روشن بگذار — همان کارهایی که خروجیِ همه را چند برابر می‌کنند."
+    },
+    "radical-candor": {
+      "en": "Feedback as a craft: care personally and challenge directly at once, and you earn the trust that moves a team.",
+      "fa": "بازخورددادن یک مهارت است: هم‌زمان شخصی اهمیت بده و رُک به چالش بکش، تا اعتمادی را به‌دست بیاوری که تیم را جلو می‌برد."
+    },
+    "the-making-of-a-manager": {
+      "en": "The beginner's craft of managing: multiply a team through its people, purpose and process — starting with trust, not answers.",
+      "fa": "مهارتِ مدیریت برای تازه‌کارها: تیم را از راهِ آدم‌ها، هدف و فرایند چند برابر کن — و از اعتماد شروع کن، نه از جواب‌داشتن."
+    },
+    "15-commitments-conscious-leadership": {
+      "en": "Leading yourself is the first leadership craft: notice whether you're above the line (curious) or below it (defensive), and shift back.",
+      "fa": "رهبریِ خود، نخستین مهارتِ رهبری است: ببین بالای خطی — کنجکاو — یا پایینش — تدافعی — و برگشتن به بالا را تمرین کن."
+    },
+    "amp-it-up": {
+      "en": "Leadership as intensity: raise standards, narrow priorities, and inject urgency into the strategy you already have — no reinvention required.",
+      "fa": "رهبری یعنی شدت: استانداردها را بالا ببر، اولویت‌ها را کم کن، و به همان استراتژیِ فعلی فوریت تزریق کن — نیازی به اختراعِ دوباره نیست."
+    },
+    "the-score-takes-care-of-itself": {
+      "en": "Leadership is teaching a Standard of Performance — how to prepare, act and handle every detail — and the score follows.",
+      "fa": "رهبری یعنی آموزشِ یک استانداردِ عملکرد — اینکه چطور آماده شوی، رفتار کنی و هر جزئیات را انجام دهی — تا نتیجه خودش جور شود."
+    },
+    "continuous-discovery-habits": {
+      "en": "Discovery as a weekly craft: talk to customers, map opportunities on a tree, and test assumptions in small, fast experiments.",
+      "fa": "کشف به‌مثابهِ عادتِ هفتگی: با مشتری حرف بزن، فرصت‌ها را روی درخت نقشه کن، و فرض‌ها را با آزمایش‌های کوچک و سریع محک بزن."
+    },
+    "escaping-the-build-trap": {
+      "en": "The product manager's real craft: measure outcomes, not shipped features — a product only wins when value flows both ways.",
+      "fa": "مهارتِ واقعیِ مدیرِ محصول: نتیجه را بسنج، نه ویژگی‌های عرضه‌شده — محصول فقط وقتی می‌بَرد که ارزش دوطرفه جریان داشته باشد."
+    },
+    "the-mom-test": {
+      "en": "Question-asking as a craft: talk about their life, not your idea, and even your mom can't feed you false positives.",
+      "fa": "سؤال‌پرسیدن یک مهارت است: از زندگیِ خودشان بپرس، نه از ایده‌ات — تا حتی مامانت هم نتواند جوابِ دلگرم‌کنندهٔ دروغ بدهد."
+    },
+    "empowered": {
+      "en": "Coaching is the leader's craft: give ordinary teams vision, context and real problems to solve — and they do extraordinary work.",
+      "fa": "کوچ‌کردن مهارتِ رهبر است: به تیم‌های معمولی چشم‌انداز، زمینه و مسئله‌های واقعی بده — تا کارِ خارق‌العاده تحویل بدهند."
+    },
+    "inspired": {
+      "en": "Product discovery as the core craft: test ideas for value, usability, feasibility and viability before building — because half won't work.",
+      "fa": "کشفِ محصول، مهارتِ محوری است: ایده‌ها را از نظرِ ارزش، کاربردپذیری، ساختنی‌بودن و به‌صرفه‌بودن پیش از ساخت بیازما — چون نیمی‌شان جواب نمی‌دهند."
+    },
+    "thinking-in-bets": {
+      "en": "Deciding well is a craft apart from results: size your confidence, bet smart, and treat luck as part of the game.",
+      "fa": "خوب تصمیم‌گرفتن مهارتی است جدا از نتیجه: میزانِ اطمینانت را بسنج، هوشمندانه شرط ببند، و شانس را بخشی از بازی بدان."
+    },
+    "founding-sales": {
+      "en": "Selling is product work the founder must learn first: find real pain, help real people, and tighten the pitch-product loop.",
+      "fa": "فروش همان کارِ محصول است که بنیان‌گذار باید اول خودش یاد بگیرد: دردِ واقعی را پیدا کن، به آدمِ واقعی کمک کن، و حلقهٔ فروش و محصول را تنگ نگه دار."
+    },
+    "obviously-awesome": {
+      "en": "Positioning is a deliberate craft: set the context — alternatives, attributes, value, customers, category — until the right buyers instantly get it.",
+      "fa": "جایگاه‌یابی مهارتی است عامدانه: زمینه را بچین — جایگزین‌ها، ویژگی‌ها، ارزش، مشتری، دسته‌بندی — تا خریدارِ درست در یک نگاه بفهمد چرا عالی هستی."
+    },
+    "purple-cow": {
+      "en": "Marketing's hardest craft: build the remarkable into the product itself, aim it at people who care, and let word-of-mouth travel.",
+      "fa": "سخت‌ترین مهارتِ بازاریابی: چشمگیری را در خودِ محصول بساز، آن را به آدم‌هایی که برایشان مهم است نشانه بگیر، و بگذار دهان‌به‌دهان سفر کند."
+    },
+    "dont-make-me-think": {
+      "en": "Usability is the craft of removing question marks: make every page self-evident, because users scan, satisfice and muddle through.",
+      "fa": "کاربردپذیری هنرِ برداشتنِ علامت‌های سؤال است: هر صفحه را خودگویا کن، چون کاربرها نمی‌خوانند — نگاهی می‌اندازند و سرسری جلو می‌روند."
+    },
+    "refactoring-ui": {
+      "en": "Interface design without inborn talent: a toolkit of repeatable tactics — hierarchy, generous space, systemized text and color, finishing depth.",
+      "fa": "طراحیِ رابط بدونِ استعدادِ مادرزاد: جعبه‌ابزاری از ترفندهای تکرارپذیر — سلسله‌مراتب، فضای دست‌ودل‌باز، نوشته و رنگِ نظام‌مند، و عمقِ پایانی."
+    },
+    "the-design-of-everyday-things": {
+      "en": "Design as communication: affordances, signifiers, mapping and feedback tell users what's possible — so bad usability is never their fault.",
+      "fa": "طراحی یعنی حرف‌زدن با کاربر: قابلیت‌ها، نشانه‌ها، نگاشت و بازخورد می‌گویند چه می‌شود کرد — پس اگر چیزی سخت است، عیب از طراحی است نه از تو."
+    },
+    "creativity-inc": {
+      "en": "Creative leadership is culture-craft: make truth-telling safe, price failure into the work, and hunt the hidden problems blocking inspiration.",
+      "fa": "رهبریِ خلاق مهارتِ فرهنگ‌سازی است: گفتنِ حقیقت را بی‌خطر کن، شکست را بهای کارِ نو بدان، و دنبالِ مشکل‌های پنهانی بگرد که جلوی الهام را می‌گیرند."
+    },
+    "the-war-of-art": {
+      "en": "The craft beneath every craft: recognize Resistance — fear, delay, excuses — then turn pro and do the work daily anyway.",
+      "fa": "مهارتِ زیرِ همهٔ مهارت‌ها: مقاومت را بشناس — ترس، امروزوفردا، بهانه — بعد حرفه‌ای شو و کار را هر روز به‌هرحال انجام بده."
+    },
+    "the-work-of-art": {
+      "en": "How 43 artists actually make things: a spark, a long mess, the work of getting unstuck, and the quiet judgment of done.",
+      "fa": "چهل‌وسه هنرمند واقعاً چطور می‌سازند: یک جرقه، یک آشفتگیِ طولانی، کارِ بیرون‌آمدن از گیر، و قضاوتِ آرامِ «تمام است»."
+    },
+    "how-to-win-friends": {
+      "en": "The oldest people-craft: make others feel genuinely important — appreciate honestly, see their side, and speak to what they want.",
+      "fa": "قدیمی‌ترین مهارتِ آدم‌داری: کاری کن دیگران واقعاً حس کنند مهم‌اند — صادقانه قدردانی کن، از سمتِ آن‌ها ببین، و از خواستهٔ خودشان حرف بزن."
+    },
+    "influence": {
+      "en": "Persuasion runs on seven automatic shortcuts — reciprocation, consistency, social proof, liking, authority, scarcity, unity. Learn them to use and resist them.",
+      "fa": "متقاعدسازی روی هفت میان‌برِ خودکار می‌چرخد — عملِ متقابل، ثبات، گواهِ اجتماعی، دوست‌داشتن، اقتدار، کمیابی، هم‌گروهی. یادشان بگیر تا هم به کار ببری، هم دفاع کنی."
+    },
+    "never-split-the-difference": {
+      "en": "Negotiation as an emotional craft: mirror, label, and voice the other side's feelings until they talk themselves toward your outcome.",
+      "fa": "مذاکره مهارتی احساسی است: آینه کن، برچسب بزن، و احساسِ طرف را بلند بگو — تا خودش حرف‌زنان به نتیجهٔ تو برسد."
+    },
+    "crossing-the-chasm": {
+      "en": "Crossing to the mainstream is a craft of focus: dominate one niche with a whole product before the chasm swallows you.",
+      "fa": "رسیدن به بازارِ اصلی مهارتِ تمرکز است: یک گوشهٔ بازار را با محصولِ کامل قبضه کن، پیش از آنکه شکاف تو را ببلعد."
+    },
+    "fall-in-love-with-the-problem": {
+      "en": "Startup craft in one move: marry a big real problem, keep changing solutions, and don't scale before product-market fit.",
+      "fa": "مهارتِ استارتاپ در یک حرکت: به یک مسئلهٔ بزرگ و واقعی پایبند بمان، مدام راه‌حل عوض کن، و پیش از تطابقِ محصول و بازار بزرگ نشو."
+    },
+    "the-lean-startup": {
+      "en": "Entrepreneurship as an experimental craft: turn vision into hypotheses, test with an MVP, and learn to pivot before the runway ends.",
+      "fa": "کارآفرینی مهارتِ آزمایش‌کردن است: چشم‌انداز را فرضیه کن، با کمینه‌محصول بیازما، و پیش از تمام‌شدنِ باندِ پرواز چرخیدن را یاد بگیر."
+    },
+    "7-rules-of-power": {
+      "en": "Power is a learnable craft: get out of your own way, build a memorable brand, network relentlessly, use what you gather.",
+      "fa": "قدرت مهارتی یادگرفتنی است: از سرِ راهِ خودت کنار برو، برندی به‌یادماندنی بساز، بی‌وقفه شبکه بساز، و آنچه جمع کرده‌ای را به کار ببر."
+    },
+    "great-at-work": {
+      "en": "Working smart is a craft with seven practices: do less and obsess, redesign work around value, learn in tight loops.",
+      "fa": "هوشمندانه کارکردن مهارتی است با هفت تمرین: کمتر انجام بده و وسواس داشته باش، کار را دورِ ارزش از نو بچین، و در چرخه‌های کوتاه یاد بگیر."
+    },
+    "the-effective-executive": {
+      "en": "Effectiveness is a practiced craft, not a gift: track your time, contribute outward, build on strengths, put first things first.",
+      "fa": "اثربخشی مهارتی تمرین‌کردنی است، نه موهبت: وقتت را رصد کن، رو به بیرون سهم بگذار، روی قوّت‌ها بساز، و مهم‌ها را اول بگذار."
+    },
+    "a-guide-to-the-good-life": {
+      "en": "Tranquility as a practiced craft: visualize loss, focus on what's up to you, and want the life you already have.",
+      "fa": "آرامش مهارتی تمرین‌کردنی است: از‌دست‌دادن را تجسم کن، روی آنچه دستِ توست تمرکز کن، و همان زندگی‌ای را بخواه که داری."
+    },
+    "stumbling-on-happiness": {
+      "en": "Forecasting your own happiness is a skill imagination fails at — so stop simulating and ask someone living that future now.",
+      "fa": "پیش‌بینیِ شادیِ خودت مهارتی است که خیال در آن شکست می‌خورد — پس تصور را کنار بگذار و از کسی بپرس که همین حالا آن آینده را زندگی می‌کند."
+    },
+    "subtle-art-of-not-giving-a-fck": {
+      "en": "Choosing what to care about is itself the skill: spend your limited f*cks on good values, accept struggle, and commit.",
+      "fa": "انتخابِ آنچه برایش اهمیت قائل می‌شوی، خودِ مهارت است: اهمیت‌های محدودت را خرجِ ارزش‌های خوب کن، سختی را بپذیر، و پایش بایست."
+    },
+    "start-with-why": {
+      "en": "Communicating from the inside out: lead with why, and people buy your purpose — a loyalty no product feature can earn.",
+      "fa": "حرف‌زدن از درون به بیرون: با «چرا» شروع کن تا مردم هدفت را بخرند — وفاداری‌ای که با هیچ ویژگیِ محصول به‌دست نمی‌آید."
+    },
+    "surrounded-by-psychopaths": {
+      "en": "Defense against manipulation is a craft of self-knowledge: learn your behaviour colour, and name the tactic pulling your exact lever.",
+      "fa": "دفاع در برابرِ دستکاری مهارتِ خودشناسی است: رنگِ رفتاریِ خودت را بشناس، و تاکتیکی را که دقیقاً اهرمِ تو را می‌کشد نام ببر."
+    },
+    "the-art-of-seduction": {
+      "en": "Influence that works on imagination, not will: find what someone lacks, embody it, let anticipation move them — and know the defence.",
+      "fa": "نفوذی که روی تخیل کار می‌کند، نه اراده: کمبودِ طرف را پیدا کن، با آن پیوند بخور، بگذار انتظار حرکتش دهد — و راهِ دفاع را هم بدان."
+    },
+    "the-power-of-now": {
+      "en": "Watching your own mind is a learnable practice: step back from past and future thinking, and suffering loses its fuel.",
+      "fa": "تماشای ذهنِ خودت تمرینی یادگرفتنی است: از فکرِ گذشته و آینده یک قدم عقب بایست، تا رنج سوختش را از دست بدهد."
+    },
+    "the-way-forward": {
+      "en": "Courage is a trained craft: you fall to your level of training, so build the discipline long before the moment arrives.",
+      "fa": "شجاعت مهارتی تمرین‌شده است: به سطحِ تمرینت سقوط می‌کنی، پس انضباط را خیلی پیش از رسیدنِ لحظه بساز."
+    }
+  }
+}

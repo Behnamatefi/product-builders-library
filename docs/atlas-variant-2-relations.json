@@ -1,0 +1,548 @@
+{
+  "relations": [
+    {
+      "a": "the-mom-test",
+      "b": "how-to-win-friends",
+      "why": {
+        "en": "Genuine interest in people is the root of good interviews.",
+        "fa": "علاقهٔ راستین به آدم‌ها ریشهٔ مصاحبهٔ خوب است."
+      }
+    },
+    {
+      "a": "the-mom-test",
+      "b": "the-lean-startup",
+      "why": {
+        "en": "Learn honest questions before you run lean experiments.",
+        "fa": "پیش از آزمایش‌های ناب، پرسیدنِ سؤال‌های صادقانه را بیاموز."
+      }
+    },
+    {
+      "a": "founding-sales",
+      "b": "the-mom-test",
+      "why": {
+        "en": "Ask before you pitch — Mom Test, then founder selling.",
+        "fa": "اول بپرس، بعد بفروش — تستِ مامان، سپس فروشِ بنیان‌گذار."
+      }
+    },
+    {
+      "a": "the-lean-startup",
+      "b": "continuous-discovery-habits",
+      "why": {
+        "en": "Build-Measure-Learn, matured into weekly discovery habits.",
+        "fa": "بساز-بسنج-بیاموز، بالیده در قالبِ عادت‌های هفتگیِ کشف."
+      }
+    },
+    {
+      "a": "continuous-discovery-habits",
+      "b": "inspired",
+      "why": {
+        "en": "Cagan's discovery vision, operationalized into weekly habits by Torres.",
+        "fa": "چشم‌اندازِ کشفِ کیگن، به‌دستِ تورس عادتِ هفتگی می‌شود."
+      }
+    },
+    {
+      "a": "working-backwards",
+      "b": "inspired",
+      "why": {
+        "en": "Cagan's product foundations, then Amazon's mechanisms at scale.",
+        "fa": "اول پایه‌های محصولِ کیگن، بعد سازوکارهای آمازون در مقیاس."
+      }
+    },
+    {
+      "a": "build",
+      "b": "inspired",
+      "why": {
+        "en": "After PM foundations, Fadell maps the whole builder's career.",
+        "fa": "پس از پایه‌های محصول، فادل تمام مسیرِ سازنده را ترسیم می‌کند."
+      }
+    },
+    {
+      "a": "good-strategy-bad-strategy",
+      "b": "escaping-the-build-trap",
+      "why": {
+        "en": "An honest diagnosis is how you escape the build trap.",
+        "fa": "تشخیصِ صادقانه همان راهِ فرار از تلهٔ ساختن است."
+      }
+    },
+    {
+      "a": "escaping-the-build-trap",
+      "b": "empowered",
+      "why": {
+        "en": "Teams empowered with problems need outcome thinking first.",
+        "fa": "تیمی که مسئله تحویل می‌گیرد، اول باید پیامدمحور بیندیشد."
+      }
+    },
+    {
+      "a": "escaping-the-build-trap",
+      "b": "the-goal",
+      "why": {
+        "en": "Both expose busy output that moves no real goal.",
+        "fa": "هر دو خروجیِ پرمشغله‌ای را رو می‌کنند که هدف را جلو نمی‌برد."
+      }
+    },
+    {
+      "a": "fall-in-love-with-the-problem",
+      "b": "escaping-the-build-trap",
+      "why": {
+        "en": "Both keep you married to problems, not feature lists.",
+        "fa": "هر دو تو را پایبندِ مسئله نگه می‌دارند، نه فهرستِ قابلیت‌ها."
+      }
+    },
+    {
+      "a": "nobody-wants-to-read-your-shit",
+      "b": "working-backwards",
+      "why": {
+        "en": "Earn the reader first; then Amazon's memo culture makes sense.",
+        "fa": "اول احترام به خواننده را بیاموز؛ بعد فرهنگِ سندنویسیِ آمازون معنا می‌گیرد."
+      }
+    },
+    {
+      "a": "on-writing-well",
+      "b": "good-strategy-bad-strategy",
+      "why": {
+        "en": "Clear sentences first — Rumelt's diagnosis demands that clarity of thought.",
+        "fa": "اول جملهٔ روشن؛ تشخیصِ روملت همان روشنیِ فکر را می‌طلبد."
+      }
+    },
+    {
+      "a": "on-writing-well",
+      "b": "dont-make-me-think",
+      "why": {
+        "en": "Zinsser for sentences, then Krug for screens.",
+        "fa": "زینسر برای جمله‌ها، بعد کروگ برای صفحه‌ها."
+      }
+    },
+    {
+      "a": "refactoring-ui",
+      "b": "on-writing-well",
+      "why": {
+        "en": "Craft tactics over talent: rewrite sentences, refactor screens.",
+        "fa": "تاکتیکِ پیشه به‌جای استعداد: جمله را بازنویسی کن، صفحه را بازطراحی."
+      }
+    },
+    {
+      "a": "nobody-wants-to-read-your-shit",
+      "b": "purple-cow",
+      "why": {
+        "en": "Indifferent readers, distracted markets — earn attention or vanish.",
+        "fa": "خوانندهٔ بی‌اعتنا، بازارِ حواس‌پرت — یا توجه به دست می‌آوری یا دیده نمی‌شوی."
+      }
+    },
+    {
+      "a": "the-design-of-everyday-things",
+      "b": "nobody-wants-to-read-your-shit",
+      "why": {
+        "en": "When it's hard to use — or read — blame the maker.",
+        "fa": "وقتی استفاده — یا خواندن — سخت است، تقصیرِ سازنده است."
+      }
+    },
+    {
+      "a": "dont-make-me-think",
+      "b": "working-backwards",
+      "why": {
+        "en": "Start from the customer's ideal experience; ship the self-evident page.",
+        "fa": "از تجربهٔ ایده‌آلِ مشتری شروع کن؛ صفحهٔ بدیهی را تحویل بده."
+      }
+    },
+    {
+      "a": "the-design-of-everyday-things",
+      "b": "stumbling-on-happiness",
+      "why": {
+        "en": "Both map the gap between mental models and reality.",
+        "fa": "هر دو شکافِ میانِ مدلِ ذهنی و واقعیت را ترسیم می‌کنند."
+      }
+    },
+    {
+      "a": "refactoring-ui",
+      "b": "great-at-work",
+      "why": {
+        "en": "Both replace the talent myth with concrete, repeatable tactics.",
+        "fa": "هر دو افسانهٔ استعداد را با تاکتیک‌های عینیِ تکرارپذیر جایگزین می‌کنند."
+      }
+    },
+    {
+      "a": "storyworthy",
+      "b": "founding-sales",
+      "why": {
+        "en": "Master the five-second moment before your first founder pitch.",
+        "fa": "پیش از نخستین ارائهٔ فروش، لحظهٔ پنج‌ثانیه‌ای را بیاموز."
+      }
+    },
+    {
+      "a": "storyworthy",
+      "b": "obviously-awesome",
+      "why": {
+        "en": "Story craft first; positioning is the story a market hears.",
+        "fa": "اول روایت؛ جایگاه‌یابی همان داستانی است که بازار می‌شنود."
+      }
+    },
+    {
+      "a": "the-work-of-art",
+      "b": "storyworthy",
+      "why": {
+        "en": "Learn story craft, then watch 43 artists live the arc.",
+        "fa": "روایتگری را بیاموز، بعد ببین ۴۳ هنرمند همین قوس را زیسته‌اند."
+      }
+    },
+    {
+      "a": "start-with-why",
+      "b": "obviously-awesome",
+      "why": {
+        "en": "Purpose first, positioning second — why before what.",
+        "fa": "اول غایت، بعد جایگاه — «چرا» پیش از «چه»."
+      }
+    },
+    {
+      "a": "playing-to-win",
+      "b": "obviously-awesome",
+      "why": {
+        "en": "The strategy cascade lands as product positioning.",
+        "fa": "آبشارِ انتخاب‌های استراتژی، در جایگاه‌یابیِ محصول فرود می‌آید."
+      }
+    },
+    {
+      "a": "purple-cow",
+      "b": "playing-to-win",
+      "why": {
+        "en": "Being remarkable is a how-to-win choice, not decoration.",
+        "fa": "چشمگیر بودن یک انتخابِ «چگونه ببریم» است، نه تزئین."
+      }
+    },
+    {
+      "a": "playing-to-win",
+      "b": "crossing-the-chasm",
+      "why": {
+        "en": "Where-to-play choices become niche domination inside the chasm.",
+        "fa": "انتخابِ «کجا بازی کنیم» در شکاف به تسخیرِ یک گوشهٔ بازار می‌رسد."
+      }
+    },
+    {
+      "a": "inspired",
+      "b": "crossing-the-chasm",
+      "why": {
+        "en": "Products customers love still must cross to the mainstream.",
+        "fa": "محصولِ محبوب هم باید از شکاف به بازارِ اصلی برسد."
+      }
+    },
+    {
+      "a": "founding-sales",
+      "b": "crossing-the-chasm",
+      "why": {
+        "en": "Sell it yourself first, then target the pragmatist niche.",
+        "fa": "اول خودت بفروش، بعد گوشهٔ عمل‌گرایان را نشانه بگیر."
+      }
+    },
+    {
+      "a": "good-strategy-bad-strategy",
+      "b": "thinking-in-bets",
+      "why": {
+        "en": "Diagnose the challenge, then bet on it under uncertainty.",
+        "fa": "چالش را تشخیص بده، بعد زیرِ عدم‌قطعیت رویش شرط ببند."
+      }
+    },
+    {
+      "a": "thinking-in-bets",
+      "b": "the-lean-startup",
+      "why": {
+        "en": "Bet-thinking prepares you for pivot-or-persevere calls.",
+        "fa": "تفکرِ شرط‌بندانه تو را برای تصمیمِ چرخش یا ادامه آماده می‌کند."
+      }
+    },
+    {
+      "a": "thinking-in-bets",
+      "b": "stumbling-on-happiness",
+      "why": {
+        "en": "Learn your forecasting flaws, then bet despite them.",
+        "fa": "اول خطاهای پیش‌بینی‌ات را بشناس، بعد با وجودشان شرط ببند."
+      }
+    },
+    {
+      "a": "the-goal",
+      "b": "the-lean-startup",
+      "why": {
+        "en": "Throughput thinking prepares you for Build-Measure-Learn loops.",
+        "fa": "تفکرِ گذردهی تو را برای چرخهٔ بساز-بسنج-بیاموز آماده می‌کند."
+      }
+    },
+    {
+      "a": "shoe-dog",
+      "b": "the-lean-startup",
+      "why": {
+        "en": "Read the lean theory, then the messy memoir behind growth.",
+        "fa": "اول تئوریِ ناب، بعد خاطراتِ آشفتهٔ پشتِ رشد."
+      }
+    },
+    {
+      "a": "shoe-dog",
+      "b": "fall-in-love-with-the-problem",
+      "why": {
+        "en": "Levine's startup map, then Knight's raw account of surviving one.",
+        "fa": "نقشهٔ لوین برای استارتاپ، بعد روایتِ خامِ نایت از جان‌به‌دربردن."
+      }
+    },
+    {
+      "a": "a-guide-to-the-good-life",
+      "b": "shoe-dog",
+      "why": {
+        "en": "Stoic techniques for the crises Knight barely survived.",
+        "fa": "تکنیک‌های رواقی برای بحران‌هایی که نایت به‌زحمت از سر گذراند."
+      }
+    },
+    {
+      "a": "how-to-win-friends",
+      "b": "the-making-of-a-manager",
+      "why": {
+        "en": "Carnegie's people skills come before your first direct report.",
+        "fa": "پیش از آنکه مدیرِ کسی شوی، مهارت‌های انسانیِ کارنگی را بیاموز."
+      }
+    },
+    {
+      "a": "the-making-of-a-manager",
+      "b": "empowered",
+      "why": {
+        "en": "Survive your first team, then learn to coach many.",
+        "fa": "از نخستین تیمت جان به در ببر، بعد مربی‌گریِ چند تیم را بیاموز."
+      }
+    },
+    {
+      "a": "scaling-people",
+      "b": "the-making-of-a-manager",
+      "why": {
+        "en": "Zhuo for your first team, Johnson when teams multiply.",
+        "fa": "ژو برای نخستین تیم، جانسون وقتی تیم‌ها چند برابر شدند."
+      }
+    },
+    {
+      "a": "scaling-people",
+      "b": "empowered",
+      "why": {
+        "en": "Empower product teams, then scale the people machinery around them.",
+        "fa": "اول تیم‌ها را توانمند کن، بعد سازوکارِ آدم‌ها را حولشان مقیاس بده."
+      }
+    },
+    {
+      "a": "the-goal",
+      "b": "high-output-management",
+      "why": {
+        "en": "Find the bottleneck first; Grove then raises its output.",
+        "fa": "اول گلوگاه را بیاب؛ بعد گروو خروجی‌اش را بالا می‌برد."
+      }
+    },
+    {
+      "a": "high-output-management",
+      "b": "the-effective-executive",
+      "why": {
+        "en": "Drucker's habits first; Grove turns them into organizational leverage.",
+        "fa": "اول عادت‌های دراکر؛ بعد گروو آن‌ها را اهرمِ سازمانی می‌کند."
+      }
+    },
+    {
+      "a": "high-output-management",
+      "b": "great-at-work",
+      "why": {
+        "en": "Personal work-smart habits, then leverage across an organization.",
+        "fa": "اول عادت‌های هوشمندانهٔ فردی، بعد اهرم در سراسر سازمان."
+      }
+    },
+    {
+      "a": "the-great-ceo-within",
+      "b": "the-effective-executive",
+      "why": {
+        "en": "Drucker's personal habits, scaled into whole-company systems.",
+        "fa": "عادت‌های فردیِ دراکر، در قامتِ سیستم‌های یک شرکتِ کامل."
+      }
+    },
+    {
+      "a": "the-great-ceo-within",
+      "b": "amp-it-up",
+      "why": {
+        "en": "Build calm systems first; then add Slootman's intensity.",
+        "fa": "اول سیستم‌های آرام را بساز؛ بعد شدتِ اسلوتمن را اضافه کن."
+      }
+    },
+    {
+      "a": "amp-it-up",
+      "b": "great-at-work",
+      "why": {
+        "en": "Do less but better — first yourself, then the whole company.",
+        "fa": "کمتر اما بهتر — اول برای خودت، بعد برای کلِ شرکت."
+      }
+    },
+    {
+      "a": "radical-candor",
+      "b": "never-split-the-difference",
+      "why": {
+        "en": "Candid feedback trains the empathy negotiation later demands.",
+        "fa": "بازخوردِ صریح همان همدلی‌ای را می‌پرورد که مذاکره بعداً می‌طلبد."
+      }
+    },
+    {
+      "a": "radical-candor",
+      "b": "15-commitments-conscious-leadership",
+      "why": {
+        "en": "Master candor, then examine the ego underneath it.",
+        "fa": "اول صراحت را بیاموز، بعد منیتِ زیرش را وارسی کن."
+      }
+    },
+    {
+      "a": "creativity-inc",
+      "b": "radical-candor",
+      "why": {
+        "en": "Pixar's Braintrust runs on radical candor.",
+        "fa": "برین‌تراستِ پیکسار با صراحتِ همدلانه کار می‌کند."
+      }
+    },
+    {
+      "a": "creativity-inc",
+      "b": "empowered",
+      "why": {
+        "en": "Empower the teams, then build the culture that protects them.",
+        "fa": "تیم‌ها را توانمند کن، بعد فرهنگی بساز که پشتشان بایستد."
+      }
+    },
+    {
+      "a": "the-score-takes-care-of-itself",
+      "b": "scaling-people",
+      "why": {
+        "en": "Walsh's Standard of Performance becomes written operating principles.",
+        "fa": "استانداردِ عملکردِ والش، اصولِ مکتوبِ عملیاتی می‌شود."
+      }
+    },
+    {
+      "a": "the-score-takes-care-of-itself",
+      "b": "great-at-work",
+      "why": {
+        "en": "Obsess over personal quality first; then set team-wide standards.",
+        "fa": "اول وسواسِ کیفیت در کارِ خودت، بعد استاندارد برای کل تیم."
+      }
+    },
+    {
+      "a": "the-way-forward",
+      "b": "the-score-takes-care-of-itself",
+      "why": {
+        "en": "You fall to your training — Walsh built exactly that.",
+        "fa": "به سطحِ تمرینت سقوط می‌کنی — والش دقیقاً همان تمرین را می‌ساخت."
+      }
+    },
+    {
+      "a": "15-commitments-conscious-leadership",
+      "b": "the-power-of-now",
+      "why": {
+        "en": "Presence practice is what keeps a leader above the line.",
+        "fa": "تمرینِ حضور است که رهبر را بالای خط نگه می‌دارد."
+      }
+    },
+    {
+      "a": "a-guide-to-the-good-life",
+      "b": "the-power-of-now",
+      "why": {
+        "en": "Stoic control of judgment deepens into pure presence.",
+        "fa": "مهارِ رواقیِ قضاوت، در حضورِ ناب عمق می‌گیرد."
+      }
+    },
+    {
+      "a": "subtle-art-of-not-giving-a-fck",
+      "b": "good-strategy-bad-strategy",
+      "why": {
+        "en": "Both are about choosing few things and refusing the rest.",
+        "fa": "هر دو دربارهٔ انتخابِ چند چیز و نه‌گفتن به باقی‌اند."
+      }
+    },
+    {
+      "a": "subtle-art-of-not-giving-a-fck",
+      "b": "the-war-of-art",
+      "why": {
+        "en": "Accept struggle as the price, then sit down and work.",
+        "fa": "رنج را بهای کار بپذیر، بعد بنشین و کار کن."
+      }
+    },
+    {
+      "a": "the-making-of-prince-of-persia",
+      "b": "the-war-of-art",
+      "why": {
+        "en": "Pressfield names Resistance; Mechner's journals show it, day by day.",
+        "fa": "پرسفیلد «مقاومت» را نام‌گذاری می‌کند؛ دفترهای مکنر روزبه‌روز نشانش می‌دهند."
+      }
+    },
+    {
+      "a": "the-work-of-art",
+      "b": "the-making-of-prince-of-persia",
+      "why": {
+        "en": "Two windows into the messy studio of real makers.",
+        "fa": "دو پنجره به کارگاهِ به‌هم‌ریختهٔ سازندگانِ واقعی."
+      }
+    },
+    {
+      "a": "the-war-of-art",
+      "b": "the-way-forward",
+      "why": {
+        "en": "Daily discipline beats Resistance; training beats fear.",
+        "fa": "نظمِ روزانه «مقاومت» را شکست می‌دهد؛ تمرین، ترس را."
+      }
+    },
+    {
+      "a": "build",
+      "b": "start-with-why",
+      "why": {
+        "en": "Sinek gives the why; Fadell builds a life around it.",
+        "fa": "سینک «چرا» را می‌دهد؛ فادل زندگی‌ای دورِ آن می‌سازد."
+      }
+    },
+    {
+      "a": "influence",
+      "b": "surrounded-by-psychopaths",
+      "why": {
+        "en": "Cialdini's levers first; then spotting who pulls them on you.",
+        "fa": "اول اهرم‌های چالدینی؛ بعد شناختنِ کسی که آن‌ها را علیه‌ات می‌کشد."
+      }
+    },
+    {
+      "a": "influence",
+      "b": "the-art-of-seduction",
+      "why": {
+        "en": "From automatic compliance triggers to influence through imagination.",
+        "fa": "از ماشه‌های خودکارِ اطاعت تا نفوذ از راهِ خیال."
+      }
+    },
+    {
+      "a": "surrounded-by-psychopaths",
+      "b": "never-split-the-difference",
+      "why": {
+        "en": "Read the counterpart's type before you negotiate with them.",
+        "fa": "پیش از مذاکره، تیپِ رفتاریِ طرف را بخوان."
+      }
+    },
+    {
+      "a": "never-split-the-difference",
+      "b": "founding-sales",
+      "why": {
+        "en": "Learn founder selling, then negotiation for the close.",
+        "fa": "اول فروشِ بنیان‌گذار، بعد مذاکره برای بستنِ قرارداد."
+      }
+    },
+    {
+      "a": "how-to-win-friends",
+      "b": "7-rules-of-power",
+      "why": {
+        "en": "Carnegie's warmth first, Pfeffer's power moves later.",
+        "fa": "اول گرمای کارنگی، بعد بازی‌های قدرتِ ففر."
+      }
+    },
+    {
+      "a": "7-rules-of-power",
+      "b": "the-art-of-seduction",
+      "why": {
+        "en": "Pfeffer's direct power first, then Greene's indirect kind.",
+        "fa": "اول قدرتِ مستقیمِ ففر، بعد گونهٔ غیرمستقیمِ گرین."
+      }
+    },
+    {
+      "a": "the-art-of-seduction",
+      "b": "purple-cow",
+      "why": {
+        "en": "Attention arrives indirectly: be desired, not merely announced.",
+        "fa": "توجه از راهِ غیرمستقیم می‌آید: خواستنی باش، نه صرفاً پرصدا."
+      }
+    }
+  ]
+}

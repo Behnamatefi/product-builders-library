@@ -169,14 +169,21 @@ html[data-lang="en"] .rw-cmeta{font-family:var(--f-mono);letter-spacing:.1em;tex
 .rw-cgo svg{width:18px;height:18px;display:block}
 html[dir="rtl"] .rw-cgo{transform:scaleX(-1)}
 .rw-card:hover .rw-cgo{color:var(--sig)}
-.rw-empty{text-align:center;color:var(--mut);font-size:16px;padding:32px 12px}
+/* empty state speaks the dot-matrix texture language (§4.1) — an achromatic
+   12px dot field behind the message, radially faded so it reads as texture */
+.rw-empty{text-align:center;color:var(--mut);font-size:16px;padding:48px 12px;position:relative}
+.rw-empty::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:radial-gradient(circle,var(--line-strong) 1px,transparent 1.5px);
+  background-size:12px 12px;opacity:.6;
+  -webkit-mask-image:radial-gradient(closest-side,#000 20%,transparent 90%);
+          mask-image:radial-gradient(closest-side,#000 20%,transparent 90%)}
 .rw-rfoot{margin-top:24px}
 
 /* ── MOBILE: bottom sheet ─────────────────────────────────────────────────── */
 @media(max-width:640px){
   .rw-overlay{align-items:flex-end;padding:0}
   .rw-sheet{max-width:none;max-height:92vh;border-radius:16px 16px 0 0;border-bottom:0;
-    animation:rwSlide .3s var(--ease-drawer)}
+    animation:rwSlide .28s var(--ease-drawer)}
   /* bottom sheet exits down the way it came in — accelerating away */
   .rw-overlay.closing .rw-sheet{animation:rwSlideOut .18s var(--ease-exit) forwards}
   .rw-body{padding:24px 20px calc(24px + env(safe-area-inset-bottom))}

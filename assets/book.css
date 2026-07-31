@@ -137,18 +137,8 @@ html[data-lang="en"] .hud{font-family:var(--f-mono);letter-spacing:.14em;text-tr
 html[data-lang="en"] .metaitem .mk{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase}
 html[data-lang="en"] .metaitem .mk::after{content:" //";color:var(--mut-soft)}
 .metaitem .mv{font-size:16px;color:var(--ink);font-weight:500;letter-spacing:0}
-/* stat chips — instrument tiles over a ruler-tick baseline. Start-edge ticks are
-   achromatic: in the hero viewport orange belongs to the lamp + LED chart only (§2.4) */
-.chips{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px;position:relative;padding-bottom:20px}
-.chips::after{content:"";position:absolute;bottom:0;inset-inline:0;height:8px;pointer-events:none;
-  background-image:repeating-linear-gradient(90deg,var(--line-strong) 0 1px,transparent 1px 8px)}
-.chip{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 20px;
-  font-size:12px;font-weight:700;color:var(--mut);position:relative}
-.chip::before{content:"";position:absolute;inset-inline-start:0;top:14px;bottom:14px;width:2px;background:var(--line-strong)}
-html[data-lang="en"] .chip{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
-.chip b{font-size:28px;display:block;font-weight:600;color:var(--ink);line-height:1.2;letter-spacing:0;
-  font-variant-numeric:tabular-nums;margin-bottom:2px}
-html[data-lang="en"] .chip b{font-family:var(--f-mono);font-weight:500;font-feature-settings:"zero"}
+/* (hero stat chips were retired from book pages — the metastrip is the readout
+   row here; the index hero keeps its own .chips instrument tiles) */
 
 /* ── NAV + TOC ────────────────────────────────────────────── */
 .navbar{position:sticky;top:0;z-index:60;background:color-mix(in srgb,var(--bg) 88%,transparent);
@@ -407,12 +397,6 @@ html[data-lang="en"] .rung .lv{font-family:var(--f-mono);font-size:11px;letter-s
 [data-theme="light"] .rung.active .lv{color:var(--ink)}
 .rung .lt{font-size:17px;font-weight:600;margin-top:6px;color:var(--ink);letter-spacing:0}
 html[data-lang="en"] .rung .lt{font-family:var(--f-disp);font-weight:500;font-size:18px}
-/* the bar is a ruler; the orange fill slides over the ticks */
-.rung .lbar{height:8px;background-image:repeating-linear-gradient(90deg,var(--line-strong) 0 1px,transparent 1px 8px);
-  margin-top:16px;position:relative;overflow:hidden}
-.rung .lbar i{display:block;position:absolute;inset-block:0;inset-inline-start:0;background:var(--sig);
-  transform-origin:left center}
-html[dir="rtl"] .rung .lbar i{transform-origin:right center}
 .stagecard{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:32px;
   margin:16px 0;box-shadow:var(--shadow)}
 .stagecard .shead{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
@@ -467,21 +451,24 @@ html[data-lang="en"] .mthumb .ptype{font-family:var(--f-mono);letter-spacing:.1e
   background-image:radial-gradient(circle,var(--line-strong) 1px,transparent 1.5px);
   background-size:12px 12px;position:relative}
 /* lit dots as data — a small rising LED bar chart in the start corner (§4.1):
-   five stepped columns masked out of the dot grid, not an amorphous fade */
-.mfake::after{content:"";position:absolute;inset-inline-start:12px;bottom:12px;width:46%;height:52%;pointer-events:none;
+   five stepped columns masked out of the dot grid, not an amorphous fade.
+   Every measure is a px multiple of the 12px dot grid (36px columns at 48px
+   pitch, 12px-step heights) so column edges land BETWEEN dots — never
+   clipping a circle in half at arbitrary card widths. */
+.mfake::after{content:"";position:absolute;inset-inline-start:12px;bottom:12px;width:228px;height:120px;pointer-events:none;
   background-image:radial-gradient(circle,var(--sig) 1.5px,transparent 2px);
   background-size:12px 12px;opacity:.8;
   -webkit-mask-image:linear-gradient(#000,#000),linear-gradient(#000,#000),linear-gradient(#000,#000),linear-gradient(#000,#000),linear-gradient(#000,#000);
           mask-image:linear-gradient(#000,#000),linear-gradient(#000,#000),linear-gradient(#000,#000),linear-gradient(#000,#000),linear-gradient(#000,#000);
-  -webkit-mask-size:14% 24%,14% 42%,14% 58%,14% 76%,14% 96%;
-          mask-size:14% 24%,14% 42%,14% 58%,14% 76%,14% 96%;
-  -webkit-mask-position:0 100%,25% 100%,50% 100%,75% 100%,100% 100%;
-          mask-position:0 100%,25% 100%,50% 100%,75% 100%,100% 100%;
+  -webkit-mask-size:36px 36px,36px 60px,36px 84px,36px 108px,36px 120px;
+          mask-size:36px 36px,36px 60px,36px 84px,36px 108px,36px 120px;
+  -webkit-mask-position:0 100%,48px 100%,96px 100%,144px 100%,192px 100%;
+          mask-position:0 100%,48px 100%,96px 100%,144px 100%,192px 100%;
   -webkit-mask-repeat:no-repeat;mask-repeat:no-repeat}
 /* RTL: reverse the staircase so it rises toward the inline end */
 html[dir="rtl"] .mfake::after{
-  -webkit-mask-size:14% 96%,14% 76%,14% 58%,14% 42%,14% 24%;
-          mask-size:14% 96%,14% 76%,14% 58%,14% 42%,14% 24%}
+  -webkit-mask-size:36px 120px,36px 108px,36px 84px,36px 60px,36px 36px;
+          mask-size:36px 120px,36px 108px,36px 84px,36px 60px,36px 36px}
 .mfake svg{width:48px;height:48px;color:var(--ink);opacity:.5;position:relative}
 .mbody{padding:24px;display:flex;flex-direction:column;gap:8px;flex:1}
 .mbody .msrc{font-size:12px;font-weight:700;color:var(--mut-soft);letter-spacing:0}
@@ -699,7 +686,7 @@ html[data-lang="en"] .masthead .logotype .lt-sub{font-family:var(--f-mono);lette
 /* ── 2 · HOVER — only where a real pointer exists ─────────── */
 @media (hover:hover) and (pointer:fine){
   /* stillness rule (the refs are still): hover motion is reserved for real
-     controls — static tiles (.kbox/.chip) and read-only rows (.chapchip)
+     controls — static tiles (.kbox) and read-only rows (.chapchip)
      give no false affordance */
   .rung:hover{transform:translateY(-1px)}
   /* arrow nudges toward its direction of travel */
@@ -734,25 +721,15 @@ html[data-lang="en"] .masthead .logotype .lt-sub{font-family:var(--f-mono);lette
 .qgrid blockquote:nth-child(n+5),.ladder .rung:nth-child(5),.mapgrid .partcol:nth-child(5){animation-delay:180ms}
 
 /* hero settles once on load — eyebrow leads, the HUD readout row lands last */
-.hero .eyebrow,.hero .hud,.hero h1,.hero .dek,.hero .metastrip,.hero .chips{animation:riseIn .5s var(--ease-out) both}
+.hero .eyebrow,.hero .hud,.hero h1,.hero .dek,.hero .metastrip{animation:riseIn .5s var(--ease-out) both}
 .hero h1{animation-delay:40ms}
 .hero .dek{animation-delay:80ms}
 .hero .metastrip{animation-delay:120ms}
-.hero .chips{animation-delay:160ms}
 
-/* ── 3b · TICK-FILL — ruler bars fill like data changing ──── */
-/* each rung's orange fill sweeps in just after its tile lands
-   (scaleX, not width — GPU transform-only per the craft rules) */
-@keyframes tickFill{from{transform:scaleX(0)}}
-.rung .lbar i{animation:tickFill .4s var(--ease-out) backwards;animation-delay:120ms}
-.ladder .rung:nth-child(2) .lbar i{animation-delay:165ms}
-.ladder .rung:nth-child(3) .lbar i{animation-delay:210ms}
-.ladder .rung:nth-child(4) .lbar i{animation-delay:255ms}
-.ladder .rung:nth-child(5) .lbar i{animation-delay:300ms}
 /* re-renders (rung clicks, language flips) must NOT replay the entrance
    cascade — frequent actions stay instant. book.js stamps data-settled
    on the ladder after its first paint. */
-.ladder[data-settled] .rung,.ladder[data-settled] .rung .lbar i{animation:none}
+.ladder[data-settled] .rung{animation:none}
 
 /* stage swap — the readout re-settles in a 25ms cascade; nav controls stay put */
 @keyframes stageIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
@@ -771,7 +748,7 @@ html[data-lang="en"] .masthead .logotype .lt-sub{font-family:var(--f-mono);lette
 
 /* ── 4 · SURFACE + TYPE DETAILS ──────────────────────────── */
 ::selection{background:var(--sig);color:var(--sig-ink)}
-.kbox .v,.chip b,.rw-rank,.chapchip .cn,.metaitem .mv{font-variant-numeric:tabular-nums}
+.kbox .v,.rw-rank,.chapchip .cn,.metaitem .mv{font-variant-numeric:tabular-nums}
 /* theme swaps stay smooth on the bar (the scroll-edge reveal lives with .navbar above) */
 .navbar{transition:background var(--d2) var(--ease)}
 /* the summary card scrolls its own overflow — keep the bar unobtrusive */

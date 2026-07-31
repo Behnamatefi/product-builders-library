@@ -1,0 +1,204 @@
+{
+  "summaries": {
+    "nobody-wants-to-read-your-shit": {
+      "en": "The first writing skill to master: earn a busy reader's attention. After it, every memo you send actually gets read.",
+      "fa": "اولین مهارتِ نوشتن که باید یاد بگیری: به‌دست‌آوردنِ توجهِ خوانندهٔ گرفتار. بعد از آن، هر یادداشتی که می‌فرستی واقعاً خوانده می‌شود."
+    },
+    "on-writing-well": {
+      "en": "Once you know nobody's waiting, learn the craft: strip every sentence clean and write documents people actually finish.",
+      "fa": "حالا که می‌دانی کسی منتظرِ نوشته‌ات نیست، خودِ مهارت را یاد بگیر: هر جمله را تمیز کن تا نوشته‌هایت تا آخر خوانده شوند."
+    },
+    "storyworthy": {
+      "en": "Turn plain work moments into stories that move a room — the skill that upgrades every demo, pitch, and interview you give.",
+      "fa": "لحظه‌های سادهٔ کار را به داستان‌هایی تبدیل کن که جمع را تکان می‌دهند — مهارتی که هر دمو، ارائه و مصاحبه‌ات را ارتقا می‌دهد."
+    },
+    "scaling-people": {
+      "en": "When your team outgrows improvisation, learn to write down principles, hire deliberately, and scale people — the step after learning to manage.",
+      "fa": "وقتی تیمت از بداهه بزرگ‌تر شد، یاد بگیر اصول را بنویسی، با دقت استخدام کنی و آدم‌ها را بزرگ کنی — قدمِ بعد از مدیرشدن."
+    },
+    "the-goal": {
+      "en": "Find the one bottleneck capping your whole system and fix that first — the operating skill every execution role runs on.",
+      "fa": "همان یک گلوگاهی را پیدا کن که سقفِ کلِ سیستم شده و اول همان را درست کن — مهارتِ عملیاتیِ هر نقشِ اجرایی."
+    },
+    "the-great-ceo-within": {
+      "en": "The founder's operating manual: build systems that run without you, so you stop being the bottleneck as the company grows.",
+      "fa": "دفترچهٔ کارِ بنیان‌گذار: سیستم‌هایی بساز که بدونِ تو کار کنند، تا با بزرگ‌شدنِ شرکت دیگر خودت گلوگاه نباشی."
+    },
+    "good-strategy-bad-strategy": {
+      "en": "Diagnose the real challenge before choosing actions — the strategy foundation to read first, and the fluff detector you'll use forever.",
+      "fa": "پیش از انتخابِ اقدام، چالشِ واقعی را تشخیص بده — پایهٔ استراتژی که اول باید خواند، و ردیابِ حرفِ توخالی که تا همیشه به کارت می‌آید."
+    },
+    "playing-to-win": {
+      "en": "Ready to set direction? Make the five choices — where to play, how to win — that turn ambition into strategy.",
+      "fa": "آماده‌ای جهت را تعیین کنی؟ پنج انتخاب را انجام بده — کجا بازی کنی، چطور ببری — تا جاه‌طلبی به استراتژی تبدیل شود."
+    },
+    "working-backwards": {
+      "en": "Run product the Amazon way: start from the customer's press release and work backwards — a system you can install tomorrow.",
+      "fa": "محصول را به سبکِ آمازون پیش ببر: از اطلاعیهٔ مطبوعاتیِ مشتری شروع کن و از آخر به اول برگرد — سیستمی که از فردا می‌شود پیاده کرد."
+    },
+    "build": {
+      "en": "A mentor for every career stage: from choosing your first job to shipping V1 to leading — Tony Fadell's whole playbook.",
+      "fa": "یک منتور برای هر مرحلهٔ مسیرِ شغلی: از انتخابِ اولین شغل تا عرضهٔ نسخهٔ اول تا رهبری — کلِ دفترچهٔ تونی فادل."
+    },
+    "shoe-dog": {
+      "en": "When the journey gets brutal, read how Nike nearly died for years — and borrow the stubbornness to keep going.",
+      "fa": "وقتی مسیر بی‌رحم شد، بخوان که نایکی چطور سال‌ها تا مرزِ نابودی رفت — و لجاجتِ ادامه‌دادن را قرض بگیر."
+    },
+    "the-making-of-prince-of-persia": {
+      "en": "A maker's diary of years of doubt — read it mid-project, when you need proof that finishing is a skill.",
+      "fa": "دفترچهٔ خاطراتِ یک سازنده از سال‌ها تردید — وسطِ پروژه بخوانش، وقتی به مدرکی نیاز داری که تمام‌کردن هم یک مهارت است."
+    },
+    "high-output-management": {
+      "en": "The first management book to read: measure yourself by your team's output and spend time only where leverage is highest.",
+      "fa": "اولین کتابِ مدیریت که باید خواند: خودت را با خروجیِ تیمت بسنج و وقتت را فقط جایی بگذار که اهرمش از همه بیشتر است."
+    },
+    "radical-candor": {
+      "en": "Once you're managing, learn the hardest habit: caring personally while challenging directly — so feedback builds people instead of breaking them.",
+      "fa": "حالا که مدیری، سخت‌ترین عادت را یاد بگیر: اهمیتِ شخصی همراه با چالشِ رُک — تا بازخورد آدم‌ها را بسازد، نه اینکه بشکند."
+    },
+    "the-making-of-a-manager": {
+      "en": "Just became a manager? Survive the first months: earn trust, run real one-on-ones, and multiply the team instead of doing everything.",
+      "fa": "تازه مدیر شده‌ای؟ از ماه‌های اول جان به در ببر: اعتماد بساز، یک‌به‌یک‌های واقعی برگزار کن، و تیم را چندبرابر کن، نه اینکه همه‌کار را خودت بکنی."
+    },
+    "15-commitments-conscious-leadership": {
+      "en": "Notice, in the moment, whether you're leading open or defensive — the self-awareness layer under every senior leadership skill.",
+      "fa": "در همان لحظه بفهم که باز رهبری می‌کنی یا تدافعی — لایهٔ خودآگاهی که زیرِ هر مهارتِ رهبریِ ارشد نشسته است."
+    },
+    "amp-it-up": {
+      "en": "No new strategy needed: raise standards, narrow priorities, and inject urgency into the team you already lead — starting this week.",
+      "fa": "استراتژیِ تازه لازم نیست: استانداردها را بالا ببر، اولویت‌ها را کم کن، و به تیمی که همین حالا داری فوریت تزریق کن — از همین هفته."
+    },
+    "the-score-takes-care-of-itself": {
+      "en": "Install a standard of performance so demanding that winning becomes a by-product — leadership for when results start defining you.",
+      "fa": "استانداردِ عملکردی آن‌قدر سخت‌گیرانه برپا کن که بردن محصولِ جانبی‌اش شود — رهبری برای وقتی که نتیجه‌ها دارند تعریفت می‌کنند."
+    },
+    "continuous-discovery-habits": {
+      "en": "Graduate from occasional research to weekly customer touchpoints — the habit that turns interviewing skill into a product operating system.",
+      "fa": "از تحقیقِ گاه‌به‌گاه به تماسِ هفتگی با مشتری برس — عادتی که مهارتِ مصاحبه را به سیستمِ عاملِ محصول تبدیل می‌کند."
+    },
+    "escaping-the-build-trap": {
+      "en": "Stop measuring success in features shipped: learn to steer by outcomes — the mindset shift that makes you a real product manager.",
+      "fa": "دست از شمردنِ فیچرهای عرضه‌شده بردار: یاد بگیر با نتیجه هدایت کنی — همان چرخشِ ذهنی که از تو مدیرِ محصولِ واقعی می‌سازد."
+    },
+    "the-mom-test": {
+      "en": "Before anything else, learn to ask questions even your mom can't answer with a lie — your first product skill.",
+      "fa": "قبل از هر چیز، یاد بگیر سؤال‌هایی بپرسی که حتی مامانت هم نتواند با دروغ جوابشان را بدهد — اولین مهارتِ محصول."
+    },
+    "empowered": {
+      "en": "Moving from building products to building teams? Coach ordinary people into extraordinary teams — the leadership sequel to Inspired.",
+      "fa": "از ساختنِ محصول به ساختنِ تیم می‌روی؟ آدم‌های معمولی را تا تیم‌های خارق‌العاده کوچ کن — دنبالهٔ رهبریِ «اینسپایرد»."
+    },
+    "inspired": {
+      "en": "The product manager's foundation: test value, usability, feasibility, and viability before building — read this before you own your first roadmap.",
+      "fa": "پایهٔ کارِ مدیرِ محصول: ارزش، کاربردپذیری، ساختنی‌بودن و به‌صرفه‌بودن را پیش از ساخت بیازما — قبل از اولین نقشهٔ راهت بخوانش."
+    },
+    "thinking-in-bets": {
+      "en": "Judge decisions by process, not outcomes — the mental upgrade that sharpens every roadmap bet you'll ever place.",
+      "fa": "تصمیم را با فرایند قضاوت کن، نه با نتیجه — ارتقای ذهنی‌ای که هر شرطِ نقشهٔ راهت را تیزتر می‌کند."
+    },
+    "founding-sales": {
+      "en": "Founder with no sales experience? Learn to sell your own product yourself — the skill you must master before hiring salespeople.",
+      "fa": "بنیان‌گذاری بدونِ تجربهٔ فروش؟ یاد بگیر محصولت را خودت بفروشی — مهارتی که پیش از استخدامِ هر فروشنده‌ای باید داشته باشی."
+    },
+    "obviously-awesome": {
+      "en": "When customers don't get it, reposition: a ten-step process for setting the context that makes your product obviously awesome.",
+      "fa": "وقتی مشتری‌ها «نمی‌گیرند» چرا محصولت خوب است، جایگاه را عوض کن: فرایندی ده‌قدمی برای چیدنِ زمینه‌ای که محصولت را آشکارا عالی می‌کند."
+    },
+    "purple-cow": {
+      "en": "After positioning comes daring: build remarkability into the product itself, because in crowded markets boring is the only fatal mistake.",
+      "fa": "بعد از جایگاه‌یابی نوبتِ جسارت است: چشمگیری را در خودِ محصول بساز، چون در بازارِ شلوغ فقط کسل‌کننده‌بودن کُشنده است."
+    },
+    "dont-make-me-think": {
+      "en": "Start design here: spot the question marks a page raises and delete them, until using it takes no thought.",
+      "fa": "طراحی را از همین‌جا شروع کن: علامت‌های سؤالی که صفحه می‌سازد را پیدا کن و پاک کن، تا استفاده از آن هیچ فکری نبرد."
+    },
+    "refactoring-ui": {
+      "en": "No design talent required: concrete tactics — hierarchy, spacing, type, color — that let any builder ship interfaces that look professional.",
+      "fa": "استعدادِ طراحی لازم نیست: ترفندهای مشخص — سلسله‌مراتب، فضا، تایپ، رنگ — که به هر سازنده‌ای اجازه می‌دهد رابطِ حرفه‌ای عرضه کند."
+    },
+    "the-design-of-everyday-things": {
+      "en": "The theory beneath all usability: read it once, and you'll diagnose why any product confuses people — including your own.",
+      "fa": "نظریهٔ زیرِ کلِ کاربردپذیری: یک بار بخوانش، و بعد می‌توانی تشخیص بدهی چرا هر محصولی آدم‌ها را گیج می‌کند — از جمله محصولِ خودت."
+    },
+    "creativity-inc": {
+      "en": "When you lead creative people, protect the culture, not the ideas — Pixar's playbook for leaders past their first team.",
+      "fa": "وقتی آدم‌های خلاق را رهبری می‌کنی، از فرهنگ محافظت کن، نه از ایده‌ها — دفترچهٔ پیکسار برای رهبرانی که از اولین تیمشان گذشته‌اند."
+    },
+    "the-war-of-art": {
+      "en": "Name the force that stops you from starting — Resistance — and learn the daily professional habit that beats it, at any stage.",
+      "fa": "نیرویی را که نمی‌گذارد شروع کنی نام ببر — مقاومت — و عادتِ روزانهٔ حرفه‌ای‌ها برای شکستنش را یاد بگیر، در هر مرحله‌ای از مسیر."
+    },
+    "the-work-of-art": {
+      "en": "See inside 43 artists' messy processes, and stop expecting your own creative work to arrive any cleaner.",
+      "fa": "به درونِ فرایندِ آشفتهٔ ۴۳ هنرمند نگاه کن، و دیگر انتظار نداشته باش کارِ خلاقانهٔ خودت تمیزتر از این از راه برسد."
+    },
+    "how-to-win-friends": {
+      "en": "The influence primer to read first: make people feel genuinely important, and doors open at every stage of your career.",
+      "fa": "کتابِ اولِ نفوذ: کاری کن آدم‌ها واقعاً حس کنند مهم‌اند، و درها در هر مرحله از مسیرِ شغلی‌ات باز می‌شوند."
+    },
+    "influence": {
+      "en": "Next, learn the seven levers behind every automatic yes — to persuade ethically, and to notice when they're aimed at you.",
+      "fa": "بعد، هفت اهرمِ پشتِ هر «بله»ی خودکار را یاد بگیر — تا هم اخلاقی قانع کنی، هم بفهمی کِی به‌سمتِ خودت نشانه رفته‌اند."
+    },
+    "never-split-the-difference": {
+      "en": "Then negotiate: label feelings, chase no, ask calibrated questions — FBI techniques for the raises, deals, and stakeholder fights ahead.",
+      "fa": "حالا مذاکره: احساس‌ها را نام ببر، دنبالِ «نه» برو، سؤالِ حساب‌شده بپرس — تکنیک‌های اف‌بی‌آی برای حقوق‌ها، قراردادها و جدل‌های پیشِ رو."
+    },
+    "crossing-the-chasm": {
+      "en": "Early adopters love you but growth stalled? Pick one beachhead niche and dominate it — the map from startup to mainstream.",
+      "fa": "پذیرندگانِ نخست عاشقت‌اند اما رشد ایستاده؟ یک گوشه از بازار را انتخاب کن و قبضه‌اش کن — نقشهٔ عبور از استارتاپ تا بازارِ اصلی."
+    },
+    "fall-in-love-with-the-problem": {
+      "en": "Before writing any code, marry a problem worth years of failures — then change solutions until the market pulls one from you.",
+      "fa": "پیش از نوشتنِ حتی یک خط کد، با مسئله‌ای پیوند بخور که ارزشِ سال‌ها شکست را دارد — بعد راه‌حل را آن‌قدر عوض کن تا بازار خودش از دستت بکشدش."
+    },
+    "the-lean-startup": {
+      "en": "Run your first venture as an experiment: build small, measure honestly, and learn to pivot before the money runs out.",
+      "fa": "اولین کسب‌وکارت را مثلِ یک آزمایش پیش ببر: کوچک بساز، صادقانه بسنج، و یاد بگیر پیش از تمام‌شدنِ پول بچرخی."
+    },
+    "7-rules-of-power": {
+      "en": "When merit stops being enough, learn how power actually works — seven blunt rules for the career game nobody teaches.",
+      "fa": "وقتی شایستگی دیگر کافی نیست، یاد بگیر قدرت واقعاً چطور کار می‌کند — هفت قانونِ رُک برای بازی‌ای که هیچ‌کس یادت نمی‌دهد."
+    },
+    "great-at-work": {
+      "en": "Work smarter from day one: do less, obsess over quality, and redesign your job around the value it creates.",
+      "fa": "از روزِ اول هوشمندانه کار کن: کمتر انجام بده، روی کیفیت وسواس داشته باش، و کارت را دورِ ارزشی که می‌سازد از نو بچین."
+    },
+    "the-effective-executive": {
+      "en": "Effectiveness is a learnable habit: track your time, build on strengths, do first things first — Drucker's practices for any rung.",
+      "fa": "اثربخشی عادتی یادگرفتنی است: وقتت را ثبت کن، روی قوّت‌ها بساز، مهم‌ها را اول انجام بده — تمرین‌های دراکر برای هر پله از مسیر."
+    },
+    "a-guide-to-the-good-life": {
+      "en": "Practice Stoic techniques — negative visualization, the control test — and carry a calm that survives whatever your career throws next.",
+      "fa": "تکنیک‌های رواقی را تمرین کن — تجسمِ منفی، محکِ کنترل — و آرامشی با خودت ببر که از هر پیشامدِ مسیرِ شغلی جان به در می‌برد."
+    },
+    "stumbling-on-happiness": {
+      "en": "Before chasing the next promotion, learn why imagination mispredicts happiness — and how to check with people already living your future.",
+      "fa": "پیش از دویدن دنبالِ ارتقای بعدی، بفهم چرا خیال شادی را اشتباه پیش‌بینی می‌کند — و چطور از کسانی بپرسی که همین حالا آینده‌ات را زندگی می‌کنند."
+    },
+    "subtle-art-of-not-giving-a-fck": {
+      "en": "Budget your cares like scarce capital: pick better values, accept the struggle, and stop spending yourself on what doesn't matter.",
+      "fa": "اهمیت‌دادن‌هایت را مثلِ سرمایه‌ای کمیاب خرج کن: ارزش‌های بهتری انتخاب کن، سختی را بپذیر، و خودت را صرفِ چیزهای بی‌اهمیت نکن."
+    },
+    "start-with-why": {
+      "en": "Articulate the why beneath your work, and every pitch, product, and hire after it gets easier — start your journey here.",
+      "fa": "چراییِ زیرِ کارت را روشن کن، تا هر ارائه و محصول و استخدامِ بعد از آن آسان‌تر شود — سفر را از همین‌جا شروع کن."
+    },
+    "surrounded-by-psychopaths": {
+      "en": "Learn your behaviour colour and name manipulation tactics on sight — armour you'll want before the office politics get serious.",
+      "fa": "رنگِ رفتاریِ خودت را بشناس و تاکتیک‌های دستکاری را در نگاهِ اول نام ببر — زرهی که پیش از جدی‌شدنِ سیاست‌های اداری لازمت می‌شود."
+    },
+    "the-art-of-seduction": {
+      "en": "Read the machinery of fascination — how desire is staged through imagination — and recognise it in branding, politics, and pitches.",
+      "fa": "سازوکارِ شیفتگی را بخوان — اینکه میل چطور از راهِ تخیل صحنه‌آرایی می‌شود — و همان را در برندینگ، سیاست و ارائه‌ها تشخیص بده."
+    },
+    "the-power-of-now": {
+      "en": "Step out of the thinking mind and act from the present — the inner stillness that outlasts every career storm.",
+      "fa": "از ذهنِ فکرکننده بیرون بیا و از دلِ اکنون عمل کن — سکونِ درونی‌ای که از هر توفانِ مسیرِ شغلی بیشتر دوام می‌آورد."
+    },
+    "the-way-forward": {
+      "en": "Build the training that courage falls back on: standards over motivation, reps over feelings — discipline for the hardest days ahead.",
+      "fa": "تمرینی را بساز که شجاعت در لحظه به آن تکیه می‌کند: استاندارد به‌جای انگیزه، تکرار به‌جای حس‌وحال — انضباط برای سخت‌ترین روزهای پیشِ رو."
+    }
+  }
+}
