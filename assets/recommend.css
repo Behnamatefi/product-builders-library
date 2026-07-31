@@ -1,11 +1,14 @@
 /* ============================================================================
    recommend.css — "Find my reading path" wizard
-   Modal on desktop · bottom-sheet on mobile. Editorial design language
-   (see docs/DESIGN-elevenlabs.md) — ink pill CTAs, white cards, serif display.
+   Modal on desktop · bottom-sheet on mobile. "Reading instrument" language
+   (see docs/ART-DIRECTION.md) — black panel, hairlines, mono annotation layer,
+   orange (--sig) only on live/active states, achromatic CTA pills.
+   All mono/uppercase/tracking rules are scoped to html[data-lang="en"];
+   FA keeps Vazirmatn with weight carrying the hierarchy (letter-spacing:0).
    (Masthead styles live in book.css / index.html — shared, not here.)
    ========================================================================== */
 
-/* ── wizard trigger (ink pill primary · outline secondary) ────────────────── */
+/* ── wizard trigger (off-white pill primary · outline ghost secondary) ────── */
 .rw-trigger{display:inline-flex;align-items:center;gap:8px;cursor:pointer;font:inherit;
   font-weight:500;font-size:15px;line-height:1;border-radius:9999px;padding:0 20px;height:40px;border:0;
   background:var(--accent);color:var(--accent-ink);text-decoration:none;
@@ -20,11 +23,32 @@
 .rw-overlay{position:fixed;inset:0;z-index:300;display:none;align-items:center;justify-content:center;
   padding:24px;background:color-mix(in srgb,var(--ink) 32%,transparent);
   backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
-.rw-overlay.open{display:flex}
+/* backdrop fades in with the sheet (it already fades OUT via .closing below) */
+.rw-overlay.open{display:flex;animation:rwFade .22s var(--ease-out)}
+@keyframes rwFade{from{opacity:0}}
 .rw-sheet{width:100%;max-width:600px;max-height:88vh;overflow:auto;background:var(--bg);
-  border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow-lg);
-  animation:rwPop .22s var(--ease-out)}
+  border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow-lg);
+  animation:rwPop .22s var(--ease-out);
+  scrollbar-width:thin;scrollbar-color:var(--line-strong) transparent}
+.rw-sheet::-webkit-scrollbar{width:6px}
+.rw-sheet::-webkit-scrollbar-thumb{background:var(--line-strong);border-radius:9999px}
+.rw-sheet::-webkit-scrollbar-track{background:transparent}
+/* results step — the ONE hazard-stripe in the whole product (§4.5): a 6px
+   45° orange/black strip across the top of the sheet. No stripe = no results. */
+.rw-sheet:has(.rw-rhead){
+  background-image:repeating-linear-gradient(var(--hz-angle,45deg),var(--sig) 0 10px,var(--bg) 10px 20px);
+  background-size:100% 6px;background-repeat:no-repeat;background-position:top}
+html[dir="rtl"] .rw-sheet:has(.rw-rhead){--hz-angle:-45deg}
 @keyframes rwPop{from{opacity:0;transform:translateY(10px) scale(.98)}to{opacity:1;transform:none}}
+/* exit — the same path back out, faster than the entrance (.18s vs .22/.3s)
+   and on the exit curve (accelerates away; entrances decelerate in).
+   recommend.js adds .closing, waits, then drops .open. */
+.rw-overlay.closing{pointer-events:none;animation:rwFadeOut .18s var(--ease-exit) forwards}
+.rw-overlay.closing .rw-sheet{animation:rwPopOut .18s var(--ease-exit) forwards}
+@keyframes rwFadeOut{to{opacity:0}}
+@keyframes rwPopOut{to{opacity:0;transform:translateY(10px) scale(.98)}}
+/* focus lands on the sheet when the dialog opens — no ring on the surface itself */
+.rw-sheet:focus{outline:none}
 .rw-body{position:relative;padding:32px}
 
 .rw-x{position:absolute;inset-inline-end:20px;top:20px;width:40px;height:40px;border-radius:9999px;
@@ -33,23 +57,31 @@
 .rw-x:hover{background:var(--card2)}
 .rw-x svg{width:16px;height:16px}
 
-/* head + step dots */
-.rw-head{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:0 48px 24px 0}
+/* head + step rail — the sheet's instrument title bar: kicker at the start,
+   segmented progress rail at the end, sealed under a hairline */
+.rw-head{display:flex;align-items:center;justify-content:space-between;gap:16px;
+  margin:0 48px 24px 0;padding-bottom:16px;border-bottom:1px solid var(--line)}
 html[dir="rtl"] .rw-head{margin:0 0 24px 48px}
-.rw-kicker{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;
-  letter-spacing:.96px;text-transform:uppercase;color:var(--mut-soft)}
+.rw-kicker{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;
+  letter-spacing:0;color:var(--mut-soft)}
+html[data-lang="en"] .rw-kicker{font-family:var(--f-mono);letter-spacing:.14em;text-transform:uppercase}
 .rw-spark{width:18px;height:18px;display:grid;place-items:center;color:var(--mut-soft)}
 .rw-spark svg{width:16px;height:16px}
-.rw-steps{display:flex;gap:6px}
-.rw-dot{width:24px;height:2px;border-radius:9999px;background:var(--line-strong)}
-.rw-dot.on{background:var(--ink)}
+/* step dots → ticked progress rail: unlit segments are ruler ticks,
+   lit segments fill solid orange (the live state) */
+.rw-steps{display:flex;gap:4px}
+.rw-dot{width:28px;height:4px;
+  background-image:repeating-linear-gradient(90deg,var(--line-strong) 0 1px,transparent 1px 5px)}
+.rw-dot.on{background-image:none;background-color:var(--sig)}
 
-.rw-q h3{margin:0 0 8px;font-size:32px;font-weight:300;line-height:1.13;letter-spacing:-.32px;color:var(--ink)}
-html[data-lang="en"] .rw-q h3{font-family:Newsreader,"Times New Roman",serif;font-weight:300}
-.rw-q p{margin:0 0 24px;color:var(--mut);font-size:16px;letter-spacing:.16px}
-.rw-q h4{margin:32px 0 12px;font-size:18px;font-weight:500;color:var(--ink);letter-spacing:.18px}
+.rw-q h3{margin:0 0 8px;font-size:24px;font-weight:700;line-height:1.35;letter-spacing:0;color:var(--ink)}
+html[data-lang="en"] .rw-q h3{font-family:var(--f-disp);font-weight:500;font-size:28px;line-height:1.15;letter-spacing:-.02em}
+.rw-q p{margin:0 0 24px;color:var(--mut);font-size:16px;line-height:1.7}
+html[data-lang="en"] .rw-q p{line-height:1.5}
+.rw-q h4{margin:32px 0 12px;font-size:17px;font-weight:600;color:var(--ink);letter-spacing:0}
+html[data-lang="en"] .rw-q h4{font-family:var(--f-disp);font-weight:500;font-size:18px}
 
-/* chips */
+/* chips — instrument tiles with a square checkbox tick (ref 1) */
 .rw-chips{display:flex;flex-wrap:wrap;gap:8px}
 .rw-lvls{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 @media(max-width:460px){.rw-lvls{grid-template-columns:1fr}}
@@ -57,27 +89,34 @@ html[data-lang="en"] .rw-q h3{font-family:Newsreader,"Times New Roman",serif;fon
 @media(max-width:460px){.rw-times{grid-template-columns:1fr}}
 .rw-chip{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:4px;
   text-align:start;font:inherit;cursor:pointer;border:1px solid var(--line);background:var(--card);
-  color:var(--ink);border-radius:16px;padding:16px 20px;
+  color:var(--ink);border-radius:12px;padding:16px 20px;
   transition:border-color var(--d1) var(--ease),background var(--d1) var(--ease),transform var(--d1) var(--ease)}
 .rw-chip:hover{border-color:var(--line-strong)}
 .rw-chip:active{transform:scale(.98)}
-.rw-chip.on{border-color:var(--ink);background:var(--card)}
-.rw-chip .rw-cklab{font-weight:500;font-size:16px;letter-spacing:.16px}
+.rw-chip.on{border-color:var(--sig);background:var(--card)}
+.rw-chip .rw-cklab{font-weight:500;font-size:16px;letter-spacing:0}
 .rw-chip .rw-cksub{font-size:14px;color:var(--mut);line-height:1.5}
-.rw-chip .rw-cktick{position:absolute;inset-inline-end:14px;top:14px;width:18px;height:18px;border-radius:9999px;
-  background:var(--accent);color:var(--accent-ink);display:none;place-items:center}
+/* checkbox square (ref 1) — always in the layout as an empty outline, so the
+   tile reads as selectable before it is selected; fills orange when .on */
+.rw-chip .rw-cktick{position:absolute;inset-inline-end:14px;top:14px;width:18px;height:18px;border-radius:4px;
+  border:1px solid var(--line-strong);background:transparent;color:transparent;display:grid;place-items:center;
+  transition:background var(--d1) var(--ease),border-color var(--d1) var(--ease)}
 .rw-chip .rw-cktick svg{width:11px;height:11px}
-.rw-chip.on .rw-cktick{display:grid}
-/* single-line intent chips sit tighter, pill-shaped */
+.rw-chip.on .rw-cktick{background:var(--sig);border-color:var(--sig);color:var(--sig-ink)}
+/* single-line intent chips sit tighter, pill-shaped; the ON state is one of the
+   permitted bold orange UI moments (§2.3.2) — orange fill, black ink */
 .rw-chips[data-group="intent"] .rw-chip{flex-direction:row;align-items:center;gap:8px;
   padding:9px 16px;border-radius:9999px}
 .rw-chips[data-group="intent"] .rw-chip .rw-cklab{font-size:15px}
-.rw-chips[data-group="intent"] .rw-chip .rw-cktick{position:static;display:grid;visibility:hidden;width:16px;height:16px}
-.rw-chips[data-group="intent"] .rw-chip.on{background:var(--accent);border-color:var(--accent)}
-.rw-chips[data-group="intent"] .rw-chip.on .rw-cklab{color:var(--accent-ink)}
-.rw-chips[data-group="intent"] .rw-chip.on .rw-cktick{visibility:visible;background:transparent;color:var(--accent-ink)}
+.rw-chips[data-group="intent"] .rw-chip .rw-cktick{position:static;display:grid;visibility:hidden;width:16px;height:16px;background:transparent;border:0}
+.rw-chips[data-group="intent"] .rw-chip.on{background:var(--sig);border-color:var(--sig)}
+.rw-chips[data-group="intent"] .rw-chip.on:active{background:var(--sig-press);border-color:var(--sig-press)}
+.rw-chips[data-group="intent"] .rw-chip.on .rw-cklab{color:var(--sig-ink);font-weight:600}
+.rw-chips[data-group="intent"] .rw-chip.on .rw-cktick{visibility:visible;background:transparent;color:var(--sig-ink)}
+/* selection inverts ON the orange chip — orange-on-orange highlight is invisible */
+.rw-chips[data-group="intent"] .rw-chip.on ::selection{background:var(--sig-ink);color:var(--sig)}
 
-/* footer buttons */
+/* footer buttons — achromatic pills only */
 .rw-foot{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:32px}
 .rw-next{display:inline-flex;align-items:center;gap:8px;cursor:pointer;font:inherit;font-weight:500;font-size:15px;
   line-height:1;border:0;border-radius:9999px;padding:0 20px;height:40px;background:var(--accent);
@@ -92,48 +131,67 @@ html[dir="rtl"] .rw-next .rw-fwd,html[dir="rtl"] .rw-ghost .rw-bk{transform:scal
 .rw-ghost{display:inline-flex;align-items:center;gap:8px;cursor:pointer;font:inherit;font-weight:500;font-size:15px;
   line-height:1;border:1px solid var(--line-strong);border-radius:9999px;padding:0 19px;height:40px;
   background:transparent;color:var(--ink);transition:background var(--d1) var(--ease)}
+/* secondary controls speak the mono utility voice; the primary .rw-next stays
+   the grotesk-filled pill (the ref-4 pair) */
+html[data-lang="en"] .rw-ghost{font-family:var(--f-mono);font-size:12px;font-weight:500;
+  letter-spacing:.08em;text-transform:uppercase}
 .rw-ghost:hover{background:var(--card2)}
 .rw-ghost .rw-bk{width:15px;height:15px;display:block}.rw-ghost .rw-bk svg{width:15px;height:15px}
-.rw-skip{cursor:pointer;font-size:15px;font-weight:500;color:var(--mut-soft)}
+.rw-skip{cursor:pointer;font-size:15px;font-weight:500;color:var(--mut);
+  background:none;border:0;padding:8px 0;font-family:inherit}
+html[data-lang="en"] .rw-skip{font-family:var(--f-mono);font-size:12px;font-weight:500;
+  letter-spacing:.08em;text-transform:uppercase}
 .rw-skip:hover{color:var(--ink)}
 
-/* results */
+/* results — readout rows: square mono rank plates, rank 1 takes the orange square */
 .rw-rhead{align-items:flex-start;margin-bottom:24px}
-.rw-rsub{margin:12px 0 0;font-size:16px;color:var(--mut);letter-spacing:.16px}
+.rw-rsub{margin:12px 0 0;font-size:16px;color:var(--mut);line-height:1.7}
+html[data-lang="en"] .rw-rsub{line-height:1.5}
 .rw-cards{display:flex;flex-direction:column;gap:12px}
 .rw-card{display:flex;align-items:center;gap:16px;text-decoration:none;color:var(--ink);
-  border:1px solid var(--line);background:var(--card);border-radius:16px;padding:20px;
+  border:1px solid var(--line);background:var(--card);border-radius:12px;padding:20px;
   transition:border-color var(--d2) var(--ease),transform var(--d2) var(--ease),box-shadow var(--d2) var(--ease)}
-.rw-card:hover{border-color:var(--line-strong);transform:translateY(-2px);box-shadow:var(--shadow-lg)}
-.rw-rank{flex:0 0 auto;width:32px;height:32px;border-radius:9999px;display:grid;place-items:center;
-  font-weight:500;font-size:15px;color:var(--ink);background:var(--card2);font-variant-numeric:tabular-nums}
+.rw-card:hover{border-color:var(--line-strong)}
+.rw-rank{flex:0 0 auto;width:32px;height:32px;border-radius:8px;display:grid;place-items:center;
+  font-weight:600;font-size:14px;color:var(--ink);background:var(--card2);font-variant-numeric:tabular-nums}
+html[data-lang="en"] .rw-rank{font-family:var(--f-mono);font-weight:500;font-feature-settings:"zero"}
+.rw-cards .rw-card:first-child .rw-rank{background:var(--sig);color:var(--sig-ink);font-weight:700}
 .rw-cbody{flex:1 1 auto;min-width:0;display:flex;flex-direction:column;gap:4px}
-.rw-ctitle{font-weight:500;font-size:18px;line-height:1.44;letter-spacing:.18px;color:var(--ink)}
-.rw-cmeta{font-size:12px;color:var(--mut-soft);font-weight:600;letter-spacing:.96px;text-transform:uppercase}
-.rw-creason{font-size:15px;color:var(--mut);line-height:1.47;letter-spacing:.15px}
+.rw-ctitle{font-weight:700;font-size:17px;line-height:1.44;letter-spacing:0;color:var(--ink)}
+html[data-lang="en"] .rw-ctitle{font-family:var(--f-disp);font-weight:500;font-size:18px;letter-spacing:-.01em}
+.rw-cmeta{font-size:11px;color:var(--mut-soft);font-weight:700;letter-spacing:0}
+html[data-lang="en"] .rw-cmeta{font-family:var(--f-mono);letter-spacing:.1em;text-transform:uppercase}
+.rw-creason{font-size:15px;color:var(--mut);line-height:1.5}
 .rw-cgo{flex:0 0 auto;color:var(--mut-soft);width:18px;height:18px}
 .rw-cgo svg{width:18px;height:18px;display:block}
 html[dir="rtl"] .rw-cgo{transform:scaleX(-1)}
-.rw-card:hover .rw-cgo{color:var(--ink)}
+.rw-card:hover .rw-cgo{color:var(--sig)}
 .rw-empty{text-align:center;color:var(--mut);font-size:16px;padding:32px 12px}
 .rw-rfoot{margin-top:24px}
 
 /* ── MOBILE: bottom sheet ─────────────────────────────────────────────────── */
 @media(max-width:640px){
   .rw-overlay{align-items:flex-end;padding:0}
-  .rw-sheet{max-width:none;max-height:92vh;border-radius:24px 24px 0 0;border-bottom:0;
+  .rw-sheet{max-width:none;max-height:92vh;border-radius:16px 16px 0 0;border-bottom:0;
     animation:rwSlide .3s var(--ease-drawer)}
+  /* bottom sheet exits down the way it came in — accelerating away */
+  .rw-overlay.closing .rw-sheet{animation:rwSlideOut .18s var(--ease-exit) forwards}
   .rw-body{padding:24px 20px calc(24px + env(safe-area-inset-bottom))}
-  .rw-body::before{content:"";position:absolute;top:10px;inset-inline-start:50%;transform:translateX(-50%);
+  /* drag handle — inset-inline:0 + margin auto centers in BOTH directions
+     (inset-inline-start:50% + translateX(-50%) drifts 40px off-center in RTL) */
+  .rw-body::before{content:"";position:absolute;top:10px;inset-inline:0;margin-inline:auto;
     width:40px;height:4px;border-radius:9999px;background:var(--line-strong)}
   .rw-head{margin-top:10px}
-  .rw-q h3{font-size:24px;letter-spacing:0}
+  .rw-q h3{font-size:22px;letter-spacing:0}
+  html[data-lang="en"] .rw-q h3{font-size:24px}
 }
 @keyframes rwSlide{from{transform:translateY(100%)}to{transform:none}}
+@keyframes rwSlideOut{to{transform:translateY(100%)}}
 
 /* ── accessibility ────────────────────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce){
-  .rw-sheet{animation:none}
+  .rw-sheet,.rw-overlay.open{animation:none}
+  .rw-overlay.closing,.rw-overlay.closing .rw-sheet{animation:none}
   .rw-card:hover{transform:none}
 }
 @media (prefers-reduced-transparency: reduce){
@@ -145,15 +203,17 @@ html[dir="rtl"] .rw-cgo{transform:scaleX(-1)}
    ═══════════════════════════════════════════════════════════════ */
 
 /* press feedback on every pressable surface in the wizard */
-.rw-card,.rw-x,.rw-skip{transition:transform var(--d1) var(--ease-out),
+.rw-card,.rw-x,.rw-skip,.rw-ghost{transition:transform var(--d1) var(--ease-out),
   background var(--d1) var(--ease),border-color var(--d1) var(--ease),box-shadow var(--d2) var(--ease-out)}
 .rw-card:active{transform:scale(.99)}
-.rw-x:active,.rw-skip:active{transform:scale(.94)}
+.rw-x:active,.rw-skip:active{transform:scale(.95)}
 .rw-chip:active{transform:scale(.98)}
+.rw-ghost:active{transform:scale(.97)}
 
-/* hover only where a real pointer exists — no sticky states on touch */
+/* hover only where a real pointer exists — no sticky states on touch.
+   Result rows stay still: ONE cue, the arrow slides and recolors (instrument
+   answer; the row-lift stacked a second motion on top of it) */
 @media (hover:hover) and (pointer:fine){
-  .rw-card:hover{transform:translateY(-2px)}
   .rw-card:hover .rw-cgo{transform:translateX(2px)}
   html[dir="rtl"] .rw-card:hover .rw-cgo{transform:scaleX(-1) translateX(2px)}
 }
@@ -173,20 +233,31 @@ html[dir="rtl"] .rw-cgo{transform:scaleX(-1)}
 .rw-cards .rw-card:nth-child(6){animation-delay:225ms}
 .rw-cards .rw-card:nth-child(n+7){animation-delay:270ms}
 
-/* step content swaps with a soft settle so the sheet doesn't jump */
-@keyframes rwStep{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
-.rw-q{animation:rwStep .26s var(--ease-out) both}
-/* the step dots fill like a progress bar rather than blinking */
-.rw-dot{transition:background var(--d2) var(--ease),transform var(--d2) var(--ease-out);transform-origin:left center}
+/* step swaps travel WITH the navigation — forward enters from the end edge,
+   back from the start edge (mirrored in RTL). recommend.js stamps data-dir on
+   the sheet: "fwd" / "back" on real navigation, "none" on chip re-renders so
+   picking an answer never replays the whole step. */
+@keyframes rwStepX{from{opacity:0;transform:translateX(var(--sx,0))}to{opacity:1;transform:none}}
+.rw-sheet[data-dir="fwd"] .rw-q,.rw-sheet[data-dir="fwd"] .rw-res{--sx:14px;animation:rwStepX .26s var(--ease-out) both}
+.rw-sheet[data-dir="back"] .rw-q,.rw-sheet[data-dir="back"] .rw-res{--sx:-14px;animation:rwStepX .26s var(--ease-out) both}
+html[dir="rtl"] .rw-sheet[data-dir="fwd"] .rw-q,html[dir="rtl"] .rw-sheet[data-dir="fwd"] .rw-res{--sx:-14px}
+html[dir="rtl"] .rw-sheet[data-dir="back"] .rw-q,html[dir="rtl"] .rw-sheet[data-dir="back"] .rw-res{--sx:14px}
+/* the rail fills like data changing — a quick sweep on forward navigation */
+@keyframes segFill{from{transform:scaleX(0)}}
+.rw-dot{transition:background-color var(--d2) var(--ease);transform-origin:left center}
 html[dir="rtl"] .rw-dot{transform-origin:right center}
-.rw-dot.on{transform:scaleX(1.08)}
+.rw-sheet[data-dir="fwd"] .rw-dot.on{animation:segFill var(--d2) var(--ease-out) backwards}
+.rw-sheet[data-dir="fwd"] .rw-dot.on:nth-child(2){animation-delay:50ms}
+.rw-sheet[data-dir="fwd"] .rw-dot.on:nth-child(3){animation-delay:100ms}
 
-/* selection tick pops rather than appearing from nothing */
+/* selection check pops rather than appearing from nothing — the square itself
+   is persistent now (checkbox affordance), so only the glyph animates */
 @keyframes tickIn{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:none}}
-.rw-chip.on .rw-cktick{animation:tickIn .2s var(--ease-out) both}
+.rw-chip.on .rw-cktick svg{animation:tickIn .2s var(--ease-out) both}
 
 @media (prefers-reduced-motion: reduce){
-  .rw-cards .rw-card,.rw-q,.rw-chip.on .rw-cktick{animation:none}
+  .rw-cards .rw-card,.rw-chip.on .rw-cktick svg{animation:none}
+  .rw-sheet[data-dir] .rw-q,.rw-sheet[data-dir] .rw-res,
+  .rw-sheet[data-dir="fwd"] .rw-dot.on{animation:none}
   .rw-card:hover{transform:none}
-  .rw-dot.on{transform:none}
 }

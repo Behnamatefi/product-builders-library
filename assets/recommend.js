@@ -201,7 +201,7 @@
 
   /* ── state + DOM ────────────────────────────────────────────────────────── */
   var state = { open: false, step: 1, level: null, intents: [], time: 'balanced' };
-  var root = null;
+  var root = null, lastFocus = null, closeTimer = null;
 
   function base() { return (document.body && document.body.getAttribute('data-book-base')) || ''; }
   function hrefFor(entry) { return base() + encodeURI(entry.folder + '/' + entry.slug + '.html'); }
@@ -213,12 +213,25 @@
     root.setAttribute('role', 'dialog');
     root.setAttribute('aria-modal', 'true');
     root.setAttribute('aria-label', 'Find my reading path');
-    root.innerHTML = '<div class="rw-sheet" role="document"><div class="rw-body" id="rwBody"></div></div>';
+    root.innerHTML = '<div class="rw-sheet" role="document" tabindex="-1"><div class="rw-body" id="rwBody"></div></div>';
     document.body.appendChild(root);
     root.addEventListener('click', function (e) { if (e.target === root) close(); });
     document.addEventListener('keydown', function (e) { if (state.open && e.key === 'Escape') close(); });
     return root;
   }
+
+  /* ── navigation direction — drives the step-transition motion ───────────── */
+  /* "fwd"/"back" slide the step content along the direction of travel;
+     "none" (chip picks, language flips) re-renders without replaying motion. */
+  function setDir(d) {
+    var sh = root && root.querySelector('.rw-sheet');
+    if (sh) sh.setAttribute('data-dir', d);
+  }
+  function nav(step) {
+    setDir(step === state.step ? 'none' : (step > state.step ? 'fwd' : 'back'));
+    state.step = step; render();
+  }
+  function rerender() { setDir('none'); render(); }
 
   function chip(active, label, sub) {
     return '<button type="button" class="rw-chip' + (active ? ' on' : '') + '">'
@@ -239,11 +252,15 @@
     var steps = 3;
     var dots = '';
     for (var i = 1; i <= steps; i++) dots += '<span class="rw-dot' + (i <= state.step ? ' on' : '') + '"></span>';
+    /* the rail is visual; announce "Step N of 3" to assistive tech instead */
+    var railLab = L === 'fa'
+      ? 'مرحلهٔ ' + faDigits(state.step) + ' از ' + faDigits(steps)
+      : 'Step ' + state.step + ' of ' + steps;
 
     var head = '<div class="rw-head">'
       + '<div class="rw-kicker"><span class="rw-spark">' + IC.spark + '</span>'
         + '<span data-only="en">Find my reading path</span><span data-only="fa">مسیرِ خواندنم را پیدا کن</span></div>'
-      + '<div class="rw-steps">' + dots + '</div>'
+      + '<div class="rw-steps" role="img" aria-label="' + railLab + '">' + dots + '</div>'
       + '</div>';
 
     var content, foot;
@@ -257,7 +274,7 @@
         + '<p><span data-only="en">Pick the level that fits you best.</span><span data-only="fa">سطحی را که بیشتر به تو می‌خورد انتخاب کن.</span></p>'
         + '<div class="rw-chips rw-lvls" data-group="level">' + lvls + '</div></div>';
       foot = '<div class="rw-foot">'
-        + '<span class="rw-skip" id="rwSkip"><span data-only="en">Skip</span><span data-only="fa">رد کن</span></span>'
+        + '<button type="button" class="rw-skip" id="rwSkip"><span data-only="en">Skip</span><span data-only="fa">رد کن</span></button>'
         + '<button class="rw-next" id="rwNext"' + (state.level ? '' : ' disabled') + '>'
           + '<span data-only="en">Next</span><span data-only="fa">بعدی</span>'
           + '<span class="rw-fwd">' + IC.fwd + '</span></button></div>';
@@ -299,17 +316,17 @@
       var btns = wrap.querySelectorAll('.rw-chip');
       btns.forEach(function (b, i) {
         b.onclick = function () {
-          if (group === 'level') { state.level = LEVELS[i].key; render(); }
-          else if (group === 'time') { state.time = TIMES[i].key; render(); }
+          if (group === 'level') { state.level = LEVELS[i].key; rerender(); }
+          else if (group === 'time') { state.time = TIMES[i].key; rerender(); }
           else if (group === 'intent') {
             var k = INTENTS[i].key, at = state.intents.indexOf(k);
             if (at === -1) state.intents.push(k); else state.intents.splice(at, 1);
-            render();
+            rerender();
           }
         };
       });
     });
-    function goTo(step) { state.step = step; render(); }
+    function goTo(step) { nav(step); }
     var nx = root.querySelector('#rwNext');  if (nx) nx.onclick  = function () { if (state.level) goTo(2); };
     var sk = root.querySelector('#rwSkip');  if (sk) sk.onclick  = function () { goTo(2); };
     var bk = root.querySelector('#rwBack');  if (bk) bk.onclick  = function () { goTo(1); };
@@ -347,7 +364,8 @@
       + '</div>'
       + '<div class="rw-cards">' + (cards || emptyMsg()) + '</div>'
       + '<div class="rw-foot rw-rfoot">'
-        + '<button class="rw-ghost" id="rwRestart"><span data-only="en">Start over</span><span data-only="fa">از نو</span></button>'
+        /* answers are kept when going back — say so ("Adjust", not "Start over") */
+        + '<button class="rw-ghost" id="rwRestart"><span data-only="en">Adjust answers</span><span data-only="fa">تغییرِ پاسخ‌ها</span></button>'
         + (first ? '<a class="rw-next" id="rwStart" href="' + hrefFor(first.entry) + '">'
             + '<span data-only="en">Start reading</span><span data-only="fa">شروعِ خواندن</span>'
             + '<span class="rw-fwd">' + IC.fwd + '</span></a>' : '')
@@ -360,27 +378,50 @@
   function wireResults() {
     root.querySelector('#rwClose').onclick = close;
     var rs = root.querySelector('#rwRestart');
-    if (rs) rs.onclick = function () { state.step = 1; render(); };
+    if (rs) rs.onclick = function () { nav(1); };
   }
 
   /* ── open / close ───────────────────────────────────────────────────────── */
-  function open() {
+  function open(trigger) {
     ensureRoot();
+    if (closeTimer) { clearTimeout(closeTimer); closeTimer = null; }
+    root.classList.remove('closing');
+    /* return focus here on close — Safari/Firefox don't focus buttons on click,
+       so fall back to the trigger instead of document.body (mirrors book.js) */
+    var ae = document.activeElement;
+    lastFocus = (ae && ae !== document.body && ae !== document.documentElement) ? ae
+      : (trigger && trigger.focus ? trigger : null);
     state.open = true; state.step = 1;
+    setDir('fwd');                 /* first step slides in with the sheet */
     render();
     root.classList.add('open');
     document.documentElement.style.overflow = 'hidden';
+    var sh = root.querySelector('.rw-sheet');
+    if (sh) { try { sh.focus({ preventScroll: true }); } catch (e) { sh.focus(); } }
   }
   function close() {
-    if (!root) return;
+    if (!root || !state.open) return;
     state.open = false;
-    root.classList.remove('open');
-    document.documentElement.style.overflow = '';
+    var finish = function () {
+      closeTimer = null;
+      root.classList.remove('open');
+      root.classList.remove('closing');
+      document.documentElement.style.overflow = '';
+      if (lastFocus && lastFocus.focus) { try { lastFocus.focus({ preventScroll: true }); } catch (e) {} }
+      lastFocus = null;
+    };
+    /* exit travels the entrance path back out, faster (.18s) — skipped
+       entirely under prefers-reduced-motion */
+    var reduce = false;
+    try { reduce = matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+    if (reduce) { finish(); return; }
+    root.classList.add('closing');
+    closeTimer = setTimeout(finish, 190);
   }
 
   /* re-render live when the host page flips language/theme while open */
   try {
-    new MutationObserver(function () { if (state.open) render(); })
+    new MutationObserver(function () { if (state.open) rerender(); })
       .observe(DL, { attributes: true, attributeFilter: ['data-lang'] });
   } catch (e) {}
 
@@ -388,7 +429,7 @@
   function wireTriggers() {
     [].slice.call(document.querySelectorAll('[data-recommend]')).forEach(function (el) {
       if (el.__rwWired) return; el.__rwWired = true;
-      el.addEventListener('click', function (ev) { ev.preventDefault(); open(); });
+      el.addEventListener('click', function (ev) { ev.preventDefault(); open(el); });
     });
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', wireTriggers);

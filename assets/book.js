@@ -57,7 +57,7 @@
     moon:  '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.6 6.6 0 0 0 9.8 9.8Z"/></svg>',
     play:  '<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>',
     li:    '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.3c0-1.26-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9z"/></svg>',
-    logo:  '<svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect x="1" y="1" width="30" height="30" rx="8" fill="var(--accent)"/><g stroke="var(--accent-ink)" stroke-width="1.7" stroke-linecap="round" opacity=".9"><path d="M16 16 8.5 9.5M16 16l8-4M16 16l-3 8.5"/></g><g fill="var(--accent-ink)"><circle cx="16" cy="16" r="3.1"/><circle cx="8.5" cy="9.5" r="2.1"/><circle cx="24" cy="12" r="2.1"/><circle cx="13" cy="24.5" r="2.1"/></g></svg>'
+    logo:  '<svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect x="1" y="1" width="30" height="30" rx="7" fill="var(--card2)" stroke="var(--line-strong)"/><g stroke="var(--ink)" stroke-width="1.7" stroke-linecap="round" opacity=".9"><path d="M16 16 8.5 9.5M16 16l8-4M16 16l-3 8.5"/></g><g fill="var(--ink)"><circle cx="8.5" cy="9.5" r="2.1"/><circle cx="24" cy="12" r="2.1"/><circle cx="13" cy="24.5" r="2.1"/></g><circle cx="16" cy="16" r="3.1" fill="var(--ink)"/></svg>'
   };
   var MASTHEAD =
     '<header class="masthead"><a class="logo" href="../index.html" aria-label="Product Builder\'s Library — home">'
@@ -79,6 +79,23 @@
   /* meta strings may contain intentional inline markup (<i>, <b>) — pass through as-is */
   function esc0(s) { return s == null ? '' : String(s); }
 
+  /* hero HUD corner readout — real coordinates from the manifest:
+     "GROUP 03/16 // BOOK 07/50" (FA: Persian digits, «از» instead of the slash) */
+  function heroHud(m) {
+    var lib = window.LIBRARY || [];
+    var idx = -1, groups = 0;
+    for (var i = 0; i < lib.length; i++) {
+      if (lib[i].slug === m.slug) idx = i;
+      if (lib[i].groupNum > groups) groups = lib[i].groupNum;
+    }
+    if (idx < 0 || !lib.length) return '';
+    var g = ('0' + lib[idx].groupNum).slice(-2), b = ('0' + (idx + 1)).slice(-2);
+    return '<div class="hud" aria-hidden="true">'
+      + '<span data-only="en">Group ' + g + '/' + groups + ' // Book ' + b + '/' + lib.length + '</span>'
+      + '<span data-only="fa">گروه ' + faDigits(g) + ' از ' + faDigits(groups) + ' // کتاب ' + faDigits(b) + ' از ' + faDigits(lib.length) + '</span>'
+      + '</div>';
+  }
+
   function renderShell(m) {
     var chips = (m.chips || []).map(heroChip).join('');
     var kboxes = (m.kboxes || []).map(kbox).join('');
@@ -89,6 +106,7 @@
     MASTHEAD
     /* ── HERO ── */
     + '<header class="hero"><div class="wrap">'
+      + heroHud(m)
       + '<div class="eyebrow"><span class="edot"></span>'
         + '<span data-only="en">Book knowledge map · ' + esc0((m.eyebrow_author || m.author).en) + '</span>'
         + '<span data-only="fa">نقشهٔ کتاب · ' + esc0((m.eyebrow_author || m.author).fa) + '</span></div>'
@@ -154,8 +172,8 @@
       + '<p class="sub" data-only="en">The whole book as one picture. Click any node to focus its connections and read more — or switch to the structured map.</p>'
       + '<p class="sub" data-only="fa">کلِ کتاب در یک تصویر. روی هر دایره کلیک کن تا ارتباط‌هایش را ببینی و بیشتر بخوانی — یا به نقشهٔ مرتب برو.</p>'
       + '<div class="gtabs">'
-        + '<button class="gtab active" id="tabNet"><span data-only="en">Interactive network</span><span data-only="fa">شبکهٔ تعاملی</span></button>'
-        + '<button class="gtab" id="tabMap"><span data-only="en">Structured map</span><span data-only="fa">نقشهٔ مرتب</span></button>'
+        + '<button class="gtab active" id="tabNet" aria-pressed="true"><span data-only="en">Interactive network</span><span data-only="fa">شبکهٔ تعاملی</span></button>'
+        + '<button class="gtab" id="tabMap" aria-pressed="false"><span data-only="en">Structured map</span><span data-only="fa">نقشهٔ مرتب</span></button>'
       + '</div>'
       + '<div class="graphfull" id="netView"><div class="legend" id="legendHost"></div>'
         + '<div class="svgwrap">'
@@ -197,10 +215,14 @@
 
       /* ── credit footer ── */
       + '<div class="credit">'
-        + '<span data-only="en">Created by <span class="cname">Behnam Atefi</span><span class="sep">·</span>'
+        + '<div><span data-only="en">Created by <span class="cname">Behnam Atefi</span><span class="sep">·</span>'
           + '<a class="li" href="https://www.linkedin.com/in/behnamatefi/" target="_blank" rel="noopener">' + IC.li + 'LinkedIn</a></span>'
         + '<span data-only="fa">ساخته‌شده توسط <span class="cname">بهنام عاطفی</span><span class="sep">·</span>'
-          + '<a class="li" href="https://www.linkedin.com/in/behnamatefi/" target="_blank" rel="noopener">' + IC.li + 'لینکدین</a></span>'
+          + '<a class="li" href="https://www.linkedin.com/in/behnamatefi/" target="_blank" rel="noopener">' + IC.li + 'لینکدین</a></span></div>'
+        + '<div class="foot-close">'
+          + '<span data-only="en">Product Builder’s Library // 50 books // EN·FA</span>'
+          + '<span data-only="fa">کتابخانهٔ سازندهٔ محصول // ۵۰ کتاب // EN·FA</span>'
+        + '</div>'
       + '</div>'
     + '</div>';
 
@@ -215,7 +237,8 @@
     return '<a href="#' + id + '" data-only="en">' + o.en + '</a><a href="#' + id + '" data-only="fa">' + o.fa + '</a>';
   }
   function h2(id, n, o) {
-    return '<h2 id="' + id + '"><span class="num" data-only="en">' + n + '.</span><span class="num" data-only="fa">' + faDigits(n) + '.</span>'
+    var nn = ('0' + n).slice(-2);   /* instrument index: 01 … 07 */
+    return '<h2 id="' + id + '"><span class="num" data-only="en">' + nn + ' //</span><span class="num" data-only="fa">' + faDigits(nn) + ' //</span>'
       + '<span data-only="en">' + o.en + '</span><span data-only="fa">' + o.fa + '</span></h2>';
   }
 
@@ -264,8 +287,38 @@
 
     var overlay = document.getElementById('libOverlay');
     var openBtn = document.getElementById('navAll'), closeBtn = document.getElementById('libClose');
-    function open() { if (overlay) overlay.classList.add('open'); }
-    function close() { if (overlay) overlay.classList.remove('open'); }
+    var libTimer = null, libLastFocus = null;
+    function open() {
+      if (!overlay) return;
+      if (libTimer) { clearTimeout(libTimer); libTimer = null; }
+      overlay.classList.remove('closing');
+      overlay.classList.add('open');
+      document.documentElement.style.overflow = 'hidden';
+      /* return focus here on close — Safari/Firefox don't focus buttons on click,
+         so fall back to the opener instead of document.body */
+      var ae = document.activeElement;
+      libLastFocus = (ae && ae !== document.body && ae !== document.documentElement) ? ae : openBtn;
+      var cb = document.getElementById('libClose');
+      if (cb) { try { cb.focus({ preventScroll: true }); } catch (e) { cb.focus(); } }
+    }
+    function finishClose() {
+      libTimer = null;
+      overlay.classList.remove('open');
+      overlay.classList.remove('closing');
+      document.documentElement.style.overflow = '';
+      if (libLastFocus && libLastFocus.focus) { try { libLastFocus.focus({ preventScroll: true }); } catch (e) {} }
+      libLastFocus = null;
+    }
+    function close() {
+      if (!overlay || !overlay.classList.contains('open') || libTimer) return;
+      /* exit rides the entrance path back out, faster (.18s) — skipped
+         entirely under prefers-reduced-motion */
+      var reduce = false;
+      try { reduce = matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+      if (reduce) { finishClose(); return; }
+      overlay.classList.add('closing');
+      libTimer = setTimeout(finishClose, 190);
+    }
     if (openBtn) openBtn.addEventListener('click', open);
     if (closeBtn) closeBtn.addEventListener('click', close);
     if (overlay) overlay.addEventListener('click', function (e) { if (e.target === overlay) close(); });
@@ -361,7 +414,8 @@
 
   /* ── INTERACTIVE NETWORK GRAPH (deterministic radial layout, no physics) ── */
   var GRAPH = (function () {
-    var svg, nodes = [], links = [], sel = null, dragNode = null, moved = false, startPt = null;
+    var svg, nodes = [], links = [], sel = null, dragNode = null, dragEl = null, moved = false, startPt = null;
+    var detailTimer = null;                        /* pending readout-swap exit */
     var vbX = 0, vbY = 0, vbW = 1360, vbH = 760;   // fitted viewBox (computed from node bbox so nothing clips)
 
     function build() {
@@ -416,10 +470,14 @@
       nodes.forEach(function (n) {
         var inside = '', below = '';
         if (n.kind === 'core') {
-          inside = '<text text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="var(--accent-ink)" letter-spacing="0.5">' + shortLabel(n) + '</text>';
+          /* core is the orange lamp — ink on orange is always black (--sig-ink) */
+          inside = '<text text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="var(--sig-ink)" letter-spacing="0.5">' + shortLabel(n) + '</text>';
         } else {
           if (n.kind === 'chap') {
-            inside = '<text text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="600" fill="var(--ink)">' + num(n.data.n) + '</text>';
+            /* chapter discs use the tonal ramp — each tone has its own AA numeral
+               ink token (--cink-*) so numerals pass contrast in BOTH themes */
+            var cink = String(n.varc).replace('--c-', '--cink-');
+            inside = '<text text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="600" fill="var(' + cink + ', var(--bg))">' + num(n.data.n) + '</text>';
           }
           var ly = n.r + (n.kind === 'part' ? 21 : 17);
           var fs = n.kind === 'part' ? 16 : 13;
@@ -469,8 +527,10 @@
     function onDown(e) {
       e.preventDefault();
       dragNode = byId(e.currentTarget.getAttribute('data-id'));
+      dragEl = e.currentTarget;
       moved = false; startPt = toSvg(e); svg.style.cursor = 'grabbing';
-      e.currentTarget.classList.remove('hover');
+      dragEl.classList.remove('hover');
+      dragEl.classList.add('drag');           /* CSS lift while it travels */
       window.addEventListener('pointermove', onMove);
       window.addEventListener('pointerup', onUp);
     }
@@ -482,7 +542,8 @@
       positions();
     }
     function onUp() {
-      dragNode = null; svg.style.cursor = 'grab';
+      if (dragEl) dragEl.classList.remove('drag');
+      dragNode = null; dragEl = null; svg.style.cursor = 'grab';
       window.removeEventListener('pointermove', onMove);
       window.removeEventListener('pointerup', onUp);
     }
@@ -525,16 +586,17 @@
     function drawRelations(node) {
       var g = svg.querySelector('#grel'); if (!g) return;
       var rel = relatedIds(node), html = '';
-      rel.forEach(function (rid) {
+      rel.forEach(function (rid, ri) {
         var b = byId(rid); if (!b) return;
         var d = linkPath(node, b, 0.14);
         var len = Math.hypot(b.x - node.x, b.y - node.y) * 1.5;
-        html += '<path class="rel draw" data-s="' + node.id + '" data-t="' + rid + '" style="--len:' + len.toFixed(0) + '" stroke-width="2.2" d="' + d + '"/>';
+        /* sequential draw — the circuit traces one line at a time (45ms apart) */
+        html += '<path class="rel draw" data-s="' + node.id + '" data-t="' + rid + '" style="--len:' + len.toFixed(0) + ';animation-delay:' + (ri * 45) + 'ms" stroke-width="2.2" d="' + d + '"/>';
       });
       g.innerHTML = html;
     }
 
-    function select(id) {
+    function select(id, instant) {
       var n = byId(id); if (!n) return;
       sel = id;
       svg.querySelectorAll('.node').forEach(function (g) { g.classList.toggle('sel', g.getAttribute('data-id') === id); });
@@ -560,13 +622,27 @@
         html += '<div class="drow"><div class="dlab">' + (LANG === 'fa' ? 'مرتبط' : 'Related') + '</div><div class="dchips">' + chips + '</div></div>';
       }
       var host = document.getElementById('detailHost');
-      host.innerHTML = html;
-      host.classList.remove('pop'); void host.offsetWidth; host.classList.add('pop');  // restart materialize on each select
-      host.querySelectorAll('.dchip').forEach(function (c) {
-        c.addEventListener('click', function () { select(c.getAttribute('data-goto')); });
-      });
+      function apply() {
+        host.classList.remove('out');
+        host.innerHTML = html;
+        host.classList.remove('pop'); void host.offsetWidth; host.classList.add('pop');  // restart materialize on each select
+        host.querySelectorAll('.dchip').forEach(function (c) {
+          c.addEventListener('click', function () { select(c.getAttribute('data-goto')); });
+        });
+      }
+      /* exit-then-enter: the old readout blinks out (.12s) before the new one
+         materializes — the graph itself responds instantly (focus + relations
+         above), only the panel follows. Instant on first paint, full re-renders
+         (relabel) and under prefers-reduced-motion. */
+      var reduce = false;
+      try { reduce = matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+      if (detailTimer) { clearTimeout(detailTimer); detailTimer = null; }
+      if (instant || reduce || !host.innerHTML) { apply(); return; }
+      host.classList.add('out');
+      detailTimer = setTimeout(function () { detailTimer = null; apply(); }, 110);
     }
-    function relabel() { if (!svg) return; draw(); select(sel || 'core'); }
+    /* full re-render (language flip) — swap the readout without replaying the exit */
+    function relabel() { if (!svg) return; draw(); select(sel || 'core', true); }
 
     return {
       build: build,
@@ -580,12 +656,27 @@
   })();
 
   /* ── 5-STAGE LADDER ─────────────────────────────────────────────────────── */
-  var curStage = 0;
+  var curStage = 0, ladderSettled = false, stageSettled = false;
+  /* HUD grammar for the rung label — "STAGE 1 // ELI5" (the annotation layer the
+     component is named for). EN tags are fixed per level; FA reuses the short
+     tag already in the stage badge ("سطحِ ۱ · خیلی ساده" → "خیلی ساده"). */
+  var STAGE_TAG_EN = { 1: 'ELI5', 2: 'Simple', 3: 'Balanced', 4: 'Advanced', 5: 'Expert' };
+  function rungLabel(s) {
+    if (LANG === 'fa') {
+      var tf = (s.badge && s.badge.fa && s.badge.fa.indexOf('·') > -1) ? s.badge.fa.split('·')[1].trim() : '';
+      return 'سطحِ ' + num(s.level) + (tf ? ' // ' + tf : '');
+    }
+    var te = STAGE_TAG_EN[s.level] || ((s.badge && s.badge.en && s.badge.en.indexOf('·') > -1) ? s.badge.en.split('·')[1].trim() : '');
+    return 'Stage ' + s.level + (te ? ' // ' + te : '');
+  }
   function renderLadder() {
     var host = document.getElementById('ladderHost'); host.innerHTML = '';
+    /* after the first paint the entrance cascade never replays (see book.css
+       .ladder[data-settled]) — rung clicks and language flips stay instant */
+    if (ladderSettled) host.setAttribute('data-settled', '1');
     DATA.stages.forEach(function (s, i) {
       var r = document.createElement('div'); r.className = 'rung' + (i === curStage ? ' active' : '');
-      r.innerHTML = '<div class="lv">' + (LANG === 'fa' ? ('سطحِ ' + num(s.level)) : ('Level ' + s.level)) + '</div>'
+      r.innerHTML = '<div class="lv">' + rungLabel(s) + '</div>'
         + '<div class="lt">' + TX(s.title) + '</div>'
         + '<div class="lbar"><i style="width:' + (s.level * 20) + '%"></i></div>';
       r.addEventListener('click', function () {
@@ -594,10 +685,14 @@
       });
       host.appendChild(r);
     });
+    ladderSettled = true;
   }
   function renderStage() {
     var s = DATA.stages[curStage];
     var host = document.getElementById('stageHost');
+    /* after the first paint the swap cascade never replays (see book.css
+       #stageHost[data-settled]) — rung clicks and language flips stay instant */
+    if (stageSettled) host.setAttribute('data-settled', '1');
     var exLabel = LANG === 'fa' ? 'مثال' : 'Example';
     var prev = LANG === 'fa' ? 'مرحلهٔ قبل' : '‹ Prev', next = LANG === 'fa' ? 'مرحلهٔ بعد' : 'Next ›';
     host.innerHTML = ''
@@ -614,6 +709,7 @@
     var pv = document.getElementById('stPrev'), nx = document.getElementById('stNext');
     if (pv) pv.onclick = function () { if (curStage > 0) { curStage--; renderLadder(); renderStage(); } };
     if (nx) nx.onclick = function () { if (curStage < DATA.stages.length - 1) { curStage++; renderLadder(); renderStage(); } };
+    stageSettled = true;
   }
 
   /* ── legend + graph tabs ────────────────────────────────────────────────── */
@@ -624,15 +720,18 @@
     host.innerHTML = items.map(function (it) {
       return '<span><i style="background:var(' + it.c + ')"></i>' + (LANG === 'fa' ? faText(it.fa) : it.en) + '</span>';
     }).join('');
-    document.getElementById('ghint').textContent = LANG === 'fa' ? 'روی هر دایره کلیک کن تا بیشتر بخوانی · می‌توانی بکشی‌شان' : 'Click a node to read more · drag to move';
+    /* "//" prefix — the graph chrome speaks the same HUD annotation grammar it
+       floats over (language-neutral punctuation, renders at the logical start in RTL) */
+    document.getElementById('ghint').textContent = LANG === 'fa' ? '// روی هر دایره کلیک کن تا بیشتر بخوانی · می‌توانی بکشی‌شان' : '// Click a node to read more · drag to move';
     document.getElementById('greset').textContent = LANG === 'fa' ? '↺ چیدمان' : '↺ Reset';
   }
   function setupTabs() {
     function show(net) {
       document.getElementById('netView').style.display = net ? '' : 'none';
       document.getElementById('mapView').style.display = net ? 'none' : '';
-      document.getElementById('tabNet').classList.toggle('active', net);
-      document.getElementById('tabMap').classList.toggle('active', !net);
+      var tn = document.getElementById('tabNet'), tm = document.getElementById('tabMap');
+      tn.classList.toggle('active', net);  tn.setAttribute('aria-pressed', net ? 'true' : 'false');
+      tm.classList.toggle('active', !net); tm.setAttribute('aria-pressed', net ? 'false' : 'true');
       if (net) GRAPH.kick();
     }
     document.getElementById('tabNet').onclick = function () { show(true); };

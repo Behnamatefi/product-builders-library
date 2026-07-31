@@ -26,89 +26,168 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,200..700;1,6..72,200..700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Newsreader:ital,opsz,wght@0,6..72,200..700;1,6..72,200..700&display=swap" rel="stylesheet">
 <link href="assets/recommend.css" rel="stylesheet">
 
 <style>
-/* ── TOKENS — editorial palette (see docs/DESIGN-elevenlabs.md) ── */
-:root, [data-theme="light"]{
-  --bg:#f5f5f5; --bg2:#fafafa; --card:#ffffff; --card2:#f0efed;
-  --ink:#0c0a09; --mut:#4e4e4e; --mut-soft:#777169;
-  --line:#e7e5e4; --line-soft:#f0efed; --line-strong:#d6d3d1;
-  --accent:#292524; --accent-active:#0c0a09; --accent-ink:#ffffff;
-  --shadow:0 1px 2px rgba(12,10,9,.03);
-  --shadow-lg:0 4px 16px rgba(0,0,0,.04);
-  --g-mint:#a7e5d3; --g-peach:#f4c5a8; --g-lavender:#c8b8e0; --g-sky:#a8c8e8; --g-rose:#e8b8c4;
-  --c-teal:#a7e5d3; --c-blue:#a8c8e8; --c-violet:#c8b8e0; --c-amber:#f4c5a8;
-  --c-green:#a7e5d3; --c-red:#e8b8c4; --c-gold:#f4c5a8; --c-gray:#d6d3d1;
+/* ── TOKENS — reading instrument (see docs/ART-DIRECTION.md) ── */
+:root, [data-theme="dark"]{
+  --bg:#0A0A0A; --bg2:#111110; --card:#161514; --card2:#211F1D;
+  --ink:#F4F3F0; --mut:#A8A49C; --mut-soft:#8A8680;
+  --line:#262523; --line-soft:#1C1B1A; --line-strong:#3A3835;
+  --accent:#F4F3F0; --accent-active:#FFFFFF; --accent-ink:#0A0A0A;
+  --sig:#FF4514; --sig-press:#E63D0F; --sig-soft:#FF6B3D; --sig-ink:#0A0A0A;
+  /* dark bar = --card2 surface step (§4.4) — #000 on #0A0A0A was imperceptible */
+  --bar:#211F1D; --bar-ink:#F4F3F0;
+  --shadow:0 0 0 0 transparent;
+  --shadow-lg:0 0 0 0 transparent;
+  --ok:#F4F3F0; --err:#FF4514;
+  --f-disp:"Space Grotesk",-apple-system,system-ui,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --f-serif:Newsreader,"Times New Roman",serif;
+  --f-fa:Vazirmatn,"Segoe UI",Tahoma,Arial,sans-serif;
   --ease:cubic-bezier(.23,1,.32,1); --ease-out:cubic-bezier(.23,1,.32,1); --ease-io:cubic-bezier(.77,0,.175,1); --ease-drawer:cubic-bezier(.32,.72,0,1);
-  --d1:.16s; --d2:.28s;
+  /* exits accelerate away; entrances decelerate in (craft rule) */
+  --ease-exit:cubic-bezier(.4,0,1,1);
+  --d1:.16s; --d2:.28s; --d3:.5s;
 }
-[data-theme="dark"]{
-  --bg:#0c0a09; --bg2:#1c1917; --card:#1c1917; --card2:#292524;
-  --ink:#ffffff; --mut:#a8a29e; --mut-soft:#a8a29e;
-  --line:#292524; --line-soft:#1c1917; --line-strong:#44403c;
-  --accent:#f5f5f5; --accent-active:#ffffff; --accent-ink:#0c0a09;
-  --shadow:0 1px 2px rgba(0,0,0,.5);
-  --shadow-lg:0 4px 20px rgba(0,0,0,.45);
-  --g-mint:#a7e5d3; --g-peach:#f4c5a8; --g-lavender:#c8b8e0; --g-sky:#a8c8e8; --g-rose:#e8b8c4;
-  --c-teal:#a7e5d3; --c-blue:#a8c8e8; --c-violet:#c8b8e0; --c-amber:#f4c5a8;
-  --c-green:#a7e5d3; --c-red:#e8b8c4; --c-gold:#f4c5a8; --c-gray:#57534e;
-  --ease:cubic-bezier(.23,1,.32,1); --ease-out:cubic-bezier(.23,1,.32,1); --ease-io:cubic-bezier(.77,0,.175,1); --ease-drawer:cubic-bezier(.32,.72,0,1);
-  --d1:.16s; --d2:.28s;
+[data-theme="light"]{
+  --bg:#F2F0EC; --bg2:#EAE8E3; --card:#FAF9F7; --card2:#E4E1DB;
+  --ink:#111110; --mut:#4A4843; --mut-soft:#6E6A63;
+  --line:#D8D5CE; --line-soft:#E5E2DC; --line-strong:#B9B5AC;
+  --accent:#111110; --accent-active:#000000; --accent-ink:#F2F0EC;
+  --sig:#F03E10; --sig-press:#D63407; --sig-soft:#F03E10; --sig-ink:#111110;
+  --bar:#111110; --bar-ink:#F2F0EC;
+  --shadow:0 0 0 0 transparent;
+  --shadow-lg:0 0 0 0 transparent;
+  --ok:#111110; --err:#D63407;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;overflow-x:clip}
+/* document scrollbar joins the instrument (Firefox; WebKit keeps the OS bar) */
+html{scroll-behavior:smooth;overflow-x:clip;scrollbar-color:var(--line-strong) var(--bg)}
 body{margin:0;overflow-x:clip;background:var(--bg);color:var(--mut);
-  font-family:Vazirmatn,"Segoe UI",Tahoma,Arial,sans-serif;line-height:1.7;font-size:16px;
-  transition:background .4s var(--ease),color .4s var(--ease);-webkit-font-smoothing:antialiased}
-html[data-lang="en"] body{font-family:Inter,-apple-system,system-ui,Arial,sans-serif;line-height:1.5;letter-spacing:.16px}
+  font-family:var(--f-fa);line-height:1.7;font-size:16px;
+  transition:background .4s var(--ease),color .4s var(--ease);
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+html[data-lang="en"] body{font-family:var(--f-disp);line-height:1.55;letter-spacing:.01em}
 .wrap{max-width:1200px;margin:0 auto;padding:0 24px 96px}
 html[data-lang="en"] [data-only="fa"]{display:none !important}
 html[data-lang="fa"] [data-only="en"]{display:none !important}
 button,a{-webkit-tap-highlight-color:transparent}
-:focus-visible{outline:2px solid var(--ink);outline-offset:2px;border-radius:9999px}
+/* focus ring follows each element's own shape — never reshapes it */
+:focus-visible{outline:2px solid var(--sig);outline-offset:2px}
 .langbtn,.themebtn,.rw-trigger,.navlink{transition:transform var(--d1) var(--ease),background var(--d1) var(--ease),color var(--d1) var(--ease)}
 .langbtn:active,.themebtn:active,.rw-trigger:active{transform:scale(.97)}
 @media(prefers-reduced-transparency:reduce){.navbar{backdrop-filter:none;-webkit-backdrop-filter:none;background:var(--bg)}}
 @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}
-  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;
+  /* gentle, not zero — and NO blanket transform:none: RTL scaleX(-1) mirrors
+     (.bchev) and rest-state transforms are layout, not motion. Delays are
+     zeroed too so `backwards`-filled staggers paint instantly. */
+  *,*::before,*::after{animation-duration:.01ms !important;animation-delay:0s !important;
+    animation-iteration-count:1 !important;
     transition-property:opacity,color,background-color,border-color !important;
-    transition-duration:.15s !important;transform:none !important}}
+    transition-duration:.15s !important;transition-delay:0s !important}}
 
-/* ── HERO — off-white editorial band with atmospheric orbs ── */
-.hero{background:var(--bg);color:var(--ink);padding:96px 0 80px;position:relative;overflow:hidden}
-.hero::before{content:"";position:absolute;inset-inline-end:-6%;top:-70%;width:56%;height:200%;pointer-events:none;
-  background:radial-gradient(closest-side,var(--g-lavender),transparent 70%);opacity:.5}
-.hero::after{content:"";position:absolute;inset-inline-start:-10%;bottom:-95%;width:50%;height:180%;pointer-events:none;
-  background:radial-gradient(closest-side,var(--g-mint),transparent 70%);opacity:.42}
+/* ── HERO — near-black canvas with a dot-matrix corner ────── */
+.hero{background:var(--bg);color:var(--ink);padding:128px 0 96px;position:relative;overflow:hidden}
+/* dot-matrix field, faded radially so it reads as texture, not wallpaper */
+.hero::before{content:"";position:absolute;inset-block:-8%;inset-inline-end:-4%;width:52%;pointer-events:none;
+  background-image:radial-gradient(circle,var(--line-strong) 1px,transparent 1.5px);
+  background-size:12px 12px;opacity:.6;
+  -webkit-mask-image:radial-gradient(closest-side,#000 20%,transparent 78%);
+          mask-image:radial-gradient(closest-side,#000 20%,transparent 78%)}
+/* lit dots as DATA, not noise — the page's ONE oversized instrument moment
+   (ref 2's giant specimen): a rising LED bar chart, six 48px columns of orange
+   dots on a 16px grid, stepped up toward the inline end. Reads as a chart at
+   squint distance, not an accessory. */
+.hero::after{content:"";position:absolute;top:24%;inset-inline-end:6%;width:368px;height:240px;pointer-events:none;
+  background-image:radial-gradient(circle,var(--sig) 2px,transparent 2.5px);
+  background-size:16px 16px;opacity:.9;
+  -webkit-mask-image:linear-gradient(#000,#000),linear-gradient(#000,#000),linear-gradient(#000,#000),linear-gradient(#000,#000),linear-gradient(#000,#000),linear-gradient(#000,#000);
+          mask-image:linear-gradient(#000,#000),linear-gradient(#000,#000),linear-gradient(#000,#000),linear-gradient(#000,#000),linear-gradient(#000,#000),linear-gradient(#000,#000);
+  -webkit-mask-size:48px 48px,48px 80px,48px 112px,48px 160px,48px 208px,48px 240px;
+          mask-size:48px 48px,48px 80px,48px 112px,48px 160px,48px 208px,48px 240px;
+  -webkit-mask-position:0 100%,64px 100%,128px 100%,192px 100%,256px 100%,320px 100%;
+          mask-position:0 100%,64px 100%,128px 100%,192px 100%,256px 100%,320px 100%;
+  -webkit-mask-repeat:no-repeat;mask-repeat:no-repeat}
+/* RTL: the chart rises toward the inline end (leftward) — reverse the steps */
+html[dir="rtl"] .hero::after{
+  -webkit-mask-size:48px 240px,48px 208px,48px 160px,48px 112px,48px 80px,48px 48px;
+          mask-size:48px 240px,48px 208px,48px 160px,48px 112px,48px 80px,48px 48px}
+/* below the wide desktop the chart would collide with the headline — drop it */
+@media(max-width:1100px){.hero::after{display:none}}
 .hero .wrap{padding-bottom:0;position:relative;z-index:1;max-width:1200px}
-.hero h1{margin:0 0 24px;font-size:clamp(36px,6vw,64px);font-weight:300;letter-spacing:-.03em;
-  line-height:1.05;color:var(--ink);max-width:16ch}
-html[data-lang="en"] .hero h1{font-family:Newsreader,"Times New Roman",serif;font-weight:300}
-.hero .dek{margin:0;font-size:16px;max-width:56ch;line-height:1.5;color:var(--mut);letter-spacing:.16px}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;
-  letter-spacing:.96px;text-transform:uppercase;color:var(--ink);background:var(--card2);
-  border:0;padding:4px 10px;border-radius:9999px;margin-bottom:24px}
-.eyebrow .edot{width:6px;height:6px;border-radius:50%;background:var(--ink)}
-.chips{display:flex;flex-wrap:wrap;gap:16px;margin-top:48px}
-.chip{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 24px;
-  font-size:14px;color:var(--mut);min-width:132px}
-.chip b{font-size:32px;display:block;font-weight:300;color:var(--ink);line-height:1.13;letter-spacing:-.32px}
-html[data-lang="en"] .chip b{font-family:Newsreader,"Times New Roman",serif}
+.hero h1{margin:0 0 24px;font-size:clamp(44px,7vw,84px);font-weight:700;letter-spacing:0;
+  line-height:1.3;color:var(--ink);max-width:16ch}
+html[data-lang="en"] .hero h1{font-family:var(--f-disp);font-weight:500;line-height:1.02;letter-spacing:-.03em}
+/* the one licensed serif drama — Newsreader Light on the hero's closing phrase
+   (Phantom ref, §3.1); FA drama is the weight drop, not a serif (§3.3) */
+.hero h1 .drama{font-weight:300}
+html[data-lang="en"] .hero h1 .drama{font-family:var(--f-serif);font-style:italic;font-weight:300;letter-spacing:0}
+.hero .dek{margin:0;font-size:16px;max-width:56ch;line-height:1.7;color:var(--mut)}
+html[data-lang="en"] .hero .dek{line-height:1.5}
+/* eyebrow — bare mono micro-label with the one live lamp */
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:700;
+  letter-spacing:0;color:var(--mut);background:none;border:0;padding:0;margin-bottom:24px}
+html[data-lang="en"] .eyebrow{font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+.eyebrow .edot{width:6px;height:6px;border-radius:50%;background:var(--sig);flex:0 0 auto}
+@media (prefers-reduced-motion:no-preference){
+  .eyebrow .edot{animation:lampPulse 2.4s var(--ease-io) infinite}
+}
+@keyframes lampPulse{0%,100%{opacity:1}50%{opacity:.55}}
+/* hero HUD corner readout — the library's own coordinates, mirrors book pages */
+.hud{position:absolute;top:2px;inset-inline-end:24px;font-size:11px;font-weight:700;letter-spacing:0;
+  color:var(--mut-soft);font-variant-numeric:tabular-nums}
+html[data-lang="en"] .hud{font-family:var(--f-mono);letter-spacing:.14em;text-transform:uppercase;
+  font-feature-settings:"zero"}
+@media(max-width:760px){.hud{display:none}}
+/* stat chips — instrument tiles over a ruler-tick baseline. Start-edge ticks are
+   achromatic: in the hero viewport orange belongs to the lamp + LED chart only (§2.4) */
+.chips{display:flex;flex-wrap:wrap;gap:12px;margin-top:64px;position:relative;padding-bottom:20px}
+.chips::after{content:"";position:absolute;bottom:0;inset-inline:0;height:8px;pointer-events:none;
+  background-image:repeating-linear-gradient(90deg,var(--line-strong) 0 1px,transparent 1px 8px)}
+.chip{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 22px;
+  font-size:12px;font-weight:700;color:var(--mut);min-width:132px;position:relative}
+.chip::before{content:"";position:absolute;inset-inline-start:0;top:16px;bottom:16px;width:2px;background:var(--line-strong)}
+html[data-lang="en"] .chip{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+.chip b{font-size:30px;display:block;font-weight:600;color:var(--ink);line-height:1.2;letter-spacing:0;
+  font-variant-numeric:tabular-nums;margin-bottom:2px}
+html[data-lang="en"] .chip b{font-family:var(--f-mono);font-weight:500;font-feature-settings:"zero"}
+/* the one HUD-clock numeral per page — the book count runs at the top of the scale */
+.chips .chip:first-child b{font-size:40px}
 
 /* ── NAV ──────────────────────────────────────────────────── */
 .navbar{position:sticky;top:0;z-index:60;background:color-mix(in srgb,var(--bg) 88%,transparent);
   backdrop-filter:saturate(180%) blur(14px);-webkit-backdrop-filter:saturate(180%) blur(14px);
   border-bottom:1px solid var(--line)}
+/* scroll-edge: the hairline reveals only once content slides under the bar
+   (scroll-driven, progressive enhancement; hard border is the fallback) */
+@supports (animation-timeline:scroll()){
+  .navbar{border-bottom-color:transparent;
+    animation:navEdge linear both;animation-timeline:scroll();animation-range:0px 64px}
+  @keyframes navEdge{to{border-bottom-color:var(--line)}}
+}
 .navin{max-width:1200px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;gap:16px;min-height:64px}
 .brand{flex:1 1 auto;font-weight:500;font-size:15px;color:var(--ink);white-space:nowrap;
   display:flex;align-items:center;gap:8px}
-.brand .dot{width:6px;height:6px;border-radius:50%;background:var(--ink)}
+/* one lamp per viewport (§2.4): the eyebrow dot is THE live indicator —
+   the brand dot is a quiet fixture, not a second lamp */
+.brand .dot{width:6px;height:6px;border-radius:50%;background:var(--mut-soft)}
 .navlinks{flex:0 0 auto;display:flex;align-items:center;gap:4px}
-.navlink{font-size:15px;font-weight:500;color:var(--mut);text-decoration:none;
-  padding:8px 14px;border-radius:9999px}
-.navlink:hover{color:var(--ink);background:var(--card2)}
+.navlink{font-size:14px;font-weight:600;color:var(--mut);text-decoration:none;
+  padding:8px 12px;border-radius:9999px;display:inline-flex;align-items:center;gap:7px}
+html[data-lang="en"] .navlink{font-family:var(--f-mono);font-size:12px;font-weight:500;
+  letter-spacing:.06em;text-transform:uppercase}
+.navlink .slash{color:var(--mut-soft);font-weight:400}
+.navlink:hover{color:var(--ink)}
+.navlink:hover .slash{color:var(--sig)}
+/* scrollspy "you are here" — the same 6px orange-square marker grammar as the
+   book pages' toc: always in the layout (labels never jump), scales in on arrival */
+.navlink::before{content:"";width:6px;height:6px;background:var(--sig);flex:0 0 auto;
+  opacity:0;transform:scale(.6);
+  transition:transform var(--d1) var(--ease-out),opacity var(--d1) var(--ease)}
+.navlink.active{background:var(--card2);color:var(--ink)}
+.navlink.active::before{opacity:1;transform:scale(1)}
 .navctl{flex:0 0 auto;display:flex;align-items:center;gap:8px}
 .langbtn{height:40px;border-radius:9999px;border:1px solid var(--line-strong);background:transparent;
   color:var(--ink);cursor:pointer;font:inherit;font-size:15px;font-weight:500;padding:0 19px;
@@ -127,54 +206,82 @@ html[data-lang="en"] .chip b{font-family:Newsreader,"Times New Roman",serif}
 .lp{padding:96px 0}
 .lp-alt{background:var(--bg2);border-block:1px solid var(--line)}
 .lp .wrap{padding-bottom:0}
-.lp-head{max-width:70ch}
-.lp-head-lib{margin-top:96px;scroll-margin-top:88px}
-.lp-kick{display:inline-block;font-size:12px;font-weight:600;letter-spacing:.96px;text-transform:uppercase;
-  color:var(--mut-soft);margin-bottom:16px}
-.lp-head h2{margin:0;font-size:clamp(28px,3.6vw,48px);font-weight:300;line-height:1.08;
-  letter-spacing:-.96px;color:var(--ink)}
-html[data-lang="en"] .lp-head h2{font-family:Newsreader,"Times New Roman",serif;font-weight:300}
-.lp-dek{margin:20px 0 0;font-size:16px;line-height:1.5;color:var(--mut);letter-spacing:.16px;max-width:62ch}
+/* h2 — the ONE black-bar section-header grammar, identical to book pages:
+   a SLAB (District 9, ref 7) — solid --bar plate at Display-XL scale, 3px
+   orange start rule as the mark, ink mono index (orange type below 18px is
+   banned, §2.4), hairline running to the bar's end. */
+h2{display:flex;align-items:center;gap:14px;margin:0 0 20px;font-size:clamp(28px,3.6vw,44px);
+  font-weight:700;line-height:1.3;letter-spacing:0;color:var(--bar-ink);
+  background:var(--bar);border-block:1px solid var(--line-strong);border-inline-start:3px solid var(--sig);
+  padding:14px 18px;scroll-margin-top:88px}
+html[data-lang="en"] h2{font-family:var(--f-disp);font-weight:500;letter-spacing:-.02em;line-height:1.12}
+h2 .num{color:color-mix(in srgb,var(--bar-ink) 70%,transparent);font-size:13px;font-weight:700;font-variant-numeric:tabular-nums;flex:0 0 auto;letter-spacing:0}
+html[data-lang="en"] h2 .num{font-family:var(--f-mono);font-feature-settings:"zero";letter-spacing:.06em}
+h2::after{content:"";flex:1 1 auto;height:1px;background:color-mix(in srgb,var(--bar-ink) 35%,transparent);
+  min-width:24px;margin-inline-start:4px}
+h2.sec-lib{margin-top:96px}
+.lp-dek{margin:0;font-size:16px;line-height:1.7;color:var(--mut);max-width:62ch}
+html[data-lang="en"] .lp-dek{line-height:1.5}
 .lp-dek b{color:var(--ink);font-weight:500}
 
-/* gradient-orb goal cards — atmosphere only, never a button or text color */
-.orbgrid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:48px}
-@media(min-width:900px){.orbgrid{grid-template-columns:repeat(3,1fr)}}
-.orbcard{position:relative;overflow:hidden;background:var(--bg2);border:1px solid var(--line);
-  border-radius:24px;padding:32px;isolation:isolate}
-.lp-alt .orbcard{background:var(--card)}
-.orbcard::before{content:"";position:absolute;z-index:-1;inset-inline-end:-20%;top:-40%;
-  width:70%;height:120%;pointer-events:none;opacity:.55}
-.orbcard.o-mint::before{background:radial-gradient(closest-side,var(--g-mint),transparent 70%)}
-.orbcard.o-peach::before{background:radial-gradient(closest-side,var(--g-peach),transparent 70%)}
-.orbcard.o-lavender::before{background:radial-gradient(closest-side,var(--g-lavender),transparent 70%)}
-.orbcard h3{margin:0 0 12px;font-size:24px;font-weight:300;line-height:1.2;color:var(--ink)}
-html[data-lang="en"] .orbcard h3{font-family:Newsreader,"Times New Roman",serif;font-weight:300}
-.orbcard p{margin:0;font-size:16px;line-height:1.5;color:var(--mut);letter-spacing:.16px}
+/* goal cards — flat instrument plates, hairline borders, no ornament */
+.lp-grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:48px}
+@media(min-width:900px){.lp-grid{grid-template-columns:repeat(3,1fr)}}
+.lp-card{position:relative;background:var(--card);border:1px solid var(--line);
+  border-radius:12px;padding:28px;isolation:isolate}
+.lp-card h3{margin:0 0 12px;font-size:20px;font-weight:700;line-height:1.35;color:var(--ink)}
+html[data-lang="en"] .lp-card h3{font-family:var(--f-disp);font-weight:500;font-size:21px;letter-spacing:-.01em}
+.lp-card p{margin:0;font-size:15px;line-height:1.7;color:var(--mut)}
+html[data-lang="en"] .lp-card p{line-height:1.5}
 
 /* numbered steps */
 .steps{list-style:none;margin:48px 0 0;padding:0;display:grid;grid-template-columns:1fr;gap:16px}
 @media(min-width:900px){.steps{grid-template-columns:repeat(3,1fr)}}
-.step{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:32px}
-.lp-alt .step{background:var(--bg)}
-.stepn{display:grid;place-items:center;width:40px;height:40px;border-radius:9999px;
-  background:var(--accent);color:var(--accent-ink);font-size:16px;font-weight:500;
+.step{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:28px}
+.stepn{display:grid;place-items:center;width:36px;height:36px;border-radius:8px;
+  background:var(--card2);color:var(--ink);font-size:15px;font-weight:700;
   font-variant-numeric:tabular-nums;margin-bottom:20px}
-.step h3{margin:0 0 8px;font-size:20px;font-weight:500;line-height:1.35;color:var(--ink)}
-.step p{margin:0;font-size:16px;line-height:1.5;color:var(--mut);letter-spacing:.16px}
+html[data-lang="en"] .stepn{font-family:var(--f-mono);font-feature-settings:"zero"}
+/* numerals are ink in both themes — 15px orange type is banned (§2.4), and three
+   orange plates in one row would compete with the section bar's mark */
+.step h3{margin:0 0 8px;font-size:19px;font-weight:700;line-height:1.35;color:var(--ink)}
+html[data-lang="en"] .step h3{font-family:var(--f-disp);font-weight:500}
+.step p{margin:0;font-size:15px;line-height:1.7;color:var(--mut)}
+html[data-lang="en"] .step p{line-height:1.5}
 .lp-cta{margin-top:48px}
+
+/* light theme — the one full-orange poster panel per page (§7 of the direction);
+   the h2 bar stays a literal ink slab ON the orange (black ink on orange) */
+[data-theme="light"] .lp-alt{background:var(--sig);border-block-color:rgba(0,0,0,.35)}
+/* ON the orange panel the orange start-rule would vanish — the mark inverts to
+   paper so the slab keeps its mark + hairline grammar (§7: everything on the
+   panel is ink or paper, never orange-on-orange) */
+[data-theme="light"] .lp-alt h2{border-block-color:rgba(0,0,0,.35);border-inline-start-color:var(--bar-ink)}
+[data-theme="light"] .lp-alt .lp-dek,
+[data-theme="light"] .lp-alt .step h3,
+[data-theme="light"] .lp-alt .step p{color:var(--sig-ink)}
+[data-theme="light"] .lp-alt .step{background:transparent;border-color:rgba(0,0,0,.35)}
+[data-theme="light"] .lp-alt .stepn{background:var(--sig-ink);color:var(--bg)}
+/* ON the orange surface, orange marks vanish — selection and focus rings invert to ink */
+[data-theme="light"] .lp-alt ::selection{background:var(--sig-ink);color:var(--sig)}
+[data-theme="light"] .lp-alt :focus-visible{outline-color:var(--sig-ink)}
 
 /* ── GROUPS ───────────────────────────────────────────────── */
 .groups{display:flex;flex-direction:column;gap:24px;margin-top:32px}
-.group{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);
+.group{background:var(--card);border:1px solid var(--line);border-radius:12px;
   overflow:hidden;scroll-margin-top:88px}
-.ghead{display:flex;align-items:center;gap:16px;padding:24px;border-bottom:1px solid var(--line);background:var(--bg2)}
-.gnum{flex:0 0 auto;width:48px;height:48px;border-radius:9999px;display:grid;place-items:center;
-  font-weight:500;font-size:16px;color:var(--ink);font-variant-numeric:tabular-nums}
+/* group header — a literal black bar (same --bar grammar as h2, both themes):
+   ink plate, 6px orange square mark + INK mono index (orange type below 18px is
+   banned, §2.4 — orange is the mark, the numeral is data), paper title. */
+.ghead{display:flex;align-items:center;gap:16px;padding:16px 20px;border-bottom:1px solid var(--line-strong);background:var(--bar)}
+.gnum{flex:0 0 auto;display:flex;align-items:center;gap:8px;font-weight:700;font-size:13px;
+  color:color-mix(in srgb,var(--bar-ink) 70%,transparent);font-variant-numeric:tabular-nums}
+.gnum::before{content:"";width:6px;height:6px;background:var(--sig);flex:0 0 auto}
+html[data-lang="en"] .gnum{font-family:var(--f-mono);font-feature-settings:"zero";letter-spacing:.06em}
 .gtext{flex:1 1 auto;min-width:0}
-.gname{font-weight:300;font-size:24px;line-height:1.2;color:var(--ink)}
-html[data-lang="en"] .gname{font-family:Newsreader,"Times New Roman",serif;font-weight:300}
-.gblurb{color:var(--mut);font-size:15px;line-height:1.47;margin-top:4px;letter-spacing:.15px}
+.gname{font-weight:700;font-size:19px;line-height:1.35;color:var(--bar-ink)}
+html[data-lang="en"] .gname{font-family:var(--f-disp);font-weight:500;font-size:20px;letter-spacing:-.01em}
+.gblurb{color:color-mix(in srgb,var(--bar-ink) 70%,transparent);font-size:14px;line-height:1.6;margin-top:2px}
 .books{display:grid;grid-template-columns:repeat(3,1fr)}
 .book{padding:24px;border-inline-start:1px solid var(--line);text-decoration:none;color:inherit;
   display:flex;flex-direction:column;gap:6px;position:relative;transition:background var(--d1) var(--ease)}
@@ -182,61 +289,85 @@ html[data-lang="en"] .gname{font-family:Newsreader,"Times New Roman",serif;font-
 .book.live{cursor:pointer}
 .book.live:hover{background:var(--bg2)}
 .book.soon{opacity:.5}
-.btitle{font-weight:500;font-size:18px;line-height:1.44;letter-spacing:.18px;color:var(--ink)}
+.btitle{font-weight:700;font-size:16px;line-height:1.6;color:var(--ink)}
+html[data-lang="en"] .btitle{font-family:var(--f-disp);font-weight:500;font-size:18px;line-height:1.44;letter-spacing:-.01em}
 .book.soon .btitle{padding-inline-end:64px}
 .book.live .btitle{padding-inline-end:36px}
-/* chevron affordance on every live book title */
+/* chevron affordance — turns orange (the "live" cue) on hover */
 .bchev{position:absolute;top:26px;inset-inline-end:20px;width:18px;height:18px;color:var(--mut-soft);
   transition:transform var(--d2) var(--ease-out),color var(--d1) var(--ease)}
 .bchev svg{width:18px;height:18px;display:block}
 html[dir="rtl"] .bchev{transform:scaleX(-1)}
 @media (hover:hover) and (pointer:fine){
-  .book.live:hover .bchev{color:var(--ink);transform:translateX(2px)}
+  .book.live:hover .bchev{color:var(--sig);transform:translateX(2px)}
   html[dir="rtl"] .book.live:hover .bchev{transform:scaleX(-1) translateX(2px)}
 }
-.borig{font-size:12px;color:var(--mut-soft);font-family:Inter,system-ui,sans-serif;letter-spacing:.16px}
-.bauthor{font-size:14px;color:var(--mut-soft);margin-top:2px}
-.bwhy{font-size:15px;line-height:1.47;color:var(--mut);margin-top:8px;letter-spacing:.15px}
-.badge{position:absolute;top:20px;inset-inline-end:20px;font-size:12px;font-weight:600;letter-spacing:.96px;
-  text-transform:uppercase;padding:4px 10px;border-radius:9999px;border:1px solid transparent}
-.badge.live{color:var(--ink);background:var(--card2)}
-.badge.soon{color:var(--mut-soft);background:transparent;border-color:var(--line)}
+.borig{font-size:11px;font-weight:500;color:var(--mut-soft);font-family:var(--f-mono);letter-spacing:.08em;text-transform:uppercase}
+.bauthor{font-size:13px;color:var(--mut);margin-top:2px}
+html[data-lang="en"] .bauthor{font-family:var(--f-mono);font-size:12px;letter-spacing:.04em;text-transform:uppercase}
+.bwhy{font-size:14px;line-height:1.7;color:var(--mut);margin-top:8px}
+html[data-lang="en"] .bwhy{line-height:1.5;font-size:14.5px}
+.badge{position:absolute;top:20px;inset-inline-end:20px;font-size:11px;font-weight:700;letter-spacing:0;
+  padding:4px 10px;border-radius:4px;border:1px solid transparent}
+html[data-lang="en"] .badge{font-family:var(--f-mono);letter-spacing:.1em;text-transform:uppercase}
+.badge.soon{color:var(--mut-soft);background:transparent;border-color:var(--line-strong)}
 
 /* ── FOOTER ───────────────────────────────────────────────── */
 .foot{max-width:1200px;margin:96px auto 0;padding:48px 24px;border-top:1px solid var(--line);
-  display:flex;justify-content:center;text-align:center;color:var(--mut);font-size:15px}
+  display:flex;justify-content:center;text-align:center;color:var(--mut);font-size:14px}
+html[data-lang="en"] .foot{font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase}
 .foot .cname{color:var(--ink);font-weight:500}
 .foot .sep{margin:0 10px;opacity:.4}
 .foot .li{display:inline-flex;align-items:center;gap:6px;color:var(--ink);text-decoration:none;font-weight:500}
 .foot .li:hover{text-decoration:underline}
 .foot .li svg{width:15px;height:15px}
+/* closing mono line — the library's nameplate (§3.3: FA stays Vazirmatn 700) */
+.foot-close{margin-top:16px;font-size:12px;font-weight:700;letter-spacing:0;color:var(--mut-soft)}
+html[data-lang="en"] .foot-close{font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase}
 
 /* ── MASTHEAD (centered logo → home) ──────────────────────── */
-.masthead{display:flex;align-items:center;justify-content:center;
+.masthead{display:flex;align-items:center;justify-content:center;position:relative;
   padding:20px 24px;background:var(--bg);border-bottom:1px solid var(--line)}
-.masthead .logo{display:inline-flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
+/* hairline graph-paper patch behind the logo, fading out both sides */
+.masthead::before{content:"";position:absolute;inset-block:0;inset-inline:0;margin-inline:auto;
+  width:min(360px,70vw);pointer-events:none;
+  background-image:linear-gradient(var(--line-soft) 1px,transparent 1px),
+                   linear-gradient(90deg,var(--line-soft) 1px,transparent 1px);
+  background-size:28px 28px;
+  -webkit-mask-image:radial-gradient(closest-side,#000 30%,transparent 100%);
+          mask-image:radial-gradient(closest-side,#000 30%,transparent 100%)}
+.masthead .logo{display:inline-flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink);position:relative}
 .masthead .logomark{width:32px;height:32px;flex:0 0 auto;display:block}
 .masthead .logomark svg{width:100%;height:100%;display:block}
-.masthead .logotype{display:flex;flex-direction:column;line-height:1.15}
-.masthead .logotype .lt-main{font-weight:300;font-size:24px;letter-spacing:0;color:var(--ink)}
-html[data-lang="en"] .masthead .logotype .lt-main{font-family:Newsreader,"Times New Roman",serif;font-weight:300}
-.masthead .logotype .lt-sub{font-size:12px;font-weight:600;letter-spacing:.96px;text-transform:uppercase;color:var(--mut-soft)}
+.masthead .logotype{display:flex;flex-direction:column;line-height:1.2;gap:2px}
+.masthead .logotype .lt-main{font-weight:700;font-size:19px;letter-spacing:0;color:var(--ink)}
+html[data-lang="en"] .masthead .logotype .lt-main{font-family:var(--f-disp);font-weight:500;font-size:20px;letter-spacing:-.01em}
+.masthead .logotype .lt-sub{font-size:11px;font-weight:700;letter-spacing:0;color:var(--mut-soft)}
+html[data-lang="en"] .masthead .logotype .lt-sub{font-family:var(--f-mono);letter-spacing:.14em;text-transform:uppercase}
 .masthead .logo:hover .lt-main{opacity:.7}
 .hero-cta{margin-top:40px;display:flex;flex-wrap:wrap;gap:12px}
+/* hero + band CTAs are THE action, not toolbar chrome (ref 4/9's substantial
+   pill) — promoted to 48px; in-flow wizard triggers elsewhere stay 40px */
+.hero-cta .rw-trigger,.lp-cta .rw-trigger{height:48px;padding:0 24px;font-size:16px}
+.hero-cta .rw-trigger.ghost,.lp-cta .rw-trigger.ghost{padding:0 23px}
+.hero-cta .rw-trigger svg{width:18px;height:18px}
 
 @media(max-width:760px){
   .books{grid-template-columns:1fr}
   .book{border-inline-start:none;border-top:1px solid var(--line)}
   .book:first-child{border-top:none}
-  .hero{padding:64px 0 48px}
-  .intro{margin-top:64px;padding:24px}
+  .hero{padding:72px 0 56px}
+  h2{font-size:22px;padding:12px 14px;scroll-margin-top:72px}
+  h2.sec-lib{margin-top:64px}
+  .lp{padding:64px 0}
   .foot{margin-top:64px}
 }
 @media(max-width:520px){
   .masthead{padding:16px 20px}
   .masthead .logomark{width:28px;height:28px}
-  .masthead .logotype .lt-main{font-size:20px}
-  .masthead .logotype .lt-sub{font-size:11px}
+  .masthead .logotype .lt-main{font-size:17px}
+  html[data-lang="en"] .masthead .logotype .lt-main{font-size:18px}
+  .masthead .logotype .lt-sub{font-size:10px}
   .wrap{padding:0 20px 64px}
 }
 
@@ -247,24 +378,17 @@ html[data-lang="en"] .masthead .logotype .lt-main{font-family:Newsreader,"Times 
    ═══════════════════════════════════════════════════════════════ */
 
 /* ── press states ─────────────────────────────────────────── */
-.book,.navlink,.foot .li,.masthead .logo,.orbcard,.step{
+.book,.navlink,.foot .li,.masthead .logo{
   transition:transform var(--d1) var(--ease-out),background var(--d1) var(--ease),
              border-color var(--d1) var(--ease),box-shadow var(--d2) var(--ease-out)}
 .navlink:active,.foot .li:active,.masthead .logo:active{transform:scale(.97)}
-.book:active{transform:scale(.995)}
+.book.live:active{transform:scale(.995)}
 
 /* ── hover only for real pointers ─────────────────────────── */
 @media (hover:hover) and (pointer:fine){
-  .book.live:hover{transform:translateY(-1px)}
-  .orbcard:hover,.step:hover{transform:translateY(-2px);border-color:var(--line-strong);box-shadow:var(--shadow-lg)}
-  .chip{transition:transform var(--d2) var(--ease-out),border-color var(--d2) var(--ease)}
-  .chip:hover{transform:translateY(-2px);border-color:var(--line-strong)}
-  .group{transition:box-shadow var(--d2) var(--ease-out),border-color var(--d2) var(--ease)}
-  .group:hover{border-color:var(--line-strong)}
-  /* title leads the card on hover — a small directional cue */
-  .book .btitle{transition:transform var(--d2) var(--ease-out)}
-  .book.live:hover .btitle{transform:translateX(2px)}
-  html[dir="rtl"] .book.live:hover .btitle{transform:translateX(-2px)}
+  /* stillness rule (the refs are still): hover cues live on real controls only —
+     the book chevron slide-to-orange and link underlines. Static tiles
+     (.chip/.lp-card/.step) and the .group container give no false affordance. */
   .foot .li::after{content:"";position:absolute;inset-inline-start:0;bottom:-2px;width:100%;height:1px;
     background:currentColor;transform:scaleX(0);transform-origin:inline-start;
     transition:transform var(--d2) var(--ease-out)}
@@ -273,42 +397,39 @@ html[data-lang="en"] .masthead .logotype .lt-main{font-family:Newsreader,"Times 
   .foot .li:hover::after{transform:scaleX(1)}
 }
 @media (hover:none){
-  .book.live:hover{transform:none;background:transparent}
+  .book.live:hover{background:transparent}
   .book.live:active{background:var(--bg2)}
-  .orbcard:hover,.step:hover,.chip:hover{transform:none;box-shadow:none}
 }
 
 /* ── staggered entries ────────────────────────────────────── */
 @keyframes riseIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
-.hero .eyebrow,.hero h1,.hero .dek,.hero-cta,.chips{animation:riseIn .5s var(--ease-out) both}
+.hero .eyebrow,.hero .hud,.hero h1,.hero .dek,.hero-cta,.chips{animation:riseIn .5s var(--ease-out) both}
 .hero h1{animation-delay:40ms}
 .hero .dek{animation-delay:80ms}
 .hero-cta{animation-delay:120ms}
 .chips{animation-delay:160ms}
-.orbgrid>*,.steps>*{animation:riseIn .4s var(--ease-out) both}
-.orbgrid>*:nth-child(2),.steps>*:nth-child(2){animation-delay:60ms}
-.orbgrid>*:nth-child(3),.steps>*:nth-child(3){animation-delay:120ms}
+.lp-grid>*,.steps>*{animation:riseIn .4s var(--ease-out) both}
+.lp-grid>*:nth-child(2),.steps>*:nth-child(2){animation-delay:60ms}
+.lp-grid>*:nth-child(3),.steps>*:nth-child(3){animation-delay:120ms}
 
 /* sections settle as they scroll into view (progressive enhancement) */
 @supports (animation-timeline:view()){
   @media (prefers-reduced-motion:no-preference) and (min-width:761px){
     .group{animation:riseIn .5s var(--ease-out) both;
       animation-timeline:view();animation-range:entry 0% entry 28%}
-    .orbgrid>*,.steps>*{animation-timeline:view();animation-range:entry 0% entry 40%}
+    .lp-grid>*,.steps>*{animation-timeline:view();animation-range:entry 0% entry 40%}
   }
 }
 
 /* ── details ──────────────────────────────────────────────── */
-::selection{background:color-mix(in srgb,var(--g-lavender) 70%,transparent);color:var(--ink)}
-.chip b,.gnum,.stepn{font-variant-numeric:tabular-nums}
-.group,.orbcard,.step,.chip{border-radius:16px}
-.book:focus-visible{outline-offset:-2px;border-radius:12px}
-/* the group number plate lifts subtly with its card */
-.gnum{transition:transform var(--d2) var(--ease-out)}
-@media (hover:hover) and (pointer:fine){.group:hover .gnum{transform:scale(1.04)}}
+::selection{background:var(--sig);color:var(--sig-ink)}
+.chip b,.gnum,.stepn,h2 .num,.hud{font-variant-numeric:tabular-nums}
+.group,.lp-card,.step,.chip{border-radius:12px}
+/* the ring follows the cell's own square geometry — inset so it stays inside the grid hairlines */
+.book:focus-visible{outline-offset:-2px}
 
 @media (prefers-reduced-motion: reduce){
-  .hero .eyebrow,.hero h1,.hero .dek,.hero-cta,.chips,.orbgrid>*,.steps>*,.group{animation:none}
+  .hero .eyebrow,.hero .hud,.hero h1,.hero .dek,.hero-cta,.chips,.lp-grid>*,.steps>*,.group{animation:none}
 }
 </style>
 </head>
@@ -316,7 +437,7 @@ html[data-lang="en"] .masthead .logotype .lt-main{font-family:Newsreader,"Times 
 
 <!-- ═══════════════ MASTHEAD (centered logo) ═══════════════ -->
 <header class="masthead"><a class="logo" href="index.html" aria-label="Product Builder's Library — home">
-  <span class="logomark"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect x="1" y="1" width="30" height="30" rx="8" fill="var(--accent)"/><g stroke="var(--accent-ink)" stroke-width="1.7" stroke-linecap="round" opacity=".9"><path d="M16 16 8.5 9.5M16 16l8-4M16 16l-3 8.5"/></g><g fill="var(--accent-ink)"><circle cx="16" cy="16" r="3.1"/><circle cx="8.5" cy="9.5" r="2.1"/><circle cx="24" cy="12" r="2.1"/><circle cx="13" cy="24.5" r="2.1"/></g></svg></span>
+  <span class="logomark"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect x="1" y="1" width="30" height="30" rx="7" fill="var(--card2)" stroke="var(--line-strong)"/><g stroke="var(--ink)" stroke-width="1.7" stroke-linecap="round" opacity=".9"><path d="M16 16 8.5 9.5M16 16l8-4M16 16l-3 8.5"/></g><g fill="var(--ink)"><circle cx="8.5" cy="9.5" r="2.1"/><circle cx="24" cy="12" r="2.1"/><circle cx="13" cy="24.5" r="2.1"/></g><circle cx="16" cy="16" r="3.1" fill="var(--ink)"/></svg></span>
   <span class="logotype">
     <span class="lt-main"><span data-only="en">Product Builder’s Library</span><span data-only="fa">کتابخانهٔ سازندهٔ محصول</span></span>
     <span class="lt-sub"><span data-only="en">50 books · 16 groups</span><span data-only="fa">۵۰ کتاب · ۱۶ گروه</span></span>
@@ -327,9 +448,9 @@ html[data-lang="en"] .masthead .logotype .lt-main{font-family:Newsreader,"Times 
 <div class="navbar"><div class="navin">
   <div class="brand"><span class="dot"></span><span data-only="en">Product Builder's Library</span><span data-only="fa">کتابخانهٔ سازندهٔ محصول</span></div>
   <nav class="navlinks">
-    <a class="navlink" href="#why"><span data-only="en">Why this exists</span><span data-only="fa">چرا این کتابخانه</span></a>
-    <a class="navlink" href="#how"><span data-only="en">How it works</span><span data-only="fa">چطور کار می‌کند</span></a>
-    <a class="navlink" href="#library"><span data-only="en">Library</span><span data-only="fa">کتابخانه</span></a>
+    <a class="navlink" href="#why"><span class="slash" aria-hidden="true">/</span><span data-only="en">Why this exists</span><span data-only="fa">چرا این کتابخانه</span></a>
+    <a class="navlink" href="#how"><span class="slash" aria-hidden="true">/</span><span data-only="en">How it works</span><span data-only="fa">چطور کار می‌کند</span></a>
+    <a class="navlink" href="#library"><span class="slash" aria-hidden="true">/</span><span data-only="en">Library</span><span data-only="fa">کتابخانه</span></a>
   </nav>
   <div class="navctl">
     <button class="langbtn" id="langBtn" aria-label="Switch language">
@@ -345,8 +466,10 @@ html[data-lang="en"] .masthead .logotype .lt-main{font-family:Newsreader,"Times 
 
 <!-- ═══════════════ HERO ═══════════════ -->
 <header class="hero"><div class="wrap">
+  <!-- HUD annotates what the chips below do NOT say: provenance, not counts -->
+  <div class="hud" aria-hidden="true"><span data-only="en">Lenny’s list // 2 parts // +1 group</span><span data-only="fa">فهرستِ لنی // دو بخش // یک گروهِ افزوده</span></div>
   <span class="eyebrow"><span class="edot"></span><span data-only="en">Essential books for product builders</span><span data-only="fa">کتاب‌های ضروریِ سازندگانِ محصول</span></span>
-  <h1><span data-only="en">Read the whole shelf in an afternoon.</span><span data-only="fa">تمامِ قفسه را در یک بعدازظهر بخوان.</span></h1>
+  <h1><span data-only="en">Read the whole shelf in <span class="drama">an afternoon.</span></span><span data-only="fa">تمامِ قفسه را در <span class="drama">یک بعدازظهر</span> بخوان.</span></h1>
   <p class="dek"><span data-only="en">Fifty essential product books, each distilled into one interactive page — a knowledge graph of the whole book, taught in five stages, in English and Persian.</span><span data-only="fa">پنجاه کتابِ ضروریِ محصول، هرکدام در یک صفحهٔ تعاملی — نقشهٔ دانشِ کلِ کتاب، آموزش در پنج مرحله، به انگلیسی و فارسی.</span></p>
   <div class="hero-cta">
     <button type="button" class="rw-trigger" data-recommend>
@@ -358,8 +481,8 @@ html[data-lang="en"] .masthead .logotype .lt-main{font-family:Newsreader,"Times 
     </a>
   </div>
   <div class="chips">
-    <div class="chip"><b id="kBooks">45</b><span data-only="en">books</span><span data-only="fa">کتاب</span></div>
-    <div class="chip"><b>16</b><span data-only="en">skill groups</span><span data-only="fa">گروهِ مهارتی</span></div>
+    <div class="chip"><b id="kBooks">50</b><span data-only="en">books</span><span data-only="fa">کتاب</span></div>
+    <div class="chip"><b><span data-only="en">16</span><span data-only="fa">۱۶</span></b><span data-only="en">skill groups</span><span data-only="fa">گروهِ مهارتی</span></div>
     <div class="chip"><b id="kDone">5</b><span data-only="en">stages per book</span><span data-only="fa">مرحله در هر کتاب</span></div>
     <div class="chip"><b>EN·FA</b><span data-only="en">bilingual</span><span data-only="fa">دوزبانه</span></div>
   </div>
@@ -367,21 +490,18 @@ html[data-lang="en"] .masthead .logotype .lt-main{font-family:Newsreader,"Times 
 
 <!-- ═══════════════ WHY THIS EXISTS ═══════════════ -->
 <section class="lp" id="why"><div class="wrap">
-  <div class="lp-head">
-    <span class="lp-kick"><span data-only="en">Why this exists</span><span data-only="fa">چرا این کتابخانه</span></span>
-    <h2><span data-only="en">The canon is worth reading. Most of it never gets read.</span><span data-only="fa">این کتاب‌ها ارزشِ خواندن دارند. بیشترشان هیچ‌وقت خوانده نمی‌شوند.</span></h2>
-    <p class="lp-dek"><span data-only="en">Fifty books is roughly three hundred hours. This library exists to close the gap between the reading list you agree with and the reading you actually do.</span><span data-only="fa">پنجاه کتاب یعنی حدودِ سیصد ساعت. این کتابخانه هست تا فاصلهٔ بینِ فهرستی که قبولش داری و آنچه واقعاً می‌خوانی را ببندد.</span></p>
-  </div>
-  <div class="orbgrid">
-    <article class="orbcard o-mint">
+  <h2><span class="num"><span data-only="en">01 //</span><span data-only="fa">۰۱ //</span></span><span data-only="en">Why this exists</span><span data-only="fa">چرا این کتابخانه</span></h2>
+  <p class="lp-dek"><span data-only="en">The canon is worth reading — most of it never gets read. Fifty books is roughly three hundred hours; this library closes the gap between the reading list you agree with and the reading you actually do.</span><span data-only="fa">این کتاب‌ها ارزشِ خواندن دارند — و بیشترشان هیچ‌وقت خوانده نمی‌شوند. پنجاه کتاب یعنی حدودِ سیصد ساعت؛ این کتابخانه فاصلهٔ بینِ فهرستی که قبولش داری و آنچه واقعاً می‌خوانی را می‌بندد.</span></p>
+  <div class="lp-grid">
+    <article class="lp-card">
       <h3><span data-only="en">Make the canon reachable</span><span data-only="fa">دسترس‌پذیرکردنِ کتاب‌ها</span></h3>
       <p><span data-only="en">Every book becomes a single page you can absorb in ten minutes — the argument, the structure, the lines worth keeping.</span><span data-only="fa">هر کتاب می‌شود یک صفحه که در ده دقیقه می‌گیری‌اش — استدلال، ساختار، و جمله‌هایی که ارزشِ نگه‌داشتن دارند.</span></p>
     </article>
-    <article class="orbcard o-peach">
+    <article class="lp-card">
       <h3><span data-only="en">Teach at five depths</span><span data-only="fa">آموزش در پنج عمق</span></h3>
       <p><span data-only="en">The same book explained from over-simplified to expert, so you can enter at your level and climb only as far as you need.</span><span data-only="fa">یک کتاب از «خیلی ساده» تا «حرفه‌ای» توضیح داده می‌شود؛ از سطحِ خودت شروع کن و تا هرجا لازم داری بالا برو.</span></p>
     </article>
-    <article class="orbcard o-lavender">
+    <article class="lp-card">
       <h3><span data-only="en">Show the shape of an idea</span><span data-only="fa">نشان‌دادنِ شکلِ ایده</span></h3>
       <p><span data-only="en">An interactive knowledge graph maps how every part connects — because a book is a structure, not a list of takeaways.</span><span data-only="fa">یک نقشهٔ دانشِ تعاملی نشان می‌دهد اجزا چطور به هم وصل‌اند — چون کتاب یک ساختار است، نه فهرستی از نکته‌ها.</span></p>
     </article>
@@ -390,10 +510,8 @@ html[data-lang="en"] .masthead .logotype .lt-main{font-family:Newsreader,"Times 
 
 <!-- ═══════════════ HOW IT WORKS ═══════════════ -->
 <section class="lp lp-alt" id="how"><div class="wrap">
-  <div class="lp-head">
-    <span class="lp-kick"><span data-only="en">How it works</span><span data-only="fa">چطور کار می‌کند</span></span>
-    <h2><span data-only="en">Three questions, then a reading path built for you.</span><span data-only="fa">سه پرسش، بعد یک مسیرِ خواندن مخصوصِ تو.</span></h2>
-  </div>
+  <h2><span class="num"><span data-only="en">02 //</span><span data-only="fa">۰۲ //</span></span><span data-only="en">How it works</span><span data-only="fa">چطور کار می‌کند</span></h2>
+  <p class="lp-dek"><span data-only="en">Three questions, then a reading path built for you.</span><span data-only="fa">سه پرسش، بعد یک مسیرِ خواندن مخصوصِ تو.</span></p>
   <ol class="steps">
     <li class="step">
       <span class="stepn">1</span>
@@ -421,11 +539,8 @@ html[data-lang="en"] .masthead .logotype .lt-main{font-family:Newsreader,"Times 
 <div class="wrap">
 
   <!-- LIBRARY -->
-  <div class="lp-head lp-head-lib" id="library">
-    <span class="lp-kick"><span data-only="en">The library</span><span data-only="fa">کتابخانه</span></span>
-    <h2><span data-only="en">50 books, 16 skill groups.</span><span data-only="fa">۵۰ کتاب، ۱۶ گروهِ مهارتی.</span></h2>
-    <p class="lp-dek"><span data-only="en">Gathered from Lenny Rachitsky's two-part <b>"Essential books for product builders"</b>, kept in the same 15 groups, plus a sixteenth on self mastery. Open any title to read its knowledge-graph page.</span><span data-only="fa">برگرفته از مجموعهٔ دوقسمتیِ <b>«کتاب‌های ضروری برای سازندگانِ محصول»</b> از لنی رچیتسکی، در همان ۱۵ گروه، به‌علاوهٔ گروهِ شانزدهمی دربارهٔ تسلط بر خود. روی هر عنوان بزن تا صفحهٔ نقشهٔ دانشش باز شود.</span></p>
-  </div>
+  <h2 class="sec-lib" id="library"><span class="num"><span data-only="en">03 //</span><span data-only="fa">۰۳ //</span></span><span data-only="en">The library</span><span data-only="fa">کتابخانه</span></h2>
+  <p class="lp-dek"><span data-only="en">50 books in 16 skill groups, gathered from Lenny Rachitsky's two-part <b>"Essential books for product builders"</b> — the same 15 groups, plus a sixteenth on self mastery. Open any title to read its knowledge-graph page.</span><span data-only="fa">۵۰ کتاب در ۱۶ گروهِ مهارتی، برگرفته از مجموعهٔ دوقسمتیِ <b>«کتاب‌های ضروری برای سازندگانِ محصول»</b> از لنی رچیتسکی — همان ۱۵ گروه، به‌علاوهٔ گروهِ شانزدهمی دربارهٔ تسلط بر خود. روی هر عنوان بزن تا صفحهٔ نقشهٔ دانشش باز شود.</span></p>
 
   <!-- GROUPS render here -->
   <div class="groups" id="groups"></div>
@@ -437,6 +552,10 @@ html[data-lang="en"] .masthead .logotype .lt-main{font-family:Newsreader,"Times 
   <div>
     <span data-only="en">Created by <span class="cname">Behnam Atefi</span><span class="sep">·</span><a class="li" href="https://www.linkedin.com/in/behnamatefi/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.3c0-1.26-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9z"/></svg>LinkedIn</a></span>
     <span data-only="fa">ساخته‌شده توسط <span class="cname">بهنام عاطفی</span><span class="sep">·</span><a class="li" href="https://www.linkedin.com/in/behnamatefi/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.3c0-1.26-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9z"/></svg>لینکدین</a></span>
+    <div class="foot-close">
+      <span data-only="en">Product Builder’s Library // 50 books // EN·FA</span>
+      <span data-only="fa">کتابخانهٔ سازندهٔ محصول // ۵۰ کتاب // EN·FA</span>
+    </div>
   </div>
 </footer>
 
@@ -457,7 +576,6 @@ function TX(o){ if(o==null) return ''; return LANG==='fa' ? faText(o.fa) : o.en;
 function num(n){ return LANG==='fa' ? faDigits(String(n)) : String(n); }
 
 /* ── DATA: 16 groups (15 × 3 books + 1 × 5) ──────────────── */
-var COLORS = ['--c-teal','--c-blue','--c-violet','--c-amber','--c-green','--c-red','--c-gold','--c-teal','--c-blue','--c-violet','--c-amber','--c-green','--c-red','--c-gold','--c-teal'];
 var GROUPS = [
  {n:1, en:{name:"Communication", blurb:"Write and speak clearly so you're actually heard — and earn the reader's attention."},
        fa:{name:"ارتباط", blurb:"واضح بنویس و بگو تا واقعاً شنیده شوی — و توجهِ خواننده را به‌دست بیاور."}, books:[
@@ -642,9 +760,8 @@ function bookCard(b){
 }
 function groupBlock(g){
   var o = LANG==='fa' ? g.fa : g.en;
-  var col = 'var('+COLORS[(g.n-1)%COLORS.length]+')';
   var head = '<div class="ghead">'
-      + '<div class="gnum" style="background:'+col+'">'+num(('0'+g.n).slice(-2))+'</div>'
+      + '<div class="gnum">'+num(('0'+g.n).slice(-2))+'</div>'
       + '<div class="gtext"><div class="gname">'+TX({en:g.en.name, fa:g.fa.name})+'</div>'
       + '<div class="gblurb">'+TX({en:g.en.blurb, fa:g.fa.blurb})+'</div></div></div>';
   var books = '<div class="books">'+g.books.map(bookCard).join('')+'</div>';
@@ -680,10 +797,50 @@ function setLang(lg){
   }); }catch(e){}
 })();
 
+/* ── scrollspy — the "you are here" marker on the navlinks (same grammar and
+   observer band as the book pages' toc in book.js) ────────── */
+(function(){
+  if(!('IntersectionObserver' in window)) return;
+  var links = [].slice.call(document.querySelectorAll('.navlink'));
+  if(!links.length) return;
+  var byId = {};
+  links.forEach(function(a){
+    var href = a.getAttribute('href') || '';
+    if(href.charAt(0)==='#') byId[href.slice(1)] = a;
+  });
+  var secs = Object.keys(byId).map(function(id){ return document.getElementById(id); }).filter(Boolean);
+  var obs = new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(!e.isIntersecting) return;
+      links.forEach(function(a){ a.classList.toggle('active', a===byId[e.target.id]); });
+    });
+  },{ rootMargin:'-45% 0px -50% 0px', threshold:0 });
+  secs.forEach(function(s){ obs.observe(s); });
+})();
+
 render();
+
+/* ── HUD boot detail — the one 40px numeral counts up once on first paint
+   (instrument warming up, ref 1). Decorative only: runs once, ~700ms ease-out,
+   skipped under prefers-reduced-motion; language flips re-render the final
+   value directly and never replay it. Tabular numerals keep the tile steady. */
+(function(){
+  var el = document.getElementById('kBooks');
+  if(!el || !('requestAnimationFrame' in window)) return;
+  try{ if(matchMedia('(prefers-reduced-motion: reduce)').matches) return; }catch(e){}
+  var T = 700, t0 = null;
+  function tick(ts){
+    if(t0 === null) t0 = ts;
+    var p = Math.min(1, (ts - t0) / T);
+    p = 1 - Math.pow(1 - p, 3);                 /* ease-out cubic */
+    el.textContent = num(Math.round(50 * p));   /* num() → Persian digits in FA */
+    if(p < 1) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+})();
 </script>
 
-<!-- reading-path wizard (needs the 45-book manifest) -->
+<!-- reading-path wizard (needs the 50-book manifest) -->
 <script src="assets/library.js"></script>
 <script src="assets/recommend.js"></script>
 </body>

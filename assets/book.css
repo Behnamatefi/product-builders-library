@@ -1,55 +1,65 @@
 /* ============================================================================
    book.css — shared styles for every book page + masthead
-   Design language: editorial print-magazine (see docs/DESIGN-elevenlabs.md).
-   Off-white canvas · warm near-black ink · Newsreader Light 300 display ·
-   Inter body at +0.16px tracking · ink pill CTAs · pastel atmospheric orbs.
+   Design language: "reading instrument" (see docs/ART-DIRECTION.md).
+   Near-black canvas · one international-orange signal (--sig) · Space Grotesk
+   display · JetBrains Mono annotation layer · hairlines instead of shadows ·
+   CSS-only data-textures (dot matrix, ruler ticks, graph paper).
+   All mono/uppercase/tracking rules are scoped to html[data-lang="en"];
+   FA keeps Vazirmatn with weight carrying the hierarchy (letter-spacing:0).
    ========================================================================== */
 
-/* ── TOKENS — editorial palette ────────────────────────────── */
-:root, [data-theme="light"]{
-  --bg:#f5f5f5; --bg2:#fafafa; --card:#ffffff; --card2:#f0efed;
-  --ink:#0c0a09; --mut:#4e4e4e; --mut-soft:#777169;
-  --line:#e7e5e4; --line-soft:#f0efed; --line-strong:#d6d3d1;
-  --accent:#292524; --accent-active:#0c0a09; --accent-ink:#ffffff;
-  --warm:#777169;
-  --shadow:0 1px 2px rgba(12,10,9,.03);
-  --shadow-lg:0 4px 16px rgba(0,0,0,.04);
-  --hero-1:#f5f5f5; --hero-2:#fafafa;
-  /* atmospheric gradient stops — decoration only, never buttons or text */
-  --g-mint:#a7e5d3; --g-peach:#f4c5a8; --g-lavender:#c8b8e0; --g-sky:#a8c8e8; --g-rose:#e8b8c4;
-  /* graph category colors map onto the five atmospheric stops */
-  --c-teal:#a7e5d3; --c-blue:#a8c8e8; --c-violet:#c8b8e0; --c-amber:#f4c5a8;
-  --c-green:#a7e5d3; --c-red:#e8b8c4; --c-gold:#f4c5a8; --c-gray:#d6d3d1;
-  --state:#a7e5d3; --action:#f4c5a8; --results:#c8b8e0; --core:#292524;
-  --ok:#16a34a; --err:#dc2626;
+/* ── TOKENS — reading instrument ───────────────────────────── */
+:root, [data-theme="dark"]{
+  --bg:#0A0A0A; --bg2:#111110; --card:#161514; --card2:#211F1D;
+  --ink:#F4F3F0; --mut:#A8A49C; --mut-soft:#8A8680;
+  --line:#262523; --line-soft:#1C1B1A; --line-strong:#3A3835;
+  --accent:#F4F3F0; --accent-active:#FFFFFF; --accent-ink:#0A0A0A;
+  --sig:#FF4514; --sig-press:#E63D0F; --sig-soft:#FF6B3D; --sig-ink:#0A0A0A;
+  --bar:#211F1D; --bar-ink:#F4F3F0;   /* section-header plate = --card2 step (§4.4): #000 on #0A0A0A read as nothing */
+  --shadow:0 0 0 0 transparent;
+  --shadow-lg:0 0 0 0 transparent;
+  /* graph categories — calibrated tonal ramp; core is the one orange lamp */
+  --c-teal:#E8E6E1; --c-blue:#C9C5BD; --c-violet:#A19C93; --c-amber:#FF6B3D;
+  --c-green:#DDD9D1; --c-red:#FF4514; --c-gold:#B8B3AA; --c-gray:#57534E;
+  /* numeral ink per category disc — AA on each tone in THIS theme */
+  --cink-teal:#0A0A0A; --cink-blue:#0A0A0A; --cink-violet:#0A0A0A; --cink-amber:#0A0A0A;
+  --cink-green:#0A0A0A; --cink-red:#0A0A0A; --cink-gold:#0A0A0A; --cink-gray:#F4F3F0;
+  --state:#E8E6E1; --action:#FF6B3D; --results:#C9C5BD; --core:#FF4514;
+  --ok:#F4F3F0; --err:#FF4514;
+  --f-disp:"Space Grotesk",-apple-system,system-ui,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --f-serif:Newsreader,"Times New Roman",serif;
+  --f-fa:Vazirmatn,"Segoe UI",Tahoma,Arial,sans-serif;
   --ease:cubic-bezier(.23,1,.32,1); --ease-out:cubic-bezier(.23,1,.32,1); --ease-io:cubic-bezier(.77,0,.175,1); --ease-drawer:cubic-bezier(.32,.72,0,1);
+  /* exits accelerate away; entrances decelerate in (craft rule) */
+  --ease-exit:cubic-bezier(.4,0,1,1);
   --d1:.16s; --d2:.28s; --d3:.5s;
 }
-[data-theme="dark"]{
-  --bg:#0c0a09; --bg2:#1c1917; --card:#1c1917; --card2:#292524;
-  --ink:#ffffff; --mut:#a8a29e; --mut-soft:#a8a29e;
-  --line:#292524; --line-soft:#1c1917; --line-strong:#44403c;
-  --accent:#f5f5f5; --accent-active:#ffffff; --accent-ink:#0c0a09;
-  --warm:#a8a29e;
-  --shadow:0 1px 2px rgba(0,0,0,.5);
-  --shadow-lg:0 4px 20px rgba(0,0,0,.45);
-  --hero-1:#0c0a09; --hero-2:#1c1917;
-  --g-mint:#a7e5d3; --g-peach:#f4c5a8; --g-lavender:#c8b8e0; --g-sky:#a8c8e8; --g-rose:#e8b8c4;
-  --c-teal:#a7e5d3; --c-blue:#a8c8e8; --c-violet:#c8b8e0; --c-amber:#f4c5a8;
-  --c-green:#a7e5d3; --c-red:#e8b8c4; --c-gold:#f4c5a8; --c-gray:#57534e;
-  --state:#a7e5d3; --action:#f4c5a8; --results:#c8b8e0; --core:#f5f5f5;
-  --ok:#4ade80; --err:#fb7185;
-  --ease:cubic-bezier(.23,1,.32,1); --ease-out:cubic-bezier(.23,1,.32,1); --ease-io:cubic-bezier(.77,0,.175,1); --ease-drawer:cubic-bezier(.32,.72,0,1);
-  --d1:.16s; --d2:.28s; --d3:.5s;
+[data-theme="light"]{
+  --bg:#F2F0EC; --bg2:#EAE8E3; --card:#FAF9F7; --card2:#E4E1DB;
+  --ink:#111110; --mut:#4A4843; --mut-soft:#6E6A63;
+  --line:#D8D5CE; --line-soft:#E5E2DC; --line-strong:#B9B5AC;
+  --accent:#111110; --accent-active:#000000; --accent-ink:#F2F0EC;
+  --sig:#F03E10; --sig-press:#D63407; --sig-soft:#F03E10; --sig-ink:#111110;
+  --bar:#111110; --bar-ink:#F2F0EC;   /* light: the bar is a literal ink slab */
+  --shadow:0 0 0 0 transparent;
+  --shadow-lg:0 0 0 0 transparent;
+  --c-teal:#26241F; --c-blue:#57534E; --c-violet:#8A867D; --c-amber:#F03E10;
+  --c-green:#3D3A35; --c-red:#D63407; --c-gold:#6E6A63; --c-gray:#C9C5BD;
+  --cink-teal:#F2F0EC; --cink-blue:#F2F0EC; --cink-violet:#111110; --cink-amber:#111110;
+  --cink-green:#F2F0EC; --cink-red:#FFFFFF; --cink-gold:#F2F0EC; --cink-gray:#111110;
+  --state:#26241F; --action:#F03E10; --results:#57534E; --core:#F03E10;
+  --ok:#111110; --err:#D63407;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;overflow-x:clip}
+/* document scrollbar joins the instrument (Firefox; WebKit keeps the OS bar) */
+html{scroll-behavior:smooth;overflow-x:clip;scrollbar-color:var(--line-strong) var(--bg)}
 body{margin:0;overflow-x:clip;background:var(--bg);color:var(--mut);
-  font-family:Vazirmatn,"Segoe UI",Tahoma,Arial,sans-serif;line-height:1.7;font-size:16px;
+  font-family:var(--f-fa);line-height:1.7;font-size:16px;
   transition:background .4s var(--ease),color .4s var(--ease);
   -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
-html[data-lang="en"] body{font-family:Inter,-apple-system,system-ui,"Segoe UI",Arial,sans-serif;
-  line-height:1.5;letter-spacing:.16px}
+html[data-lang="en"] body{font-family:var(--f-disp);
+  line-height:1.55;letter-spacing:.01em}
 .wrap{max-width:1200px;margin:0 auto;padding:0 24px 96px}
 
 /* press feedback + focus ring */
@@ -57,51 +67,121 @@ button,a,.rung,.chapchip,.dchip{-webkit-tap-highlight-color:transparent}
 .langbtn,.themebtn,.libbtn,.gtab,.greset,.stagenav button,.golist a{
   transition:transform var(--d1) var(--ease),border-color var(--d1) var(--ease),color var(--d1) var(--ease),background var(--d1) var(--ease)}
 .langbtn:active,.themebtn:active,.libbtn:active,.gtab:active,.greset:active,.stagenav button:active,.rung:active{transform:scale(.97)}
-:focus-visible{outline:2px solid var(--ink);outline-offset:2px;border-radius:9999px}
+/* focus ring follows each element's own shape — never reshapes it (pills keep
+   their own 9999px radius, cards 12px, list links 6px, chapchips 0) */
+:focus-visible{outline:2px solid var(--sig);outline-offset:2px}
 
 /* language visibility */
 html[data-lang="en"] [data-only="fa"]{display:none !important}
 html[data-lang="fa"] [data-only="en"]{display:none !important}
 
-/* ── HERO — off-white editorial band with atmospheric orbs ─── */
-.hero{background:var(--bg);color:var(--ink);padding:96px 0 72px;position:relative;overflow:hidden}
-.hero::before{content:"";position:absolute;inset-inline-end:-6%;top:-70%;width:56%;height:190%;pointer-events:none;
-  background:radial-gradient(closest-side,var(--g-lavender),transparent 70%);opacity:.5}
-.hero::after{content:"";position:absolute;inset-inline-start:-10%;bottom:-90%;width:48%;height:170%;pointer-events:none;
-  background:radial-gradient(closest-side,var(--g-mint),transparent 70%);opacity:.42}
+/* ── HERO — near-black canvas with a dot-matrix corner ─────── */
+.hero{background:var(--bg);color:var(--ink);padding:128px 0 96px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset-block:-8%;inset-inline-end:-4%;width:52%;pointer-events:none;
+  background-image:radial-gradient(circle,var(--line-strong) 1px,transparent 1.5px);
+  background-size:12px 12px;opacity:.6;
+  -webkit-mask-image:radial-gradient(closest-side,#000 20%,transparent 78%);
+          mask-image:radial-gradient(closest-side,#000 20%,transparent 78%)}
+/* lit dots as DATA, not noise — the page's ONE oversized instrument moment
+   (ref 2's giant specimen): a rising LED bar chart, six 48px columns of orange
+   dots on a 16px grid, stepped up toward the inline end. Reads as a chart at
+   squint distance, not an accessory. */
+.hero::after{content:"";position:absolute;top:24%;inset-inline-end:6%;width:368px;height:240px;pointer-events:none;
+  background-image:radial-gradient(circle,var(--sig) 2px,transparent 2.5px);
+  background-size:16px 16px;opacity:.9;
+  -webkit-mask-image:linear-gradient(#000,#000),linear-gradient(#000,#000),linear-gradient(#000,#000),linear-gradient(#000,#000),linear-gradient(#000,#000),linear-gradient(#000,#000);
+          mask-image:linear-gradient(#000,#000),linear-gradient(#000,#000),linear-gradient(#000,#000),linear-gradient(#000,#000),linear-gradient(#000,#000),linear-gradient(#000,#000);
+  -webkit-mask-size:48px 48px,48px 80px,48px 112px,48px 160px,48px 208px,48px 240px;
+          mask-size:48px 48px,48px 80px,48px 112px,48px 160px,48px 208px,48px 240px;
+  -webkit-mask-position:0 100%,64px 100%,128px 100%,192px 100%,256px 100%,320px 100%;
+          mask-position:0 100%,64px 100%,128px 100%,192px 100%,256px 100%,320px 100%;
+  -webkit-mask-repeat:no-repeat;mask-repeat:no-repeat}
+/* RTL: the chart rises toward the inline end (leftward) — reverse the steps */
+html[dir="rtl"] .hero::after{
+  -webkit-mask-size:48px 240px,48px 208px,48px 160px,48px 112px,48px 80px,48px 48px;
+          mask-size:48px 240px,48px 208px,48px 160px,48px 112px,48px 80px,48px 48px}
+/* below the wide desktop the chart would collide with the headline — drop it */
+@media(max-width:1100px){.hero::after{display:none}}
 .hero .wrap{padding-bottom:0;position:relative;z-index:1}
-.hero h1{margin:0 0 20px;font-size:clamp(32px,5.4vw,64px);font-weight:300;letter-spacing:-.03em;
-  line-height:1.05;color:var(--ink);max-width:15ch}
-html[data-lang="en"] .hero h1{font-family:Newsreader,"Times New Roman",serif;font-weight:300}
-.hero .dek{margin:0;font-size:16px;max-width:52ch;line-height:1.5;color:var(--mut);letter-spacing:.16px}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;
-  letter-spacing:.96px;text-transform:uppercase;color:var(--ink);background:var(--card2);
-  border:0;padding:4px 10px;border-radius:9999px;margin-bottom:24px}
-.eyebrow .edot{width:6px;height:6px;border-radius:50%;background:var(--ink);box-shadow:none}
-.metastrip{display:flex;flex-wrap:wrap;gap:20px 48px;margin-top:48px;padding-top:24px;
+.hero h1{margin:0 0 20px;font-size:clamp(40px,6.5vw,72px);font-weight:700;letter-spacing:0;
+  line-height:1.3;color:var(--ink);max-width:15ch}
+html[data-lang="en"] .hero h1{font-family:var(--f-disp);font-weight:500;line-height:1.02;letter-spacing:-.03em}
+/* the one licensed serif drama (Phantom ref, §3.1) — any hero_title may wrap a
+   phrase in <span class="drama">; FA drama is the weight drop, not a serif (§3.3) */
+.hero h1 .drama{font-weight:300}
+html[data-lang="en"] .hero h1 .drama{font-family:var(--f-serif);font-style:italic;font-weight:300;letter-spacing:0}
+.hero .dek{margin:0;font-size:16px;max-width:52ch;line-height:1.7;color:var(--mut)}
+html[data-lang="en"] .hero .dek{line-height:1.5}
+/* eyebrow — bare mono micro-label with the one live lamp */
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:700;
+  letter-spacing:0;color:var(--mut);background:none;border:0;padding:0;margin-bottom:24px}
+html[data-lang="en"] .eyebrow{font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+.eyebrow .edot{width:6px;height:6px;border-radius:50%;background:var(--sig);box-shadow:none;flex:0 0 auto}
+@media (prefers-reduced-motion:no-preference){
+  .eyebrow .edot{animation:lampPulse 2.4s var(--ease-io) infinite}
+}
+@keyframes lampPulse{0%,100%{opacity:1}50%{opacity:.55}}
+/* hero HUD corner readout — real data from the manifest ("GROUP 03/16 // BOOK 07/50"),
+   sits on the eyebrow line at the content column's end edge */
+.hud{position:absolute;top:2px;inset-inline-end:24px;font-size:11px;font-weight:700;letter-spacing:0;
+  color:var(--mut-soft);font-variant-numeric:tabular-nums}
+html[data-lang="en"] .hud{font-family:var(--f-mono);letter-spacing:.14em;text-transform:uppercase;
+  font-feature-settings:"zero"}
+@media(max-width:760px){.hud{display:none}}
+/* metastrip — the HUD readout row: mono keys over ink values, hairline-separated */
+.metastrip{display:flex;flex-wrap:wrap;gap:20px 0;margin-top:64px;padding-top:24px;
   border-top:1px solid var(--line)}
-.metaitem{display:flex;flex-direction:column;gap:4px}
-.metaitem .mk{font-size:12px;color:var(--mut-soft);font-weight:600;letter-spacing:.96px;text-transform:uppercase}
-.metaitem .mv{font-size:16px;color:var(--ink);font-weight:500;letter-spacing:.16px}
-.chips{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
-.chip{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 20px;font-size:14px;color:var(--mut)}
-.chip b{font-size:32px;display:block;font-weight:300;color:var(--ink);line-height:1.13;letter-spacing:-.32px}
-html[data-lang="en"] .chip b{font-family:Newsreader,"Times New Roman",serif}
+.metaitem{display:flex;flex-direction:column;gap:4px;padding-inline-end:48px}
+.metaitem+.metaitem{border-inline-start:1px solid var(--line);padding-inline-start:24px}
+.metaitem .mk{font-size:12px;color:var(--mut-soft);font-weight:700;letter-spacing:0}
+html[data-lang="en"] .metaitem .mk{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+html[data-lang="en"] .metaitem .mk::after{content:" //";color:var(--mut-soft)}
+.metaitem .mv{font-size:16px;color:var(--ink);font-weight:500;letter-spacing:0}
+/* stat chips — instrument tiles over a ruler-tick baseline. Start-edge ticks are
+   achromatic: in the hero viewport orange belongs to the lamp + LED chart only (§2.4) */
+.chips{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px;position:relative;padding-bottom:20px}
+.chips::after{content:"";position:absolute;bottom:0;inset-inline:0;height:8px;pointer-events:none;
+  background-image:repeating-linear-gradient(90deg,var(--line-strong) 0 1px,transparent 1px 8px)}
+.chip{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 20px;
+  font-size:12px;font-weight:700;color:var(--mut);position:relative}
+.chip::before{content:"";position:absolute;inset-inline-start:0;top:14px;bottom:14px;width:2px;background:var(--line-strong)}
+html[data-lang="en"] .chip{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+.chip b{font-size:28px;display:block;font-weight:600;color:var(--ink);line-height:1.2;letter-spacing:0;
+  font-variant-numeric:tabular-nums;margin-bottom:2px}
+html[data-lang="en"] .chip b{font-family:var(--f-mono);font-weight:500;font-feature-settings:"zero"}
 
 /* ── NAV + TOC ────────────────────────────────────────────── */
 .navbar{position:sticky;top:0;z-index:60;background:color-mix(in srgb,var(--bg) 88%,transparent);
   backdrop-filter:saturate(180%) blur(14px);-webkit-backdrop-filter:saturate(180%) blur(14px);
   border-bottom:1px solid var(--line)}
+/* scroll-edge: the hairline reveals only once content slides under the bar
+   (scroll-driven, progressive enhancement; hard border is the fallback) */
+@supports (animation-timeline:scroll()){
+  .navbar{border-bottom-color:transparent;
+    animation:navEdge linear both;animation-timeline:scroll();animation-range:0px 64px}
+  @keyframes navEdge{to{border-bottom-color:var(--line)}}
+}
 .navin{max-width:1200px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;gap:16px;min-height:64px}
 .brand{flex:0 0 auto;font-weight:500;font-size:15px;color:var(--ink);white-space:nowrap;
   display:flex;align-items:center;gap:8px;letter-spacing:0}
-.brand .dot{width:6px;height:6px;border-radius:50%;background:var(--ink);box-shadow:none}
+/* one lamp per viewport (§2.4): the hero eyebrow dot is THE live indicator —
+   the brand dot is a quiet fixture, not a second lamp */
+.brand .dot{width:6px;height:6px;border-radius:50%;background:var(--mut-soft);box-shadow:none}
 .toc{flex:1 1 auto;display:flex;flex-wrap:wrap;gap:4px;justify-content:center}
-.toc a{font-size:15px;font-weight:500;color:var(--mut);text-decoration:none;border:0;
-  border-radius:9999px;padding:8px 14px;background:transparent;white-space:nowrap;
+.toc a{font-size:13px;font-weight:600;color:var(--mut);text-decoration:none;border:0;
+  border-radius:9999px;padding:8px 12px;background:transparent;white-space:nowrap;
+  display:inline-flex;align-items:center;gap:8px;
   transition:background var(--d1) var(--ease),color var(--d1) var(--ease)}
+html[data-lang="en"] .toc a{font-family:var(--f-mono);font-size:12px;font-weight:500;
+  letter-spacing:.06em;text-transform:uppercase}
 .toc a:hover{color:var(--ink);background:var(--card2)}
-.toc a.active{background:var(--accent);color:var(--accent-ink)}
+/* active section — orange square "you are here" marker + ink text. The marker
+   square is always in the layout (labels never jump) and scales in on arrival */
+.toc a::before{content:"";width:6px;height:6px;background:var(--sig);flex:0 0 auto;
+  opacity:0;transform:scale(.6);
+  transition:transform var(--d1) var(--ease-out),opacity var(--d1) var(--ease)}
+.toc a.active{background:var(--card2);color:var(--ink)}
+.toc a.active::before{opacity:1;transform:scale(1)}
 .navctl{flex:0 0 auto;display:flex;align-items:center;gap:8px}
 .langbtn{height:40px;border-radius:9999px;border:1px solid var(--line-strong);background:transparent;
   color:var(--ink);cursor:pointer;font:inherit;font-size:15px;font-weight:500;padding:0 19px;
@@ -116,68 +196,102 @@ html[data-lang="en"] .chip b{font-family:Newsreader,"Times New Roman",serif}
 [data-theme="dark"]  .themebtn .ic-moon{display:none}
 
 /* ── BLOCKS ───────────────────────────────────────────────── */
-h2{font-size:36px;margin:96px 0 12px;font-weight:300;scroll-margin-top:96px;line-height:1.17;
-  letter-spacing:-.36px;color:var(--ink)}
-html[data-lang="en"] h2{font-family:Newsreader,"Times New Roman",serif;font-weight:300}
-h2 .num{color:var(--mut-soft);font-variant-numeric:tabular-nums}
-.sub{color:var(--mut);font-size:16px;margin:0 0 32px;max-width:62ch;letter-spacing:.16px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:16px;
+/* h2 — black-bar section header, ONE grammar site-wide (index shares it):
+   a SLAB (District 9, ref 7) — solid --bar plate at Display-XL scale, 3px
+   orange start rule as the mark, ink mono index (orange type below 18px is
+   banned, §2.4), hairline running to the bar's end. */
+h2{display:flex;align-items:center;gap:14px;font-size:clamp(28px,3.6vw,44px);margin:96px 0 20px;
+  font-weight:700;scroll-margin-top:96px;line-height:1.3;letter-spacing:0;color:var(--bar-ink);
+  background:var(--bar);border-block:1px solid var(--line-strong);border-inline-start:3px solid var(--sig);
+  padding:14px 18px}
+html[data-lang="en"] h2{font-family:var(--f-disp);font-weight:500;letter-spacing:-.02em;line-height:1.12}
+h2 .num{color:color-mix(in srgb,var(--bar-ink) 70%,transparent);font-size:13px;font-weight:700;font-variant-numeric:tabular-nums;flex:0 0 auto}
+html[data-lang="en"] h2 .num{font-family:var(--f-mono);font-feature-settings:"zero";letter-spacing:.06em}
+h2::after{content:"";flex:1 1 auto;height:1px;background:color-mix(in srgb,var(--bar-ink) 35%,transparent);
+  min-width:24px;margin-inline-start:4px}
+.sub{color:var(--mut);font-size:16px;margin:0 0 32px;max-width:62ch}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;
   padding:24px;margin:16px 0;box-shadow:var(--shadow)}
 .lead{font-size:16px;color:var(--mut)}
 .lead b{color:var(--ink);font-weight:500}
 .kgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin:16px 0}
-.kbox{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px;text-align:start}
-.kbox .v{font-size:32px;font-weight:300;color:var(--ink);font-variant-numeric:tabular-nums;line-height:1.13;letter-spacing:-.32px}
-html[data-lang="en"] .kbox .v{font-family:Newsreader,"Times New Roman",serif}
-.kbox .l{font-size:14px;color:var(--mut);margin-top:8px}
+/* stat kboxes — instrument tiles (§5): mono numeral, mono micro-label, 2px
+   ORANGE start-edge tick (a data mark — outside the hero, §2.4's rationing
+   doesn't apply; the hero .chip ticks stay achromatic) */
+.kbox{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:24px;text-align:start;position:relative}
+.kbox::before{content:"";position:absolute;inset-inline-start:0;top:18px;bottom:18px;width:2px;background:var(--sig)}
+.kbox .v{font-size:28px;font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums;line-height:1.2;letter-spacing:0}
+html[data-lang="en"] .kbox .v{font-family:var(--f-mono);font-weight:500;font-feature-settings:"zero"}
+/* the one HUD-clock numeral per page — the first stat runs at the top of the scale (§3.2) */
+.kgrid .kbox:first-child .v{font-size:40px}
+.kbox .l{font-size:13px;color:var(--mut);margin-top:8px;font-weight:700;letter-spacing:0}
+html[data-lang="en"] .kbox .l{font-family:var(--f-mono);font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase}
 ul.clean{margin:8px 0;padding-inline-start:20px} ul.clean li{margin:12px 0}
 .callout{background:var(--card2);border:1px solid var(--line);
-  border-radius:16px;padding:24px;margin:16px 0;color:var(--mut)}
+  border-radius:12px;padding:24px;margin:16px 0;color:var(--mut)}
 .callout b{color:var(--ink);font-weight:500}
-.callout.accent{background:var(--card);border-color:var(--line-strong)}
+/* core callout — dark: hairline card with an orange start-edge; light: THE orange poster panel */
+.callout.accent{background:var(--card);border-color:var(--line-strong);
+  border-inline-start:3px solid var(--sig)}
 .callout.accent b{color:var(--ink)}
+[data-theme="light"] .callout.accent{background:var(--sig);border-color:var(--sig);
+  border-inline-start-color:var(--sig);color:var(--sig-ink)}
+[data-theme="light"] .callout.accent b{color:var(--sig-ink)}
+/* selection inverts ON the orange surface — orange-on-orange highlight is invisible */
+[data-theme="light"] .callout.accent ::selection{background:var(--sig-ink);color:var(--sig)}
 a{color:var(--ink)}
 
 /* ── GRAPH (full-bleed, interactive, cross-relation connectors) ── */
-.gtabs{display:inline-flex;gap:4px;background:var(--card2);border:0;
-  border-radius:9999px;padding:4px;margin:8px 0 16px}
-.gtab{border:0;background:transparent;color:var(--mut);font:inherit;font-size:15px;font-weight:500;
-  padding:8px 18px;border-radius:9999px;cursor:pointer;
-  transition:transform var(--d1) var(--ease),color var(--d1) var(--ease),background var(--d1) var(--ease)}
-.gtab.active{background:var(--accent);color:var(--accent-ink)}
+/* view tabs — bare underline tabs on a hairline rule (ref 3), not a segmented
+   pill: mono uppercase labels, 2px orange underline scales in on the active
+   tab. Keeps the core node as the graph viewport's only orange surface. */
+.gtabs{display:flex;gap:24px;margin:8px 0 16px;border-bottom:1px solid var(--line)}
+.gtab{position:relative;border:0;background:none;color:var(--mut);font:inherit;font-size:15px;font-weight:700;
+  padding:12px 2px;margin-bottom:-1px;cursor:pointer;letter-spacing:0;
+  transition:transform var(--d1) var(--ease),color var(--d1) var(--ease)}
+html[data-lang="en"] .gtab{font-family:var(--f-mono);font-size:13px;font-weight:500;
+  letter-spacing:.08em;text-transform:uppercase}
+.gtab::after{content:"";position:absolute;inset-inline:0;bottom:0;height:2px;background:var(--sig);
+  transform:scaleX(0);transform-origin:left center;transition:transform var(--d1) var(--ease)}
+html[dir="rtl"] .gtab::after{transform-origin:right center}
+.gtab:hover{color:var(--ink)}
+.gtab.active{color:var(--ink)}
+/* entrance settles (.28s), exit snaps back faster (.16s, rule above) */
+.gtab.active::after{transform:scaleX(1);transition:transform var(--d2) var(--ease-out)}
 .gtab:active{transform:scale(.97)}
+.gtab:focus-visible{border-radius:6px}
 
 /* full-bleed wrapper — breaks out of the column to the viewport edges */
 .graphfull{width:100vw;margin-inline:calc(50% - 50vw);padding:8px clamp(16px,4vw,48px) 8px}
-.graphcard{padding:0;background:none;border:0;box-shadow:none;margin:0}
-.legend{display:flex;flex-wrap:wrap;gap:12px 20px;margin:0 4px 16px;font-size:14px;color:var(--mut)}
+.legend{display:flex;flex-wrap:wrap;gap:12px 20px;margin:0 4px 16px;font-size:13px;color:var(--mut)}
+html[data-lang="en"] .legend{font-family:var(--f-mono);font-size:12px;letter-spacing:.04em;text-transform:uppercase}
 .legend span{display:inline-flex;align-items:center;gap:8px}
-.legend i{width:10px;height:10px;border-radius:9999px;display:inline-block}
+.legend i{width:8px;height:8px;border-radius:2px;display:inline-block}
 
-.svgwrap{position:relative;border:1px solid var(--line);border-radius:24px;overflow:hidden;
+.svgwrap{position:relative;border:1px solid var(--line);border-radius:16px;overflow:hidden;
   background:var(--bg2);box-shadow:var(--shadow)}
-/* atmospheric orbs drifting behind the graph — pure decoration */
+/* hairline graph paper — the network floats on a schematic grid */
 .svgwrap::before{content:"";position:absolute;inset:0;pointer-events:none;
-  background:
-    radial-gradient(38% 44% at 18% 22%,var(--g-mint),transparent 70%),
-    radial-gradient(34% 40% at 82% 26%,var(--g-peach),transparent 70%),
-    radial-gradient(40% 46% at 70% 82%,var(--g-lavender),transparent 70%),
-    radial-gradient(30% 38% at 26% 80%,var(--g-sky),transparent 70%);
-  opacity:.4}
-[data-theme="dark"] .svgwrap::before{opacity:.16}
+  background-image:
+    linear-gradient(var(--line-soft) 1px,transparent 1px),
+    linear-gradient(90deg,var(--line-soft) 1px,transparent 1px);
+  background-size:56px 56px}
 #netsvg{position:relative;display:block;width:100%;height:min(72vh,720px);min-height:440px;touch-action:none;cursor:grab}
 #netsvg:active{cursor:grabbing}
 #netsvg text{pointer-events:none;user-select:none}
-.ghint{position:absolute;inset-inline-start:16px;top:16px;font-size:12px;font-weight:600;letter-spacing:.96px;
-  text-transform:uppercase;color:var(--ink);z-index:3;background:color-mix(in srgb,var(--card) 82%,transparent);
-  border:0;border-radius:9999px;padding:6px 12px;
-  backdrop-filter:blur(14px) saturate(160%);-webkit-backdrop-filter:blur(14px) saturate(160%);max-width:60%}
+/* hint + reset — solid instrument plates (blur is reserved for navbar + .detail, §4.6) */
+.ghint{position:absolute;inset-inline-start:16px;top:16px;font-size:12px;font-weight:700;letter-spacing:0;
+  color:var(--ink);z-index:3;background:var(--card);
+  border:0;border-radius:4px;padding:6px 12px;max-width:60%}
+html[data-lang="en"] .ghint{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
 .greset{position:absolute;inset-inline-end:16px;top:16px;z-index:3;border:1px solid var(--line-strong);
-  background:color-mix(in srgb,var(--card) 82%,transparent);
-  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  background:var(--card);
   color:var(--ink);border-radius:9999px;font:inherit;font-size:15px;font-weight:500;padding:8px 18px;cursor:pointer;
   transition:transform var(--d1) var(--ease),background var(--d1) var(--ease)}
-.greset:hover{background:var(--card)}
+/* secondary controls speak the mono utility voice (ref 7's tiny "EXPLORE") */
+html[data-lang="en"] .greset{font-family:var(--f-mono);font-size:12px;font-weight:500;
+  letter-spacing:.08em;text-transform:uppercase;padding:10px 18px}
+.greset:hover{background:var(--card2)}
 .greset:active{transform:scale(.97)}
 
 /* nodes — inner <g class="ns"> scales; fill-box pins the pivot to the node */
@@ -187,18 +301,21 @@ a{color:var(--ink)}
 .node.sel  .ns{transform:scale(1.4)}
 .node.ncore.hover .ns{transform:scale(1.06)}
 .node.ncore.sel   .ns{transform:scale(1.08)}
+/* grabbed node lifts while it travels (selected keeps its own scale) */
+.node.drag:not(.sel) .ns{transform:scale(1.1)}
+.node.ncore.drag:not(.sel) .ns{transform:scale(1.04)}
 .node circle{transition:stroke var(--d2) var(--ease),opacity var(--d2) var(--ease)}
-.node.sel circle{stroke:var(--ink);stroke-width:2}
+.node.sel circle{stroke:var(--sig);stroke-width:2}
 .node.hl circle{stroke:var(--ink);stroke-opacity:.35;stroke-width:1.5}
 .node.dim{opacity:.2;transition:opacity var(--d2) var(--ease)}
 .node text{font-family:Vazirmatn,Tahoma,sans-serif;font-weight:500}
-html[data-lang="en"] .node text{font-family:Inter,sans-serif}
+html[data-lang="en"] .node text{font-family:var(--f-disp)}
 
-/* links — curved hairlines; relation connectors animate in */
+/* links — curved hairlines; relation connectors draw in orange (the live circuit) */
 .glink{fill:none;transition:opacity var(--d2) var(--ease),stroke var(--d2) var(--ease),stroke-width var(--d2) var(--ease)}
 .glink.dim{opacity:.08}
 .glink.hl{stroke:var(--ink) !important;stroke-opacity:.4;stroke-width:1.6}
-.rel{fill:none;stroke:var(--ink);stroke-opacity:.75;stroke-linecap:round;pointer-events:none}
+.rel{fill:none;stroke:var(--sig);stroke-opacity:.8;stroke-linecap:round;pointer-events:none}
 .rel.draw{stroke-dasharray:var(--len);stroke-dashoffset:var(--len);animation:relDraw .5s var(--ease-out) forwards}
 @keyframes relDraw{to{stroke-dashoffset:0}}
 
@@ -212,14 +329,26 @@ html[data-lang="en"] .node text{font-family:Inter,sans-serif}
 .detail.pop{animation:cardIn .32s var(--ease-out)}
 html[dir="rtl"] .detail{transform-origin:top left}
 @keyframes cardIn{from{opacity:0;transform:translateY(-6px) scale(.96)}to{opacity:1;transform:none}}
-.detail .dkick{font-size:12px;font-weight:600;letter-spacing:.96px;text-transform:uppercase;
-  display:flex;align-items:center;gap:8px;color:var(--mut-soft)}
-.detail .dkick i{width:10px;height:10px;border-radius:9999px}
-.detail h4{margin:12px 0 4px;font-size:24px;font-weight:300;letter-spacing:0;line-height:1.2;color:var(--ink)}
-html[data-lang="en"] .detail h4{font-family:Newsreader,"Times New Roman",serif;font-weight:300}
+/* exit — the same path back out, faster than the entrance (.12s vs .32s) and
+   on the exit curve (accelerates away; entrances decelerate in). book.js blinks
+   the old readout out, swaps content, then re-materializes.
+   Declared after .pop so it wins while both classes are present. */
+.detail.out{animation:cardOut .12s var(--ease-exit) forwards}
+@keyframes cardOut{to{opacity:0;transform:translateY(-6px) scale(.96)}}
+/* HUD header strip — kicker + tone swatch sealed under a hairline, so the
+   readout has an instrument-panel title bar instead of a floating label */
+.detail .dkick{font-size:12px;font-weight:700;letter-spacing:0;
+  display:flex;align-items:center;gap:8px;color:var(--mut-soft);
+  padding-bottom:12px;border-bottom:1px solid var(--line);
+  margin:-4px -24px 0;padding-inline:24px}
+html[data-lang="en"] .detail .dkick{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+.detail .dkick i{width:8px;height:8px;border-radius:2px}
+.detail h4{margin:12px 0 4px;font-size:22px;font-weight:700;letter-spacing:0;line-height:1.3;color:var(--ink)}
+html[data-lang="en"] .detail h4{font-family:var(--f-disp);font-weight:500;line-height:1.2;letter-spacing:-.01em}
 .detail .drow{margin:16px 0}
-.detail .dlab{font-size:12px;font-weight:600;color:var(--mut-soft);letter-spacing:.96px;text-transform:uppercase;
+.detail .dlab{font-size:12px;font-weight:700;color:var(--mut-soft);letter-spacing:0;
   display:inline-flex;align-items:center;gap:6px}
+html[data-lang="en"] .detail .dlab{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase}
 .detail .drow.tip .dlab{color:var(--ok)}
 .detail .drow.pit .dlab{color:var(--err)}
 .detail .drow.more{border-inline-start:1px solid var(--line);padding-inline-start:16px}
@@ -230,7 +359,7 @@ html[data-lang="en"] .detail h4{font-family:Newsreader,"Times New Roman",serif;f
   transition:transform var(--d1) var(--ease),background var(--d1) var(--ease)}
 .dchip:hover{background:var(--card2)}
 .dchip:active{transform:scale(.97)}
-.dchip i{width:8px;height:8px;border-radius:9999px;flex:0 0 auto}
+.dchip i{width:8px;height:8px;border-radius:2px;flex:0 0 auto}
 @media(max-width:720px){
   #netsvg{height:66vh;min-height:380px}
   .detail{position:static;width:auto;inset:auto;max-height:none;margin-top:16px;
@@ -240,51 +369,72 @@ html[data-lang="en"] .detail h4{font-family:Newsreader,"Times New Roman",serif;f
 /* ── CONCEPT MAP ──────────────────────────────────────────── */
 .mapgrid{display:grid;grid-template-columns:1fr;gap:16px}
 @media(min-width:820px){.mapgrid{grid-template-columns:repeat(3,1fr)}}
-.partcol{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px;position:relative}
+.partcol{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:24px;position:relative}
 .partcol .ph{display:flex;align-items:center;gap:10px;margin-bottom:8px}
-.partcol .pdot{width:10px;height:10px;border-radius:9999px;flex:0 0 auto}
-.partcol .pnum{font-size:12px;font-weight:600;color:var(--mut-soft);letter-spacing:.96px;text-transform:uppercase}
-.partcol h4{margin:0;font-size:24px;font-weight:300;color:var(--ink);line-height:1.2}
-html[data-lang="en"] .partcol h4{font-family:Newsreader,"Times New Roman",serif;font-weight:300}
-.partcol .ptag{font-size:12px;color:var(--mut-soft);margin:4px 0 8px;font-weight:600;letter-spacing:.96px;text-transform:uppercase}
+.partcol .pdot{width:8px;height:8px;border-radius:2px;flex:0 0 auto}
+.partcol .pnum{font-size:12px;font-weight:700;color:var(--mut-soft);letter-spacing:0}
+html[data-lang="en"] .partcol .pnum{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+.partcol h4{margin:0;font-size:21px;font-weight:700;color:var(--ink);line-height:1.3}
+html[data-lang="en"] .partcol h4{font-family:var(--f-disp);font-weight:500;line-height:1.2;letter-spacing:-.01em}
+.partcol .ptag{font-size:12px;color:var(--mut-soft);margin:4px 0 8px;font-weight:700;letter-spacing:0}
+html[data-lang="en"] .partcol .ptag{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase}
 .partcol .pgist{font-size:15px;color:var(--mut);margin:0 0 16px;letter-spacing:.15px}
 .chapchip{display:flex;align-items:baseline;gap:10px;padding:12px 0;border:0;border-bottom:1px solid var(--line);
   border-radius:0;margin:0;background:transparent;font-size:16px}
 .chapchip:last-child{border-bottom:0}
 .chapchip .cn{font-size:12px;font-weight:600;color:var(--mut-soft);flex:0 0 auto;font-variant-numeric:tabular-nums}
+/* chapter indices are data — they join the mono annotation layer in EN
+   (FA keeps Vazirmatn Persian digits, §3.3) */
+html[data-lang="en"] .chapchip .cn{font-family:var(--f-mono);font-feature-settings:"zero";letter-spacing:.04em}
 .chapchip b{font-weight:500;color:var(--ink)}
 .chapchip small{color:var(--mut);display:block;font-size:14px;line-height:1.5;margin-top:2px}
 .flowline{display:flex;align-items:center;justify-content:center;gap:12px;color:var(--mut-soft);
-  font-size:12px;font-weight:600;letter-spacing:.96px;text-transform:uppercase;margin:0 0 24px;flex-wrap:wrap}
+  font-size:12px;font-weight:700;letter-spacing:0;margin:0 0 24px;flex-wrap:wrap}
+html[data-lang="en"] .flowline{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase}
 .flowline .ar{color:var(--mut-soft)}
 
-/* ── STAGE LADDER ─────────────────────────────────────────── */
+/* ── STAGE LADDER — rungs are instrument tiles with ruler-tick bars ── */
 .ladder{display:flex;flex-wrap:wrap;gap:12px;margin:16px 0}
-.rung{flex:1 1 180px;border:1px solid var(--line);background:var(--card);border-radius:16px;
+.rung{flex:1 1 180px;border:1px solid var(--line);background:var(--card);border-radius:12px;
   padding:20px;cursor:pointer;transition:transform var(--d1) var(--ease),border-color var(--d1) var(--ease),box-shadow var(--d1) var(--ease);position:relative}
 .rung:hover{border-color:var(--line-strong);box-shadow:var(--shadow-lg)}
-.rung.active{border-color:var(--ink)}
-.rung .lv{font-size:12px;font-weight:600;color:var(--mut-soft);letter-spacing:.96px;text-transform:uppercase}
-.rung .lt{font-size:18px;font-weight:500;margin-top:6px;color:var(--ink);letter-spacing:.18px}
-.rung .lbar{height:2px;border-radius:9999px;background:var(--line);margin-top:16px;overflow:hidden}
-.rung .lbar i{display:block;height:100%;background:var(--ink)}
-.stagecard{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:32px;
+.rung.active{border-color:var(--sig)}
+.rung .lv{font-size:12px;font-weight:700;color:var(--mut-soft);letter-spacing:0}
+html[data-lang="en"] .rung .lv{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+.rung.active .lv{color:var(--sig-soft)}
+/* light paper: orange misses AA at 11px — the active state is already carried
+   by the orange border; the label goes ink */
+[data-theme="light"] .rung.active .lv{color:var(--ink)}
+.rung .lt{font-size:17px;font-weight:600;margin-top:6px;color:var(--ink);letter-spacing:0}
+html[data-lang="en"] .rung .lt{font-family:var(--f-disp);font-weight:500;font-size:18px}
+/* the bar is a ruler; the orange fill slides over the ticks */
+.rung .lbar{height:8px;background-image:repeating-linear-gradient(90deg,var(--line-strong) 0 1px,transparent 1px 8px);
+  margin-top:16px;position:relative;overflow:hidden}
+.rung .lbar i{display:block;position:absolute;inset-block:0;inset-inline-start:0;background:var(--sig);
+  transform-origin:left center}
+html[dir="rtl"] .rung .lbar i{transform-origin:right center}
+.stagecard{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:32px;
   margin:16px 0;box-shadow:var(--shadow)}
 .stagecard .shead{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
-.stagecard .badge{font-size:12px;font-weight:600;letter-spacing:.96px;text-transform:uppercase;
-  color:var(--ink);background:var(--card2);border-radius:9999px;padding:4px 10px;white-space:nowrap}
-.stagecard h3{margin:12px 0 0;font-size:32px;font-weight:300;color:var(--ink);line-height:1.13;letter-spacing:-.32px}
-html[data-lang="en"] .stagecard h3{font-family:Newsreader,"Times New Roman",serif;font-weight:300}
-.stagecard .tagline{color:var(--mut-soft);font-size:16px;margin:8px 0 24px;font-weight:400;letter-spacing:.16px}
-.stagecard .sbody{font-size:16px;color:var(--mut);letter-spacing:.16px}
-.exbox{background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:24px;margin:24px 0 0}
-.exbox .exk{font-size:12px;font-weight:600;color:var(--mut-soft);letter-spacing:.96px;text-transform:uppercase}
-.exbox .ext{font-size:16px;margin-top:8px;color:var(--mut);letter-spacing:.16px}
+.stagecard .badge{font-size:12px;font-weight:700;letter-spacing:0;
+  color:var(--ink);background:var(--card2);border-radius:4px;padding:4px 10px;white-space:nowrap}
+html[data-lang="en"] .stagecard .badge{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+.stagecard h3{margin:12px 0 0;font-size:26px;font-weight:700;color:var(--ink);line-height:1.3;letter-spacing:0}
+html[data-lang="en"] .stagecard h3{font-family:var(--f-disp);font-weight:500;font-size:28px;line-height:1.15;letter-spacing:-.02em}
+.stagecard .tagline{color:var(--mut);font-size:16px;margin:8px 0 24px;font-weight:400}
+.stagecard .sbody{font-size:16px;color:var(--mut)}
+.exbox{background:var(--bg2);border:1px solid var(--line);border-inline-start:2px solid var(--sig);
+  border-radius:8px;padding:24px;margin:24px 0 0}
+.exbox .exk{font-size:12px;font-weight:700;color:var(--mut-soft);letter-spacing:0}
+html[data-lang="en"] .exbox .exk{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+.exbox .ext{font-size:16px;margin-top:8px;color:var(--mut)}
 .gainrow{display:flex;align-items:flex-start;gap:10px;margin-top:24px;font-size:15px;color:var(--mut)}
 .gainrow .gi{flex:0 0 auto;color:var(--ok);font-weight:600}
 .stagenav{display:flex;justify-content:space-between;gap:12px;margin-top:32px}
 .stagenav button{border:1px solid var(--line-strong);background:transparent;color:var(--ink);font:inherit;
-  font-size:15px;font-weight:500;border-radius:9999px;padding:9px 19px;cursor:pointer}
+  font-size:15px;font-weight:500;border-radius:9999px;padding:9px 19px;cursor:pointer;min-height:40px}
+html[data-lang="en"] .stagenav button{font-family:var(--f-mono);font-size:12px;font-weight:500;
+  letter-spacing:.08em;text-transform:uppercase}
 .stagenav button:hover:not(:disabled){background:var(--card2)}
 .stagenav button:disabled{opacity:.35;cursor:default}
 
@@ -292,16 +442,17 @@ html[data-lang="en"] .stagecard h3{font-family:Newsreader,"Times New Roman",seri
 .qgrid{display:grid;grid-template-columns:1fr;gap:16px}
 @media(min-width:720px){.qgrid{grid-template-columns:1fr 1fr}}
 blockquote{margin:0;background:var(--card);border:1px solid var(--line);
-  border-radius:16px;padding:32px;font-size:20px;position:relative;color:var(--ink)}
+  border-radius:12px;padding:32px;font-size:20px;position:relative;color:var(--ink);font-weight:300}
 blockquote .qm{display:none}
 blockquote p{margin:0;padding:0}
-html[data-lang="en"] blockquote{font-family:Newsreader,"Times New Roman",serif;font-size:24px;
-  font-weight:300;line-height:1.2;letter-spacing:0}
+/* the one serif on the site — Newsreader Light, kept for quote drama only */
+html[data-lang="en"] blockquote{font-family:var(--f-serif);font-size:24px;
+  font-weight:300;line-height:1.35;letter-spacing:0}
 
 /* ── MEDIA ────────────────────────────────────────────────── */
 .mgrid{display:grid;grid-template-columns:1fr;gap:16px}
 @media(min-width:640px){.mgrid{grid-template-columns:1fr 1fr}}
-.mcard{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;
+.mcard{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;
   box-shadow:var(--shadow);display:flex;flex-direction:column}
 .mthumb{position:relative;display:block;aspect-ratio:16/9;background:var(--card2);overflow:hidden;text-decoration:none}
 .mthumb img{width:100%;height:100%;object-fit:cover;display:block}
@@ -310,13 +461,31 @@ html[data-lang="en"] blockquote{font-family:Newsreader,"Times New Roman",serif;f
   display:grid;place-items:center;border:0}
 .mthumb .play svg{width:20px;height:20px;fill:var(--accent-ink);margin-inline-start:3px}
 .mthumb .ptype{position:absolute;inset-inline-start:12px;top:12px;background:var(--card);color:var(--ink);
-  font-size:12px;font-weight:600;border-radius:9999px;padding:4px 10px;letter-spacing:.96px;text-transform:uppercase}
-.mfake{aspect-ratio:16/9;display:grid;place-items:center;
-  background:radial-gradient(60% 70% at 30% 30%,var(--g-sky),transparent 70%),
-             radial-gradient(60% 70% at 75% 70%,var(--g-peach),transparent 70%),var(--card2)}
-.mfake svg{width:48px;height:48px;color:var(--ink);opacity:.5}
+  font-size:11px;font-weight:700;border-radius:4px;padding:4px 10px;letter-spacing:0}
+html[data-lang="en"] .mthumb .ptype{font-family:var(--f-mono);letter-spacing:.1em;text-transform:uppercase}
+.mfake{aspect-ratio:16/9;display:grid;place-items:center;background-color:var(--card2);
+  background-image:radial-gradient(circle,var(--line-strong) 1px,transparent 1.5px);
+  background-size:12px 12px;position:relative}
+/* lit dots as data — a small rising LED bar chart in the start corner (§4.1):
+   five stepped columns masked out of the dot grid, not an amorphous fade */
+.mfake::after{content:"";position:absolute;inset-inline-start:12px;bottom:12px;width:46%;height:52%;pointer-events:none;
+  background-image:radial-gradient(circle,var(--sig) 1.5px,transparent 2px);
+  background-size:12px 12px;opacity:.8;
+  -webkit-mask-image:linear-gradient(#000,#000),linear-gradient(#000,#000),linear-gradient(#000,#000),linear-gradient(#000,#000),linear-gradient(#000,#000);
+          mask-image:linear-gradient(#000,#000),linear-gradient(#000,#000),linear-gradient(#000,#000),linear-gradient(#000,#000),linear-gradient(#000,#000);
+  -webkit-mask-size:14% 24%,14% 42%,14% 58%,14% 76%,14% 96%;
+          mask-size:14% 24%,14% 42%,14% 58%,14% 76%,14% 96%;
+  -webkit-mask-position:0 100%,25% 100%,50% 100%,75% 100%,100% 100%;
+          mask-position:0 100%,25% 100%,50% 100%,75% 100%,100% 100%;
+  -webkit-mask-repeat:no-repeat;mask-repeat:no-repeat}
+/* RTL: reverse the staircase so it rises toward the inline end */
+html[dir="rtl"] .mfake::after{
+  -webkit-mask-size:14% 96%,14% 76%,14% 58%,14% 42%,14% 24%;
+          mask-size:14% 96%,14% 76%,14% 58%,14% 42%,14% 24%}
+.mfake svg{width:48px;height:48px;color:var(--ink);opacity:.5;position:relative}
 .mbody{padding:24px;display:flex;flex-direction:column;gap:8px;flex:1}
-.mbody .msrc{font-size:12px;font-weight:600;color:var(--mut-soft);letter-spacing:.96px;text-transform:uppercase}
+.mbody .msrc{font-size:12px;font-weight:700;color:var(--mut-soft);letter-spacing:0}
+html[data-lang="en"] .mbody .msrc{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase}
 .mbody h4{margin:0;font-size:20px;font-weight:500;line-height:1.35;color:var(--ink)}
 .mbody .mdesc{font-size:15px;color:var(--mut);margin:0;letter-spacing:.15px}
 .mbody ul{margin:8px 0 0;padding-inline-start:18px}
@@ -332,30 +501,38 @@ html[data-lang="en"] blockquote{font-family:Newsreader,"Times New Roman",serif;f
 
 /* ── RECS + METHOD + CREDIT ───────────────────────────────── */
 .rec{display:grid;gap:16px;margin:16px 0}
-.rec .item{border:1px solid var(--line);border-radius:16px;padding:24px;background:var(--card)}
+.rec .item{border:1px solid var(--line);border-radius:12px;padding:24px;background:var(--card)}
 .rec .item .t{font-weight:500;font-size:20px;margin-bottom:8px;display:flex;align-items:center;gap:12px;
   flex-wrap:wrap;color:var(--ink);line-height:1.35}
-.rec .item .t .pri{font-size:12px;font-weight:600;letter-spacing:.96px;text-transform:uppercase;
-  color:var(--ink);background:var(--card2);border-radius:9999px;padding:4px 10px}
+html[data-lang="en"] .rec .item .t{font-family:var(--f-disp)}
+.rec .item .t .pri{font-size:11px;font-weight:700;letter-spacing:0;
+  color:var(--ink);background:var(--card2);border-radius:4px;padding:4px 10px}
+html[data-lang="en"] .rec .item .t .pri{font-family:var(--f-mono);letter-spacing:.1em;text-transform:uppercase}
 .rec .item .t .pri.b{background:var(--accent);color:var(--accent-ink)}
-.rec .item .d{font-size:16px;color:var(--mut);letter-spacing:.16px}
-.method{color:var(--mut);font-size:15px;letter-spacing:.15px}
+.rec .item .d{font-size:16px;color:var(--mut)}
+.method{color:var(--mut);font-size:15px}
 .method p{margin:12px 0}
 .method b{color:var(--ink);font-weight:500}
 .credit{text-align:center;margin-top:96px;padding:48px 0 8px;border-top:1px solid var(--line);
-  color:var(--mut);font-size:15px}
+  color:var(--mut);font-size:14px}
+html[data-lang="en"] .credit{font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase}
 .credit .cname{color:var(--ink);font-weight:500}
 .credit a{font-weight:500;text-decoration:none;color:var(--ink)}
 .credit a:hover{text-decoration:underline}
 .credit .sep{opacity:.4;margin:0 10px}
 .credit .li{display:inline-flex;align-items:center;gap:6px;vertical-align:middle}
 .credit .li svg{width:15px;height:15px;vertical-align:-3px}
+/* closing mono line — the library's own nameplate (§3.3: FA stays Vazirmatn 700) */
+.foot-close{margin-top:16px;font-size:12px;font-weight:700;letter-spacing:0;color:var(--mut-soft)}
+html[data-lang="en"] .foot-close{font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase}
 
 @media (max-width:640px){
   body{font-size:15px}
   .wrap{padding:0 20px 64px}
-  .hero{padding:56px 0 40px}
-  h2{font-size:28px;margin:64px 0 12px;scroll-margin-top:72px}
+  .hero{padding:64px 0 48px}
+  h2{font-size:22px;margin:64px 0 16px;padding:12px 14px;scroll-margin-top:72px}
+  .metaitem{padding-inline-end:24px}
+  .metaitem+.metaitem{padding-inline-start:16px}
   .brand{display:none}
   .toc{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;scrollbar-width:none}
   .toc::-webkit-scrollbar{display:none}
@@ -375,18 +552,43 @@ html[data-lang="en"] blockquote{font-family:Newsreader,"Times New Roman",serif;f
 .libbtn.icon{width:40px;padding:0;justify-content:center}
 .libbtn[aria-disabled="true"]{opacity:.35;pointer-events:none}
 .libbtn .lbl{display:inline}
+html[data-lang="en"] .libbtn .lbl{font-family:var(--f-mono);font-size:12px;font-weight:500;
+  letter-spacing:.08em;text-transform:uppercase}
 @media(max-width:900px){.libbtn .lbl{display:none}}
 
 /* full-screen "all books" overlay */
 .liboverlay{position:fixed;inset:0;z-index:200;background:color-mix(in srgb,var(--ink) 32%,transparent);
   backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);display:none;align-items:flex-start;
-  justify-content:center;padding:5vh 16px;overflow:auto}
-.liboverlay.open{display:flex}
+  justify-content:center;padding:5vh 16px;overflow:auto;
+  scrollbar-width:thin;scrollbar-color:var(--line-strong) transparent}
+.liboverlay::-webkit-scrollbar{width:6px}
+.liboverlay::-webkit-scrollbar-thumb{background:var(--line-strong);border-radius:9999px}
+.liboverlay::-webkit-scrollbar-track{background:transparent}
+.liboverlay.open{display:flex;animation:libFade .22s var(--ease-out)}
+.liboverlay.open .libsheet{animation:libIn .26s var(--ease-out)}
+/* exit rides the entrance path back out, faster (.18s vs .22/.26s) and on the
+   exit curve (accelerates away) — book.js adds .closing, waits, then drops
+   .open (same choreography as the wizard) */
+.liboverlay.closing{pointer-events:none;animation:libFadeOut .18s var(--ease-exit) forwards}
+.liboverlay.closing .libsheet{animation:libSheetOut .18s var(--ease-exit) forwards}
+@keyframes libFade{from{opacity:0}}
+@keyframes libFadeOut{to{opacity:0}}
+@keyframes libIn{from{opacity:0;transform:translateY(10px) scale(.98)}to{opacity:1;transform:none}}
+@keyframes libSheetOut{to{opacity:0;transform:translateY(10px) scale(.98)}}
 .libsheet{width:100%;max-width:1200px;background:var(--bg);border:1px solid var(--line);
-  border-radius:24px;box-shadow:var(--shadow-lg);padding:32px;position:relative}
-.libsheet .lhead{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:8px}
-.libsheet .lhead h3{margin:0;font-size:32px;font-weight:300;color:var(--ink);line-height:1.13;letter-spacing:-.32px}
-html[data-lang="en"] .libsheet .lhead h3{font-family:Newsreader,"Times New Roman",serif;font-weight:300}
+  border-radius:16px;box-shadow:var(--shadow-lg);padding:32px;position:relative}
+.libsheet .lhead{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:8px;
+  position:relative}
+/* graph-paper patch behind the overlay header */
+.libsheet .lhead::before{content:"";position:absolute;inset:-32px -32px 0;pointer-events:none;
+  background-image:linear-gradient(var(--line-soft) 1px,transparent 1px),
+                   linear-gradient(90deg,var(--line-soft) 1px,transparent 1px);
+  background-size:28px 28px;
+  -webkit-mask-image:linear-gradient(#000 40%,transparent);
+          mask-image:linear-gradient(#000 40%,transparent)}
+.libsheet .lhead>*{position:relative}
+.libsheet .lhead h3{margin:0;font-size:26px;font-weight:700;color:var(--ink);line-height:1.3;letter-spacing:0}
+html[data-lang="en"] .libsheet .lhead h3{font-family:var(--f-disp);font-weight:500;font-size:28px;line-height:1.15;letter-spacing:-.02em}
 .libsheet .lhead p{margin:6px 0 0;font-size:15px;color:var(--mut)}
 .libclose{width:40px;height:40px;border-radius:9999px;border:1px solid var(--line-strong);background:transparent;
   color:var(--ink);cursor:pointer;display:grid;place-items:center;flex:0 0 auto}
@@ -395,14 +597,23 @@ html[data-lang="en"] .libsheet .lhead h3{font-family:Newsreader,"Times New Roman
 .libgrid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:32px}
 @media(min-width:640px){.libgrid{grid-template-columns:1fr 1fr}}
 @media(min-width:960px){.libgrid{grid-template-columns:1fr 1fr 1fr}}
-.libgroup{border:1px solid var(--line);background:var(--card);border-radius:16px;padding:20px}
+.libgroup{border:1px solid var(--line);background:var(--card);border-radius:12px;padding:20px}
 .libgroup .lgh{display:flex;align-items:baseline;gap:8px;margin-bottom:12px}
-.libgroup .lgn{font-size:12px;font-weight:600;color:var(--mut-soft);font-variant-numeric:tabular-nums;letter-spacing:.96px}
-.libgroup .lgt{font-size:18px;font-weight:500;color:var(--ink);letter-spacing:.18px}
+/* 6px orange square mark + ink mono index — orange type below 18px is banned
+   (§2.4); with 16 group cards in one scroll, orange indices would compete */
+.libgroup .lgn{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:700;
+  color:var(--mut);font-variant-numeric:tabular-nums;letter-spacing:0}
+.libgroup .lgn::before{content:"";width:6px;height:6px;background:var(--sig);flex:0 0 auto}
+html[data-lang="en"] .libgroup .lgn{font-family:var(--f-mono);font-feature-settings:"zero";letter-spacing:.06em}
+.libgroup .lgt{font-size:17px;font-weight:600;color:var(--ink);letter-spacing:0}
+html[data-lang="en"] .libgroup .lgt{font-family:var(--f-disp);font-weight:500;font-size:18px}
 .libgroup a{display:block;font-size:15px;color:var(--mut);text-decoration:none;padding:8px 10px;
-  border-radius:8px;border:0;transition:background var(--d1) var(--ease),color var(--d1) var(--ease)}
+  border-radius:6px;border:0;transition:background var(--d1) var(--ease),color var(--d1) var(--ease)}
 .libgroup a:hover{background:var(--card2);color:var(--ink)}
-.libgroup a.cur{background:var(--accent);color:var(--accent-ink);font-weight:500}
+/* current book — orange start-edge bar + inset plate (replaces the solid ink fill) */
+.libgroup a.cur{background:var(--card2);color:var(--ink);font-weight:500;
+  border-inline-start:2px solid var(--sig);border-radius:0 6px 6px 0}
+html[dir="rtl"] .libgroup a.cur{border-radius:6px 0 0 6px}
 @media(max-width:640px){
   .libnav .libbtn.hide-sm{display:none}
   .libsheet{padding:24px 20px}
@@ -410,39 +621,57 @@ html[data-lang="en"] .libsheet .lhead h3{font-family:Newsreader,"Times New Roman
 }
 
 /* ── MASTHEAD (centered logo → home) ──────────────────────── */
-.masthead{display:flex;align-items:center;justify-content:center;
+.masthead{display:flex;align-items:center;justify-content:center;position:relative;
   padding:20px 24px;background:var(--bg);border-bottom:1px solid var(--line)}
-.masthead .logo{display:inline-flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
+/* hairline graph-paper patch behind the logo, fading out both sides */
+.masthead::before{content:"";position:absolute;inset-block:0;inset-inline:0;margin-inline:auto;
+  width:min(360px,70vw);pointer-events:none;
+  background-image:linear-gradient(var(--line-soft) 1px,transparent 1px),
+                   linear-gradient(90deg,var(--line-soft) 1px,transparent 1px);
+  background-size:28px 28px;
+  -webkit-mask-image:radial-gradient(closest-side,#000 30%,transparent 100%);
+          mask-image:radial-gradient(closest-side,#000 30%,transparent 100%)}
+.masthead .logo{display:inline-flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink);position:relative}
 .masthead .logomark{width:32px;height:32px;flex:0 0 auto;display:block}
 .masthead .logomark svg{width:100%;height:100%;display:block}
-.masthead .logotype{display:flex;flex-direction:column;line-height:1.15}
-.masthead .logotype .lt-main{font-weight:300;font-size:24px;letter-spacing:0;color:var(--ink)}
-html[data-lang="en"] .masthead .logotype .lt-main{font-family:Newsreader,"Times New Roman",serif;font-weight:300;letter-spacing:0}
-.masthead .logotype .lt-sub{font-size:12px;font-weight:600;letter-spacing:.96px;text-transform:uppercase;color:var(--mut-soft)}
+.masthead .logotype{display:flex;flex-direction:column;line-height:1.2;gap:2px}
+.masthead .logotype .lt-main{font-weight:700;font-size:19px;letter-spacing:0;color:var(--ink)}
+html[data-lang="en"] .masthead .logotype .lt-main{font-family:var(--f-disp);font-weight:500;font-size:20px;letter-spacing:-.01em}
+.masthead .logotype .lt-sub{font-size:11px;font-weight:700;letter-spacing:0;color:var(--mut-soft)}
+html[data-lang="en"] .masthead .logotype .lt-sub{font-family:var(--f-mono);letter-spacing:.14em;text-transform:uppercase}
 .masthead .logo:hover .lt-main{opacity:.7}
 @media(max-width:520px){
   .masthead{padding:16px 20px}
   .masthead .logomark{width:28px;height:28px}
-  .masthead .logotype .lt-main{font-size:20px}
-  .masthead .logotype .lt-sub{font-size:11px}
+  .masthead .logotype .lt-main{font-size:17px}
+  html[data-lang="en"] .masthead .logotype .lt-main{font-size:18px}
+  .masthead .logotype .lt-sub{font-size:10px}
 }
 
-/* card hover lift — single soft shadow tier */
+/* surface hover — the instrument stays still: a hairline brightening is the
+   only container cue; motion belongs to the pressables inside (links, arrows) */
 .card,.stagecard,.mcard{transition:border-color var(--d2) var(--ease),box-shadow var(--d2) var(--ease),transform var(--d2) var(--ease)}
-.mcard:hover{transform:translateY(-2px);border-color:var(--line-strong);box-shadow:var(--shadow-lg)}
+.mcard:hover{border-color:var(--line-strong)}
 
 /* ── accessibility: honor reduced motion / transparency ───── */
 @media (prefers-reduced-motion: reduce){
-  /* fewer + gentler, not zero: keep opacity/colour, drop movement */
+  /* fewer + gentler, not zero: animations complete instantly, transitions keep
+     only colour/opacity. NO blanket transform:none — SVG node positions (the
+     transform presentation attribute), RTL scaleX(-1) mirrors and centering
+     translates are LAYOUT, not motion; killing them collapses the graph. */
   html{scroll-behavior:auto}
-  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;
+  /* delays are zeroed too so `backwards`-filled staggers paint instantly */
+  *,*::before,*::after{animation-duration:.01ms !important;animation-delay:0s !important;
+    animation-iteration-count:1 !important;
     transition-property:opacity,color,background-color,border-color,fill,stroke !important;
-    transition-duration:.15s !important;transform:none !important}
+    transition-duration:.15s !important;transition-delay:0s !important}
   .rel.draw{stroke-dashoffset:0 !important}
-  .node.sel .ns,.node.hover .ns{transform:none !important}
+  /* the motion-only transforms are suppressed by name instead */
+  .node.sel .ns,.node.hover .ns,.node.drag .ns{transform:none !important}
 }
 @media (prefers-reduced-transparency: reduce){
-  .navbar,.detail,.ghint,.greset{backdrop-filter:none !important;-webkit-backdrop-filter:none !important;
+  /* only the navbar + summary card still use blur (§4.6) */
+  .navbar,.detail{backdrop-filter:none !important;-webkit-backdrop-filter:none !important;
     background:var(--card) !important}
 }
 
@@ -453,7 +682,7 @@ html[data-lang="en"] .masthead .logotype .lt-main{font-family:Newsreader,"Times 
    ═══════════════════════════════════════════════════════════════ */
 
 /* ── 1 · PRESS STATES — instant feedback on pointer-down ──── */
-.toc a,.libgroup a,.golist a,.mlink,.chapchip,.rung,.mcard,.dchip,
+.toc a,.libgroup a,.golist a,.mlink,.rung,.mcard,.dchip,
 .libclose,.masthead .logo,.gtab,.credit a{
   transition:transform var(--d1) var(--ease-out),background var(--d1) var(--ease),
              color var(--d1) var(--ease),border-color var(--d1) var(--ease),
@@ -469,11 +698,10 @@ html[data-lang="en"] .masthead .logotype .lt-main{font-family:Newsreader,"Times 
 
 /* ── 2 · HOVER — only where a real pointer exists ─────────── */
 @media (hover:hover) and (pointer:fine){
-  .mcard:hover{transform:translateY(-2px)}
+  /* stillness rule (the refs are still): hover motion is reserved for real
+     controls — static tiles (.kbox/.chip) and read-only rows (.chapchip)
+     give no false affordance */
   .rung:hover{transform:translateY(-1px)}
-  .chapchip:hover{background:var(--bg2)}
-  .kbox,.chip{transition:border-color var(--d2) var(--ease),transform var(--d2) var(--ease-out)}
-  .kbox:hover,.chip:hover{border-color:var(--line-strong);transform:translateY(-1px)}
   /* arrow nudges toward its direction of travel */
   .mlink:hover .arrow,.golist a:hover .arrow{transform:translateX(2px)}
   html[dir="rtl"] .mlink:hover .arrow{transform:translateX(-2px)}
@@ -505,20 +733,56 @@ html[data-lang="en"] .masthead .logotype .lt-main{font-family:Newsreader,"Times 
 .mapgrid .partcol:nth-child(4),.rec .item:nth-child(4){animation-delay:135ms}
 .qgrid blockquote:nth-child(n+5),.ladder .rung:nth-child(5),.mapgrid .partcol:nth-child(5){animation-delay:180ms}
 
+/* hero settles once on load — eyebrow leads, the HUD readout row lands last */
+.hero .eyebrow,.hero .hud,.hero h1,.hero .dek,.hero .metastrip,.hero .chips{animation:riseIn .5s var(--ease-out) both}
+.hero h1{animation-delay:40ms}
+.hero .dek{animation-delay:80ms}
+.hero .metastrip{animation-delay:120ms}
+.hero .chips{animation-delay:160ms}
+
+/* ── 3b · TICK-FILL — ruler bars fill like data changing ──── */
+/* each rung's orange fill sweeps in just after its tile lands
+   (scaleX, not width — GPU transform-only per the craft rules) */
+@keyframes tickFill{from{transform:scaleX(0)}}
+.rung .lbar i{animation:tickFill .4s var(--ease-out) backwards;animation-delay:120ms}
+.ladder .rung:nth-child(2) .lbar i{animation-delay:165ms}
+.ladder .rung:nth-child(3) .lbar i{animation-delay:210ms}
+.ladder .rung:nth-child(4) .lbar i{animation-delay:255ms}
+.ladder .rung:nth-child(5) .lbar i{animation-delay:300ms}
+/* re-renders (rung clicks, language flips) must NOT replay the entrance
+   cascade — frequent actions stay instant. book.js stamps data-settled
+   on the ladder after its first paint. */
+.ladder[data-settled] .rung,.ladder[data-settled] .rung .lbar i{animation:none}
+
+/* stage swap — the readout re-settles in a 25ms cascade; nav controls stay put */
+@keyframes stageIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+.stagecard .shead,.stagecard .tagline,.stagecard .sbody,.stagecard .exbox,.stagecard .gainrow{
+  animation:stageIn .2s var(--ease-out) both}
+.stagecard .tagline{animation-delay:25ms}
+.stagecard .sbody{animation-delay:50ms}
+.stagecard .exbox{animation-delay:75ms}
+.stagecard .gainrow{animation-delay:100ms}
+/* the first paint earns the cascade; the fifth rung-click does not — book.js
+   stamps data-settled on #stageHost after the first render (frequently-seen
+   interactions get no animation; mirrors the ladder's pattern above) */
+#stageHost[data-settled] .stagecard .shead,#stageHost[data-settled] .stagecard .tagline,
+#stageHost[data-settled] .stagecard .sbody,#stageHost[data-settled] .stagecard .exbox,
+#stageHost[data-settled] .stagecard .gainrow{animation:none}
+
 /* ── 4 · SURFACE + TYPE DETAILS ──────────────────────────── */
-::selection{background:color-mix(in srgb,var(--g-lavender) 70%,transparent);color:var(--ink)}
+::selection{background:var(--sig);color:var(--sig-ink)}
 .kbox .v,.chip b,.rw-rank,.chapchip .cn,.metaitem .mv{font-variant-numeric:tabular-nums}
-/* scroll-edge fade under the sticky bar instead of a hard 1px rule */
-.navbar{transition:border-color var(--d2) var(--ease),background var(--d2) var(--ease)}
+/* theme swaps stay smooth on the bar (the scroll-edge reveal lives with .navbar above) */
+.navbar{transition:background var(--d2) var(--ease)}
 /* the summary card scrolls its own overflow — keep the bar unobtrusive */
 .detail{scrollbar-width:thin;scrollbar-color:var(--line-strong) transparent}
 .detail::-webkit-scrollbar{width:6px}
 .detail::-webkit-scrollbar-thumb{background:var(--line-strong);border-radius:9999px}
 .detail::-webkit-scrollbar-track{background:transparent}
-/* focus ring follows the shape it lands on */
-.card:focus-visible,.kbox:focus-visible,.mcard:focus-visible,.rung:focus-visible,
-.stagecard:focus-visible,.orbcard:focus-visible{border-radius:16px}
-.node:focus-visible{outline:2px solid var(--ink);outline-offset:3px;border-radius:9999px}
+/* focus ring follows the shape it lands on — the global ring no longer forces a
+   radius, so each element's own geometry (pill / 12px card / 6px link / square
+   chapchip) shapes its ring naturally */
+.node:focus-visible{outline:2px solid var(--sig);outline-offset:3px}
 
 /* ── 5 · GRAPH MOTION — relation lines settle, not snap ──── */
 .rel{transition:opacity var(--d2) var(--ease-out)}
