@@ -68,10 +68,6 @@
     + '</span></a></header>';
 
   /* ── SHELL — build hero + nav + section skeleton from DATA.meta ─────────── */
-  function heroChip(c) {
-    return '<div class="chip"><b data-only="en">' + esc0(c.v.en) + '</b><b data-only="fa">' + esc0(c.v.fa) + '</b>'
-      + '<span data-only="en">' + esc0(c.l.en) + '</span><span data-only="fa">' + esc0(c.l.fa) + '</span></div>';
-  }
   function kbox(k) {
     return '<div class="kbox"><div class="v" data-only="en">' + esc0(k.v.en) + '</div><div class="v" data-only="fa">' + esc0(k.v.fa) + '</div>'
       + '<div class="l" data-only="en">' + esc0(k.l.en) + '</div><div class="l" data-only="fa">' + esc0(k.l.fa) + '</div></div>';
@@ -97,7 +93,6 @@
   }
 
   function renderShell(m) {
-    var chips = (m.chips || []).map(heroChip).join('');
     var kboxes = (m.kboxes || []).map(kbox).join('');
     var dek = m.dek || UI.dekFallback;
 
@@ -118,7 +113,6 @@
         + metaItem({ en: 'Published', fa: 'سالِ چاپ' }, m.published)
         + metaItem({ en: 'Group', fa: 'گروه' }, m.group)
       + '</div>'
-      + '<div class="chips">' + chips + '</div>'
     + '</div></header>'
 
     /* ── STICKY NAV (+ library header) ── */
@@ -220,8 +214,8 @@
         + '<span data-only="fa">ساخته‌شده توسط <span class="cname">بهنام عاطفی</span><span class="sep">·</span>'
           + '<a class="li" href="https://www.linkedin.com/in/behnamatefi/" target="_blank" rel="noopener">' + IC.li + 'لینکدین</a></span></div>'
         + '<div class="foot-close">'
-          + '<span data-only="en">Product Builder’s Library // 50 books // EN·FA</span>'
-          + '<span data-only="fa">کتابخانهٔ سازندهٔ محصول // ۵۰ کتاب // EN·FA</span>'
+          + '<span data-only="en">Product Builder’s Library</span>'
+          + '<span data-only="fa">کتابخانهٔ سازندهٔ محصول</span>'
         + '</div>'
       + '</div>'
     + '</div>';
@@ -678,7 +672,7 @@
       var r = document.createElement('div'); r.className = 'rung' + (i === curStage ? ' active' : '');
       r.innerHTML = '<div class="lv">' + rungLabel(s) + '</div>'
         + '<div class="lt">' + TX(s.title) + '</div>'
-        + '<div class="lbar"><i style="width:' + (s.level * 20) + '%"></i></div>';
+        ;
       r.addEventListener('click', function () {
         curStage = i; renderLadder(); renderStage();
         document.getElementById('stageHost').scrollIntoView({ behavior: 'smooth', block: 'nearest' });

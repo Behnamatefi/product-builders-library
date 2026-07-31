@@ -110,6 +110,10 @@ button,a{-webkit-tap-highlight-color:transparent}
   -webkit-mask-position:0 100%,64px 100%,128px 100%,192px 100%,256px 100%,320px 100%;
           mask-position:0 100%,64px 100%,128px 100%,192px 100%,256px 100%,320px 100%;
   -webkit-mask-repeat:no-repeat;mask-repeat:no-repeat}
+/* interactive dot field — canvas replaces the static ::before on pointer devices */
+.hero-grid{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;display:none}
+.hero.grid-live::before{display:none}
+.hero.grid-live .hero-grid{display:block}
 /* RTL: the chart rises toward the inline end (leftward) — reverse the steps */
 html[dir="rtl"] .hero::after{
   -webkit-mask-size:48px 240px,48px 208px,48px 160px,48px 112px,48px 80px,48px 48px;
@@ -448,8 +452,6 @@ html[data-lang="en"] .masthead .logotype .lt-sub{font-family:var(--f-mono);lette
 <div class="navbar"><div class="navin">
   <div class="brand"><span class="dot"></span><span data-only="en">Product Builder's Library</span><span data-only="fa">کتابخانهٔ سازندهٔ محصول</span></div>
   <nav class="navlinks">
-    <a class="navlink" href="#why"><span class="slash" aria-hidden="true">/</span><span data-only="en">Why this exists</span><span data-only="fa">چرا این کتابخانه</span></a>
-    <a class="navlink" href="#how"><span class="slash" aria-hidden="true">/</span><span data-only="en">How it works</span><span data-only="fa">چطور کار می‌کند</span></a>
     <a class="navlink" href="#library"><span class="slash" aria-hidden="true">/</span><span data-only="en">Library</span><span data-only="fa">کتابخانه</span></a>
   </nav>
   <div class="navctl">
@@ -465,7 +467,7 @@ html[data-lang="en"] .masthead .logotype .lt-sub{font-family:var(--f-mono);lette
 </div></div>
 
 <!-- ═══════════════ HERO ═══════════════ -->
-<header class="hero"><div class="wrap">
+<header class="hero"><canvas class="hero-grid" aria-hidden="true"></canvas><div class="wrap">
   <!-- HUD annotates what the chips below do NOT say: provenance, not counts -->
   <div class="hud" aria-hidden="true"><span data-only="en">Lenny’s list // 2 parts // +1 group</span><span data-only="fa">فهرستِ لنی // دو بخش // یک گروهِ افزوده</span></div>
   <span class="eyebrow"><span class="edot"></span><span data-only="en">Essential books for product builders</span><span data-only="fa">کتاب‌های ضروریِ سازندگانِ محصول</span></span>
@@ -480,66 +482,14 @@ html[data-lang="en"] .masthead .logotype .lt-sub{font-family:var(--f-mono);lette
       <span data-only="en">Browse all 50</span><span data-only="fa">مرورِ هر ۵۰ کتاب</span>
     </a>
   </div>
-  <div class="chips">
-    <div class="chip"><b id="kBooks">50</b><span data-only="en">books</span><span data-only="fa">کتاب</span></div>
-    <div class="chip"><b><span data-only="en">16</span><span data-only="fa">۱۶</span></b><span data-only="en">skill groups</span><span data-only="fa">گروهِ مهارتی</span></div>
-    <div class="chip"><b id="kDone">5</b><span data-only="en">stages per book</span><span data-only="fa">مرحله در هر کتاب</span></div>
-    <div class="chip"><b>EN·FA</b><span data-only="en">bilingual</span><span data-only="fa">دوزبانه</span></div>
-  </div>
 </div></header>
 
-<!-- ═══════════════ WHY THIS EXISTS ═══════════════ -->
-<section class="lp" id="why"><div class="wrap">
-  <h2><span class="num"><span data-only="en">01 //</span><span data-only="fa">۰۱ //</span></span><span data-only="en">Why this exists</span><span data-only="fa">چرا این کتابخانه</span></h2>
-  <p class="lp-dek"><span data-only="en">The canon is worth reading — most of it never gets read. Fifty books is roughly three hundred hours; this library closes the gap between the reading list you agree with and the reading you actually do.</span><span data-only="fa">این کتاب‌ها ارزشِ خواندن دارند — و بیشترشان هیچ‌وقت خوانده نمی‌شوند. پنجاه کتاب یعنی حدودِ سیصد ساعت؛ این کتابخانه فاصلهٔ بینِ فهرستی که قبولش داری و آنچه واقعاً می‌خوانی را می‌بندد.</span></p>
-  <div class="lp-grid">
-    <article class="lp-card">
-      <h3><span data-only="en">Make the canon reachable</span><span data-only="fa">دسترس‌پذیرکردنِ کتاب‌ها</span></h3>
-      <p><span data-only="en">Every book becomes a single page you can absorb in ten minutes — the argument, the structure, the lines worth keeping.</span><span data-only="fa">هر کتاب می‌شود یک صفحه که در ده دقیقه می‌گیری‌اش — استدلال، ساختار، و جمله‌هایی که ارزشِ نگه‌داشتن دارند.</span></p>
-    </article>
-    <article class="lp-card">
-      <h3><span data-only="en">Teach at five depths</span><span data-only="fa">آموزش در پنج عمق</span></h3>
-      <p><span data-only="en">The same book explained from over-simplified to expert, so you can enter at your level and climb only as far as you need.</span><span data-only="fa">یک کتاب از «خیلی ساده» تا «حرفه‌ای» توضیح داده می‌شود؛ از سطحِ خودت شروع کن و تا هرجا لازم داری بالا برو.</span></p>
-    </article>
-    <article class="lp-card">
-      <h3><span data-only="en">Show the shape of an idea</span><span data-only="fa">نشان‌دادنِ شکلِ ایده</span></h3>
-      <p><span data-only="en">An interactive knowledge graph maps how every part connects — because a book is a structure, not a list of takeaways.</span><span data-only="fa">یک نقشهٔ دانشِ تعاملی نشان می‌دهد اجزا چطور به هم وصل‌اند — چون کتاب یک ساختار است، نه فهرستی از نکته‌ها.</span></p>
-    </article>
-  </div>
-</div></section>
 
-<!-- ═══════════════ HOW IT WORKS ═══════════════ -->
-<section class="lp lp-alt" id="how"><div class="wrap">
-  <h2><span class="num"><span data-only="en">02 //</span><span data-only="fa">۰۲ //</span></span><span data-only="en">How it works</span><span data-only="fa">چطور کار می‌کند</span></h2>
-  <p class="lp-dek"><span data-only="en">Three questions, then a reading path built for you.</span><span data-only="fa">سه پرسش، بعد یک مسیرِ خواندن مخصوصِ تو.</span></p>
-  <ol class="steps">
-    <li class="step">
-      <span class="stepn">1</span>
-      <h3><span data-only="en">Say where you are</span><span data-only="fa">بگو کجای مسیری</span></h3>
-      <p><span data-only="en">Junior, mid, senior, or leading a team — the path shifts with your level.</span><span data-only="fa">تازه‌کار، میانی، ارشد یا مدیرِ تیم — مسیر با سطحِ تو عوض می‌شود.</span></p>
-    </li>
-    <li class="step">
-      <span class="stepn">2</span>
-      <h3><span data-only="en">Pick your focus</span><span data-only="fa">تمرکزت را انتخاب کن</span></h3>
-      <p><span data-only="en">Strategy, communication, design, leadership — choose as many as apply.</span><span data-only="fa">استراتژی، ارتباط، طراحی، رهبری — هرچند تا که به کارت می‌آید.</span></p>
-    </li>
-    <li class="step">
-      <span class="stepn">3</span>
-      <h3><span data-only="en">Choose your time</span><span data-only="fa">وقتت را انتخاب کن</span></h3>
-      <p><span data-only="en">Three books or eight. You get an ordered path — where to start, what follows.</span><span data-only="fa">سه کتاب یا هشت‌تا. یک مسیرِ مرتب می‌گیری — از کجا شروع کنی و بعد چه.</span></p>
-    </li>
-  </ol>
-  <div class="lp-cta">
-    <button type="button" class="rw-trigger" data-recommend>
-      <span data-only="en">Build my reading path</span><span data-only="fa">مسیرِ خواندنم را بساز</span>
-    </button>
-  </div>
-</div></section>
 
 <div class="wrap">
 
   <!-- LIBRARY -->
-  <h2 class="sec-lib" id="library"><span class="num"><span data-only="en">03 //</span><span data-only="fa">۰۳ //</span></span><span data-only="en">The library</span><span data-only="fa">کتابخانه</span></h2>
+  <h2 class="sec-lib" id="library"><span class="num"><span data-only="en">01 //</span><span data-only="fa">۰۱ //</span></span><span data-only="en">The library</span><span data-only="fa">کتابخانه</span></h2>
   <p class="lp-dek"><span data-only="en">50 books in 16 skill groups, gathered from Lenny Rachitsky's two-part <b>"Essential books for product builders"</b> — the same 15 groups, plus a sixteenth on self mastery. Open any title to read its knowledge-graph page.</span><span data-only="fa">۵۰ کتاب در ۱۶ گروهِ مهارتی، برگرفته از مجموعهٔ دوقسمتیِ <b>«کتاب‌های ضروری برای سازندگانِ محصول»</b> از لنی رچیتسکی — همان ۱۵ گروه، به‌علاوهٔ گروهِ شانزدهمی دربارهٔ تسلط بر خود. روی هر عنوان بزن تا صفحهٔ نقشهٔ دانشش باز شود.</span></p>
 
   <!-- GROUPS render here -->
@@ -553,8 +503,8 @@ html[data-lang="en"] .masthead .logotype .lt-sub{font-family:var(--f-mono);lette
     <span data-only="en">Created by <span class="cname">Behnam Atefi</span><span class="sep">·</span><a class="li" href="https://www.linkedin.com/in/behnamatefi/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.3c0-1.26-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9z"/></svg>LinkedIn</a></span>
     <span data-only="fa">ساخته‌شده توسط <span class="cname">بهنام عاطفی</span><span class="sep">·</span><a class="li" href="https://www.linkedin.com/in/behnamatefi/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.3c0-1.26-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9z"/></svg>لینکدین</a></span>
     <div class="foot-close">
-      <span data-only="en">Product Builder’s Library // 50 books // EN·FA</span>
-      <span data-only="fa">کتابخانهٔ سازندهٔ محصول // ۵۰ کتاب // EN·FA</span>
+      <span data-only="en">Product Builder’s Library</span>
+      <span data-only="fa">کتابخانهٔ سازندهٔ محصول</span>
     </div>
   </div>
 </footer>
@@ -769,8 +719,6 @@ function groupBlock(g){
 }
 function render(){
   document.getElementById('groups').innerHTML = GROUPS.map(groupBlock).join('');
-  document.getElementById('kBooks').textContent = num(50);
-  document.getElementById('kDone').textContent = num(5);
 }
 
 /* ── language + theme toggles ────────────────────────────── */
@@ -820,24 +768,105 @@ function setLang(lg){
 
 render();
 
-/* ── HUD boot detail — the one 40px numeral counts up once on first paint
-   (instrument warming up, ref 1). Decorative only: runs once, ~700ms ease-out,
-   skipped under prefers-reduced-motion; language flips re-render the final
-   value directly and never replay it. Tabular numerals keep the tile steady. */
+/* ── Interactive hero dot field ──────────────────────────────
+   The hero's dot-matrix becomes an instrument: dots within reach of the
+   cursor illuminate signal-orange with a soft falloff, and the glow TRAILS
+   the pointer (lerped, spring-like — never 1:1) so it feels physical.
+   Pointer-device + full-motion only; the static CSS texture is the fallback.
+   Decorative: pointer-events none, aria-hidden, pauses when idle. */
 (function(){
-  var el = document.getElementById('kBooks');
-  if(!el || !('requestAnimationFrame' in window)) return;
+  var hero = document.querySelector('.hero');
+  var cv = document.querySelector('.hero-grid');
+  if(!hero || !cv || !window.matchMedia) return;
+  if(!matchMedia('(hover: hover) and (pointer: fine)').matches) return;
   try{ if(matchMedia('(prefers-reduced-motion: reduce)').matches) return; }catch(e){}
-  var T = 700, t0 = null;
-  function tick(ts){
-    if(t0 === null) t0 = ts;
-    var p = Math.min(1, (ts - t0) / T);
-    p = 1 - Math.pow(1 - p, 3);                 /* ease-out cubic */
-    el.textContent = num(Math.round(50 * p));   /* num() → Persian digits in FA */
-    if(p < 1) requestAnimationFrame(tick);
+
+  var ctx = cv.getContext('2d');
+  if(!ctx) return;
+  hero.classList.add('grid-live');
+
+  var GAP = 12, R = 170, DPR = Math.min(2, window.devicePixelRatio || 1);
+  var W = 0, H = 0, baseCol = '', sigRGB = [255,69,20];
+  var mx = -9999, my = -9999,  gx = -9999, gy = -9999;  /* target vs glow (lerped) */
+  var raf = null, idle = 0;
+
+  function readTokens(){
+    var cs = getComputedStyle(document.documentElement);
+    baseCol = (cs.getPropertyValue('--line-strong') || '#444').trim();
+    var sig = (cs.getPropertyValue('--sig') || '#FF4514').trim();
+    var m = /^#([0-9a-f]{6})$/i.exec(sig);
+    if(m){ sigRGB = [parseInt(m[1].slice(0,2),16), parseInt(m[1].slice(2,4),16), parseInt(m[1].slice(4,6),16)]; }
   }
-  requestAnimationFrame(tick);
+  function size(){
+    var r = hero.getBoundingClientRect();
+    W = Math.max(1, Math.round(r.width)); H = Math.max(1, Math.round(r.height));
+    cv.width = W * DPR; cv.height = H * DPR;
+    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+    draw();
+  }
+
+  /* resting texture mirrors the CSS corner: dots live in the inline-end 52%,
+     faded radially; every dot can still wake when the cursor comes near */
+  function restAlpha(x, y){
+    var rtl = (document.documentElement.getAttribute('dir') === 'rtl');
+    var cx = rtl ? W * 0.24 : W * 0.76, cy = H * 0.5;
+    var nx = (x - cx) / (W * 0.30), ny = (y - cy) / (H * 0.62);
+    var d = Math.sqrt(nx * nx + ny * ny);
+    return d >= 1 ? 0 : 0.6 * (1 - d);
+  }
+
+  function draw(){
+    ctx.clearRect(0, 0, W, H);
+    var x0 = ((W % GAP) / 2) | 0;
+    for(var x = x0; x <= W; x += GAP){
+      for(var y = 6; y <= H; y += GAP){
+        var base = restAlpha(x, y);
+        var dx = x - gx, dy = y - gy;
+        var dist = Math.sqrt(dx * dx + dy * dy);
+        var lit = dist < R ? (1 - dist / R) : 0;
+        lit *= lit;                                   /* soft falloff */
+        if(base <= 0.01 && lit <= 0.01) continue;
+        if(lit > 0.01){
+          ctx.fillStyle = 'rgba(' + sigRGB[0] + ',' + sigRGB[1] + ',' + sigRGB[2] + ',' + Math.min(1, 0.15 + lit) + ')';
+          var rr = 1 + lit * 1.2;
+          ctx.beginPath(); ctx.arc(x, y, rr, 0, 6.2832); ctx.fill();
+        } else {
+          ctx.globalAlpha = base;
+          ctx.fillStyle = baseCol;
+          ctx.beginPath(); ctx.arc(x, y, 1, 0, 6.2832); ctx.fill();
+          ctx.globalAlpha = 1;
+        }
+      }
+    }
+  }
+
+  function tick(){
+    /* trailing glow: close 15% of the remaining distance per frame */
+    gx += (mx - gx) * 0.15; gy += (my - gy) * 0.15;
+    draw();
+    var settled = Math.abs(mx - gx) < 0.5 && Math.abs(my - gy) < 0.5;
+    if(settled && ++idle > 30){ raf = null; return; }   /* stop when quiet */
+    if(!settled) idle = 0;
+    raf = requestAnimationFrame(tick);
+  }
+  function wake(){ if(raf == null){ idle = 0; draw(); raf = requestAnimationFrame(tick); } }
+
+  hero.addEventListener('pointermove', function(e){
+    var r = hero.getBoundingClientRect();
+    mx = e.clientX - r.left; my = e.clientY - r.top;
+    if(gx < -999){ gx = mx; gy = my; }               /* first contact: no fly-in */
+    wake();
+  });
+  hero.addEventListener('pointerleave', function(){ mx = -9999; my = -9999; wake(); });
+
+  readTokens(); size();
+  if('ResizeObserver' in window){ new ResizeObserver(size).observe(hero); }
+  else window.addEventListener('resize', size);
+  try{ new MutationObserver(function(){ readTokens(); draw(); })
+    .observe(document.documentElement, { attributes:true, attributeFilter:['data-theme','dir'] }); }catch(e){}
 })();
+
+
 </script>
 
 <!-- reading-path wizard (needs the 50-book manifest) -->

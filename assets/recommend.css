@@ -37,7 +37,10 @@
    45° orange/black strip across the top of the sheet. No stripe = no results. */
 .rw-sheet:has(.rw-rhead){
   background-image:repeating-linear-gradient(var(--hz-angle,45deg),var(--sig) 0 10px,var(--bg) 10px 20px);
-  background-size:100% 6px;background-repeat:no-repeat;background-position:top}
+  background-size:100% 6px;background-repeat:no-repeat;background-position:top;
+  /* ride the scroll: without `local` the stripe pins to the border box, gets
+     covered by scrolling cards and peeks out as orange spurs at the radius */
+  background-attachment:local}
 html[dir="rtl"] .rw-sheet:has(.rw-rhead){--hz-angle:-45deg}
 @keyframes rwPop{from{opacity:0;transform:translateY(10px) scale(.98)}to{opacity:1;transform:none}}
 /* exit — the same path back out, faster than the entrance (.18s vs .22/.3s)

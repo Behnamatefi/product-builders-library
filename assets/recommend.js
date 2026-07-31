@@ -228,13 +228,27 @@
     if (sh) sh.setAttribute('data-dir', d);
   }
   function nav(step) {
-    setDir(step === state.step ? 'none' : (step > state.step ? 'fwd' : 'back'));
+    var moved = step !== state.step;
+    setDir(moved ? (step > state.step ? 'fwd' : 'back') : 'none');
     state.step = step; render();
+    /* render() replaced the DOM, destroying whatever held focus — on a real
+       step change, park focus on the sheet (mirrors open()) so keyboard/SR
+       users stay inside the dialog instead of dropping to body, and start
+       the new step from its top (spatial consistency with the slide) */
+    if (moved && root) {
+      var sh = root.querySelector('.rw-sheet');
+      if (sh) {
+        sh.scrollTop = 0;
+        try { sh.focus({ preventScroll: true }); } catch (e) { sh.focus(); }
+      }
+    }
   }
   function rerender() { setDir('none'); render(); }
 
   function chip(active, label, sub) {
-    return '<button type="button" class="rw-chip' + (active ? ' on' : '') + '">'
+    /* toggle semantics: the "on" state must reach assistive tech, not just CSS */
+    return '<button type="button" class="rw-chip' + (active ? ' on' : '')
+      + '" aria-pressed="' + (active ? 'true' : 'false') + '">'
       + '<span class="rw-cktick">' + IC.check + '</span>'
       + '<span class="rw-cklab">' + label + '</span>'
       + (sub ? '<span class="rw-cksub">' + sub + '</span>' : '')
@@ -323,6 +337,10 @@
             if (at === -1) state.intents.push(k); else state.intents.splice(at, 1);
             rerender();
           }
+          /* the re-render destroyed this button — hand focus to its
+             replacement so keyboard users keep their place in the group */
+          var again = root.querySelectorAll('.rw-chips[data-group="' + group + '"] .rw-chip')[i];
+          if (again) { try { again.focus({ preventScroll: true }); } catch (e) {} }
         };
       });
     });
