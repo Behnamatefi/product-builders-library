@@ -110,9 +110,6 @@ button,a{-webkit-tap-highlight-color:transparent}
   -webkit-mask-position:0 100%,64px 100%,128px 100%,192px 100%,256px 100%,320px 100%;
           mask-position:0 100%,64px 100%,128px 100%,192px 100%,256px 100%,320px 100%;
   -webkit-mask-repeat:no-repeat;mask-repeat:no-repeat}
-/* atlas band on the home page */
-.atlas-band{margin-top:96px;padding-top:48px;border-top:1px solid var(--line)}
-.atlas-cta{margin-top:32px}
 /* interactive dot field — canvas replaces the static ::before on pointer devices */
 .hero-grid{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;display:none}
 .hero.grid-live::before{display:none}
@@ -223,21 +220,6 @@ html[data-lang="en"] .lp-dek{line-height:1.5}
    (dark: the licensed orange-banner moment, §2.3.4; light: the §7 poster
    panel). Breaks the 16-card rhythm at the halfway mark with a mono
    annotation; everything ON the orange is ink, never orange-on-orange. */
-.midband{background:var(--sig);color:var(--sig-ink);border:1px solid rgba(0,0,0,.35);
-  border-radius:12px;padding:20px 24px;display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
-.midband .mb-key{flex:0 0 auto;font-size:12px;font-weight:700;letter-spacing:0}
-html[data-lang="en"] .midband .mb-key{font-family:var(--f-mono);font-size:11px;
-  letter-spacing:.14em;text-transform:uppercase}
-.midband .mb-line{font-size:16px;font-weight:700;line-height:1.5;letter-spacing:0;
-  font-variant-numeric:tabular-nums}
-html[data-lang="en"] .midband .mb-line{font-family:var(--f-disp);font-weight:500;
-  font-feature-settings:"zero"}
-/* hairline running to the band's end — same closing grammar as the h2 slab */
-.midband::after{content:"";flex:1 1 auto;height:1px;background:rgba(0,0,0,.35);
-  min-width:24px;align-self:center}
-/* orange marks vanish ON orange — selection and focus rings invert to ink */
-.midband ::selection{background:var(--sig-ink);color:var(--sig)}
-.midband :focus-visible,.midband:focus-visible{outline-color:var(--sig-ink)}
 
 /* ── GROUPS ───────────────────────────────────────────────── */
 .groups{display:flex;flex-direction:column;gap:24px;margin-top:32px}
@@ -315,15 +297,13 @@ html[data-lang="en"] .foot-close{font-family:var(--f-mono);font-size:11px;letter
 .masthead .logotype{display:flex;flex-direction:column;line-height:1.2;gap:2px}
 .masthead .logotype .lt-main{font-weight:700;font-size:19px;letter-spacing:0;color:var(--ink)}
 html[data-lang="en"] .masthead .logotype .lt-main{font-family:var(--f-disp);font-weight:500;font-size:20px;letter-spacing:-.01em}
-.masthead .logotype .lt-sub{font-size:11px;font-weight:700;letter-spacing:0;color:var(--mut-soft)}
-html[data-lang="en"] .masthead .logotype .lt-sub{font-family:var(--f-mono);letter-spacing:.14em;text-transform:uppercase}
 .masthead .logo:hover .lt-main{opacity:.7}
 .hero-cta{margin-top:40px;display:flex;flex-wrap:wrap;gap:12px}
 /* hero + band CTAs are THE action, not toolbar chrome (ref 4/9's substantial
    pill) — promoted to 48px; in-flow wizard triggers elsewhere stay 40px */
-.hero-cta .rw-trigger,.atlas-cta .rw-trigger{height:48px;padding:0 24px;font-size:16px}
-.hero-cta .rw-trigger.ghost,.atlas-cta .rw-trigger.ghost{padding:0 23px}
-.hero-cta .rw-trigger svg,.atlas-cta .rw-trigger svg{width:18px;height:18px}
+.hero-cta .rw-trigger{height:48px;padding:0 24px;font-size:16px}
+.hero-cta .rw-trigger.ghost{padding:0 23px}
+.hero-cta .rw-trigger svg{width:18px;height:18px}
 
 @media(max-width:760px){
   .books{grid-template-columns:1fr}
@@ -339,7 +319,6 @@ html[data-lang="en"] .masthead .logotype .lt-sub{font-family:var(--f-mono);lette
   .masthead .logomark{width:28px;height:28px}
   .masthead .logotype .lt-main{font-size:17px}
   html[data-lang="en"] .masthead .logotype .lt-main{font-size:18px}
-  .masthead .logotype .lt-sub{font-size:10px}
   .wrap{padding:0 20px 64px}
 }
 
@@ -360,7 +339,7 @@ html[data-lang="en"] .masthead .logotype .lt-sub{font-family:var(--f-mono);lette
 @media (hover:hover) and (pointer:fine){
   /* stillness rule (the refs are still): hover cues live on real controls only —
      the book chevron slide-to-orange and link underlines. Static tiles
-     (.chip/.midband) and the .group container give no false affordance. */
+     (the .group container) gives no false affordance. */
   .foot .li::after{content:"";position:absolute;inset-inline-start:0;bottom:-2px;width:100%;height:1px;
     background:currentColor;transform:scaleX(0);transform-origin:inline-start;
     transition:transform var(--d2) var(--ease-out)}
@@ -375,7 +354,7 @@ html[data-lang="en"] .masthead .logotype .lt-sub{font-family:var(--f-mono);lette
 
 /* ── staggered entries ────────────────────────────────────── */
 @keyframes riseIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
-.hero .eyebrow,.hero .hud,.hero h1,.hero .dek,.hero-cta{animation:riseIn .5s var(--ease-out) both}
+.hero .eyebrow,.hero h1,.hero .dek,.hero-cta{animation:riseIn .5s var(--ease-out) both}
 .hero h1{animation-delay:40ms}
 .hero .dek{animation-delay:80ms}
 .hero-cta{animation-delay:120ms}
@@ -383,7 +362,7 @@ html[data-lang="en"] .masthead .logotype .lt-sub{font-family:var(--f-mono);lette
 /* sections settle as they scroll into view (progressive enhancement) */
 @supports (animation-timeline:view()){
   @media (prefers-reduced-motion:no-preference) and (min-width:761px){
-    .group,.midband{animation:riseIn .5s var(--ease-out) both;
+    .group{animation:riseIn .5s var(--ease-out) both;
       animation-timeline:view();animation-range:entry 0% entry 28%}
   }
 }
@@ -396,7 +375,7 @@ html[data-lang="en"] .masthead .logotype .lt-sub{font-family:var(--f-mono);lette
 .book:focus-visible{outline-offset:-2px}
 
 @media (prefers-reduced-motion: reduce){
-  .hero .eyebrow,.hero .hud,.hero h1,.hero .dek,.hero-cta,.group,.midband{animation:none}
+  .hero .eyebrow,.hero h1,.hero .dek,.hero-cta,.group{animation:none}
 }
 </style>
 </head>
@@ -407,7 +386,6 @@ html[data-lang="en"] .masthead .logotype .lt-sub{font-family:var(--f-mono);lette
   <span class="logomark"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect x="1" y="1" width="30" height="30" rx="7" fill="var(--card2)" stroke="var(--line-strong)"/><g stroke="var(--ink)" stroke-width="1.7" stroke-linecap="round" opacity=".9"><path d="M16 16 8.5 9.5M16 16l8-4M16 16l-3 8.5"/></g><g fill="var(--ink)"><circle cx="8.5" cy="9.5" r="2.1"/><circle cx="24" cy="12" r="2.1"/><circle cx="13" cy="24.5" r="2.1"/></g><circle cx="16" cy="16" r="3.1" fill="var(--ink)"/></svg></span>
   <span class="logotype">
     <span class="lt-main"><span data-only="en">Product Builder’s Library</span><span data-only="fa">کتابخانهٔ سازندهٔ محصول</span></span>
-    <span class="lt-sub"><span data-only="en">50 books · 16 groups</span><span data-only="fa">۵۰ کتاب · ۱۶ گروه</span></span>
   </span>
 </a></header>
 
@@ -433,7 +411,6 @@ html[data-lang="en"] .masthead .logotype .lt-sub{font-family:var(--f-mono);lette
 <!-- ═══════════════ HERO ═══════════════ -->
 <header class="hero"><canvas class="hero-grid" aria-hidden="true"></canvas><div class="wrap">
   <!-- HUD annotates what the chips below do NOT say: provenance, not counts -->
-  <div class="hud" aria-hidden="true"><span data-only="en">Lenny’s list // 2 parts // +1 group</span><span data-only="fa">فهرستِ لنی // دو بخش // یک گروهِ افزوده</span></div>
   <span class="eyebrow"><span class="edot"></span><span data-only="en">Essential books for product builders</span><span data-only="fa">کتاب‌های ضروریِ سازندگانِ محصول</span></span>
   <h1><span data-only="en">Read the whole shelf in <span class="drama">an afternoon.</span></span><span data-only="fa">تمامِ قفسه را در <span class="drama">یک بعدازظهر</span> بخوان.</span></h1>
   <p class="dek"><span data-only="en">Fifty essential product books, each distilled into one interactive page — a knowledge graph of the whole book, taught in five stages, in English and Persian.</span><span data-only="fa">پنجاه کتابِ ضروریِ محصول، هرکدام در یک صفحهٔ تعاملی — نقشهٔ دانشِ کلِ کتاب، آموزش در پنج مرحله، به انگلیسی و فارسی.</span></p>
@@ -444,6 +421,10 @@ html[data-lang="en"] .masthead .logotype .lt-sub{font-family:var(--f-mono);lette
     </button>
     <a class="rw-trigger ghost" href="#library">
       <span data-only="en">Browse all 50</span><span data-only="fa">مرورِ هر ۵۰ کتاب</span>
+    </a>
+    <a class="rw-trigger ghost" href="graph.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="6.5" r="2.2"/><circle cx="18.5" cy="5" r="2.2"/><circle cx="12" cy="12" r="2.6"/><circle cx="5" cy="18" r="2.2"/><circle cx="19" cy="18.5" r="2.2"/><path d="M7.4 7.8 10 10.4M14.3 10.6 16.8 6.6M9.9 13.8 6.6 16.4M14.4 13.5 17.3 16.9"/></svg>
+      <span data-only="en">Open the atlas</span><span data-only="fa">بازکردنِ اطلس</span>
     </a>
   </div>
   <!-- stat instrument tiles over the ruler-tick baseline — the page states its
@@ -461,17 +442,6 @@ html[data-lang="en"] .masthead .logotype .lt-sub{font-family:var(--f-mono);lette
   <!-- GROUPS render here -->
   <div class="groups" id="groups"></div>
 
-  <!-- THE ATLAS -->
-  <section class="atlas-band" id="atlas">
-    <h2 class="sec-lib"><span class="num"><span data-only="en">02 //</span><span data-only="fa">۰۲ //</span></span><span data-only="en">The atlas</span><span data-only="fa">اطلس</span></h2>
-    <p class="lp-dek"><span data-only="en">One map of the whole library — every book, its group, and the kinships that cut across them. Drag anything; the map gives way.</span><span data-only="fa">یک نقشه از کلِ کتابخانه — هر کتاب، گروهش، و خویشاوندی‌هایی که از میانِ گروه‌ها می‌گذرند. هرچیزی را بکشی، نقشه جا باز می‌کند.</span></p>
-    <div class="atlas-cta">
-      <a class="rw-trigger" href="graph.html">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="6.5" r="2.2"/><circle cx="18.5" cy="5" r="2.2"/><circle cx="12" cy="12" r="2.6"/><circle cx="5" cy="18" r="2.2"/><circle cx="19" cy="18.5" r="2.2"/><path d="M7.4 7.8 10 10.4M14.3 10.6 16.8 6.6M9.9 13.8 6.6 16.4M14.4 13.5 17.3 16.9"/></svg>
-        <span data-only="en">Open the atlas</span><span data-only="fa">بازکردنِ اطلس</span>
-      </a>
-    </div>
-  </section>
 
 </div>
 
@@ -693,19 +663,8 @@ function groupBlock(g){
   var books = '<div class="books">'+g.books.map(bookCard).join('')+'</div>';
   return '<section class="group" id="g'+g.n+'">'+head+books+'</section>';
 }
-/* the halfway banner — the page's one full-orange surface, breaking the
-   16-card rhythm after group 08 with a mono readout of where you are */
-function midBand(){
-  return '<aside class="midband">'
-    + '<span class="mb-key"><span data-only="en">Halfway //</span><span data-only="fa">نیمهٔ راه //</span></span>'
-    + '<span class="mb-line"><span data-only="en">08 of 16 groups behind you — 24 of 50 books.</span>'
-    + '<span data-only="fa">۸ از ۱۶ گروه پشتِ سر — ۲۴ از ۵۰ کتاب.</span></span>'
-    + '</aside>';
-}
 function render(){
-  var blocks = GROUPS.map(groupBlock);
-  blocks.splice(8, 0, midBand());
-  document.getElementById('groups').innerHTML = blocks.join('');
+  document.getElementById('groups').innerHTML = GROUPS.map(groupBlock).join('');
 }
 
 /* ── language + theme toggles ────────────────────────────── */

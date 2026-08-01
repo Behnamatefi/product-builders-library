@@ -64,7 +64,6 @@
     + '<span class="logomark">' + IC.logo + '</span>'
     + '<span class="logotype">'
       + '<span class="lt-main"><span data-only="en">Product Builder’s Library</span><span data-only="fa">کتابخانهٔ سازندهٔ محصول</span></span>'
-      + '<span class="lt-sub"><span data-only="en">50 books · 16 groups</span><span data-only="fa">۵۰ کتاب · ۱۶ گروه</span></span>'
     + '</span></a></header>';
 
   /* ── SHELL — build hero + nav + section skeleton from DATA.meta ─────────── */
@@ -75,23 +74,6 @@
   /* meta strings may contain intentional inline markup (<i>, <b>) — pass through as-is */
   function esc0(s) { return s == null ? '' : String(s); }
 
-  /* hero HUD corner readout — real coordinates from the manifest:
-     "GROUP 03/16 // BOOK 07/50" (FA: Persian digits, «از» instead of the slash) */
-  function heroHud(m) {
-    var lib = window.LIBRARY || [];
-    var idx = -1, groups = 0;
-    for (var i = 0; i < lib.length; i++) {
-      if (lib[i].slug === m.slug) idx = i;
-      if (lib[i].groupNum > groups) groups = lib[i].groupNum;
-    }
-    if (idx < 0 || !lib.length) return '';
-    var g = ('0' + lib[idx].groupNum).slice(-2), b = ('0' + (idx + 1)).slice(-2);
-    return '<div class="hud" aria-hidden="true">'
-      + '<span data-only="en">Group ' + g + '/' + groups + ' // Book ' + b + '/' + lib.length + '</span>'
-      + '<span data-only="fa">گروه ' + faDigits(g) + ' از ' + faDigits(groups) + ' // کتاب ' + faDigits(b) + ' از ' + faDigits(lib.length) + '</span>'
-      + '</div>';
-  }
-
   function renderShell(m) {
     var kboxes = (m.kboxes || []).map(kbox).join('');
     var dek = m.dek || UI.dekFallback;
@@ -101,7 +83,6 @@
     MASTHEAD
     /* ── HERO ── */
     + '<header class="hero"><div class="wrap">'
-      + heroHud(m)
       + '<div class="eyebrow"><span class="edot"></span>'
         + '<span data-only="en">Book knowledge map · ' + esc0((m.eyebrow_author || m.author).en) + '</span>'
         + '<span data-only="fa">نقشهٔ کتاب · ' + esc0((m.eyebrow_author || m.author).fa) + '</span></div>'
