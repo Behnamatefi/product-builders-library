@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<!-- Generated page. Edit CONTENT in the DATA object below; shared UI lives in ../assets/book.css + ../assets/book.js -->
+<html lang="en" dir="ltr" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Mythical Man-Month — نقشهٔ دانش و یادگیری ۵ مرحله‌ای</title>
+
+<!-- Boot theme + language BEFORE paint to avoid a flash (shared library-wide keys) -->
+<script>
+(function(){
+  try{
+    var th = localStorage.getItem('pbl-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
+    document.documentElement.setAttribute('data-theme', th);
+  }catch(e){ document.documentElement.setAttribute('data-theme','light'); }
+  try{
+    var lg = localStorage.getItem('pbl-lang') || 'en';
+    document.documentElement.setAttribute('data-lang', lg);
+    document.documentElement.setAttribute('lang', lg);
+    document.documentElement.setAttribute('dir', lg==='fa' ? 'rtl' : 'ltr');
+  }catch(e){}
+})();
+</script>
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Newsreader:ital,opsz,wght@0,6..72,200..700;1,6..72,200..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/book.css">
+</head>
+<body>
+<div id="app"></div>
+
+<script src="../assets/library.js"></script>
+<script src="../assets/book.js"></script>
+<script>
+/* ── CONTENT — everything unique to this book lives here ── */
+Book.mount({
+  "meta": {
+    "slug": "the-mythical-man-month",
+    "folder": "18 - Delivery & Projects",
+    "groupNum": 18,
+    "group": {
+      "en": "Delivery & Projects",
+      "fa": "تحویل و پروژه"
+    },
+    "author": {
+      "en": "Frederick P. Brooks Jr.",
+      "fa": "فردریک بروکس"
+    },
+    "eyebrow_author": {
+      "en": "Frederick P. Brooks Jr.",
+      "fa": "فردریک بروکس"
+    },
+    "book": {
+      "en": "The Mythical Man-Month",
+      "fa": "افسانهٔ نفر-ماه"
+    },
+    "hero_title": {
+      "en": "The Mythical Man-Month — Essays on Software Engineering",
+      "fa": "افسانهٔ نفر-ماه — جستارهایی دربارهٔ مهندسی نرم‌افزار"
+    },
+    "dek": {
+      "en": "A knowledge graph of the whole book, plus a 5-stage path from a single idea to expert-level mastery — with an example at every step.",
+      "fa": "نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از خیلی ساده تا حرفه‌ای — با یک مثال در هر مرحله."
+    },
+    "published": {
+      "en": "1975",
+      "fa": "۱۹۷۵"
+    },
+    "chips": [
+      {
+        "v": {
+          "en": "4",
+          "fa": "۴"
+        },
+        "l": {
+          "en": "Parts",
+          "fa": "بخش"
+        }
+      },
+      {
+        "v": {
+          "en": "12",
+          "fa": "۱۲"
+        },
+        "l": {
+          "en": "Ideas",
+          "fa": "ایده"
+        }
+      },
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Learning stages",
+          "fa": "مرحلهٔ یادگیری"
+        }
+      }
+    ],
+    "kboxes": [
+      {
+        "v": {
+          "en": "4",
+          "fa": "۴"
+        },
+        "l": {
+          "en": "Parts (the tar pit · conceptual integrity · budgets and the pilot · getting it out the door)",
+          "fa": "بخش (باتلاقِ قیر · یکپارچگیِ مفهومی · بودجه و نمونهٔ آزمایشی · رساندنِ کار به سرانجام)"
+        }
+      },
+      {
+        "v": {
+          "en": "12",
+          "fa": "۱۲"
+        },
+        "l": {
+          "en": "Ideas you can use",
+          "fa": "ایده برای استفاده"
+        }
+      },
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Levels, simple → expert",
+          "fa": "مرحله، ساده تا حرفه‌ای"
+        }
+      },
+      {
+        "v": {
+          "en": "9×",
+          "fa": "۹×"
+        },
+        "l": {
+          "en": "Cost of a systems product vs a working program",
+          "fa": "هزینهٔ محصولِ سیستمی در برابرِ یک برنامهٔ کارکن"
+        }
+      }
+    ],
+    "core_callout": {
+      "label": {
+        "en": "The core idea:",
+        "fa": "ایدهٔ اصلی:"
+      },
+      "en": " A man-month is a myth. Software is built by minds that have to stay in agreement, so people and time do not trade off — adding people to a late project makes it later. What does scale is <i>conceptual integrity</i>: one clear idea, owned by very few people, is worth more than many good ideas owned by everyone.",
+      "fa": " نفر-ماه یک افسانه است. نرم‌افزار را ذهن‌هایی می‌سازند که باید با هم هماهنگ بمانند؛ پس آدم و زمان با هم معاوضه نمی‌شوند — افزودنِ نیرو به پروژه‌ای که عقب افتاده، آن را عقب‌تر می‌اندازد. آنچه بزرگ می‌شود <i>یکپارچگیِ مفهومی</i> است: یک ایدهٔ روشن در دستِ چند نفر، از ایده‌های خوبِ فراوان در دستِ همه ارزشمندتر است."
+    },
+    "flow_callout": {
+      "label": {
+        "en": "Read it as a flow:",
+        "fa": "به‌صورتِ یک جریان بخوانش:"
+      },
+      "en": " see why large software sinks teams — the <b>tar pit</b>, <b>Brooks's Law</b>, and communication paths that grow as n(n−1)/2 — then protect <b>conceptual integrity</b> with a small sharp team, budget the <b>time and the size</b> and plan to throw the pilot away, and finally bring it in with hard <b>milestones</b>, one component at a time, knowing there is <b>no silver bullet</b>.",
+      "fa": " ببین چرا نرم‌افزارِ بزرگ تیم‌ها را در خود فرو می‌برد — <b>باتلاقِ قیر</b>، <b>قانونِ بروکس</b>، و مسیرهای ارتباطی که با توانِ دوم زیاد می‌شوند — بعد <b>یکپارچگیِ مفهومی</b> را با یک تیمِ کوچک و تیز نگه دار، برای <b>زمان و اندازه</b> بودجه بگذار و بپذیر که نمونهٔ اول دور ریخته می‌شود، و در پایان با <b>نقاطِ عطفِ سفت‌وسخت</b> و یکپارچه‌سازیِ گام‌به‌گام کار را برسان، با این آگاهی که <b>گلولهٔ نقره‌ای در کار نیست</b>."
+    }
+  },
+  "method": {
+    "en": "<p><b>Source:</b> the book <i>The Mythical Man-Month: Essays on Software Engineering</i> by Frederick P. Brooks Jr., first published by Addison-Wesley in 1975. The 1995 anniversary edition reprints the original fifteen essays and adds four more, including the 1986 essay <i>No Silver Bullet</i>.</p><p><b>How this was built:</b> the book is a collection of essays rather than one linear argument, so those essays were grouped into four honest themes and rewritten from the book and reputable sources.</p><p><b>Group:</b> Delivery &amp; Projects.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>",
+    "fa": "<p><b>منبع:</b> کتابِ «افسانهٔ نفر-ماه: جستارهایی دربارهٔ مهندسی نرم‌افزار» نوشتهٔ فردریک بروکس، چاپِ نخست در ۱۹۷۵ توسطِ ادیسون-وسلی. ویرایشِ سالگردِ ۱۹۹۵ همان پانزده جستارِ اصلی را بازچاپ می‌کند و چهار جستارِ تازه به آن می‌افزاید، از جمله «گلولهٔ نقره‌ای در کار نیست» از ۱۹۸۶.</p><p><b>روشِ کار:</b> این کتاب مجموعه‌ای از جستارهاست، نه یک استدلالِ خطی؛ پس همان جستارها در چهار درون‌مایهٔ صادقانه گروه‌بندی و از خودِ کتاب و منابعِ معتبر ساده‌نویسی شده است.</p><p><b>گروه:</b> تحویل و پروژه.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب.</p>"
+  },
+  "flow": {
+    "en": [
+      "People",
+      "Design",
+      "Plan",
+      "Ship"
+    ],
+    "fa": [
+      "آدم‌ها",
+      "طراحی",
+      "برنامه",
+      "تحویل"
+    ]
+  },
+  "graph": {
+    "R2": 132,
+    "span": 70
+  },
+  "tldr": [
+    {
+      "en": "The whole book in one line: adding manpower to a late software project makes it later.",
+      "fa": "خلاصهٔ کل کتاب در یک جمله: افزودنِ نیرو به پروژهٔ نرم‌افزاریِ عقب‌افتاده، آن را عقب‌تر می‌اندازد."
+    },
+    {
+      "en": "People and months trade off only when a task can be split with no communication between the workers. Software is the opposite.",
+      "fa": "آدم و ماه فقط وقتی جای هم را می‌گیرند که کار بدونِ هیچ ارتباطی میانِ افراد تقسیم شود. نرم‌افزار دقیقاً برعکسِ این است."
+    },
+    {
+      "en": "Conceptual integrity is the most important consideration in system design, and it survives only in very few hands.",
+      "fa": "یکپارچگیِ مفهومی مهم‌ترین ملاحظه در طراحیِ سیستم است، و فقط در دستِ چند نفر زنده می‌ماند."
+    },
+    {
+      "en": "You will build a pilot system and throw it away. The only real question is whether the plan said so.",
+      "fa": "یک نمونهٔ آزمایشی می‌سازی و دورش می‌اندازی. تنها پرسشِ واقعی این است که آیا برنامه از اول این را گفته بود یا نه."
+    },
+    {
+      "en": "A project gets to be a year late one day at a time, and no single tool will ever make software ten times better.",
+      "fa": "یک پروژه روزی یک روز، یک سال عقب می‌افتد؛ و هیچ ابزارِ واحدی هرگز نرم‌افزار را ده برابر بهتر نمی‌کند."
+    }
+  ],
+  "parts": [
+    {
+      "key": "tarpit",
+      "varc": "--c-teal",
+      "name": {
+        "en": "The Tar Pit",
+        "fa": "باتلاقِ قیر"
+      },
+      "tag": {
+        "en": "Why it is hard",
+        "fa": "چرا سخت است"
+      },
+      "gist": {
+        "en": "Big software sinks strong teams for reasons that have nothing to do with effort.",
+        "fa": "نرم‌افزارِ بزرگ تیم‌های قوی را فرو می‌برد، به دلایلی که هیچ ربطی به تلاش ندارد."
+      },
+      "more": {
+        "en": "Brooks writes from OS/360, the largest software project of its day. A program that runs is about a ninth of the job. The rest is turning it into something other people can build on, and every person you add to catch up costs training time and a new set of conversations.",
+        "fa": "بروکس از دلِ سیستم‌عاملِ ۳۶۰ آی‌بی‌ام می‌نویسد، بزرگ‌ترین پروژهٔ نرم‌افزاریِ زمانِ خودش. برنامه‌ای که اجرا می‌شود حدودِ یک‌نهمِ کار است. باقی‌اش تبدیلِ آن به چیزی است که دیگران بتوانند رویش بسازند؛ و هر نفری که برای جبرانِ عقب‌ماندگی اضافه می‌کنی، هم وقتِ آموزش می‌برد و هم مجموعهٔ تازه‌ای از گفت‌وگوها می‌سازد."
+      },
+      "chapters": [
+        "pit",
+        "manmonth",
+        "babel"
+      ]
+    },
+    {
+      "key": "integrity",
+      "varc": "--c-blue",
+      "name": {
+        "en": "Conceptual Integrity",
+        "fa": "یکپارچگیِ مفهومی"
+      },
+      "tag": {
+        "en": "The design",
+        "fa": "طراحی"
+      },
+      "gist": {
+        "en": "One coherent idea, held by few minds, beats a rich pile of good ideas.",
+        "fa": "یک ایدهٔ منسجم در دستِ چند ذهن، از انبوهی ایدهٔ خوب بهتر است."
+      },
+      "more": {
+        "en": "Brooks's most quoted claim is that conceptual integrity is the most important consideration in system design. It survives only when architecture is separated from implementation and kept in very few hands, which sounds undemocratic — and is. His answer to scale is many small sharp teams, not one large one.",
+        "fa": "پرنقل‌ترین ادعای بروکس این است که یکپارچگیِ مفهومی مهم‌ترین ملاحظه در طراحیِ سیستم است. این یکپارچگی فقط وقتی زنده می‌ماند که معماری از پیاده‌سازی جدا شود و در دستِ چند نفر بماند؛ که غیردموکراتیک به نظر می‌رسد — و هست. پاسخِ او به بزرگ‌شدن، چند تیمِ کوچک و تیز است، نه یک تیمِ بزرگ."
+      },
+      "chapters": [
+        "aristocracy",
+        "surgical",
+        "second"
+      ]
+    },
+    {
+      "key": "plan",
+      "varc": "--c-violet",
+      "name": {
+        "en": "Budgets, Estimates and the Pilot",
+        "fa": "بودجه، برآورد و نمونهٔ آزمایشی"
+      },
+      "tag": {
+        "en": "Planning",
+        "fa": "برنامه‌ریزی"
+      },
+      "gist": {
+        "en": "Time and size are budgets. Neither one estimates itself, and the first build is a draft.",
+        "fa": "زمان و اندازه، هر دو بودجه‌اند. هیچ‌کدام خودشان را برآورد نمی‌کنند، و ساختِ اول یک پیش‌نویس است."
+      },
+      "more": {
+        "en": "Coding takes about a sixth of the schedule; testing takes half. Size and speed have to be budgeted the way money is budgeted, module by module. And the system you build first is the one you will throw away, so put that in the plan instead of being surprised by it.",
+        "fa": "کدنویسی حدودِ یک‌ششمِ زمان‌بندی است؛ تست نیمی از آن. اندازه و سرعت را باید مثلِ پول بودجه‌بندی کرد، ماژول به ماژول. و سیستمی که اول می‌سازی همانی است که دور می‌اندازی؛ پس این را در برنامه بنویس تا غافلگیرت نکند."
+      },
+      "chapters": [
+        "estimate",
+        "space",
+        "throwaway"
+      ]
+    },
+    {
+      "key": "ship",
+      "varc": "--c-amber",
+      "name": {
+        "en": "Getting It Out the Door",
+        "fa": "رساندنِ کار به سرانجام"
+      },
+      "tag": {
+        "en": "Delivery",
+        "fa": "تحویل"
+      },
+      "gist": {
+        "en": "Schedules slip a day at a time, systems come together a piece at a time, and nothing saves you all at once.",
+        "fa": "زمان‌بندی روزی یک روز عقب می‌افتد، سیستم قطعه‌به‌قطعه سرِ هم می‌آید، و هیچ‌چیز یک‌شبه نجاتت نمی‌دهد."
+      },
+      "more": {
+        "en": "The end of a project is where Brooks is most practical: milestones sharp enough that nobody can fudge them, integration one component at a time into a system that already works, and a closing warning that no single tool or method will give you a tenfold gain.",
+        "fa": "بروکس در پایانِ پروژه از همیشه عملی‌تر است: نقاطِ عطفی آن‌قدر دقیق که جای سرهم‌بندی نماند، یکپارچه‌سازیِ قطعه‌به‌قطعه روی سیستمی که از قبل کار می‌کند، و هشدارِ پایانی که هیچ ابزار یا روشِ واحدی ده برابر بهترت نمی‌کند."
+      },
+      "chapters": [
+        "catastrophe",
+        "whole",
+        "silverbullet"
+      ]
+    }
+  ],
+  "chapters": {
+    "pit": {
+      "part": "tarpit",
+      "n": 1,
+      "name": {
+        "en": "The Tar Pit",
+        "fa": "باتلاقِ قیر"
+      },
+      "glabel": {
+        "en": "Tar Pit",
+        "fa": "باتلاقِ قیر"
+      },
+      "principle": {
+        "en": "A program that works on your machine costs about nine times as much to become a product other teams can rely on.",
+        "fa": "برنامه‌ای که روی ماشینِ خودت کار می‌کند، حدودِ نُه برابر هزینه می‌برد تا محصولی شود که تیم‌های دیگر بتوانند به آن تکیه کنند."
+      },
+      "more": {
+        "en": "Brooks multiplies twice. Turning a program into a programming product — generalised, tested, documented, maintained — costs about three times as much. Making it part of a programming system that fits alongside other programs costs about three times again. Nine times the work, for something that already looked finished.",
+        "fa": "بروکس دو بار ضرب می‌کند. تبدیلِ یک برنامه به محصولِ برنامه‌نویسی — تعمیم‌یافته، تست‌شده، مستند و نگه‌داری‌شده — حدودِ سه برابر خرج دارد. تبدیلِ آن به جزئی از یک سیستمِ برنامه‌نویسی که کنارِ برنامه‌های دیگر جا بیفتد، باز هم سه برابر. نُه برابرِ کار، برای چیزی که از قبل تمام‌شده به نظر می‌رسید."
+      },
+      "example": {
+        "en": "The demo that worked on Friday still needs error handling, documentation, tests and interfaces before anyone else can build on it.",
+        "fa": "دمویی که جمعه کار می‌کرد، هنوز به مدیریتِ خطا، مستند، تست و رابط نیاز دارد تا کسِ دیگری بتواند رویش بسازد."
+      },
+      "tip": {
+        "en": "When you give an estimate, say out loud which of the nine parts you are estimating.",
+        "fa": "وقتی برآورد می‌دهی، بلند بگو داری کدام‌یک از آن نُه بخش را برآورد می‌کنی."
+      },
+      "pitfall": {
+        "en": "Reading a working prototype as evidence that the project is nearly done.",
+        "fa": "نمونهٔ اولیهٔ کارکن را نشانهٔ نزدیک‌بودنِ پایانِ پروژه گرفتن."
+      }
+    },
+    "manmonth": {
+      "part": "tarpit",
+      "n": 2,
+      "name": {
+        "en": "The Mythical Man-Month",
+        "fa": "افسانهٔ نفر-ماه"
+      },
+      "glabel": {
+        "en": "Brooks's Law",
+        "fa": "قانونِ بروکس"
+      },
+      "principle": {
+        "en": "Adding manpower to a late software project makes it later.",
+        "fa": "افزودنِ نیرو به پروژهٔ نرم‌افزاریِ عقب‌افتاده، آن را عقب‌تر می‌اندازد."
+      },
+      "more": {
+        "en": "People and months are interchangeable only when a task can be split among workers who never need to talk. Software is the opposite. Newcomers have to be trained by the very people who are already the bottleneck, and once they are trained they add new conversations to every decision.",
+        "fa": "آدم و ماه فقط وقتی جای هم را می‌گیرند که کار میانِ افرادی تقسیم شود که هرگز لازم نیست با هم حرف بزنند. نرم‌افزار برعکس است. تازه‌واردها را باید همان‌هایی آموزش دهند که خودشان گلوگاه‌اند، و بعد از آموزش هم به هر تصمیم، گفت‌وگوی تازه‌ای اضافه می‌کنند."
+      },
+      "example": {
+        "en": "Brooks's own image: the bearing of a child takes nine months, no matter how many women are assigned to it.",
+        "fa": "تصویرِ خودِ بروکس: به دنیا آمدنِ یک بچه نُه ماه طول می‌کشد، هر تعداد زن هم که به این کار بگماری."
+      },
+      "tip": {
+        "en": "When a project is late, cut scope or move the date before you move headcount.",
+        "fa": "وقتی پروژه عقب است، پیش از دست‌زدن به تعدادِ نیرو، دامنه را کم کن یا تاریخ را جابه‌جا کن."
+      },
+      "pitfall": {
+        "en": "Treating the man-months in a plan as a currency you can convert back into weeks.",
+        "fa": "نفر-ماه‌های داخلِ برنامه را ارزی دانستن که هر وقت بخواهی به هفته تبدیلش می‌کنی."
+      }
+    },
+    "babel": {
+      "part": "tarpit",
+      "n": 3,
+      "name": {
+        "en": "Why Did the Tower of Babel Fail?",
+        "fa": "چرا برجِ بابل شکست خورد؟"
+      },
+      "glabel": {
+        "en": "Babel",
+        "fa": "برجِ بابل"
+      },
+      "principle": {
+        "en": "Babel had a clear goal, materials, time and people. It failed on communication and organisation, and so do software projects.",
+        "fa": "برجِ بابل هدف، مصالح، زمان و آدم داشت. سرِ ارتباط و سازمان‌دهی شکست خورد؛ پروژه‌های نرم‌افزاری هم همین‌طور."
+      },
+      "more": {
+        "en": "Training cost grows with the number of people. Communication cost grows much faster: with n people there are n(n−1)/2 pairs who have to stay in step. Brooks's remedies are unglamorous — written documents with owners, a shared project workbook, and an organisation designed to reduce the number of people who must agree.",
+        "fa": "هزینهٔ آموزش با تعدادِ آدم‌ها زیاد می‌شود. هزینهٔ ارتباط خیلی سریع‌تر: مسیرهای ارتباطی با توانِ دومِ تعدادِ افراد بالا می‌رود — سه نفر سه مسیر دارند، ده نفر چهل‌وپنج مسیر. درمان‌های بروکس پرزرق‌وبرق نیستند: سندهای نوشته‌شده با مالکِ مشخص، یک دفترچهٔ مشترکِ پروژه، و سازمانی که تعدادِ کسانی را که باید توافق کنند کم می‌کند."
+      },
+      "example": {
+        "en": "A team of ten spends more of the week keeping each other in step than the team of four spent building.",
+        "fa": "تیمِ ده‌نفره بیشتر از آن‌که تیمِ چهارنفره وقتِ ساختن گذاشته بود، وقتِ هماهنگ‌ماندن با هم می‌گذارد."
+      },
+      "tip": {
+        "en": "Before adding a person, name exactly who they will need to talk to every day.",
+        "fa": "پیش از افزودنِ یک نفر، دقیقاً بگو هر روز باید با چه کسانی حرف بزند."
+      },
+      "pitfall": {
+        "en": "Answering a communication problem with another meeting instead of one written document with an owner.",
+        "fa": "پاسخ‌دادن به مشکلِ ارتباط با یک جلسهٔ دیگر، به‌جای یک سندِ نوشته‌شده که مالک دارد."
+      }
+    },
+    "aristocracy": {
+      "part": "integrity",
+      "n": 4,
+      "name": {
+        "en": "Aristocracy, Democracy, and System Design",
+        "fa": "اشرافیت، دموکراسی و طراحیِ سیستم"
+      },
+      "glabel": {
+        "en": "Integrity",
+        "fa": "یکپارچگی"
+      },
+      "principle": {
+        "en": "It is better to ship one coherent design missing some good features than many good features with no coherence.",
+        "fa": "عرضهٔ یک طراحیِ منسجم که چند ویژگیِ خوب کم دارد، بهتر از ویژگی‌های خوبِ فراوانِ بی‌انسجام است."
+      },
+      "more": {
+        "en": "People learn a system by building a model of it in their heads. A design that came from twenty independent minds hands them twenty models to learn. Brooks separates the architect, who owns what the thing is and speaks for the user, from the implementers, who own how it is built and how fast.",
+        "fa": "آدم‌ها یک سیستم را با ساختنِ مدلی از آن در ذهنشان یاد می‌گیرند. طراحی‌ای که از بیست ذهنِ مستقل آمده، بیست مدل برای یادگرفتن جلوی آن‌ها می‌گذارد. بروکس معمار را — که مالکِ «این چیز چیست» است و از طرفِ کاربر حرف می‌زند — از پیاده‌سازان جدا می‌کند، که مالکِ «چطور و با چه سرعتی ساخته می‌شود» هستند."
+      },
+      "example": {
+        "en": "IBM's System/360 held one architecture across a whole family of machines, so the same programs ran on all of them.",
+        "fa": "سیستم/۳۶۰ شرکتِ آی‌بی‌ام یک معماریِ واحد را در کلِ خانوادهٔ ماشین‌ها نگه داشت، تا همان برنامه‌ها روی همه‌شان اجرا شوند."
+      },
+      "tip": {
+        "en": "Name one person accountable for what the product is, separate from who builds it.",
+        "fa": "یک نفر را مسئولِ «این محصول چیست» کن، جدا از کسانی که می‌سازندش."
+      },
+      "pitfall": {
+        "en": "Designing by committee and calling the result a compromise instead of a mess.",
+        "fa": "طراحیِ کمیته‌ای، و بعد اسمِ نتیجه را مصالحه گذاشتن به‌جای آشفتگی."
+      }
+    },
+    "surgical": {
+      "part": "integrity",
+      "n": 5,
+      "name": {
+        "en": "The Surgical Team",
+        "fa": "تیمِ جراحی"
+      },
+      "glabel": {
+        "en": "Surgical Team",
+        "fa": "تیمِ جراحی"
+      },
+      "principle": {
+        "en": "Organise like a surgical team: one mind does the cutting and everyone else exists to support it.",
+        "fa": "مثلِ تیمِ جراحی سازمان بگیر: یک ذهن تیغ می‌زند و بقیه هستند تا پشتیبانی‌اش کنند."
+      },
+      "more": {
+        "en": "Brooks takes the proposal from Harlan Mills. A large job is split among small teams, each with a chief programmer who does the design and the code, plus a copilot, a toolsmith, a tester and an administrator who remove everything else. Brooks cites productivity gaps of five to ten times between good and mediocre programmers; the structure is built around that fact.",
+        "fa": "بروکس این پیشنهاد را از هارلن میلز می‌گیرد. کارِ بزرگ میانِ تیم‌های کوچک تقسیم می‌شود و هر تیم یک برنامه‌نویسِ ارشد دارد که طراحی و کد را خودش انجام می‌دهد، به‌علاوهٔ یک کمک‌خلبان، یک ابزارساز، یک تست‌کننده و یک مسئولِ اداری که باقیِ کارها را از دوشش برمی‌دارند. بروکس از فاصلهٔ پنج تا ده برابری میانِ برنامه‌نویسِ خوب و متوسط می‌گوید؛ این ساختار دقیقاً روی همان واقعیت بنا شده."
+      },
+      "example": {
+        "en": "Ten people organised this way can hold a single design in their heads; two hundred cannot.",
+        "fa": "ده نفر با این ساختار می‌توانند یک طراحیِ واحد را در ذهن نگه دارند؛ دویست نفر نمی‌توانند."
+      },
+      "tip": {
+        "en": "Ask what your strongest builder does that only they can do, then take everything else off their plate.",
+        "fa": "بپرس قوی‌ترین سازندهٔ تیم چه کاری می‌کند که فقط از خودش برمی‌آید، بعد باقیِ کارها را از دوشش بردار."
+      },
+      "pitfall": {
+        "en": "Growing a team by cloning generalists instead of adding support around a sharp core.",
+        "fa": "بزرگ‌کردنِ تیم با تکثیرِ آدم‌های همه‌فن‌حریف، به‌جای افزودنِ پشتیبانی دورِ یک هستهٔ تیز."
+      }
+    },
+    "second": {
+      "part": "integrity",
+      "n": 6,
+      "name": {
+        "en": "The Second-System Effect",
+        "fa": "اثرِ سیستمِ دوم"
+      },
+      "glabel": {
+        "en": "Second System",
+        "fa": "سیستمِ دوم"
+      },
+      "principle": {
+        "en": "The second system a person designs is the most dangerous one they will ever design.",
+        "fa": "سیستمِ دوم، خطرناک‌ترین سیستمی است که آدم در عمرش طراحی می‌کند."
+      },
+      "more": {
+        "en": "The first system is built under doubt, so it stays lean. Success removes the doubt, and every feature that was cut the first time comes back — along with refinements for functions that are already going out of use. Brooks's remedy is self-discipline, and an architect who has been through the cycle at least once.",
+        "fa": "سیستمِ اول زیرِ سایهٔ تردید ساخته می‌شود، پس لاغر می‌ماند. موفقیت تردید را برمی‌دارد، و هر ویژگی‌ای که بارِ اول حذف شده بود برمی‌گردد — همراه با ظرافت‌هایی برای کارکردهایی که دارند از رده خارج می‌شوند. درمانِ بروکس خویشتن‌داری است، و معماری که دستِ‌کم یک‌بار این چرخه را از سر گذرانده باشد."
+      },
+      "example": {
+        "en": "OS/360 was Brooks's own second system, following the simple operating systems of IBM's 700 and 7000 machines, and it carried both the features left out before and refinements for techniques already going obsolete.",
+        "fa": "سیستم‌عاملِ ۳۶۰ خودش سیستمِ دومِ بروکس بود، پس از سیستم‌عامل‌های سادهٔ ماشین‌های ۷۰۰ و ۷۰۰۰ِ آی‌بی‌ام؛ و هم ویژگی‌های کنارگذاشته‌شده را با خود آورد و هم ظرافت‌هایی برای فنونی که داشتند از رده خارج می‌شدند."
+      },
+      "tip": {
+        "en": "Write down what you deliberately left out of v1 and why, then re-justify each one on its own merit for v2.",
+        "fa": "بنویس چه چیزهایی را عمداً از نسخهٔ یک بیرون گذاشتی و چرا، بعد برای نسخهٔ دو هرکدام را دوباره و به‌تنهایی توجیه کن."
+      },
+      "pitfall": {
+        "en": "Treating v2 as the place where every old argument finally gets settled.",
+        "fa": "نسخهٔ دو را جایی دانستن که بالاخره همهٔ بحث‌های قدیمی در آن فیصله پیدا می‌کند."
+      }
+    },
+    "estimate": {
+      "part": "plan",
+      "n": 7,
+      "name": {
+        "en": "Calling the Shot",
+        "fa": "برآوردِ زمان"
+      },
+      "glabel": {
+        "en": "Estimating",
+        "fa": "برآورد"
+      },
+      "principle": {
+        "en": "You cannot estimate the whole job from the coding, because coding is the smallest part of it.",
+        "fa": "نمی‌توانی کلِ کار را از رویِ کدنویسی برآورد کنی، چون کدنویسی کوچک‌ترین بخشِ آن است."
+      },
+      "more": {
+        "en": "Brooks's rule of thumb splits a schedule into one third planning, one sixth coding, one quarter component test and one quarter system test. Testing takes half the schedule, sits at the end, and is therefore the part that always gets squeezed when the date is fixed.",
+        "fa": "قاعدهٔ سرانگشتیِ بروکس زمان‌بندی را این‌طور تقسیم می‌کند: یک‌سوم برنامه‌ریزی، یک‌ششم کدنویسی، یک‌چهارم تستِ اجزا و یک‌چهارم تستِ سیستم. تست نیمی از زمان‌بندی است، آخر از همه می‌آید، و برای همین همیشه همان بخشی است که وقتی تاریخ قفل باشد، فشرده می‌شود."
+      },
+      "example": {
+        "en": "Brooks's own OS/360 figures: about 600 to 800 debugged lines per programmer-year on an operating system, and 2,000 to 3,000 on a compiler. The job sets the rate, not the effort.",
+        "fa": "عددهای خودِ بروکس از سیستم‌عاملِ ۳۶۰: حدودِ ۶۰۰ تا ۸۰۰ خطِ اشکال‌زدایی‌شده در هر نفر-سال روی یک سیستم‌عامل، و ۲۰۰۰ تا ۳۰۰۰ خط روی یک کامپایلر. کار است که سرعت را تعیین می‌کند، نه میزانِ تلاش."
+      },
+      "tip": {
+        "en": "Quote schedules from your own team's past data, not from how long the coding feels.",
+        "fa": "زمان‌بندی را از دادهٔ پروژه‌های گذشتهٔ خودِ تیم بگو، نه از حسی که کدنویسی به تو می‌دهد."
+      },
+      "pitfall": {
+        "en": "The gutless estimate — quoting the date the customer wants to hear because you lack the nerve to defend a real one.",
+        "fa": "برآوردِ بی‌جربزه — گفتنِ تاریخی که مشتری دوست دارد بشنود، چون جرئتِ دفاع از تاریخِ واقعی را نداری."
+      }
+    },
+    "space": {
+      "part": "plan",
+      "n": 8,
+      "name": {
+        "en": "Ten Pounds in a Five-Pound Sack",
+        "fa": "ده کیلو در کیسهٔ پنج‌کیلویی"
+      },
+      "glabel": {
+        "en": "Budgets",
+        "fa": "بودجه"
+      },
+      "principle": {
+        "en": "Size is a cost like any other. Budget it, split it by module, and manage it out loud.",
+        "fa": "اندازه هم مثلِ هر هزینهٔ دیگری است. برایش بودجه بگذار، ماژول به ماژول تقسیمش کن، و آشکارا مدیریتش کن."
+      },
+      "more": {
+        "en": "OS/360 fought over memory the way a product today fights over load time, bundle size or price. Brooks tells the manager to set the budget, assign it per module, and always pair a size target with a speed target — because a team told only to be small will trade away all the speed to get there.",
+        "fa": "سیستم‌عاملِ ۳۶۰ سرِ حافظه می‌جنگید، همان‌طور که محصولِ امروز سرِ زمانِ بارگذاری، حجمِ برنامه یا قیمت می‌جنگد. بروکس به مدیر می‌گوید بودجه را تعیین کن، ماژول به ماژول تقسیمش کن، و همیشه هدفِ اندازه را با هدفِ سرعت جفت کن — چون تیمی که فقط گفته‌ای کوچک باشد، برای رسیدن به آن تمامِ سرعت را معامله می‌کند."
+      },
+      "example": {
+        "en": "Told only to save space, a team buys it with time: the program gets smaller and every user waits longer. That is why Brooks sets the two numbers together.",
+        "fa": "تیمی که فقط گفته‌ای در فضا صرفه‌جویی کند، فضا را با زمان می‌خرد: برنامه کوچک‌تر می‌شود و هر کاربر بیشتر منتظر می‌ماند. برای همین بروکس این دو عدد را کنارِ هم می‌گذارد."
+      },
+      "tip": {
+        "en": "Pick the one resource your users actually feel — latency, page weight, cost — and give each team a number for it.",
+        "fa": "همان یک منبعی را که کاربر واقعاً حسش می‌کند انتخاب کن — تأخیر، حجمِ صفحه، هزینه — و برای هر تیم عددی برایش تعیین کن."
+      },
+      "pitfall": {
+        "en": "Discovering the budget at integration, when every trade-off has already become expensive.",
+        "fa": "کشفِ بودجه در زمانِ یکپارچه‌سازی، وقتی هر معامله‌ای از قبل گران شده است."
+      }
+    },
+    "throwaway": {
+      "part": "plan",
+      "n": 9,
+      "name": {
+        "en": "Plan to Throw One Away",
+        "fa": "برنامه بریز که یکی را دور بیندازی"
+      },
+      "glabel": {
+        "en": "Pilot",
+        "fa": "نمونهٔ آزمایشی"
+      },
+      "principle": {
+        "en": "You will build a pilot system and throw it away. The only question is whether you planned to.",
+        "fa": "یک نمونهٔ آزمایشی می‌سازی و دورش می‌اندازی. تنها پرسش این است که آیا از قبل برنامه‌اش را ریخته بودی."
+      },
+      "more": {
+        "en": "The first build is how you learn what the system should have been. Ship it and you ship the lessons as defects. Brooks later softened this toward growing systems incrementally rather than one grand rewrite, but the honest core stands: plan for change in the design, in the schedule and in the organisation.",
+        "fa": "ساختِ اول همان جایی است که یاد می‌گیری سیستم باید چه می‌بود. اگر عرضه‌اش کنی، درس‌ها را به‌شکلِ نقص عرضه کرده‌ای. بروکس بعدها این حرف را به سمتِ رشدِ تدریجیِ سیستم — به‌جای یک بازنویسیِ بزرگ — نرم کرد، اما هستهٔ صادقانه‌اش سرِ جایش است: برای تغییر برنامه بریز، هم در طراحی، هم در زمان‌بندی، هم در سازمان."
+      },
+      "example": {
+        "en": "Brooks borrows the pilot plant from chemical engineering: a process that works in the laboratory is never taken straight into the factory.",
+        "fa": "بروکس ایدهٔ «کارخانهٔ آزمایشی» را از مهندسیِ شیمی وام می‌گیرد: فرایندی که در آزمایشگاه جواب می‌دهد، هرگز یک‌راست به کارخانه برده نمی‌شود."
+      },
+      "tip": {
+        "en": "Put the rewrite in the plan as a line item instead of asking for it later as an exception.",
+        "fa": "بازنویسی را به‌عنوانِ یک ردیفِ مشخص در برنامه بگذار، به‌جای اینکه بعداً به‌عنوانِ استثنا درخواستش کنی."
+      },
+      "pitfall": {
+        "en": "Promising the throwaway pilot to a customer because it demos well.",
+        "fa": "قول‌دادنِ نمونهٔ آزمایشیِ دورریختنی به مشتری، فقط چون دموی خوبی می‌دهد."
+      }
+    },
+    "catastrophe": {
+      "part": "ship",
+      "n": 10,
+      "name": {
+        "en": "Hatching a Catastrophe",
+        "fa": "زاده‌شدنِ یک فاجعه"
+      },
+      "glabel": {
+        "en": "Milestones",
+        "fa": "نقاطِ عطف"
+      },
+      "principle": {
+        "en": "How does a project get to be a year late? One day at a time.",
+        "fa": "یک پروژه چطور یک سال عقب می‌افتد؟ روزی یک روز."
+      },
+      "more": {
+        "en": "Big slips are made of small ones nobody escalated. Brooks wants milestones that are concrete, specific and measurable, defined with knife-edge sharpness: a milestone you can report ninety percent finished week after week is not sharp enough. He also asks managers to keep the status report separate from the punishment, or they stop being told the truth.",
+        "fa": "عقب‌افتادگی‌های بزرگ از عقب‌افتادگی‌های کوچکی ساخته می‌شوند که کسی گزارششان نکرده. بروکس نقاطِ عطفی می‌خواهد که عینی، مشخص و قابلِ‌اندازه‌گیری باشند، با مرزی به تیزیِ لبهٔ چاقو: نقطهٔ عطفی که بشود هفته‌به‌هفته «نود درصد انجام‌شده» گزارشش کرد، به‌اندازهٔ کافی تیز نیست. از مدیران هم می‌خواهد گزارشِ وضعیت را از مجازات جدا نگه دارند، وگرنه دیگر حقیقت را نمی‌شنوند."
+      },
+      "example": {
+        "en": "\"Ninety percent complete\" is not a status. \"The module passes the test suite\" is.",
+        "fa": "«نود درصد تمام است» وضعیت نیست. «ماژول از مجموعهٔ تست‌ها رد می‌شود» وضعیت است."
+      },
+      "tip": {
+        "en": "Define every milestone so that its completion is a yes or no someone else can check.",
+        "fa": "هر نقطهٔ عطف را طوری تعریف کن که تمام‌شدنش یک بله یا نه باشد که کسِ دیگری بتواند بررسی‌اش کند."
+      },
+      "pitfall": {
+        "en": "Punishing the first person who reports a slip, and never hearing about the next one.",
+        "fa": "تنبیهِ اولین کسی که از عقب‌افتادگی خبر می‌دهد، و بعد هرگز نشنیدنِ خبرِ بعدی."
+      }
+    },
+    "whole": {
+      "part": "ship",
+      "n": 11,
+      "name": {
+        "en": "The Whole and the Parts",
+        "fa": "کل و اجزا"
+      },
+      "glabel": {
+        "en": "Integration",
+        "fa": "یکپارچه‌سازی"
+      },
+      "principle": {
+        "en": "Design the bugs out first, then add one component at a time to a system that already works.",
+        "fa": "اول خطاها را در طراحی حذف کن، بعد هر بار یک جزء را به سیستمی اضافه کن که از قبل کار می‌کند."
+      },
+      "more": {
+        "en": "Brooks argues most defects are designed in rather than typed in, so a clear specification pays more than debugging skill. For assembly he wants the system grown in quantised steps — scaffolding, dummy components, one real piece added at a time — so that when something breaks, the list of suspects is short.",
+        "fa": "بروکس می‌گوید بیشترِ نقص‌ها در طراحی وارد می‌شوند، نه هنگامِ تایپ؛ پس یک مشخصاتِ روشن بیشتر از مهارتِ اشکال‌زدایی می‌ارزد. برای سرِ هم کردن هم می‌خواهد سیستم پله‌پله رشد کند — داربست، اجزای قلابی، و هر بار یک قطعهٔ واقعی — تا وقتی چیزی خراب شد، فهرستِ مظنون‌ها کوتاه باشد."
+      },
+      "example": {
+        "en": "Add one new module to a working build; if it fails, the suspect list has one name on it.",
+        "fa": "یک ماژولِ تازه را به بیلدی که کار می‌کند اضافه کن؛ اگر خراب شد، فهرستِ مظنون‌ها یک اسم دارد."
+      },
+      "tip": {
+        "en": "Keep the build green and integrate in single steps instead of a big merge week at the end.",
+        "fa": "بیلد را سالم نگه دار و گام‌به‌گام یکپارچه کن، به‌جای یک هفتهٔ ادغامِ بزرگ در پایان."
+      },
+      "pitfall": {
+        "en": "Testing every component in isolation and meeting the real system for the first time at the end.",
+        "fa": "تستِ جداگانهٔ هر جزء، و رویاروییِ اول با سیستمِ واقعی درست در پایانِ کار."
+      }
+    },
+    "silverbullet": {
+      "part": "ship",
+      "n": 12,
+      "name": {
+        "en": "No Silver Bullet",
+        "fa": "گلولهٔ نقره‌ای در کار نیست"
+      },
+      "glabel": {
+        "en": "No Silver Bullet",
+        "fa": "بدونِ گلولهٔ نقره‌ای"
+      },
+      "principle": {
+        "en": "No single tool or method will make software ten times better within a decade, because most of the difficulty is essential.",
+        "fa": "هیچ ابزار یا روشِ واحدی در یک دهه نرم‌افزار را ده برابر بهتر نمی‌کند، چون بیشترِ دشواری ذاتی است."
+      },
+      "more": {
+        "en": "Brooks splits difficulty in two. Accidental difficulty comes from our tools and languages, and most of it has already been stripped away. Essential difficulty sits in the thing itself: it is complex, it must conform to systems it did not choose, it keeps changing, and it cannot be seen. A better tool cannot remove what the problem already contains.",
+        "fa": "بروکس دشواری را دو تکه می‌کند. دشواریِ عَرَضی از ابزارها و زبان‌های ما می‌آید و بیشترش قبلاً برداشته شده. دشواریِ ذاتی در خودِ کار نشسته است: پیچیده است، باید با سیستم‌هایی هم‌خوان شود که خودش انتخابشان نکرده، مدام تغییر می‌کند، و دیده نمی‌شود. ابزارِ بهتر نمی‌تواند چیزی را حذف کند که خودِ مسئله در دلِ خودش دارد."
+      },
+      "example": {
+        "en": "Brooks's promising directions are not tools: buy instead of build, prototype fast, grow systems incrementally, and find great designers.",
+        "fa": "راه‌های امیدبخشِ بروکس ابزار نیستند: به‌جای ساختن بخر، سریع نمونه بساز، سیستم را تدریجی رشد بده، و طراحانِ بزرگ پیدا کن."
+      },
+      "tip": {
+        "en": "Judge a new tool by how much of the essential work it removes, not by how much typing it saves.",
+        "fa": "ابزارِ تازه را با این بسنج که چقدر از کارِ ذاتی را برمی‌دارد، نه چقدر تایپ را کم می‌کند."
+      },
+      "pitfall": {
+        "en": "Expecting a process change or a new framework to fix a problem that lives in the domain itself.",
+        "fa": "انتظارِ اینکه تغییرِ فرایند یا یک فریم‌ورکِ تازه مشکلی را حل کند که در خودِ دامنهٔ مسئله نشسته است."
+      }
+    }
+  },
+  "core": {
+    "name": {
+      "en": "MAN-MONTH",
+      "fa": "نفر-ماه"
+    },
+    "principle": {
+      "en": "Software is built by minds that have to stay in agreement. People and time are therefore not interchangeable, and one clear idea held by very few is worth more than many good ideas held by everyone.",
+      "fa": "نرم‌افزار را ذهن‌هایی می‌سازند که باید با هم هماهنگ بمانند. پس آدم و زمان جای هم را نمی‌گیرند، و یک ایدهٔ روشن در دستِ چند نفر از ایده‌های خوبِ فراوان در دستِ همه ارزشمندتر است."
+    },
+    "more": {
+      "en": "Brooks wrote fifteen essays out of the OS/360 experience, and four more for the 1995 edition. They fall into four honest themes: why large software sinks teams (the tar pit, Brooks's Law, communication that grows quadratically); why conceptual integrity, held by a few, is the most important thing in a design; how to budget time and size and plan for the pilot you will throw away; and how to bring the work in, with sharp milestones, incremental integration, and no silver bullet.",
+      "fa": "بروکس پانزده جستار از دلِ تجربهٔ سیستم‌عاملِ ۳۶۰ نوشت و چهار جستارِ دیگر برای ویرایشِ ۱۹۹۵. آن‌ها در چهار درون‌مایهٔ صادقانه جا می‌گیرند: چرا نرم‌افزارِ بزرگ تیم‌ها را فرو می‌برد (باتلاقِ قیر، قانونِ بروکس، ارتباطی که با توانِ دوم زیاد می‌شود)؛ چرا یکپارچگیِ مفهومی در دستِ چند نفر مهم‌ترین چیزِ یک طراحی است؛ چطور برای زمان و اندازه بودجه بگذاریم و نمونهٔ آزمایشیِ دورریختنی را در برنامه ببینیم؛ و چطور کار را به سرانجام برسانیم، با نقاطِ عطفِ دقیق، یکپارچه‌سازیِ گام‌به‌گام، و نبودِ گلولهٔ نقره‌ای."
+    },
+    "example": {
+      "en": "Click any node to read a principle or a method. You can also drag the nodes around.",
+      "fa": "روی هر دایره کلیک کن تا یک اصل یا روش را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."
+    }
+  },
+  "stages": [
+    {
+      "level": 1,
+      "badge": {
+        "en": "Level 1 · Over-simplified",
+        "fa": "سطحِ ۱ · خیلی ساده"
+      },
+      "title": {
+        "en": "Adding people makes it later",
+        "fa": "افزودنِ آدم، کار را عقب‌تر می‌اندازد"
+      },
+      "tagline": {
+        "en": "The whole book in a sentence.",
+        "fa": "کلِ کتاب در یک جمله."
+      },
+      "body": {
+        "en": "Adding manpower to a late software project makes it later. That is Brooks's Law, and it is the line the rest of the book explains.",
+        "fa": "افزودنِ نیرو به پروژهٔ نرم‌افزاریِ عقب‌افتاده، آن را عقب‌تر می‌اندازد. این قانونِ بروکس است و باقیِ کتاب همین یک جمله را توضیح می‌دهد."
+      },
+      "example": {
+        "en": "The team is a month behind, so four people join — and the release slips again.",
+        "fa": "تیم یک ماه عقب است، پس چهار نفر اضافه می‌شوند — و انتشار دوباره عقب می‌افتد."
+      },
+      "gain": {
+        "en": "You hold the single rule the whole book expands on.",
+        "fa": "همان یک قاعده‌ای را داری که کلِ کتاب بسطش می‌دهد."
+      }
+    },
+    {
+      "level": 2,
+      "badge": {
+        "en": "Level 2 · Simple",
+        "fa": "سطحِ ۲ · ساده"
+      },
+      "title": {
+        "en": "Why it is later, not faster",
+        "fa": "چرا دیرتر می‌شود، نه زودتر"
+      },
+      "tagline": {
+        "en": "People and months are not the same currency.",
+        "fa": "آدم و ماه یک ارز نیستند."
+      },
+      "body": {
+        "en": "Two costs eat the gain. Newcomers must be trained by the people who are already the bottleneck, and communication grows much faster than headcount: three people keep three paths in step, ten people keep forty-five. Nine women cannot make a baby in one month.",
+        "fa": "دو هزینه سود را می‌خورند. تازه‌واردها را باید همان‌هایی آموزش دهند که خودشان گلوگاه‌اند، و ارتباط خیلی سریع‌تر از تعدادِ نفرات زیاد می‌شود: سه نفر سه مسیر را هماهنگ نگه می‌دارند، ده نفر چهل‌وپنج مسیر را. نُه زن نمی‌توانند یک بچه را در یک ماه به دنیا بیاورند."
+      },
+      "example": {
+        "en": "Before adding anyone, write down who will train them and who they must talk to daily.",
+        "fa": "پیش از افزودنِ هر نفر، بنویس چه کسی آموزشش می‌دهد و هر روز باید با چه کسانی حرف بزند."
+      },
+      "gain": {
+        "en": "You can explain a slipping schedule without blaming effort.",
+        "fa": "می‌توانی عقب‌افتادنِ زمان‌بندی را بدونِ متهم‌کردنِ تلاشِ آدم‌ها توضیح دهی."
+      }
+    },
+    {
+      "level": 3,
+      "badge": {
+        "en": "Level 3 · Balanced",
+        "fa": "سطحِ ۳ · متعادل"
+      },
+      "title": {
+        "en": "Conceptual integrity",
+        "fa": "یکپارچگیِ مفهومی"
+      },
+      "tagline": {
+        "en": "One idea, very few owners.",
+        "fa": "یک ایده، چند مالکِ انگشت‌شمار."
+      },
+      "body": {
+        "en": "Conceptual integrity is the most important consideration in system design: better one coherent idea missing a few good features than many good features with no coherence. Separate the architect, who owns what the thing is, from the implementers. Organise like a surgical team, and stay alert for the second-system effect, where the confident follow-up carries every feature v1 had to cut.",
+        "fa": "یکپارچگیِ مفهومی مهم‌ترین ملاحظه در طراحیِ سیستم است: یک ایدهٔ منسجم که چند ویژگیِ خوب کم دارد، بهتر از ویژگی‌های خوبِ فراوانِ بی‌انسجام است. معمار را که مالکِ «این چیز چیست» است از پیاده‌سازان جدا کن. مثلِ تیمِ جراحی سازمان بگیر، و مراقبِ اثرِ سیستمِ دوم باش؛ جایی که دنبالهٔ پرِاعتمادبه‌نفس، هر ویژگی‌ای را که نسخهٔ یک ناچار بود حذف کند با خود می‌آورد."
+      },
+      "example": {
+        "en": "Name one person accountable for what the product is, and write down what you deliberately left out of v1.",
+        "fa": "یک نفر را مسئولِ «این محصول چیست» کن، و بنویس چه چیزهایی را عمداً از نسخهٔ یک بیرون گذاشتی."
+      },
+      "gain": {
+        "en": "You can protect a design from the number of people working on it.",
+        "fa": "می‌توانی یک طراحی را از گزندِ تعدادِ آدم‌هایی که رویش کار می‌کنند حفظ کنی."
+      }
+    },
+    {
+      "level": 4,
+      "badge": {
+        "en": "Level 4 · Advanced",
+        "fa": "سطحِ ۴ · پیشرفته"
+      },
+      "title": {
+        "en": "Budget the time and the size",
+        "fa": "برای زمان و اندازه بودجه بگذار"
+      },
+      "tagline": {
+        "en": "Estimating, sizing, and the pilot you will throw away.",
+        "fa": "برآورد، اندازه، و نمونه‌ای که دور می‌اندازی."
+      },
+      "body": {
+        "en": "Brooks splits a schedule: a third planning, a sixth coding, and half of it testing. Testing sits at the end, so it is the part a fixed date destroys. Budget size the same way, module by module, and always pair a size target with a speed target. Then accept that the first system teaches you what the system should have been.",
+        "fa": "بروکس زمان‌بندی را تقسیم می‌کند: یک‌سوم برنامه‌ریزی، یک‌ششم کدنویسی، و نیمی از آن تست. تست آخر از همه می‌آید، پس همان بخشی است که تاریخِ قفل‌شده نابودش می‌کند. اندازه را هم به همین شکل بودجه‌بندی کن، ماژول به ماژول، و همیشه هدفِ اندازه را با هدفِ سرعت جفت کن. بعد بپذیر که سیستمِ اول به تو یاد می‌دهد سیستم باید چه می‌بود."
+      },
+      "example": {
+        "en": "Compare your last project against Brooks's split, then put the rewrite in the plan as a line item.",
+        "fa": "پروژهٔ قبلی‌ات را با تقسیم‌بندیِ بروکس بسنج، بعد بازنویسی را به‌عنوانِ یک ردیفِ مشخص در برنامه بگذار."
+      },
+      "gain": {
+        "en": "You can defend a real date instead of quoting a gutless one.",
+        "fa": "می‌توانی از یک تاریخِ واقعی دفاع کنی، به‌جای گفتنِ یک تاریخِ بی‌جربزه."
+      }
+    },
+    {
+      "level": 5,
+      "badge": {
+        "en": "Level 5 · Expert",
+        "fa": "سطحِ ۵ · حرفه‌ای"
+      },
+      "title": {
+        "en": "Bring it in, expect no rescue",
+        "fa": "کار را برسان، منتظرِ ناجی نباش"
+      },
+      "tagline": {
+        "en": "Milestones, integration, and essential complexity.",
+        "fa": "نقاطِ عطف، یکپارچه‌سازی، و پیچیدگیِ ذاتی."
+      },
+      "body": {
+        "en": "A project gets to be a year late one day at a time, so make every milestone a yes or no someone else can check, and keep status reporting separate from punishment. Grow the system in single steps rather than one big merge. And know the limit: accidental difficulty is mostly gone, while essential difficulty sits in the work itself, which is complex, has to fit systems it did not choose, keeps changing, and cannot be seen. Brooks's real levers are buying instead of building, fast prototypes, incremental growth, and great designers.",
+        "fa": "یک پروژه روزی یک روز، یک سال عقب می‌افتد؛ پس هر نقطهٔ عطف را یک بله یا نه کن که کسِ دیگری بتواند بررسی‌اش کند، و گزارشِ وضعیت را از مجازات جدا نگه دار. سیستم را گام‌به‌گام رشد بده، نه با یک ادغامِ بزرگ. و حد را بشناس: دشواریِ عَرَضی تقریباً برداشته شده، اما دشواریِ ذاتی در خودِ کار نشسته است: کار پیچیده است، باید با سیستم‌هایی هم‌خوان شود که خودش انتخابشان نکرده، مدام تغییر می‌کند، و دیده نمی‌شود. اهرم‌های واقعیِ بروکس اینهاست: به‌جای ساختن خریدن، نمونه‌سازیِ سریع، رشدِ تدریجی، و طراحانِ بزرگ."
+      },
+      "example": {
+        "en": "You replace \"ninety percent done\" with \"passes the suite\", integrate one module a day, and judge a new tool by the essential work it removes.",
+        "fa": "«نود درصد تمام است» را با «از تست‌ها رد می‌شود» عوض می‌کنی، روزی یک ماژول را یکپارچه می‌کنی، و ابزارِ تازه را با کارِ ذاتی‌ای که برمی‌دارد می‌سنجی."
+      },
+      "gain": {
+        "en": "You can run a large project without believing anything will rescue it at the end.",
+        "fa": "می‌توانی پروژه‌ای بزرگ را پیش ببری بدونِ اینکه باور کنی چیزی در پایان نجاتش می‌دهد."
+      }
+    }
+  ],
+  "quotes": [
+    {
+      "en": "Adding manpower to a late software project makes it later.",
+      "fa": "افزودنِ نیرو به پروژهٔ نرم‌افزاریِ عقب‌افتاده، آن را عقب‌تر می‌اندازد."
+    },
+    {
+      "en": "How does a project get to be a year late? One day at a time.",
+      "fa": "یک پروژه چطور یک سال عقب می‌افتد؟ روزی یک روز."
+    },
+    {
+      "en": "Conceptual integrity is the most important consideration in system design.",
+      "fa": "یکپارچگیِ مفهومی مهم‌ترین ملاحظه در طراحیِ سیستم است."
+    },
+    {
+      "en": "Plan to throw one away; you will, anyhow.",
+      "fa": "برنامه بریز که یکی را دور بیندازی؛ به‌هرحال این کار را خواهی کرد."
+    },
+    {
+      "en": "The second is the most dangerous system a man ever designs.",
+      "fa": "سیستمِ دوم، خطرناک‌ترین سیستمی است که آدم در عمرش طراحی می‌کند."
+    },
+    {
+      "en": "The programmer, like the poet, works only slightly removed from pure thought-stuff.",
+      "fa": "برنامه‌نویس، مثلِ شاعر، تنها اندکی دورتر از خودِ اندیشهٔ ناب کار می‌کند."
+    }
+  ],
+  "media": [
+    {
+      "kind": "img",
+      "url": "https://www.informit.com/store/mythical-man-month-essays-on-software-engineering-anniversary-9780201835953",
+      "src": {
+        "en": "InformIT · Publisher",
+        "fa": "InformIT · ناشر"
+      },
+      "title": {
+        "en": "The Mythical Man-Month, Anniversary Edition",
+        "fa": "افسانهٔ نفر-ماه، ویرایشِ سالگرد"
+      },
+      "desc": {
+        "en": "The publisher's page for the 1995 edition, which adds four chapters to the 1975 original.",
+        "fa": "صفحهٔ ناشر برای ویرایشِ ۱۹۹۵ که چهار فصل به متنِ اصلیِ ۱۹۷۵ اضافه می‌کند."
+      },
+      "bullets": {
+        "en": [
+          "The full table of contents, essay by essay",
+          "Brooks's own review of his claims twenty years on",
+          "Editions and formats"
+        ],
+        "fa": [
+          "فهرستِ کامل، جستار به جستار",
+          "بازبینیِ خودِ بروکس بر ادعاهایش پس از بیست سال",
+          "نسخه‌ها و قالب‌ها"
+        ]
+      },
+      "best": {
+        "en": "For the source and the real structure.",
+        "fa": "برای منبعِ اصلی و ساختارِ واقعیِ کتاب."
+      }
+    },
+    {
+      "kind": "img",
+      "url": "https://en.wikipedia.org/wiki/No_Silver_Bullet",
+      "src": {
+        "en": "Wikipedia · Essay",
+        "fa": "ویکی‌پدیا · جستار"
+      },
+      "title": {
+        "en": "No Silver Bullet — essence and accident",
+        "fa": "گلولهٔ نقره‌ای در کار نیست — ذات و عَرَض"
+      },
+      "desc": {
+        "en": "A short account of Brooks's 1986 essay and the argument that most of software's difficulty is essential.",
+        "fa": "شرحی کوتاه از جستارِ ۱۹۸۶ بروکس و این استدلال که بیشترِ دشواریِ نرم‌افزار ذاتی است."
+      },
+      "bullets": {
+        "en": [
+          "Essential versus accidental difficulty",
+          "Why no single change gives a tenfold gain",
+          "The four properties: complexity, conformity, changeability, invisibility"
+        ],
+        "fa": [
+          "دشواریِ ذاتی در برابرِ دشواریِ عَرَضی",
+          "چرا هیچ تغییرِ واحدی ده برابر بهبود نمی‌دهد",
+          "چهار ویژگی: پیچیدگی، ناچاری به هم‌خوانی، تغییرپذیری، نادیدنی‌بودن"
+        ]
+      },
+      "best": {
+        "en": "Best for Stage 5.",
+        "fa": "خوب برای مرحلهٔ ۵."
+      }
+    }
+  ],
+  "go": [
+    {
+      "label": {
+        "en": "Publisher's page",
+        "fa": "صفحهٔ ناشر"
+      },
+      "url": "https://www.informit.com/store/mythical-man-month-essays-on-software-engineering-anniversary-9780201835953"
+    },
+    {
+      "label": {
+        "en": "The book on Wikipedia",
+        "fa": "کتاب در ویکی‌پدیا"
+      },
+      "url": "https://en.wikipedia.org/wiki/The_Mythical_Man-Month"
+    },
+    {
+      "label": {
+        "en": "Book on Goodreads",
+        "fa": "کتاب در گودریدز"
+      },
+      "url": "https://www.goodreads.com/book/show/13629.The_Mythical_Man_Month"
+    }
+  ],
+  "recs": [
+    {
+      "pri": "b",
+      "t": {
+        "en": "Re-plan a late project without adding people",
+        "fa": "پروژهٔ عقب‌افتاده را بدونِ افزودنِ آدم دوباره برنامه‌ریزی کن"
+      },
+      "d": {
+        "en": "Cut scope or move the date first. If you must add someone, count the training time and the new conversations before you promise anything.",
+        "fa": "اول دامنه را کم کن یا تاریخ را جابه‌جا کن. اگر ناچاری کسی را اضافه کنی، پیش از هر قولی وقتِ آموزش و گفت‌وگوهای تازه را حساب کن."
+      }
+    },
+    {
+      "pri": "b",
+      "t": {
+        "en": "Name one owner of what the product is",
+        "fa": "یک مالک برای «این محصول چیست» تعیین کن"
+      },
+      "d": {
+        "en": "Separate architecture from implementation and let one person hold the conceptual integrity of the thing.",
+        "fa": "معماری را از پیاده‌سازی جدا کن و بگذار یک نفر یکپارچگیِ مفهومیِ کار را نگه دارد."
+      }
+    },
+    {
+      "pri": "n",
+      "t": {
+        "en": "Re-cut your schedule the way Brooks does",
+        "fa": "زمان‌بندی‌ات را مثلِ بروکس دوباره تقسیم کن"
+      },
+      "d": {
+        "en": "A third planning, a sixth coding, a quarter component test, a quarter system test. Compare it with what your last project actually spent.",
+        "fa": "یک‌سوم برنامه‌ریزی، یک‌ششم کدنویسی، یک‌چهارم تستِ اجزا، یک‌چهارم تستِ سیستم. با آنچه پروژهٔ قبلی واقعاً خرج کرد مقایسه کن."
+      }
+    },
+    {
+      "pri": "n",
+      "t": {
+        "en": "Rewrite your milestones as yes-or-no facts",
+        "fa": "نقاطِ عطف را به واقعیت‌های بله-یا-نه بازنویسی کن"
+      },
+      "d": {
+        "en": "Anything you can report ninety percent finished week after week is not a milestone. Make each one checkable by someone else.",
+        "fa": "هر چیزی که بشود هفته‌به‌هفته «نود درصد انجام‌شده» گزارشش کرد، نقطهٔ عطف نیست. هرکدام را طوری بنویس که کسِ دیگری بتواند بررسی‌اش کند."
+      }
+    }
+  ]
+});
+</script>
+</body>
+</html>

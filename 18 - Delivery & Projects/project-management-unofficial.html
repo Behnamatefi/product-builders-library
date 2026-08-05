@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<!-- Generated page. Edit CONTENT in the DATA object below; shared UI lives in ../assets/book.css + ../assets/book.js -->
+<html lang="en" dir="ltr" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Project Management for the Unofficial Project Manager — نقشهٔ دانش و یادگیری ۵ مرحله‌ای</title>
+
+<!-- Boot theme + language BEFORE paint to avoid a flash (shared library-wide keys) -->
+<script>
+(function(){
+  try{
+    var th = localStorage.getItem('pbl-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
+    document.documentElement.setAttribute('data-theme', th);
+  }catch(e){ document.documentElement.setAttribute('data-theme','light'); }
+  try{
+    var lg = localStorage.getItem('pbl-lang') || 'en';
+    document.documentElement.setAttribute('data-lang', lg);
+    document.documentElement.setAttribute('lang', lg);
+    document.documentElement.setAttribute('dir', lg==='fa' ? 'rtl' : 'ltr');
+  }catch(e){}
+})();
+</script>
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Newsreader:ital,opsz,wght@0,6..72,200..700;1,6..72,200..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/book.css">
+</head>
+<body>
+<div id="app"></div>
+
+<script src="../assets/library.js"></script>
+<script src="../assets/book.js"></script>
+<script>
+/* ── CONTENT — everything unique to this book lives here ── */
+Book.mount({
+  "meta": {
+    "slug": "project-management-unofficial",
+    "folder": "18 - Delivery & Projects",
+    "groupNum": 18,
+    "group": {
+      "en": "Delivery & Projects",
+      "fa": "تحویل و پروژه"
+    },
+    "author": {
+      "en": "Kory Kogon, Suzette Blakemore & James Wood",
+      "fa": "کوری کوگان، سوزت بلیکمور و جیمز وود"
+    },
+    "eyebrow_author": {
+      "en": "Kory Kogon, Suzette Blakemore & James Wood",
+      "fa": "کوری کوگان، سوزت بلیکمور و جیمز وود"
+    },
+    "book": {
+      "en": "Project Management for the Unofficial Project Manager",
+      "fa": "مدیریت پروژه برای مدیرِ پروژهٔ غیررسمی"
+    },
+    "hero_title": {
+      "en": "Project Management for the Unofficial Project Manager — Running Projects Without the Title, the Training or the Authority",
+      "fa": "مدیریت پروژه برای مدیرِ پروژهٔ غیررسمی — پیش‌بردنِ پروژه بدونِ عنوان، بدونِ آموزش، بدونِ اختیار"
+    },
+    "dek": {
+      "en": "A knowledge graph of the whole book, plus a 5-stage path from a single idea to expert-level mastery — with an example at every step.",
+      "fa": "نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از خیلی ساده تا حرفه‌ای — با یک مثال در هر مرحله."
+    },
+    "published": {
+      "en": "2015",
+      "fa": "۲۰۱۵"
+    },
+    "chips": [
+      {
+        "v": {
+          "en": "4",
+          "fa": "۴"
+        },
+        "l": {
+          "en": "Parts",
+          "fa": "بخش"
+        }
+      },
+      {
+        "v": {
+          "en": "12",
+          "fa": "۱۲"
+        },
+        "l": {
+          "en": "Ideas",
+          "fa": "ایده"
+        }
+      },
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Learning stages",
+          "fa": "مرحلهٔ یادگیری"
+        }
+      }
+    ],
+    "kboxes": [
+      {
+        "v": {
+          "en": "4",
+          "fa": "۴"
+        },
+        "l": {
+          "en": "Parts (people before process · initiate and scope · plan the work · execute, track and close)",
+          "fa": "بخش (آدم‌ها پیش از فرایند · آغاز و دامنه · برنامه‌ریزیِ کار · اجرا، پایش و بستن)"
+        }
+      },
+      {
+        "v": {
+          "en": "12",
+          "fa": "۱۲"
+        },
+        "l": {
+          "en": "Ideas you can use",
+          "fa": "ایده برای استفاده"
+        }
+      },
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Levels, simple → expert",
+          "fa": "مرحله، ساده تا حرفه‌ای"
+        }
+      },
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Process groups: initiate · plan · execute · monitor · close",
+          "fa": "گروهِ فرایندی: آغاز · برنامه · اجرا · پایش · بستن"
+        }
+      }
+    ],
+    "core_callout": {
+      "label": {
+        "en": "The core idea:",
+        "fa": "ایدهٔ اصلی:"
+      },
+      "en": " <b>People + process = success.</b> Most projects are run by someone with no title, no training and no authority over the team. What that person can build is <i>informal authority</i> — trust earned through four repeated behaviours — and then carry the work through five plain steps: initiate, plan, execute, monitor and control, close.",
+      "fa": " <b>آدم‌ها + فرایند = موفقیت.</b> بیشترِ پروژه‌ها را کسی جلو می‌برد که نه عنوانی دارد، نه آموزشی دیده، و نه بر تیم اختیاری دارد. چیزی که این آدم می‌تواند بسازد <i>اقتدارِ غیررسمی</i> است — اعتمادی که از تکرارِ چهار رفتار به‌دست می‌آید — و بعد کار را از پنج قدمِ ساده عبور می‌دهد: آغاز، برنامه، اجرا، پایش و کنترل، بستن."
+    },
+    "flow_callout": {
+      "label": {
+        "en": "Read it as a flow:",
+        "fa": "به‌صورتِ یک جریان بخوانش:"
+      },
+      "en": " earn <b>informal authority</b> through respect and listening, <b>clarify expectations</b> and write the scope statement, break the work into a <b>plan</b> with a schedule and a scored risk matrix, then <b>execute, track and close</b> through weekly accountability.",
+      "fa": " <b>اقتدارِ غیررسمی</b> را با احترام و گوش‌دادن به‌دست بیاور، <b>انتظارها را شفاف کن</b> و بیانیهٔ دامنه را بنویس، کار را به یک <b>برنامه</b> با زمان‌بندی و ماتریسِ نمره‌دارِ ریسک بشکن، بعد با پاسخ‌گوییِ هفتگی <b>اجرا، پایش و بستن</b> را پیش ببر."
+    }
+  },
+  "tldr": [
+    {
+      "en": "The whole book in one line: people + process = success — and the people half comes first.",
+      "fa": "خلاصهٔ کل کتاب در یک جمله: آدم‌ها + فرایند = موفقیت — و نیمهٔ آدم‌ها اول می‌آید."
+    },
+    {
+      "en": "Most of us spend our week on projects and none of us has the title. The authors call that person the unofficial project manager.",
+      "fa": "بیشترِ ما هفته‌مان را صرفِ پروژه می‌کنیم و هیچ‌کداممان این عنوان را نداریم. نویسنده‌ها به چنین آدمی می‌گویند مدیرِ پروژهٔ غیررسمی."
+    },
+    {
+      "en": "You have responsibility without authority. The answer is informal authority — trust you earn, not power you are handed.",
+      "fa": "مسئولیت داری بدونِ اختیار. پاسخ، اقتدارِ غیررسمی است — اعتمادی که به‌دست می‌آوری، نه قدرتی که به تو می‌دهند."
+    },
+    {
+      "en": "Four behaviours build it: demonstrate respect, listen first, clarify expectations, practice accountability.",
+      "fa": "چهار رفتار می‌سازدش: احترام نشان بده، اول گوش کن، انتظارها را شفاف کن، پاسخ‌گویی را تمرین کن."
+    },
+    {
+      "en": "The process is five plain steps: initiate, plan, execute, monitor and control, close.",
+      "fa": "فرایند پنج قدمِ ساده است: آغاز، برنامه، اجرا، پایش و کنترل، بستن."
+    }
+  ],
+  "parts": [
+    {
+      "key": "people",
+      "varc": "--c-teal",
+      "name": {
+        "en": "People Before Process",
+        "fa": "آدم‌ها پیش از فرایند"
+      },
+      "tag": {
+        "en": "The problem",
+        "fa": "مسئله"
+      },
+      "gist": {
+        "en": "You own the outcome but not the org chart. Trust is the only lever you have.",
+        "fa": "نتیجه مالِ توست، اما چارتِ سازمانی نه. تنها اهرمت اعتماد است."
+      },
+      "more": {
+        "en": "The unofficial project manager carries responsibility without authority. Nobody on the team reports to you and nobody has to say yes. The answer the authors give is informal authority: influence that comes from a leader's character and capabilities, built by four behaviours you repeat until people believe them.",
+        "fa": "مدیرِ پروژهٔ غیررسمی مسئولیت دارد بی‌آنکه اختیار داشته باشد. هیچ‌کس در تیم زیرِ دستِ تو نیست و هیچ‌کس مجبور نیست بله بگوید. پاسخِ نویسنده‌ها اقتدارِ غیررسمی است: نفوذی که از شخصیت و توانمندیِ خودِ آدم می‌آید و از تکرارِ چهار رفتار ساخته می‌شود، آن‌قدر تکرار که آدم‌ها باورشان کنند."
+      },
+      "chapters": [
+        "unofficial",
+        "respect",
+        "listen"
+      ]
+    },
+    {
+      "key": "initiate",
+      "varc": "--c-blue",
+      "name": {
+        "en": "Initiate — Clarify and Scope",
+        "fa": "آغاز — شفاف‌سازی و دامنه"
+      },
+      "tag": {
+        "en": "Starting right",
+        "fa": "شروعِ درست"
+      },
+      "gist": {
+        "en": "A small confusion at the start becomes a large failure at the end.",
+        "fa": "ابهامِ کوچک در شروع، شکستِ بزرگ در پایان می‌شود."
+      },
+      "more": {
+        "en": "Initiating is two jobs done in the open: find out who actually has a stake in this, and write down what finished looks like. The project scope statement — the why, the what, the when and the how — is the one page everyone agrees to before any work starts.",
+        "fa": "آغازکردن دو کار است که باید علنی انجام شوند: بفهم واقعاً چه کسانی در این پروژه ذی‌نفع‌اند، و بنویس «تمام‌شده» چه شکلی است. بیانیهٔ دامنهٔ پروژه — چرا، چه، کِی و چطور — همان یک صفحه‌ای است که پیش از شروعِ هر کاری همه رویش توافق می‌کنند."
+      },
+      "chapters": [
+        "clarify",
+        "stakeholders",
+        "scope"
+      ]
+    },
+    {
+      "key": "plan",
+      "varc": "--c-violet",
+      "name": {
+        "en": "Plan — Break the Work Down",
+        "fa": "برنامه — خردکردنِ کار"
+      },
+      "tag": {
+        "en": "The plan",
+        "fa": "برنامه"
+      },
+      "gist": {
+        "en": "A plan is a breakdown, a schedule, and an honest list of what could go wrong.",
+        "fa": "برنامه یعنی خردکردنِ کار، یک زمان‌بندی، و فهرستی صادقانه از آنچه ممکن است خراب شود."
+      },
+      "more": {
+        "en": "Turn the scope into deliverables, deliverables into activities, activities into a sequence with an owner and a date each. Then write the risks down before they happen, score each one by impact times probability, and decide in advance what you will do about the ones that score high.",
+        "fa": "دامنه را به خروجی‌ها تبدیل کن، خروجی‌ها را به فعالیت‌ها، و فعالیت‌ها را به ترتیبی که هرکدام یک مالک و یک تاریخ دارد. بعد ریسک‌ها را پیش از وقوع بنویس، هرکدام را از ضربِ اثر در احتمال نمره بده، و از قبل تصمیم بگیر با آن‌هایی که نمرهٔ بالا می‌گیرند چه می‌کنی."
+      },
+      "chapters": [
+        "wbs",
+        "schedule",
+        "risks"
+      ]
+    },
+    {
+      "key": "deliver",
+      "varc": "--c-amber",
+      "name": {
+        "en": "Execute, Track and Close",
+        "fa": "اجرا، پایش و بستن"
+      },
+      "tag": {
+        "en": "Delivering",
+        "fa": "تحویل‌دادن"
+      },
+      "gist": {
+        "en": "Weekly accountability, honest status, and a real ending.",
+        "fa": "پاسخ‌گوییِ هفتگی، وضعیتِ صادقانه، و یک پایانِ واقعی."
+      },
+      "more": {
+        "en": "Execution is a rhythm, not a push: a short weekly session where people report on what they promised and make the next promise. Monitoring is telling the truth about the baseline and handling change on purpose. Closing is the step almost everyone skips, and it is the one that makes the next project cheaper.",
+        "fa": "اجرا یک ریتم است نه فشار: جلسه‌ای کوتاه و هفتگی که در آن هرکس دربارهٔ قولش گزارش می‌دهد و قولِ بعدی را می‌دهد. پایش یعنی راستش را دربارهٔ خطِ مبنا گفتن و تغییر را عامدانه اداره کردن. بستن همان قدمی است که تقریباً همه از آن می‌گذرند، و همان است که پروژهٔ بعدی را ارزان‌تر می‌کند."
+      },
+      "chapters": [
+        "accountability",
+        "track",
+        "close"
+      ]
+    }
+  ],
+  "chapters": {
+    "unofficial": {
+      "part": "people",
+      "n": 1,
+      "name": {
+        "en": "Responsibility Without Authority",
+        "fa": "مسئولیت بدونِ اختیار"
+      },
+      "glabel": {
+        "en": "Unofficial PM",
+        "fa": "مدیرِ غیررسمی"
+      },
+      "principle": {
+        "en": "Most projects are run by someone who carries the outcome and holds no formal power over anyone doing the work.",
+        "fa": "بیشترِ پروژه‌ها را کسی جلو می‌برد که نتیجه روی دوشش است و بر هیچ‌یک از کسانی که کار می‌کنند قدرتِ رسمی ندارد."
+      },
+      "more": {
+        "en": "The authors call this person the unofficial project manager: no title, no training, and a team borrowed from other managers. Their formula is people + process = success, and they insist the people half comes first, because a flawless plan run by a team that will not volunteer effort still fails.",
+        "fa": "نویسنده‌ها به این آدم می‌گویند مدیرِ پروژهٔ غیررسمی: بی‌عنوان، بی‌آموزش، با تیمی که از مدیرانِ دیگر قرض گرفته شده. فرمولشان این است: آدم‌ها + فرایند = موفقیت؛ و اصرار دارند نیمهٔ آدم‌ها اول می‌آید، چون برنامهٔ بی‌نقصی که تیمش دل نمی‌دهد باز هم شکست می‌خورد."
+      },
+      "example": {
+        "en": "The authors asked thousands of clients how much of their work is project based. Most said sixty to eighty percent. Almost none had the job title, and very few had ever had a day of project management training.",
+        "fa": "نویسنده‌ها از هزاران نفر پرسیدند چند درصدِ کارشان پروژه‌ای است. بیشترشان گفتند شصت تا هشتاد درصد. تقریباً هیچ‌کدام عنوانِ شغلیِ «مدیر پروژه» نداشتند و کمتر کسی حتی یک روز آموزشِ مدیریت پروژه دیده بود."
+      },
+      "tip": {
+        "en": "Write in one line what you are accountable for and who you can actually instruct. The gap between them is your real job.",
+        "fa": "در یک خط بنویس پاسخ‌گویِ چه هستی و به چه کسی واقعاً می‌توانی دستور بدهی. فاصلهٔ این دو، کارِ اصلیِ توست."
+      },
+      "pitfall": {
+        "en": "Waiting for a title or a mandate that is never going to arrive.",
+        "fa": "منتظرِ عنوان یا اختیاری ماندن که هرگز نمی‌رسد."
+      }
+    },
+    "respect": {
+      "part": "people",
+      "n": 2,
+      "name": {
+        "en": "Demonstrate Respect",
+        "fa": "احترام نشان بده"
+      },
+      "glabel": {
+        "en": "Respect",
+        "fa": "احترام"
+      },
+      "principle": {
+        "en": "Give people lead time, the reason behind the request, and straight talk instead of hints.",
+        "fa": "به آدم‌ها فرصتِ کافی بده، دلیلِ درخواست را بگو، و به‌جای کنایه رک حرف بزن."
+      },
+      "more": {
+        "en": "Respect here is behaviour, not politeness. It means asking early rather than at the last minute, explaining why the task matters, and saying the difficult thing directly and kindly. Under pressure most people get curter; the book's advice is to become more respectful exactly then.",
+        "fa": "احترام اینجا رفتار است، نه ادب. یعنی زودتر بخواهی نه دقیقهٔ نود، توضیح بدهی چرا این کار مهم است، و حرفِ سخت را مستقیم و مهربان بگویی. زیرِ فشار بیشترِ آدم‌ها تندتر می‌شوند؛ توصیهٔ کتاب این است که دقیقاً همان‌جا محترم‌تر شوی."
+      },
+      "example": {
+        "en": "\"I need this Thursday, here is why it matters, and here is what I will take off your plate\" beats a Wednesday-night message.",
+        "fa": "«پنجشنبه لازمش دارم، دلیلش این است، و این کار را از دوشت برمی‌دارم» خیلی بهتر از پیامِ شبِ چهارشنبه است."
+      },
+      "tip": {
+        "en": "Give every request a reason and a date, and send it a week earlier than feels necessary.",
+        "fa": "به هر درخواست یک دلیل و یک تاریخ بده، و یک هفته زودتر از آنچه لازم به‌نظر می‌رسد بفرست."
+      },
+      "pitfall": {
+        "en": "Being polite in tone while stealing people's time with last-minute asks.",
+        "fa": "لحنِ مؤدب داشتن و هم‌زمان با درخواست‌های دقیقهٔ نودی وقتِ آدم‌ها را دزدیدن."
+      }
+    },
+    "listen": {
+      "part": "people",
+      "n": 3,
+      "name": {
+        "en": "Listen First",
+        "fa": "اول گوش کن"
+      },
+      "glabel": {
+        "en": "Listen First",
+        "fa": "اول گوش کن"
+      },
+      "principle": {
+        "en": "Understand the other person's problem before you offer your plan. Slowing down here speeds the project up.",
+        "fa": "پیش از آنکه برنامه‌ات را بگویی، مشکلِ طرفِ مقابل را بفهم. کندشدن اینجا پروژه را تندتر می‌کند."
+      },
+      "more": {
+        "en": "Listening first is how you find the constraint nobody put in writing: the competing deadline, the approval that never came, the part of the task the person quietly dreads. It is also the cheapest way to be trusted by a team that does not report to you.",
+        "fa": "اول گوش‌دادن راهِ پیداکردنِ محدودیتی است که کسی ننوشته: ضرب‌الاجلِ رقیب، تأییدی که هرگز نیامد، بخشی از کار که آدم بی‌صدا از آن می‌ترسد. ارزان‌ترین راهِ اعتمادسازی با تیمی هم هست که زیرِ دستِ تو نیست."
+      },
+      "example": {
+        "en": "A task slips twice. The third conversation reveals the person has been waiting on data from another team since week one.",
+        "fa": "یک کار دوبار عقب می‌افتد. در گفت‌وگوی سوم معلوم می‌شود آن آدم از هفتهٔ اول منتظرِ دادهٔ تیمِ دیگری بوده است."
+      },
+      "tip": {
+        "en": "In your next status conversation, ask one question and then say nothing for thirty seconds.",
+        "fa": "در گفت‌وگوی وضعیتِ بعدی، یک سؤال بپرس و بعد سی ثانیه هیچ نگو."
+      },
+      "pitfall": {
+        "en": "Offering a solution before the person has finished describing the problem.",
+        "fa": "راه‌حل‌دادن پیش از آنکه طرف توصیفِ مشکلش را تمام کند."
+      }
+    },
+    "clarify": {
+      "part": "initiate",
+      "n": 4,
+      "name": {
+        "en": "Clarify Expectations",
+        "fa": "انتظارها را شفاف کن"
+      },
+      "glabel": {
+        "en": "Clarify",
+        "fa": "شفاف‌سازی"
+      },
+      "principle": {
+        "en": "Say out loud what finished looks like, who decides, and how each task connects to the whole.",
+        "fa": "بلند بگو «تمام‌شده» چه شکلی است، چه کسی تصمیم می‌گیرد، و هر کار چطور به کلِ پروژه وصل می‌شود."
+      },
+      "more": {
+        "en": "Unstated expectations are the standard cause of rework. The book treats clarity as a behaviour you repeat, not a document you write once: restate the goal at the start of a meeting, confirm the deliverable in writing, and check that people can describe the big picture back to you.",
+        "fa": "انتظارهای نگفته دلیلِ همیشگیِ دوباره‌کاری‌اند. کتاب شفافیت را رفتاری می‌داند که تکرار می‌شود، نه سندی که یک‌بار نوشته می‌شود: هدف را در شروعِ جلسه دوباره بگو، خروجی را مکتوب تأیید کن، و ببین آدم‌ها می‌توانند تصویرِ کلی را برایت بازگو کنند یا نه."
+      },
+      "example": {
+        "en": "\"Draft the report\" produces four different documents. \"A two-page summary for the board, by Tuesday, with last quarter's numbers\" produces one.",
+        "fa": "«گزارش را بنویس» چهار سندِ متفاوت می‌سازد؛ «خلاصهٔ دوصفحه‌ای برای هیئت‌مدیره، تا سه‌شنبه، با اعدادِ فصلِ گذشته» یکی."
+      },
+      "tip": {
+        "en": "End every assignment by asking the person to describe the finished result in their own words.",
+        "fa": "هر واگذاریِ کار را این‌طور تمام کن: از طرف بخواه نتیجهٔ نهایی را به زبانِ خودش توصیف کند."
+      },
+      "pitfall": {
+        "en": "Assuming that because you understand the goal, the team does too.",
+        "fa": "فرض‌کردنِ اینکه چون تو هدف را می‌فهمی، تیم هم می‌فهمد."
+      }
+    },
+    "stakeholders": {
+      "part": "initiate",
+      "n": 5,
+      "name": {
+        "en": "Identify the Stakeholders",
+        "fa": "شناساییِ ذی‌نفعان"
+      },
+      "glabel": {
+        "en": "Stakeholders",
+        "fa": "ذی‌نفعان"
+      },
+      "principle": {
+        "en": "List everyone the project touches, then interview the few who can fund it, block it or veto it.",
+        "fa": "هرکسی را که پروژه به او مربوط می‌شود فهرست کن، بعد با آن چند نفری مصاحبه کن که می‌توانند پولش را بدهند، جلویش را بگیرند یا ردش کنند."
+      },
+      "more": {
+        "en": "The long list is screened down to the key few by five tests: decisions, authority, need, connections and energy. The book names that screen with their initials, D.A.N.C.E. Then you interview each key stakeholder through the question funnel — open questions, then detailed ones, then closed ones that check you heard right. Their answers become the scope statement.",
+        "fa": "فهرستِ بلند با پنج معیار به چند نفرِ کلیدی غربال می‌شود: تصمیم، اختیار، نیاز، ارتباط و انرژی. کتاب نامِ این غربال را از حرفِ اولِ همین پنج واژه ساخته است: D.A.N.C.E. بعد با هر ذی‌نفعِ کلیدی از راهِ «قیفِ پرسش» گفت‌وگو می‌کنی: اول پرسش‌های باز، بعد پرسش‌های جزئی، و آخر پرسش‌های بسته که درستیِ برداشتت را می‌سنجند. جوابِ آن‌ها بیانیهٔ دامنه می‌شود."
+      },
+      "example": {
+        "en": "The team that has to maintain the thing after launch is a stakeholder, even if nobody invited them to the kick-off.",
+        "fa": "تیمی که بعد از راه‌اندازی باید این چیز را نگه‌داری کند ذی‌نفع است، حتی اگر کسی به جلسهٔ آغاز دعوتش نکرده باشد."
+      },
+      "tip": {
+        "en": "Before planning anything, ask each key stakeholder two questions: what does success look like, and what would make this a failure?",
+        "fa": "پیش از هر برنامه‌ریزی از هر ذی‌نفعِ کلیدی دو سؤال بپرس: موفقیت چه شکلی است، و چه چیزی این را شکست می‌کند؟"
+      },
+      "pitfall": {
+        "en": "Discovering a decision-maker in month three who disagrees with the whole premise.",
+        "fa": "کشفِ یک تصمیم‌گیرنده در ماهِ سوم که با کلِ فرضِ کار مخالف است."
+      }
+    },
+    "scope": {
+      "part": "initiate",
+      "n": 6,
+      "name": {
+        "en": "The Project Scope Statement",
+        "fa": "بیانیهٔ دامنهٔ پروژه"
+      },
+      "glabel": {
+        "en": "Scope Statement",
+        "fa": "بیانیهٔ دامنه"
+      },
+      "principle": {
+        "en": "One page that answers why, what, when and how — agreed by the people who can change it.",
+        "fa": "یک صفحه که به چرا، چه، کِی و چطور جواب می‌دهد — با توافقِ کسانی که می‌توانند تغییرش دهند."
+      },
+      "more": {
+        "en": "The scope statement is the project's contract with reality: the purpose, the deliverables, the exclusions, the dates and the constraints. Draft it, review it, then get it approved. Because it carries the key stakeholders' signatures, it gives the unofficial project manager something badly needed — a written reference to point at when someone asks for just one more thing.",
+        "fa": "بیانیهٔ دامنه قراردادِ پروژه با واقعیت است: هدف، خروجی‌ها، آنچه بیرونِ کار می‌ماند، تاریخ‌ها و محدودیت‌ها. اول پیش‌نویسش کن، بعد مرورش کنید، آخر تأییدش بگیر. چون امضای ذی‌نفعانِ کلیدی پایش است، چیزی به مدیرِ غیررسمی می‌دهد که سخت به آن نیاز دارد: مرجعی مکتوب که وقتی کسی «فقط یک چیزِ دیگر» می‌خواهد، به آن اشاره کند."
+      },
+      "example": {
+        "en": "Half a page listing what the project will not include prevents more arguments than any status meeting.",
+        "fa": "نیم‌صفحه که می‌گوید پروژه چه چیزهایی را شامل نمی‌شود، بیش از هر جلسهٔ وضعیتی جلوی بحث را می‌گیرد."
+      },
+      "tip": {
+        "en": "Write the exclusions section first. It is the part everyone remembers.",
+        "fa": "اول بخشِ استثناها را بنویس. همان بخشی است که همه یادشان می‌ماند."
+      },
+      "pitfall": {
+        "en": "A scope statement nobody agreed to, which is only your opinion in a document.",
+        "fa": "بیانیهٔ دامنه‌ای که کسی رویش توافق نکرده؛ فقط نظرِ توست در قالبِ یک سند."
+      }
+    },
+    "wbs": {
+      "part": "plan",
+      "n": 7,
+      "name": {
+        "en": "Work Breakdown Structure",
+        "fa": "ساختارِ شکستِ کار"
+      },
+      "glabel": {
+        "en": "Breakdown",
+        "fa": "شکستِ کار"
+      },
+      "principle": {
+        "en": "Break the scope into deliverables, deliverables into components, components into activities someone can own.",
+        "fa": "دامنه را به خروجی بشکن، خروجی را به اجزا، و اجزا را به فعالیت‌هایی که کسی می‌تواند مالکشان باشد."
+      },
+      "more": {
+        "en": "The breakdown turns a vague project into work you can assign and estimate. Go down until each activity has one owner, a clear finish, and a size you can guess to within a day or two. Anything larger than that is still a wish, not a task.",
+        "fa": "شکستِ کار پروژهٔ مبهم را به کاری تبدیل می‌کند که می‌شود واگذار و برآورد کرد. آن‌قدر پایین برو که هر فعالیت یک مالک، یک پایانِ روشن و اندازه‌ای داشته باشد که بتوانی تا یکی‌دو روز حدسش بزنی. هر چیزِ بزرگ‌تر از این هنوز آرزوست، نه کار."
+      },
+      "example": {
+        "en": "\"Launch the site\" becomes copy, design, build, legal review, data migration and a go-live checklist.",
+        "fa": "«سایت را راه بینداز» می‌شود متن، طراحی، ساخت، بررسیِ حقوقی، انتقالِ داده و چک‌لیستِ راه‌اندازی."
+      },
+      "tip": {
+        "en": "Ask the person who will do the work to break their own piece down. Their list will be better than yours.",
+        "fa": "از کسی که کار را انجام می‌دهد بخواه سهمِ خودش را بشکند. فهرستِ او از فهرستِ تو بهتر است."
+      },
+      "pitfall": {
+        "en": "Confusing effort with duration — two days of work is not two days on the calendar.",
+        "fa": "اشتباه‌گرفتنِ کار با مدت — دو روز کار، دو روز روی تقویم نیست."
+      }
+    },
+    "schedule": {
+      "part": "plan",
+      "n": 8,
+      "name": {
+        "en": "Schedule and the Critical Path",
+        "fa": "زمان‌بندی و مسیرِ بحرانی"
+      },
+      "glabel": {
+        "en": "Schedule",
+        "fa": "زمان‌بندی"
+      },
+      "principle": {
+        "en": "Sequence the activities, mark what must wait for what, and find the chain that sets the end date.",
+        "fa": "فعالیت‌ها را پشتِ هم بچین، مشخص کن چه چیزی منتظرِ چه چیزی است، و زنجیره‌ای را پیدا کن که تاریخِ پایان را تعیین می‌کند."
+      },
+      "more": {
+        "en": "The critical path is the longest chain of dependent activities. A day lost there is a day lost by the whole project, while slack elsewhere costs nothing. Milestones are the points where you stop and check that the plan still matches reality.",
+        "fa": "مسیرِ بحرانی بلندترین زنجیرهٔ فعالیت‌های وابسته است. یک روز تأخیر روی آن، یک روز تأخیر برای کلِ پروژه است، در حالی که تأخیر در جاهای دیگر هزینه‌ای ندارد. نقاطِ عطف جاهایی‌اند که می‌ایستی و می‌بینی برنامه هنوز با واقعیت می‌خواند یا نه."
+      },
+      "example": {
+        "en": "Legal review cannot start until the copy is final, so a slow week in copy moves launch by a week.",
+        "fa": "بررسیِ حقوقی تا نهایی‌نشدنِ متن شروع نمی‌شود، پس یک هفته کندیِ متن، راه‌اندازی را یک هفته عقب می‌برد."
+      },
+      "tip": {
+        "en": "Mark the critical path in one colour and defend only those dates.",
+        "fa": "مسیرِ بحرانی را با یک رنگ مشخص کن و فقط از همان تاریخ‌ها دفاع کن."
+      },
+      "pitfall": {
+        "en": "Padding every estimate instead of protecting the few tasks that actually drive the date.",
+        "fa": "به هر برآورد حاشیهٔ امن اضافه‌کردن، به‌جای محافظت از آن چند کاری که واقعاً تاریخ را می‌سازند."
+      }
+    },
+    "risks": {
+      "part": "plan",
+      "n": 9,
+      "name": {
+        "en": "The Risk Matrix and TAME",
+        "fa": "ماتریسِ ریسک و چهار پاسخ"
+      },
+      "glabel": {
+        "en": "Risk Matrix",
+        "fa": "ماتریسِ ریسک"
+      },
+      "principle": {
+        "en": "Write down what could go wrong, score each one as impact times probability, and decide the response in advance.",
+        "fa": "بنویس چه چیزی ممکن است خراب شود، هرکدام را از ضربِ اثر در احتمال نمره بده، و پاسخ را از قبل تعیین کن."
+      },
+      "more": {
+        "en": "Brainstorm the risks with the team, then put them in the risk matrix: impact times probability equals actual risk. Anything scoring twelve or higher needs a strategy, and the book gives four to choose from — transfer it, accept it, mitigate it, eliminate it. The initials spell the word the authors use for the tool: TAME. The value is not the table. It is having already decided who calls the vendor at two in the morning.",
+        "fa": "ریسک‌ها را با تیم فهرست کن و در ماتریسِ ریسک بگذار: اثر ضربدر احتمال، می‌شود ریسکِ واقعی. هر ریسکی که نمرهٔ دوازده یا بالاتر بگیرد به یک راهبرد نیاز دارد و کتاب چهار راهبرد پیش می‌گذارد: انتقال، پذیرش، کاهش، حذف. حرفِ اولِ این چهار در انگلیسی همان واژه‌ای را می‌سازد که نویسنده‌ها بر این ابزار گذاشته‌اند: TAME. ارزشِ کار در جدول نیست؛ در این است که از قبل تصمیم گرفته‌ای ساعتِ دوِ بامداد چه کسی به تأمین‌کننده زنگ می‌زند."
+      },
+      "example": {
+        "en": "\"The only person who understands the payment system is on leave in March\" is a risk with a name, a date and a score.",
+        "fa": "«تنها کسی که سامانهٔ پرداخت را می‌شناسد اسفند مرخصی است» ریسکی است با نام، تاریخ و نمره."
+      },
+      "tip": {
+        "en": "Keep only the ten risks you would actually act on, give each one a score, and give each one an owner.",
+        "fa": "فقط همان ده ریسکی را نگه دار که واقعاً برایشان کاری می‌کنی، به هرکدام یک نمره بده و برای هرکدام یک مالک بگذار."
+      },
+      "pitfall": {
+        "en": "A risk list written once at the start and never opened again.",
+        "fa": "فهرستِ ریسکی که یک‌بار در شروعِ کار نوشته می‌شود و دیگر باز نمی‌شود."
+      }
+    },
+    "accountability": {
+      "part": "deliver",
+      "n": 10,
+      "name": {
+        "en": "Practice Accountability",
+        "fa": "پاسخ‌گویی را تمرین کن"
+      },
+      "glabel": {
+        "en": "Accountability",
+        "fa": "پاسخ‌گویی"
+      },
+      "principle": {
+        "en": "Keep your own commitments first, then hold the team to theirs in a short weekly session.",
+        "fa": "اول به قول‌های خودت عمل کن، بعد در جلسه‌ای کوتاه و هفتگی تیم را پایِ قول‌هایش نگه دار."
+      },
+      "more": {
+        "en": "The team accountability session runs twenty to thirty minutes at most and does only three things: look at the scoreboard to see whether the goal and the schedule are being met, hear each person report on last week's commitment in a quick lightning round, and take the next round of commitments. It works because it is public, regular and small — and because you go first.",
+        "fa": "جلسهٔ پاسخ‌گوییِ تیم حداکثر بیست تا سی دقیقه است و فقط سه کار می‌کند: به تابلوی امتیاز نگاه می‌کند تا ببیند هدف و زمان‌بندی سرِ جایشان هستند یا نه، در یک دورِ سریع گزارشِ قولِ هفتهٔ گذشتهٔ هر نفر را می‌شنود، و قول‌های دورِ بعد را می‌گیرد. جواب می‌دهد چون علنی، منظم و کوچک است — و چون خودت اول می‌روی."
+      },
+      "example": {
+        "en": "You arrive late to your own status meeting twice, and after that the meeting never starts on time for anyone.",
+        "fa": "دوبار دیر به جلسهٔ وضعیتِ خودت می‌رسی، و از آن به بعد جلسه برای هیچ‌کس سرِ وقت شروع نمی‌شود."
+      },
+      "tip": {
+        "en": "Ask each person to state their commitment in their own words, and write it where the team can see it.",
+        "fa": "از هر نفر بخواه قولش را به زبانِ خودش بگوید، و جایی بنویسش که تیم ببیند."
+      },
+      "pitfall": {
+        "en": "Turning the session into a status report you read out, instead of promises people make.",
+        "fa": "تبدیل‌کردنِ جلسه به گزارشی که تو می‌خوانی، به‌جای قول‌هایی که آدم‌ها می‌دهند."
+      }
+    },
+    "track": {
+      "part": "deliver",
+      "n": 11,
+      "name": {
+        "en": "Monitor and Control",
+        "fa": "پایش و کنترل"
+      },
+      "glabel": {
+        "en": "Monitor",
+        "fa": "پایش"
+      },
+      "principle": {
+        "en": "Compare reality to the baseline, report it honestly, and put every change through a decision.",
+        "fa": "واقعیت را با خطِ مبنا مقایسه کن، صادقانه گزارشش بده، و هر تغییر را از یک تصمیم رد کن."
+      },
+      "more": {
+        "en": "The project status report says three things: how the project is doing overall, marked green, yellow or red; what got finished; and what is a problem — each problem with a proposed answer. Changes arrive as a written project change request that prices the effect on five constraints: time, scope, quality, resources and budget. The book separates scope creep, which is uncontrolled growth, from scope discovery, which is real new information you should welcome.",
+        "fa": "گزارشِ وضعیتِ پروژه سه چیز می‌گوید: حالِ کلیِ پروژه، با علامتِ سبز، زرد یا قرمز؛ چه چیزی تمام شد؛ و چه چیزی مشکل است — هر مشکل با یک پیشنهادِ پاسخ. تغییرها به‌شکلِ درخواستِ تغییرِ مکتوب می‌آیند که اثرشان را روی پنج محدودیت قیمت‌گذاری می‌کند: زمان، دامنه، کیفیت، منابع و بودجه. کتاب خزشِ دامنه، یعنی رشدِ کنترل‌نشده، را از کشفِ دامنه جدا می‌کند؛ دومی اطلاعاتِ تازه‌ای است که باید از آن استقبال کرد."
+      },
+      "example": {
+        "en": "A senior vice president looked at finished burger billboards and asked for three pickles instead of one. The team costed the change at nearly fifty thousand dollars, showed him the numbers, and he withdrew the request himself.",
+        "fa": "یک معاونِ ارشد به بیلبوردهای آمادهٔ همبرگر نگاه کرد و گفت به‌جای یک خیارشور، سه‌تا بگذارید. تیم هزینهٔ این تغییر را حساب کرد: نزدیکِ پنجاه هزار دلار. عدد را نشانش دادند و خودش درخواستش را پس گرفت."
+      },
+      "tip": {
+        "en": "Send a short status note on the same day every week, even when the news is dull.",
+        "fa": "هر هفته در یک روزِ ثابت یادداشتِ کوتاهِ وضعیت بفرست، حتی وقتی خبرِ جالبی نیست."
+      },
+      "pitfall": {
+        "en": "Absorbing small changes quietly until the schedule is three weeks late for no traceable reason.",
+        "fa": "بی‌صدا بلعیدنِ تغییرهای کوچک تا جایی که زمان‌بندی بی‌هیچ دلیلِ قابلِ‌ردیابی سه هفته عقب باشد."
+      }
+    },
+    "close": {
+      "part": "deliver",
+      "n": 12,
+      "name": {
+        "en": "Close the Project",
+        "fa": "بستنِ پروژه"
+      },
+      "glabel": {
+        "en": "Close",
+        "fa": "بستن"
+      },
+      "principle": {
+        "en": "Confirm the scope was met, capture what you learned, hand it over formally, and celebrate.",
+        "fa": "تأیید کن دامنه محقق شده، آموخته‌ها را ثبت کن، رسمی تحویلش بده، و جشن بگیر."
+      },
+      "more": {
+        "en": "Closing is the step most unofficial project managers skip, because the next project has already started. The book gives it a checklist: check the deliverables against the scope statement, write down the lessons learned, send a final status report and collect the signatures, archive the documents where someone can find them, publish the success, and thank people by name.",
+        "fa": "بستن همان قدمی است که بیشترِ مدیرانِ غیررسمی از آن می‌گذرند، چون پروژهٔ بعدی شروع شده است. کتاب برایش یک چک‌لیست می‌دهد: خروجی‌ها را با بیانیهٔ دامنه بسنج، درس‌های آموخته را بنویس، گزارشِ وضعیتِ نهایی را بفرست و امضاها را بگیر، سندها را جایی بایگانی کن که پیدا شوند، خبرِ موفقیت را منتشر کن، و از آدم‌ها با اسم تشکر کن."
+      },
+      "example": {
+        "en": "A student event drew almost no local students and everyone called it a failure. Carl walked his director through the closing checklist and the written lessons learned, and left the meeting with approval for the next event.",
+        "fa": "یک رویدادِ دانشجویی تقریباً هیچ دانشجوی محلی جذب نکرد و همه اسمش را شکست گذاشتند. کارل چک‌لیستِ بستن و درس‌های آموختهٔ مکتوب را برای مدیرش مرور کرد و با تأییدِ رویدادِ بعدی از جلسه بیرون آمد."
+      },
+      "tip": {
+        "en": "Ask two questions: what should we do again, and what would we never repeat?",
+        "fa": "دو سؤال بپرس: چه کاری را دوباره باید بکنیم، و چه کاری را هرگز تکرار نمی‌کنیم؟"
+      },
+      "pitfall": {
+        "en": "Letting a project fade out instead of ending it, so nobody ever learns whether it succeeded.",
+        "fa": "رهاکردنِ پروژه تا محو شود، به‌جای تمام‌کردنش؛ آن‌وقت هیچ‌کس نمی‌فهمد موفق بود یا نه."
+      }
+    }
+  },
+  "core": {
+    "name": {
+      "en": "PEOPLE + PROCESS",
+      "fa": "آدم‌ها + فرایند"
+    },
+    "principle": {
+      "en": "People + process = success. Informal authority earns you the team; five plain steps get you the project.",
+      "fa": "آدم‌ها + فرایند = موفقیت. اقتدارِ غیررسمی تیم را برایت می‌آورد؛ پنج قدمِ ساده پروژه را."
+    },
+    "more": {
+      "en": "Kogon, Blakemore and Wood write for the majority of project managers: people with responsibility and no authority. Their answer has two halves that only work together. The people half is informal authority, built by four behaviours — demonstrate respect, listen first, clarify expectations, practice accountability. The process half is five steps distilled from the standard process groups — initiate, plan, execute, monitor and control, close.",
+      "fa": "کوگان، بلیکمور و وود برای اکثریتِ مدیرانِ پروژه می‌نویسند: کسانی که مسئولیت دارند و اختیار ندارند. پاسخشان دو نیمه دارد که فقط با هم کار می‌کنند. نیمهٔ آدم‌ها اقتدارِ غیررسمی است که از چهار رفتار ساخته می‌شود — احترام نشان بده، اول گوش کن، انتظارها را شفاف کن، پاسخ‌گویی را تمرین کن. نیمهٔ فرایند پنج قدم است که از گروه‌های فرایندیِ استاندارد چکیده شده — آغاز، برنامه، اجرا، پایش و کنترل، بستن."
+    },
+    "example": {
+      "en": "Click any node to read a principle or a method. You can also drag the nodes around.",
+      "fa": "روی هر دایره کلیک کن تا یک اصل یا روش را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."
+    }
+  },
+  "stages": [
+    {
+      "level": 1,
+      "badge": {
+        "en": "Level 1 · Over-simplified",
+        "fa": "سطحِ ۱ · خیلی ساده"
+      },
+      "title": {
+        "en": "People + process",
+        "fa": "آدم‌ها + فرایند"
+      },
+      "tagline": {
+        "en": "The whole book in a sentence.",
+        "fa": "کلِ کتاب در یک جمله."
+      },
+      "body": {
+        "en": "You own the outcome without owning the team. Win the people first, then follow five plain steps.",
+        "fa": "نتیجه مالِ توست بی‌آنکه تیم مالِ تو باشد. اول آدم‌ها را با خودت همراه کن، بعد پنج قدمِ ساده را برو."
+      },
+      "example": {
+        "en": "Ask early, say why it matters, and write down what finished means.",
+        "fa": "زود بخواه، بگو چرا مهم است، و بنویس «تمام‌شده» یعنی چه."
+      },
+      "gain": {
+        "en": "You hold the formula the whole book expands on.",
+        "fa": "همان فرمولی را داری که کلِ کتاب بسطش می‌دهد."
+      }
+    },
+    {
+      "level": 2,
+      "badge": {
+        "en": "Level 2 · Simple",
+        "fa": "سطحِ ۲ · ساده"
+      },
+      "title": {
+        "en": "The five steps",
+        "fa": "پنج قدم"
+      },
+      "tagline": {
+        "en": "Initiate, plan, execute, monitor, close.",
+        "fa": "آغاز، برنامه، اجرا، پایش، بستن."
+      },
+      "body": {
+        "en": "Initiate: who cares, and what does finished look like. Plan: break the work down and date it. Execute: keep the weekly rhythm. Monitor and control: compare with the baseline. Close: end it on purpose.",
+        "fa": "آغاز: چه کسی ذی‌نفع است و «تمام‌شده» چه شکلی است. برنامه: کار را بشکن و تاریخ بگذار. اجرا: ریتمِ هفتگی را نگه دار. پایش و کنترل: با خطِ مبنا مقایسه کن. بستن: عامدانه تمامش کن."
+      },
+      "example": {
+        "en": "Name which of the five steps your current project has actually completed.",
+        "fa": "بگو پروژهٔ فعلی‌ات واقعاً کدام‌یک از پنج قدم را تمام کرده است."
+      },
+      "gain": {
+        "en": "You can tell where a stuck project is actually stuck.",
+        "fa": "می‌توانی بگویی پروژهٔ گیرکرده دقیقاً کجا گیر کرده است."
+      }
+    },
+    {
+      "level": 3,
+      "badge": {
+        "en": "Level 3 · Balanced",
+        "fa": "سطحِ ۳ · متعادل"
+      },
+      "title": {
+        "en": "The four foundational behaviours",
+        "fa": "چهار رفتارِ بنیادین"
+      },
+      "tagline": {
+        "en": "How informal authority is earned.",
+        "fa": "اقتدارِ غیررسمی چطور به‌دست می‌آید."
+      },
+      "body": {
+        "en": "Demonstrate respect, listen first, clarify expectations, practice accountability. None of them needs a title, all of them need repetition, and the first three are what make the fourth possible: you cannot hold a team accountable until it feels respected, heard and clear.",
+        "fa": "احترام نشان بده، اول گوش کن، انتظارها را شفاف کن، پاسخ‌گویی را تمرین کن. هیچ‌کدام عنوان نمی‌خواهد، همه تکرار می‌خواهند، و سه‌تای اول است که چهارمی را ممکن می‌کند: تا تیم احساس نکند محترم است، شنیده می‌شود و تکلیفش روشن است، نمی‌توانی پایِ قولش نگهش داری."
+      },
+      "example": {
+        "en": "Before your next request, give the reason and a real deadline, then ask the person to restate the outcome.",
+        "fa": "پیش از درخواستِ بعدی، دلیل و یک مهلتِ واقعی بده، بعد از طرف بخواه نتیجه را بازگو کند."
+      },
+      "gain": {
+        "en": "You can lead people who do not have to say yes.",
+        "fa": "می‌توانی کسانی را رهبری کنی که مجبور نیستند بله بگویند."
+      }
+    },
+    {
+      "level": 4,
+      "badge": {
+        "en": "Level 4 · Advanced",
+        "fa": "سطحِ ۴ · پیشرفته"
+      },
+      "title": {
+        "en": "Scope, breakdown, risk",
+        "fa": "دامنه، شکستِ کار، ریسک"
+      },
+      "tagline": {
+        "en": "The few documents that carry a project.",
+        "fa": "همان چند سندی که پروژه را می‌برند."
+      },
+      "body": {
+        "en": "Interview the key stakeholders, then write a project scope statement — why, what, when, how, and what is excluded — and get it signed. Turn it into a work breakdown structure, sequence that into a schedule with a critical path, and keep a risk matrix scored by impact times probability.",
+        "fa": "با ذی‌نفعانِ کلیدی مصاحبه کن، بعد بیانیهٔ دامنهٔ پروژه را بنویس — چرا، چه، کِی، چطور، و چه چیزی بیرون می‌ماند — و امضایش را بگیر. آن را به ساختارِ شکستِ کار تبدیل کن، به زمان‌بندی‌ای با مسیرِ بحرانی بچین، و ماتریسِ ریسک را با نمرهٔ ضربِ اثر در احتمال نگه دار."
+      },
+      "example": {
+        "en": "Take a project already running and write its one-page scope statement now. The disagreements will surface within the hour.",
+        "fa": "پروژه‌ای را که در جریان است بردار و همین حالا بیانیهٔ دامنهٔ یک‌صفحه‌ای‌اش را بنویس. اختلاف‌ها در همان یک ساعت بیرون می‌زنند."
+      },
+      "gain": {
+        "en": "You can plan a project instead of reacting to it.",
+        "fa": "می‌توانی پروژه را برنامه‌ریزی کنی، نه اینکه فقط به آن واکنش نشان دهی."
+      }
+    },
+    {
+      "level": 5,
+      "badge": {
+        "en": "Level 5 · Expert",
+        "fa": "سطحِ ۵ · حرفه‌ای"
+      },
+      "title": {
+        "en": "Rhythm, change and a real ending",
+        "fa": "ریتم، تغییر و یک پایانِ واقعی"
+      },
+      "tagline": {
+        "en": "Run it, adapt it, close it.",
+        "fa": "ببرش، تطبیقش بده، ببندش."
+      },
+      "body": {
+        "en": "Hold a twenty-minute team accountability session every week where people make commitments in their own words. Report status honestly, and route every addition through a project change request priced against time, scope, quality, resources and budget — separating scope creep from legitimate scope discovery. Then actually close: verify against the scope statement, capture the lessons learned, archive, and thank people by name.",
+        "fa": "هر هفته یک جلسهٔ پاسخ‌گوییِ تیمِ بیست‌دقیقه‌ای بگذار که در آن هرکس قولش را به زبانِ خودش می‌دهد. وضعیت را صادقانه گزارش کن، و هر افزوده‌ای را از یک درخواستِ تغییرِ پروژه رد کن که قیمتش را روی زمان، دامنه، کیفیت، منابع و بودجه نوشته باشد — و خزشِ دامنه را از کشفِ دامنهٔ بجا جدا کن. بعد واقعاً ببند: با بیانیهٔ دامنه بسنج، درس‌های آموخته را ثبت کن، بایگانی کن، و از آدم‌ها با اسم تشکر کن."
+      },
+      "example": {
+        "en": "You refuse a small extra request until it has been priced — and you still run the lessons-learned session on the project that went badly.",
+        "fa": "یک درخواستِ کوچکِ اضافه را تا وقتی قیمتش درنیامده نمی‌پذیری — و جلسهٔ درس‌های آموخته را حتی برای پروژه‌ای که بد پیش رفت هم برگزار می‌کنی."
+      },
+      "gain": {
+        "en": "You can deliver repeatedly, and each project makes the next one cheaper.",
+        "fa": "می‌توانی پشتِ سرِ هم تحویل بدهی، و هر پروژه پروژهٔ بعدی را ارزان‌تر می‌کند."
+      }
+    }
+  ],
+  "quotes": [
+    {
+      "en": "People + process = success. Leave either half out and the project struggles.",
+      "fa": "آدم‌ها + فرایند = موفقیت. هر نیمه را حذف کنی، پروژه لنگ می‌زند."
+    },
+    {
+      "en": "Most projects today are led by people who were never trained to lead them.",
+      "fa": "امروز بیشترِ پروژه‌ها را کسانی جلو می‌برند که هرگز برای این کار آموزش ندیده‌اند."
+    },
+    {
+      "en": "Informal authority comes from the character and capabilities of a leader, not from a title.",
+      "fa": "اقتدارِ غیررسمی از شخصیت و توانمندیِ خودِ آدم می‌آید، نه از عنوان."
+    },
+    {
+      "en": "Slowing down to listen may actually speed things up.",
+      "fa": "کندشدن برای گوش‌دادن، در عمل کار را تندتر می‌کند."
+    },
+    {
+      "en": "Scope creep is uncontrolled growth; scope discovery is information you should welcome.",
+      "fa": "خزشِ دامنه رشدِ کنترل‌نشده است؛ کشفِ دامنه اطلاعاتی است که باید از آن استقبال کرد."
+    },
+    {
+      "en": "If you do not keep your own commitments, you give people permission not to keep theirs.",
+      "fa": "اگر خودت به قول‌هایت عمل نکنی، به بقیه اجازه داده‌ای که به قولشان عمل نکنند."
+    }
+  ],
+  "media": [
+    {
+      "kind": "img",
+      "url": "https://www.franklincovey.com/books/project-management-for-the-unofficial-project-manager/",
+      "src": {
+        "en": "franklincovey.com · The book",
+        "fa": "franklincovey.com · کتاب"
+      },
+      "title": {
+        "en": "Project Management for the Unofficial Project Manager",
+        "fa": "مدیریت پروژه برای مدیرِ پروژهٔ غیررسمی"
+      },
+      "desc": {
+        "en": "The publisher's page for the book, covering both the 2015 edition and the updated edition of 2024.",
+        "fa": "صفحهٔ ناشرِ کتاب، هم دربارهٔ چاپِ ۲۰۱۵ و هم دربارهٔ ویراستِ به‌روزشدهٔ ۲۰۲۴."
+      },
+      "bullets": {
+        "en": [
+          "What the book promises, in the publisher's words",
+          "Editions and formats",
+          "Straight from the source"
+        ],
+        "fa": [
+          "کتاب چه وعده‌ای می‌دهد، به زبانِ ناشر",
+          "ویراست‌ها و قالب‌ها",
+          "مستقیم از منبع"
+        ]
+      },
+      "best": {
+        "en": "For editions and the source.",
+        "fa": "برای ویراست‌ها و منبعِ اصلی."
+      }
+    },
+    {
+      "kind": "img",
+      "url": "https://peopleandprojectspodcast.com/ppp-420-project-management-for-the-unofficial-project-manager-with-franklincovey-s-kory-kogon/",
+      "src": {
+        "en": "People and Projects Podcast · Interview",
+        "fa": "People and Projects · گفت‌وگو"
+      },
+      "title": {
+        "en": "Kory Kogon on the unofficial project manager",
+        "fa": "کوری کوگان دربارهٔ مدیرِ پروژهٔ غیررسمی"
+      },
+      "desc": {
+        "en": "A forty-eight-minute conversation with one of the authors about leading a project you have no authority over.",
+        "fa": "گفت‌وگویی چهل‌وهشت‌دقیقه‌ای با یکی از نویسنده‌ها دربارهٔ رهبریِ پروژه‌ای که هیچ اختیارِ رسمی‌ای بر آن نداری."
+      },
+      "bullets": {
+        "en": [
+          "Why projects fail: unclear scope and misaligned stakeholders",
+          "Informal authority and the hard performance conversations",
+          "The ideas in the authors' own voice"
+        ],
+        "fa": [
+          "چرا پروژه‌ها شکست می‌خورند: دامنهٔ مبهم و ذی‌نفعانِ ناهماهنگ",
+          "اقتدارِ غیررسمی و گفت‌وگوهای سختِ عملکردی",
+          "ایده‌ها به زبانِ خودِ نویسنده"
+        ]
+      },
+      "best": {
+        "en": "Best for Stage 2–3.",
+        "fa": "خوب برای مرحلهٔ ۲ و ۳."
+      }
+    }
+  ],
+  "go": [
+    {
+      "label": {
+        "en": "Book page",
+        "fa": "صفحهٔ کتاب"
+      },
+      "url": "https://www.franklincovey.com/books/project-management-for-the-unofficial-project-manager/"
+    },
+    {
+      "label": {
+        "en": "Publisher's page",
+        "fa": "صفحهٔ ناشر"
+      },
+      "url": "https://benbellabooks.com/shop/project-management-for-the-unofficial-project-manager-updated-and-revised-edition/"
+    },
+    {
+      "label": {
+        "en": "Book on Goodreads",
+        "fa": "کتاب در گودریدز"
+      },
+      "url": "https://www.goodreads.com/book/show/22859860-project-management-for-the-unofficial-project-manager"
+    }
+  ],
+  "recs": [
+    {
+      "pri": "b",
+      "t": {
+        "en": "Write the scope statement on one page",
+        "fa": "بیانیهٔ دامنه را در یک صفحه بنویس"
+      },
+      "d": {
+        "en": "Why, what, when, how — plus what is excluded. Get the key stakeholders to agree to it before any work starts.",
+        "fa": "چرا، چه، کِی، چطور — به‌علاوهٔ آنچه بیرون می‌ماند. پیش از شروعِ هر کاری ذی‌نفعانِ کلیدی را رویش به توافق برسان."
+      }
+    },
+    {
+      "pri": "b",
+      "t": {
+        "en": "Start a twenty-minute weekly accountability session",
+        "fa": "جلسهٔ پاسخ‌گوییِ هفتگیِ بیست‌دقیقه‌ای راه بینداز"
+      },
+      "d": {
+        "en": "Everyone reports on last week's commitment and makes the next one, in their own words. You go first.",
+        "fa": "هرکس دربارهٔ قولِ هفتهٔ گذشته گزارش می‌دهد و قولِ بعدی را به زبانِ خودش می‌گوید. اول تو می‌روی."
+      }
+    },
+    {
+      "pri": "n",
+      "t": {
+        "en": "Interview your three key stakeholders",
+        "fa": "با سه ذی‌نفعِ کلیدی‌ات مصاحبه کن"
+      },
+      "d": {
+        "en": "Ask what success looks like and what would make this a failure. Their answers are the scope.",
+        "fa": "بپرس موفقیت چه شکلی است و چه چیزی این را شکست می‌کند. جوابِ آن‌ها همان دامنه است."
+      }
+    },
+    {
+      "pri": "n",
+      "t": {
+        "en": "Score your ten biggest risks",
+        "fa": "به ده ریسکِ بزرگت نمره بده"
+      },
+      "d": {
+        "en": "Impact times probability, an owner for each line, and a response — transfer, accept, mitigate or eliminate — decided before the risk arrives.",
+        "fa": "اثر ضربدر احتمال، یک مالک برای هر خط، و پاسخی که پیش از رسیدنِ ریسک تعیین شده باشد: انتقال، پذیرش، کاهش یا حذف."
+      }
+    }
+  ],
+  "method": {
+    "en": "<p><b>Source:</b> the book <i>Project Management for the Unofficial Project Manager</i> by Kory Kogon, Suzette Blakemore and James Wood, first published 2015 by BenBella Books as a FranklinCovey title. An updated and revised edition appeared in 2024; this page follows the 2015 text.</p><p><b>How this was built:</b> the book runs as seven chapters — two on people, then one for each of the five process groups. Those chapters are regrouped here into four themes so that the four foundational behaviours sit beside the process step each one carries, gathered and rewritten from the book and reputable sources.</p><p><b>Group:</b> Delivery and Projects.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>",
+    "fa": "<p><b>منبع:</b> کتابِ «مدیریت پروژه برای مدیرِ پروژهٔ غیررسمی» نوشتهٔ کوری کوگان، سوزت بلیکمور و جیمز وود، چاپِ نخست ۲۰۱۵ در انتشاراتِ بن‌بلا و زیرِ نامِ فرانکلین‌کاوی. ویراستِ به‌روزشده در ۲۰۲۴ منتشر شد؛ این صفحه بر متنِ ۲۰۱۵ استوار است.</p><p><b>روشِ کار:</b> کتاب هفت فصل دارد: دو فصل دربارهٔ آدم‌ها و بعد یک فصل برای هر یک از پنج گروهِ فرایندی. همان فصل‌ها اینجا در چهار درون‌مایه بازچینی شده‌اند تا هر یک از چهار رفتارِ بنیادین کنارِ همان قدمِ فرایندی بنشیند که آن را پیش می‌برد. مطالب از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده است.</p><p><b>گروه:</b> تحویل و پروژه.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب.</p>"
+  },
+  "flow": {
+    "en": [
+      "People",
+      "Scope",
+      "Plan",
+      "Deliver"
+    ],
+    "fa": [
+      "آدم‌ها",
+      "دامنه",
+      "برنامه",
+      "تحویل"
+    ]
+  },
+  "graph": {
+    "R2": 132,
+    "span": 70
+  }
+});
+</script>
+</body>
+</html>

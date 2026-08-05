@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<!-- Generated page. Edit CONTENT in the DATA object below; shared UI lives in ../assets/book.css + ../assets/book.js -->
+<html lang="en" dir="ltr" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prediction Machines — نقشهٔ دانش و یادگیری ۵ مرحله‌ای</title>
+
+<!-- Boot theme + language BEFORE paint to avoid a flash (shared library-wide keys) -->
+<script>
+(function(){
+  try{
+    var th = localStorage.getItem('pbl-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
+    document.documentElement.setAttribute('data-theme', th);
+  }catch(e){ document.documentElement.setAttribute('data-theme','light'); }
+  try{
+    var lg = localStorage.getItem('pbl-lang') || 'en';
+    document.documentElement.setAttribute('data-lang', lg);
+    document.documentElement.setAttribute('lang', lg);
+    document.documentElement.setAttribute('dir', lg==='fa' ? 'rtl' : 'ltr');
+  }catch(e){}
+})();
+</script>
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Newsreader:ital,opsz,wght@0,6..72,200..700;1,6..72,200..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/book.css">
+</head>
+<body>
+<div id="app"></div>
+
+<script src="../assets/library.js"></script>
+<script src="../assets/book.js"></script>
+<script>
+/* ── CONTENT — everything unique to this book lives here ── */
+Book.mount({
+  "meta": {
+    "slug": "prediction-machines",
+    "folder": "17 - Working with AI",
+    "groupNum": 17,
+    "group": {
+      "en": "Working with AI",
+      "fa": "کار با هوش مصنوعی"
+    },
+    "author": {
+      "en": "Ajay Agrawal, Joshua Gans & Avi Goldfarb",
+      "fa": "آجی آگراوال، جاشوا گنز و آوی گلدفارب"
+    },
+    "eyebrow_author": {
+      "en": "Ajay Agrawal, Joshua Gans & Avi Goldfarb",
+      "fa": "آجی آگراوال، جاشوا گنز و آوی گلدفارب"
+    },
+    "book": {
+      "en": "Prediction Machines",
+      "fa": "ماشین‌های پیش‌بینی"
+    },
+    "hero_title": {
+      "en": "Prediction Machines — The Simple Economics of Artificial Intelligence",
+      "fa": "ماشین‌های پیش‌بینی — اقتصادِ سادهٔ هوشِ مصنوعی"
+    },
+    "dek": {
+      "en": "A knowledge graph of the whole book, plus a 5-stage path from a single idea to expert-level mastery — with an example at every step.",
+      "fa": "نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از خیلی ساده تا حرفه‌ای — با یک مثال در هر مرحله."
+    },
+    "published": {
+      "en": "2018",
+      "fa": "۲۰۱۸"
+    },
+    "chips": [
+      {
+        "v": {
+          "en": "4",
+          "fa": "۴"
+        },
+        "l": {
+          "en": "Parts",
+          "fa": "بخش"
+        }
+      },
+      {
+        "v": {
+          "en": "12",
+          "fa": "۱۲"
+        },
+        "l": {
+          "en": "Ideas",
+          "fa": "ایده"
+        }
+      },
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Learning stages",
+          "fa": "مرحلهٔ یادگیری"
+        }
+      }
+    ],
+    "kboxes": [
+      {
+        "v": {
+          "en": "4",
+          "fa": "۴"
+        },
+        "l": {
+          "en": "Parts (prediction · decision making · tools · strategy and society)",
+          "fa": "بخش (پیش‌بینی · تصمیم‌گیری · ابزارها · استراتژی و جامعه)"
+        }
+      },
+      {
+        "v": {
+          "en": "12",
+          "fa": "۱۲"
+        },
+        "l": {
+          "en": "Ideas you can use",
+          "fa": "ایده برای استفاده"
+        }
+      },
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Levels, simple → expert",
+          "fa": "مرحله، ساده تا حرفه‌ای"
+        }
+      },
+      {
+        "v": {
+          "en": "3",
+          "fa": "۳"
+        },
+        "l": {
+          "en": "The loop: prediction · judgment · action",
+          "fa": "حلقه: پیش‌بینی · قضاوت · اقدام"
+        }
+      }
+    ],
+    "core_callout": {
+      "label": {
+        "en": "The core idea:",
+        "fa": "ایدهٔ اصلی:"
+      },
+      "en": " Artificial intelligence is not new intelligence. It is a steep fall in the cost of one thing: <i>prediction</i> — using information you have to produce information you do not have. When a price falls we use more of it, and we start using it for problems nobody ever called prediction. What prediction cannot do — <i>judgment</i>, <i>data</i>, <i>action</i> — becomes the scarce and valuable part.",
+      "fa": " هوشِ مصنوعی، هوشِ تازه نیست. افتِ شدیدِ هزینهٔ یک چیز است: <i>پیش‌بینی</i> — یعنی ساختنِ اطلاعاتی که نداری از روی اطلاعاتی که داری. وقتی قیمتی می‌افتد بیشتر مصرفش می‌کنیم، و کم‌کم آن را برای مسئله‌هایی به کار می‌بریم که هیچ‌کس اسمشان را پیش‌بینی نگذاشته بود. آنچه پیش‌بینی از پسش برنمی‌آید — <i>قضاوت</i>، <i>داده</i>، <i>اقدام</i> — همان بخشِ کمیاب و باارزش می‌شود."
+    },
+    "flow_callout": {
+      "label": {
+        "en": "Read it as a flow:",
+        "fa": "به‌صورتِ یک جریان بخوانش:"
+      },
+      "en": " see why <b>cheap prediction</b> changes what is worth doing, take a decision apart into <b>prediction and judgment</b>, rebuild the workflow task by task with the <b>AI canvas</b>, then ask whether this changes your <b>strategy</b> and not just your costs.",
+      "fa": " ببین چرا <b>پیش‌بینیِ ارزان</b> عوض می‌کند که چه کاری می‌ارزد، تصمیم را به <b>پیش‌بینی و قضاوت</b> تجزیه کن، گردشِ کار را وظیفه‌به‌وظیفه با <b>بومِ هوشِ مصنوعی</b> بازبساز، بعد بپرس این <b>استراتژی</b>ات را عوض می‌کند یا فقط هزینه‌هایت را."
+    }
+  },
+  "method": {
+    "en": "<p><b>Source:</b> the book <i>Prediction Machines: The Simple Economics of Artificial Intelligence</i> by Ajay Agrawal, Joshua Gans and Avi Goldfarb, first published 2018 by Harvard Business Review Press, updated and expanded in 2022.</p><p><b>How this was built:</b> the book runs in five parts and nineteen chapters. The last two parts, strategy and society, are grouped here into one, and the chapters are compressed into twelve ideas, so a few are merged and a few are left out. The chapter titles and terms are the book's own.</p><p><b>Group:</b> Working with AI.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>",
+    "fa": "<p><b>منبع:</b> کتابِ «ماشین‌های پیش‌بینی: اقتصادِ سادهٔ هوشِ مصنوعی» نوشتهٔ آجی آگراوال، جاشوا گنز و آوی گلدفارب، چاپِ نخست ۲۰۱۸ در انتشاراتِ هاروارد بیزنس ریویو، با ویراستِ گسترش‌یافته در ۲۰۲۲.</p><p><b>روشِ کار:</b> کتاب پنج بخش و نوزده فصل دارد. دو بخشِ آخر، یعنی استراتژی و جامعه، اینجا در یکی جمع شده‌اند و فصل‌ها در دوازده ایده فشرده شده‌اند؛ پس چند فصل با هم ادغام و چند فصل کنار گذاشته شده است. عنوان‌ها و اصطلاح‌ها همان‌هایی است که خودِ کتاب به کار می‌برد.</p><p><b>گروه:</b> کار با هوش مصنوعی.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب.</p>"
+  },
+  "flow": {
+    "en": [
+      "Prediction",
+      "Judgment",
+      "Action"
+    ],
+    "fa": [
+      "پیش‌بینی",
+      "قضاوت",
+      "اقدام"
+    ]
+  },
+  "graph": {
+    "R2": 132,
+    "span": 70
+  },
+  "tldr": [
+    {
+      "en": "The whole book in one line: AI is not new intelligence, it is a collapse in the cost of <b>prediction</b>.",
+      "fa": "خلاصهٔ کل کتاب در یک جمله: هوشِ مصنوعی هوشِ تازه نیست، سقوطِ هزینهٔ <b>پیش‌بینی</b> است."
+    },
+    {
+      "en": "When something gets cheap we use more of it — and start using it for problems we never called prediction.",
+      "fa": "وقتی چیزی ارزان می‌شود بیشتر مصرفش می‌کنیم — و آن را برای مسئله‌هایی به کار می‌بریم که هرگز اسمشان پیش‌بینی نبود."
+    },
+    {
+      "en": "A prediction is not a decision. A decision also needs <b>judgment</b>: what each outcome is actually worth.",
+      "fa": "پیش‌بینی، تصمیم نیست. تصمیم به <b>قضاوت</b> هم نیاز دارد: اینکه هر نتیجه واقعاً چقدر می‌ارزد."
+    },
+    {
+      "en": "Value moves to prediction's complements — <b>judgment, data and action</b> — and away from human guessing.",
+      "fa": "ارزش به سمتِ مکمل‌های پیش‌بینی می‌رود — <b>قضاوت، داده و اقدام</b> — و از حدسِ انسانی دور می‌شود."
+    },
+    {
+      "en": "Prediction machines take <b>tasks, not jobs</b>; and past a certain accuracy they change strategy, not just cost.",
+      "fa": "ماشینِ پیش‌بینی <b>وظیفه</b> را می‌گیرد نه <b>شغل</b> را؛ و از یک دقتِ مشخص به بعد، استراتژی را عوض می‌کند نه فقط هزینه را."
+    }
+  ],
+  "parts": [
+    {
+      "key": "predict",
+      "varc": "--c-teal",
+      "name": {
+        "en": "Prediction",
+        "fa": "پیش‌بینی"
+      },
+      "tag": {
+        "en": "The economics",
+        "fa": "اقتصادِ ماجرا"
+      },
+      "gist": {
+        "en": "AI is not new intelligence. It is prediction that suddenly got cheap.",
+        "fa": "هوشِ مصنوعی، هوشِ تازه نیست. پیش‌بینی است که ناگهان ارزان شده."
+      },
+      "more": {
+        "en": "Every technology wave is a price collapse in disguise. Cheap arithmetic turned photography from chemistry into computing. Cheap prediction does the same to any task where somebody is guessing what happens next — and there are far more of those than anyone expected.",
+        "fa": "هر موجِ فناوری در باطن سقوطِ یک قیمت است. حسابِ ارزان عکاسی را از شیمی به محاسبه تبدیل کرد. پیش‌بینیِ ارزان همین کار را با هر کاری می‌کند که در آن کسی دارد حدس می‌زند بعد چه می‌شود — و شمارِ چنین کارهایی بسیار بیشتر از تصورِ همه است."
+      },
+      "chapters": [
+        "cheap",
+        "magic",
+        "data"
+      ]
+    },
+    {
+      "key": "decide",
+      "varc": "--c-blue",
+      "name": {
+        "en": "Decision Making",
+        "fa": "تصمیم‌گیری"
+      },
+      "tag": {
+        "en": "The anatomy",
+        "fa": "کالبدشکافی"
+      },
+      "gist": {
+        "en": "A prediction is not a decision. Someone still has to say what a good outcome is worth.",
+        "fa": "پیش‌بینی، تصمیم نیست. باز هم کسی باید بگوید نتیجهٔ خوب چقدر می‌ارزد."
+      },
+      "more": {
+        "en": "Take a decision apart and you find six pieces: input, prediction, judgment, action, outcome and feedback. The machine is very good at exactly one of them. The other five stay with you, and judgment quietly becomes the hardest part of the job.",
+        "fa": "یک تصمیم را که باز کنی، شش تکه پیدا می‌کنی: ورودی، پیش‌بینی، قضاوت، اقدام، نتیجه و بازخورد. ماشین دقیقاً در یکی از این‌ها خیلی خوب است. پنج‌تای دیگر مالِ توست، و قضاوت بی‌سروصدا سخت‌ترین بخشِ کار می‌شود."
+      },
+      "chapters": [
+        "anatomy",
+        "judgment",
+        "automation"
+      ]
+    },
+    {
+      "key": "tools",
+      "varc": "--c-violet",
+      "name": {
+        "en": "Tools",
+        "fa": "ابزارها"
+      },
+      "tag": {
+        "en": "Building it",
+        "fa": "ساختنش"
+      },
+      "gist": {
+        "en": "AI takes over tasks, not jobs. Find the task, then rebuild the work around it.",
+        "fa": "هوشِ مصنوعی وظیفه‌ها را می‌گیرد، نه شغل‌ها را. وظیفه را پیدا کن، بعد کارِ اطرافش را بازبچین."
+      },
+      "more": {
+        "en": "A job is a bundle of tasks. Cheap prediction pulls one or two tasks out of the bundle, which changes what the rest of the bundle should be. That is a work-design problem long before it is a machine-learning problem.",
+        "fa": "هر شغل بسته‌ای از وظیفه‌هاست. پیش‌بینیِ ارزان یکی‌دو وظیفه را از این بسته بیرون می‌کشد و همین تعیین می‌کند بقیهٔ بسته باید چه شکلی باشد. این خیلی پیش از آنکه مسئلهٔ یادگیریِ ماشین باشد، مسئلهٔ طراحیِ کار است."
+      },
+      "chapters": [
+        "workflow",
+        "canvas",
+        "redesign"
+      ]
+    },
+    {
+      "key": "strategy",
+      "varc": "--c-amber",
+      "name": {
+        "en": "Strategy and Society",
+        "fa": "استراتژی و جامعه"
+      },
+      "tag": {
+        "en": "The bigger bet",
+        "fa": "شرطِ بزرگ‌تر"
+      },
+      "gist": {
+        "en": "Sometimes cheap prediction changes a cost line. Sometimes it changes what business you are in.",
+        "fa": "گاهی پیش‌بینیِ ارزان یک ردیفِ هزینه را عوض می‌کند. گاهی عوض می‌کند که اصلاً در چه کسب‌وکاری هستی."
+      },
+      "more": {
+        "en": "The boardroom question is not which model to buy. It is whether accuracy could rise far enough to flip the whole operating model, and what you would have to own, learn and risk to be the one who flips it. The same logic then plays out for society, in productivity, inequality and privacy.",
+        "fa": "پرسشِ اتاقِ مدیران این نیست که کدام مدل را بخریم. این است که آیا دقت می‌تواند آن‌قدر بالا برود که کلِ مدلِ عملیاتی وارونه شود، و برای اینکه تو آن را وارونه کنی باید چه چیزی داشته باشی، چه یاد بگیری و چه ریسکی بپذیری. بعد همین منطق در سطحِ جامعه هم اجرا می‌شود: بهره‌وری، نابرابری و حریمِ خصوصی."
+      },
+      "chapters": [
+        "shift",
+        "learning",
+        "tradeoffs"
+      ]
+    }
+  ],
+  "chapters": {
+    "cheap": {
+      "part": "predict",
+      "n": 1,
+      "name": {
+        "en": "Cheap Changes Everything",
+        "fa": "ارزانی همه‌چیز را عوض می‌کند"
+      },
+      "glabel": {
+        "en": "Cheap Prediction",
+        "fa": "پیش‌بینیِ ارزان"
+      },
+      "principle": {
+        "en": "When the price of prediction falls, we use more of it — and everything it cannot do becomes worth more.",
+        "fa": "وقتی قیمتِ پیش‌بینی می‌افتد، بیشتر از آن استفاده می‌کنیم — و هرچه پیش‌بینی از پسش برنمی‌آید گران‌تر می‌شود."
+      },
+      "more": {
+        "en": "Economics has one reliable rule about a falling price: substitutes lose value, complements gain it. Human prediction is the substitute, so it gets cheap too. Judgment, data and action are the complements, so they become the scarce goods.",
+        "fa": "اقتصاد دربارهٔ افتِ قیمت یک قاعدهٔ مطمئن دارد: جانشین‌ها بی‌ارزش‌تر می‌شوند و مکمل‌ها باارزش‌تر. پیش‌بینیِ انسانی جانشین است، پس آن هم ارزان می‌شود. قضاوت، داده و اقدام مکمل‌اند، پس کالای کمیاب می‌شوند."
+      },
+      "example": {
+        "en": "Cheap arithmetic did not just speed up sums; it turned photography from chemistry into computing.",
+        "fa": "حسابِ ارزان فقط جمع‌وتفریق را سریع نکرد؛ عکاسی را از شیمی به محاسبه تبدیل کرد."
+      },
+      "tip": {
+        "en": "List the five most expensive guesses your team makes each week. Those are your first candidates.",
+        "fa": "پنج حدسِ گران‌قیمتی را که تیمت هر هفته می‌زند بنویس. همان‌ها اولین گزینه‌های تو هستند."
+      },
+      "pitfall": {
+        "en": "Budgeting for the model and forgetting that the cost has moved to the complements.",
+        "fa": "بودجه‌بستن برای مدل و فراموش‌کردنِ اینکه هزینه به سمتِ مکمل‌ها جابه‌جا شده است."
+      }
+    },
+    "magic": {
+      "part": "predict",
+      "n": 2,
+      "name": {
+        "en": "Prediction Machine Magic",
+        "fa": "جادویِ ماشینِ پیش‌بینی"
+      },
+      "glabel": {
+        "en": "Prediction Magic",
+        "fa": "جادویِ پیش‌بینی"
+      },
+      "principle": {
+        "en": "Prediction is taking information you have and using it to produce information you do not have.",
+        "fa": "پیش‌بینی یعنی برداشتنِ اطلاعاتی که داری و ساختنِ اطلاعاتی که نداری."
+      },
+      "more": {
+        "en": "Accept that definition and tasks nobody ever called prediction turn out to be prediction. Translation stopped being a grammar problem. Driving stopped being a list of rules and became a guess about what a human would do next. That reframing, not the algorithm, is what unlocked them.",
+        "fa": "همین که این تعریف را بپذیری، کارهایی که هرگز اسمشان پیش‌بینی نبود پیش‌بینی از آب درمی‌آیند. ترجمه دیگر مسئلهٔ دستورِ زبان نبود. رانندگی از فهرستی از قاعده‌ها به حدسِ اینکه یک انسان لحظهٔ بعد چه می‌کند تبدیل شد. همین بازتعریف، و نه الگوریتم، گرهشان را باز کرد."
+      },
+      "example": {
+        "en": "Self-driving cars stalled while engineers wrote rules, and moved once the question became what a driver would do here.",
+        "fa": "خودروهای خودران تا وقتی مهندس‌ها قاعده می‌نوشتند در جا زدند، و همین که پرسش شد «یک راننده اینجا چه می‌کرد؟» راه افتادند."
+      },
+      "tip": {
+        "en": "Take one stuck problem and rewrite it as a sentence beginning \"predict …\". See if it becomes tractable.",
+        "fa": "یک مسئلهٔ گیرکرده را بردار و به جمله‌ای بنویس که با «پیش‌بینی کن…» شروع شود. ببین قابلِ حل می‌شود یا نه."
+      },
+      "pitfall": {
+        "en": "Calling it intelligence. The machine has no goal, no context, and no idea what matters to you.",
+        "fa": "اسمش را هوش گذاشتن. ماشین نه هدفی دارد، نه زمینه‌ای، و نه می‌داند چه چیزی برای تو مهم است."
+      }
+    },
+    "data": {
+      "part": "predict",
+      "n": 3,
+      "name": {
+        "en": "Data Is the New Oil",
+        "fa": "داده نفتِ تازه است"
+      },
+      "glabel": {
+        "en": "Data",
+        "fa": "داده"
+      },
+      "principle": {
+        "en": "A prediction machine needs three separate kinds of data: training, input and feedback.",
+        "fa": "ماشینِ پیش‌بینی به سه نوع دادهٔ جدا نیاز دارد: آموزش، ورودی و بازخورد."
+      },
+      "more": {
+        "en": "Training data builds the model, input data runs it in production, feedback data improves it while it runs. Most teams have one of the three and assume they have all of them. Returns to more data are real, but they flatten sooner than people expect.",
+        "fa": "دادهٔ آموزش مدل را می‌سازد، دادهٔ ورودی آن را در عمل به کار می‌اندازد، و دادهٔ بازخورد همان‌طور که کار می‌کند بهترش می‌کند. بیشترِ تیم‌ها یکی از این سه را دارند و خیال می‌کنند هر سه را دارند. بازدهِ دادهٔ بیشتر واقعی است، اما زودتر از آنچه فکر می‌کنیم صاف می‌شود."
+      },
+      "example": {
+        "en": "A churn model that works in the lab is useless if the input data does not exist at the moment of the decision.",
+        "fa": "مدلی که ریزشِ مشتری را در آزمایشگاه خوب پیش‌بینی می‌کند، اگر دادهٔ ورودی در لحظهٔ تصمیم موجود نباشد، به‌دردنخور است."
+      },
+      "tip": {
+        "en": "Before you build, name the three data sets separately and say who owns each one.",
+        "fa": "پیش از ساختن، هر سه مجموعهٔ داده را جدا نام ببر و بگو هرکدام مالِ کیست."
+      },
+      "pitfall": {
+        "en": "Collecting more of the data you already have instead of the feedback you never captured.",
+        "fa": "جمع‌کردنِ بیشترِ همان داده‌ای که داری، به‌جای بازخوردی که هرگز ثبتش نکرده‌ای."
+      }
+    },
+    "anatomy": {
+      "part": "decide",
+      "n": 4,
+      "name": {
+        "en": "Unpacking Decisions",
+        "fa": "بازکردنِ تصمیم‌ها"
+      },
+      "glabel": {
+        "en": "Anatomy",
+        "fa": "کالبدِ تصمیم"
+      },
+      "principle": {
+        "en": "Input, prediction, judgment, action, outcome, feedback — six pieces, and the machine takes one.",
+        "fa": "ورودی، پیش‌بینی، قضاوت، اقدام، نتیجه، بازخورد — شش تکه، و ماشین یکی را برمی‌دارد."
+      },
+      "more": {
+        "en": "This is the new division of labour: the machine says what is likely, the person says what is worth doing about it. Naming the six pieces keeps those two jobs apart, and that is exactly where most AI projects go wrong.",
+        "fa": "این همان تقسیمِ کارِ تازه است: ماشین می‌گوید چه چیزی محتمل است، آدم می‌گوید در برابرش چه کاری می‌ارزد. نام‌بردنِ آن شش تکه این دو کار را از هم جدا نگه می‌دارد، و دقیقاً همین‌جاست که بیشترِ پروژه‌های هوشِ مصنوعی خراب می‌شوند."
+      },
+      "example": {
+        "en": "A fraud model gives the probability. Deciding to block the card weighs an angry customer against a real loss.",
+        "fa": "مدلِ تقلب احتمال را می‌دهد. تصمیم به مسدودکردنِ کارت، مشتریِ عصبانی را در برابرِ زیانِ واقعی می‌سنجد."
+      },
+      "tip": {
+        "en": "Write the six boxes for one decision you already make, and fill them in before anyone mentions a model.",
+        "fa": "برای یک تصمیمی که همین حالا می‌گیری، آن شش خانه را بنویس و پیش از آنکه کسی اسمِ مدل را بیاورد پرشان کن."
+      },
+      "pitfall": {
+        "en": "Shipping a prediction onto a screen and calling it a product. Nobody knows what to do with a number.",
+        "fa": "فرستادنِ یک پیش‌بینی روی صفحه و اسمش را محصول گذاشتن. هیچ‌کس نمی‌داند با یک عدد چه کند."
+      }
+    },
+    "judgment": {
+      "part": "decide",
+      "n": 5,
+      "name": {
+        "en": "The Value of Judgment",
+        "fa": "ارزشِ قضاوت"
+      },
+      "glabel": {
+        "en": "Judgment",
+        "fa": "قضاوت"
+      },
+      "principle": {
+        "en": "Judgment is deciding what each outcome is worth. The machine cannot do it, so its price goes up.",
+        "fa": "قضاوت یعنی تعیینِ اینکه هر نتیجه چقدر می‌ارزد. ماشین از پسش برنمی‌آید، پس قیمتش بالا می‌رود."
+      },
+      "more": {
+        "en": "Payoffs are rarely written down anywhere. Someone has to say how bad a false alarm is next to a missed case. The authors call writing that down in advance reward function engineering, and it is the skill that grows in value as prediction gets cheap.",
+        "fa": "پاداش‌ها معمولاً هیچ‌جا نوشته نشده‌اند. کسی باید بگوید یک هشدارِ اشتباه در برابرِ یک موردِ ازدست‌رفته چقدر بد است. نویسندگان به نوشتنِ همین از پیش می‌گویند «مهندسیِ تابعِ پاداش»، و همین مهارتی است که با ارزان‌شدنِ پیش‌بینی گران‌تر می‌شود."
+      },
+      "example": {
+        "en": "Two teams use the same churn model and act differently, because they price a lost customer differently.",
+        "fa": "دو تیم از یک مدلِ ریزشِ یکسان استفاده می‌کنند و متفاوت عمل می‌کنند، چون قیمتی که برای مشتریِ ازدست‌رفته می‌گذارند فرق دارد."
+      },
+      "tip": {
+        "en": "Put a number on a false positive and on a false negative before you touch a threshold.",
+        "fa": "پیش از آنکه به آستانه دست بزنی، برای مثبتِ کاذب و منفیِ کاذب عدد بگذار."
+      },
+      "pitfall": {
+        "en": "Leaving the payoffs unwritten, then blaming the model for a decision nobody ever defined.",
+        "fa": "نانوشته‌گذاشتنِ پاداش‌ها و بعد سرزنشِ مدل بابتِ تصمیمی که هیچ‌کس تعریفش نکرده بود."
+      }
+    },
+    "automation": {
+      "part": "decide",
+      "n": 6,
+      "name": {
+        "en": "Fully Automated Decision Making",
+        "fa": "تصمیم‌گیریِ تمام‌خودکار"
+      },
+      "glabel": {
+        "en": "Automation",
+        "fa": "خودکارسازی"
+      },
+      "principle": {
+        "en": "Hand the whole loop to the machine only when the judgment can be written down in advance.",
+        "fa": "کلِ حلقه را وقتی به ماشین بسپار که بشود قضاوت را از پیش نوشت."
+      },
+      "more": {
+        "en": "Full automation pays when decisions are frequent, payoffs are stable and a rare mistake is survivable. Otherwise keep a person in the loop and let the machine escalate the cases it is unsure about. The hard part is never the average case; it is the tail the machine has never seen.",
+        "fa": "خودکارسازیِ کامل وقتی می‌ارزد که تصمیم پرتکرار باشد، پاداش‌ها ثابت باشند و اشتباهِ نادر قابلِ تحمل. وگرنه آدمی را در حلقه نگه دار و بگذار ماشین موردهایی را که مطمئن نیست بالا بفرستد. بخشِ سخت هیچ‌وقت موردِ متوسط نیست؛ همان دنبالهٔ نادری است که ماشین هرگز ندیده است."
+      },
+      "example": {
+        "en": "A self-driving car must be told what to do in a situation it was never trained on, before it meets one.",
+        "fa": "به خودروی خودران باید پیش از آنکه با موقعیتی روبه‌رو شود که برایش آموزش ندیده، گفت در آن موقعیت چه کند."
+      },
+      "tip": {
+        "en": "Automate the nine confident cases in ten and route the rest to a person with the reason attached.",
+        "fa": "نُه موردِ مطمئن از هر ده را خودکار کن و بقیه را همراه با دلیلش به یک آدم بسپار."
+      },
+      "pitfall": {
+        "en": "Judging a system by average accuracy when all of the risk lives in the rare case.",
+        "fa": "قضاوتِ یک سامانه با دقتِ میانگین، وقتی تمامِ خطر در موردِ نادر است."
+      }
+    },
+    "workflow": {
+      "part": "tools",
+      "n": 7,
+      "name": {
+        "en": "Deconstructing Work Flows",
+        "fa": "واکاویِ گردشِ کار"
+      },
+      "glabel": {
+        "en": "Workflow",
+        "fa": "گردشِ کار"
+      },
+      "principle": {
+        "en": "Break the work into tasks and find the one task that is really a prediction.",
+        "fa": "کار را به وظیفه‌ها بشکن و آن یک وظیفه‌ای را پیدا کن که در واقع پیش‌بینی است."
+      },
+      "more": {
+        "en": "Workflows hide their seams. Written out step by step, most contain only a handful of moments where somebody is guessing; the rest is fetching, checking or telling. Only the guessing is a candidate for a prediction machine.",
+        "fa": "گردشِ کار درزهایش را پنهان می‌کند. وقتی گام‌به‌گام نوشته شود، معلوم می‌شود در بیشترشان فقط چند لحظه هست که کسی دارد حدس می‌زند؛ بقیه‌اش آوردن، بررسی و اطلاع‌دادن است. تنها همان حدس‌زدن گزینهٔ ماشینِ پیش‌بینی است."
+      },
+      "example": {
+        "en": "In a loan process the prediction is default risk; the identity check, the phone call and the paperwork are not.",
+        "fa": "در فرایندِ وام، پیش‌بینی همان ریسکِ نکول است؛ احرازِ هویت، تماسِ تلفنی و کاغذبازی پیش‌بینی نیستند."
+      },
+      "tip": {
+        "en": "Write the workflow as numbered steps and mark every step where a person is guessing.",
+        "fa": "گردشِ کار را به‌صورتِ گام‌های شماره‌دار بنویس و هر گامی را که در آن کسی حدس می‌زند علامت بزن."
+      },
+      "pitfall": {
+        "en": "Automating a whole process because one step inside it looked automatable.",
+        "fa": "خودکارکردنِ کلِ یک فرایند، فقط چون یک گامِ داخلش قابلِ خودکارشدن به نظر می‌رسید."
+      }
+    },
+    "canvas": {
+      "part": "tools",
+      "n": 8,
+      "name": {
+        "en": "Decomposing Decisions",
+        "fa": "تجزیهٔ تصمیم‌ها"
+      },
+      "glabel": {
+        "en": "AI Canvas",
+        "fa": "بومِ هوشِ مصنوعی"
+      },
+      "principle": {
+        "en": "One page, seven boxes: prediction, judgment, action, outcome, and the three data sets.",
+        "fa": "یک صفحه، هفت خانه: پیش‌بینی، قضاوت، اقدام، نتیجه، و آن سه مجموعهٔ داده."
+      },
+      "more": {
+        "en": "The canvas forces the awkward questions early. What exactly are we predicting? Who says what it is worth? What happens automatically? How will we know it worked? Most arguments about AI dissolve the moment all of this sits on one page.",
+        "fa": "بوم پرسش‌های ناخوشایند را زود جلو می‌آورد. دقیقاً چه چیزی را پیش‌بینی می‌کنیم؟ چه کسی می‌گوید چقدر می‌ارزد؟ چه چیزی خودکار اتفاق می‌افتد؟ از کجا می‌فهمیم جواب داده؟ بیشترِ بحث‌ها دربارهٔ هوشِ مصنوعی همین که این‌ها روی یک صفحه بیایند حل می‌شوند."
+      },
+      "example": {
+        "en": "Filling the canvas for a support-routing tool usually reveals that nobody agreed what \"solved\" means.",
+        "fa": "پرکردنِ بوم برای ابزارِ مسیریابیِ پشتیبانی معمولاً نشان می‌دهد هیچ‌کس بر سرِ معنای «حل‌شده» توافق نکرده بود."
+      },
+      "tip": {
+        "en": "Fill the canvas with the team in an hour, before anyone writes a line of code.",
+        "fa": "بوم را در یک ساعت با تیم پر کن، پیش از آنکه کسی یک خط کد بنویسد."
+      },
+      "pitfall": {
+        "en": "Leaving the feedback box empty. A tool that never learns is a report with better branding.",
+        "fa": "خالی‌گذاشتنِ خانهٔ بازخورد. ابزاری که یاد نمی‌گیرد فقط یک گزارش با ظاهرِ بهتر است."
+      }
+    },
+    "redesign": {
+      "part": "tools",
+      "n": 9,
+      "name": {
+        "en": "Job Redesign",
+        "fa": "بازطراحیِ شغل"
+      },
+      "glabel": {
+        "en": "Job Redesign",
+        "fa": "بازطراحیِ شغل"
+      },
+      "principle": {
+        "en": "Prediction machines rarely remove a job. They remove a task and leave the job needing a new shape.",
+        "fa": "ماشینِ پیش‌بینی به‌ندرت شغلی را حذف می‌کند. یک وظیفه را برمی‌دارد و شغل را محتاجِ شکلی تازه می‌گذارد."
+      },
+      "more": {
+        "en": "Once one task is cheap, the remaining tasks are worth more per hour and the sensible bundle changes. Sometimes two roles merge, sometimes one splits in two. The redesign usually costs more effort than the model did.",
+        "fa": "همین که یک وظیفه ارزان شود، وظیفه‌های باقی‌مانده در هر ساعت بیشتر می‌ارزند و بستهٔ منطقی عوض می‌شود. گاهی دو نقش یکی می‌شوند، گاهی یکی به دو نقش تقسیم می‌شود. این بازطراحی معمولاً بیشتر از خودِ مدل زحمت دارد."
+      },
+      "example": {
+        "en": "Reading scans is one task among many for a radiologist; automating it reshapes the job rather than ending it.",
+        "fa": "خواندنِ تصویر یکی از چند وظیفهٔ رادیولوژیست است؛ خودکارکردنش شغل را بازشکل می‌دهد، نه اینکه تمامش کند."
+      },
+      "tip": {
+        "en": "List the tasks in one role, mark the prediction ones, then redesign the remainder deliberately.",
+        "fa": "وظیفه‌های یک نقش را فهرست کن، پیش‌بینی‌ها را علامت بزن، بعد بقیه را آگاهانه بازطراحی کن."
+      },
+      "pitfall": {
+        "en": "Adding a tool to an unchanged job and then wondering why nothing got faster.",
+        "fa": "افزودنِ یک ابزار به شغلی که تغییر نکرده و بعد تعجب از اینکه چرا هیچ‌چیز سریع‌تر نشد."
+      }
+    },
+    "shift": {
+      "part": "strategy",
+      "n": 10,
+      "name": {
+        "en": "When AI Transforms Your Business",
+        "fa": "وقتی هوشِ مصنوعی کسب‌وکارت را دگرگون می‌کند"
+      },
+      "glabel": {
+        "en": "Strategy Shift",
+        "fa": "چرخشِ استراتژی"
+      },
+      "principle": {
+        "en": "Below a threshold of accuracy, prediction improves a workflow. Above it, the business model can invert.",
+        "fa": "زیرِ یک آستانهٔ دقت، پیش‌بینی گردشِ کار را بهتر می‌کند. بالای آن، مدلِ کسب‌وکار می‌تواند وارونه شود."
+      },
+      "more": {
+        "en": "The authors' well-known thought experiment: if Amazon's prediction of what you want became accurate enough, it could ship first and let you shop afterwards. That is not a better recommendation engine. It is a different company, with trucks, returns and a new cost structure.",
+        "fa": "آزمایشِ فکریِ مشهورِ نویسندگان: اگر پیش‌بینیِ آمازون از آنچه می‌خواهی به‌قدرِ کافی دقیق شود، می‌تواند اول بفرستد و بگذارد بعد خرید کنی. این یک موتورِ پیشنهادِ بهتر نیست. یک شرکتِ دیگر است، با کامیون و مرجوعی و ساختارِ هزینهٔ تازه."
+      },
+      "example": {
+        "en": "Shopping-then-shipping becomes shipping-then-shopping, and return logistics turn into the real business.",
+        "fa": "«اول خرید، بعد ارسال» می‌شود «اول ارسال، بعد خرید»، و لجستیکِ مرجوعی می‌شود کسب‌وکارِ اصلی."
+      },
+      "tip": {
+        "en": "Ask what you would do if the prediction were almost always right. If the answer is a different company, it is a strategy question.",
+        "fa": "بپرس اگر پیش‌بینی تقریباً همیشه درست بود چه می‌کردی. اگر جواب یک شرکتِ دیگر است، این پرسشی استراتژیک است."
+      },
+      "pitfall": {
+        "en": "Treating a strategic shift as an IT project because it arrived in the shape of a model.",
+        "fa": "یک چرخشِ استراتژیک را پروژهٔ فناوری دانستن، فقط چون در قالبِ یک مدل رسیده است."
+      }
+    },
+    "learning": {
+      "part": "strategy",
+      "n": 11,
+      "name": {
+        "en": "Your Learning Strategy",
+        "fa": "استراتژیِ یادگیریِ تو"
+      },
+      "glabel": {
+        "en": "Learning",
+        "fa": "یادگیری"
+      },
+      "principle": {
+        "en": "Decide early how your system will learn. Learning compounds, and a head start is hard to buy later.",
+        "fa": "زود تصمیم بگیر که سامانه‌ات چطور یاد می‌گیرد. یادگیری روی هم انباشته می‌شود و جلوافتادگی را بعداً به‌سختی می‌شود خرید."
+      },
+      "more": {
+        "en": "Learning in the lab is safe and slow. Learning in the market is risky and fast: releasing early buys feedback data and a lead, at the price of early mistakes in front of customers. Which trade you accept is a strategic choice, not an engineering one.",
+        "fa": "یادگیری در آزمایشگاه امن است و کند. یادگیری در بازار پرریسک است و سریع: عرضهٔ زودهنگام دادهٔ بازخورد و یک جلوافتادگی می‌خرد، به قیمتِ اشتباه‌های اولیه پیشِ چشمِ مشتری. اینکه کدام معامله را بپذیری انتخابی استراتژیک است، نه مهندسی."
+      },
+      "example": {
+        "en": "A bought-in model gives you the average of everyone's data; your own feedback loop gives you something nobody else has.",
+        "fa": "مدلِ خریداری‌شده میانگینِ دادهٔ همه را به تو می‌دهد؛ حلقهٔ بازخوردِ خودت چیزی می‌دهد که هیچ‌کسِ دیگری ندارد."
+      },
+      "tip": {
+        "en": "Ship the smallest version that produces feedback data, then protect that loop above everything else.",
+        "fa": "کوچک‌ترین نسخه‌ای را عرضه کن که دادهٔ بازخورد تولید کند، بعد بیش از هر چیز از آن حلقه محافظت کن."
+      },
+      "pitfall": {
+        "en": "Waiting for a perfect model while a rival collects two years of real feedback.",
+        "fa": "انتظار برای یک مدلِ بی‌نقص، در حالی که رقیب دو سال بازخوردِ واقعی جمع می‌کند."
+      }
+    },
+    "tradeoffs": {
+      "part": "strategy",
+      "n": 12,
+      "name": {
+        "en": "Risk and the Trade-offs",
+        "fa": "ریسک و بده‌بستان‌ها"
+      },
+      "glabel": {
+        "en": "Trade-offs",
+        "fa": "بده‌بستان‌ها"
+      },
+      "principle": {
+        "en": "Cheap prediction sends its own bill: biased data, gamed feedback, unclear liability, and a wider gap between winners and losers.",
+        "fa": "پیش‌بینیِ ارزان صورت‌حسابِ خودش را می‌فرستد: دادهٔ سوگیرانه، بازخوردی که دستکاری می‌شود، مسئولیتِ نامعلوم، و فاصلهٔ بیشتر میانِ برنده و بازنده."
+      },
+      "more": {
+        "en": "A model trained on past decisions repeats the past, discrimination included. People change their behaviour as soon as they know they are being predicted. And at the level of society the book is honest about the deal: more productivity, alongside real questions about inequality, privacy and who ends up owning the data.",
+        "fa": "مدلی که با تصمیم‌های گذشته آموزش دیده گذشته را تکرار می‌کند، تبعیضش را هم. آدم‌ها همین که بفهمند دارند پیش‌بینی می‌شوند رفتارشان را عوض می‌کنند. و در سطحِ جامعه، کتاب صادقانه از این معامله می‌گوید: بهره‌وریِ بیشتر، در کنارِ پرسش‌های جدی دربارهٔ نابرابری، حریمِ خصوصی و اینکه سرانجام داده مالِ چه کسی می‌شود."
+      },
+      "example": {
+        "en": "A hiring model trained on who was hired before will faithfully reproduce who was passed over before.",
+        "fa": "مدلِ استخدامی که با سابقهٔ استخدام‌های قبلی آموزش دیده، وفادارانه همان کسانی را کنار می‌گذارد که پیش‌تر کنار گذاشته شده بودند."
+      },
+      "tip": {
+        "en": "Before launch, write down who is accountable when the prediction is confidently wrong.",
+        "fa": "پیش از عرضه بنویس وقتی پیش‌بینی با اطمینان غلط از آب درآمد، چه کسی پاسخ‌گوست."
+      },
+      "pitfall": {
+        "en": "Assuming better accuracy answers a question that was really about fairness or consent.",
+        "fa": "خیال‌کردنِ اینکه دقتِ بیشتر جوابِ پرسشی است که در اصل دربارهٔ انصاف یا رضایت بوده است."
+      }
+    }
+  },
+  "core": {
+    "name": {
+      "en": "CHEAP PREDICTION",
+      "fa": "پیش‌بینیِ ارزان"
+    },
+    "principle": {
+      "en": "AI is a fall in the cost of prediction. Prediction is not decision, so value moves to what prediction cannot do: judgment, data and action.",
+      "fa": "هوشِ مصنوعی یعنی افتِ هزینهٔ پیش‌بینی. پیش‌بینی تصمیم نیست، پس ارزش به سمتِ چیزی می‌رود که پیش‌بینی از پسش برنمی‌آید: قضاوت، داده و اقدام."
+    },
+    "more": {
+      "en": "The three economists run the argument in four moves: treat AI as a price drop and watch which complements rise; take a decision apart into prediction and judgment; rebuild the workflow task by task with the AI canvas; then ask whether cheap prediction changes your costs or your whole strategy — and what it costs everyone else.",
+      "fa": "این سه اقتصاددان استدلال را در چهار حرکت پیش می‌برند: هوشِ مصنوعی را افتِ قیمت ببین و ببین کدام مکمل‌ها بالا می‌روند؛ تصمیم را به پیش‌بینی و قضاوت تجزیه کن؛ گردشِ کار را وظیفه‌به‌وظیفه با بومِ هوشِ مصنوعی بازبساز؛ بعد بپرس پیش‌بینیِ ارزان هزینه‌ات را عوض می‌کند یا کلِ استراتژی‌ات را — و برای بقیه چه خرجی دارد."
+    },
+    "example": {
+      "en": "Click any node to read a principle or a method. You can also drag the nodes around.",
+      "fa": "روی هر دایره کلیک کن تا یک اصل یا روش را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."
+    }
+  },
+  "stages": [
+    {
+      "level": 1,
+      "badge": {
+        "en": "Level 1 · Over-simplified",
+        "fa": "سطحِ ۱ · خیلی ساده"
+      },
+      "title": {
+        "en": "Prediction got cheap",
+        "fa": "پیش‌بینی ارزان شد"
+      },
+      "tagline": {
+        "en": "The whole book in a sentence.",
+        "fa": "کلِ کتاب در یک جمله."
+      },
+      "body": {
+        "en": "Artificial intelligence is not new intelligence. It is a steep drop in the price of one thing: prediction. Everything else in the book follows from that.",
+        "fa": "هوشِ مصنوعی هوشِ تازه نیست. افتِ شدیدِ قیمتِ یک چیز است: پیش‌بینی. باقیِ کتاب از همین یک جمله بیرون می‌آید."
+      },
+      "example": {
+        "en": "Not \"the machine thinks\" but \"the machine guesses what comes next, very cheaply\".",
+        "fa": "نه «ماشین فکر می‌کند» بلکه «ماشین خیلی ارزان حدس می‌زند بعد چه می‌شود»."
+      },
+      "gain": {
+        "en": "You stop arguing about intelligence and start asking about price.",
+        "fa": "دست از بحث دربارهٔ هوش برمی‌داری و شروع می‌کنی به پرسیدن دربارهٔ قیمت."
+      }
+    },
+    {
+      "level": 2,
+      "badge": {
+        "en": "Level 2 · Simple",
+        "fa": "سطحِ ۲ · ساده"
+      },
+      "title": {
+        "en": "Prediction is not decision",
+        "fa": "پیش‌بینی، تصمیم نیست"
+      },
+      "tagline": {
+        "en": "The machine guesses; you weigh.",
+        "fa": "ماشین حدس می‌زند؛ تو می‌سنجی."
+      },
+      "body": {
+        "en": "Prediction fills in information you do not have. A <b>decision</b> needs one more thing: <b>judgment</b>, which is saying what each outcome is worth. The machine has no view on that, and never will.",
+        "fa": "پیش‌بینی اطلاعاتی را که نداری پر می‌کند. <b>تصمیم</b> به یک چیزِ دیگر هم نیاز دارد: <b>قضاوت</b>، یعنی گفتنِ اینکه هر نتیجه چقدر می‌ارزد. ماشین در این باره نظری ندارد و هرگز نخواهد داشت."
+      },
+      "example": {
+        "en": "The model says this card is probably fraud. Whether to block it depends on what an angry customer costs you.",
+        "fa": "مدل می‌گوید این کارت احتمالاً تقلبی است. مسدودکردن یا نکردنش به این بستگی دارد که مشتریِ عصبانی چقدر برایت خرج دارد."
+      },
+      "gain": {
+        "en": "You can tell a modelling problem from a decision problem.",
+        "fa": "می‌توانی مسئلهٔ مدل‌سازی را از مسئلهٔ تصمیم تشخیص دهی."
+      }
+    },
+    {
+      "level": 3,
+      "badge": {
+        "en": "Level 3 · Balanced",
+        "fa": "سطحِ ۳ · متعادل"
+      },
+      "title": {
+        "en": "Follow the complements",
+        "fa": "دنبالِ مکمل‌ها برو"
+      },
+      "tagline": {
+        "en": "Where the value actually moves.",
+        "fa": "ارزش واقعاً کجا می‌رود."
+      },
+      "body": {
+        "en": "When a price falls, substitutes lose value and <b>complements</b> gain it. Human guessing is the substitute. <b>Judgment, data and action</b> are the complements — and data means three separate things: training, input and feedback.",
+        "fa": "وقتی قیمتی می‌افتد، جانشین‌ها بی‌ارزش می‌شوند و <b>مکمل‌ها</b> باارزش. حدسِ انسانی جانشین است. <b>قضاوت، داده و اقدام</b> مکمل‌اند — و داده یعنی سه چیزِ جدا: آموزش، ورودی و بازخورد."
+      },
+      "example": {
+        "en": "The model was the cheap part. Getting the input data at the moment of the decision was the expensive part.",
+        "fa": "مدل بخشِ ارزانِ کار بود. رساندنِ دادهٔ ورودی به لحظهٔ تصمیم، بخشِ گران بود."
+      },
+      "gain": {
+        "en": "You can predict where your budget and your bottleneck will move.",
+        "fa": "می‌توانی پیش‌بینی کنی بودجه و گلوگاهت به کجا جابه‌جا می‌شوند."
+      }
+    },
+    {
+      "level": 4,
+      "badge": {
+        "en": "Level 4 · Advanced",
+        "fa": "سطحِ ۴ · پیشرفته"
+      },
+      "title": {
+        "en": "Rebuild the work",
+        "fa": "کار را بازبساز"
+      },
+      "tagline": {
+        "en": "Canvas, tasks, and where to automate.",
+        "fa": "بوم، وظیفه‌ها، و اینکه کجا خودکار کنیم."
+      },
+      "body": {
+        "en": "Break the workflow into tasks and find the one that is really a guess. Then write the <b>AI canvas</b> for it: prediction, judgment, action, outcome, and the three data sets. Automate fully only where judgment can be written down in advance; otherwise let the machine escalate what it is unsure about.",
+        "fa": "گردشِ کار را به وظیفه‌ها بشکن و آن یکی را که واقعاً حدس است پیدا کن. بعد برایش <b>بومِ هوشِ مصنوعی</b> را بنویس: پیش‌بینی، قضاوت، اقدام، نتیجه، و آن سه مجموعهٔ داده. فقط جایی کاملاً خودکار کن که بشود قضاوت را از پیش نوشت؛ وگرنه بگذار ماشین موردهای نامطمئن را بالا بفرستد."
+      },
+      "example": {
+        "en": "Reading scans is one task among many for a radiologist. Automating it reshapes the job instead of ending it.",
+        "fa": "خواندنِ تصویر یکی از چند وظیفهٔ رادیولوژیست است. خودکارکردنش شغل را بازشکل می‌دهد، نه اینکه تمامش کند."
+      },
+      "gain": {
+        "en": "You can design the tool and the job around it, not just the model.",
+        "fa": "می‌توانی هم ابزار و هم شغلِ اطرافش را طراحی کنی، نه فقط مدل را."
+      }
+    },
+    {
+      "level": 5,
+      "badge": {
+        "en": "Level 5 · Expert",
+        "fa": "سطحِ ۵ · حرفه‌ای"
+      },
+      "title": {
+        "en": "Strategy, learning, consequences",
+        "fa": "استراتژی، یادگیری، پیامدها"
+      },
+      "tagline": {
+        "en": "When accuracy crosses a threshold.",
+        "fa": "وقتی دقت از یک آستانه رد می‌شود."
+      },
+      "body": {
+        "en": "Past a certain accuracy, prediction stops improving a workflow and starts inverting a business model — the <b>shipping-then-shopping</b> thought experiment. That makes it a <b>strategy</b> question: what you must own, how fast your system learns, and what you owe when it is confidently wrong. The book is candid that the gains come with bills: bias, gaming, inequality, privacy.",
+        "fa": "از یک دقتِ مشخص به بعد، پیش‌بینی دیگر گردشِ کار را بهتر نمی‌کند و مدلِ کسب‌وکار را وارونه می‌کند — همان آزمایشِ فکریِ <b>اول ارسال، بعد خرید</b>. اینجاست که پرسش <b>استراتژیک</b> می‌شود: چه چیزی باید مالِ تو باشد، سامانه‌ات چقدر سریع یاد می‌گیرد، و وقتی با اطمینان اشتباه کرد چه بدهکاری. کتاب رک می‌گوید که این سودها صورت‌حساب دارند: سوگیری، دستکاری، نابرابری، حریمِ خصوصی."
+      },
+      "example": {
+        "en": "You ask what you would build if the prediction were almost always right — and the answer is a company with trucks and a returns operation.",
+        "fa": "می‌پرسی اگر پیش‌بینی تقریباً همیشه درست بود چه می‌ساختی — و جواب شرکتی است با کامیون و عملیاتِ مرجوعی."
+      },
+      "gain": {
+        "en": "You can tell a cost improvement from a strategic bet, and price the risk of both.",
+        "fa": "می‌توانی بهبودِ هزینه را از یک شرطِ استراتژیک تشخیص دهی و ریسکِ هر دو را قیمت‌گذاری کنی."
+      }
+    }
+  ],
+  "quotes": [
+    {
+      "en": "Prediction is the process of filling in missing information.",
+      "fa": "پیش‌بینی فرایندِ پرکردنِ اطلاعاتِ گم‌شده است."
+    },
+    {
+      "en": "Cheap changes everything.",
+      "fa": "ارزانی همه‌چیز را عوض می‌کند."
+    },
+    {
+      "en": "The new wave of artificial intelligence does not bring us intelligence, but a critical component of intelligence: prediction.",
+      "fa": "موجِ تازهٔ هوشِ مصنوعی برای ما هوش نمی‌آورد، بلکه جزءِ حیاتیِ هوش را می‌آورد: پیش‌بینی."
+    },
+    {
+      "en": "As the price of prediction falls, the value of its complements rises.",
+      "fa": "هرچه قیمتِ پیش‌بینی پایین‌تر می‌آید، ارزشِ مکمل‌هایش بالاتر می‌رود."
+    },
+    {
+      "en": "Prediction facilitates decisions by reducing uncertainty, while judgment assigns value.",
+      "fa": "پیش‌بینی با کم‌کردنِ عدمِ قطعیت تصمیم را آسان می‌کند، و قضاوت است که ارزش را تعیین می‌کند."
+    },
+    {
+      "en": "More data means less privacy. More speed means less accuracy. More autonomy means less control.",
+      "fa": "دادهٔ بیشتر یعنی حریمِ خصوصیِ کمتر. سرعتِ بیشتر یعنی دقتِ کمتر. خودمختاریِ بیشتر یعنی کنترلِ کمتر."
+    }
+  ],
+  "media": [
+    {
+      "kind": "img",
+      "url": "https://hbr.org/2016/11/the-simple-economics-of-machine-intelligence",
+      "src": {
+        "en": "hbr.org · Article",
+        "fa": "hbr.org · مقاله"
+      },
+      "title": {
+        "en": "The Simple Economics of Machine Intelligence",
+        "fa": "اقتصادِ سادهٔ هوشِ ماشینی"
+      },
+      "desc": {
+        "en": "The 2016 article where the three authors first set out the argument, two years before the book.",
+        "fa": "مقالهٔ ۲۰۱۶ که سه نویسنده استدلالشان را نخستین‌بار در آن چیدند، دو سال پیش از کتاب."
+      },
+      "bullets": {
+        "en": [
+          "The whole thesis in a short read",
+          "Substitutes fall, complements rise",
+          "Written by the authors themselves"
+        ],
+        "fa": [
+          "کلِ استدلال در یک متنِ کوتاه",
+          "جانشین‌ها پایین، مکمل‌ها بالا",
+          "نوشتهٔ خودِ نویسندگان"
+        ]
+      },
+      "best": {
+        "en": "Best for Stage 1–2.",
+        "fa": "خوب برای مرحلهٔ ۱ و ۲."
+      }
+    },
+    {
+      "kind": "img",
+      "url": "https://www.predictionmachines.ai/",
+      "src": {
+        "en": "predictionmachines.ai · Book site",
+        "fa": "predictionmachines.ai · سایتِ کتاب"
+      },
+      "title": {
+        "en": "Prediction Machines — the book's own site",
+        "fa": "ماشین‌های پیش‌بینی — سایتِ خودِ کتاب"
+      },
+      "desc": {
+        "en": "The authors' site for the book, with the updated edition, articles and talks.",
+        "fa": "سایتِ نویسندگان برای کتاب، همراه با ویراستِ به‌روزشده، مقاله‌ها و سخنرانی‌ها."
+      },
+      "bullets": {
+        "en": [
+          "The updated and expanded edition",
+          "Articles that extend the argument",
+          "Straight from the source"
+        ],
+        "fa": [
+          "ویراستِ به‌روز و گسترش‌یافته",
+          "مقاله‌هایی که استدلال را ادامه می‌دهند",
+          "مستقیم از منبع"
+        ]
+      },
+      "best": {
+        "en": "For editions and further reading.",
+        "fa": "برای نسخه‌ها و ادامهٔ مطالعه."
+      }
+    }
+  ],
+  "go": [
+    {
+      "label": {
+        "en": "The book's site",
+        "fa": "سایتِ کتاب"
+      },
+      "url": "https://www.predictionmachines.ai/"
+    },
+    {
+      "label": {
+        "en": "The HBR article",
+        "fa": "مقالهٔ هاروارد بیزنس ریویو"
+      },
+      "url": "https://hbr.org/2016/11/the-simple-economics-of-machine-intelligence"
+    },
+    {
+      "label": {
+        "en": "Book on Goodreads",
+        "fa": "کتاب در گودریدز"
+      },
+      "url": "https://www.goodreads.com/book/show/36484703-prediction-machines"
+    }
+  ],
+  "recs": [
+    {
+      "pri": "b",
+      "t": {
+        "en": "Fill an AI canvas for one real decision",
+        "fa": "برای یک تصمیمِ واقعی، یک بومِ هوشِ مصنوعی پر کن"
+      },
+      "d": {
+        "en": "Prediction, judgment, action, outcome, and the three data sets. One hour, one page, before any code.",
+        "fa": "پیش‌بینی، قضاوت، اقدام، نتیجه، و آن سه مجموعهٔ داده. یک ساعت، یک صفحه، پیش از هر خط کد."
+      }
+    },
+    {
+      "pri": "b",
+      "t": {
+        "en": "Put a price on being wrong",
+        "fa": "برای اشتباه‌بودن قیمت بگذار"
+      },
+      "d": {
+        "en": "Write down what a false positive costs and what a false negative costs, before anyone tunes a threshold.",
+        "fa": "بنویس مثبتِ کاذب چقدر خرج دارد و منفیِ کاذب چقدر، پیش از آنکه کسی آستانه را تنظیم کند."
+      }
+    },
+    {
+      "pri": "n",
+      "t": {
+        "en": "Mark the guesses in one workflow",
+        "fa": "حدس‌ها را در یک گردشِ کار علامت بزن"
+      },
+      "d": {
+        "en": "Numbered steps, then a mark on every step where a person is predicting. Only those are candidates.",
+        "fa": "گام‌های شماره‌دار، بعد علامت روی هر گامی که در آن کسی دارد پیش‌بینی می‌کند. فقط همان‌ها گزینه‌اند."
+      }
+    },
+    {
+      "pri": "n",
+      "t": {
+        "en": "Run the accuracy thought experiment",
+        "fa": "آزمایشِ فکریِ دقت را اجرا کن"
+      },
+      "d": {
+        "en": "If the prediction were almost always right, what would you build? If the answer is a different company, that is strategy.",
+        "fa": "اگر پیش‌بینی تقریباً همیشه درست بود چه می‌ساختی؟ اگر جواب یک شرکتِ دیگر است، این استراتژی است."
+      }
+    }
+  ]
+});
+</script>
+</body>
+</html>

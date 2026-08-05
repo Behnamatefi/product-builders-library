@@ -80,7 +80,9 @@
     13: { intents: ['startup', 'strategy'],   snr: ['senior', 'manager'],                 len: 2 },
     14: { intents: ['career'],                snr: ['junior', 'mid', 'senior', 'manager'], len: 2 },
     15: { intents: ['mindset'],               snr: ['junior', 'mid', 'senior', 'manager'], len: 2 },
-    16: { intents: ['mindset', 'lead', 'career'], snr: ['junior', 'mid', 'senior', 'manager'], len: 2 }
+    16: { intents: ['mindset', 'lead', 'career'], snr: ['junior', 'mid', 'senior', 'manager'], len: 2 },
+    17: { intents: ['build', 'strategy'],     snr: ['junior', 'mid', 'senior', 'manager'], len: 2 },
+    18: { intents: ['build', 'lead'],         snr: ['junior', 'mid', 'senior', 'manager'], len: 2 }
   };
 
   /* per-book overrides (only where the book differs from its group) */
@@ -108,7 +110,18 @@
     'the-art-of-seduction':      { intents: ['sell', 'communicate'], snr: ['mid', 'senior', 'manager'], len: 3 },
     'surrounded-by-psychopaths': { intents: ['lead', 'communicate'], snr: ['mid', 'senior', 'manager'], len: 2 },
     'the-way-forward':           { intents: ['mindset', 'career'], len: 1 },
-    'the-power-of-now':          { intents: ['mindset'], core: true, len: 2 }
+    'the-power-of-now':          { intents: ['mindset'], core: true, len: 2 },
+    /* 17 — Working with AI */
+    'co-intelligence':           { intents: ['build', 'mindset', 'career'], core: true, len: 1 },
+    'the-ai-product-managers-handbook': { intents: ['build'], snr: ['junior', 'mid', 'senior'], core: true, len: 2 },
+    'human-plus-machine':        { intents: ['strategy', 'lead'], snr: ['mid', 'senior', 'manager'], len: 2 },
+    'prediction-machines':       { intents: ['strategy'], snr: ['senior', 'manager'], len: 3 },
+    /* 18 — Delivery & Projects */
+    'project-management-unofficial':     { intents: ['lead', 'career'], snr: ['junior', 'mid'], core: true, len: 1 },
+    'scrum-twice-the-work-half-the-time': { intents: ['build', 'lead'], snr: ['junior', 'mid'], len: 1 },
+    'the-phoenix-project':       { intents: ['build', 'lead'], snr: ['mid', 'senior', 'manager'], core: true, len: 3 },
+    'the-mythical-man-month':    { intents: ['build', 'lead'], snr: ['mid', 'senior', 'manager'], core: true, len: 2 },
+    'project-management-beginners-guide': { intents: ['build', 'career'], snr: ['junior'], len: 2 }
   };
 
   function tagsFor(entry) {

@@ -1,15 +1,15 @@
 # The Product Builder's Library — ‏کتابخانهٔ سازندهٔ محصول‏
 
-Bilingual (English / فارسی) interactive **knowledge-graph** summaries of **50 essential books for product builders**, organized into **16 skill groups** — based on Lenny Rachitsky's two-part *"Essential books for product builders"* reading list.
+Bilingual (English / فارسی) interactive **knowledge-graph** summaries of **59 essential books for product builders**, organized into **18 skill groups** — based on Lenny Rachitsky's two-part *"Essential books for product builders"* reading list.
 
-‏کتابخانه‌ای دوزبانه از خلاصهٔ ۵۰ کتابِ ضروری برای سازندگانِ محصول، در قالبِ نقشهٔ دانشِ تعاملی — ساده، خواندنی، و برای یادگیری.‏
+‏کتابخانه‌ای دوزبانه از خلاصهٔ ۵۹ کتابِ ضروری برای سازندگانِ محصول، در قالبِ نقشهٔ دانشِ تعاملی — ساده، خواندنی، و برای یادگیری.‏
 
 ## What's inside
 
 Open **[`index.html`](index.html)** for the catalog. It opens with a centered-logo
 header, and a **“Find my reading path”** wizard — answer two quick questions
 (your seniority, what you want to get better at, and how much time you have) and it
-builds a **sorted reading flow** from the 50 books. On desktop it's a modal; on mobile
+builds a **sorted reading flow** from the 59 books. On desktop it's a modal; on mobile
 it's a bottom sheet.
 
 Click any book to open its page. Each page is offline-ready and gives you:

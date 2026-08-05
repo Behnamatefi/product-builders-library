@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<!-- Generated page. Edit CONTENT in the DATA object below; shared UI lives in ../assets/book.css + ../assets/book.js -->
+<html lang="en" dir="ltr" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The AI Product Manager's Handbook — نقشهٔ دانش و یادگیری ۵ مرحله‌ای</title>
+
+<!-- Boot theme + language BEFORE paint to avoid a flash (shared library-wide keys) -->
+<script>
+(function(){
+  try{
+    var th = localStorage.getItem('pbl-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
+    document.documentElement.setAttribute('data-theme', th);
+  }catch(e){ document.documentElement.setAttribute('data-theme','light'); }
+  try{
+    var lg = localStorage.getItem('pbl-lang') || 'en';
+    document.documentElement.setAttribute('data-lang', lg);
+    document.documentElement.setAttribute('lang', lg);
+    document.documentElement.setAttribute('dir', lg==='fa' ? 'rtl' : 'ltr');
+  }catch(e){}
+})();
+</script>
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Newsreader:ital,opsz,wght@0,6..72,200..700;1,6..72,200..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/book.css">
+</head>
+<body>
+<div id="app"></div>
+
+<script src="../assets/library.js"></script>
+<script src="../assets/book.js"></script>
+<script>
+/* ── CONTENT — everything unique to this book lives here ── */
+Book.mount({
+  "meta": {
+    "slug": "the-ai-product-managers-handbook",
+    "folder": "17 - Working with AI",
+    "groupNum": 17,
+    "group": {
+      "en": "Working with AI",
+      "fa": "کار با هوش مصنوعی"
+    },
+    "author": {
+      "en": "Irene Bratsis",
+      "fa": "آیرین براتسیس"
+    },
+    "eyebrow_author": {
+      "en": "Irene Bratsis",
+      "fa": "آیرین براتسیس"
+    },
+    "book": {
+      "en": "The AI Product Manager's Handbook",
+      "fa": "راهنمای مدیرِ محصولِ هوش مصنوعی"
+    },
+    "hero_title": {
+      "en": "The AI Product Manager's Handbook — Develop a product that takes advantage of machine learning to solve AI problems",
+      "fa": "راهنمای مدیرِ محصولِ هوش مصنوعی — محصولی بساز که با یادگیری ماشین مسئله حل می‌کند"
+    },
+    "dek": {
+      "en": "A knowledge graph of the whole book, plus a 5-stage path from a single idea to expert-level mastery — with an example at every step.",
+      "fa": "نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از خیلی ساده تا حرفه‌ای — با یک مثال در هر مرحله."
+    },
+    "published": {
+      "en": "2023",
+      "fa": "۲۰۲۳"
+    },
+    "chips": [
+      {
+        "v": {
+          "en": "4",
+          "fa": "۴"
+        },
+        "l": {
+          "en": "Parts",
+          "fa": "بخش"
+        }
+      },
+      {
+        "v": {
+          "en": "12",
+          "fa": "۱۲"
+        },
+        "l": {
+          "en": "Ideas",
+          "fa": "ایده"
+        }
+      },
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Learning stages",
+          "fa": "مرحلهٔ یادگیری"
+        }
+      }
+    ],
+    "kboxes": [
+      {
+        "v": {
+          "en": "4",
+          "fa": "۴"
+        },
+        "l": {
+          "en": "Parts (lay of the land · the business of AI · building AI-native · integrating into existing products)",
+          "fa": "بخش (شناختِ زمینِ بازی · کسب‌وکارِ هوش مصنوعی · ساختِ محصولِ بومی · ادغام در محصولِ موجود)"
+        }
+      },
+      {
+        "v": {
+          "en": "12",
+          "fa": "۱۲"
+        },
+        "l": {
+          "en": "Ideas you can use",
+          "fa": "ایده برای استفاده"
+        }
+      },
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Levels, simple → expert",
+          "fa": "مرحله، ساده تا حرفه‌ای"
+        }
+      },
+      {
+        "v": {
+          "en": "2",
+          "fa": "۲"
+        },
+        "l": {
+          "en": "Scales: macro AI · micro AI",
+          "fa": "مقیاس: هوشِ کلان · هوشِ خرد"
+        }
+      }
+    ],
+    "core_callout": {
+      "label": {
+        "en": "The core idea:",
+        "fa": "ایدهٔ اصلی:"
+      },
+      "en": " AI is a means, not the product. An AI product manager earns the title by knowing the <i>pipeline</i> — where the data comes from, how a model is trained and retrained, what it costs — well enough to say which problems deserve a model at all, and by designing what the user sees when the model is <i>wrong</i>.",
+      "fa": " هوش مصنوعی وسیله است، نه محصول. مدیرِ محصولِ هوش مصنوعی وقتی سزاوارِ این عنوان است که <i>خطِ لوله</i> را بشناسد — داده از کجا می‌آید، مدل چطور آموزش و بازآموزی می‌بیند، چقدر خرج دارد — آن‌قدر که بتواند بگوید اصلاً کدام مسئله ارزشِ یک مدل را دارد، و وقتی مدل <i>اشتباه</i> می‌کند طراحی کند کاربر چه ببیند."
+    },
+    "flow_callout": {
+      "label": {
+        "en": "Read it as a flow:",
+        "fa": "به‌صورتِ یک جریان بخوانش:"
+      },
+      "en": " learn the <b>pipeline, the model lifecycle and the maths</b>, then make the <b>commercial case</b> — blue ocean or red — build the AI-native product with its own <b>team, thresholds and fallbacks</b>, then <b>measure honestly</b> and bring AI into the product you already have.",
+      "fa": " <b>خطِ لوله، چرخهٔ عمرِ مدل و ریاضیات</b> را یاد بگیر، بعد <b>توجیهِ تجاری</b> را بساز — اقیانوسِ آبی یا سرخ — محصولِ بومیِ هوش مصنوعی را با <b>تیم، آستانه و راهِ جایگزینِ</b> خودش بساز، بعد <b>صادقانه بسنج</b> و هوش مصنوعی را به همان محصولی بیاور که داری."
+    }
+  },
+  "method": {
+    "en": "<p><b>Source:</b> the book <i>The AI Product Manager's Handbook</i> by Irene Bratsis, published by Packt on 28 February 2023. A second, expanded edition followed in November 2024.</p><p><b>How this was built:</b> the book runs to three parts and thirteen chapters. Those chapters were regrouped into the four themes on this page, in the book's own reading order, and rewritten from the book and reputable sources. The lines in the quotes section are paraphrases, not verbatim quotations.</p><p><b>Group:</b> Working with AI.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>",
+    "fa": "<p><b>منبع:</b> کتابِ «راهنمای مدیرِ محصولِ هوش مصنوعی» نوشتهٔ آیرین براتسیس، نشرِ پکت، ۲۸ فوریهٔ ۲۰۲۳. ویرایشِ دومِ گسترده‌ترش در نوامبرِ ۲۰۲۴ منتشر شد.</p><p><b>روشِ کار:</b> کتاب سه بخش و سیزده فصل دارد. همان فصل‌ها با حفظِ ترتیبِ خواندنِ کتاب در چهار درون‌مایهٔ این صفحه بازچینی و از خودِ کتاب و منابعِ معتبر ساده‌نویسی شده‌اند. جمله‌های بخشِ نقلِ‌قول بازگویی‌اند، نه عینِ عبارتِ کتاب.</p><p><b>گروه:</b> کار با هوش مصنوعی.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب.</p>"
+  },
+  "flow": {
+    "en": [
+      "Foundations",
+      "Business",
+      "Build",
+      "Integrate"
+    ],
+    "fa": [
+      "پایه",
+      "کسب‌وکار",
+      "ساخت",
+      "ادغام"
+    ]
+  },
+  "graph": {
+    "R2": 132,
+    "span": 70
+  },
+  "tldr": [
+    {
+      "en": "The whole book in one line: <b>an AI product manager manages the pipeline, not just the screen.</b>",
+      "fa": "خلاصهٔ کلِ کتاب در یک جمله: <b>مدیرِ محصولِ هوش مصنوعی خطِ لوله را مدیریت می‌کند، نه فقط صفحهٔ نمایش را.</b>"
+    },
+    {
+      "en": "Models <b>drift</b>. Maintenance and retraining are permanent budget lines, not launch-day tasks.",
+      "fa": "مدل‌ها <b>رانش</b> می‌کنند. نگهداری و بازآموزی ردیف‌های دائمیِ بودجه‌اند، نه کارهای روزِ عرضه."
+    },
+    {
+      "en": "Deep learning is a trade, not an upgrade: more data and compute in exchange for less explainability.",
+      "fa": "یادگیری عمیق معامله است، نه ارتقا: دادهٔ بیشتر و محاسبهٔ بیشتر در ازای توضیح‌پذیریِ کمتر."
+    },
+    {
+      "en": "In an <b>AI-native</b> product the model is the value. Elsewhere AI is a feature, and the two are built and priced differently.",
+      "fa": "در محصولِ <b>بومیِ هوش مصنوعی</b> مدل خودِ ارزش است. جای دیگر هوش مصنوعی یک قابلیت است، و این دو را متفاوت می‌سازند و متفاوت قیمت می‌گذارند."
+    },
+    {
+      "en": "The last part of the book is about the common case: <b>adding AI to a product that already has customers.</b>",
+      "fa": "بخشِ پایانیِ کتاب دربارهٔ همان حالتِ رایج است: <b>افزودنِ هوش مصنوعی به محصولی که از قبل مشتری دارد.</b>"
+    }
+  ],
+  "parts": [
+    {
+      "key": "land",
+      "varc": "--c-teal",
+      "name": {
+        "en": "Lay of the Land",
+        "fa": "شناختِ زمینِ بازی"
+      },
+      "tag": {
+        "en": "Foundations",
+        "fa": "پایه‌ها"
+      },
+      "gist": {
+        "en": "You cannot manage what you cannot picture: the pipeline, the model, the maths.",
+        "fa": "چیزی را که نمی‌توانی تصویر کنی نمی‌توانی مدیریت کنی: خطِ لوله، مدل، و ریاضیاتش."
+      },
+      "more": {
+        "en": "An AI product manager does not build the pipeline, but every date they promise is set by it. Learn where the data lives, how a model is trained, tested and refreshed, and what deep learning really trades away, before committing to anything.",
+        "fa": "مدیرِ محصولِ هوش مصنوعی خطِ لوله را نمی‌سازد، اما هر تاریخی که قول می‌دهد را همان خطِ لوله تعیین می‌کند. پیش از هر تعهدی یاد بگیر داده کجا زندگی می‌کند، مدل چطور آموزش و آزمون و بازآموزی می‌شود، و یادگیری عمیق واقعاً چه چیزی را معامله می‌کند."
+      },
+      "chapters": [
+        "infra",
+        "lifecycle",
+        "mldl"
+      ]
+    },
+    {
+      "key": "business",
+      "varc": "--c-blue",
+      "name": {
+        "en": "The Business of AI",
+        "fa": "کسب‌وکارِ هوش مصنوعی"
+      },
+      "tag": {
+        "en": "Making the case",
+        "fa": "ساختنِ توجیه"
+      },
+      "gist": {
+        "en": "Before the model, the market: which ocean you are in, what changes inside the company, and what AI-native really means.",
+        "fa": "قبل از مدل، بازار: در کدام اقیانوسی، در شرکت چه چیزی عوض می‌شود، و «بومیِ هوش مصنوعی» واقعاً یعنی چه."
+      },
+      "more": {
+        "en": "Bratsis sorts AI products into blue oceans and red ones and names three strategies for winning either. She then looks at what adopting AI does to a company's planning and governance, and defines the AI-native product: the stages it needs, and the team that builds it.",
+        "fa": "براتسیس محصولاتِ هوش مصنوعی را به اقیانوسِ آبی و سرخ تقسیم می‌کند و سه راهبرد برای بردن در هرکدام نام می‌برد. بعد سراغِ این می‌رود که پذیرشِ هوش مصنوعی با برنامه‌ریزی و حکمرانیِ شرکت چه می‌کند، و محصولِ بومیِ هوش مصنوعی را تعریف می‌کند: مرحله‌هایی که می‌خواهد و تیمی که می‌سازدش."
+      },
+      "chapters": [
+        "commerce",
+        "transform",
+        "native"
+      ]
+    },
+    {
+      "key": "build",
+      "varc": "--c-violet",
+      "name": {
+        "en": "Building an AI-Native Product",
+        "fa": "ساختنِ محصولِ بومیِ هوش مصنوعی"
+      },
+      "tag": {
+        "en": "Building",
+        "fa": "ساخت"
+      },
+      "gist": {
+        "en": "Wrap the model in a product: a real service, a measure for each industry, and a scale for each use.",
+        "fa": "مدل را در یک محصول بپیچ: یک سرویسِ واقعی، یک سنجه برای هر صنعت، و یک مقیاس برای هر کاربرد."
+      },
+      "more": {
+        "en": "A model that scores well in testing is not yet a service. Someone has to decide what happens when it is unsure, how success is measured differently in fintech and in healthcare, and where macro AI ends and micro AI begins.",
+        "fa": "مدلی که در آزمون نمرهٔ خوبی می‌گیرد هنوز یک سرویس نیست. یکی باید تصمیم بگیرد وقتی مدل مطمئن نیست چه بشود، موفقیت در فناوریِ مالی و در درمان چطور جورِ دیگری سنجیده می‌شود، و هوشِ کلان کجا تمام می‌شود و هوشِ خرد کجا شروع."
+      },
+      "chapters": [
+        "productize",
+        "vertical",
+        "macromicro"
+      ]
+    },
+    {
+      "key": "integrate",
+      "varc": "--c-amber",
+      "name": {
+        "en": "Integrating AI into Existing Products",
+        "fa": "ادغامِ هوش مصنوعی در محصولِ موجود"
+      },
+      "tag": {
+        "en": "Measure and integrate",
+        "fa": "سنجش و ادغام"
+      },
+      "gist": {
+        "en": "Measure honestly, read where the industry is heading, then bring AI into the product you already have.",
+        "fa": "صادقانه بسنج، ببین صنعت به کدام سو می‌رود، بعد هوش مصنوعی را به همان محصولی بیاور که داری."
+      },
+      "more": {
+        "en": "Model accuracy is not a product metric. And most readers will never build an AI-native product from scratch; they will add AI to something that already has customers. Bratsis gives that case a whole part of the book, and starts it from the data the company already holds.",
+        "fa": "دقتِ مدل سنجهٔ محصول نیست. و بیشترِ خواننده‌ها هرگز محصولِ بومیِ هوش مصنوعی را از صفر نمی‌سازند؛ هوش مصنوعی را به چیزی اضافه می‌کنند که همین حالا مشتری دارد. براتسیس یک بخشِ کاملِ کتاب را به همین حالت داده و آن را از داده‌ای شروع می‌کند که شرکت از قبل در اختیار دارد."
+      },
+      "chapters": [
+        "benchmark",
+        "risingtide",
+        "evolve"
+      ]
+    }
+  ],
+  "chapters": {
+    "infra": {
+      "part": "land",
+      "n": 1,
+      "name": {
+        "en": "Infrastructure and Tools",
+        "fa": "زیرساخت و ابزارها"
+      },
+      "glabel": {
+        "en": "Infrastructure",
+        "fa": "زیرساخت"
+      },
+      "principle": {
+        "en": "Data pipelines, storage and deployment tooling decide what your product can promise, and how fast.",
+        "fa": "خطِ لولهٔ داده، انبارش و ابزارِ استقرار تعیین می‌کنند محصولت چه قولی می‌تواند بدهد، و با چه سرعتی."
+      },
+      "more": {
+        "en": "Bratsis opens with definitions — what is and is not AI — then the plumbing: data containers, pipelines, and the cloud infrastructure a team rents rather than builds. She closes on deployment strategies, because how a model reaches users is a product decision, not an engineering afterthought.",
+        "fa": "براتسیس با تعریف‌ها شروع می‌کند — چه چیزی هوش مصنوعی هست و چه چیزی نیست — و بعد می‌رود سراغِ لوله‌کشی: مخزن‌های داده، خطوطِ لوله، و زیرساختِ ابری که تیم به‌جای ساختن اجاره می‌کند. فصل را با راهبردهای استقرار تمام می‌کند، چون اینکه مدل چطور به دستِ کاربر می‌رسد تصمیمی محصولی است، نه فکرِ بعدیِ مهندسی."
+      },
+      "example": {
+        "en": "Shadow deployment and canary releases are two different answers to one question: is this model safe to turn on for everyone?",
+        "fa": "استقرارِ سایه و انتشارِ قناری دو جوابِ متفاوت به یک پرسش‌اند: روشن‌کردنِ این مدل برای همه امن است؟"
+      },
+      "tip": {
+        "en": "Ask your data team to draw the path from raw event to model output on one page. Keep it.",
+        "fa": "از تیمِ داده بخواه مسیرِ رویدادِ خام تا خروجیِ مدل را در یک صفحه بکشد. نگهش دار."
+      },
+      "pitfall": {
+        "en": "Treating infrastructure as an engineering detail, then promising a date it cannot support.",
+        "fa": "زیرساخت را جزئیاتِ مهندسی دانستن و بعد قولِ تاریخی دادن که از پسش برنمی‌آید."
+      }
+    },
+    "lifecycle": {
+      "part": "land",
+      "n": 2,
+      "name": {
+        "en": "Model Development and Maintenance",
+        "fa": "ساخت و نگهداریِ مدل"
+      },
+      "glabel": {
+        "en": "Model Lifecycle",
+        "fa": "چرخهٔ مدل"
+      },
+      "principle": {
+        "en": "A model is not shipped once. It is trained, tested, deployed and refreshed for as long as it lives.",
+        "fa": "مدل یک‌بار عرضه نمی‌شود. تا وقتی زنده است آموزش می‌بیند، آزمون می‌شود، مستقر می‌شود و بازآموزی می‌شود."
+      },
+      "more": {
+        "en": "Bratsis runs the familiar product stages — discovery, design, build, launch — and shows where a model changes each one. After launch the world moves and the training data stops matching it. Accuracy falls quietly, which is drift, and refreshing the model becomes a permanent line in the budget.",
+        "fa": "براتسیس همان مرحله‌های آشنای ساختِ محصول را مرور می‌کند — کشف، طراحی، ساخت، عرضه — و نشان می‌دهد مدل هر کدام را کجا عوض می‌کند. بعد از عرضه، دنیا حرکت می‌کند و دادهٔ آموزشی دیگر با آن جور درنمی‌آید. دقت بی‌سروصدا پایین می‌آید — به این می‌گویند رانش — و بازآموزیِ مدل به ردیفی دائمی در بودجه تبدیل می‌شود."
+      },
+      "example": {
+        "en": "A fraud model trained before a new payment method launches starts missing the fraud that arrives with it.",
+        "fa": "مدلِ کشفِ تقلبی که پیش از راه‌اندازیِ یک روشِ پرداختِ جدید آموزش دیده، تقلبی را که با آن روش می‌آید نمی‌بیند."
+      },
+      "tip": {
+        "en": "Put a retraining cadence and a monitoring owner in the launch plan, before the launch.",
+        "fa": "آهنگِ بازآموزی و مسئولِ پایش را پیش از عرضه در برنامهٔ عرضه بنویس."
+      },
+      "pitfall": {
+        "en": "Budgeting for a launch and not for the years of upkeep behind it.",
+        "fa": "بودجه‌بستن برای عرضه و نه برای سال‌ها نگهداریِ پشتِ آن."
+      }
+    },
+    "mldl": {
+      "part": "land",
+      "n": 3,
+      "name": {
+        "en": "Machine Learning and Deep Learning",
+        "fa": "یادگیری ماشین و یادگیری عمیق"
+      },
+      "glabel": {
+        "en": "ML vs Deep",
+        "fa": "ماشین یا عمیق"
+      },
+      "principle": {
+        "en": "Deep learning is not the upgrade. It is a trade: more data and compute for less explainability.",
+        "fa": "یادگیری عمیق ارتقا نیست. یک معامله است: دادهٔ بیشتر و محاسبهٔ بیشتر در ازای توضیح‌پذیریِ کمتر."
+      },
+      "more": {
+        "en": "The chapter goes through supervised, unsupervised and reinforcement learning, then neural networks, so a product manager can name the class of problem in front of them. Bratsis pairs it with explainability: the more accurate model is often the one you cannot explain to a customer or a regulator.",
+        "fa": "این فصل یادگیریِ نظارت‌شده، نظارت‌نشده و تقویتی را مرور می‌کند و بعد شبکه‌های عصبی را، تا مدیرِ محصول بتواند جنسِ مسئلهٔ جلویش را نام ببرد. براتسیس این را کنارِ توضیح‌پذیری می‌گذارد: مدلِ دقیق‌تر اغلب همان مدلی است که نمی‌توانی برای مشتری یا نهادِ ناظر توضیحش بدهی."
+      },
+      "example": {
+        "en": "A regulator asking why a customer was declined is far easier to answer with a decision tree than a neural network.",
+        "fa": "وقتی نهادِ ناظر می‌پرسد چرا درخواستِ یک مشتری رد شده، با درختِ تصمیم خیلی راحت‌تر می‌شود جواب داد تا با شبکهٔ عصبی."
+      },
+      "tip": {
+        "en": "Before approving deep learning, ask what the simplest model scores and what the gap is worth in money.",
+        "fa": "پیش از تأییدِ یادگیری عمیق، بپرس ساده‌ترین مدل چه نمره‌ای می‌گیرد و آن اختلاف به پول چقدر می‌ارزد."
+      },
+      "pitfall": {
+        "en": "Choosing the most advanced technique because it is the most advanced.",
+        "fa": "انتخابِ پیشرفته‌ترین روش فقط به این دلیل که پیشرفته‌ترین است."
+      }
+    },
+    "commerce": {
+      "part": "business",
+      "n": 4,
+      "name": {
+        "en": "Commercialising AI Products",
+        "fa": "تجاری‌سازیِ محصولِ هوش مصنوعی"
+      },
+      "glabel": {
+        "en": "Commercialise",
+        "fa": "تجاری‌سازی"
+      },
+      "principle": {
+        "en": "Decide which water you are in — a blue ocean nobody has entered, or a red one already full of rivals.",
+        "fa": "تصمیم بگیر در کدام آب هستی — اقیانوسی آبی که هنوز کسی واردش نشده، یا اقیانوسی سرخ که پر از رقیب است."
+      },
+      "more": {
+        "en": "Bratsis sorts AI products into pioneers in blue oceans and rebels in red ones, then lays out three ways to win: a dominant strategy, a disruptive one, or a differentiated one. Selling to businesses and selling to consumers pull the same product in opposite directions — one buyer wants control and proof, the other wants it to just work.",
+        "fa": "براتسیس محصولاتِ هوش مصنوعی را دو دسته می‌کند: پیشگامانی در اقیانوسِ آبی و شورشیانی در اقیانوسِ سرخ؛ بعد سه راهِ بردن را جلویت می‌گذارد: راهبردِ چیرگی، راهبردِ برهم‌زدنِ بازار، و راهبردِ تمایز. فروش به سازمان و فروش به مصرف‌کننده هم یک محصولِ واحد را به دو سمتِ مخالف می‌کشند — یکی کنترل و اثبات می‌خواهد، دیگری می‌خواهد محصول فقط کار کند."
+      },
+      "example": {
+        "en": "A fraud engine sold to banks competes in a crowded red ocean. A model that prices a market nobody has priced before is a blue one.",
+        "fa": "موتورِ کشفِ تقلبی که به بانک‌ها فروخته می‌شود در اقیانوسِ سرخِ شلوغ رقابت می‌کند. مدلی که بازاری را قیمت‌گذاری می‌کند که تا حالا کسی قیمت‌گذاری‌اش نکرده، اقیانوسِ آبی است."
+      },
+      "tip": {
+        "en": "Name your strategy out loud — dominant, disruptive or differentiated — before you write the pricing page.",
+        "fa": "راهبردت را با صدای بلند نام ببر — چیرگی، برهم‌زدن، یا تمایز — پیش از آنکه صفحهٔ قیمت را بنویسی."
+      },
+      "pitfall": {
+        "en": "Pricing an AI product like ordinary software, then discovering what every prediction costs to serve.",
+        "fa": "قیمت‌گذاریِ محصولِ هوش مصنوعی مثلِ نرم‌افزارِ معمولی، و بعد کشفِ اینکه هر پیش‌بینی چقدر خرج برمی‌دارد."
+      }
+    },
+    "transform": {
+      "part": "business",
+      "n": 5,
+      "name": {
+        "en": "AI Transformation and the PM Role",
+        "fa": "تحولِ هوش مصنوعی و نقشِ مدیرِ محصول"
+      },
+      "glabel": {
+        "en": "Transformation",
+        "fa": "تحولِ سازمانی"
+      },
+      "principle": {
+        "en": "Adopting AI changes how a company plans and governs, not only what it ships.",
+        "fa": "پذیرشِ هوش مصنوعی شیوهٔ برنامه‌ریزی و حکمرانیِ شرکت را عوض می‌کند، نه فقط چیزی را که عرضه می‌کند."
+      },
+      "more": {
+        "en": "The chapter looks first at what AI does to whole economic systems, then at what it does to one product team: a data scientist and a machine learning engineer join the table, the smallest useful version is a model you can only bound with a number, and governance stops being the legal team's private business. Bratsis spends time on healthcare and on AI for social good, where that governance question is sharpest.",
+        "fa": "این فصل اول به سراغِ اثرِ هوش مصنوعی بر کلِ نظام‌های اقتصادی می‌رود و بعد بر یک تیمِ محصول: یک دانشمندِ داده و یک مهندسِ یادگیری ماشین به میز اضافه می‌شوند، کوچک‌ترین نسخهٔ به‌دردبخور مدلی است که فقط با یک عدد می‌توانی محدودش کنی، و حکمرانی دیگر کارِ خصوصیِ واحدِ حقوقی نیست. براتسیس وقتِ ویژه‌ای برای حوزهٔ درمان و برای هوش مصنوعی در خدمتِ خیرِ عمومی می‌گذارد، جایی که همین پرسشِ حکمرانی از همه‌جا تیزتر است."
+      },
+      "example": {
+        "en": "\"Ninety percent precision by the end of the quarter\" is a commitment you can ship against. \"Smart search by the end of the quarter\" is not.",
+        "fa": "«دقتِ نود درصد تا پایانِ فصل» تعهدی است که می‌توانی بر مبنایش عرضه کنی. «جست‌وجوی هوشمند تا پایانِ فصل» نیست."
+      },
+      "tip": {
+        "en": "Replace one feature promise on your roadmap with a metric threshold and a date.",
+        "fa": "یک قولِ قابلیت در نقشهٔ راهت را با یک آستانهٔ سنجه و یک تاریخ عوض کن."
+      },
+      "pitfall": {
+        "en": "Running an AI project on a deterministic plan, then calling the model late when it is merely uncertain.",
+        "fa": "اجرای پروژهٔ هوش مصنوعی با برنامه‌ای قطعی، و بعد مدل را دیرکرده نامیدن در حالی که فقط نامطمئن است."
+      }
+    },
+    "native": {
+      "part": "business",
+      "n": 6,
+      "name": {
+        "en": "Understanding the AI-Native Product",
+        "fa": "شناختِ محصولِ بومیِ هوش مصنوعی"
+      },
+      "glabel": {
+        "en": "AI-Native",
+        "fa": "بومیِ هوش مصنوعی"
+      },
+      "principle": {
+        "en": "In an AI-native product the model is the value. Building one needs its own stages and its own team.",
+        "fa": "در محصولِ بومیِ هوش مصنوعی، مدل خودِ ارزش است. ساختنش مرحله‌های خودش و تیمِ خودش را می‌خواهد."
+      },
+      "more": {
+        "en": "Bratsis walks the stages of AI product development from ideation through to deployment, then describes the dream team each stage needs: product, data science, machine learning engineering, design and a domain expert. She is direct about the tech stack too — an AI-native product is an investment decision before it is a design decision.",
+        "fa": "براتسیس مرحله‌های ساختِ محصولِ هوش مصنوعی را از ایده‌پردازی تا استقرار مرور می‌کند و بعد «تیمِ رؤیایی» را توصیف می‌کند که هر مرحله لازم دارد: محصول، علمِ داده، مهندسیِ یادگیری ماشین، طراحی، و یک متخصصِ حوزه. دربارهٔ پشتهٔ فناوری هم صریح است — محصولِ بومیِ هوش مصنوعی پیش از آنکه تصمیمی طراحی باشد، تصمیمی سرمایه‌گذاری است."
+      },
+      "example": {
+        "en": "Turn off the ranking model in a feed product and you are left with a blank page, not a worse page.",
+        "fa": "مدلِ رتبه‌بندی را در یک محصولِ خوراکِ خبری خاموش کن، صفحهٔ خالی می‌ماند نه صفحهٔ بدتر."
+      },
+      "tip": {
+        "en": "Ask what your product does with the model switched off. The answer tells you which kind you have.",
+        "fa": "بپرس محصولت با مدلِ خاموش چه می‌کند. جواب می‌گوید کدام جنس را داری."
+      },
+      "pitfall": {
+        "en": "Calling a product AI-native because it has one AI feature.",
+        "fa": "محصولی را بومیِ هوش مصنوعی نامیدن چون یک قابلیتِ هوش مصنوعی دارد."
+      }
+    },
+    "productize": {
+      "part": "build",
+      "n": 7,
+      "name": {
+        "en": "Productising the ML Service",
+        "fa": "محصول‌کردنِ سرویسِ یادگیری ماشین"
+      },
+      "glabel": {
+        "en": "Productise",
+        "fa": "محصول‌کردن"
+      },
+      "principle": {
+        "en": "An ML service is not ordinary software: it returns probabilities, not answers, and is evaluated rather than simply tested.",
+        "fa": "سرویسِ یادگیری ماشین نرم‌افزارِ معمولی نیست: احتمال برمی‌گرداند، نه جواب؛ و به‌جای آزمونِ ساده، ارزیابی می‌شود."
+      },
+      "more": {
+        "en": "Bratsis lists what changes when you productise a model: the output is uncertain, the acceptance criteria are statistical, and you cannot write the spec without someone who knows the domain. Selling to businesses and selling to consumers then pull the same service in different directions, and both need a plan for what the user sees when the model is unsure.",
+        "fa": "براتسیس فهرست می‌کند وقتی مدلی را محصول می‌کنی چه چیزهایی عوض می‌شود: خروجی نامطمئن است، معیارِ پذیرش آماری است، و بدونِ کسی که حوزه را بشناسد نمی‌توانی سند را بنویسی. فروش به سازمان و فروش به مصرف‌کننده هم همین یک سرویس را به دو سمت می‌کشند، و هر دو به نقشه‌ای نیاز دارند برای اینکه کاربر وقتی مدل مطمئن نیست چه ببیند."
+      },
+      "example": {
+        "en": "A support classifier that routes low-confidence tickets to a person instead of guessing loudly.",
+        "fa": "دسته‌بندِ پشتیبانی که تیکت‌های کم‌اطمینان را به یک آدم می‌سپارد به‌جای اینکه با اعتمادِ الکی حدس بزند."
+      },
+      "tip": {
+        "en": "Design the low-confidence experience first. It is the one users will remember.",
+        "fa": "اول تجربهٔ کم‌اطمینان را طراحی کن. همان است که در ذهنِ کاربر می‌ماند."
+      },
+      "pitfall": {
+        "en": "Shipping a model with no fallback and letting the user absorb the error.",
+        "fa": "عرضهٔ مدل بدونِ راهِ جایگزین و انداختنِ بارِ خطا روی دوشِ کاربر."
+      }
+    },
+    "vertical": {
+      "part": "build",
+      "n": 8,
+      "name": {
+        "en": "Customisation for Verticals, Customers and Peer Groups",
+        "fa": "سفارشی‌سازی برای صنایع، مشتریان و گروه‌های همتا"
+      },
+      "glabel": {
+        "en": "Customisation",
+        "fa": "سفارشی‌سازی"
+      },
+      "principle": {
+        "en": "The same model performs differently in each industry, so each industry needs its own measure of success.",
+        "fa": "یک مدلِ واحد در هر صنعت عملکردِ متفاوتی دارد، پس هر صنعت سنجهٔ موفقیتِ خودش را می‌خواهد."
+      },
+      "more": {
+        "en": "Bratsis works through fintech, healthcare and cybersecurity to show how far one service has to bend. She ties customisation to goals: set objectives and key metrics per vertical rather than one global accuracy number, and use peer groups — customers who look like each other — as the benchmark. Thought leadership is her way in: in a new vertical you have to teach before you can sell.",
+        "fa": "براتسیس سه حوزه را می‌گردد — فناوریِ مالی، درمان، و امنیتِ سایبری — تا نشان دهد یک سرویسِ واحد تا کجا باید خم شود. سفارشی‌سازی را به هدف‌ها گره می‌زند: به‌جای یک عددِ دقتِ سراسری، برای هر صنعت هدف و سنجه‌های کلیدیِ خودش را بگذار، و از گروه‌های همتا — مشتریانی که شبیهِ هم‌اند — به‌عنوانِ معیار استفاده کن. راهِ ورودش هم آموزش است: در صنعتی تازه، پیش از فروش باید یاد بدهی."
+      },
+      "example": {
+        "en": "A model that is good enough for retail recommendations is nowhere near good enough for a clinical decision.",
+        "fa": "مدلی که برای پیشنهادِ کالا در خرده‌فروشی به‌اندازهٔ کافی خوب است، برای یک تصمیمِ بالینی اصلاً کافی نیست."
+      },
+      "tip": {
+        "en": "Give each vertical its own success metric before the first deal in it, not after.",
+        "fa": "برای هر صنعت، پیش از اولین قرارداد در آن، سنجهٔ موفقیتِ خودش را تعیین کن، نه بعدش."
+      },
+      "pitfall": {
+        "en": "Reporting one global accuracy number and hiding the vertical where the model fails.",
+        "fa": "گزارشِ یک عددِ دقتِ سراسری و پنهان‌کردنِ صنعتی که مدل در آن شکست می‌خورد."
+      }
+    },
+    "macromicro": {
+      "part": "build",
+      "n": 9,
+      "name": {
+        "en": "Macro and Micro AI",
+        "fa": "هوشِ کلان و هوشِ خرد"
+      },
+      "glabel": {
+        "en": "Macro & Micro",
+        "fa": "کلان و خرد"
+      },
+      "principle": {
+        "en": "Macro AI is the umbrella the whole product stands under. Micro AI is the same techniques applied at feature level.",
+        "fa": "هوشِ کلان چتری است که کلِ محصول زیرش ایستاده. هوشِ خرد همان تکنیک‌هاست در سطحِ یک قابلیت."
+      },
+      "more": {
+        "en": "Bratsis names the branches that sit under both: machine learning, computer vision, natural language processing, deep learning, robotics, expert systems and fuzzy logic. The branch does not fix the scale — the same technique can carry a whole product or quietly improve one field in a form. Macro AI justifies a research team; micro AI compounds, and is usually under-funded because it never gets a launch.",
+        "fa": "براتسیس شاخه‌هایی را که زیرِ هر دو می‌نشینند نام می‌برد: یادگیری ماشین، بینایی ماشین، پردازشِ زبانِ طبیعی، یادگیری عمیق، رباتیک، سامانه‌های خبره، و منطقِ فازی. شاخه تعیین‌کنندهٔ مقیاس نیست — یک تکنیکِ واحد می‌تواند کلِ محصول را روی دوش بگیرد یا بی‌سروصدا فقط یک فیلدِ فرم را بهتر کند. هوشِ کلان یک تیمِ تحقیق را توجیه می‌کند؛ هوشِ خرد روی هم انباشته می‌شود و معمولاً کم‌بودجه می‌ماند، چون هیچ‌وقت مراسمِ عرضه ندارد."
+      },
+      "example": {
+        "en": "Natural language processing is macro AI in a translation product, and micro AI when it just tidies up a search box.",
+        "fa": "پردازشِ زبانِ طبیعی در یک محصولِ ترجمه هوشِ کلان است، و وقتی فقط جعبهٔ جست‌وجو را مرتب می‌کند، هوشِ خرد."
+      },
+      "tip": {
+        "en": "List five places in your product where micro AI could remove a keystroke. Ship one.",
+        "fa": "پنج جا در محصولت بنویس که هوشِ خرد می‌تواند یک ضربهٔ کلید را حذف کند. یکی را عرضه کن."
+      },
+      "pitfall": {
+        "en": "Spending the whole AI budget on the headline model and none on the hundred small frictions.",
+        "fa": "خرج‌کردنِ کلِ بودجهٔ هوش مصنوعی روی مدلِ تیترِ اول و هیچ روی صد اصطکاکِ کوچک."
+      }
+    },
+    "benchmark": {
+      "part": "integrate",
+      "n": 10,
+      "name": {
+        "en": "Benchmarking, Growth and Cost",
+        "fa": "سنجش، رشد و هزینه"
+      },
+      "glabel": {
+        "en": "Benchmarks",
+        "fa": "سنجه‌ها"
+      },
+      "principle": {
+        "en": "Precision and recall are engineering scores. Someone still has to turn them into money, growth and trust.",
+        "fa": "دقت و فراخوانی نمره‌های مهندسی‌اند. باز هم یکی باید آن‌ها را به پول، رشد و اعتماد ترجمه کند."
+      },
+      "more": {
+        "en": "Bratsis puts three numbers side by side: how well the model performs, how fast the product grows, and what each prediction costs to serve. Product-led growth behaves differently here, because the model improves with use and the bill grows with it. The right threshold is a business decision dressed as a technical one.",
+        "fa": "براتسیس سه عدد را کنارِ هم می‌گذارد: مدل چقدر خوب کار می‌کند، محصول چقدر سریع رشد می‌کند، و هر پیش‌بینی چقدر خرج برمی‌دارد. رشدِ محصول‌محور اینجا جورِ دیگری رفتار می‌کند، چون مدل با استفاده بهتر می‌شود و صورت‌حساب هم با آن بالا می‌رود. آستانهٔ درست تصمیمی تجاری است که لباسِ فنی پوشیده."
+      },
+      "example": {
+        "en": "In fraud detection a missed case costs money. In medical triage a missed case costs far more.",
+        "fa": "در کشفِ تقلب، یک موردِ ازدست‌رفته هزینهٔ مالی دارد. در تریاژِ پزشکی، یک موردِ ازدست‌رفته هزینه‌ای به‌مراتب سنگین‌تر دارد."
+      },
+      "tip": {
+        "en": "Write down the cost of a false positive and a false negative in your product before you pick a threshold.",
+        "fa": "پیش از انتخابِ آستانه، هزینهٔ یک مثبتِ کاذب و یک منفیِ کاذب را در محصولت بنویس."
+      },
+      "pitfall": {
+        "en": "Reporting accuracy on an imbalanced dataset and calling it a win.",
+        "fa": "گزارشِ دقت روی مجموعه‌دادهٔ نامتوازن و برد نامیدنش."
+      }
+    },
+    "risingtide": {
+      "part": "integrate",
+      "n": 11,
+      "name": {
+        "en": "The Rising Tide: Teams, Trends and Ethical AI",
+        "fa": "موجِ فزاینده: تیم‌ها، روندها و هوش مصنوعیِ اخلاق‌مدار"
+      },
+      "glabel": {
+        "en": "Rising Tide",
+        "fa": "موجِ فزاینده"
+      },
+      "principle": {
+        "en": "AI is an industrial wave, not a feature cycle. It changes who you hire before it changes what you ship.",
+        "fa": "هوش مصنوعی یک موجِ صنعتی است، نه یک چرخهٔ قابلیت. پیش از آنکه محصولت را عوض کند، ترکیبِ آدم‌هایت را عوض می‌کند."
+      },
+      "more": {
+        "en": "Bratsis places AI in the Fourth Industrial Revolution and argues that fear is the wrong response: companies move from renting consultants to building their own AI teams, and the real risk is standing still. She then names where the tide is heading — embedded AI, ethical AI, creative AI and autonomous AI — drawing on adoption figures from Forrester, Gartner and McKinsey. Ethical AI is the one that bites late: responsibility and privacy in how you handle sensitive data.",
+        "fa": "براتسیس هوش مصنوعی را در دلِ انقلابِ صنعتیِ چهارم می‌نشاند و می‌گوید ترس جوابِ درستی نیست: شرکت‌ها از اجارهٔ مشاور به ساختنِ تیمِ هوش مصنوعیِ خودشان می‌رسند، و خطرِ اصلی در ایستادن است. بعد نام می‌برد که موج به کدام سو می‌رود — هوش مصنوعیِ توکار، اخلاق‌مدار، خلاق، و خودگردان — با تکیه بر آمارِ پذیرشِ فارستر، گارتنر و مک‌کینزی. آنکه دیر گاز می‌گیرد هوش مصنوعیِ اخلاق‌مدار است: مسئولیت و حریمِ خصوصی در برخورد با دادهٔ حساس."
+      },
+      "example": {
+        "en": "A hiring model trained on past hires learns who was hired before, not who is good at the job.",
+        "fa": "مدلِ استخدامی که روی استخدام‌های گذشته آموزش دیده، یاد می‌گیرد قبلاً چه کسی استخدام شده، نه اینکه چه کسی در آن کار خوب است."
+      },
+      "tip": {
+        "en": "Add one line to every AI spec: which group could this be worse for, and how would we find out?",
+        "fa": "به هر سندِ محصولِ هوش مصنوعی یک خط اضافه کن: این می‌تواند برای کدام گروه بدتر باشد، و از کجا می‌فهمیم؟"
+      },
+      "pitfall": {
+        "en": "Auditing for bias after launch, when the training data has already set the answer.",
+        "fa": "بازرسیِ سوگیری بعد از عرضه، وقتی دادهٔ آموزشی جواب را از پیش تعیین کرده."
+      }
+    },
+    "evolve": {
+      "part": "integrate",
+      "n": 12,
+      "name": {
+        "en": "Evolving Products into AI Products",
+        "fa": "تبدیلِ محصولِ موجود به محصولِ هوش مصنوعی"
+      },
+      "glabel": {
+        "en": "Evolve",
+        "fa": "تکامل"
+      },
+      "principle": {
+        "en": "Adding AI to an existing product starts with the data you already collect, not the model you admire.",
+        "fa": "افزودنِ هوش مصنوعی به محصولِ موجود از داده‌ای شروع می‌شود که همین حالا جمع می‌کنی، نه از مدلی که تحسینش می‌کنی."
+      },
+      "more": {
+        "en": "The closing chapter is a retrofit playbook: pick a strategy framework, prepare the data you already hold, and study what competitors have actually shipped rather than announced. Find the workflow where your data is deepest, add one narrow model there, and let it earn the next one.",
+        "fa": "فصلِ پایانی دستورالعملِ بازسازی است: یک چارچوبِ راهبردی انتخاب کن، داده‌ای را که همین حالا داری آماده کن، و ببین رقبا واقعاً چه چیزی عرضه کرده‌اند، نه چه چیزی اعلام کرده‌اند. جریانِ کاری‌ای را پیدا کن که دادهٔ تو در آن عمیق‌ترین است، یک مدلِ باریک آنجا بگذار، و بگذار همان مدل بعدی را توجیه کند."
+      },
+      "example": {
+        "en": "A logistics company with ten years of delivery times starts with arrival prediction, not with a chatbot.",
+        "fa": "شرکتِ لجستیکی با ده سال دادهٔ زمانِ تحویل، با پیش‌بینیِ زمانِ رسیدن شروع می‌کند، نه با یک چت‌بات."
+      },
+      "tip": {
+        "en": "Rank your existing datasets by depth. Your first AI feature lives on top of the deepest one.",
+        "fa": "مجموعه‌داده‌های موجودت را بر اساسِ عمق مرتب کن. اولین قابلیتِ هوش مصنوعی‌ات روی عمیق‌ترینشان می‌نشیند."
+      },
+      "pitfall": {
+        "en": "Copying the AI feature a competitor announced instead of the one your data can actually support.",
+        "fa": "کپی‌کردنِ قابلیتی که رقیب اعلام کرده، به‌جای قابلیتی که دادهٔ تو واقعاً از پسش برمی‌آید."
+      }
+    }
+  },
+  "core": {
+    "name": {
+      "en": "AI PRODUCT",
+      "fa": "محصولِ هوش مصنوعی"
+    },
+    "principle": {
+      "en": "AI is a means, not the product. The job is to know the pipeline well enough to say which problems deserve a model, and to design what happens when the model is wrong.",
+      "fa": "هوش مصنوعی وسیله است، نه محصول. کار این است که خطِ لوله را آن‌قدر بشناسی که بگویی کدام مسئله ارزشِ یک مدل را دارد، و طراحی کنی وقتی مدل اشتباه می‌کند چه بشود."
+    },
+    "more": {
+      "en": "Bratsis moves in four steps: learn the infrastructure, the model lifecycle and the maths well enough to plan with them; make the commercial case — which ocean you are in and which strategy wins it; build the AI-native product with its own stages, team, thresholds and customisation policy; then measure honestly, read where the industry is heading, and bring AI into a product that already has customers.",
+      "fa": "براتسیس در چهار گام حرکت می‌کند: زیرساخت، چرخهٔ عمرِ مدل و ریاضیاتش را آن‌قدر یاد بگیر که بتوانی با آن‌ها برنامه بریزی؛ توجیهِ تجاری را بساز — در کدام اقیانوسی و کدام راهبرد آن را می‌برد؛ محصولِ بومیِ هوش مصنوعی را با مرحله‌ها، تیم، آستانه‌ها و سیاستِ سفارشی‌سازیِ خودش بساز؛ بعد صادقانه بسنج، ببین صنعت به کدام سو می‌رود، و هوش مصنوعی را به محصولی بیاور که همین حالا مشتری دارد."
+    },
+    "example": {
+      "en": "Click any node to read a principle or a method. You can also drag the nodes around.",
+      "fa": "روی هر دایره کلیک کن تا یک اصل یا روش را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."
+    }
+  },
+  "stages": [
+    {
+      "level": 1,
+      "badge": {
+        "en": "Level 1 · Over-simplified",
+        "fa": "سطحِ ۱ · خیلی ساده"
+      },
+      "title": {
+        "en": "AI is a means, not the product",
+        "fa": "هوش مصنوعی وسیله است، نه محصول"
+      },
+      "tagline": {
+        "en": "The whole book in a sentence.",
+        "fa": "کلِ کتاب در یک جمله."
+      },
+      "body": {
+        "en": "Nobody buys a model. People buy a decision made faster or a task removed. Start from the job, then ask whether a model is the cheapest way to do it.",
+        "fa": "هیچ‌کس مدل نمی‌خرد. مردم تصمیمی سریع‌تر یا کاری حذف‌شده می‌خرند. از خودِ کار شروع کن، بعد بپرس آیا مدل ارزان‌ترین راهِ انجامش است."
+      },
+      "example": {
+        "en": "Not \"we added AI to search\" but \"people find the right document on the first try\".",
+        "fa": "نه «هوش مصنوعی را به جست‌وجو اضافه کردیم» بلکه «مردم سندِ درست را در اولین تلاش پیدا می‌کنند»."
+      },
+      "gain": {
+        "en": "You stop treating AI as a feature to be shipped.",
+        "fa": "دیگر هوش مصنوعی را قابلیتی برای عرضه‌کردن نمی‌دانی."
+      }
+    },
+    {
+      "level": 2,
+      "badge": {
+        "en": "Level 2 · Simple",
+        "fa": "سطحِ ۲ · ساده"
+      },
+      "title": {
+        "en": "Know the pipeline",
+        "fa": "خطِ لوله را بشناس"
+      },
+      "tagline": {
+        "en": "Data in, model, prediction out.",
+        "fa": "داده وارد می‌شود، مدل، پیش‌بینی بیرون می‌آید."
+      },
+      "body": {
+        "en": "Every AI product has the same spine: <b>data</b> collected and cleaned, a <b>model</b> trained on it, a <b>prediction</b> served back. Learn where each step lives in your company and who owns it. Almost every delay you will ever face comes from the first step.",
+        "fa": "هر محصولِ هوش مصنوعی همین ستونِ فقرات را دارد: <b>داده</b>ای که جمع و تمیز می‌شود، <b>مدلی</b> که رویش آموزش می‌بیند، <b>پیش‌بینی</b>ای که برمی‌گردد. یاد بگیر هر گام در شرکتِ تو کجاست و مالکش کیست. تقریباً هر تأخیری که تجربه کنی از گامِ اول می‌آید."
+      },
+      "example": {
+        "en": "Ask for one diagram from raw event to model output, and keep it on your desk.",
+        "fa": "یک نمودار از رویدادِ خام تا خروجیِ مدل بخواه و روی میزت نگهش دار."
+      },
+      "gain": {
+        "en": "You can plan with the engineering team instead of guessing at them.",
+        "fa": "می‌توانی با تیمِ مهندسی برنامه بریزی به‌جای حدس‌زدن دربارهٔ آن‌ها."
+      }
+    },
+    {
+      "level": 3,
+      "badge": {
+        "en": "Level 3 · Balanced",
+        "fa": "سطحِ ۳ · متعادل"
+      },
+      "title": {
+        "en": "Make the commercial case",
+        "fa": "توجیهِ تجاری را بساز"
+      },
+      "tagline": {
+        "en": "Which ocean, which strategy, at what cost.",
+        "fa": "کدام اقیانوس، کدام راهبرد، با چه هزینه‌ای."
+      },
+      "body": {
+        "en": "Decide whether you are a pioneer in a <b>blue ocean</b> nobody has entered or a rebel in a <b>red ocean</b> full of rivals, then pick a <b>dominant, disruptive or differentiated</b> strategy. Price it knowing that models <b>drift</b> and need refreshing, so the maintenance years are part of the cost, not a footnote.",
+        "fa": "تصمیم بگیر پیشگامی در <b>اقیانوسِ آبی</b> هستی که هنوز کسی واردش نشده، یا شورشی‌ای در <b>اقیانوسِ سرخِ</b> پر از رقیب؛ بعد یکی از سه راهبردِ <b>چیرگی، برهم‌زدن یا تمایز</b> را انتخاب کن. قیمت را با این آگاهی بگذار که مدل‌ها <b>رانش</b> می‌کنند و بازآموزی می‌خواهند، پس سال‌های نگهداری بخشی از هزینه‌اند، نه پانوشت."
+      },
+      "example": {
+        "en": "A fraud engine sold to banks is a red ocean. Pricing a market nobody has priced before is a blue one.",
+        "fa": "موتورِ کشفِ تقلب برای بانک‌ها اقیانوسِ سرخ است. قیمت‌گذاریِ بازاری که تا حالا کسی قیمت‌گذاری‌اش نکرده، اقیانوسِ آبی."
+      },
+      "gain": {
+        "en": "You can tell an AI investment that pays from one that only impresses.",
+        "fa": "می‌توانی سرمایه‌گذاریِ سودده در هوش مصنوعی را از سرمایه‌گذاریِ صرفاً تحسین‌برانگیز تشخیص دهی."
+      }
+    },
+    {
+      "level": 4,
+      "badge": {
+        "en": "Level 4 · Advanced",
+        "fa": "سطحِ ۴ · پیشرفته"
+      },
+      "title": {
+        "en": "Productise the model",
+        "fa": "مدل را محصول کن"
+      },
+      "tagline": {
+        "en": "Thresholds, fallbacks, and how far you customise.",
+        "fa": "آستانه‌ها، راه‌های جایگزین، و اینکه تا کجا سفارشی‌سازی می‌کنی."
+      },
+      "body": {
+        "en": "A model becomes a product at its edges. Set a <b>confidence threshold</b>, design what the user sees below it, and route the hard cases to a person. Give each vertical its own success metric before sales promises one, and split the budget between <b>macro AI</b>, the umbrella the product stands under, and <b>micro AI</b>, the same techniques at feature level.",
+        "fa": "مدل در حاشیه‌هایش محصول می‌شود. یک <b>آستانهٔ اطمینان</b> بگذار، طراحی کن کاربر زیرِ آن چه می‌بیند، و موردهای سخت را به یک آدم بسپار. پیش از آنکه فروش قولی بدهد، برای هر صنعت سنجهٔ موفقیتِ خودش را تعیین کن، و بودجه را بینِ <b>هوشِ کلان</b> — چتری که محصول زیرش ایستاده — و <b>هوشِ خرد</b> — همان تکنیک‌ها در سطحِ یک قابلیت — تقسیم کن."
+      },
+      "example": {
+        "en": "Low-confidence support tickets go to a person; autocomplete quietly saves a keystroke on every form.",
+        "fa": "تیکت‌های کم‌اطمینانِ پشتیبانی به یک آدم می‌روند؛ تکمیلِ خودکار بی‌سروصدا در هر فرم یک ضربهٔ کلید صرفه‌جویی می‌کند."
+      },
+      "gain": {
+        "en": "You can ship a model as a service people actually trust.",
+        "fa": "می‌توانی یک مدل را به‌شکلِ سرویسی عرضه کنی که مردم واقعاً به آن اعتماد کنند."
+      }
+    },
+    {
+      "level": 5,
+      "badge": {
+        "en": "Level 5 · Expert",
+        "fa": "سطحِ ۵ · حرفه‌ای"
+      },
+      "title": {
+        "en": "Measure, protect, retrofit",
+        "fa": "بسنج، محافظت کن، بازسازی کن"
+      },
+      "tagline": {
+        "en": "Honest metrics, responsible data, and AI in a product that already exists.",
+        "fa": "سنجهٔ صادقانه، دادهٔ مسئولانه، و هوش مصنوعی در محصولی که از قبل هست."
+      },
+      "body": {
+        "en": "Translate <b>precision and recall</b> into what a false positive and a false negative cost in your own product, then pick the threshold as a business decision. Write <b>ethical AI</b> into the spec before training — responsibility and privacy in how you handle sensitive data — because the training data sets the answer. Then retrofit: find the workflow where your <b>existing data is deepest</b>, add one narrow model there, and let it earn the next.",
+        "fa": "<b>دقت و فراخوانی</b> را به این ترجمه کن که یک مثبتِ کاذب و یک منفیِ کاذب در محصولِ خودت چقدر خرج دارند، بعد آستانه را به‌عنوانِ یک تصمیمِ تجاری انتخاب کن. <b>هوش مصنوعیِ اخلاق‌مدار</b> را پیش از آموزش در سند بنویس — مسئولیت و حریمِ خصوصی در برخورد با دادهٔ حساس — چون دادهٔ آموزشی جواب را از پیش تعیین می‌کند. بعد بازسازی کن: جریانِ کاری‌ای را پیدا کن که <b>دادهٔ موجودت در آن عمیق‌ترین</b> است، یک مدلِ باریک آنجا بگذار، و بگذار همان مدل بعدی را توجیه کند."
+      },
+      "example": {
+        "en": "A logistics team with ten years of delivery times ships arrival prediction first, and writes down what a wrong estimate costs the customer.",
+        "fa": "تیمِ لجستیکی با ده سال دادهٔ زمانِ تحویل، اول پیش‌بینیِ زمانِ رسیدن را عرضه می‌کند، و می‌نویسد یک تخمینِ غلط برای مشتری چقدر خرج دارد."
+      },
+      "gain": {
+        "en": "You can lead an AI roadmap that survives audit, cost review and reality.",
+        "fa": "می‌توانی نقشهٔ راهی برای هوش مصنوعی رهبری کنی که از بازرسی، بازبینیِ هزینه و واقعیت جان به در ببرد."
+      }
+    }
+  ],
+  "quotes": [
+    {
+      "en": "AI is a means to a product outcome, not the product itself.",
+      "fa": "هوش مصنوعی وسیله‌ای برای رسیدن به یک نتیجهٔ محصولی است، نه خودِ محصول."
+    },
+    {
+      "en": "A model that is never refreshed slowly drifts away from the world it was trained on.",
+      "fa": "مدلی که هرگز بازآموزی نمی‌شود، آرام‌آرام از دنیایی که رویش آموزش دیده فاصله می‌گیرد."
+    },
+    {
+      "en": "Know whether you are a pioneer in a blue ocean or a rebel in a red one.",
+      "fa": "بدان پیشگامی در اقیانوسِ آبی هستی یا شورشی‌ای در اقیانوسِ سرخ."
+    },
+    {
+      "en": "Macro AI is the umbrella the product stands under; micro AI is the same intelligence at feature level.",
+      "fa": "هوشِ کلان چتری است که محصول زیرش ایستاده؛ هوشِ خرد همان هوش است در سطحِ یک قابلیت."
+    },
+    {
+      "en": "Accuracy is an engineering score. The threshold is a business decision.",
+      "fa": "دقت نمرهٔ مهندسی است. آستانه تصمیمِ تجاری است."
+    },
+    {
+      "en": "Responsibility and privacy with sensitive data belong in the spec, not in the post-mortem.",
+      "fa": "مسئولیت و حریمِ خصوصی در برخورد با دادهٔ حساس، جایشان در سندِ محصول است، نه در گزارشِ پس از حادثه."
+    }
+  ],
+  "media": [
+    {
+      "kind": "img",
+      "url": "https://www.packtpub.com/en-us/product/the-ai-product-managers-handbook-9781804612934",
+      "src": {
+        "en": "packtpub.com · Publisher",
+        "fa": "packtpub.com · ناشر"
+      },
+      "title": {
+        "en": "The AI Product Manager's Handbook — publisher page",
+        "fa": "راهنمای مدیرِ محصولِ هوش مصنوعی — صفحهٔ ناشر"
+      },
+      "desc": {
+        "en": "The official page, with the full table of contents and a chapter-by-chapter outline.",
+        "fa": "صفحهٔ رسمی، همراه با فهرستِ کاملِ مطالب و خلاصهٔ فصل‌به‌فصل."
+      },
+      "bullets": {
+        "en": [
+          "The real chapter list, in order",
+          "Editions and formats",
+          "Straight from the source"
+        ],
+        "fa": [
+          "فهرستِ واقعیِ فصل‌ها، به ترتیب",
+          "نسخه‌ها و قالب‌ها",
+          "مستقیم از منبع"
+        ]
+      },
+      "best": {
+        "en": "For the structure and the editions.",
+        "fa": "برای ساختار و نسخه‌ها."
+      }
+    },
+    {
+      "kind": "img",
+      "url": "https://www.oreilly.com/library/view/the-ai-product/9781804612934/",
+      "src": {
+        "en": "O'Reilly · Full text",
+        "fa": "O'Reilly · متنِ کامل"
+      },
+      "title": {
+        "en": "Read the book on O'Reilly",
+        "fa": "خواندنِ کتاب در O'Reilly"
+      },
+      "desc": {
+        "en": "The complete text with a searchable table of contents, for subscribers.",
+        "fa": "متنِ کامل با فهرستِ قابلِ‌جست‌وجو، برای مشترکان."
+      },
+      "bullets": {
+        "en": [
+          "Every chapter in order",
+          "Search inside the text",
+          "Good for one specific question"
+        ],
+        "fa": [
+          "همهٔ فصل‌ها به ترتیب",
+          "جست‌وجو در خودِ متن",
+          "خوب برای یک پرسشِ مشخص"
+        ]
+      },
+      "best": {
+        "en": "Best for Stage 3–5.",
+        "fa": "خوب برای مرحلهٔ ۳ تا ۵."
+      }
+    }
+  ],
+  "go": [
+    {
+      "label": {
+        "en": "Publisher's page",
+        "fa": "صفحهٔ ناشر"
+      },
+      "url": "https://www.packtpub.com/en-us/product/the-ai-product-managers-handbook-9781804612934"
+    },
+    {
+      "label": {
+        "en": "Read on O'Reilly",
+        "fa": "خواندن در O'Reilly"
+      },
+      "url": "https://www.oreilly.com/library/view/the-ai-product/9781804612934/"
+    },
+    {
+      "label": {
+        "en": "Book on Goodreads",
+        "fa": "کتاب در گودریدز"
+      },
+      "url": "https://www.goodreads.com/book/show/123257721-the-ai-product-manager-s-handbook"
+    }
+  ],
+  "recs": [
+    {
+      "pri": "b",
+      "t": {
+        "en": "Draw your pipeline on one page",
+        "fa": "خطِ لوله‌ات را در یک صفحه بکش"
+      },
+      "d": {
+        "en": "Raw event to model output, with a named owner at every step. Keep it where you plan.",
+        "fa": "از رویدادِ خام تا خروجیِ مدل، با یک مسئولِ مشخص در هر گام. جایی نگهش دار که برنامه می‌ریزی."
+      }
+    },
+    {
+      "pri": "b",
+      "t": {
+        "en": "Replace one feature promise with a threshold",
+        "fa": "یک قولِ قابلیت را با یک آستانه عوض کن"
+      },
+      "d": {
+        "en": "Swap \"smart search this quarter\" for a precision number and a date you will not ship below.",
+        "fa": "به‌جای «جست‌وجوی هوشمند در این فصل»، یک عددِ دقت و تاریخی بگذار که زیرش عرضه نمی‌کنی."
+      }
+    },
+    {
+      "pri": "n",
+      "t": {
+        "en": "Design the wrong-answer experience",
+        "fa": "تجربهٔ جوابِ غلط را طراحی کن"
+      },
+      "d": {
+        "en": "Take your least confident flow and decide what the user sees when the model is unsure.",
+        "fa": "کم‌اطمینان‌ترین مسیرت را بردار و تصمیم بگیر وقتی مدل مطمئن نیست کاربر چه ببیند."
+      }
+    },
+    {
+      "pri": "n",
+      "t": {
+        "en": "Rank your datasets by depth",
+        "fa": "مجموعه‌داده‌هایت را بر اساسِ عمق مرتب کن"
+      },
+      "d": {
+        "en": "Your next AI feature belongs on top of the data you have been collecting longest.",
+        "fa": "قابلیتِ بعدیِ هوش مصنوعی‌ات روی داده‌ای می‌نشیند که از همه بیشتر و طولانی‌تر جمعش کرده‌ای."
+      }
+    }
+  ]
+});
+</script>
+</body>
+</html>

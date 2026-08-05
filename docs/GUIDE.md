@@ -37,7 +37,7 @@ You never touch `assets/book.css` or `assets/book.js` to edit a book.
 
 ## 3. Change the look or behavior of ALL books
 
-Because the 45 pages share the same runtime, edit once:
+Because the 59 pages share the same runtime, edit once:
 
 - **Styles** → `assets/book.css`
 - **Rendering / interactions / nav / masthead** → `assets/book.js`

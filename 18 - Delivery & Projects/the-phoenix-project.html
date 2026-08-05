@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<!-- Generated page. Edit CONTENT in the DATA object below; shared UI lives in ../assets/book.css + ../assets/book.js -->
+<html lang="en" dir="ltr" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Phoenix Project — نقشهٔ دانش و یادگیری ۵ مرحله‌ای</title>
+
+<!-- Boot theme + language BEFORE paint to avoid a flash (shared library-wide keys) -->
+<script>
+(function(){
+  try{
+    var th = localStorage.getItem('pbl-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
+    document.documentElement.setAttribute('data-theme', th);
+  }catch(e){ document.documentElement.setAttribute('data-theme','light'); }
+  try{
+    var lg = localStorage.getItem('pbl-lang') || 'en';
+    document.documentElement.setAttribute('data-lang', lg);
+    document.documentElement.setAttribute('lang', lg);
+    document.documentElement.setAttribute('dir', lg==='fa' ? 'rtl' : 'ltr');
+  }catch(e){}
+})();
+</script>
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Newsreader:ital,opsz,wght@0,6..72,200..700;1,6..72,200..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/book.css">
+</head>
+<body>
+<div id="app"></div>
+
+<script src="../assets/library.js"></script>
+<script src="../assets/book.js"></script>
+<script>
+/* ── CONTENT — everything unique to this book lives here ── */
+Book.mount({
+  "meta": {
+    "slug": "the-phoenix-project",
+    "folder": "18 - Delivery & Projects",
+    "groupNum": 18,
+    "group": {
+      "en": "Delivery & Projects",
+      "fa": "تحویل و پروژه"
+    },
+    "author": {
+      "en": "Gene Kim, Kevin Behr & George Spafford",
+      "fa": "جین کیم، کوین بر و جورج اسپافورد"
+    },
+    "eyebrow_author": {
+      "en": "Gene Kim, Kevin Behr & George Spafford",
+      "fa": "جین کیم، کوین بر و جورج اسپافورد"
+    },
+    "book": {
+      "en": "The Phoenix Project",
+      "fa": "پروژهٔ ققنوس"
+    },
+    "hero_title": {
+      "en": "The Phoenix Project — A Novel About IT, DevOps, and Helping Your Business Win",
+      "fa": "پروژهٔ ققنوس — رمانی دربارهٔ آی‌تی، دوآپس و کمک به بردِ کسب‌وکار"
+    },
+    "dek": {
+      "en": "A knowledge graph of the whole book, plus a 5-stage path from a single idea to expert-level mastery — with an example at every step.",
+      "fa": "نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از خیلی ساده تا حرفه‌ای — با یک مثال در هر مرحله."
+    },
+    "published": {
+      "en": "2013",
+      "fa": "۲۰۱۳"
+    },
+    "chips": [
+      {
+        "v": {
+          "en": "4",
+          "fa": "۴"
+        },
+        "l": {
+          "en": "Parts",
+          "fa": "بخش"
+        }
+      },
+      {
+        "v": {
+          "en": "12",
+          "fa": "۱۲"
+        },
+        "l": {
+          "en": "Ideas",
+          "fa": "ایده"
+        }
+      },
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Learning stages",
+          "fa": "مرحلهٔ یادگیری"
+        }
+      }
+    ],
+    "kboxes": [
+      {
+        "v": {
+          "en": "4",
+          "fa": "۴"
+        },
+        "l": {
+          "en": "Parts (everything on fire · see the work · the constraint · the three ways)",
+          "fa": "بخش (همه‌چیز در آتش · دیدنِ کار · گلوگاه · سه مسیر)"
+        }
+      },
+      {
+        "v": {
+          "en": "12",
+          "fa": "۱۲"
+        },
+        "l": {
+          "en": "Ideas you can use",
+          "fa": "ایده برای استفاده"
+        }
+      },
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Levels, simple → expert",
+          "fa": "مرحله، ساده تا حرفه‌ای"
+        }
+      },
+      {
+        "v": {
+          "en": "3",
+          "fa": "۳"
+        },
+        "l": {
+          "en": "Ways: flow · feedback · learning",
+          "fa": "مسیر: جریان · بازخورد · یادگیری"
+        }
+      }
+    ],
+    "core_callout": {
+      "label": {
+        "en": "The core idea:",
+        "fa": "ایدهٔ اصلی:"
+      },
+      "en": " IT work obeys the same laws as factory work. Until you can see every kind of work in flight, find the one resource everything waits on, and release new work only at the pace that resource can absorb, more effort just makes the queue longer. The way out is <i>flow</i>, <i>feedback</i> and <i>continual learning</i>.",
+      "fa": " کارِ آی‌تی از همان قانون‌هایی پیروی می‌کند که کارِ کارخانه. تا وقتی نتوانی همهٔ کارهای در جریان را ببینی، آن یک منبعی را که همه منتظرش هستند پیدا کنی، و کارِ تازه را فقط به‌اندازه‌ای وارد سیستم کنی که آن منبع بتواند تمامش کند، تلاشِ بیشتر فقط صف را بلندتر می‌کند. راهِ بیرون‌رفت <i>جریان</i>، <i>بازخورد</i> و <i>یادگیریِ پیوسته</i> است."
+    },
+    "flow_callout": {
+      "label": {
+        "en": "Read it as a flow:",
+        "fa": "به‌صورتِ یک جریان بخوانش:"
+      },
+      "en": " watch <b>unplanned work</b> eat a company alive, name the <b>four types of work</b> and put every change on a visible board, protect the one <b>constraint</b> everything queues behind, then build the <b>three ways</b> — flow, feedback, and continual learning.",
+      "fa": " ببین <b>کارِ برنامه‌ریزی‌نشده</b> چطور یک شرکت را می‌بلعد، <b>چهار نوع کار</b> را نام ببر و هر تغییر را روی تخته‌ای دیدنی بگذار، از تنها <b>گلوگاهی</b> که همه پشتش صف بسته‌اند محافظت کن، بعد <b>سه مسیر</b> را بساز: جریان، بازخورد و یادگیریِ پیوسته."
+    }
+  },
+  "method": {
+    "en": "<p><b>Source:</b> the novel <i>The Phoenix Project</i> by Gene Kim, Kevin Behr and George Spafford, first published in 2013 by IT Revolution.</p><p><b>How this was built:</b> the novel runs to thirty-five chapters in three parts, told as a story rather than as a framework, so its ideas were regrouped into four thematic movements that follow Bill Palmer's year and then rewritten in plain language.</p><p><b>Group:</b> Delivery &amp; Projects.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>",
+    "fa": "<p><b>منبع:</b> رمانِ «پروژهٔ ققنوس» نوشتهٔ جین کیم، کوین بر و جورج اسپافورد، چاپِ نخست ۲۰۱۳ از انتشاراتِ آی‌تی رِوُلوشن.</p><p><b>روشِ کار:</b> رمان ۳۵ فصل دارد که در سه بخش چیده شده و به‌جای چارچوب، داستان تعریف می‌کند؛ پس ایده‌هایش در چهار حرکتِ موضوعی که سالِ کاریِ بیل پالمر را دنبال می‌کنند دوباره گروه‌بندی و ساده‌نویسی شده است.</p><p><b>گروه:</b> تحویل و پروژه.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب.</p>"
+  },
+  "flow": {
+    "en": [
+      "Flow",
+      "Feedback",
+      "Learning"
+    ],
+    "fa": [
+      "جریان",
+      "بازخورد",
+      "یادگیری"
+    ]
+  },
+  "graph": {
+    "R2": 132,
+    "span": 70
+  },
+  "tldr": [
+    {
+      "en": "The whole book in one line: unplanned work destroys planned work, and everything else in the book is a way to make less of it.",
+      "fa": "خلاصهٔ کلِ کتاب در یک جمله: کارِ برنامه‌ریزی‌نشده کارِ برنامه‌ریزی‌شده را نابود می‌کند، و بقیهٔ کتاب راه‌هایی است برای کم‌کردنِ آن."
+    },
+    {
+      "en": "There are only four types of work: business projects, internal IT projects, changes, and unplanned work. Most teams have never written all four down.",
+      "fa": "فقط چهار نوع کار وجود دارد: پروژه‌های کسب‌وکار، پروژه‌های داخلیِ آی‌تی، تغییرها، و کارِ برنامه‌ریزی‌نشده. بیشترِ تیم‌ها هیچ‌وقت هر چهارتا را ننوشته‌اند."
+    },
+    {
+      "en": "Every system has one constraint. An hour lost there is an hour lost for the whole company; an hour saved anywhere else is a mirage.",
+      "fa": "هر سیستمی یک گلوگاه دارد. یک ساعت که آنجا از دست برود، یک ساعت از کلِ شرکت رفته است؛ یک ساعت صرفه‌جویی در هر جای دیگر سراب است."
+    },
+    {
+      "en": "Pushing more work into a system that is already full does not make it faster. Erik calls work in process the silent killer: limit it and the queue starts to move.",
+      "fa": "ریختنِ کارِ بیشتر در سیستمی که پر است سرعتش را زیاد نمی‌کند. اریک کارِ در جریان را «قاتلِ خاموش» می‌نامد: محدودش کن تا صف راه بیفتد."
+    },
+    {
+      "en": "The three ways: build flow from development to the customer, make feedback travel back just as fast, and turn experiment and practice into daily work.",
+      "fa": "سه مسیر: جریان را از توسعه تا مشتری بساز، کاری کن بازخورد به همان سرعت برگردد، و آزمایش و تمرین را به کارِ روزانه تبدیل کن."
+    }
+  ],
+  "parts": [
+    {
+      "key": "fire",
+      "varc": "--c-teal",
+      "name": {
+        "en": "Everything Is on Fire",
+        "fa": "همه‌چیز در آتش است"
+      },
+      "tag": {
+        "en": "The problem",
+        "fa": "مسئله"
+      },
+      "gist": {
+        "en": "A company where every day is a firefight, and one engineer is the whole fire brigade.",
+        "fa": "شرکتی که هر روزش اطفای حریق است، و یک مهندس تمامِ آتش‌نشانی."
+      },
+      "more": {
+        "en": "Bill Palmer inherits IT operations at Parts Unlimited on the day payroll fails. Projects are late, audit findings are piling up, and nobody can say what the team is actually working on. The damage is not one outage. It is that unplanned work has crowded out everything that was planned.",
+        "fa": "بیل پالمر همان روزی مسئولِ عملیاتِ آی‌تیِ پارتس‌آنلیمیتد می‌شود که حقوق‌ودستمزد از کار می‌افتد. پروژه‌ها عقب‌اند، یافته‌های حسابرسی روی هم تلنبار شده، و هیچ‌کس نمی‌تواند بگوید تیم واقعاً روی چه کار می‌کند. آسیبِ اصلی یک قطعی نیست. این است که کارِ برنامه‌ریزی‌نشده جای هر کارِ برنامه‌ریزی‌شده را گرفته است."
+      },
+      "chapters": [
+        "stakes",
+        "unplanned",
+        "brent"
+      ]
+    },
+    {
+      "key": "seework",
+      "varc": "--c-blue",
+      "name": {
+        "en": "See the Work",
+        "fa": "کار را ببین"
+      },
+      "tag": {
+        "en": "Make it visible",
+        "fa": "دیدنی‌اش کن"
+      },
+      "gist": {
+        "en": "You cannot manage work you cannot name, count, or watch move.",
+        "fa": "کاری را که نمی‌توانی نام ببری، بشماری و حرکتش را ببینی، نمی‌توانی مدیریت کنی."
+      },
+      "more": {
+        "en": "Erik Reid takes Bill up onto the catwalk of the company's own plant and shows him a work centre: a machine, a person, a method and a measure. Back at the office the same discipline applies: name the four types of work, put every change on a card on the wall, and stop pushing more in than the system can finish.",
+        "fa": "اریک رید بیل را روی پلِ بالای سالنِ کارخانهٔ خودِ شرکت می‌برد و یک ایستگاهِ کاری نشانش می‌دهد: یک ماشین، یک آدم، یک روش و یک معیار. در دفتر هم همان انضباط جواب می‌دهد: چهار نوع کار را نام ببر، هر تغییر را روی یک کارت به دیوار بزن، و بیشتر از آنچه سیستم می‌تواند تمام کند به آن کار نده."
+      },
+      "chapters": [
+        "fourtypes",
+        "changes",
+        "wip"
+      ]
+    },
+    {
+      "key": "constraint",
+      "varc": "--c-violet",
+      "name": {
+        "en": "The Constraint",
+        "fa": "گلوگاه"
+      },
+      "tag": {
+        "en": "Theory of constraints",
+        "fa": "نظریهٔ محدودیت‌ها"
+      },
+      "gist": {
+        "en": "Find the one place the whole company waits, then organise everything around it.",
+        "fa": "همان یک جایی را پیدا کن که کلِ شرکت منتظرش است، بعد همه‌چیز را دورِ آن بچین."
+      },
+      "more": {
+        "en": "In this story the constraint has a name: Brent. Improvements made anywhere except the constraint are illusions — they look like progress on a dashboard and move no delivery date at all. The work is to protect the constraint, feed it only what deserves it, and slowly take work off it.",
+        "fa": "در این داستان گلوگاه اسم دارد: برنت. هر بهبودی جز در گلوگاه توهم است — روی داشبورد شبیهِ پیشرفت است و هیچ تاریخِ تحویلی را جابه‌جا نمی‌کند. کار این است که از گلوگاه محافظت کنی، فقط کاری را به آن بدهی که ارزشش را دارد، و کم‌کم بار را از رویش برداری."
+      },
+      "chapters": [
+        "bottleneck",
+        "subordinate",
+        "elevate"
+      ]
+    },
+    {
+      "key": "ways",
+      "varc": "--c-amber",
+      "name": {
+        "en": "The Three Ways",
+        "fa": "سه مسیر"
+      },
+      "tag": {
+        "en": "The way out",
+        "fa": "راهِ بیرون‌رفت"
+      },
+      "gist": {
+        "en": "Flow, feedback, and a culture that keeps practising.",
+        "fa": "جریان، بازخورد، و فرهنگی که تمرین را رها نمی‌کند."
+      },
+      "more": {
+        "en": "The three ways are the principles underneath everything Bill does. Build fast flow from development through operations to the customer. Make feedback travel back just as fast, so defects get fixed where they are made. Then make experiment and repetition part of daily work, because mastery comes from practice.",
+        "fa": "سه مسیر همان اصولی‌اند که زیرِ هر کاری هستند که بیل می‌کند. جریانِ سریع را از توسعه به عملیات و مشتری بساز. کاری کن بازخورد به همان سرعت برگردد تا خطا همان‌جا که ساخته می‌شود حل شود. بعد آزمایش و تکرار را بخشی از کارِ روزانه کن، چون تسلط از تمرین می‌آید."
+      },
+      "chapters": [
+        "flow",
+        "feedback",
+        "learning"
+      ]
+    }
+  ],
+  "chapters": {
+    "stakes": {
+      "part": "fire",
+      "n": 1,
+      "name": {
+        "en": "When IT Breaks, the Business Breaks",
+        "fa": "وقتی آی‌تی می‌شکند، کسب‌وکار می‌شکند"
+      },
+      "glabel": {
+        "en": "Business stakes",
+        "fa": "اثر بر کسب‌وکار"
+      },
+      "principle": {
+        "en": "IT is not a department that supports the business. On the day payroll fails, IT is the business.",
+        "fa": "آی‌تی دپارتمانی نیست که از کسب‌وکار پشتیبانی کند. روزی که حقوق پرداخت نشود، آی‌تی خودِ کسب‌وکار است."
+      },
+      "more": {
+        "en": "Bill's first crisis is a payroll run in which the records of every hourly factory worker come back empty. The cause is a change John Pesche's security team pushed into the timekeeping application, outside any window, because auditors were arriving in a week. Erik later forces the harder question: name the company's top business goals, then name the systems each one silently depends on. Most IT leaders cannot.",
+        "fa": "اولین بحرانِ بیل اجرای حقوق‌ودستمزدی است که در آن داده‌های همهٔ کارگرانِ ساعتیِ کارخانه خالی برمی‌گردد. علتش تغییری است که تیمِ امنیتِ جان پِشِه بیرون از هر بازهٔ مجازِ تغییر روی سامانهٔ ثبتِ ساعتِ کار گذاشته، چون تا یک هفتهٔ دیگر حسابرس‌ها می‌رسیدند. بعدتر اریک پرسشِ سخت‌تر را جلو می‌گذارد: مهم‌ترین هدف‌های کسب‌وکار را نام ببر، بعد سامانه‌هایی را که هرکدام بی‌سروصدا به آن‌ها وابسته است. بیشترِ مدیرانِ آی‌تی نمی‌توانند."
+      },
+      "example": {
+        "en": "A security change made to hide social security numbers corrupts the timekeeping data that payroll depends on.",
+        "fa": "تغییری امنیتی برای پنهان‌کردنِ شمارهٔ تأمینِ اجتماعی، همان داده‌های ساعتِ کاری را خراب می‌کند که پرداختِ حقوق به آن وابسته است."
+      },
+      "tip": {
+        "en": "Write down the company's five most important business goals, then list the systems each one depends on.",
+        "fa": "پنج هدفِ مهمِ کسب‌وکار را بنویس، بعد برای هرکدام سامانه‌هایی را فهرست کن که به آن‌ها وابسته است."
+      },
+      "pitfall": {
+        "en": "Reporting uptime to a business that wanted to hear about orders shipped.",
+        "fa": "گزارشِ درصدِ در دسترس‌بودن به کسب‌وکاری که می‌خواست دربارهٔ سفارش‌های ارسال‌شده بشنود."
+      }
+    },
+    "unplanned": {
+      "part": "fire",
+      "n": 2,
+      "name": {
+        "en": "Unplanned Work Eats Planned Work",
+        "fa": "کارِ برنامه‌ریزی‌نشده، کارِ برنامه‌ریزی‌شده را می‌خورد"
+      },
+      "glabel": {
+        "en": "Unplanned work",
+        "fa": "کارِ بی‌برنامه"
+      },
+      "principle": {
+        "en": "Unplanned work is not really work. It is what stops you doing work, and it is paid for out of the same hours as everything you already promised.",
+        "fa": "کارِ برنامه‌ریزی‌نشده واقعاً کار نیست. چیزی است که نمی‌گذارد کار کنی، و از همان ساعت‌هایی برداشته می‌شود که برای کارهای قول‌داده‌شده کنار گذاشته‌ای."
+      },
+      "more": {
+        "en": "Firefighting feels productive because it is urgent and visible. But every hour of it is taken from a promise already made, which is why the same teams miss the same dates every quarter. The book's other name for it is recovery work: nobody budgets for it, and everybody pays for it.",
+        "fa": "اطفای حریق حسِ بهره‌وری می‌دهد چون فوری و دیدنی است. اما هر ساعتش از قولی که قبلاً داده شده برداشته می‌شود، و برای همین است که همان تیم‌ها هر فصل همان تاریخ‌ها را از دست می‌دهند. اسمِ دیگری که کتاب برایش می‌گذارد «کارِ جبرانی» است: هیچ‌کس برایش بودجه نمی‌بندد و همه هزینه‌اش را می‌دهند."
+      },
+      "example": {
+        "en": "A team promises Phoenix work for Friday, then spends the week on a failed backup and an audit finding.",
+        "fa": "تیمی برای جمعه کارِ ققنوس قول می‌دهد، بعد تمامِ هفته را صرفِ یک پشتیبان‌گیریِ شکست‌خورده و یک یافتهٔ حسابرسی می‌کند."
+      },
+      "tip": {
+        "en": "Track interruptions for one week. Put those hours next to the commitment you missed.",
+        "fa": "یک هفته وقفه‌ها را ثبت کن. آن ساعت‌ها را کنارِ تعهدی بگذار که از دست دادی."
+      },
+      "pitfall": {
+        "en": "Rewarding heroics, which guarantees more fires to be heroic about.",
+        "fa": "پاداش‌دادن به قهرمان‌بازی، که تضمین می‌کند آتشِ بیشتری برای قهرمان‌شدن باشد."
+      }
+    },
+    "brent": {
+      "part": "fire",
+      "n": 3,
+      "name": {
+        "en": "Everything Runs Through Brent",
+        "fa": "همه‌چیز از برنت می‌گذرد"
+      },
+      "glabel": {
+        "en": "Brent",
+        "fa": "برنت"
+      },
+      "principle": {
+        "en": "When one engineer is the only person who knows how things really work, that person becomes a queue, not an asset.",
+        "fa": "وقتی فقط یک مهندس می‌داند همه‌چیز واقعاً چطور کار می‌کند، آن آدم به یک صف تبدیل می‌شود، نه یک دارایی."
+      },
+      "more": {
+        "en": "Brent Geller is capable, willing and everywhere. Every escalation, every project and every outage finds him, so nothing finishes without him and he never has ten quiet minutes to write anything down. The heroism is real, and it is exactly what keeps the company stuck.",
+        "fa": "برنت گلر توانا، مشتاق و همه‌جا حاضر است. هر ارجاع، هر پروژه و هر قطعی سراغِ او می‌آید، پس هیچ‌چیز بدونِ او تمام نمی‌شود و او هیچ‌وقت ده دقیقهٔ آرام ندارد که چیزی بنویسد. این قهرمانی واقعی است، و دقیقاً همان چیزی است که شرکت را زمین‌گیر کرده."
+      },
+      "example": {
+        "en": "Three critical projects and one outage all wait on the same person in the same afternoon.",
+        "fa": "سه پروژهٔ حیاتی و یک قطعی، همه در یک بعدازظهر منتظرِ یک نفرند."
+      },
+      "tip": {
+        "en": "For one week, log who each escalation ended up with. The name that repeats is your constraint.",
+        "fa": "یک هفته ثبت کن هر ارجاع دستِ آخر به چه کسی رسید. نامی که تکرار می‌شود، گلوگاهِ توست."
+      },
+      "pitfall": {
+        "en": "Treating the dependency as a talent story rather than a design flaw.",
+        "fa": "این وابستگی را داستانِ استعداد دیدن، نه یک ایرادِ طراحی."
+      }
+    },
+    "fourtypes": {
+      "part": "seework",
+      "n": 4,
+      "name": {
+        "en": "The Four Types of Work",
+        "fa": "چهار نوع کار"
+      },
+      "glabel": {
+        "en": "Four types",
+        "fa": "چهار نوع"
+      },
+      "principle": {
+        "en": "Business projects, internal IT projects, changes, and unplanned work. If you cannot see all four, you are managing a fraction of your capacity.",
+        "fa": "پروژه‌های کسب‌وکار، پروژه‌های داخلیِ آی‌تی، تغییرها، و کارِ برنامه‌ریزی‌نشده. اگر هر چهارتا را نبینی، فقط بخشی از ظرفیتت را مدیریت می‌کنی."
+      },
+      "more": {
+        "en": "The first three are usually recorded somewhere. The fourth is invisible, and it is the one that consumes the others. Putting all four on a single list is the first honest capacity conversation most IT teams ever have.",
+        "fa": "سه‌تای اول معمولاً جایی ثبت شده‌اند. چهارمی نامرئی است و همان است که بقیه را می‌بلعد. گذاشتنِ هر چهارتا در یک فهرست، اولین گفت‌وگوی صادقانه دربارهٔ ظرفیت است که بیشترِ تیم‌های آی‌تی تجربه می‌کنند."
+      },
+      "example": {
+        "en": "The roadmap shows twenty projects; the team's real week was eleven changes and two days of firefighting.",
+        "fa": "نقشهٔ راه بیست پروژه نشان می‌دهد؛ هفتهٔ واقعیِ تیم یازده تغییر بود و دو روز اطفای حریق."
+      },
+      "tip": {
+        "en": "Sort last month's work into the four buckets before you promise anything for next month.",
+        "fa": "کارِ ماهِ گذشته را در همین چهار سطل بریز، پیش از آنکه برای ماهِ بعد قولی بدهی."
+      },
+      "pitfall": {
+        "en": "Counting only the work that has a project code.",
+        "fa": "شمردنِ فقط کاری که کدِ پروژه دارد."
+      }
+    },
+    "changes": {
+      "part": "seework",
+      "n": 5,
+      "name": {
+        "en": "Change Management on Index Cards",
+        "fa": "مدیریتِ تغییر با کارت‌های مقوایی"
+      },
+      "glabel": {
+        "en": "Changes",
+        "fa": "تغییرها"
+      },
+      "principle": {
+        "en": "Every change goes on a card on a wall. Routine ones are simply announced; risky ones are scheduled around the systems that break most often.",
+        "fa": "هر تغییر روی یک کارت می‌رود روی دیوار. تغییرِ روزمره فقط اعلام می‌شود؛ تغییرِ پرریسک دورِ سامانه‌هایی زمان‌بندی می‌شود که بیشتر از همه خراب می‌شوند."
+      },
+      "more": {
+        "en": "Patty McKee's change board starts as a ritual nobody trusts and becomes the most useful map in the building. Once changes are visible, outages stop being mysteries: the first question after any incident is what changed, and now there is an answer.",
+        "fa": "تختهٔ تغییرِ پتی مک‌کی به‌عنوانِ آیینی شروع می‌شود که کسی باورش ندارد و به مفیدترین نقشهٔ ساختمان تبدیل می‌شود. وقتی تغییرها دیدنی شدند، قطعی‌ها دیگر معما نیستند: اولین پرسش بعد از هر حادثه این است که چه چیزی عوض شد، و حالا جوابی هست."
+      },
+      "example": {
+        "en": "The team marks its most fragile systems and refuses to stack several changes on them in the same window.",
+        "fa": "تیم شکننده‌ترین سامانه‌هایش را علامت می‌زند و اجازه نمی‌دهد چند تغییر در یک بازه رویشان انباشته شود."
+      },
+      "tip": {
+        "en": "Ask for one line per change: what, when, and which system it touches. Nothing more, at first.",
+        "fa": "برای هر تغییر یک خط بخواه: چه، کِی، و روی کدام سامانه. اول‌ها بیشتر از این نه."
+      },
+      "pitfall": {
+        "en": "A change process so heavy that people route around it, which is where the payroll outage came from.",
+        "fa": "فرایندِ تغییری آن‌قدر سنگین که آدم‌ها دورش می‌زنند — دقیقاً همان‌جایی که قطعیِ حقوق از آن آمد."
+      }
+    },
+    "wip": {
+      "part": "seework",
+      "n": 6,
+      "name": {
+        "en": "Work in Process, the Silent Killer",
+        "fa": "کارِ در جریان، قاتلِ خاموش"
+      },
+      "glabel": {
+        "en": "WIP limits",
+        "fa": "کارِ در جریان"
+      },
+      "principle": {
+        "en": "Putting work into a system faster than it can finish work makes everything later, not sooner.",
+        "fa": "واردکردنِ کار به سیستم، سریع‌تر از آنچه می‌تواند تمامش کند، همه‌چیز را دیرتر می‌کند، نه زودتر."
+      },
+      "more": {
+        "en": "Erik calls work in process the silent killer, because a plant that cannot control it misses its dates and ships bad parts. There, jobs enter the line only at the rate the slowest machine can absorb. In IT the equivalent is freezing new projects until the queue drains, and refusing to start a tenth thing while nine sit half done.",
+        "fa": "اریک کارِ در جریان را «قاتلِ خاموش» می‌نامد، چون کارخانه‌ای که نتواند مهارش کند، هم به تاریخ‌ها نمی‌رسد و هم قطعهٔ معیوب تحویل می‌دهد. آنجا کار فقط با همان سرعتی وارد خط می‌شود که کندترین ماشین می‌تواند بکشد. در آی‌تی معادلش این است که پروژه‌های تازه را متوقف کنی تا صف خالی شود، و وقتی نُه کار نیمه‌تمام است، دهمی را شروع نکنی."
+      },
+      "example": {
+        "en": "Bill freezes every project except Phoenix, and the work that is left starts moving faster.",
+        "fa": "بیل همهٔ پروژه‌ها جز ققنوس را متوقف می‌کند، و همان کارِ باقی‌مانده تندتر پیش می‌رود."
+      },
+      "tip": {
+        "en": "Count the things in progress per person. If it is more than two, stop starting and start finishing.",
+        "fa": "بشمار هر نفر چند کارِ نیمه‌تمام دارد. اگر بیشتر از دو تاست، شروع‌کردن را بس کن و تمام‌کردن را شروع کن."
+      },
+      "pitfall": {
+        "en": "Saying yes to an urgent request because it is small. Small work queues in exactly the same place.",
+        "fa": "بله‌گفتن به یک درخواستِ فوری چون کوچک است. کارِ کوچک هم دقیقاً در همان صف می‌ایستد."
+      }
+    },
+    "bottleneck": {
+      "part": "constraint",
+      "n": 7,
+      "name": {
+        "en": "An Hour Lost at the Bottleneck",
+        "fa": "ساعتی که در گلوگاه از دست می‌رود"
+      },
+      "glabel": {
+        "en": "Bottleneck",
+        "fa": "گلوگاه"
+      },
+      "principle": {
+        "en": "An hour lost at the constraint is an hour lost for the whole system. An hour saved anywhere else is not a saving at all.",
+        "fa": "یک ساعت که در گلوگاه از دست برود، یک ساعت از کلِ سیستم رفته است. یک ساعت صرفه‌جویی در هر جای دیگر اصلاً صرفه‌جویی نیست."
+      },
+      "more": {
+        "en": "This is Eliyahu Goldratt's theory of constraints carried into IT. The speed of the whole system is set by one resource, so any improvement made away from it is, in Erik's word, an illusion. Erik's rule of thumb explains why work piles up there: wait time is the share of time a resource is busy divided by the share of time it is idle, so a person who is ninety percent busy makes work wait nine times longer than a person who is half busy.",
+        "fa": "این همان نظریهٔ محدودیت‌های الیاهو گلدرات است که به آی‌تی آورده شده. سرعتِ کلِ سیستم را یک منبع تعیین می‌کند، پس هر بهبودی دور از آن — به تعبیرِ اریک — توهم است. قاعدهٔ سرانگشتیِ اریک توضیح می‌دهد چرا کار همان‌جا تلنبار می‌شود: زمانِ انتظار برابر است با سهمِ زمانی که یک منبع مشغول است تقسیم بر سهمِ زمانی که بی‌کار است؛ پس کسی که ۹۰ درصدِ وقت مشغول است، کار را ۹ برابرِ کسی که نصفِ وقت مشغول است معطل می‌کند."
+      },
+      "example": {
+        "en": "Buying faster servers while every request still waits three days for one engineer's review.",
+        "fa": "خریدنِ سرورِ سریع‌تر، در حالی که هر درخواست هنوز سه روز منتظرِ بازبینیِ یک مهندس می‌ماند."
+      },
+      "tip": {
+        "en": "Follow one piece of work end to end and write down every place it sat waiting.",
+        "fa": "یک کار را از اول تا آخر دنبال کن و هر جایی را که منتظر مانده بنویس."
+      },
+      "pitfall": {
+        "en": "Measuring how busy everyone is instead of how fast work leaves the system.",
+        "fa": "اندازه‌گرفتنِ اینکه همه چقدر مشغول‌اند، به‌جای اینکه کار با چه سرعتی از سیستم بیرون می‌رود."
+      }
+    },
+    "subordinate": {
+      "part": "constraint",
+      "n": 8,
+      "name": {
+        "en": "Subordinate Everything to the Constraint",
+        "fa": "همه‌چیز را تابعِ گلوگاه کن"
+      },
+      "glabel": {
+        "en": "Subordinate",
+        "fa": "تبعیت"
+      },
+      "principle": {
+        "en": "Decide what the constraint works on, and let nothing else reach it.",
+        "fa": "تصمیم بگیر گلوگاه روی چه کار کند، و نگذار هیچ‌چیزِ دیگری به آن برسد."
+      },
+      "more": {
+        "en": "Bill and his managers build a pool of senior engineers who take every escalation first, and Brent is deliberately kept out of it. Only a genuinely new problem reaches him, he may talk and watch but not type, and he is never allowed to solve the same problem twice. It is painful for a week and transformative after a month.",
+        "fa": "بیل و مدیرانش گروهی از مهندسانِ ارشد می‌سازند که هر ارجاع اول به آن‌ها می‌رسد، و برنت را عمداً بیرونِ این گروه نگه می‌دارند. فقط مسئله‌ای که واقعاً تازه باشد به او می‌رسد، اجازه دارد حرف بزند و نگاه کند اما تایپ نکند، و هیچ‌وقت اجازه ندارد یک مسئله را دو بار حل کند. یک هفته دردناک است و بعد از یک ماه دگرگون‌کننده."
+      },
+      "example": {
+        "en": "During an incident Brent is not allowed to touch the keyboard; he explains and someone else writes it down.",
+        "fa": "برنت در جریانِ یک حادثه اجازه ندارد به صفحه‌کلید دست بزند؛ او توضیح می‌دهد و یکی دیگر می‌نویسد."
+      },
+      "tip": {
+        "en": "Put one gatekeeper in front of your busiest expert and route everything through them for a month.",
+        "fa": "یک نفر را دروازه‌بانِ شلوغ‌ترین متخصصت کن و یک ماه همه‌چیز را از او رد کن."
+      },
+      "pitfall": {
+        "en": "Letting senior people jump the queue, which quietly restores the old chaos.",
+        "fa": "اجازه‌دادن به آدم‌های ارشد که از صف جلو بزنند، که بی‌سروصدا همان آشوبِ قبلی را برمی‌گرداند."
+      }
+    },
+    "elevate": {
+      "part": "constraint",
+      "n": 9,
+      "name": {
+        "en": "Take Work Off the Constraint",
+        "fa": "بار را از گلوگاه بردار"
+      },
+      "glabel": {
+        "en": "Elevate",
+        "fa": "سبک‌کردن"
+      },
+      "principle": {
+        "en": "The knowledge locked in one person's head is the real bottleneck. Get it out, and the constraint moves.",
+        "fa": "دانشی که در سرِ یک نفر قفل شده، گلوگاهِ واقعی است. بیرونش بیاور تا گلوگاه جابه‌جا شود."
+      },
+      "more": {
+        "en": "Documentation, standard procedures, automated builds and repeatable environments all do the same job: they let someone else do what only the expert could do before. The goal is not to make Brent faster. It is to need him less often.",
+        "fa": "مستندسازی، رویه‌های استاندارد، ساختِ خودکار و محیط‌های تکرارپذیر همه یک کار می‌کنند: می‌گذارند کسِ دیگری کاری را بکند که قبلاً فقط از متخصص برمی‌آمد. هدف تندتر کردنِ برنت نیست. کمتر لازم‌شدنِ اوست."
+      },
+      "example": {
+        "en": "Environments that once took weeks and one specialist become a script anyone on the team can run.",
+        "fa": "محیط‌هایی که زمانی هفته‌ها و یک متخصص می‌خواستند، به اسکریپتی تبدیل می‌شوند که هر کسی در تیم می‌تواند اجرا کند."
+      },
+      "tip": {
+        "en": "After the next escalation, have the expert write the runbook while it is fresh, then have someone else use it.",
+        "fa": "بعد از ارجاعِ بعدی، بگذار متخصص همان‌جا دستورالعمل را بنویسد، بعد کسِ دیگری از رویش کار کند."
+      },
+      "pitfall": {
+        "en": "Solving the constraint by hiring, then finding that the new person also has to wait for Brent.",
+        "fa": "حل‌کردنِ گلوگاه با استخدام، و بعد فهمیدنِ اینکه نفرِ جدید هم باید منتظرِ برنت بماند."
+      }
+    },
+    "flow": {
+      "part": "ways",
+      "n": 10,
+      "name": {
+        "en": "The First Way: Flow",
+        "fa": "مسیرِ اول: جریان"
+      },
+      "glabel": {
+        "en": "First Way",
+        "fa": "مسیرِ اول"
+      },
+      "principle": {
+        "en": "Optimise the whole path from development through operations to the customer, never one department on its own.",
+        "fa": "کلِ مسیر را از توسعه به عملیات و مشتری بهینه کن، نه یک دپارتمان را به‌تنهایی."
+      },
+      "more": {
+        "en": "Flow means smaller batches, shorter queues, no known defect ever passed downstream, and no local win that makes the whole slower. A team that hits its own targets while the release still slips has optimised the wrong thing.",
+        "fa": "جریان یعنی دسته‌های کوچک‌تر، صف‌های کوتاه‌تر، هیچ خطای شناخته‌شده‌ای به مرحلهٔ بعد فرستاده نشود، و هیچ بردِ محلی‌ای که کل را کندتر کند. تیمی که به هدف‌های خودش می‌رسد ولی انتشار باز عقب می‌افتد، چیزِ اشتباهی را بهینه کرده است."
+      },
+      "example": {
+        "en": "Ten small releases in a week move more value than one quarterly release that needs a war room.",
+        "fa": "ده انتشارِ کوچک در یک هفته ارزشِ بیشتری به مشتری می‌رساند تا یک انتشارِ فصلی که اتاقِ بحران می‌خواهد."
+      },
+      "tip": {
+        "en": "Cut your next release in half and ship the half that can go on its own.",
+        "fa": "انتشارِ بعدی‌ات را نصف کن و نیمه‌ای را بفرست که به‌تنهایی می‌تواند برود."
+      },
+      "pitfall": {
+        "en": "Handing a known defect downstream because the deadline belongs to someone else.",
+        "fa": "پاس‌دادنِ یک خطای شناخته‌شده به مرحلهٔ بعد، چون مهلتش مالِ کسِ دیگری است."
+      }
+    },
+    "feedback": {
+      "part": "ways",
+      "n": 11,
+      "name": {
+        "en": "The Second Way: Feedback",
+        "fa": "مسیرِ دوم: بازخورد"
+      },
+      "glabel": {
+        "en": "Second Way",
+        "fa": "مسیرِ دوم"
+      },
+      "principle": {
+        "en": "Make feedback travel back through every stage, fast and constantly, so problems get fixed where they are made.",
+        "fa": "کاری کن بازخورد از هر مرحله سریع و پیوسته برگردد، تا مسئله همان‌جا که ساخته می‌شود حل شود."
+      },
+      "more": {
+        "en": "Monitoring, automated tests, and showing operations a design before it ships are all the same move: shorten the distance between a mistake and the person who can prevent the next one. The longer that loop, the more every defect costs.",
+        "fa": "پایش، آزمونِ خودکار، و نشان‌دادنِ یک طراحی به عملیات پیش از انتشار، همه یک حرکت‌اند: کوتاه‌کردنِ فاصلهٔ میانِ یک اشتباه و کسی که می‌تواند جلوی بعدی را بگیرد. هرچه این حلقه بلندتر باشد، هر خطا گران‌تر تمام می‌شود."
+      },
+      "example": {
+        "en": "Operations sees the design early and says which part will wake someone at three in the morning.",
+        "fa": "عملیات طراحی را زود می‌بیند و می‌گوید کدام بخشش ساعتِ سهِ بامداد کسی را از خواب بیدار می‌کند."
+      },
+      "tip": {
+        "en": "Add one signal that tells you a change went wrong before a customer does.",
+        "fa": "یک نشانه اضافه کن که پیش از مشتری به تو بگوید یک تغییر بد از آب درآمده."
+      },
+      "pitfall": {
+        "en": "Feedback that arrives at a monthly meeting, which is the same as no feedback.",
+        "fa": "بازخوردی که در جلسهٔ ماهانه می‌رسد، که فرقی با نبودنِ بازخورد ندارد."
+      }
+    },
+    "learning": {
+      "part": "ways",
+      "n": 12,
+      "name": {
+        "en": "The Third Way: Continual Learning",
+        "fa": "مسیرِ سوم: یادگیریِ پیوسته"
+      },
+      "glabel": {
+        "en": "Third Way",
+        "fa": "مسیرِ سوم"
+      },
+      "principle": {
+        "en": "Build a culture that keeps experimenting, treats failure as information, and repeats hard things until they are ordinary.",
+        "fa": "فرهنگی بساز که آزمایش را ادامه دهد، شکست را اطلاعات بداند، و کارهای سخت را آن‌قدر تکرار کند تا عادی شوند."
+      },
+      "more": {
+        "en": "Both halves matter equally: taking risks and learning from failure, and mastery through repetition and practice. An operation done once a quarter is a risk. The same operation done daily is a skill.",
+        "fa": "هر دو نیمه به یک اندازه مهم‌اند: ریسک‌کردن و یادگرفتن از شکست، و تسلط از راهِ تکرار و تمرین. کاری که فصلی یک‌بار انجام شود یک ریسک است. همان کار اگر روزانه انجام شود یک مهارت است."
+      },
+      "example": {
+        "en": "Practising a restore on purpose on a quiet Tuesday, instead of discovering it during an outage.",
+        "fa": "تمرینِ عمدیِ بازیابی در یک سه‌شنبهٔ آرام، به‌جای کشفِ آن وسطِ یک قطعی."
+      },
+      "tip": {
+        "en": "Schedule the operation everyone is afraid of as practice, while nothing is on fire.",
+        "fa": "همان کاری را که همه از آن می‌ترسند، وقتی هیچ آتشی نیست به‌عنوانِ تمرین زمان‌بندی کن."
+      },
+      "pitfall": {
+        "en": "A blameless review that quietly ends with a person's name.",
+        "fa": "بازبینیِ بی‌سرزنشی که بی‌سروصدا با نامِ یک نفر تمام می‌شود."
+      }
+    }
+  },
+  "core": {
+    "name": {
+      "en": "THE THREE WAYS",
+      "fa": "سه مسیر"
+    },
+    "principle": {
+      "en": "IT work obeys the same laws as factory work. See every type of work, protect the one constraint everything queues behind, then build flow, feedback and continual learning on top.",
+      "fa": "کارِ آی‌تی از همان قانون‌هایی پیروی می‌کند که کارِ کارخانه. همهٔ انواعِ کار را ببین، از تنها گلوگاهی که همه پشتش صف بسته‌اند محافظت کن، بعد جریان، بازخورد و یادگیریِ پیوسته را رویش بساز."
+    },
+    "more": {
+      "en": "The novel moves in four steps: it shows a company drowning in unplanned work; it names the four types of work and makes every change visible; it finds the constraint, a single engineer called Brent, and organises everything around him; then it turns all of that into the three ways that became the language of DevOps.",
+      "fa": "رمان در چهار گام پیش می‌رود: شرکتی را نشان می‌دهد که در کارِ برنامه‌ریزی‌نشده غرق است؛ چهار نوع کار را نام می‌برد و هر تغییر را دیدنی می‌کند؛ گلوگاه را پیدا می‌کند، یک مهندس به نامِ برنت، و همه‌چیز را دورِ او می‌چیند؛ بعد همهٔ اینها را به سه مسیری تبدیل می‌کند که به زبانِ دوآپس بدل شد."
+    },
+    "example": {
+      "en": "Click any node to read a principle or a method. You can also drag the nodes around.",
+      "fa": "روی هر دایره کلیک کن تا یک اصل یا روش را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."
+    }
+  },
+  "stages": [
+    {
+      "level": 1,
+      "badge": {
+        "en": "Level 1 · Over-simplified",
+        "fa": "سطحِ ۱ · خیلی ساده"
+      },
+      "title": {
+        "en": "Unplanned work is the enemy",
+        "fa": "دشمن، کارِ برنامه‌ریزی‌نشده است"
+      },
+      "tagline": {
+        "en": "The whole book in a sentence.",
+        "fa": "کلِ کتاب در یک جمله."
+      },
+      "body": {
+        "en": "Every hour of firefighting is an hour taken from work you already promised. Reduce the fires and the promises start landing.",
+        "fa": "هر ساعت اطفای حریق، ساعتی است برداشته‌شده از کاری که قبلاً قولش را داده‌ای. آتش‌ها را کم کن تا قول‌ها سرِ وقت بنشینند."
+      },
+      "example": {
+        "en": "Not \"we need more people\" but \"we need fewer interruptions\".",
+        "fa": "نه «آدمِ بیشتری لازم داریم» بلکه «وقفهٔ کمتری لازم داریم»."
+      },
+      "gain": {
+        "en": "You hold the single idea the whole book expands on.",
+        "fa": "همان یک ایده‌ای را داری که کلِ کتاب بسطش می‌دهد."
+      }
+    },
+    {
+      "level": 2,
+      "badge": {
+        "en": "Level 2 · Simple",
+        "fa": "سطحِ ۲ · ساده"
+      },
+      "title": {
+        "en": "The four types of work",
+        "fa": "چهار نوع کار"
+      },
+      "tagline": {
+        "en": "Name what your team actually does.",
+        "fa": "نامِ کاری را که تیمت واقعاً می‌کند بگذار."
+      },
+      "body": {
+        "en": "Business projects, internal IT projects, changes, and unplanned work. The first three can be planned. The fourth eats them. Capacity cannot be managed until all four sit on one list.",
+        "fa": "پروژه‌های کسب‌وکار، پروژه‌های داخلیِ آی‌تی، تغییرها، و کارِ برنامه‌ریزی‌نشده. سه‌تای اول را می‌شود برنامه‌ریزی کرد. چهارمی آن‌ها را می‌خورد. تا هر چهارتا در یک فهرست نباشند، ظرفیت را نمی‌شود مدیریت کرد."
+      },
+      "example": {
+        "en": "Sort last month's work into four buckets and see how little of it was planned.",
+        "fa": "کارِ ماهِ گذشته را در چهار سطل بریز و ببین چقدر کم از آن برنامه‌ریزی‌شده بود."
+      },
+      "gain": {
+        "en": "You can explain where your team's time actually goes.",
+        "fa": "می‌توانی توضیح دهی وقتِ تیمت واقعاً کجا می‌رود."
+      }
+    },
+    {
+      "level": 3,
+      "badge": {
+        "en": "Level 3 · Balanced",
+        "fa": "سطحِ ۳ · متعادل"
+      },
+      "title": {
+        "en": "Find the constraint",
+        "fa": "گلوگاه را پیدا کن"
+      },
+      "tagline": {
+        "en": "One place sets the pace for everyone.",
+        "fa": "یک نقطه سرعتِ همه را تعیین می‌کند."
+      },
+      "body": {
+        "en": "Every system has one bottleneck. An hour lost there is an hour lost for the whole company, and an hour saved anywhere else changes nothing. Follow one piece of work end to end and watch where it waits.",
+        "fa": "هر سیستمی یک گلوگاه دارد. یک ساعت که آنجا از دست برود، یک ساعت از کلِ شرکت رفته، و یک ساعت صرفه‌جویی در هر جای دیگر هیچ تغییری نمی‌دهد. یک کار را از اول تا آخر دنبال کن و ببین کجا منتظر می‌ماند."
+      },
+      "example": {
+        "en": "In the novel the constraint has a name: every project ends up waiting on Brent.",
+        "fa": "در این رمان گلوگاه اسم دارد: هر پروژه‌ای دستِ آخر منتظرِ برنت می‌ماند."
+      },
+      "gain": {
+        "en": "You can tell real improvement from busywork.",
+        "fa": "می‌توانی بهبودِ واقعی را از مشغول‌بودنِ بی‌حاصل تشخیص دهی."
+      }
+    },
+    {
+      "level": 4,
+      "badge": {
+        "en": "Level 4 · Advanced",
+        "fa": "سطحِ ۴ · پیشرفته"
+      },
+      "title": {
+        "en": "Control the release of work",
+        "fa": "ورودِ کار به سیستم را کنترل کن"
+      },
+      "tagline": {
+        "en": "Protect the constraint, limit the queue.",
+        "fa": "از گلوگاه محافظت کن، صف را محدود کن."
+      },
+      "body": {
+        "en": "Release new work only at the rate the constraint can absorb. Put every change on a visible board so outages stop being mysteries. Then take work off the constraint with documentation, standard procedures and automation, until the expert is needed less often.",
+        "fa": "کارِ تازه را فقط به‌اندازه‌ای وارد سیستم کن که گلوگاه بتواند تمامش کند. هر تغییر را روی تخته‌ای دیدنی بگذار تا قطعی‌ها دیگر معما نباشند. بعد با مستندسازی، رویه‌های استاندارد و خودکارسازی، بار را از گلوگاه بردار تا متخصص کمتر لازم شود."
+      },
+      "example": {
+        "en": "Freeze every project except the one that matters, and watch it finish sooner than all of them would have.",
+        "fa": "همهٔ پروژه‌ها جز آن یکی که مهم است را متوقف کن، و ببین همان یکی زودتر از همه‌شان تمام می‌شود."
+      },
+      "gain": {
+        "en": "You can make delivery predictable without adding people.",
+        "fa": "می‌توانی تحویل را بدونِ افزودنِ آدم قابلِ پیش‌بینی کنی."
+      }
+    },
+    {
+      "level": 5,
+      "badge": {
+        "en": "Level 5 · Expert",
+        "fa": "سطحِ ۵ · حرفه‌ای"
+      },
+      "title": {
+        "en": "Flow, feedback, learning",
+        "fa": "جریان، بازخورد، یادگیری"
+      },
+      "tagline": {
+        "en": "The principles under all of it.",
+        "fa": "اصولی که زیرِ همهٔ اینهاست."
+      },
+      "body": {
+        "en": "The first way builds fast flow from development through operations to the customer, and never buys a local win at the expense of the whole. The second way makes feedback travel back just as fast, so defects are fixed where they are made. The third way makes experiment, failure and practice part of daily work, and ties all of it to a business goal someone in the boardroom actually cares about.",
+        "fa": "مسیرِ اول جریانِ سریع را از توسعه به عملیات و مشتری می‌سازد و هیچ بردِ محلی‌ای را به قیمتِ کل نمی‌خرد. مسیرِ دوم کاری می‌کند بازخورد به همان سرعت برگردد تا خطا همان‌جا که ساخته می‌شود حل شود. مسیرِ سوم آزمایش، شکست و تمرین را بخشی از کارِ روزانه می‌کند، و همهٔ اینها را به هدفی از کسب‌وکار گره می‌زند که واقعاً برای کسی در اتاقِ هیئت‌مدیره مهم است."
+      },
+      "example": {
+        "en": "You practise the restore on a quiet Tuesday, and you can say which business goal each system protects.",
+        "fa": "بازیابی را در یک سه‌شنبهٔ آرام تمرین می‌کنی، و می‌توانی بگویی هر سامانه از کدام هدفِ کسب‌وکار محافظت می‌کند."
+      },
+      "gain": {
+        "en": "You can turn a delivery team into a competitive advantage instead of a cost centre.",
+        "fa": "می‌توانی یک تیمِ تحویل را به مزیتِ رقابتی تبدیل کنی، نه یک مرکزِ هزینه."
+      }
+    }
+  ],
+  "quotes": [
+    {
+      "en": "Any improvement made anywhere besides the bottleneck is an illusion.",
+      "fa": "هر بهبودی که جایی جز گلوگاه انجام شود، توهم است."
+    },
+    {
+      "en": "An hour lost at a bottleneck is an hour out of the entire system.",
+      "fa": "یک ساعت که در گلوگاه از دست برود، یک ساعت از کلِ سیستم رفته است."
+    },
+    {
+      "en": "Work in process is the silent killer.",
+      "fa": "کارِ در جریان، قاتلِ خاموش است."
+    },
+    {
+      "en": "Unplanned work is what prevents you from doing the work you planned.",
+      "fa": "کارِ برنامه‌ریزی‌نشده همان چیزی است که نمی‌گذارد کارِ برنامه‌ریزی‌شده را انجام دهی."
+    },
+    {
+      "en": "Until your work is in production it generates no value; it is only work stuck in the system.",
+      "fa": "تا وقتی کارت به محیطِ واقعی نرسد هیچ ارزشی نمی‌سازد؛ فقط کاری است که در سیستم گیر کرده."
+    },
+    {
+      "en": "IT is not just a department. IT is a competency that we need to gain as an entire company.",
+      "fa": "آی‌تی فقط یک دپارتمان نیست. توانمندی‌ای است که باید به‌عنوانِ یک شرکتِ کامل به دست بیاوریم."
+    }
+  ],
+  "media": [
+    {
+      "kind": "img",
+      "url": "https://itrevolution.com/product/the-phoenix-project/",
+      "src": {
+        "en": "itrevolution.com · Publisher",
+        "fa": "itrevolution.com · ناشر"
+      },
+      "title": {
+        "en": "The Phoenix Project — the publisher's page",
+        "fa": "پروژهٔ ققنوس — صفحهٔ ناشر"
+      },
+      "desc": {
+        "en": "The official page from IT Revolution, with editions, a free excerpt and a reader's guide.",
+        "fa": "صفحهٔ رسمیِ انتشاراتِ آی‌تی رِوُلوشن، همراه با نسخه‌ها، بخشی از متنِ کتاب و راهنمای خواننده."
+      },
+      "bullets": {
+        "en": [
+          "Editions and formats",
+          "A free excerpt and a reader's guide",
+          "Straight from the source"
+        ],
+        "fa": [
+          "نسخه‌ها و قالب‌ها",
+          "بخشی از متنِ کتاب و راهنمای خواننده",
+          "مستقیم از منبع"
+        ]
+      },
+      "best": {
+        "en": "For editions and the source.",
+        "fa": "برای نسخه‌ها و منبعِ اصلی."
+      }
+    },
+    {
+      "kind": "img",
+      "url": "https://itrevolution.com/articles/the-three-ways-principles-underpinning-devops/",
+      "src": {
+        "en": "IT Revolution · Article",
+        "fa": "آی‌تی رِوُلوشن · مقاله"
+      },
+      "title": {
+        "en": "The Three Ways: the principles underpinning DevOps",
+        "fa": "سه مسیر: اصولی که زیربنای دوآپس هستند"
+      },
+      "desc": {
+        "en": "Gene Kim's short article explaining flow, feedback and continual learning outside the story.",
+        "fa": "مقالهٔ کوتاهِ جین کیم که جریان، بازخورد و یادگیریِ پیوسته را بیرون از قالبِ داستان توضیح می‌دهد."
+      },
+      "bullets": {
+        "en": [
+          "The three ways in a few minutes",
+          "The theory underneath the novel",
+          "Good before or after the book"
+        ],
+        "fa": [
+          "سه مسیر در چند دقیقه",
+          "نظریه‌ای که زیرِ رمان است",
+          "خوب، چه قبل و چه بعد از کتاب"
+        ]
+      },
+      "best": {
+        "en": "Best for Stage 4–5.",
+        "fa": "خوب برای مرحلهٔ ۴ و ۵."
+      }
+    }
+  ],
+  "go": [
+    {
+      "label": {
+        "en": "Publisher's page",
+        "fa": "صفحهٔ ناشر"
+      },
+      "url": "https://itrevolution.com/product/the-phoenix-project/"
+    },
+    {
+      "label": {
+        "en": "The Three Ways article",
+        "fa": "مقالهٔ «سه مسیر»"
+      },
+      "url": "https://itrevolution.com/articles/the-three-ways-principles-underpinning-devops/"
+    },
+    {
+      "label": {
+        "en": "Book on Goodreads",
+        "fa": "کتاب در گودریدز"
+      },
+      "url": "https://www.goodreads.com/book/show/17255186-the-phoenix-project"
+    }
+  ],
+  "recs": [
+    {
+      "pri": "b",
+      "t": {
+        "en": "Sort last month's work into four buckets",
+        "fa": "کارِ ماهِ گذشته را در چهار سطل بریز"
+      },
+      "d": {
+        "en": "Business projects, internal IT projects, changes, unplanned work. The fourth bucket is the one that surprises people.",
+        "fa": "پروژهٔ کسب‌وکار، پروژهٔ داخلیِ آی‌تی، تغییر، کارِ برنامه‌ریزی‌نشده. سطلِ چهارم همان است که همه را غافلگیر می‌کند."
+      }
+    },
+    {
+      "pri": "b",
+      "t": {
+        "en": "Name your Brent",
+        "fa": "برنتِ خودت را پیدا کن"
+      },
+      "d": {
+        "en": "Log where every escalation ended up for one week. The name that repeats is your constraint.",
+        "fa": "یک هفته ثبت کن هر ارجاع دستِ آخر به که رسید. نامی که تکرار می‌شود گلوگاهِ توست."
+      }
+    },
+    {
+      "pri": "n",
+      "t": {
+        "en": "Put changes on a wall",
+        "fa": "تغییرها را روی دیوار بیاور"
+      },
+      "d": {
+        "en": "One line per change: what, when, which system. Next time something breaks, ask what changed.",
+        "fa": "برای هر تغییر یک خط: چه، کِی، کدام سامانه. دفعهٔ بعد که چیزی خراب شد بپرس چه چیزی عوض شد."
+      }
+    },
+    {
+      "pri": "n",
+      "t": {
+        "en": "Stop starting, start finishing",
+        "fa": "شروع‌کردن را بس کن، تمام‌کردن را شروع کن"
+      },
+      "d": {
+        "en": "Count the half-done items per person. Start nothing new until that number is two or fewer.",
+        "fa": "کارهای نیمه‌تمامِ هر نفر را بشمار. تا وقتی این عدد دو یا کمتر نشده، کارِ تازه شروع نکن."
+      }
+    }
+  ]
+});
+</script>
+</body>
+</html>

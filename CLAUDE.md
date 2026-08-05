@@ -8,8 +8,10 @@ it is unrelated to any other CLAUDE.md that may exist in a parent folder.
 ## What this is
 
 A **bilingual (English / فارسی), right-to-left** static website: interactive
-knowledge-graph summaries of **45 essential product books**, grouped into **15
-skill groups** (based on Lenny Rachitsky's "Essential books for product builders").
+knowledge-graph summaries of **59 essential product books**, grouped into **18
+skill groups** — the 15 from Lenny Rachitsky's "Essential books for product
+builders", plus three of our own: Self Mastery, Working with AI, and
+Delivery & Projects.
 
 - **No build step, no dependencies, no server required.** Plain HTML/CSS/JS.
 - Fonts load from a CDN when online; everything else is local and works offline.
@@ -20,29 +22,43 @@ skill groups** (based on Lenny Rachitsky's "Essential books for product builders
 ```
 index.html                  Catalog / home. Centered-logo masthead + "Find my
                             reading path" wizard. Has its own GROUPS data (author,
-                            "why", href for each of the 45 books).
-NN - Group/<slug>.html      45 book pages. Thin SHELLS (see "How a book page works").
+                            "why", href for each of the 59 books).
+graph.html                  The Atlas — one force-directed map of every group and
+                            book, with dashed lines for cross-group kinship.
+                            Reads window.ATLAS; linked from the hero.
+NN - Group/<slug>.html      59 book pages. Thin SHELLS (see "How a book page works").
 assets/
   book.css                  Shared styles for every book page + masthead.
   book.js                   Shared runtime. Renders hero + nav + knowledge graph +
                             5 stages + all sections from a page's DATA. Entry:
                             Book.mount(DATA). Also injects the centered-logo masthead
                             and the library nav (home / prev / next / all-books).
-  library.js                window.LIBRARY — generated manifest of all 45 books
+  library.js                window.LIBRARY — generated manifest of all 59 books
                             (slug, folder, groupNum, group{en,fa}, book{en,fa}).
                             Drives prev/next, the all-books overlay, and the wizard.
-  recommend.js              "Find my reading path" wizard: 2-step (modal on desktop,
+  atlas.js                  window.ATLAS — generated {groups, books, relations}
+                            for graph.html. Relations carry a bilingual "why".
+  recommend.js              "Find my reading path" wizard: 3-step (modal on desktop,
   recommend.css             bottom-sheet on mobile). Scores books by seniority +
                             focus + time. Self-contained; depends only on window.LIBRARY.
 tools/
+  build-page.js             Assembles a book page from a standalone DATA json:
+                            `node tools/build-page.js path/to/<slug>.json`. Validates
+                            the invariants book.js relies on and refuses to write a
+                            broken payload. Idempotent — safe to re-emit any page.
   build-manifest.js         Regenerates assets/library.js from the book pages. Run
                             this whenever a book is added, renamed, or moved.
+  build-atlas.js            Regenerates assets/atlas.js. Merges the curated layer in
+                            docs/atlas-content.json (summaries + relations); falls
+                            back to deriving relations from recommend.js tag tables.
   migrate.js                ONE-SHOT migration (original self-contained pages -> shells).
                             Already run; do not run again on migrated pages.
   verify.js                 One-shot pre-commit parity proof (diffs working tree vs
                             git HEAD). Self-invalidates once the migration is committed;
                             do NOT wire it into CI.
-docs/                       PRD, feature requests, QA + CTO reports, maintenance GUIDE.
+docs/                       PRD, art direction, feature requests, QA + CTO reports,
+                            maintenance GUIDE, and atlas-content.json (curated
+                            per-book summaries + the cross-book relation graph).
 ```
 
 ## How a book page works (the "CMS")
@@ -64,7 +80,7 @@ Every book page is a thin shell. All content lives in one inline `DATA` object:
 </body>
 ```
 
-`book.css` + `book.js` are identical across all 45 pages. **To change a book's
+`book.css` + `book.js` are identical across all 59 pages. **To change a book's
 content, edit only that page's `DATA`.** To change look or behavior for every book,
 edit the shared asset once.
 
@@ -74,7 +90,10 @@ edit the shared asset once.
   `core_callout{label,en,fa}`, `flow_callout{label,en,fa}`. `slug` MUST match the
   page filename and the manifest.
 - `parts[]` + `chapters{}` — the knowledge graph. Invariant: `parts.length` +
-  total chapters + 1 core node = the node count the graph draws.
+  total chapters + 1 core node = the node count the graph draws. In practice every
+  page ships **4 parts × 3 chapters + 1 core = 17 nodes**; `tools/build-page.js`
+  enforces that, along with `chapters[].n` running 1…12 and each part's `varc`
+  being `--c-teal`, `--c-blue`, `--c-violet`, `--c-amber` in order.
 - `stages[]` — exactly 5 learning stages.
 - `method{en,fa}` (sources note) and `flow{en:[],fa:[]}` (the map flow words).
 - `graph{W,H,R1,R2,span}` — optional layout tuning; book.js has defaults.
@@ -93,11 +112,20 @@ edit the shared asset once.
 ## Common tasks
 - **Preview:** `python3 -m http.server 8000` then open `http://localhost:8000/`
   (or use `.claude/launch.json` → `static-site`).
-- **Edit a book:** open `NN - Group/<slug>.html`, edit `window.DATA`.
-- **Add a book:** create `NN - Group/<slug>.html` (copy an existing shell, replace
-  DATA), add it to `GROUPS` in `index.html`, then run `node tools/build-manifest.js`.
+- **Edit a book:** open `NN - Group/<slug>.html`, edit the inline `Book.mount(DATA)`.
+- **Add a book:** write its DATA as a standalone `<slug>.json`, then
+
+  ```bash
+  node tools/build-page.js <slug>.json && node tools/build-manifest.js && node tools/build-atlas.js
+  ```
+
+  and add it to `GROUPS` in `index.html`. A new group also needs an entry in
+  `GROUP_TAGS` (`assets/recommend.js`) and the book counts updated in `index.html`,
+  `graph.html`, `assets/book.js` and `README.md`.
 - **The wizard's recommendations:** book tags live in `assets/recommend.js`
   (`GROUP_TAGS` per group + `OVERRIDES` per slug). Edit there to tune the reading flow.
+- **The atlas:** per-book summaries and the cross-book relations are curated in
+  `docs/atlas-content.json`; run `node tools/build-atlas.js` after editing it.
 
 ## Deploy
 Push to `main`; the site is static and can be served by GitHub Pages or any static

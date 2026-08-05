@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<!-- Generated page. Edit CONTENT in the DATA object below; shared UI lives in ../assets/book.css + ../assets/book.js -->
+<html lang="en" dir="ltr" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scrum — نقشهٔ دانش و یادگیری ۵ مرحله‌ای</title>
+
+<!-- Boot theme + language BEFORE paint to avoid a flash (shared library-wide keys) -->
+<script>
+(function(){
+  try{
+    var th = localStorage.getItem('pbl-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
+    document.documentElement.setAttribute('data-theme', th);
+  }catch(e){ document.documentElement.setAttribute('data-theme','light'); }
+  try{
+    var lg = localStorage.getItem('pbl-lang') || 'en';
+    document.documentElement.setAttribute('data-lang', lg);
+    document.documentElement.setAttribute('lang', lg);
+    document.documentElement.setAttribute('dir', lg==='fa' ? 'rtl' : 'ltr');
+  }catch(e){}
+})();
+</script>
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Newsreader:ital,opsz,wght@0,6..72,200..700;1,6..72,200..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/book.css">
+</head>
+<body>
+<div id="app"></div>
+
+<script src="../assets/library.js"></script>
+<script src="../assets/book.js"></script>
+<script>
+/* ── CONTENT — everything unique to this book lives here ── */
+Book.mount({
+  "meta": {
+    "slug": "scrum-twice-the-work-half-the-time",
+    "folder": "18 - Delivery & Projects",
+    "groupNum": 18,
+    "group": {
+      "en": "Delivery & Projects",
+      "fa": "تحویل و پروژه"
+    },
+    "author": {
+      "en": "Jeff Sutherland",
+      "fa": "جف ساترلند"
+    },
+    "eyebrow_author": {
+      "en": "Jeff Sutherland",
+      "fa": "جف ساترلند"
+    },
+    "book": {
+      "en": "Scrum",
+      "fa": "اسکرام"
+    },
+    "hero_title": {
+      "en": "Scrum — The Art of Doing Twice the Work in Half the Time",
+      "fa": "اسکرام — هنرِ انجامِ دو برابرِ کار در نصفِ زمان"
+    },
+    "dek": {
+      "en": "A knowledge graph of the whole book, plus a 5-stage path from a single idea to expert-level mastery — with an example at every step.",
+      "fa": "نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از خیلی ساده تا حرفه‌ای — با یک مثال در هر مرحله."
+    },
+    "published": {
+      "en": "2014",
+      "fa": "۲۰۱۴"
+    },
+    "chips": [
+      {
+        "v": {
+          "en": "4",
+          "fa": "۴"
+        },
+        "l": {
+          "en": "Parts",
+          "fa": "بخش"
+        }
+      },
+      {
+        "v": {
+          "en": "12",
+          "fa": "۱۲"
+        },
+        "l": {
+          "en": "Ideas",
+          "fa": "ایده"
+        }
+      },
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Learning stages",
+          "fa": "مرحلهٔ یادگیری"
+        }
+      }
+    ],
+    "kboxes": [
+      {
+        "v": {
+          "en": "4",
+          "fa": "۴"
+        },
+        "l": {
+          "en": "Parts (the world is broken · teams · time and waste · reality, priorities and happiness)",
+          "fa": "بخش (دنیا اشتباه کار می‌کند · تیم‌ها · زمان و اتلاف · واقعیت، اولویت و شادی)"
+        }
+      },
+      {
+        "v": {
+          "en": "12",
+          "fa": "۱۲"
+        },
+        "l": {
+          "en": "Ideas you can use",
+          "fa": "ایده برای استفاده"
+        }
+      },
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Levels, simple → expert",
+          "fa": "مرحله، ساده تا حرفه‌ای"
+        }
+      },
+      {
+        "v": {
+          "en": "3",
+          "fa": "۳"
+        },
+        "l": {
+          "en": "Roles: product owner · scrum master · team",
+          "fa": "نقش: مالکِ محصول · اسکرام‌مستر · تیم"
+        }
+      }
+    ],
+    "core_callout": {
+      "label": {
+        "en": "The core idea:",
+        "fa": "ایدهٔ اصلی:"
+      },
+      "en": " Plans are guesses. Instead of following a year-long plan, a small cross-functional team builds something real inside a short fixed <i>sprint</i>, shows it to people, then decides what to do next from what it just learned. Speed comes from removing waste, not from working longer.",
+      "fa": " برنامه‌ها حدس‌اند. به‌جای دنبال‌کردنِ یک برنامهٔ یک‌ساله، یک تیمِ کوچکِ همه‌فن‌حریف در یک <i>اسپرینتِ</i> کوتاه و ثابت چیزی واقعی می‌سازد، آن را به آدم‌ها نشان می‌دهد، و بعد از روی همان چیزی که تازه یاد گرفته تصمیم می‌گیرد قدمِ بعدی چیست. سرعت از حذفِ اتلاف می‌آید، نه از بیشتر کارکردن."
+    },
+    "flow_callout": {
+      "label": {
+        "en": "Read it as a flow:",
+        "fa": "به‌صورتِ یک جریان بخوانش:"
+      },
+      "en": " see why the <b>Gantt chart</b> lies, build a small <b>cross-functional team</b>, put it on a fixed <b>sprint</b> with a daily stand-up, cut <b>waste</b> to the bone, estimate in <b>story points</b>, then get a little better every single sprint.",
+      "fa": " ببین چرا <b>نمودارِ گانت</b> دروغ می‌گوید، یک <b>تیمِ کوچکِ همه‌فن‌حریف</b> بساز، آن را روی یک <b>اسپرینتِ</b> ثابت با جلسهٔ ایستادهٔ روزانه بگذار، <b>اتلاف</b> را تا ته ببر، با <b>امتیازِ داستان</b> تخمین بزن، بعد هر اسپرینت کمی بهتر شو."
+    }
+  },
+  "method": {
+    "en": "<p><b>Source:</b> the book <i>Scrum: The Art of Doing Twice the Work in Half the Time</i> by Jeff Sutherland with J.J. Sutherland, first published 2014.</p><p><b>How this was built:</b> the four-part structure and ideas were gathered and rewritten from the book and reputable sources.</p><p><b>Group:</b> Delivery and Projects.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>",
+    "fa": "<p><b>منبع:</b> کتابِ «اسکرام: هنرِ انجامِ دو برابرِ کار در نصفِ زمان» نوشتهٔ جف ساترلند با همکاریِ جی.جی. ساترلند، چاپِ نخست ۲۰۱۴.</p><p><b>روشِ کار:</b> ساختارِ چهاربخشی و ایده‌ها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده است.</p><p><b>گروه:</b> تحویل و پروژه.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب.</p>"
+  },
+  "flow": {
+    "en": [
+      "Plan",
+      "Sprint",
+      "Demo",
+      "Improve"
+    ],
+    "fa": [
+      "برنامه",
+      "اسپرینت",
+      "نمایش",
+      "بهبود"
+    ]
+  },
+  "graph": {
+    "R2": 132,
+    "span": 70
+  },
+  "tldr": [
+    {
+      "en": "The whole book in one line: <b>plans are guesses, so build in short cycles and let real results change the plan.</b>",
+      "fa": "خلاصهٔ کلِ کتاب در یک جمله: <b>برنامه‌ها حدس‌اند، پس در چرخه‌های کوتاه بساز و بگذار نتیجهٔ واقعی برنامه را عوض کند.</b>"
+    },
+    {
+      "en": "A <b>sprint</b> is a short fixed window — usually one to four weeks — that ends with something a real person can use.",
+      "fa": "<b>اسپرینت</b> یک بازهٔ کوتاهِ ثابت است — معمولاً یک تا چهار هفته — که با چیزی تمام می‌شود که یک آدمِ واقعی بتواند استفاده کند."
+    },
+    {
+      "en": "Small teams win: <b>seven people, plus or minus two</b>, cross-functional and free to decide how the work gets done.",
+      "fa": "تیمِ کوچک می‌برد: <b>هفت نفر، دو تا کم یا زیاد</b>، همه‌فن‌حریف و آزاد در تصمیم دربارهٔ نحوهٔ انجامِ کار."
+    },
+    {
+      "en": "<b>Waste is a crime</b>: multitasking, half-finished work and long hours all make a team slower, not faster.",
+      "fa": "<b>اتلاف جرم است</b>: چندکارگی، کارِ نیمه‌تمام و ساعت‌های طولانی همه تیم را کندتر می‌کنند، نه سریع‌تر."
+    },
+    {
+      "en": "Estimate in <b>story points</b> by comparing work to other work, never in hours — and improve one thing every sprint.",
+      "fa": "با <b>امتیازِ داستان</b> و از راهِ مقایسهٔ کارها با هم تخمین بزن، نه با ساعت — و هر اسپرینت یک چیز را بهتر کن."
+    }
+  ],
+  "parts": [
+    {
+      "key": "broken",
+      "varc": "--c-teal",
+      "name": {
+        "en": "The Way the World Works Is Broken",
+        "fa": "دنیا اشتباه کار می‌کند"
+      },
+      "tag": {
+        "en": "The problem",
+        "fa": "مسئله"
+      },
+      "gist": {
+        "en": "Waterfall plans look precise and are almost always wrong.",
+        "fa": "برنامه‌های آبشاری دقیق به‌نظر می‌رسند و تقریباً همیشه غلط‌اند."
+      },
+      "more": {
+        "en": "Sutherland opens on the Gantt chart: beautiful, expensive, and detached from reality the day after it is printed. The remedy came from three places — John Boyd's OODA loop, Deming's plan-do-check-act inside the Toyota Production System, and a 1986 Harvard Business Review paper on teams that pass the ball like a rugby scrum.",
+        "fa": "ساترلند با نمودارِ گانت شروع می‌کند: زیبا، پرهزینه، و از فردای چاپ‌شدنش جدا از واقعیت. راهِ درمان از سه جا آمد — حلقهٔ اودای جان بوید، چرخهٔ «برنامه‌ریزی، اجرا، بررسی، اقدام»ِ دمینگ در نظامِ تولیدِ تویوتا، و مقاله‌ای در هاروارد بیزنس ریویو در سالِ ۱۹۸۶ دربارهٔ تیم‌هایی که مثلِ اسکرامِ راگبی توپ را بینِ خودشان پاس می‌دهند."
+      },
+      "chapters": [
+        "gantt",
+        "ooda",
+        "rugby"
+      ]
+    },
+    {
+      "key": "teams",
+      "varc": "--c-blue",
+      "name": {
+        "en": "Teams",
+        "fa": "تیم‌ها"
+      },
+      "tag": {
+        "en": "Who does the work",
+        "fa": "چه کسی کار می‌کند"
+      },
+      "gist": {
+        "en": "Small, cross-functional, autonomous, and pointed at something worth doing.",
+        "fa": "کوچک، همه‌فن‌حریف، خودگردان، و رو به کاری که ارزشِ انجام دارد."
+      },
+      "more": {
+        "en": "Sutherland is blunt about the data: teams larger than about nine slow down, and the gap between a good team and a great one is not talent but how the team works. Three roles keep it honest — a Product Owner who decides what, a Scrum Master who removes whatever is in the way, and a Team that decides how.",
+        "fa": "ساترلند دربارهٔ داده‌ها صریح است: تیم‌های بزرگ‌تر از حدودِ نُه نفر کند می‌شوند، و فاصلهٔ یک تیمِ خوب با یک تیمِ عالی استعداد نیست، بلکه شیوهٔ کارکردنِ تیم است. سه نقش این را سرِ جایش نگه می‌دارد — مالکِ محصول که «چه» را تعیین می‌کند، اسکرام‌مستر که موانع را برمی‌دارد، و تیم که «چطور» را تصمیم می‌گیرد."
+      },
+      "chapters": [
+        "small",
+        "autonomy",
+        "roles"
+      ]
+    },
+    {
+      "key": "rhythm",
+      "varc": "--c-violet",
+      "name": {
+        "en": "Time and Waste",
+        "fa": "زمان و اتلاف"
+      },
+      "tag": {
+        "en": "The rhythm",
+        "fa": "ریتمِ کار"
+      },
+      "gist": {
+        "en": "A fixed sprint, a fifteen-minute stand-up, and a war on everything that wastes the team.",
+        "fa": "یک اسپرینتِ ثابت، یک جلسهٔ ایستادهٔ پانزده‌دقیقه‌ای، و جنگ با هر چیزی که تیم را هدر می‌دهد."
+      },
+      "more": {
+        "en": "Time is the container. Fix the length of the sprint, never change what is inside it midway, and finish with something you can demonstrate. Then remove the three wastes Toyota named — muri, mura and muda — starting with multitasking, half-done work, and the myth that long hours produce more.",
+        "fa": "زمان همان ظرف است. طولِ اسپرینت را ثابت کن، محتوایش را وسطِ راه عوض نکن، و با چیزی تمامش کن که بتوانی نشانش دهی. بعد سه اتلافی را که تویوتا نام برد — موری، مورا و مودا — حذف کن؛ از چندکارگی، کارِ نیمه‌تمام و این افسانه که ساعت‌های طولانی بازدهِ بیشتری می‌آورد."
+      },
+      "chapters": [
+        "sprint",
+        "standup",
+        "waste"
+      ]
+    },
+    {
+      "key": "steer",
+      "varc": "--c-amber",
+      "name": {
+        "en": "Reality, Priorities and Happiness",
+        "fa": "واقعیت، اولویت و شادی"
+      },
+      "tag": {
+        "en": "Steering",
+        "fa": "هدایتِ کار"
+      },
+      "gist": {
+        "en": "Estimate in relative sizes, ship the fifth that carries most of the value, improve one thing every sprint.",
+        "fa": "با اندازهٔ نسبی تخمین بزن، اول همان یک‌پنجمی را عرضه کن که بیشترِ ارزش را دارد، هر اسپرینت یک چیز را بهتر کن."
+      },
+      "more": {
+        "en": "People are terrible at estimating hours and very good at comparing sizes, so Scrum sizes the work in story points on a Fibonacci scale, and reveals every card at once in planning poker so nobody anchors the group. The backlog is ordered by value, the definition of done is agreed in advance, and every sprint ends with a retrospective that fixes exactly one thing.",
+        "fa": "آدم‌ها در تخمینِ ساعت افتضاح‌اند و در مقایسهٔ اندازه‌ها خیلی خوب؛ برای همین اسکرام کار را با امتیازِ داستان روی مقیاسِ فیبوناچی اندازه می‌گیرد و در پوکرِ برنامه‌ریزی همه هم‌زمان کارت‌ها را رو می‌کنند تا کسی جمع را به سمتِ عددِ خودش نکشاند. بک‌لاگ بر پایهٔ ارزش مرتب می‌شود، تعریفِ «انجام‌شده» از قبل توافق می‌شود، و هر اسپرینت با جلسهٔ بازنگری‌ای تمام می‌شود که دقیقاً یک چیز را درست می‌کند."
+      },
+      "chapters": [
+        "points",
+        "backlog",
+        "happiness"
+      ]
+    }
+  ],
+  "chapters": {
+    "gantt": {
+      "part": "broken",
+      "n": 1,
+      "name": {
+        "en": "The Gantt Chart Lie",
+        "fa": "دروغِ نمودارِ گانت"
+      },
+      "glabel": {
+        "en": "Gantt Chart",
+        "fa": "نمودارِ گانت"
+      },
+      "principle": {
+        "en": "A detailed long-range plan feels like control, but it is only a guess drawn in colour.",
+        "fa": "برنامهٔ بلندمدت و پرجزئیات حسِ کنترل می‌دهد، اما فقط یک حدسِ رنگی است."
+      },
+      "more": {
+        "en": "Waterfall projects spend months building the plan, then defend the plan instead of the outcome. Sutherland's example is Sentinel, the FBI's case management system: four years in, 405 million of a 451 million dollar budget was gone and half the system was delivered. The chart was never wrong on paper, only about the world.",
+        "fa": "پروژه‌های آبشاری ماه‌ها صرفِ ساختنِ برنامه می‌کنند، بعد به‌جای دفاع از نتیجه، از برنامه دفاع می‌کنند. مثالِ ساترلند «سنتینل» است، سامانهٔ مدیریتِ پروندهٔ اف‌بی‌آی: چهار سال بعد از شروع، ۴۰۵ میلیون از ۴۵۱ میلیون دلار خرج شده بود و نیمی از سامانه تحویل شده بود. نمودار روی کاغذ هیچ‌وقت غلط نبود، فقط دربارهٔ دنیای واقعی غلط بود."
+      },
+      "example": {
+        "en": "Sentinel ran for years on a waterfall plan. Taken in-house and rebuilt in two-week sprints by a team cut to under fifty people, it shipped.",
+        "fa": "«سنتینل» سال‌ها با برنامهٔ آبشاری پیش رفت. بعد کار به داخلِ سازمان آمد، تیم به زیرِ پنجاه نفر کوچک شد و با اسپرینت‌های دوهفته‌ای تمامش کرد."
+      },
+      "tip": {
+        "en": "Take your current plan and mark every date beyond eight weeks as a guess. Stop reporting those dates as facts.",
+        "fa": "برنامهٔ فعلی‌ات را بردار و هر تاریخِ بعد از هشت هفته را «حدس» علامت بزن. دیگر آن تاریخ‌ها را به‌عنوانِ واقعیت گزارش نکن."
+      },
+      "pitfall": {
+        "en": "Rewarding the team for hitting the plan instead of for delivering something people actually use.",
+        "fa": "پاداش‌دادن به تیم برای رسیدن به برنامه، به‌جای تحویلِ چیزی که مردم واقعاً استفاده می‌کنند."
+      }
+    },
+    "ooda": {
+      "part": "broken",
+      "n": 2,
+      "name": {
+        "en": "The OODA Loop",
+        "fa": "حلقهٔ اودا"
+      },
+      "glabel": {
+        "en": "OODA Loop",
+        "fa": "حلقهٔ اودا"
+      },
+      "principle": {
+        "en": "Inspect and adapt: do a little, look hard at what happened, then choose the next move from the evidence.",
+        "fa": "بازرسی کن و وفق بده: کمی انجام بده، خوب نگاه کن چه شد، بعد حرکتِ بعدی را از روی شواهد انتخاب کن."
+      },
+      "more": {
+        "en": "OODA — observe, orient, decide, act — is Colonel John Boyd's decision loop for air combat, and Sutherland knew it from his own years flying. Deming's plan-do-check-act has the same shape and rebuilt Japanese manufacturing. Both say one thing: whoever rounds the loop faster wins, even with worse equipment.",
+        "fa": "«اودا» — مشاهده، جهت‌گیری، تصمیم، اقدام — حلقهٔ تصمیمِ سرهنگ جان بوید برای نبردِ هوایی است و ساترلند آن را از سال‌های خلبانیِ خودش می‌شناخت. چرخهٔ «برنامه‌ریزی، اجرا، بررسی، اقدام»ِ دمینگ همان شکل را دارد و صنعتِ ژاپن را از نو ساخت. هر دو یک حرف می‌زنند: هرکه سریع‌تر دورِ حلقه بچرخد می‌برد، حتی با تجهیزاتِ ضعیف‌تر."
+      },
+      "example": {
+        "en": "A pilot who completes the loop faster than the opponent wins the fight without a better aircraft.",
+        "fa": "خلبانی که حلقه را سریع‌تر از حریف کامل کند، بدونِ هواپیمای بهتر هم نبرد را می‌برد."
+      },
+      "tip": {
+        "en": "Shorten the feedback loop before you improve anything else. Weekly beats quarterly every time.",
+        "fa": "پیش از هر بهبودِ دیگری، حلقهٔ بازخورد را کوتاه کن. هفتگی همیشه از فصلی بهتر است."
+      },
+      "pitfall": {
+        "en": "Collecting feedback but leaving the plan untouched, which turns the loop into theatre.",
+        "fa": "جمع‌کردنِ بازخورد و دست‌نزدن به برنامه، که حلقه را به نمایش تبدیل می‌کند."
+      }
+    },
+    "rugby": {
+      "part": "broken",
+      "n": 3,
+      "name": {
+        "en": "Pass the Ball as One Unit",
+        "fa": "پاسِ توپ مثلِ یک واحد"
+      },
+      "glabel": {
+        "en": "Rugby Scrum",
+        "fa": "اسکرامِ راگبی"
+      },
+      "principle": {
+        "en": "The best teams move down the field together instead of handing work over a wall.",
+        "fa": "بهترین تیم‌ها با هم در زمین جلو می‌روند، به‌جای اینکه کار را از روی دیوار به نفرِ بعدی بیندازند."
+      },
+      "more": {
+        "en": "The name comes from a 1986 Harvard Business Review paper by Hirotaka Takeuchi and Ikujiro Nonaka, \"The New New Product Development Game\". They found the fastest teams at Honda, Canon and Fuji-Xerox overlapped their phases instead of running a relay. Sutherland turned that into a working method with Ken Schwaber.",
+        "fa": "این نام از مقاله‌ای می‌آید که هیروتاکا تاکه‌اوچی و ایکوجیرو نوناکا در سالِ ۱۹۸۶ در هاروارد بیزنس ریویو نوشتند: «بازیِ نوینِ توسعهٔ محصول». آن‌ها دیدند سریع‌ترین تیم‌ها در هوندا، کانن و فوجی‌زیراکس مرحله‌هایشان را هم‌پوشان می‌کنند، نه اینکه دوی امدادی بدوند. ساترلند این را همراهِ کن شوابر به روشی عملی تبدیل کرد."
+      },
+      "example": {
+        "en": "Design, build and test happening in the same week beats design finishing before build is allowed to start.",
+        "fa": "طراحی، ساخت و آزمون در یک هفته، بهتر از آن است که طراحی تمام شود تا اجازهٔ شروعِ ساخت صادر شود."
+      },
+      "tip": {
+        "en": "Put the designer, the engineer and the tester under one sprint goal instead of sequential hand-offs.",
+        "fa": "طراح، مهندس و آزمون‌گر را زیرِ یک هدفِ اسپرینت ببر، نه در تحویل‌های پشتِ‌سرِهم."
+      },
+      "pitfall": {
+        "en": "Calling it a team while each function still carries its own separate deadline.",
+        "fa": "اسمش را تیم گذاشتن، در حالی که هر واحد هنوز مهلتِ جداگانهٔ خودش را دارد."
+      }
+    },
+    "small": {
+      "part": "teams",
+      "n": 4,
+      "name": {
+        "en": "Seven People, Plus or Minus Two",
+        "fa": "هفت نفر، دو تا کم یا زیاد"
+      },
+      "glabel": {
+        "en": "Small Teams",
+        "fa": "تیمِ کوچک"
+      },
+      "principle": {
+        "en": "Keep the team under about nine people. Past that, each extra person costs more than they add.",
+        "fa": "تیم را زیرِ حدودِ نُه نفر نگه دار. بعد از آن، هر نفرِ اضافه بیشتر از آنچه می‌افزاید هزینه می‌سازد."
+      },
+      "more": {
+        "en": "Communication paths grow much faster than headcount, so a large team spends its day keeping itself informed. Sutherland's rule of thumb is seven plus or minus two. He also leans on Brooks's Law: adding people to a late project makes it later, because every newcomer needs someone already busy to teach them.",
+        "fa": "مسیرهای ارتباطی خیلی سریع‌تر از تعدادِ نفرات زیاد می‌شوند، پس تیمِ بزرگ روزش را صرفِ باخبرنگه‌داشتنِ خودش می‌کند. قاعدهٔ سرانگشتیِ ساترلند «هفت به‌علاوه یا منهای دو» است. او به «قانونِ بروکس» هم تکیه می‌کند: اضافه‌کردنِ نیرو به پروژهٔ عقب‌افتاده آن را عقب‌تر می‌اندازد، چون هر تازه‌وارد کسی را که از قبل گرفتار است برای آموزش لازم دارد."
+      },
+      "example": {
+        "en": "Give a nine-person team and a fifteen-person team the same work; the small one usually finishes first.",
+        "fa": "به یک تیمِ نُه‌نفره و یک تیمِ پانزده‌نفره کارِ یکسان بده؛ معمولاً تیمِ کوچک زودتر تمام می‌کند."
+      },
+      "tip": {
+        "en": "If a team has grown past nine, split it into two teams with two clear goals rather than one blurred goal.",
+        "fa": "اگر تیم از نُه نفر گذشت، به‌جای یک هدفِ مبهم، به دو تیم با دو هدفِ روشن تقسیمش کن."
+      },
+      "pitfall": {
+        "en": "Adding people to a late project and expecting it to speed up.",
+        "fa": "اضافه‌کردنِ نیرو به پروژهٔ عقب‌افتاده و انتظارِ سریع‌ترشدن."
+      }
+    },
+    "autonomy": {
+      "part": "teams",
+      "n": 5,
+      "name": {
+        "en": "Transcendent, Autonomous, Cross-Functional",
+        "fa": "متعالی، خودگردان، همه‌فن‌حریف"
+      },
+      "glabel": {
+        "en": "Great Teams",
+        "fa": "تیمِ عالی"
+      },
+      "principle": {
+        "en": "Great teams share a purpose bigger than the task, choose their own method, and hold every skill they need.",
+        "fa": "تیم‌های عالی هدفی بزرگ‌تر از خودِ کار دارند، روشِ کارشان را خودشان انتخاب می‌کنند، و همهٔ مهارت‌های لازم را در خود دارند."
+      },
+      "more": {
+        "en": "Takeuchi and Nonaka named three traits and Sutherland kept all three. Transcendent means the team believes the goal matters; autonomous means nobody outside dictates how; cross-functional means it can carry an idea all the way to done without another department's permission.",
+        "fa": "تاکه‌اوچی و نوناکا سه ویژگی را نام بردند و ساترلند هر سه را نگه داشت. «متعالی» یعنی تیم باور دارد هدف مهم است؛ «خودگردان» یعنی هیچ‌کس از بیرون «چطور» را دیکته نمی‌کند؛ «همه‌فن‌حریف» یعنی می‌تواند یک ایده را بدونِ اجازهٔ واحدِ دیگری تا انتها ببرد."
+      },
+      "example": {
+        "en": "A team that needs a ticket to another department in order to release code is not yet cross-functional.",
+        "fa": "تیمی که برای انتشارِ کد باید به واحدِ دیگری درخواست بدهد، هنوز همه‌فن‌حریف نیست."
+      },
+      "tip": {
+        "en": "List every external approval one release needs. Each one is a dependency to remove or to bring inside the team.",
+        "fa": "همهٔ تأییدهای بیرونی که یک انتشار لازم دارد را بنویس. هرکدام وابستگی‌ای است که باید حذف شود یا به داخلِ تیم بیاید."
+      },
+      "pitfall": {
+        "en": "Granting autonomy over the how, then dictating the how in every review.",
+        "fa": "دادنِ اختیار دربارهٔ «چطور» و بعد دیکته‌کردنِ همان «چطور» در هر جلسهٔ بازبینی."
+      }
+    },
+    "roles": {
+      "part": "teams",
+      "n": 6,
+      "name": {
+        "en": "Three Roles, One Job Each",
+        "fa": "سه نقش، هرکدام یک کار"
+      },
+      "glabel": {
+        "en": "Three Roles",
+        "fa": "سه نقش"
+      },
+      "principle": {
+        "en": "The Product Owner owns what and why, the Team owns how, the Scrum Master owns how fast.",
+        "fa": "مالکِ محصول صاحبِ «چه» و «چرا» است، تیم صاحبِ «چطور»، و اسکرام‌مستر صاحبِ «چقدر سریع»."
+      },
+      "more": {
+        "en": "The Product Owner talks to customers, holds the vision, and orders the backlog by value. The Team decides how the work gets built. The Scrum Master owns the process: run the meetings, measure the pace, clear the obstacles — and, Sutherland is firm, never assign a task to anyone.",
+        "fa": "مالکِ محصول با مشتری حرف می‌زند، چشم‌انداز را نگه می‌دارد و بک‌لاگ را بر پایهٔ ارزش مرتب می‌کند. تیم تصمیم می‌گیرد کار چطور ساخته شود. اسکرام‌مستر صاحبِ فرایند است: جلسه‌ها را می‌گرداند، سرعت را می‌سنجد، موانع را برمی‌دارد — و به تأکیدِ ساترلند، هرگز کار را به کسی نمی‌سپارد."
+      },
+      "example": {
+        "en": "When the build server keeps failing, that is the Scrum Master's problem, not another item inside the sprint.",
+        "fa": "وقتی سرورِ بیلد مدام از کار می‌افتد، این مسئلهٔ اسکرام‌مستر است، نه یک قلمِ دیگر داخلِ اسپرینت."
+      },
+      "tip": {
+        "en": "Write down who currently owns each of the three questions. The overlaps and the gaps show up immediately.",
+        "fa": "بنویس همین حالا هرکدام از این سه پرسش را چه کسی مالک است. هم‌پوشانی‌ها و خلأها بلافاصله معلوم می‌شوند."
+      },
+      "pitfall": {
+        "en": "A Product Owner who also decides how the work is done, which quietly removes the team's autonomy.",
+        "fa": "مالکِ محصولی که دربارهٔ نحوهٔ انجامِ کار هم تصمیم می‌گیرد و بی‌سروصدا خودگردانیِ تیم را از بین می‌برد."
+      }
+    },
+    "sprint": {
+      "part": "rhythm",
+      "n": 7,
+      "name": {
+        "en": "The Sprint",
+        "fa": "اسپرینت"
+      },
+      "glabel": {
+        "en": "The Sprint",
+        "fa": "اسپرینت"
+      },
+      "principle": {
+        "en": "Fix a short window, freeze what goes into it, and finish with something you can demonstrate.",
+        "fa": "یک بازهٔ کوتاه را ثابت کن، محتوایش را قفل کن، و با چیزی تمامش کن که بتوانی نشانش دهی."
+      },
+      "more": {
+        "en": "A sprint runs one to four weeks and its length never changes, which is what makes the team's pace measurable at all. Nothing is added once it starts. At the end the team shows working output, and that demonstration, not a status report, is the evidence of progress.",
+        "fa": "اسپرینت یک تا چهار هفته است و طولش هرگز عوض نمی‌شود؛ همین است که اصلاً سرعتِ تیم را قابلِ‌اندازه‌گیری می‌کند. پس از شروع، چیزی به آن اضافه نمی‌شود. در پایان، تیم خروجیِ کارکننده را نشان می‌دهد، و همین نمایش — نه گزارشِ وضعیت — مدرکِ پیشرفت است."
+      },
+      "example": {
+        "en": "A two-week sprint that ends in a live demo tells you more than any monthly written update.",
+        "fa": "یک اسپرینتِ دوهفته‌ای که با نمایشِ زنده تمام می‌شود، بیش از هر گزارشِ ماهانهٔ نوشتاری به تو می‌گوید."
+      },
+      "tip": {
+        "en": "Pick one length and keep it for at least six sprints before judging whether it works.",
+        "fa": "یک طول انتخاب کن و پیش از قضاوت دربارهٔ درست‌بودنش، دستِ‌کم شش اسپرینت نگهش دار."
+      },
+      "pitfall": {
+        "en": "Letting urgent requests into a running sprint, which destroys the one number you could trust.",
+        "fa": "راه‌دادنِ درخواست‌های فوری به اسپرینتِ در جریان، که تنها عددِ قابلِ‌اعتمادت را نابود می‌کند."
+      }
+    },
+    "standup": {
+      "part": "rhythm",
+      "n": 8,
+      "name": {
+        "en": "The Daily Stand-up",
+        "fa": "جلسهٔ ایستادهٔ روزانه"
+      },
+      "glabel": {
+        "en": "Daily Stand-up",
+        "fa": "جلسهٔ روزانه"
+      },
+      "principle": {
+        "en": "Fifteen minutes, standing, same time and place, three questions and nothing else.",
+        "fa": "پانزده دقیقه، ایستاده، هر روز همان ساعت و همان جا، سه پرسش و نه چیزِ دیگر."
+      },
+      "more": {
+        "en": "Each person answers what they did yesterday to help the team finish the sprint, what they will do today, and what is in their way. The point is not reporting upward. It is the team seeing where the work is stuck so somebody can move to it.",
+        "fa": "هر نفر جواب می‌دهد دیروز چه کرد تا تیم اسپرینت را تمام کند، امروز چه می‌کند، و چه چیزی سرِ راهش است. هدف، گزارش‌دادن به بالادست نیست. هدف این است که تیم ببیند کار کجا گیر کرده تا کسی به کمکش برود."
+      },
+      "example": {
+        "en": "Someone says they are blocked on an access request; a teammate has it sorted before lunch.",
+        "fa": "کسی می‌گوید بابتِ نداشتنِ دسترسی گیر کرده؛ یک هم‌تیمی پیش از ناهار حلش می‌کند."
+      },
+      "tip": {
+        "en": "Time it. If it runs past fifteen minutes, the extra conversation belongs to a smaller group.",
+        "fa": "زمانش را بگیر. اگر از پانزده دقیقه گذشت، آن بحثِ اضافه مالِ یک جمعِ کوچک‌تر است."
+      },
+      "pitfall": {
+        "en": "Turning it into a status meeting where everyone speaks to the manager and nobody to each other.",
+        "fa": "تبدیلش به جلسهٔ گزارش‌دهی، جایی که همه با مدیر حرف می‌زنند و هیچ‌کس با هم."
+      }
+    },
+    "waste": {
+      "part": "rhythm",
+      "n": 9,
+      "name": {
+        "en": "Waste Is a Crime",
+        "fa": "اتلاف جرم است"
+      },
+      "glabel": {
+        "en": "Waste",
+        "fa": "اتلاف"
+      },
+      "principle": {
+        "en": "Multitasking, half-finished work and long hours all cost far more than they ever return.",
+        "fa": "چندکارگی، کارِ نیمه‌تمام و ساعت‌های طولانی، همه بسیار بیشتر از آنچه برمی‌گردانند هزینه دارند."
+      },
+      "more": {
+        "en": "Toyota named three wastes: muri, unreasonableness; mura, inconsistency; muda, waste in the outcome. A second project running alongside the first throws away a large share of your output, and a third throws away much more. Half-done work is inventory that may never be worth anything, and tired people make mistakes that cost more than the hours they saved.",
+        "fa": "تویوتا سه اتلاف را نام برد: موری، یعنی خواستهٔ نامعقول؛ مورا، یعنی ناهمواری؛ و مودا، یعنی اتلاف در نتیجهٔ کار. پروژهٔ دومی که هم‌زمان با اولی می‌چرخد بخشِ بزرگی از خروجی‌ات را دور می‌ریزد و سومی خیلی بیشتر. کارِ نیمه‌تمام موجودی‌ای است که شاید هرگز به هیچ ارزشی نرسد، و آدمِ خسته خطاهایی می‌کند که از ساعت‌های صرفه‌جویی‌شده گران‌ترند."
+      },
+      "example": {
+        "en": "A team split across three projects delivers less in total than the same team working on one.",
+        "fa": "تیمی که بینِ سه پروژه تقسیم شده، در مجموع کمتر از همان تیم روی یک پروژه تحویل می‌دهد."
+      },
+      "tip": {
+        "en": "Count how many active projects each person is on this week. Work to get every one of them down to one.",
+        "fa": "بشمار هر نفر این هفته روی چند پروژهٔ فعال است. تلاش کن همه به یک برسند."
+      },
+      "pitfall": {
+        "en": "Treating overtime as a recovery plan, which reliably makes the next sprint worse.",
+        "fa": "اضافه‌کاری را نقشهٔ جبران دانستن، که به‌طورِ قابلِ‌پیش‌بینی اسپرینتِ بعدی را بدتر می‌کند."
+      }
+    },
+    "points": {
+      "part": "steer",
+      "n": 10,
+      "name": {
+        "en": "Story Points and Planning Poker",
+        "fa": "امتیازِ داستان و پوکرِ برنامه‌ریزی"
+      },
+      "glabel": {
+        "en": "Story Points",
+        "fa": "امتیازِ داستان"
+      },
+      "principle": {
+        "en": "People are bad at estimating hours and good at comparing sizes, so estimate in relative points.",
+        "fa": "آدم‌ها در تخمینِ ساعت بدند و در مقایسهٔ اندازه‌ها خوب، پس با امتیازِ نسبی تخمین بزن."
+      },
+      "more": {
+        "en": "Scrum sizes the work on a Fibonacci scale — 1, 2, 3, 5, 8, 13 — because the gaps should widen as certainty falls. In planning poker everyone picks a card privately and reveals at once, so the loudest or most senior voice cannot anchor the group. Where two people land far apart, the argument is worth more than the number.",
+        "fa": "اسکرام کار را روی مقیاسی فیبوناچی‌مانند اندازه می‌گیرد — ۱، ۲، ۳، ۵، ۸، ۱۳ — چون هرچه قطعیت کمتر می‌شود، فاصله‌ها باید بازتر شوند. در پوکرِ برنامه‌ریزی هرکس کارتش را در خفا برمی‌دارد و همه هم‌زمان رو می‌کنند، تا بلندترین یا ارشدترین صدا نتواند جمع را به سمتِ عددِ خودش بکشد. جایی که دو نفر خیلی فاصله دارند، بحثشان از خودِ عدد باارزش‌تر است."
+      },
+      "example": {
+        "en": "Nobody can say how many hours a task takes, but everyone can say it is about twice the last one.",
+        "fa": "هیچ‌کس نمی‌تواند بگوید یک کار چند ساعت طول می‌کشد، اما همه می‌توانند بگویند تقریباً دو برابرِ کارِ قبلی است."
+      },
+      "tip": {
+        "en": "Estimate the next ten items relative to one item everybody already knows well.",
+        "fa": "ده قلمِ بعدی را نسبت به یک کار که همه خوب می‌شناسندش تخمین بزن."
+      },
+      "pitfall": {
+        "en": "Converting points back into hours, which brings the anchoring problem straight back in.",
+        "fa": "تبدیلِ دوبارهٔ امتیازها به ساعت، که همان مشکلِ لنگرانداختن را برمی‌گرداند."
+      }
+    },
+    "backlog": {
+      "part": "steer",
+      "n": 11,
+      "name": {
+        "en": "The Backlog and the Definition of Done",
+        "fa": "بک‌لاگ و تعریفِ «انجام‌شده»"
+      },
+      "glabel": {
+        "en": "Backlog",
+        "fa": "بک‌لاگ"
+      },
+      "principle": {
+        "en": "One list ordered by value, and one agreed meaning of finished.",
+        "fa": "یک فهرست که بر پایهٔ ارزش مرتب شده، و یک معنای توافق‌شده برای «تمام‌شده»."
+      },
+      "more": {
+        "en": "The Product Owner keeps one ordered list so the most valuable item is always the next one. Sutherland points at the eighty-twenty pattern: roughly a fifth of the features carries most of the value, so ship that fifth as a minimum viable product — the smallest thing real users can use — and learn from it. Done means done: tested, usable, shippable, agreed before the sprint starts.",
+        "fa": "مالکِ محصول یک فهرستِ مرتب نگه می‌دارد تا همیشه ارزشمندترین قلم، قلمِ بعدی باشد. ساترلند به الگوی هشتاد-بیست اشاره می‌کند: تقریباً یک‌پنجمِ قابلیت‌ها بیشترِ ارزش را دارند، پس همان یک‌پنجم را به‌شکلِ «کمینهٔ محصولِ پذیرفتنی» عرضه کن — کوچک‌ترین چیزی که کاربرِ واقعی بتواند به‌کار ببرد — و از آن یاد بگیر. «انجام‌شده» یعنی آزمون‌شده، قابلِ‌استفاده و قابلِ‌عرضه، توافق‌شده پیش از شروعِ اسپرینت."
+      },
+      "example": {
+        "en": "Release the fifth of the product that carries most of the value, then let real use tell you what comes next.",
+        "fa": "همان یک‌پنجمی از محصول را عرضه کن که بیشترِ ارزش را دارد، بعد بگذار استفادهٔ واقعی بگوید بعدی چیست."
+      },
+      "tip": {
+        "en": "Write the definition of done on one card and hang it where the team can see it all sprint.",
+        "fa": "تعریفِ «انجام‌شده» را روی یک کارت بنویس و جایی بزن که تیم در تمامِ اسپرینت ببیندش."
+      },
+      "pitfall": {
+        "en": "A backlog sorted by who asked loudest rather than by the value each item delivers.",
+        "fa": "بک‌لاگی که بر پایهٔ بلندترین صدا مرتب شده، نه بر پایهٔ ارزشی که هر قلم تحویل می‌دهد."
+      }
+    },
+    "happiness": {
+      "part": "steer",
+      "n": 12,
+      "name": {
+        "en": "Happiness and Kaizen",
+        "fa": "شادی و کایزن"
+      },
+      "glabel": {
+        "en": "Happiness",
+        "fa": "شادی"
+      },
+      "principle": {
+        "en": "Measure how the team feels, then fix exactly one thing every sprint.",
+        "fa": "حالِ تیم را بسنج، بعد هر اسپرینت دقیقاً یک چیز را درست کن."
+      },
+      "more": {
+        "en": "Sutherland treats happiness as a leading indicator: people say the work is getting worse before the delivery numbers do. At each retrospective the team rates how it feels and picks one improvement to carry into the next sprint as a real backlog item. That is kaizen, get a little bit better every day, and it is the part that compounds.",
+        "fa": "ساترلند شادی را شاخصی پیشرو می‌داند: آدم‌ها پیش از آنکه اعدادِ تحویل بگویند، می‌گویند کار دارد بدتر می‌شود. در هر جلسهٔ بازنگری، تیم حالش را نمره می‌دهد و یک بهبود را انتخاب می‌کند تا به‌شکلِ یک قلمِ واقعیِ بک‌لاگ واردِ اسپرینتِ بعدی شود. این همان کایزن است — هر روز کمی بهتر — و همین بخش است که روی هم انباشته می‌شود."
+      },
+      "example": {
+        "en": "A team sees its happiness score fall two sprints before delivery slips, and acts while it is still cheap.",
+        "fa": "تیم می‌بیند نمرهٔ شادی‌اش دو اسپرینت پیش از عقب‌افتادنِ تحویل پایین آمده و وقتی هنوز ارزان است واکنش نشان می‌دهد."
+      },
+      "tip": {
+        "en": "End every retrospective by putting one improvement into the next sprint's backlog with a name against it.",
+        "fa": "هر جلسهٔ بازنگری را با گذاشتنِ یک بهبود در بک‌لاگِ اسپرینتِ بعدی و سپردنش به یک نفر تمام کن."
+      },
+      "pitfall": {
+        "en": "A retrospective that produces a long list of complaints and not one item anybody owns.",
+        "fa": "جلسهٔ بازنگری‌ای که فهرستِ بلندی از گلایه می‌سازد و حتی یک قلم که کسی مالکش باشد نه."
+      }
+    }
+  },
+  "core": {
+    "name": {
+      "en": "SCRUM",
+      "fa": "اسکرام"
+    },
+    "principle": {
+      "en": "Plans are guesses. A small autonomous team working in short fixed sprints, showing real output at the end of each one, learns faster than any plan can predict — and its speed comes from removing waste, not from adding hours.",
+      "fa": "برنامه‌ها حدس‌اند. یک تیمِ کوچکِ خودگردان که در اسپرینت‌های کوتاه و ثابت کار می‌کند و در پایانِ هرکدام خروجیِ واقعی نشان می‌دهد، سریع‌تر از هر برنامه‌ای یاد می‌گیرد — و سرعتش از حذفِ اتلاف می‌آید، نه از افزودنِ ساعت."
+    },
+    "more": {
+      "en": "Sutherland builds the argument in four moves: show that Gantt charts give false comfort, and that the remedy came from Boyd's OODA loop, Deming's cycle and the rugby scrum of Takeuchi and Nonaka; hand the work to a small autonomous team with three clean roles; give that team a fixed sprint, a daily stand-up and a war on waste; then steer with story points, a backlog ordered by value, and a retrospective that improves one thing every time.",
+      "fa": "ساترلند استدلال را در چهار حرکت می‌چیند: نشان می‌دهد نمودارِ گانت آرامشِ کاذب می‌دهد و راهِ درمان از حلقهٔ اودای بوید، چرخهٔ دمینگ و اسکرامِ راگبیِ تاکه‌اوچی و نوناکا آمد؛ کار را به یک تیمِ کوچکِ خودگردان با سه نقشِ تمیز می‌سپارد؛ به آن تیم یک اسپرینتِ ثابت، جلسهٔ ایستادهٔ روزانه و جنگ با اتلاف می‌دهد؛ بعد با امتیازِ داستان، بک‌لاگی که بر پایهٔ ارزش مرتب شده، و جلسهٔ بازنگری‌ای که هر بار یک چیز را بهتر می‌کند، کار را هدایت می‌کند."
+    },
+    "example": {
+      "en": "Click any node to read a principle or a method. You can also drag the nodes around.",
+      "fa": "روی هر دایره کلیک کن تا یک اصل یا روش را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."
+    }
+  },
+  "stages": [
+    {
+      "level": 1,
+      "badge": {
+        "en": "Level 1 · Over-simplified",
+        "fa": "سطحِ ۱ · خیلی ساده"
+      },
+      "title": {
+        "en": "Work in short cycles",
+        "fa": "در چرخه‌های کوتاه کار کن"
+      },
+      "tagline": {
+        "en": "The whole book in a sentence.",
+        "fa": "کلِ کتاب در یک جمله."
+      },
+      "body": {
+        "en": "Stop planning a year ahead. Take a small piece, finish it inside a <b>short fixed window</b>, show it to somebody, then decide what comes next.",
+        "fa": "دست از برنامه‌ریزیِ یک‌ساله بردار. یک تکهٔ کوچک بردار، در یک <b>بازهٔ کوتاهِ ثابت</b> تمامش کن، به کسی نشانش بده، بعد تصمیم بگیر بعدی چیست."
+      },
+      "example": {
+        "en": "Instead of a six-month roadmap, agree what will be usable two weeks from today.",
+        "fa": "به‌جای نقشهٔ راهِ شش‌ماهه، توافق کن دو هفتهٔ دیگر چه چیزی قابلِ‌استفاده خواهد بود."
+      },
+      "gain": {
+        "en": "You hold the single rule the rest of the book expands on.",
+        "fa": "همان یک قاعده‌ای را داری که بقیهٔ کتاب بسطش می‌دهد."
+      }
+    },
+    {
+      "level": 2,
+      "badge": {
+        "en": "Level 2 · Simple",
+        "fa": "سطحِ ۲ · ساده"
+      },
+      "title": {
+        "en": "Sprint, stand-up, demo",
+        "fa": "اسپرینت، جلسهٔ روزانه، نمایش"
+      },
+      "tagline": {
+        "en": "The three moving parts.",
+        "fa": "سه جزءِ متحرک."
+      },
+      "body": {
+        "en": "A <b>sprint</b> is one to four weeks and its length never changes. Every day the team holds a fifteen-minute <b>stand-up</b> around three questions. At the end it <b>demonstrates</b> working output, not a status report.",
+        "fa": "<b>اسپرینت</b> یک تا چهار هفته است و طولش هرگز عوض نمی‌شود. هر روز تیم یک <b>جلسهٔ ایستادهٔ</b> پانزده‌دقیقه‌ای دورِ سه پرسش برگزار می‌کند. در پایان، خروجیِ کارکننده را <b>نشان می‌دهد</b>، نه گزارشِ وضعیت."
+      },
+      "example": {
+        "en": "A two-week sprint, a fifteen-minute stand-up every morning, and a demo on the last day.",
+        "fa": "اسپرینتِ دوهفته‌ای، جلسهٔ ایستادهٔ پانزده‌دقیقه‌ای هر صبح، و نمایش در آخرین روز."
+      },
+      "gain": {
+        "en": "You can run the basic loop without inventing anything of your own.",
+        "fa": "می‌توانی حلقهٔ پایه را بدونِ اختراعِ چیزی از خودت اجرا کنی."
+      }
+    },
+    {
+      "level": 3,
+      "badge": {
+        "en": "Level 3 · Balanced",
+        "fa": "سطحِ ۳ · متعادل"
+      },
+      "title": {
+        "en": "Build the right team",
+        "fa": "تیمِ درست را بساز"
+      },
+      "tagline": {
+        "en": "Small, cross-functional, autonomous.",
+        "fa": "کوچک، همه‌فن‌حریف، خودگردان."
+      },
+      "body": {
+        "en": "Keep the team at <b>seven plus or minus two</b>. Give it every skill it needs so it never waits on another department, let it decide <b>how</b>, and keep the roles clean: <b>Product Owner</b> for what, <b>Team</b> for how, <b>Scrum Master</b> for whatever is in the way.",
+        "fa": "تیم را روی <b>هفت به‌علاوه یا منهای دو</b> نگه دار. همهٔ مهارت‌های لازم را در آن بگذار تا هرگز منتظرِ واحدِ دیگری نماند، بگذار خودش <b>چطور</b> را تصمیم بگیرد، و نقش‌ها را تمیز نگه دار: <b>مالکِ محصول</b> برای «چه»، <b>تیم</b> برای «چطور»، <b>اسکرام‌مستر</b> برای هر چیزی که سرِ راه است."
+      },
+      "example": {
+        "en": "List every external approval one release needs; each one is a dependency to remove.",
+        "fa": "همهٔ تأییدهای بیرونیِ لازم برای یک انتشار را بنویس؛ هرکدام وابستگی‌ای است که باید حذف شود."
+      },
+      "gain": {
+        "en": "You can tell a real team from a group of people who only share a calendar.",
+        "fa": "می‌توانی یک تیمِ واقعی را از گروهی که فقط تقویمشان مشترک است تشخیص دهی."
+      }
+    },
+    {
+      "level": 4,
+      "badge": {
+        "en": "Level 4 · Advanced",
+        "fa": "سطحِ ۴ · پیشرفته"
+      },
+      "title": {
+        "en": "Cut waste, estimate honestly",
+        "fa": "اتلاف را ببر، صادقانه تخمین بزن"
+      },
+      "tagline": {
+        "en": "Where the speed actually comes from.",
+        "fa": "سرعت واقعاً از کجا می‌آید."
+      },
+      "body": {
+        "en": "Put everyone on <b>one</b> project at a time and stop starting work you cannot finish — multitasking and half-done work are pure loss, and overtime makes the next sprint worse. Estimate in <b>story points</b> on a Fibonacci scale, revealed at once in <b>planning poker</b> so nobody anchors the room.",
+        "fa": "هرکس را روی <b>یک</b> پروژه بگذار و کاری را که نمی‌توانی تمام کنی شروع نکن — چندکارگی و کارِ نیمه‌تمام ضررِ خالص‌اند، و اضافه‌کاری اسپرینتِ بعدی را بدتر می‌کند. با <b>امتیازِ داستان</b> روی مقیاسِ فیبوناچی تخمین بزن و در <b>پوکرِ برنامه‌ریزی</b> همه هم‌زمان رو کنید تا کسی جمع را به سمتِ عددِ خودش نکشد."
+      },
+      "example": {
+        "en": "Count how many active projects each person is on this week, then work to bring every one of them to one.",
+        "fa": "بشمار هر نفر این هفته روی چند پروژهٔ فعال است، بعد تلاش کن همه را به یک برسانی."
+      },
+      "gain": {
+        "en": "You can raise the team's pace without asking for a single extra hour.",
+        "fa": "می‌توانی سرعتِ تیم را بدونِ خواستنِ حتی یک ساعتِ اضافه بالا ببری."
+      }
+    },
+    {
+      "level": 5,
+      "badge": {
+        "en": "Level 5 · Expert",
+        "fa": "سطحِ ۵ · حرفه‌ای"
+      },
+      "title": {
+        "en": "Order by value, improve every sprint",
+        "fa": "بر پایهٔ ارزش مرتب کن، هر اسپرینت بهتر شو"
+      },
+      "tagline": {
+        "en": "The part that compounds.",
+        "fa": "بخشی که روی هم انباشته می‌شود."
+      },
+      "body": {
+        "en": "Keep one <b>backlog</b> ordered so the most valuable thing is always next, and agree the <b>definition of done</b> before the sprint starts. Ship the fifth of the features that carries the value; don't wait for the whole product. Then read <b>happiness</b> as an early warning, and end every retrospective by moving exactly one improvement into the next sprint with a name against it. That is <b>kaizen</b>.",
+        "fa": "یک <b>بک‌لاگ</b> داشته باش که همیشه ارزشمندترین چیز، قلمِ بعدی‌اش باشد، و <b>تعریفِ «انجام‌شده»</b> را پیش از شروعِ اسپرینت توافق کن. همان یک‌پنجمی از قابلیت‌ها را که ارزش را دارد عرضه کن؛ منتظرِ کلِ محصول نمان. بعد <b>شادی</b> را مثلِ هشدارِ زودهنگام بخوان، و هر جلسهٔ بازنگری را با گذاشتنِ دقیقاً یک بهبود در اسپرینتِ بعدی و سپردنش به یک نفر تمام کن. این همان <b>کایزن</b> است."
+      },
+      "example": {
+        "en": "The happiness score falls two sprints before delivery slips, so the retrospective fixes the cause before the number moves.",
+        "fa": "نمرهٔ شادی دو اسپرینت پیش از عقب‌افتادنِ تحویل پایین می‌آید، پس جلسهٔ بازنگری علت را پیش از تکان‌خوردنِ عدد درست می‌کند."
+      },
+      "gain": {
+        "en": "You can run a team that gets measurably faster sprint after sprint.",
+        "fa": "می‌توانی تیمی بگردانی که اسپرینت به اسپرینت به‌شکلِ قابلِ‌اندازه‌گیری سریع‌تر می‌شود."
+      }
+    }
+  ],
+  "quotes": [
+    {
+      "en": "Waste is a crime against society more than a business loss. (Taiichi Ohno, quoted in the book.)",
+      "fa": "اتلاف بیش از آنکه زیانِ کسب‌وکار باشد، جرمی علیه جامعه است. (تایی‌چی اونو، به نقل از کتاب.)"
+    },
+    {
+      "en": "Planning is useful. Blindly following plans is stupid.",
+      "fa": "برنامه‌ریزی مفید است. دنبال‌کردنِ کورکورانهٔ برنامه احمقانه است."
+    },
+    {
+      "en": "Blame is stupid. Don't look for bad people; look for bad systems.",
+      "fa": "سرزنش احمقانه است. دنبالِ آدمِ بد نگرد؛ دنبالِ سیستمِ بد بگرد."
+    },
+    {
+      "en": "Working longer hours doesn't get more work done. It gets less done.",
+      "fa": "ساعت‌های طولانی‌تر کارِ بیشتری تمام نمی‌کند. کارِ کمتری تمام می‌کند."
+    },
+    {
+      "en": "Half done is not done at all. A half-built car just ties up resources.",
+      "fa": "کارِ نیمه‌تمام اصلاً تمام‌شده نیست. ماشینِ نیمه‌ساخته فقط منابع را گرفتار می‌کند."
+    },
+    {
+      "en": "Get a little bit better every single day.",
+      "fa": "هر روز کمی بهتر شو."
+    }
+  ],
+  "media": [
+    {
+      "kind": "img",
+      "url": "https://hbr.org/1986/01/the-new-new-product-development-game",
+      "src": {
+        "en": "Harvard Business Review · 1986",
+        "fa": "هاروارد بیزنس ریویو · ۱۹۸۶"
+      },
+      "title": {
+        "en": "The New New Product Development Game",
+        "fa": "بازیِ نوینِ توسعهٔ محصول"
+      },
+      "desc": {
+        "en": "The Takeuchi and Nonaka paper that gave Scrum its name and its idea of a team that overlaps its phases.",
+        "fa": "مقالهٔ تاکه‌اوچی و نوناکا که نامِ اسکرام و ایدهٔ تیمی با مرحله‌های هم‌پوشان را به آن داد."
+      },
+      "bullets": {
+        "en": [
+          "Where the rugby metaphor came from",
+          "Cases from Honda, Canon and Fuji-Xerox",
+          "The three team traits Scrum kept"
+        ],
+        "fa": [
+          "ریشهٔ استعارهٔ راگبی",
+          "نمونه‌هایی از هوندا، کانن و فوجی‌زیراکس",
+          "سه ویژگیِ تیمی که اسکرام نگه داشت"
+        ]
+      },
+      "best": {
+        "en": "Best for Stage 3.",
+        "fa": "خوب برای مرحلهٔ ۳."
+      }
+    },
+    {
+      "kind": "img",
+      "url": "https://scrumguides.org/",
+      "src": {
+        "en": "scrumguides.org · Official guide",
+        "fa": "scrumguides.org · راهنمای رسمی"
+      },
+      "title": {
+        "en": "The Scrum Guide",
+        "fa": "راهنمای اسکرام"
+      },
+      "desc": {
+        "en": "The short official rulebook by Ken Schwaber and Jeff Sutherland, free and translated into dozens of languages.",
+        "fa": "کتابچهٔ کوتاه و رسمیِ کن شوابر و جف ساترلند، رایگان و ترجمه‌شده به ده‌ها زبان."
+      },
+      "bullets": {
+        "en": [
+          "Roles, events and artefacts in a few pages",
+          "Maintained by the two co-creators",
+          "Free to read and to share"
+        ],
+        "fa": [
+          "نقش‌ها، رویدادها و مصنوعات در چند صفحه",
+          "نگهداری‌شده به‌دستِ همان دو هم‌آفرین",
+          "رایگان برای خواندن و بازنشر"
+        ]
+      },
+      "best": {
+        "en": "Best for Stage 2–3.",
+        "fa": "خوب برای مرحلهٔ ۲ و ۳."
+      }
+    }
+  ],
+  "go": [
+    {
+      "label": {
+        "en": "The book at its publisher",
+        "fa": "کتاب در صفحهٔ ناشر"
+      },
+      "url": "https://www.penguinrandomhouse.com/books/226850/scrum-by-jeff-sutherland-and-jj-sutherland/"
+    },
+    {
+      "label": {
+        "en": "Book on Goodreads",
+        "fa": "کتاب در گودریدز"
+      },
+      "url": "https://www.goodreads.com/book/show/19288230-scrum"
+    },
+    {
+      "label": {
+        "en": "Scrum Inc — the author's company",
+        "fa": "اسکرام‌اینک — شرکتِ نویسنده"
+      },
+      "url": "https://www.scruminc.com/"
+    }
+  ],
+  "recs": [
+    {
+      "pri": "b",
+      "t": {
+        "en": "Run one two-week sprint end to end",
+        "fa": "یک اسپرینتِ دوهفته‌ای را از اول تا آخر اجرا کن"
+      },
+      "d": {
+        "en": "Fix the dates, freeze the scope, and finish with a live demo rather than a written status update.",
+        "fa": "تاریخ‌ها را ثابت کن، دامنه را قفل کن، و به‌جای گزارشِ نوشتاری با یک نمایشِ زنده تمامش کن."
+      }
+    },
+    {
+      "pri": "b",
+      "t": {
+        "en": "Get everyone down to one project",
+        "fa": "همه را به یک پروژه برسان"
+      },
+      "d": {
+        "en": "Count each person's active projects this week. Ending multitasking is the cheapest speed you will ever buy back.",
+        "fa": "پروژه‌های فعالِ هر نفر را این هفته بشمار. پایان‌دادن به چندکارگی ارزان‌ترین سرعتی است که به‌دست می‌آوری."
+      }
+    },
+    {
+      "pri": "n",
+      "t": {
+        "en": "Estimate the next ten items in points",
+        "fa": "ده قلمِ بعدی را با امتیاز تخمین بزن"
+      },
+      "d": {
+        "en": "Compare each one to a task everybody knows. Reveal all cards at once so nobody anchors the room.",
+        "fa": "هرکدام را با کاری که همه می‌شناسند مقایسه کن. همهٔ کارت‌ها را هم‌زمان رو کنید تا کسی جمع را به سمتِ عددِ خودش نکشد."
+      }
+    },
+    {
+      "pri": "n",
+      "t": {
+        "en": "End the retrospective with one owned improvement",
+        "fa": "جلسهٔ بازنگری را با یک بهبودِ صاحب‌دار تمام کن"
+      },
+      "d": {
+        "en": "One item, one name, inside the next sprint's backlog. A list of complaints is not a retrospective.",
+        "fa": "یک قلم، یک نام، داخلِ بک‌لاگِ اسپرینتِ بعدی. فهرستِ گلایه، جلسهٔ بازنگری نیست."
+      }
+    }
+  ]
+});
+</script>
+</body>
+</html>

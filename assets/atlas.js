@@ -129,6 +129,22 @@ window.ATLAS = {
         "fa": "تسلط بر خود"
       },
       "varc": "--c-teal"
+    },
+    {
+      "num": 17,
+      "name": {
+        "en": "Working with AI",
+        "fa": "کار با هوش مصنوعی"
+      },
+      "varc": "--c-blue"
+    },
+    {
+      "num": 18,
+      "name": {
+        "en": "Delivery & Projects",
+        "fa": "تحویل و پروژه"
+      },
+      "varc": "--c-violet"
     }
   ],
   "books": [
@@ -1581,6 +1597,267 @@ window.ATLAS = {
         "en": "You fall to your level of training, never rise to the occasion — courage is the next step taken while afraid.",
         "fa": "به سطحِ تمرینت سقوط می‌کنی، نه به بلندای لحظه — شجاعت همان قدمِ بعدی است که در حالِ ترس برمی‌داری."
       }
+    },
+    {
+      "slug": "co-intelligence",
+      "folder": "17 - Working with AI",
+      "groupNum": 17,
+      "book": {
+        "en": "Co-Intelligence",
+        "fa": "هم‌هوشی"
+      },
+      "group": {
+        "en": "Working with AI",
+        "fa": "کار با هوش مصنوعی"
+      },
+      "published": {
+        "en": "2024",
+        "fa": "۲۰۲۴"
+      },
+      "core": {
+        "en": "CO-INTELLIGENCE",
+        "fa": "هم‌هوشی"
+      },
+      "coreLine": {
+        "en": "AI is not a tool you pick up and not a rival you fear. It is a co-intelligence: an alien mind you work alongside, whose strengths and blind spots you have to map yourself.",
+        "fa": "هوش مصنوعی نه ابزاری است که برمی‌داری و نه رقیبی که از آن می‌ترسی. یک هم‌هوش است: ذهنی بیگانه که کنارش کار می‌کنی و باید خودت نقشهٔ توانایی‌ها و نقطه‌های کورش را بکشی."
+      },
+      "summary": {
+        "en": "Invite the alien mind to every task, be the human in the loop — its jagged frontier is invisible until you test.",
+        "fa": "ذهنِ بیگانه را به هر کاری دعوت کن، انسانِ داخلِ حلقه باش — مرزِ دندانه‌دارِ توانایی‌اش تا آزمایش نکنی نامرئی است."
+      }
+    },
+    {
+      "slug": "human-plus-machine",
+      "folder": "17 - Working with AI",
+      "groupNum": 17,
+      "book": {
+        "en": "Human + Machine",
+        "fa": "انسان + ماشین"
+      },
+      "group": {
+        "en": "Working with AI",
+        "fa": "کار با هوش مصنوعی"
+      },
+      "published": {
+        "en": "2018",
+        "fa": "۲۰۱۸"
+      },
+      "core": {
+        "en": "THE MISSING MIDDLE",
+        "fa": "میانهٔ گم‌شده"
+      },
+      "coreLine": {
+        "en": "The largest gains from AI sit between the two poles — not \"humans do it\" and not \"machines do it\", but the space where people and systems work on the same task together.",
+        "fa": "بزرگ‌ترین سودِ هوش مصنوعی بینِ دو سرِ طیف است — نه «آدم انجامش می‌دهد» و نه «ماشین انجامش می‌دهد»، بلکه همان فضایی که آدم و سیستم روی یک کار با هم کار می‌کنند."
+      },
+      "summary": {
+        "en": "The gains sit in the missing middle — people train, explain and sustain the machines; machines amplify, interact and embody for them.",
+        "fa": "سودِ اصلی در میانهٔ گم‌شده است — آدم ماشین را آموزش می‌دهد، توضیح می‌دهد و نگه می‌دارد؛ ماشین برای آدم تقویت، تعامل و تجسم می‌کند."
+      }
+    },
+    {
+      "slug": "prediction-machines",
+      "folder": "17 - Working with AI",
+      "groupNum": 17,
+      "book": {
+        "en": "Prediction Machines",
+        "fa": "ماشین‌های پیش‌بینی"
+      },
+      "group": {
+        "en": "Working with AI",
+        "fa": "کار با هوش مصنوعی"
+      },
+      "published": {
+        "en": "2018",
+        "fa": "۲۰۱۸"
+      },
+      "core": {
+        "en": "CHEAP PREDICTION",
+        "fa": "پیش‌بینیِ ارزان"
+      },
+      "coreLine": {
+        "en": "AI is a fall in the cost of prediction. Prediction is not decision, so value moves to what prediction cannot do: judgment, data and action.",
+        "fa": "هوشِ مصنوعی یعنی افتِ هزینهٔ پیش‌بینی. پیش‌بینی تصمیم نیست، پس ارزش به سمتِ چیزی می‌رود که پیش‌بینی از پسش برنمی‌آید: قضاوت، داده و اقدام."
+      },
+      "summary": {
+        "en": "AI is not new intelligence but cheap prediction — and the value moves to what it cannot do: judgment, data, action.",
+        "fa": "هوش مصنوعی هوشِ تازه نیست، پیش‌بینیِ ارزان است — و ارزش به کارهایی می‌رود که پیش‌بینی از پسشان برنمی‌آید: قضاوت، داده و اقدام."
+      }
+    },
+    {
+      "slug": "the-ai-product-managers-handbook",
+      "folder": "17 - Working with AI",
+      "groupNum": 17,
+      "book": {
+        "en": "The AI Product Manager's Handbook",
+        "fa": "راهنمای مدیرِ محصولِ هوش مصنوعی"
+      },
+      "group": {
+        "en": "Working with AI",
+        "fa": "کار با هوش مصنوعی"
+      },
+      "published": {
+        "en": "2023",
+        "fa": "۲۰۲۳"
+      },
+      "core": {
+        "en": "AI PRODUCT",
+        "fa": "محصولِ هوش مصنوعی"
+      },
+      "coreLine": {
+        "en": "AI is a means, not the product. The job is to know the pipeline well enough to say which problems deserve a model, and to design what happens when the model is wrong.",
+        "fa": "هوش مصنوعی وسیله است، نه محصول. کار این است که خطِ لوله را آن‌قدر بشناسی که بگویی کدام مسئله ارزشِ یک مدل را دارد، و طراحی کنی وقتی مدل اشتباه می‌کند چه بشود."
+      },
+      "summary": {
+        "en": "Manage the pipeline, not the screen — most of the product is the threshold, the fallback, and the budget for drift.",
+        "fa": "خطِ لوله را مدیریت کن، نه صفحه را — بیشترِ محصول همان آستانه، همان جوابِ جایگزین و همان بودجهٔ رانشِ مدل است."
+      }
+    },
+    {
+      "slug": "project-management-beginners-guide",
+      "folder": "18 - Delivery & Projects",
+      "groupNum": 18,
+      "book": {
+        "en": "Project Management Absolute Beginner's Guide",
+        "fa": "راهنمای مدیریت پروژه برای تازه‌کارها"
+      },
+      "group": {
+        "en": "Delivery & Projects",
+        "fa": "تحویل و پروژه"
+      },
+      "published": {
+        "en": "2017",
+        "fa": "۲۰۱۷"
+      },
+      "core": {
+        "en": "PROJECT",
+        "fa": "پروژه"
+      },
+      "coreLine": {
+        "en": "Project management is a small set of repeatable habits: define the work, break it down, control it against a baseline, and spend everything left on people.",
+        "fa": "مدیریت پروژه مجموعهٔ کوچکی از عادت‌های تکرارشدنی است: کار را تعریف کن، خردش کن، در برابرِ خطِ مبنا کنترلش کن، و هرچه وقت ماند صرفِ آدم‌ها کن."
+      },
+      "summary": {
+        "en": "Scope, schedule and cost move together — so define the work, break it down, and measure every week against the baseline.",
+        "fa": "دامنه، زمان و هزینه با هم جابه‌جا می‌شوند — پس کار را تعریف کن، خردش کن، و هر هفته کارِ تمام‌شده را با خطِ مبنا بسنج."
+      }
+    },
+    {
+      "slug": "project-management-unofficial",
+      "folder": "18 - Delivery & Projects",
+      "groupNum": 18,
+      "book": {
+        "en": "Project Management for the Unofficial Project Manager",
+        "fa": "مدیریت پروژه برای مدیرِ پروژهٔ غیررسمی"
+      },
+      "group": {
+        "en": "Delivery & Projects",
+        "fa": "تحویل و پروژه"
+      },
+      "published": {
+        "en": "2015",
+        "fa": "۲۰۱۵"
+      },
+      "core": {
+        "en": "PEOPLE + PROCESS",
+        "fa": "آدم‌ها + فرایند"
+      },
+      "coreLine": {
+        "en": "People + process = success. Informal authority earns you the team; five plain steps get you the project.",
+        "fa": "آدم‌ها + فرایند = موفقیت. اقتدارِ غیررسمی تیم را برایت می‌آورد؛ پنج قدمِ ساده پروژه را."
+      },
+      "summary": {
+        "en": "You lead the project without the title or power — so you earn trust through four behaviours, then run five plain steps.",
+        "fa": "پروژه را بی‌عنوان و بی‌اختیار پیش می‌بری — پس با چهار رفتار اعتماد می‌سازی، و بعد پنج قدمِ ساده را برمی‌داری."
+      }
+    },
+    {
+      "slug": "scrum-twice-the-work-half-the-time",
+      "folder": "18 - Delivery & Projects",
+      "groupNum": 18,
+      "book": {
+        "en": "Scrum",
+        "fa": "اسکرام"
+      },
+      "group": {
+        "en": "Delivery & Projects",
+        "fa": "تحویل و پروژه"
+      },
+      "published": {
+        "en": "2014",
+        "fa": "۲۰۱۴"
+      },
+      "core": {
+        "en": "SCRUM",
+        "fa": "اسکرام"
+      },
+      "coreLine": {
+        "en": "Plans are guesses. A small autonomous team working in short fixed sprints, showing real output at the end of each one, learns faster than any plan can predict — and its speed comes from removing waste, not from adding hours.",
+        "fa": "برنامه‌ها حدس‌اند. یک تیمِ کوچکِ خودگردان که در اسپرینت‌های کوتاه و ثابت کار می‌کند و در پایانِ هرکدام خروجیِ واقعی نشان می‌دهد، سریع‌تر از هر برنامه‌ای یاد می‌گیرد — و سرعتش از حذفِ اتلاف می‌آید، نه از افزودنِ ساعت."
+      },
+      "summary": {
+        "en": "Plans are guesses — build something real in a short fixed sprint, show it, and let what you learn rewrite the plan.",
+        "fa": "برنامه‌ها حدس‌اند — پس در یک اسپرینتِ کوتاه و ثابت چیزی واقعی بساز، نشانش بده، و بگذار آموخته‌ات برنامه را بازنویسی کند."
+      }
+    },
+    {
+      "slug": "the-mythical-man-month",
+      "folder": "18 - Delivery & Projects",
+      "groupNum": 18,
+      "book": {
+        "en": "The Mythical Man-Month",
+        "fa": "افسانهٔ نفر-ماه"
+      },
+      "group": {
+        "en": "Delivery & Projects",
+        "fa": "تحویل و پروژه"
+      },
+      "published": {
+        "en": "1975",
+        "fa": "۱۹۷۵"
+      },
+      "core": {
+        "en": "MAN-MONTH",
+        "fa": "نفر-ماه"
+      },
+      "coreLine": {
+        "en": "Software is built by minds that have to stay in agreement. People and time are therefore not interchangeable, and one clear idea held by very few is worth more than many good ideas held by everyone.",
+        "fa": "نرم‌افزار را ذهن‌هایی می‌سازند که باید با هم هماهنگ بمانند. پس آدم و زمان جای هم را نمی‌گیرند، و یک ایدهٔ روشن در دستِ چند نفر از ایده‌های خوبِ فراوان در دستِ همه ارزشمندتر است."
+      },
+      "summary": {
+        "en": "Software is built by minds that must stay in agreement — so adding people to a late project only makes it later.",
+        "fa": "نرم‌افزار را ذهن‌هایی می‌سازند که باید هماهنگ بمانند — پس افزودنِ آدم به پروژهٔ عقب‌افتاده فقط عقب‌ترش می‌کند."
+      }
+    },
+    {
+      "slug": "the-phoenix-project",
+      "folder": "18 - Delivery & Projects",
+      "groupNum": 18,
+      "book": {
+        "en": "The Phoenix Project",
+        "fa": "پروژهٔ ققنوس"
+      },
+      "group": {
+        "en": "Delivery & Projects",
+        "fa": "تحویل و پروژه"
+      },
+      "published": {
+        "en": "2013",
+        "fa": "۲۰۱۳"
+      },
+      "core": {
+        "en": "THE THREE WAYS",
+        "fa": "سه مسیر"
+      },
+      "coreLine": {
+        "en": "IT work obeys the same laws as factory work. See every type of work, protect the one constraint everything queues behind, then build flow, feedback and continual learning on top.",
+        "fa": "کارِ آی‌تی از همان قانون‌هایی پیروی می‌کند که کارِ کارخانه. همهٔ انواعِ کار را ببین، از تنها گلوگاهی که همه پشتش صف بسته‌اند محافظت کن، بعد جریان، بازخورد و یادگیریِ پیوسته را رویش بساز."
+      },
+      "summary": {
+        "en": "IT work obeys the laws of the factory floor: see every kind of work, protect the one constraint, limit work in process.",
+        "fa": "کارِ آی‌تی از قانون‌های کفِ کارخانه پیروی می‌کند: همهٔ انواعِ کار را ببین، از تنها گلوگاه محافظت کن، و کارِ در جریان را محدود نگه دار."
+      }
     }
   ],
   "relations": [
@@ -2214,6 +2491,294 @@ window.ATLAS = {
       "why": {
         "en": "Purpose outlasts product: love the why, change the solution.",
         "fa": "هدف از محصول عمرِ درازتری دارد: عاشقِ چرا باش، راه‌حل را عوض کن."
+      }
+    },
+    {
+      "a": "co-intelligence",
+      "b": "the-lean-startup",
+      "why": {
+        "en": "You can only find the jagged frontier by running the experiment.",
+        "fa": "مرزِ دندانه‌دار را فقط با آزمایش می‌شود پیدا کرد."
+      }
+    },
+    {
+      "a": "co-intelligence",
+      "b": "thinking-in-bets",
+      "why": {
+        "en": "Fluency is not calibration — be the human in the loop.",
+        "fa": "لحنِ مطمئن، کالیبره‌بودن نیست — انسانِ داخلِ حلقه باش."
+      }
+    },
+    {
+      "a": "co-intelligence",
+      "b": "the-work-of-art",
+      "why": {
+        "en": "The machine floods you with options; the judgment of done stays yours.",
+        "fa": "ماشین گزینه سرازیر می‌کند؛ قضاوتِ اینکه کِی تمام است مالِ توست."
+      }
+    },
+    {
+      "a": "co-intelligence",
+      "b": "the-making-of-a-manager",
+      "why": {
+        "en": "Prompting is delegation: give a role, then check the work.",
+        "fa": "پرامپت‌نوشتن همان تفویض است: نقش بده، بعد کار را وارسی کن."
+      }
+    },
+    {
+      "a": "prediction-machines",
+      "b": "thinking-in-bets",
+      "why": {
+        "en": "A prediction is not a decision — judgment still prices the outcomes.",
+        "fa": "پیش‌بینی تصمیم نیست — قضاوت است که می‌گوید هر نتیجه چقدر می‌ارزد."
+      }
+    },
+    {
+      "a": "prediction-machines",
+      "b": "the-effective-executive",
+      "why": {
+        "en": "Cheap prediction makes judgment scarce — and judgment is Drucker's executive work.",
+        "fa": "پیش‌بینیِ ارزان قضاوت را کمیاب می‌کند — و قضاوت همان کارِ مدیرِ دراکر است."
+      }
+    },
+    {
+      "a": "prediction-machines",
+      "b": "good-strategy-bad-strategy",
+      "why": {
+        "en": "Diagnose first: is cheap prediction a cost saving or a new business?",
+        "fa": "اول تشخیص: پیش‌بینیِ ارزان صرفه‌جویی در هزینه است یا کسب‌وکاری تازه؟"
+      }
+    },
+    {
+      "a": "prediction-machines",
+      "b": "high-output-management",
+      "why": {
+        "en": "AI takes tasks, not jobs — break the job down like Grove.",
+        "fa": "هوش مصنوعی وظیفه می‌گیرد، نه شغل — پس مثلِ گرو کار را به وظیفه‌ها بشکن."
+      }
+    },
+    {
+      "a": "human-plus-machine",
+      "b": "the-goal",
+      "why": {
+        "en": "Automating a task is a local optimum; reimagining the process is throughput.",
+        "fa": "خودکارکردنِ یک وظیفه بهینهٔ موضعی است؛ بازطراحیِ کلِ فرایند، خروجیِ سیستم است."
+      }
+    },
+    {
+      "a": "human-plus-machine",
+      "b": "the-design-of-everyday-things",
+      "why": {
+        "en": "The explainer's job is Norman's feedback: show why the system did that.",
+        "fa": "کارِ توضیح‌دهنده همان بازخوردِ نورمن است: نشان بده چرا سیستم آن کار را کرد."
+      }
+    },
+    {
+      "a": "human-plus-machine",
+      "b": "scaling-people",
+      "why": {
+        "en": "Trainer, explainer, sustainer are real jobs — with titles, ladders and budgets.",
+        "fa": "آموزش‌دهنده، توضیح‌دهنده و نگهدارنده شغل‌اند — عنوان و مسیرِ رشد و بودجه می‌خواهند."
+      }
+    },
+    {
+      "a": "human-plus-machine",
+      "b": "great-at-work",
+      "why": {
+        "en": "Do less, then obsess — the machine takes what you dropped.",
+        "fa": "کمتر انجام بده، بعد وسواس بورز — آنچه را کنار گذاشتی ماشین برمی‌دارد."
+      }
+    },
+    {
+      "a": "the-ai-product-managers-handbook",
+      "b": "inspired",
+      "why": {
+        "en": "Cagan's four risks plus a fifth: a model that drifts after launch.",
+        "fa": "چهار ریسکِ کیگن به‌علاوهٔ پنجمی: مدلی که بعد از عرضه دچار رانش می‌شود."
+      }
+    },
+    {
+      "a": "the-ai-product-managers-handbook",
+      "b": "escaping-the-build-trap",
+      "why": {
+        "en": "Model accuracy is output — the customer outcome is the only score.",
+        "fa": "دقتِ مدل خروجی است — نتیجه برای مشتری همچنان تنها امتیازِ واقعی است."
+      }
+    },
+    {
+      "a": "the-ai-product-managers-handbook",
+      "b": "dont-make-me-think",
+      "why": {
+        "en": "Most design work sits at the wrong answer, not the right one.",
+        "fa": "بیشترِ کارِ طراحی سرِ جوابِ غلط است، نه جوابِ درست."
+      }
+    },
+    {
+      "a": "the-ai-product-managers-handbook",
+      "b": "working-backwards",
+      "why": {
+        "en": "Write the customer's press release before you train a single model.",
+        "fa": "پیش از آنکه حتی یک مدل آموزش ببیند، اطلاعیهٔ مطبوعاتیِ مشتری را بنویس."
+      }
+    },
+    {
+      "a": "the-mythical-man-month",
+      "b": "scaling-people",
+      "why": {
+        "en": "Headcount is never free: Brooks prices the communication, Johnson plans the growth.",
+        "fa": "افزودنِ نیرو هیچ‌وقت رایگان نیست: بروکس هزینهٔ ارتباط را می‌گوید، جانسون برای رشد نقشه می‌کشد."
+      }
+    },
+    {
+      "a": "the-mythical-man-month",
+      "b": "empowered",
+      "why": {
+        "en": "Brooks's surgical team and Cagan's empowered one: few people, clear ownership.",
+        "fa": "تیمِ جراحیِ بروکس و تیمِ توانمندِ کیگن: آدم‌های کم، مالکیتِ روشن."
+      }
+    },
+    {
+      "a": "the-mythical-man-month",
+      "b": "the-lean-startup",
+      "why": {
+        "en": "Brooks's throwaway pilot, grown up into Ries's minimum viable product.",
+        "fa": "نمونهٔ آزمایشیِ دورریختنیِ بروکس، که نزدِ ریس کمینه‌محصول شده است."
+      }
+    },
+    {
+      "a": "the-mythical-man-month",
+      "b": "the-design-of-everyday-things",
+      "why": {
+        "en": "One coherent design idea is what makes a system learnable.",
+        "fa": "یکپارچگیِ مفهومی: یک ایدهٔ منسجم است که سیستم را یادگرفتنی می‌کند."
+      }
+    },
+    {
+      "a": "the-phoenix-project",
+      "b": "the-goal",
+      "why": {
+        "en": "Goldratt's plant floor moved into IT — same constraint, same lesson.",
+        "fa": "کفِ کارخانهٔ گلدرت به آی‌تی می‌آید — همان گلوگاه، همان درس."
+      }
+    },
+    {
+      "a": "the-phoenix-project",
+      "b": "high-output-management",
+      "why": {
+        "en": "Knowledge work as production: work centres, batch size, limited work in process.",
+        "fa": "کارِ فکری همچون تولید: ایستگاهِ کاری، اندازهٔ دسته، و کارِ در جریانِ محدود."
+      }
+    },
+    {
+      "a": "the-phoenix-project",
+      "b": "the-great-ceo-within",
+      "why": {
+        "en": "When one person is the bottleneck, build systems that run without them.",
+        "fa": "وقتی یک نفر گلوگاه است، سیستمی بساز که بدونِ او کار کند."
+      }
+    },
+    {
+      "a": "the-phoenix-project",
+      "b": "creativity-inc",
+      "why": {
+        "en": "A culture that hunts the hidden problems before they explode.",
+        "fa": "فرهنگی که مشکلِ پنهان را پیش از انفجار شکار می‌کند."
+      }
+    },
+    {
+      "a": "scrum-twice-the-work-half-the-time",
+      "b": "continuous-discovery-habits",
+      "why": {
+        "en": "A delivery cadence needs a discovery cadence, or the sprint aims wrong.",
+        "fa": "ریتمِ تحویل به ریتمِ کشف نیاز دارد، وگرنه اسپرینت اشتباه نشانه می‌رود."
+      }
+    },
+    {
+      "a": "scrum-twice-the-work-half-the-time",
+      "b": "escaping-the-build-trap",
+      "why": {
+        "en": "A fast cadence can still be a feature factory.",
+        "fa": "ریتمِ تند هم می‌تواند کارخانهٔ فیچر باشد."
+      }
+    },
+    {
+      "a": "scrum-twice-the-work-half-the-time",
+      "b": "great-at-work",
+      "why": {
+        "en": "Multitasking and half-finished work are the waste both attack.",
+        "fa": "چندکارگی و کارِ نیمه‌تمام، همان اتلافی است که هر دو به آن می‌تازند."
+      }
+    },
+    {
+      "a": "scrum-twice-the-work-half-the-time",
+      "b": "the-score-takes-care-of-itself",
+      "why": {
+        "en": "The standard beats the roster: fix how the work gets done.",
+        "fa": "استاندارد از فهرستِ بازیکنان مهم‌تر است: شیوهٔ انجامِ کار را درست کن."
+      }
+    },
+    {
+      "a": "project-management-unofficial",
+      "b": "how-to-win-friends",
+      "why": {
+        "en": "Respect first, listen first — Carnegie is the ground under informal authority.",
+        "fa": "اول احترام، اول شنیدن — کارنگی همان زمینِ زیرِ پای اقتدارِ غیررسمی است."
+      }
+    },
+    {
+      "a": "project-management-unofficial",
+      "b": "7-rules-of-power",
+      "why": {
+        "en": "Two answers to having no title: earn trust, or build power.",
+        "fa": "دو پاسخ به بی‌عنوان‌بودن: اعتماد به‌دست بیاور، یا قدرت بساز."
+      }
+    },
+    {
+      "a": "project-management-unofficial",
+      "b": "the-making-of-a-manager",
+      "why": {
+        "en": "Leading borrowed people first, then a team of your own.",
+        "fa": "اول رهبریِ آدم‌های قرضی، بعد تیمی از آنِ خودت."
+      }
+    },
+    {
+      "a": "project-management-unofficial",
+      "b": "never-split-the-difference",
+      "why": {
+        "en": "With no authority to compel a yes, tactical empathy is the lever.",
+        "fa": "وقتی اختیاری نداری که «بله» را تحمیل کند، اهرمت همدلیِ تاکتیکی است."
+      }
+    },
+    {
+      "a": "project-management-beginners-guide",
+      "b": "working-backwards",
+      "why": {
+        "en": "Write down what finished looks like before any work starts.",
+        "fa": "پیش از شروعِ هر کاری بنویس «تمام‌شده» چه شکلی است."
+      }
+    },
+    {
+      "a": "project-management-beginners-guide",
+      "b": "good-strategy-bad-strategy",
+      "why": {
+        "en": "A list of dates is not a plan; nor goals a strategy.",
+        "fa": "فهرستِ تاریخ‌ها برنامه نیست؛ فهرستِ هدف‌ها هم استراتژی نیست."
+      }
+    },
+    {
+      "a": "project-management-beginners-guide",
+      "b": "thinking-in-bets",
+      "why": {
+        "en": "Score the risks in advance; plan for futures, not the hoped-for one.",
+        "fa": "ریسک‌ها را از پیش نمره بده؛ برای آینده‌های ممکن برنامه بریز، نه برای آرزویت."
+      }
+    },
+    {
+      "a": "project-management-beginners-guide",
+      "b": "the-effective-executive",
+      "why": {
+        "en": "Effectiveness is a learnable practice — so is running a project.",
+        "fa": "اثربخشی تمرینی آموختنی است — اداره‌کردنِ پروژه هم همین‌طور."
       }
     }
   ]

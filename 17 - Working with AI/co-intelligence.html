@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<!-- Generated page. Edit CONTENT in the DATA object below; shared UI lives in ../assets/book.css + ../assets/book.js -->
+<html lang="en" dir="ltr" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Co-Intelligence — نقشهٔ دانش و یادگیری ۵ مرحله‌ای</title>
+
+<!-- Boot theme + language BEFORE paint to avoid a flash (shared library-wide keys) -->
+<script>
+(function(){
+  try{
+    var th = localStorage.getItem('pbl-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
+    document.documentElement.setAttribute('data-theme', th);
+  }catch(e){ document.documentElement.setAttribute('data-theme','light'); }
+  try{
+    var lg = localStorage.getItem('pbl-lang') || 'en';
+    document.documentElement.setAttribute('data-lang', lg);
+    document.documentElement.setAttribute('lang', lg);
+    document.documentElement.setAttribute('dir', lg==='fa' ? 'rtl' : 'ltr');
+  }catch(e){}
+})();
+</script>
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Newsreader:ital,opsz,wght@0,6..72,200..700;1,6..72,200..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/book.css">
+</head>
+<body>
+<div id="app"></div>
+
+<script src="../assets/library.js"></script>
+<script src="../assets/book.js"></script>
+<script>
+/* ── CONTENT — everything unique to this book lives here ── */
+Book.mount({
+  "meta": {
+    "slug": "co-intelligence",
+    "folder": "17 - Working with AI",
+    "groupNum": 17,
+    "group": {
+      "en": "Working with AI",
+      "fa": "کار با هوش مصنوعی"
+    },
+    "author": {
+      "en": "Ethan Mollick",
+      "fa": "ایتن مولیک"
+    },
+    "eyebrow_author": {
+      "en": "Ethan Mollick",
+      "fa": "ایتن مولیک"
+    },
+    "book": {
+      "en": "Co-Intelligence",
+      "fa": "هم‌هوشی"
+    },
+    "hero_title": {
+      "en": "Co-Intelligence — Living and Working with AI",
+      "fa": "هم‌هوشی — زندگی و کار با هوش مصنوعی"
+    },
+    "dek": {
+      "en": "A knowledge graph of the whole book, plus a 5-stage path from a single idea to expert-level mastery — with an example at every step.",
+      "fa": "نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از خیلی ساده تا حرفه‌ای — با یک مثال در هر مرحله."
+    },
+    "published": {
+      "en": "2024",
+      "fa": "۲۰۲۴"
+    },
+    "chips": [
+      {
+        "v": {
+          "en": "4",
+          "fa": "۴"
+        },
+        "l": {
+          "en": "Parts",
+          "fa": "بخش"
+        }
+      },
+      {
+        "v": {
+          "en": "12",
+          "fa": "۱۲"
+        },
+        "l": {
+          "en": "Ideas",
+          "fa": "ایده"
+        }
+      },
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Learning stages",
+          "fa": "مرحلهٔ یادگیری"
+        }
+      }
+    ],
+    "kboxes": [
+      {
+        "v": {
+          "en": "4",
+          "fa": "۴"
+        },
+        "l": {
+          "en": "Parts (alien minds · four rules · creative, coworker, tutor, coach · what comes next)",
+          "fa": "بخش (ذهن‌های بیگانه · چهار قاعده · خلاق، همکار، معلم، مربی · آنچه در راه است)"
+        }
+      },
+      {
+        "v": {
+          "en": "12",
+          "fa": "۱۲"
+        },
+        "l": {
+          "en": "Ideas you can use",
+          "fa": "ایده برای استفاده"
+        }
+      },
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Levels, simple → expert",
+          "fa": "مرحله، ساده تا حرفه‌ای"
+        }
+      },
+      {
+        "v": {
+          "en": "4",
+          "fa": "۴"
+        },
+        "l": {
+          "en": "Rules: invite it in · stay in the loop · give it a role · expect it to improve",
+          "fa": "قاعده: دعوتش کن · در حلقه بمان · نقش بده · منتظرِ بهترشدنش باش"
+        }
+      }
+    ],
+    "core_callout": {
+      "label": {
+        "en": "The core idea:",
+        "fa": "ایدهٔ اصلی:"
+      },
+      "en": " Treat AI as a <i>co-intelligence</i>, not a tool and not a threat. It is an alien mind built from our own writing, brilliant on one side of an invisible <i>jagged frontier</i> and confidently wrong on the other. Four rules keep you on the right side of that line: invite it to the table, stay the human in the loop, tell it who to be, and assume this is the worst version you will ever use.",
+      "fa": " با هوش مصنوعی مثلِ یک <i>هم‌هوش</i> رفتار کن، نه ابزار و نه تهدید. ذهنی بیگانه است که از نوشته‌های خودِ ما ساخته شده؛ یک سوی یک <i>مرزِ دندانه‌دارِ</i> نامرئی درخشان است و سوی دیگر با اطمینان اشتباه می‌کند. چهار قاعده تو را در سمتِ درستِ آن خط نگه می‌دارد: دعوتش کن سرِ میز، انسانِ داخلِ حلقه بمان، بگو چه کسی باشد، و فرض کن این بدترین نسخه‌ای است که در عمرت استفاده می‌کنی."
+    },
+    "flow_callout": {
+      "label": {
+        "en": "Read it as a flow:",
+        "fa": "به‌صورتِ یک جریان بخوانش:"
+      },
+      "en": " meet the <b>alien mind</b> and the <b>jagged frontier</b> it hides, learn the <b>four rules</b>, put it to work as <b>creative, coworker, tutor and coach</b>, then plan around the fact that this is <b>the worst AI you will ever use</b>.",
+      "fa": " با <b>ذهنِ بیگانه</b> و <b>مرزِ دندانه‌دارِ</b> پنهانش آشنا شو، <b>چهار قاعده</b> را یاد بگیر، آن را به‌عنوانِ <b>خلاق، همکار، معلم و مربی</b> به کار بگیر، بعد برای این واقعیت برنامه بریز که این <b>بدترین هوش مصنوعیِ عمرِ توست</b>."
+    }
+  },
+  "method": {
+    "en": "<p><b>Source:</b> the book <i>Co-Intelligence: Living and Working with AI</i> by Ethan Mollick, published April 2024 by Portfolio, an imprint of Penguin Random House.</p><p><b>How this was built:</b> the book's introduction, nine chapters and epilogue were grouped into four thematic parts, and the ideas were rewritten in plain language from the book and reputable sources. The consultant figures come from the Boston Consulting Group field experiment Mollick co-authored.</p><p><b>Group:</b> Working with AI.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>",
+    "fa": "<p><b>منبع:</b> کتابِ «هم‌هوشی: زندگی و کار با هوش مصنوعی» نوشتهٔ ایتن مولیک، چاپِ آوریلِ ۲۰۲۴ در انتشاراتِ پورتفولیو، از مجموعهٔ پنگوئن رندوم هاوس.</p><p><b>روشِ کار:</b> مقدمه، نُه فصل و مؤخرهٔ کتاب در چهار بخشِ موضوعی گروه‌بندی شده و ایده‌ها از خودِ کتاب و منابعِ معتبر ساده‌نویسی شده‌اند. عددهای مربوط به مشاوران از آزمایشِ میدانیِ گروه مشاورهٔ بوستون می‌آید که مولیک یکی از نویسندگانش است.</p><p><b>گروه:</b> کار با هوش مصنوعی.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب.</p>"
+  },
+  "flow": {
+    "en": [
+      "Alien mind",
+      "Four rules",
+      "Roles",
+      "Futures"
+    ],
+    "fa": [
+      "ذهنِ بیگانه",
+      "چهار قاعده",
+      "نقش‌ها",
+      "آینده‌ها"
+    ]
+  },
+  "graph": {
+    "R2": 132,
+    "span": 70
+  },
+  "tldr": [
+    {
+      "en": "The whole book in one line: treat AI as a co-intelligence you work alongside, not a tool you point at a task.",
+      "fa": "خلاصهٔ کل کتاب در یک جمله: با هوش مصنوعی مثلِ هم‌هوشی رفتار کن که کنارش کار می‌کنی، نه ابزاری که به کاری نشانه می‌روی."
+    },
+    {
+      "en": "Language models are alien minds: assembled from human writing, superhuman at some tasks, confidently wrong at others.",
+      "fa": "مدل‌های زبانی ذهن‌هایی بیگانه‌اند: از نوشتهٔ انسان سرِ هم شده‌اند، در بعضی کارها فراانسانی‌اند و در بعضی با اطمینان اشتباه می‌کنند."
+    },
+    {
+      "en": "Their ability follows a jagged frontier: the line between what AI does well and badly is invisible until you test it.",
+      "fa": "توانایی‌شان از یک مرزِ دندانه‌دار پیروی می‌کند: خطِ میانِ آنچه خوب انجام می‌دهند و آنچه بد، تا آزمایشش نکنی نامرئی است."
+    },
+    {
+      "en": "Four rules: always invite AI to the table, be the human in the loop, treat it like a person with a role, assume it is the worst you will ever use.",
+      "fa": "چهار قاعده: همیشه هوش مصنوعی را سرِ میز دعوت کن، انسانِ داخلِ حلقه باش، مثلِ آدمی با نقشِ مشخص با آن رفتار کن، و فرض کن بدترین نسخه‌ای است که استفاده خواهی کرد."
+    },
+    {
+      "en": "Used well it is a creative, a coworker, a tutor and a coach. Used lazily it puts you to sleep at the wheel.",
+      "fa": "درست که به کارش بگیری، خلاق و همکار و معلم و مربی است. تنبلانه که به کارش بگیری، پشتِ فرمان خوابت می‌برد."
+    }
+  ],
+  "parts": [
+    {
+      "key": "alien",
+      "varc": "--c-teal",
+      "name": {
+        "en": "Creating Alien Minds",
+        "fa": "ساختنِ ذهن‌های بیگانه"
+      },
+      "tag": {
+        "en": "What it is",
+        "fa": "این چیست"
+      },
+      "gist": {
+        "en": "A mind assembled from our own writing — capable, unreliable, and unlike anything else.",
+        "fa": "ذهنی که از نوشته‌های خودِ ما سرِ هم شده — توانا، نامطمئن، و شبیهِ هیچ‌چیزِ دیگر."
+      },
+      "more": {
+        "en": "A large language model predicts the next piece of text, again and again, using patterns learned from an enormous slice of what humans have written. People then tune it to be helpful and harmless. The result holds a conversation like a person and fails in ways no person would.",
+        "fa": "یک مدلِ زبانیِ بزرگ بارها و بارها تکهٔ بعدیِ متن را پیش‌بینی می‌کند، با الگوهایی که از بخشِ عظیمی از نوشته‌های بشر یاد گرفته است. بعد آدم‌ها تنظیمش می‌کنند تا کمک‌کننده و بی‌آزار باشد. نتیجه مثلِ یک آدم گفت‌وگو می‌کند و جوری شکست می‌خورد که هیچ آدمی نمی‌خورد."
+      },
+      "chapters": [
+        "prediction",
+        "alignment",
+        "jagged"
+      ]
+    },
+    {
+      "key": "rules",
+      "varc": "--c-blue",
+      "name": {
+        "en": "Four Rules for Co-Intelligence",
+        "fa": "چهار قاعدهٔ هم‌هوشی"
+      },
+      "tag": {
+        "en": "The framework",
+        "fa": "چارچوب"
+      },
+      "gist": {
+        "en": "Invite it in, stay in the loop, tell it who to be. The fourth rule opens the last part.",
+        "fa": "دعوتش کن، در حلقه بمان، بگو چه کسی باشد. قاعدهٔ چهارم بخشِ آخر را باز می‌کند."
+      },
+      "more": {
+        "en": "Mollick's rules are practical, not philosophical. They assume you will not read a manual, and that there is no manual anyway. Each one is a way of staying useful next to a system whose limits you cannot see from the outside.",
+        "fa": "قاعده‌های مولیک عملی‌اند، نه فلسفی. فرض را بر این می‌گذارند که تو راهنما نمی‌خوانی و اصلاً راهنمایی هم در کار نیست. هرکدام راهی است برای مفیدماندن کنارِ سامانه‌ای که مرزهایش را از بیرون نمی‌بینی."
+      },
+      "chapters": [
+        "table",
+        "loop",
+        "persona"
+      ]
+    },
+    {
+      "key": "roles",
+      "varc": "--c-violet",
+      "name": {
+        "en": "Creative, Coworker, Tutor, Coach",
+        "fa": "خلاق، همکار، معلم، مربی"
+      },
+      "tag": {
+        "en": "Putting it to work",
+        "fa": "به‌کارگرفتنش"
+      },
+      "gist": {
+        "en": "Four jobs the machine is already good enough to hold.",
+        "fa": "چهار نقش که ماشین همین حالا به‌قدرِ کافی برای گرفتنشان خوب است."
+      },
+      "more": {
+        "en": "The middle of the book is a tour of roles. As a creative it beats most people at producing options. As a coworker it raises average output and narrows the gap between weak and strong performers. As a tutor and coach it gives everyone something that used to be expensive: patient one-to-one attention.",
+        "fa": "میانهٔ کتاب گشتی است در نقش‌ها. به‌عنوانِ خلاق، در تولیدِ گزینه از بیشترِ آدم‌ها جلوتر است. به‌عنوانِ همکار، سطحِ متوسطِ کار را بالا می‌برد و فاصلهٔ ضعیف و قوی را کم می‌کند. به‌عنوانِ معلم و مربی، چیزی را به همه می‌دهد که تا دیروز گران بود: توجهِ صبورِ یک‌به‌یک."
+      },
+      "chapters": [
+        "creative",
+        "coworker",
+        "tutorcoach"
+      ]
+    },
+    {
+      "key": "next",
+      "varc": "--c-amber",
+      "name": {
+        "en": "The Worst AI You Will Ever Use",
+        "fa": "بدترین هوش مصنوعیِ عمرِ تو"
+      },
+      "tag": {
+        "en": "What comes next",
+        "fa": "آنچه در راه است"
+      },
+      "gist": {
+        "en": "Plan for improvement, guard against complacency, pick a future to prepare for.",
+        "fa": "برای بهترشدنش برنامه بریز، جلوی بی‌خیالی را بگیر، یکی از آینده‌ها را برای آماده‌شدن انتخاب کن."
+      },
+      "more": {
+        "en": "The fourth rule is a stance for decisions: today's model is the floor, not the ceiling. That cuts both ways. As the machine improves, the temptation to stop checking grows, and the book's closing move is to name four futures rather than predict one.",
+        "fa": "قاعدهٔ چهارم یک موضع برای تصمیم‌گیری است: مدلِ امروز کف است، نه سقف. این تیغ دو لبه دارد. هرچه ماشین بهتر می‌شود، وسوسهٔ وارسی‌نکردن هم بیشتر می‌شود؛ و حرکتِ پایانیِ کتاب این است که به‌جای پیش‌بینیِ یک آینده، چهار آینده را نام می‌برد."
+      },
+      "chapters": [
+        "worst",
+        "asleep",
+        "futures"
+      ]
+    }
+  ],
+  "chapters": {
+    "prediction": {
+      "part": "alien",
+      "n": 1,
+      "name": {
+        "en": "A Mind Made of Our Words",
+        "fa": "ذهنی از واژه‌های ما"
+      },
+      "glabel": {
+        "en": "Next Word",
+        "fa": "واژهٔ بعدی"
+      },
+      "principle": {
+        "en": "A language model does one thing: predict what text comes next, trained on a vast sample of human writing.",
+        "fa": "یک مدلِ زبانی فقط یک کار می‌کند: پیش‌بینیِ متنی که در ادامه می‌آید، آموزش‌دیده روی نمونه‌ای عظیم از نوشته‌های بشر."
+      },
+      "more": {
+        "en": "Nothing in that description promises understanding, yet at scale the prediction starts to look like reasoning. Mollick is blunt that no one is entirely sure why a token-prediction system ended up with abilities like these. The mechanism is simple, the behaviour is not, and even the people who build these systems cannot say in advance what one will do.",
+        "fa": "هیچ‌جای این توضیح قولِ فهمیدن نمی‌دهد، اما در مقیاسِ بزرگ همان پیش‌بینی کم‌کم شبیهِ استدلال می‌شود. مولیک رک می‌گوید هیچ‌کس دقیقاً نمی‌داند چرا سامانه‌ای که فقط واژهٔ بعدی را حدس می‌زند به چنین توانایی‌هایی رسیده است. سازوکار ساده است و رفتار ساده نیست؛ حتی سازندگانِ این سامانه‌ها هم نمی‌توانند از پیش بگویند چه خواهد کرد."
+      },
+      "example": {
+        "en": "Mollick asked ChatGPT to run a negotiation exercise for his class. In seconds it produced about eighty per cent of a simulation his team had spent months building.",
+        "fa": "مولیک از چت‌جی‌پی‌تی خواست یک تمرینِ مذاکره برای کلاسش اجرا کند. مدل در چند ثانیه حدودِ هشتاد درصدِ شبیه‌سازی‌ای را ساخت که تیمش ماه‌ها رویش کار کرده بود."
+      },
+      "tip": {
+        "en": "Judge the model by what it does on your own tasks, not by how it is described.",
+        "fa": "مدل را با کاری که روی وظایفِ خودت انجام می‌دهد بسنج، نه با توصیفی که از آن می‌شود."
+      },
+      "pitfall": {
+        "en": "Assuming that because it writes fluently, it knows what it is saying.",
+        "fa": "فرض‌کردنِ اینکه چون روان می‌نویسد، می‌داند چه می‌گوید."
+      }
+    },
+    "alignment": {
+      "part": "alien",
+      "n": 2,
+      "name": {
+        "en": "Aligning the Alien",
+        "fa": "هم‌راستاکردنِ بیگانه"
+      },
+      "glabel": {
+        "en": "Alignment",
+        "fa": "هم‌راستایی"
+      },
+      "principle": {
+        "en": "Alignment is the problem of getting a system to want what we want, and human feedback is the only patch we have for it.",
+        "fa": "هم‌راستایی یعنی مسئلهٔ اینکه کاری کنیم سامانه همان چیزی را بخواهد که ما می‌خواهیم، و بازخوردِ انسانی تنها وصله‌ای است که برایش داریم."
+      },
+      "more": {
+        "en": "Mollick separates two worries. The distant one is a system that pursues a goal we set badly, the paperclip maximiser of the old thought experiment. The near one is bias, misinformation and cheap fakes, which he thinks deserves more attention than it gets. The practical patch is human feedback: low-paid workers rate outputs and label the worst material, a process Mollick notes has a real human cost. It works well enough for daily use, but it is a coat of paint over a system nobody fully controls.",
+        "fa": "مولیک دو نگرانی را از هم جدا می‌کند. نگرانیِ دور، سامانه‌ای است که هدفی را دنبال می‌کند که ما بد تعریفش کرده‌ایم؛ همان «بیشینه‌سازِ گیرهٔ کاغذ» در آزمایشِ فکریِ قدیمی. نگرانیِ نزدیک، سوگیری و اطلاعاتِ نادرست و جعلِ ارزان است که به‌نظرِ او کمتر از حقش جدی گرفته می‌شود. وصلهٔ عملی، بازخوردِ انسانی است: کارگرانی با دستمزدِ کم خروجی‌ها را نمره می‌دهند و بدترین محتوا را برچسب می‌زنند؛ مولیک تأکید می‌کند این کار هزینهٔ انسانیِ واقعی دارد. برای کارِ روزمره به‌قدرِ کافی خوب است، اما لایه‌ای رنگ روی سامانه‌ای است که هیچ‌کس کاملاً کنترلش نمی‌کند."
+      },
+      "example": {
+        "en": "The same model that flatly refuses a request will often answer it once the request is reframed.",
+        "fa": "همان مدلی که یک درخواست را قاطعانه رد می‌کند، اگر درخواست جورِ دیگری بیان شود اغلب جوابش را می‌دهد."
+      },
+      "tip": {
+        "en": "Never route anything through AI that would cause harm if the guardrail failed once.",
+        "fa": "هیچ کاری را به هوش مصنوعی نسپار که اگر حفاظش یک‌بار بشکند، آسیبِ جدی بزند."
+      },
+      "pitfall": {
+        "en": "Treating safety tuning as a guarantee rather than a filter.",
+        "fa": "تنظیماتِ ایمنی را ضمانت دانستن به‌جای فیلتر."
+      }
+    },
+    "jagged": {
+      "part": "alien",
+      "n": 3,
+      "name": {
+        "en": "The Jagged Frontier",
+        "fa": "مرزِ دندانه‌دار"
+      },
+      "glabel": {
+        "en": "Jagged Frontier",
+        "fa": "مرزِ دندانه‌دار"
+      },
+      "principle": {
+        "en": "AI ability is jagged, not a smooth line. Two tasks that look equally hard can land on opposite sides of it.",
+        "fa": "توانایی هوش مصنوعی دندانه‌دار است، نه یک خطِ صاف. دو کاری که هم‌اندازه سخت به‌نظر می‌رسند می‌توانند دو سوی این مرز بیفتند."
+      },
+      "more": {
+        "en": "The term comes from a field experiment Mollick ran with colleagues at Boston Consulting Group, using 758 consultants. Inside the frontier the gains were large. On one task placed just outside it, the AI users did worse than the people with no AI at all. The frontier is invisible from where you stand, and the only way to map it is to try things and keep score.",
+        "fa": "این اصطلاح از آزمایشی میدانی می‌آید که مولیک با همکارانش در گروه مشاورهٔ بوستون و روی ۷۵۸ مشاور اجرا کرد. داخلِ مرز، پیشرفت‌ها بزرگ بود. در یک کار که درست بیرونِ مرز گذاشته شده بود، استفاده‌کنندگان از هوش مصنوعی بدتر از کسانی عمل کردند که اصلاً از آن استفاده نکرده بودند. این مرز از جایی که ایستاده‌ای دیده نمی‌شود و تنها راهِ ترسیمش این است که امتحان کنی و نتیجه را ثبت کنی."
+      },
+      "example": {
+        "en": "It writes a polished market summary, then gets a simple arithmetic step in the same document wrong.",
+        "fa": "یک خلاصهٔ بازارِ تمیز می‌نویسد، بعد در همان سند یک محاسبهٔ سادهٔ حسابی را غلط می‌دهد."
+      },
+      "tip": {
+        "en": "Keep a running list of tasks where AI helped and where it hurt. That list is your map.",
+        "fa": "فهرستی زنده از کارهایی نگه دار که هوش مصنوعی در آن‌ها کمک کرد و در کدام‌ها ضرر زد. همان فهرست نقشهٔ توست."
+      },
+      "pitfall": {
+        "en": "Generalising from one good result to a whole category of work.",
+        "fa": "تعمیم‌دادنِ یک نتیجهٔ خوب به کلِ یک دستهٔ کاری."
+      }
+    },
+    "table": {
+      "part": "rules",
+      "n": 4,
+      "name": {
+        "en": "Rule 1 — Always Invite AI to the Table",
+        "fa": "قاعدهٔ ۱ — همیشه هوش مصنوعی را سرِ میز دعوت کن"
+      },
+      "glabel": {
+        "en": "Invite It In",
+        "fa": "دعوتش کن"
+      },
+      "principle": {
+        "en": "Try AI on everything you are legally and ethically allowed to. You cannot learn the frontier by reasoning about it.",
+        "fa": "هر کاری را که از نظرِ قانونی و اخلاقی مجاز است با هوش مصنوعی امتحان کن. مرز را با استدلال نمی‌شود شناخت."
+      },
+      "more": {
+        "en": "The rule is about breadth of experiment, not depth of trust. Ten minutes spent on a task you assumed the model could not do teaches more than any benchmark, and the cost of being wrong is usually one wasted prompt.",
+        "fa": "این قاعده دربارهٔ گستردگیِ آزمایش است، نه عمقِ اعتماد. ده دقیقه وقت‌گذاشتن روی کاری که فکر می‌کردی مدل از پسش برنمی‌آید، بیشتر از هر آزمونِ استانداردی یاد می‌دهد و هزینهٔ اشتباه معمولاً یک پرامپتِ هدررفته است."
+      },
+      "example": {
+        "en": "A student in Mollick's entrepreneurship class brought ChatGPT into a project and had a working demo, in code libraries he did not know, in half the usual time.",
+        "fa": "دانشجویی در کلاسِ کارآفرینیِ مولیک چت‌جی‌پی‌تی را وارد پروژه‌اش کرد و در نصفِ زمانِ همیشگی یک نمونهٔ کارآمد ساخت، آن هم با کتابخانه‌های کدی که بلد نبود."
+      },
+      "tip": {
+        "en": "Pick one task this week you assume AI cannot do, and give it thirty minutes.",
+        "fa": "این هفته یک کار را انتخاب کن که فکر می‌کنی هوش مصنوعی از پسش برنمی‌آید و نیم‌ساعت وقت بگذار."
+      },
+      "pitfall": {
+        "en": "Deciding what AI is bad at from a demo you saw a year ago.",
+        "fa": "تصمیم‌گرفتن دربارهٔ ضعف‌های هوش مصنوعی بر پایهٔ نمایشی که یک سال پیش دیده‌ای."
+      }
+    },
+    "loop": {
+      "part": "rules",
+      "n": 5,
+      "name": {
+        "en": "Rule 2 — Be the Human in the Loop",
+        "fa": "قاعدهٔ ۲ — انسانِ داخلِ حلقه باش"
+      },
+      "glabel": {
+        "en": "Human in Loop",
+        "fa": "انسان در حلقه"
+      },
+      "principle": {
+        "en": "You stay responsible for the output. The machine has no stake in whether it is right.",
+        "fa": "مسئولیتِ خروجی با توست. برای ماشین فرقی نمی‌کند که درست باشد یا نه."
+      },
+      "more": {
+        "en": "Models produce confident, well-formatted, plausible errors, which are the hardest kind to catch. Being in the loop means checking the parts that matter, keeping your own expertise sharp, and never signing your name to something you have not verified.",
+        "fa": "مدل‌ها خطاهایی می‌سازند مطمئن، خوش‌قالب و باورپذیر؛ سخت‌ترین نوعِ خطا برای گیرافتادن. در حلقه بودن یعنی بخش‌های مهم را وارسی کنی، تخصصِ خودت را تیز نگه داری، و هرگز پایِ چیزی را امضا نکنی که راستی‌آزمایی نکرده‌ای."
+      },
+      "example": {
+        "en": "Lawyers have filed briefs citing cases the model invented, because the citations looked perfectly formatted.",
+        "fa": "وکیلانی لایحه‌هایی ثبت کرده‌اند با ارجاع به پرونده‌هایی که مدل از خودش ساخته بود، چون ارجاع‌ها کاملاً درست‌قالب به‌نظر می‌رسیدند."
+      },
+      "tip": {
+        "en": "Decide before you start which parts of the output you will personally verify.",
+        "fa": "پیش از شروع تصمیم بگیر کدام بخش‌های خروجی را شخصاً وارسی می‌کنی."
+      },
+      "pitfall": {
+        "en": "Checking the writing quality and skipping the facts.",
+        "fa": "وارسیِ کیفیتِ نگارش و ردشدن از کنارِ واقعیت‌ها."
+      }
+    },
+    "persona": {
+      "part": "rules",
+      "n": 6,
+      "name": {
+        "en": "Rule 3 — Treat It Like a Person, and Tell It Which Person",
+        "fa": "قاعدهٔ ۳ — مثلِ یک آدم با آن رفتار کن و بگو کدام آدم"
+      },
+      "glabel": {
+        "en": "Give It a Role",
+        "fa": "نقش بده"
+      },
+      "principle": {
+        "en": "Talking to the model as if it were a colleague works. Naming the colleague works better.",
+        "fa": "حرف‌زدن با مدل انگار همکارِ توست جواب می‌دهد. نام‌بردنِ آن همکار بهتر جواب می‌دهد."
+      },
+      "more": {
+        "en": "Mollick's argument is pragmatic, not philosophical: AI does not behave like software, but it does behave like a person, so talk to it like one. The model has no self of its own, so it takes whichever one you hand it. A persona narrows the range of answers and sets the register, the depth and the assumptions. It also keeps you honest: this is a performance, not a mind with opinions.",
+        "fa": "استدلالِ مولیک عملی است، نه فلسفی: هوش مصنوعی مثلِ نرم‌افزار رفتار نمی‌کند، اما مثلِ آدم رفتار می‌کند، پس مثلِ آدم با آن حرف بزن. مدل «خود»ی از آنِ خودش ندارد، پس هر خودی را که به آن بدهی می‌پذیرد. یک شخصیت، دامنهٔ جواب‌ها را باریک می‌کند و لحن و عمق و پیش‌فرض‌ها را تعیین می‌کند. ضمناً یادت نگه می‌دارد که این یک اجراست، نه ذهنی که نظر دارد."
+      },
+      "example": {
+        "en": "\"You are a sceptical CFO reviewing this plan\" gives a sharper critique than \"review this plan\".",
+        "fa": "«تو یک مدیرِ مالیِ بدبینی که این طرح را بررسی می‌کند» نقدی تیزتر می‌دهد تا «این طرح را بررسی کن»."
+      },
+      "tip": {
+        "en": "Write two or three personas you reuse: a critic, a first-time user, a domain expert.",
+        "fa": "دو سه شخصیت بنویس که مدام به کارشان می‌بری: یک منتقد، یک کاربرِ تازه‌وارد، یک متخصصِ حوزه."
+      },
+      "pitfall": {
+        "en": "Sliding from useful make-believe into actually believing it understands you.",
+        "fa": "لغزیدن از یک قراردادِ مفید به این باور که واقعاً تو را می‌فهمد."
+      }
+    },
+    "creative": {
+      "part": "roles",
+      "n": 7,
+      "name": {
+        "en": "AI as a Creative",
+        "fa": "هوش مصنوعی به‌عنوانِ خلاق"
+      },
+      "glabel": {
+        "en": "Creative",
+        "fa": "خلاق"
+      },
+      "principle": {
+        "en": "On generating ideas the machine already beats most people, on volume, variety and speed.",
+        "fa": "در تولیدِ ایده، ماشین همین حالا از بیشترِ آدم‌ها جلوتر است؛ در حجم، تنوع و سرعت."
+      },
+      "more": {
+        "en": "In a Wharton idea contest Mollick reports, GPT-4 and students both produced product ideas. Outside judges ranked them by how likely people were to buy, and thirty-five of the best forty ideas were the machine's. Mollick also notes the paradox: the same loose association that causes hallucination is what makes the model good at this. The human advantage moves to selection, knowing which of the hundred ideas is worth building.",
+        "fa": "در مسابقهٔ ایده‌پردازیِ وارتون که مولیک گزارشش می‌کند، هم جی‌پی‌تی-۴ و هم دانشجویان ایدهٔ محصول دادند. داورانِ بیرونی ایده‌ها را بر پایهٔ احتمالِ خرید رتبه‌بندی کردند و سی‌وپنج تا از چهل ایدهٔ برتر مالِ ماشین بود. مولیک به تناقضش هم اشاره می‌کند: همان تداعیِ آزاد که باعثِ توهم‌بافی می‌شود، همان است که مدل را در این کار خوب می‌کند. برتریِ انسان به انتخاب منتقل می‌شود؛ اینکه بدانی کدام‌یک از آن صد ایده ارزشِ ساختن دارد."
+      },
+      "example": {
+        "en": "On the Alternative Uses Test, a standard creativity measure that asks for unusual uses of everyday objects, GPT-4 beat more than nine in ten human participants.",
+        "fa": "در آزمونِ «کاربردهای جایگزین»، یک سنجهٔ استانداردِ خلاقیت که کاربردهای غیرمعمولِ اشیای روزمره را می‌خواهد، جی‌پی‌تی-۴ از بیش از نُه نفر از هر ده شرکت‌کنندهٔ انسانی جلو زد."
+      },
+      "tip": {
+        "en": "Use AI for divergence and keep convergence human.",
+        "fa": "برای واگرایی از هوش مصنوعی استفاده کن و همگرایی را انسانی نگه دار."
+      },
+      "pitfall": {
+        "en": "Accepting the first plausible idea just because a hundred arrived at once.",
+        "fa": "پذیرفتنِ اولین ایدهٔ باورپذیر فقط چون صدتا با هم رسیده‌اند."
+      }
+    },
+    "coworker": {
+      "part": "roles",
+      "n": 8,
+      "name": {
+        "en": "AI as a Coworker: Centaur and Cyborg",
+        "fa": "هوش مصنوعی به‌عنوانِ همکار: قنطورس و سایبورگ"
+      },
+      "glabel": {
+        "en": "Coworker",
+        "fa": "همکار"
+      },
+      "principle": {
+        "en": "Two working styles: the centaur divides the task cleanly, the cyborg blends it move by move.",
+        "fa": "دو سبکِ کار: قنطورس کار را تمیز تقسیم می‌کند، سایبورگ آن را حرکت‌به‌حرکت درهم می‌آمیزد."
+      },
+      "more": {
+        "en": "The word centaur comes from chess, where Garry Kasparov used it for human and machine playing as one. In the consultant experiment, people working with AI finished 12.2 per cent more tasks, 25.1 per cent more quickly, at more than 40 per cent higher rated quality. The weakest performers gained most: 43 per cent, against 17 per cent for the strongest. What people get wrong is the division of labour, not the tool.",
+        "fa": "واژهٔ قنطورس از شطرنج آمده؛ گری کاسپاروف آن را برای انسان و ماشینی به کار برد که مثلِ یک بازیکن بازی می‌کنند. در آزمایشِ مشاوران، کسانی که با هوش مصنوعی کار کردند ۱۲٫۲ درصد کارِ بیشتر را تمام کردند، ۲۵٫۱ درصد سریع‌تر، با خروجی‌ای که کیفیتش بیش از ۴۰ درصد بالاتر ارزیابی شد. ضعیف‌ترین‌ها بیشترین سود را بردند: ۴۳ درصد، در برابرِ ۱۷ درصد برای قوی‌ترین‌ها. چیزی که آدم‌ها اشتباه می‌گیرند تقسیمِ کار است، نه ابزار."
+      },
+      "example": {
+        "en": "Centaur: you write the argument, AI writes the summary. Cyborg: the two of you trade sentences inside one paragraph.",
+        "fa": "قنطورس: تو استدلال را می‌نویسی، هوش مصنوعی خلاصه را. سایبورگ: تو و هوش مصنوعی داخلِ یک پاراگراف جمله‌به‌جمله ردوبدل می‌کنید."
+      },
+      "tip": {
+        "en": "For each recurring task, name whether you are working as a centaur or a cyborg.",
+        "fa": "برای هر کارِ تکرارشونده مشخص کن که قنطورس کار می‌کنی یا سایبورگ."
+      },
+      "pitfall": {
+        "en": "Handing over the exact part of the job that was your real contribution.",
+        "fa": "واگذارکردنِ همان بخشی از کار که سهمِ واقعیِ تو بود."
+      }
+    },
+    "tutorcoach": {
+      "part": "roles",
+      "n": 9,
+      "name": {
+        "en": "AI as a Tutor and a Coach",
+        "fa": "هوش مصنوعی به‌عنوانِ معلمِ خصوصی و مربی"
+      },
+      "glabel": {
+        "en": "Tutor & Coach",
+        "fa": "معلم و مربی"
+      },
+      "principle": {
+        "en": "One-to-one tutoring is the most effective teaching we know, and it has always been too expensive. Now it is not.",
+        "fa": "آموزشِ یک‌به‌یک مؤثرترین شیوهٔ آموزشی است که می‌شناسیم و همیشه گران بوده. حالا دیگر نیست."
+      },
+      "more": {
+        "en": "Mollick points at Benjamin Bloom's 1984 finding that one-to-one tutored students outperformed ninety-eight per cent of their classroom-taught peers. A model that never tires and never judges can run drills, ask questions back, and give feedback on demand, as long as a human sets the goal and checks the content. The coach chapter adds the harder question: expertise is built by doing the junior work, so if AI takes that work away, nobody climbs.",
+        "fa": "مولیک به یافتهٔ ۱۹۸۴ بنجامین بلوم اشاره می‌کند: دانش‌آموزانی که آموزشِ یک‌به‌یک دیدند از نود و هشت درصدِ هم‌کلاسی‌هایشان بهتر شدند. مدلی که خسته نمی‌شود و قضاوت نمی‌کند می‌تواند تمرین بدهد، سؤالِ متقابل بپرسد و هر وقت بخواهی بازخورد بدهد، به شرطی که انسان هدف را تعیین کند و محتوا را وارسی کند. فصلِ مربی پرسشِ سخت‌تری اضافه می‌کند: تخصص با انجامِ کارهای مقدماتی ساخته می‌شود، پس اگر هوش مصنوعی همان کارها را بردارد، دیگر کسی پله‌ها را بالا نمی‌رود."
+      },
+      "example": {
+        "en": "Have it quiz you on a topic and refuse to reveal the answer until you have tried twice.",
+        "fa": "از آن بخواه دربارهٔ یک موضوع از تو سؤال بپرسد و تا دو بار تلاش نکرده‌ای، جواب را نگوید."
+      },
+      "tip": {
+        "en": "Ask for feedback on your reasoning, not on your writing. That is where the coaching value sits.",
+        "fa": "دربارهٔ استدلالت بازخورد بخواه، نه دربارهٔ نگارشت. ارزشِ مربی‌گری آنجاست."
+      },
+      "pitfall": {
+        "en": "Letting it do the homework instead of teaching you to do it.",
+        "fa": "اجازه‌دادن به اینکه تکلیف را انجام دهد به‌جای اینکه یادت بدهد انجامش دهی."
+      }
+    },
+    "worst": {
+      "part": "next",
+      "n": 10,
+      "name": {
+        "en": "Rule 4 — The Worst AI You Will Ever Use",
+        "fa": "قاعدهٔ ۴ — بدترین هوش مصنوعیِ عمرِ تو"
+      },
+      "glabel": {
+        "en": "Worst AI",
+        "fa": "بدترین نسخه"
+      },
+      "principle": {
+        "en": "Today's model is the floor of the capability you will have, not the ceiling. Plan accordingly.",
+        "fa": "مدلِ امروز کفِ توانایی‌ای است که خواهی داشت، نه سقفش. بر همین اساس برنامه بریز."
+      },
+      "more": {
+        "en": "This is a stance for decisions, not a prediction. Mollick's reason for it is that AI is a general purpose technology, like the steam engine or the internet: it keeps improving and keeps spreading into work nobody designed it for. So do not build a strategy on a weakness you happened to observe this quarter, and do not dismiss a use case because the current model is not quite there. Go back and re-test the things that failed.",
+        "fa": "این یک موضع برای تصمیم‌گیری است، نه یک پیش‌بینی. دلیلِ مولیک این است که هوش مصنوعی یک فناوریِ همه‌منظوره است، مثلِ موتورِ بخار یا اینترنت: هم مدام بهتر می‌شود و هم مدام به کارهایی سرایت می‌کند که برایشان ساخته نشده بود. پس راهبردت را روی ضعفی که اتفاقی این فصل دیده‌ای نساز، و یک کاربرد را فقط چون مدلِ فعلی هنوز نمی‌تواند کنار نگذار. برگرد و چیزهایی را که شکست خوردند دوباره امتحان کن."
+      },
+      "example": {
+        "en": "A workflow you rejected last year as too unreliable may be routine on the next model.",
+        "fa": "گردشِ کاری که پارسال به‌خاطرِ بی‌ثباتی کنارش گذاشتی، ممکن است روی مدلِ بعدی کارِ هرروزه باشد."
+      },
+      "tip": {
+        "en": "Keep a short list of rejected use cases and retest it every time a new model ships.",
+        "fa": "فهرستِ کوتاهی از کاربردهای ردشده نگه دار و هر بار مدلِ تازه‌ای آمد دوباره امتحانشان کن."
+      },
+      "pitfall": {
+        "en": "Designing a two-year plan around the limits of a six-month-old model.",
+        "fa": "طراحیِ یک برنامهٔ دوساله بر پایهٔ محدودیت‌های یک مدلِ شش‌ماهه."
+      }
+    },
+    "asleep": {
+      "part": "next",
+      "n": 11,
+      "name": {
+        "en": "Falling Asleep at the Wheel",
+        "fa": "خوابیدن پشتِ فرمان"
+      },
+      "glabel": {
+        "en": "Asleep at Wheel",
+        "fa": "خواب پشتِ فرمان"
+      },
+      "principle": {
+        "en": "The better the machine gets, the less you check — and the less able you become to check at all.",
+        "fa": "هرچه ماشین بهتر می‌شود، کمتر وارسی می‌کنی — و کم‌کم توانِ وارسی‌کردن را هم از دست می‌دهی."
+      },
+      "more": {
+        "en": "This is the failure mode sitting behind rule two, and the consultant study measured it. On the task built to fall outside the frontier, people using AI were 19 percentage points less likely to get the right answer than people with no AI, because a confident output stopped them looking. Skills you never practise decay, and then you are leaning on a judgement you no longer have.",
+        "fa": "این همان شکستی است که پشتِ قاعدهٔ دوم نشسته، و آزمایشِ مشاوران اندازه‌اش را هم گرفت. در کاری که عمداً بیرونِ مرز طراحی شده بود، کسانی که از هوش مصنوعی استفاده کردند ۱۹ واحدِ درصد کمتر از کسانی که استفاده نکردند به جوابِ درست رسیدند؛ چون خروجیِ مطمئن باعث شد دیگر نگاه نکنند. مهارتی که تمرین نشود از بین می‌رود و بعد به قضاوتی تکیه می‌کنی که دیگر نداری."
+      },
+      "example": {
+        "en": "A team that stops writing first drafts slowly loses the taste for telling a good one from a bad one.",
+        "fa": "تیمی که دیگر پیش‌نویسِ اول را نمی‌نویسد، کم‌کم حسِ تشخیصِ پیش‌نویسِ خوب از بد را از دست می‌دهد."
+      },
+      "tip": {
+        "en": "Keep doing a few tasks by hand on purpose, to keep your judgement calibrated.",
+        "fa": "چند کار را عمداً دستی انجام بده تا قضاوتت میزان بماند."
+      },
+      "pitfall": {
+        "en": "Confusing the absence of visible errors with the absence of errors.",
+        "fa": "اشتباه‌گرفتنِ نبودِ خطای آشکار با نبودِ خطا."
+      }
+    },
+    "futures": {
+      "part": "next",
+      "n": 12,
+      "name": {
+        "en": "Four Futures, and AI as Us",
+        "fa": "چهار آینده، و هوش مصنوعی به‌مثابهٔ ما"
+      },
+      "glabel": {
+        "en": "Four Futures",
+        "fa": "چهار آینده"
+      },
+      "principle": {
+        "en": "Mollick refuses to predict. He sketches four scenarios and asks which one you are quietly preparing for.",
+        "fa": "مولیک از پیش‌بینی سر باز می‌زند. چهار سناریو ترسیم می‌کند و می‌پرسد بی‌سروصدا داری برای کدام‌شان آماده می‌شوی."
+      },
+      "more": {
+        "en": "He names them: As Good as It Gets, where progress stalls roughly here; Slow Growth; Exponential Growth; and The Machine God, where capability passes us entirely. He thinks the two middle ones are the likely ones. The book then closes on a quieter note: these systems are built from human writing, so what they reflect back is a version of us.",
+        "fa": "اسمشان را هم می‌گذارد: «بهتر از این نمی‌شود»، که یعنی پیشرفت تقریباً همین‌جا می‌ماند؛ «رشدِ کند»؛ «رشدِ نمایی»؛ و «خدای ماشینی»، که در آن توانایی کاملاً از ما جلو می‌زند. به گمانِ او دو سناریوی میانی محتمل‌ترند. بعد کتاب با نکته‌ای آرام‌تر تمام می‌شود: این سامانه‌ها از نوشتهٔ انسان ساخته شده‌اند، پس آنچه بازمی‌تابانند نسخه‌ای از خودِ ماست."
+      },
+      "example": {
+        "en": "The same hiring decision looks different if you assume slow growth rather than a step change next year.",
+        "fa": "همان تصمیمِ استخدام وقتی رشدِ کند را فرض بگیری با وقتی جهشِ سالِ آینده را فرض بگیری، فرق می‌کند."
+      },
+      "tip": {
+        "en": "Write down which scenario your current plan already assumes.",
+        "fa": "بنویس برنامهٔ فعلی‌ات از پیش کدام سناریو را فرض گرفته است."
+      },
+      "pitfall": {
+        "en": "Betting the whole organisation on one scenario and calling it strategy.",
+        "fa": "شرط‌بستنِ کلِ سازمان روی یک سناریو و اسمش را راهبرد گذاشتن."
+      }
+    }
+  },
+  "core": {
+    "name": {
+      "en": "CO-INTELLIGENCE",
+      "fa": "هم‌هوشی"
+    },
+    "principle": {
+      "en": "AI is not a tool you pick up and not a rival you fear. It is a co-intelligence: an alien mind you work alongside, whose strengths and blind spots you have to map yourself.",
+      "fa": "هوش مصنوعی نه ابزاری است که برمی‌داری و نه رقیبی که از آن می‌ترسی. یک هم‌هوش است: ذهنی بیگانه که کنارش کار می‌کنی و باید خودت نقشهٔ توانایی‌ها و نقطه‌های کورش را بکشی."
+    },
+    "more": {
+      "en": "Mollick builds the argument in four moves: explain what these alien minds are and why their ability is jagged; give four working rules that hold whatever the model does; walk through the roles AI can already fill — creative, coworker, tutor, coach; then treat today's version as the worst one you will ever use and lay out four possible futures instead of predicting one.",
+      "fa": "مولیک استدلال را در چهار حرکت می‌سازد: توضیح می‌دهد این ذهن‌های بیگانه چه‌اند و چرا توانایی‌شان دندانه‌دار است؛ چهار قاعدهٔ کاری می‌دهد که هر مدلی هم بیاید سرِ جایشان می‌مانند؛ نقش‌هایی را مرور می‌کند که هوش مصنوعی همین حالا می‌تواند بگیرد — خلاق، همکار، معلم، مربی؛ بعد نسخهٔ امروز را بدترین نسخهٔ ممکن می‌داند و به‌جای پیش‌بینیِ یک آینده، چهار آیندهٔ محتمل را روی میز می‌گذارد."
+    },
+    "example": {
+      "en": "Click any node to read a principle or a method. You can also drag the nodes around.",
+      "fa": "روی هر دایره کلیک کن تا یک اصل یا روش را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."
+    }
+  },
+  "stages": [
+    {
+      "level": 1,
+      "badge": {
+        "en": "Level 1 · Over-simplified",
+        "fa": "سطحِ ۱ · خیلی ساده"
+      },
+      "title": {
+        "en": "Work with it, don't just use it",
+        "fa": "با آن کار کن، فقط استفاده‌اش نکن"
+      },
+      "tagline": {
+        "en": "The whole book in a sentence.",
+        "fa": "کلِ کتاب در یک جمله."
+      },
+      "body": {
+        "en": "Treat AI as a co-intelligence you collaborate with, and try it on everything you are allowed to try it on.",
+        "fa": "با هوش مصنوعی مثلِ هم‌هوشی رفتار کن که با آن همکاری می‌کنی، و روی هر کاری که اجازه داری امتحانش کن."
+      },
+      "example": {
+        "en": "Instead of asking whether AI can do your job, ask which twenty minutes of today it could have taken.",
+        "fa": "به‌جای اینکه بپرسی آیا هوش مصنوعی می‌تواند کارِ تو را انجام دهد، بپرس کدام بیست دقیقهٔ امروزت را می‌توانست بردارد."
+      },
+      "gain": {
+        "en": "You hold the stance the whole book is built on.",
+        "fa": "همان موضعی را داری که کلِ کتاب رویش ساخته شده."
+      }
+    },
+    {
+      "level": 2,
+      "badge": {
+        "en": "Level 2 · Simple",
+        "fa": "سطحِ ۲ · ساده"
+      },
+      "title": {
+        "en": "The four rules",
+        "fa": "چهار قاعده"
+      },
+      "tagline": {
+        "en": "The book's spine, in order.",
+        "fa": "ستونِ فقراتِ کتاب، به‌ترتیب."
+      },
+      "body": {
+        "en": "Always invite AI to the table. Be the human in the loop. Treat it like a person, but tell it what kind of person it is. Assume this is the worst AI you will ever use. Everything else in the book is elaboration.",
+        "fa": "همیشه هوش مصنوعی را سرِ میز دعوت کن. انسانِ داخلِ حلقه باش. مثلِ یک آدم با آن رفتار کن، اما بگو چه‌جور آدمی است. فرض کن این بدترین هوش مصنوعیِ عمرِ توست. بقیهٔ کتاب شرحِ همین‌هاست."
+      },
+      "example": {
+        "en": "Before your next task, pick which of the four rules you are about to break.",
+        "fa": "پیش از کارِ بعدی‌ات، انتخاب کن کدام‌یک از چهار قاعده را می‌خواهی زیرِ پا بگذاری."
+      },
+      "gain": {
+        "en": "You can apply the book without remembering the book.",
+        "fa": "می‌توانی کتاب را به کار ببری بی‌آنکه کتاب یادت بماند."
+      }
+    },
+    {
+      "level": 3,
+      "badge": {
+        "en": "Level 3 · Balanced",
+        "fa": "سطحِ ۳ · متعادل"
+      },
+      "title": {
+        "en": "The jagged frontier",
+        "fa": "مرزِ دندانه‌دار"
+      },
+      "tagline": {
+        "en": "Why it is brilliant and wrong in the same hour.",
+        "fa": "چرا در یک ساعت هم درخشان است هم اشتباه."
+      },
+      "body": {
+        "en": "AI ability is jagged: tasks that look equally difficult land on opposite sides of an invisible line. In the experiment Mollick ran with Boston Consulting Group, consultants using AI did far better inside the frontier, and were 19 percentage points less likely to be right on the one task placed just outside it. That map is not published anywhere. You draw it by testing.",
+        "fa": "توانایی هوش مصنوعی دندانه‌دار است: کارهایی که هم‌اندازه سخت به‌نظر می‌رسند، دو سوی یک خطِ نامرئی می‌افتند. در آزمایشی که مولیک با گروه مشاورهٔ بوستون اجرا کرد، مشاورانی که از هوش مصنوعی استفاده کردند داخلِ مرز بسیار بهتر عمل کردند، و در تنها کاری که عمداً کمی بیرونِ مرز گذاشته شده بود، ۱۹ واحدِ درصد کمتر به جوابِ درست رسیدند. آن نقشه جایی منتشر نشده. خودت با آزمایش می‌کشی‌اش."
+      },
+      "example": {
+        "en": "Keep a two-column log for a month: where AI helped, where it hurt.",
+        "fa": "یک ماه دفترچه‌ای دوستونی نگه دار: کجا کمک کرد، کجا ضرر زد."
+      },
+      "gain": {
+        "en": "You stop being surprised by AI's failures and start predicting them.",
+        "fa": "دیگر از شکست‌های هوش مصنوعی غافلگیر نمی‌شوی و شروع می‌کنی به پیش‌بینی‌شان."
+      }
+    },
+    {
+      "level": 4,
+      "badge": {
+        "en": "Level 4 · Advanced",
+        "fa": "سطحِ ۴ · پیشرفته"
+      },
+      "title": {
+        "en": "Centaur and cyborg",
+        "fa": "قنطورس و سایبورگ"
+      },
+      "tagline": {
+        "en": "Designing the division of labour.",
+        "fa": "طراحیِ تقسیمِ کار."
+      },
+      "body": {
+        "en": "Two working patterns, both named in the consultant study. The centaur splits the task cleanly: you take the judgement, AI takes the volume. The cyborg interleaves, trading sentences and steps. Choose deliberately per task, and keep hold of the part that was your real contribution.",
+        "fa": "دو الگوی کاری که هر دو در همان آزمایشِ مشاوران نام گرفتند. قنطورس کار را تمیز تقسیم می‌کند: قضاوت با تو، حجم با هوش مصنوعی. سایبورگ درهم می‌آمیزد و جمله‌ها و گام‌ها را ردوبدل می‌کند. برای هر کار عامدانه یکی را انتخاب کن و آن بخشی را که سهمِ واقعیِ توست نگه دار."
+      },
+      "example": {
+        "en": "Centaur: AI drafts the summary of an argument you wrote. Cyborg: you and AI rewrite the same paragraph in turns.",
+        "fa": "قنطورس: هوش مصنوعی خلاصهٔ استدلالی را می‌نویسد که تو نوشته‌ای. سایبورگ: تو و هوش مصنوعی به‌نوبت همان پاراگراف را بازنویسی می‌کنید."
+      },
+      "gain": {
+        "en": "You can design the workflow, not just write prompts inside it.",
+        "fa": "می‌توانی گردشِ کار را طراحی کنی، نه فقط داخلش پرامپت بنویسی."
+      }
+    },
+    {
+      "level": 5,
+      "badge": {
+        "en": "Level 5 · Expert",
+        "fa": "سطحِ ۵ · حرفه‌ای"
+      },
+      "title": {
+        "en": "Build for the next model",
+        "fa": "برای مدلِ بعدی بساز"
+      },
+      "tagline": {
+        "en": "Stay awake while the machine improves.",
+        "fa": "تا ماشین بهتر می‌شود، بیدار بمان."
+      },
+      "body": {
+        "en": "Treat today's model as the floor. Re-test rejected use cases on every release and design processes that survive a jump in capability. At the same time guard against falling asleep at the wheel: automation that is right most of the time is exactly what people stop checking, and unpractised judgement decays. Finally, name which of the four futures your plan assumes.",
+        "fa": "مدلِ امروز را کف بدان. کاربردهای ردشده را با هر نسخهٔ تازه دوباره امتحان کن و فرایندهایی طراحی کن که از یک جهشِ توانایی جان سالم به در ببرند. هم‌زمان مراقبِ خوابیدن پشتِ فرمان باش: خودکارسازی‌ای که بیشترِ وقت‌ها درست است، دقیقاً همانی است که آدم‌ها دیگر وارسی‌اش نمی‌کنند، و قضاوتِ تمرین‌نشده از بین می‌رود. آخر هم مشخص کن برنامه‌ات کدام‌یک از چهار آینده را فرض گرفته است."
+      },
+      "example": {
+        "en": "Every quarter: retest the list of things AI could not do, and give two people on the team a task to do without it.",
+        "fa": "هر فصل: فهرستِ کارهایی را که هوش مصنوعی نمی‌توانست انجام دهد دوباره امتحان کن، و به دو نفر از تیم کاری بده که بدونِ آن انجامش دهند."
+      },
+      "gain": {
+        "en": "You can run a team that gets faster without getting careless.",
+        "fa": "می‌توانی تیمی را بگردانی که سریع‌تر می‌شود بی‌آنکه بی‌دقت شود."
+      }
+    }
+  ],
+  "quotes": [
+    {
+      "en": "Always invite AI to the table.",
+      "fa": "همیشه هوش مصنوعی را سرِ میز دعوت کن."
+    },
+    {
+      "en": "Be the human in the loop.",
+      "fa": "انسانِ داخلِ حلقه باش."
+    },
+    {
+      "en": "Treat AI like a person, but tell it what kind of person it is.",
+      "fa": "با هوش مصنوعی مثلِ یک آدم رفتار کن، اما بگو چه‌جور آدمی است."
+    },
+    {
+      "en": "Assume this is the worst AI you will ever use.",
+      "fa": "فرض کن این بدترین هوش مصنوعی‌ای است که تا آخرِ عمر استفاده خواهی کرد."
+    },
+    {
+      "en": "I discovered something remarkably close to an alien co-intelligence.",
+      "fa": "چیزی یافتم که به‌شکلِ عجیبی نزدیک بود به یک هم‌هوشِ بیگانه."
+    },
+    {
+      "en": "AI ability is a jagged frontier: excellent at some tasks, hopeless at others that look no harder.",
+      "fa": "توانایی هوش مصنوعی مرزی دندانه‌دار است: در بعضی کارها عالی، در بعضیِ دیگر که سخت‌تر هم به‌نظر نمی‌رسند، ناتوان."
+    }
+  ],
+  "media": [
+    {
+      "kind": "img",
+      "url": "https://www.oneusefulthing.org/",
+      "src": {
+        "en": "oneusefulthing.org · Author",
+        "fa": "oneusefulthing.org · نویسنده"
+      },
+      "title": {
+        "en": "One Useful Thing — Mollick's newsletter",
+        "fa": "خبرنامهٔ ایتن مولیک دربارهٔ هوش مصنوعی"
+      },
+      "desc": {
+        "en": "Where Mollick tests each new model in public and writes up what actually works.",
+        "fa": "جایی که مولیک هر مدلِ تازه را علنی امتحان می‌کند و می‌نویسد واقعاً چه چیزی کار می‌کند."
+      },
+      "bullets": {
+        "en": [
+          "Hands-on prompts and experiments",
+          "Updated as the models change",
+          "The book's ideas, kept current"
+        ],
+        "fa": [
+          "پرامپت‌ها و آزمایش‌های عملی",
+          "با تغییرِ مدل‌ها به‌روز می‌شود",
+          "ایده‌های کتاب، به‌روز نگه‌داشته‌شده"
+        ]
+      },
+      "best": {
+        "en": "Best for Stage 1–3.",
+        "fa": "خوب برای مرحلهٔ ۱ تا ۳."
+      }
+    },
+    {
+      "kind": "img",
+      "url": "https://www.hbs.edu/faculty/Pages/item.aspx?num=64700",
+      "src": {
+        "en": "Harvard Business School · Working paper",
+        "fa": "دانشکدهٔ کسب‌وکارِ هاروارد · مقالهٔ پژوهشی"
+      },
+      "title": {
+        "en": "Navigating the Jagged Technological Frontier",
+        "fa": "پیمایشِ مرزِ دندانه‌دارِ فناوری"
+      },
+      "desc": {
+        "en": "The field experiment with 758 consultants that gave the book its jagged frontier and its centaur and cyborg split.",
+        "fa": "آزمایشِ میدانی با ۷۵۸ مشاور که مفهومِ مرزِ دندانه‌دار و تفکیکِ قنطورس و سایبورگ را به کتاب داد."
+      },
+      "bullets": {
+        "en": [
+          "The numbers behind the productivity claims",
+          "The task where AI made the work worse",
+          "Co-authored by Mollick"
+        ],
+        "fa": [
+          "اعدادِ پشتِ ادعاهای بهره‌وری",
+          "همان کاری که هوش مصنوعی بدترش کرد",
+          "با هم‌نویسندگیِ مولیک"
+        ]
+      },
+      "best": {
+        "en": "Best for Stage 3–5.",
+        "fa": "خوب برای مرحلهٔ ۳ تا ۵."
+      }
+    }
+  ],
+  "go": [
+    {
+      "label": {
+        "en": "Publisher's page",
+        "fa": "صفحهٔ ناشر"
+      },
+      "url": "https://www.penguinrandomhouse.com/books/741805/co-intelligence-by-ethan-mollick/"
+    },
+    {
+      "label": {
+        "en": "The author's newsletter",
+        "fa": "خبرنامهٔ نویسنده"
+      },
+      "url": "https://www.oneusefulthing.org/"
+    },
+    {
+      "label": {
+        "en": "Book on Goodreads",
+        "fa": "کتاب در گودریدز"
+      },
+      "url": "https://www.goodreads.com/book/show/198678736-co-intelligence"
+    }
+  ],
+  "recs": [
+    {
+      "pri": "b",
+      "t": {
+        "en": "Keep a two-week jagged-frontier log",
+        "fa": "دو هفته دفترچهٔ مرزِ دندانه‌دار نگه دار"
+      },
+      "d": {
+        "en": "Two columns: where AI helped, where it hurt. After ten entries you have a map nobody else has.",
+        "fa": "دو ستون: کجا کمک کرد، کجا ضرر زد. بعد از ده مورد، نقشه‌ای داری که هیچ‌کسِ دیگر ندارد."
+      }
+    },
+    {
+      "pri": "b",
+      "t": {
+        "en": "Write three reusable personas",
+        "fa": "سه شخصیتِ همیشگی بنویس"
+      },
+      "d": {
+        "en": "A sceptical reviewer, a confused first-time user, a domain expert. Paste one at the top of every prompt.",
+        "fa": "یک منتقدِ بدبین، یک کاربرِ سردرگمِ تازه‌وارد، یک متخصصِ حوزه. یکی را بالای هر پرامپت بچسبان."
+      }
+    },
+    {
+      "pri": "n",
+      "t": {
+        "en": "Name your loop before you start",
+        "fa": "پیش از شروع، حلقه‌ات را مشخص کن"
+      },
+      "d": {
+        "en": "Decide exactly which parts of the output you will verify yourself, and write them down first.",
+        "fa": "دقیقاً تصمیم بگیر کدام بخش‌های خروجی را خودت وارسی می‌کنی و اول همان‌ها را بنویس."
+      }
+    },
+    {
+      "pri": "n",
+      "t": {
+        "en": "Keep a retest list",
+        "fa": "فهرستِ امتحانِ دوباره نگه دار"
+      },
+      "d": {
+        "en": "Every use case you rejected with \"AI can't do that\". Run it again when the next model ships.",
+        "fa": "هر کاربردی که با «هوش مصنوعی نمی‌تواند» کنارش گذاشتی. با آمدنِ مدلِ بعدی دوباره اجرایش کن."
+      }
+    }
+  ]
+});
+</script>
+</body>
+</html>

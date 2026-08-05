@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<!-- Generated page. Edit CONTENT in the DATA object below; shared UI lives in ../assets/book.css + ../assets/book.js -->
+<html lang="en" dir="ltr" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Project Management Absolute Beginner's Guide — نقشهٔ دانش و یادگیری ۵ مرحله‌ای</title>
+
+<!-- Boot theme + language BEFORE paint to avoid a flash (shared library-wide keys) -->
+<script>
+(function(){
+  try{
+    var th = localStorage.getItem('pbl-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
+    document.documentElement.setAttribute('data-theme', th);
+  }catch(e){ document.documentElement.setAttribute('data-theme','light'); }
+  try{
+    var lg = localStorage.getItem('pbl-lang') || 'en';
+    document.documentElement.setAttribute('data-lang', lg);
+    document.documentElement.setAttribute('lang', lg);
+    document.documentElement.setAttribute('dir', lg==='fa' ? 'rtl' : 'ltr');
+  }catch(e){}
+})();
+</script>
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Newsreader:ital,opsz,wght@0,6..72,200..700;1,6..72,200..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/book.css">
+</head>
+<body>
+<div id="app"></div>
+
+<script src="../assets/library.js"></script>
+<script src="../assets/book.js"></script>
+<script>
+/* ── CONTENT — everything unique to this book lives here ── */
+Book.mount({
+  "meta": {
+    "slug": "project-management-beginners-guide",
+    "folder": "18 - Delivery & Projects",
+    "groupNum": 18,
+    "group": {
+      "en": "Delivery & Projects",
+      "fa": "تحویل و پروژه"
+    },
+    "author": {
+      "en": "Greg Horine",
+      "fa": "گرگ هورین"
+    },
+    "eyebrow_author": {
+      "en": "Greg Horine",
+      "fa": "گرگ هورین"
+    },
+    "book": {
+      "en": "Project Management Absolute Beginner's Guide",
+      "fa": "راهنمای مدیریت پروژه برای تازه‌کارها"
+    },
+    "hero_title": {
+      "en": "Project Management Absolute Beginner's Guide — the practitioner's on-ramp to running a real project",
+      "fa": "راهنمای مدیریت پروژه برای تازه‌کارها — شروعی عملی برای ادارهٔ یک پروژهٔ واقعی"
+    },
+    "dek": {
+      "en": "A knowledge graph of the whole book, plus a 5-stage path from a single idea to expert-level mastery — with an example at every step.",
+      "fa": "نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از خیلی ساده تا حرفه‌ای — با یک مثال در هر مرحله."
+    },
+    "published": {
+      "en": "2017",
+      "fa": "۲۰۱۷"
+    },
+    "chips": [
+      {
+        "v": {
+          "en": "4",
+          "fa": "۴"
+        },
+        "l": {
+          "en": "Parts",
+          "fa": "بخش"
+        }
+      },
+      {
+        "v": {
+          "en": "12",
+          "fa": "۱۲"
+        },
+        "l": {
+          "en": "Ideas",
+          "fa": "ایده"
+        }
+      },
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Learning stages",
+          "fa": "مرحلهٔ یادگیری"
+        }
+      }
+    ],
+    "kboxes": [
+      {
+        "v": {
+          "en": "4",
+          "fa": "۴"
+        },
+        "l": {
+          "en": "Parts (jumpstart · planning · control · execution and the learning curve)",
+          "fa": "بخش (شروعِ سریع · برنامه‌ریزی · کنترل · اجرا و منحنیِ یادگیری)"
+        }
+      },
+      {
+        "v": {
+          "en": "12",
+          "fa": "۱۲"
+        },
+        "l": {
+          "en": "Ideas you can use",
+          "fa": "ایده برای استفاده"
+        }
+      },
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Levels, simple → expert",
+          "fa": "مرحله، ساده تا حرفه‌ای"
+        }
+      },
+      {
+        "v": {
+          "en": "3",
+          "fa": "۳"
+        },
+        "l": {
+          "en": "The triple constraint: scope · schedule · cost",
+          "fa": "سه‌گانهٔ محدودیت: دامنه · زمان · هزینه"
+        }
+      }
+    ],
+    "core_callout": {
+      "label": {
+        "en": "The core idea:",
+        "fa": "ایدهٔ اصلی:"
+      },
+      "en": " Projects fail for a short, repeating list of reasons, and almost none of them are technical. Define the work before you plan it, break it down before you estimate it, compare <i>actual</i> against <i>plan</i> every single week, and spend the rest of your time on people. Project management is a set of ordinary habits, not a talent.",
+      "fa": " پروژه‌ها به فهرستی کوتاه و تکراری از دلایل شکست می‌خورند و تقریباً هیچ‌کدام فنی نیستند. پیش از برنامه‌ریزی، کار را تعریف کن؛ پیش از برآورد، خردش کن؛ هر هفته <i>واقعیت</i> را با <i>برنامه</i> بسنج؛ و باقیِ وقتت را صرفِ آدم‌ها کن. مدیریت پروژه مجموعه‌ای از عادت‌های ساده است، نه یک استعداد."
+    },
+    "flow_callout": {
+      "label": {
+        "en": "Read it as a flow:",
+        "fa": "به‌صورتِ یک جریان بخوانش:"
+      },
+      "en": " learn what a project is and why projects <b>fail</b>, then <b>define, break down and schedule</b> the work, run a weekly <b>control loop</b> over change, risks and issues, and spend what is left of your time <b>leading people and managing expectations</b>.",
+      "fa": " یاد بگیر پروژه چیست و چرا پروژه‌ها <b>شکست می‌خورند</b>، بعد کار را <b>تعریف، خرد و زمان‌بندی</b> کن، یک <b>حلقهٔ کنترلِ</b> هفتگی روی تغییر، ریسک و مسئله بگردان، و باقیِ وقتت را صرفِ <b>رهبریِ آدم‌ها و مدیریتِ انتظارها</b> کن."
+    }
+  },
+  "tldr": [
+    {
+      "en": "The whole book in one line: define the work, break it down, then check reality against the plan every week.",
+      "fa": "خلاصهٔ کل کتاب در یک جمله: کار را تعریف کن، خردش کن، بعد هر هفته واقعیت را با برنامه بسنج."
+    },
+    {
+      "en": "A project is judged on scope, schedule and cost together. Change one of them and at least one other has to move.",
+      "fa": "پروژه با دامنه، زمان و هزینه با هم سنجیده می‌شود. یکی را عوض کنی، دستِ‌کم یکی دیگر باید جابه‌جا شود."
+    },
+    {
+      "en": "The work breakdown structure comes before the schedule. Whatever is left out of it does not get done.",
+      "fa": "ساختارِ شکستِ کار پیش از زمان‌بندی می‌آید. هرچه در آن نیاید، انجام نمی‌شود."
+    },
+    {
+      "en": "Control is a weekly loop, not a report: measure what finished, compare it with the baseline, correct.",
+      "fa": "کنترل یک حلقهٔ هفتگی است، نه یک گزارش: ببین چه تمام شده، با خطِ مبنا بسنج، اصلاح کن."
+    },
+    {
+      "en": "Most of the job is people: leading without authority, managing expectations, and never letting a stakeholder be surprised.",
+      "fa": "بیشترِ کار آدم‌هاست: رهبری بدونِ اختیارِ رسمی، مدیریتِ انتظارها، و اینکه هیچ ذی‌نفعی غافلگیر نشود."
+    }
+  ],
+  "parts": [
+    {
+      "key": "jumpstart",
+      "varc": "--c-teal",
+      "name": {
+        "en": "Project Management Jumpstart",
+        "fa": "شروعِ سریعِ مدیریت پروژه"
+      },
+      "tag": {
+        "en": "The foundation",
+        "fa": "پایه"
+      },
+      "gist": {
+        "en": "What a project is, what a project manager actually does, and why projects fail.",
+        "fa": "پروژه چیست، مدیرِ پروژه واقعاً چه می‌کند، و چرا پروژه‌ها شکست می‌خورند."
+      },
+      "more": {
+        "en": "A project is temporary, produces something unique, and has a defined end. Running one means holding scope, schedule and cost together while the work shifts underneath you. Horine starts with the failure list on purpose, because nearly every item on it is preventable with ordinary discipline rather than expertise.",
+        "fa": "پروژه موقت است، چیزی یکتا می‌سازد و پایانی مشخص دارد. اداره‌کردنش یعنی نگه‌داشتنِ دامنه، زمان و هزینه در کنارِ هم، در حالی که کار زیرِ پایت جابه‌جا می‌شود. هورین عمداً از فهرستِ شکست‌ها شروع می‌کند، چون تقریباً هر بندِ آن نه با تخصص بلکه با انضباطِ معمولی قابلِ پیشگیری است."
+      },
+      "chapters": [
+        "project",
+        "pmrole",
+        "failure"
+      ]
+    },
+    {
+      "key": "planning",
+      "varc": "--c-blue",
+      "name": {
+        "en": "Project Planning",
+        "fa": "برنامه‌ریزیِ پروژه"
+      },
+      "tag": {
+        "en": "Before the work",
+        "fa": "پیش از کار"
+      },
+      "gist": {
+        "en": "Define it, break it down, then estimate the schedule and the budget.",
+        "fa": "تعریفش کن، خردش کن، بعد زمان و بودجه را برآورد کن."
+      },
+      "more": {
+        "en": "Planning runs in a fixed order: an approved project definition, then a work breakdown structure, then estimates that roll up into a schedule and a budget. Alongside them sit the supplemental plans — risk, quality, communication, procurement and resources — which is why a real plan is never just a chart of dates.",
+        "fa": "برنامه‌ریزی ترتیبِ ثابتی دارد: اول تعریفِ تأییدشدهٔ پروژه، بعد ساختارِ شکستِ کار، بعد برآوردهایی که به زمان‌بندی و بودجه می‌رسند. کنارِ اینها برنامه‌های مکمل می‌نشینند — ریسک، کیفیت، ارتباطات، تدارکات و منابع — و برای همین است که برنامهٔ واقعی هرگز فقط یک جدولِ تاریخ نیست."
+      },
+      "chapters": [
+        "definition",
+        "wbs",
+        "schedule"
+      ]
+    },
+    {
+      "key": "control",
+      "varc": "--c-violet",
+      "name": {
+        "en": "Project Control",
+        "fa": "کنترلِ پروژه"
+      },
+      "tag": {
+        "en": "Staying on track",
+        "fa": "در مسیر ماندن"
+      },
+      "gist": {
+        "en": "Compare actual against plan, on a fixed rhythm, and act on the variance.",
+        "fa": "با ریتمی ثابت واقعیت را با برنامه بسنج و روی انحراف عمل کن."
+      },
+      "more": {
+        "en": "Control is a loop, not a document. Horine reduces it to three words — prevention, detection, action — run on a rhythm: stop what you can, measure what really happened, then correct while correction is still cheap. Around that loop sit change control, deliverable acceptance, quality checks, and two separate logs: risks that might happen and issues that already have.",
+        "fa": "کنترل یک حلقه است، نه یک سند. هورین آن را به سه کلمه خلاصه می‌کند — پیشگیری، تشخیص، اقدام — که با ریتمی ثابت می‌چرخند: تا می‌توانی جلوگیری کن، ببین واقعاً چه رخ داده، و تا وقتی اصلاح ارزان است اصلاح کن. دورِ این حلقه، کنترلِ تغییر، پذیرشِ تحویل‌دادنی، بررسیِ کیفیت و دو فهرستِ جدا می‌نشیند: ریسک‌هایی که ممکن است رخ دهند و مسائلی که رخ داده‌اند."
+      },
+      "chapters": [
+        "controlloop",
+        "change",
+        "riskissue"
+      ]
+    },
+    {
+      "key": "execution",
+      "varc": "--c-amber",
+      "name": {
+        "en": "Execution and the Learning Curve",
+        "fa": "اجرا و منحنیِ یادگیری"
+      },
+      "tag": {
+        "en": "People and finishing",
+        "fa": "آدم‌ها و پایان"
+      },
+      "gist": {
+        "en": "Most of the job is leading, communicating and managing expectations — then closing well.",
+        "fa": "بیشترِ کار رهبری، ارتباط و مدیریتِ انتظارهاست — و بعد بستنِ درستِ پروژه."
+      },
+      "more": {
+        "en": "The fourth part of the book is the people work: leading without formal authority, communicating, managing expectations, getting real performance out of a team, managing vendors, and ending the project properly. The short fifth part then widens the view — a chapter on scheduling tools, a chapter of \"what if\" situations, and a tour of the wider field: agile approaches, critical chain, project management offices and portfolio management.",
+        "fa": "بخشِ چهارمِ کتاب کارِ آدم‌هاست: رهبری بدونِ اختیارِ رسمی، ارتباط، مدیریتِ انتظارها، بیرون‌کشیدنِ کارکردِ واقعی از یک تیم، مدیریتِ تأمین‌کننده‌ها، و تمام‌کردنِ درستِ پروژه. بخشِ پنجم که کوتاه است، دید را بازتر می‌کند: یک فصل دربارهٔ ابزارِ زمان‌بندی، یک فصل «اگر این‌طور شد چه؟»، و گشتی در بقیهٔ میدان — رویکردهای چابک، زنجیرهٔ بحرانی، دفترِ مدیریتِ پروژه و مدیریتِ سبدِ پروژه‌ها."
+      },
+      "chapters": [
+        "lead",
+        "expectations",
+        "closing"
+      ]
+    }
+  ],
+  "chapters": {
+    "project": {
+      "part": "jumpstart",
+      "n": 1,
+      "name": {
+        "en": "What Counts as a Project",
+        "fa": "چه چیزی پروژه است"
+      },
+      "glabel": {
+        "en": "Project",
+        "fa": "پروژه"
+      },
+      "principle": {
+        "en": "A project is temporary, produces something unique, and is judged on scope, schedule and cost together.",
+        "fa": "پروژه موقت است، چیزی یکتا می‌سازد، و با دامنه، زمان و هزینه با هم سنجیده می‌شود."
+      },
+      "more": {
+        "en": "Ongoing operations are not projects; they have no end date and no unique deliverable. The three constraints are tied to each other, so any change in one forces a change somewhere else. Quality is what quietly gets sacrificed when you pretend they are independent.",
+        "fa": "کارِ جاری پروژه نیست؛ نه تاریخِ پایان دارد نه تحویل‌دادنیِ یکتا. سه محدودیت به هم گره خورده‌اند، پس هر تغییر در یکی، تغییری در جای دیگر می‌طلبد. و وقتی وانمود کنی این سه مستقل‌اند، کیفیت همان چیزی است که بی‌سروصدا قربانی می‌شود."
+      },
+      "example": {
+        "en": "Adding a new payment method is a project. Processing payments every day afterwards is operations.",
+        "fa": "افزودنِ یک روشِ پرداختِ تازه پروژه است. پردازشِ روزانهٔ پرداخت‌ها پس از آن، کارِ جاری است."
+      },
+      "tip": {
+        "en": "Write the finished deliverable and the end date on one line. If you cannot, it is not a project yet.",
+        "fa": "تحویل‌دادنیِ نهایی و تاریخِ پایان را در یک سطر بنویس. اگر نتوانی، هنوز پروژه نیست."
+      },
+      "pitfall": {
+        "en": "Accepting more scope without asking what moves in schedule or in cost.",
+        "fa": "پذیرفتنِ دامنهٔ بیشتر بدونِ پرسیدنِ اینکه چه چیزی در زمان یا هزینه جابه‌جا می‌شود."
+      }
+    },
+    "pmrole": {
+      "part": "jumpstart",
+      "n": 2,
+      "name": {
+        "en": "What the Project Manager Does",
+        "fa": "کارِ مدیرِ پروژه"
+      },
+      "glabel": {
+        "en": "The PM",
+        "fa": "مدیرِ پروژه"
+      },
+      "principle": {
+        "en": "The project manager plans, organises, controls and communicates — and is rarely the technical expert.",
+        "fa": "مدیرِ پروژه برنامه می‌ریزد، سامان می‌دهد، کنترل می‌کند و ارتباط برقرار می‌کند — و به‌ندرت متخصصِ فنی است."
+      },
+      "more": {
+        "en": "You carry full accountability with almost no formal authority, so the job runs on clarity, follow-through and relationships. Horine is blunt about which qualities matter: organisation, plain communication, and the nerve to raise bad news early rather than hope it resolves itself.",
+        "fa": "پاسخگوییِ کامل بر دوشِ توست و تقریباً هیچ اختیارِ رسمی نداری، پس این کار با روشنی، پیگیری و رابطه پیش می‌رود. هورین صریح می‌گوید کدام ویژگی‌ها مهم‌اند: نظم، ارتباطِ ساده، و جسارتِ گفتنِ خبرِ بد در همان اول به‌جای امید به حل‌شدنِ خودبه‌خودی."
+      },
+      "example": {
+        "en": "The strongest move in a status meeting is often to announce a slip three weeks before it happens.",
+        "fa": "قوی‌ترین حرکت در جلسهٔ وضعیت اغلب این است که سه هفته پیش از وقوعِ تأخیر، خبرش را بدهی."
+      },
+      "tip": {
+        "en": "Each week, name the one decision only you can unblock, and unblock it before anything else.",
+        "fa": "هر هفته آن یک تصمیمی را که فقط تو می‌توانی بازش کنی مشخص کن، و پیش از هر کارِ دیگری بازش کن."
+      },
+      "pitfall": {
+        "en": "Doing the technical work yourself while the plan quietly goes out of date.",
+        "fa": "انجام‌دادنِ کارِ فنی به‌دستِ خودت، در حالی که برنامه بی‌سروصدا از اعتبار می‌افتد."
+      }
+    },
+    "failure": {
+      "part": "jumpstart",
+      "n": 3,
+      "name": {
+        "en": "Why Projects Fail",
+        "fa": "چرا پروژه‌ها شکست می‌خورند"
+      },
+      "glabel": {
+        "en": "Failure",
+        "fa": "شکست"
+      },
+      "principle": {
+        "en": "Projects fail for a short, repeating list of reasons, and almost all of them are preventable.",
+        "fa": "پروژه‌ها به فهرستی کوتاه و تکراری از دلایل شکست می‌خورند و تقریباً همه‌شان قابلِ پیشگیری‌اند."
+      },
+      "more": {
+        "en": "Horine builds the list from troubled projects: a project not aligned to the business, unclear roles, no completion criteria, no buy-in, poor communication, no change control, and inadequate progress tracking. Almost none of it is technical. He then turns the list around into an essential project manager toolkit you can check before the work starts.",
+        "fa": "هورین این فهرست را از پروژه‌های به‌مشکل‌خورده می‌سازد: پروژه‌ای که با کسب‌وکار هم‌راستا نیست، نقش‌های نامشخص، نبودِ معیارِ «تمام‌شده»، نبودِ همراهی، ارتباطِ ضعیف، نبودِ کنترلِ تغییر، و ردیابیِ ناکافیِ پیشرفت. تقریباً هیچ‌کدام فنی نیست. بعد همین فهرست را برمی‌گرداند و از آن جعبه‌ابزارِ ضروریِ مدیرِ پروژه را می‌سازد که پیش از شروعِ کار می‌توانی وارسی‌اش کنی."
+      },
+      "example": {
+        "en": "A team hits every deadline and still ships the wrong thing, because nobody wrote down what done meant.",
+        "fa": "تیمی همهٔ مهلت‌ها را می‌زند و باز هم چیزِ اشتباه را تحویل می‌دهد، چون کسی ننوشته بود «تمام‌شده» یعنی چه."
+      },
+      "tip": {
+        "en": "Before kickoff, read the toolkit out loud, item by item, with the sponsor in the room.",
+        "fa": "پیش از شروع، جعبه‌ابزار را بند به بند و با صدای بلند، با حضورِ حامی مرور کن."
+      },
+      "pitfall": {
+        "en": "Agreeing to a date chosen by someone who never saw the estimate.",
+        "fa": "پذیرفتنِ تاریخی که کسی انتخاب کرده که هرگز برآورد را ندیده است."
+      }
+    },
+    "definition": {
+      "part": "planning",
+      "n": 4,
+      "name": {
+        "en": "Define Before You Plan",
+        "fa": "پیش از برنامه، تعریف کن"
+      },
+      "glabel": {
+        "en": "Definition",
+        "fa": "تعریف"
+      },
+      "principle": {
+        "en": "The project definition states purpose, objectives, scope, deliverables, assumptions, constraints and who signs off.",
+        "fa": "تعریفِ پروژه هدف، مقصودها، دامنه، تحویل‌دادنی‌ها، فرض‌ها، محدودیت‌ها و امضاکننده را روشن می‌کند."
+      },
+      "more": {
+        "en": "This document is the charter, and every later plan leans on it. Write what is out of scope as carefully as what is in. Then get a real approval, because an unsigned definition is only your own opinion of the project. The supplemental plans for risk, quality, communication, procurement and resources hang off it.",
+        "fa": "این سند همان منشورِ پروژه است و هر برنامهٔ بعدی به آن تکیه می‌کند. آنچه بیرونِ دامنه است را به همان دقتِ آنچه درونِ آن است بنویس. بعد تأییدِ واقعی بگیر، چون تعریفِ امضانشده فقط نظرِ خودت دربارهٔ پروژه است. برنامه‌های مکملِ ریسک، کیفیت، ارتباطات، تدارکات و منابع هم از دلِ همین سند بیرون می‌آیند."
+      },
+      "example": {
+        "en": "One line, \"reporting is not in this release\", prevents six weeks of argument later on.",
+        "fa": "یک سطر، «گزارش‌گیری در این نسخه نیست»، شش هفته بحثِ بعدی را از بین می‌برد."
+      },
+      "tip": {
+        "en": "List your assumptions explicitly. Each one is a risk you have not written down yet.",
+        "fa": "فرض‌هایت را صریح فهرست کن. هر فرض ریسکی است که هنوز ننوشته‌ای."
+      },
+      "pitfall": {
+        "en": "Starting the work while the definition is still being edited.",
+        "fa": "شروعِ کار در حالی که تعریفِ پروژه هنوز در حالِ ویرایش است."
+      }
+    },
+    "wbs": {
+      "part": "planning",
+      "n": 5,
+      "name": {
+        "en": "The Work Breakdown Structure",
+        "fa": "ساختارِ شکستِ کار"
+      },
+      "glabel": {
+        "en": "WBS",
+        "fa": "شکستِ کار"
+      },
+      "principle": {
+        "en": "Break the deliverables down until every piece is small enough to estimate, assign and verify.",
+        "fa": "تحویل‌دادنی‌ها را آن‌قدر خرد کن که هر تکه برای برآورد، واگذاری و وارسی به‌اندازهٔ کافی کوچک شود."
+      },
+      "more": {
+        "en": "The breakdown is organised around deliverables, not around a wish list of activities, and it has to cover all of the work. Anything outside it will not get done. It is also the foundation of the estimate, the schedule and the budget, so a gap here shows up three times later.",
+        "fa": "این شکست حولِ تحویل‌دادنی‌ها چیده می‌شود، نه حولِ فهرستی از فعالیت‌های دلخواه، و باید تمامِ کار را بپوشاند. هرچه بیرونِ آن بماند انجام نمی‌شود. پایهٔ برآورد، زمان‌بندی و بودجه هم همین است، پس یک جای‌خالی در اینجا بعداً سه بار خودش را نشان می‌دهد."
+      },
+      "example": {
+        "en": "\"Build the reporting module\" is not a work package. \"Write the query, build the export, test it with real data\" is.",
+        "fa": "«ماژولِ گزارش‌گیری را بساز» بستهٔ کاری نیست. «کوئری را بنویس، خروجی را بساز، با دادهٔ واقعی آزمونش کن» هست."
+      },
+      "tip": {
+        "en": "Build it with the people who will do the work, not alone at your desk.",
+        "fa": "آن را با همان کسانی بساز که کار را انجام می‌دهند، نه تنها پشتِ میزت."
+      },
+      "pitfall": {
+        "en": "Forgetting the invisible work: reviews, testing, handover, and project management itself.",
+        "fa": "فراموش‌کردنِ کارِ نامرئی: بازبینی، آزمون، تحویل، و خودِ مدیریتِ پروژه."
+      }
+    },
+    "schedule": {
+      "part": "planning",
+      "n": 6,
+      "name": {
+        "en": "Schedule and Budget",
+        "fa": "زمان‌بندی و بودجه"
+      },
+      "glabel": {
+        "en": "Schedule",
+        "fa": "زمان‌بندی"
+      },
+      "principle": {
+        "en": "Estimate the work packages, sequence them, find the critical path, then roll the numbers into a budget.",
+        "fa": "بسته‌های کاری را برآورد کن، پشتِ هم بچین، مسیرِ بحرانی را پیدا کن، بعد اعداد را در بودجه جمع بزن."
+      },
+      "more": {
+        "en": "A schedule is estimates plus dependencies plus the people you actually have. The critical path is the chain that decides the end date, so a slip anywhere on it moves delivery and a slip elsewhere may not. Keep contingency visible as a named reserve instead of hiding padding inside every task.",
+        "fa": "زمان‌بندی یعنی برآوردها به‌اضافهٔ وابستگی‌ها به‌اضافهٔ آدم‌هایی که واقعاً داری. مسیرِ بحرانی همان زنجیره‌ای است که تاریخِ پایان را تعیین می‌کند، پس تأخیر روی آن تحویل را جابه‌جا می‌کند و تأخیر در جای دیگر شاید نکند. ذخیرهٔ احتیاطی را به‌شکلِ یک قلمِ مشخص و پیدا نگه دار، نه پنهان‌شده داخلِ تک‌تکِ کارها."
+      },
+      "example": {
+        "en": "Twenty tasks each slip a day. Only the ones on the critical path change the delivery date.",
+        "fa": "بیست کار هرکدام یک روز عقب می‌افتند. فقط آن‌هایی که روی مسیرِ بحرانی‌اند تاریخِ تحویل را عوض می‌کنند."
+      },
+      "tip": {
+        "en": "Ask every estimator for the assumption behind the number, not only the number.",
+        "fa": "از هر کسی که برآورد می‌دهد، فرضِ پشتِ عدد را بخواه، نه فقط خودِ عدد را."
+      },
+      "pitfall": {
+        "en": "Compressing the schedule by assuming everyone is available full time.",
+        "fa": "فشرده‌کردنِ زمان‌بندی با این فرض که همه تمام‌وقت در دسترس‌اند."
+      }
+    },
+    "controlloop": {
+      "part": "control",
+      "n": 7,
+      "name": {
+        "en": "The Control Loop",
+        "fa": "حلقهٔ کنترل"
+      },
+      "glabel": {
+        "en": "Control",
+        "fa": "کنترل"
+      },
+      "principle": {
+        "en": "Horine's three principles of project control are prevention, detection and action, run on a fixed weekly rhythm.",
+        "fa": "سه اصلِ کنترلِ پروژه نزدِ هورین پیشگیری، تشخیص و اقدام است، و با ریتمِ ثابتِ هفتگی اجرا می‌شوند."
+      },
+      "more": {
+        "en": "He shortens the three to PDA. Prevention is the plan and the process that stop the problem; detection is measuring what actually finished, because percent complete is the least reliable number on a project; action is correcting while correction is still cheap. Performance reporting and earned value management put completed work next to work planned and money spent, so schedule and cost variance surface while there is still room to respond.",
+        "fa": "او این سه را با سرواژهٔ PDA می‌شناسد. پیشگیری همان برنامه و فرایندی است که جلوی مشکل را می‌گیرد؛ تشخیص یعنی اندازه‌گیریِ آنچه واقعاً تمام شده، چون «درصدِ پیشرفت» نامطمئن‌ترین عددِ یک پروژه است؛ اقدام یعنی اصلاح تا وقتی اصلاح ارزان است. گزارشِ عملکرد و مفاهیمِ ارزشِ کسب‌شده، کارِ انجام‌شده را کنارِ کارِ برنامه‌ریزی‌شده و پولِ خرج‌شده می‌گذارند تا انحرافِ زمان و هزینه وقتی پیدا شود که هنوز جای واکنش هست."
+      },
+      "example": {
+        "en": "A task that has been at 90 percent for three weeks is not 90 percent done.",
+        "fa": "کاری که سه هفته است روی ۹۰ درصد مانده، ۹۰ درصد انجام نشده است."
+      },
+      "tip": {
+        "en": "Report status in the same format every week, including the parts that are red.",
+        "fa": "هر هفته وضعیت را در همان قالبِ همیشگی گزارش کن، از جمله بخش‌هایی که قرمزند."
+      },
+      "pitfall": {
+        "en": "Status reports written to reassure people rather than to inform them.",
+        "fa": "گزارشِ وضعیتی که برای آرام‌کردنِ آدم‌ها نوشته می‌شود، نه برای آگاه‌کردنشان."
+      }
+    },
+    "change": {
+      "part": "control",
+      "n": 8,
+      "name": {
+        "en": "Change and Deliverable Control",
+        "fa": "کنترلِ تغییر و تحویل‌دادنی"
+      },
+      "glabel": {
+        "en": "Change",
+        "fa": "تغییر"
+      },
+      "principle": {
+        "en": "Every change gets written down, costed, and approved by whoever owns the trade-off.",
+        "fa": "هر تغییر نوشته می‌شود، هزینه‌اش برآورد می‌شود، و کسی که صاحبِ آن معاوضه است تأییدش می‌کند."
+      },
+      "more": {
+        "en": "Scope creep is rarely one large request; it is a hundred small yeses nobody recorded. Horine's change control has three moving parts: a written request form, an assessment of the impact, and a change control board that says yes or no. That is not bureaucracy, it is the only way the baseline stays honest. The same discipline covers the deliverables themselves: versions, reviews and formal acceptance instead of assumed agreement.",
+        "fa": "خزشِ دامنه به‌ندرت یک درخواستِ بزرگ است؛ صد «بله»‌ی کوچک است که کسی ثبتشان نکرده. کنترلِ تغییر نزدِ هورین سه تکه دارد: فرمِ درخواستِ مکتوب، ارزیابیِ اثر، و هیئتی که بله یا نه می‌گوید. این کاغذبازی نیست، تنها راهی است که خطِ مبنا صادق بماند. همین انضباط به خودِ تحویل‌دادنی‌ها هم می‌رسد: نسخه، بازبینی و پذیرشِ رسمی به‌جای توافقِ فرضی."
+      },
+      "example": {
+        "en": "\"Just a small tweak\" costs four days. Written down, it becomes a decision instead of a surprise.",
+        "fa": "«فقط یک تغییرِ کوچک» چهار روز کار می‌برد. نوشته که شود، به‌جای غافلگیری تبدیل به تصمیم می‌شود."
+      },
+      "tip": {
+        "en": "Answer every request with its impact on scope, schedule and cost before you answer yes or no.",
+        "fa": "به هر درخواست، اول با اثرش بر دامنه، زمان و هزینه جواب بده، بعد با بله یا نه."
+      },
+      "pitfall": {
+        "en": "Approving changes verbally and rediscovering them at the deadline.",
+        "fa": "تأییدِ شفاهیِ تغییرها و کشفِ دوبارهٔ آن‌ها سرِ مهلت."
+      }
+    },
+    "riskissue": {
+      "part": "control",
+      "n": 9,
+      "name": {
+        "en": "Risks and Issues",
+        "fa": "ریسک‌ها و مسائل"
+      },
+      "glabel": {
+        "en": "Risks",
+        "fa": "ریسک"
+      },
+      "principle": {
+        "en": "A risk might happen; an issue already has. Keep two lists and work them differently.",
+        "fa": "ریسک ممکن است رخ دهد؛ مسئله رخ داده است. دو فهرستِ جدا نگه دار و هرکدام را جور دیگری پیش ببر."
+      },
+      "more": {
+        "en": "Risk work is identify, assess, plan a response, then review on a cadence — a register goes stale within weeks if nobody reads it aloud. Issues need something simpler and stricter: one owner, one due date, and an escalation the moment that date passes. Quality checks belong in the same loop.",
+        "fa": "کارِ ریسک یعنی شناسایی، ارزیابی، برنامهٔ پاسخ، و بعد بازبینی با ریتمِ مشخص — فهرستِ ریسک ظرفِ چند هفته بی‌اثر می‌شود اگر کسی بلند نخواندش. مسائل به چیزی ساده‌تر و سخت‌گیرانه‌تر نیاز دارند: یک مسئول، یک مهلت، و ارجاع به بالا همان لحظه که مهلت گذشت. بررسیِ کیفیت هم در همین حلقه جا دارد."
+      },
+      "example": {
+        "en": "\"The vendor may be late\" is a risk. \"The vendor is late\" is an issue with an owner and a date.",
+        "fa": "«ممکن است تأمین‌کننده دیر کند» ریسک است. «تأمین‌کننده دیر کرده» مسئله‌ای است با یک مسئول و یک تاریخ."
+      },
+      "tip": {
+        "en": "Review the top five risks in every status meeting, and retire the ones that no longer apply.",
+        "fa": "در هر جلسهٔ وضعیت پنج ریسکِ نخست را مرور کن و آن‌هایی را که دیگر موضوعیت ندارند کنار بگذار."
+      },
+      "pitfall": {
+        "en": "A risk register written at kickoff and never opened again.",
+        "fa": "فهرستِ ریسکی که سرِ شروعِ پروژه نوشته می‌شود و دیگر هرگز باز نمی‌شود."
+      }
+    },
+    "lead": {
+      "part": "execution",
+      "n": 10,
+      "name": {
+        "en": "Leading a Project",
+        "fa": "رهبریِ پروژه"
+      },
+      "glabel": {
+        "en": "Leading",
+        "fa": "رهبری"
+      },
+      "principle": {
+        "en": "Leading a project is more than managing one, and you do it without formal authority.",
+        "fa": "رهبریِ پروژه چیزی بیش از مدیریتِ آن است، و بدونِ اختیارِ رسمی انجامش می‌دهی."
+      },
+      "more": {
+        "en": "Horine's keys to project leadership come down to setting direction, earning respect, and treating the team's obstacles as your own work. He calls the approach servant leadership, and it is the same posture he brings to team performance: a real kickoff, clear roles, agreed working rules, and honest recognition. He also treats difference as a leadership problem in its own right, because cross-functional, cross-cultural and virtual teams each hear the same message differently.",
+        "fa": "کلیدهای هورین برای رهبریِ پروژه به این سه می‌رسند: تعیینِ مسیر، به‌دست‌آوردنِ احترام، و اینکه موانعِ تیم را کارِ خودت بدانی. نامِ این رویکرد را رهبریِ خدمتگزار می‌گذارد، و همین نگاه را به کارکردِ تیم هم می‌برد: یک شروعِ درست، نقش‌های روشن، قاعده‌های توافق‌شده و قدردانیِ صادقانه. تفاوت را هم خودش یک مسئلهٔ رهبری می‌داند، چون تیمِ میان‌واحدی، چندفرهنگی و دورکار هرکدام یک پیامِ واحد را جور دیگری می‌شنوند."
+      },
+      "example": {
+        "en": "A team split across three time zones needs the decision written down, not announced in a meeting half of them missed.",
+        "fa": "تیمی که در سه منطقهٔ زمانی پخش است، تصمیم را نوشته می‌خواهد، نه اعلام‌شده در جلسه‌ای که نیمی‌شان نبوده‌اند."
+      },
+      "tip": {
+        "en": "Say the top priority out loud in every team meeting. The repetition is the job.",
+        "fa": "در هر جلسهٔ تیمی اولویتِ نخست را با صدای بلند بگو. همین تکرار، خودِ کار است."
+      },
+      "pitfall": {
+        "en": "Managing the schedule and calling that leadership.",
+        "fa": "زمان‌بندی را مدیریت‌کردن و اسمش را رهبری گذاشتن."
+      }
+    },
+    "expectations": {
+      "part": "execution",
+      "n": 11,
+      "name": {
+        "en": "Managing Expectations",
+        "fa": "مدیریتِ انتظارها"
+      },
+      "glabel": {
+        "en": "Expectations",
+        "fa": "انتظارها"
+      },
+      "principle": {
+        "en": "Most project failures are expectation failures. Communicate early, often, and in the receiver's terms.",
+        "fa": "بیشترِ شکست‌های پروژه شکستِ انتظارهاست. زود، مکرر و به زبانِ مخاطب ارتباط بگیر."
+      },
+      "more": {
+        "en": "Write a communication plan: who needs what, in which format, how often. The same fact serves different people differently — a sponsor wants the decision, an engineer wants the detail. And nobody should ever hear bad news about your project from someone other than you.",
+        "fa": "یک برنامهٔ ارتباطی بنویس: چه کسی چه چیزی را، در چه قالبی، هر چند وقت لازم دارد. یک واقعیتِ واحد برای آدم‌های مختلف کارکردِ متفاوت دارد — حامی تصمیم می‌خواهد، مهندس جزئیات. و هیچ‌کس نباید خبرِ بدِ پروژهٔ تو را از کسی جز خودت بشنود."
+      },
+      "example": {
+        "en": "A sponsor told about a two-week slip in week three becomes a partner. Told in week eleven, an adversary.",
+        "fa": "حامی‌ای که در هفتهٔ سوم از دو هفته تأخیر باخبر شود شریک می‌شود. اگر در هفتهٔ یازدهم بشنود، مخالف."
+      },
+      "tip": {
+        "en": "List your stakeholders and write, for each one, what success looks like in their own words.",
+        "fa": "ذی‌نفعانت را فهرست کن و برای هرکدام بنویس موفقیت به زبانِ خودشان یعنی چه."
+      },
+      "pitfall": {
+        "en": "Assuming the plan you sent is the plan they read.",
+        "fa": "این فرض که برنامه‌ای که فرستادی همان برنامه‌ای است که خوانده‌اند."
+      }
+    },
+    "closing": {
+      "part": "execution",
+      "n": 12,
+      "name": {
+        "en": "Ending a Project Well",
+        "fa": "تمام‌کردنِ درستِ پروژه"
+      },
+      "glabel": {
+        "en": "Closing",
+        "fa": "بستن"
+      },
+      "principle": {
+        "en": "End a project deliberately: formal acceptance, handover, release of the team, lessons captured.",
+        "fa": "پروژه را عامدانه تمام کن: پذیرشِ رسمی، تحویل، آزادکردنِ تیم، و ثبتِ درس‌ها."
+      },
+      "more": {
+        "en": "Projects rarely end; they fade, and the last ten percent leaks into the next one. Horine's answer is a project end checklist of thirteen steps: client acceptance, closing out contracts and accounts, final financials, performance reviews, lessons learned, updating the repository, and actually celebrating. He also separates the ways a project can end, because completion is only one of them — the others are termination, displacement, collapse and slow deterioration.",
+        "fa": "پروژه‌ها به‌ندرت تمام می‌شوند؛ محو می‌شوند و ده درصدِ آخر به پروژهٔ بعدی نشت می‌کند. پاسخِ هورین یک چک‌لیستِ سیزده‌مرحله‌ایِ پایان است: پذیرشِ کارفرما، بستنِ قراردادها و حساب‌ها، جمع‌بندیِ مالی، ارزیابیِ عملکردِ افراد، ثبتِ درس‌آموخته‌ها، به‌روزکردنِ آرشیوِ پروژه، و بله، جشن‌گرفتن. راه‌های پایانِ پروژه را هم از هم جدا می‌کند، چون تکمیل فقط یکی از آن‌هاست — بقیه فسخ، جابه‌جایی، فروپاشی و فرسایشِ آرام‌اند."
+      },
+      "example": {
+        "en": "A signed acceptance turns \"is it finished?\" into a documented yes.",
+        "fa": "یک پذیرشِ امضاشده، «تمام شد؟» را به یک «بله»‌ی مکتوب تبدیل می‌کند."
+      },
+      "tip": {
+        "en": "Hold the lessons-learned session within a week, while people still remember what went wrong.",
+        "fa": "جلسهٔ درس‌آموخته‌ها را ظرفِ یک هفته برگزار کن، تا وقتی هنوز یادشان هست چه اشتباه پیش رفت."
+      },
+      "pitfall": {
+        "en": "Collecting lessons that nobody reads before the next project starts.",
+        "fa": "جمع‌کردنِ درس‌هایی که هیچ‌کس پیش از شروعِ پروژهٔ بعدی نمی‌خواندشان."
+      }
+    }
+  },
+  "core": {
+    "name": {
+      "en": "PROJECT",
+      "fa": "پروژه"
+    },
+    "principle": {
+      "en": "Project management is a small set of repeatable habits: define the work, break it down, control it against a baseline, and spend everything left on people.",
+      "fa": "مدیریت پروژه مجموعهٔ کوچکی از عادت‌های تکرارشدنی است: کار را تعریف کن، خردش کن، در برابرِ خطِ مبنا کنترلش کن، و هرچه وقت ماند صرفِ آدم‌ها کن."
+    },
+    "more": {
+      "en": "Horine's book runs in five parts and twenty-six chapters; this map groups them into four. A jumpstart on what projects and project managers really are, a planning sequence from definition through breakdown to schedule and budget, a control loop covering change, deliverables, risks, issues and quality, and finally the people work — leading, communicating, managing expectations and closing well — with the book's short last part folded in beside it.",
+      "fa": "کتابِ هورین پنج بخش و بیست‌وشش فصل دارد؛ این نقشه آن‌ها را در چهار محور می‌چیند. یک شروعِ سریع دربارهٔ اینکه پروژه و مدیرِ پروژه واقعاً چه‌اند، یک توالیِ برنامه‌ریزی از تعریف تا شکستِ کار و زمان‌بندی و بودجه، یک حلقهٔ کنترل روی تغییر، تحویل‌دادنی، ریسک، مسئله و کیفیت، و در پایان کارِ آدم‌ها — رهبری، ارتباط، مدیریتِ انتظارها و بستنِ درستِ پروژه — که بخشِ کوتاهِ پایانیِ کتاب هم کنارش نشسته است."
+    },
+    "example": {
+      "en": "Click any node to read a principle or a method. You can also drag the nodes around.",
+      "fa": "روی هر دایره کلیک کن تا یک اصل یا روش را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."
+    }
+  },
+  "stages": [
+    {
+      "level": 1,
+      "badge": {
+        "en": "Level 1 · Over-simplified",
+        "fa": "سطحِ ۱ · خیلی ساده"
+      },
+      "title": {
+        "en": "Plan it, then check it",
+        "fa": "برنامه بریز، بعد وارسی کن"
+      },
+      "tagline": {
+        "en": "The whole book in a sentence.",
+        "fa": "کلِ کتاب در یک جمله."
+      },
+      "body": {
+        "en": "Write down what finished looks like, break the work into pieces, and compare reality with the plan every week.",
+        "fa": "بنویس «تمام‌شده» چه شکلی است، کار را به تکه‌ها بشکن، و هر هفته واقعیت را با برنامه بسنج."
+      },
+      "example": {
+        "en": "A one-page plan you actually reread beats a detailed plan you filed away.",
+        "fa": "یک برنامهٔ یک‌صفحه‌ای که واقعاً دوباره می‌خوانی از برنامهٔ مفصلی که بایگانی کرده‌ای بهتر است."
+      },
+      "gain": {
+        "en": "You hold the single habit the whole book expands on.",
+        "fa": "همان یک عادتی را داری که کلِ کتاب بسطش می‌دهد."
+      }
+    },
+    {
+      "level": 2,
+      "badge": {
+        "en": "Level 2 · Simple",
+        "fa": "سطحِ ۲ · ساده"
+      },
+      "title": {
+        "en": "The triple constraint",
+        "fa": "سه‌گانهٔ محدودیت"
+      },
+      "tagline": {
+        "en": "Scope, schedule and cost move together.",
+        "fa": "دامنه، زمان و هزینه با هم جابه‌جا می‌شوند."
+      },
+      "body": {
+        "en": "A project is judged on what it delivers, by when, and for how much. The three are tied together, so a change in one forces a change somewhere else. Saying that out loud, calmly, is a large part of the job.",
+        "fa": "پروژه با اینکه چه تحویل می‌دهد، تا کی، و با چه هزینه‌ای سنجیده می‌شود. این سه به هم گره خورده‌اند، پس تغییر در یکی، تغییر در جای دیگر می‌طلبد. گفتنِ همین نکته با آرامش و صراحت، بخشِ بزرگی از کار است."
+      },
+      "example": {
+        "en": "When someone adds a feature, ask which date moves or which budget line grows.",
+        "fa": "وقتی کسی ویژگی‌ای اضافه می‌کند، بپرس کدام تاریخ جابه‌جا می‌شود یا کدام قلمِ بودجه بزرگ‌تر."
+      },
+      "gain": {
+        "en": "You can negotiate scope instead of quietly absorbing it.",
+        "fa": "می‌توانی سرِ دامنه مذاکره کنی، نه اینکه بی‌صدا جذبش کنی."
+      }
+    },
+    {
+      "level": 3,
+      "badge": {
+        "en": "Level 3 · Balanced",
+        "fa": "سطحِ ۳ · متعادل"
+      },
+      "title": {
+        "en": "Define, break down, schedule",
+        "fa": "تعریف، شکست، زمان‌بندی"
+      },
+      "tagline": {
+        "en": "The planning sequence, in order.",
+        "fa": "توالیِ برنامه‌ریزی، به ترتیب."
+      },
+      "body": {
+        "en": "An approved project definition sets purpose, scope, deliverables and assumptions. The work breakdown structure turns those deliverables into estimable pieces. Estimates plus dependencies give you a schedule and a critical path, and the numbers roll up into a budget. Around them sit the risk, quality, communication, procurement and resource plans.",
+        "fa": "تعریفِ تأییدشدهٔ پروژه هدف، دامنه، تحویل‌دادنی‌ها و فرض‌ها را مشخص می‌کند. ساختارِ شکستِ کار آن تحویل‌دادنی‌ها را به تکه‌های قابلِ برآورد تبدیل می‌کند. برآوردها به‌اضافهٔ وابستگی‌ها زمان‌بندی و مسیرِ بحرانی می‌دهند، و اعداد در بودجه جمع می‌شوند. دورِ اینها برنامه‌های ریسک، کیفیت، ارتباطات، تدارکات و منابع می‌نشیند."
+      },
+      "example": {
+        "en": "Build the breakdown with the people doing the work, and the estimates stop being fiction.",
+        "fa": "شکستِ کار را با همان کسانی بساز که کار را انجام می‌دهند، آن‌وقت برآوردها دیگر خیالی نیستند."
+      },
+      "gain": {
+        "en": "You can produce a plan that survives contact with reality.",
+        "fa": "می‌توانی برنامه‌ای بسازی که در برخورد با واقعیت دوام بیاورد."
+      }
+    },
+    {
+      "level": 4,
+      "badge": {
+        "en": "Level 4 · Advanced",
+        "fa": "سطحِ ۴ · پیشرفته"
+      },
+      "title": {
+        "en": "Run the control loop",
+        "fa": "حلقهٔ کنترل را بگردان"
+      },
+      "tagline": {
+        "en": "Prevent, detect, act — weekly.",
+        "fa": "پیشگیری، تشخیص، اقدام — هفتگی."
+      },
+      "body": {
+        "en": "Control is a weekly rhythm: what actually finished, how that compares with the baseline, and what you will change because of it. Completed deliverables count; percent complete does not. Every scope change is written down, costed and approved. Risks are reviewed on a cadence, and each issue gets one owner and one date.",
+        "fa": "کنترل یک ریتمِ هفتگی است: چه چیزی واقعاً تمام شد، نسبت به خطِ مبنا کجاست، و بر همین اساس چه چیزی را عوض می‌کنی. تحویل‌دادنی‌های تمام‌شده حساب‌اند؛ درصدِ پیشرفت نه. هر تغییرِ دامنه نوشته، هزینه‌گذاری و تأیید می‌شود. ریسک‌ها با ریتمِ مشخص مرور می‌شوند و هر مسئله یک مسئول و یک تاریخ می‌گیرد."
+      },
+      "example": {
+        "en": "A task stuck at 90 percent for three weeks is a signal, not a status.",
+        "fa": "کاری که سه هفته روی ۹۰ درصد گیر کرده یک هشدار است، نه یک وضعیت."
+      },
+      "gain": {
+        "en": "You see slippage while there is still time to act on it.",
+        "fa": "تأخیر را وقتی می‌بینی که هنوز فرصتِ واکنش هست."
+      }
+    },
+    {
+      "level": 5,
+      "badge": {
+        "en": "Level 5 · Expert",
+        "fa": "سطحِ ۵ · حرفه‌ای"
+      },
+      "title": {
+        "en": "Lead the people, close the loop",
+        "fa": "آدم‌ها را رهبری کن، حلقه را ببند"
+      },
+      "tagline": {
+        "en": "The mechanics are habit; the risk is human.",
+        "fa": "سازوکارها عادت شده‌اند؛ ریسک انسانی است."
+      },
+      "body": {
+        "en": "At this level the mechanics run themselves and the remaining risk is human. You lead without authority, keep the team focused, carry the same message across functions, cultures and time zones, and manage expectations so that no stakeholder is ever surprised. You end projects deliberately with acceptance, handover and lessons learned, and you fit the method to the situation, reaching for agile approaches when the requirements will not hold still.",
+        "fa": "در این سطح سازوکارها خودشان می‌چرخند و ریسکِ باقی‌مانده انسانی است. بدونِ اختیارِ رسمی رهبری می‌کنی، تیم را متمرکز نگه می‌داری، یک پیامِ واحد را میانِ واحدها، فرهنگ‌ها و منطقه‌های زمانیِ مختلف می‌رسانی، و انتظارها را طوری مدیریت می‌کنی که هیچ ذی‌نفعی غافلگیر نشود. پروژه را عامدانه با پذیرش، تحویل و درس‌آموخته‌ها تمام می‌کنی، و روش را به موقعیت می‌دوزی؛ آنجا که نیازمندی‌ها سرِ جایشان نمی‌مانند، سراغِ رویکردهای چابک می‌روی."
+      },
+      "example": {
+        "en": "You tell the sponsor about a two-week slip in week three, and you finish with a signed acceptance rather than silence.",
+        "fa": "در هفتهٔ سوم دو هفته تأخیر را به حامی می‌گویی، و کار را با یک پذیرشِ امضاشده تمام می‌کنی، نه با سکوت."
+      },
+      "gain": {
+        "en": "You can deliver reliably and choose the right method for each project.",
+        "fa": "می‌توانی قابلِ‌اتکا تحویل بدهی و برای هر پروژه روشِ درست را انتخاب کنی."
+      }
+    }
+  ],
+  "quotes": [
+    {
+      "en": "Projects fail for reasons that are known, repeated, and almost always preventable.",
+      "fa": "پروژه‌ها به دلایلی شکست می‌خورند که شناخته‌شده، تکراری و تقریباً همیشه قابلِ پیشگیری‌اند."
+    },
+    {
+      "en": "The project manager is accountable for everything and has formal authority over almost nothing.",
+      "fa": "مدیرِ پروژه پاسخگوی همه‌چیز است و تقریباً بر هیچ‌چیز اختیارِ رسمی ندارد."
+    },
+    {
+      "en": "If the work is not in the breakdown structure, it will not get done.",
+      "fa": "کاری که در ساختارِ شکستِ کار نباشد، انجام نمی‌شود."
+    },
+    {
+      "en": "Percent complete is the least reliable number on a project; finished deliverables are the most reliable.",
+      "fa": "درصدِ پیشرفت نامطمئن‌ترین عددِ یک پروژه است؛ تحویل‌دادنی‌های تمام‌شده معتبرترین."
+    },
+    {
+      "en": "Managing expectations is not a soft skill on the side. It is the work.",
+      "fa": "مدیریتِ انتظارها یک مهارتِ نرمِ حاشیه‌ای نیست. خودِ کار است."
+    },
+    {
+      "en": "No stakeholder should learn bad news about your project from anyone but you.",
+      "fa": "هیچ ذی‌نفعی نباید خبرِ بدِ پروژهٔ تو را از کسی جز خودت بشنود."
+    }
+  ],
+  "media": [
+    {
+      "kind": "img",
+      "url": "https://www.informit.com/store/project-management-absolute-beginners-guide-9780789756756",
+      "src": {
+        "en": "InformIT · Publisher",
+        "fa": "InformIT · ناشر"
+      },
+      "title": {
+        "en": "The publisher's page for the fourth edition",
+        "fa": "صفحهٔ ناشر برای ویراستِ چهارم"
+      },
+      "desc": {
+        "en": "Que's own page for the 2017 edition, with the complete chapter list and a downloadable sample.",
+        "fa": "صفحهٔ خودِ انتشاراتِ کیو برای ویراستِ ۲۰۱۷، همراه با فهرستِ کاملِ فصل‌ها و یک نمونهٔ قابلِ دانلود."
+      },
+      "bullets": {
+        "en": [
+          "The real five-part structure",
+          "All twenty-six chapter titles",
+          "Editions and formats"
+        ],
+        "fa": [
+          "ساختارِ واقعیِ پنج‌بخشی",
+          "عنوانِ هر بیست‌وشش فصل",
+          "نسخه‌ها و قالب‌ها"
+        ]
+      },
+      "best": {
+        "en": "For the book's real structure.",
+        "fa": "برای دیدنِ ساختارِ واقعیِ کتاب."
+      }
+    },
+    {
+      "kind": "img",
+      "url": "https://archive.org/details/absolutebeginner0000hori",
+      "src": {
+        "en": "Internet Archive · Library",
+        "fa": "آرشیو اینترنت · کتابخانه"
+      },
+      "title": {
+        "en": "An earlier edition, borrowable online",
+        "fa": "ویراستی قدیمی‌تر، برای امانتِ آنلاین"
+      },
+      "desc": {
+        "en": "A scanned copy of the 2005 first edition in the Internet Archive lending library. It came out under a different title, and it is useful for reading the checklists in full.",
+        "fa": "نسخه‌ای اسکن‌شده از ویراستِ نخست (۲۰۰۵) در کتابخانهٔ امانیِ آرشیو اینترنت. آن زمان با عنوانی دیگر منتشر می‌شد، و برای خواندنِ کاملِ چک‌لیست‌ها خوب است."
+      },
+      "bullets": {
+        "en": [
+          "The planning and control checklists",
+          "Useful before you buy a copy",
+          "First edition, 2005"
+        ],
+        "fa": [
+          "چک‌لیست‌های برنامه‌ریزی و کنترل",
+          "خوب برای پیش از خرید",
+          "ویراستِ نخست، ۲۰۰۵"
+        ]
+      },
+      "best": {
+        "en": "Best for Stage 1–2.",
+        "fa": "خوب برای مرحلهٔ ۱ و ۲."
+      }
+    }
+  ],
+  "go": [
+    {
+      "label": {
+        "en": "Publisher's page",
+        "fa": "صفحهٔ ناشر"
+      },
+      "url": "https://www.informit.com/store/project-management-absolute-beginners-guide-9780789756756"
+    },
+    {
+      "label": {
+        "en": "Pearson catalogue page",
+        "fa": "صفحهٔ پیرسون"
+      },
+      "url": "https://www.pearson.com/en-us/subject-catalog/p/project-management-absolute-beginners-guide/P200000000327/9780137570546"
+    },
+    {
+      "label": {
+        "en": "Book on Goodreads",
+        "fa": "کتاب در گودریدز"
+      },
+      "url": "https://www.goodreads.com/book/show/15863368-project-management-absolute-beginner-s-guide"
+    }
+  ],
+  "recs": [
+    {
+      "pri": "b",
+      "t": {
+        "en": "Write a one-page project definition",
+        "fa": "تعریفِ پروژه را در یک صفحه بنویس"
+      },
+      "d": {
+        "en": "Purpose, objectives, scope, what is out of scope, assumptions, and the name of the person who approves it.",
+        "fa": "هدف، مقصودها، دامنه، آنچه بیرونِ دامنه است، فرض‌ها، و نامِ کسی که تأییدش می‌کند."
+      }
+    },
+    {
+      "pri": "b",
+      "t": {
+        "en": "Build the breakdown with the doers",
+        "fa": "شکستِ کار را با انجام‌دهنده‌ها بساز"
+      },
+      "d": {
+        "en": "Decompose until every piece can be estimated, owned and checked. Include reviews, testing and handover.",
+        "fa": "آن‌قدر خرد کن که هر تکه قابلِ برآورد، واگذاری و وارسی باشد. بازبینی، آزمون و تحویل را هم بیاور."
+      }
+    },
+    {
+      "pri": "n",
+      "t": {
+        "en": "Start a weekly control meeting",
+        "fa": "یک جلسهٔ کنترلِ هفتگی راه بینداز"
+      },
+      "d": {
+        "en": "Same format every week: what finished, variance against the baseline, top five risks, open issues.",
+        "fa": "هر هفته همان قالب: چه تمام شد، انحراف از خطِ مبنا، پنج ریسکِ نخست، مسائلِ باز."
+      }
+    },
+    {
+      "pri": "n",
+      "t": {
+        "en": "Log the next scope change",
+        "fa": "تغییرِ دامنهٔ بعدی را ثبت کن"
+      },
+      "d": {
+        "en": "Write it down with its impact on schedule and cost, then get an explicit yes or no from the owner.",
+        "fa": "با اثرش بر زمان و هزینه بنویسش، بعد از صاحبِ تصمیم یک بله یا نهِ صریح بگیر."
+      }
+    }
+  ],
+  "method": {
+    "en": "<p><b>Source:</b> the book <i>Project Management Absolute Beginner's Guide</i> by Greg Horine, Que Publishing; fourth edition 2017, fifth edition 2022.</p><p><b>How this was built:</b> the book's five parts and twenty-six chapters were grouped into four themes and rewritten from the book and reputable sources.</p><p><b>Group:</b> Delivery & Projects.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>",
+    "fa": "<p><b>منبع:</b> کتابِ «راهنمای مدیریت پروژه برای تازه‌کارها» نوشتهٔ گرگ هورین، انتشاراتِ کیو؛ ویراستِ چهارم ۲۰۱۷، ویراستِ پنجم ۲۰۲۲.</p><p><b>روشِ کار:</b> پنج بخش و بیست‌وشش فصلِ کتاب در چهار محور دسته‌بندی و از خودِ کتاب و منابعِ معتبر ساده‌نویسی شده است.</p><p><b>گروه:</b> تحویل و پروژه.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب.</p>"
+  },
+  "flow": {
+    "en": [
+      "Start",
+      "Plan",
+      "Control",
+      "Lead"
+    ],
+    "fa": [
+      "شروع",
+      "برنامه",
+      "کنترل",
+      "رهبری"
+    ]
+  },
+  "graph": {
+    "R2": 132,
+    "span": 70
+  }
+});
+</script>
+</body>
+</html>

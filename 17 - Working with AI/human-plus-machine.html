@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<!-- Generated page. Edit CONTENT in the DATA object below; shared UI lives in ../assets/book.css + ../assets/book.js -->
+<html lang="en" dir="ltr" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Human + Machine — نقشهٔ دانش و یادگیری ۵ مرحله‌ای</title>
+
+<!-- Boot theme + language BEFORE paint to avoid a flash (shared library-wide keys) -->
+<script>
+(function(){
+  try{
+    var th = localStorage.getItem('pbl-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
+    document.documentElement.setAttribute('data-theme', th);
+  }catch(e){ document.documentElement.setAttribute('data-theme','light'); }
+  try{
+    var lg = localStorage.getItem('pbl-lang') || 'en';
+    document.documentElement.setAttribute('data-lang', lg);
+    document.documentElement.setAttribute('lang', lg);
+    document.documentElement.setAttribute('dir', lg==='fa' ? 'rtl' : 'ltr');
+  }catch(e){}
+})();
+</script>
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Newsreader:ital,opsz,wght@0,6..72,200..700;1,6..72,200..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/book.css">
+</head>
+<body>
+<div id="app"></div>
+
+<script src="../assets/library.js"></script>
+<script src="../assets/book.js"></script>
+<script>
+/* ── CONTENT — everything unique to this book lives here ── */
+Book.mount({
+  "meta": {
+    "slug": "human-plus-machine",
+    "folder": "17 - Working with AI",
+    "groupNum": 17,
+    "group": {
+      "en": "Working with AI",
+      "fa": "کار با هوش مصنوعی"
+    },
+    "author": {
+      "en": "Paul R. Daugherty & H. James Wilson",
+      "fa": "پاول داگرتی و اچ. جیمز ویلسون"
+    },
+    "eyebrow_author": {
+      "en": "Paul R. Daugherty & H. James Wilson",
+      "fa": "پاول داگرتی و اچ. جیمز ویلسون"
+    },
+    "book": {
+      "en": "Human + Machine",
+      "fa": "انسان + ماشین"
+    },
+    "hero_title": {
+      "en": "Human + Machine — Reimagining Work in the Age of AI",
+      "fa": "انسان + ماشین — بازتعریفِ کار در عصرِ هوش مصنوعی"
+    },
+    "dek": {
+      "en": "A knowledge graph of the whole book, plus a 5-stage path from a single idea to expert-level mastery — with an example at every step.",
+      "fa": "نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از خیلی ساده تا حرفه‌ای — با یک مثال در هر مرحله."
+    },
+    "published": {
+      "en": "2018",
+      "fa": "۲۰۱۸"
+    },
+    "chips": [
+      {
+        "v": {
+          "en": "4",
+          "fa": "۴"
+        },
+        "l": {
+          "en": "Parts",
+          "fa": "بخش"
+        }
+      },
+      {
+        "v": {
+          "en": "12",
+          "fa": "۱۲"
+        },
+        "l": {
+          "en": "Ideas",
+          "fa": "ایده"
+        }
+      },
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Learning stages",
+          "fa": "مرحلهٔ یادگیری"
+        }
+      }
+    ],
+    "kboxes": [
+      {
+        "v": {
+          "en": "4",
+          "fa": "۴"
+        },
+        "l": {
+          "en": "Parts (AI at work today · humans help machines · machines help humans · reimagining the business)",
+          "fa": "بخش (هوش مصنوعی همین امروز · انسان به ماشین کمک می‌کند · ماشین به انسان کمک می‌کند · بازتعریفِ کسب‌وکار)"
+        }
+      },
+      {
+        "v": {
+          "en": "12",
+          "fa": "۱۲"
+        },
+        "l": {
+          "en": "Ideas you can use",
+          "fa": "ایده برای استفاده"
+        }
+      },
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Levels, simple → expert",
+          "fa": "مرحله، ساده تا حرفه‌ای"
+        }
+      },
+      {
+        "v": {
+          "en": "3",
+          "fa": "۳"
+        },
+        "l": {
+          "en": "Zones: human · missing middle · machine",
+          "fa": "ناحیه: انسان · میانهٔ گم‌شده · ماشین"
+        }
+      }
+    ],
+    "core_callout": {
+      "label": {
+        "en": "The core idea:",
+        "fa": "ایدهٔ اصلی:"
+      },
+      "en": " The real returns from AI are not at the two poles — people doing the work alone, or machines doing it alone — but in the <i>missing middle</i>, where both work on the same task. Humans <i>train, explain and sustain</i> the machines; machines <i>amplify, interact and embody</i> for the humans.",
+      "fa": " بازدهیِ واقعیِ هوش مصنوعی در دو سرِ طیف نیست — نه آنجا که آدم تنها کار می‌کند، نه آنجا که ماشین تنها — بلکه در <i>میانهٔ گم‌شده</i> است؛ جایی که هر دو روی یک کار کار می‌کنند. انسان ماشین را <i>آموزش می‌دهد، توضیح می‌دهد و نگه می‌دارد</i>؛ ماشین برای انسان <i>تقویت می‌کند، تعامل می‌کند و تجسم می‌یابد</i>."
+    },
+    "flow_callout": {
+      "label": {
+        "en": "Read it as a flow:",
+        "fa": "به‌صورتِ یک جریان بخوانش:"
+      },
+      "en": " see where <b>humans and machines already share the work</b>, learn the three roles people play for machines — <b>train, explain, sustain</b> — then the three powers machines give back — <b>amplify, interact, embody</b> — and finish with <b>MELDS</b> and the <b>eight fusion skills</b>.",
+      "fa": " ببین کجا <b>آدم و ماشین همین حالا کار را شریک شده‌اند</b>، سه نقشِ آدم برای ماشین را یاد بگیر — <b>آموزش، توضیح، نگه‌داشت</b> — بعد سه تواناییِ ماشین را — <b>تقویت، تعامل، تجسم</b> — و با <b>پنج کلیدِ ملدز</b> و <b>هشت مهارتِ آمیخته</b> تمامش کن."
+    }
+  },
+  "method": {
+    "en": "<p><b>Source:</b> the book <i>Human + Machine: Reimagining Work in the Age of AI</i> by Paul R. Daugherty and H. James Wilson, Harvard Business Review Press, 2018; updated and expanded edition, 2024.</p><p><b>How this was built:</b> the 2018 edition runs in two parts and eight chapters, and the 2024 edition adds a chapter on generative AI. Those were regrouped into four honest thematic parts here — the tour of AI already at work, the three roles humans play for machines, the three ways machines extend humans, and the leader's playbook. Chapter 4, on front-office bots, is folded into <i>Interaction</i>, where it sits thematically. Ideas, frameworks and examples were gathered and rewritten from the book and reputable sources.</p><p><b>Group:</b> Working with AI.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>",
+    "fa": "<p><b>منبع:</b> کتابِ «انسان + ماشین: بازتعریفِ کار در عصرِ هوش مصنوعی» نوشتهٔ پاول داگرتی و اچ. جیمز ویلسون، انتشاراتِ هاروارد بیزنس ریویو، ۲۰۱۸؛ ویراستِ بازنگری‌شده و گسترده در ۲۰۲۴.</p><p><b>روشِ کار:</b> ویراستِ ۲۰۱۸ دو بخش و هشت فصل دارد و ویراستِ ۲۰۲۴ یک فصل دربارهٔ هوش مصنوعیِ مولد به آن افزوده است. اینجا آن‌ها به چهار بخشِ موضوعی بازچینی شده‌اند — گشتی در جاهایی که هوش مصنوعی همین حالا سرِ کار است، سه نقشی که انسان برای ماشین بازی می‌کند، سه راهی که ماشین انسان را گسترده‌تر می‌کند، و راهنمای رهبران. فصلِ چهارم، دربارهٔ بات‌های بخشِ مشتری‌رو، در ایدهٔ «تعامل» ادغام شده، چون موضوعاً همان‌جاست. ایده‌ها، چارچوب‌ها و مثال‌ها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده است.</p><p><b>گروه:</b> کار با هوش مصنوعی.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب.</p>"
+  },
+  "flow": {
+    "en": [
+      "Humans",
+      "Missing middle",
+      "Machines"
+    ],
+    "fa": [
+      "انسان",
+      "میانهٔ گم‌شده",
+      "ماشین"
+    ]
+  },
+  "graph": {
+    "R2": 132,
+    "span": 70
+  },
+  "tldr": [
+    {
+      "en": "The whole book in one line: <b>the biggest gains from AI come from the missing middle</b>, where people and machines work on the same task.",
+      "fa": "خلاصهٔ کل کتاب در یک جمله: <b>بیشترین سودِ هوش مصنوعی از میانهٔ گم‌شده می‌آید</b>، جایی که آدم و ماشین روی یک کار با هم کار می‌کنند."
+    },
+    {
+      "en": "Humans do three things for machines: <b>train</b> them, <b>explain</b> them, and <b>sustain</b> them after launch.",
+      "fa": "انسان سه کار برای ماشین می‌کند: <b>آموزشش</b> می‌دهد، <b>توضیحش</b> می‌دهد، و بعد از عرضه <b>نگهش</b> می‌دارد."
+    },
+    {
+      "en": "Machines do three things for humans: <b>amplify</b> judgement, <b>interact</b> as the interface, and <b>embody</b> us where we cannot be.",
+      "fa": "ماشین هم سه کار برای انسان می‌کند: قضاوت را <b>تقویت</b> می‌کند، خودش <b>واسطِ تعامل</b> می‌شود، و جایی که ما نیستیم <b>تنِ ما</b> می‌شود."
+    },
+    {
+      "en": "The payoff comes from reimagining a whole process, not from automating one task inside the old one.",
+      "fa": "سود از بازتعریفِ کلِ فرایند می‌آید، نه از خودکارکردنِ یک قدم در فرایندِ قدیمی."
+    },
+    {
+      "en": "Organisations need <b>MELDS</b> — mindset, experimentation, leadership, data, skills. Individuals need the <b>eight fusion skills</b>.",
+      "fa": "سازمان به <b>پنج کلیدِ ملدز</b> نیاز دارد — ذهنیت، آزمایش، رهبری، داده، مهارت. آدم‌ها به <b>هشت مهارتِ آمیخته</b>."
+    }
+  ],
+  "parts": [
+    {
+      "key": "today",
+      "varc": "--c-teal",
+      "name": {
+        "en": "AI at Work Today",
+        "fa": "هوش مصنوعی، همین امروز سرِ کار"
+      },
+      "tag": {
+        "en": "What's already happening",
+        "fa": "آنچه همین حالا هست"
+      },
+      "gist": {
+        "en": "Factories, support functions and research labs already run on human plus machine.",
+        "fa": "کارخانه، بخش‌های پشتیبانی و آزمایشگاه‌ها همین حالا با ترکیبِ آدم و ماشین کار می‌کنند."
+      },
+      "more": {
+        "en": "The first half of the book is a tour, and the same pattern repeats in every stop. Machines take the repetitive, high-volume, precise part of a job; people take the ambiguous cases. The organisations that gained the most did not automate the old process — they redesigned it around the pairing.",
+        "fa": "نیمهٔ اولِ کتاب یک گشت‌وگذار است و در هر ایستگاه همان الگو تکرار می‌شود. ماشین سهمِ تکراری، پرحجم و دقیقِ کار را برمی‌دارد؛ آدم سهمِ مبهم را. سازمان‌هایی که بیشترین سود را بردند فرایندِ قدیمی را خودکار نکردند — آن را دورِ همین هم‌کاری از نو طراحی کردند."
+      },
+      "chapters": [
+        "factory",
+        "backoffice",
+        "innovation"
+      ]
+    },
+    {
+      "key": "humans",
+      "varc": "--c-blue",
+      "name": {
+        "en": "Humans Help Machines",
+        "fa": "انسان به ماشین کمک می‌کند"
+      },
+      "tag": {
+        "en": "Three new roles",
+        "fa": "سه نقشِ تازه"
+      },
+      "gist": {
+        "en": "Someone has to teach the system, explain it, and keep it honest after launch.",
+        "fa": "یکی باید سیستم را یاد بدهد، توضیحش بدهد، و بعد از عرضه درست نگهش دارد."
+      },
+      "more": {
+        "en": "AI does not arrive finished. Trainers give it behaviour and manners, explainers turn its output into a reason a person can defend, and sustainers watch what it does once real users touch it. These are not metaphors; they are job categories with titles and budgets.",
+        "fa": "هوش مصنوعی آماده و تمام‌شده نمی‌رسد. آموزش‌دهنده به آن رفتار و ادب می‌دهد، توضیح‌دهنده خروجی‌اش را به دلیلی تبدیل می‌کند که یک آدم بتواند پایش بایستد، و نگهدارنده مراقب است بعد از رسیدنِ کاربرِ واقعی چه می‌کند. اینها استعاره نیستند؛ شغل‌اند، با عنوان و بودجه."
+      },
+      "chapters": [
+        "train",
+        "explain",
+        "sustain"
+      ]
+    },
+    {
+      "key": "machines",
+      "varc": "--c-violet",
+      "name": {
+        "en": "Machines Help Humans",
+        "fa": "ماشین به انسان کمک می‌کند"
+      },
+      "tag": {
+        "en": "Three new powers",
+        "fa": "سه تواناییِ تازه"
+      },
+      "gist": {
+        "en": "AI widens your thinking, becomes your interface, and gives you a body elsewhere.",
+        "fa": "هوش مصنوعی فکرت را گسترده می‌کند، واسطِ کارت می‌شود، و جای دیگری به تو تن می‌دهد."
+      },
+      "more": {
+        "en": "The other half of the missing middle runs the other way. Amplification improves the shortlist a person decides from. Interaction turns conversation into the interface. Embodiment puts sensors and machinery where a person cannot stand. In all three the judgement stays human.",
+        "fa": "نیمهٔ دیگرِ میانهٔ گم‌شده در جهتِ عکس است. تقویت، فهرستِ کوتاهی را که آدم از رویش تصمیم می‌گیرد بهتر می‌کند. تعامل، گفت‌وگو را به واسطِ کار تبدیل می‌کند. تجسم، حسگر و ماشین را جایی می‌گذارد که آدم نمی‌تواند بایستد. در هر سه، قضاوت انسانی می‌ماند."
+      },
+      "chapters": [
+        "amplify",
+        "interact",
+        "embody"
+      ]
+    },
+    {
+      "key": "leader",
+      "varc": "--c-amber",
+      "name": {
+        "en": "Reimagining the Business",
+        "fa": "بازتعریفِ کسب‌وکار"
+      },
+      "tag": {
+        "en": "The leader's playbook",
+        "fa": "راهنمای رهبران"
+      },
+      "gist": {
+        "en": "MELDS for the organisation, eight fusion skills for the person.",
+        "fa": "ملدز برای سازمان، هشت مهارتِ آمیخته برای آدم."
+      },
+      "more": {
+        "en": "Knowing the missing middle exists does not build it. The last part is the recipe: five organisational conditions that have to hold together, eight learnable skills for the people inside, and the habit of redesigning the process again as the machine gets better.",
+        "fa": "دانستنِ اینکه میانهٔ گم‌شده وجود دارد، آن را نمی‌سازد. بخشِ آخر دستورِ کار است: پنج شرطِ سازمانی که باید با هم برقرار باشند، هشت مهارتِ یادگرفتنی برای آدم‌های داخلِ سازمان، و عادتِ طراحیِ دوبارهٔ فرایند هر بار که ماشین بهتر می‌شود."
+      },
+      "chapters": [
+        "melds",
+        "fusion",
+        "relentless"
+      ]
+    }
+  ],
+  "chapters": {
+    "factory": {
+      "part": "today",
+      "n": 1,
+      "name": {
+        "en": "The Self-Aware Factory Floor",
+        "fa": "کفِ کارخانهٔ خودآگاه"
+      },
+      "glabel": {
+        "en": "Factory Floor",
+        "fa": "کفِ کارخانه"
+      },
+      "principle": {
+        "en": "On a modern line, a robot and a person share one task instead of dividing the building between them.",
+        "fa": "در خطِ تولیدِ امروزی، ربات و آدم یک کار را شریک می‌شوند، نه اینکه سالن را بینِ خودشان تقسیم کنند."
+      },
+      "more": {
+        "en": "The machine does the heavy, precise, repeatable part and the person does the judgement part of the same job, seconds apart. Sensors make the line aware of its own state, so it can be changed on the fly rather than retooled over months. The same logic runs down the supply chain.",
+        "fa": "ماشین سهمِ سنگین، دقیق و تکرارپذیرِ کار را می‌کند و آدم سهمِ قضاوتیِ همان کار را، با چند ثانیه فاصله. حسگرها خط را از وضعِ خودش باخبر می‌کنند، پس می‌شود همان‌جا تغییرش داد به‌جای ماه‌ها بازآرایی. همین منطق در زنجیرهٔ تأمین هم ادامه دارد."
+      },
+      "example": {
+        "en": "Mercedes-Benz took some large fixed robots off the line and put smaller robot arms next to workers, because the robots could not keep up with the number of options customers were ordering.",
+        "fa": "مرسدس‌بنز چند رباتِ بزرگِ ثابت را از خط برداشت و بازوهای رباتیِ کوچک‌تر را کنارِ کارگرها گذاشت، چون آن ربات‌ها از پسِ تعدادِ گزینه‌هایی که مشتری سفارش می‌داد برنمی‌آمدند."
+      },
+      "tip": {
+        "en": "Take your most rigid process and ask which single step, not which whole job, a machine should take.",
+        "fa": "سخت‌ترین و خشک‌ترین فرایندت را بردار و بپرس ماشین باید کدام یک قدم را بردارد، نه کدام کلِ شغل را."
+      },
+      "pitfall": {
+        "en": "Buying automation to cut headcount, then finding the process is too rigid to change when demand changes.",
+        "fa": "خریدنِ خودکارسازی برای کم‌کردنِ نیرو، و بعد فهمیدنِ اینکه فرایند آن‌قدر خشک شده که با تغییرِ تقاضا نمی‌شود عوضش کرد."
+      }
+    },
+    "backoffice": {
+      "part": "today",
+      "n": 2,
+      "name": {
+        "en": "Accounting for Robots",
+        "fa": "حساب‌وکتابِ ربات‌ها"
+      },
+      "glabel": {
+        "en": "Back Office",
+        "fa": "بخشِ پشتیبانی"
+      },
+      "principle": {
+        "en": "In finance, HR and admin, the machine takes the routine cases and hands every exception to a person.",
+        "fa": "در مالی، منابع انسانی و اداری، ماشین پرونده‌های روزمره را برمی‌دارد و هر استثنا را به یک آدم می‌دهد."
+      },
+      "more": {
+        "en": "Support work is high volume and low variety, which is exactly what a model handles well. The gain is not only speed. When the routine queue clears itself, the human queue gets short enough that people can actually look hard at the difficult cases instead of skimming everything.",
+        "fa": "کارِ پشتیبانی پرحجم و کم‌تنوع است و دقیقاً همان چیزی است که مدل خوب از پسش برمی‌آید. سود فقط سرعت نیست. وقتی صفِ روزمره خودش خالی می‌شود، صفِ انسانی آن‌قدر کوتاه می‌شود که آدم‌ها واقعاً بتوانند پرونده‌های سخت را با دقت ببینند، نه اینکه از روی همه‌چیز رد شوند."
+      },
+      "example": {
+        "en": "Software reads and codes routine invoices or screens first-round applications, and escalates anything unusual to a named person.",
+        "fa": "نرم‌افزار فاکتورهای روزمره را می‌خواند و کدگذاری می‌کند یا درخواست‌های مرحلهٔ اول را غربال می‌کند، و هر چیزِ غیرعادی را به یک آدمِ مشخص ارجاع می‌دهد."
+      },
+      "tip": {
+        "en": "Measure how many hours your team spends on cases that never needed a human at all. That number is the size of the opportunity.",
+        "fa": "بشمار تیمت چند ساعت صرفِ پرونده‌هایی می‌کند که اصلاً به آدم نیاز نداشتند. همان عدد، اندازهٔ فرصت است."
+      },
+      "pitfall": {
+        "en": "Automating the exceptions too, and ending up with decisions nobody can explain to an auditor.",
+        "fa": "خودکارکردنِ استثناها هم، و رسیدن به تصمیم‌هایی که هیچ‌کس نمی‌تواند برای یک حسابرس توضیحشان دهد."
+      }
+    },
+    "innovation": {
+      "part": "today",
+      "n": 3,
+      "name": {
+        "en": "The Ultimate Innovation Machine",
+        "fa": "ماشینِ نهاییِ نوآوری"
+      },
+      "glabel": {
+        "en": "R&D",
+        "fa": "تحقیق و توسعه"
+      },
+      "principle": {
+        "en": "In research and design, AI does not pick the answer. It generates far more candidates than a team could, and people choose.",
+        "fa": "در تحقیق و طراحی، هوش مصنوعی جواب را انتخاب نمی‌کند. خیلی بیشتر از توانِ یک تیم گزینه می‌سازد و انتخاب با آدم است."
+      },
+      "more": {
+        "en": "Generative design takes a goal plus a set of constraints and returns thousands of valid options, including shapes no engineer would have drawn. The human job moves upstream: state the problem precisely, then judge what comes back. Badly stated constraints produce thousands of useless answers very quickly.",
+        "fa": "طراحیِ مولد یک هدف و مجموعه‌ای از محدودیت‌ها را می‌گیرد و هزاران گزینهٔ معتبر برمی‌گرداند، از جمله شکل‌هایی که هیچ مهندسی نمی‌کشید. کارِ آدم یک پله بالاتر می‌رود: مسئله را دقیق بگو، بعد آنچه برمی‌گردد را قضاوت کن. محدودیتِ بد‌نوشته خیلی سریع هزاران جوابِ بی‌فایده می‌سازد."
+      },
+      "example": {
+        "en": "Autodesk's Dreamcatcher returns thousands of structurally sound parts from one brief of goals and constraints; the designer's work becomes selection, not drafting.",
+        "fa": "«دریم‌کچر»ِ اتودسک از یک بریفِ واحد از هدف‌ها و محدودیت‌ها هزاران قطعهٔ سازه‌ای درست برمی‌گرداند؛ کارِ طراح از ترسیم به انتخاب تغییر می‌کند."
+      },
+      "tip": {
+        "en": "Before asking a model for options, write the constraints down. The quality of the output is set by the brief.",
+        "fa": "پیش از اینکه از مدل گزینه بخواهی، محدودیت‌ها را بنویس. کیفیتِ خروجی را همان بریف تعیین می‌کند."
+      },
+      "pitfall": {
+        "en": "Treating a generated option as a decision because it came out of a computer.",
+        "fa": "تصمیم دانستنِ یک گزینهٔ تولیدشده، فقط چون از کامپیوتر بیرون آمده."
+      }
+    },
+    "train": {
+      "part": "humans",
+      "n": 4,
+      "name": {
+        "en": "Training the Machine",
+        "fa": "آموزشِ ماشین"
+      },
+      "glabel": {
+        "en": "Train",
+        "fa": "آموزش"
+      },
+      "principle": {
+        "en": "Someone has to teach a system what good behaviour looks like, including its manners.",
+        "fa": "یکی باید به سیستم یاد بدهد رفتارِ خوب چه شکلی است، از جمله ادبِ کلامش."
+      },
+      "more": {
+        "en": "Trainers do far more than label data. They give an assistant a tone of voice, teach it to notice sarcasm or distress, and decide how it should answer when it does not know. The book treats this as a job family with real titles, such as empathy trainer and AI personality trainer.",
+        "fa": "کارِ آموزش‌دهنده خیلی بیشتر از برچسب‌زدن به داده است. به یک دستیار لحن می‌دهد، به او یاد می‌دهد کنایه یا آشفتگی را تشخیص دهد، و تصمیم می‌گیرد وقتی نمی‌داند چه جوابی بدهد. کتاب این را یک خانوادهٔ شغلیِ واقعی می‌داند، با عنوان‌هایی مثل آموزش‌دهندهٔ همدلی و آموزش‌دهندهٔ شخصیتِ هوش مصنوعی."
+      },
+      "example": {
+        "en": "Microsoft put a team that included a poet, a novelist and a playwright on the job of writing Cortana's personality.",
+        "fa": "مایکروسافت تیمی گذاشت که یک شاعر، یک رمان‌نویس و یک نمایشنامه‌نویس در آن بودند تا شخصیتِ کورتانا را بنویسند."
+      },
+      "tip": {
+        "en": "Write down how your AI feature should behave when it is uncertain. That is a content decision, not an engineering one.",
+        "fa": "بنویس قابلیتِ هوش مصنوعیِ تو وقتی مطمئن نیست باید چه کند. این یک تصمیمِ محتوایی است، نه مهندسی."
+      },
+      "pitfall": {
+        "en": "Assuming the model's personality emerged on its own, rather than treating it as something you own.",
+        "fa": "فرض‌کردنِ اینکه شخصیتِ مدل خودبه‌خود پیدا شده، به‌جای اینکه بدانی مسئولش تویی."
+      }
+    },
+    "explain": {
+      "part": "humans",
+      "n": 5,
+      "name": {
+        "en": "Explaining the Machine",
+        "fa": "توضیحِ ماشین"
+      },
+      "glabel": {
+        "en": "Explain",
+        "fa": "توضیح"
+      },
+      "principle": {
+        "en": "If you cannot say why the system decided that, you cannot deploy it anywhere that matters.",
+        "fa": "اگر نتوانی بگویی سیستم چرا آن‌طور تصمیم گرفت، نمی‌توانی جایی که مهم است به‌کارش بگیری."
+      },
+      "more": {
+        "en": "Big models are hard to question, and the people affected by them — customers, regulators, courts — are entitled to a reason. Explainers translate model behaviour into language a non-specialist can act on and argue with. The book names three explainer roles: transparency analyst, algorithm forensics analyst and explainability strategist.",
+        "fa": "از مدل‌های بزرگ سخت می‌شود حساب کشید، و کسانی که تصمیمِ مدل بر آن‌ها اثر می‌گذارد — مشتری، ناظر، دادگاه — حقِ داشتنِ یک دلیل را دارند. توضیح‌دهنده رفتارِ مدل را به زبانی برمی‌گرداند که آدمِ غیرمتخصص بتواند بر اساسش عمل کند و به آن اعتراض کند. کتاب سه نقش برای توضیح‌دهنده نام می‌برد: تحلیل‌گرِ شفافیت، بازرسِ الگوریتم و راهبردگرِ توضیح‌پذیری."
+      },
+      "example": {
+        "en": "A customer refused credit by a model needs an answer a person can give, stand behind and be challenged on.",
+        "fa": "مشتری‌ای که مدل به او اعتبار نداده، جوابی می‌خواهد که یک آدم بتواند بدهد، پایش بایستد و زیرِ سؤال هم برود."
+      },
+      "tip": {
+        "en": "For every model-driven decision your product makes, draft the sentence you would say to the affected user. If you cannot write it, you are not ready to ship.",
+        "fa": "برای هر تصمیمی که محصولت با مدل می‌گیرد، جمله‌ای را بنویس که به کاربرِ متأثر می‌گویی. اگر نتوانی بنویسی‌اش، هنوز آمادهٔ عرضه نیستی."
+      },
+      "pitfall": {
+        "en": "Answering \"the algorithm decided\" — which is not an explanation and rarely survives contact with a regulator.",
+        "fa": "جوابِ «الگوریتم تصمیم گرفت» — که توضیح نیست و به‌ندرت از برخورد با یک نهادِ ناظر جان سالم به در می‌برد."
+      }
+    },
+    "sustain": {
+      "part": "humans",
+      "n": 6,
+      "name": {
+        "en": "Sustaining the Machine",
+        "fa": "نگه‌داشتِ ماشین"
+      },
+      "glabel": {
+        "en": "Sustain",
+        "fa": "نگه‌داشت"
+      },
+      "principle": {
+        "en": "A system that behaved well at launch will drift. Someone has to own it afterwards.",
+        "fa": "سیستمی که موقعِ عرضه خوب رفتار می‌کرد، کم‌کم منحرف می‌شود. بعد از عرضه هم باید صاحبی داشته باشد."
+      },
+      "more": {
+        "en": "Sustainers watch for models that decay, learn the wrong lesson from live data, or produce results that are technically allowed and plainly wrong. The book names three sustainer roles: context designer, AI safety engineer and ethics compliance manager. They exist because bad machine behaviour compounds faster than anyone expects.",
+        "fa": "نگهدارنده مراقبِ مدل‌هایی است که فرسوده می‌شوند، از دادهٔ زنده درسِ اشتباه می‌گیرند، یا نتیجه‌ای می‌دهند که فنی مجاز است و آشکارا غلط. کتاب سه نقش برای نگهدارنده نام می‌برد: طراحِ بافتار، مهندسِ ایمنیِ هوش مصنوعی و مدیرِ انطباقِ اخلاقی. اینها هستند چون رفتارِ بدِ ماشین سریع‌تر از تصورِ همه انباشته می‌شود."
+      },
+      "example": {
+        "en": "Microsoft's Tay chatbot learned abusive language from the people talking to it and was pulled within a day.",
+        "fa": "چت‌باتِ «تِی» مایکروسافت زبانِ توهین‌آمیز را از همان آدم‌هایی که با او حرف می‌زدند یاد گرفت و ظرفِ یک روز جمع شد."
+      },
+      "tip": {
+        "en": "Give every shipped model a named owner and a monthly review of what it is doing now, not what it did in testing.",
+        "fa": "برای هر مدلی که عرضه می‌کنی یک صاحبِ نام‌دار بگذار و ماهی یک‌بار بررسی کن الان چه می‌کند، نه اینکه در تست چه می‌کرد."
+      },
+      "pitfall": {
+        "en": "Treating launch as the end of the project.",
+        "fa": "عرضه را پایانِ پروژه دانستن."
+      }
+    },
+    "amplify": {
+      "part": "machines",
+      "n": 7,
+      "name": {
+        "en": "Amplification",
+        "fa": "تقویت"
+      },
+      "glabel": {
+        "en": "Amplify",
+        "fa": "تقویت"
+      },
+      "principle": {
+        "en": "AI widens how much evidence one person can weigh before deciding.",
+        "fa": "هوش مصنوعی مقدارِ شواهدی را که یک نفر پیش از تصمیم می‌تواند بسنجد، بیشتر می‌کند."
+      },
+      "more": {
+        "en": "The machine reads everything, spots the pattern and narrows the field. The person brings the context the data does not hold and makes the call. Nobody is replaced; the decision improves because the shortlist it starts from is better.",
+        "fa": "ماشین همه‌چیز را می‌خواند، الگو را می‌بیند و میدان را باریک می‌کند. آدم بافتاری را که در داده نیست می‌آورد و تصمیم را می‌گیرد. هیچ‌کس کنار گذاشته نمی‌شود؛ تصمیم بهتر می‌شود چون فهرستِ کوتاهی که از آن شروع می‌کند بهتر است."
+      },
+      "example": {
+        "en": "A doctor reading a scan next to a model's flagged regions still makes the diagnosis, but starts from a much better shortlist.",
+        "fa": "پزشکی که تصویر را کنارِ نواحیِ علامت‌خوردهٔ مدل می‌خواند، باز هم خودش تشخیص می‌دهد، اما از فهرستی خیلی بهتر شروع می‌کند."
+      },
+      "tip": {
+        "en": "Ask what your users would decide differently if they could see ten times more evidence in the same minute.",
+        "fa": "بپرس اگر کاربرانت در همان یک دقیقه ده برابر شواهد می‌دیدند، چه تصمیمِ متفاوتی می‌گرفتند."
+      },
+      "pitfall": {
+        "en": "Automating the decision instead of the search, and losing the judgement that made it good.",
+        "fa": "خودکارکردنِ تصمیم به‌جای جست‌وجو، و از دست دادنِ همان قضاوتی که تصمیم را خوب می‌کرد."
+      }
+    },
+    "interact": {
+      "part": "machines",
+      "n": 8,
+      "name": {
+        "en": "Interaction",
+        "fa": "تعامل"
+      },
+      "glabel": {
+        "en": "Interact",
+        "fa": "تعامل"
+      },
+      "principle": {
+        "en": "Conversation becomes the interface, and the front office becomes a mix of bots and people.",
+        "fa": "گفت‌وگو به واسطِ کاربری تبدیل می‌شود و بخشِ مشتری‌رو ترکیبی از بات و آدم می‌شود."
+      },
+      "more": {
+        "en": "Assistants and chat interfaces let a company hold far more conversations at once, in more languages, at any hour. The real design question is the handover: which conversations go to a person, at what moment, and with how much context carried across so the customer does not repeat themselves.",
+        "fa": "دستیارها و واسط‌های گفت‌وگویی به شرکت اجازه می‌دهند هم‌زمان گفت‌وگوهای خیلی بیشتری، به زبان‌های بیشتر و در هر ساعتی داشته باشد. سؤالِ واقعیِ طراحی، تحویلِ کار است: کدام گفت‌وگو به آدم می‌رسد، در چه لحظه‌ای، و با چقدر بافتار که مشتری مجبور نشود حرفش را دوباره بگوید."
+      },
+      "example": {
+        "en": "A support assistant answers the routine cases and passes the rest to a person with the transcript already attached.",
+        "fa": "یک دستیارِ پشتیبانی پرسش‌های روزمره را جواب می‌دهد و بقیه را با متنِ کاملِ گفت‌وگو به یک آدم تحویل می‌دهد."
+      },
+      "tip": {
+        "en": "Design the escalation path first. That is the part users actually judge you on.",
+        "fa": "اول مسیرِ ارجاع به آدم را طراحی کن. کاربر دقیقاً همان بخش را قضاوت می‌کند."
+      },
+      "pitfall": {
+        "en": "Trapping people in a bot loop because there is no visible way to reach a human.",
+        "fa": "گیر انداختنِ آدم‌ها در حلقهٔ بات، چون هیچ راهِ دیدنی‌ای برای رسیدن به یک انسان نیست."
+      }
+    },
+    "embody": {
+      "part": "machines",
+      "n": 9,
+      "name": {
+        "en": "Embodiment",
+        "fa": "تجسم"
+      },
+      "glabel": {
+        "en": "Embody",
+        "fa": "تجسم"
+      },
+      "principle": {
+        "en": "AI gets a body — robots, sensors, vehicles — so people can act where they are not standing.",
+        "fa": "هوش مصنوعی تن پیدا می‌کند — ربات، حسگر، خودرو — تا آدم‌ها جایی عمل کنند که ایستاده نیستند."
+      },
+      "more": {
+        "en": "Collaborative robots share physical space with workers instead of being fenced off. Remote operators run heavy equipment from hundreds of kilometres away. The person's reach extends; the machine's judgement does not have to. Presence and judgement are separate problems, and only one of them needs the human body.",
+        "fa": "ربات‌های همکار به‌جای اینکه پشتِ حفاظ باشند، فضای فیزیکی را با کارگر شریک می‌شوند. اپراتورهای دور، ماشین‌آلاتِ سنگین را از صدها کیلومتر آن‌طرف‌تر می‌رانند. دسترسِ آدم گسترده می‌شود؛ لازم نیست قضاوتِ ماشین هم گسترده شود. حضور و قضاوت دو مسئلهٔ جدا هستند و فقط یکی‌شان به بدنِ انسان نیاز دارد."
+      },
+      "example": {
+        "en": "Rio Tinto runs driverless haul trucks in the Pilbara from an operations centre in Perth, about 1,500 kilometres away.",
+        "fa": "ریوتینتو کامیون‌های باربریِ بدونِ راننده را در پیلبارا از یک مرکزِ عملیات در پرت، حدودِ ۱۵۰۰ کیلومتر آن‌طرف‌تر، هدایت می‌کند."
+      },
+      "tip": {
+        "en": "Look for work where the binding constraint is presence, not intelligence. That is where embodiment pays.",
+        "fa": "دنبالِ کاری بگرد که محدودیتش حضور است، نه هوش. تجسم همان‌جا جواب می‌دهد."
+      },
+      "pitfall": {
+        "en": "Assuming a machine that moves must also decide.",
+        "fa": "فرض‌کردنِ اینکه ماشینی که حرکت می‌کند باید تصمیم هم بگیرد."
+      }
+    },
+    "melds": {
+      "part": "leader",
+      "n": 10,
+      "name": {
+        "en": "MELDS: The Leader's Five Keys",
+        "fa": "ملدز: پنج کلیدِ رهبر"
+      },
+      "glabel": {
+        "en": "MELDS",
+        "fa": "ملدز"
+      },
+      "principle": {
+        "en": "An organisation gets AI right through five things at once: mindset, experimentation, leadership, data and skills.",
+        "fa": "سازمان وقتی هوش مصنوعی را درست به کار می‌گیرد که پنج چیز را هم‌زمان داشته باشد: ذهنیت، آزمایش، رهبری، داده و مهارت."
+      },
+      "more": {
+        "en": "Mindset means reimagining the process rather than automating a task inside it. Experimentation means learning from small live trials. Leadership means owning the ethical questions instead of delegating them. Data means building the supply chain that feeds the model. Skills means the fusion skills. Missing any one of the five quietly caps the other four.",
+        "fa": "ذهنیت یعنی بازتعریفِ فرایند، نه خودکارکردنِ یک قدم در دلِ همان فرایند. آزمایش یعنی یاد گرفتن از تجربه‌های کوچکِ واقعی. رهبری یعنی برعهده‌گرفتنِ پرسش‌های اخلاقی به‌جای واگذارکردنشان. داده یعنی ساختنِ زنجیرهٔ تأمینی که مدل را تغذیه می‌کند. مهارت یعنی همان مهارت‌های آمیخته. نبودِ هر کدام، بی‌سروصدا سقفِ چهارتای دیگر را پایین می‌آورد. «ملدز» سرواژه‌ای است که از حرفِ اولِ همین پنج واژه در انگلیسی ساخته شده."
+      },
+      "example": {
+        "en": "A team with excellent data and no mandate to redesign the process ends up with a faster version of the wrong workflow.",
+        "fa": "تیمی که دادهٔ عالی دارد اما اجازهٔ بازطراحیِ فرایند ندارد، آخرش نسخهٔ سریع‌ترِ همان گردشِ کارِ غلط را می‌سازد."
+      },
+      "tip": {
+        "en": "Score your own organisation one to five on each of the five. The lowest score is your real constraint this year.",
+        "fa": "سازمانت را در هر پنج مورد از یک تا پنج نمره بده. کمترین نمره، محدودیتِ واقعیِ امسالِ توست."
+      },
+      "pitfall": {
+        "en": "Starting with data and skills because those are the two you can buy.",
+        "fa": "شروع‌کردن از داده و مهارت، فقط چون همین دوتا را می‌شود خرید."
+      }
+    },
+    "fusion": {
+      "part": "leader",
+      "n": 11,
+      "name": {
+        "en": "The Eight Fusion Skills",
+        "fa": "هشت مهارتِ آمیخته"
+      },
+      "glabel": {
+        "en": "Fusion Skills",
+        "fa": "مهارتِ آمیخته"
+      },
+      "principle": {
+        "en": "Working in the missing middle is a learnable craft, and the book names eight parts of it.",
+        "fa": "کارکردن در میانهٔ گم‌شده یک مهارتِ یادگرفتنی است و کتاب هشت جزء برایش نام می‌برد."
+      },
+      "more": {
+        "en": "In the book's order: rehumanizing time (spend the freed hours on work only people can do), responsible normalizing (set the norms for how this gets used), judgment integration (decide where the machine is unsure), intelligent interrogation (ask at the right level to get a useful answer), bot-based empowerment (use agents to extend your reach), holistic melding (know how the machine learns), reciprocal apprenticing (you teach it on the job, it teaches you back), relentless reimagining (rebuild the process, don't automate the old one). They are practised, not announced.",
+        "fa": "به ترتیبی که در کتاب آمده: بازانسانی‌کردنِ زمان (خرجِ وقتِ آزادشده برای کاری که فقط از آدم برمی‌آید)، عادی‌سازیِ مسئولانه (تعیینِ هنجارهای استفاده)، ادغامِ قضاوت (تصمیم همان‌جا که ماشین مطمئن نیست)، پرسشگریِ هوشمند (پرسیدن در سطحِ درست تا جوابِ به‌دردبخور بگیری)، توانمندسازی با بات (کار با دستیارها برای گسترشِ دسترسِ خودت)، هم‌آمیزیِ کل‌نگر (فهمیدنِ اینکه ماشین چطور یاد می‌گیرد)، شاگردیِ دوسویه (تو سرِ کار به او یاد می‌دهی، او به تو)، بازتصورِ بی‌وقفه (فرایند را از نو بساز، فرایندِ قدیمی را خودکار نکن). اینها تمرین می‌شوند، نه اعلام."
+      },
+      "example": {
+        "en": "Intelligent interrogation is the everyday one: the same model gives a mediocre or an excellent answer depending only on how the question was framed.",
+        "fa": "پرسشگریِ هوشمند همان مهارتِ هرروزه است: یک مدلِ واحد، بسته به اینکه سؤال چطور صورت‌بندی شده، جوابِ متوسط می‌دهد یا عالی."
+      },
+      "tip": {
+        "en": "Pick one skill and practise it for a month. Intelligent interrogation shows results fastest.",
+        "fa": "یک مهارت را انتخاب کن و یک ماه تمرینش کن. پرسشگریِ هوشمند سریع‌تر از بقیه نتیجه نشان می‌دهد."
+      },
+      "pitfall": {
+        "en": "Treating these as a training course to complete rather than habits to keep.",
+        "fa": "دیدنِ اینها به‌چشمِ دوره‌ای که باید تمام شود، نه عادت‌هایی که باید بماند."
+      }
+    },
+    "relentless": {
+      "part": "leader",
+      "n": 12,
+      "name": {
+        "en": "Relentless Reimagining",
+        "fa": "بازتصورِ بی‌وقفه"
+      },
+      "glabel": {
+        "en": "Reimagine",
+        "fa": "بازتصور"
+      },
+      "principle": {
+        "en": "The last fusion skill is the one that never finishes: keep redesigning the process as the machine gets better.",
+        "fa": "آخرین مهارتِ آمیخته، همانی است که هرگز تمام نمی‌شود: هر بار که ماشین بهتر می‌شود، فرایند را دوباره طراحی کن."
+      },
+      "more": {
+        "en": "Machine capability moves faster than org charts. A process redesigned two years ago against an older model is already leaving value on the table. The habit is to revisit the design on a schedule, not when something breaks. The 2024 edition makes the same argument again for generative AI, which widened the missing middle rather than closing it.",
+        "fa": "توانِ ماشین سریع‌تر از چارتِ سازمانی جلو می‌رود. فرایندی که دو سال پیش برای مدلی قدیمی‌تر طراحی شده، همین حالا دارد ارزش را روی میز جا می‌گذارد. عادتِ درست این است که طراحی را سرِ وقت بازبینی کنی، نه وقتی چیزی خراب شد. ویراستِ ۲۰۲۴ همین استدلال را برای هوش مصنوعیِ مولد تکرار می‌کند، که میانهٔ گم‌شده را بزرگ‌تر کرد، نه بسته."
+      },
+      "example": {
+        "en": "A support flow built around a rules-based bot needs rethinking, not tuning, once a general-purpose model can hold the whole conversation.",
+        "fa": "گردشِ کارِ پشتیبانی که دورِ یک باتِ قاعده‌محور ساخته شده، وقتی یک مدلِ عمومی می‌تواند کلِ گفت‌وگو را نگه دارد، به بازاندیشی نیاز دارد نه به تنظیمِ جزئی."
+      },
+      "tip": {
+        "en": "Put a standing quarterly review on one core process, with one question: what would we build if we started today?",
+        "fa": "برای یکی از فرایندهای اصلی یک بازبینیِ همیشگیِ فصلی بگذار، با یک سؤال: اگر امروز از صفر شروع می‌کردیم، چه می‌ساختیم؟"
+      },
+      "pitfall": {
+        "en": "Freezing a design because it took a year to ship.",
+        "fa": "منجمدکردنِ یک طراحی فقط چون یک سال طول کشیده تا عرضه شود."
+      }
+    }
+  },
+  "core": {
+    "name": {
+      "en": "THE MISSING MIDDLE",
+      "fa": "میانهٔ گم‌شده"
+    },
+    "principle": {
+      "en": "The largest gains from AI sit between the two poles — not \"humans do it\" and not \"machines do it\", but the space where people and systems work on the same task together.",
+      "fa": "بزرگ‌ترین سودِ هوش مصنوعی بینِ دو سرِ طیف است — نه «آدم انجامش می‌دهد» و نه «ماشین انجامش می‌دهد»، بلکه همان فضایی که آدم و سیستم روی یک کار با هم کار می‌کنند."
+    },
+    "more": {
+      "en": "Daugherty and Wilson build the argument in four moves: show that the collaboration is already running in factories, support functions and research labs; name the three roles humans play for machines (train, explain, sustain); name the three ways machines extend humans (amplify, interact, embody); then hand leaders MELDS and everyone else eight fusion skills. Their research covers 1,500 organisations, and the pattern holds — the firms that redesigned whole processes around collaboration pulled ahead of the ones that only automated tasks.",
+      "fa": "داگرتی و ویلسون استدلال را در چهار حرکت می‌سازند: نشان می‌دهند این هم‌کاری همین حالا در کارخانه‌ها، بخش‌های پشتیبانی و آزمایشگاه‌ها جاری است؛ سه نقشِ انسان برای ماشین را نام می‌برند (آموزش، توضیح، نگه‌داشت)؛ سه راهِ گسترده‌ترکردنِ انسان به‌دستِ ماشین را نام می‌برند (تقویت، تعامل، تجسم)؛ بعد به رهبران ملدز و به بقیه هشت مهارتِ آمیخته را می‌دهند. پژوهششان ۱۵۰۰ سازمان را در بر می‌گیرد و الگو ثابت می‌ماند — شرکت‌هایی که کلِ فرایند را دورِ هم‌کاری بازطراحی کردند از آن‌هایی که فقط کارها را خودکار کردند جلو زدند."
+    },
+    "example": {
+      "en": "Click any node to read a principle or a method. You can also drag the nodes around.",
+      "fa": "روی هر دایره کلیک کن تا یک اصل یا روش را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."
+    }
+  },
+  "stages": [
+    {
+      "level": 1,
+      "badge": {
+        "en": "Level 1 · Over-simplified",
+        "fa": "سطحِ ۱ · خیلی ساده"
+      },
+      "title": {
+        "en": "Not human or machine",
+        "fa": "نه آدم، نه ماشین"
+      },
+      "tagline": {
+        "en": "The whole book in a sentence.",
+        "fa": "کلِ کتاب در یک جمله."
+      },
+      "body": {
+        "en": "The question is not people versus robots. The biggest gains come from the middle, where both work on the same job.",
+        "fa": "سؤال، آدم در برابرِ ربات نیست. بیشترین سود از میانه می‌آید، جایی که هر دو روی یک کار کار می‌کنند."
+      },
+      "example": {
+        "en": "Not \"the bot handles support\" but \"the bot handles the routine questions and hands the hard ones over with the transcript\".",
+        "fa": "نه «بات پشتیبانی را انجام می‌دهد» بلکه «بات سؤال‌های روزمره را جواب می‌دهد و سخت‌ها را با متنِ گفت‌وگو تحویل می‌دهد»."
+      },
+      "gain": {
+        "en": "You stop framing every AI decision as a replacement question.",
+        "fa": "دیگر هر تصمیمِ هوش مصنوعی را به‌شکلِ «جایگزینی» صورت‌بندی نمی‌کنی."
+      }
+    },
+    {
+      "level": 2,
+      "badge": {
+        "en": "Level 2 · Simple",
+        "fa": "سطحِ ۲ · ساده"
+      },
+      "title": {
+        "en": "Six new roles",
+        "fa": "شش نقشِ تازه"
+      },
+      "tagline": {
+        "en": "Three each way across the middle.",
+        "fa": "سه‌تا در هر جهتِ میانه."
+      },
+      "body": {
+        "en": "Humans do three things for machines: <b>train</b> them, <b>explain</b> them, <b>sustain</b> them. Machines do three things back: <b>amplify</b> our judgement, <b>interact</b> as the interface, <b>embody</b> us where we cannot go. Six roles, and each one is somebody's job.",
+        "fa": "انسان سه کار برای ماشین می‌کند: <b>آموزش</b>، <b>توضیح</b>، <b>نگه‌داشت</b>. ماشین هم سه کار برمی‌گرداند: قضاوت را <b>تقویت</b> می‌کند، <b>واسطِ تعامل</b> می‌شود، و جایی که ما نمی‌رسیم <b>تنِ ما</b> می‌شود. شش نقش، و هر کدام شغلِ یک نفر است."
+      },
+      "example": {
+        "en": "Name who trains, who explains and who sustains your most important model. If any of the three is unowned, that is the gap.",
+        "fa": "بگو چه کسی مهم‌ترین مدلِ شما را آموزش می‌دهد، چه کسی توضیحش می‌دهد و چه کسی نگهش می‌دارد. هر کدام صاحب ندارد، شکاف همان‌جاست."
+      },
+      "gain": {
+        "en": "You can staff an AI feature instead of just approving it.",
+        "fa": "می‌توانی برای یک قابلیتِ هوش مصنوعی آدم بگذاری، نه فقط تأییدش کنی."
+      }
+    },
+    {
+      "level": 3,
+      "badge": {
+        "en": "Level 3 · Balanced",
+        "fa": "سطحِ ۳ · متعادل"
+      },
+      "title": {
+        "en": "Reimagine the process",
+        "fa": "فرایند را از نو بساز"
+      },
+      "tagline": {
+        "en": "Not the task inside it.",
+        "fa": "نه قدمی که در دلش است."
+      },
+      "body": {
+        "en": "Automating one step of an old workflow gives you a small, one-off gain and a workflow that is now harder to change. The step change comes from redesigning the whole process around what the pairing can do, which usually means the process ends up shaped differently, not just faster.",
+        "fa": "خودکارکردنِ یک قدم از یک گردشِ کارِ قدیمی، یک سودِ کوچکِ یک‌بارمصرف می‌دهد و گردشِ کاری که حالا سخت‌تر عوض می‌شود. جهش از بازطراحیِ کلِ فرایند دورِ توانِ این هم‌کاری می‌آید، و نتیجه معمولاً فرایندی است با شکلِ متفاوت، نه فقط سریع‌تر."
+      },
+      "example": {
+        "en": "Mercedes-Benz did not add robots to the old line; it changed the line so smaller robots and people could work side by side on customised cars.",
+        "fa": "مرسدس‌بنز ربات به خطِ قدیمی اضافه نکرد؛ خط را عوض کرد تا ربات‌های کوچک‌تر و آدم‌ها بتوانند کنارِ هم روی خودروهای سفارشی کار کنند."
+      },
+      "gain": {
+        "en": "You stop buying speed and start buying flexibility.",
+        "fa": "دیگر سرعت نمی‌خری، انعطاف می‌خری."
+      }
+    },
+    {
+      "level": 4,
+      "badge": {
+        "en": "Level 4 · Advanced",
+        "fa": "سطحِ ۴ · پیشرفته"
+      },
+      "title": {
+        "en": "MELDS",
+        "fa": "ملدز"
+      },
+      "tagline": {
+        "en": "Five conditions that have to hold together.",
+        "fa": "پنج شرط که باید با هم برقرار باشند."
+      },
+      "body": {
+        "en": "<b>Mindset</b> (reimagine, don't automate), <b>Experimentation</b> (small live trials), <b>Leadership</b> (own the ethics yourself), <b>Data</b> (build the supply chain that feeds the model), <b>Skills</b> (the fusion skills below). Weak on any one letter and the other four are capped.",
+        "fa": "<b>ذهنیت</b> (بازتعریف کن، خودکار نکن)، <b>آزمایش</b> (تجربه‌های کوچکِ واقعی)، <b>رهبری</b> (اخلاق را خودت برعهده بگیر)، <b>داده</b> (زنجیرهٔ تأمینی که مدل را تغذیه می‌کند)، <b>مهارت</b> (همان مهارت‌های آمیخته). در هر کدام ضعیف باشی، سقفِ چهارتای دیگر پایین می‌آید."
+      },
+      "example": {
+        "en": "Score your organisation one to five on each letter this quarter. The lowest number, not the loudest complaint, is the constraint.",
+        "fa": "این فصل سازمانت را در هر پنج مورد از یک تا پنج نمره بده. محدودیت، کمترین عدد است، نه بلندترین شکایت."
+      },
+      "gain": {
+        "en": "You can diagnose why an AI programme stalled instead of guessing.",
+        "fa": "می‌توانی تشخیص دهی یک برنامهٔ هوش مصنوعی چرا متوقف شد، به‌جای حدس‌زدن."
+      }
+    },
+    {
+      "level": 5,
+      "badge": {
+        "en": "Level 5 · Expert",
+        "fa": "سطحِ ۵ · حرفه‌ای"
+      },
+      "title": {
+        "en": "Fusion skills, held forever",
+        "fa": "مهارت‌های آمیخته، برای همیشه"
+      },
+      "tagline": {
+        "en": "Practise eight, and never stop redesigning.",
+        "fa": "هشت‌تا را تمرین کن و از بازطراحی دست نکش."
+      },
+      "body": {
+        "en": "In the book's order they are <b>rehumanizing time</b>, <b>responsible normalizing</b>, <b>judgment integration</b>, <b>intelligent interrogation</b>, <b>bot-based empowerment</b>, <b>holistic melding</b>, <b>reciprocal apprenticing</b> and <b>relentless reimagining</b>. Intelligent interrogation pays off first: the same model gives a mediocre or an excellent answer depending on how you frame the question. Relentless reimagining, the last one, keeps the rest from going stale. Capability moves faster than your org chart, so the process you redesigned two years ago is already behind.",
+        "fa": "به همان ترتیبی که کتاب می‌آورد: <b>بازانسانی‌کردنِ زمان</b>، <b>عادی‌سازیِ مسئولانه</b>، <b>ادغامِ قضاوت</b>، <b>پرسشگریِ هوشمند</b>، <b>توانمندسازی با بات</b>، <b>هم‌آمیزیِ کل‌نگر</b>، <b>شاگردیِ دوسویه</b> و <b>بازتصورِ بی‌وقفه</b>. پرسشگریِ هوشمند زودتر از همه نتیجه می‌دهد: یک مدلِ واحد بسته به صورت‌بندیِ سؤال، جوابِ متوسط می‌دهد یا عالی. بازتصورِ بی‌وقفه، که آخری است، نمی‌گذارد بقیه کهنه شوند. توانِ ماشین از چارتِ سازمانی جلوتر می‌رود، پس فرایندی که دو سال پیش بازطراحی کردی همین حالا عقب است."
+      },
+      "example": {
+        "en": "You run a quarterly review of one core process with a single question — what would we build if we started today — and you rewrite the escalation rules rather than tuning the old bot.",
+        "fa": "هر فصل یکی از فرایندهای اصلی را با یک سؤال بازبینی می‌کنی — اگر امروز از صفر شروع می‌کردیم چه می‌ساختیم — و به‌جای تنظیمِ باتِ قدیمی، قواعدِ ارجاع را از نو می‌نویسی."
+      },
+      "gain": {
+        "en": "You can build a team that keeps its advantage as the machines change under it.",
+        "fa": "می‌توانی تیمی بسازی که با عوض‌شدنِ ماشین‌ها زیرِ پایش، برتری‌اش را حفظ کند."
+      }
+    }
+  ],
+  "quotes": [
+    {
+      "en": "We are now at the cusp of a major transformation in business.",
+      "fa": "ما همین حالا در آستانهٔ دگرگونیِ بزرگی در کسب‌وکار ایستاده‌ایم."
+    },
+    {
+      "en": "Machines take repetition, scale and routine cases. People take ambiguity and judgement. The value sits in the overlap.",
+      "fa": "ماشین تکرار، مقیاس و پرونده‌های روزمره را برمی‌دارد. آدم ابهام و قضاوت را. ارزش در همان محلِ هم‌پوشانی است."
+    },
+    {
+      "en": "The missing middle is not a gap for automation to close. It is where the work is moving.",
+      "fa": "میانهٔ گم‌شده شکافی نیست که خودکارسازی پُرش کند. جایی است که کار دارد به آن‌جا می‌رود."
+    },
+    {
+      "en": "Companies that only automate existing tasks get incremental gains. Companies that reimagine processes get step changes.",
+      "fa": "شرکت‌هایی که فقط کارهای موجود را خودکار می‌کنند سودِ اندک می‌برند. شرکت‌هایی که فرایند را بازتعریف می‌کنند جهش می‌کنند."
+    },
+    {
+      "en": "AI does not arrive finished. People have to train it, explain it and sustain it.",
+      "fa": "هوش مصنوعی آماده و تمام‌شده نمی‌رسد. آدم‌ها باید آموزشش دهند، توضیحش دهند و نگهش دارند."
+    },
+    {
+      "en": "Markus Schäfer, Mercedes-Benz's head of production, quoted in the book: robots cannot deal with the degree of individualization we have today.",
+      "fa": "مارکوس شفر، مسئولِ تولیدِ مرسدس‌بنز، به نقل از کتاب: ربات‌ها از پسِ این حجم از سفارشی‌سازی و تنوعی که امروز داریم برنمی‌آیند."
+    }
+  ],
+  "media": [
+    {
+      "kind": "img",
+      "url": "https://store.hbr.org/product/human-machine-updated-and-expanded-reimagining-work-in-the-age-of-ai/10724",
+      "src": {
+        "en": "HBR Press · Publisher",
+        "fa": "انتشارات اچ‌بی‌آر · ناشر"
+      },
+      "title": {
+        "en": "Human + Machine, updated and expanded",
+        "fa": "انسان + ماشین، ویراستِ بازنگری‌شده"
+      },
+      "desc": {
+        "en": "The publisher's page for the 2024 edition, which adds a chapter on generative AI.",
+        "fa": "صفحهٔ ناشر برای ویراستِ ۲۰۲۴ که یک فصل دربارهٔ هوش مصنوعیِ مولد به کتاب اضافه کرده است."
+      },
+      "bullets": {
+        "en": [
+          "The argument in the authors' framing",
+          "Editions, formats and contents",
+          "Straight from the source"
+        ],
+        "fa": [
+          "استدلال به روایتِ خودِ نویسندگان",
+          "نسخه‌ها، قالب‌ها و فهرست",
+          "مستقیم از منبع"
+        ]
+      },
+      "best": {
+        "en": "For editions and the source.",
+        "fa": "برای نسخه‌ها و منبعِ اصلی."
+      }
+    },
+    {
+      "kind": "img",
+      "url": "https://hbr.org/2018/07/collaborative-intelligence-humans-and-ai-are-joining-forces",
+      "src": {
+        "en": "HBR · Article",
+        "fa": "اچ‌بی‌آر · مقاله"
+      },
+      "title": {
+        "en": "Collaborative Intelligence: Humans and AI Are Joining Forces",
+        "fa": "هوشِ هم‌کارانه: انسان و هوش مصنوعی دست به دست هم می‌دهند"
+      },
+      "desc": {
+        "en": "The authors' own article version of the book's central argument, drawn from the same research base.",
+        "fa": "روایتِ مقاله‌ایِ خودِ نویسندگان از استدلالِ اصلیِ کتاب، بر پایهٔ همان پژوهش."
+      },
+      "bullets": {
+        "en": [
+          "The missing middle in a short read",
+          "Train, explain, sustain in the authors' words",
+          "Good before or after the book"
+        ],
+        "fa": [
+          "میانهٔ گم‌شده در یک متنِ کوتاه",
+          "آموزش، توضیح و نگه‌داشت به زبانِ نویسندگان",
+          "خوب، چه پیش از کتاب چه بعد از آن"
+        ]
+      },
+      "best": {
+        "en": "Best for Stage 1–2.",
+        "fa": "خوب برای مرحلهٔ ۱ و ۲."
+      }
+    }
+  ],
+  "go": [
+    {
+      "label": {
+        "en": "Publisher's page",
+        "fa": "صفحهٔ ناشر"
+      },
+      "url": "https://store.hbr.org/product/human-machine-updated-and-expanded-reimagining-work-in-the-age-of-ai/10724"
+    },
+    {
+      "label": {
+        "en": "The authors' HBR article",
+        "fa": "مقالهٔ نویسندگان در اچ‌بی‌آر"
+      },
+      "url": "https://hbr.org/2018/07/collaborative-intelligence-humans-and-ai-are-joining-forces"
+    },
+    {
+      "label": {
+        "en": "Book on Goodreads",
+        "fa": "کتاب در گودریدز"
+      },
+      "url": "https://www.goodreads.com/book/show/36465763-human-machine"
+    }
+  ],
+  "recs": [
+    {
+      "pri": "b",
+      "t": {
+        "en": "Map one process onto the middle",
+        "fa": "یک فرایند را روی میانه بکش"
+      },
+      "d": {
+        "en": "Take a real workflow and mark each step human-only, machine-only, or shared. The shared column is where your next win is.",
+        "fa": "یک گردشِ کارِ واقعی را بردار و هر قدمش را علامت بزن: فقط انسان، فقط ماشین، یا مشترک. بردِ بعدی‌ات در همان ستونِ مشترک است."
+      }
+    },
+    {
+      "pri": "b",
+      "t": {
+        "en": "Name a trainer, an explainer and a sustainer",
+        "fa": "برای مدلت آموزش‌دهنده، توضیح‌دهنده و نگهدارنده تعیین کن"
+      },
+      "d": {
+        "en": "For your most important model, put a person's name against each of the three roles. Whichever is blank is the risk you are carrying.",
+        "fa": "برای مهم‌ترین مدلت، جلوی هر سه نقش یک اسم بنویس. هر کدام خالی ماند، همان ریسکی است که داری حمل می‌کنی."
+      }
+    },
+    {
+      "pri": "n",
+      "t": {
+        "en": "Write the explanation sentence",
+        "fa": "جملهٔ توضیح را بنویس"
+      },
+      "d": {
+        "en": "For one model-driven decision your product makes, write the sentence you would say to the affected user. Ship nothing you cannot phrase.",
+        "fa": "برای یکی از تصمیم‌هایی که محصولت با مدل می‌گیرد، همان جمله‌ای را بنویس که به کاربرِ متأثر می‌گویی. چیزی را که نمی‌توانی بیانش کنی، عرضه نکن."
+      }
+    },
+    {
+      "pri": "n",
+      "t": {
+        "en": "Practise intelligent interrogation",
+        "fa": "پرسشگریِ هوشمند را تمرین کن"
+      },
+      "d": {
+        "en": "Take one recurring question, ask a model five differently framed versions of it, and keep the framing that produced the usable answer.",
+        "fa": "یک پرسشِ تکرارشونده را بردار، پنج صورت‌بندیِ متفاوتش را از مدل بپرس، و آن صورت‌بندی‌ای را نگه دار که جوابِ به‌دردبخور داد."
+      }
+    }
+  ]
+});
+</script>
+</body>
+</html>

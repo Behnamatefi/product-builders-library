@@ -1,7 +1,7 @@
 /* ============================================================================
    build-atlas.js — generates assets/atlas.js for the master knowledge graph
    ----------------------------------------------------------------------------
-   Scans the 50 book pages (via assets/library.js + each page's Book.mount DATA)
+   Scans the 59 book pages (via assets/library.js + each page's Book.mount DATA)
    and emits window.ATLAS = { groups, books, relations }.
 
    Relations come from two sources, best first:

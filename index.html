@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<!-- Product Builder's Library — bilingual EN/FA catalog of 50 essential books in 16 groups -->
+<!-- Product Builder's Library — bilingual EN/FA catalog of 59 essential books in 18 groups -->
 <html lang="en" dir="ltr" data-lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Product Books — کتابخانهٔ سازندهٔ محصول · ۵۰ کتاب در ۱۶ گروه</title>
+<title>Product Books — کتابخانهٔ سازندهٔ محصول · ۵۹ کتاب در ۱۸ گروه</title>
 
 <!-- Boot theme + language BEFORE paint -->
 <script>
@@ -399,7 +399,7 @@ html[data-lang="en"] .masthead .logotype .lt-main{font-family:var(--f-disp);font
       <span data-only="en">Find my reading path</span><span data-only="fa">مسیرِ خواندنم را پیدا کن</span>
     </button>
     <a class="rw-trigger ghost" href="#library">
-      <span data-only="en">Browse all 50</span><span data-only="fa">مرورِ هر ۵۰ کتاب</span>
+      <span data-only="en">Browse all 59</span><span data-only="fa">مرورِ هر ۵۹ کتاب</span>
     </a>
     <a class="rw-trigger ghost" href="graph.html">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="6.5" r="2.2"/><circle cx="18.5" cy="5" r="2.2"/><circle cx="12" cy="12" r="2.6"/><circle cx="5" cy="18" r="2.2"/><circle cx="19" cy="18.5" r="2.2"/><path d="M7.4 7.8 10 10.4M14.3 10.6 16.8 6.6M9.9 13.8 6.6 16.4M14.4 13.5 17.3 16.9"/></svg>
@@ -416,7 +416,7 @@ html[data-lang="en"] .masthead .logotype .lt-main{font-family:var(--f-disp);font
 
   <!-- LIBRARY -->
   <h2 class="sec-lib" id="library"><span class="num"><span data-only="en">01 //</span><span data-only="fa">۰۱ //</span></span><span data-only="en">The library</span><span data-only="fa">کتابخانه</span></h2>
-  <p class="lp-dek"><span data-only="en">50 books in 16 skill groups, gathered from Lenny Rachitsky's two-part <b>"Essential books for product builders"</b> — the same 15 groups, plus a sixteenth on self mastery. Open any title to read its knowledge-graph page.</span><span data-only="fa">۵۰ کتاب در ۱۶ گروهِ مهارتی، برگرفته از مجموعهٔ دوقسمتیِ <b>«کتاب‌های ضروری برای سازندگانِ محصول»</b> از لنی رچیتسکی — همان ۱۵ گروه، به‌علاوهٔ گروهِ شانزدهمی دربارهٔ تسلط بر خود. روی هر عنوان بزن تا صفحهٔ نقشهٔ دانشش باز شود.</span></p>
+  <p class="lp-dek"><span data-only="en">59 books in 18 skill groups, gathered from Lenny Rachitsky's two-part <b>"Essential books for product builders"</b> — the same 15 groups, plus three of our own on self mastery, working with AI, and delivery. Open any title to read its knowledge-graph page.</span><span data-only="fa">۵۹ کتاب در ۱۸ گروهِ مهارتی، برگرفته از مجموعهٔ دوقسمتیِ <b>«کتاب‌های ضروری برای سازندگانِ محصول»</b> از لنی رچیتسکی — همان ۱۵ گروه، به‌علاوهٔ سه گروهِ افزوده دربارهٔ تسلط بر خود، کار با هوش مصنوعی، و تحویل. روی هر عنوان بزن تا صفحهٔ نقشهٔ دانشش باز شود.</span></p>
 
   <!-- GROUPS render here -->
   <div class="groups" id="groups"></div>
@@ -452,7 +452,7 @@ function faText(s){ return String(s).replace(/(<[^>]+>)|([^<]+)/g, function(m,ta
 function TX(o){ if(o==null) return ''; return LANG==='fa' ? faText(o.fa) : o.en; }
 function num(n){ return LANG==='fa' ? faDigits(String(n)) : String(n); }
 
-/* ── DATA: 16 groups (15 × 3 books + 1 × 5) ──────────────── */
+/* ── DATA: 18 groups (15 × 3 books + 5 + 4 + 5) ──────────── */
 var GROUPS = [
  {n:1, en:{name:"Communication", blurb:"Write and speak clearly so you're actually heard — and earn the reader's attention."},
        fa:{name:"ارتباط", blurb:"واضح بنویس و بگو تا واقعاً شنیده شوی — و توجهِ خواننده را به‌دست بیاور."}, books:[
@@ -607,6 +607,30 @@ var GROUPS = [
      fa:{t:"راهِ پیش رو", orig:"The Way Forward", a:"اونیل و مه‌یر", why:"در لحظه بالا نمی‌روی — به سطحِ تمرینت سقوط می‌کنی. انضباط بر انگیزه."}},
    {live:true, href:"16 - Self Mastery/the-power-of-now.html", en:{t:"The Power of Now", a:"Eckhart Tolle", why:"Most suffering is added by the mind. Watch the thinking and it loses its fuel."},
      fa:{t:"نیروی حال", orig:"The Power of Now", a:"اکهارت تله", why:"بیشترِ رنج را ذهن اضافه می‌کند. فکرکردن را تماشا کن تا سوختش تمام شود."}}
+ ]},
+ {n:17, en:{name:"Working with AI", blurb:"Judgment, not magic: what AI actually changes about your product, your team, and your own work."},
+        fa:{name:"کار با هوش مصنوعی", blurb:"قضاوت، نه جادو: هوش مصنوعی واقعاً چه چیزی را در محصول، تیم و کارِ خودت عوض می‌کند."}, books:[
+   {live:true, href:"17 - Working with AI/co-intelligence.html", en:{t:"Co-Intelligence", a:"Ethan Mollick", why:"Four plain rules for working with AI today — starting with inviting it to the table."},
+     fa:{t:"هم‌هوشی", orig:"Co-Intelligence", a:"ایتن مالیک", why:"چهار قانونِ ساده برای کار با هوش مصنوعی — اولش این‌که دعوتش کنی سرِ میز."}},
+   {live:true, href:"17 - Working with AI/prediction-machines.html", en:{t:"Prediction Machines", a:"Agrawal, Gans & Goldfarb", why:"AI makes prediction cheap, so judgment, data and action become the scarce goods."},
+     fa:{t:"ماشین‌های پیش‌بینی", orig:"Prediction Machines", a:"آگراوال، گنز و گلدفارب", why:"هوش مصنوعی پیش‌بینی را ارزان می‌کند، پس قضاوت، داده و اقدام کمیاب می‌شوند."}},
+   {live:true, href:"17 - Working with AI/human-plus-machine.html", en:{t:"Human + Machine", a:"Daugherty & Wilson", why:"The value sits in the “missing middle”, where people and machines work as one."},
+     fa:{t:"انسان + ماشین", orig:"Human + Machine", a:"داگرتی و ویلسون", why:"ارزش در «میانهٔ گمشده» است؛ جایی که آدم و ماشین با هم کار می‌کنند."}},
+   {live:true, href:"17 - Working with AI/the-ai-product-managers-handbook.html", en:{t:"The AI Product Manager's Handbook", a:"Irene Bratsis", why:"An A-to-Z of AI product work: the technology, the business fit, and how you take it to market."},
+     fa:{t:"راهنمای مدیرِ محصولِ هوش مصنوعی", orig:"The AI Product Manager's Handbook", a:"آیرین براتسیس", why:"الفبای کارِ محصولِ هوش مصنوعی: فناوری، تناسبِ کسب‌وکاری، و اینکه چطور به بازار می‌بری‌اش."}}
+ ]},
+ {n:18, en:{name:"Delivery & Projects", blurb:"Ship on time with a sane team: flow, scope, schedules, and why more people can mean slower."},
+        fa:{name:"تحویل و پروژه", blurb:"به‌موقع تحویل بده و تیم را سالم نگه دار: جریان، دامنه، زمان‌بندی، و چرا آدمِ بیشتر یعنی کندتر."}, books:[
+   {live:true, href:"18 - Delivery & Projects/the-mythical-man-month.html", en:{t:"The Mythical Man-Month", a:"Frederick P. Brooks Jr.", why:"Adding people to a late project makes it later — and conceptual integrity beats everything."},
+     fa:{t:"افسانهٔ نفر-ماه", orig:"The Mythical Man-Month", a:"فردریک بروکس", why:"افزودنِ آدم به پروژهٔ عقب‌افتاده عقب‌ترش می‌کند — و یکپارچگیِ مفهومی از همه‌چیز مهم‌تر است."}},
+   {live:true, href:"18 - Delivery & Projects/the-phoenix-project.html", en:{t:"The Phoenix Project", a:"Kim, Behr & Spafford", why:"A novel that teaches flow and feedback — and how unplanned work quietly eats a team."},
+     fa:{t:"پروژهٔ ققنوس", orig:"The Phoenix Project", a:"کیم، بر و اسپافورد", why:"رمانی که جریان و بازخورد را می‌آموزد — و اینکه کارِ برنامه‌ریزی‌نشده چطور بی‌صدا تیم را می‌خورد."}},
+   {live:true, href:"18 - Delivery & Projects/scrum-twice-the-work-half-the-time.html", en:{t:"Scrum", a:"Jeff Sutherland", why:"Small teams, short sprints, honest estimates — the case for working in cycles."},
+     fa:{t:"اسکرام", orig:"Scrum: The Art of Doing Twice the Work in Half the Time", a:"جف ساترلند", why:"تیمِ کوچک، دورهٔ کوتاه، برآوردِ صادقانه — دلیلِ کارکردن در چرخه‌ها."}},
+   {live:true, href:"18 - Delivery & Projects/project-management-unofficial.html", en:{t:"Project Management for the Unofficial Project Manager", a:"Kogon, Blakemore & Wood", why:"Run a project when you carry the responsibility but not the authority: people first, then process."},
+     fa:{t:"مدیریتِ پروژه برای مدیرِ پروژهٔ غیررسمی", orig:"Project Management for the Unofficial Project Manager", a:"کوگون، بلیک‌مور و وود", why:"وقتی مسئولیت داری اما اختیار نه: اول آدم‌ها، بعد فرایند."}},
+   {live:true, href:"18 - Delivery & Projects/project-management-beginners-guide.html", en:{t:"Project Management Absolute Beginner's Guide", a:"Greg Horine", why:"The plain-English on-ramp: define, plan, control and close a project without the jargon."},
+     fa:{t:"راهنمای کاملاً مبتدیِ مدیریتِ پروژه", orig:"Project Management Absolute Beginner's Guide", a:"گرگ هورین", why:"ورودیِ ساده و بی‌اصطلاح: پروژه را تعریف کن، برنامه بریز، کنترل کن، و ببند."}}
  ]}
 ];
 

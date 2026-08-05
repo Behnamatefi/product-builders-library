@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- The Atlas — one map of all 50 books, their groups, and the relationships
+<!-- The Atlas — one map of all 59 books, their groups, and the relationships
      between them. Reuses the shared design system (assets/book.css) and the
      same context-aware force simulation as the per-book knowledge graphs. -->
 <html lang="en" dir="ltr" data-lang="en">
@@ -84,9 +84,9 @@ html[data-lang="en"] .atlas-hud{font-family:var(--f-mono,'JetBrains Mono',monosp
   </div></div>
 
   <div class="atlas-head">
-    <p class="atlas-hud" aria-hidden="true"><span data-only="en">Atlas // 50 books // 16 groups</span><span data-only="fa">اطلس // ۵۰ کتاب // ۱۶ گروه</span></p>
+    <p class="atlas-hud" aria-hidden="true"><span data-only="en">Atlas // 59 books // 18 groups</span><span data-only="fa">اطلس // ۵۹ کتاب // ۱۸ گروه</span></p>
     <h1><span data-only="en">Every book, one map.</span><span data-only="fa">همهٔ کتاب‌ها، یک نقشه.</span></h1>
-    <p class="dek"><span data-only="en">Sixteen skill groups and the fifty books inside them — dashed lines mark kinship across groups. Click any node to read it; drag anything and the map gives way.</span><span data-only="fa">شانزده گروهِ مهارتی و پنجاه کتابِ درونشان — خط‌چین‌ها خویشاوندیِ میانِ گروه‌ها را نشان می‌دهند. روی هر گره کلیک کن تا بخوانی‌اش؛ هرچیزی را بکشی، نقشه جا باز می‌کند.</span></p>
+    <p class="dek"><span data-only="en">Eighteen skill groups and the fifty-nine books inside them — dashed lines mark kinship across groups. Click any node to read it; drag anything and the map gives way.</span><span data-only="fa">هجده گروهِ مهارتی و پنجاه‌ونه کتابِ درونشان — خط‌چین‌ها خویشاوندیِ میانِ گروه‌ها را نشان می‌دهند. روی هر گره کلیک کن تا بخوانی‌اش؛ هرچیزی را بکشی، نقشه جا باز می‌کند.</span></p>
   </div>
 
   <div class="atlas-stage">
@@ -122,7 +122,9 @@ html[data-lang="en"] .atlas-hud{font-family:var(--f-mono,'JetBrains Mono',monosp
   /* ── layout: group hubs on an ellipse, books fanned outward ── */
   function build(){
     nodes = []; links = []; xlinks = [];
-    var W = 1700, H = 1150, cx = W/2, cy = H/2, Rx = 600, Ry = 400;
+    /* the ellipse grows with the group count so hubs keep a constant gap:
+       600×400 sat 16 groups ~160px apart, 690×460 does the same for 18 */
+    var W = 1700, H = 1150, cx = W/2, cy = H/2, Rx = 690, Ry = 460;
     var G = A.groups.length;
     A.groups.forEach(function(g, i){
       var a = -Math.PI/2 + i * (2*Math.PI/G);
