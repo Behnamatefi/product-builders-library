@@ -69,7 +69,7 @@ window.ATLAS = {
     {
       "num": 9,
       "name": {
-        "en": "Sales &amp; Marketing",
+        "en": "Sales & Marketing",
         "fa": "فروش و بازاریابی"
       },
       "varc": "--c-amber"
@@ -85,7 +85,7 @@ window.ATLAS = {
     {
       "num": 11,
       "name": {
-        "en": "Taste &amp; Craft",
+        "en": "Taste & Craft",
         "fa": "ذوق و پیشه‌وری"
       },
       "varc": "--c-teal"
@@ -160,6 +160,10 @@ window.ATLAS = {
         "en": "Communication",
         "fa": "ارتباط"
       },
+      "author": {
+        "en": "Steven Pressfield",
+        "fa": "استیون پرسفیلد"
+      },
       "published": {
         "en": "2016",
         "fa": "۲۰۱۶"
@@ -188,6 +192,10 @@ window.ATLAS = {
       "group": {
         "en": "Communication",
         "fa": "ارتباط"
+      },
+      "author": {
+        "en": "William Zinsser",
+        "fa": "ویلیام زینسر"
       },
       "published": {
         "en": "1976",
@@ -218,6 +226,10 @@ window.ATLAS = {
         "en": "Communication",
         "fa": "ارتباط"
       },
+      "author": {
+        "en": "Matthew Dicks",
+        "fa": "متیو دیکس"
+      },
       "published": {
         "en": "2018",
         "fa": "۲۰۱۸"
@@ -246,6 +258,10 @@ window.ATLAS = {
       "group": {
         "en": "Executing",
         "fa": "اجرا"
+      },
+      "author": {
+        "en": "Claire Hughes Johnson",
+        "fa": "کلر هیوز جانسون"
       },
       "published": {
         "en": "2023",
@@ -276,6 +292,10 @@ window.ATLAS = {
         "en": "Executing",
         "fa": "اجرا"
       },
+      "author": {
+        "en": "Eliyahu M. Goldratt",
+        "fa": "الیاهو گلدرت"
+      },
       "published": {
         "en": "1984",
         "fa": "۱۹۸۴"
@@ -304,6 +324,10 @@ window.ATLAS = {
       "group": {
         "en": "Executing",
         "fa": "اجرا"
+      },
+      "author": {
+        "en": "Matt Mochary",
+        "fa": "مت موکری"
       },
       "published": {
         "en": "2019",
@@ -334,6 +358,10 @@ window.ATLAS = {
         "en": "Strategy",
         "fa": "استراتژی"
       },
+      "author": {
+        "en": "Richard Rumelt",
+        "fa": "ریچارد روملت"
+      },
       "published": {
         "en": "2011",
         "fa": "۲۰۱۱"
@@ -362,6 +390,10 @@ window.ATLAS = {
       "group": {
         "en": "Strategy",
         "fa": "استراتژی"
+      },
+      "author": {
+        "en": "A.G. Lafley &amp; Roger L. Martin",
+        "fa": "ای.جی. لافلی و راجر ال. مارتین"
       },
       "published": {
         "en": "2013",
@@ -392,6 +424,10 @@ window.ATLAS = {
         "en": "Strategy",
         "fa": "استراتژی"
       },
+      "author": {
+        "en": "Colin Bryar &amp; Bill Carr",
+        "fa": "کالین برایار و بیل کار"
+      },
       "published": {
         "en": "2021",
         "fa": "۲۰۲۱"
@@ -420,6 +456,10 @@ window.ATLAS = {
       "group": {
         "en": "Inspiration",
         "fa": "الهام"
+      },
+      "author": {
+        "en": "Tony Fadell",
+        "fa": "تونی فدل"
       },
       "published": {
         "en": "2022",
@@ -450,6 +490,10 @@ window.ATLAS = {
         "en": "Inspiration",
         "fa": "الهام"
       },
+      "author": {
+        "en": "Phil Knight",
+        "fa": "فیل نایت"
+      },
       "published": {
         "en": "2016",
         "fa": "۲۰۱۶"
@@ -478,6 +522,10 @@ window.ATLAS = {
       "group": {
         "en": "Inspiration",
         "fa": "الهام"
+      },
+      "author": {
+        "en": "Jordan Mechner",
+        "fa": "جردن مکنر"
       },
       "published": {
         "en": "2020",
@@ -508,6 +556,10 @@ window.ATLAS = {
         "en": "Managing",
         "fa": "مدیریت"
       },
+      "author": {
+        "en": "Andrew S. Grove",
+        "fa": "اندرو گرو"
+      },
       "published": {
         "en": "1983",
         "fa": "۱۹۸۳"
@@ -536,6 +588,10 @@ window.ATLAS = {
       "group": {
         "en": "Managing",
         "fa": "مدیریت"
+      },
+      "author": {
+        "en": "Kim Scott",
+        "fa": "کیم اسکات"
       },
       "published": {
         "en": "2017",
@@ -566,6 +622,10 @@ window.ATLAS = {
         "en": "Managing",
         "fa": "مدیریت"
       },
+      "author": {
+        "en": "Julie Zhuo",
+        "fa": "جولی ژو"
+      },
       "published": {
         "en": "2019",
         "fa": "۲۰۱۹"
@@ -594,6 +654,10 @@ window.ATLAS = {
       "group": {
         "en": "Leadership",
         "fa": "رهبری"
+      },
+      "author": {
+        "en": "Dethmer, Chapman & Klemp",
+        "fa": "دتمر، چپمن و کلمپ"
       },
       "published": {
         "en": "2014",
@@ -624,6 +688,10 @@ window.ATLAS = {
         "en": "Leadership",
         "fa": "رهبری"
       },
+      "author": {
+        "en": "Frank Slootman",
+        "fa": "فرانک اسلوتمن"
+      },
       "published": {
         "en": "2022",
         "fa": "۲۰۲۲"
@@ -652,6 +720,10 @@ window.ATLAS = {
       "group": {
         "en": "Leadership",
         "fa": "رهبری"
+      },
+      "author": {
+        "en": "Bill Walsh",
+        "fa": "بیل والش"
       },
       "published": {
         "en": "2009",
@@ -682,6 +754,10 @@ window.ATLAS = {
         "en": "Product Success Rate",
         "fa": "نرخِ موفقیتِ محصول"
       },
+      "author": {
+        "en": "Teresa Torres",
+        "fa": "ترزا تورس"
+      },
       "published": {
         "en": "2021",
         "fa": "۲۰۲۱"
@@ -710,6 +786,10 @@ window.ATLAS = {
       "group": {
         "en": "Product Success Rate",
         "fa": "نرخِ موفقیتِ محصول"
+      },
+      "author": {
+        "en": "Melissa Perri",
+        "fa": "ملیسا پری"
       },
       "published": {
         "en": "2018",
@@ -740,6 +820,10 @@ window.ATLAS = {
         "en": "Product Success Rate",
         "fa": "نرخِ موفقیتِ محصول"
       },
+      "author": {
+        "en": "Rob Fitzpatrick",
+        "fa": "راب فیتزپاتریک"
+      },
       "published": {
         "en": "2013",
         "fa": "۲۰۱۳"
@@ -768,6 +852,10 @@ window.ATLAS = {
       "group": {
         "en": "Product Org",
         "fa": "سازمانِ محصول"
+      },
+      "author": {
+        "en": "Marty Cagan with Chris Jones",
+        "fa": "مارتی کیگن با کریس جونز"
       },
       "published": {
         "en": "2020",
@@ -798,6 +886,10 @@ window.ATLAS = {
         "en": "Product Org",
         "fa": "سازمانِ محصول"
       },
+      "author": {
+        "en": "Marty Cagan",
+        "fa": "مارتی کیگن"
+      },
       "published": {
         "en": "2017 (2nd ed.)",
         "fa": "۲۰۱۷ (ویرایشِ دوم)"
@@ -827,6 +919,10 @@ window.ATLAS = {
         "en": "Product Org",
         "fa": "سازمانِ محصول"
       },
+      "author": {
+        "en": "Annie Duke",
+        "fa": "آنی دیوک"
+      },
       "published": {
         "en": "2018",
         "fa": "۲۰۱۸"
@@ -853,8 +949,12 @@ window.ATLAS = {
         "fa": "فروشِ بنیان‌گذار"
       },
       "group": {
-        "en": "Sales &amp; Marketing",
+        "en": "Sales & Marketing",
         "fa": "فروش و بازاریابی"
+      },
+      "author": {
+        "en": "Pete Kazanjy",
+        "fa": "پیت کازانجی"
       },
       "published": {
         "en": "2020",
@@ -882,8 +982,12 @@ window.ATLAS = {
         "fa": "آشکارا عالی"
       },
       "group": {
-        "en": "Sales &amp; Marketing",
+        "en": "Sales & Marketing",
         "fa": "فروش و بازاریابی"
+      },
+      "author": {
+        "en": "April Dunford",
+        "fa": "اپریل دانفورد"
       },
       "published": {
         "en": "2019",
@@ -914,6 +1018,10 @@ window.ATLAS = {
         "en": "Sales & Marketing",
         "fa": "فروش و بازاریابی"
       },
+      "author": {
+        "en": "Seth Godin",
+        "fa": "ست گودین"
+      },
       "published": {
         "en": "2003",
         "fa": "۲۰۰۳"
@@ -942,6 +1050,10 @@ window.ATLAS = {
       "group": {
         "en": "Design",
         "fa": "طراحی"
+      },
+      "author": {
+        "en": "Steve Krug",
+        "fa": "استیو کروگ"
       },
       "published": {
         "en": "2014",
@@ -972,6 +1084,10 @@ window.ATLAS = {
         "en": "Design",
         "fa": "طراحی"
       },
+      "author": {
+        "en": "Adam Wathan &amp; Steve Schoger",
+        "fa": "آدام واتان و استیو شوگر"
+      },
       "published": {
         "en": "2018",
         "fa": "۲۰۱۸"
@@ -1001,6 +1117,10 @@ window.ATLAS = {
         "en": "Design",
         "fa": "طراحی"
       },
+      "author": {
+        "en": "Don Norman",
+        "fa": "دان نورمن"
+      },
       "published": {
         "en": "2013",
         "fa": "۲۰۱۳"
@@ -1027,8 +1147,12 @@ window.ATLAS = {
         "fa": "کارخانهٔ خلاقیت"
       },
       "group": {
-        "en": "Taste &amp; Craft",
+        "en": "Taste & Craft",
         "fa": "ذوق و پیشه‌وری"
+      },
+      "author": {
+        "en": "Ed Catmull with Amy Wallace",
+        "fa": "اد کتمول با ایمی والاس"
       },
       "published": {
         "en": "2014",
@@ -1056,8 +1180,12 @@ window.ATLAS = {
         "fa": "جنگِ هنر"
       },
       "group": {
-        "en": "Taste &amp; Craft",
+        "en": "Taste & Craft",
         "fa": "ذوق و پیشه‌وری"
+      },
+      "author": {
+        "en": "Steven Pressfield",
+        "fa": "استیون پرسفیلد"
       },
       "published": {
         "en": "2002",
@@ -1085,8 +1213,12 @@ window.ATLAS = {
         "fa": "کارِ هنر"
       },
       "group": {
-        "en": "Taste &amp; Craft",
+        "en": "Taste & Craft",
         "fa": "ذوق و پیشه‌وری"
+      },
+      "author": {
+        "en": "Adam Moss",
+        "fa": "آدام ماس"
       },
       "published": {
         "en": "2024",
@@ -1117,6 +1249,10 @@ window.ATLAS = {
         "en": "Influence",
         "fa": "نفوذ"
       },
+      "author": {
+        "en": "Dale Carnegie",
+        "fa": "دیل کارنگی"
+      },
       "published": {
         "en": "1936",
         "fa": "۱۹۳۶"
@@ -1145,6 +1281,10 @@ window.ATLAS = {
       "group": {
         "en": "Influence",
         "fa": "نفوذ"
+      },
+      "author": {
+        "en": "Robert Cialdini",
+        "fa": "رابرت چالدینی"
       },
       "published": {
         "en": "2021",
@@ -1175,6 +1315,10 @@ window.ATLAS = {
         "en": "Influence",
         "fa": "نفوذ"
       },
+      "author": {
+        "en": "Chris Voss",
+        "fa": "کریس واس"
+      },
       "published": {
         "en": "2016",
         "fa": "۲۰۱۶"
@@ -1203,6 +1347,10 @@ window.ATLAS = {
       "group": {
         "en": "Starting a Company",
         "fa": "راه‌اندازیِ شرکت"
+      },
+      "author": {
+        "en": "Geoffrey A. Moore",
+        "fa": "جفری مور"
       },
       "published": {
         "en": "2014",
@@ -1233,6 +1381,10 @@ window.ATLAS = {
         "en": "Starting a Company",
         "fa": "راه‌اندازیِ شرکت"
       },
+      "author": {
+        "en": "Uri Levine",
+        "fa": "اوری لواین"
+      },
       "published": {
         "en": "2023",
         "fa": "۲۰۲۳"
@@ -1261,6 +1413,10 @@ window.ATLAS = {
       "group": {
         "en": "Starting a Company",
         "fa": "راه‌اندازیِ شرکت"
+      },
+      "author": {
+        "en": "Eric Ries",
+        "fa": "اریک ریس"
       },
       "published": {
         "en": "2011",
@@ -1291,6 +1447,10 @@ window.ATLAS = {
         "en": "Career",
         "fa": "مسیرِ شغلی"
       },
+      "author": {
+        "en": "Jeffrey Pfeffer",
+        "fa": "جفری فِفِر"
+      },
       "published": {
         "en": "2022",
         "fa": "۲۰۲۲"
@@ -1319,6 +1479,10 @@ window.ATLAS = {
       "group": {
         "en": "Career",
         "fa": "مسیرِ شغلی"
+      },
+      "author": {
+        "en": "Morten Hansen",
+        "fa": "مورتن هانسن"
       },
       "published": {
         "en": "2018",
@@ -1349,6 +1513,10 @@ window.ATLAS = {
         "en": "Career",
         "fa": "مسیرِ شغلی"
       },
+      "author": {
+        "en": "Peter Drucker",
+        "fa": "پیتر دراکر"
+      },
       "published": {
         "en": "1966",
         "fa": "۱۹۶۶"
@@ -1377,6 +1545,10 @@ window.ATLAS = {
       "group": {
         "en": "Happiness",
         "fa": "شادکامی"
+      },
+      "author": {
+        "en": "William B. Irvine",
+        "fa": "ویلیام بی. اروین"
       },
       "published": {
         "en": "2009",
@@ -1407,6 +1579,10 @@ window.ATLAS = {
         "en": "Happiness",
         "fa": "شادکامی"
       },
+      "author": {
+        "en": "Daniel Gilbert",
+        "fa": "دنیل گیلبرت"
+      },
       "published": {
         "en": "2006",
         "fa": "۲۰۰۶"
@@ -1435,6 +1611,10 @@ window.ATLAS = {
       "group": {
         "en": "Happiness",
         "fa": "شادکامی"
+      },
+      "author": {
+        "en": "Mark Manson",
+        "fa": "مارک منسون"
       },
       "published": {
         "en": "2016",
@@ -1465,6 +1645,10 @@ window.ATLAS = {
         "en": "Self Mastery",
         "fa": "تسلط بر خود"
       },
+      "author": {
+        "en": "Simon Sinek",
+        "fa": "سایمون سینک"
+      },
       "published": {
         "en": "2009",
         "fa": "۲۰۰۹"
@@ -1493,6 +1677,10 @@ window.ATLAS = {
       "group": {
         "en": "Self Mastery",
         "fa": "تسلط بر خود"
+      },
+      "author": {
+        "en": "Thomas Erikson",
+        "fa": "توماس اریکسون"
       },
       "published": {
         "en": "2017",
@@ -1523,6 +1711,10 @@ window.ATLAS = {
         "en": "Self Mastery",
         "fa": "تسلط بر خود"
       },
+      "author": {
+        "en": "Robert Greene",
+        "fa": "رابرت گرین"
+      },
       "published": {
         "en": "2001",
         "fa": "۲۰۰۱"
@@ -1551,6 +1743,10 @@ window.ATLAS = {
       "group": {
         "en": "Self Mastery",
         "fa": "تسلط بر خود"
+      },
+      "author": {
+        "en": "Eckhart Tolle",
+        "fa": "اکهارت تله"
       },
       "published": {
         "en": "1997",
@@ -1581,6 +1777,10 @@ window.ATLAS = {
         "en": "Self Mastery",
         "fa": "تسلط بر خود"
       },
+      "author": {
+        "en": "Robert O'Neill & Dakota Meyer",
+        "fa": "رابرت اونیل و داکوتا مه‌یر"
+      },
       "published": {
         "en": "2022",
         "fa": "۲۰۲۲"
@@ -1609,6 +1809,10 @@ window.ATLAS = {
       "group": {
         "en": "Working with AI",
         "fa": "کار با هوش مصنوعی"
+      },
+      "author": {
+        "en": "Ethan Mollick",
+        "fa": "ایتن مولیک"
       },
       "published": {
         "en": "2024",
@@ -1639,6 +1843,10 @@ window.ATLAS = {
         "en": "Working with AI",
         "fa": "کار با هوش مصنوعی"
       },
+      "author": {
+        "en": "Paul R. Daugherty & H. James Wilson",
+        "fa": "پاول داگرتی و اچ. جیمز ویلسون"
+      },
       "published": {
         "en": "2018",
         "fa": "۲۰۱۸"
@@ -1667,6 +1875,10 @@ window.ATLAS = {
       "group": {
         "en": "Working with AI",
         "fa": "کار با هوش مصنوعی"
+      },
+      "author": {
+        "en": "Ajay Agrawal, Joshua Gans & Avi Goldfarb",
+        "fa": "آجی آگراوال، جاشوا گنز و آوی گلدفارب"
       },
       "published": {
         "en": "2018",
@@ -1697,6 +1909,10 @@ window.ATLAS = {
         "en": "Working with AI",
         "fa": "کار با هوش مصنوعی"
       },
+      "author": {
+        "en": "Irene Bratsis",
+        "fa": "آیرین براتسیس"
+      },
       "published": {
         "en": "2023",
         "fa": "۲۰۲۳"
@@ -1725,6 +1941,10 @@ window.ATLAS = {
       "group": {
         "en": "Delivery & Projects",
         "fa": "تحویل و پروژه"
+      },
+      "author": {
+        "en": "Greg Horine",
+        "fa": "گرگ هورین"
       },
       "published": {
         "en": "2017",
@@ -1755,6 +1975,10 @@ window.ATLAS = {
         "en": "Delivery & Projects",
         "fa": "تحویل و پروژه"
       },
+      "author": {
+        "en": "Kory Kogon, Suzette Blakemore & James Wood",
+        "fa": "کوری کوگان، سوزت بلیکمور و جیمز وود"
+      },
       "published": {
         "en": "2015",
         "fa": "۲۰۱۵"
@@ -1783,6 +2007,10 @@ window.ATLAS = {
       "group": {
         "en": "Delivery & Projects",
         "fa": "تحویل و پروژه"
+      },
+      "author": {
+        "en": "Jeff Sutherland",
+        "fa": "جف ساترلند"
       },
       "published": {
         "en": "2014",
@@ -1813,6 +2041,10 @@ window.ATLAS = {
         "en": "Delivery & Projects",
         "fa": "تحویل و پروژه"
       },
+      "author": {
+        "en": "Frederick P. Brooks Jr.",
+        "fa": "فردریک بروکس"
+      },
       "published": {
         "en": "1975",
         "fa": "۱۹۷۵"
@@ -1841,6 +2073,10 @@ window.ATLAS = {
       "group": {
         "en": "Delivery & Projects",
         "fa": "تحویل و پروژه"
+      },
+      "author": {
+        "en": "Gene Kim, Kevin Behr & George Spafford",
+        "fa": "جین کیم، کوین بر و جورج اسپافورد"
       },
       "published": {
         "en": "2013",

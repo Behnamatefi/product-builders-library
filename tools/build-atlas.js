@@ -31,6 +31,7 @@ const books = LIB.map(e => {
   return {
     slug: e.slug, folder: e.folder, groupNum: e.groupNum,
     book: e.book, group: e.group,
+    author: data.meta.author,          /* the atlas search indexes this */
     published: data.meta.published,
     core: data.core.name,
     coreLine: data.core.principle

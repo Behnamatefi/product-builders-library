@@ -24,8 +24,8 @@ index.html                  Catalog / home. Centered-logo masthead + "Find my
                             reading path" wizard. Has its own GROUPS data (author,
                             "why", href for each of the 59 books).
 graph.html                  The Atlas — one force-directed map of every group and
-                            book, with dashed lines for cross-group kinship.
-                            Reads window.ATLAS; linked from the hero.
+                            book, with dashed lines for cross-group kinship, plus
+                            the search field. Reads window.ATLAS; linked from the hero.
 NN - Group/<slug>.html      59 book pages. Thin SHELLS (see "How a book page works").
 assets/
   book.css                  Shared styles for every book page + masthead.
@@ -37,7 +37,20 @@ assets/
                             (slug, folder, groupNum, group{en,fa}, book{en,fa}).
                             Drives prev/next, the all-books overlay, and the wizard.
   atlas.js                  window.ATLAS — generated {groups, books, relations}
-                            for graph.html. Relations carry a bilingual "why".
+                            for graph.html. Relations carry a bilingual "why";
+                            books carry author/published/summary, which the
+                            atlas search indexes.
+  graph-camera.js           window.GraphCamera — the engine BOTH graphs share:
+                            force simulation, pointer handling (drag / pan /
+                            pinch, pointer-id ownership, pointercancel), and the
+                            camera. Three coordinate spaces: `world` (where nodes
+                            live — the physics clamp box), `stage` (the viewBox,
+                            held at the element's aspect ratio), and screen.
+                            The camera is a <g id="cam"> transform, so zooming
+                            never touches node coordinates. Callers MUST render
+                            into `G.layer.innerHTML` — assigning svg.innerHTML
+                            deletes the camera group — then call
+                            G.indexElements() and G.paint().
   recommend.js              "Find my reading path" wizard: 3-step (modal on desktop,
   recommend.css             bottom-sheet on mobile). Scores books by seniority +
                             focus + time. Self-contained; depends only on window.LIBRARY.

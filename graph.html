@@ -38,14 +38,64 @@ html[data-lang="en"] .atlas-head h1{font-family:Newsreader,"Times New Roman",ser
 .atlas-hud{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut-soft);margin:0 0 4px}
 html[data-lang="en"] .atlas-hud{font-family:var(--f-mono,'JetBrains Mono',monospace)}
 .atlas-stage{padding:8px clamp(16px,3vw,40px) 40px}
-#atlassvg{position:relative;display:block;width:100%;height:min(78vh,860px);min-height:480px;touch-action:none;cursor:grab}
+/* pan-y, not none: one finger belongs to the page, so the map is no longer a
+   scroll trap. Node drags still work — .node sets touch-action:none. */
+#atlassvg{position:relative;display:block;width:100%;height:min(78vh,860px);min-height:480px;touch-action:pan-y;cursor:grab}
 #atlassvg:active{cursor:grabbing}
 #atlassvg text{pointer-events:none;user-select:none}
-/* cross-book relation hairlines */
-.xlink{fill:none;stroke:var(--line-strong);stroke-width:1;stroke-dasharray:2 5;opacity:.55}
+/* cross-book relation hairlines. The map now opens undimmed, so 115 of these
+   are visible at once — they sit low enough to read as resting texture rather
+   than noise, and .hl still lifts the selected book's kin clear of it. */
+.xlink{fill:none;stroke:var(--line-strong);stroke-width:1;stroke-dasharray:2 5;opacity:.22}
 .xlink.hl{stroke:var(--sig);stroke-dasharray:none;opacity:.95;stroke-width:1.6}
-.xlink.dim{opacity:.1}
-/* atlas detail card: "open the book" pill */
+.xlink.dim{opacity:.07}
+/* an empty card would still paint a glass rectangle over the map */
+.detail:empty{display:none}
+
+/* ── SEARCH ─────────────────────────────────────────────────────────────────
+   Top-start, the slot the hint used to hold (the hint moves to bottom-start);
+   the camera cluster owns bottom-start's opposite corner and .greset the top
+   end. Sizing follows the existing control system — 40px pill, hairline. */
+.asearch{position:absolute;inset-inline-start:16px;top:16px;z-index:6;width:min(320px,46%)}
+.asearch .afield{display:flex;align-items:center;gap:8px;height:40px;padding:0 6px 0 12px;
+  background:var(--card);border:1px solid var(--line-strong);border-radius:9999px}
+html[dir="rtl"] .asearch .afield{padding:0 12px 0 6px}
+.asearch .afield:focus-within{border-color:var(--sig)}
+.asearch .aicon{width:15px;height:15px;flex:0 0 auto;color:var(--mut);stroke:currentColor;fill:none;stroke-width:2}
+.asearch input{flex:1 1 auto;min-width:0;border:0;background:transparent;color:var(--ink);font:inherit;font-size:14px;outline:0}
+.asearch input::-webkit-search-cancel-button{display:none}
+.asearch input::placeholder{color:var(--mut-soft)}
+.aclear{flex:0 0 auto;width:26px;height:26px;display:grid;place-items:center;border:0;border-radius:50%;
+  background:transparent;color:var(--mut);cursor:pointer;font:inherit;font-size:16px;line-height:1}
+.aclear:hover{background:var(--card2);color:var(--ink)}
+.alist{list-style:none;margin:6px 0 0;padding:6px;max-height:min(46vh,360px);overflow:auto;
+  background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow-lg)}
+.alist li{display:flex;align-items:center;gap:9px;padding:8px 10px;border-radius:9px;cursor:pointer;font-size:13.5px;color:var(--ink)}
+.alist li[aria-selected="true"],.alist li:hover{background:var(--card2)}
+.alist li i{width:8px;height:8px;border-radius:2px;flex:0 0 auto}
+.alist .atxt{flex:1 1 auto;min-width:0}
+.alist .att{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.alist .asub{display:block;font-size:11.5px;color:var(--mut);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+html[data-lang="en"] .alist .asub{font-family:var(--f-mono);letter-spacing:.03em;text-transform:uppercase;font-size:10.5px}
+.alist .abadge{flex:0 0 auto;font-size:10px;color:var(--mut-soft);border:1px solid var(--line);border-radius:5px;padding:2px 5px}
+.alist .aempty{color:var(--mut);cursor:default;display:block}
+.alist .aempty:hover{background:transparent}
+/* the hint yields the top-start slot to search */
+.svgwrap .ghint{top:auto;bottom:16px}
+/* search emphasis is stroke + opacity, never a transform: the reduced-motion
+   block keeps those and suppresses transforms, so this reads the same in both */
+#atlassvg.searching .node:not(.qhit){opacity:.26}
+#atlassvg.searching .node.qhit circle{stroke:var(--sig);stroke-width:2.5}
+#atlassvg.searching .glink:not(.qhit){opacity:.08}
+#atlassvg.searching .xlink:not(.qhit){opacity:.05}
+.vh{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+@media(max-width:720px){ .asearch{inset-inline:16px;width:auto} }
+/* atlas detail card: close control + "open the book" pill */
+.detail{padding-top:18px}
+.dclose{position:absolute;top:10px;inset-inline-end:10px;width:28px;height:28px;display:grid;place-items:center;
+  border:0;border-radius:50%;background:transparent;color:var(--mut);font:inherit;font-size:18px;line-height:1;cursor:pointer;
+  transition:background var(--d1) var(--ease),color var(--d1) var(--ease)}
+.dclose:hover{background:var(--card2);color:var(--ink)}
 .detail .dgo{display:inline-flex;align-items:center;gap:8px;margin-top:14px;font-size:14px;font-weight:500;
   text-decoration:none;background:var(--accent);color:var(--accent-ink);border-radius:9999px;padding:9px 18px;
   transition:transform var(--d1) var(--ease-out),background var(--d1) var(--ease)}
@@ -86,12 +136,22 @@ html[data-lang="en"] .atlas-hud{font-family:var(--f-mono,'JetBrains Mono',monosp
   <div class="atlas-head">
     <p class="atlas-hud" aria-hidden="true"><span data-only="en">Atlas // 59 books // 18 groups</span><span data-only="fa">اطلس // ۵۹ کتاب // ۱۸ گروه</span></p>
     <h1><span data-only="en">Every book, one map.</span><span data-only="fa">همهٔ کتاب‌ها، یک نقشه.</span></h1>
-    <p class="dek"><span data-only="en">Eighteen skill groups and the fifty-nine books inside them — dashed lines mark kinship across groups. Click any node to read it; drag anything and the map gives way.</span><span data-only="fa">هجده گروهِ مهارتی و پنجاه‌ونه کتابِ درونشان — خط‌چین‌ها خویشاوندیِ میانِ گروه‌ها را نشان می‌دهند. روی هر گره کلیک کن تا بخوانی‌اش؛ هرچیزی را بکشی، نقشه جا باز می‌کند.</span></p>
+    <p class="dek"><span data-only="en">Eighteen skill groups and the fifty-nine books inside them — dashed lines mark kinship across groups. Search for a title, click any node to read it, and zoom in to find your way around.</span><span data-only="fa">هجده گروهِ مهارتی و پنجاه‌ونه کتابِ درونشان — خط‌چین‌ها خویشاوندیِ میانِ گروه‌ها را نشان می‌دهند. عنوانی را جست‌وجو کن، روی هر گره بزن تا بخوانی‌اش، و برای گشتن در نقشه بزرگ‌نمایی کن.</span></p>
   </div>
 
   <div class="atlas-stage">
     <div class="svgwrap">
       <svg id="atlassvg" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Atlas of all books"></svg>
+      <div class="asearch" id="asearch">
+        <div class="afield">
+          <svg class="aicon" viewBox="0 0 24 24" aria-hidden="true" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4 4"/></svg>
+          <input id="qin" type="search" dir="auto" autocomplete="off" spellcheck="false" enterkeyhint="go"
+                 role="combobox" aria-expanded="false" aria-controls="qlist" aria-autocomplete="list">
+          <button class="aclear" id="qclear" type="button" hidden>×</button>
+        </div>
+        <ul class="alist" id="qlist" role="listbox" hidden></ul>
+      </div>
+      <p class="vh" id="qstatus" aria-live="polite" aria-atomic="true"></p>
       <div class="ghint" id="ghint"></div>
       <button class="greset" id="greset"></button>
       <aside class="detail" id="detailHost" aria-live="polite"></aside>
@@ -100,6 +160,7 @@ html[data-lang="en"] .atlas-hud{font-family:var(--f-mono,'JetBrains Mono',monosp
 </div>
 
 <script src="assets/atlas.js"></script>
+<script src="assets/graph-camera.js"></script>
 <script>
 (function () {
   'use strict';
@@ -112,12 +173,24 @@ html[data-lang="en"] .atlas-hud{font-family:var(--f-mono,'JetBrains Mono',monosp
 
   var A = window.ATLAS || { groups: [], books: [], relations: [] };
   var svg = document.getElementById('atlassvg');
+  var wrap = svg.parentNode;
   var nodes = [], links = [], xlinks = [], sel = null;
-  var vbX = 0, vbY = 0, vbW = 1600, vbH = 1100;
-  var dragNode = null, dragEl = null, moved = false, startPt = null;
 
-  function byId(id){ for (var i=0;i<nodes.length;i++) if (nodes[i].id===id) return nodes[i]; return null; }
-  function bookById(slug){ return A.books.filter(function(b){ return b.slug===slug; })[0]; }
+  /* physics + drag + camera all live in assets/graph-camera.js, shared with the
+     per-book graphs. Only the layout, the markup and the selection logic below
+     are specific to the atlas. */
+  var G = GraphCamera.create({
+    svg: svg, host: wrap,
+    physics: { K_LINK:0.026, K_HOME:0.014, K_REPEL:190, VMAX:10, PAD:38 },
+    camera:  { minK:1, maxK:8 },
+    curv:    { glink:0.10, rel:0.14, xlink:0.22 },
+    onTap:   function(id){ selectNode(id); },
+    onBgTap: function(){ deselect(); },
+    onEngage: chrome,
+    onExpand: chrome
+  });
+
+  function byId(id){ return G.byId(id); }
 
   /* ── layout: group hubs on an ellipse, books fanned outward ── */
   function build(){
@@ -125,24 +198,28 @@ html[data-lang="en"] .atlas-hud{font-family:var(--f-mono,'JetBrains Mono',monosp
     /* the ellipse grows with the group count so hubs keep a constant gap:
        600×400 sat 16 groups ~160px apart, 690×460 does the same for 18 */
     var W = 1700, H = 1150, cx = W/2, cy = H/2, Rx = 690, Ry = 460;
-    var G = A.groups.length;
+    var GN = A.groups.length;
+    var seen = {};
     A.groups.forEach(function(g, i){
-      var a = -Math.PI/2 + i * (2*Math.PI/G);
+      var a = -Math.PI/2 + i * (2*Math.PI/GN);
       var gx = cx + Math.cos(a)*Rx, gy = cy + Math.sin(a)*Ry;
       nodes.push({ id:'g_'+g.num, kind:'hub', varc:g.varc, r:26, x:gx, y:gy, label:g.name, g:g });
+      seen['g_'+g.num] = 1;
       var mine = A.books.filter(function(b){ return b.groupNum===g.num; });
       var span = Math.PI * (mine.length > 3 ? 0.62 : 0.44);
       mine.forEach(function(b, j){
         var ba = a - span/2 + (mine.length>1 ? span*(j/(mine.length-1)) : 0);
         nodes.push({ id:'b_'+b.slug, kind:'book', varc:g.varc, r:13,
           x:gx + Math.cos(ba)*130, y:gy + Math.sin(ba)*130, label:b.book, b:b });
+        seen['b_'+b.slug] = 1;
         links.push({ s:'g_'+g.num, t:'b_'+b.slug });
       });
     });
     A.relations.forEach(function(r){
-      if (byId('b_'+r.a) && byId('b_'+r.b)) xlinks.push({ s:'b_'+r.a, t:'b_'+r.b, why:r.why });
+      if (seen['b_'+r.a] && seen['b_'+r.b]) xlinks.push({ s:'b_'+r.a, t:'b_'+r.b, why:r.why });
     });
-    /* fitted viewBox */
+    /* the WORLD box — the wall the physics clamps against. The camera moves
+       independently of it; the viewBox is derived from this by the module. */
     var mnX=1e9,mnY=1e9,mxX=-1e9,mxY=-1e9;
     nodes.forEach(function(n){
       var hw = n.kind==='hub' ? 84 : 66, below = n.r + 22;
@@ -150,31 +227,22 @@ html[data-lang="en"] .atlas-hud{font-family:var(--f-mono,'JetBrains Mono',monosp
       mnY=Math.min(mnY,n.y-n.r); mxY=Math.max(mxY,n.y+below);
     });
     var pad=30;
-    vbX=mnX-pad; vbY=mnY-pad; vbW=(mxX-mnX)+pad*2; vbH=(mxY-mnY)+pad*2;
-    svg.setAttribute('viewBox', vbX.toFixed(0)+' '+vbY.toFixed(0)+' '+vbW.toFixed(0)+' '+vbH.toFixed(0));
-    nodes.forEach(function(n){ n.hx=n.x; n.hy=n.y; n.vx=0; n.vy=0; });
-    links.forEach(function(l){ var a=byId(l.s), b=byId(l.t); l.rest=Math.hypot(b.x-a.x,b.y-a.y); });
+    G.setGraph(nodes, links, { x:mnX-pad, y:mnY-pad, w:(mxX-mnX)+pad*2, h:(mxY-mnY)+pad*2 });
     draw();
-    selectNode('g_1', true);
   }
 
   function shortTitle(n){
     var t = TX(n.label);
     return t.length > 26 ? t.slice(0, 24) + '…' : t;
   }
-  function linkPath(a,b,curv){
-    var mx=(a.x+b.x)/2,my=(a.y+b.y)/2,dx=b.x-a.x,dy=b.y-a.y;
-    var k=curv==null?0.10:curv;
-    return 'M'+a.x.toFixed(1)+' '+a.y.toFixed(1)+' Q'+(mx-dy*k).toFixed(1)+' '+(my+dx*k).toFixed(1)+' '+b.x.toFixed(1)+' '+b.y.toFixed(1);
-  }
   function draw(){
     var xl='', ln='', nd='';
     xlinks.forEach(function(l,i){ xl += '<path class="xlink" data-i="'+i+'" data-s="'+l.s+'" data-t="'+l.t+'"/>'; });
     links.forEach(function(l){ ln += '<path class="glink" data-s="'+l.s+'" data-t="'+l.t+'" stroke="var(--line)" stroke-width="1.4"/>'; });
     nodes.forEach(function(n){
-      var stroke='paint-order:stroke;stroke:var(--bg2);stroke-width:4px;stroke-linejoin:round';
       var fs = n.kind==='hub' ? 15 : 11.5;
-      var lab = '<text class="nlab" text-anchor="middle" y="'+(n.r+(n.kind==='hub'?20:15))+'" font-size="'+fs+'" font-weight="'+(n.kind==='hub'?'500':'400')+'" fill="var(--ink)" style="'+stroke+'">'+esc(shortTitle(n))+'</text>';
+      /* the halo lives in book.css so it can be divided by the camera scale */
+      var lab = '<text class="nlab" text-anchor="middle" y="'+(n.r+(n.kind==='hub'?20:15))+'" font-size="'+fs+'" font-weight="'+(n.kind==='hub'?'500':'400')+'" fill="var(--ink)">'+esc(shortTitle(n))+'</text>';
       var inside = n.kind==='hub'
         ? '<text text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="600" fill="var(--cink-'+String(n.varc).replace('--c-','')+', var(--bg))">'+(LANG==='fa'?faDigits(n.g.num):n.g.num)+'</text>'
         : '';
@@ -182,89 +250,29 @@ html[data-lang="en"] .atlas-hud{font-family:var(--f-mono,'JetBrains Mono',monosp
         + '<circle r="'+n.r+'" fill="var('+n.varc+')" fill-opacity="'+(n.kind==='book'?0.9:1)+'" stroke="var(--bg2)" stroke-width="2"/>'
         + inside + lab + '</g></g>';
     });
-    svg.innerHTML = '<g id="gx">'+xl+'</g><g id="glinks">'+ln+'</g><g id="grel"></g><g id="gnodes">'+nd+'</g>';
-    svg.querySelectorAll('.node').forEach(function(gEl){
-      gEl.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); selectNode(gEl.getAttribute('data-id')); } });
-      gEl.addEventListener('pointerdown', onDown);
-      gEl.addEventListener('click', function(){ if(!moved) selectNode(gEl.getAttribute('data-id')); });
-      gEl.addEventListener('pointerenter', function(){ if(!dragNode) gEl.classList.add('hover'); });
-      gEl.addEventListener('pointerleave', function(){ gEl.classList.remove('hover'); });
-    });
-    positions();
-  }
-  function positions(){
-    svg.querySelectorAll('.node').forEach(function(g){
-      var n=byId(g.getAttribute('data-id'));
-      g.setAttribute('transform','translate('+n.x.toFixed(1)+','+n.y.toFixed(1)+')');
-    });
-    svg.querySelectorAll('.glink,.rel').forEach(function(l){
-      var a=byId(l.getAttribute('data-s')), b=byId(l.getAttribute('data-t'));
-      if(a&&b) l.setAttribute('d', linkPath(a,b,l.classList.contains('rel')?0.14:0.10));
-    });
-    svg.querySelectorAll('.xlink').forEach(function(l){
-      var a=byId(l.getAttribute('data-s')), b=byId(l.getAttribute('data-t'));
-      if(a&&b) l.setAttribute('d', linkPath(a,b,0.22));
-    });
+    /* G.layer, never svg.innerHTML — the latter would delete the camera group */
+    G.layer.innerHTML = '<g id="gx">'+xl+'</g><g id="glinks">'+ln+'</g><g id="grel"></g><g id="gnodes">'+nd+'</g>';
+    G.indexElements();
+    G.paint();
   }
 
-  /* ── the same context-aware force simulation as the book graphs ── */
-  var SIM={raf:null,on:true};
-  try{ SIM.on=!matchMedia('(prefers-reduced-motion: reduce)').matches; }catch(e){}
-  var K_LINK=0.026,K_HOME=0.014,K_REPEL=190,DAMP=0.80,VMAX=10,SLEEP=0.035;
-  function clampNode(n){
-    n.x=Math.max(vbX+n.r,Math.min(vbX+vbW-n.r,n.x));
-    n.y=Math.max(vbY+n.r,Math.min(vbY+vbH-n.r,n.y));
-  }
-  function simStep(){
-    var i,j,a,b,dx,dy,d,f;
-    for(i=0;i<links.length;i++){ var l=links[i]; a=byId(l.s); b=byId(l.t);
-      dx=b.x-a.x; dy=b.y-a.y; d=Math.hypot(dx,dy)||1; f=K_LINK*(d-l.rest)/d;
-      if(a!==dragNode){a.vx+=dx*f;a.vy+=dy*f;}
-      if(b!==dragNode){b.vx-=dx*f;b.vy-=dy*f;} }
-    for(i=0;i<nodes.length;i++) for(j=i+1;j<nodes.length;j++){
-      a=nodes[i]; b=nodes[j]; dx=b.x-a.x; dy=b.y-a.y; d=dx*dx+dy*dy;
-      var min=a.r+b.r+38; if(d>min*min||d===0) continue;
-      d=Math.sqrt(d); f=K_REPEL*(1-d/min)/(d*d);
-      if(a!==dragNode){a.vx-=dx*f*d;a.vy-=dy*f*d;}
-      if(b!==dragNode){b.vx+=dx*f*d;b.vy+=dy*f*d;} }
-    var energy=0;
-    for(i=0;i<nodes.length;i++){ a=nodes[i]; if(a===dragNode) continue;
-      a.vx+=(a.hx-a.x)*K_HOME; a.vy+=(a.hy-a.y)*K_HOME;
-      a.vx*=DAMP; a.vy*=DAMP;
-      var sp=Math.hypot(a.vx,a.vy); if(sp>VMAX){a.vx=a.vx/sp*VMAX;a.vy=a.vy/sp*VMAX;}
-      a.x+=a.vx; a.y+=a.vy; clampNode(a);
-      energy+=a.vx*a.vx+a.vy*a.vy; }
-    return energy;
-  }
-  function simLoop(){ var e=simStep(); positions();
-    if(dragNode||e>SLEEP){ SIM.raf=requestAnimationFrame(simLoop); } else { SIM.raf=null; } }
-  function simWake(){ if(!SIM.on){ positions(); return; } if(SIM.raf==null) SIM.raf=requestAnimationFrame(simLoop); }
-
-  function toSvg(e){ var pt=svg.createSVGPoint(); pt.x=e.clientX; pt.y=e.clientY;
-    var m=svg.getScreenCTM(); if(!m) return {x:e.clientX,y:e.clientY};
-    return pt.matrixTransform(m.inverse()); }
-  var lastPt=null,lastPrev=null;
-  function onDown(e){ e.preventDefault();
-    dragNode=byId(e.currentTarget.getAttribute('data-id')); dragEl=e.currentTarget;
-    moved=false; startPt=toSvg(e); svg.style.cursor='grabbing';
-    lastPt={x:dragNode.x,y:dragNode.y}; lastPrev=lastPt;
-    dragEl.classList.remove('hover'); dragEl.classList.add('drag');
-    window.addEventListener('pointermove',onMove);
-    window.addEventListener('pointerup',onUp);
-    simWake(); }
-  function onMove(e){ if(!dragNode) return; var p=toSvg(e);
-    if(startPt&&(Math.abs(p.x-startPt.x)>4||Math.abs(p.y-startPt.y)>4)) moved=true;
-    lastPrev=lastPt; lastPt={x:p.x,y:p.y};
-    dragNode.x=p.x; dragNode.y=p.y; clampNode(dragNode);
-    dragNode.vx=0; dragNode.vy=0;
-    if(SIM.on){ simStep(); simWake(); }
-    positions(); }
-  function onUp(){ if(dragEl) dragEl.classList.remove('drag');
-    if(dragNode&&lastPt&&lastPrev&&SIM.on){ dragNode.vx=(lastPt.x-lastPrev.x)*0.9; dragNode.vy=(lastPt.y-lastPrev.y)*0.9; }
-    dragNode=null; dragEl=null; svg.style.cursor='grab';
-    window.removeEventListener('pointermove',onMove);
-    window.removeEventListener('pointerup',onUp);
-    simWake(); }
+  /* node affordances the camera module does not own. Delegated rather than
+     bound per node: at 77 nodes the old code attached 385 listeners and
+     re-attached them on every redraw. */
+  svg.addEventListener('keydown', function(e){
+    var el = e.target.closest && e.target.closest('.node'); if(!el) return;
+    if(e.key==='Enter'||e.key===' '){ e.preventDefault(); selectNode(el.getAttribute('data-id')); }
+  });
+  svg.addEventListener('pointerover', function(e){
+    var el = e.target.closest && e.target.closest('.node'); if(!el) return;
+    if(el.contains(e.relatedTarget)) return;
+    if(!G.isDragging()) el.classList.add('hover');
+  });
+  svg.addEventListener('pointerout', function(e){
+    var el = e.target.closest && e.target.closest('.node'); if(!el) return;
+    if(el.contains(e.relatedTarget)) return;
+    el.classList.remove('hover');
+  });
 
   /* ── selection: highlight kin, show the reading card ── */
   function relatedOf(n){
@@ -303,14 +311,28 @@ html[data-lang="en"] .atlas-hud{font-family:var(--f-mono,'JetBrains Mono',monosp
     var g=svg.querySelector('#grel'), html='';
     rel.forEach(function(rid){
       var b=byId(rid); if(!b) return;
-      var d=linkPath(n,b,0.14), len=Math.hypot(b.x-n.x,b.y-n.y)*1.5;
+      var d=G.linkPath(n,b,0.14), len=Math.hypot(b.x-n.x,b.y-n.y)*1.5;
       html+='<path class="rel'+(instant?'':' draw')+'" data-s="'+n.id+'" data-t="'+rid+'" style="--len:'+len.toFixed(0)+'" stroke-width="1.8" d="'+d+'"/>';
     });
     g.innerHTML=html;
+    G.indexElements();          /* the new .rel paths must follow the sim too */
     renderDetail(n);
+  }
+  /* clearing the selection was impossible before: the background click
+     re-selected, and there was no Escape handler on this page at all */
+  function deselect(){
+    sel=null;
+    svg.querySelectorAll('.node').forEach(function(g){ g.classList.remove('sel','dim','hl'); });
+    svg.querySelectorAll('.xlink,.glink').forEach(function(l){ l.classList.remove('dim','hl'); });
+    var g=svg.querySelector('#grel'); if(g) g.innerHTML='';
+    G.indexElements();
+    renderDetail(null);
   }
   function renderDetail(n){
     var host=document.getElementById('detailHost'), html='';
+    /* no selection = no card. The empty card would otherwise still paint a
+       glass rectangle over the map (border + padding + background). */
+    if(!n){ host.innerHTML=''; host.classList.remove('pop'); return; }
     if(n.kind==='hub'){
       var mine=A.books.filter(function(b){ return b.groupNum===n.g.num; });
       html='<div class="dkick"><i style="background:var('+n.varc+')"></i>'
@@ -330,29 +352,220 @@ html[data-lang="en"] .atlas-hud{font-family:var(--f-mono,'JetBrains Mono',monosp
         +'<a class="dgo" href="'+encodeURI(b.folder+'/'+b.slug+'.html')+'">'
         +(LANG==='fa'?'بازکردنِ کتاب':'Open the book')+'</a>';
     }
+    /* the card floats over ~42% of the map with nothing to move it aside, so it
+       needs its own dismissal, not just Escape */
+    html += '<button type="button" class="dclose" id="dclose" aria-label="'
+      + (LANG==='fa'?'بستن':'Close') + '" title="' + (LANG==='fa'?'بستن':'Close') + '">×</button>';
     host.innerHTML=html;
+    document.getElementById('dclose').addEventListener('click', deselect);
     host.classList.remove('pop'); void host.offsetWidth; host.classList.add('pop');
   }
 
+  /* ── SEARCH ───────────────────────────────────────────────────────────────
+     59 books had no findability at all. Both languages are indexed at once, so
+     a Persian reader can type an English title and the result set survives the
+     language toggle unchanged — only the labels swap. */
+
+  /* Normalisation is the whole design. 26 of 59 Persian titles and 5 of 18
+     group names carry harakat or ZWNJ (نرخِ موفقیتِ محصول, ذوق و پیشه‌وری), so a
+     plain indexOf returns nothing for a group whose name is on screen. */
+  function norm(s){
+    return String(s==null?'':s)
+      .replace(/&amp;/g,'&').replace(/&/g,' and ')
+      .toLowerCase()
+      .replace(/[ً-ْٰـ]/g,'')          /* harakat + tatweel */
+      .replace(/[​-‏⁦-⁩؜]/g,'')   /* ZWNJ/ZWJ/bidi marks */
+      .replace(/ي/g,'ی').replace(/ك/g,'ک')  /* Arabic yeh/kaf */
+      .replace(/ة/g,'ه').replace(/[أإآ]/g,'ا')
+      .replace(/[۰-۹]/g, function(d){ return String(d.charCodeAt(0)-0x06F0); })
+      .replace(/[٠-٩]/g, function(d){ return String(d.charCodeAt(0)-0x0660); })
+      .replace(/[’‘'`*]/g,'')
+      .replace(/\s+/g,' ').trim();
+  }
+  /* two keys per string: ZWNJ as a space and ZWNJ collapsed away, so both
+     «پیشه وری» and «پیشهوری» match «پیشه‌وری» */
+  function keys(s){
+    var a = norm(String(s==null?'':s).replace(/‌/g,' '));
+    var b = norm(s).replace(/ /g,'');
+    return a + ' ' + b;
+  }
+
+  var INDEX = [];
+  function buildIndex(){
+    INDEX = [];
+    A.groups.forEach(function(g){
+      INDEX.push({ id:'g_'+g.num, kind:'hub', varc:g.varc, title:g.name,
+        sub:{ en:'Group '+('0'+g.num).slice(-2), fa:'گروهِ '+faDigits(g.num) },
+        t: keys(g.name.en)+' '+keys(g.name.fa), m:'', d:'' });
+    });
+    A.books.forEach(function(b){
+      var au = b.author || {en:'',fa:''};
+      INDEX.push({ id:'b_'+b.slug, kind:'book', varc:(A.groups.filter(function(g){return g.num===b.groupNum;})[0]||{}).varc,
+        title:b.book, sub:{ en:TXof(b.group,'en')+' · '+TXof(b.published,'en'), fa:TXof(b.group,'fa')+' · '+TXof(b.published,'fa') },
+        t: keys(b.book.en)+' '+keys(b.book.fa),
+        /* the slug sits with the title-adjacent fields, not the summary: it is
+           the title in URL form, and it carries what a censored title cannot —
+           "Sh*t" normalises to "sht", but the slug matches a query of "shit" */
+        m: keys(au.en)+' '+keys(au.fa)+' '+keys(b.group.en)+' '+keys(b.group.fa)
+           +' '+keys(b.published.en)+' '+keys(b.published.fa)+' '+b.slug.replace(/-/g,' '),
+        d: keys((b.summary?b.summary.en+' '+b.summary.fa:''))+' '+keys(b.coreLine.en)+' '+keys(b.coreLine.fa) });
+    });
+  }
+  function TXof(o,l){ return o==null?'':(typeof o==='string'?o:o[l]); }
+
+  function search(q){
+    var toks = norm(q).split(' ').filter(Boolean);
+    if(!toks.length) return [];
+    var out = [];
+    INDEX.forEach(function(e){
+      var hay = e.t+' '+e.m+' '+e.d;
+      for(var i=0;i<toks.length;i++) if(hay.indexOf(toks[i])<0) return;  /* every token must appear */
+      var t0 = toks[0], rank;
+      /* a title word starting with the first token beats one that merely
+         contains it, which beats an author/group hit, which beats a summary hit */
+      if(e.t.indexOf(t0)===0 || e.t.indexOf(' '+t0)>=0) rank = 0;
+      else if(e.t.indexOf(t0)>=0) rank = 1;
+      else if(e.m.indexOf(t0)>=0) rank = 2;
+      else rank = 3;
+      out.push({ e:e, rank:rank });
+    });
+    out.sort(function(a,b){ return a.rank-b.rank || TX(a.e.title).localeCompare(TX(b.e.title)); });
+    return out;
+  }
+
+  var qin=document.getElementById('qin'), qlist=document.getElementById('qlist'),
+      qclear=document.getElementById('qclear'), qstatus=document.getElementById('qstatus');
+  var results=[], active=-1, statusTimer=null;
+
+  function applyQuery(){
+    var q = qin.value;
+    qclear.hidden = !q;
+    results = search(q); active = -1;
+    if(!q){
+      svg.classList.remove('searching');
+      svg.querySelectorAll('.qhit').forEach(function(el){ el.classList.remove('qhit'); });
+      qlist.hidden = true; qlist.innerHTML=''; qin.setAttribute('aria-expanded','false');
+      say('');
+      return;
+    }
+    var hit = {}; results.forEach(function(r){ hit[r.e.id]=1; });
+    svg.classList.add('searching');
+    svg.querySelectorAll('.node').forEach(function(g){ g.classList.toggle('qhit', !!hit[g.getAttribute('data-id')]); });
+    /* an edge stays lit only when BOTH ends match, so the web between results
+       survives instead of turning to mud */
+    svg.querySelectorAll('.glink,.xlink').forEach(function(l){
+      l.classList.toggle('qhit', !!hit[l.getAttribute('data-s')] && !!hit[l.getAttribute('data-t')]);
+    });
+    renderList();
+    say(results.length
+      ? (LANG==='fa' ? faDigits(results.length)+' نتیجه' : results.length+' results')
+      : (LANG==='fa' ? 'چیزی پیدا نشد' : 'No match'));
+  }
+  function renderList(){
+    var html='', max=Math.min(results.length,8);
+    if(!results.length){
+      html = '<li class="aempty">'+(LANG==='fa'
+        ? 'چیزی پیدا نشد. نامِ نویسنده یا یک موضوع را امتحان کن.'
+        : 'Nothing matches. Try an author or a topic.')+'</li>';
+    } else {
+      for(var i=0;i<max;i++){
+        var r=results[i], e=r.e;
+        html += '<li role="option" data-id="'+e.id+'" data-i="'+i+'" aria-selected="'+(i===active)+'">'
+          + '<i style="background:var('+e.varc+')"></i>'
+          + '<span class="atxt"><span class="att">'+esc(TX(e.title))+'</span>'
+          + '<span class="asub">'+esc(TX(e.sub))+'</span></span>'
+          + (r.rank===3 ? '<span class="abadge">'+(LANG==='fa'?'در خلاصه':'in summary')+'</span>' : '')
+          + '</li>';
+      }
+      if(results.length>max){
+        var k=results.length-max;
+        html += '<li class="aempty">'+(LANG==='fa' ? '+'+faDigits(k)+' مورد دیگر' : '+'+k+' more')+'</li>';
+      }
+    }
+    qlist.innerHTML=html; qlist.hidden=false; qin.setAttribute('aria-expanded','true');
+  }
+  function say(msg){
+    /* debounced: announcing on every keystroke is punishing on a screen reader */
+    if(statusTimer) clearTimeout(statusTimer);
+    statusTimer = setTimeout(function(){ qstatus.textContent = msg; }, 300);
+  }
+  function setActive(i){
+    if(!results.length) return;
+    active = (i+Math.min(results.length,8)) % Math.min(results.length,8);
+    qlist.querySelectorAll('li[role="option"]').forEach(function(li){
+      var on = +li.getAttribute('data-i')===active;
+      li.setAttribute('aria-selected', on);
+      if(on){ qin.setAttribute('aria-activedescendant', li.getAttribute('data-id')); li.scrollIntoView({block:'nearest'}); }
+    });
+  }
+  function commit(i){
+    var r = results[i==null?Math.max(active,0):i]; if(!r) return;
+    selectNode(r.e.id);
+    /* centre, never zoom-to-fit a single node: yanking the scale on every
+       arrow-key press is nauseating. Only lift the scale if it is below what
+       a label needs to be legible. */
+    var n = byId(r.e.id);
+    if(n) G.centerOn(n.x, n.y, Math.max(G.getCamera().k, 1.6));
+    qin.blur();
+  }
+  qin.addEventListener('input', applyQuery);
+  qclear.addEventListener('click', function(){ qin.value=''; applyQuery(); qin.focus(); });
+  qin.addEventListener('keydown', function(e){
+    if(e.key==='ArrowDown'){ e.preventDefault(); setActive(active+1); }
+    else if(e.key==='ArrowUp'){ e.preventDefault(); setActive(active-1); }
+    else if(e.key==='Enter'){ e.preventDefault(); commit(); }
+    else if(e.key==='Escape'){
+      /* first Escape clears, second blurs — and it must not also reach the
+         graph's Escape-deselects */
+      e.stopPropagation();
+      if(qin.value){ qin.value=''; applyQuery(); } else qin.blur();
+    }
+  });
+  qlist.addEventListener('click', function(e){
+    var li = e.target.closest('li[data-id]'); if(!li) return;
+    commit(+li.getAttribute('data-i'));
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.target && /^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName)) return;
+    if(e.key==='/' || ((e.metaKey||e.ctrlKey) && e.key.toLowerCase()==='k')){
+      e.preventDefault(); qin.focus(); qin.select();
+    }
+  });
+
   /* ── chrome ── */
   function chrome(){
+    /* the hint doubles as the engaged-state readout: until the map is clicked a
+       plain wheel scrolls the page, and saying so is what keeps click-to-engage
+       from reading as an inert graph */
+    var engaged = G.isEngaged();
     document.getElementById('ghint').textContent = LANG==='fa'
-      ? 'روی هر گره کلیک کن · بکش تا نقشه جا باز کند'
-      : 'Click any node to read · drag and the map gives way';
+      ? (engaged ? 'برای بزرگ‌نمایی بچرخان · بکش تا جابه‌جا شود · Esc برای خروج'
+                 : 'روی هر گره کلیک کن · بکش تا نقشه جا باز کند')
+      : (engaged ? 'Scroll to zoom · drag to pan · Esc to release'
+                 : 'Click any node to read · drag and the map gives way');
     document.getElementById('greset').textContent = LANG==='fa' ? '↺ چیدمان' : '↺ Reset';
+    qin.placeholder = LANG==='fa' ? 'جست‌وجوی کتاب، نویسنده، گروه' : 'Search books, authors, groups';
+    qin.setAttribute('aria-label', LANG==='fa' ? 'جست‌وجو در اطلس' : 'Search the atlas');
+    qclear.setAttribute('aria-label', LANG==='fa' ? 'پاک‌کردن جست‌وجو' : 'Clear search');
+    G.setStrings(LANG==='fa'
+      ? { zoomIn:'بزرگ‌نمایی', zoomOut:'کوچک‌نمایی', fit:'نمای کامل', expand:'تمام‌صفحه', collapse:'خروج از تمام‌صفحه' }
+      : { zoomIn:'Zoom in', zoomOut:'Zoom out', fit:'Fit the whole map', expand:'Expand to full screen', collapse:'Exit full screen' });
   }
-  document.getElementById('greset').addEventListener('click', function(){
-    if(SIM.on){ nodes.forEach(function(n){ n.vx=(n.hx-n.x)*0.2; n.vy=(n.hy-n.y)*0.2; }); simWake(); }
-    else { nodes.forEach(function(n){ n.x=n.hx; n.y=n.hy; }); positions(); }
+  document.getElementById('greset').addEventListener('click', function(){ G.reset(); });
+  document.addEventListener('keydown', function(e){
+    if(e.key==='Escape' && sel && !G.isExpanded()) deselect();
   });
-  svg.addEventListener('click', function(e){ if(!e.target.closest('.node')) selectNode(sel||'g_1', true); });
 
   document.getElementById('langBtn').addEventListener('click', function(){
     LANG = LANG==='fa' ? 'en' : 'fa';
     DL.setAttribute('data-lang',LANG); DL.setAttribute('lang',LANG);
     DL.setAttribute('dir', LANG==='fa'?'rtl':'ltr');
     try{ localStorage.setItem('pbl-lang',LANG); }catch(e){}
-    var keepSel = sel; build(); chrome(); if(keepSel) selectNode(keepSel, true);
+    /* the index covers both languages, so the result set is identical across
+       the toggle — only the row labels swap. Keep the query. */
+    var keepSel = sel; build(); buildIndex(); chrome();
+    if(keepSel) selectNode(keepSel, true);
+    applyQuery();
   });
   document.getElementById('themeBtn').addEventListener('click', function(){
     var t = DL.getAttribute('data-theme')==='dark' ? 'light' : 'dark';
@@ -360,7 +573,8 @@ html[data-lang="en"] .atlas-hud{font-family:var(--f-mono,'JetBrains Mono',monosp
     try{ localStorage.setItem('pbl-theme',t); }catch(e){}
   });
 
-  build(); chrome();
+  G.bind();
+  build(); buildIndex(); chrome();
 })();
 </script>
 </body>

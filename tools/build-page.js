@@ -184,6 +184,7 @@ const page = (title, json) => `<!DOCTYPE html>
 <div id="app"></div>
 
 <script src="../assets/library.js"></script>
+<script src="../assets/graph-camera.js"></script>
 <script src="../assets/book.js"></script>
 <script>
 /* ── CONTENT — everything unique to this book lives here ── */

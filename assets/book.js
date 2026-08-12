@@ -387,14 +387,29 @@
     });
   }
 
-  /* ── INTERACTIVE NETWORK GRAPH (deterministic radial layout, no physics) ── */
+  /* ── INTERACTIVE NETWORK GRAPH ───────────────────────────────────────────
+     Layout, markup and the readout live here; the physics, drag and camera
+     come from assets/graph-camera.js, shared with the Atlas. */
   var GRAPH = (function () {
-    var svg, nodes = [], links = [], sel = null, dragNode = null, dragEl = null, moved = false, startPt = null;
+    var svg, G = null, nodes = [], links = [], sel = null;
     var detailTimer = null;                        /* pending readout-swap exit */
-    var vbX = 0, vbY = 0, vbW = 1360, vbH = 760;   // fitted viewBox (computed from node bbox so nothing clips)
 
     function build() {
       svg = document.getElementById('netsvg');
+      if (!G) {
+        G = GraphCamera.create({
+          svg: svg, host: svg.parentNode,
+          physics: { K_LINK: 0.028, K_HOME: 0.012, K_REPEL: 210, VMAX: 11, PAD: 42 },
+          camera: { minK: 1, maxK: 8 },
+          curv: { glink: 0.10, rel: 0.14, xlink: 0.22 },
+          onTap: function (id) { select(id); },
+          onBgTap: function () { select('core'); },
+          onEngage: hint,
+          onExpand: hint
+        });
+        G.bind();
+        wireNodeAffordances();
+      }
       var gp = DATA.graph || {};
       /* elliptical layout in a nominal space; the viewBox is then FITTED to the node
          bounding box so no node/label ever clips, on any book (any part/chapter count). */
@@ -420,7 +435,9 @@
           links.push({ s: 'p_' + p.key, t: 'c_' + ck });
         });
       });
-      /* fit viewBox to content: include node radius + the label that sits below each node */
+      /* the WORLD box — the wall the physics clamps against, sized to the node
+         bbox plus each label so nothing clips. The camera moves independently
+         of it; the module derives the viewBox from this. */
       var minX = 1e9, minY = 1e9, maxX = -1e9, maxY = -1e9;
       nodes.forEach(function (n) {
         var below = n.kind === 'core' ? n.r : n.r + 26;         // label extends below non-core nodes
@@ -431,18 +448,12 @@
         maxY = Math.max(maxY, n.y + below);
       });
       var pad = 34;
-      vbX = minX - pad; vbY = minY - pad; vbW = (maxX - minX) + pad * 2; vbH = (maxY - minY) + pad * 2;
-      svg.setAttribute('viewBox', vbX.toFixed(0) + ' ' + vbY.toFixed(0) + ' ' + vbW.toFixed(0) + ' ' + vbH.toFixed(0));
-      nodes.forEach(function (n) { n.hx = n.x; n.hy = n.y; n.vx = 0; n.vy = 0; });
-      /* each link remembers its designed length — the spring's rest state */
-      links.forEach(function (l) {
-        var a = byId(l.s), b = byId(l.t);
-        l.rest = Math.hypot(b.x - a.x, b.y - a.y);
-      });
+      G.setGraph(nodes, links,
+        { x: minX - pad, y: minY - pad, w: (maxX - minX) + pad * 2, h: (maxY - minY) + pad * 2 });
       draw();
       select('core');
     }
-    function byId(id) { for (var i = 0; i < nodes.length; i++) if (nodes[i].id === id) return nodes[i]; return null; }
+    function byId(id) { return G ? G.byId(id) : null; }
 
     function draw() {
       var ln = '', nd = '';
@@ -461,145 +472,55 @@
           }
           var ly = n.r + (n.kind === 'part' ? 21 : 17);
           var fs = n.kind === 'part' ? 16 : 13;
-          var stroke = 'paint-order:stroke;stroke:var(--bg2);stroke-width:4px;stroke-linejoin:round';
-          below = '<text class="nlab" text-anchor="middle" y="' + ly + '" font-size="' + fs + '" font-weight="' + (n.kind === 'part' ? '500' : '400') + '" fill="var(--ink)" style="' + stroke + '">' + shortLabel(n) + '</text>';
+          /* the halo lives in book.css so it can be divided by the camera scale
+             — as a flat 4 user units it turned into a blob when zoomed in */
+          below = '<text class="nlab" text-anchor="middle" y="' + ly + '" font-size="' + fs + '" font-weight="' + (n.kind === 'part' ? '500' : '400') + '" fill="var(--ink)">' + shortLabel(n) + '</text>';
         }
         nd += '<g class="node' + (n.kind === 'core' ? ' ncore' : '') + '" data-id="' + n.id + '"'
           + ' tabindex="0" role="button" aria-label="' + esc(TX(n.label)) + '"><g class="ns">'
           + '<circle r="' + n.r + '" fill="var(' + n.varc + ')" fill-opacity="' + (n.kind === 'chap' ? 0.9 : 1) + '" stroke="var(--bg2)" stroke-width="2"/>'
           + inside + below + '</g></g>';
       });
-      svg.innerHTML = '<g id="glinks">' + ln + '</g><g id="grel"></g><g id="gnodes">' + nd + '</g>';
-      svg.querySelectorAll('.node').forEach(function (gEl) {
-        gEl.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); select(gEl.getAttribute('data-id')); } });
-        gEl.addEventListener('pointerdown', onDown);
-        gEl.addEventListener('click', function () { if (!moved) select(gEl.getAttribute('data-id')); });
-        gEl.addEventListener('pointerenter', function () { if (!dragNode) gEl.classList.add('hover'); });
-        gEl.addEventListener('pointerleave', function () { gEl.classList.remove('hover'); });
+      /* G.layer, never svg.innerHTML — the latter would delete the camera group */
+      G.layer.innerHTML = '<g id="glinks">' + ln + '</g><g id="grel"></g><g id="gnodes">' + nd + '</g>';
+      G.indexElements();
+      G.paint();
+    }
+    /* delegated once, not five listeners per node re-attached on every redraw */
+    function wireNodeAffordances() {
+      svg.addEventListener('keydown', function (e) {
+        var el = e.target.closest && e.target.closest('.node'); if (!el) return;
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); select(el.getAttribute('data-id')); }
       });
-      positions();
+      svg.addEventListener('pointerover', function (e) {
+        var el = e.target.closest && e.target.closest('.node'); if (!el) return;
+        if (el.contains(e.relatedTarget)) return;
+        if (!G.isDragging()) el.classList.add('hover');
+      });
+      svg.addEventListener('pointerout', function (e) {
+        var el = e.target.closest && e.target.closest('.node'); if (!el) return;
+        if (el.contains(e.relatedTarget)) return;
+        el.classList.remove('hover');
+      });
+    }
+    /* "//" prefix — the graph chrome speaks the same HUD annotation grammar it
+       floats over (language-neutral punctuation, logical start in RTL). The
+       text doubles as the engaged-state readout: until the map is clicked a
+       plain wheel scrolls the page, and saying so is what keeps
+       click-to-engage from reading as an inert graph. */
+    function hint() {
+      var el = document.getElementById('ghint'); if (!el) return;
+      var on = G && G.isEngaged();
+      el.textContent = LANG === 'fa'
+        ? (on ? '// برای بزرگ‌نمایی بچرخان · بکش تا جابه‌جا شود · Esc برای خروج'
+              : '// روی هر دایره کلیک کن تا بیشتر بخوانی · می‌توانی بکشی‌شان')
+        : (on ? '// Scroll to zoom · drag to pan · Esc to release'
+              : '// Click a node to read more · drag to move');
+      if (G) G.setStrings(LANG === 'fa'
+        ? { zoomIn: 'بزرگ‌نمایی', zoomOut: 'کوچک‌نمایی', fit: 'نمای کامل', expand: 'تمام‌صفحه', collapse: 'خروج از تمام‌صفحه' }
+        : { zoomIn: 'Zoom in', zoomOut: 'Zoom out', fit: 'Fit the whole map', expand: 'Expand to full screen', collapse: 'Exit full screen' });
     }
     function shortLabel(n) { return TX(n.label); }
-
-    /* gentle quadratic arc between two nodes (Linear-style curved connectors) */
-    function linkPath(a, b, curv) {
-      var mx = (a.x + b.x) / 2, my = (a.y + b.y) / 2, dx = b.x - a.x, dy = b.y - a.y;
-      var k = curv == null ? 0.10 : curv;
-      var cxp = mx - dy * k, cyp = my + dx * k;
-      return 'M' + a.x.toFixed(1) + ' ' + a.y.toFixed(1) + ' Q' + cxp.toFixed(1) + ' ' + cyp.toFixed(1) + ' ' + b.x.toFixed(1) + ' ' + b.y.toFixed(1);
-    }
-    function positions() {
-      svg.querySelectorAll('.node').forEach(function (g) {
-        var n = byId(g.getAttribute('data-id'));
-        g.setAttribute('transform', 'translate(' + n.x.toFixed(1) + ',' + n.y.toFixed(1) + ')');
-      });
-      svg.querySelectorAll('.glink,.rel').forEach(function (l) {
-        var a = byId(l.getAttribute('data-s')), b = byId(l.getAttribute('data-t'));
-        if (a && b) l.setAttribute('d', linkPath(a, b, l.classList.contains('rel') ? 0.14 : 0.10));
-      });
-    }
-
-    function toSvg(e) {
-      var pt = svg.createSVGPoint(); pt.x = e.clientX; pt.y = e.clientY;
-      var m = svg.getScreenCTM(); if (!m) return { x: e.clientX, y: e.clientY };
-      return pt.matrixTransform(m.inverse());
-    }
-    /* ── FORCE SIMULATION — the graph is context-aware: dragging any node
-       makes its neighbours give way and follow. Springs on every link pull
-       toward the designed length, close nodes repel so nothing overlaps, and
-       a weak "home" anchor keeps the overall composition legible and settles
-       everything back to order after release. The loop parks itself when the
-       energy drops, and prefers-reduced-motion gets the old single-node drag. */
-    var SIM = { raf: null, on: true };
-    try { SIM.on = !matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
-    var K_LINK = 0.028, K_HOME = 0.012, K_REPEL = 210, DAMP = 0.80, VMAX = 11, SLEEP = 0.035;
-
-    function clampNode(n) {
-      n.x = Math.max(vbX + n.r, Math.min(vbX + vbW - n.r, n.x));
-      n.y = Math.max(vbY + n.r, Math.min(vbY + vbH - n.r, n.y));
-    }
-    function simStep() {
-      var i, j, a, b, dx, dy, d, f;
-      /* springs along links */
-      for (i = 0; i < links.length; i++) {
-        var l = links[i]; a = byId(l.s); b = byId(l.t);
-        dx = b.x - a.x; dy = b.y - a.y; d = Math.hypot(dx, dy) || 1;
-        f = K_LINK * (d - l.rest) / d;
-        if (a !== dragNode) { a.vx += dx * f; a.vy += dy * f; }
-        if (b !== dragNode) { b.vx -= dx * f; b.vy -= dy * f; }
-      }
-      /* short-range repulsion (n is small — O(n²) is cheap here) */
-      for (i = 0; i < nodes.length; i++) for (j = i + 1; j < nodes.length; j++) {
-        a = nodes[i]; b = nodes[j];
-        dx = b.x - a.x; dy = b.y - a.y; d = dx * dx + dy * dy;
-        var min = a.r + b.r + 42;
-        if (d > min * min || d === 0) continue;
-        d = Math.sqrt(d); f = K_REPEL * (1 - d / min) / (d * d);
-        if (a !== dragNode) { a.vx -= dx * f * d; a.vy -= dy * f * d; }
-        if (b !== dragNode) { b.vx += dx * f * d; b.vy += dy * f * d; }
-      }
-      /* weak pull home + integrate */
-      var energy = 0;
-      for (i = 0; i < nodes.length; i++) {
-        a = nodes[i]; if (a === dragNode) continue;
-        a.vx += (a.hx - a.x) * K_HOME; a.vy += (a.hy - a.y) * K_HOME;
-        a.vx *= DAMP; a.vy *= DAMP;
-        /* terminal velocity — context shifts stay calm, never explosive */
-        var sp = Math.hypot(a.vx, a.vy);
-        if (sp > VMAX) { a.vx = a.vx / sp * VMAX; a.vy = a.vy / sp * VMAX; }
-        a.x += a.vx; a.y += a.vy;
-        clampNode(a);
-        energy += a.vx * a.vx + a.vy * a.vy;
-      }
-      return energy;
-    }
-    function simLoop() {
-      var e = simStep();
-      positions();
-      if (dragNode || e > SLEEP) { SIM.raf = requestAnimationFrame(simLoop); }
-      else { SIM.raf = null; }
-    }
-    function simWake() {
-      if (!SIM.on) { positions(); return; }
-      if (SIM.raf == null) SIM.raf = requestAnimationFrame(simLoop);
-    }
-
-    var lastPt = null, lastPrev = null;
-    function onDown(e) {
-      e.preventDefault();
-      dragNode = byId(e.currentTarget.getAttribute('data-id'));
-      dragEl = e.currentTarget;
-      moved = false; startPt = toSvg(e); svg.style.cursor = 'grabbing';
-      lastPt = { x: dragNode.x, y: dragNode.y }; lastPrev = lastPt;
-      dragEl.classList.remove('hover');
-      dragEl.classList.add('drag');           /* CSS lift while it travels */
-      window.addEventListener('pointermove', onMove);
-      window.addEventListener('pointerup', onUp);
-      simWake();
-    }
-    function onMove(e) {
-      if (!dragNode) return; var p = toSvg(e);
-      if (startPt && (Math.abs(p.x - startPt.x) > 4 || Math.abs(p.y - startPt.y) > 4)) moved = true;
-      lastPrev = lastPt; lastPt = { x: p.x, y: p.y };
-      dragNode.x = p.x; dragNode.y = p.y; clampNode(dragNode);
-      dragNode.vx = 0; dragNode.vy = 0;
-      /* the grabbed node tracks 1:1 — never deferred to the next frame; one
-         synchronous sim step makes the neighbours give way immediately too */
-      if (SIM.on) { simStep(); simWake(); }
-      positions();
-    }
-    function onUp() {
-      if (dragEl) dragEl.classList.remove('drag');
-      /* hand the release velocity to the node so a flick carries momentum */
-      if (dragNode && lastPt && lastPrev && SIM.on) {
-        dragNode.vx = (lastPt.x - lastPrev.x) * 0.9;
-        dragNode.vy = (lastPt.y - lastPrev.y) * 0.9;
-      }
-      dragNode = null; dragEl = null; svg.style.cursor = 'grab';
-      window.removeEventListener('pointermove', onMove);
-      window.removeEventListener('pointerup', onUp);
-      simWake();
-    }
 
     function keepSet(id) {
       var n = byId(id); if (!n || id === 'core') return null;
@@ -641,12 +562,13 @@
       var rel = relatedIds(node), html = '';
       rel.forEach(function (rid, ri) {
         var b = byId(rid); if (!b) return;
-        var d = linkPath(node, b, 0.14);
+        var d = G.linkPath(node, b, 0.14);
         var len = Math.hypot(b.x - node.x, b.y - node.y) * 1.5;
         /* sequential draw — the circuit traces one line at a time (45ms apart) */
         html += '<path class="rel draw" data-s="' + node.id + '" data-t="' + rid + '" style="--len:' + len.toFixed(0) + ';animation-delay:' + (ri * 45) + 'ms" stroke-width="2.2" d="' + d + '"/>';
       });
       g.innerHTML = html;
+      G.indexElements();          /* the new .rel paths must follow the sim too */
     }
 
     function select(id, instant) {
@@ -699,13 +621,13 @@
 
     return {
       build: build,
-      kick: function () {},
-      relabel: relabel,
-      reset: function () {
-        if (SIM.on) { nodes.forEach(function (n) { n.vx = (n.hx - n.x) * 0.2; n.vy = (n.hy - n.y) * 0.2; }); simWake(); }
-        else { nodes.forEach(function (n) { n.x = n.hx; n.y = n.hy; }); positions(); }
-      },
+      /* the graph tab can be display:none while the window resizes, which
+         leaves the stage stale — re-sync when it comes back into view */
+      kick: function () { if (G) { G.syncStage(); hint(); } },
+      relabel: function () { relabel(); hint(); },
+      reset: function () { if (G) G.reset(); },
       resetFocus: function () { select('core'); },
+      hint: hint,
       selectNode: function (id) { select(id); },
       hasNodes: function () { return nodes.length > 0; }
     };
@@ -776,9 +698,7 @@
     host.innerHTML = items.map(function (it) {
       return '<span><i style="background:var(' + it.c + ')"></i>' + (LANG === 'fa' ? faText(it.fa) : it.en) + '</span>';
     }).join('');
-    /* "//" prefix — the graph chrome speaks the same HUD annotation grammar it
-       floats over (language-neutral punctuation, renders at the logical start in RTL) */
-    document.getElementById('ghint').textContent = LANG === 'fa' ? '// روی هر دایره کلیک کن تا بیشتر بخوانی · می‌توانی بکشی‌شان' : '// Click a node to read more · drag to move';
+    GRAPH.hint();
     document.getElementById('greset').textContent = LANG === 'fa' ? '↺ چیدمان' : '↺ Reset';
   }
   function setupTabs() {
@@ -793,8 +713,9 @@
     document.getElementById('tabNet').onclick = function () { show(true); };
     document.getElementById('tabMap').onclick = function () { show(false); };
     document.getElementById('greset').onclick = function () { GRAPH.reset(); };
-    var svg = document.getElementById('netsvg');
-    svg.addEventListener('click', function (e) { if (!e.target.closest('.node')) GRAPH.resetFocus(); });
+    /* background taps come through the camera module's onBgTap, which fires
+       only for a real tap — the old listener here ignored the drag threshold,
+       so a drag ending off-node silently reset the selection */
   }
 
   /* ── toggles + boot ─────────────────────────────────────────────────────── */

@@ -246,7 +246,11 @@ html[data-lang="en"] .legend{font-family:var(--f-mono);font-size:12px;letter-spa
     linear-gradient(var(--line-soft) 1px,transparent 1px),
     linear-gradient(90deg,var(--line-soft) 1px,transparent 1px);
   background-size:56px 56px}
-#netsvg{position:relative;display:block;width:100%;height:min(72vh,720px);min-height:440px;touch-action:none;cursor:grab}
+/* touch-action:pan-y, not none: only a node drag needs to hijack touch, and a
+   drag can only start on a node (see .node below). With `none` here the graph
+   was a 440-720px scroll trap in the middle of every book page — a swipe that
+   began anywhere on it could not scroll the article. */
+#netsvg{position:relative;display:block;width:100%;height:min(72vh,720px);min-height:440px;touch-action:pan-y;cursor:grab}
 #netsvg:active{cursor:grabbing}
 #netsvg text{pointer-events:none;user-select:none}
 /* hint + reset — solid instrument plates (blur is reserved for navbar + .detail, §4.6) */
@@ -264,8 +268,51 @@ html[data-lang="en"] .greset{font-family:var(--f-mono);font-size:12px;font-weigh
 .greset:hover{background:var(--card2)}
 .greset:active{transform:scale(.97)}
 
+/* ── CAMERA ─────────────────────────────────────────────────────────────────
+   The graph draws inside #cam; zooming and panning move that group, never the
+   node coordinates, so the physics is untouched by the camera. */
+#cam{transition:none}
+/* discrete zooms (buttons, keyboard, double-click) ride a transition; the
+   module strips .live during continuous gestures so the camera never lags the
+   finger. Reduced motion drops transforms from the transition list further
+   down this file, so this is honoured with no extra code. */
+#cam.live{transition:transform var(--d3,.5s) var(--ease-out)}
+
+/* Label halo. stroke-width in SVG is USER units, so a flat 4px inflates with
+   the camera and becomes a --bg2 blob that eats glyph counters and erases the
+   links behind each label. The first declaration is the fallback; the second
+   divides by the published scale and is simply dropped where calc() on
+   stroke-width is unsupported. --k is written on gesture end, not per frame. */
+.nlab{paint-order:stroke;stroke:var(--bg2);stroke-linejoin:round;stroke-width:4px}
+.nlab{stroke-width:calc(4px / var(--k,1))}
+
+/* zoom / fit / expand cluster — bottom-start, clear of .ghint (top-start),
+   .greset (top-end) and .detail (top-end, 42% wide) in both directions */
+.gzoom{position:absolute;inset-inline-start:16px;bottom:16px;z-index:5;
+  display:flex;flex-direction:column;gap:1px;overflow:hidden;
+  border:1px solid var(--line-strong);border-radius:12px;background:var(--line-strong)}
+.gzoom button{width:38px;height:38px;display:grid;place-items:center;border:0;padding:0;
+  background:var(--card);color:var(--ink);cursor:pointer;
+  transition:background var(--d1) var(--ease),opacity var(--d1) var(--ease)}
+.gzoom button svg{width:17px;height:17px}
+.gzoom button:hover{background:var(--card2)}
+.gzoom button:active{background:var(--card2);transform:scale(.94)}
+.gzoom button:disabled{opacity:.35;cursor:default}
+.gzoom button:disabled:hover{background:var(--card)}
+
+/* engaged: the map has been clicked, so a plain wheel now zooms instead of
+   scrolling the page. Without a visible state this reads as an inert graph. */
+.svgwrap.engaged{border-color:var(--sig)}
+
+/* expand — the map takes the viewport, so there is no page behind it to
+   conflict with and every gesture (one-finger pan, pinch, drag) is available */
+.svgwrap.expanded{position:fixed;inset:0;z-index:60;border-radius:0;border:0;margin:0}
+.svgwrap.expanded #netsvg,.svgwrap.expanded #atlassvg{height:100vh;height:100dvh;max-height:none;touch-action:none}
+html.graph-expanded{overflow:hidden}
+
 /* nodes — inner <g class="ns"> scales; fill-box pins the pivot to the node */
-.node{cursor:pointer}
+/* the one place touch is ours: a drag always starts on a node */
+.node{cursor:pointer;touch-action:none}
 .ns{transform-box:fill-box;transform-origin:center;transition:transform var(--d2) var(--ease)}
 .node.hover .ns{transform:scale(1.12)}
 .node.sel  .ns{transform:scale(1.4)}

@@ -321,7 +321,7 @@ window.LIBRARY = [
     "folder": "09 - Sales & Marketing",
     "groupNum": 9,
     "group": {
-      "en": "Sales &amp; Marketing",
+      "en": "Sales & Marketing",
       "fa": "فروش و بازاریابی"
     },
     "book": {
@@ -334,7 +334,7 @@ window.LIBRARY = [
     "folder": "09 - Sales & Marketing",
     "groupNum": 9,
     "group": {
-      "en": "Sales &amp; Marketing",
+      "en": "Sales & Marketing",
       "fa": "فروش و بازاریابی"
     },
     "book": {
@@ -399,7 +399,7 @@ window.LIBRARY = [
     "folder": "11 - Taste & Craft",
     "groupNum": 11,
     "group": {
-      "en": "Taste &amp; Craft",
+      "en": "Taste & Craft",
       "fa": "ذوق و پیشه‌وری"
     },
     "book": {
@@ -412,7 +412,7 @@ window.LIBRARY = [
     "folder": "11 - Taste & Craft",
     "groupNum": 11,
     "group": {
-      "en": "Taste &amp; Craft",
+      "en": "Taste & Craft",
       "fa": "ذوق و پیشه‌وری"
     },
     "book": {
@@ -425,7 +425,7 @@ window.LIBRARY = [
     "folder": "11 - Taste & Craft",
     "groupNum": 11,
     "group": {
-      "en": "Taste &amp; Craft",
+      "en": "Taste & Craft",
       "fa": "ذوق و پیشه‌وری"
     },
     "book": {

@@ -1,7 +1,6 @@
 # ART DIRECTION — "Reading Instrument"
 
 > The incoming design direction for the Product Builder's Library.
-> Replaces `docs/DESIGN-elevenlabs.md` (soft editorial off-white / pastel orbs).
 > Reference basis: 10 client images — black-canvas calendar & HUD widgets, dot-matrix
 > font specimens, terminal/crypto landing pages, international-orange brutalist
 > posters, industrial product documentation, ASCII-render editorial dark.
@@ -482,4 +481,4 @@ The redesign is a reskin of a healthy machine. Do not touch:
 7. QA: both themes × both languages × mobile; contrast spot-checks; reduced
    motion/transparency; `node --check` on touched JS (none expected).
 
-*Author: art direction pass, July 2026. Supersedes DESIGN-elevenlabs.md.*
+*Author: art direction pass, July 2026.
