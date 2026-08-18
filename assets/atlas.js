@@ -248,6 +248,39 @@ window.ATLAS = {
       }
     },
     {
+      "slug": "the-pyramid-principle",
+      "folder": "01 - Communication",
+      "groupNum": 1,
+      "book": {
+        "en": "The Pyramid Principle",
+        "fa": "اصلِ هرم"
+      },
+      "group": {
+        "en": "Communication",
+        "fa": "ارتباط"
+      },
+      "author": {
+        "en": "Barbara Minto",
+        "fa": "باربارا مینتو"
+      },
+      "published": {
+        "en": "1987",
+        "fa": "۱۹۸۷"
+      },
+      "core": {
+        "en": "ANSWER FIRST",
+        "fa": "اول پاسخ"
+      },
+      "coreLine": {
+        "en": "Put the answer at the top and let everything below it support that answer. Every idea summarizes the ideas grouped beneath it, each level answers the question the level above raises, and each group is either a deduction or a set of same-kind ideas held in a real order.",
+        "fa": "پاسخ را در رأس بگذار و بگذار هرچه زیرش است از همان پاسخ پشتیبانی کند. هر ایده خلاصهٔ ایده‌های زیرِ خودش است، هر سطح به پرسشی که سطحِ بالاتر می‌سازد جواب می‌دهد، و هر گروه یا یک قیاس است یا مجموعه‌ای از ایده‌های هم‌جنس با ترتیبی واقعی."
+      },
+      "summary": {
+        "en": "Put the answer first and make every level below it summarise the one beneath — structure is thinking made visible.",
+        "fa": "اول جواب را بگو و بگذار هر لایه، لایهٔ زیرِ خودش را خلاصه کند — ساختار همان فکرکردنِ دیده‌شده است."
+      }
+    },
+    {
       "slug": "scaling-people",
       "folder": "02 - Executing",
       "groupNum": 2,
@@ -3015,6 +3048,38 @@ window.ATLAS = {
       "why": {
         "en": "Effectiveness is a learnable practice — so is running a project.",
         "fa": "اثربخشی تمرینی آموختنی است — اداره‌کردنِ پروژه هم همین‌طور."
+      }
+    },
+    {
+      "a": "the-pyramid-principle",
+      "b": "working-backwards",
+      "why": {
+        "en": "A six-page narrative needs a spine; the pyramid supplies it.",
+        "fa": "روایتِ شش‌صفحه‌ای به ستون فقرات نیاز دارد؛ هرم همان است."
+      }
+    },
+    {
+      "a": "the-pyramid-principle",
+      "b": "good-strategy-bad-strategy",
+      "why": {
+        "en": "Rumelt's fluff and Minto's blank assertions are one failure.",
+        "fa": "پُرگوییِ روملت و ادعاهای توخالیِ مینتو یک شکستِ واحدند."
+      }
+    },
+    {
+      "a": "the-pyramid-principle",
+      "b": "high-output-management",
+      "why": {
+        "en": "Grove's point exactly: the thinking happens while you write it.",
+        "fa": "حرفِ گرو دقیقاً همین است: فکرکردن هنگامِ نوشتن اتفاق می‌افتد."
+      }
+    },
+    {
+      "a": "the-pyramid-principle",
+      "b": "the-effective-executive",
+      "why": {
+        "en": "Both start by defining the problem, not by gathering answers.",
+        "fa": "هر دو با تعریفِ مسئله شروع می‌کنند، نه با جمع‌کردنِ جواب."
       }
     }
   ]

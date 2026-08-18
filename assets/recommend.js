@@ -93,6 +93,7 @@
     'empowered':                 { snr: ['senior', 'manager'] },
     'the-mom-test':              { len: 1, core: true },
     'dont-make-me-think':        { len: 1, core: true },
+    'the-pyramid-principle':     { intents: ['communicate', 'strategy'], snr: ['mid', 'senior', 'manager'], core: true },
     'refactoring-ui':            { len: 1 },
     'purple-cow':                { len: 1 },
     'the-war-of-art':            { len: 1 },

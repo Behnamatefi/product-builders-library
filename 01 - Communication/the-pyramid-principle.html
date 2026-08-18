@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<!-- Generated page. Edit CONTENT in the DATA object below; shared UI lives in ../assets/book.css + ../assets/book.js -->
+<html lang="en" dir="ltr" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Pyramid Principle — نقشهٔ دانش و یادگیری ۵ مرحله‌ای</title>
+
+<!-- Boot theme + language BEFORE paint to avoid a flash (shared library-wide keys) -->
+<script>
+(function(){
+  try{
+    var th = localStorage.getItem('pbl-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
+    document.documentElement.setAttribute('data-theme', th);
+  }catch(e){ document.documentElement.setAttribute('data-theme','light'); }
+  try{
+    var lg = localStorage.getItem('pbl-lang') || 'en';
+    document.documentElement.setAttribute('data-lang', lg);
+    document.documentElement.setAttribute('lang', lg);
+    document.documentElement.setAttribute('dir', lg==='fa' ? 'rtl' : 'ltr');
+  }catch(e){}
+})();
+</script>
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Newsreader:ital,opsz,wght@0,6..72,200..700;1,6..72,200..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/book.css">
+</head>
+<body>
+<div id="app"></div>
+
+<script src="../assets/library.js"></script>
+<script src="../assets/graph-camera.js"></script>
+<script src="../assets/book.js"></script>
+<script>
+/* ── CONTENT — everything unique to this book lives here ── */
+Book.mount({
+  "meta": {
+    "slug": "the-pyramid-principle",
+    "folder": "01 - Communication",
+    "groupNum": 1,
+    "group": {
+      "en": "Communication",
+      "fa": "ارتباط"
+    },
+    "author": {
+      "en": "Barbara Minto",
+      "fa": "باربارا مینتو"
+    },
+    "eyebrow_author": {
+      "en": "Barbara Minto",
+      "fa": "باربارا مینتو"
+    },
+    "book": {
+      "en": "The Pyramid Principle",
+      "fa": "اصلِ هرم"
+    },
+    "hero_title": {
+      "en": "The Pyramid Principle — Logic in Writing and Thinking",
+      "fa": "اصلِ هرم — منطق در نوشتن و اندیشیدن"
+    },
+    "dek": {
+      "en": "A knowledge graph of the whole book, plus a 5-stage path from a single sentence to expert-level mastery — with an example at every step.",
+      "fa": "نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از خیلی ساده تا حرفه‌ای — با یک مثال در هر مرحله."
+    },
+    "published": {
+      "en": "1987",
+      "fa": "۱۹۸۷"
+    },
+    "chips": [
+      {
+        "v": {
+          "en": "4",
+          "fa": "۴"
+        },
+        "l": {
+          "en": "Parts",
+          "fa": "بخش"
+        }
+      },
+      {
+        "v": {
+          "en": "12",
+          "fa": "۱۲"
+        },
+        "l": {
+          "en": "Ideas",
+          "fa": "ایده"
+        }
+      },
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Learning stages",
+          "fa": "مرحلهٔ یادگیری"
+        }
+      }
+    ],
+    "kboxes": [
+      {
+        "v": {
+          "en": "4",
+          "fa": "۴"
+        },
+        "l": {
+          "en": "Parts (writing · thinking · problem solving · presentation)",
+          "fa": "بخش (نوشتن · اندیشیدن · حلِ مسئله · ارائه)"
+        }
+      },
+      {
+        "v": {
+          "en": "12",
+          "fa": "۱۲"
+        },
+        "l": {
+          "en": "Ideas you can use",
+          "fa": "ایده برای استفاده"
+        }
+      },
+      {
+        "v": {
+          "en": "5",
+          "fa": "۵"
+        },
+        "l": {
+          "en": "Levels, simple → expert",
+          "fa": "مرحله، ساده تا حرفه‌ای"
+        }
+      },
+      {
+        "v": {
+          "en": "4",
+          "fa": "۴"
+        },
+        "l": {
+          "en": "The opening: situation · complication · question · answer",
+          "fa": "مقدمه: موقعیت · پیچیدگی · پرسش · پاسخ"
+        }
+      }
+    ],
+    "core_callout": {
+      "label": {
+        "en": "The core idea:",
+        "fa": "ایدهٔ اصلی:"
+      },
+      "en": "Put the <i>answer first</i>, then support it. Every idea must be a summary of the ideas grouped below it, each level must answer the question the level above raises, and each group must hold together by <i>deduction</i> or <i>induction</i>.",
+      "fa": "<i>اول پاسخ</i> را بگو، بعد پشتیبانی‌اش کن. هر ایده باید خلاصهٔ ایده‌هایی باشد که زیرش گروه شده‌اند، هر سطح باید به پرسشی که سطحِ بالاتر می‌سازد جواب بدهد، و هر گروه باید با <i>قیاس</i> یا <i>استقرا</i> به‌هم بچسبد."
+    },
+    "flow_callout": {
+      "label": {
+        "en": "Read it as a flow:",
+        "fa": "به‌صورتِ یک جریان بخوانش:"
+      },
+      "en": "structure the <b>writing</b> as a pyramid, force real order into the <b>thinking</b>, use the same logic in <b>problem solving</b>, then make the structure visible in the <b>presentation</b>.",
+      "fa": "<b>نوشتن</b> را به‌شکلِ هرم بساز، در <b>اندیشیدن</b> ترتیبِ واقعی را تحمیل کن، همان منطق را در <b>حلِ مسئله</b> به کار ببر، و بعد ساختار را در <b>ارائه</b> دیدنی کن."
+    }
+  },
+  "method": {
+    "en": "<p><b>Source:</b> the book <i>The Pyramid Principle: Logic in Writing and Thinking</i> by Barbara Minto, the 1987 edition of nine chapters. Her expanded 1996 text, <i>The Minto Pyramid Principle</i>, supersedes it: twelve chapters in four parts, adding problem solving and presentation.</p><p><b>How this was built:</b> the four parts and twelve ideas follow the book's own contents and were rewritten in plain language; named frameworks keep Minto's terms — SCQA, MECE, logic trees — and every link was checked against the author's own site.</p><p><b>Group:</b> Communication.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>",
+    "fa": "<p><b>منبع:</b> کتابِ «The Pyramid Principle» نوشتهٔ باربارا مینتو، ویرایشِ ۱۹۸۷ در نُه فصل. متنِ گسترده‌ترِ ۱۹۹۶ با نامِ «The Minto Pyramid Principle» جای آن را گرفت: دوازده فصل در چهار بخش، با افزودنِ حلِ مسئله و ارائه.</p><p><b>روشِ کار:</b> چهار بخش و دوازده ایده از فهرستِ خودِ کتاب گرفته و ساده‌نویسی شده؛ چارچوب‌های نام‌دار با همان نامِ مینتو آمده‌اند — موقعیت/پیچیدگی/پرسش/پاسخ، جامع و مانع، درختِ منطق — و همهٔ پیوندها با سایتِ خودِ نویسنده بررسی شده‌اند.</p><p><b>گروه:</b> «ارتباط».</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای متنِ کامل، خودِ کتاب را بخوان.</p>"
+  },
+  "flow": {
+    "en": [
+      "Writing",
+      "Thinking",
+      "Problem solving",
+      "Presentation"
+    ],
+    "fa": [
+      "نوشتن",
+      "اندیشیدن",
+      "حلِ مسئله",
+      "ارائه"
+    ]
+  },
+  "graph": {
+    "R2": 132,
+    "span": 70
+  },
+  "tldr": [
+    {
+      "en": "The whole book in one line: say your answer first, then group the support beneath it.",
+      "fa": "خلاصهٔ کلِ کتاب در یک جمله: اول پاسخت را بگو، بعد پشتیبانی را زیرش گروه کن."
+    },
+    {
+      "en": "Ideas form a <b>pyramid</b>: every idea is a summary of the ideas grouped below it.",
+      "fa": "ایده‌ها یک <b>هرم</b> می‌سازند: هر ایده خلاصهٔ ایده‌هایی است که زیرش گروه شده‌اند."
+    },
+    {
+      "en": "Two relationships hold it up: a <b>vertical</b> question-and-answer dialogue, and a <b>horizontal</b> group that is deductive or inductive.",
+      "fa": "دو رابطه سرِ پا نگهش می‌دارند: یک گفت‌وگوی <b>عمودیِ</b> پرسش و پاسخ، و یک گروهِ <b>افقی</b> که یا قیاسی است یا استقرایی."
+    },
+    {
+      "en": "Open by telling a story — <b>situation, complication, question, answer</b> — so the reader wants the answer before you give it.",
+      "fa": "با یک داستان شروع کن — <b>موقعیت، پیچیدگی، پرسش، پاسخ</b> — تا خواننده پیش از گرفتنِ پاسخ، بخواهدش."
+    },
+    {
+      "en": "Then impose real order — <b>time, structure, or degree</b> — keep groups <b>MECE</b>, and never write a heading that says nothing.",
+      "fa": "بعد ترتیبِ واقعی را تحمیل کن — <b>زمان، ساختار، یا درجهٔ اهمیت</b> — گروه‌ها را <b>جامع و مانع</b> نگه دار، و هیچ‌وقت عنوانی ننویس که چیزی نمی‌گوید."
+    }
+  ],
+  "parts": [
+    {
+      "key": "writing",
+      "varc": "--c-teal",
+      "name": {
+        "en": "Logic in Writing",
+        "fa": "منطق در نوشتن"
+      },
+      "tag": {
+        "en": "The structure",
+        "fa": "ساختار"
+      },
+      "gist": {
+        "en": "The pyramid itself: answer first, a vertical Q&A, horizontal groups, and an introduction told as a story.",
+        "fa": "خودِ هرم: اول پاسخ، یک گفت‌وگوی عمودی، گروه‌های افقی، و مقدمه‌ای که مثلِ داستان تعریف می‌شود."
+      },
+      "more": {
+        "en": "This is the part everyone quotes. The reader's mind groups whatever it receives, so you may as well do the grouping first: one governing thought on top, a few supporting groups beneath it, and an opening that makes the reader want your answer.",
+        "fa": "این همان بخشی است که همه نقلش می‌کنند. ذهنِ خواننده هرچه می‌گیرد را دسته‌بندی می‌کند، پس بهتر است تو زودتر این کار را بکنی: یک ایدهٔ حاکم در رأس، چند گروهِ پشتیبان زیرش، و شروعی که خواننده را تشنهٔ پاسخِ تو می‌کند."
+      },
+      "chapters": [
+        "pyramid",
+        "substructures",
+        "introduction"
+      ]
+    },
+    {
+      "key": "thinking",
+      "varc": "--c-blue",
+      "name": {
+        "en": "Logic in Thinking",
+        "fa": "منطق در اندیشیدن"
+      },
+      "tag": {
+        "en": "Real order",
+        "fa": "ترتیبِ واقعی"
+      },
+      "gist": {
+        "en": "Time, structure, or degree order — MECE groups, and summaries that actually say something.",
+        "fa": "ترتیبِ زمانی، ساختاری یا درجه‌ای — گروه‌های جامع و مانع، و خلاصه‌هایی که واقعاً چیزی می‌گویند."
+      },
+      "more": {
+        "en": "A pyramid can look tidy and still be empty. This part is Minto's quality check on the thinking behind it: name the order you used, prove the parts don't overlap and nothing is missing, and write summary lines that carry a message instead of a label.",
+        "fa": "یک هرم می‌تواند مرتب به‌نظر برسد و باز هم تهی باشد. این بخش، وارسیِ کیفیِ مینتو روی فکرِ پشتِ آن است: ترتیبی که به کار برده‌ای را نام ببر، ثابت کن اجزا روی هم نمی‌افتند و چیزی جا نمانده، و خطِ خلاصه‌ای بنویس که پیام دارد، نه برچسب."
+      },
+      "chapters": [
+        "order",
+        "mece",
+        "summaries"
+      ]
+    },
+    {
+      "key": "problem",
+      "varc": "--c-violet",
+      "name": {
+        "en": "Logic in Problem Solving",
+        "fa": "منطق در حلِ مسئله"
+      },
+      "tag": {
+        "en": "Before you write",
+        "fa": "پیش از نوشتن"
+      },
+      "gist": {
+        "en": "Define the problem, break it into a logic tree, then rebuild the findings as an answer.",
+        "fa": "مسئله را تعریف کن، به درختِ منطق بشکنش، بعد یافته‌ها را دوباره به‌شکلِ پاسخ بساز."
+      },
+      "more": {
+        "en": "Written for consultants, useful for anyone who ships. Most weak documents are weak because the problem was never defined: people analyze hard, then report everything they looked at. Define, structure, test — and only then write.",
+        "fa": "برای مشاورها نوشته شده، اما به کارِ هر کسی می‌آید که چیزی می‌سازد. بیشترِ سندهای ضعیف به این دلیل ضعیف‌اند که مسئله هیچ‌وقت تعریف نشده: آدم‌ها سخت تحلیل می‌کنند و بعد هر چیزی را که نگاه کرده‌اند گزارش می‌دهند. تعریف کن، ساختار بده، آزمایش کن — و تازه بعد بنویس."
+      },
+      "chapters": [
+        "define",
+        "trees",
+        "analysis"
+      ]
+    },
+    {
+      "key": "presentation",
+      "varc": "--c-amber",
+      "name": {
+        "en": "Logic in Presentation",
+        "fa": "منطق در ارائه"
+      },
+      "tag": {
+        "en": "Make it visible",
+        "fa": "دیدنی‌اش کن"
+      },
+      "gist": {
+        "en": "Reflect the pyramid on the page, on the screen, and inside the prose itself.",
+        "fa": "هرم را روی کاغذ، روی اسلاید، و در خودِ متن بازتاب بده."
+      },
+      "more": {
+        "en": "A perfect pyramid the reader can't see is wasted work. Headings, indentation, transitions, slide titles and topic sentences all exist for one purpose: to show the skeleton of your thinking without the reader having to reconstruct it.",
+        "fa": "هرمِ بی‌نقصی که خواننده نمی‌بیندش، کارِ هدررفته است. عنوان‌ها، تورفتگی، خط‌های گذار، عنوانِ اسلاید و جملهٔ اولِ پاراگراف همه برای یک کار هستند: نشان‌دادنِ اسکلتِ فکرِ تو، بدونِ اینکه خواننده مجبور باشد خودش بازسازی‌اش کند."
+      },
+      "chapters": [
+        "page",
+        "screen",
+        "prose"
+      ]
+    }
+  ],
+  "chapters": {
+    "pyramid": {
+      "part": "writing",
+      "n": 1,
+      "name": {
+        "en": "Why a Pyramid Structure",
+        "fa": "چرا ساختارِ هرمی"
+      },
+      "glabel": {
+        "en": "Pyramid",
+        "fa": "هرم"
+      },
+      "principle": {
+        "en": "Start with the answer. Ideas at any level must be summaries of the ideas grouped below them.",
+        "fa": "از پاسخ شروع کن. ایده‌های هر سطح باید خلاصهٔ ایده‌هایی باشند که زیرشان گروه شده‌اند."
+      },
+      "more": {
+        "en": "The mind sorts whatever it receives into groups. If you don't do the sorting, the reader will — badly, and while resenting you for it. A pyramid does the sorting up front: one governing thought at the top, a few groups beneath it, each group made of the same kind of idea.",
+        "fa": "ذهن هرچه می‌گیرد را دسته‌بندی می‌کند. اگر تو این کار را نکنی، خواننده می‌کند — بد، و با دلخوری از تو. هرم این کار را از اول انجام می‌دهد: یک ایدهٔ حاکم در رأس، چند گروه زیرش، و هر گروه از ایده‌های هم‌جنس."
+      },
+      "example": {
+        "en": "Lead with 'We should drop the free tier', then the three reasons — not the other way round.",
+        "fa": "با «باید پلنِ رایگان را حذف کنیم» شروع کن، بعد سه دلیل — نه برعکس."
+      },
+      "tip": {
+        "en": "Write the one-sentence answer before you write anything else.",
+        "fa": "پیش از هر چیز، پاسخِ یک‌جمله‌ای را بنویس."
+      },
+      "pitfall": {
+        "en": "Building up to the point, so the reader has to hunt for it.",
+        "fa": "مقدمه‌چینی تا رسیدن به حرفِ اصلی؛ خواننده مجبور می‌شود دنبالش بگردد."
+      }
+    },
+    "substructures": {
+      "part": "writing",
+      "n": 2,
+      "name": {
+        "en": "Vertical and Horizontal Relationships",
+        "fa": "رابطهٔ عمودی و افقی"
+      },
+      "glabel": {
+        "en": "Substructures",
+        "fa": "زیرساختِ هرم"
+      },
+      "principle": {
+        "en": "Vertically, each idea raises a question the level below answers; horizontally, a group must be deductive or inductive.",
+        "fa": "به‌شکلِ عمودی، هر ایده پرسشی می‌سازد که سطحِ پایین‌تر جوابش می‌دهد؛ به‌شکلِ افقی، هر گروه باید قیاسی باشد یا استقرایی."
+      },
+      "more": {
+        "en": "The vertical link is a dialogue: you assert, the reader thinks 'why?' or 'how?', and the level below answers. The horizontal link is logic: either a deductive chain — major premise, minor premise, therefore — or an inductive set of same-kind ideas you can cover with one plural noun.",
+        "fa": "پیوندِ عمودی یک گفت‌وگوست: تو ادعا می‌کنی، خواننده می‌پرسد «چرا؟» یا «چطور؟»، و سطحِ پایین‌تر جواب می‌دهد. پیوندِ افقی منطق است: یا زنجیرهٔ قیاسی — مقدمهٔ کبری، مقدمهٔ صغری، پس — یا مجموعه‌ای استقرایی از ایده‌های هم‌جنس که با یک اسمِ جمع پوششان می‌دهی."
+      },
+      "example": {
+        "en": "'Three reasons to raise the price' is inductive; 'usage is up, so capacity must grow' is deductive.",
+        "fa": "«سه دلیل برای گران‌کردنِ قیمت» استقرایی است؛ «مصرف بالا رفته، پس ظرفیت باید زیاد شود» قیاسی."
+      },
+      "tip": {
+        "en": "Name each group with a plural noun — reasons, risks, steps. If you can't, it isn't one group.",
+        "fa": "هر گروه را با یک اسمِ جمع نام‌گذاری کن — دلیل‌ها، ریسک‌ها، قدم‌ها. اگر نتوانستی، یک گروه نیست."
+      },
+      "pitfall": {
+        "en": "Mixing reasons, steps and risks in one list and calling it support.",
+        "fa": "قاطی‌کردنِ دلیل و قدم و ریسک در یک فهرست و اسمش را پشتیبانی گذاشتن."
+      }
+    },
+    "introduction": {
+      "part": "writing",
+      "n": 3,
+      "name": {
+        "en": "The Introduction as a Story",
+        "fa": "مقدمه به‌شکلِ داستان"
+      },
+      "glabel": {
+        "en": "SCQA",
+        "fa": "مقدمهٔ داستانی"
+      },
+      "principle": {
+        "en": "Tell the introduction as a story — situation, complication, question — and your answer becomes the top of the pyramid.",
+        "fa": "مقدمه را مثلِ یک داستان تعریف کن — موقعیت، پیچیدگی، پرسش — و پاسخِ تو رأسِ هرم می‌شود."
+      },
+      "more": {
+        "en": "The introduction reminds rather than informs: it only says things the reader already accepts, so it earns agreement before you argue. Say where things stood, what changed, the question that raises, and answer it. The key line under that answer previews the groups to come.",
+        "fa": "مقدمه یادآوری می‌کند، نه خبررسانی: فقط چیزهایی را می‌گوید که خواننده از قبل قبول دارد، و برای همین پیش از بحث، موافقت می‌گیرد. بگو اوضاع کجا بود، چه چیزی عوض شد، چه پرسشی از آن درمی‌آید — و جوابش را بده. «خطِ کلیدی» زیرِ آن پاسخ، گروه‌های بعدی را از پیش نشان می‌دهد."
+      },
+      "example": {
+        "en": "'Onboarding converted at 40%. It fell to 22% after the redesign. What do we fix? Bring back the old first screen.'",
+        "fa": "«نرخِ تبدیلِ آنبوردینگ ۴۰ درصد بود. بعد از طراحیِ تازه به ۲۲ درصد رسید. چه چیزی را درست کنیم؟ صفحهٔ اولِ قبلی را برگردانیم.»"
+      },
+      "tip": {
+        "en": "Build the pyramid top-down: answer, then question, then situation and complication.",
+        "fa": "هرم را از بالا به پایین بساز: اول پاسخ، بعد پرسش، بعد موقعیت و پیچیدگی."
+      },
+      "pitfall": {
+        "en": "An introduction full of new claims the reader has to argue with.",
+        "fa": "مقدمه‌ای پُر از ادعاهای تازه که خواننده باید سرشان بحث کند."
+      }
+    },
+    "order": {
+      "part": "thinking",
+      "n": 4,
+      "name": {
+        "en": "Imposing Logical Order",
+        "fa": "تحمیلِ ترتیبِ منطقی"
+      },
+      "glabel": {
+        "en": "Logical Order",
+        "fa": "ترتیبِ منطقی"
+      },
+      "principle": {
+        "en": "Every group takes one of three orders: time, structure, or degree. If it takes none, it hasn't been thought through.",
+        "fa": "هر گروه یکی از سه ترتیب را می‌گیرد: زمان، ساختار، یا درجهٔ اهمیت. اگر هیچ‌کدام را نگیرد، هنوز رویش فکر نشده."
+      },
+      "more": {
+        "en": "Time order follows a process step by step. Structural order divides a whole into its parts. Degree order ranks by importance, biggest first. Naming the order you used is the fastest way to notice the idea you left out.",
+        "fa": "ترتیبِ زمانی یک فرایند را قدم‌به‌قدم دنبال می‌کند. ترتیبِ ساختاری یک کل را به اجزایش تقسیم می‌کند. ترتیبِ درجه‌ای بر اساسِ اهمیت می‌چیند، بزرگ‌ترین اول. نام‌بردنِ ترتیبی که به کار برده‌ای، سریع‌ترین راه برای دیدنِ ایده‌ای است که جا انداخته‌ای."
+      },
+      "example": {
+        "en": "Three steps (time), three regions (structure), three risks worst-first (degree).",
+        "fa": "سه قدم (زمان)، سه منطقه (ساختار)، سه ریسک از بدترین به کم‌خطرترین (درجه)."
+      },
+      "tip": {
+        "en": "Before you finalize a list, say out loud which of the three orders it uses.",
+        "fa": "پیش از نهایی‌کردنِ یک فهرست، بلند بگو کدام‌یک از آن سه ترتیب را دارد."
+      },
+      "pitfall": {
+        "en": "A list in the order the ideas happened to occur to you.",
+        "fa": "فهرستی به همان ترتیبی که ایده‌ها اتفاقی به ذهنت رسیده‌اند."
+      }
+    },
+    "mece": {
+      "part": "thinking",
+      "n": 5,
+      "name": {
+        "en": "MECE Grouping",
+        "fa": "گروه‌بندیِ جامع و مانع"
+      },
+      "glabel": {
+        "en": "MECE",
+        "fa": "جامع و مانع"
+      },
+      "principle": {
+        "en": "Mutually exclusive, collectively exhaustive: the parts must not overlap, and together they must cover the whole.",
+        "fa": "جامع و مانع: اجزا نباید روی هم بیفتند، و روی‌هم‌رفته باید کلِ موضوع را بپوشانند."
+      },
+      "more": {
+        "en": "MECE is Minto's own coinage. It bites hardest in structural order, where you divide a whole the way you'd divide a company into its units. Overlap makes the reader hear the same point twice; a gap is the first thing a sharp critic will find.",
+        "fa": "«جامع و مانع» اصطلاحِ خودِ مینتوست. بیش از همه در ترتیبِ ساختاری به کار می‌آید، جایی که یک کل را همان‌طور تقسیم می‌کنی که یک شرکت را به واحدهایش. هم‌پوشانی باعث می‌شود خواننده یک حرف را دو بار بشنود؛ و شکاف، اولین چیزی است که یک منتقدِ تیز پیدا می‌کند."
+      },
+      "example": {
+        "en": "'New, returning, churned' covers every user exactly once. 'New, power users, mobile' does not.",
+        "fa": "«تازه‌وارد، بازگشته، ریزش‌کرده» هر کاربر را دقیقاً یک بار پوشش می‌دهد. «تازه‌وارد، کاربرِ حرفه‌ای، موبایلی» نه."
+      },
+      "tip": {
+        "en": "Test every group twice: does anything overlap, and is anything missing?",
+        "fa": "هر گروه را دو بار امتحان کن: چیزی روی هم افتاده؟ چیزی جا مانده؟"
+      },
+      "pitfall": {
+        "en": "Categories that quietly overlap, so your numbers stop adding up.",
+        "fa": "دسته‌هایی که بی‌سروصدا هم‌پوشانی دارند و بعد جمعِ عددهایت درنمی‌آید."
+      }
+    },
+    "summaries": {
+      "part": "thinking",
+      "n": 6,
+      "name": {
+        "en": "Summarizing Grouped Ideas",
+        "fa": "خلاصه‌کردنِ ایده‌های گروه‌شده"
+      },
+      "glabel": {
+        "en": "Real Summaries",
+        "fa": "خلاصهٔ واقعی"
+      },
+      "principle": {
+        "en": "The line above a group must state what the group actually says — never an intellectually blank label.",
+        "fa": "خطی که بالای یک گروه می‌آید باید بگوید آن گروه واقعاً چه می‌گوید — نه یک برچسبِ تهی."
+      },
+      "more": {
+        "en": "Minto's warning is aimed at headings like 'Findings', 'Conclusions' and 'Next steps'. They name a container, not a thought. Force yourself to write the sentence the ideas below add up to; if you can't write it, the grouping is wrong.",
+        "fa": "هشدارِ مینتو متوجهِ عنوان‌هایی مثلِ «یافته‌ها»، «نتیجه‌گیری» و «قدم‌های بعدی» است. این‌ها اسمِ یک ظرف‌اند، نه یک فکر. خودت را مجبور کن جمله‌ای را بنویسی که ایده‌های زیرین روی‌هم می‌سازند؛ اگر نتوانستی بنویسی‌اش، گروه‌بندی غلط است."
+      },
+      "example": {
+        "en": "Not 'Findings', but 'Churn is a pricing problem, not a product problem'.",
+        "fa": "نه «یافته‌ها»، بلکه «ریزش یک مسئلهٔ قیمت است، نه محصول»."
+      },
+      "tip": {
+        "en": "Replace every section heading with the message of that section.",
+        "fa": "هر عنوانِ بخش را با پیامِ همان بخش عوض کن."
+      },
+      "pitfall": {
+        "en": "Headings that could sit on anyone's document, about anything.",
+        "fa": "عنوان‌هایی که روی سندِ هر کسی، دربارهٔ هر چیزی، جا می‌افتند."
+      }
+    },
+    "define": {
+      "part": "problem",
+      "n": 7,
+      "name": {
+        "en": "Defining the Problem",
+        "fa": "تعریفِ مسئله"
+      },
+      "glabel": {
+        "en": "Define It",
+        "fa": "تعریفِ مسئله"
+      },
+      "principle": {
+        "en": "Before you structure an answer, define the problem: where you were, what changed, and what you want instead.",
+        "fa": "پیش از ساختنِ پاسخ، مسئله را تعریف کن: کجا بودی، چه چیزی عوض شد، و به‌جایش چه می‌خواهی."
+      },
+      "more": {
+        "en": "A problem exists only when there is a result you don't want and a result you do. Write the starting point, the event that disturbed it, the result you're getting and the result you want — that gap is the question the whole pyramid answers.",
+        "fa": "مسئله فقط وقتی وجود دارد که یک نتیجهٔ ناخواسته باشد و یک نتیجهٔ خواسته. نقطهٔ شروع، اتفاقی که آن را به‌هم ریخت، نتیجه‌ای که می‌گیری و نتیجه‌ای که می‌خواهی را بنویس — همان فاصله، پرسشی است که کلِ هرم جوابش می‌دهد."
+      },
+      "example": {
+        "en": "'Activation was 55%. A new signup flow shipped. It's now 38%. We want 55% back.'",
+        "fa": "«فعال‌سازی ۵۵ درصد بود. مسیرِ ثبت‌نامِ تازه منتشر شد. حالا ۳۸ درصد است. ۵۵ را می‌خواهیم.»"
+      },
+      "tip": {
+        "en": "Write the problem in four lines before you open a doc or a deck.",
+        "fa": "پیش از بازکردنِ سند یا اسلاید، مسئله را در چهار خط بنویس."
+      },
+      "pitfall": {
+        "en": "Analyzing hard, then answering a question nobody asked.",
+        "fa": "تحلیلِ سنگین، و بعد جواب‌دادن به پرسشی که کسی نپرسیده بود."
+      }
+    },
+    "trees": {
+      "part": "problem",
+      "n": 8,
+      "name": {
+        "en": "Structuring the Analysis of the Problem",
+        "fa": "ساختاردادن به تحلیلِ مسئله"
+      },
+      "glabel": {
+        "en": "Logic Trees",
+        "fa": "درختِ منطق"
+      },
+      "principle": {
+        "en": "Break the problem into a tree of non-overlapping branches, then test the branches instead of guessing.",
+        "fa": "مسئله را به درختی از شاخه‌های بی‌هم‌پوشانی بشکن، بعد به‌جای حدس‌زدن، شاخه‌ها را آزمایش کن."
+      },
+      "more": {
+        "en": "A diagnostic framework shows the structure of the thing you're studying — the steps of a process, the parts of a system, the drivers of a number. Each branch becomes a question you can settle with data, and the tree stops you chasing whichever cause you thought of first.",
+        "fa": "چارچوبِ تشخیصی، ساختارِ چیزی را که مطالعه می‌کنی نشان می‌دهد — قدم‌های یک فرایند، اجزای یک سیستم، محرک‌های یک عدد. هر شاخه به پرسشی تبدیل می‌شود که با داده حلش می‌کنی، و درخت نمی‌گذارد دنبالِ اولین علتی بروی که به ذهنت رسیده."
+      },
+      "example": {
+        "en": "Revenue = users × conversion × price: three branches, each with its own data.",
+        "fa": "درآمد برابر است با کاربر ضربدر نرخِ تبدیل ضربدر قیمت: سه شاخه، هرکدام با دادهٔ خودش."
+      },
+      "tip": {
+        "en": "Turn each branch into a question you could answer yes or no this week.",
+        "fa": "هر شاخه را به پرسشی تبدیل کن که همین هفته بشود با بله یا خیر جوابش داد."
+      },
+      "pitfall": {
+        "en": "Jumping to a favorite cause and collecting evidence for it.",
+        "fa": "پریدن به علتِ محبوب و بعد جمع‌کردنِ شواهد برایش."
+      }
+    },
+    "analysis": {
+      "part": "problem",
+      "n": 9,
+      "name": {
+        "en": "From Analysis to Answer",
+        "fa": "از تحلیل تا پاسخ"
+      },
+      "glabel": {
+        "en": "To the Answer",
+        "fa": "رسیدن به پاسخ"
+      },
+      "principle": {
+        "en": "Your document is the pyramid of your conclusions, not a tour of the work you did.",
+        "fa": "سندِ تو هرمِ نتیجه‌گیری‌هایت است، نه گشت‌وگذاری در کارهایی که کرده‌ای."
+      },
+      "more": {
+        "en": "Once the analysis is done, the findings regroup under the answer: what you now believe, and why. The sequence you worked in is almost never the sequence the reader needs, so drop the chronology and rebuild the material as a pyramid.",
+        "fa": "وقتی تحلیل تمام شد، یافته‌ها زیرِ پاسخ دوباره گروه می‌شوند: حالا چه باور داری، و چرا. ترتیبی که در آن کار کرده‌ای تقریباً هیچ‌وقت ترتیبی نیست که خواننده لازم دارد؛ پس تاریخچه را کنار بگذار و مطالب را دوباره به‌شکلِ هرم بساز."
+      },
+      "example": {
+        "en": "Cut 'we interviewed 20 users, then ran a survey' — start with what you learned.",
+        "fa": "«با ۲۰ کاربر مصاحبه کردیم، بعد نظرسنجی گرفتیم» را حذف کن — با چیزی که فهمیدی شروع کن."
+      },
+      "tip": {
+        "en": "Delete the methodology section, or move it to the appendix.",
+        "fa": "بخشِ روشِ کار را حذف کن، یا ببرش به پیوست."
+      },
+      "pitfall": {
+        "en": "A report that lists everything you looked at.",
+        "fa": "گزارشی که فهرستِ همهٔ چیزهایی است که نگاه کرده‌ای."
+      }
+    },
+    "page": {
+      "part": "presentation",
+      "n": 10,
+      "name": {
+        "en": "Reflecting the Pyramid on the Printed Page",
+        "fa": "بازتابِ هرم روی صفحهٔ چاپی"
+      },
+      "glabel": {
+        "en": "On the Page",
+        "fa": "روی کاغذ"
+      },
+      "principle": {
+        "en": "Show the hierarchy: ranked headings, indented lists, and a transition between every major section.",
+        "fa": "سلسله‌مراتب را نشان بده: عنوان‌های مرتبه‌دار، فهرست‌های تورفته، و یک گذار بینِ هر دو بخشِ اصلی."
+      },
+      "more": {
+        "en": "The reader can't see the pyramid in your head; the layout has to reveal it. Headings at the same level should look the same and say the same kind of thing. Indentation marks what supports what. A one-line transition tells the reader where they've been and where they're going.",
+        "fa": "خواننده هرمِ داخلِ ذهنِ تو را نمی‌بیند؛ صفحه‌آرایی باید نشانش بدهد. عنوان‌های هم‌سطح باید شبیهِ هم باشند و از یک جنس حرف بزنند. تورفتگی نشان می‌دهد چه چیزی پشتیبانِ چه چیزی است. یک خطِ گذار به خواننده می‌گوید کجا بوده و کجا می‌رود."
+      },
+      "example": {
+        "en": "Three same-level headings, each a full sentence, each stating that section's message.",
+        "fa": "سه عنوانِ هم‌سطح، هرکدام یک جملهٔ کامل، هرکدام پیامِ همان بخش."
+      },
+      "tip": {
+        "en": "Read only your headings, top to bottom — they should tell the whole story.",
+        "fa": "فقط عنوان‌هایت را از بالا به پایین بخوان — باید کلِ ماجرا را بگویند."
+      },
+      "pitfall": {
+        "en": "Decorative formatting that hides the structure instead of showing it.",
+        "fa": "قالب‌بندیِ تزئینی که به‌جای نشان‌دادنِ ساختار، پنهانش می‌کند."
+      }
+    },
+    "screen": {
+      "part": "presentation",
+      "n": 11,
+      "name": {
+        "en": "Reflecting the Pyramid on the Screen",
+        "fa": "بازتابِ هرم روی اسلاید"
+      },
+      "glabel": {
+        "en": "On the Screen",
+        "fa": "روی اسلاید"
+      },
+      "principle": {
+        "en": "One slide carries one idea, and the title is that idea — written as a sentence, not a topic.",
+        "fa": "هر اسلاید یک ایده دارد، و عنوانش همان ایده است — به‌شکلِ یک جمله، نه یک موضوع."
+      },
+      "more": {
+        "en": "Build the deck from the pyramid you already have: the governing thought becomes the opening, the key line becomes the agenda, each supporting idea becomes a slide. Keep the words few — the audience is listening to you, not reading past you.",
+        "fa": "اسلایدها را از همان هرمی بساز که داری: ایدهٔ حاکم می‌شود شروع، خطِ کلیدی می‌شود فهرستِ مطالب، و هر ایدهٔ پشتیبان می‌شود یک اسلاید. کلمه‌ها را کم نگه دار — مخاطب به تو گوش می‌دهد، نه اینکه از رویت بخواند."
+      },
+      "example": {
+        "en": "Title the slide 'Churn doubled after the price change', not 'Churn'.",
+        "fa": "عنوانِ اسلاید را بگذار «ریزش بعد از تغییرِ قیمت دو برابر شد»، نه «ریزش»."
+      },
+      "tip": {
+        "en": "Write every slide title as a full sentence first; the chart comes after.",
+        "fa": "اول عنوانِ هر اسلاید را به‌شکلِ یک جملهٔ کامل بنویس؛ نمودار بعد می‌آید."
+      },
+      "pitfall": {
+        "en": "Dense slides read aloud word for word.",
+        "fa": "اسلایدهای پُرمتنی که کلمه‌به‌کلمه از رویشان خوانده می‌شود."
+      }
+    },
+    "prose": {
+      "part": "presentation",
+      "n": 12,
+      "name": {
+        "en": "Reflecting the Pyramid in Prose",
+        "fa": "بازتابِ هرم در متن"
+      },
+      "glabel": {
+        "en": "In Prose",
+        "fa": "در متن"
+      },
+      "principle": {
+        "en": "Inside a paragraph the structure must survive: put the point first and let the sentences support it.",
+        "fa": "درونِ پاراگراف هم ساختار باید بماند: حرفِ اصلی را اول بگذار و بگذار جمله‌ها پشتیبانی‌اش کنند."
+      },
+      "more": {
+        "en": "This is where the pyramid meets ordinary writing. A paragraph is a small pyramid — a point with its support beneath it — and a section is a larger one. Say plainly what you mean, and use an image only where it makes an abstract point concrete.",
+        "fa": "اینجا هرم به نوشتنِ روزمره می‌رسد. هر پاراگراف یک هرمِ کوچک است — یک حرف با پشتیبانی‌اش در زیر — و هر بخش، هرمی بزرگ‌تر. منظورت را ساده بگو، و فقط جایی تصویر به کار ببر که یک نکتهٔ انتزاعی را ملموس می‌کند."
+      },
+      "example": {
+        "en": "Start the paragraph with the claim, then give the two facts that back it.",
+        "fa": "پاراگراف را با ادعا شروع کن، بعد دو واقعیتی را بیاور که پشتش هستند."
+      },
+      "tip": {
+        "en": "Check that each paragraph's first sentence could stand alone as its summary.",
+        "fa": "بررسی کن که جملهٔ اولِ هر پاراگراف، تنها هم که باشد، خلاصهٔ آن پاراگراف بماند."
+      },
+      "pitfall": {
+        "en": "Perfect structure in the outline, mush in the paragraphs.",
+        "fa": "ساختارِ بی‌نقص در طرحِ کلی، و آشفتگی در پاراگراف‌ها."
+      }
+    }
+  },
+  "core": {
+    "name": {
+      "en": "ANSWER FIRST",
+      "fa": "اول پاسخ"
+    },
+    "principle": {
+      "en": "Put the answer at the top and let everything below it support that answer. Every idea summarizes the ideas grouped beneath it, each level answers the question the level above raises, and each group is either a deduction or a set of same-kind ideas held in a real order.",
+      "fa": "پاسخ را در رأس بگذار و بگذار هرچه زیرش است از همان پاسخ پشتیبانی کند. هر ایده خلاصهٔ ایده‌های زیرِ خودش است، هر سطح به پرسشی که سطحِ بالاتر می‌سازد جواب می‌دهد، و هر گروه یا یک قیاس است یا مجموعه‌ای از ایده‌های هم‌جنس با ترتیبی واقعی."
+    },
+    "more": {
+      "en": "Minto splits the method into four parts — Logic in Writing (the pyramid, the vertical and horizontal links, the story-shaped introduction), Logic in Thinking (time, structure and degree order, MECE, honest summaries), Logic in Problem Solving (define the problem, build a logic tree), and Logic in Presentation (page, screen, prose). The thread through all of it: structure the thinking first, and the writing gets easy.",
+      "fa": "مینتو این روش را در چهار بخش می‌چیند — منطق در نوشتن (هرم، پیوندِ عمودی و افقی، مقدمهٔ داستانی)، منطق در اندیشیدن (ترتیبِ زمانی و ساختاری و درجه‌ای، جامع و مانع، خلاصه‌های صادق)، منطق در حلِ مسئله (تعریفِ مسئله، ساختنِ درختِ منطق)، و منطق در ارائه (کاغذ، اسلاید، متن). نخِ رابطِ همه‌شان: اول به فکرت ساختار بده، آن‌وقت نوشتن آسان می‌شود."
+    },
+    "example": {
+      "en": "Click any node to read a principle or a method. You can also drag the nodes around.",
+      "fa": "روی هر دایره کلیک کن تا یک اصل یا روش را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."
+    }
+  },
+  "stages": [
+    {
+      "level": 1,
+      "badge": {
+        "en": "Level 1 · Over-simplified",
+        "fa": "سطحِ ۱ · خیلی ساده"
+      },
+      "title": {
+        "en": "Answer first",
+        "fa": "اول پاسخ"
+      },
+      "tagline": {
+        "en": "The whole book in a sentence.",
+        "fa": "کلِ کتاب در یک جمله."
+      },
+      "body": {
+        "en": "Say the answer in the first line, then explain it. Everything underneath exists to support that answer — nothing else earns a place.",
+        "fa": "پاسخ را در خطِ اول بگو، بعد توضیحش بده. هرچه زیرش می‌آید فقط برای پشتیبانی از همان پاسخ است — چیزِ دیگری جا ندارد."
+      },
+      "example": {
+        "en": "'We should delay the launch by two weeks' — then the three reasons.",
+        "fa": "«باید انتشار را دو هفته عقب بیندازیم» — بعد سه دلیل."
+      },
+      "gain": {
+        "en": "You hold the single rule the whole book expands on.",
+        "fa": "همان یک قاعده‌ای را داری که کلِ کتاب بسطش می‌دهد."
+      }
+    },
+    {
+      "level": 2,
+      "badge": {
+        "en": "Level 2 · Simple",
+        "fa": "سطحِ ۲ · ساده"
+      },
+      "title": {
+        "en": "Build the pyramid",
+        "fa": "هرم را بساز"
+      },
+      "tagline": {
+        "en": "One thought on top, groups beneath.",
+        "fa": "یک ایده در رأس، گروه‌ها در زیر."
+      },
+      "body": {
+        "en": "Ideas stack into a <b>pyramid</b>. One <b>governing thought</b> sits at the top; a few groups sit under it; their support sits under them. The rule that holds it up: every idea is a <b>summary</b> of the ideas grouped below it.",
+        "fa": "ایده‌ها به‌شکلِ <b>هرم</b> روی هم می‌نشینند. یک <b>ایدهٔ حاکم</b> در رأس؛ چند گروه زیرش؛ و پشتیبانی‌شان زیرِ آن‌ها. قاعده‌ای که سرِ پا نگهش می‌دارد: هر ایده <b>خلاصهٔ</b> ایده‌هایی است که زیرش گروه شده‌اند."
+      },
+      "example": {
+        "en": "Three reasons under one recommendation; two facts under each reason.",
+        "fa": "سه دلیل زیرِ یک پیشنهاد؛ دو واقعیت زیرِ هر دلیل."
+      },
+      "gain": {
+        "en": "You can sketch any document as a pyramid before writing it.",
+        "fa": "می‌توانی هر سندی را پیش از نوشتن، به‌شکلِ هرم بکشی."
+      }
+    },
+    {
+      "level": 3,
+      "badge": {
+        "en": "Level 3 · Balanced",
+        "fa": "سطحِ ۳ · متعادل"
+      },
+      "title": {
+        "en": "Link it and open it",
+        "fa": "پیوندش بده و شروعش کن"
+      },
+      "tagline": {
+        "en": "Vertical, horizontal, and the story opening.",
+        "fa": "عمودی، افقی، و شروعِ داستانی."
+      },
+      "body": {
+        "en": "Now the two links. <b>Vertically</b>, each idea raises a question the level below answers. <b>Horizontally</b>, a group is either <b>deductive</b> (premise, premise, therefore) or <b>inductive</b> (same-kind ideas under one plural noun). Then open with the story: <b>situation, complication, question, answer</b>.",
+        "fa": "حالا آن دو پیوند. به‌شکلِ <b>عمودی</b>، هر ایده پرسشی می‌سازد که سطحِ پایین‌تر جوابش می‌دهد. به‌شکلِ <b>افقی</b>، هر گروه یا <b>قیاسی</b> است (مقدمه، مقدمه، پس) یا <b>استقرایی</b> (ایده‌های هم‌جنس زیرِ یک اسمِ جمع). بعد با داستان شروع کن: <b>موقعیت، پیچیدگی، پرسش، پاسخ</b>."
+      },
+      "example": {
+        "en": "'Signups were flat. New pricing landed. Do we roll it back? Yes — for three reasons.'",
+        "fa": "«ثبت‌نام‌ها ثابت مانده بود. قیمت‌گذاریِ تازه آمد. برش گردانیم؟ بله — به سه دلیل.»"
+      },
+      "gain": {
+        "en": "You can write a memo the reader follows without effort.",
+        "fa": "می‌توانی یادداشتی بنویسی که خواننده بی‌زحمت دنبالش کند."
+      }
+    },
+    {
+      "level": 4,
+      "badge": {
+        "en": "Level 4 · Advanced",
+        "fa": "سطحِ ۴ · پیشرفته"
+      },
+      "title": {
+        "en": "Impose real order",
+        "fa": "ترتیبِ واقعی را تحمیل کن"
+      },
+      "tagline": {
+        "en": "Time, structure, degree — and MECE.",
+        "fa": "زمان، ساختار، درجه — و جامع و مانع."
+      },
+      "body": {
+        "en": "A list is lazy; order is thinking. Every group takes <b>time</b>, <b>structure</b> or <b>degree</b> order, and a group that divides a whole must be <b>MECE</b> — no overlap, no gap. Then audit your headings: 'Findings' and 'Conclusions' are <b>intellectually blank</b>. Write the sentence the group actually adds up to.",
+        "fa": "فهرست تنبلی است؛ ترتیب یعنی فکرکردن. هر گروه ترتیبِ <b>زمانی</b>، <b>ساختاری</b> یا <b>درجه‌ای</b> می‌گیرد، و گروهی که یک کل را تقسیم می‌کند باید <b>جامع و مانع</b> باشد — بی‌هم‌پوشانی، بی‌شکاف. بعد عنوان‌هایت را وارسی کن: «یافته‌ها» و «نتیجه‌گیری» <b>تهی</b> هستند. همان جمله‌ای را بنویس که گروه واقعاً می‌سازد."
+      },
+      "example": {
+        "en": "Replace 'Next steps' with 'Ship the fix this sprint, re-price in Q3'.",
+        "fa": "«قدم‌های بعدی» را با «این اسپرینت رفعِ اشکال منتشر شود، قیمت‌گذاری در فصلِ سوم» عوض کن."
+      },
+      "gain": {
+        "en": "Your structure survives a sharp reader's questions.",
+        "fa": "ساختارت جلوی پرسش‌های یک خوانندهٔ تیز دوام می‌آورد."
+      }
+    },
+    {
+      "level": 5,
+      "badge": {
+        "en": "Level 5 · Expert",
+        "fa": "سطحِ ۵ · حرفه‌ای"
+      },
+      "title": {
+        "en": "Think it, then show it",
+        "fa": "اول فکر، بعد نمایش"
+      },
+      "tagline": {
+        "en": "Problem solving, then presentation.",
+        "fa": "حلِ مسئله، بعد ارائه."
+      },
+      "body": {
+        "en": "The expert works the pyramid before writing a word. <b>Define the problem</b> — where you were, what changed, what you want — then break it into a <b>logic tree</b> of branches you can test. When the analysis is done, regroup the findings under the answer, not in the order you did the work. Finally make the structure visible: ranked headings and transitions <b>on the page</b>, one-idea sentence titles <b>on the screen</b>, a point-first sentence in every paragraph <b>in prose</b>.",
+        "fa": "آدمِ حرفه‌ای پیش از نوشتنِ یک کلمه روی هرم کار می‌کند. <b>مسئله را تعریف کن</b> — کجا بودی، چه چیزی عوض شد، چه می‌خواهی — بعد آن را به یک <b>درختِ منطق</b> از شاخه‌های آزمون‌پذیر بشکن. وقتی تحلیل تمام شد، یافته‌ها را زیرِ پاسخ دوباره گروه کن، نه به ترتیبی که کار را انجام داده‌ای. آخر، ساختار را دیدنی کن: عنوان‌های مرتبه‌دار و خط‌های گذار <b>روی کاغذ</b>، عنوان‌های یک‌ایده‌ایِ جمله‌وار <b>روی اسلاید</b>، و <b>در متن</b>، پاراگراف‌هایی که با حرفِ اصلی شروع می‌شوند."
+      },
+      "example": {
+        "en": "A one-page memo whose headings alone tell the story, backed by a tree you can defend.",
+        "fa": "یک یادداشتِ یک‌صفحه‌ای که فقط عنوان‌هایش کلِ ماجرا را می‌گویند، با درختی پشتش که می‌شود از آن دفاع کرد."
+      },
+      "gain": {
+        "en": "You can structure a hard problem and make anyone follow the answer.",
+        "fa": "می‌توانی یک مسئلهٔ سخت را ساختار بدهی و کاری کنی که هرکسی پاسخ را دنبال کند."
+      }
+    }
+  ],
+  "quotes": [
+    {
+      "en": "Ideas at any level in the pyramid must always be summaries of the ideas grouped below them.",
+      "fa": "ایده‌های هر سطح از هرم همیشه باید خلاصهٔ ایده‌هایی باشند که زیرشان گروه شده‌اند."
+    },
+    {
+      "en": "Ideas in each grouping must always be the same kind of idea.",
+      "fa": "ایده‌های هر گروه همیشه باید از یک جنس باشند."
+    },
+    {
+      "en": "Ideas in each grouping must always be logically ordered.",
+      "fa": "ایده‌های هر گروه همیشه باید ترتیبِ منطقی داشته باشند."
+    },
+    {
+      "en": "The purpose of the introduction is to remind rather than to inform.",
+      "fa": "کارِ مقدمه یادآوری است، نه خبردادن."
+    },
+    {
+      "en": "In Minto's terms: headings like 'Findings' or 'Conclusions' are intellectually blank assertions.",
+      "fa": "به زبانِ مینتو: عنوان‌هایی مثلِ «یافته‌ها» یا «نتیجه‌گیری» گزاره‌هایی تهی و بی‌فکرند."
+    },
+    {
+      "en": "Controlling the sequence in which you present your ideas is the single most important act necessary to clear writing.",
+      "fa": "کنترلِ ترتیبی که ایده‌ها را در آن ارائه می‌کنی، مهم‌ترین کارِ لازم برای نوشتنِ روشن است."
+    }
+  ],
+  "media": [
+    {
+      "kind": "img",
+      "url": "https://en.wikipedia.org/wiki/Barbara_Minto",
+      "src": {
+        "en": "Wikipedia · Barbara Minto",
+        "fa": "ویکی‌پدیا · باربارا مینتو"
+      },
+      "title": {
+        "en": "Who Barbara Minto Is",
+        "fa": "باربارا مینتو کیست"
+      },
+      "desc": {
+        "en": "Background on the first woman McKinsey hired as a consultant — she invented this method, and the term MECE.",
+        "fa": "پیشینهٔ نخستین زنی که مک‌کینزی به‌عنوانِ مشاور استخدام کرد — او هم این روش را ساخت، هم اصطلاحِ «جامع و مانع» را."
+      },
+      "bullets": {
+        "en": [
+          "From railway secretary to Harvard MBA",
+          "Her McKinsey years, 1963 to 1973",
+          "Where MECE came from"
+        ],
+        "fa": [
+          "از منشی‌گری تا فارغ‌التحصیلیِ هاروارد",
+          "سال‌های او در مک‌کینزی، ۱۹۶۳ تا ۱۹۷۳",
+          "«جامع و مانع» از کجا آمد"
+        ]
+      },
+      "best": {
+        "en": "For context before Stage 1.",
+        "fa": "برای زمینه، پیش از مرحلهٔ ۱."
+      }
+    },
+    {
+      "kind": "img",
+      "url": "https://www.barbaraminto.com/textbook",
+      "src": {
+        "en": "barbaraminto.com · The author",
+        "fa": "سایتِ نویسنده · باربارا مینتو"
+      },
+      "title": {
+        "en": "The Textbook, from the Author",
+        "fa": "کتابِ درسی، از خودِ نویسنده"
+      },
+      "desc": {
+        "en": "Minto's own page on the expanded textbook that adds problem solving and presentation.",
+        "fa": "صفحهٔ خودِ مینتو دربارهٔ ویرایشِ گسترده‌تر که حلِ مسئله و ارائه را اضافه می‌کند."
+      },
+      "bullets": {
+        "en": [
+          "Which edition supersedes which",
+          "What the expanded text adds",
+          "Straight from the source"
+        ],
+        "fa": [
+          "کدام ویرایش جای کدام را می‌گیرد",
+          "متنِ گسترده‌تر چه چیزی اضافه می‌کند",
+          "مستقیم از خودِ منبع"
+        ]
+      },
+      "best": {
+        "en": "For Stage 4–5 and the full method.",
+        "fa": "برای مرحلهٔ ۴ و ۵ و روشِ کامل."
+      }
+    }
+  ],
+  "go": [
+    {
+      "label": {
+        "en": "The book, from the author",
+        "fa": "کتاب، از خودِ نویسنده"
+      },
+      "url": "https://www.barbaraminto.com/textbook"
+    },
+    {
+      "label": {
+        "en": "The author's site: the concept",
+        "fa": "سایتِ نویسنده: خودِ ایده"
+      },
+      "url": "https://www.barbaraminto.com/concept"
+    },
+    {
+      "label": {
+        "en": "Book on Goodreads",
+        "fa": "کتاب در گودریدز"
+      },
+      "url": "https://www.goodreads.com/book/show/33206.The_Minto_Pyramid_Principle"
+    }
+  ],
+  "recs": [
+    {
+      "pri": "b",
+      "t": {
+        "en": "Move the answer to line one",
+        "fa": "پاسخ را ببر به خطِ اول"
+      },
+      "d": {
+        "en": "Take your last update and rewrite it so the recommendation is the first sentence.",
+        "fa": "آخرین گزارشت را بردار و طوری بازنویسی کن که پیشنهاد، جملهٔ اول باشد."
+      }
+    },
+    {
+      "pri": "b",
+      "t": {
+        "en": "Write the four opening lines",
+        "fa": "چهار خطِ شروع را بنویس"
+      },
+      "d": {
+        "en": "Before your next doc, write situation, complication, question, answer — one line each.",
+        "fa": "پیش از سندِ بعدی‌ات، موقعیت، پیچیدگی، پرسش و پاسخ را بنویس — هرکدام یک خط."
+      }
+    },
+    {
+      "pri": "n",
+      "t": {
+        "en": "Test one group for overlap",
+        "fa": "یک گروه را از نظرِ هم‌پوشانی امتحان کن"
+      },
+      "d": {
+        "en": "Pick a slide's bullets: same kind of idea, nothing overlapping, nothing missing?",
+        "fa": "بولت‌های یک اسلاید را بردار: هم‌جنس‌اند؟ چیزی روی هم افتاده؟ چیزی جا مانده؟"
+      }
+    },
+    {
+      "pri": "n",
+      "t": {
+        "en": "Kill the empty headings",
+        "fa": "عنوان‌های تهی را حذف کن"
+      },
+      "d": {
+        "en": "Replace 'Findings' and 'Next steps' with the message each section actually delivers.",
+        "fa": "«یافته‌ها» و «قدم‌های بعدی» را با پیامی عوض کن که هر بخش واقعاً می‌رساند."
+      }
+    }
+  ]
+});
+</script>
+</body>
+</html>

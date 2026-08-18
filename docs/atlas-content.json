@@ -235,6 +235,10 @@
     "project-management-beginners-guide": {
       "en": "Scope, schedule and cost move together — so define the work, break it down, and measure every week against the baseline.",
       "fa": "دامنه، زمان و هزینه با هم جابه‌جا می‌شوند — پس کار را تعریف کن، خردش کن، و هر هفته کارِ تمام‌شده را با خطِ مبنا بسنج."
+    },
+    "the-pyramid-principle": {
+      "en": "Put the answer first and make every level below it summarise the one beneath — structure is thinking made visible.",
+      "fa": "اول جواب را بگو و بگذار هر لایه، لایهٔ زیرِ خودش را خلاصه کند — ساختار همان فکرکردنِ دیده‌شده است."
     }
   },
   "relations": [
@@ -1156,6 +1160,38 @@
       "why": {
         "en": "Effectiveness is a learnable practice — so is running a project.",
         "fa": "اثربخشی تمرینی آموختنی است — اداره‌کردنِ پروژه هم همین‌طور."
+      }
+    },
+    {
+      "a": "the-pyramid-principle",
+      "b": "working-backwards",
+      "why": {
+        "en": "A six-page narrative needs a spine; the pyramid supplies it.",
+        "fa": "روایتِ شش‌صفحه‌ای به ستون فقرات نیاز دارد؛ هرم همان است."
+      }
+    },
+    {
+      "a": "the-pyramid-principle",
+      "b": "good-strategy-bad-strategy",
+      "why": {
+        "en": "Rumelt's fluff and Minto's blank assertions are one failure.",
+        "fa": "پُرگوییِ روملت و ادعاهای توخالیِ مینتو یک شکستِ واحدند."
+      }
+    },
+    {
+      "a": "the-pyramid-principle",
+      "b": "high-output-management",
+      "why": {
+        "en": "Grove's point exactly: the thinking happens while you write it.",
+        "fa": "حرفِ گرو دقیقاً همین است: فکرکردن هنگامِ نوشتن اتفاق می‌افتد."
+      }
+    },
+    {
+      "a": "the-pyramid-principle",
+      "b": "the-effective-executive",
+      "why": {
+        "en": "Both start by defining the problem, not by gathering answers.",
+        "fa": "هر دو با تعریفِ مسئله شروع می‌کنند، نه با جمع‌کردنِ جواب."
       }
     }
   ]

@@ -8,7 +8,7 @@ it is unrelated to any other CLAUDE.md that may exist in a parent folder.
 ## What this is
 
 A **bilingual (English / فارسی), right-to-left** static website: interactive
-knowledge-graph summaries of **59 essential product books**, grouped into **18
+knowledge-graph summaries of **60 essential product books**, grouped into **18
 skill groups** — the 15 from Lenny Rachitsky's "Essential books for product
 builders", plus three of our own: Self Mastery, Working with AI, and
 Delivery & Projects.
@@ -22,18 +22,18 @@ Delivery & Projects.
 ```
 index.html                  Catalog / home. Centered-logo masthead + "Find my
                             reading path" wizard. Has its own GROUPS data (author,
-                            "why", href for each of the 59 books).
+                            "why", href for each of the 60 books).
 graph.html                  The Atlas — one force-directed map of every group and
                             book, with dashed lines for cross-group kinship, plus
                             the search field. Reads window.ATLAS; linked from the hero.
-NN - Group/<slug>.html      59 book pages. Thin SHELLS (see "How a book page works").
+NN - Group/<slug>.html      60 book pages. Thin SHELLS (see "How a book page works").
 assets/
   book.css                  Shared styles for every book page + masthead.
   book.js                   Shared runtime. Renders hero + nav + knowledge graph +
                             5 stages + all sections from a page's DATA. Entry:
                             Book.mount(DATA). Also injects the centered-logo masthead
                             and the library nav (home / prev / next / all-books).
-  library.js                window.LIBRARY — generated manifest of all 59 books
+  library.js                window.LIBRARY — generated manifest of all 60 books
                             (slug, folder, groupNum, group{en,fa}, book{en,fa}).
                             Drives prev/next, the all-books overlay, and the wizard.
   atlas.js                  window.ATLAS — generated {groups, books, relations}
@@ -93,7 +93,7 @@ Every book page is a thin shell. All content lives in one inline `DATA` object:
 </body>
 ```
 
-`book.css` + `book.js` are identical across all 59 pages. **To change a book's
+`book.css` + `book.js` are identical across all 60 pages. **To change a book's
 content, edit only that page's `DATA`.** To change look or behavior for every book,
 edit the shared asset once.
 

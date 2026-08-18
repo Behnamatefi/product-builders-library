@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<!-- Product Builder's Library — bilingual EN/FA catalog of 59 essential books in 18 groups -->
+<!-- Product Builder's Library — bilingual EN/FA catalog of 60 essential books in 18 groups -->
 <html lang="en" dir="ltr" data-lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Product Books — کتابخانهٔ سازندهٔ محصول · ۵۹ کتاب در ۱۸ گروه</title>
+<title>Product Books — کتابخانهٔ سازندهٔ محصول · ۶۰ کتاب در ۱۸ گروه</title>
 
 <!-- Boot theme + language BEFORE paint -->
 <script>
@@ -399,7 +399,7 @@ html[data-lang="en"] .masthead .logotype .lt-main{font-family:var(--f-disp);font
       <span data-only="en">Find my reading path</span><span data-only="fa">مسیرِ خواندنم را پیدا کن</span>
     </button>
     <a class="rw-trigger ghost" href="#library">
-      <span data-only="en">Browse all 59</span><span data-only="fa">مرورِ هر ۵۹ کتاب</span>
+      <span data-only="en">Browse all 60</span><span data-only="fa">مرورِ هر ۶۰ کتاب</span>
     </a>
     <a class="rw-trigger ghost" href="graph.html">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="6.5" r="2.2"/><circle cx="18.5" cy="5" r="2.2"/><circle cx="12" cy="12" r="2.6"/><circle cx="5" cy="18" r="2.2"/><circle cx="19" cy="18.5" r="2.2"/><path d="M7.4 7.8 10 10.4M14.3 10.6 16.8 6.6M9.9 13.8 6.6 16.4M14.4 13.5 17.3 16.9"/></svg>
@@ -416,7 +416,7 @@ html[data-lang="en"] .masthead .logotype .lt-main{font-family:var(--f-disp);font
 
   <!-- LIBRARY -->
   <h2 class="sec-lib" id="library"><span class="num"><span data-only="en">01 //</span><span data-only="fa">۰۱ //</span></span><span data-only="en">The library</span><span data-only="fa">کتابخانه</span></h2>
-  <p class="lp-dek"><span data-only="en">59 books in 18 skill groups, gathered from Lenny Rachitsky's two-part <b>"Essential books for product builders"</b> — the same 15 groups, plus three of our own on self mastery, working with AI, and delivery. Open any title to read its knowledge-graph page.</span><span data-only="fa">۵۹ کتاب در ۱۸ گروهِ مهارتی، برگرفته از مجموعهٔ دوقسمتیِ <b>«کتاب‌های ضروری برای سازندگانِ محصول»</b> از لنی رچیتسکی — همان ۱۵ گروه، به‌علاوهٔ سه گروهِ افزوده دربارهٔ تسلط بر خود، کار با هوش مصنوعی، و تحویل. روی هر عنوان بزن تا صفحهٔ نقشهٔ دانشش باز شود.</span></p>
+  <p class="lp-dek"><span data-only="en">60 books in 18 skill groups, built on Lenny Rachitsky's two-part <b>"Essential books for product builders"</b> — his 15 groups, plus three of our own on self mastery, working with AI and delivery, and a few additions inside his. Open any title to read its knowledge-graph page.</span><span data-only="fa">۶۰ کتاب در ۱۸ گروهِ مهارتی، بر پایهٔ مجموعهٔ دوقسمتیِ <b>«کتاب‌های ضروری برای سازندگانِ محصول»</b> از لنی رچیتسکی — همان ۱۵ گروهِ او، به‌علاوهٔ سه گروهِ افزوده دربارهٔ تسلط بر خود، کار با هوش مصنوعی و تحویل، و چند کتابِ افزوده درونِ گروه‌های خودش. روی هر عنوان بزن تا صفحهٔ نقشهٔ دانشش باز شود.</span></p>
 
   <!-- GROUPS render here -->
   <div class="groups" id="groups"></div>
@@ -452,7 +452,7 @@ function faText(s){ return String(s).replace(/(<[^>]+>)|([^<]+)/g, function(m,ta
 function TX(o){ if(o==null) return ''; return LANG==='fa' ? faText(o.fa) : o.en; }
 function num(n){ return LANG==='fa' ? faDigits(String(n)) : String(n); }
 
-/* ── DATA: 18 groups (15 × 3 books + 5 + 4 + 5) ──────────── */
+/* ── DATA: 18 groups (14 × 3 + 4 + 5 + 4 + 5 = 60 books) ─── */
 var GROUPS = [
  {n:1, en:{name:"Communication", blurb:"Write and speak clearly so you're actually heard — and earn the reader's attention."},
        fa:{name:"ارتباط", blurb:"واضح بنویس و بگو تا واقعاً شنیده شوی — و توجهِ خواننده را به‌دست بیاور."}, books:[
@@ -464,7 +464,10 @@ var GROUPS = [
      fa:{t:"خوب نوشتن", orig:"On Writing Well", a:"ویلیام زینسر", why:"هنرِ نوشتنِ روشن: زوائد را حذف کن و به وقتِ خواننده احترام بگذار."}},
    {live:true, href:"01 - Communication/storyworthy.html",
      en:{t:"Storyworthy", a:"Matthew Dicks", why:"Turn ordinary moments into stories people remember, with a repeatable method."},
-     fa:{t:"داستان‌واره", orig:"Storyworthy", a:"متیو دیکس", why:"لحظه‌های معمولی را با یک روشِ تکرارپذیر به داستان‌هایی ماندگار تبدیل کن."}}
+     fa:{t:"داستان‌واره", orig:"Storyworthy", a:"متیو دیکس", why:"لحظه‌های معمولی را با یک روشِ تکرارپذیر به داستان‌هایی ماندگار تبدیل کن."}},
+   {live:true, href:"01 - Communication/the-pyramid-principle.html",
+     en:{t:"The Pyramid Principle", a:"Barbara Minto", why:"Lead with the answer, then support it — the structure behind every clear memo and deck."},
+     fa:{t:"اصلِ هرم", orig:"The Pyramid Principle", a:"باربارا مینتو", why:"اول جواب را بگو، بعد پشتیبانش کن — ساختارِ پشتِ هر یادداشت و ارائهٔ روشن."}}
  ]},
  {n:2, en:{name:"Executing", blurb:"Actually get things done: build systems, keep focus, and fix the bottleneck."},
        fa:{name:"اجرا", blurb:"کارها را واقعاً پیش ببر: سیستم بساز، تمرکز را حفظ کن، و گلوگاه را برطرف کن."}, books:[
