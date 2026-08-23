@@ -128,7 +128,7 @@ maintenance walkthrough.
 | path | what it is | verdict |
 |---|---|---|
 | `.claude/settings.local.json` | project-local Claude Code settings — a permissions allowlist with 1 entry | **copy** (tiny, or just re-approve on the new machine) |
-| `pbtools.tar.gz` | 885K archive of the old `tools/` generator | **skip** — its contents are now committed on `wip/pre-migration-2026-08-23` |
+| `pbtools.tar.gz` | 885K archive of the old `tools/` generator. Untracked on `main` (the `*.tar.gz` ignore rule lived only in the uncommitted `.gitignore`, now on the WIP branch) | **skip** — its contents are committed on `wip/pre-migration-2026-08-23`, and it does not exist in a fresh clone |
 | `.DS_Store` × 4 | macOS Finder cruft | **skip** |
 | `.claude/worktrees/` | two git worktrees | **skip** — recreate with `git worktree add` if you want them |
 
@@ -136,6 +136,21 @@ maintenance walkthrough.
 project.** I scanned for `.env*`, `*.pem`, `*.key`, `*.p12`, `id_rsa*`,
 `*credential*` and `*secret*` — nothing. Nothing in this repo needs a
 credential to run.
+
+### Two ignore files a clone will NOT bring with it
+
+This bit me while preparing the move, so it is worth stating plainly: some of
+the paths above are ignored by files that live *outside the repository*, and
+`git clone` does not carry either of them. On a fresh machine those paths will
+show up as untracked noise until you recreate them.
+
+| file | contains | do this |
+|---|---|---|
+| `~/.config/git/ignore` | `**/.claude/settings.local.json` | copy the file, or re-add that line |
+| `<repo>/.git/info/exclude` | `.claude/worktrees/` | re-add that line only if you recreate the worktrees |
+
+Neither is referenced by `core.excludesfile` — git is picking up the first via
+the XDG default path.
 
 ### Outside the repo
 
