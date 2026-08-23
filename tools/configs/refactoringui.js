@@ -1,0 +1,263 @@
+/* config: Refactoring UI — Adam Wathan & Steve Schoger (Design) */
+module.exports = {
+  slug:"refactoringui", brand:"Refactoring UI",
+  titleTag:"Refactoring UI — نقشهٔ دانش و یادگیری ۵ مرحله‌ای",
+  W:980, H:780, R1:220, R2:126, span:66,
+  leafKickEn:"Tactic", leafKickFa:"ترفندِ",
+  flowEn:["Hierarchy","Space","Polish"], flowFa:["سلسله‌مراتب","فضا","پرداخت"],
+
+  hero:`  <div class="eyebrow"><span class="edot"></span>
+    <span data-only="en">Book knowledge map · Adam Wathan &amp; Steve Schoger</span>
+    <span data-only="fa">نقشهٔ کتاب · آدام واتان و استیو شوگر</span>
+  </div>
+  <h1>
+    <span data-only="en">Refactoring UI — Make Your Ideas Look Awesome, Without a Designer</span>
+    <span data-only="fa">بازطراحیِ رابط کاربری — ایده‌هایت را بی‌کمکِ طراح، خوش‌ظاهر کن</span>
+  </h1>
+  <p class="dek">
+    <span data-only="en">A knowledge graph of the whole book, plus a 5-stage path from a single idea to expert-level mastery — with an example at every step.</span>
+    <span data-only="fa">نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از یک ایدهٔ ساده تا حرفه‌ای — با یک مثال در هر مرحله.</span>
+  </p>
+  <div class="metastrip">
+    <div class="metaitem"><span class="mk" data-only="en">Book</span><span class="mk" data-only="fa">کتاب</span>
+      <span class="mv" data-only="en">Refactoring UI</span><span class="mv" data-only="fa">بازطراحیِ رابط کاربری</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Authors</span><span class="mk" data-only="fa">نویسنده‌ها</span>
+      <span class="mv" data-only="en">Adam Wathan &amp; Steve Schoger</span><span class="mv" data-only="fa">آدام واتان و استیو شوگر</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Published</span><span class="mk" data-only="fa">سالِ چاپ</span>
+      <span class="mv" data-only="en">2018</span><span class="mv" data-only="fa">۲۰۱۸</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Group</span><span class="mk" data-only="fa">گروه</span>
+      <span class="mv" data-only="en">Design</span><span class="mv" data-only="fa">طراحی</span></div>
+  </div>
+  <div class="chips">
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Parts</span><span data-only="fa">بخش</span></div>
+    <div class="chip"><b data-only="en">16</b><b data-only="fa">۱۶</b><span data-only="en">Tactics</span><span data-only="fa">ترفند</span></div>
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Learning stages</span><span data-only="fa">مرحلهٔ یادگیری</span></div>
+  </div>`,
+
+  callout:`    <b data-only="en">The core idea:</b>
+    <b data-only="fa">ایدهٔ اصلی:</b>
+    <span data-only="en"> Good design isn't a talent you're born with — it's a set of <i>practical tactics</i> anyone can learn. To make an interface look designed you don't need artistic flair; you need <i>hierarchy</i>, generous <i>white space</i>, a real <i>type</i> and <i>color</i> system, and a few finishing touches. Systemize your choices and let the details do the work.</span>
+    <span data-only="fa"> طراحیِ خوب استعدادی نیست که با آن به دنیا آمده باشی — مجموعه‌ای از <i>ترفندهای عملی</i> است که هر کسی می‌تواند یاد بگیرد. برای اینکه یک رابط طراحی‌شده به‌نظر برسد به ذوقِ هنری نیاز نداری؛ به <i>سلسله‌مراتب</i>، <i>فضای خالیِ</i> دست‌ودل‌باز، یک نظامِ واقعیِ <i>نوشته</i> و <i>رنگ</i>، و چند دست‌کاریِ پایانی نیاز داری. انتخاب‌هایت را نظام‌مند کن و بگذار جزئیات کار را انجام بدهند.</span>`,
+
+  kpis:`    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Parts (hierarchy · spacing · text · color · depth)</div><div class="l" data-only="fa">بخش (سلسله‌مراتب · فاصله · نوشته · رنگ · عمق)</div></div>
+    <div class="kbox"><div class="v" data-only="en">16</div><div class="v" data-only="fa">۱۶</div><div class="l" data-only="en">Tactics you can use</div><div class="l" data-only="fa">ترفند برای استفاده</div></div>
+    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Levels, simple → expert</div><div class="l" data-only="fa">مرحله، ساده تا حرفه‌ای</div></div>
+    <div class="kbox"><div class="v" data-only="en">3</div><div class="v" data-only="fa">۳</div><div class="l" data-only="en">The flow: hierarchy · space · polish</div><div class="l" data-only="fa">جریان: سلسله‌مراتب · فضا · پرداخت</div></div>`,
+
+  mapcallout:`      <b data-only="en">Read it as a flow:</b><b data-only="fa">به‌صورتِ یک جریان بخوانش:</b>
+      <span data-only="en"> get the <b>hierarchy</b> right first (what matters most, what fades back), give everything room with generous <b>space</b> and a real spacing system, set your <b>text</b> and <b>color</b> systems, then add <b>depth</b> and finishing <b>polish</b> — shadows, details, and great empty states.</span>
+      <span data-only="fa"> اول <b>سلسله‌مراتب</b> را درست کن (چه چیزی مهم‌تر است، چه چیزی عقب می‌رود)، با <b>فضای</b> دست‌ودل‌باز و یک نظامِ واقعیِ فاصله به همه‌چیز جا بده، نظامِ <b>نوشته</b> و <b>رنگت</b> را بچین، بعد <b>عمق</b> و <b>پرداختِ</b> پایانی اضافه کن — سایه‌ها، جزئیات، و حالت‌های خالیِ خوب.</span>`,
+
+  methodFa:"<p><b>منبع:</b> کتابِ «Refactoring UI» نوشتهٔ آدام واتان و استیو شوگر، چاپِ ۲۰۱۸.</p><p><b>روشِ کار:</b> ساختارِ پنج‌بخشی و ترفندها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده؛ نقل‌قول‌ها مقابله و ویدیوها بررسی شده‌اند.</p><p><b>گروه:</b> «طراحی» — یک راهنمای عملی برای هر کسی که رابطِ کاربری می‌سازد.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای متنِ کامل، خودِ کتاب را بخوان.</p>",
+  methodEn:"<p><b>Source:</b> the book <i>Refactoring UI</i> by Adam Wathan and Steve Schoger, published 2018.</p><p><b>How this was built:</b> the five-part structure and tactics were gathered and rewritten from the book and reputable sources; quotes were cross-checked and the linked videos verified.</p><p><b>Group:</b> Design — a practical handbook for anyone who builds user interfaces.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>",
+
+  data:{
+    tldr:[
+      {en:"The whole book in one line: you don't need talent to design good UI — you need a handful of practical, repeatable tactics.",
+       fa:"خلاصهٔ کل کتاب در یک جمله: برای طراحیِ خوبِ رابط به استعداد نیاز نداری — به یک‌مشت ترفندِ عملی و تکرارپذیر نیاز داری."},
+      {en:"Start with <b>hierarchy</b>: decide what matters most and what should fade back, using weight and color — not just size.",
+       fa:"با <b>سلسله‌مراتب</b> شروع کن: با وزن و رنگ — نه فقط اندازه — تصمیم بگیر چه چیزی مهم‌تر است و چه چیزی باید عقب برود."},
+      {en:"Give everything room. Start with <b>too much white space</b>, use a consistent spacing scale, and don't try to fill the screen.",
+       fa:"به همه‌چیز جا بده. با <b>فضای خالیِ زیاد</b> شروع کن، از یک مقیاسِ فاصلهٔ یک‌دست استفاده کن، و سعی نکن صفحه را پُر کنی."},
+      {en:"Systemize your <b>text</b> and <b>color</b>: limit fonts, use a type scale, think in <b>HSL</b>, and build a full palette of shades.",
+       fa:"<b>نوشته</b> و <b>رنگت</b> را نظام‌مند کن: فونت‌ها را کم کن، از یک مقیاسِ اندازه استفاده کن، در <b>HSL</b> فکر کن، و یک پالتِ کامل از سایه‌ها بساز."},
+      {en:"Then add <b>depth</b> and finishing touches — one light source for shadows, layered shadows, and details that make defaults feel designed.",
+       fa:"بعد <b>عمق</b> و دست‌کاریِ پایانی اضافه کن — یک منبعِ نور برای سایه‌ها، سایه‌های لایه‌لایه، و جزئیاتی که حالتِ پیش‌فرض را طراحی‌شده نشان می‌دهند."}
+    ],
+    parts:[
+      { key:"hierarchy", varc:"--c-teal", name:{en:"Start with Hierarchy", fa:"با سلسله‌مراتب شروع کن"}, tag:{en:"What matters most", fa:"چه چیزی مهم‌تر است"},
+        gist:{en:"Design is about hierarchy, not decoration — make important things stand out and the rest recede.", fa:"طراحی دربارهٔ سلسله‌مراتب است، نه تزئین — کاری کن چیزهای مهم بیرون بزنند و بقیه عقب بروند."},
+        more:{en:"Before color or polish, decide what the user should notice first, second, and last. You do that with weight and color far more than size — and by de-emphasizing the secondary stuff instead of shouting louder everywhere. Get this right and even a plain design reads as intentional.",
+              fa:"قبل از رنگ و پرداخت، تصمیم بگیر کاربر اول چه چیزی را ببیند، بعد چه چیزی، و آخر چه چیزی. این کار را بیشتر با وزن و رنگ انجام می‌دهی تا اندازه — و با کم‌رنگ‌کردنِ چیزهای فرعی، نه با بلندتر داد‌زدن در همه‌جا. این را که درست کنی، حتی یک طرحِ ساده هم عمدی و حساب‌شده به‌نظر می‌رسد."},
+        chapters:["hierarchy","weight","labels"] },
+      { key:"layout", varc:"--c-blue", name:{en:"Layout & Spacing", fa:"چیدمان و فاصله"}, tag:{en:"Give it room", fa:"بهش جا بده"},
+        gist:{en:"Generous, systematic white space is the fastest way to make anything look cleaner.", fa:"فضای خالیِ دست‌ودل‌باز و نظام‌مند، سریع‌ترین راه است برای اینکه هر چیزی تمیزتر به‌نظر برسد."},
+        more:{en:"Amateur designs feel cramped; professional ones breathe. Start with way too much space and remove until it feels right, lean on one consistent spacing scale so nothing is arbitrary, and resist the urge to fill every empty area — white space is a feature, not wasted room.",
+              fa:"طرح‌های آماتور تنگ و فشرده‌اند؛ طرح‌های حرفه‌ای نفس می‌کشند. با فضای خیلی زیاد شروع کن و کم کن تا درست شود، به یک مقیاسِ فاصلهٔ یک‌دست تکیه کن تا هیچ‌چیز سرِخود نباشد، و در برابرِ وسوسهٔ پُرکردنِ هر جای خالی مقاومت کن — فضای خالی یک ویژگی است، نه جای هدررفته."},
+        chapters:["whitespace","spacing","room"] },
+      { key:"text", varc:"--c-amber", name:{en:"Designing Text", fa:"طراحیِ نوشته"}, tag:{en:"Make it readable", fa:"خوانا‌ش کن"},
+        gist:{en:"Limit fonts, use a type scale, and treat readability — line length, height, color — as a system.", fa:"فونت‌ها را کم کن، از یک مقیاسِ اندازه استفاده کن، و خوانایی — طولِ خط، ارتفاع، رنگ — را مثلِ یک نظام ببین."},
+        more:{en:"Typography carries most of an interface, so stop improvising it. Pick one or two good fonts, size them from a fixed scale instead of random pixels, keep lines 45–75 characters for comfortable reading, and remember that not every piece of text should be full black — use lighter shades to set secondary text back.",
+              fa:"بیشترِ یک رابط را نوشته حمل می‌کند، پس دست از فی‌البداهه ساختنش بردار. یکی‌دو فونتِ خوب انتخاب کن، اندازه‌شان را به‌جای پیکسل‌های تصادفی از یک مقیاسِ ثابت بردار، خط‌ها را برای خواندنِ راحت ۴۵ تا ۷۵ نویسه نگه دار، و یادت باشد که هر تکه نوشته نباید کاملاً مشکی باشد — با سایه‌های روشن‌تر، نوشتهٔ فرعی را عقب بِبَر."},
+        chapters:["fonts","typescale","readability","textcolor"] },
+      { key:"color", varc:"--c-violet", name:{en:"Working with Color", fa:"کار با رنگ"}, tag:{en:"Build a system", fa:"یک نظام بساز"},
+        gist:{en:"Think in HSL, build a full palette of shades, and never lean on color alone.", fa:"در HSL فکر کن، یک پالتِ کامل از سایه‌ها بساز، و هیچ‌وقت فقط به رنگ تکیه نکن."},
+        more:{en:"Hex codes make color math impossible; HSL lets you reason about hue, saturation and lightness directly. You'll need far more shades than you'd guess — usually eight or ten per color — so define them up front. And because some users can't distinguish colors, always back color up with a second cue, and check your contrast for real accessibility.",
+              fa:"کدهای هگز محاسبهٔ رنگ را ناممکن می‌کنند؛ HSL می‌گذارد مستقیم دربارهٔ رنگ‌مایه، اشباع و روشنایی فکر کنی. به سایه‌های خیلی بیشتری از آنچه حدس می‌زنی نیاز داری — معمولاً هشت تا ده تا برای هر رنگ — پس از اول تعریفشان کن. و چون بعضی کاربرها رنگ‌ها را از هم تشخیص نمی‌دهند، همیشه رنگ را با یک نشانهٔ دوم پشتیبانی کن، و کنتراست را برای دسترس‌پذیریِ واقعی بررسی کن."},
+        chapters:["hsl","palette","contrast"] },
+      { key:"depth", varc:"--c-green", name:{en:"Depth & Finishing Touches", fa:"عمق و پرداختِ پایانی"}, tag:{en:"Make it feel real", fa:"واقعی‌ش کن"},
+        gist:{en:"Emulate a light source for shadows, use contrast for depth, and sweat the small finishing details.", fa:"برای سایه‌ها یک منبعِ نور را شبیه‌سازی کن، برای عمق از کنتراست استفاده کن، و روی جزئیاتِ کوچکِ پایانی وقت بگذار."},
+        more:{en:"Depth is what makes flat UI feel tangible. Pretend light comes from a single source above, layer a soft and a sharp shadow together for realism, and use color and contrast to push things forward or back. Then finish the job: upgrade the boring defaults, and design your empty states and imagery with as much care as everything else.",
+              fa:"عمق همان چیزی است که رابطِ تخت را ملموس می‌کند. وانمود کن نور از یک منبعِ واحد در بالا می‌آید، یک سایهٔ نرم و یک سایهٔ تیز را با هم لایه کن تا واقعی شود، و با رنگ و کنتراست چیزها را جلو یا عقب ببر. بعد کار را تمام کن: حالت‌های پیش‌فرضِ کسل‌کننده را ارتقا بده، و حالت‌های خالی و تصویرها را با همان دقتِ بقیهٔ چیزها طراحی کن."},
+        chapters:["light","depthcolor","details"] }
+    ],
+    chapters:{
+      hierarchy:{ part:"hierarchy", n:1, name:{en:"Hierarchy Is Everything", fa:"سلسله‌مراتب همه‌چیز است"}, glabel:{en:"Hierarchy", fa:"سلسله‌مراتب"},
+        principle:{en:"Design isn't about making things pretty — it's about deciding what the user should notice first, second, and last.", fa:"طراحی دربارهٔ خوشگل‌کردنِ چیزها نیست — دربارهٔ این است که تصمیم بگیری کاربر اول چه چیزی را ببیند، بعد چه چیزی، و آخر چه چیزی."},
+        more:{en:"Visual hierarchy is how you guide attention. When everything competes for focus, the screen feels chaotic — like a room where everyone is shouting. Decide the relative importance of each element and make the design show it; that single decision does more for looking designed than any color or font.", fa:"سلسله‌مراتبِ بصری یعنی چطور توجه را هدایت می‌کنی. وقتی همه‌چیز برای جلب‌توجه با هم رقابت می‌کند، صفحه آشفته به‌نظر می‌رسد — مثلِ اتاقی که همه در آن داد می‌زنند. اهمیتِ نسبیِ هر عنصر را تعیین کن و کاری کن طرح نشانش بدهد؛ همین یک تصمیم، برای طراحی‌شده به‌نظر رسیدن بیشتر از هر رنگ و فونتی کار می‌کند."},
+        example:{en:"On a product card, the name and price should jump out while the SKU and metadata sit quiet and grey underneath.", fa:"روی کارتِ یک محصول، نام و قیمت باید بیرون بزنند، درحالی‌که کدِ کالا و اطلاعاتِ جانبی، آرام و خاکستری زیرش بنشینند."},
+        tip:{en:"Before styling anything, rank the elements: what's primary, secondary, tertiary?", fa:"قبل از اینکه چیزی را استایل بدهی، عنصرها را رتبه‌بندی کن: کدام اصلی است، کدام فرعی، کدام درجه‌سه؟"},
+        pitfall:{en:"Making everything bold and prominent, so nothing actually stands out.", fa:"همه‌چیز را پُررنگ و برجسته‌کردن، طوری که در عمل هیچ‌چیز بیرون نزند."} },
+      weight:{ part:"hierarchy", n:2, name:{en:"Weight & Color, Not Size", fa:"وزن و رنگ، نه اندازه"}, glabel:{en:"Weight & Color", fa:"وزن و رنگ"},
+        principle:{en:"Size isn't the only tool for emphasis — font weight and color usually work better and keep the layout calm.", fa:"اندازه تنها ابزارِ تأکید نیست — وزنِ فونت و رنگ معمولاً بهتر جواب می‌دهند و چیدمان را آرام نگه می‌دارند."},
+        more:{en:"If you rely on size alone, important text turns huge and unimportant text turns tiny and unreadable. Instead lean on weight (bold vs normal) and color (dark vs soft grey) to signal importance. That way you can create clear hierarchy while keeping most text at a comfortable, readable size.", fa:"اگر فقط به اندازه تکیه کنی، نوشتهٔ مهم غول‌پیکر می‌شود و نوشتهٔ کم‌اهمیت آن‌قدر ریز که خوانده نمی‌شود. به‌جایش به وزن (پُررنگ در برابرِ معمولی) و رنگ (تیره در برابرِ خاکستریِ ملایم) تکیه کن تا اهمیت را نشان بدهی. این‌طوری می‌توانی سلسله‌مراتبِ روشن بسازی و در عین حال بیشترِ نوشته را در اندازهٔ راحت و خوانا نگه داری."},
+        example:{en:"Make a heading bold and dark instead of enormous; a soft grey label reads as secondary without shrinking to nothing.", fa:"یک تیتر را پُررنگ و تیره کن، نه غول‌پیکر؛ یک برچسبِ خاکستریِ ملایم بدونِ اینکه به هیچ کوچک شود، فرعی به‌نظر می‌رسد."},
+        tip:{en:"Emphasize by de-emphasizing: soften the secondary elements instead of enlarging the primary one.", fa:"با کم‌رنگ‌کردن تأکید کن: به‌جای بزرگ‌کردنِ عنصرِ اصلی، عنصرهای فرعی را ملایم کن."},
+        pitfall:{en:"Cranking up font size for every heading until the page feels clumsy and loud.", fa:"بالابردنِ اندازهٔ فونتِ هر تیتر تا جایی که صفحه دست‌وپا‌چلفتی و پُرسروصدا شود."} },
+      labels:{ part:"hierarchy", n:3, name:{en:"Labels Are a Last Resort", fa:"برچسب، آخرین راه‌حل است"}, glabel:{en:"Labels", fa:"برچسب‌ها"},
+        principle:{en:"Don't label everything by default — often the value speaks for itself, and the label just adds noise.", fa:"همه‌چیز را به‌صورتِ پیش‌فرض برچسب نزن — اغلب خودِ مقدار گویاست، و برچسب فقط شلوغی اضافه می‌کند."},
+        more:{en:"Formatting a value clearly can remove the need for a label entirely — an email address looks like an email, a price looks like a price. When you do need a label, treat it as the least important part: make it smaller and lighter, and let the actual content dominate. Combine label and value only when it truly helps.", fa:"قالب‌بندیِ روشنِ یک مقدار می‌تواند نیاز به برچسب را کلاً از بین ببرد — یک آدرسِ ایمیل شبیهِ ایمیل است، یک قیمت شبیهِ قیمت. وقتی هم واقعاً به برچسب نیاز داری، آن را کم‌اهمیت‌ترین بخش بدان: کوچک‌تر و روشن‌ترش کن، و بگذار خودِ محتوا غالب باشد. برچسب و مقدار را فقط وقتی با هم بیاور که واقعاً کمک می‌کند."},
+        example:{en:"Instead of 'Phone: 555-0199', just show the number — it already looks like a phone number.", fa:"به‌جای «تلفن: ۵۵۵-۰۱۹۹»، فقط خودِ شماره را نشان بده — همین‌جوری‌اش شبیهِ شمارهٔ تلفن است."},
+        tip:{en:"When a label is needed, make it smaller and lighter than the value it describes.", fa:"وقتی برچسب لازم است، از مقداری که توصیفش می‌کند کوچک‌تر و روشن‌ترش کن."},
+        pitfall:{en:"Giving every field a bold label that competes with the data it's introducing.", fa:"دادنِ یک برچسبِ پُررنگ به هر فیلد، که با داده‌ای که معرفی‌اش می‌کند رقابت می‌کند."} },
+      whitespace:{ part:"layout", n:4, name:{en:"Start With Too Much White Space", fa:"با فضای خالیِ زیاد شروع کن"}, glabel:{en:"White Space", fa:"فضای خالی"},
+        principle:{en:"Begin every design with way too much white space, then remove it until you're happy — not the other way around.", fa:"هر طرح را با فضای خالیِ خیلی زیاد شروع کن، بعد کم کن تا راضی شوی — نه برعکس."},
+        more:{en:"Dense, cramped interfaces are the number-one sign of amateur design. Adding generous space around and between elements instantly makes a layout feel calmer and more professional. Starting spacious and tightening up is much easier than trying to loosen a crowded design after the fact.", fa:"رابط‌های متراکم و فشرده، نشانهٔ شمارهٔ‌یکِ طراحیِ آماتور‌ند. اضافه‌کردنِ فضای دست‌ودل‌باز دورِ عنصرها و بینشان، فوری چیدمان را آرام‌تر و حرفه‌ای‌تر می‌کند. شروع‌کردن با فضای زیاد و بعد جمع‌وجورکردن، خیلی راحت‌تر از این است که بخواهی بعداً یک طرحِ شلوغ را باز کنی."},
+        example:{en:"Take a tight card, double the padding and the gaps, and it immediately looks more designed.", fa:"یک کارتِ فشرده را بردار، فاصلهٔ داخلی و شکاف‌ها را دو برابر کن، و همان لحظه طراحی‌شده‌تر به‌نظر می‌رسد."},
+        tip:{en:"When something feels off, try adding space before you try anything else.", fa:"وقتی چیزی درست به‌نظر نمی‌رسد، قبل از هر کارِ دیگری، اول فضا اضافه کن."},
+        pitfall:{en:"Cramming elements together to save space and making everything feel cheap.", fa:"چپاندنِ عنصرها کنارِ هم برای صرفه‌جویی در فضا، که همه‌چیز را بی‌کیفیت جلوه می‌دهد."} },
+      spacing:{ part:"layout", n:5, name:{en:"Use a Spacing System", fa:"از یک نظامِ فاصله استفاده کن"}, glabel:{en:"Spacing", fa:"فاصله"},
+        principle:{en:"Pick a fixed set of spacing and sizing values and only use those — never arbitrary, hand-picked numbers.", fa:"یک مجموعهٔ ثابت از مقدارهای فاصله و اندازه انتخاب کن و فقط از همان‌ها استفاده کن — نه عددهای دلبخواه و دستی."},
+        more:{en:"If you eyeball every margin, you'll waste time nudging pixels and end up with subtle inconsistencies. A predefined scale — where each step is clearly bigger than the last — lets you choose spacing fast and keeps the whole interface visually consistent. Constraints here make you faster, not slower.", fa:"اگر هر حاشیه را چشمی تنظیم کنی، وقتت را با جابه‌جاکردنِ پیکسل‌ها هدر می‌دهی و آخرش به ناهماهنگی‌های ریز می‌رسی. یک مقیاسِ از‌پیش‌تعریف‌شده — که هر پله‌اش آشکارا از قبلی بزرگ‌تر است — می‌گذارد سریع فاصله را انتخاب کنی و کلِ رابط را از نظرِ بصری یک‌دست نگه می‌دارد. محدودیت اینجا تندترت می‌کند، نه کندتر."},
+        example:{en:"Use a scale like 4, 8, 12, 16, 24, 32, 48px and snap every gap to one of those values.", fa:"از مقیاسی مثلِ ۴، ۸، ۱۲، ۱۶، ۲۴، ۳۲، ۴۸ پیکسل استفاده کن و هر شکاف را به یکی از همین مقدارها بچسبان."},
+        tip:{en:"Make each step in your scale distinct — values that are too close are hard to tell apart.", fa:"هر پلهٔ مقیاست را متمایز کن — مقدارهایی که خیلی به هم نزدیک‌اند، سخت از هم تشخیص داده می‌شوند."},
+        pitfall:{en:"Choosing spacing values at random so nothing quite lines up.", fa:"انتخابِ تصادفیِ مقدارهای فاصله، طوری که هیچ‌چیز درست‌وحسابی رج نمی‌شود."} },
+      room:{ part:"layout", n:6, name:{en:"Don't Fill the Whole Screen", fa:"کلِ صفحه را پُر نکن"}, glabel:{en:"Give Room", fa:"جا بده"},
+        principle:{en:"Just because you have space doesn't mean you have to use it — not every element should stretch to fill it.", fa:"اینکه فضا داری به این معنا نیست که باید ازش استفاده کنی — قرار نیست هر عنصری کش بیاید و پُرش کند."},
+        more:{en:"Designing for a big screen tempts you to spread content edge to edge, but full-width forms and stretched elements are hard to read and look unbalanced. Give elements only the width they actually need, and let the leftover space frame them. Sometimes the best use of extra room is to leave it empty.", fa:"طراحی برای یک صفحهٔ بزرگ وسوسه‌ات می‌کند که محتوا را از این لبه تا آن لبه پخش کنی، اما فرم‌های تمام‌عرض و عنصرهای کش‌آمده هم سخت خوانده می‌شوند و هم نامتوازن به‌نظر می‌رسند. به هر عنصر فقط همان عرضی را بده که واقعاً لازم دارد، و بگذار فضای باقی‌مانده قابش بگیرد. گاهی بهترین استفاده از فضای اضافه این است که خالی رهایش کنی."},
+        example:{en:"A login form doesn't need to be 100% wide on desktop — a narrow, centered box reads better.", fa:"یک فرمِ ورود لازم نیست روی دسکتاپ تمام‌عرض باشد — یک جعبهٔ باریکِ وسط‌چین بهتر خوانده می‌شود."},
+        tip:{en:"Give each element a max width based on its content, not on the size of the screen.", fa:"به هر عنصر یک حداکثرِ عرض بده بر اساسِ محتوایش، نه بر اساسِ اندازهٔ صفحه."},
+        pitfall:{en:"Stretching forms and text to full width just because the space is there.", fa:"کش‌دادنِ فرم‌ها و نوشته‌ها تا تمام‌عرض، فقط به این خاطر که فضایش هست."} },
+      fonts:{ part:"text", n:7, name:{en:"Limit Your Font Choices", fa:"فونت‌هایت را کم کن"}, glabel:{en:"Fonts", fa:"فونت‌ها"},
+        principle:{en:"Use one, or at most two, good typefaces — and pick a font built for the job it's doing.", fa:"از یک، یا حداکثر دو، فونتِ خوب استفاده کن — و فونتی را انتخاب کن که برای همان کاری که می‌کند ساخته شده."},
+        more:{en:"Mixing many fonts makes an interface feel messy and unplanned. A single well-chosen typeface with a few weights covers almost everything. And match the font to the context: a characterful display font that shines in a big headline usually falls apart in small body text, where a clean, neutral font reads far better.", fa:"قاطیِ‌کردنِ فونت‌های زیاد، رابط را شلوغ و بی‌برنامه نشان می‌دهد. یک فونتِ خوب‌انتخاب‌شده با چند وزن، تقریباً همه‌چیز را پوشش می‌دهد. و فونت را با بافت جور کن: یک فونتِ نمایشیِ بااُبهت که در یک تیترِ بزرگ می‌درخشد، معمولاً در نوشتهٔ ریزِ متن از هم می‌پاشد، جایی که یک فونتِ تمیز و خنثی خیلی بهتر خوانده می‌شود."},
+        example:{en:"A quirky headline font can look great big, but set it at 14px in a paragraph and it becomes hard to read.", fa:"یک فونتِ تیترِ خاص می‌تواند بزرگ عالی به‌نظر برسد، اما همان را ۱۴ پیکسل توی یک پاراگراف بگذار و سخت‌خوان می‌شود."},
+        tip:{en:"Start from a single solid typeface; only add a second font if it earns its place.", fa:"از یک فونتِ محکمِ واحد شروع کن؛ فونتِ دوم را فقط وقتی اضافه کن که جایش را حق کرده باشد."},
+        pitfall:{en:"Combining several typefaces and using a display font for long body copy.", fa:"ترکیبِ چند فونت و استفاده از یک فونتِ نمایشی برای متنِ بلند."} },
+      typescale:{ part:"text", n:8, name:{en:"Use a Modular Type Scale", fa:"از یک مقیاسِ اندازه استفاده کن"}, glabel:{en:"Type Scale", fa:"مقیاسِ نوشته"},
+        principle:{en:"Choose font sizes from a small, fixed scale instead of picking arbitrary pixel values.", fa:"اندازهٔ فونت را از یک مقیاسِ کوچک و ثابت انتخاب کن، نه از مقدارهای پیکسلیِ دلبخواه."},
+        more:{en:"Hand-picking sizes leads to values so close they look like mistakes — 15px next to 16px. A predefined type scale gives you a handful of clearly distinct sizes that work together, so your headings, subheadings and body text feel like a coherent system instead of a pile of near-misses.", fa:"دستی‌انتخاب‌کردنِ اندازه‌ها به مقدارهایی می‌رسد آن‌قدر نزدیک که شبیهِ اشتباه به‌نظر می‌رسند — ۱۵ پیکسل کنارِ ۱۶ پیکسل. یک مقیاسِ اندازهٔ از‌پیش‌تعریف‌شده، یک‌مشت اندازهٔ آشکارا متمایز به تو می‌دهد که با هم کار می‌کنند، طوری که تیترها، زیرتیترها و متن، به‌جای یک تودهٔ نزدیک‌به‌هم، مثلِ یک نظامِ منسجم به‌نظر می‌رسند."},
+        example:{en:"Use a set like 12, 14, 16, 18, 20, 24, 30, 36px rather than 15, 17, 23 chosen by feel.", fa:"از مجموعه‌ای مثلِ ۱۲، ۱۴، ۱۶، ۱۸، ۲۰، ۲۴، ۳۰، ۳۶ پیکسل استفاده کن، نه ۱۵، ۱۷، ۲۳ که چشمی انتخاب شده‌اند."},
+        tip:{en:"Define your scale once as a token set, then only ever pick from it.", fa:"مقیاست را یک‌بار به‌شکلِ یک مجموعه‌توکن تعریف کن، بعد همیشه فقط از همان انتخاب کن."},
+        pitfall:{en:"Setting sizes by eye until nearly identical values clash across the page.", fa:"چشمی‌گذاشتنِ اندازه‌ها تا جایی که مقدارهای تقریباً یکسان در صفحه با هم بزنند."} },
+      readability:{ part:"text", n:9, name:{en:"Line Length & Line Height", fa:"طولِ خط و ارتفاعِ خط"}, glabel:{en:"Readability", fa:"خوانایی"},
+        principle:{en:"Keep lines around 45–75 characters, and give body text roomy line height so it's easy to read.", fa:"خط‌ها را حدودِ ۴۵ تا ۷۵ نویسه نگه دار، و به متن ارتفاعِ خطِ باز بده تا راحت خوانده شود."},
+        more:{en:"Lines that run too wide make it hard for the eye to find the next line; too narrow and the text feels choppy. A comfortable measure of roughly 45–75 characters is the sweet spot. Pair it with generous line height for paragraphs — and tighter line height for big headings, which need less breathing room.", fa:"خط‌هایی که زیادی پهن می‌شوند، پیدا‌کردنِ خطِ بعدی را برای چشم سخت می‌کنند؛ زیادی باریک هم، نوشته را بریده‌بریده می‌کند. یک عرضِ راحتِ حدودِ ۴۵ تا ۷۵ نویسه، همان نقطهٔ طلایی است. کنارش به پاراگراف‌ها ارتفاعِ خطِ باز بده — و به تیترهای بزرگ ارتفاعِ خطِ جمع‌تر، چون به فضای کمتری نیاز دارند."},
+        example:{en:"Constrain a paragraph to about 65 characters per line; don't let it stretch across a wide screen.", fa:"یک پاراگراف را به حدودِ ۶۵ نویسه در هر خط محدود کن؛ نگذار روی یک صفحهٔ پهن کش بیاید."},
+        tip:{en:"Set a max-width on text blocks and increase line height for smaller body copy.", fa:"روی بلوک‌های نوشته یک حداکثرِ عرض بگذار و برای متنِ ریزتر، ارتفاعِ خط را بیشتر کن."},
+        pitfall:{en:"Full-width paragraphs with tight line height that tire the reader's eyes.", fa:"پاراگراف‌های تمام‌عرض با ارتفاعِ خطِ فشرده که چشمِ خواننده را خسته می‌کنند."} },
+      textcolor:{ part:"text", n:10, name:{en:"Not Everything Is Black", fa:"همه‌چیز مشکی نیست"}, glabel:{en:"Text Color", fa:"رنگِ نوشته"},
+        principle:{en:"Use color and softness — not just size — to set hierarchy in text; secondary text should be lighter, not full black.", fa:"برای سلسله‌مراتب در نوشته از رنگ و ملایمت استفاده کن — نه فقط اندازه؛ نوشتهٔ فرعی باید روشن‌تر باشد، نه مشکیِ تمام."},
+        more:{en:"Making all text pure black flattens the hierarchy and feels harsh. Use a dark, near-black for primary text and progressively lighter greys for secondary and tertiary content. On colored backgrounds, though, don't just use grey — that looks washed out; instead pick a hand-mixed shade of the background color for softer text.", fa:"مشکیِ خالص‌کردنِ همهٔ نوشته، سلسله‌مراتب را صاف می‌کند و خشن به‌نظر می‌رسد. برای نوشتهٔ اصلی از یک تیرهٔ نزدیک‌به‌مشکی استفاده کن و برای محتوای فرعی و درجه‌سه از خاکستری‌های به‌تدریج روشن‌تر. اما روی زمینه‌های رنگی فقط از خاکستری استفاده نکن — رنگ‌ورورفته به‌نظر می‌رسد؛ به‌جایش برای نوشتهٔ ملایم‌تر، یک سایهٔ دست‌سازِ همان رنگِ زمینه را انتخاب کن."},
+        example:{en:"On a blue button, a slightly lighter blue for a subtitle looks better than plain grey.", fa:"روی یک دکمهٔ آبی، یک آبیِ کمی روشن‌تر برای زیرنویس، بهتر از خاکستریِ ساده به‌نظر می‌رسد."},
+        tip:{en:"Build a few grey shades for text, and mix tinted shades for text on colored backgrounds.", fa:"چند سایهٔ خاکستری برای نوشته بساز، و برای نوشته روی زمینه‌های رنگی، سایه‌های ته‌رنگ‌دار بساز."},
+        pitfall:{en:"Pure black everywhere, and flat grey text sitting on a colored background.", fa:"مشکیِ خالص در همه‌جا، و نوشتهٔ خاکستریِ بی‌روح که روی یک زمینهٔ رنگی نشسته."} },
+      hsl:{ part:"color", n:11, name:{en:"Think in HSL, Not Hex", fa:"در HSL فکر کن، نه هگز"}, glabel:{en:"HSL", fa:"HSL"},
+        principle:{en:"Use HSL — hue, saturation, lightness — so you can actually reason about and adjust color.", fa:"از HSL استفاده کن — رنگ‌مایه، اشباع، روشنایی — تا واقعاً بتوانی دربارهٔ رنگ فکر کنی و تنظیمش کنی."},
+        more:{en:"Hex and RGB describe color in a way humans can't intuit — you can't look at a hex code and know how to make it a bit lighter or less intense. HSL maps directly to how we think about color: spin the hue to change the color, raise saturation to make it more vivid, raise lightness to make it brighter. Adjustments become obvious.", fa:"هگز و RGB رنگ را جوری توصیف می‌کنند که آدم نمی‌تواند حسش کند — نمی‌توانی به یک کدِ هگز نگاه کنی و بفهمی چطور کمی روشن‌ترش کنی یا از شدتش کم کنی. HSL مستقیم به همان شکلی که ما به رنگ فکر می‌کنیم نگاشت می‌شود: رنگ‌مایه را بچرخان تا رنگ عوض شود، اشباع را بالا ببر تا زنده‌تر شود، روشنایی را بالا ببر تا روشن‌تر شود. تنظیم‌ها بدیهی می‌شوند."},
+        example:{en:"To make hsl(220, 60%, 50%) softer, just lower the saturation — no guesswork like with hex.", fa:"برای ملایم‌ترکردنِ hsl(۲۲۰، ۶۰٪، ۵۰٪)، فقط اشباع را کم کن — نه مثلِ هگز که باید حدس بزنی."},
+        tip:{en:"Switch your color tools to HSL and build every shade by adjusting S and L.", fa:"ابزارهای رنگت را روی HSL بگذار و هر سایه را با تنظیمِ اشباع و روشنایی بساز."},
+        pitfall:{en:"Juggling hex codes and guessing blindly when you need a lighter or duller shade.", fa:"وَرَفتن با کدهای هگز و حدسِ کورکورانه وقتی به یک سایهٔ روشن‌تر یا کدرتر نیاز داری."} },
+      palette:{ part:"color", n:12, name:{en:"Build a Full Palette", fa:"یک پالتِ کامل بساز"}, glabel:{en:"Palette", fa:"پالت"},
+        principle:{en:"You need far more shades than you think — define a full range for every color up front.", fa:"به سایه‌های خیلی بیشتری از آنچه فکر می‌کنی نیاز داری — از اول برای هر رنگ یک دامنهٔ کامل تعریف کن."},
+        more:{en:"A single blue won't survive real UI: you need light tints for backgrounds, mid tones for buttons, and dark shades for text. Plan five to ten shades of each color (plus a good set of greys) before you start, and you'll never get stuck mid-design hunting for a shade that doesn't exist yet.", fa:"یک آبیِ تنها در رابطِ واقعی دوام نمی‌آورد: به ته‌رنگ‌های روشن برای زمینه‌ها، تُن‌های میانه برای دکمه‌ها، و سایه‌های تیره برای نوشته نیاز داری. قبل از شروع، برای هر رنگ پنج تا ده سایه (به‌علاوهٔ یک مجموعهٔ خوب از خاکستری‌ها) طرح‌ریزی کن، آن‌وقت هیچ‌وقت وسطِ کار گیر نمی‌کنی که دنبالِ سایه‌ای بگردی که هنوز وجود ندارد."},
+        example:{en:"Define blue-50 through blue-900, plus eight or nine greys, and reach only for those.", fa:"از آبیِ‌۵۰ تا آبیِ‌۹۰۰ را تعریف کن، به‌علاوهٔ هشت‌نُه خاکستری، و فقط سراغِ همان‌ها برو."},
+        tip:{en:"Pick a base color, then create lighter and darker steps by adjusting lightness in HSL.", fa:"یک رنگِ پایه انتخاب کن، بعد با تنظیمِ روشنایی در HSL، پله‌های روشن‌تر و تیره‌تر بساز."},
+        pitfall:{en:"Starting with just a few colors and inventing shades ad hoc as you go.", fa:"شروع با فقط چند رنگ و سرِهم‌کردنِ سایه‌ها همین‌طور که پیش می‌روی."} },
+      contrast:{ part:"color", n:13, name:{en:"Don't Rely on Color Alone", fa:"فقط به رنگ تکیه نکن"}, glabel:{en:"Contrast", fa:"کنتراست"},
+        principle:{en:"Never use color as the only way to convey meaning, and keep contrast high enough to be accessible.", fa:"هیچ‌وقت رنگ را تنها راهِ رساندنِ معنا نکن، و کنتراست را آن‌قدر بالا نگه دار که دسترس‌پذیر باشد."},
+        more:{en:"Many people can't reliably tell certain colors apart, so a red-vs-green status with no other cue is invisible to them. Back color up with an icon, label or shape. And make sure text has enough contrast against its background — but when a required contrast makes text look heavy, adjust the color's saturation and lightness rather than just going darker.", fa:"خیلی‌ها نمی‌توانند بعضی رنگ‌ها را مطمئن از هم تشخیص بدهند، پس یک وضعیتِ قرمز‌در‌برابرِ‌سبز بدونِ نشانهٔ دیگر، برایشان نامرئی است. رنگ را با یک آیکون، برچسب یا شکل پشتیبانی کن. و مطمئن شو نوشته کنتراستِ کافی با زمینه‌اش دارد — اما وقتی کنتراستِ لازم نوشته را سنگین نشان می‌دهد، به‌جای اینکه فقط تیره‌ترش کنی، اشباع و روشناییِ رنگ را تنظیم کن."},
+        example:{en:"Add a checkmark or an 'X' icon next to green 'success' and red 'error', not just the color.", fa:"کنارِ سبزِ «موفق» و قرمزِ «خطا»، یک تیک یا یک آیکونِ ضربدر بگذار، نه فقط رنگ را."},
+        tip:{en:"Check text contrast against WCAG, and always pair color signals with a second cue.", fa:"کنتراستِ نوشته را با استانداردِ WCAG بررسی کن، و نشانه‌های رنگی را همیشه با یک نشانهٔ دوم همراه کن."},
+        pitfall:{en:"Signaling state with color only, and low-contrast text that many can't read.", fa:"نشان‌دادنِ وضعیت فقط با رنگ، و نوشتهٔ کم‌کنتراست که خیلی‌ها نمی‌توانند بخوانند."} },
+      light:{ part:"depth", n:14, name:{en:"Emulate a Light Source", fa:"یک منبعِ نور را شبیه‌سازی کن"}, glabel:{en:"Light Source", fa:"منبعِ نور"},
+        principle:{en:"Shadows imply light — pretend it always comes from directly above, and be consistent everywhere.", fa:"سایه‌ها نور را می‌رسانند — وانمود کن نور همیشه از درست بالا می‌آید، و همه‌جا ثابت باشد."},
+        more:{en:"Because light usually comes from above, the top of a raised element catches light and its bottom casts a shadow below. Keep that mental model consistent: raised elements get a shadow beneath them, inset elements (like pressed buttons or inputs) get a shadow inside the top edge. For realism, layer two shadows — a tight dark one and a larger soft one.", fa:"چون نور معمولاً از بالا می‌آید، بالای یک عنصرِ برجسته نور را می‌گیرد و پایینش سایه‌ای زیرِ خودش می‌اندازد. این مدلِ ذهنی را ثابت نگه دار: عنصرهای برجسته زیرِ خودشان سایه می‌گیرند، عنصرهای فرورفته (مثلِ دکمه‌های فشرده‌شده یا فیلدهای ورودی) یک سایه در لبهٔ بالاییِ داخلشان می‌گیرند. برای واقعی‌شدن، دو سایه را لایه کن — یک سایهٔ تیرهٔ جمع و یک سایهٔ نرمِ بزرگ‌تر."},
+        example:{en:"A card sits above the page with a soft shadow below it; a text input looks slightly recessed.", fa:"یک کارت با یک سایهٔ نرمِ زیرش، بالای صفحه می‌نشیند؛ یک فیلدِ ورودی کمی فرورفته به‌نظر می‌رسد."},
+        tip:{en:"Combine a small sharp shadow with a larger blurry one to mimic real light.", fa:"یک سایهٔ کوچکِ تیز را با یک سایهٔ بزرگ‌ترِ محو ترکیب کن تا نورِ واقعی را تقلید کنی."},
+        pitfall:{en:"Harsh, uniform shadows that ignore where the light is supposed to come from.", fa:"سایه‌های خشن و یک‌نواخت که بی‌خیالِ این‌اند که نور قرار است از کجا بیاید."} },
+      depthcolor:{ part:"depth", n:15, name:{en:"Use Color & Contrast for Depth", fa:"برای عمق از رنگ و کنتراست استفاده کن"}, glabel:{en:"Depth", fa:"عمق"},
+        principle:{en:"Elements that feel closer should have more contrast and warmth; distant ones fade back.", fa:"عنصرهایی که نزدیک‌تر حس می‌شوند باید کنتراست و گرمای بیشتری داشته باشند؛ عنصرهای دور عقب می‌روند."},
+        more:{en:"Depth isn't only shadows. Higher contrast and warmer, more saturated colors make an element feel like it's in front; lower contrast and cooler, softer colors make it recede into the background. Overlapping elements to create real layers reinforces the effect and makes flat interfaces feel three-dimensional.", fa:"عمق فقط سایه نیست. کنتراستِ بالاتر و رنگ‌های گرم‌تر و اشباع‌تر، کاری می‌کنند عنصر انگار جلو باشد؛ کنتراستِ پایین‌تر و رنگ‌های سردتر و ملایم‌تر، عقب می‌بَرَندش توی زمینه. هم‌پوشانیِ عنصرها برای ساختنِ لایه‌های واقعی، این اثر را تقویت می‌کند و رابطِ تخت را سه‌بعدی نشان می‌دهد."},
+        example:{en:"A bright, high-contrast primary button pops forward while a subtle outlined button stays back.", fa:"یک دکمهٔ اصلیِ روشن و پُرکنتراست جلو می‌زند، درحالی‌که یک دکمهٔ خط‌دارِ ملایم عقب می‌ماند."},
+        tip:{en:"To push something forward, raise its contrast; to send it back, soften and cool it.", fa:"برای اینکه چیزی را جلو بیاوری، کنتراستش را بالا ببر؛ برای عقب‌فرستادنش، ملایم و سردش کن."},
+        pitfall:{en:"Flat, same-contrast elements that all sit on one lifeless plane.", fa:"عنصرهای تخت و هم‌کنتراست که همه روی یک سطحِ بی‌روح نشسته‌اند."} },
+      details:{ part:"depth", n:16, name:{en:"Supercharge the Details", fa:"جزئیات را شارژ کن"}, glabel:{en:"Finishing Touches", fa:"پرداختِ پایانی"},
+        principle:{en:"Great design lives in the details — upgrade the boring defaults and design your empty states with care.", fa:"طراحیِ عالی در جزئیات است — حالت‌های پیش‌فرضِ کسل‌کننده را ارتقا بده و حالت‌های خالی را با دقت طراحی کن."},
+        more:{en:"The last 10% is what makes UI feel polished. Replace default bullets and checkmarks with custom icons, style your links and quotes, use nicer images, and never ship a blank empty state — the first thing a new user sees is often an empty screen, so make it welcoming and helpful instead of a dead end.", fa:"همان ده‌درصدِ آخر است که رابط را صیقلی نشان می‌دهد. گلوله‌ها و تیک‌های پیش‌فرض را با آیکون‌های سفارشی عوض کن، لینک‌ها و نقلِ‌قول‌هایت را استایل بده، از تصویرهای بهتری استفاده کن، و هیچ‌وقت یک حالتِ خالیِ سفید تحویل نده — اولین چیزی که کاربرِ تازه می‌بیند اغلب یک صفحهٔ خالی است، پس به‌جای یک بن‌بست، خوشامدگو و کمک‌کننده‌اش کن."},
+        example:{en:"An empty 'no projects yet' screen with a friendly illustration and a clear 'Create one' button.", fa:"یک صفحهٔ خالیِ «هنوز پروژه‌ای نیست» با یک تصویرِ دوستانه و یک دکمهٔ روشنِ «یکی بساز»."},
+        tip:{en:"Design the empty state first — it's what users see before they have any data.", fa:"اول حالتِ خالی را طراحی کن — همان چیزی است که کاربرها قبل از داشتنِ هر داده‌ای می‌بینند."},
+        pitfall:{en:"Shipping raw browser defaults and blank screens with no thought given.", fa:"تحویل‌دادنِ پیش‌فرض‌های خامِ مرورگر و صفحه‌های خالیِ بی‌فکر."} }
+    },
+    core:{ name:{en:"MAKE IT LOOK DESIGNED", fa:"طراحی‌شده به‌نظر برسد"},
+      principle:{en:"You don't need to be a born artist to design a good interface. Refactoring UI turns design into a set of concrete, repeatable tactics: establish a clear hierarchy, give everything generous space, systemize your text and color, and finish with depth and detail. Make deliberate choices from small, fixed systems and the result looks designed — on purpose.", fa:"لازم نیست هنرمندِ مادرزاد باشی تا یک رابطِ خوب طراحی کنی. «Refactoring UI» طراحی را به مجموعه‌ای از ترفندهای مشخص و تکرارپذیر تبدیل می‌کند: یک سلسله‌مراتبِ روشن بساز، به همه‌چیز فضای دست‌ودل‌باز بده، نوشته و رنگت را نظام‌مند کن، و با عمق و جزئیات کار را تمام کن. از نظام‌های کوچک و ثابت، انتخاب‌های حساب‌شده بکن، آن‌وقت نتیجه طراحی‌شده به‌نظر می‌رسد — عمداً."},
+      more:{en:"Wathan and Schoger organize web design into practical areas — Hierarchy (weight and color over size, labels last), Layout & Spacing (start with too much white space, use a spacing system), Designing Text (limit fonts, a type scale, readable measure), Working with Color (HSL, a full palette, accessible contrast), and Depth & Finishing Touches (a consistent light source, layered shadows, empty states and imagery). The thread through all of it: tactics, not talent.", fa:"واتان و شوگر طراحیِ وب را در چند حوزهٔ عملی می‌چینند — سلسله‌مراتب (وزن و رنگ به‌جای اندازه، برچسب در آخر)، چیدمان و فاصله (شروع با فضای خالیِ زیاد، استفاده از یک نظامِ فاصله)، طراحیِ نوشته (کم‌کردنِ فونت، یک مقیاسِ اندازه، عرضِ خوانا)، کار با رنگ (HSL، یک پالتِ کامل، کنتراستِ دسترس‌پذیر)، و عمق و پرداختِ پایانی (یک منبعِ نورِ ثابت، سایه‌های لایه‌لایه، حالت‌های خالی و تصویرها). نخِ رابطِ همه‌شان: ترفند، نه استعداد."},
+      example:{en:"Click any node to read a tactic. You can also drag the nodes around.", fa:"روی هر دایره کلیک کن تا یک ترفند را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."} },
+    stages:[
+      { level:1, badge:{en:"Level 1 · Over-simplified", fa:"سطحِ ۱ · خیلی ساده"}, title:{en:"Tactics, not talent", fa:"ترفند، نه استعداد"}, tagline:{en:"The whole book in a sentence.", fa:"کلِ کتاب در یک جمله."},
+        body:{en:"Good UI design isn't a gift you're born with — it's a set of tricks you can copy. You don't have to be an artist; you just have to apply a few concrete rules on purpose.", fa:"طراحیِ خوبِ رابط، موهبتی نیست که با آن به دنیا آمده باشی — مجموعه‌ای از ترفندهاست که می‌توانی کپی‌شان کنی. لازم نیست هنرمند باشی؛ فقط باید چند قاعدهٔ مشخص را عمداً به کار ببری."},
+        example:{en:"Add more white space and make the important text bolder — it already looks better.", fa:"فضای خالی بیشتر کن و نوشتهٔ مهم را پُررنگ‌تر — همین حالا بهتر به‌نظر می‌رسد."},
+        gain:{en:"You believe design is learnable, and you know where to start.", fa:"باور می‌کنی طراحی یادگرفتنی است، و می‌دانی از کجا شروع کنی."} },
+      { level:2, badge:{en:"Level 2 · Simple", fa:"سطحِ ۲ · ساده"}, title:{en:"Hierarchy & space", fa:"سلسله‌مراتب و فضا"}, tagline:{en:"Guide the eye, give it room.", fa:"چشم را هدایت کن، بهش جا بده."},
+        body:{en:"Start with two moves that fix most designs. Build a clear <b>hierarchy</b> — decide what matters most and use weight and color, not just size, to show it. Then add <b>white space</b>: start with too much and remove until it feels right, using a consistent spacing scale.", fa:"با دو حرکت شروع کن که بیشترِ طرح‌ها را درست می‌کنند. یک <b>سلسله‌مراتبِ</b> روشن بساز — تصمیم بگیر چه چیزی مهم‌تر است و با وزن و رنگ، نه فقط اندازه، نشانش بده. بعد <b>فضای خالی</b> اضافه کن: با فضای زیاد شروع کن و کم کن تا درست شود، با یک مقیاسِ فاصلهٔ یک‌دست."},
+        example:{en:"Make the price bold and dark, mute the SKU to grey, and double the padding around the card.", fa:"قیمت را پُررنگ و تیره کن، کدِ کالا را خاکستری و ملایم کن، و فاصلهٔ دورِ کارت را دو برابر کن."},
+        gain:{en:"You can make a cramped, flat design feel clean and intentional.", fa:"می‌توانی یک طرحِ فشرده و تخت را تمیز و حساب‌شده کنی."} },
+      { level:3, badge:{en:"Level 3 · Balanced", fa:"سطحِ ۳ · متعادل"}, title:{en:"Systemize text & color", fa:"نوشته و رنگ را نظام‌مند کن"}, tagline:{en:"Type scale, HSL, a full palette.", fa:"مقیاسِ اندازه، HSL، یک پالتِ کامل."},
+        body:{en:"Now stop improvising. Limit yourself to one or two <b>fonts</b> and size them from a <b>type scale</b>. Keep lines 45–75 characters for <b>readability</b>. Move to <b>HSL</b> so you can reason about color, and build a <b>full palette</b> of shades up front — you'll need more than you think.", fa:"حالا دست از فی‌البداهه‌سازی بردار. خودت را به یکی‌دو <b>فونت</b> محدود کن و اندازه‌شان را از یک <b>مقیاسِ اندازه</b> بردار. خط‌ها را برای <b>خوانایی</b> ۴۵ تا ۷۵ نویسه نگه دار. به <b>HSL</b> برو تا بتوانی دربارهٔ رنگ فکر کنی، و از اول یک <b>پالتِ کامل</b> از سایه‌ها بساز — به بیشتر از آنچه فکر می‌کنی نیاز داری."},
+        example:{en:"Pick one clean font, a scale of 12–36px, and define blue-50 to blue-900 plus nine greys.", fa:"یک فونتِ تمیز انتخاب کن، یک مقیاسِ ۱۲ تا ۳۶ پیکسل، و از آبیِ‌۵۰ تا آبیِ‌۹۰۰ به‌علاوهٔ نُه خاکستری را تعریف کن."},
+        gain:{en:"Your text and color feel like one coherent system, not guesses.", fa:"نوشته و رنگت مثلِ یک نظامِ منسجم به‌نظر می‌رسند، نه حدس."} },
+      { level:4, badge:{en:"Level 4 · Advanced", fa:"سطحِ ۴ · پیشرفته"}, title:{en:"Depth & accessibility", fa:"عمق و دسترس‌پذیری"}, tagline:{en:"Light source, layers, real contrast.", fa:"منبعِ نور، لایه‌ها، کنتراستِ واقعی."},
+        body:{en:"Make flat UI feel real. Add <b>depth</b> by emulating a single <b>light source</b> — layered shadows below raised elements — and by using contrast and warmth to bring things forward or push them back. And design for everyone: never rely on <b>color alone</b>, and keep <b>contrast</b> high enough to be accessible.", fa:"رابطِ تخت را واقعی کن. با شبیه‌سازیِ یک <b>منبعِ نورِ</b> واحد <b>عمق</b> اضافه کن — سایه‌های لایه‌لایه زیرِ عنصرهای برجسته — و با کنتراست و گرما چیزها را جلو بیاور یا عقب بِبَر. و برای همه طراحی کن: هیچ‌وقت فقط به <b>رنگ</b> تکیه نکن، و <b>کنتراست</b> را آن‌قدر بالا نگه دار که دسترس‌پذیر باشد."},
+        example:{en:"Give a card a soft layered shadow, and add an icon beside a colored status so it's never color-only.", fa:"به یک کارت یک سایهٔ نرمِ لایه‌لایه بده، و کنارِ یک وضعیتِ رنگی یک آیکون بگذار تا هیچ‌وقت فقط رنگی نباشد."},
+        gain:{en:"Your interfaces feel tangible and work for every user.", fa:"رابط‌هایت ملموس‌اند و برای هر کاربری کار می‌کنند."} },
+      { level:5, badge:{en:"Level 5 · Expert", fa:"سطحِ ۵ · حرفه‌ای"}, title:{en:"Sweat the details", fa:"روی جزئیات وقت بگذار"}, tagline:{en:"Finishing touches that sell it.", fa:"پرداختِ پایانی که فروشش می‌کند."},
+        body:{en:"The expert has all the systems and then obsesses over the last 10%. <b>Supercharge the defaults</b>: custom icons instead of browser bullets, styled links and quotes, better imagery. Design <b>empty states</b> so a new user's first blank screen feels welcoming. At this level design is a set of deliberate decisions from your own systems — repeatable, teachable, and unmistakably intentional.", fa:"آدمِ حرفه‌ای همهٔ نظام‌ها را دارد و بعد روی همان ده‌درصدِ آخر وسواس به خرج می‌دهد. <b>پیش‌فرض‌ها را شارژ کن</b>: آیکون‌های سفارشی به‌جای گلوله‌های مرورگر، لینک‌ها و نقلِ‌قول‌های استایل‌خورده، تصویرهای بهتر. <b>حالت‌های خالی</b> را طوری طراحی کن که اولین صفحهٔ خالیِ کاربرِ تازه، خوشامدگو باشد. در این سطح، طراحی مجموعه‌ای از تصمیم‌های حساب‌شده از نظام‌های خودت است — تکرارپذیر، آموختنی، و بی‌شک عمدی."},
+        example:{en:"Your empty states, icons and micro-details all feel considered — the UI looks professionally designed.", fa:"حالت‌های خالی، آیکون‌ها و ریزه‌کاری‌هایت همه حساب‌شده به‌نظر می‌رسند — رابط، حرفه‌ای‌طراحی‌شده به‌نظر می‌رسد."},
+        gain:{en:"You can make any interface look designed — and show others how.", fa:"می‌توانی هر رابطی را طراحی‌شده نشان بدهی — و به دیگران هم یاد بدهی چطور."} }
+    ],
+    quotes:[
+      {en:"Make your ideas look awesome, without relying on a designer.", fa:"کاری کن ایده‌هایت عالی به‌نظر برسند، بی‌آنکه به یک طراح تکیه کنی."},
+      {en:"It's easy to throw your hands up and say, ‘I'll never be able to make this look good, I'm not an artist,’ but there are a ton of tricks you can use to level up your work that don't require a background in graphic design.", fa:"راحت است که دست‌هایت را بالا بیندازی و بگویی «هیچ‌وقت نمی‌توانم این را خوب کنم، من که هنرمند نیستم»، اما کلی ترفند هست که می‌توانی برای بهتر‌کردنِ کارت به کار ببری و هیچ‌کدام به پیشینهٔ طراحیِ گرافیک نیاز ندارند."},
+      {en:"Not all elements are equal.", fa:"همهٔ عنصرها برابر نیستند."},
+      {en:"Emphasize by de-emphasizing.", fa:"با کم‌رنگ‌کردن، تأکید کن."},
+      {en:"When you start designing a new piece of UI, start with too much white space.", fa:"وقتی شروع می‌کنی به طراحیِ یک تکه رابطِ تازه، با فضای خالیِ زیاد شروع کن."},
+      {en:"Don't use grey text on colored backgrounds.", fa:"روی زمینه‌های رنگی از نوشتهٔ خاکستری استفاده نکن."},
+      {en:"You're going to need more shades than you think.", fa:"به سایه‌های بیشتری از آنچه فکر می‌کنی نیاز پیدا می‌کنی."},
+      {en:"Emulate a light source.", fa:"یک منبعِ نور را شبیه‌سازی کن."}
+    ],
+    media:[
+      { kind:"yt", id:"7Z9rrryIOC4", src:{en:"YouTube · CSS Day", fa:"یوتیوب · CSS Day"},
+        title:{en:"Refactoring UI — Steve Schoger (CSS Day 2019)", fa:"بازطراحیِ رابط — استیو شوگر · CSS Day ۲۰۱۹"},
+        desc:{en:"Steve Schoger redesigns real interfaces live, narrating the tactics as he goes.", fa:"استیو شوگر زندهٔ زنده رابط‌های واقعی را بازطراحی می‌کند و همین‌طور که پیش می‌رود، ترفندها را توضیح می‌دهد."},
+        bullets:{en:["Live before/after redesigns","Hierarchy, spacing and color in action","Straight from a co-author"], fa:["بازطراحیِ زندهٔ قبل و بعد","سلسله‌مراتب، فاصله و رنگ در عمل","مستقیم از یکی از نویسنده‌ها"]},
+        best:{en:"Best for Stage 2–4.", fa:"خوب برای مرحلهٔ ۲ تا ۴."} },
+      { kind:"yt", id:"VfRE0ah3NxE", src:{en:"YouTube · Laracon Online", fa:"یوتیوب · Laracon Online"},
+        title:{en:"Practical Solutions to Common UI Design Problems", fa:"راه‌حل‌های عملی برای مشکل‌های رایجِ طراحیِ رابط"},
+        desc:{en:"A talk walking through frequent UI mistakes and the simple fixes from the book.", fa:"یک سخنرانی که مشکل‌های پرتکرارِ رابط و راه‌حل‌های سادهٔ کتاب را مرور می‌کند."},
+        bullets:{en:["Common mistakes, side by side","Quick, repeatable fixes","A practical overview"], fa:["اشتباه‌های رایج، کنارِ هم","راه‌حل‌های سریع و تکرارپذیر","یک مرورِ عملی"]},
+        best:{en:"Best for Stage 2–3.", fa:"خوب برای مرحلهٔ ۲ و ۳."} },
+      { kind:"yt", id:"EjEYTRD-W-M", src:{en:"YouTube · Laracon Online", fa:"یوتیوب · Laracon Online"},
+        title:{en:"The Little Details of UI Design — Steve Schoger", fa:"جزئیاتِ کوچکِ طراحیِ رابط — استیو شوگر"},
+        desc:{en:"A deep dive into the finishing touches that make interfaces feel polished.", fa:"یک واکاویِ عمیق در دست‌کاری‌های پایانی که رابط‌ها را صیقلی نشان می‌دهند."},
+        bullets:{en:["Depth, shadows and detail","Small touches, big payoff","Great for finishing work"], fa:["عمق، سایه و جزئیات","دست‌کاری‌های کوچک، نتیجهٔ بزرگ","عالی برای کارِ پایانی"]},
+        best:{en:"Best for Stage 4–5.", fa:"خوب برای مرحلهٔ ۴ و ۵."} },
+      { kind:"img", url:"https://refactoringui.com/",
+        src:{en:"Refactoring UI · Publisher", fa:"Refactoring UI · ناشر"},
+        title:{en:"Refactoring UI — Official Site", fa:"بازطراحیِ رابط — سایتِ رسمی"},
+        desc:{en:"The official book site, with the full table of contents and sample chapters.", fa:"سایتِ رسمیِ کتاب، با فهرستِ کامل و فصل‌های نمونه."},
+        bullets:{en:["The complete contents","Sample tactics and previews","Straight from the source"], fa:["فهرستِ کامل","ترفندها و پیش‌نمایش‌های نمونه","مستقیم از خودِ منبع"]},
+        best:{en:"For the book itself.", fa:"برای خودِ کتاب."} }
+    ],
+    go:[
+      {label:{en:"Official book site", fa:"سایتِ رسمیِ کتاب"}, url:"https://refactoringui.com/"},
+      {label:{en:"Book on Goodreads", fa:"کتاب در گودریدز"}, url:"https://www.goodreads.com/book/show/43190966-refactoring-ui"},
+      {label:{en:"Free article: 7 Practical Tips for Cheating at Design", fa:"مقالهٔ رایگان: هفت ترفندِ عملی برای تقلب در طراحی"}, url:"https://medium.com/refactoring-ui/7-practical-tips-for-cheating-at-design-40c736799886"}
+    ],
+    recs:[
+      { pri:"b", t:{en:"Fix hierarchy with weight and color", fa:"سلسله‌مراتب را با وزن و رنگ درست کن"}, d:{en:"Take one screen and re-rank its elements: bolden what matters, mute the rest to grey — without changing any sizes.", fa:"یک صفحه را بردار و عنصرهایش را از نو رتبه‌بندی کن: چیزِ مهم را پُررنگ کن، بقیه را خاکستری و ملایم — بدونِ عوض‌کردنِ هیچ اندازه‌ای."} },
+      { pri:"b", t:{en:"Add too much white space", fa:"فضای خالیِ زیاد اضافه کن"}, d:{en:"Double the padding and gaps on a cramped component, then trim back until it feels right.", fa:"فاصلهٔ داخلی و شکاف‌های یک عنصرِ فشرده را دو برابر کن، بعد کم کن تا درست شود."} },
+      { pri:"n", t:{en:"Define your scales", fa:"مقیاس‌هایت را تعریف کن"}, d:{en:"Write down a fixed spacing scale and a type scale, and only pick from them from now on.", fa:"یک مقیاسِ فاصلهٔ ثابت و یک مقیاسِ اندازهٔ نوشته بنویس، و از این به بعد فقط از همان‌ها انتخاب کن."} },
+      { pri:"n", t:{en:"Build your shades", fa:"سایه‌هایت را بساز"}, d:{en:"Pick one color and generate eight to ten shades in HSL, plus a set of greys, before your next design.", fa:"یک رنگ انتخاب کن و قبل از طرحِ بعدی‌ات، در HSL هشت تا ده سایه به‌علاوهٔ یک مجموعه خاکستری بساز."} }
+    ]
+  }
+};

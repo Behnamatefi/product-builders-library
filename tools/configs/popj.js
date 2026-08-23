@@ -1,0 +1,258 @@
+/* config: The Making of Prince of Persia — Jordan Mechner (Inspiration) */
+module.exports = {
+  slug:"popj", brand:"The Making of Prince of Persia",
+  titleTag:"The Making of Prince of Persia — نقشهٔ دانش و یادگیری ۵ مرحله‌ای",
+  W:980, H:780, R1:220, R2:126, span:66,
+  leafKickEn:"Lesson", leafKickFa:"درسِ",
+  flowEn:["Doubt","Make","Ship"], flowFa:["تردید","ساختن","رساندن"],
+
+  hero:`  <div class="eyebrow"><span class="edot"></span>
+    <span data-only="en">Book knowledge map · Jordan Mechner</span>
+    <span data-only="fa">نقشهٔ کتاب · جردن مکنر</span>
+  </div>
+  <h1>
+    <span data-only="en">The Making of Prince of Persia — Journals 1985–1993</span>
+    <span data-only="fa">ساختِ شاهزادهٔ ایران — دفترچه‌های ۱۹۸۵ تا ۱۹۹۳</span>
+  </h1>
+  <p class="dek">
+    <span data-only="en">A knowledge graph of the whole book, plus a 5-stage path from a single sentence to expert-level mastery — with an example at every step.</span>
+    <span data-only="fa">نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از خیلی ساده تا حرفه‌ای — با یک مثال در هر مرحله.</span>
+  </p>
+  <div class="metastrip">
+    <div class="metaitem"><span class="mk" data-only="en">Book</span><span class="mk" data-only="fa">کتاب</span>
+      <span class="mv" data-only="en">The Making of Prince of Persia</span><span class="mv" data-only="fa">ساختِ شاهزادهٔ ایران</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Author</span><span class="mk" data-only="fa">نویسنده</span>
+      <span class="mv" data-only="en">Jordan Mechner</span><span class="mv" data-only="fa">جردن مکنر</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Published</span><span class="mk" data-only="fa">سالِ چاپ</span>
+      <span class="mv" data-only="en">2020</span><span class="mv" data-only="fa">۲۰۲۰</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Group</span><span class="mk" data-only="fa">گروه</span>
+      <span class="mv" data-only="en">Inspiration</span><span class="mv" data-only="fa">الهام</span></div>
+  </div>
+  <div class="chips">
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Parts</span><span data-only="fa">بخش</span></div>
+    <div class="chip"><b data-only="en">16</b><b data-only="fa">۱۶</b><span data-only="en">Lessons</span><span data-only="fa">درس</span></div>
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Learning stages</span><span data-only="fa">مرحلهٔ یادگیری</span></div>
+  </div>`,
+
+  callout:`    <b data-only="en">The core idea:</b>
+    <b data-only="fa">ایدهٔ اصلی:</b>
+    <span data-only="en"> A young developer spends nearly a decade making <i>Prince of Persia</i> — and quietly records the fear, doubt, and comparison behind it. The lesson: keep showing up, cut and polish the work, finish the long thing, protect a life outside it, and stay humble about luck.</span>
+    <span data-only="fa"> یک برنامه‌نویسِ جوان نزدیک به یک دهه وقت می‌گذارد تا <i>شاهزادهٔ ایران</i> را بسازد — و بی‌سروصدا ترس و تردید و مقایسهٔ پشتش را می‌نویسد. درس این است: هر روز سرِ کار بیا، کار را ببُر و صیقل بده، آن پروژهٔ طولانی را تمام کن، یک زندگی هم بیرونش نگه دار، و دربارهٔ نقشِ شانس فروتن بمان.</span>`,
+
+  kpis:`    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Parts (doubt · craft · shipping · life · meaning)</div><div class="l" data-only="fa">بخش (تردید · ساخت · رساندن · زندگی · معنا)</div></div>
+    <div class="kbox"><div class="v" data-only="en">16</div><div class="v" data-only="fa">۱۶</div><div class="l" data-only="en">Lessons you can use</div><div class="l" data-only="fa">درس برای استفاده</div></div>
+    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Levels, simple → expert</div><div class="l" data-only="fa">مرحله، ساده تا حرفه‌ای</div></div>
+    <div class="kbox"><div class="v" data-only="en">4</div><div class="v" data-only="fa">۴</div><div class="l" data-only="en">Years to make the first game</div><div class="l" data-only="fa">سال برای ساختِ اولین بازی</div></div>`,
+
+  mapcallout:`      <b data-only="en">Read it as a flow:</b><b data-only="fa">به‌صورتِ یک جریان بخوانش:</b>
+      <span data-only="en"> push through the daily <b>doubt</b>, <b>make</b> the work real and keep iterating on it, <b>finish and ship</b> the long project, protect a <b>life</b> outside the work, then zoom out on <b>luck, timing and meaning</b>.</span>
+      <span data-only="fa"> از <b>تردیدِ</b> هر روز رد شو، کار را <b>بساز</b> و مدام رویش کار کن، آن پروژهٔ طولانی را <b>تمام کن و بیرون بده</b>، یک <b>زندگی</b> بیرونِ کار نگه دار، بعد کمی دور شو و به <b>شانس، زمان و معنا</b> نگاه کن.</span>`,
+
+  methodFa:"<p><b>منبع:</b> کتابِ «ساختِ شاهزادهٔ ایران: دفترچه‌های ۱۹۸۵ تا ۱۹۹۳» نوشتهٔ جردن مکنر، نسخهٔ حاشیه‌دار که استرایپ پرس در ۲۰۲۰ چاپش کرد (دفترچه‌ها اولین‌بار در ۲۰۱۱ منتشر شدند).</p><p><b>روشِ کار:</b> ساختارِ پنج‌بخشی و درس‌ها از خودِ دفترچه‌ها و منابعِ معتبر گرفته و ساده‌نویسی شده؛ نقل‌قول‌ها با متن مقابله و ویدیوها بررسی شده‌اند.</p><p><b>گروه:</b> «الهام» — یک ثبتِ صادقانه از انجامِ کارِ خلاقانهٔ سخت.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای متنِ کامل، خودِ کتاب را بخوان.</p>",
+  methodEn:"<p><b>Source:</b> the book <i>The Making of Prince of Persia: Journals 1985–1993</i> by Jordan Mechner, annotated edition published by Stripe Press in 2020 (the journals were first published in 2011).</p><p><b>How this was built:</b> the five-part structure and lessons were drawn and rewritten from the journals and reputable sources; quotes were cross-checked and the linked videos verified.</p><p><b>Group:</b> Inspiration — a maker's honest record of doing hard creative work.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>",
+
+  data:{
+    tldr:[
+      {en:"The whole book in one line: making something great is mostly showing up through years of <b>doubt</b> and finishing anyway.",
+       fa:"خلاصهٔ کل کتاب در یک جمله: ساختنِ یک چیزِ خوب بیشترش این است که سال‌ها از دلِ <b>تردید</b> رد شوی و بازهم تمامش کنی."},
+      {en:"It's a real diary, kept in present tense — the fear, comparison and impostor feelings are right there on the page.",
+       fa:"این یک دفترچهٔ واقعی است، به زمانِ حال نوشته شده — ترس، مقایسه و حسِ به‌دردنخور بودن همان‌جا روی کاغذ است."},
+      {en:"The craft lessons are concrete: <b>rotoscope from real life</b>, cut features you love, and obsess over how it feels.",
+       fa:"درس‌های ساخت ملموس‌اند: <b>از زندگیِ واقعی روتوسکوپی کن</b>، ویژگی‌هایی را که دوست داری ببُر، و روی حسِ کار وسواس داشته باش."},
+      {en:"Finishing is its own skill: a big project takes years, so keep taking small daily steps and eventually <b>ship it</b>.",
+       fa:"تمام‌کردن خودش یک مهارت است: یک پروژهٔ بزرگ سال‌ها طول می‌کشد، پس هر روز یک قدمِ کوچک بردار و آخرش <b>بیرونش بده</b>."},
+      {en:"And keep a life: protect family and other passions, enjoy the small wins, and stay humble about luck and timing.",
+       fa:"و یک زندگی نگه دار: خانواده و علاقه‌های دیگرت را حفظ کن، از بردهای کوچک لذت ببر، و دربارهٔ شانس و زمان فروتن بمان."}
+    ],
+    parts:[
+      { key:"doubt", varc:"--c-teal", name:{en:"Doubt & Resistance", fa:"تردید و مقاومت"}, tag:{en:"Face the fear", fa:"با ترس روبه‌رو شو"},
+        gist:{en:"The daily fear, comparison, and impostor feelings behind the work.", fa:"ترس، مقایسه و حسِ سرخوردگیِ هر روز که پشتِ کار است."},
+        more:{en:"The journals are unusually honest about how it actually feels to make something hard: blocked days, envy of other people's success, and the quiet certainty that you're not good enough. The first lesson of the book is that none of this is a reason to stop.",
+              fa:"دفترچه‌ها به‌طورِ غیرعادی صادق‌اند دربارهٔ اینکه ساختنِ یک چیزِ سخت واقعاً چه حسی دارد: روزهای گیرکرده، حسادت به موفقیتِ بقیه، و آن اطمینانِ بی‌صدا که به‌اندازهٔ کافی خوب نیستی. اولین درسِ کتاب این است که هیچ‌کدامِ این‌ها دلیلی برای ایستادن نیست."},
+        chapters:["showup","compare","moods"] },
+      { key:"craft", varc:"--c-blue", name:{en:"Craft & Iteration", fa:"ساخت و پرداخت"}, tag:{en:"Make it real", fa:"واقعی‌اش کن"},
+        gist:{en:"How the work actually got made: reference reality, cut, and polish.", fa:"اینکه کار واقعاً چطور ساخته شد: از واقعیت الگو بگیر، ببُر، و صیقل بده."},
+        more:{en:"Prince of Persia broke new ground because of concrete craft choices, not magic. Trace real movement instead of imagining it, cut anything that doesn't serve the whole, and pour obsessive attention into how the final thing feels — the first version is always rough, and that's fine.",
+              fa:"شاهزادهٔ ایران راهِ تازه‌ای باز کرد به‌خاطرِ انتخاب‌های ملموسِ ساخت، نه جادو. حرکتِ واقعی را بکش به‌جای اینکه تصورش کنی، هرچه به کلِ کار خدمت نمی‌کند را ببُر، و توجهِ وسواسی بریز روی حسِ چیزِ نهایی — نسخهٔ اول همیشه خام است، و اشکالی ندارد."},
+        chapters:["rotoscope","cut","polish","rough"] },
+      { key:"ship", varc:"--c-amber", name:{en:"Persistence & Shipping", fa:"پشتکار و تمام‌کردن"}, tag:{en:"Finish it", fa:"تمامش کن"},
+        gist:{en:"Finishing a project that took years, one small step at a time.", fa:"به سرانجام رساندنِ پروژه‌ای که سال‌ها طول کشید، یک قدمِ کوچک در هر بار."},
+        more:{en:"The hardest part of a big project is not starting it but finishing it. It takes years, not weekends; it gets done through small daily steps, not bursts of genius; and at some point you have to stop polishing and actually ship — because a released game is worth more than a perfect private draft.",
+              fa:"سخت‌ترین بخشِ یک پروژهٔ بزرگ شروعش نیست، تمام‌کردنش است. سال‌ها طول می‌کشد، نه آخرِ هفته‌ها؛ با قدم‌های کوچکِ روزانه تمام می‌شود، نه با موج‌های نبوغ؛ و یک جایی باید دست از صیقل‌دادن برداری و واقعاً بیرونش بدهی — چون یک بازیِ عرضه‌شده از یک نسخهٔ خصوصیِ بی‌نقص باارزش‌تر است."},
+        chapters:["longhaul","daily","shipit"] },
+      { key:"life", varc:"--c-violet", name:{en:"Life Beyond Work", fa:"زندگی بیرون از کار"}, tag:{en:"Have a life", fa:"یک زندگی هم داشته باش"},
+        gist:{en:"Protecting family, other passions, and a life outside the work.", fa:"حفظِ خانواده، علاقه‌های دیگر، و یک زندگی بیرونِ کار."},
+        more:{en:"Obsessive work can quietly eat everything around it. The journals show the cost of endless 'working mode' — and the antidote: keep other passions alive, let family in, and remember that the life around the work is what the work is ultimately for.",
+              fa:"کارِ وسواسی می‌تواند بی‌سروصدا همه‌چیزِ دورش را بخورد. دفترچه‌ها هزینهٔ «حالتِ کارِ» بی‌پایان را نشان می‌دهند — و پادزهرش را: علاقه‌های دیگر را زنده نگه دار، بگذار خانواده وارد شود، و یادت باشد زندگیِ دورِ کار همان چیزی است که کار در نهایت به‌خاطرش است."},
+        chapters:["balance","passions","family"] },
+      { key:"meaning", varc:"--c-green", name:{en:"Luck, Timing & Meaning", fa:"شانس، زمان و معنا"}, tag:{en:"Zoom out", fa:"کمی دور شو"},
+        gist:{en:"What success actually felt like — and the role of luck and timing.", fa:"اینکه موفقیت واقعاً چه حسی داشت — و نقشِ شانس و زمان."},
+        more:{en:"Looking back, the big success felt oddly ordinary, and its scale owed as much to timing as to talent. The deepest lesson is a stance: do great work, enjoy the small wins, stay humble about luck, and keep an honest record — because the journal itself is where the meaning is held.",
+              fa:"با نگاه به عقب، موفقیتِ بزرگ به‌طورِ عجیبی عادی حس می‌شد، و بزرگیِ آن به‌اندازهٔ استعداد به زمان هم بدهکار بود. عمیق‌ترین درس یک نگرش است: کارِ عالی بکن، از بردهای کوچک لذت ببر، دربارهٔ شانس فروتن بمان، و یک ثبتِ صادقانه نگه دار — چون خودِ دفترچه همان‌جایی است که معنا نگه داشته می‌شود."},
+        chapters:["anticlimax","luck","journal"] }
+    ],
+    chapters:{
+      showup:{ part:"doubt", n:1, name:{en:"Show Up Scared", fa:"با ترس سرِ کار بیا"}, glabel:{en:"Show up", fa:"سرِ کار بیا"},
+        principle:{en:"The fear and doubt never fully go away — so do the work anyway, especially on the days you're sure it won't be any good.", fa:"ترس و تردید هیچ‌وقت کامل نمی‌روند — پس بازهم کار را انجام بده، مخصوصاً روزهایی که مطمئنی خوب از آب درنمی‌آید."},
+        more:{en:"Mechner's journals are full of days when he felt blocked, hopeless, and behind. He kept the entry and kept working. The lesson isn't to feel confident first; it's to sit down and move the thing forward while the fear is still there.", fa:"دفترچه‌های مکنر پُر است از روزهایی که حس می‌کرد گیر کرده، ناامید است و عقب افتاده. یادداشت را نگه می‌داشت و کارش را ادامه می‌داد. درس این نیست که اول اعتمادبه‌نفس پیدا کنی؛ این است که بنشینی و کار را جلو ببری، همان وقتی که ترس هنوز هست."},
+        example:{en:"On low days he'd still open the code and make a small, unglamorous change — and those changes are what became the game.", fa:"روزهای پایین بازهم کد را باز می‌کرد و یک تغییرِ کوچک و بی‌زرق‌وبرق می‌داد — و همین تغییرها بودند که بازی شدند."},
+        tip:{en:"On a low day, promise yourself just one honest hour of work — no more.", fa:"یک روزِ پایین، به خودت قول بده فقط یک ساعتِ صادقانه کار کنی — نه بیشتر."},
+        pitfall:{en:"Waiting until you feel confident before you start.", fa:"صبرکردن تا وقتی اعتمادبه‌نفس پیدا کنی، بعد شروع‌کردن."} },
+      compare:{ part:"doubt", n:2, name:{en:"Stop Comparing", fa:"مقایسه را بس کن"}, glabel:{en:"Comparison", fa:"مقایسه"},
+        principle:{en:"Measuring your unfinished, messy work against other people's polished results only makes you feel behind. Keep your eyes on your own screen.", fa:"سنجیدنِ کارِ نیمه‌کاره و به‌هم‌ریختهٔ خودت با نتیجهٔ صیقلیِ بقیه فقط حسِ عقب‌ماندگی می‌دهد. چشمت به صفحهٔ خودت باشد."},
+        more:{en:"For years he watched peers ship hits and collect praise while Prince of Persia dragged on. Comparison is endless and it's rigged: you see their finished highlight reel and your own raw, half-done middle. The only useful move is back to your own work.", fa:"سال‌ها دید که هم‌دوره‌ای‌هایش بازی‌های پرفروش بیرون می‌دهند و تعریف می‌شنوند، درحالی‌که شاهزادهٔ ایران کِش می‌آمد. مقایسه بی‌پایان است و از اول باخته‌ای: تو نسخهٔ تمام‌شده و درخشانِ آن‌ها را می‌بینی و وسطِ خام و نیمه‌کارهٔ خودت را. تنها کارِ به‌دردبخور برگشتن به کارِ خودت است."},
+        example:{en:"While others' games sold well, he had to keep pulling his attention back from envy to the animation he was still fixing.", fa:"وقتی بازیِ دیگران خوب می‌فروخت، مجبور بود مدام حواسش را از حسادت برگرداند به همان انیمیشنی که هنوز داشت درستش می‌کرد."},
+        tip:{en:"When envy hits, close the tab and make your own thing a little better.", fa:"وقتی حسادت زد، تب را ببند و کارِ خودت را یک‌ذره بهتر کن."},
+        pitfall:{en:"Using someone else's highlight reel as your ruler.", fa:"استفاده از بهترین لحظه‌های دیگران به‌عنوانِ خط‌کشِ خودت."} },
+      moods:{ part:"doubt", n:3, name:{en:"Moods Pass", fa:"حال‌وهوا می‌گذرد"}, glabel:{en:"Moods", fa:"حال‌وهوا"},
+        principle:{en:"On the same project you'll feel like a genius one week and a fraud the next. Neither mood is the truth — the work is. Don't let a bad day become a verdict.", fa:"توی یک پروژه، یک هفته حس می‌کنی نابغه‌ای و هفتهٔ بعد حس می‌کنی به‌دردنخوری. هیچ‌کدام از این حال‌وهواها حقیقت نیست — کار حقیقت است. نگذار یک روزِ بد تبدیل به حکمِ نهایی شود."},
+        more:{en:"His diary swings hard — from 'despair has been banished' to blocked and hopeless and back again, sometimes within days. The game got made in the gaps between those moods. Feelings are weather, not climate; you keep working through both the storms and the sun.", fa:"دفترچه‌اش شدید بالا و پایین می‌رود — از «ناامیدی رفت» تا گیرکرده و ناامید و دوباره برعکس، گاهی توی چند روز. بازی توی فاصلهٔ همین حال‌وهواها ساخته شد. احساس‌ها آب‌وهوان، نه اقلیم؛ هم توی طوفان کار می‌کنی هم توی آفتاب."},
+        example:{en:"A page of pure despair is often followed a week later by a burst of excitement about the very same feature.", fa:"بعدِ یک صفحهٔ پُر از ناامیدی، اغلب یک هفته بعد یک موجِ ذوق دربارهٔ همان ویژگی می‌آید."},
+        tip:{en:"Don't make big decisions on your worst day — or your best one.", fa:"تصمیم‌های بزرگ را نه روزِ بدت بگیر، نه روزِ خوبت."},
+        pitfall:{en:"Treating today's mood as a permanent judgment on the whole project.", fa:"حال‌وهوای امروز را حکمِ همیشگی دربارهٔ کلِ پروژه دانستن."} },
+      rotoscope:{ part:"craft", n:4, name:{en:"Rotoscope Reality", fa:"از واقعیت روتوسکوپی کن"}, glabel:{en:"Rotoscope", fa:"روتوسکوپی"},
+        principle:{en:"When you can't make something believable from imagination, film the real thing and trace it. Real reference beats guessing every time.", fa:"وقتی نمی‌توانی چیزی را از تخیل باورپذیر بسازی، خودِ واقعی‌اش را فیلم بگیر و از رویش بکش. مرجعِ واقعی همیشه از حدس‌زدن بهتر است."},
+        more:{en:"The prince's lifelike movement was the game's breakthrough, and it didn't come from talent alone. Mechner shot video of his teenage brother David running, jumping and climbing, then traced the footage frame by frame. Copying reality gave the character a weight and fluidity no one had seen in a game before.", fa:"حرکتِ زندهٔ شاهزاده نقطهٔ عطفِ بازی بود، و فقط از استعداد نیامد. مکنر از برادرِ نوجوانش دیوید فیلم گرفت که می‌دوید، می‌پرید و بالا می‌رفت، بعد فریم‌به‌فریم از روی فیلم کشید. کپی‌کردن از واقعیت به شخصیت یک وزن و روانی داد که تا آن موقع کسی توی بازی ندیده بود."},
+        example:{en:"He dressed David in white, filmed him running along a wall, and traced each frame into the prince's animation.", fa:"دیوید را سفیدپوش کرد، ازش فیلم گرفت که کنارِ دیوار می‌دود، و هر فریم را توی انیمیشنِ شاهزاده کشید."},
+        tip:{en:"Stuck making something feel real? Go find the real thing and study it frame by frame.", fa:"برای واقعی‌کردنِ چیزی گیر کرده‌ای؟ برو خودِ واقعی‌اش را پیدا کن و فریم‌به‌فریم نگاهش کن."},
+        pitfall:{en:"Inventing from your head when a real reference is one recording away.", fa:"از توی سرت ساختن، وقتی یک مرجعِ واقعی فقط یک فیلم‌گرفتن با تو فاصله دارد."} },
+      cut:{ part:"craft", n:5, name:{en:"Cut Features You Love", fa:"ویژگی‌های محبوبت را ببُر"}, glabel:{en:"Cut features", fa:"بریدن"},
+        principle:{en:"Finishing means cutting — even clever, hard-won features — whenever they don't make the core experience better.", fa:"تمام‌کردن یعنی بریدن — حتی ویژگی‌های باهوشانه و به‌سختی‌ساخته‌شده — هر وقت که تجربهٔ اصلی را بهتر نمی‌کنند."},
+        more:{en:"It's tempting to keep everything you built, especially the parts that were hard. But a tight, finished game beats a bloated, unfinished one. Mechner dropped whole sequences and ideas he liked so the core would stay clean, playable, and actually shippable.", fa:"وسوسه‌انگیز است که هرچه ساخته‌ای نگه داری، مخصوصاً بخش‌هایی که سخت بودند. اما یک بازیِ جمع‌وجورِ تمام‌شده از یک بازیِ پُروپیمانِ نیمه‌کاره بهتر است. مکنر کلِ صحنه‌ها و ایده‌هایی را که دوست داشت کنار گذاشت تا هستهٔ کار تمیز، قابلِ‌بازی و واقعاً قابلِ‌عرضه بماند."},
+        example:{en:"Levels and mechanics that didn't earn their place got cut, even after real work had gone into them.", fa:"مرحله‌ها و مکانیک‌هایی که جایشان را حق نمی‌کردند بریده شدند، حتی بعد از اینکه کلی کار رویشان رفته بود."},
+        tip:{en:"Ask of each feature: does the game get worse without it? If not, cut it.", fa:"از هر ویژگی بپرس: بازی بدونش بدتر می‌شود؟ اگر نه، ببُرش."},
+        pitfall:{en:"Keeping a feature because it was hard to build, not because it's good.", fa:"نگه‌داشتنِ یک ویژگی چون ساختنش سخت بوده، نه چون خوب است."} },
+      polish:{ part:"craft", n:6, name:{en:"Polish the Feel", fa:"حسِ کار را صیقل بده"}, glabel:{en:"Polish", fa:"صیقل"},
+        principle:{en:"What makes something memorable is the obsessive fine-tuning most people skip — timing, weight, and the tiny details of how it feels.", fa:"چیزی که یک کار را ماندگار می‌کند همان تنظیمِ ریز و وسواسی‌ای است که بیشترِ آدم‌ها ازش می‌گذرند — زمان‌بندی، وزن، و جزئیاتِ ریزِ حسِ کار."},
+        more:{en:"Long after Prince of Persia technically 'worked', Mechner kept tuning how it felt to move — the exact timing of a jump, the responsiveness of the controls, the fraction of a second that separates clumsy from magical. That last, unglamorous ten percent is where the whole impression lives.", fa:"مدت‌ها بعد از اینکه شاهزادهٔ ایران از نظرِ فنی «کار می‌کرد»، مکنر هنوز داشت حسِ حرکت را تنظیم می‌کرد — زمان‌بندیِ دقیقِ یک پرش، واکنشِ کنترل‌ها، همان کسری از ثانیه که «دست‌وپاچلفتی» را از «جادویی» جدا می‌کند. همان ده‌درصدِ آخر و بی‌زرق‌وبرق، جایی است که کلِ حسِ کار توش زندگی می‌کند."},
+        example:{en:"He fussed over the precise timing of a jump long after the mechanic already functioned.", fa:"خیلی بعد از اینکه پرش دیگر کار می‌کرد، هنوز روی زمان‌بندیِ دقیقش وسواس داشت."},
+        tip:{en:"After it works, spend real time making it feel good — not just function.", fa:"بعد از اینکه کار کرد، واقعاً وقت بگذار که حسِ خوبی بدهد — نه فقط کار کند."},
+        pitfall:{en:"Shipping the moment it works, before it feels right.", fa:"همان لحظه‌ای که کار کرد عرضه‌اش کنی، قبل از اینکه حسش درست شود."} },
+      rough:{ part:"craft", n:7, name:{en:"The First Version Is Ugly", fa:"نسخهٔ اول زشت است"}, glabel:{en:"First draft", fa:"نسخهٔ اول"},
+        principle:{en:"The first playable version will be clumsy and disappointing. That's raw material to improve, not a verdict on the idea.", fa:"اولین نسخهٔ قابلِ‌بازی دست‌وپاچلفتی و ناامیدکننده خواهد بود. این مادهٔ خام است برای بهتر کردن، نه حکمی دربارهٔ خودِ ایده."},
+        more:{en:"The gap between the dazzling idea in your head and the rough thing on the screen is normal and painful. Early prototypes of the prince were stiff and unconvincing; the magic came from months of reworking, not the first build. Get something rough working, then iterate — the first draft's only job is to exist.", fa:"فاصلهٔ بینِ ایدهٔ خیره‌کننده‌ای که توی سرت است و چیزِ خامی که روی صفحه است، عادی و دردناک است. نمونه‌های اولیهٔ شاهزاده خشک و بی‌جان بودند؛ جادو از ماه‌ها بازکاری آمد، نه از نسخهٔ اول. اول یک چیزِ خام را راه بینداز، بعد بازش کن — تنها وظیفهٔ نسخهٔ اول این است که وجود داشته باشد."},
+        example:{en:"The 'shadow man' idea thrilled everyone for a year; then it became just the concrete reality of what got programmed that day.", fa:"ایدهٔ «مردِ سایه» یک سال همه را ذوق‌زده کرد؛ بعد شد فقط واقعیتِ ملموسِ همان چیزی که آن روز برنامه‌نویسی شد."},
+        tip:{en:"Get a rough version working fast, then improve it in loops.", fa:"زود یک نسخهٔ خام را راه بینداز، بعد توی چند دور بهترش کن."},
+        pitfall:{en:"Expecting the first attempt to match the vision in your head.", fa:"انتظارِ اینکه تلاشِ اول به همان تصویری که توی سرت است برسد."} },
+      longhaul:{ part:"ship", n:8, name:{en:"Years, Not Weekends", fa:"سال‌ها، نه آخرِ هفته‌ها"}, glabel:{en:"The long haul", fa:"مسیرِ طولانی"},
+        principle:{en:"A project worth doing can swallow years. Bracing for the real length is what keeps you from quitting at the halfway point of despair.", fa:"یک پروژهٔ ارزشمند می‌تواند سال‌ها را ببلعد. آماده‌بودن برای طولِ واقعی‌اش همان چیزی است که نمی‌گذارد وسطِ راه، توی ناامیدی، ولش کنی."},
+        more:{en:"Prince of Persia took roughly four years, much of it slow, doubtful, and unglamorous. People quit big projects not because the work is impossible but because it takes far longer than they let themselves expect. Plan honestly for a long haul and the middle stops feeling like failure.", fa:"شاهزادهٔ ایران حدودِ چهار سال طول کشید، بیشترش کُند و پُرتردید و بی‌زرق‌وبرق. آدم‌ها پروژه‌های بزرگ را نه به‌خاطرِ ناممکن‌بودنِ کار، بلکه چون خیلی بیشتر از چیزی که به خودشان اجازهٔ انتظارش را داده‌اند طول می‌کشد، ول می‌کنند. صادقانه برای یک مسیرِ طولانی برنامه بریز تا وسطِ راه دیگر حسِ شکست ندهد."},
+        example:{en:"The journals stretch across years of ordinary working days before the game was finally done.", fa:"دفترچه‌ها سال‌ها روزِ کاریِ معمولی را دربرمی‌گیرند، تا وقتی بازی بالاخره تمام شد."},
+        tip:{en:"Estimate honestly, then plan for it taking even longer — and keep going.", fa:"صادقانه تخمین بزن، بعد فرض کن حتی بیشتر طول می‌کشد — و ادامه بده."},
+        pitfall:{en:"Assuming a big project will wrap up soon and burning out when it doesn't.", fa:"فرض‌کردنِ اینکه یک پروژهٔ بزرگ زود تمام می‌شود و بعد که نشد، سوختن."} },
+      daily:{ part:"ship", n:9, name:{en:"Small Steps, Most Days", fa:"قدم‌های کوچک، بیشترِ روزها"}, glabel:{en:"Daily steps", fa:"قدم‌های روزانه"},
+        principle:{en:"Finishing a long project is mostly showing up and moving it forward a little, most days, for a long time — not heroic bursts.", fa:"تمام‌کردنِ یک پروژهٔ طولانی بیشترش این است که سرِ کار بیایی و یک‌ذره جلو ببری‌اش، بیشترِ روزها، برای مدتی طولانی — نه با موج‌های قهرمانانه."},
+        more:{en:"The romantic image is a burst of inspiration; the real thing is a stack of ordinary days. Mechner's diary is a record of steady, unremarkable progress adding up. Waiting for a big block of inspired time usually means waiting forever — the next small task is almost always available right now.", fa:"تصویرِ رمانتیک یک موجِ الهام است؛ چیزِ واقعی یک تلنبار از روزهای معمولی است. دفترچهٔ مکنر ثبتِ همین پیشرفتِ آرام و بی‌سروصداست که روی هم جمع می‌شود. منتظرِ یک وقتِ بزرگ و پُرالهام ماندن معمولاً یعنی تا ابد منتظر ماندن — کارِ کوچکِ بعدی تقریباً همیشه همین حالا در دسترس است."},
+        example:{en:"One small fixed animation or bug, repeated across hundreds of days, becomes a finished game.", fa:"یک انیمیشن یا باگِ کوچکِ درست‌شده، که صدها روز تکرار شود، می‌شود یک بازیِ تمام‌شده."},
+        tip:{en:"Define the next tiny, concrete task and do just that today.", fa:"کوچک‌ترین کارِ بعدی و مشخص را تعیین کن و همین امروز فقط همان را انجام بده."},
+        pitfall:{en:"Waiting for a big block of inspired time that never comes.", fa:"منتظرِ یک وقتِ بزرگ و پُرالهام ماندن که هیچ‌وقت نمی‌آید."} },
+      shipit:{ part:"ship", n:10, name:{en:"Ship It", fa:"بیرونش بده"}, glabel:{en:"Ship", fa:"عرضه"},
+        principle:{en:"At some point you stop polishing and release. A finished, shipped game teaches you more than an endless private draft ever will.", fa:"یک جایی باید دست از صیقل‌دادن برداری و بیرونش بدهی. یک بازیِ تمام‌شده و عرضه‌شده بیشتر از هر نسخهٔ خصوصیِ بی‌پایان به تو یاد می‌دهد."},
+        more:{en:"Releasing is scary because it turns your private work into something the world can judge. But a project only becomes real when it ships. After years of doubt, Mechner finished Prince of Persia and let it go — and only then did it find the audience that made it a classic.", fa:"عرضه‌کردن ترسناک است چون کارِ خصوصی‌ات را تبدیل می‌کند به چیزی که دنیا می‌تواند قضاوتش کند. اما یک پروژه فقط وقتی واقعی می‌شود که بیرون بیاید. مکنر بعد از سال‌ها تردید، شاهزادهٔ ایران را تمام کرد و رهایش کرد — و تازه آن‌وقت مخاطبی را پیدا کرد که ماندگارش کرد."},
+        example:{en:"The game sat unfinished and doubted for years; shipping it is what finally let it become 'Prince of Persia'.", fa:"بازی سال‌ها نیمه‌کاره و موردِ تردید مانده بود؛ عرضه‌کردنش همان چیزی بود که بالاخره گذاشت «شاهزادهٔ ایران» بشود."},
+        tip:{en:"Set a real ship date and cut scope to hit it.", fa:"یک تاریخِ واقعی برای عرضه بگذار و برای رسیدن به آن، دامنهٔ کار را کم کن."},
+        pitfall:{en:"Polishing forever because releasing feels too risky.", fa:"تا ابد صیقل‌دادن، چون عرضه‌کردن خیلی پُرخطر به‌نظر می‌رسد."} },
+      balance:{ part:"life", n:11, name:{en:"Working Mode Costs You", fa:"حالتِ کار برایت خرج دارد"}, glabel:{en:"Balance", fa:"تعادل"},
+        principle:{en:"Long stretches of all-consuming work quietly drain the color out of everything else. Guard against total immersion.", fa:"دوره‌های طولانیِ کارِ همه‌چیز-را-بلعنده بی‌سروصدا رنگِ بقیهٔ چیزها را می‌مکند. جلوی غرقِ کامل شدن را بگیر."},
+        more:{en:"Mechner noticed that when 'working mode' lasted more than a week or two, it dulled the whole world — friends, rest, everything but the project lost its power to reach him. Deep focus is a strength, but left unchecked it hollows out the very life that's supposed to make the work worth doing.", fa:"مکنر متوجه شد وقتی «حالتِ کار» بیشتر از یکی‌دو هفته طول می‌کشد، کلِ دنیا را بی‌رمق می‌کند — دوست‌ها، استراحت، همه‌چیز جز پروژه قدرتِ رسیدن به او را از دست می‌داد. تمرکزِ عمیق یک نقطهٔ قوت است، اما اگر رهایش کنی همان زندگی‌ای را خالی می‌کند که قرار بوده کار را ارزشمند کند."},
+        example:{en:"After too many weeks head-down, he found that nothing outside the project could reach or reward him anymore.", fa:"بعد از هفته‌های زیادی سربه‌زیرِ کار، دید که دیگر هیچ‌چیزِ بیرونِ پروژه نمی‌تواند به او برسد یا حالش را خوب کند."},
+        tip:{en:"Protect a few hours a week that have nothing to do with the project.", fa:"چند ساعت در هفته را نگه دار که هیچ ربطی به پروژه ندارند."},
+        pitfall:{en:"Letting the work eat every relationship and pastime.", fa:"گذاشتن اینکه کار هر رابطه و سرگرمی را بخورد."} },
+      passions:{ part:"life", n:12, name:{en:"Keep Other Passions", fa:"علاقه‌های دیگرت را نگه دار"}, glabel:{en:"Other passions", fa:"علاقه‌های دیگر"},
+        principle:{en:"Don't let one craft crowd out all the others. An outside passion often feeds your main work instead of starving it.", fa:"نگذار یک کار جای همهٔ کارهای دیگر را بگیرد. یک علاقهٔ بیرونی اغلب به‌جای اینکه کارِ اصلی‌ات را گرسنه بگذارد، تغذیه‌اش می‌کند."},
+        more:{en:"Through the Prince of Persia years, Mechner kept writing screenplays and pursuing film. Far from a distraction, that storytelling instinct flowed straight back into his games, which were unusually cinematic for their time. The side passion and the main work quietly strengthened each other.", fa:"توی سال‌های شاهزادهٔ ایران، مکنر همچنان فیلم‌نامه می‌نوشت و دنبالِ سینما بود. این کار نه‌تنها حواس‌پرتی نبود، بلکه آن حسِ قصه‌گویی مستقیم برمی‌گشت توی بازی‌هایش، که برای زمانهٔ خودشان به‌طورِ غیرعادی سینمایی بودند. آن علاقهٔ جانبی و کارِ اصلی بی‌سروصدا همدیگر را قوی‌تر می‌کردند."},
+        example:{en:"His screenwriting habit shows up directly in Prince of Persia's cinematic cutscenes and storytelling.", fa:"عادتِ فیلم‌نامه‌نویسی‌اش مستقیم توی میان‌پرده‌های سینمایی و قصه‌گوییِ شاهزادهٔ ایران پیداست."},
+        tip:{en:"Keep one creative outlet that isn't your main job.", fa:"یک راهِ خلاقانه نگه دار که کارِ اصلی‌ات نیست."},
+        pitfall:{en:"Believing you must give up everything else to be serious.", fa:"این باور که برای جدی‌بودن باید از همه‌چیزِ دیگر بگذری."} },
+      family:{ part:"life", n:13, name:{en:"Family Keeps You Human", fa:"خانواده آدم نگهت می‌دارد"}, glabel:{en:"Family", fa:"خانواده"},
+        principle:{en:"The people close to you are the ropes that keep an obsessive maker tethered to real life. Let them into the work.", fa:"آدم‌های نزدیکت همان طناب‌هایی‌اند که یک سازندهٔ وسواسی را به زندگیِ واقعی بسته نگه می‌دارند. بگذار وارد کار شوند."},
+        more:{en:"Mechner's family wasn't separate from Prince of Persia — it was woven into it. His father, a composer, wrote the music; his younger brother David was the rotoscope model for the prince's movement. The relationships that kept him grounded were the same ones that made the work richer.", fa:"خانوادهٔ مکنر جدا از شاهزادهٔ ایران نبود — توی آن تنیده شده بود. پدرش، که آهنگساز بود، موسیقی را نوشت؛ برادرِ کوچک‌ترش دیوید مدلِ روتوسکوپی برای حرکتِ شاهزاده شد. همان رابطه‌هایی که او را به زمین وصل نگه می‌داشتند، همان‌هایی بودند که کار را پُرمایه‌تر کردند."},
+        example:{en:"His father composed the score and his brother's filmed movements became the prince — family, right inside the game.", fa:"پدرش موسیقی را ساخت و حرکت‌های فیلم‌گرفته‌شدهٔ برادرش شدند شاهزاده — خانواده، درست وسطِ بازی."},
+        tip:{en:"Let the people you love be part of what you make.", fa:"بگذار آدم‌هایی که دوستشان داری بخشی از چیزی باشند که می‌سازی."},
+        pitfall:{en:"Isolating yourself until you 'float away' from everyone.", fa:"آن‌قدر خودت را جدا کنی که «شناور شوی» و از همه دور بیفتی."} },
+      anticlimax:{ part:"meaning", n:14, name:{en:"Success Feels Ordinary", fa:"موفقیت حسِ عادی دارد"}, glabel:{en:"Anticlimax", fa:"بی‌هیجانی"},
+        principle:{en:"The big success you chase, when it finally comes, often feels quiet and strangely normal — not the fireworks you pictured.", fa:"آن موفقیتِ بزرگی که دنبالش می‌دوی، وقتی بالاخره می‌آید، اغلب آرام و به‌طورِ عجیبی عادی حس می‌شود — نه آن آتش‌بازی‌ای که تصور می‌کردی."},
+        more:{en:"We imagine that hitting the goal will transform how we feel. In the journals, even as Prince of Persia grew into a landmark, the day-to-day stayed made of ordinary work and ordinary doubt. If you save all your joy for the finish line, you'll find the finish line oddly muted — so take the satisfaction along the way.", fa:"خیال می‌کنیم رسیدن به هدف حالِ ما را زیرورو می‌کند. توی دفترچه‌ها، حتی وقتی شاهزادهٔ ایران داشت به یک نقطهٔ عطف تبدیل می‌شد، روزمرّگی هنوز از کارِ معمولی و تردیدِ معمولی ساخته شده بود. اگر همهٔ شادی‌ات را برای خطِ پایان نگه داری، می‌بینی خطِ پایان به‌طورِ عجیبی بی‌صداست — پس رضایت را همان بینِ راه بردار."},
+        example:{en:"Even as the game became famous, his notes read like ordinary working days, not a triumphant finale.", fa:"حتی وقتی بازی معروف شد، یادداشت‌هایش شبیهِ روزهای کاریِ معمولی بودند، نه یک پایانِ پیروزمندانه."},
+        tip:{en:"Enjoy the small wins along the way; don't save all your joy for the end.", fa:"از بردهای کوچکِ بینِ راه لذت ببر؛ همهٔ شادی‌ات را برای آخر نگه ندار."},
+        pitfall:{en:"Postponing all satisfaction until a finish line that underwhelms.", fa:"عقب‌انداختنِ همهٔ رضایت تا یک خطِ پایان که سرخورده‌ات می‌کند."} },
+      luck:{ part:"meaning", n:15, name:{en:"Luck and Timing Matter", fa:"شانس و زمان مهم‌اند"}, glabel:{en:"Luck", fa:"شانس"},
+        principle:{en:"Hard work makes success possible, but timing and luck decide how far it goes. Do great work, then stay humble about the rest.", fa:"کارِ سخت موفقیت را ممکن می‌کند، اما زمان و شانس تعیین می‌کنند تا کجا می‌رود. کارِ عالی بکن، بعد دربارهٔ بقیه‌اش فروتن بمان."},
+        more:{en:"Prince of Persia arrived just as home computers and the game industry were ready for something more cinematic and lifelike. A few years earlier or later, the same effort might have landed very differently. Skill and persistence set the stage, but you don't control the moment you walk onto it — which is a reason for both effort and humility.", fa:"شاهزادهٔ ایران درست وقتی رسید که کامپیوترهای خانگی و صنعتِ بازی آمادهٔ چیزی سینمایی‌تر و زنده‌تر بودند. چند سال زودتر یا دیرتر، همان تلاش شاید خیلی متفاوت به نتیجه می‌رسید. مهارت و پشتکار صحنه را می‌چینند، اما لحظه‌ای که پا به آن می‌گذاری دستِ تو نیست — و همین هم دلیلِ تلاش است هم دلیلِ فروتنی."},
+        example:{en:"The game landed at the exact moment players and hardware were ready for lifelike animation.", fa:"بازی درست همان لحظه‌ای رسید که بازیکن‌ها و سخت‌افزار آمادهٔ انیمیشنِ زنده بودند."},
+        tip:{en:"Do work you're proud of and stay ready — then give luck its due.", fa:"کاری بکن که بهش افتخار می‌کنی و آماده بمان — بعد سهمِ شانس را هم به رسمیت بشناس."},
+        pitfall:{en:"Believing success was all skill — or all luck.", fa:"این باور که موفقیت همه‌اش مهارت بود — یا همه‌اش شانس."} },
+      journal:{ part:"meaning", n:16, name:{en:"The Journal Is the Point", fa:"خودِ دفترچه مهم است"}, glabel:{en:"Reflect", fa:"بازتاب"},
+        principle:{en:"Keeping an honest record — fear, doubt, small wins and all — is how a maker sees the pattern and holds onto the meaning of the work.", fa:"نگه‌داشتنِ یک ثبتِ صادقانه — با ترس و تردید و بردهای کوچک و همه‌چیز — همان راهی است که یک سازنده الگو را می‌بیند و معنای کار را نگه می‌دارد."},
+        more:{en:"This book exists because Mechner wrote things down as they happened, in present tense, without cleaning up the doubt. That rawness is exactly why it became a classic — a true picture of what making something hard actually feels like. An honest journal turns messy experience into something you can learn from later.", fa:"این کتاب وجود دارد چون مکنر چیزها را همان‌طور که پیش می‌آمد نوشت، به زمانِ حال، بدونِ اینکه تردید را تمیز کند. همان خام‌بودن دقیقاً دلیلی است که ماندگار شد — یک تصویرِ واقعی از اینکه ساختنِ یک چیزِ سخت واقعاً چه حسی دارد. یک دفترچهٔ صادقانه، تجربهٔ به‌هم‌ریخته را تبدیل می‌کند به چیزی که بعداً می‌توانی ازش یاد بگیری."},
+        example:{en:"He kept the messy entries instead of 'fixing' them with hindsight — and that honesty is what readers connect with.", fa:"به‌جای اینکه یادداشت‌های به‌هم‌ریخته را با نگاهِ امروز «درست» کند، همان‌ها را نگه داشت — و همین صداقت است که خواننده با آن ارتباط می‌گیرد."},
+        tip:{en:"Keep a plain, honest work journal; don't edit out the doubt.", fa:"یک دفترچهٔ کاریِ ساده و صادقانه نگه دار؛ تردید را حذف نکن."},
+        pitfall:{en:"Only recording the wins, and losing the true story.", fa:"فقط بردها را ثبت‌کردن، و از دست‌دادنِ داستانِ واقعی."} }
+    },
+    core:{ name:{en:"PERSISTENCE", fa:"پشتکار"},
+      principle:{en:"Great creative work is less about talent than about showing up through years of doubt. You keep making, cutting, and polishing the thing; you finish and ship it even when you're sure it isn't good enough; and you protect a life — and some humility about luck — around the work.", fa:"کارِ خلاقانهٔ بزرگ کمتر به استعداد ربط دارد و بیشتر به اینکه سال‌ها از دلِ تردید سرِ کار بیایی. مدام کار را می‌سازی، می‌بُری و صیقل می‌دهی؛ حتی وقتی مطمئنی به‌اندازهٔ کافی خوب نیست، تمامش می‌کنی و بیرونش می‌دهی؛ و دورِ کار یک زندگی — و کمی فروتنی دربارهٔ شانس — نگه می‌داری."},
+      more:{en:"The journals organize into five threads — Doubt & Resistance (the daily fear and comparison), Craft & Iteration (rotoscoping, cutting, polish), Persistence & Shipping (finishing a project that took years), Life Beyond Work (family, screenwriting, balance), and Luck, Timing & Meaning (what success actually felt like). The thread through all of it: the feelings never fully go away — you just learn to work alongside them.", fa:"دفترچه‌ها در پنج رشته جمع می‌شوند — تردید و مقاومت (ترس و مقایسهٔ هر روز)، ساخت و پرداخت (روتوسکوپی، بریدن، صیقل)، پشتکار و تمام‌کردن (به سرانجام رساندنِ پروژه‌ای که سال‌ها طول کشید)، زندگی بیرون از کار (خانواده، فیلم‌نامه‌نویسی، تعادل)، و شانس، زمان و معنا (اینکه موفقیت واقعاً چه حسی داشت). نخِ رابطِ همه‌شان: این حس‌ها هیچ‌وقت کامل نمی‌روند — فقط یاد می‌گیری کنارشان کار کنی."},
+      example:{en:"Click any node to read a lesson. You can also drag the nodes around.", fa:"روی هر دایره کلیک کن تا یک درس را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."} },
+    stages:[
+      { level:1, badge:{en:"Level 1 · Over-simplified", fa:"سطحِ ۱ · خیلی ساده"}, title:{en:"Just keep going", fa:"فقط ادامه بده"}, tagline:{en:"The whole book in a sentence.", fa:"کلِ کتاب در یک جمله."},
+        body:{en:"Making something great takes a long time and a lot of doubt. The trick is simple to say and hard to do: keep showing up, and finish the thing.", fa:"ساختنِ یک چیزِ خوب زمانِ زیاد و تردیدِ زیاد می‌خواهد. ترفندش گفتنش ساده است و انجامش سخت: هر روز سرِ کار بیا، و آن کار را تمام کن."},
+        example:{en:"On the days he was sure it was no good, Mechner still did an hour of work — and the game got made.", fa:"روزهایی که مطمئن بود خوب نیست، مکنر بازهم یک ساعت کار می‌کرد — و بازی ساخته شد."},
+        gain:{en:"You know the core move: keep going through the doubt.", fa:"حرکتِ اصلی را می‌دانی: از دلِ تردید ادامه بده."} },
+      { level:2, badge:{en:"Level 2 · Simple", fa:"سطحِ ۲ · ساده"}, title:{en:"Doubt is normal", fa:"تردید عادی است"}, tagline:{en:"Fear, comparison, and showing up anyway.", fa:"ترس، مقایسه، و بازهم سرِ کار آمدن."},
+        body:{en:"Every maker feels <b>fear</b>, compares themselves to others, and sometimes feels like a fraud. None of that is a stop sign. Sit down and move the work forward a little, most days, while the doubt is still there.", fa:"هر سازنده‌ای <b>ترس</b> دارد، خودش را با بقیه مقایسه می‌کند، و گاهی حس می‌کند به‌دردنخور است. هیچ‌کدامِ این‌ها تابلوی ایست نیست. بنشین و کار را یک‌ذره جلو ببر، بیشترِ روزها، همان وقتی که تردید هنوز هست."},
+        example:{en:"His diary swings from 'despair has been banished' to hopeless blocks — and back. The work happened in between.", fa:"دفترچه‌اش از «ناامیدی رفت» تا گیرِ ناامیدکننده می‌رود — و برعکس. کار همان وسط اتفاق افتاد."},
+        gain:{en:"You can keep working while still feeling unsure.", fa:"می‌توانی کار کنی، همان‌وقت که هنوز مطمئن نیستی."} },
+      { level:3, badge:{en:"Level 3 · Balanced", fa:"سطحِ ۳ · متعادل"}, title:{en:"Make and iterate", fa:"بساز و بازکن"}, tagline:{en:"Rotoscope, cut, polish.", fa:"روتوسکوپی، بریدن، صیقل."},
+        body:{en:"Now the craft. <b>Rotoscope</b> from real life instead of guessing. <b>Cut</b> features you love if they don't help the whole. And <b>polish</b> the feel long after it 'works' — that fine-tuning is where the magic lives. The first version is always ugly; you improve it in loops.", fa:"حالا صنعتِ کار. به‌جای حدس‌زدن، از زندگیِ واقعی <b>روتوسکوپی</b> کن. ویژگی‌هایی را که دوست داری، اگر به کلِ کار کمک نمی‌کنند، <b>ببُر</b>. و حسِ کار را مدت‌ها بعد از اینکه «کار می‌کند» <b>صیقل</b> بده — جادو توی همین تنظیمِ ریز است. نسخهٔ اول همیشه زشت است؛ توی چند دور بهترش می‌کنی."},
+        example:{en:"He filmed his brother running and traced each frame, then obsessed over the exact timing of a jump.", fa:"از برادرش فیلم گرفت که می‌دود و هر فریم را کشید، بعد روی زمان‌بندیِ دقیقِ یک پرش وسواس داشت."},
+        gain:{en:"You can turn a rough idea into something that feels good.", fa:"می‌توانی یک ایدهٔ خام را به چیزی تبدیل کنی که حسِ خوبی دارد."} },
+      { level:4, badge:{en:"Level 4 · Advanced", fa:"سطحِ ۴ · پیشرفته"}, title:{en:"Finish the long thing", fa:"کارِ طولانی را تمام کن"}, tagline:{en:"Years, small steps, and shipping.", fa:"سال‌ها، قدم‌های کوچک، و عرضه."},
+        body:{en:"Big projects take <b>years</b>, not weekends. You get there with <b>small daily steps</b>, not heroic bursts — and at some point you stop polishing and <b>ship</b>. A finished, released game teaches you more than an endless private draft.", fa:"پروژه‌های بزرگ <b>سال‌ها</b> طول می‌کشند، نه آخرِ هفته‌ها. با <b>قدم‌های کوچکِ روزانه</b> به مقصد می‌رسی، نه با موج‌های قهرمانانه — و یک جایی دست از صیقل برمی‌داری و <b>عرضه</b> می‌کنی. یک بازیِ تمام‌شده و بیرون‌آمده بیشتر از یک نسخهٔ خصوصیِ بی‌پایان یادت می‌دهد."},
+        example:{en:"Prince of Persia took about four years of ordinary working days before he finally let it go into the world.", fa:"شاهزادهٔ ایران حدودِ چهار سال روزِ کاریِ معمولی طول کشید تا بالاخره رهایش کرد و به دنیا فرستاد."},
+        gain:{en:"You can carry a big project all the way to done.", fa:"می‌توانی یک پروژهٔ بزرگ را تا آخر، تا تمام‌شدن، ببری."} },
+      { level:5, badge:{en:"Level 5 · Expert", fa:"سطحِ ۵ · حرفه‌ای"}, title:{en:"Keep a life, stay humble", fa:"یک زندگی نگه دار، فروتن بمان"}, tagline:{en:"Balance, luck, and meaning.", fa:"تعادل، شانس، و معنا."},
+        body:{en:"The expert protects everything around the work. Guard a <b>life</b> — family, other passions — so total 'working mode' doesn't hollow you out. Enjoy the small wins, because big <b>success</b> often feels surprisingly ordinary. And stay humble: skill sets you up, but <b>luck and timing</b> decide how far it goes. Keeping an honest journal is how you see all of this clearly.", fa:"آدمِ حرفه‌ای همه‌چیزِ دورِ کار را حفظ می‌کند. یک <b>زندگی</b> نگه دار — خانواده، علاقه‌های دیگر — تا «حالتِ کارِ» کامل خالی‌ات نکند. از بردهای کوچک لذت ببر، چون <b>موفقیتِ</b> بزرگ اغلب به‌طورِ عجیبی عادی حس می‌شود. و فروتن بمان: مهارت زمینه را می‌چیند، اما <b>شانس و زمان</b> تعیین می‌کنند تا کجا می‌رود. نگه‌داشتنِ یک دفترچهٔ صادقانه همان راهی است که همهٔ این‌ها را روشن می‌بینی."},
+        example:{en:"He kept writing screenplays, stayed close to his family, and later saw how much the game's success owed to arriving at exactly the right moment.", fa:"همچنان فیلم‌نامه می‌نوشت، به خانواده‌اش نزدیک ماند، و بعدها دید که موفقیتِ بازی چقدر مدیونِ رسیدن در همان لحظهٔ درست بود."},
+        gain:{en:"You can do hard creative work for years without losing yourself.", fa:"می‌توانی سال‌ها کارِ خلاقانهٔ سخت بکنی، بی‌آنکه خودت را گم کنی."} }
+    ],
+    quotes:[
+      {en:"I've chosen a life that's so different from everybody else's that it cuts me off from them. Practically everybody I know treats me like a guest celebrity. Of course it's my own fault. I feel so damn alone sometimes, I feel like I could just float away into the stratosphere and everybody would stand there looking up at me and not one would haul me back down to earth. No ropes.", fa:"زندگی‌ای انتخاب کرده‌ام آن‌قدر متفاوت با بقیه که من را از آن‌ها جدا می‌کند. تقریباً هرکسی را که می‌شناسم با من مثلِ یک مهمانِ سرشناس رفتار می‌کند. البته تقصیرِ خودم است. گاهی آن‌قدر تنهام که انگار می‌توانم شناور شوم و بروم بالا توی آسمان، و همه همان‌جا بایستند و نگاهم کنند و هیچ‌کس من را به زمین برنگرداند. هیچ طنابی نیست."},
+      {en:"For over a year now, the shadow man has been this awesome idea that everyone gets all excited about when they hear it. Now, it's just… what it is. The unlimited potential has been replaced by the concrete reality of what I programmed today.", fa:"بیشتر از یک سال است که «مردِ سایه» یک ایدهٔ محشر بوده که هرکس می‌شنودش ذوق می‌کند. حالا دیگر فقط… همینی است که هست. آن ظرفیتِ بی‌پایان جایش را داده به واقعیتِ ملموسِ همان چیزی که امروز برنامه‌نویسی کردم."},
+      {en:"A story doesn't move forward until a character wants something. So – a game doesn't move forward until the player wants something.", fa:"یک داستان تا وقتی یک شخصیت چیزی نخواهد جلو نمی‌رود. پس – یک بازی هم تا وقتی بازیکن چیزی نخواهد جلو نمی‌رود."},
+      {en:"I'm not crazy about the prospect of sitting down to write another video game and getting up a year later.", fa:"از فکرِ اینکه بنشینم یک بازیِ دیگر بنویسم و یک سال بعد بلند شوم، اصلاً خوشم نمی‌آید."},
+      {en:"Despair has been banished.", fa:"ناامیدی رفت."},
+      {en:"This book is not a look back. It's what I wrote then, in present tense, weird capitalization and all.", fa:"این کتاب یک نگاه به گذشته نیست. همان چیزی است که آن موقع نوشتم، به زمانِ حال، با همان حروفِ بزرگِ عجیب‌وغریبش."},
+      {en:"In five years you'll be 30. That's the time of life when you stop asking a lot of questions and start to accept certain things and not try to change them.", fa:"پنج سالِ دیگر سی‌ساله می‌شوی. آن وقتی از زندگی است که دیگر آن‌قدر سؤال نمی‌پرسی و کم‌کم بعضی چیزها را می‌پذیری و سعی نمی‌کنی عوضشان کنی."},
+      {en:"Me, I have other plans… although what they are, I have no idea.", fa:"من، برنامه‌های دیگری دارم… هرچند نمی‌دانم چه برنامه‌هایی."}
+    ],
+    media:[
+      { kind:"yt", id:"CjE4JyfMVLc", src:{en:"YouTube · GDC", fa:"یوتیوب · GDC"},
+        title:{en:"Classic Game Postmortem: Prince of Persia", fa:"پست‌مورتمِ کلاسیک: شاهزادهٔ ایران"},
+        desc:{en:"Jordan Mechner's own GDC postmortem talk on how the game was made.", fa:"سخنرانیِ پست‌مورتمِ خودِ جردن مکنر در GDC دربارهٔ اینکه بازی چطور ساخته شد."},
+        bullets:{en:["The making-of, from the creator","Rotoscoping and the animation breakthrough","Straight from the source"], fa:["ماجرای ساخت، از زبانِ خالقش","روتوسکوپی و جهشِ انیمیشن","مستقیم از خودِ منبع"]},
+        best:{en:"Best for Stage 1–3.", fa:"خوب برای مرحلهٔ ۱ تا ۳."} },
+      { kind:"yt", id:"_JGjCaMPMdc", src:{en:"YouTube · Bonfire Conversations", fa:"یوتیوب · Bonfire Conversations"},
+        title:{en:"Jordan Mechner on His Book & the Legacy of Prince of Persia", fa:"جردن مکنر دربارهٔ کتابش و میراثِ شاهزادهٔ ایران"},
+        desc:{en:"An interview with Mechner about the journals and what the game came to mean.", fa:"گفت‌وگویی با مکنر دربارهٔ دفترچه‌ها و اینکه بازی به چه معنایی رسید."},
+        bullets:{en:["The story behind the journals","Looking back on the whole journey","Reflections on luck and meaning"], fa:["داستانِ پشتِ دفترچه‌ها","نگاهی به عقب به کلِ مسیر","تأملی دربارهٔ شانس و معنا"]},
+        best:{en:"Best for Stage 4–5.", fa:"خوب برای مرحلهٔ ۴ و ۵."} },
+      { kind:"img", url:"https://press.stripe.com/the-making-of-prince-of-persia",
+        src:{en:"Stripe Press · Publisher", fa:"Stripe Press · ناشر"},
+        title:{en:"The Making of Prince of Persia — Publisher Page", fa:"ساختِ شاهزادهٔ ایران — صفحهٔ ناشر"},
+        desc:{en:"The Stripe Press page for the annotated edition, with details and excerpts.", fa:"صفحهٔ Stripe Press برای نسخهٔ حاشیه‌دار، با جزئیات و بخش‌هایی از کتاب."},
+        bullets:{en:["The definitive annotated edition","Background on the book","Straight from the source"], fa:["نسخهٔ حاشیه‌دارِ معتبر","پیشینه‌ای دربارهٔ کتاب","مستقیم از خودِ منبع"]},
+        best:{en:"For the book and the source.", fa:"برای خودِ کتاب و منبعِ اصلی."} }
+    ],
+    go:[
+      {label:{en:"Publisher page", fa:"صفحهٔ ناشر"}, url:"https://press.stripe.com/the-making-of-prince-of-persia"},
+      {label:{en:"Book on Goodreads", fa:"کتاب در گودریدز"}, url:"https://www.goodreads.com/book/show/52824295-the-making-of-prince-of-persia"},
+      {label:{en:"The author's journals page", fa:"صفحهٔ دفترچه‌های نویسنده"}, url:"https://www.jordanmechner.com/en/books/journals/"}
+    ],
+    recs:[
+      { pri:"b", t:{en:"Show up on the bad days", fa:"روزهای بد هم سرِ کار بیا"}, d:{en:"Next time you feel blocked or like a fraud, do one honest hour anyway — don't wait to feel ready.", fa:"دفعهٔ بعد که حس کردی گیر کرده‌ای یا به‌دردنخوری، بازهم یک ساعتِ صادقانه کار کن — منتظرِ آماده‌شدن نمان."} },
+      { pri:"b", t:{en:"Cut one feature you love", fa:"یک ویژگی را که دوست داری ببُر"}, d:{en:"Look at your current project and remove one clever thing that isn't making the whole better.", fa:"به پروژهٔ الانت نگاه کن و یک چیزِ باهوشانه را که کلِ کار را بهتر نمی‌کند بردار."} },
+      { pri:"n", t:{en:"Take the next small step", fa:"قدمِ کوچکِ بعدی را بردار"}, d:{en:"Stop waiting for a big block of time; define the tiniest next task and do just that today.", fa:"دست از انتظارِ یک وقتِ بزرگ بردار؛ کوچک‌ترین کارِ بعدی را مشخص کن و همین امروز فقط همان را انجام بده."} },
+      { pri:"n", t:{en:"Keep an honest journal", fa:"یک دفترچهٔ صادقانه نگه دار"}, d:{en:"Write down the work and the doubt as it happens — don't edit out the hard days.", fa:"کار و تردید را همان‌طور که پیش می‌آید بنویس — روزهای سخت را حذف نکن."} }
+    ]
+  }
+};

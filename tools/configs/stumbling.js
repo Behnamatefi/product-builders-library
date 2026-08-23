@@ -1,0 +1,254 @@
+/* config: Stumbling on Happiness — Daniel Gilbert (Happiness) */
+module.exports = {
+  slug:"stumbling", brand:"Stumbling on Happiness",
+  titleTag:"Stumbling on Happiness — نقشهٔ دانش و یادگیری ۵ مرحله‌ای",
+  W:980, H:780, R1:220, R2:126, span:66,
+  leafKickEn:"Idea", leafKickFa:"ایدهٔ",
+  flowEn:["Imagine","Err","Correct"], flowFa:["تصور","اشتباه","اصلاح"],
+
+  hero:`  <div class="eyebrow"><span class="edot"></span>
+    <span data-only="en">Book knowledge map · Daniel Gilbert</span>
+    <span data-only="fa">نقشهٔ کتاب · دنیل گیلبرت</span>
+  </div>
+  <h1>
+    <span data-only="en">Stumbling on Happiness — Why We Mispredict What Will Make Us Happy</span>
+    <span data-only="fa">لغزیدن به‌سوی شادی — چرا در پیش‌بینیِ شادیِ خودمان اشتباه می‌کنیم</span>
+  </h1>
+  <p class="dek">
+    <span data-only="en">A knowledge graph of the whole book, plus a 5-stage path from a single idea to expert-level mastery — with an example at every step.</span>
+    <span data-only="fa">نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از یک ایدهٔ ساده تا حرفه‌ای — با یک مثال در هر مرحله.</span>
+  </p>
+  <div class="metastrip">
+    <div class="metaitem"><span class="mk" data-only="en">Book</span><span class="mk" data-only="fa">کتاب</span>
+      <span class="mv" data-only="en">Stumbling on Happiness</span><span class="mv" data-only="fa">لغزیدن به‌سوی شادی</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Author</span><span class="mk" data-only="fa">نویسنده</span>
+      <span class="mv" data-only="en">Daniel Gilbert</span><span class="mv" data-only="fa">دنیل گیلبرت</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Published</span><span class="mk" data-only="fa">سالِ چاپ</span>
+      <span class="mv" data-only="en">2006</span><span class="mv" data-only="fa">۲۰۰۶</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Group</span><span class="mk" data-only="fa">گروه</span>
+      <span class="mv" data-only="en">Happiness</span><span class="mv" data-only="fa">شادکامی</span></div>
+  </div>
+  <div class="chips">
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Parts</span><span data-only="fa">بخش</span></div>
+    <div class="chip"><b data-only="en">15</b><b data-only="fa">۱۵</b><span data-only="en">Ideas</span><span data-only="fa">ایده</span></div>
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Learning stages</span><span data-only="fa">مرحلهٔ یادگیری</span></div>
+  </div>`,
+
+  callout:`    <b data-only="en">The core idea:</b>
+    <b data-only="fa">ایدهٔ اصلی:</b>
+    <span data-only="en"> We are the only animal that imagines the future, and we chase happiness by predicting what will bring it. But imagination <i>fills in</i> what won't happen, <i>leaves out</i> what will, and colors tomorrow with today — so we routinely mispredict what will make us happy. The surprising fix: stop imagining and ask someone <i>living it now</i>.</span>
+    <span data-only="fa"> ما تنها جانداری هستیم که آینده را تصور می‌کند، و شادی را با پیش‌بینیِ چیزی که آن را می‌آورد دنبال می‌کنیم. اما خیال چیزی را که رخ نمی‌دهد <i>می‌سازد</i>، چیزی را که رخ می‌دهد <i>جا می‌اندازد</i>، و فردا را با رنگِ امروز می‌کشد — برای همین مدام اشتباه پیش‌بینی می‌کنیم چه چیزی خوشحالمان می‌کند. راهِ حلِ غافلگیرکننده: تصور را کنار بگذار و از کسی بپرس که <i>همین حالا آن را زندگی می‌کند</i>.</span>`,
+
+  kpis:`    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Parts (prospection · realism · presentism · rationalization · remedy)</div><div class="l" data-only="fa">بخش (آینده‌نگری · واقع‌پنداری · حال‌زدگی · توجیه · درمان)</div></div>
+    <div class="kbox"><div class="v" data-only="en">15</div><div class="v" data-only="fa">۱۵</div><div class="l" data-only="en">Ideas you can use</div><div class="l" data-only="fa">ایده برای استفاده</div></div>
+    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Levels, simple → expert</div><div class="l" data-only="fa">مرحله، ساده تا حرفه‌ای</div></div>
+    <div class="kbox"><div class="v" data-only="en">3</div><div class="v" data-only="fa">۳</div><div class="l" data-only="en">The three flaws: realism · presentism · rationalization</div><div class="l" data-only="fa">سه خطا: واقع‌پنداری · حال‌زدگی · توجیه</div></div>`,
+
+  mapcallout:`      <b data-only="en">Read it as a flow:</b><b data-only="fa">به‌صورتِ یک جریان بخوانش:</b>
+      <span data-only="en"> First see <b>prospection</b> — we imagine the future to chase happiness. Then meet its three flaws: <b>realism</b> (imagination fills in and leaves out), <b>presentism</b> (we see tomorrow through today), and <b>rationalization</b> (we cook the facts and quietly recover). Finally the <b>remedy</b>: surrogation — ask someone living it now.</span>
+      <span data-only="fa"> اول <b>آینده‌نگری</b> را ببین — ما آینده را تصور می‌کنیم تا شادی را دنبال کنیم. بعد سه خطایش را بشناس: <b>واقع‌پنداری</b> (خیال جا می‌اندازد و پُر می‌کند)، <b>حال‌زدگی</b> (فردا را از پنجرهٔ امروز می‌بینیم)، و <b>توجیه</b> (واقعیت را دستکاری می‌کنیم و بی‌سروصدا حالمان جا می‌آید). آخرش هم <b>درمان</b>: از کسی بپرس که همین حالا آن را زندگی می‌کند.</span>`,
+
+  methodFa:"<p><b>منبع:</b> کتابِ «Stumbling on Happiness» نوشتهٔ دنیل گیلبرت، چاپِ ۲۰۰۶ (نشرِ Alfred A. Knopf).</p><p><b>روشِ کار:</b> ساختارِ پنج‌بخشی و ایده‌ها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده؛ نقل‌قول‌ها مقابله و ویدیو بررسی شده است.</p><p><b>گروه:</b> «شادکامی» — یک خواندنیِ پایه دربارهٔ اینکه چرا این‌قدر بد شادیِ خودمان را پیش‌بینی می‌کنیم.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای متنِ کامل، خودِ کتاب را بخوان.</p>",
+  methodEn:"<p><b>Source:</b> the book <i>Stumbling on Happiness</i> by Daniel Gilbert, published 2006 (Alfred A. Knopf).</p><p><b>How this was built:</b> the five-part structure and ideas were gathered and rewritten from the book and reputable sources; quotes were cross-checked and the linked video verified.</p><p><b>Group:</b> Happiness — a foundational read on why we are so bad at predicting our own happiness.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>",
+
+  data:{
+    tldr:[
+      {en:"The whole book in one line: we are the only animal that imagines the future, but our imagination is a bad predictor of what will make us happy.",
+       fa:"خلاصهٔ کل کتاب در یک جمله: ما تنها جانداری هستیم که آینده را تصور می‌کند، اما خیالمان پیش‌بینیِ بدی است از اینکه چه چیزی خوشحالمان می‌کند."},
+      {en:"Imagination <b>fills in</b> details that won't happen and <b>leaves out</b> ones that will — and never warns us about either.",
+       fa:"خیال جزئیاتی را که رخ نمی‌دهد <b>می‌سازد</b> و جزئیاتی را که رخ می‌دهد <b>جا می‌اندازد</b> — و هیچ‌وقت هم دربارهٔ هیچ‌کدام هشدار نمی‌دهد."},
+      {en:"We imagine tomorrow through the lens of today: present moods, hungers and comparisons quietly leak into the forecast (<b>presentism</b>).",
+       fa:"فردا را از پنجرهٔ امروز تصور می‌کنیم: حال‌وهوا، گرسنگی و مقایسه‌های همین الان بی‌سروصدا وارد پیش‌بینی می‌شوند (<b>حال‌زدگی</b>)."},
+      {en:"After bad events we quietly rationalize and bounce back — a <b>psychological immune system</b> we forget to count on, so we over-dread the future.",
+       fa:"بعد از اتفاق‌های بد، بی‌سروصدا توجیه می‌آوریم و حالمان جا می‌آید — یک <b>سپرِ روانی</b> که یادمان می‌رود رویش حساب کنیم، برای همین آینده را بیش از حد سیاه می‌بینیم."},
+      {en:"The fix is <b>surrogation</b>: instead of imagining, ask someone living that life now — we resist only because we think we're uniquely different.",
+       fa:"راهِ حل <b>جانشین‌گزینی</b> است: به‌جای تصور، از کسی بپرس که همین حالا آن زندگی را دارد — فقط به این خاطر مقاومت می‌کنیم که خیال می‌کنیم بی‌همتاییم."}
+    ],
+    parts:[
+      { key:"prospection", varc:"--c-teal", name:{en:"The Mind's Eye", fa:"چشمِ ذهن"}, tag:{en:"Prospection", fa:"آینده‌نگری"},
+        gist:{en:"We are the only animal that thinks about the future — and we do it nonstop.", fa:"ما تنها جانداری هستیم که به آینده فکر می‌کند — و بی‌وقفه این کار را می‌کنیم."},
+        more:{en:"The brain's signature trick is time travel: we picture events that haven't happened and step inside them. We run these simulations to chase happiness — to decide, in advance, what will make our future selves glad.",
+              fa:"ترفندِ خاصِ مغز، سفر در زمان است: رویدادهایی را که رخ نداده‌اند تصور می‌کنیم و پا به درونشان می‌گذاریم. این تصورها را می‌سازیم تا شادی را دنبال کنیم — تا از قبل تصمیم بگیریم چه چیزی خودِ آینده‌مان را خوشحال می‌کند."},
+        chapters:["onlyanimal","whysimulate","pursuit"] },
+      { key:"realism", varc:"--c-blue", name:{en:"Realism", fa:"واقع‌پنداری"}, tag:{en:"Imagination fills in & leaves out", fa:"خیال می‌سازد و جا می‌اندازد"},
+        gist:{en:"Imagination invents missing details and drops crucial ones — and hides both from us.", fa:"خیال جزئیاتِ نبوده را می‌سازد و جزئیاتِ مهم را می‌اندازد — و هر دو را از ما پنهان می‌کند."},
+        more:{en:"Like the eye's blind spot, imagination patches over its own gaps so smoothly that we mistake the patch for reality. It adds things that won't happen, skips things that will, and never tells us it's doing either.",
+              fa:"مثلِ نقطهٔ کورِ چشم، خیال چاله‌های خودش را چنان صاف پُر می‌کند که وصله را با واقعیت اشتباه می‌گیریم. چیزهایی را که رخ نمی‌دهند اضافه می‌کند، چیزهایی را که رخ می‌دهند رد می‌کند، و هیچ‌وقت نمی‌گوید دارد این کار را می‌کند."},
+        chapters:["fillsin","leavesout","memorytrick"] },
+      { key:"presentism", varc:"--c-amber", name:{en:"Presentism", fa:"حال‌زدگی"}, tag:{en:"The present colors the future", fa:"حالا، آینده را رنگ می‌کند"},
+        gist:{en:"We imagine tomorrow through the lens of now — today's feelings and context sneak in.", fa:"فردا را از پنجرهٔ اکنون تصور می‌کنیم — حال‌وهوا و بافتِ امروز یواشکی وارد می‌شوند."},
+        more:{en:"When we picture the future, the mind borrows heavily from the present. Our current mood, hunger and points of comparison bleed into the forecast, so tomorrow ends up looking like a lightly edited version of today.",
+              fa:"وقتی آینده را تصور می‌کنیم، ذهن حسابی از حالِ حاضر قرض می‌گیرد. حال‌وهوا، گرسنگی و معیارهای مقایسهٔ الانِ ما به پیش‌بینی نشت می‌کنند، برای همین فردا می‌شود نسخه‌ای کمی ویرایش‌شده از امروز."},
+        chapters:["lensofnow","feelingsnow","comparison"] },
+      { key:"rationalization", varc:"--c-violet", name:{en:"Rationalization", fa:"توجیه‌گری"}, tag:{en:"The psychological immune system", fa:"سپرِ روانیِ ذهن"},
+        gist:{en:"We're resilient: after the fact we cook the facts to feel good — and can't see it coming.", fa:"ما تاب‌آوریم: بعد از ماجرا واقعیت را جوری می‌چینیم که حالمان خوب شود — و نمی‌بینیمش که دارد می‌آید."},
+        more:{en:"A quiet immune system defends our happiness: once something is ours to live with, we find a way to see it in a good light — and believe it. Because the trick is invisible, we leave it out of our forecasts and over-predict our own misery.",
+              fa:"یک سپرِ روانیِ بی‌سروصدا از شادیِ ما دفاع می‌کند: همین که چیزی مالِ ما شد و باید با آن سر کنیم، راهی پیدا می‌کنیم که خوب ببینیمش — و باورش هم می‌کنیم. چون این ترفند نامرئی است، از پیش‌بینی‌هایمان جا می‌ماند و بدبختیِ خودمان را بیش از حد تخمین می‌زنیم."},
+        chapters:["resilience","cookfacts","immuneneglect"] },
+      { key:"surrogation", varc:"--c-green", name:{en:"The Remedy", fa:"درمان"}, tag:{en:"Surrogation", fa:"جانشین‌گزینی"},
+        gist:{en:"Stop imagining; ask someone living the experience now. We reject it because we feel unique.", fa:"تصور را کنار بگذار؛ از کسی بپرس که همین حالا آن تجربه را دارد. ردش می‌کنیم چون خودمان را بی‌همتا می‌دانیم."},
+        more:{en:"Since imagination can't be fixed from the inside, the answer is to lean on it less. Ask a real person already living your imagined future — their present is a better preview than your daydream. We refuse only because we're sure we're too special for it to apply.",
+              fa:"چون خیال را نمی‌شود از درون درست کرد، جواب این است که کمتر به آن تکیه کنیم. از یک آدمِ واقعی بپرس که همین حالا آن آینده‌ای را که تصور می‌کنی زندگی می‌کند — حالِ او پیش‌نمایشِ بهتری است تا خیال‌پردازیِ تو. فقط به این خاطر قبول نمی‌کنیم که مطمئنیم زیادی خاصیم و به دردمان نمی‌خورد."},
+        chapters:["stopimagining","asksomeone","weunique"] }
+    ],
+    chapters:{
+      onlyanimal:{ part:"prospection", n:1, name:{en:"The Only Animal That Thinks Ahead", fa:"تنها جانداری که به فردا فکر می‌کند"}, glabel:{en:"Prospection", fa:"آینده‌نگری"},
+        principle:{en:"Humans are the only animal that truly imagines tomorrow; this prospection is the brain's signature act.", fa:"انسان تنها جانداری است که واقعاً فردا را تصور می‌کند؛ این آینده‌نگری، کارِ نشان‌دارِ مغز است."},
+        more:{en:"A squirrel buries nuts on instinct, not foresight. Only we build mental pictures of things that haven't happened and walk around inside them. This constant leap into the future is our most human trait.", fa:"سنجاب از رویِ غریزه فندق قایم می‌کند، نه از رویِ آینده‌نگری. فقط ما از چیزهایی که هنوز رخ نداده تصویرِ ذهنی می‌سازیم و توی آن قدم می‌زنیم. همین پرشِ همیشگی به آینده، انسانی‌ترین ویژگیِ ماست."},
+        example:{en:"You can picture next summer's trip — the beach, the sunburn, the bill — though none of it exists yet. No squirrel can.", fa:"می‌توانی سفرِ تابستانِ بعد را تصور کنی — ساحل، آفتاب‌سوختگی، صورت‌حساب — با اینکه هنوز هیچ‌کدام وجود ندارد. هیچ سنجابی نمی‌تواند."},
+        tip:{en:"Notice how often your mind drifts to what hasn't happened yet; that drift is prospection at work.", fa:"حواست باشد ذهنت چند بار سُر می‌خورد به چیزی که هنوز رخ نداده؛ همان سُرخوردن، کارِ آینده‌نگری است."},
+        pitfall:{en:"Treating those vivid future pictures as facts instead of guesses.", fa:"آن تصویرهای زندهٔ آینده را به‌جای حدس، واقعیت پنداشتن."} },
+      whysimulate:{ part:"prospection", n:2, name:{en:"Why We Simulate", fa:"چرا شبیه‌سازی می‌کنیم"}, glabel:{en:"Simulation", fa:"شبیه‌سازی"},
+        principle:{en:"We imagine the future to try it on before we live it — a mental rehearsal that steers today's choices.", fa:"آینده را تصور می‌کنیم تا قبل از زندگی‌کردنش آن را تن بزنیم — یک تمرینِ ذهنی که انتخاب‌های امروز را هدایت می‌کند."},
+        more:{en:"The brain runs simulations so it can feel, in advance, what an experience might be like, then move toward the good ones and away from the bad. It is far cheaper to imagine a mistake than to make one.", fa:"مغز شبیه‌سازی می‌کند تا از قبل حس کند یک تجربه چه شکلی است، بعد سراغِ خوب‌ها برود و از بدها فاصله بگیرد. تصورِ یک اشتباه خیلی ارزان‌تر از انجامِ آن است."},
+        example:{en:"You imagine how a new job or a move would feel, and let that imagined feeling decide whether to go.", fa:"تصور می‌کنی یک شغلِ تازه یا یک اسباب‌کشی چه حسی دارد، و می‌گذاری همان حسِ خیالی تصمیم بگیرد بروی یا نه."},
+        tip:{en:"When you simulate an outcome, ask what your imagination might be exaggerating or skipping.", fa:"وقتی یک نتیجه را در ذهنت می‌سازی، بپرس خیالت شاید چه چیزی را بزرگ کرده یا از قلم انداخته."},
+        pitfall:{en:"Trusting the rehearsal as if it were an accurate preview.", fa:"به آن تمرینِ ذهنی طوری اعتماد کردن که انگار پیش‌نمایشِ دقیق است."} },
+      pursuit:{ part:"prospection", n:3, name:{en:"The Pursuit of Happiness", fa:"در پیِ شادی"}, glabel:{en:"Pursuit", fa:"در پیِ شادی"},
+        principle:{en:"Almost everything we do aims at a future feeling — we chase happiness by predicting what will bring it.", fa:"تقریباً هر کاری می‌کنیم نشانه‌رفته به یک حسِ آینده — شادی را با پیش‌بینیِ چیزی که آن را می‌آورد دنبال می‌کنیم."},
+        more:{en:"We treat our future selves like children we're building a good life for, trading today's effort for tomorrow's joy. The trouble is that the whole project rests on predicting feelings we haven't felt yet.", fa:"با خودِ آینده‌مان مثلِ بچه‌ای رفتار می‌کنیم که داریم برایش زندگیِ خوبی می‌سازیم، و تلاشِ امروز را با شادیِ فردا معامله می‌کنیم. اشکال اینجاست که کلِ ماجرا رویِ پیش‌بینیِ حس‌هایی بنا شده که هنوز آن‌ها را نچشیده‌ایم."},
+        example:{en:"You save, study, marry, move — each one a bet that your future self will thank you for it.", fa:"پس‌انداز می‌کنی، درس می‌خوانی، ازدواج می‌کنی، جابه‌جا می‌شوی — هر کدام یک شرط‌بندی که خودِ آینده‌ات ازت ممنون خواهد بود."},
+        tip:{en:"Before a big sacrifice for 'later', check how confident you really are about that future payoff.", fa:"قبل از یک فداکاریِ بزرگ به‌خاطرِ «بعد»، ببین واقعاً چقدر به آن سودِ آینده مطمئنی."},
+        pitfall:{en:"Assuming your future self will want exactly what your present self wants.", fa:"فرض‌کردنِ اینکه خودِ آینده‌ات دقیقاً همان چیزی را می‌خواهد که خودِ الانت می‌خواهد."} },
+      fillsin:{ part:"realism", n:4, name:{en:"Imagination Fills In", fa:"خیال، جا را پُر می‌کند"}, glabel:{en:"Fills In", fa:"پُر می‌کند"},
+        principle:{en:"Imagination quietly invents details that won't happen, then treats its own invention as fact.", fa:"خیال بی‌سروصدا جزئیاتی می‌سازد که رخ نمی‌دهند، بعد ساختهٔ خودش را واقعیت جا می‌زند."},
+        more:{en:"Just as your eye fills its blind spot without telling you, your mind paints missing details into any future scene — and you mistake the painting for a preview. The additions feel like knowledge, not guesswork.", fa:"همان‌طور که چشمت نقطهٔ کورش را بی‌خبر پُر می‌کند، ذهنت هم جزئیاتِ نبوده را توی هر صحنهٔ آینده نقاشی می‌کند — و تو آن نقاشی را با پیش‌نمایش اشتباه می‌گیری. آن اضافه‌ها به‌نظر دانش می‌آیند، نه حدس."},
+        example:{en:"Imagining tomorrow's dinner, your mind supplies a table, a plate, a mood — none of it real, all of it convincing.", fa:"وقتی شامِ فردا را تصور می‌کنی، ذهنت یک میز، یک بشقاب، یک حال‌وهوا جور می‌کند — هیچ‌کدام واقعی نیست، اما همه باورکردنی‌اند."},
+        tip:{en:"Ask what your mind added to a future scene that reality never actually promised.", fa:"بپرس ذهنت به این صحنهٔ آینده چه چیزی اضافه کرده که واقعیت اصلاً قولش را نداده."},
+        pitfall:{en:"Believing the invented details are part of the actual future.", fa:"باور‌کردنِ اینکه آن جزئیاتِ ساختگی بخشی از آیندهٔ واقعی‌اند."} },
+      leavesout:{ part:"realism", n:5, name:{en:"Imagination Leaves Out", fa:"خیال، جا می‌اندازد"}, glabel:{en:"Leaves Out", fa:"جا می‌اندازد"},
+        principle:{en:"Imagination also drops crucial details — and, worst of all, we never notice the gaps.", fa:"خیال جزئیاتِ مهم را هم می‌اندازد — و بدتر از همه، ما هیچ‌وقت متوجهِ جاهای خالی نمی‌شویم."},
+        more:{en:"The mind can't picture everything, so it leaves most of the future blank and doesn't flag the blanks. We don't feel the absence, so we plan as if whatever we didn't imagine simply won't matter.", fa:"ذهن نمی‌تواند همه‌چیز را تصور کند، برای همین بیشترِ آینده را خالی می‌گذارد و جاهای خالی را هم علامت نمی‌زند. ما نبودشان را حس نمی‌کنیم، برای همین جوری برنامه می‌ریزیم که انگار هرچه تصور نکرده‌ایم اصلاً مهم نیست."},
+        example:{en:"You picture the new city's sunshine, but not the daily commute, the loneliness, the rent.", fa:"آفتابِ شهرِ تازه را تصور می‌کنی، اما رفت‌وآمدِ هر روز، تنهایی و اجاره‌بها را نه."},
+        tip:{en:"For any plan, list what you did NOT imagine — the boring, hard, in-between parts.", fa:"برای هر برنامه، فهرست کن چه چیزهایی را تصور نکرده‌ای — همان بخش‌های کسل‌کننده، سخت و بینابینی."},
+        pitfall:{en:"Assuming that what you can't picture won't happen or won't count.", fa:"فرض‌کردنِ اینکه چیزی را که نمی‌توانی تصورش کنی رخ نمی‌دهد یا به حساب نمی‌آید."} },
+      memorytrick:{ part:"realism", n:6, name:{en:"Memory Is a Reconstruction", fa:"حافظه، بازسازی است"}, glabel:{en:"Memory", fa:"حافظه"},
+        principle:{en:"Memory isn't a recording; the brain rebuilds each past on the fly, filling and dropping just like imagination.", fa:"حافظه ضبطِ صدا نیست؛ مغز هر گذشته را همان لحظه از نو می‌سازد، درست مثلِ خیال جا پُر می‌کند و جا می‌اندازد."},
+        more:{en:"We think we remember the past accurately, so we trust our forecasts of the future. But memory stitches a few real details together with a lot of invention — so the raw material we predict from is already unreliable.", fa:"خیال می‌کنیم گذشته را دقیق به یاد می‌آوریم، برای همین به پیش‌بینی‌هایمان از آینده اعتماد می‌کنیم. اما حافظه چند جزئیاتِ واقعی را با کلی ساخت‌وپرداخت به هم می‌دوزد — پس همان مصالحِ خامی که با آن پیش‌بینی می‌کنیم از اول نامطمئن است."},
+        example:{en:"People vividly 'remember' events that never happened, certain they're recalling rather than inventing.", fa:"آدم‌ها رویدادهایی را که هیچ‌وقت رخ نداده‌اند زنده «به یاد می‌آورند»، مطمئن که دارند یادآوری می‌کنند نه ساختن."},
+        tip:{en:"Hold your memories a little loosely; they're stories the brain retells, not tapes it replays.", fa:"خاطره‌هایت را کمی شل بگیر؛ آن‌ها قصه‌هایی‌اند که مغز دوباره تعریف می‌کند، نه نواری که دوباره پخش کند."},
+        pitfall:{en:"Trusting a confident memory as a faithful record.", fa:"به یک خاطرهٔ بااطمینان مثلِ یک سندِ درست اعتماد کردن."} },
+      lensofnow:{ part:"presentism", n:7, name:{en:"Through the Lens of Now", fa:"از پنجرهٔ اکنون"}, glabel:{en:"Lens of Now", fa:"پنجرهٔ اکنون"},
+        principle:{en:"We imagine the future through the lens of the present, so today quietly bleeds into tomorrow.", fa:"آینده را از پنجرهٔ اکنون تصور می‌کنیم، برای همین امروز بی‌سروصدا به فردا نشت می‌کند."},
+        more:{en:"When you picture next year, your mind borrows heavily from right now — your current mood, needs and surroundings slip into the scene. The future ends up looking a lot like a slightly edited present.", fa:"وقتی سالِ بعد را تصور می‌کنی، ذهنت حسابی از همین الان قرض می‌گیرد — حال‌وهوا، نیازها و دوروبرِ فعلی‌ات یواشکی وارد صحنه می‌شوند. آخرش آینده حسابی شبیهِ حالِ حاضری می‌شود که کمی ویرایش شده."},
+        example:{en:"Picture your life in ten years and it will look suspiciously like your life today, with a few details swapped.", fa:"زندگی‌ات را ده سالِ دیگر تصور کن؛ به‌طرزِ مشکوکی شبیهِ زندگیِ امروزت خواهد بود، فقط چند جزئیات جابه‌جا شده."},
+        tip:{en:"Notice how much of 'the future' you imagine is really just today wearing a costume.", fa:"حواست باشد چه بخشِ زیادی از «آینده‌ای» که تصور می‌کنی در واقع همین امروز است که لباسِ مبدل پوشیده."},
+        pitfall:{en:"Forgetting that by the time the future arrives, 'now' will be a different now.", fa:"فراموش‌کردنِ اینکه تا آینده برسد، «اکنون» یک اکنونِ دیگر شده."} },
+      feelingsnow:{ part:"presentism", n:8, name:{en:"Hungry Now, Wrong Later", fa:"الان گرسنه‌ای، بعداً اشتباه"}, glabel:{en:"Feelings", fa:"حالِ الان"},
+        principle:{en:"Your present feelings — hunger, mood, fear — bias what you predict you'll want later.", fa:"حس‌های همین الانت — گرسنگی، حال‌وهوا، ترس — پیش‌بینی‌ات از چیزی که بعداً می‌خواهی را کج می‌کنند."},
+        more:{en:"Ask a full person to plan next week's meals and they'll under-order; ask a hungry one and they'll over-order. We read our current state into the future and forecast from it without noticing.", fa:"از یک آدمِ سیر بخواه غذای هفتهٔ بعد را برنامه‌ریزی کند، کم سفارش می‌دهد؛ از یک آدمِ گرسنه بخواه، زیادی سفارش می‌دهد. حالِ فعلی‌مان را به آینده می‌خوانیم و بی‌آنکه بفهمیم از رویش پیش‌بینی می‌کنیم."},
+        example:{en:"Grocery shopping while hungry, you buy a week of snacks you won't want once you're fed.", fa:"وقتی گرسنه خرید می‌کنی، یک هفته تنقلات می‌خری که همین که سیر شوی دیگر نمی‌خواهی‌شان."},
+        tip:{en:"Make big future decisions when your present state is calm and neutral, not at its peak.", fa:"تصمیم‌های بزرگِ آینده را وقتی بگیر که حالِ فعلی‌ات آرام و خنثی است، نه وقتی به اوجش رسیده."},
+        pitfall:{en:"Mistaking a passing feeling for a lasting preference.", fa:"یک حسِ گذرا را با یک ترجیحِ ماندگار اشتباه گرفتن."} },
+      comparison:{ part:"presentism", n:9, name:{en:"Everything Is Comparison", fa:"همه‌چیز مقایسه است"}, glabel:{en:"Comparison", fa:"مقایسه"},
+        principle:{en:"We judge value by comparison, and the comparisons we make now aren't the ones we'll make later.", fa:"ارزش را با مقایسه می‌سنجیم، و مقایسه‌هایی که الان می‌کنیم همان‌هایی نیستند که بعداً می‌کنیم."},
+        more:{en:"A price, a treat, a salary feels good or bad only next to something else — and today's yardstick isn't tomorrow's. We forecast tomorrow's satisfaction using today's comparisons, and get it wrong.", fa:"یک قیمت، یک خوشی، یک حقوق فقط کنارِ چیزِ دیگر خوب یا بد به‌نظر می‌رسد — و خط‌کشِ امروز، خط‌کشِ فردا نیست. رضایتِ فردا را با مقایسه‌های امروز پیش‌بینی می‌کنیم و اشتباه درمی‌آییم."},
+        example:{en:"A bottle of wine feels lavish next to cheaper ones and cheap next to pricier ones — the wine hasn't changed, the comparison has.", fa:"یک بطری شراب کنارِ ارزان‌ترها مجلل به‌نظر می‌رسد و کنارِ گران‌ترها ارزان — خودِ شراب عوض نشده، مقایسه عوض شده."},
+        tip:{en:"Ask 'compared to what?' — and whether that comparison will still hold later.", fa:"بپرس «در مقایسه با چه؟» — و اینکه آیا آن مقایسه بعداً هم پابرجاست."},
+        pitfall:{en:"Assuming what looks like a bargain or a treat now will feel the same in a later context.", fa:"فرض‌کردنِ اینکه چیزی که الان چانه‌ای یا خوشی به‌نظر می‌رسد، در بافتِ بعدی هم همان حس را می‌دهد."} },
+      resilience:{ part:"rationalization", n:10, name:{en:"We're Tougher Than We Think", fa:"از آنچه فکر می‌کنیم تاب‌آورتریم"}, glabel:{en:"Resilience", fa:"تاب‌آوری"},
+        principle:{en:"We bounce back from bad events far better and faster than we ever predict.", fa:"از اتفاق‌های بد خیلی بهتر و سریع‌تر از آنچه پیش‌بینی می‌کنیم کمر راست می‌کنیم."},
+        more:{en:"Most blows — a breakup, a rejection, even serious loss — hurt less and for less time than we forecast. The mind has quiet defenses that restore our balance, but we can't see them while we're imagining the future.", fa:"بیشترِ ضربه‌ها — یک جدایی، یک ردشدن، حتی یک فقدانِ جدی — کمتر و کوتاه‌تر از آنچه پیش‌بینی می‌کنیم درد دارند. ذهن سپرهای بی‌سروصدایی دارد که تعادلمان را برمی‌گردانند، اما موقعِ تصورِ آینده نمی‌توانیم ببینیمشان."},
+        example:{en:"People dread a breakup or a firing as unbearable, yet months later most are about as happy as before.", fa:"آدم‌ها از یک جدایی یا اخراج مثلِ چیزی تحمل‌ناپذیر می‌ترسند، اما چند ماه بعد بیشترشان تقریباً همان‌قدرِ قبل خوشحال‌اند."},
+        tip:{en:"When you fear a future loss, remember how well you actually recovered from past ones.", fa:"وقتی از یک فقدانِ آینده می‌ترسی، یادت بیاور از فقدان‌های گذشته واقعاً چقدر خوب بلند شدی."},
+        pitfall:{en:"Overestimating how long and how deeply a setback will wreck you.", fa:"بیش‌ازحد تخمین‌زدنِ اینکه یک شکست چقدر طولانی و چقدر عمیق داغانت می‌کند."} },
+      cookfacts:{ part:"rationalization", n:11, name:{en:"The Mind Cooks the Facts", fa:"ذهن، واقعیت را می‌پزد"}, glabel:{en:"Cook the Facts", fa:"دستکاریِ واقعیت"},
+        principle:{en:"After something bad happens, we unconsciously rewrite the facts to feel okay — and believe our own rewrite.", fa:"بعد از یک اتفاقِ بد، ناخودآگاه واقعیت را بازنویسی می‌کنیم تا حالمان خوب شود — و بازنویسیِ خودمان را باور می‌کنیم."},
+        more:{en:"Like a psychological immune system, the mind finds a positive angle on almost anything once it's ours to live with. The trick only works because it's invisible; we experience it as simply seeing the truth.", fa:"مثلِ یک سپرِ روانی، ذهن تقریباً برای هر چیزی که مجبوریم با آن سر کنیم یک زاویهٔ مثبت پیدا می‌کند. این ترفند فقط به این خاطر جواب می‌دهد که نامرئی است؛ ما آن را صرفاً «دیدنِ حقیقت» تجربه می‌کنیم."},
+        example:{en:"Rejected by a school, you soon 'realize' it was too far, too pricey, never the right fit anyway.", fa:"وقتی یک دانشگاه ردت می‌کند، زود «می‌فهمی» که زیادی دور بود، زیادی گران بود، و اصلاً از اول جای تو نبود."},
+        tip:{en:"Notice how quickly a disappointment turns into a story about why it was for the best.", fa:"حواست باشد یک ناامیدی چه زود تبدیل می‌شود به قصه‌ای دربارهٔ اینکه چرا به‌نفعت بوده."},
+        pitfall:{en:"Not realizing this cooking will happen — so you over-fear the raw event.", fa:"نفهمیدنِ اینکه این «پختن» اتفاق خواهد افتاد — برای همین از خودِ خامِ ماجرا بیش از حد می‌ترسی."} },
+      immuneneglect:{ part:"rationalization", n:12, name:{en:"We Forget We'll Cope", fa:"یادمان می‌رود که کنار می‌آییم"}, glabel:{en:"Immune Neglect", fa:"نادیدنِ سپر"},
+        principle:{en:"We forget we have these defenses, so we badly overpredict how miserable the future will make us.", fa:"یادمان می‌رود این سپرها را داریم، برای همین بد پیش‌بینی می‌کنیم که آینده چقدر بدبختمان می‌کند."},
+        more:{en:"Because the immune system works behind the scenes, we leave it out of our forecasts — Gilbert calls this immune neglect. We imagine the pain but not the recovery, so almost every dread is exaggerated.", fa:"چون سپرِ روانی پشتِ صحنه کار می‌کند، از پیش‌بینی‌هایمان جا می‌ماند — گیلبرت اسمش را «نادیده‌گرفتنِ سپر» می‌گذارد. دردش را تصور می‌کنیم اما بهبودش را نه، برای همین تقریباً هر وحشتی اغراق‌شده است."},
+        example:{en:"You brace for a catastrophe that, when it finally comes, you handle with a calm that surprises you.", fa:"خودت را برای یک فاجعه سفت می‌کنی که وقتی بالاخره می‌آید، با آرامشی از پسش برمی‌آیی که خودت را غافلگیر می‌کند."},
+        tip:{en:"Add one line to every worry: 'and I'll probably cope better than I think.'", fa:"به هر نگرانی یک خط اضافه کن: «و احتمالاً بهتر از آنچه فکر می‌کنم از پسش برمی‌آیم.»"},
+        pitfall:{en:"Predicting the wound but never the healing.", fa:"پیش‌بینیِ زخم، اما هیچ‌وقت خوب‌شدنش."} },
+      stopimagining:{ part:"surrogation", n:13, name:{en:"Stop Imagining", fa:"تصور را کنار بگذار"}, glabel:{en:"Stop Imagining", fa:"بس‌کردنِ تصور"},
+        principle:{en:"Since imagination misfires in so many ways, the fix is to lean on it less, not harder.", fa:"چون خیال از این‌همه راه خطا می‌زند، راهِ حل این است که کمتر به آن تکیه کنیم، نه بیشتر."},
+        more:{en:"You can't easily fix a blind spot from the inside; imagining harder just produces more confident errors. The remedy is to stop trusting the mental preview and reach for real data instead.", fa:"نقطهٔ کور را نمی‌شود راحت از درون درست کرد؛ بیشتر تصور‌کردن فقط اشتباه‌های بااطمینان‌تر می‌سازد. درمان این است که دست از اعتماد به پیش‌نمایشِ ذهنی برداری و به‌جایش سراغِ دادهٔ واقعی بروی."},
+        example:{en:"Instead of dreaming up how a job will feel, you go find out how it actually feels for people in it.", fa:"به‌جای خیال‌بافی دربارهٔ اینکه یک شغل چه حسی دارد، می‌روی می‌بینی برای کسانی که آن را دارند واقعاً چه حسی دارد."},
+        tip:{en:"For a big choice, replace 'how would it feel?' with 'how does it feel for people already there?'", fa:"برای یک انتخابِ بزرگ، «چه حسی خواهد داشت؟» را با «برای کسانی که همین حالا آنجایند چه حسی دارد؟» عوض کن."},
+        pitfall:{en:"Trying to imagine harder and better instead of imagining less.", fa:"تلاش برای بهتر و بیشتر تصور‌کردن، به‌جای کمتر تصور‌کردن."} },
+      asksomeone:{ part:"surrogation", n:14, name:{en:"Ask Someone Living It", fa:"از کسی بپرس که آن را زندگی می‌کند"}, glabel:{en:"Surrogation", fa:"جانشین"},
+        principle:{en:"The best guide to how you'll feel is how someone living that life feels right now.", fa:"بهترین راهنما برای حسِ آینده‌ات، حسِ همین‌الانِ کسی است که آن زندگی را دارد."},
+        more:{en:"Gilbert calls it surrogation: use a surrogate — a real person in the situation today — as your preview. Their present experience predicts your future feelings better than your own imagination does.", fa:"گیلبرت اسمش را «جانشین‌گزینی» می‌گذارد: از یک جانشین — یک آدمِ واقعی که همین امروز در آن موقعیت است — به‌عنوانِ پیش‌نمایش استفاده کن. تجربهٔ حالِ او بهتر از خیالِ خودت حسِ آینده‌ات را پیش‌بینی می‌کند."},
+        example:{en:"To know if you'd like the job, ask someone who holds it now how their Tuesday actually went.", fa:"برای اینکه بفهمی آن شغل را دوست داری یا نه، از کسی که همین حالا آن را دارد بپرس سه‌شنبه‌اش واقعاً چطور گذشت."},
+        tip:{en:"Find one person already living your imagined future and ask how it really feels.", fa:"یک نفر را پیدا کن که همین حالا آینده‌ای را که تصور می‌کنی زندگی می‌کند و بپرس واقعاً چه حسی دارد."},
+        pitfall:{en:"Skipping the living witness in favor of your own vivid guess.", fa:"ردکردنِ شاهدِ زنده به‌خاطرِ حدسِ زندهٔ خودت."} },
+      weunique:{ part:"surrogation", n:15, name:{en:"But We Think We're Special", fa:"اما خیال می‌کنیم خاصیم"}, glabel:{en:"Uniqueness", fa:"خیالِ بی‌همتایی"},
+        principle:{en:"We reject this cheap, accurate method because we're sure we're too unique for others' experience to apply.", fa:"این روشِ ارزان و دقیق را رد می‌کنیم چون مطمئنیم آن‌قدر بی‌همتاییم که تجربهٔ دیگران به دردمان نمی‌خورد."},
+        more:{en:"Surrogation works, but it offends our sense of individuality — 'they're not me.' So we wave away the one reliable tool and go back to trusting our own broken imagination. We are far less unique than we feel.", fa:"جانشین‌گزینی جواب می‌دهد، اما به حسِ فردیتِ ما برمی‌خورد — «آن‌ها که من نیستند.» برای همین تنها ابزارِ قابلِ‌اعتماد را کنار می‌زنیم و برمی‌گردیم به اعتماد به خیالِ خرابِ خودمان. ما خیلی کمتر از آنچه حس می‌کنیم بی‌همتاییم."},
+        example:{en:"'That job bored them, but I'm different' — and so you ignore the very evidence that would have helped.", fa:"«آن شغل حوصلهٔ آن‌ها را سر برد، اما من فرق دارم» — و این‌طور همان مدرکی را نادیده می‌گیری که قرار بود کمکت کند."},
+        tip:{en:"Before dismissing someone's experience as 'not me', assume you're more average than you feel.", fa:"قبل از اینکه تجربهٔ کسی را با «مالِ من نیست» کنار بگذاری، فرض کن از آنچه حس می‌کنی معمولی‌تری."},
+        pitfall:{en:"Letting a flattering sense of uniqueness override real evidence.", fa:"گذاشتنِ اینکه یک حسِ چاپلوسانهٔ بی‌همتایی بر مدرکِ واقعی بچربد."} }
+    },
+    core:{ name:{en:"WE MISPREDICT HAPPINESS", fa:"شادی را اشتباه پیش‌بینی می‌کنیم"},
+      principle:{en:"Humans are the only animals that imagine the future, and we chase happiness by predicting what will bring it. But imagination is a poor instrument: it fills in details that won't happen, leaves out ones that will, colors the future with the present, and forgets how easily we rationalize and recover. So we systematically mispredict what will make us happy — and the surprising fix is to stop imagining and ask someone living the experience now.", fa:"انسان تنها جانداری است که آینده را تصور می‌کند، و شادی را با پیش‌بینیِ چیزی که آن را می‌آورد دنبال می‌کنیم. اما خیال ابزارِ ضعیفی است: جزئیاتی را که رخ نمی‌دهد می‌سازد، جزئیاتی را که رخ می‌دهد جا می‌اندازد، آینده را با رنگِ حال می‌کشد، و یادش می‌رود که چه راحت توجیه می‌آوریم و حالمان جا می‌آید. برای همین به‌طورِ منظم اشتباه پیش‌بینی می‌کنیم چه چیزی خوشحالمان می‌کند — و راهِ حلِ غافلگیرکننده این است که تصور را کنار بگذاریم و از کسی بپرسیم که همین حالا آن تجربه را دارد."},
+      more:{en:"Gilbert walks through the machinery of prospection and its three big flaws — realism (imagination fills in and leaves out without telling us), presentism (we see tomorrow through the lens of today), and rationalization (we cook the facts and recover far better than we predict). Each flaw pushes our forecasts of future happiness off-target in a predictable direction. The remedy, surrogation, is simple and well-tested — ask someone already living your imagined future — yet we reject it because we're convinced we're too unique for their experience to count.", fa:"گیلبرت ما را از دلِ ماشینِ آینده‌نگری و سه خطای بزرگش عبور می‌دهد — واقع‌پنداری (خیال بی‌خبر جا می‌اندازد و پُر می‌کند)، حال‌زدگی (فردا را از پنجرهٔ امروز می‌بینیم)، و توجیه (واقعیت را می‌پزیم و خیلی بهتر از آنچه پیش‌بینی می‌کنیم بهبود می‌یابیم). هر خطا پیش‌بینیِ ما از شادیِ آینده را در یک جهتِ قابلِ‌پیش‌بینی کج می‌کند. درمانش، جانشین‌گزینی، ساده و خوب‌آزموده است — از کسی بپرس که همین حالا آینده‌ای را که تصور می‌کنی زندگی می‌کند — اما ردش می‌کنیم چون قانع شده‌ایم آن‌قدر بی‌همتاییم که تجربهٔ آن‌ها به حساب نمی‌آید."},
+      example:{en:"Click any node to read a principle or a method. You can also drag the nodes around.", fa:"روی هر دایره کلیک کن تا یک اصل یا روش را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."} },
+    stages:[
+      { level:1, badge:{en:"Level 1 · Over-simplified", fa:"سطحِ ۱ · خیلی ساده"}, title:{en:"You're a bad fortune-teller", fa:"فال‌بینِ بدی هستی"}, tagline:{en:"The whole book in a sentence.", fa:"کلِ کتاب در یک جمله."},
+        body:{en:"You constantly imagine the future to decide what will make you happy. The catch: your imagination is systematically wrong, so you keep chasing the wrong things.", fa:"مدام آینده را تصور می‌کنی تا تصمیم بگیری چه چیزی خوشحالت می‌کند. گیرش اینجاست: خیالت به‌طورِ منظم اشتباه می‌کند، برای همین همه‌اش دنبالِ چیزهای اشتباه می‌روی."},
+        example:{en:"You're sure the new car, job or city will make you happy — and you're usually less right than you feel.", fa:"مطمئنی ماشین یا شغل یا شهرِ تازه خوشحالت می‌کند — و معمولاً کمتر از آنی که حس می‌کنی درست از آب درمی‌آیی."},
+        gain:{en:"You hold the book's one warning: don't fully trust your forecasts of happiness.", fa:"همان یک هشدارِ کتاب را داری: به پیش‌بینی‌هایت از شادی کامل اعتماد نکن."} },
+      { level:2, badge:{en:"Level 2 · Simple", fa:"سطحِ ۲ · ساده"}, title:{en:"Three ways imagination lies", fa:"سه راهی که خیال دروغ می‌گوید"}, tagline:{en:"Fills in, leaves out, colors with now.", fa:"جا پُر می‌کند، جا می‌اندازد، با اکنون رنگ می‌کند."},
+        body:{en:"Your forecasts fail in three repeating ways. Imagination <b>fills in</b> details that won't happen and <b>leaves out</b> ones that will. And it paints the future in the colors of the <b>present</b> — today's mood and needs sneak in.", fa:"پیش‌بینی‌هایت به سه شکلِ تکراری شکست می‌خورند. خیال جزئیاتی را که رخ نمی‌دهد <b>می‌سازد</b> و جزئیاتی را که رخ می‌دهد <b>جا می‌اندازد</b>. و آینده را با رنگِ <b>اکنون</b> می‌کشد — حال‌وهوا و نیازهای امروز یواشکی وارد می‌شوند."},
+        example:{en:"Picture next year and it looks like today with a few edits — sunshine imagined, commute forgotten.", fa:"سالِ بعد را تصور کن؛ شبیهِ امروز است با چند ویرایش — آفتاب تصور شده، رفت‌وآمد فراموش."},
+        gain:{en:"You can name why a given prediction is probably off.", fa:"می‌توانی بگویی چرا یک پیش‌بینیِ مشخص احتمالاً پرت است."} },
+      { level:3, badge:{en:"Level 3 · Balanced", fa:"سطحِ ۳ · متعادل"}, title:{en:"You'll cope better than you think", fa:"بهتر از آنچه فکر می‌کنی کنار می‌آیی"}, tagline:{en:"Resilience and rationalization.", fa:"تاب‌آوری و توجیه."},
+        body:{en:"After bad events, a quiet <b>psychological immune system</b> kicks in: you <b>rationalize</b>, find the upside, and recover far faster than predicted. But you forget it exists (immune neglect), so you over-dread almost everything.", fa:"بعد از اتفاق‌های بد، یک <b>سپرِ روانیِ</b> بی‌سروصدا وارد می‌شود: <b>توجیه</b> می‌آوری، نقطهٔ مثبت را پیدا می‌کنی، و خیلی سریع‌تر از پیش‌بینی بهبود می‌یابی. اما یادت می‌رود که وجود دارد (نادیده‌گرفتنِ سپر)، برای همین تقریباً از همه‌چیز بیش از حد می‌ترسی."},
+        example:{en:"The breakup or rejection you dreaded as unbearable fades in months — and you're fine.", fa:"جدایی یا ردشدنی که از آن مثلِ چیزی تحمل‌ناپذیر می‌ترسیدی، در چند ماه رنگ می‌بازد — و حالت خوب است."},
+        gain:{en:"You stop over-fearing setbacks, because you trust your own resilience.", fa:"دیگر از شکست‌ها بیش از حد نمی‌ترسی، چون به تاب‌آوریِ خودت اعتماد داری."} },
+      { level:4, badge:{en:"Level 4 · Advanced", fa:"سطحِ ۴ · پیشرفته"}, title:{en:"Stop imagining, start asking", fa:"تصور را بس کن، پرسیدن را شروع کن"}, tagline:{en:"Surrogation — borrow a real preview.", fa:"جانشین‌گزینی — یک پیش‌نمایشِ واقعی قرض بگیر."},
+        body:{en:"Since imagination can't be fixed from the inside, lean on it less. Use <b>surrogation</b>: to know how a future will feel, ask someone <b>living it now</b>. Their present experience predicts your feelings better than your vivid guess.", fa:"چون خیال را نمی‌شود از درون درست کرد، کمتر به آن تکیه کن. از <b>جانشین‌گزینی</b> استفاده کن: برای اینکه بدانی یک آینده چه حسی دارد، از کسی بپرس که <b>همین حالا آن را زندگی می‌کند</b>. تجربهٔ حالِ او بهتر از حدسِ زندهٔ تو حست را پیش‌بینی می‌کند."},
+        example:{en:"Don't imagine the job — ask three people who hold it now how their week actually went.", fa:"شغل را تصور نکن — از سه نفر که همین حالا آن را دارند بپرس هفته‌شان واقعاً چطور گذشت."},
+        gain:{en:"You can make better life bets using real data instead of daydreams.", fa:"می‌توانی شرط‌های زندگی را با دادهٔ واقعی ببندی، نه با خیال‌بافی."} },
+      { level:5, badge:{en:"Level 5 · Expert", fa:"سطحِ ۵ · حرفه‌ای"}, title:{en:"Beat your sense of uniqueness", fa:"بر حسِ بی‌همتاییِ خودت غلبه کن"}, tagline:{en:"Why we reject the remedy.", fa:"چرا درمان را رد می‌کنیم."},
+        body:{en:"The expert knows the remedy and knows why people refuse it: <b>we think we're unique</b>, so we dismiss others' experience as 'not me'. Overcome that flattering illusion — accept you're more average than you feel — and surrogation becomes a reliable compass. Imagine, expect the error, and correct it with a living witness.", fa:"آدمِ حرفه‌ای هم درمان را می‌شناسد و هم می‌داند چرا مردم قبولش نمی‌کنند: <b>خیال می‌کنیم بی‌همتاییم</b>، برای همین تجربهٔ دیگران را با «مالِ من نیست» کنار می‌گذاریم. بر آن توهمِ چاپلوسانه غلبه کن — بپذیر که از آنچه حس می‌کنی معمولی‌تری — آن‌وقت جانشین‌گزینی می‌شود یک قطب‌نمای قابلِ‌اعتماد. تصور کن، منتظرِ خطا باش، و با یک شاهدِ زنده اصلاحش کن."},
+        example:{en:"You catch yourself thinking 'I'm different', check it, and use the evidence anyway.", fa:"خودت را می‌گیری که داری فکر می‌کنی «من فرق دارم»، وارسی‌اش می‌کنی، و به‌هرحال از مدرک استفاده می‌کنی."},
+        gain:{en:"You can predict your own happiness better than almost anyone around you.", fa:"می‌توانی شادیِ خودت را بهتر از تقریباً هر کسِ دوروبرت پیش‌بینی کنی."} }
+    ],
+    quotes:[
+      {en:"The human being is the only animal that thinks about the future.", fa:"انسان تنها جانداری است که به آینده فکر می‌کند."},
+      {en:"The greatest achievement of the human brain is its ability to imagine objects and episodes that do not exist in the realm of the real.", fa:"بزرگ‌ترین دستاوردِ مغزِ انسان، توانِ آن در تصورِ چیزها و رویدادهایی است که در قلمروِ واقعیت وجود ندارند."},
+      {en:"When people find it easy to imagine an event, they overestimate the likelihood that it will occur.", fa:"وقتی تصورِ یک رویداد برای آدم‌ها آسان است، احتمالِ رخ‌دادنش را بیش از حد تخمین می‌زنند."},
+      {en:"Once we have an experience, we cannot simply set it aside and see the world as we would have seen it had the experience never happened.", fa:"همین که تجربه‌ای پیدا می‌کنیم، دیگر نمی‌توانیم راحت کنارش بگذاریم و دنیا را جوری ببینیم که انگار آن تجربه هیچ‌وقت رخ نداده."},
+      {en:"Value is determined by the comparison of one thing to another.", fa:"ارزش با مقایسهٔ یک چیز با چیزِ دیگر تعیین می‌شود."},
+      {en:"People are adept at finding a positive way to view things once those things become their own.", fa:"آدم‌ها استادِ پیدا‌کردنِ یک نگاهِ مثبت به چیزها هستند، همین که آن چیزها مالِ خودشان شود."},
+      {en:"We cannot do without reality and we cannot do without illusion.", fa:"نه می‌توانیم بی‌واقعیت سر کنیم و نه بی‌توهم."},
+      {en:"The best way to predict our feelings tomorrow is to see how others are feeling today.", fa:"بهترین راه برای پیش‌بینیِ حسِ فردایمان، دیدنِ حسِ امروزِ دیگران است."},
+      {en:"We don't always see ourselves as superior, but we almost always see ourselves as unique.", fa:"همیشه خودمان را برتر نمی‌بینیم، اما تقریباً همیشه خودمان را بی‌همتا می‌بینیم."}
+    ],
+    media:[
+      { kind:"yt", id:"4q1dgn_C0AU", src:{en:"YouTube · TED", fa:"یوتیوب · TED"},
+        title:{en:"The Surprising Science of Happiness — Dan Gilbert", fa:"علمِ غافلگیرکنندهٔ شادی — دن گیلبرت"},
+        desc:{en:"The author's classic TED talk on synthetic happiness and why we mispredict our feelings.", fa:"سخنرانیِ کلاسیکِ خودِ نویسنده در TED دربارهٔ شادیِ ساختگی و اینکه چرا حسِ خودمان را اشتباه پیش‌بینی می‌کنیم."},
+        bullets:{en:["Synthetic vs. natural happiness","Why we overrate wins and dread losses","The core idea in the author's own words"], fa:["شادیِ ساختگی در برابرِ شادیِ طبیعی","چرا بُردها را زیادی بزرگ و باخت‌ها را زیادی ترسناک می‌بینیم","ایدهٔ اصلی به زبانِ خودِ نویسنده"]},
+        best:{en:"Best for Stage 1–3.", fa:"خوب برای مرحلهٔ ۱ تا ۳."} },
+      { kind:"img", url:"https://www.penguinrandomhouse.com/books/59967/stumbling-on-happiness-by-daniel-gilbert/",
+        src:{en:"Penguin Random House · Publisher", fa:"Penguin Random House · ناشر"},
+        title:{en:"Stumbling on Happiness — Publisher Page", fa:"لغزیدن به‌سوی شادی — صفحهٔ ناشر"},
+        desc:{en:"The publisher page for the book, with editions and details.", fa:"صفحهٔ ناشر برای کتاب، با نسخه‌ها و جزئیات."},
+        bullets:{en:["The definitive editions","Background on Gilbert","Straight from the source"], fa:["نسخه‌های معتبر","پیشینه‌ای دربارهٔ گیلبرت","مستقیم از خودِ منبع"]},
+        best:{en:"For editions and the source.", fa:"برای نسخه‌ها و منبعِ اصلی."} },
+      { kind:"img", url:"https://www.goodreads.com/book/show/56627.Stumbling_on_Happiness",
+        src:{en:"Goodreads · Reviews", fa:"گودریدز · نقد و بررسی"},
+        title:{en:"Stumbling on Happiness on Goodreads", fa:"لغزیدن به‌سوی شادی در گودریدز"},
+        desc:{en:"Ratings, reviews and reader highlights from the book.", fa:"امتیازها، نقدها و جمله‌های برجستهٔ خواننده‌ها از کتاب."},
+        bullets:{en:["What readers took away","Highlighted passages","Reviews at a glance"], fa:["برداشتِ خواننده‌ها","تکه‌های برجسته‌شده","نقدها در یک نگاه"]},
+        best:{en:"For reviews and highlights.", fa:"برای نقدها و جمله‌های برجسته."} }
+    ],
+    go:[
+      {label:{en:"Publisher page", fa:"صفحهٔ ناشر"}, url:"https://www.penguinrandomhouse.com/books/59967/stumbling-on-happiness-by-daniel-gilbert/"},
+      {label:{en:"Book on Goodreads", fa:"کتاب در گودریدز"}, url:"https://www.goodreads.com/book/show/56627.Stumbling_on_Happiness"},
+      {label:{en:"About the book (Wikipedia)", fa:"دربارهٔ کتاب (ویکی‌پدیا)"}, url:"https://en.wikipedia.org/wiki/Stumbling_on_Happiness"}
+    ],
+    recs:[
+      { pri:"b", t:{en:"Run a premortem on your forecast", fa:"پیش‌بینی‌ات را کالبدشکافیِ زودهنگام کن"}, d:{en:"Before a big choice, write what you're imagining will happen — then list what your mind probably filled in and left out.", fa:"قبل از یک انتخابِ بزرگ، بنویس فکر می‌کنی چه رخ می‌دهد — بعد فهرست کن ذهنت احتمالاً چه چیزی را ساخته و چه چیزی را جا انداخته."} },
+      { pri:"b", t:{en:"Ask a surrogate", fa:"از یک جانشین بپرس"}, d:{en:"Find one person already living your imagined future and ask how it actually feels, day to day.", fa:"یک نفر را پیدا کن که همین حالا آینده‌ای را که تصور می‌کنی زندگی می‌کند و بپرس روزبه‌روز واقعاً چه حسی دارد."} },
+      { pri:"n", t:{en:"Don't decide in a hot state", fa:"در حالِ داغ تصمیم نگیر"}, d:{en:"Don't lock in the future while hungry, angry or infatuated; wait for a calm, neutral present.", fa:"وقتی گرسنه، عصبانی یا شیفته‌ای آینده را قطعی نکن؛ صبر کن تا حالِ حاضرت آرام و خنثی شود."} },
+      { pri:"n", t:{en:"Distrust your sense of uniqueness", fa:"به حسِ بی‌همتاییت بدبین باش"}, d:{en:"Next time you think 'that wouldn't apply to me,' assume you're more average than you feel and use the evidence.", fa:"دفعهٔ بعد که فکر کردی «این به من نمی‌خورد»، فرض کن از آنچه حس می‌کنی معمولی‌تری و از مدرک استفاده کن."} }
+    ]
+  }
+};

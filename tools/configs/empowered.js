@@ -1,0 +1,264 @@
+/* config: EMPOWERED — Marty Cagan with Chris Jones (Product Org) */
+module.exports = {
+  slug:"empowered", brand:"EMPOWERED",
+  titleTag:"EMPOWERED — نقشهٔ دانش و یادگیری ۵ مرحله‌ای",
+  W:980, H:780, R1:220, R2:126, span:66,
+  leafKickEn:"Idea", leafKickFa:"ایدهٔ",
+  flowEn:["Coach","Context","Empower"], flowFa:["کوچینگ","زمینه","توانمندسازی"],
+
+  hero:`  <div class="eyebrow"><span class="edot"></span>
+    <span data-only="en">Book knowledge map · Marty Cagan</span>
+    <span data-only="fa">نقشهٔ کتاب · مارتی کیگن</span>
+  </div>
+  <h1>
+    <span data-only="en">EMPOWERED — Ordinary People, Extraordinary Products</span>
+    <span data-only="fa">توانمند — آدم‌های معمولی، محصول‌های خارق‌العاده</span>
+  </h1>
+  <p class="dek">
+    <span data-only="en">A knowledge graph of the whole book, plus a 5-stage path from a single idea to expert-level mastery — with an example at every step.</span>
+    <span data-only="fa">نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از یک ایدهٔ ساده تا حرفه‌ای — با یک مثال در هر مرحله.</span>
+  </p>
+  <div class="metastrip">
+    <div class="metaitem"><span class="mk" data-only="en">Book</span><span class="mk" data-only="fa">کتاب</span>
+      <span class="mv" data-only="en">EMPOWERED</span><span class="mv" data-only="fa">توانمند</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Author</span><span class="mk" data-only="fa">نویسنده</span>
+      <span class="mv" data-only="en">Marty Cagan with Chris Jones</span><span class="mv" data-only="fa">مارتی کیگن با کریس جونز</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Published</span><span class="mk" data-only="fa">سالِ چاپ</span>
+      <span class="mv" data-only="en">2020</span><span class="mv" data-only="fa">۲۰۲۰</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Group</span><span class="mk" data-only="fa">گروه</span>
+      <span class="mv" data-only="en">Product Org</span><span class="mv" data-only="fa">سازمانِ محصول</span></div>
+  </div>
+  <div class="chips">
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Parts</span><span data-only="fa">بخش</span></div>
+    <div class="chip"><b data-only="en">16</b><b data-only="fa">۱۶</b><span data-only="en">Ideas</span><span data-only="fa">ایده</span></div>
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Learning stages</span><span data-only="fa">مرحلهٔ یادگیری</span></div>
+  </div>`,
+
+  callout:`    <b data-only="en">The core idea:</b>
+    <b data-only="fa">ایدهٔ اصلی:</b>
+    <span data-only="en"> EMPOWERED is a book for <i>leaders</i>. Its sister book, <i>Inspired</i>, is about how teams build products; this one is about how leaders create the <i>empowered teams</i> that can. Give ordinary people a clear vision, real coaching, and problems to solve — not features to build — and they will make extraordinary products.</span>
+    <span data-only="fa"> «توانمند» کتابی است برای <i>رهبرها</i>. کتابِ خواهرش، <i>Inspired</i>، دربارهٔ این است که تیم‌ها چطور محصول می‌سازند؛ این یکی دربارهٔ این است که رهبرها چطور همان <i>تیم‌های توانمندی</i> را می‌سازند که می‌توانند بسازند. به آدم‌های معمولی یک چشم‌اندازِ روشن، کوچینگِ واقعی، و مسئله‌هایی برای حل‌کردن بده — نه فهرستی از فیچر برای ساختن — تا محصول‌های خارق‌العاده بسازند.</span>`,
+
+  kpis:`    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Parts (teams · coaching · staffing · vision · objectives)</div><div class="l" data-only="fa">بخش (تیم‌ها · کوچینگ · جذب · چشم‌انداز · هدف‌ها)</div></div>
+    <div class="kbox"><div class="v" data-only="en">16</div><div class="v" data-only="fa">۱۶</div><div class="l" data-only="en">Ideas you can use</div><div class="l" data-only="fa">ایده برای استفاده</div></div>
+    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Levels, simple → expert</div><div class="l" data-only="fa">مرحله، ساده تا حرفه‌ای</div></div>
+    <div class="kbox"><div class="v" data-only="en">3</div><div class="v" data-only="fa">۳</div><div class="l" data-only="en">The move: coach · context · empower</div><div class="l" data-only="fa">حرکتِ اصلی: کوچینگ · زمینه · توانمندسازی</div></div>`,
+
+  mapcallout:`      <b data-only="en">Read it as a flow:</b><b data-only="fa">به‌صورتِ یک جریان بخوانش:</b>
+      <span data-only="en"> build <b>empowered teams</b> (missionaries with problems to solve), make <b>coaching</b> your number-one job, <b>staff</b> for competence and character, set an inspiring <b>vision and strategy</b>, and empower with <b>team objectives</b> — giving context, not control.</span>
+      <span data-only="fa"> <b>تیم‌های توانمند</b> بساز (آدم‌های مؤمن به هدف، با مسئله‌هایی برای حل)، <b>کوچینگ</b> را کارِ شمارهٔ یکت کن، برای شایستگی و شخصیت آدم <b>جذب</b> کن، یک <b>چشم‌انداز و استراتژیِ</b> الهام‌بخش بگذار، و با <b>هدف‌های تیمی</b> توانمند کن — با دادنِ زمینه، نه کنترل.</span>`,
+
+  methodFa:"<p><b>منبع:</b> کتابِ «EMPOWERED» (آدم‌های معمولی، محصول‌های خارق‌العاده) نوشتهٔ مارتی کیگن با کریس جونز، چاپِ ۲۰۲۰ (انتشاراتِ Wiley — گروهِ محصولِ درهٔ سیلیکون).</p><p><b>روشِ کار:</b> ساختارِ پنج‌بخشی و ایده‌ها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده؛ نقل‌قول‌ها با متنِ کتاب مقابله و ویدیوها بررسی شده‌اند.</p><p><b>گروه:</b> «سازمانِ محصول» — از فهرستِ کتاب‌های ضروریِ سازندگانِ محصولِ لنی راچیتسکی.</p><p><b>یک نکته:</b> «توانمند» همراهِ رهبریِ کتابِ <i>Inspired</i> است — Inspired می‌گوید تیم‌ها چطور محصول می‌سازند، «توانمند» می‌گوید رهبرها چطور آن تیم‌ها را می‌سازند. این صفحه برای یادگیری است، نه جایگزینِ کتاب.</p>",
+  methodEn:"<p><b>Source:</b> the book <i>EMPOWERED: Ordinary People, Extraordinary Products</i> by Marty Cagan with Chris Jones, published 2020 (Wiley — Silicon Valley Product Group).</p><p><b>How this was built:</b> the five-part structure and ideas were gathered and rewritten from the book and reputable sources; quotes were cross-checked and the linked videos verified.</p><p><b>Group:</b> Product Org — from Lenny Rachitsky's essential books for product builders.</p><p><b>Note:</b> EMPOWERED is the leadership companion to <i>Inspired</i> — Inspired covers how teams build products; EMPOWERED covers how leaders build the teams. This page is a learning aid, not a substitute for the book.</p>",
+
+  data:{
+    tldr:[
+      {en:"The whole book in one line: extraordinary products come from ordinary people who are well-led — coached, given a vision, and empowered to solve real problems.",
+       fa:"خلاصهٔ کل کتاب در یک جمله: محصول‌های خارق‌العاده از آدم‌های معمولی درمی‌آیند که خوب رهبری شده‌اند — کوچ شده‌اند، یک چشم‌انداز گرفته‌اند، و توانمند شده‌اند تا مسئله‌های واقعی را حل کنند."},
+      {en:"It's the leadership companion to <i>Inspired</i>: Inspired is how teams build products; <b>EMPOWERED</b> is how leaders build the teams.",
+       fa:"این کتاب همراهِ رهبریِ <i>Inspired</i> است: Inspired می‌گوید تیم چطور محصول می‌سازد؛ <b>توانمند</b> می‌گوید رهبر چطور تیم را می‌سازد."},
+      {en:"The big shift: stop running <b>feature teams</b> told what to build, and grow <b>empowered teams</b> given problems to solve — <b>missionaries, not mercenaries</b>.",
+       fa:"تغییرِ بزرگ: دست از <b>تیم‌های فیچری</b> بردار که بهشان می‌گویند چه بسازند، و <b>تیم‌های توانمند</b> بپروران که مسئله می‌گیرند تا حل کنند — <b>آدمِ مؤمن به هدف، نه مزدور</b>."},
+      {en:"The leader's number-one job is <b>coaching</b>. Staff for competence and character, then help each person reach their potential.",
+       fa:"کارِ شمارهٔ یکِ رهبر <b>کوچینگ</b> است. برای شایستگی و شخصیت آدم بگیر، بعد کمک کن هرکس به تواناییِ کاملش برسد."},
+      {en:"Empower with an inspiring <b>vision</b>, a focused <b>strategy</b>, and clear <b>objectives</b> — then give teams context, not control.",
+       fa:"با یک <b>چشم‌اندازِ</b> الهام‌بخش، یک <b>استراتژیِ</b> متمرکز، و <b>هدف‌های</b> روشن توانمند کن — بعد به تیم‌ها زمینه بده، نه کنترل."}
+    ],
+    parts:[
+      { key:"teams", varc:"--c-teal", name:{en:"Empowered vs Feature Teams", fa:"تیمِ توانمند در برابرِ تیمِ فیچری"}, tag:{en:"The core difference", fa:"تفاوتِ اصلی"},
+        gist:{en:"Empowered teams solve problems; feature teams build what they're told.", fa:"تیمِ توانمند مسئله حل می‌کند؛ تیمِ فیچری همان چیزی را می‌سازد که بهش گفته‌اند."},
+        more:{en:"This is the heart of the book. Most companies run feature teams: a roadmap of features is handed down, and the team's job is to build and ship it. Empowered teams are given problems to solve and the freedom to find the best solution — and they own the outcome.",
+              fa:"این قلبِ کتاب است. بیشترِ شرکت‌ها تیمِ فیچری دارند: یک فهرستِ فیچر از بالا می‌آید و کارِ تیم فقط ساختن و تحویلش است. به تیمِ توانمند مسئله می‌دهند و آزادی می‌دهند تا بهترین راه‌حل را پیدا کند — و نتیجه مالِ خودش است."},
+        chapters:["empteam","featteam","missionaries","outcomes"] },
+      { key:"coaching", varc:"--c-blue", name:{en:"Coaching", fa:"کوچینگ"}, tag:{en:"The number-one job", fa:"کارِ شمارهٔ یک"},
+        gist:{en:"Developing your people is the most important thing a leader does.", fa:"پروراندنِ آدم‌هایت مهم‌ترین کاری است که یک رهبر می‌کند."},
+        more:{en:"Cagan says coaching is the single most important responsibility of a leader — more than strategy, more than process. Assess each person honestly, write a plan to close the gaps, and use weekly 1:1s to help them grow, not to check status.",
+              fa:"کیگن می‌گوید کوچینگ مهم‌ترین مسئولیتِ یک رهبر است — بیشتر از استراتژی، بیشتر از فرایند. هر آدم را صادقانه ارزیابی کن، یک برنامه بنویس تا فاصله‌ها را پر کنی، و از جلسه‌های هفتگیِ دونفره استفاده کن تا کمکش کنی رشد کند، نه اینکه فقط وضعیت را چک کنی."},
+        chapters:["coachjob","coachplan","oneonones"] },
+      { key:"staffing", varc:"--c-amber", name:{en:"Staffing", fa:"جذب و استخدام"}, tag:{en:"The right people", fa:"آدمِ درست"},
+        gist:{en:"Recruit and hire for competence and character — that's the manager's real job.", fa:"برای شایستگی و شخصیت آدم بگیر — کارِ واقعیِ مدیر همین است."},
+        more:{en:"Empowerment only works with the right people. Hire for competence and character, not just résumé skills or culture fit. The manager's real job isn't to control the work — it's to staff the team, onboard people to competence, and grow them toward their potential.",
+              fa:"توانمندسازی فقط با آدمِ درست جواب می‌دهد. برای شایستگی و شخصیت آدم بگیر، نه فقط مهارتِ روی رزومه یا هم‌رنگیِ فرهنگی. کارِ واقعیِ مدیر کنترلِ کار نیست — این است که تیم را بچیند، آدم‌ها را تا شایستگی برساند، و به‌سمتِ تواناییِ کاملشان رشد بدهد."},
+        chapters:["recruit","mgrrole","onboard"] },
+      { key:"vision", varc:"--c-violet", name:{en:"Product Vision & Strategy", fa:"چشم‌انداز و استراتژیِ محصول"}, tag:{en:"The north star", fa:"ستارهٔ قطبی"},
+        gist:{en:"An inspiring vision, made real by a focused, insight-driven strategy.", fa:"یک چشم‌اندازِ الهام‌بخش که با یک استراتژیِ متمرکز و بینش‌محور واقعی می‌شود."},
+        more:{en:"The product vision is the shared north star — the future you want to create, a few years out, worth signing up for. Product strategy is how you get there: focus on the few things that matter most, find the insights (from data, technology, and customers), and turn them into action.",
+              fa:"چشم‌اندازِ محصول همان ستارهٔ قطبیِ مشترک است — آینده‌ای که می‌خواهی بسازی، چند سالِ دیگر، ارزشِ اینکه پایش بایستی. استراتژیِ محصول راهِ رسیدن به آن است: روی همان چند چیزی که بیشترین اهمیت را دارند تمرکز کن، بینش‌ها را پیدا کن (از داده، فناوری، و مشتری)، و تبدیلشان کن به اقدام."},
+        chapters:["prodvision","focus","insights"] },
+      { key:"objectives", varc:"--c-green", name:{en:"Team Objectives & Trust", fa:"هدف‌های تیمی و اعتماد"}, tag:{en:"Empower for real", fa:"توانمندسازیِ واقعی"},
+        gist:{en:"Empower through objectives, give context not control, and build trust.", fa:"با هدف‌ها توانمند کن، زمینه بده نه کنترل، و اعتماد بساز."},
+        more:{en:"This is where empowerment becomes concrete. Leaders assign a small set of team objectives (problems to solve, often as OKRs) and let each team decide how. Leaders give context — the vision, the strategy, the information — and then get out of the way. It all runs on trust and honest collaboration with the business.",
+              fa:"اینجاست که توانمندسازی واقعی می‌شود. رهبرها چند هدفِ تیمی می‌دهند (مسئله‌هایی برای حل، اغلب به‌شکلِ OKR) و می‌گذارند هر تیم خودش تصمیم بگیرد چطور. رهبرها زمینه می‌دهند — چشم‌انداز، استراتژی، اطلاعات — بعد کنار می‌روند. همه‌اش روی اعتماد و همکاریِ صادقانه با کسب‌وکار می‌چرخد."},
+        chapters:["objectives","context","collab"] }
+    ],
+    chapters:{
+      empteam:{ part:"teams", n:1, name:{en:"Empowered Teams", fa:"تیم‌های توانمند"}, glabel:{en:"Empowered", fa:"توانمند"},
+        principle:{en:"An empowered team is given problems to solve, and gets to decide the best way to solve them.", fa:"به تیمِ توانمند مسئله می‌دهند تا حل کند، و خودش تصمیم می‌گیرد بهترین راهِ حلش چیست."},
+        more:{en:"The team is handed a small number of significant problems (its objectives), not a list of features. The litmus test: can the team decide how to solve the problem? If yes, it's empowered; if the solution is dictated, it's not.", fa:"به تیم چندتا مسئلهٔ مهم می‌دهند (هدف‌هایش)، نه یک فهرستِ فیچر. محکِ سنجش این است: آیا تیم می‌تواند تصمیم بگیرد مسئله را چطور حل کند؟ اگر بله، توانمند است؛ اگر راه‌حل را بهش دیکته کنند، نه."},
+        example:{en:"Instead of ‘build a referral feature’, the team gets ‘reduce new-user cost by 20%’ and finds the best way.", fa:"به‌جای «یک فیچرِ معرفیِ دوستان بساز»، تیم می‌گیرد «هزینهٔ جذبِ کاربرِ جدید را ۲۰٪ کم کن» و خودش بهترین راه را پیدا می‌کند."},
+        tip:{en:"For one project, write the problem to solve instead of the feature to build.", fa:"برای یک پروژه، به‌جای فیچری که باید ساخته شود، مسئله‌ای که باید حل شود را بنویس."},
+        pitfall:{en:"Calling a team ‘empowered’ while still handing it a feature roadmap.", fa:"اینکه اسمِ تیم را «توانمند» بگذاری ولی هنوز یک نقشهٔ راهِ فیچری دستش بدهی."} },
+      featteam:{ part:"teams", n:2, name:{en:"Beyond Feature Teams", fa:"فراتر از تیمِ فیچری"}, glabel:{en:"Feature Teams", fa:"تیمِ فیچری"},
+        principle:{en:"Feature teams exist to build what they're told; empowered teams exist to serve customers in ways that work for the business.", fa:"تیمِ فیچری هست که همان چیزی را بسازد که بهش می‌گویند؛ تیمِ توانمند هست که به مشتری خدمت کند، به شکلی که برای کسب‌وکار هم جواب بدهد."},
+        more:{en:"Feature teams are measured by output — did they ship the roadmap? They're rarely trusted with the why, so they can't push back when a feature won't work. Moving beyond them is the central change EMPOWERED asks leaders to make.", fa:"تیمِ فیچری را با خروجی می‌سنجند — آیا نقشهٔ راه را تحویل داد؟ کمتر پیش می‌آید که «چرا»یِ کار را بهشان بسپارند، برای همین وقتی یک فیچر جواب نمی‌دهد نمی‌توانند حرفی بزنند. عبور از این مدل، تغییرِ اصلی‌ای است که کتاب از رهبرها می‌خواهد."},
+        example:{en:"A feature team ships the requested button; an empowered team asks what problem the button was meant to solve — and often finds a better answer.", fa:"تیمِ فیچری همان دکمهٔ سفارش‌داده‌شده را می‌سازد؛ تیمِ توانمند می‌پرسد آن دکمه قرار بود چه مسئله‌ای را حل کند — و اغلب جوابِ بهتری پیدا می‌کند."},
+        tip:{en:"Next roadmap request, ask ‘what problem are we really solving?’ before you build.", fa:"دفعهٔ بعد که یک درخواستِ فیچر آمد، قبل از ساختن بپرس «واقعاً داریم چه مسئله‌ای را حل می‌کنیم؟»."},
+        pitfall:{en:"Measuring teams by features shipped instead of problems solved.", fa:"سنجیدنِ تیم با تعدادِ فیچرِ تحویل‌داده‌شده به‌جای مسئله‌های حل‌شده."} },
+      missionaries:{ part:"teams", n:3, name:{en:"Missionaries, Not Mercenaries", fa:"مؤمن به هدف، نه مزدور"}, glabel:{en:"Missionaries", fa:"مؤمن به هدف"},
+        principle:{en:"You need teams of missionaries who believe in the mission — not mercenaries who just build what they're assigned.", fa:"به تیمی از آدم‌های مؤمن به هدف نیاز داری که به مأموریت باور دارند — نه مزدورهایی که فقط همان چیزی را که بهشان محول شده می‌سازند."},
+        more:{en:"The phrase comes from John Doerr. Mercenaries show up for the paycheck and the task list; missionaries show up because they believe in the vision and feel ownership of the outcome. Empowerment is what turns a group of mercenaries into a team of missionaries.", fa:"این عبارت از جان دوئر است. مزدور برای حقوق و فهرستِ کارها می‌آید؛ آدمِ مؤمن به هدف می‌آید چون به چشم‌انداز باور دارد و نتیجه را مالِ خودش می‌داند. توانمندسازی همان چیزی است که یک مشت مزدور را به تیمی از مؤمن‌ها تبدیل می‌کند."},
+        example:{en:"A missionary team keeps pushing on a hard problem after the deadline slips; a mercenary team stops the moment the ticket is closed.", fa:"تیمِ مؤمن به هدف بعد از عقب‌افتادنِ ددلاین هم روی مسئلهٔ سخت پافشاری می‌کند؛ تیمِ مزدور همان لحظه‌ای که تیکت بسته شد دست می‌کشد."},
+        tip:{en:"Share the why behind the work often enough that people feel part of the mission.", fa:"«چرا»یِ کار را آن‌قدر تکرار کن که آدم‌ها خودشان را بخشی از مأموریت حس کنند."},
+        pitfall:{en:"Handing out tasks with no purpose, then wondering why nobody cares.", fa:"پخش‌کردنِ کارها بدونِ هیچ هدفی، و بعد تعجب از اینکه چرا برای کسی مهم نیست."} },
+      outcomes:{ part:"teams", n:4, name:{en:"Outcomes, Not Output", fa:"نتیجه، نه خروجی"}, glabel:{en:"Outcomes", fa:"نتیجه"},
+        principle:{en:"Hold teams accountable for outcomes — real problems solved — not output, the features they ship.", fa:"تیم را مسئولِ نتیجه بدان — مسئله‌ای که واقعاً حل شده — نه خروجی، یعنی فیچرهایی که تحویل می‌دهد."},
+        more:{en:"Output is easy to count and easy to fake busyness with; a team can ship all quarter and move nothing. Outcomes are the actual result for the customer and the business. Empowered teams sign up for outcomes, which is only fair once they're allowed to choose the solution.", fa:"خروجی را راحت می‌شود شمرد و راحت می‌شود باهاش تظاهر به مشغولیت کرد؛ یک تیم می‌تواند یک فصلِ کامل تحویل بدهد و هیچ‌چیز تکان نخورد. نتیجه یعنی اثرِ واقعی روی مشتری و کسب‌وکار. تیمِ توانمند مسئولیتِ نتیجه را می‌پذیرد، که فقط وقتی منصفانه است که اجازه داشته باشد راه‌حل را خودش انتخاب کند."},
+        example:{en:"‘Ship five features’ is output; ‘cut checkout abandonment in half’ is an outcome.", fa:"«پنج فیچر تحویل بده» خروجی است؛ «رهاکردنِ سبدِ خرید را نصف کن» نتیجه است."},
+        tip:{en:"Rewrite one team goal from a feature list into a measurable result.", fa:"یک هدفِ تیمی را از یک فهرستِ فیچر به یک نتیجهٔ قابلِ‌اندازه‌گیری بازنویسی کن."},
+        pitfall:{en:"Celebrating shipped features while the metric they were for never moves.", fa:"جشن‌گرفتن برای فیچرهای تحویل‌شده، در حالی که آن عددی که برایش بودند اصلاً تکان نمی‌خورد."} },
+      coachjob:{ part:"coaching", n:5, name:{en:"Coaching Is Job Number One", fa:"کوچینگ کارِ شمارهٔ یک است"}, glabel:{en:"Job #1", fa:"کارِ شمارهٔ یک"},
+        principle:{en:"Coaching your people is the single most important thing you do as a leader — nothing else you do has more leverage.", fa:"کوچ‌کردنِ آدم‌هایت مهم‌ترین کاری است که به‌عنوانِ یک رهبر انجام می‌دهی — هیچ کارِ دیگری اهرمِ بیشتری ندارد."},
+        more:{en:"Most managers treat coaching as a nice-to-have they get to after the ‘real work’. Cagan flips that: developing people is the real work. It's what turns ordinary people into extraordinary teams, and it's the job you can't delegate.", fa:"بیشترِ مدیرها با کوچینگ مثلِ یک کارِ لوکس برخورد می‌کنند که بعد از «کارِ اصلی» بهش می‌رسند. کیگن این را برعکس می‌کند: پروراندنِ آدم‌ها خودش کارِ اصلی است. همین است که آدم‌های معمولی را به تیم‌های خارق‌العاده تبدیل می‌کند، و کاری است که نمی‌توانی به کسی بسپاری."},
+        example:{en:"Blocking a recurring weekly hour for each person's growth — and never cancelling it — signals what you truly value.", fa:"کنارگذاشتنِ یک ساعتِ ثابتِ هفتگی برای رشدِ هر آدم — و هیچ‌وقت کنسل‌نکردنش — نشان می‌دهد واقعاً به چه چیزی اهمیت می‌دهی."},
+        tip:{en:"Put a weekly coaching 1:1 with each report on your calendar and protect it.", fa:"با هر نفر یک جلسهٔ هفتگیِ دونفرهٔ کوچینگ توی تقویمت بگذار و ازش محافظت کن."},
+        pitfall:{en:"Treating coaching as optional and cancelling 1:1s whenever things get busy.", fa:"کوچینگ را اختیاری دانستن و هر وقت سرت شلوغ شد جلسه‌های دونفره را کنسل‌کردن."} },
+      coachplan:{ part:"coaching", n:6, name:{en:"The Coaching Plan", fa:"برنامهٔ کوچینگ"}, glabel:{en:"Coaching Plan", fa:"برنامهٔ کوچینگ"},
+        principle:{en:"Assess each person against what the role needs, then write a concrete plan to close the gaps.", fa:"هر آدم را با آنچه نقش لازم دارد بسنج، بعد یک برنامهٔ مشخص بنویس تا فاصله‌ها را پر کنی."},
+        more:{en:"Start with an honest gap assessment across the skills the job demands. Then build a written coaching plan — specific, prioritized, and revisited — so growth is deliberate instead of accidental. The plan is for their benefit, and you own making it happen.", fa:"با یک ارزیابیِ صادقانه از فاصله‌ها شروع کن، روی مهارت‌هایی که کار می‌طلبد. بعد یک برنامهٔ کوچینگِ نوشته‌شده بساز — مشخص، اولویت‌دار، و مدام مرور‌شونده — تا رشد عمدی باشد نه اتفاقی. این برنامه به نفعِ خودِ اوست، و مسئولِ عملی‌شدنش تویی."},
+        example:{en:"For a new PM: strong on execution, weak on product strategy — so the plan front-loads strategy work and feedback.", fa:"برای یک مدیرمحصولِ تازه‌کار: قوی در اجرا، ضعیف در استراتژیِ محصول — پس برنامه، کار و بازخوردِ استراتژی را جلو می‌اندازد."},
+        tip:{en:"Write down each person's top two growth gaps and one action for each.", fa:"برای هر آدم دو فاصلهٔ اصلیِ رشدش را بنویس و برای هرکدام یک اقدام."},
+        pitfall:{en:"Vague encouragement with no assessment, plan, or follow-through.", fa:"تشویقِ کلی و مبهم، بدونِ هیچ ارزیابی، برنامه، یا پیگیری."} },
+      oneonones:{ part:"coaching", n:7, name:{en:"Weekly 1:1s", fa:"جلسه‌های هفتگیِ دونفره"}, glabel:{en:"1:1s", fa:"دونفره‌ها"},
+        principle:{en:"The weekly 1:1 is your main coaching tool — it's their meeting for growth, not your status update.", fa:"جلسهٔ هفتگیِ دونفره ابزارِ اصلیِ کوچینگِ توست — این جلسهٔ اوست برای رشد، نه جلسهٔ توست برای گرفتنِ گزارش."},
+        more:{en:"A good 1:1 is a safe, regular conversation about how the person is doing and where they want to grow. Come with their development in mind, listen more than you talk, and never turn it into a project-status meeting — that starves the coaching it exists for.", fa:"یک جلسهٔ دونفرهٔ خوب، یک گفت‌وگوی امن و منظم است دربارهٔ اینکه آدم چطور پیش می‌رود و کجا می‌خواهد رشد کند. با فکرِ رشدِ او بیا، بیشتر از آنکه حرف بزنی گوش کن، و هیچ‌وقت آن را به جلسهٔ گزارشِ پروژه تبدیل نکن — این کار همان کوچینگی را که به‌خاطرش هست از بین می‌برد."},
+        example:{en:"Opening with ‘what's on your mind?’ instead of ‘where are we on the launch?’ changes the whole conversation.", fa:"شروع‌کردن با «چی ذهنت را مشغول کرده؟» به‌جای «کجای کارِ لانچیم؟» کلِ گفت‌وگو را عوض می‌کند."},
+        tip:{en:"Let the other person set the agenda for your next 1:1.", fa:"بگذار طرفِ مقابل دستورِ جلسهٔ دونفرهٔ بعدی را بچیند."},
+        pitfall:{en:"Hijacking the 1:1 for status and cancelling it under pressure.", fa:"قاپیدنِ جلسهٔ دونفره برای گرفتنِ گزارش و کنسل‌کردنش زیرِ فشارِ کار."} },
+      recruit:{ part:"staffing", n:8, name:{en:"Recruit for Character", fa:"جذب برای شخصیت"}, glabel:{en:"Recruit", fa:"جذب"},
+        principle:{en:"Hire for competence and character — not just résumé skills, and not ‘culture fit’.", fa:"برای شایستگی و شخصیت آدم بگیر — نه فقط مهارت‌های روی رزومه، و نه «هم‌رنگیِ فرهنگی»."},
+        more:{en:"Competence is whether they can do the job and grow; character is honesty, drive, and being someone the team can trust. Cagan warns against hiring for ‘culture fit’, which often just means people like us — hire for character and add to the culture instead.", fa:"شایستگی یعنی اینکه می‌تواند کار را انجام بدهد و رشد کند؛ شخصیت یعنی صداقت، انگیزه، و اینکه آدمی باشد که تیم بتواند بهش اعتماد کند. کیگن هشدار می‌دهد که برای «هم‌رنگیِ فرهنگی» آدم نگیر، که اغلب فقط یعنی آدم‌هایی شبیهِ خودمان — به‌جایش برای شخصیت بگیر و به فرهنگ اضافه کن."},
+        example:{en:"A brilliant engineer who erodes trust costs more than they add; character is not negotiable.", fa:"یک مهندسِ نابغه که اعتماد را می‌فرساید، بیشتر از آنچه اضافه می‌کند خرج روی دستت می‌گذارد؛ شخصیت قابلِ‌مذاکره نیست."},
+        tip:{en:"In your next interview, probe for honesty and how they treat teammates, not just skills.", fa:"توی مصاحبهٔ بعدی، دنبالِ صداقت و طرزِ رفتارش با هم‌تیمی‌ها بگرد، نه فقط مهارت."},
+        pitfall:{en:"Hiring pure skill and ignoring character, then paying for it later.", fa:"گرفتنِ صرفِ مهارت و نادیده‌گرفتنِ شخصیت، و بعد تاوان‌دادنش."} },
+      mgrrole:{ part:"staffing", n:9, name:{en:"The Manager's Real Job", fa:"کارِ واقعیِ مدیر"}, glabel:{en:"Manager's Job", fa:"کارِ مدیر"},
+        principle:{en:"A manager's real job isn't to direct the work — it's to staff the team, coach people, and remove obstacles.", fa:"کارِ واقعیِ مدیر این نیست که کار را هدایت کند — این است که تیم را بچیند، آدم‌ها را کوچ کند، و مانع‌ها را بردارد."},
+        more:{en:"In empowered organizations, managers don't hand out assignments and check them. They pick great people, develop them, set context, and clear the path — then trust the team to figure out the work. Getting this role right is what makes empowerment possible at all.", fa:"در سازمان‌های توانمند، مدیرها کار پخش نمی‌کنند و بعد چکش نمی‌کنند. آدم‌های خوب انتخاب می‌کنند، پرورششان می‌دهند، زمینه می‌سازند، و راه را باز می‌کنند — بعد به تیم اعتماد می‌کنند که خودش کار را دربیاورد. درست‌انجام‌دادنِ همین نقش است که اصلاً توانمندسازی را ممکن می‌کند."},
+        example:{en:"A manager who spends more time developing people than assigning tasks is doing the job right.", fa:"مدیری که وقتِ بیشتری صرفِ پروراندنِ آدم‌ها می‌کند تا محول‌کردنِ کار، دارد کارش را درست انجام می‌دهد."},
+        tip:{en:"Track how much of your week goes to developing people versus directing tasks.", fa:"حساب کن چه‌قدر از هفته‌ات صرفِ پروراندنِ آدم‌ها می‌شود در برابرِ هدایتِ کارها."},
+        pitfall:{en:"Micromanaging the work and neglecting the team you were meant to build.", fa:"ریزمدیریتِ کار و غفلت از تیمی که قرار بود بسازی‌اش."} },
+      onboard:{ part:"staffing", n:10, name:{en:"Onboard to Competence", fa:"رساندن تا شایستگی"}, glabel:{en:"Onboarding", fa:"شروعِ به‌کار"},
+        principle:{en:"Get new people to competence quickly — then keep coaching them toward their potential.", fa:"آدمِ جدید را سریع به شایستگی برسان — بعد کوچینگ را ادامه بده تا به تواناییِ کاملش برسد."},
+        more:{en:"You can't empower someone who isn't yet competent — that just sets them up to fail. So invest heavily up front to get new hires to solid competence, then shift from onboarding to ongoing coaching that helps them reach their full potential.", fa:"کسی را که هنوز شایسته نشده نمی‌توانی توانمند کنی — این فقط زمینهٔ شکستش را می‌چیند. پس اولش حسابی سرمایه‌گذاری کن تا آدمِ تازه به یک شایستگیِ محکم برسد، بعد از حالتِ شروعِ‌به‌کار برو به کوچینگِ مداوم که کمکش می‌کند به تواناییِ کاملش برسد."},
+        example:{en:"A structured first ninety days that builds real competence beats throwing someone in to sink or swim.", fa:"یک نودروزِ اولِ ساختارمند که شایستگیِ واقعی می‌سازد، بهتر از این است که آدم را وسط بیندازی تا یا غرق شود یا شنا کند."},
+        tip:{en:"Give every new hire a clear path to competence in their first weeks.", fa:"به هر آدمِ تازه یک مسیرِ روشن تا شایستگی در هفته‌های اولش بده."},
+        pitfall:{en:"Handing full autonomy to someone not yet ready, and calling it empowerment.", fa:"دادنِ اختیارِ کامل به کسی که هنوز آماده نیست، و اسمش را گذاشتن توانمندسازی."} },
+      prodvision:{ part:"vision", n:11, name:{en:"An Inspiring Vision", fa:"یک چشم‌اندازِ الهام‌بخش"}, glabel:{en:"Vision", fa:"چشم‌انداز"},
+        principle:{en:"The product vision is the shared north star — the future you want to create, a few years out.", fa:"چشم‌اندازِ محصول همان ستارهٔ قطبیِ مشترک است — آینده‌ای که می‌خواهی بسازی، چند سالِ دیگر."},
+        more:{en:"A good vision is inspiring enough that missionaries want to sign up for it, and stable enough to steer by for years. It describes the value you'll create for customers, not the features — and it gives every empowered team a common direction to row toward.", fa:"یک چشم‌اندازِ خوب آن‌قدر الهام‌بخش است که آدم‌های مؤمن به هدف بخواهند پایش بایستند، و آن‌قدر باثبات است که سال‌ها بشود باهاش مسیر گرفت. ارزشی را که برای مشتری می‌سازی توصیف می‌کند، نه فیچرها را — و به هر تیمِ توانمند یک جهتِ مشترک می‌دهد که به‌سمتش پارو بزند."},
+        example:{en:"‘Every person can learn any skill from a five-minute lesson on their phone’ points the way for years without naming a single feature.", fa:"«هر آدمی بتواند هر مهارتی را با یک درسِ پنج‌دقیقه‌ای روی گوشی‌اش یاد بگیرد» سال‌ها راه را نشان می‌دهد، بی‌آنکه اسمِ حتی یک فیچر را ببرد."},
+        tip:{en:"State your product vision in one sentence a new hire could repeat back.", fa:"چشم‌اندازِ محصولت را در یک جمله بگو، جوری که یک آدمِ تازه بتواند برایت تکرارش کند."},
+        pitfall:{en:"A vision that's just a feature list, or so vague it inspires no one.", fa:"چشم‌اندازی که فقط یک فهرستِ فیچر است، یا آن‌قدر مبهم که هیچ‌کس را به شوق نمی‌آورد."} },
+      focus:{ part:"vision", n:12, name:{en:"Strategy Is Focus", fa:"استراتژی یعنی تمرکز"}, glabel:{en:"Focus", fa:"تمرکز"},
+        principle:{en:"Product strategy starts with focus — choosing the few problems that matter most and saying no to the rest.", fa:"استراتژیِ محصول با تمرکز شروع می‌شود — انتخابِ همان چند مسئله‌ای که بیشترین اهمیت را دارند و نه‌گفتن به بقیه."},
+        more:{en:"Trying to do everything guarantees nothing moves. Strong strategy means picking a small number of critical problems and pouring real effort into them. Focus is hard because it means disappointing people about the many things you won't do — but that choice is the strategy.", fa:"تلاش برای انجامِ همه‌چیز تضمین می‌کند که هیچ‌چیز پیش نرود. استراتژیِ قوی یعنی انتخابِ چند مسئلهٔ حیاتی و ریختنِ تلاشِ واقعی روی همان‌ها. تمرکز سخت است چون یعنی ناامیدکردنِ آدم‌ها دربارهٔ آن همه کاری که انجام نمی‌دهی — ولی همین انتخاب، خودِ استراتژی است."},
+        example:{en:"Choosing to fix retention this year — and explicitly not chasing new markets — is a strategy; a list of twelve priorities is not.", fa:"انتخابِ اینکه امسال نگه‌داشتِ کاربر را درست کنی — و آگاهانه دنبالِ بازارهای جدید نروی — یک استراتژی است؛ یک فهرستِ دوازده‌تایی از اولویت‌ها نه."},
+        tip:{en:"Cut your team's priority list down to the two problems that matter most.", fa:"فهرستِ اولویت‌های تیمت را تا همان دو مسئله‌ای که بیشترین اهمیت را دارند کوتاه کن."},
+        pitfall:{en:"Spreading the team thin across a dozen priorities so nothing lands.", fa:"پخش‌کردنِ تیم روی دوازده اولویت، جوری که هیچ‌کدام به نتیجه نرسد."} },
+      insights:{ part:"vision", n:13, name:{en:"Insights Into Actions", fa:"از بینش تا اقدام"}, glabel:{en:"Insights", fa:"بینش"},
+        principle:{en:"Strategy is focus plus insights turned into action; the insights come from data, technology, and customers.", fa:"استراتژی یعنی تمرکز به‌علاوهٔ بینش‌هایی که به اقدام تبدیل می‌شوند؛ بینش‌ها از داده، فناوری، و مشتری می‌آیند."},
+        more:{en:"Focus tells you where to look; insights tell you how to win there. Cagan says the best insights come from studying your data, keeping up with enabling technologies, and staying close to customers and the industry. Then leaders turn those insights into specific actions — the objectives teams pursue.", fa:"تمرکز می‌گوید کجا را نگاه کنی؛ بینش می‌گوید چطور آنجا برنده شوی. کیگن می‌گوید بهترین بینش‌ها از مطالعهٔ داده‌ات، دنبال‌کردنِ فناوری‌های توانمندساز، و نزدیک‌ماندن به مشتری و صنعت می‌آیند. بعد رهبرها آن بینش‌ها را به اقدام‌های مشخص تبدیل می‌کنند — همان هدف‌هایی که تیم‌ها دنبالشان می‌روند."},
+        example:{en:"Noticing that most churn happens in week one is an insight; turning it into a team objective is the action.", fa:"متوجه‌شدنِ اینکه بیشترِ ریزشِ کاربر در هفتهٔ اول اتفاق می‌افتد یک بینش است؛ تبدیلش به یک هدفِ تیمی، همان اقدام است."},
+        tip:{en:"Pull one real insight from your data this week and hand it to a team as a problem.", fa:"این هفته یک بینشِ واقعی از داده‌ات دربیاور و به‌شکلِ یک مسئله به یک تیم بسپار."},
+        pitfall:{en:"Collecting dashboards full of data but never turning any of it into action.", fa:"جمع‌کردنِ داشبوردهای پُر از داده، بی‌آنکه هیچ‌کدام به اقدام تبدیل شود."} },
+      objectives:{ part:"objectives", n:14, name:{en:"Empower with Objectives", fa:"توانمندسازی با هدف‌ها"}, glabel:{en:"Objectives", fa:"هدف‌ها"},
+        principle:{en:"Empower each team with a small set of objectives — problems to solve, often written as OKRs — and let them choose how.", fa:"به هر تیم چند هدف بده تا توانمندش کنی — مسئله‌هایی برای حل، اغلب به‌شکلِ OKR — و بگذار خودش راه را انتخاب کند."},
+        more:{en:"Team objectives are how strategy reaches the teams: leaders assign the problems (the what and why), and teams own the solution (the how). Written as OKRs, an objective is the problem and the key results are how you'll know it's solved. This is empowerment made operational.", fa:"هدف‌های تیمی راهی‌اند که استراتژی به تیم‌ها می‌رسد: رهبرها مسئله‌ها را می‌دهند (چه و چرا)، و تیم‌ها صاحبِ راه‌حل‌اند (چطور). وقتی به‌شکلِ OKR نوشته شود، «هدف» همان مسئله است و «نتیجه‌های کلیدی» یعنی از کجا بفهمی حل شده. این یعنی توانمندسازی که عملیاتی شده."},
+        example:{en:"Objective: ‘make onboarding effortless.’ Key results: activation up, time-to-value down. How? The team decides.", fa:"هدف: «شروعِ‌به‌کار را بی‌دردسر کن.» نتیجه‌های کلیدی: فعال‌سازی بالاتر، زمان تا ارزش کمتر. چطور؟ تیم تصمیم می‌گیرد."},
+        tip:{en:"Give a team its next objective as a problem plus a measure — never as a solution.", fa:"هدفِ بعدیِ یک تیم را به‌شکلِ یک مسئله به‌علاوهٔ یک معیار بده — نه هیچ‌وقت به‌شکلِ یک راه‌حل."},
+        pitfall:{en:"Dressing up a fixed feature list as ‘OKRs’ and calling it empowerment.", fa:"لباسِ «OKR» پوشاندن به یک فهرستِ فیچرِ ازپیش‌تعیین‌شده و اسمش را گذاشتن توانمندسازی."} },
+      context:{ part:"objectives", n:15, name:{en:"Context, Not Control", fa:"زمینه، نه کنترل"}, glabel:{en:"Context", fa:"زمینه"},
+        principle:{en:"Lead with context, not control: give teams the vision, strategy, and information — then trust them to decide.", fa:"با زمینه رهبری کن، نه با کنترل: به تیم‌ها چشم‌انداز، استراتژی، و اطلاعات بده — بعد اعتماد کن که خودشان تصمیم بگیرند."},
+        more:{en:"Control is telling people exactly what to do; context is giving them everything they need to make good decisions themselves. Leaders who lead with context share the why generously and then step back. It's how you scale good judgment across many teams without becoming the bottleneck.", fa:"کنترل یعنی به آدم‌ها دقیقاً بگویی چه کار کنند؛ زمینه یعنی هرچه لازم دارند بدهی تا خودشان تصمیمِ خوب بگیرند. رهبری که با زمینه رهبری می‌کند، «چرا» را دست‌ودل‌باز به اشتراک می‌گذارد و بعد کنار می‌کشد. این‌طوری قضاوتِ خوب را در چندین تیم گسترش می‌دهی، بی‌آنکه خودت گلوگاه شوی."},
+        example:{en:"Instead of approving each decision, a leader shares the strategy and constraints so the team can decide without them.", fa:"به‌جای تأییدِ تک‌تکِ تصمیم‌ها، رهبر استراتژی و محدودیت‌ها را می‌گوید تا تیم بتواند بی‌حضورِ او تصمیم بگیرد."},
+        tip:{en:"Next time you're asked to approve something, share the context and let the team decide.", fa:"دفعهٔ بعد که ازت خواستند چیزی را تأیید کنی، زمینه را بگو و بگذار تیم تصمیم بگیرد."},
+        pitfall:{en:"Demanding sign-off on every decision, which quietly kills empowerment.", fa:"خواستنِ تأییدیه برای هر تصمیم، که بی‌سروصدا توانمندسازی را می‌کشد."} },
+      collab:{ part:"objectives", n:16, name:{en:"Trust & Collaboration", fa:"اعتماد و همکاری"}, glabel:{en:"Trust", fa:"اعتماد"},
+        principle:{en:"Empowerment runs on trust — earned through competence and character, and honest collaboration with the business.", fa:"توانمندسازی روی اعتماد می‌چرخد — اعتمادی که با شایستگی و شخصیت به‌دست می‌آید، و با همکاریِ صادقانه با کسب‌وکار."},
+        more:{en:"Leaders won't let go of control until they trust the team, and stakeholders won't either. That trust is built by teams that are competent, act with integrity, and collaborate as partners with sales, marketing, and execs — not as an order-taking ‘IT department’. Trust is the currency empowerment is bought with.", fa:"رهبرها تا وقتی به تیم اعتماد نکنند کنترل را رها نمی‌کنند، ذی‌نفع‌ها هم همین‌طور. این اعتماد را تیمی می‌سازد که شایسته است، با درستی رفتار می‌کند، و مثلِ یک شریک با فروش و بازاریابی و مدیرها همکاری می‌کند — نه مثلِ یک واحدِ سفارش‌بگیر. اعتماد همان پولی است که با آن توانمندسازی را می‌خری."},
+        example:{en:"When a team reliably delivers and tells the truth about risks, leaders stop demanding to approve everything.", fa:"وقتی یک تیم مدام تحویل می‌دهد و دربارهٔ ریسک‌ها راست می‌گوید، رهبرها دست از این برمی‌دارند که بخواهند همه‌چیز را تأیید کنند."},
+        tip:{en:"Build trust with one stakeholder by delivering a promise and being honest about a risk.", fa:"با یک ذی‌نفع اعتماد بساز: یک قول را عملی کن و دربارهٔ یک ریسک صادق باش."},
+        pitfall:{en:"Treating product as an order-taking function, so trust — and empowerment — never form.", fa:"برخورد با محصول مثلِ یک واحدِ سفارش‌بگیر، جوری که اعتماد — و توانمندسازی — هیچ‌وقت شکل نمی‌گیرد."} }
+    },
+    core:{ name:{en:"EMPOWERED TEAMS", fa:"تیمِ توانمند"},
+      principle:{en:"Extraordinary products come from ordinary people who are well-led. Give teams a clear vision, coach them relentlessly, staff for character, and empower them with problems to solve — then give context, not control — and ordinary people will do extraordinary work.", fa:"محصول‌های خارق‌العاده از آدم‌های معمولی درمی‌آیند که خوب رهبری شده‌اند. به تیم‌ها یک چشم‌اندازِ روشن بده، بی‌وقفه کوچشان کن، برای شخصیت آدم بگیر، و با مسئله‌هایی برای حل توانمندشان کن — بعد زمینه بده، نه کنترل — تا آدم‌های معمولی کارِ خارق‌العاده کنند."},
+      more:{en:"EMPOWERED is written for leaders and managers, and it's the companion to Cagan's earlier book Inspired: where Inspired covers how empowered teams build products, EMPOWERED covers how leaders create and empower those teams. Its five parts move from what an empowered team is, to coaching, staffing, vision and strategy, and finally team objectives and trust.", fa:"«توانمند» برای رهبرها و مدیرها نوشته شده، و همراهِ کتابِ قبلیِ کیگن یعنی Inspired است: جایی که Inspired می‌گوید تیم‌های توانمند چطور محصول می‌سازند، «توانمند» می‌گوید رهبرها چطور آن تیم‌ها را می‌سازند و توانمند می‌کنند. پنج بخشش از این شروع می‌شود که تیمِ توانمند چیست، بعد می‌رود سراغِ کوچینگ، جذب، چشم‌انداز و استراتژی، و آخرش هدف‌های تیمی و اعتماد."},
+      example:{en:"Click any node to read an idea. You can also drag the nodes around.", fa:"روی هر دایره کلیک کن تا یک ایده را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."} },
+    stages:[
+      { level:1, badge:{en:"Level 1 · Over-simplified", fa:"سطحِ ۱ · خیلی ساده"}, title:{en:"It's the people", fa:"همه‌چیز به آدم‌هاست"}, tagline:{en:"The whole book in a sentence.", fa:"کلِ کتاب در یک جمله."},
+        body:{en:"Extraordinary products come from ordinary people who are well-led. Lead people well — coach them, point them at a vision, and let them solve problems — and great products follow.", fa:"محصول‌های خارق‌العاده از آدم‌های معمولی درمی‌آیند که خوب رهبری شده‌اند. آدم‌ها را خوب رهبری کن — کوچشان کن، به‌سمتِ یک چشم‌انداز نشانه‌شان بگیر، و بگذار مسئله‌ها را حل کنند — تا محصولِ عالی خودش بیاید."},
+        example:{en:"Same team, better leadership, dramatically better results.", fa:"همان تیم، رهبریِ بهتر، نتیجه‌ای به‌مراتب بهتر."},
+        gain:{en:"You hold the book's one-line promise.", fa:"همان قولِ یک‌خطیِ کتاب را داری."} },
+      { level:2, badge:{en:"Level 2 · Simple", fa:"سطحِ ۲ · ساده"}, title:{en:"Problems, not features", fa:"مسئله، نه فیچر"}, tagline:{en:"Empowered teams, not feature teams.", fa:"تیمِ توانمند، نه تیمِ فیچری."},
+        body:{en:"The core shift: stop being a <b>feature team</b> that builds what it's told, and become an <b>empowered team</b> that's given <b>problems to solve</b>. Empowered teams are <b>missionaries, not mercenaries</b> — they own the outcome, not just the output.", fa:"تغییرِ اصلی: دست از این بردار که یک <b>تیمِ فیچری</b> باشی که همان چیزی را می‌سازد که بهش می‌گویند، و یک <b>تیمِ توانمند</b> شو که بهش <b>مسئله می‌دهند تا حل کند</b>. تیمِ توانمند <b>مؤمن به هدف است، نه مزدور</b> — صاحبِ نتیجه است، نه فقط خروجی."},
+        example:{en:"‘Reduce sign-up drop-off’ (a problem) instead of ‘build a new sign-up form’ (a feature).", fa:"«ریزشِ ثبت‌نام را کم کن» (یک مسئله) به‌جای «یک فرمِ ثبت‌نامِ جدید بساز» (یک فیچر)."},
+        gain:{en:"You can tell an empowered team from a feature team.", fa:"می‌توانی تیمِ توانمند را از تیمِ فیچری تشخیص بدهی."} },
+      { level:3, badge:{en:"Level 3 · Balanced", fa:"سطحِ ۳ · متعادل"}, title:{en:"Coach and staff", fa:"کوچ کن و آدم بچین"}, tagline:{en:"The leader's number-one job.", fa:"کارِ شمارهٔ یکِ رهبر."},
+        body:{en:"Empowerment needs strong people, so a leader's first job is <b>coaching</b> — developing each person is the real work, done through weekly <b>1:1s</b> and a written <b>coaching plan</b>. And it starts with <b>staffing</b>: hire for competence and character, and get people to competence before you hand them autonomy.", fa:"توانمندسازی به آدمِ قوی نیاز دارد، پس اولین کارِ یک رهبر <b>کوچینگ</b> است — پروراندنِ هر آدم خودش کارِ اصلی است، از راهِ جلسه‌های هفتگیِ <b>دونفره</b> و یک <b>برنامهٔ کوچینگِ</b> نوشته‌شده. و از <b>جذب</b> شروع می‌شود: برای شایستگی و شخصیت آدم بگیر، و قبل از اینکه اختیار بدهی، آدم‌ها را به شایستگی برسان."},
+        example:{en:"A manager who spends more time growing people than assigning tasks.", fa:"مدیری که وقتِ بیشتری صرفِ رشدِ آدم‌ها می‌کند تا محول‌کردنِ کار."},
+        gain:{en:"You can build and grow a team worth empowering.", fa:"می‌توانی تیمی بسازی و بپرورانی که ارزشِ توانمندشدن را داشته باشد."} },
+      { level:4, badge:{en:"Level 4 · Advanced", fa:"سطحِ ۴ · پیشرفته"}, title:{en:"Vision and strategy", fa:"چشم‌انداز و استراتژی"}, tagline:{en:"Point everyone the same way.", fa:"همه را یک‌طرف نشانه بگیر."},
+        body:{en:"Give the team a north star. An inspiring <b>product vision</b> describes the future you want to create a few years out. A real <b>product strategy</b> is <b>focus</b> — the few problems that matter most — plus <b>insights</b> (from data, technology, customers) turned into action. Vision inspires; strategy chooses.", fa:"به تیم یک ستارهٔ قطبی بده. یک <b>چشم‌اندازِ محصولِ</b> الهام‌بخش، آینده‌ای را توصیف می‌کند که می‌خواهی چند سالِ دیگر بسازی. یک <b>استراتژیِ محصولِ</b> واقعی یعنی <b>تمرکز</b> — همان چند مسئله‌ای که بیشترین اهمیت را دارند — به‌علاوهٔ <b>بینش‌هایی</b> (از داده، فناوری، مشتری) که به اقدام تبدیل می‌شوند. چشم‌انداز الهام می‌دهد؛ استراتژی انتخاب می‌کند."},
+        example:{en:"One clear vision, two focused bets — not a roadmap of twenty features.", fa:"یک چشم‌اندازِ روشن، دو شرطِ متمرکز — نه یک نقشهٔ راه با بیست فیچر."},
+        gain:{en:"You can set a direction teams actually want to follow.", fa:"می‌توانی یک جهت بگذاری که تیم‌ها واقعاً بخواهند دنبالش کنند."} },
+      { level:5, badge:{en:"Level 5 · Expert", fa:"سطحِ ۵ · حرفه‌ای"}, title:{en:"Empower with trust", fa:"با اعتماد توانمند کن"}, tagline:{en:"Objectives, context, and letting go.", fa:"هدف‌ها، زمینه، و رهاکردن."},
+        body:{en:"Now empowerment becomes real. Assign a few <b>team objectives</b> (problems to solve, often as OKRs) and let each team choose the how. Lead with <b>context, not control</b> — share the vision, strategy, and information, then step back. It all rests on <b>trust</b>, earned through competence, character, and honest partnership with the business. Do all of this and ordinary people build extraordinary products.", fa:"حالا توانمندسازی واقعی می‌شود. چند <b>هدفِ تیمی</b> بده (مسئله‌هایی برای حل، اغلب به‌شکلِ OKR) و بگذار هر تیم خودش «چطور»ش را انتخاب کند. با <b>زمینه رهبری کن، نه با کنترل</b> — چشم‌انداز، استراتژی، و اطلاعات را به اشتراک بگذار، بعد کنار بکش. همه‌اش روی <b>اعتماد</b> بنا شده، اعتمادی که با شایستگی، شخصیت، و شراکتِ صادقانه با کسب‌وکار به‌دست می‌آید. همهٔ این‌ها را بکن، تا آدم‌های معمولی محصول‌های خارق‌العاده بسازند."},
+        example:{en:"You give teams problems and context, protect their 1:1s, and resist the urge to approve every decision.", fa:"به تیم‌ها مسئله و زمینه می‌دهی، از جلسه‌های دونفره‌شان محافظت می‌کنی، و جلوی این وسوسه را می‌گیری که هر تصمیم را خودت تأیید کنی."},
+        gain:{en:"You can build empowered teams — and teach other leaders to do the same.", fa:"می‌توانی تیم‌های توانمند بسازی — و به رهبرهای دیگر هم یاد بدهی همین کار را بکنند."} }
+    ],
+    quotes:[
+      {en:"We need teams of missionaries, not teams of mercenaries.", fa:"به تیم‌هایی از آدم‌های مؤمن به هدف نیاز داریم، نه تیم‌هایی از مزدور."},
+      {en:"Give teams problems to solve, rather than features to build. Empower them to solve those problems in the best way they see fit.", fa:"به تیم‌ها مسئله بده تا حل کنند، نه فیچر تا بسازند. توانمندشان کن که آن مسئله‌ها را به بهترین شکلی که خودشان صلاح می‌دانند حل کنند."},
+      {en:"Coaching is what turns ordinary people into extraordinary product teams.", fa:"کوچینگ همان چیزی است که آدم‌های معمولی را به تیم‌های محصولِ خارق‌العاده تبدیل می‌کند."},
+      {en:"Every member of a product team deserves to have someone who is committed to helping them get better at their craft.", fa:"هر عضوِ یک تیمِ محصول حقش است کسی را داشته باشد که متعهد است کمکش کند در کارش بهتر شود."},
+      {en:"Empowered engineers are the single most important thing that you can have in a company.", fa:"مهندس‌های توانمند مهم‌ترین چیزی هستند که می‌توانی در یک شرکت داشته باشی."},
+      {en:"Leadership is about recognizing that there's a greatness in everyone, and your job is to create an environment where that greatness can emerge.", fa:"رهبری یعنی اینکه بفهمی در هر آدمی یک بزرگی هست، و کارِ تو این است که فضایی بسازی که آن بزرگی بتواند بیرون بیاید."},
+      {en:"Great teams are made up of ordinary people who are inspired and empowered.", fa:"تیم‌های عالی از آدم‌های معمولی ساخته شده‌اند که الهام گرفته‌اند و توانمند شده‌اند."},
+      {en:"Lead with context, not control.", fa:"با زمینه رهبری کن، نه با کنترل."}
+    ],
+    media:[
+      { kind:"yt", id:"OoxiEPTF_aw", src:{en:"YouTube · Lean Product Meetup", fa:"یوتیوب · Lean Product Meetup"},
+        title:{en:"EMPOWERED — Marty Cagan (Full Talk)", fa:"توانمند — سخنرانیِ کاملِ مارتی کیگن"},
+        desc:{en:"Marty Cagan presents the ideas behind EMPOWERED at the Lean Product Meetup.", fa:"مارتی کیگن ایده‌های پشتِ کتابِ «توانمند» را در میت‌آپِ Lean Product ارائه می‌دهد."},
+        bullets:{en:["Empowered vs feature teams","Coaching, vision, and strategy","Straight from the author"], fa:["تیمِ توانمند در برابرِ تیمِ فیچری","کوچینگ، چشم‌انداز، و استراتژی","مستقیم از خودِ نویسنده"]},
+        best:{en:"Best for Stage 1–3.", fa:"خوب برای مرحلهٔ ۱ تا ۳."} },
+      { kind:"yt", id:"saF8fViOrO8", src:{en:"YouTube · Product Faculty", fa:"یوتیوب · Product Faculty"},
+        title:{en:"Discovery, Strategy & Empowered Teams", fa:"کشف، استراتژی، و تیم‌های توانمند"},
+        desc:{en:"Marty Cagan on product discovery, product strategy, and empowered product teams.", fa:"مارتی کیگن دربارهٔ کشفِ محصول، استراتژیِ محصول، و تیم‌های توانمندِ محصول."},
+        bullets:{en:["How strategy reaches teams","Objectives and empowerment","A deeper interview"], fa:["اینکه استراتژی چطور به تیم‌ها می‌رسد","هدف‌ها و توانمندسازی","یک گفت‌وگوی عمیق‌تر"]},
+        best:{en:"Best for Stage 3–5.", fa:"خوب برای مرحلهٔ ۳ تا ۵."} },
+      { kind:"img", url:"https://www.wiley.com/en-us/Empowered:+Ordinary+People,+Extraordinary+Products-p-9781119691297",
+        src:{en:"Wiley · Publisher", fa:"Wiley · ناشر"},
+        title:{en:"EMPOWERED — Publisher Page", fa:"توانمند — صفحهٔ ناشر"},
+        desc:{en:"The publisher page, with the official description, details, and editions.", fa:"صفحهٔ ناشر، با توضیحِ رسمی، جزئیات، و نسخه‌ها."},
+        bullets:{en:["The official description","Author background","Straight from the source"], fa:["توضیحِ رسمی","پیشینهٔ نویسنده","مستقیم از خودِ منبع"]},
+        best:{en:"For details and the source.", fa:"برای جزئیات و منبعِ اصلی."} },
+      { kind:"img", url:"https://www.svpg.com/books/empowered-ordinary-people-extraordinary-products/",
+        src:{en:"SVPG · Silicon Valley Product Group", fa:"SVPG · گروهِ محصولِ درهٔ سیلیکون"},
+        title:{en:"EMPOWERED at SVPG", fa:"توانمند در SVPG"},
+        desc:{en:"The author's own overview of the book at Silicon Valley Product Group.", fa:"مرورِ خودِ نویسنده از کتاب در سایتِ گروهِ محصولِ درهٔ سیلیکون."},
+        bullets:{en:["Overview from the author","Related articles and talks","Context on the SVPG method"], fa:["مرور از خودِ نویسنده","مقاله‌ها و سخنرانی‌های مرتبط","زمینه‌ای دربارهٔ روشِ SVPG"]},
+        best:{en:"For the author's own summary.", fa:"برای خلاصهٔ خودِ نویسنده."} }
+    ],
+    go:[
+      {label:{en:"Publisher page (Wiley)", fa:"صفحهٔ ناشر (Wiley)"}, url:"https://www.wiley.com/en-us/Empowered:+Ordinary+People,+Extraordinary+Products-p-9781119691297"},
+      {label:{en:"Book on Goodreads", fa:"کتاب در گودریدز"}, url:"https://www.goodreads.com/book/show/53481975-empowered"},
+      {label:{en:"EMPOWERED at Silicon Valley Product Group", fa:"توانمند در گروهِ محصولِ درهٔ سیلیکون"}, url:"https://www.svpg.com/books/empowered-ordinary-people-extraordinary-products/"}
+    ],
+    recs:[
+      { pri:"b", t:{en:"Turn a feature into a problem", fa:"یک فیچر را به یک مسئله تبدیل کن"}, d:{en:"Take one item on your roadmap and rewrite it as a problem to solve with a measure of success.", fa:"یک مورد از نقشهٔ راهت را بردار و به‌شکلِ یک مسئله برای حل، با یک معیارِ موفقیت، بازنویسی‌اش کن."} },
+      { pri:"b", t:{en:"Protect a weekly 1:1", fa:"از یک جلسهٔ هفتگیِ دونفره محافظت کن"}, d:{en:"Book a recurring coaching 1:1 with each person and make growth — not status — the agenda.", fa:"با هر آدم یک جلسهٔ دونفرهٔ کوچینگِ ثابت بگذار و رشد را — نه گزارش — دستورِ جلسه کن."} },
+      { pri:"n", t:{en:"Give context, not control", fa:"زمینه بده، نه کنترل"}, d:{en:"Next decision someone brings you, share the context and let them make the call.", fa:"دفعهٔ بعد که کسی یک تصمیم آورد پیشت، زمینه را بگو و بگذار خودش تصمیم بگیرد."} },
+      { pri:"n", t:{en:"Write a one-line vision", fa:"یک چشم‌اندازِ یک‌خطی بنویس"}, d:{en:"Draft your product vision in a single sentence your team could repeat back to you.", fa:"چشم‌اندازِ محصولت را در یک جمله بنویس، جوری که تیمت بتواند برایت تکرارش کند."} }
+    ]
+  }
+};

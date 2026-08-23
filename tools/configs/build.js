@@ -1,0 +1,257 @@
+/* config: Build — Tony Fadell (Inspiration) */
+module.exports = {
+  slug:"build", brand:"Build",
+  titleTag:"Build — نقشهٔ دانش و یادگیری ۵ مرحله‌ای",
+  W:980, H:780, R1:220, R2:126, span:66,
+  leafKickEn:"Lesson", leafKickFa:"درسِ",
+  flowEn:["Why","Prototype","Ship","Iterate"], flowFa:["چرایی","نمونه","عرضه","تکرار"],
+
+  hero:`  <div class="eyebrow"><span class="edot"></span>
+    <span data-only="en">Book knowledge map · Tony Fadell</span>
+    <span data-only="fa">نقشهٔ کتاب · تونی فدل</span>
+  </div>
+  <h1>
+    <span data-only="en">Build — An Unorthodox Guide to Making Things Worth Making</span>
+    <span data-only="fa">ساختن — راهنمایی نامتعارف برای ساختنِ چیزهایی که ارزشِ ساختن دارند</span>
+  </h1>
+  <p class="dek">
+    <span data-only="en">A knowledge graph of the whole book, plus a 5-stage path from a single idea to expert-level mastery — with an example at every step.</span>
+    <span data-only="fa">نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از یک ایدهٔ ساده تا حرفه‌ای — با یک مثال در هر مرحله.</span>
+  </p>
+  <div class="metastrip">
+    <div class="metaitem"><span class="mk" data-only="en">Book</span><span class="mk" data-only="fa">کتاب</span>
+      <span class="mv" data-only="en">Build</span><span class="mv" data-only="fa">ساختن</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Author</span><span class="mk" data-only="fa">نویسنده</span>
+      <span class="mv" data-only="en">Tony Fadell</span><span class="mv" data-only="fa">تونی فدل</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Published</span><span class="mk" data-only="fa">سالِ چاپ</span>
+      <span class="mv" data-only="en">2022</span><span class="mv" data-only="fa">۲۰۲۲</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Group</span><span class="mk" data-only="fa">گروه</span>
+      <span class="mv" data-only="en">Inspiration</span><span class="mv" data-only="fa">الهام</span></div>
+  </div>
+  <div class="chips">
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Parts</span><span data-only="fa">بخش</span></div>
+    <div class="chip"><b data-only="en">16</b><b data-only="fa">۱۶</b><span data-only="en">Lessons</span><span data-only="fa">درس</span></div>
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Learning stages</span><span data-only="fa">مرحلهٔ یادگیری</span></div>
+  </div>`,
+
+  callout:`    <b data-only="en">The core idea:</b>
+    <b data-only="fa">ایدهٔ اصلی:</b>
+    <span data-only="en"> Great products come from great <i>builders</i> — so build yourself first. Chase the work that <i>teaches</i> you most, get the <i>why</i> right before the what, prototype fast, ship and iterate, then surround yourself with great <i>people</i>. In the end only two things matter: products and people.</span>
+    <span data-only="fa"> محصولِ عالی از <i>سازندهٔ</i> عالی می‌آید — پس اول خودت را بساز. دنبالِ کاری برو که بیشترین <i>یادگیری</i> را دارد، قبل از چیستی <i>چراییِ</i> کار را روشن کن، سریع نمونه بساز، عرضه کن و بهترش کن، بعد خودت را با <i>آدم‌های</i> عالی احاطه کن. در نهایت فقط دو چیز مهم است: محصول‌ها و آدم‌ها.</span>`,
+
+  kpis:`    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Parts (yourself · career · product · business · team)</div><div class="l" data-only="fa">بخش (خودت · مسیر · محصول · کسب‌وکار · تیم)</div></div>
+    <div class="kbox"><div class="v" data-only="en">16</div><div class="v" data-only="fa">۱۶</div><div class="l" data-only="en">Lessons you can use</div><div class="l" data-only="fa">درس برای استفاده</div></div>
+    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Levels, simple → expert</div><div class="l" data-only="fa">مرحله، ساده تا حرفه‌ای</div></div>
+    <div class="kbox"><div class="v" data-only="en">2</div><div class="v" data-only="fa">۲</div><div class="l" data-only="en">Things that finally matter: products & people</div><div class="l" data-only="fa">چیزی که آخرش مهم است: محصول‌ها و آدم‌ها</div></div>`,
+
+  mapcallout:`      <b data-only="en">Read it as a flow:</b><b data-only="fa">به‌صورتِ یک جریان بخوانش:</b>
+      <span data-only="en"> build <b>yourself</b> (learn by doing, find mentors), grow your <b>career</b> (decide well, quit right), make the <b>product</b> (sell the why, prototype, ship), grow the <b>business</b> (hire, design, market), and build the <b>team</b> — culture, board, and becoming the CEO who protects the why.</span>
+      <span data-only="fa"> <b>خودت</b> را بساز (با انجام‌دادن یاد بگیر، مربی پیدا کن)، <b>مسیرت</b> را بساز (خوب تصمیم بگیر، درست برو)، <b>محصول</b> را بساز (چرایی را بفروش، نمونه بساز، عرضه کن)، <b>کسب‌وکار</b> را بساز (استخدام، طراحی، بازاریابی)، و <b>تیم</b> را بساز — فرهنگ، هیئت‌مدیره، و مدیرعامل‌شدنی که از چرایی محافظت می‌کند.</span>`,
+
+  methodFa:"<p><b>منبع:</b> کتابِ «Build» نوشتهٔ تونی فدل (نشرِ Harper Business، ۲۰۲۲).</p><p><b>روشِ کار:</b> ساختارِ پنج‌بخشی و درس‌ها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده؛ نقل‌قول‌ها مقابله و ویدیوها بررسی شده‌اند.</p><p><b>گروه:</b> «الهام» — از فهرستِ کتاب‌های ضروریِ سازندگانِ محصولِ لنی راچیتسکی.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای متنِ کامل، خودِ کتاب را بخوان.</p>",
+  methodEn:"<p><b>Source:</b> the book <i>Build: An Unorthodox Guide to Making Things Worth Making</i> by Tony Fadell (Harper Business, 2022).</p><p><b>How this was built:</b> the five-part structure and lessons were gathered and rewritten from the book and reputable sources; quotes were cross-checked and the linked videos verified.</p><p><b>Group:</b> Inspiration — from Lenny Rachitsky's essential books for product builders.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>",
+
+  data:{
+    tldr:[
+      {en:"The whole book in one line: to make something worth making, first build yourself — then the product, business, and team around it.",
+       fa:"خلاصهٔ کل کتاب در یک جمله: برای ساختنِ چیزی که ارزشِ ساختن دارد، اول خودت را بساز — بعد محصول و کسب‌وکار و تیمِ دورش را."},
+      {en:"It starts with <b>you</b>: chase jobs that teach you the most, find mentors, and learn by doing and failing.",
+       fa:"همه‌چیز از <b>خودت</b> شروع می‌شود: دنبالِ شغل‌هایی برو که بیشترین چیز را یادت می‌دهند، مربی پیدا کن، و با انجام‌دادن و شکست‌خوردن یاد بگیر."},
+      {en:"Get the <b>why</b> right: every great product, pitch, and campaign is a clear, honest story about the problem it solves.",
+       fa:"<b>چرایی</b> را درست کن: هر محصول و ارائه و کمپینِ عالی، یک قصهٔ روشن و صادقانه دربارهٔ مشکلی است که حل می‌کند."},
+      {en:"Build the <b>machine</b>: prototype fast, ship V1 then improve, hire great people, and sweat the design details.",
+       fa:"<b>ماشین</b> را بساز: سریع نمونه بساز، نسخهٔ یک را بده بعد بهترش کن، آدم‌های عالی استخدام کن، و روی جزئیاتِ طراحی زحمت بکش."},
+      {en:"Then <b>lead</b>: shape culture on purpose, manage your board with candor, and remember only two things matter — products and people.",
+       fa:"بعد <b>رهبری</b> کن: فرهنگ را عمدی بساز، هیئت‌مدیره را با صراحت مدیریت کن، و یادت باشد فقط دو چیز مهم است — محصول‌ها و آدم‌ها."}
+    ],
+    parts:[
+      { key:"yourself", varc:"--c-teal", name:{en:"Build Yourself", fa:"خودت را بساز"}, tag:{en:"The foundation", fa:"پایه"},
+        gist:{en:"Learn by doing, find mentors, and focus on the craft — not titles.", fa:"با انجام‌دادن یاد بگیر، مربی پیدا کن، و روی خودِ کار تمرکز کن — نه عنوان‌ها."},
+        more:{en:"Everything starts with you. Before you can build great things, spend your early career optimizing for how much you learn and who you learn from. Do real work, fail, adjust, and find people who've done it before.",
+              fa:"همه‌چیز از خودت شروع می‌شود. قبل از این‌که چیزهای عالی بسازی، در سال‌های اولِ کارت روی این تمرکز کن که چقدر یاد می‌گیری و از چه کسی. کارِ واقعی بکن، شکست بخور، خودت را جور کن، و آدم‌هایی را پیدا کن که قبلاً این راه را رفته‌اند."},
+        chapters:["learn","mentor","look"] },
+      { key:"career", varc:"--c-blue", name:{en:"Build Your Career", fa:"مسیرت را بساز"}, tag:{en:"The craft", fa:"مهارتِ کار"},
+        gist:{en:"Make decisions well, work with hard people, and know when to leave.", fa:"خوب تصمیم بگیر، با آدم‌های سخت کار کن، و بدان کِی باید بروی."},
+        more:{en:"A career is a series of decisions and the people you make them with. Learn to tell a data decision from a gut call, work with demanding people without becoming toxic, and leave a job gracefully once you've stopped growing.",
+              fa:"مسیرِ شغلی یعنی یک زنجیره از تصمیم‌ها و آدم‌هایی که با آن‌ها تصمیم می‌گیری. یاد بگیر تصمیمِ داده‌ای را از تصمیمِ حسی تشخیص بدهی، با آدم‌های سخت‌گیر کار کنی بی‌آنکه خودت آدمِ بدی بشوی، و وقتی رشدت متوقف شد محترمانه بروی."},
+        chapters:["decide","assholes","quit"] },
+      { key:"product", varc:"--c-amber", name:{en:"Build Your Product", fa:"محصولت را بساز"}, tag:{en:"Make it real", fa:"واقعی‌اش کن"},
+        gist:{en:"Sell the why, prototype fast, disrupt wisely, and ship V1 then V2.", fa:"چرایی را بفروش، سریع نمونه بساز، عاقلانه دگرگون کن، و نسخهٔ یک بده بعد نسخهٔ دو."},
+        more:{en:"A product is a story before it's a thing. Nail the why — the problem you're solving — then make it tangible with rough prototypes, choose your disruptions carefully, and ship an honest first version so real users can show you the second.",
+              fa:"محصول قبل از این‌که یک چیز باشد، یک قصه است. اول چرایی را روشن کن — همان مشکلی که حلش می‌کنی — بعد با نمونه‌های خام واقعی‌اش کن، دگرگونی‌هایت را با دقت انتخاب کن، و یک نسخهٔ اولِ صادقانه بده تا کاربرهای واقعی نسخهٔ دوم را نشانت بدهند."},
+        chapters:["why","prototype","disruption","versions"] },
+      { key:"business", varc:"--c-violet", name:{en:"Build Your Business", fa:"کسب‌وکارت را بساز"}, tag:{en:"Scale it", fa:"بزرگش کن"},
+        gist:{en:"Hire great people, treat design as how it works, and market the truth.", fa:"آدم‌های عالی استخدام کن، طراحی را جدی بگیر، و حقیقت را بازاریابی کن."},
+        more:{en:"A product needs a business around it. The people you hire become the company, design is how the whole thing works (not just how it looks), and the best marketing is simply telling the honest truth about why your product matters.",
+              fa:"محصول به یک کسب‌وکار در اطرافش نیاز دارد. آدم‌هایی که استخدام می‌کنی همان شرکت می‌شوند، طراحی یعنی این‌که کلِ چیز چطور کار می‌کند (نه فقط این‌که چه شکلی است)، و بهترین بازاریابی فقط گفتنِ حقیقتِ صادقانه دربارهٔ این است که چرا محصولت مهم است."},
+        chapters:["hire","design","marketing"] },
+      { key:"team", varc:"--c-green", name:{en:"Build Your Team & Become CEO", fa:"تیمت را بساز و مدیرعامل شو"}, tag:{en:"Lead it", fa:"رهبری‌اش کن"},
+        gist:{en:"Shape culture on purpose, manage your board, and grow into CEO.", fa:"فرهنگ را عمدی بساز، هیئت‌مدیره را مدیریت کن، و مدیرعامل شو."},
+        more:{en:"At scale you build people, not just products. Culture forms from what you reward and repeat, your board is a partnership you manage with candor, and becoming CEO means leading through others while protecting the mission and the why.",
+              fa:"در مقیاسِ بزرگ، تو آدم‌ها را می‌سازی، نه فقط محصول‌ها را. فرهنگ از چیزی ساخته می‌شود که پاداش می‌دهی و تکرار می‌کنی، هیئت‌مدیره یک هم‌کاری است که با صداقت مدیریتش می‌کنی، و مدیرعامل‌شدن یعنی رهبری از طریقِ دیگران، در حالی که مأموریت و چرایی را حفظ می‌کنی."},
+        chapters:["culture","board","ceo"] }
+    ],
+    chapters:{
+      learn:{ part:"yourself", n:1, name:{en:"Learn by Doing", fa:"با انجام‌دادن یاد بگیر"}, glabel:{en:"Learn", fa:"یادگیری"},
+        principle:{en:"Early on, chase the experience and the people you'll learn from — not the money or the title. You learn most by doing, failing, and adjusting.", fa:"اولِ کار، دنبالِ تجربه و آدم‌هایی برو که ازشان یاد می‌گیری — نه پول و عنوان. بیشترین یادگیری با انجام‌دادن، شکست‌خوردن و جورکردنِ خودت اتفاق می‌افتد."},
+        more:{en:"In your twenties and first jobs, optimize for how much you'll learn and who you'll learn from. Hard, meaningful work teaches you more than a safe, comfortable seat — and real learning comes from making things and living with the results.", fa:"در دههٔ بیستِ زندگی و شغل‌های اولت، روی این حساب کن که چقدر یاد می‌گیری و از چه کسی. کارِ سخت و بامعنا بیشتر از یک صندلیِ راحت و امن یادت می‌دهد — و یادگیریِ واقعی از ساختنِ چیزها و کنارآمدن با نتیجه‌شان می‌آید."},
+        example:{en:"Fadell took low-status, high-learning jobs (like the startup General Magic); those failures taught him what later made the iPod possible.", fa:"فدل سراغِ شغل‌هایی رفت که آبرو نداشتند ولی یادگیری‌شان زیاد بود (مثلِ استارتاپِ جنرال مجیک)؛ همان شکست‌ها بعدها راهِ ساختِ آی‌پاد را بهش یاد داد."},
+        tip:{en:"For your next move, pick the option that will teach you the most, even if it pays or ranks lower.", fa:"برای حرکتِ بعدی‌ات، همان گزینه‌ای را انتخاب کن که بیشترین چیز را یادت می‌دهد، حتی اگر پول یا رتبه‌اش کمتر باشد."},
+        pitfall:{en:"Chasing money, title, or comfort so early that you stop learning.", fa:"آن‌قدر زود دنبالِ پول و عنوان و راحتی رفتن که دیگر یاد نگیری."} },
+      mentor:{ part:"yourself", n:2, name:{en:"Find a Mentor", fa:"یک مربی پیدا کن"}, glabel:{en:"Mentors", fa:"مربی"},
+        principle:{en:"Don't figure it all out alone — find people who've done it before and learn how they think, not just what they did.", fa:"لازم نیست همه‌چیز را تنهایی کشف کنی — آدم‌هایی را پیدا کن که قبلاً این راه را رفته‌اند و یاد بگیر چطور فکر می‌کنند، نه فقط این‌که چه کردند."},
+        more:{en:"Seek out heroes and mentors and ask for the why behind their advice. The best mentoring is a two-way exchange — you bring energy and questions, they bring experience — and it saves you years of avoidable mistakes.", fa:"سراغِ آدم‌های الگو و مربی برو و بپرس چراییِ توصیه‌شان چیست. بهترین مربی‌گری یک دادوستدِ دوطرفه است — تو انرژی و سؤال می‌آوری، آن‌ها تجربه — و سال‌ها اشتباهِ قابلِ‌اجتناب را ازت کم می‌کند."},
+        example:{en:"Fadell absorbed how his bosses and mentors thought; later he mentored a whole generation of Apple and Nest builders.", fa:"فدل طرزِ فکرِ رئیس‌ها و مربی‌هایش را جذب کرد؛ بعدها خودش به یک نسلِ کامل از سازنده‌های اپل و نست مربی‌گری کرد."},
+        tip:{en:"Pick one person you admire and ask them a specific question about a decision you're facing right now.", fa:"یک نفر را که تحسینش می‌کنی انتخاب کن و یک سؤالِ مشخص دربارهٔ تصمیمی که همین حالا داری، ازش بپرس."},
+        pitfall:{en:"Trying to learn everything the slow way — alone, from your own mistakes.", fa:"خواستنِ این‌که همه‌چیز را از راهِ کُند یاد بگیری — تنها، فقط از اشتباه‌های خودت."} },
+      look:{ part:"yourself", n:3, name:{en:"Focus on the Work", fa:"روی کار تمرکز کن"}, glabel:{en:"Focus", fa:"تمرکز"},
+        principle:{en:"Look down at the craft and the people beside you, not up at titles and politics. The roles follow the work, not the other way round.", fa:"به‌جای نگاه‌کردن به بالا — به عنوان‌ها و سیاست‌بازی — پایین را نگاه کن: به خودِ کار و آدم‌های کنارت. عنوان‌ها دنبالِ کار می‌آیند، نه برعکس."},
+        more:{en:"Early careers get wrecked by obsessing over promotions and what the boss thinks. Master the craft, help your peers, and build real things instead — reputation and bigger bets get handed to the people who do the work.", fa:"مسیرِ شغلیِ خیلی‌ها با وسواس روی ترفیع و این‌که رئیس چه فکری می‌کند خراب می‌شود. به‌جایش روی کار مسلط شو، به هم‌تیمی‌هایت کمک کن، و چیزهای واقعی بساز — آبرو و شرط‌بندی‌های بزرگ‌تر به کسانی سپرده می‌شود که کار می‌کنند."},
+        example:{en:"The builders who obsess over the product, not the org chart, are the ones later trusted with the biggest projects.", fa:"همان سازنده‌هایی که حواسشان به محصول است نه به چارتِ سازمانی، بعدها بزرگ‌ترین پروژه‌ها به‌شان سپرده می‌شود."},
+        tip:{en:"This week, put real hours into the craft itself instead of worrying about your title.", fa:"این هفته، به‌جای نگرانی دربارهٔ عنوانت، ساعت‌های واقعی روی خودِ کار بگذار."},
+        pitfall:{en:"Playing politics and chasing the next title instead of doing the work.", fa:"سیاست‌بازی و دویدن دنبالِ عنوانِ بعدی، به‌جای انجامِ کار."} },
+      decide:{ part:"career", n:4, name:{en:"Data vs Opinion", fa:"داده در برابر عقیده"}, glabel:{en:"Decisions", fa:"تصمیم"},
+        principle:{en:"Know whether a decision is driven by data or by opinion — and don't dress up a gut call as if it were data.", fa:"بدان که یک تصمیم را داده می‌راند یا عقیده — و یک تصمیمِ حسی را جوری جلوه نده که انگار داده‌ای است."},
+        more:{en:"Some choices you can settle with numbers; others are bets the data will never fully answer. The mistake is hiding an opinion behind a spreadsheet, or stalling forever for proof on a decision that's really a gut call. Name which kind it is, then commit.", fa:"بعضی انتخاب‌ها را می‌شود با عدد حل کرد؛ بعضی‌ها شرط‌بندی‌هایی‌اند که داده هیچ‌وقت کاملاً جوابشان را نمی‌دهد. اشتباه این است که عقیده را پشتِ یک جدول قایم کنی، یا برای تصمیمی که در واقع حسی است، بی‌پایان منتظرِ مدرک بمانی. اول بگو کدام نوع است، بعد پایش بایست."},
+        example:{en:"Fadell's rule: “Every decision has elements of data and opinion, but they are ultimately driven by one or the other.”", fa:"قاعدهٔ فدل: «هر تصمیم هم داده دارد هم عقیده، اما در نهایت یکی از این دو آن را می‌راند.»"},
+        tip:{en:"Before your next big call, label it out loud: is this data-driven or opinion-driven? Then decide on that basis.", fa:"قبل از تصمیمِ بزرگِ بعدی، بلند بگو: این تصمیم داده‌ای است یا عقیده‌ای؟ بعد بر همان اساس تصمیم بگیر."},
+        pitfall:{en:"Hiding a gut opinion behind data, or waiting for proof you'll never get.", fa:"قایم‌کردنِ یک عقیدهٔ حسی پشتِ داده، یا انتظار برای مدرکی که هیچ‌وقت به‌دست نمی‌آید."} },
+      assholes:{ part:"career", n:5, name:{en:"Handle the Assholes", fa:"با آدم‌بدها کنار بیا"}, glabel:{en:"Assholes", fa:"آدم‌بدها"},
+        principle:{en:"Tell a toxic person apart from a demanding, mission-driven one — work with the second, and don't become either.", fa:"آدمِ سمی را از آدمِ سخت‌گیرِ دل‌سوختهٔ کار فرق بگذار — با دومی کار کن، و خودت هیچ‌کدام نشو."},
+        more:{en:"High standards aren't cruelty. Mission-driven people push hard because they care about the work; political or controlling people just want power. Learn to work with the first, and don't confuse being tough on the work with being cruel to people.", fa:"استانداردِ بالا یعنی بی‌رحمی نیست. آدم‌های دل‌سوختهٔ کار سخت فشار می‌آورند چون کار برایشان مهم است؛ آدم‌های سیاسی و کنترل‌گر فقط قدرت می‌خواهند. یاد بگیر با دستهٔ اول کار کنی، و سخت‌گیری روی کار را با بی‌رحمی با آدم‌ها اشتباه نگیر."},
+        example:{en:"Fadell on mission-driven types: “Not tolerating mediocrity doesn't make you an asshole. Challenging assumptions doesn't make you an asshole.”", fa:"فدل دربارهٔ آدم‌های دل‌سوختهٔ کار: «تحمل‌نکردنِ متوسط‌بودن تو را آدم‌بد نمی‌کند. زیرِ سؤال‌بردنِ فرض‌ها هم تو را آدم‌بد نمی‌کند.»"},
+        tip:{en:"When someone frustrates you, ask: are they pushing the mission, or just pushing people around?", fa:"وقتی کسی کلافه‌ات می‌کند بپرس: دارد مأموریت را جلو می‌برد، یا فقط آدم‌ها را هُل می‌دهد؟"},
+        pitfall:{en:"Mistaking high standards for cruelty — or excusing cruelty as high standards.", fa:"اشتباه‌گرفتنِ استانداردِ بالا با بی‌رحمی — یا توجیهِ بی‌رحمی به اسمِ استانداردِ بالا."} },
+      quit:{ part:"career", n:6, name:{en:"Know When to Quit", fa:"بدان کِی باید بروی"}, glabel:{en:"Quitting", fa:"رفتن"},
+        principle:{en:"Quitting isn't failure — sometimes leaving is the smartest move. But leave for the right reasons, and leave well.", fa:"رفتن یعنی شکست نیست — گاهی رفتن باهوش‌ترین کار است. اما به دلیلِ درست برو، و خوب برو."},
+        more:{en:"Staying too long in the wrong role wastes years you could spend learning. Quit when you've stopped growing or stopped believing — not just after one bad week — and exit gracefully, because your reputation rests on how you leave as much as how you arrived.", fa:"ماندنِ بیش‌ازحد در جای اشتباه، سال‌هایی را که می‌توانستی یاد بگیری هدر می‌دهد. وقتی برو که دیگر رشد نمی‌کنی یا دیگر باور نداری — نه فقط بعد از یک هفتهٔ بد — و محترمانه برو، چون آبرویت به شیوهٔ رفتنت هم بند است، به اندازهٔ شیوهٔ آمدنت."},
+        example:{en:"Fadell reminds you: “People won't remember how you started. They'll remember how you left.”", fa:"فدل یادت می‌آورد: «آدم‌ها یادشان نمی‌ماند چطور شروع کردی. یادشان می‌ماند چطور رفتی.»"},
+        tip:{en:"Ask yourself honestly: am I still learning here? If it's been no for months, start planning your exit.", fa:"صادقانه از خودت بپرس: هنوز اینجا یاد می‌گیرم؟ اگر ماه‌هاست جوابت «نه» بوده، رفتنت را برنامه‌ریزی کن."},
+        pitfall:{en:"Staying out of fear, or burning bridges on the way out.", fa:"از سرِ ترس ماندن، یا موقعِ رفتن پل‌های پشتِ سرت را خراب‌کردن."} },
+      why:{ part:"product", n:7, name:{en:"Sell the Why", fa:"چرایی را بفروش"}, glabel:{en:"The why", fa:"چرایی"},
+        principle:{en:"Before the what, nail the why — the story of the problem you solve. Storytelling is how new ideas get believed.", fa:"قبل از چیستی، چرایی را روشن کن — همان قصهٔ مشکلی که حلش می‌کنی. قصه‌گویی همان راهی است که ایده‌های تازه باورپذیر می‌شوند."},
+        more:{en:"People don't buy a product; they buy the reason it exists. A strong why — the pain it kills and the story behind it — is what makes customers, investors, and your own team take a leap of faith. Get the story right first; features come after.", fa:"آدم‌ها محصول نمی‌خرند؛ دلیلِ وجودش را می‌خرند. یک چراییِ قوی — دردی که برطرف می‌کند و قصه‌ای که پشتش است — همان چیزی است که مشتری و سرمایه‌گذار و حتی تیمِ خودت را وادار می‌کند دل به دریا بزنند. اول قصه را درست کن؛ ویژگی‌ها بعد می‌آیند."},
+        example:{en:"“The why drives the what.” Fadell pitched the Nest thermostat by telling the story of the problem, not the specs.", fa:"«چرایی، چیستی را پیش می‌راند.» فدل ترموستاتِ نست را با گفتنِ قصهٔ مشکل معرفی کرد، نه با فهرستِ مشخصات."},
+        tip:{en:"Before your next pitch, write the one-sentence why — the problem — before any feature.", fa:"قبل از ارائهٔ بعدی‌ات، چرایی را در یک جمله بنویس — همان مشکل — قبل از هر ویژگی."},
+        pitfall:{en:"Leading with features and specs before anyone understands why to care.", fa:"شروع‌کردن با ویژگی و مشخصات، قبل از این‌که کسی بفهمد چرا باید برایش مهم باشد."} },
+      prototype:{ part:"product", n:8, name:{en:"Prototype Everything", fa:"همه‌چیز را نمونه بساز"}, glabel:{en:"Prototype", fa:"نمونه"},
+        principle:{en:"Make the intangible tangible — turn ideas into rough prototypes fast, so you can see and feel what's actually wrong.", fa:"چیزِ ناملموس را ملموس کن — ایده‌ها را سریع به نمونه‌های خام تبدیل کن، تا بتوانی ببینی و لمس کنی که واقعاً کجا ایراد دارد."},
+        more:{en:"Ideas sound perfect in your head. A crude version — even cardboard, slides, or a fake demo — exposes the real problems faster than more meetings. Prototype the product, the pitch, even the press release. Progress comes from making something you can react to.", fa:"ایده‌ها توی سرت بی‌نقص به‌نظر می‌رسند. یک نسخهٔ خام — حتی از مقوا، اسلاید، یا یک نمایشِ قلابی — مشکل‌های واقعی را سریع‌تر از هزار جلسه لو می‌دهد. هم محصول را نمونه بساز، هم ارائه را، حتی متنِ خبرِ مطبوعاتی را. پیشرفت از ساختنِ چیزی می‌آید که بتوانی بهش واکنش نشان بدهی."},
+        example:{en:"Fadell's teams mocked up devices early and even wrote the future press release, to test whether the idea was worth building.", fa:"تیم‌های فدل خیلی زود ماکتِ دستگاه‌ها را می‌ساختند و حتی متنِ خبرِ آیندهٔ محصول را می‌نوشتند، تا امتحان کنند اصلاً ایده ارزشِ ساخت دارد یا نه."},
+        tip:{en:"Take your current idea and build the crudest possible version of it this week.", fa:"ایدهٔ فعلی‌ات را بردار و همین این هفته خام‌ترین نسخهٔ ممکنش را بساز."},
+        pitfall:{en:"Polishing the plan in your head instead of testing a rough version in the world.", fa:"صیقل‌دادنِ نقشه توی سرت، به‌جای امتحانِ یک نسخهٔ خام در دنیای واقعی."} },
+      disruption:{ part:"product", n:9, name:{en:"Evolution vs Disruption", fa:"تکامل در برابر واژگونی"}, glabel:{en:"Disruption", fa:"واژگونی"},
+        principle:{en:"Know when to disrupt — do something radically new — and when to just execute and refine what already works.", fa:"بدان کِی باید واژگون کنی — یعنی کاری کاملاً تازه بکنی — و کِی فقط باید همان چیزِ موجود را خوب اجرا و بهتر کنی."},
+        more:{en:"Not everything needs a revolution. The strongest products disrupt in one or two ways and stay conventional everywhere else — too much new at once overwhelms people. Pick your disruptions on purpose, then execute the rest cleanly.", fa:"لازم نیست همه‌چیز انقلابی باشد. قوی‌ترین محصول‌ها فقط در یکی‌دو چیز واژگون می‌کنند و بقیه‌جا معمولی می‌مانند — تازگیِ بیش‌ازحد در یک زمان آدم‌ها را گیج می‌کند. دگرگونی‌هایت را عمدی انتخاب کن، بعد بقیه را تمیز اجرا کن."},
+        example:{en:"The iPod disrupted how you carried music, but stayed familiar enough to feel usable on day one.", fa:"آی‌پاد نحوهٔ همراه‌داشتنِ موسیقی را واژگون کرد، اما آن‌قدر آشنا ماند که از همان روزِ اول قابلِ‌استفاده باشد."},
+        tip:{en:"List everything genuinely new in your product; if it's more than a couple of things, cut back.", fa:"هرچیزِ واقعاً تازه در محصولت را فهرست کن؛ اگر بیشتر از یکی‌دو تاست، کمش کن."},
+        pitfall:{en:"Trying to reinvent everything at once — or reinventing nothing at all.", fa:"خواستنِ این‌که همه‌چیز را یک‌جا از نو بسازی — یا اصلاً هیچ‌چیز را نو نکردن."} },
+      versions:{ part:"product", n:10, name:{en:"V1, Then V2", fa:"نسخهٔ یک، بعد نسخهٔ دو"}, glabel:{en:"Versions", fa:"نسخه‌ها"},
+        principle:{en:"Your first version won't be perfect — ship it, learn, and let the second version fix what only real users reveal.", fa:"نسخهٔ اولت بی‌نقص نخواهد بود — عرضه‌اش کن، یاد بگیر، و بگذار نسخهٔ دوم همان چیزهایی را درست کند که فقط کاربرِ واقعی نشان می‌دهد."},
+        more:{en:"The first generation of anything is about proving the idea works. It's the second and third versions — shaped by how people actually use it — that become great. Don't wait for perfect; ship something honest, then improve relentlessly.", fa:"نسلِ اولِ هر چیزی برای این است که ثابت کند ایده جواب می‌دهد. این نسخه‌های دوم و سوم‌اند — که با نحوهٔ واقعیِ استفادهٔ آدم‌ها شکل می‌گیرند — که عالی می‌شوند. منتظرِ بی‌نقصی نمان؛ یک چیزِ صادقانه بده، بعد بی‌وقفه بهترش کن."},
+        example:{en:"The first iPod and first Nest were only the start; the versions that followed made them category-defining.", fa:"آی‌پادِ اول و نستِ اول فقط شروع بودند؛ نسخه‌هایی که بعدشان آمدند، آن‌ها را به تعریف‌کنندهٔ دسته‌شان تبدیل کردند."},
+        tip:{en:"Define the smallest honest V1 you can ship, then plan to learn from it fast.", fa:"کوچک‌ترین نسخهٔ اولِ صادقانه‌ای را که می‌توانی عرضه کنی تعریف کن، بعد برنامه بریز که سریع ازش یاد بگیری."},
+        pitfall:{en:"Polishing V1 forever, or abandoning it before V2 can make it great.", fa:"بی‌پایان صیقل‌دادنِ نسخهٔ یک، یا رهاکردنش قبل از این‌که نسخهٔ دو عالی‌اش کند."} },
+      hire:{ part:"business", n:11, name:{en:"Hire Great People", fa:"آدم‌های عالی استخدام کن"}, glabel:{en:"Hiring", fa:"استخدام"},
+        principle:{en:"Hiring is the most important thing you do — take the time to find people who are passionate, not just qualified.", fa:"استخدام مهم‌ترین کاری است که می‌کنی — وقت بگذار و آدم‌هایی را پیدا کن که دل‌سوخته‌اند، نه فقط واجدِ شرایط."},
+        more:{en:"A great team beats a great plan. Hire for hunger and fit as much as skill, involve the team in the decision, and never lower the bar just to fill a seat — one wrong hire drags everyone down. The people you choose become the company you build.", fa:"یک تیمِ عالی از یک نقشهٔ عالی جلو می‌زند. به‌اندازهٔ مهارت، به اشتیاق و جوربودن هم اهمیت بده، تیم را در تصمیم شریک کن، و هیچ‌وقت فقط برای پرکردنِ یک صندلی سطح را پایین نیاور — یک استخدامِ اشتباه همه را زمین می‌زند. آدم‌هایی که انتخاب می‌کنی همان شرکتی می‌شوند که می‌سازی."},
+        example:{en:"Fadell obsessed over hiring at Nest, knowing the earliest team members would set the culture for good.", fa:"فدل در نست روی استخدام وسواس داشت، چون می‌دانست اولین آدم‌های تیم فرهنگ را برای همیشه تعیین می‌کنند."},
+        tip:{en:"For your next hire, add one question that tests how much they actually care about the problem.", fa:"برای استخدامِ بعدی‌ات، یک سؤال اضافه کن که بسنجد واقعاً چقدر آن مشکل برایشان مهم است."},
+        pitfall:{en:"Rushing a hire to fill a gap and lowering the bar to do it.", fa:"عجله در استخدام برای پرکردنِ یک خلأ، و پایین‌آوردنِ سطح به‌خاطرش."} },
+      design:{ part:"business", n:12, name:{en:"Design Is How It Works", fa:"طراحی یعنی این‌که چطور کار می‌کند"}, glabel:{en:"Design", fa:"طراحی"},
+        principle:{en:"Design isn't just how it looks — it's how the whole thing works, down to the tiny frustrating details.", fa:"طراحی فقط ظاهر نیست — یعنی این‌که کلِ چیز چطور کار می‌کند، تا ریزترین جزئیاتِ آزاردهنده."},
+        more:{en:"Great design means noticing the small annoyances everyone else has learned to ignore, and fixing them. It covers the box, the setup, the error message — the whole experience, not just the screen. Sweat the details users can't name but always feel.", fa:"طراحیِ عالی یعنی دیدنِ همان آزارهای کوچکی که بقیه یاد گرفته‌اند نادیده بگیرند، و درست‌کردنشان. طراحی شاملِ جعبه، مراحلِ راه‌اندازی و پیامِ خطا هم می‌شود — کلِ تجربه، نه فقط صفحهٔ نمایش. روی جزئیاتی زحمت بکش که کاربر نمی‌تواند اسم ببرد ولی همیشه حسشان می‌کند."},
+        example:{en:"Nest sweated the packaging and the little screwdriver in the box — details that made the whole thing feel considered.", fa:"نست روی بسته‌بندی و همان پیچ‌گوشتیِ کوچکِ داخلِ جعبه زحمت کشید — جزئیاتی که کاری کرد کلِ محصول سنجیده به‌نظر برسد."},
+        tip:{en:"Find one small, annoying detail in your product that everyone tolerates, and fix it.", fa:"یک جزئیاتِ کوچک و آزاردهنده در محصولت پیدا کن که همه تحملش می‌کنند، و درستش کن."},
+        pitfall:{en:"Treating design as surface decoration instead of how the product actually works.", fa:"با طراحی مثلِ تزئینِ سطحی برخوردکردن، به‌جای این‌که یعنی محصول واقعاً چطور کار می‌کند."} },
+      marketing:{ part:"business", n:13, name:{en:"Marketing Is the Why", fa:"بازاریابی یعنی همان چرایی"}, glabel:{en:"Marketing", fa:"بازاریابی"},
+        principle:{en:"The best marketing just tells the truth — it's your product's why, told clearly and honestly.", fa:"بهترین بازاریابی فقط حقیقت را می‌گوید — همان چراییِ محصولت، که روشن و صادقانه گفته شود."},
+        more:{en:"Marketing isn't tricking people; it's helping them understand why your product matters. If the story is honest and the product is good, marketing just amplifies the truth — which is why it's inseparable from the product's real reason for existing.", fa:"بازاریابی یعنی گول‌زدنِ آدم‌ها نیست؛ یعنی کمک به آن‌ها تا بفهمند چرا محصولت مهم است. اگر قصه صادقانه باشد و محصول خوب، بازاریابی فقط حقیقت را بلندتر می‌کند — و برای همین از دلیلِ واقعیِ وجودِ محصول جدا نیست."},
+        example:{en:"“The best marketing is just telling the truth.” Nest's ads explained the problem, not just the features.", fa:"«بهترین بازاریابی فقط گفتنِ حقیقت است.» تبلیغ‌های نست مشکل را توضیح می‌دادند، نه فقط ویژگی‌ها را."},
+        tip:{en:"Rewrite your product's tagline as a plain, true sentence about the problem it solves.", fa:"شعارِ محصولت را به یک جملهٔ ساده و راست دربارهٔ مشکلی که حل می‌کند بازنویسی کن."},
+        pitfall:{en:"Marketing that hypes and misleads instead of telling the honest why.", fa:"بازاریابی‌ای که شلوغ‌کاری و گمراه می‌کند، به‌جای گفتنِ چراییِ صادقانه."} },
+      culture:{ part:"team", n:14, name:{en:"Build the Culture", fa:"فرهنگ را بساز"}, glabel:{en:"Culture", fa:"فرهنگ"},
+        principle:{en:"Culture is built on purpose, from the first hire — decide the values you want and live them, or they form by accident.", fa:"فرهنگ عمدی ساخته می‌شود، از همان اولین استخدام — ارزش‌هایی را که می‌خواهی انتخاب کن و به آن‌ها زندگی کن، وگرنه اتفاقی شکل می‌گیرند."},
+        more:{en:"Culture isn't perks; it's how people behave when no one is watching. It comes from what the founders reward, tolerate, and repeat. Name your values early, hire for them, and protect them as you grow — because a bad culture is almost impossible to fix later.", fa:"فرهنگ یعنی مزایا و امکاناتِ رفاهی نیست؛ یعنی این‌که آدم‌ها وقتی کسی نگاهشان نمی‌کند چطور رفتار می‌کنند. فرهنگ از چیزی می‌آید که بنیان‌گذارها پاداش می‌دهند، تحمل می‌کنند و تکرار می‌کنند. ارزش‌هایت را زود اسم ببر، بر اساسشان استخدام کن، و حینِ رشد ازشان محافظت کن — چون فرهنگِ بد را بعداً تقریباً نمی‌شود درست کرد."},
+        example:{en:"Fadell shaped Nest's culture deliberately, knowing the early team's habits would harden into how we do things.", fa:"فدل فرهنگِ نست را عمدی شکل داد، چون می‌دانست عادت‌های تیمِ اولیه سفت می‌شوند و می‌شوند «شیوهٔ کارِ ما.»"},
+        tip:{en:"Write down three behaviors you want to be normal on your team, then model them this week.", fa:"سه رفتار را که می‌خواهی در تیمت عادی باشند بنویس، بعد همین هفته خودت انجامشان بده."},
+        pitfall:{en:"Letting culture form by accident and trying to fix it once it's set.", fa:"گذاشتن فرهنگ اتفاقی شکل بگیرد و بعد که سفت شد، تلاش برای درست‌کردنش."} },
+      board:{ part:"team", n:15, name:{en:"Manage Your Board", fa:"هیئت‌مدیره را مدیریت کن"}, glabel:{en:"The board", fa:"هیئت‌مدیره"},
+        principle:{en:"Your board and investors work with you, not over you — manage the relationship with candor and no surprises.", fa:"هیئت‌مدیره و سرمایه‌گذارها با تو کار می‌کنند، نه بالای سرت — این رابطه را با صراحت و بدونِ غافلگیری مدیریت کن."},
+        more:{en:"A board can be a huge help or a huge drag, depending on how you run it. Bring them bad news early, pick investors who add more than money, and remember you set the agenda. Treat them as partners you keep informed, not bosses you perform for.", fa:"هیئت‌مدیره می‌تواند کمکِ بزرگی باشد یا سنگِ بزرگی روی پایت، بسته به این‌که چطور اداره‌اش کنی. خبرِ بد را زود بهشان بده، سرمایه‌گذارهایی را انتخاب کن که چیزی بیشتر از پول می‌آورند، و یادت باشد دستورِ جلسه را تو تعیین می‌کنی. با آن‌ها مثلِ شریک‌هایی رفتار کن که در جریان نگهشان می‌داری، نه رئیس‌هایی که برایشان نمایش اجرا می‌کنی."},
+        example:{en:"Fadell warns founders to choose investors carefully and never let the board hear bad news for the first time in the meeting.", fa:"فدل به بنیان‌گذارها هشدار می‌دهد سرمایه‌گذار را با دقت انتخاب کنند و هیچ‌وقت نگذارند هیئت‌مدیره خبرِ بد را اولین‌بار سرِ جلسه بشنود."},
+        tip:{en:"Before your next board meeting, send the hardest news in advance — no surprises in the room.", fa:"قبل از جلسهٔ بعدیِ هیئت‌مدیره، سخت‌ترین خبر را از قبل بفرست — هیچ غافلگیری‌ای توی اتاق نباشد."},
+        pitfall:{en:"Surprising your board with bad news, or picking investors only for their check.", fa:"غافلگیرکردنِ هیئت‌مدیره با خبرِ بد، یا انتخابِ سرمایه‌گذار فقط به‌خاطرِ پولش."} },
+      ceo:{ part:"team", n:16, name:{en:"Becoming CEO", fa:"مدیرعامل‌شدن"}, glabel:{en:"Being CEO", fa:"مدیرعامل"},
+        principle:{en:"The CEO's job isn't to have every answer — it's to set the vision, pick the team, and protect the why.", fa:"کارِ مدیرعامل این نیست که جوابِ همه‌چیز را داشته باشد — این است که چشم‌انداز را تعیین کند، تیم را بچیند، و از چرایی محافظت کند."},
+        more:{en:"Becoming CEO means letting go of doing everything yourself and instead making sure the right people, culture, and direction are in place. You guard the mission, make the calls only you can make, and keep the whole thing pointed at building something worth making.", fa:"مدیرعامل‌شدن یعنی دست‌برداشتن از این‌که همه‌کار را خودت بکنی و به‌جایش مطمئن‌شدن از این‌که آدم‌های درست، فرهنگِ درست و مسیرِ درست سرِ جایشان‌اند. تو از مأموریت مراقبت می‌کنی، فقط تصمیم‌هایی را می‌گیری که فقط از تو برمی‌آید، و همه‌چیز را رو به ساختنِ چیزی نگه می‌داری که ارزشِ ساختن دارد."},
+        example:{en:"“In the end, there are two things that matter: products and people. What you build and who you build it with.”", fa:"«در نهایت دو چیز مهم است: محصول‌ها و آدم‌ها. آنچه می‌سازی و کسانی که با آن‌ها می‌سازی.»"},
+        tip:{en:"List what only you can do as the leader; then delegate everything else on purpose.", fa:"فهرست کن که به‌عنوانِ رهبر فقط چه کاری از دستِ تو برمی‌آید؛ بعد بقیهٔ همه‌چیز را عمدی واگذار کن."},
+        pitfall:{en:"Clinging to doing everything yourself instead of leading through people.", fa:"چسبیدن به این‌که همه‌کار را خودت بکنی، به‌جای رهبری از طریقِ آدم‌ها."} }
+    },
+    core:{ name:{en:"MAKE IT WORTH MAKING", fa:"ارزشِ ساختن"},
+      principle:{en:"To build something worth making, build yourself first — then your product, business, and team — always driven by a clear why. Chase the work that teaches you most, tell the honest story of the problem you solve, sweat the details, and surround yourself with great people. In the end only two things matter: products and people.", fa:"برای ساختنِ چیزی که ارزشِ ساختن دارد، اول خودت را بساز — بعد محصول و کسب‌وکار و تیمت را — و همیشه یک چراییِ روشن پیش‌ران باشد. دنبالِ کاری برو که بیشترین چیز را یادت می‌دهد، قصهٔ صادقانهٔ مشکلی را که حل می‌کنی بگو، روی جزئیات زحمت بکش، و خودت را با آدم‌های عالی احاطه کن. در نهایت فقط دو چیز مهم است: محصول‌ها و آدم‌ها."},
+      more:{en:"Fadell tells it as six Build stages, distilled here into five: Build Yourself (learn by doing, find mentors), Build Your Career (decide well, handle assholes, quit right), Build Your Product (sell the why, prototype, ship V1 then V2), Build Your Business (hire, design, market honestly), and Build Your Team & Become CEO (culture, board, leading). The thread through all of it: the why drives the what.", fa:"فدل داستان را در شش مرحلهٔ Build می‌گوید که اینجا در پنج مرحله خلاصه شده: خودت را بساز (با انجام‌دادن یاد بگیر، مربی پیدا کن)، مسیرت را بساز (خوب تصمیم بگیر، با آدم‌بدها کنار بیا، درست برو)، محصولت را بساز (چرایی را بفروش، نمونه بساز، نسخهٔ یک بده بعد نسخهٔ دو)، کسب‌وکارت را بساز (استخدام، طراحی، بازاریابیِ صادقانه)، و تیمت را بساز و مدیرعامل شو (فرهنگ، هیئت‌مدیره، رهبری). نخِ رابطِ همه‌شان: چرایی، چیستی را پیش می‌راند."},
+      example:{en:"Click any node to read a lesson — its principle, an in-depth note, an example, a try-this and a watch-out. You can also drag the nodes around.", fa:"روی هر دایره کلیک کن تا یک درس را بخوانی — اصل، یک یادداشتِ عمیق‌تر، یک مثال، یک «امتحان کن» و یک «حواست باشد». دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."} },
+    stages:[
+      { level:1, badge:{en:"Level 1 · Over-simplified", fa:"سطحِ ۱ · خیلی ساده"}, title:{en:"Make it worth making", fa:"ارزشِ ساختن"}, tagline:{en:"The whole book in a sentence.", fa:"کلِ کتاب در یک جمله."},
+        body:{en:"Don't just build things — build things worth making. Chase work that teaches you, solve a real problem, and always start with why it matters.", fa:"فقط چیز نساز — چیزی بساز که ارزشِ ساختن دارد. دنبالِ کاری برو که یادت می‌دهد، یک مشکلِ واقعی را حل کن، و همیشه از این شروع کن که چرا مهم است."},
+        example:{en:"Before any feature, ask one question: why does this deserve to exist?", fa:"قبل از هر ویژگی، یک سؤال بپرس: چرا این اصلاً باید وجود داشته باشد؟"},
+        gain:{en:"You hold the single idea the whole book expands on.", fa:"همان یک ایده‌ای را داری که کلِ کتاب بسطش می‌دهد."} },
+      { level:2, badge:{en:"Level 2 · Simple", fa:"سطحِ ۲ · ساده"}, title:{en:"Build yourself first", fa:"اول خودت را بساز"}, tagline:{en:"Learn by doing; find mentors.", fa:"با انجام‌دادن یاد بگیر؛ مربی پیدا کن."},
+        body:{en:"Before you build great products, build <b>yourself</b>. Early on, optimize for how much you'll <b>learn</b> and who you'll learn from — not money or title. Do real work, fail, adjust, and find <b>mentors</b> who've done it before.", fa:"قبل از این‌که محصولِ عالی بسازی، <b>خودت</b> را بساز. اولِ کار، روی این حساب کن که چقدر <b>یاد</b> می‌گیری و از چه کسی — نه پول و عنوان. کارِ واقعی بکن، شکست بخور، خودت را جور کن، و <b>مربی‌هایی</b> پیدا کن که قبلاً این راه را رفته‌اند."},
+        example:{en:"Take the job that teaches you the most, even if it pays less or ranks lower.", fa:"همان شغلی را بگیر که بیشترین چیز را یادت می‌دهد، حتی اگر پول یا رتبه‌اش کمتر باشد."},
+        gain:{en:"You know how to grow yourself into someone who can build.", fa:"بلدی خودت را جوری رشد بدهی که تبدیل به کسی بشوی که می‌تواند بسازد."} },
+      { level:3, badge:{en:"Level 3 · Balanced", fa:"سطحِ ۳ · متعادل"}, title:{en:"Get the why right", fa:"چرایی را درست کن"}, tagline:{en:"Story, prototype, ship, iterate.", fa:"قصه، نمونه، عرضه، تکرار."},
+        body:{en:"Every great product starts with a clear <b>why</b> — the story of the problem. Make it tangible with a rough <b>prototype</b>, <b>ship</b> an honest first version, then <b>iterate</b> on what real users show you. The why drives the what.", fa:"هر محصولِ عالی با یک <b>چراییِ</b> روشن شروع می‌شود — قصهٔ همان مشکل. با یک <b>نمونهٔ</b> خام ملموسش کن، یک نسخهٔ اولِ صادقانه <b>عرضه</b> کن، بعد بر اساسِ چیزی که کاربرِ واقعی نشانت می‌دهد <b>تکرار</b> کن. چرایی، چیستی را پیش می‌راند."},
+        example:{en:"Pitch the problem before the specs, and build the crudest prototype this week.", fa:"اول مشکل را ارائه بده بعد مشخصات را، و همین این هفته خام‌ترین نمونه را بساز."},
+        gain:{en:"You can turn an idea into a real, shippable product.", fa:"می‌توانی یک ایده را به یک محصولِ واقعی و قابلِ‌عرضه تبدیل کنی."} },
+      { level:4, badge:{en:"Level 4 · Advanced", fa:"سطحِ ۴ · پیشرفته"}, title:{en:"Build the business", fa:"کسب‌وکار را بساز"}, tagline:{en:"Hire, design, market honestly.", fa:"استخدام، طراحی، بازاریابیِ صادقانه."},
+        body:{en:"A product needs a business around it. <b>Hire</b> people who are passionate, not just qualified. Treat <b>design</b> as how the whole thing works, down to tiny details. And let <b>marketing</b> tell the honest truth — it's just your why, told clearly.", fa:"محصول به یک کسب‌وکار در اطرافش نیاز دارد. آدم‌هایی <b>استخدام</b> کن که دل‌سوخته‌اند، نه فقط واجدِ شرایط. <b>طراحی</b> را جوری ببین که یعنی کلِ چیز چطور کار می‌کند، تا ریزترین جزئیات. و بگذار <b>بازاریابی</b> حقیقتِ صادقانه را بگوید — که فقط همان چراییِ توست، روشن گفته‌شده."},
+        example:{en:"Fix one detail everyone tolerates, and rewrite your tagline as a plain, true sentence.", fa:"یک جزئیاتی را که همه تحملش می‌کنند درست کن، و شعارت را به یک جملهٔ ساده و راست بازنویسی کن."},
+        gain:{en:"You can grow an idea into a real, well-run business.", fa:"می‌توانی یک ایده را به یک کسب‌وکارِ واقعی و خوب‌اداره‌شده تبدیل کنی."} },
+      { level:5, badge:{en:"Level 5 · Expert", fa:"سطحِ ۵ · حرفه‌ای"}, title:{en:"Lead and become CEO", fa:"رهبری کن و مدیرعامل شو"}, tagline:{en:"Culture, board, and the CEO's job.", fa:"فرهنگ، هیئت‌مدیره، و کارِ مدیرعامل."},
+        body:{en:"The expert builds <b>people</b>, not just products. Shape <b>culture</b> on purpose from the first hire, manage your <b>board</b> with candor and no surprises, and grow into the <b>CEO</b> whose job is vision, team, and protecting the why. In the end only two things matter: products and people.", fa:"آدمِ حرفه‌ای <b>آدم‌ها</b> را می‌سازد، نه فقط محصول‌ها را. <b>فرهنگ</b> را از همان اولین استخدام عمدی شکل بده، <b>هیئت‌مدیره</b> را با صراحت و بدونِ غافلگیری مدیریت کن، و تبدیل به <b>مدیرعاملی</b> شو که کارش چشم‌انداز است و تیم و محافظت از چرایی. در نهایت فقط دو چیز مهم است: محصول‌ها و آدم‌ها."},
+        example:{en:"You set three cultural behaviors, send the board bad news early, and delegate everything only you don't have to do.", fa:"سه رفتارِ فرهنگی را تعیین می‌کنی، خبرِ بد را زود به هیئت‌مدیره می‌دهی، و هر کاری را که لازم نیست حتماً خودت بکنی واگذار می‌کنی."},
+        gain:{en:"You can build a company — and the people in it — worth being part of.", fa:"می‌توانی شرکتی بسازی — و آدم‌هایی درونش — که ارزشِ عضوبودن دارند."} }
+    ],
+    quotes:[
+      {en:"The why drives the what.", fa:"چرایی، چیستی را پیش می‌راند."},
+      {en:"Storytelling is how you get people to take a leap of faith to do something new.", fa:"قصه‌گویی همان راهی است که آدم‌ها را وامی‌داری برای کاری تازه دل به دریا بزنند."},
+      {en:"Every decision has elements of data and opinion, but they are ultimately driven by one or the other.", fa:"هر تصمیم هم داده دارد هم عقیده، اما در نهایت یکی از این دو آن را می‌راند."},
+      {en:"The best marketing is just telling the truth.", fa:"بهترین بازاریابی فقط گفتنِ حقیقت است."},
+      {en:"In the end, there are two things that matter: products and people. What you build and who you build it with.", fa:"در نهایت دو چیز مهم است: محصول‌ها و آدم‌ها. آنچه می‌سازی و کسانی که با آن‌ها می‌سازی."},
+      {en:"People won't remember how you started. They'll remember how you left.", fa:"آدم‌ها یادشان نمی‌ماند چطور شروع کردی. یادشان می‌ماند چطور رفتی."},
+      {en:"Not tolerating mediocrity doesn't make you an asshole. Challenging assumptions doesn't make you an asshole.", fa:"تحمل‌نکردنِ متوسط‌بودن تو را آدم‌بد نمی‌کند. زیرِ سؤال‌بردنِ فرض‌ها هم تو را آدم‌بد نمی‌کند."}
+    ],
+    media:[
+      { kind:"yt", id:"x7CylTdfhEo", src:{en:"YouTube · Tony Fadell", fa:"یوتیوب · تونی فدل"},
+        title:{en:"Build — Tony Fadell on the Book", fa:"ساختن — تونی فدل دربارهٔ کتاب"},
+        desc:{en:"Fadell walks through the core ideas behind Build.", fa:"فدل ایده‌های اصلیِ پشتِ کتابِ Build را مرور می‌کند."},
+        bullets:{en:["The why behind the whole book","Stories from iPod and Nest","Straight from the author"], fa:["چراییِ پشتِ کلِ کتاب","قصه‌هایی از آی‌پاد و نست","مستقیم از خودِ نویسنده"]},
+        best:{en:"Best for Stage 1–3.", fa:"خوب برای مرحلهٔ ۱ تا ۳."} },
+      { kind:"yt", id:"raPSskApyeU", src:{en:"YouTube · Book summary", fa:"یوتیوب · خلاصهٔ کتاب"},
+        title:{en:"Build — A Quick Summary", fa:"ساختن — یک خلاصهٔ سریع"},
+        desc:{en:"A short, animated run-through of the key lessons.", fa:"یک مرورِ کوتاه و تصویری از درس‌های کلیدی."},
+        bullets:{en:["The main ideas in a few minutes","A memorable, fast overview","A good first taste"], fa:["ایده‌های اصلی در چند دقیقه","مرورِ سریع و به‌یادماندنی","یک چشیدنِ خوبِ اولیه"]},
+        best:{en:"Best for Stage 1–2.", fa:"خوب برای مرحلهٔ ۱ و ۲."} },
+      { kind:"img", url:"https://www.harperbusiness.com/book/9780063046061/Build-Tony-Fadell/",
+        src:{en:"Harper Business · Publisher", fa:"Harper Business · ناشر"},
+        title:{en:"Build — Publisher Page", fa:"ساختن — صفحهٔ ناشر"},
+        desc:{en:"The official publisher page, with editions and details.", fa:"صفحهٔ رسمیِ ناشر، با نسخه‌ها و جزئیات."},
+        bullets:{en:["The definitive editions","Background on the book","Straight from the source"], fa:["نسخه‌های معتبر","پیشینه‌ای دربارهٔ کتاب","مستقیم از خودِ منبع"]},
+        best:{en:"For editions and the source.", fa:"برای نسخه‌ها و منبعِ اصلی."} }
+    ],
+    go:[
+      {label:{en:"Publisher page", fa:"صفحهٔ ناشر"}, url:"https://www.harperbusiness.com/book/9780063046061/Build-Tony-Fadell/"},
+      {label:{en:"Book on Goodreads", fa:"کتاب در گودریدز"}, url:"https://www.goodreads.com/book/show/59696349-build"},
+      {label:{en:"The book site (Build Collective)", fa:"سایتِ کتاب (بیلد کالکتیو)"}, url:"https://www.buildc.com/the-book"}
+    ],
+    recs:[
+      { pri:"b", t:{en:"Chase learning, not titles", fa:"دنبالِ یادگیری برو، نه عنوان"}, d:{en:"For your next move, pick the option that teaches you the most — even if it pays or ranks lower.", fa:"برای حرکتِ بعدی‌ات، همان گزینه‌ای را انتخاب کن که بیشترین چیز را یادت می‌دهد — حتی اگر پول یا رتبه‌اش کمتر باشد."} },
+      { pri:"b", t:{en:"Lead with the why", fa:"با چرایی شروع کن"}, d:{en:"Before your next pitch or doc, write one honest sentence about the problem — before any feature.", fa:"قبل از ارائه یا سندِ بعدی‌ات، یک جملهٔ صادقانه دربارهٔ مشکل بنویس — قبل از هر ویژگی."} },
+      { pri:"n", t:{en:"Prototype it this week", fa:"همین هفته نمونه بساز"}, d:{en:"Take your current idea and build the crudest version you can actually react to.", fa:"ایدهٔ فعلی‌ات را بردار و خام‌ترین نسخه‌ای را بساز که واقعاً بتوانی بهش واکنش نشان بدهی."} },
+      { pri:"n", t:{en:"Fix one tiny detail", fa:"یک جزئیاتِ کوچک را درست کن"}, d:{en:"Find one small annoyance in your product that everyone tolerates, and fix it today.", fa:"یک آزارِ کوچک در محصولت پیدا کن که همه تحملش می‌کنند، و همین امروز درستش کن."} }
+    ]
+  }
+};

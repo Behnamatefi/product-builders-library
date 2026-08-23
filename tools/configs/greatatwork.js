@@ -1,0 +1,256 @@
+/* config: Great at Work — Morten T. Hansen (Career) */
+module.exports = {
+  slug:'greatatwork', brand:'Great at Work',
+  titleTag:'Great at Work — نقشهٔ دانش و یادگیری ۵ مرحله‌ای',
+  W:980, H:780, R1:220, R2:126, span:66,
+  leafKickEn:'Practice', leafKickFa:'تمرینِ',
+  flowEn:['Focus','Redesign','Master'], flowFa:['تمرکز','بازطراحی','تسلط'],
+
+  hero:`  <div class="eyebrow"><span class="edot"></span>
+    <span data-only="en">Book knowledge map · Morten Hansen</span>
+    <span data-only="fa">نقشهٔ کتاب · مورتن هانسن</span>
+  </div>
+  <h1>
+    <span data-only="en">Great at Work — How Top Performers Do Less, Work Better, and Achieve More</span>
+    <span data-only="fa">عالی در کار — بهترین‌ها چطور کمتر کار می‌کنند، بهتر کار می‌کنند و بیشتر به دست می‌آورند</span>
+  </h1>
+  <p class="dek">
+    <span data-only="en">A knowledge graph of the whole book, plus a 5-stage path from a single idea to expert-level mastery — with an example at every step.</span>
+    <span data-only="fa">نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از یک ایدهٔ ساده تا حرفه‌ای — با یک مثال در هر مرحله.</span>
+  </p>
+  <div class="metastrip">
+    <div class="metaitem"><span class="mk" data-only="en">Book</span><span class="mk" data-only="fa">کتاب</span>
+      <span class="mv" data-only="en">Great at Work</span><span class="mv" data-only="fa">عالی در کار</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Author</span><span class="mk" data-only="fa">نویسنده</span>
+      <span class="mv" data-only="en">Morten Hansen</span><span class="mv" data-only="fa">مورتن هانسن</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Published</span><span class="mk" data-only="fa">سالِ چاپ</span>
+      <span class="mv" data-only="en">2018</span><span class="mv" data-only="fa">۲۰۱۸</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Group</span><span class="mk" data-only="fa">گروه</span>
+      <span class="mv" data-only="en">Career</span><span class="mv" data-only="fa">مسیرِ شغلی</span></div>
+  </div>
+  <div class="chips">
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Parts</span><span data-only="fa">بخش</span></div>
+    <div class="chip"><b data-only="en">16</b><b data-only="fa">۱۶</b><span data-only="en">Practices</span><span data-only="fa">تمرین</span></div>
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Learning stages</span><span data-only="fa">مرحلهٔ یادگیری</span></div>
+  </div>`,
+
+  callout:`    <b data-only="en">The core idea:</b>
+    <b data-only="fa">ایدهٔ اصلی:</b>
+    <span data-only="en"> Top performers don't work more hours — they <i>work smarter</i>. They pick a few priorities and obsess over quality, aim at the <i>value</i> they create for others, learn in tight feedback loops, pair <i>passion</i> with <i>purpose</i>, and collaborate with discipline while forcefully championing their work.</span>
+    <span data-only="fa"> بهترین‌ها ساعت‌های بیشتری کار نمی‌کنند — <i>هوشمندانه‌تر</i> کار می‌کنند. چند اولویت را انتخاب می‌کنند و روی کیفیتشان وسواس به خرج می‌دهند، به <i>ارزشی</i> که برای دیگران می‌سازند نشانه می‌روند، در چرخه‌های کوتاهِ بازخورد یاد می‌گیرند، <i>اشتیاق</i> را با <i>هدف</i> جفت می‌کنند، و با نظم همکاری می‌کنند و درعین‌حال محکم از کارشان دفاع می‌کنند.</span>`,
+
+  kpis:`    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Parts (do less · redesign · learn · passion+purpose · collaborate)</div><div class="l" data-only="fa">بخش (کمتر کن · بازطراحی · یادگیری · اشتیاق+هدف · همکاری)</div></div>
+    <div class="kbox"><div class="v" data-only="en">16</div><div class="v" data-only="fa">۱۶</div><div class="l" data-only="en">Practices you can use</div><div class="l" data-only="fa">تمرین برای استفاده</div></div>
+    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Levels, simple → expert</div><div class="l" data-only="fa">مرحله، ساده تا حرفه‌ای</div></div>
+    <div class="kbox"><div class="v" data-only="en">66%</div><div class="v" data-only="fa">۶۶٪</div><div class="l" data-only="en">of the performance gap these practices explained</div><div class="l" data-only="fa">از فاصلهٔ کارکرد که این تمرین‌ها توضیح دادند</div></div>`,
+
+  mapcallout:`      <b data-only="en">Read it as a flow:</b><b data-only="fa">به‌صورتِ یک جریان بخوانش:</b>
+      <span data-only="en"> first <b>do less, then obsess</b>, <b>redesign</b> your work around the value it creates, <b>learn in a loop</b> with fast feedback, fuse <b>passion with purpose</b>, and <b>collaborate</b> with discipline while championing your ideas.</span>
+      <span data-only="fa"> اول <b>کمتر کن، بعد وسواس</b>، کارت را <b>از نو طراحی</b> کن دورِ ارزشی که می‌سازد، در یک <b>چرخه با بازخوردِ سریع</b> یاد بگیر، <b>اشتیاق را با هدف</b> یکی کن، و با نظم <b>همکاری</b> کن و از ایده‌هایت دفاع کن.</span>`,
+
+  methodFa:"<p><b>منبع:</b> کتابِ «Great at Work: How Top Performers Do Less, Work Better, and Achieve More» نوشتهٔ مورتن هانسن، چاپِ ۲۰۱۸ (نشرِ Simon & Schuster)، بر پایهٔ یک پژوهشِ پنج‌ساله روی ۵٬۰۰۰ نفر.</p><p><b>روشِ کار:</b> ساختارِ پنج‌بخشی و ایده‌ها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده؛ نقل‌قول‌ها مقابله و ویدیوها بررسی شده‌اند.</p><p><b>گروه:</b> «مسیرِ شغلی» — یک خواندنیِ کاربردی برای هر کسی که می‌خواهد بهتر کار کند، نه بیشتر.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای متنِ کامل، خودِ کتاب را بخوان.</p>",
+  methodEn:"<p><b>Source:</b> the book <i>Great at Work: How Top Performers Do Less, Work Better, and Achieve More</i> by Morten T. Hansen, published 2018 (Simon & Schuster), based on a five-year study of 5,000 people.</p><p><b>How this was built:</b> the five-part structure and ideas were gathered and rewritten from the book and reputable sources; quotes were cross-checked and the linked videos verified.</p><p><b>Group:</b> Career — a practical read for anyone who wants to work better, not just more.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>",
+
+  data:{
+    tldr:[
+      {en:"The whole book in one line: top performers don't work more — they work smarter, doing less but obsessing over the few things that matter.",
+       fa:"خلاصهٔ کل کتاب در یک جمله: بهترین‌ها بیشتر کار نمی‌کنند — هوشمندانه‌تر کار می‌کنند، کمتر می‌کنند اما روی همان چند چیزِ مهم وسواس دارند."},
+      {en:"It's built on a five-year study of 5,000 managers and employees — and seven <b>work smart</b> practices explained most of the gap in performance, not talent or hours.",
+       fa:"این کتاب روی یک پژوهشِ پنج‌ساله از ۵٬۰۰۰ مدیر و کارمند بنا شده — و هفت تمرینِ <b>کارِ هوشمندانه</b> بیشترِ فاصلهٔ کارکرد را توضیح می‌دادند، نه استعداد یا ساعت‌کاری."},
+      {en:"<b>Do Less, Then Obsess</b>: choose a few priorities, wield a razor to cut the rest, and pour intense effort into what's left.",
+       fa:"<b>کمتر کن، بعد وسواس</b>: چند اولویت انتخاب کن، با یک تیغ بقیه را بزن کنار، و تلاشِ شدید بریز روی آنچه مانده."},
+      {en:"<b>Redesign</b> your work around value, <b>learn in a loop</b> with fast feedback, and fuse <b>passion with purpose</b> — energy plus direction.",
+       fa:"کارت را دورِ <b>ارزش</b> از نو طراحی کن، در یک <b>چرخه با بازخوردِ سریع</b> یاد بگیر، و <b>اشتیاق را با هدف</b> یکی کن — انرژی به‌علاوهٔ جهت."},
+      {en:"<b>Collaborate with discipline</b> and <b>champion your work</b>: inspire plus smart grit, team up only when the prize is big, and fight-then-unite in meetings.",
+       fa:"<b>حساب‌شده همکاری کن</b> و <b>از کارت دفاع کن</b>: انگیزش به‌علاوهٔ پشتکارِ هوشمند، فقط وقتی هم‌تیم شو که جایزه بزرگ است، و توی جلسه‌ها اول جدل کن بعد متحد شو."}
+    ],
+    parts:[
+      { key:'doless', varc:'--c-teal', name:{en:'Do Less, Then Obsess', fa:'کمتر کن، بعد وسواس'}, tag:{en:'Master your own work', fa:'کارِ خودت را استاد شو'},
+        gist:{en:'Choose a few priorities, then pour obsessive effort into just those.', fa:'چند اولویت انتخاب کن، بعد فقط روی همان‌ها تلاشِ وسواس‌گونه بریز.'},
+        more:{en:"The first and biggest practice: instead of doing more, do less — pick a tiny set of priorities — and then obsess, applying intense effort until the quality is exceptional. Focus without intensity is scattered; intensity without focus is exhausting. You need both.",
+              fa:"اولین و بزرگ‌ترین تمرین: به‌جای بیشتر کار کردن، کمتر کن — یک دستهٔ خیلی کوچک از اولویت‌ها را انتخاب کن — و بعد وسواس به خرج بده، آن‌قدر تلاشِ شدید بریز تا کیفیت فوق‌العاده شود. تمرکزِ بدونِ شدت، پخش‌وپلاست؛ شدتِ بدونِ تمرکز، فرساینده. به هر دو نیاز داری."},
+        chapters:['doless','obsess','razor'] },
+      { key:'redesign', varc:'--c-blue', name:{en:'Redesign Your Work', fa:'کارت را از نو طراحی کن'}, tag:{en:'Aim at value', fa:'به ارزش نشانه بگیر'},
+        gist:{en:'Aim your work at the value it creates for others, not at hours or busyness.', fa:'کارت را به‌سمتِ ارزشی که برای دیگران می‌سازد نشانه بگیر، نه به‌سمتِ ساعت و شلوغی.'},
+        more:{en:"Don't just work harder inside the job you were handed — redesign it. Measure yourself by value: how much others benefit from what you do. Then cut the low-value tasks and reshape the rest so more of your effort turns into real value.",
+              fa:"فقط توی همان کاری که به دستت داده‌اند سخت‌تر کار نکن — از نو طراحی‌اش کن. خودت را با ارزش بسنج: دیگران چقدر از کاری که می‌کنی سود می‌برند. بعد کارهای کم‌ارزش را حذف کن و بقیه را طوری از نو بچین که سهمِ بیشتری از تلاشت به ارزشِ واقعی تبدیل شود."},
+        chapters:['value','redesignjob','cutlow'] },
+      { key:'loop', varc:'--c-amber', name:{en:'Learn in a Loop', fa:'در یک چرخه یاد بگیر'}, tag:{en:'Get better every day', fa:'هر روز بهتر شو'},
+        gist:{en:'Turn daily work into deliberate practice — small chunks, fast feedback, real growth.', fa:'کارِ روزمره را به تمرینِ هدفمند تبدیل کن — تکه‌های کوچک، بازخوردِ سریع، رشدِ واقعی.'},
+        more:{en:"Experience alone doesn't make you better; most people plateau. The fix is a learning loop folded into work: practice one small chunk of a skill, get feedback, adjust, repeat — and put your energy into the soft skills, where the biggest gains hide.",
+              fa:"فقط تجربه تو را بهتر نمی‌کند؛ بیشترِ آدم‌ها یک‌جا متوقف می‌مانند. راهِ‌حل، یک چرخهٔ یادگیری است که توی کار جا داده شده: یک تکهٔ کوچک از یک مهارت را تمرین کن، بازخورد بگیر، تنظیم کن، تکرار کن — و انرژی‌ات را بگذار روی مهارت‌های نرم، جایی که بزرگ‌ترین پیشرفت‌ها پنهان‌اند."},
+        chapters:['loop','chunks','softskills'] },
+      { key:'psquared', varc:'--c-violet', name:{en:'Passion + Purpose', fa:'اشتیاق + هدف'}, tag:{en:'Energy with direction', fa:'انرژی به‌علاوهٔ جهت'},
+        gist:{en:'Combine loving what you do with contributing value — passion and purpose together.', fa:'دوست‌داشتنِ کارت را با ساختنِ ارزش ترکیب کن — اشتیاق و هدف، با هم.'},
+        more:{en:"Energy matters, but the right kind. Match passion — what excites you — with purpose — a contribution that matters to others. Together they multiply your drive and your results. Passion alone, chased blindly, can just as easily burn you out or lead you astray.",
+              fa:"انرژی مهم است، اما نوعِ درستش. اشتیاق — چیزی که به هیجانت می‌آورد — را با هدف — سهمی که برای دیگران ارزش دارد — جفت کن. با هم، هم انگیزه‌ات را چند برابر می‌کنند هم نتیجه‌ات را. اشتیاقِ تنها، اگر کورکورانه دنبالش بروی، به‌همان‌راحتی می‌تواند بسوزاندت یا به بیراهه ببردت."},
+        chapters:['combine','passionhurts','purpose'] },
+      { key:'collab', varc:'--c-green', name:{en:'Collaboration & Influence', fa:'همکاری و نفوذ'}, tag:{en:'Win people over', fa:'دیگران را همراه کن'},
+        gist:{en:'Champion your work, collaborate with discipline, and fight-then-unite in meetings.', fa:'از کارت دفاع کن، حساب‌شده همکاری کن، و توی جلسه‌ها اول جدل کن بعد متحد شو.'},
+        more:{en:"Great work still has to win people over. Be a forceful champion — inspire people and push with smart grit. But collaborate with discipline: team up only when the prize is big, and run meetings that welcome a real fight and then unite behind the decision.",
+              fa:"کارِ عالی باز هم باید دیگران را با خودش همراه کند. مدافعِ سرسخت باش — آدم‌ها را برانگیز و با پشتکارِ هوشمند جلو برو. اما حساب‌شده همکاری کن: فقط وقتی هم‌تیم شو که جایزه بزرگ است، و جلسه‌هایی بگذار که یک جدلِ واقعی را قدر می‌دانند و بعد پشتِ تصمیم متحد می‌شوند."},
+        chapters:['champion','inspire','disciplined','fightunite'] }
+    ],
+    chapters:{
+      doless:{ part:'doless', n:1, name:{en:'Do Less', fa:'کمتر کن'}, glabel:{en:'Do Less', fa:'کمتر'},
+        principle:{en:"Pick a very few priorities — as few as you can — and pour your effort only into those.", fa:"خیلی کم اولویت انتخاب کن — هرچه کمتر بهتر — و تلاشت را فقط روی همان‌ها بگذار."},
+        more:{en:"The top performers didn't spread themselves across many things; they chose a tiny set that mattered and let the rest go. Doing less isn't laziness — it's choosing where to be great instead of being average everywhere.", fa:"بهترین‌ها خودشان را روی هزار کار پخش نمی‌کردند؛ یک دستهٔ خیلی کوچک از کارهای مهم را انتخاب می‌کردند و بقیه را رها می‌کردند. کمتر کار کردن تنبلی نیست — یعنی انتخاب کنی کجا عالی باشی، به‌جای اینکه همه‌جا معمولی باشی."},
+        example:{en:"In Hansen's study, people who focused on a few priorities and did them exceptionally well outperformed those juggling many.", fa:"در پژوهشِ هانسن، آدم‌هایی که روی چند اولویت تمرکز می‌کردند و همان‌ها را عالی انجام می‌دادند، از آن‌هایی که هزار کار را با هم جلو می‌بردند جلو می‌زدند."},
+        tip:{en:"List everything on your plate, then circle the two or three that truly matter — and protect them.", fa:"هرچه روی سرت ریخته را فهرست کن، بعد دورِ همان دو‌سه تای واقعاً مهم خط بکش — و ازشان محافظت کن."},
+        pitfall:{en:"Saying yes to everything and ending up merely busy, not great.", fa:"به همه‌چیز بله گفتن و آخرش فقط سرت شلوغ می‌شود، نه اینکه عالی شوی."} },
+      obsess:{ part:'doless', n:2, name:{en:'Then Obsess', fa:'بعد وسواس به خرج بده'}, glabel:{en:'Obsess', fa:'وسواس'},
+        principle:{en:"Once you've chosen the few, obsess over them — pour disproportionate effort in until the quality is exceptional.", fa:"وقتی همان چند تا را انتخاب کردی، رویشان وسواس به خرج بده — آن‌قدر تلاشِ بیشتر بریز تا کیفیت فوق‌العاده شود."},
+        more:{en:"Focus alone isn't enough; the magic is 'do less, then obsess.' After narrowing down, the best became relentless about quality — refining, checking and improving far past the point where others stopped.", fa:"فقط تمرکز کافی نیست؛ جادو در «کمتر کن، بعد وسواس» است. بعد از کم‌کردن، بهترین‌ها سرِ کیفیت کوتاه نمی‌آمدند — صیقل می‌دادند، وارسی می‌کردند و بهتر می‌کردند، خیلی جلوتر از جایی که بقیه دست می‌کشیدند."},
+        example:{en:"The study found focus paid off only when paired with intensity: the highest performers kept refining their few priorities long after others called it 'good enough.'", fa:"پژوهش نشان داد تمرکز فقط وقتی جواب می‌داد که با شدت همراه باشد: بهترین‌ها همان چند اولویتشان را خیلی بعد از اینکه بقیه گفته بودند «همین خوب است» هنوز صیقل می‌دادند."},
+        tip:{en:"Take your top priority this week and ask: what would make this not just done, but excellent?", fa:"مهم‌ترین اولویتِ این هفته‌ات را بردار و بپرس: چه‌کار کنم که این کار فقط «انجام‌شده» نباشد، بلکه عالی باشد؟"},
+        pitfall:{en:"Narrowing your focus but still settling for 'good enough' on the few things left.", fa:"دایره‌ات را تنگ می‌کنی اما باز هم سرِ همان چند کارِ باقی‌مانده به «خوب است دیگر» رضایت می‌دهی."} },
+      razor:{ part:'doless', n:3, name:{en:'Wield the Razor', fa:'تیغ را بردار'}, glabel:{en:'The Razor', fa:'تیغ'},
+        principle:{en:"Cut hard. Use a razor to slice away the many trivial demands so only the vital few survive.", fa:"بی‌رحم ببُر. با یک تیغ، انبوهِ خواسته‌های کم‌اهمیت را بزن کنار تا فقط همان چند تای حیاتی بماند."},
+        more:{en:"Doing less takes active pruning against constant pressure to add more. The best said no to good-but-not-great tasks, pushed back on their bosses, and resisted the complexity trap of piling on.", fa:"کمتر کار کردن یعنی مدام هَرَس کنی، درست زیرِ فشارِ همیشگیِ اضافه‌کردنِ کار. بهترین‌ها به کارهای «خوب اما نه عالی» نه می‌گفتند، جلوی رئیسشان هم می‌ایستادند، و در برابرِ تلهٔ پیچیدگی — یعنی روی‌هم‌تلنبار‌کردنِ کار — مقاومت می‌کردند."},
+        example:{en:"When a boss keeps adding tasks, a top performer negotiates: which of these should I drop so this new one gets my best?", fa:"وقتی رئیس مدام کار اضافه می‌کند، آدمِ حرفه‌ای چانه می‌زند: کدامِ این‌ها را کنار بگذارم تا این کارِ جدید بهترینِ من را بگیرد؟"},
+        tip:{en:"Before adding anything new, name what you'll remove to make room for it.", fa:"قبل از اینکه چیزِ جدیدی اضافه کنی، بگو چه چیزی را برمی‌داری تا جا برایش باز شود."},
+        pitfall:{en:"Letting other people's priorities quietly fill your whole day.", fa:"می‌گذاری اولویت‌های بقیه بی‌سروصدا کلِ روزت را پر کنند."} },
+      value:{ part:'redesign', n:4, name:{en:'Value, Not Activity', fa:'ارزش، نه شلوغی'}, glabel:{en:'Value', fa:'ارزش'},
+        principle:{en:"Judge your work by the value it creates for others — not by hours logged or how busy you feel.", fa:"کارت را با ارزشی که برای دیگران می‌سازد بسنج — نه با ساعت‌هایی که گذاشته‌ای یا اینکه چقدر سرت شلوغ است."},
+        more:{en:"Value means how much others benefit from your work, at a quality they care about. Effort and hours are inputs; value is the output. A busy day that helps no one is worth little — a focused hour that helps a lot is worth much.", fa:"ارزش یعنی دیگران چقدر از کارِ تو سود می‌برند، با کیفیتی که برایشان مهم است. تلاش و ساعت، ورودی‌اند؛ ارزش، خروجی است. یک روزِ شلوغ که به هیچ‌کس کمک نمی‌کند کم‌ارزش است — یک ساعتِ متمرکز که خیلی کمک می‌کند، پرارزش."},
+        example:{en:"Two people work the same hours; the one whose output others actually use and rely on creates more value — and that's what the study rewarded.", fa:"دو نفر ساعت‌های برابری کار می‌کنند؛ آن‌که خروجی‌اش را دیگران واقعاً استفاده می‌کنند و به آن تکیه دارند، ارزشِ بیشتری می‌سازد — و پژوهش هم همین را پاداش می‌داد."},
+        tip:{en:"Ask of any task: who benefits from this, and how much do they really care?", fa:"از هر کاری بپرس: چه کسی از این سود می‌برد، و واقعاً چقدر برایش مهم است؟"},
+        pitfall:{en:"Measuring yourself by busyness and hours instead of the good your work does.", fa:"خودت را با شلوغی و ساعت می‌سنجی، نه با خیری که کارت می‌رساند."} },
+      redesignjob:{ part:'redesign', n:5, name:{en:'Redesign the Job', fa:'خودِ کار را از نو بچین'}, glabel:{en:'Redesign', fa:'بازطراحی'},
+        principle:{en:"Don't just do the job as handed to you — rethink it so it produces far more value.", fa:"کار را همان‌طور که به دستت داده‌اند فقط انجام نده — طوری از نو فکرش کن که ارزشِ خیلی بیشتری بسازد."},
+        more:{en:"Most people accept their tasks as fixed. Top performers ask whether the work itself should change: which parts create real value, which are wasted, and what a better version of this job would look like.", fa:"بیشترِ آدم‌ها کارهایشان را ثابت فرض می‌کنند. بهترین‌ها می‌پرسند خودِ کار باید عوض شود یا نه: کدام بخش‌ها واقعاً ارزش می‌سازند، کدام‌ها هدر می‌روند، و یک نسخهٔ بهترِ این کار چه شکلی است."},
+        example:{en:"A hotel housekeeper who reimagines her role around delighting guests — not just cleaning rooms — creates value no checklist asked for.", fa:"خدمتکارِ هتلی که نقشش را دورِ خوشحال‌کردنِ مهمان‌ها از نو تعریف می‌کند — نه فقط تمیزکردنِ اتاق — ارزشی می‌سازد که هیچ چک‌لیستی ازش نخواسته بود."},
+        tip:{en:"Pick one routine task and redesign it: cut the low-value steps, amplify the high-value ones.", fa:"یک کارِ روتین را انتخاب کن و از نو بچینش: قدم‌های کم‌ارزش را حذف کن، پرارزش‌ها را پررنگ‌تر کن."},
+        pitfall:{en:"Doing an inherited process faster instead of asking if it should exist at all.", fa:"یک روالِ ارث‌رسیده را فقط تندتر انجام می‌دهی، به‌جای اینکه بپرسی اصلاً باید باشد یا نه."} },
+      cutlow:{ part:'redesign', n:6, name:{en:'Cut Low-Value Work', fa:'کارِ کم‌ارزش را بزن کنار'}, glabel:{en:'Cut Waste', fa:'حذفِ هدر'},
+        principle:{en:"Find the tasks that produce little value and stop doing them — free that time for what matters.", fa:"کارهایی را که ارزشِ کمی می‌سازند پیدا کن و بس کن — آن وقت را برای چیزی که مهم است آزاد کن."},
+        more:{en:"A lot of work is habit, not value: reports no one reads, meetings that decide nothing, steps kept 'because we always have.' Cutting them isn't neglect — it's how you make room to obsess over the few things that count.", fa:"خیلی از کارها عادت‌اند، نه ارزش: گزارش‌هایی که کسی نمی‌خواند، جلسه‌هایی که هیچ تصمیمی نمی‌گیرند، قدم‌هایی که فقط «چون همیشه بوده» مانده‌اند. حذفشان بی‌مسئولیتی نیست — این‌طوری جا باز می‌کنی که روی همان چند کارِ مهم وسواس به خرج بدهی."},
+        example:{en:"Kill the weekly report nobody uses, and spend that hour on the project that actually moves the needle.", fa:"همان گزارشِ هفتگی‌ای که کسی استفاده‌اش نمی‌کند را بکُش، و آن یک ساعت را بگذار روی پروژه‌ای که واقعاً فرق ایجاد می‌کند."},
+        tip:{en:"This week, find one recurring task with low value and stop it — see if anyone notices.", fa:"این هفته یک کارِ تکراریِ کم‌ارزش پیدا کن و متوقفش کن — ببین اصلاً کسی متوجه می‌شود."},
+        pitfall:{en:"Keeping busywork alive out of habit or fear that cutting it looks lazy.", fa:"کارِ بی‌فایده را از سرِ عادت یا از ترسِ اینکه حذفش تنبلی به‌نظر برسد، زنده نگه می‌داری."} },
+      loop:{ part:'loop', n:7, name:{en:'The Learning Loop', fa:'چرخهٔ یادگیری'}, glabel:{en:'The Loop', fa:'چرخه'},
+        principle:{en:"Build a loop into your work: do a small piece, get feedback, tweak, and go again.", fa:"یک چرخه توی کارت بگذار: یک تکهٔ کوچک انجام بده، بازخورد بگیر، اصلاحش کن، و دوباره برو."},
+        more:{en:"You don't get better just by doing your job for years — many people plateau. Growth comes from deliberate practice: a tight cycle of trying, measuring the result, and adjusting, folded into everyday work.", fa:"با سال‌ها انجام‌دادنِ یک کار، خودبه‌خود بهتر نمی‌شوی — خیلی‌ها همان‌جا متوقف می‌مانند. رشد از تمرینِ هدفمند می‌آید: یک چرخهٔ فشرده از امتحان‌کردن، سنجیدنِ نتیجه، و تنظیم‌کردن، که توی کارِ روزمره جا داده شده."},
+        example:{en:"A salesperson who reviews each call — what worked, what didn't — and changes one thing for the next call is running a learning loop.", fa:"فروشنده‌ای که هر تماس را مرور می‌کند — چه چیزی جواب داد، چه چیزی نه — و برای تماسِ بعدی یک چیز را عوض می‌کند، دارد یک چرخهٔ یادگیری را اجرا می‌کند."},
+        tip:{en:"After your next task, spend two minutes on: what will I do differently next time?", fa:"بعد از کارِ بعدی‌ات، دو دقیقه بگذار روی این: دفعهٔ بعد چه چیزی را جور دیگری انجام می‌دهم؟"},
+        pitfall:{en:"Repeating the same year of experience over and over and calling it growth.", fa:"یک سالِ تجربه را بارها و بارها تکرار می‌کنی و اسمش را رشد می‌گذاری."} },
+      chunks:{ part:'loop', n:8, name:{en:'Practice Small Chunks', fa:'تکه‌های کوچک تمرین کن'}, glabel:{en:'Chunks', fa:'تکه‌ها'},
+        principle:{en:"Break a skill into tiny pieces and work on one at a time — not the whole thing at once.", fa:"یک مهارت را به تکه‌های ریز بشکن و هر بار روی یکی کار کن — نه اینکه یک‌دفعه سراغِ کلش بروی."},
+        more:{en:"Improvement is easier when it's small and specific. Isolate one micro-behavior — the opening line of a pitch, the way you run a check-in — practice just that, get feedback, then move to the next chunk. Fifteen focused minutes beats hours of vague effort.", fa:"بهتر‌شدن وقتی کوچک و مشخص باشد راحت‌تر است. یک رفتارِ ریز را جدا کن — جملهٔ اولِ یک ارائه، شیوهٔ اداره‌کردنِ یک جلسهٔ کوتاه — فقط همان را تمرین کن، بازخورد بگیر، بعد برو سراغِ تکهٔ بعدی. پانزده دقیقهٔ متمرکز از ساعت‌ها تلاشِ مبهم بهتر است."},
+        example:{en:"Instead of 'get better at presenting,' practice just your first thirty seconds until they're sharp.", fa:"به‌جای «توی ارائه بهتر شوم»، فقط همان سی ثانیهٔ اول را تمرین کن تا تیز شود."},
+        tip:{en:"Choose one small skill to sharpen this week and practice it in short, daily reps.", fa:"این هفته یک مهارتِ کوچک را برای تیزکردن انتخاب کن و در تکرارهای کوتاهِ روزانه تمرینش کن."},
+        pitfall:{en:"Trying to improve everything at once, so nothing actually changes.", fa:"می‌خواهی یک‌دفعه همه‌چیز را بهتر کنی، آخرش هیچ‌چیز واقعاً عوض نمی‌شود."} },
+      softskills:{ part:'loop', n:9, name:{en:'Tackle the Soft Skills', fa:'سراغِ مهارت‌های نرم برو'}, glabel:{en:'Soft Skills', fa:'مهارتِ نرم'},
+        principle:{en:"The hardest and most valuable things to improve are the soft skills — and don't forget to unlearn what's stale.", fa:"سخت‌ترین و پرارزش‌ترین چیزها برای بهتر‌کردن، همان مهارت‌های نرم‌اند — و یادت نرود چیزهای کهنه را هم از یاد ببری."},
+        more:{en:"It's easy to keep drilling technical skills; it's harder — and often more rewarding — to get better at feedback, listening, collaboration and handling conflict. Also unlearn: drop habits and beliefs that used to work but now hold you back.", fa:"کارِ راحت این است که مدام مهارت‌های فنی را تمرین کنی؛ کارِ سخت‌تر — و اغلب باارزش‌تر — این است که در بازخورد‌دادن، گوش‌دادن، همکاری و کنار‌آمدن با تعارض بهتر شوی. یک کارِ دیگر هم هست: از یاد ببر — عادت‌ها و باورهایی را که زمانی جواب می‌دادند اما حالا پایت را می‌گیرند، کنار بگذار."},
+        example:{en:"An engineer who's technically strong grows most by learning to give hard feedback well — the skill no course taught.", fa:"مهندسی که از نظرِ فنی قوی است، بیشترین رشدش وقتی است که یاد بگیرد بازخوردِ سخت را خوب بدهد — همان مهارتی که هیچ درسی یادش نداده بود."},
+        tip:{en:"Name one soft skill that would change your results, and start a loop on it.", fa:"یک مهارتِ نرم را نام ببر که نتیجه‌هایت را عوض می‌کند، و یک چرخه رویش شروع کن."},
+        pitfall:{en:"Polishing skills you already have while dodging the awkward human ones.", fa:"مهارت‌هایی را که همین حالا داری صیقل می‌دهی و از مهارت‌های آدم‌محورِ سخت طفره می‌روی."} },
+      combine:{ part:'psquared', n:10, name:{en:'Passion Meets Purpose', fa:'اشتیاق به هدف می‌رسد'}, glabel:{en:'P + P', fa:'اشتیاق+هدف'},
+        principle:{en:"Top performance comes from pairing passion (what energizes you) with purpose (a contribution that matters).", fa:"بهترین کارکرد وقتی می‌آید که اشتیاق (چیزی که به تو انرژی می‌دهد) را با هدف (سهمی که ارزش دارد) جفت کنی."},
+        more:{en:"Passion is the fuel; purpose is the direction. Hansen calls it P-squared: people who both love what they do and feel they're contributing real value bring far more energy — and get far better results — than people with only one of the two.", fa:"اشتیاق سوخت است؛ هدف جهت. هانسن اسمش را می‌گذارد پی‌به‌توانِ‌دو: آدم‌هایی که هم کارشان را دوست دارند و هم حس می‌کنند دارند ارزشی واقعی می‌سازند، انرژیِ خیلی بیشتری می‌آورند — و نتیجهٔ خیلی بهتری می‌گیرند — از کسانی که فقط یکی از این دو را دارند."},
+        example:{en:"A nurse who loves the craft and believes she's easing real suffering has both — and outworks someone running on passion alone.", fa:"پرستاری که هم کارش را دوست دارد و هم باور دارد دارد از یک رنجِ واقعی کم می‌کند، هر دو را دارد — و از کسی که فقط با اشتیاق پیش می‌رود جلو می‌زند."},
+        tip:{en:"For your role, write one line on what energizes you and one on who you're really helping.", fa:"برای نقشت، یک خط بنویس که چه چیزی به تو انرژی می‌دهد و یک خط که واقعاً داری به چه کسی کمک می‌کنی."},
+        pitfall:{en:"Chasing a job you love that helps no one — or a worthy job that drains you.", fa:"دنبالِ کاری می‌روی که دوستش داری اما به کسی کمک نمی‌کند — یا کاری ارزشمند که تو را می‌فرساید."} },
+      passionhurts:{ part:'psquared', n:11, name:{en:'Passion Alone Can Hurt', fa:'اشتیاقِ تنها می‌تواند ضرر بزند'}, glabel:{en:'Careful', fa:'احتیاط'},
+        principle:{en:"'Follow your passion' is risky by itself — without purpose or judgment it can burn you out or mislead you.", fa:"«دنبالِ اشتیاقت برو» به‌تنهایی خطرناک است — بدونِ هدف یا عقل، می‌تواند تو را بسوزاند یا به بیراهه ببرد."},
+        more:{en:"Passion feels good, but chased blindly it leads people to over-invest in things that don't pay off, take reckless risks, or work themselves to exhaustion. Follow passion wisely: aim it at real value, and keep it in check.", fa:"اشتیاق حسِ خوبی دارد، اما اگر کورکورانه دنبالش بروی، آدم‌ها را می‌کشاند به این‌که روی چیزهایی که جواب نمی‌دهند بیش‌ازحد سرمایه‌گذاری کنند، ریسک‌های بی‌گدار بکنند، یا خودشان را تا مرزِ فرسودگی کار بکشند. عاقلانه دنبالِ اشتیاق برو: به‌سمتِ ارزشِ واقعی نشانه‌اش بگیر، و مهارش کن."},
+        example:{en:"Someone passionate about a pet project can pour months into it while the work that actually matters slips.", fa:"کسی که عاشقِ یک پروژهٔ دلخواه است، ممکن است ماه‌ها رویش بریزد درحالی‌که کاری که واقعاً مهم است از دستش در می‌رود."},
+        tip:{en:"Before you go all-in on something you love, check that it creates value others need.", fa:"قبل از اینکه با تمامِ وجود بروی سراغِ چیزی که دوستش داری، مطمئن شو ارزشی می‌سازد که دیگران به آن نیاز دارند."},
+        pitfall:{en:"Treating passion as a free pass and ignoring whether the work pays off.", fa:"اشتیاق را یک مجوزِ بی‌قید‌وشرط می‌گیری و به این‌که کار جواب می‌دهد یا نه بی‌اعتنایی."} },
+      purpose:{ part:'psquared', n:12, name:{en:'Find Your Purpose', fa:'هدفت را پیدا کن'}, glabel:{en:'Purpose', fa:'هدف'},
+        principle:{en:"Purpose is the value you add to others and the world — not just meaning you take for yourself.", fa:"هدف یعنی ارزشی که به دیگران و به دنیا اضافه می‌کنی — نه فقط معنایی که برای خودت برمی‌داری."},
+        more:{en:"You don't have to save the world; purpose can be as ordinary as making a customer's day easier or a teammate's job better. The question is whether your work contributes something beyond you — that's what turns effort into meaning.", fa:"لازم نیست دنیا را نجات بدهی؛ هدف می‌تواند به‌سادگیِ راحت‌ترکردنِ روزِ یک مشتری یا بهترکردنِ کارِ یک هم‌تیمی باشد. سؤال این است که کارت چیزی فراتر از خودت می‌افزاید یا نه — همین است که تلاش را به معنا تبدیل می‌کند."},
+        example:{en:"A support rep who sees her job as 'rescuing frustrated people,' not 'closing tickets,' has found a purpose that lifts her work.", fa:"کارشناسِ پشتیبانی‌ای که کارش را «نجاتِ آدم‌های کلافه» می‌بیند، نه «بستنِ تیکت»، هدفی پیدا کرده که کارش را بالا می‌کشد."},
+        tip:{en:"Rewrite your job description in one line about who you help and how.", fa:"شرحِ شغلت را در یک خط بازنویسی کن، دربارهٔ اینکه به چه کسی و چطور کمک می‌کنی."},
+        pitfall:{en:"Waiting for a grand mission instead of finding purpose in the work in front of you.", fa:"منتظرِ یک رسالتِ بزرگ می‌مانی به‌جای اینکه هدف را در همین کارِ جلوی رویت پیدا کنی."} },
+      champion:{ part:'collab', n:13, name:{en:'Be a Forceful Champion', fa:'مدافعِ سرسختِ کارت باش'}, glabel:{en:'Champion', fa:'مدافع'},
+        principle:{en:"To get your work adopted, champion it forcefully — win people over instead of just doing good work quietly.", fa:"برای اینکه کارت پذیرفته شود، سرسختانه ازش دفاع کن — دیگران را همراهِ خودت کن، نه اینکه فقط بی‌سروصدا خوب کار کنی."},
+        more:{en:"Good work doesn't sell itself. Top performers push their ideas through resistance by doing two things at once: inspiring people to care, and applying smart, persistent effort to overcome the inevitable pushback.", fa:"کارِ خوب خودش خودش را نمی‌فروشد. بهترین‌ها ایده‌هایشان را از میانِ مقاومت جلو می‌برند، با انجامِ هم‌زمانِ دو کار: هم دیگران را به اهمیت‌دادن برمی‌انگیزند، و هم با تلاشِ هوشمند و پیگیر بر مخالفتِ ناگزیر غلبه می‌کنند."},
+        example:{en:"Two people have the same good idea; the one who rallies support and keeps pushing gets it built — the quiet one is ignored.", fa:"دو نفر یک ایدهٔ خوبِ یکسان دارند؛ آن‌که حمایت جمع می‌کند و پیگیری را ول نمی‌کند، ایده‌اش را می‌سازد — آن‌که ساکت است نادیده گرفته می‌شود."},
+        tip:{en:"For an idea you believe in, line up who you need to convince — and start winning them over.", fa:"برای ایده‌ای که بهش باور داری، فهرست کن چه کسانی را باید قانع کنی — و شروع کن به همراه‌کردنشان."},
+        pitfall:{en:"Assuming your results speak for themselves while someone louder gets the backing.", fa:"خیال می‌کنی نتیجه‌هایت خودشان حرف می‌زنند، درحالی‌که یک نفرِ پرسروصداتر حمایت را می‌برد."} },
+      inspire:{ part:'collab', n:14, name:{en:'Move People, Not Just Facts', fa:'آدم‌ها را تکان بده، نه فقط با آمار'}, glabel:{en:'Inspire', fa:'انگیزش'},
+        principle:{en:"People back what moves them, not what's merely logical — connect your work to what they care about.", fa:"آدم‌ها از چیزی حمایت می‌کنند که تکانشان می‌دهد، نه چیزی که فقط منطقی است — کارت را به چیزی که برایشان مهم است وصل کن."},
+        more:{en:"We try to win support with more data, more slides, more emails — and people tune out. The best evoke emotion instead: they tell a vivid story, show why it matters, and make people feel the stakes, not just see the numbers.", fa:"ما سعی می‌کنیم با آمارِ بیشتر، اسلایدِ بیشتر، ایمیلِ بیشتر حمایت جمع کنیم — و آدم‌ها گوششان را می‌بندند. بهترین‌ها به‌جایش احساس را بیدار می‌کنند: یک داستانِ زنده می‌گویند، نشان می‌دهند چرا مهم است، و کاری می‌کنند آدم‌ها اهمیتِ ماجرا را حس کنند، نه فقط عددها را ببینند."},
+        example:{en:"A pitch that opens with one real customer's frustration lands harder than ten slides of statistics.", fa:"ارائه‌ای که با کلافگیِ یک مشتریِ واقعی شروع می‌شود، بیشتر از ده اسلاید آمار می‌نشیند."},
+        tip:{en:"Add one concrete story or human stake to your next proposal, before any chart.", fa:"به پیشنهادِ بعدی‌ات یک داستانِ ملموس یا یک نفعِ انسانی اضافه کن، قبل از هر نمودار."},
+        pitfall:{en:"Hammering the same logical argument harder when people aren't listening.", fa:"وقتی کسی گوش نمی‌دهد، همان استدلالِ منطقی را محکم‌تر می‌کوبی."} },
+      disciplined:{ part:'collab', n:15, name:{en:'Disciplined Collaboration', fa:'همکاریِ حساب‌شده'}, glabel:{en:'Collaborate', fa:'همکاری'},
+        principle:{en:"Collaborate only when the prize is big — say no to teamwork that isn't worth it.", fa:"فقط وقتی همکاری کن که جایزه‌اش بزرگ باشد — به هم‌کاری‌ای که نمی‌ارزد نه بگو."},
+        more:{en:"There are two sins: too little collaboration (siloed, reinventing the wheel) and too much (endless meetings, diluted effort). Disciplined collaboration means choosing: join only the projects where working together clearly creates more value than working alone.", fa:"دو گناه هست: همکاریِ خیلی کم (جزیره‌ای، اختراعِ دوبارهٔ چرخ) و همکاریِ خیلی زیاد (جلسه‌های بی‌پایان، تلاشِ رقیق‌شده). همکاریِ حساب‌شده یعنی انتخاب کنی: فقط واردِ پروژه‌هایی شو که با هم کارکردن آشکارا ارزشِ بیشتری از تنها کارکردن می‌سازد."},
+        example:{en:"Turning down a cross-team task force that would eat your week for a tiny payoff is disciplined, not uncooperative.", fa:"ردکردنِ یک کارگروهِ بین‌تیمی که یک هفته‌ات را می‌خورد برای یک دستاوردِ ناچیز، حساب‌شده است، نه ناهمکاری."},
+        tip:{en:"Before joining a collaboration, ask: is the prize here big enough to justify the time?", fa:"قبل از پیوستن به یک همکاری بپرس: جایزهٔ اینجا آن‌قدر بزرگ هست که وقتش را توجیه کند؟"},
+        pitfall:{en:"Collaborating for its own sake until your calendar has no room to do the work.", fa:"همکاری می‌کنی فقط به‌خاطرِ خودِ همکاری، تا جایی که تقویمت دیگر جا برای کارکردن ندارد."} },
+      fightunite:{ part:'collab', n:16, name:{en:'Fight and Unite', fa:'جدل کن، بعد متحد شو'}, glabel:{en:'Fight & Unite', fa:'جدل و اتحاد'},
+        principle:{en:"Run team meetings that welcome real debate — then, once decided, everyone commits fully.", fa:"جلسه‌های تیمی‌ای بگذار که جدلِ واقعی را قدر بدانند — بعد که تصمیم گرفته شد، همه کامل پایش بایستند."},
+        more:{en:"The best teams argue hard to surface the truth: they invite dissent, poke holes, and let the strongest idea win — not the loudest voice. But the fight ends at the decision; then they unite behind it and act as one, instead of relitigating in the hallway.", fa:"بهترین تیم‌ها سختْ جدل می‌کنند تا حقیقت بیرون بیاید: مخالفت را دعوت می‌کنند، به ایده‌ها ایراد می‌گیرند، و می‌گذارند قوی‌ترین ایده ببرد — نه بلندترین صدا. اما جدل سرِ تصمیم تمام می‌شود؛ بعد همه پشتش متحد می‌شوند و مثلِ یک تن عمل می‌کنند، نه اینکه توی راهرو دوباره سرش دعوا کنند."},
+        example:{en:"A team that debates a plan openly, then leaves the room speaking with one voice, beats one that nods in the meeting and grumbles after.", fa:"تیمی که سرِ یک برنامه رو‌راست بحث می‌کند و بعد با یک صدا از اتاق بیرون می‌آید، از تیمی که توی جلسه سر تکان می‌دهد و بیرون غر می‌زند بهتر است."},
+        tip:{en:"In your next meeting, actively invite the strongest objection — then ask for commitment.", fa:"توی جلسهٔ بعدی‌ات، فعالانه قوی‌ترین مخالفت را دعوت کن — بعد از همه تعهد بخواه."},
+        pitfall:{en:"Fake harmony in the room that turns into second-guessing outside it.", fa:"توافقِ ظاهری توی اتاق که بیرونش به زیرِ‌سؤال‌بردن تبدیل می‌شود."} }
+    },
+    core:{ name:{en:'WORK SMARTER', fa:'هوشمندانه کار کن'},
+      principle:{en:"Top performers aren't the ones who work the most hours — they work smart. They do less but obsess over quality, redesign their work around the value it creates for others, learn in tight feedback loops, match passion with purpose, and collaborate with discipline while championing their ideas. Seven practices, one idea: maximize value, not effort.", fa:"بهترین‌ها آن‌هایی نیستند که بیشترین ساعت را کار می‌کنند — هوشمندانه کار می‌کنند. کمتر می‌کنند اما روی کیفیت وسواس دارند، کارشان را دورِ ارزشی که برای دیگران می‌سازد از نو می‌چینند، در چرخه‌های کوتاهِ بازخورد یاد می‌گیرند، اشتیاق را با هدف جفت می‌کنند، و با نظم همکاری می‌کنند و درعین‌حال از ایده‌هایشان دفاع می‌کنند. هفت تمرین، یک ایده: ارزش را بیشینه کن، نه تلاش را."},
+      more:{en:"Hansen groups the findings of a five-year study of 5,000 people into seven 'work smart' practices, shown here as five parts: Do Less, Then Obsess; Redesign Your Work around value; Learn in a Loop; combine Passion and Purpose; and Collaborate and influence with discipline. Together, these practices explained about two-thirds of the difference between top and average performers — far more than talent, effort or luck.", fa:"هانسن یافته‌های یک پژوهشِ پنج‌ساله روی ۵٬۰۰۰ نفر را در هفت تمرینِ «کارِ هوشمندانه» می‌چیند، که اینجا در پنج بخش نشان داده شده: کمتر کن، بعد وسواس؛ کارت را دورِ ارزش از نو طراحی کن؛ در یک چرخه یاد بگیر؛ اشتیاق و هدف را ترکیب کن؛ و با نظم همکاری کن و نفوذ بگذار. این تمرین‌ها با هم، حدودِ دو‌سومِ تفاوتِ میانِ بهترین‌ها و آدم‌های معمولی را توضیح می‌دادند — خیلی بیشتر از استعداد، تلاش، یا شانس."},
+      example:{en:"Click any node to read a practice or a method. You can also drag the nodes around.", fa:"روی هر دایره کلیک کن تا یک تمرین یا روش را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."} },
+    stages:[
+      { level:1, badge:{en:'Level 1 · Over-simplified', fa:'سطحِ ۱ · خیلی ساده'}, title:{en:'Work smart, not just hard', fa:'هوشمندانه کار کن، نه فقط سخت'}, tagline:{en:'The whole book in a sentence.', fa:'کلِ کتاب در یک جمله.'},
+        body:{en:"Great performance isn't about more hours or raw talent. It's about how you work. Do less, but obsess over doing it exceptionally well.", fa:"کارکردِ عالی به ساعتِ بیشتر یا استعدادِ خام نیست. به این است که چطور کار می‌کنی. کمتر کن، اما وسواس داشته باش که همان را عالی انجام بدهی."},
+        example:{en:"Two people, same job, same hours — the one who focused on a few things done brilliantly wins.", fa:"دو نفر، یک کار، ساعت‌های برابر — آن‌که روی چند چیزِ عالی‌انجام‌شده تمرکز کرد می‌برد."},
+        gain:{en:"You hold the single idea the whole book expands on.", fa:"همان یک ایده‌ای را داری که کلِ کتاب بسطش می‌دهد."} },
+      { level:2, badge:{en:'Level 2 · Simple', fa:'سطحِ ۲ · ساده'}, title:{en:'Do less, then obsess', fa:'کمتر کن، بعد وسواس'}, tagline:{en:'Focus on a few things, then go deep.', fa:'روی چند چیز تمرکز کن، بعد عمیق شو.'},
+        body:{en:"Pick a very few priorities — as few as you can — and cut the rest with a razor. Then obsess: pour disproportionate effort in until the quality is exceptional. Focus and intensity, together.", fa:"خیلی کم اولویت انتخاب کن — هرچه کمتر بهتر — و بقیه را با یک تیغ ببُر. بعد وسواس به خرج بده: آن‌قدر تلاشِ بیشتر بریز تا کیفیت فوق‌العاده شود. تمرکز و شدت، با هم."},
+        example:{en:"Say no to a dozen good-enough tasks so two truly matter — and make those flawless.", fa:"به ده‌ها کارِ «بد‌نیست» نه بگو تا دو تا واقعاً مهم شوند — و همان دو را بی‌نقص کن."},
+        gain:{en:"You can turn a scattered week into a focused, high-quality one.", fa:"می‌توانی یک هفتهٔ پخش‌وپلا را به یک هفتهٔ متمرکز و باکیفیت تبدیل کنی."} },
+      { level:3, badge:{en:'Level 3 · Balanced', fa:'سطحِ ۳ · متعادل'}, title:{en:'Redesign and learn', fa:'از نو طراحی کن و یاد بگیر'}, tagline:{en:'Aim at value; get better every day.', fa:'به ارزش نشانه بگیر؛ هر روز بهتر شو.'},
+        body:{en:"Now shift from effort to value: measure your work by how much others benefit, <b>redesign</b> it to create more, and <b>cut low-value tasks</b>. And stop plateauing — build a <b>learning loop</b>: practice small chunks, get feedback, and tackle the soft skills.", fa:"حالا از تلاش به ارزش برو: کارت را با اینکه دیگران چقدر سود می‌برند بسنج، <b>از نو طراحی‌اش کن</b> تا ارزشِ بیشتری بسازد، و <b>کارهای کم‌ارزش را حذف کن</b>. و از توقف در بیا — یک <b>چرخهٔ یادگیری</b> بساز: تکه‌های کوچک تمرین کن، بازخورد بگیر، و سراغِ مهارت‌های نرم برو."},
+        example:{en:"Kill a report nobody reads; use that hour to practice the one skill holding you back.", fa:"یک گزارش که کسی نمی‌خواندش را بکُش؛ آن یک ساعت را بگذار برای تمرینِ همان مهارتی که پایت را گرفته."},
+        gain:{en:"Your effort starts turning into real value — and steady growth.", fa:"تلاشت کم‌کم به ارزشِ واقعی — و رشدِ پیوسته — تبدیل می‌شود."} },
+      { level:4, badge:{en:'Level 4 · Advanced', fa:'سطحِ ۴ · پیشرفته'}, title:{en:'Passion with purpose', fa:'اشتیاق همراهِ هدف'}, tagline:{en:'Energy in the right direction.', fa:'انرژی در جهتِ درست.'},
+        body:{en:"Fuel matters, but aimed well. Combine <b>passion</b> — what energizes you — with <b>purpose</b> — a contribution that matters to others. Together they multiply drive and results. But follow passion wisely: chased blindly, it can burn you out or lead you astray.", fa:"سوخت مهم است، اما درست نشانه‌رفته. <b>اشتیاق</b> — چیزی که به تو انرژی می‌دهد — را با <b>هدف</b> — سهمی که برای دیگران ارزش دارد — ترکیب کن. با هم، انگیزه و نتیجه را چند برابر می‌کنند. اما عاقلانه دنبالِ اشتیاق برو: کورکورانه که دنبالش بروی، می‌تواند بسوزاندت یا به بیراهه ببردت."},
+        example:{en:"A nurse who loves the craft and believes she eases real suffering outworks one running on passion alone.", fa:"پرستاری که هم کارش را دوست دارد و هم باور دارد از یک رنجِ واقعی کم می‌کند، از کسی که فقط با اشتیاق پیش می‌رود پرکارتر است."},
+        gain:{en:"You bring energy that lasts, pointed where it creates value.", fa:"انرژی‌ای می‌آوری که دوام دارد و به جایی نشانه رفته که ارزش می‌سازد."} },
+      { level:5, badge:{en:'Level 5 · Expert', fa:'سطحِ ۵ · حرفه‌ای'}, title:{en:'Influence and collaborate', fa:'نفوذ کن و همکاری کن'}, tagline:{en:'Champion, collaborate with discipline, fight and unite.', fa:'دفاع کن، حساب‌شده همکاری کن، جدل کن و متحد شو.'},
+        body:{en:"The expert puts it all together and wins others over. Be a <b>forceful champion</b> — inspire people and push with smart grit. <b>Collaborate with discipline</b>: team up only when the prize is big. And run meetings that <b>fight and unite</b> — real debate, then full commitment. Seven practices, one habit: maximize value, not effort.", fa:"آدمِ حرفه‌ای همهٔ این‌ها را کنارِ هم می‌گذارد و دیگران را همراهِ خودش می‌کند. <b>مدافعِ سرسخت</b> باش — آدم‌ها را برانگیز و با پشتکارِ هوشمند جلو برو. <b>حساب‌شده همکاری کن</b>: فقط وقتی هم‌تیم شو که جایزه بزرگ است. و جلسه‌هایی بگذار که <b>جدل و اتحاد</b> دارند — بحثِ واقعی، بعد تعهدِ کامل. هفت تمرین، یک عادت: ارزش را بیشینه کن، نه تلاش را."},
+        example:{en:"You champion your ideas, say no to low-value meetings, and lead debates that end in one clear decision.", fa:"از ایده‌هایت دفاع می‌کنی، به جلسه‌های کم‌ارزش نه می‌گویی، و بحث‌هایی را رهبری می‌کنی که به یک تصمیمِ روشن ختم می‌شوند."},
+        gain:{en:"You can perform at the top and lift the people around you.", fa:"می‌توانی در سطحِ بالا کار کنی و آدم‌های دورت را هم بالا بکشی."} }
+    ],
+    quotes:[
+      {en:"To work smart means to maximize the value of your work by selecting a few activities and applying intense targeted effort.", fa:"کارِ هوشمندانه یعنی ارزشِ کارت را بیشینه کنی، با انتخابِ چند فعالیت و گذاشتنِ تلاشِ شدید و هدف‌دار روی همان‌ها."},
+      {en:"Whenever they could, top performers carefully selected which priorities, tasks, collaborations, team meetings, committees, analyses, customers, new ideas, steps in a process, and interactions to undertake, and which to neglect or reject.", fa:"بهترین‌ها هر جا می‌توانستند، با دقت انتخاب می‌کردند کدام اولویت‌ها، کارها، همکاری‌ها، جلسه‌های تیمی، کمیته‌ها، تحلیل‌ها، مشتری‌ها، ایده‌های نو، قدم‌های یک فرایند و تعامل‌ها را انجام بدهند، و کدام را کنار بگذارند یا رد کنند."},
+      {en:"Variation—trying new ideas—is essential to learning.", fa:"تنوع — امتحان‌کردنِ ایده‌های نو — برای یادگیری ضروری است."},
+      {en:"small changes in behaviors can have a disproportionate effect on outcomes.", fa:"تغییرهای کوچک در رفتار می‌توانند اثری نامتناسب و بزرگ روی نتیجه‌ها بگذارند."},
+      {en:"Avoid colleagues who sap your energy.", fa:"از همکارهایی که انرژی‌ات را می‌مکند دوری کن."},
+      {en:"In 2011, I launched one of the most comprehensive research projects ever undertaken on individual performance at work.", fa:"در سالِ ۲۰۱۱، یکی از جامع‌ترین پروژه‌های پژوهشیِ تاریخ دربارهٔ کارکردِ فردی در کار را راه انداختم."}
+    ],
+    media:[
+      { kind:'yt', id:'h27zMWAeHdg', src:{en:'YouTube · Bregman Leadership Podcast', fa:'یوتیوب · پادکستِ رهبریِ برگمن'},
+        title:{en:'Morten Hansen on Great at Work', fa:'مورتن هانسن دربارهٔ عالی در کار'},
+        desc:{en:'The author unpacks the seven practices in a focused interview.', fa:'نویسنده در یک گفت‌وگوی متمرکز، هفت تمرین را باز می‌کند.'},
+        bullets:{en:["The seven work-smart practices","Do less, then obsess, explained","Straight from the author"], fa:["هفت تمرینِ کارِ هوشمندانه","«کمتر کن، بعد وسواس»، به زبانِ ساده","مستقیم از خودِ نویسنده"]},
+        best:{en:'Best for Stage 1–3.', fa:'خوب برای مرحلهٔ ۱ تا ۳.'} },
+      { kind:'yt', id:'S3-Qk0ffyxw', src:{en:'YouTube · Google Play Books', fa:'یوتیوب · گوگل پلی بوکس'},
+        title:{en:'Great at Work — Audiobook Preview', fa:'عالی در کار — پیش‌نمایشِ کتابِ صوتی'},
+        desc:{en:'An audiobook preview in the book’s own words.', fa:'پیش‌نمایشِ کتابِ صوتی، با کلماتِ خودِ کتاب.'},
+        bullets:{en:["Hear the introduction and setup","The core argument up front","A quick audio taste"], fa:["مقدمه و زمینه‌چینی را بشنو","ایدهٔ اصلی، همان اول","یک مزهٔ صوتیِ سریع"]},
+        best:{en:'For a taste of the book.', fa:'برای یک مزهٔ کتاب.'} },
+      { kind:'img', url:'https://www.simonandschuster.com/books/Great-at-Work/Morten-T-Hansen/9781476765822',
+        src:{en:'Simon & Schuster · Publisher', fa:'Simon & Schuster · ناشر'},
+        title:{en:'Great at Work — Publisher Page', fa:'عالی در کار — صفحهٔ ناشر'},
+        desc:{en:'The publisher page for the book, with editions and details.', fa:'صفحهٔ ناشر برای کتاب، با نسخه‌ها و جزئیات.'},
+        bullets:{en:["The definitive editions","Background on Hansen","Straight from the source"], fa:["نسخه‌های معتبر","پیشینه‌ای دربارهٔ هانسن","مستقیم از خودِ منبع"]},
+        best:{en:'For editions and the source.', fa:'برای نسخه‌ها و منبعِ اصلی.'} }
+    ],
+    go:[
+      {label:{en:'Publisher page', fa:'صفحهٔ ناشر'}, url:'https://www.simonandschuster.com/books/Great-at-Work/Morten-T-Hansen/9781476765822'},
+      {label:{en:'Book on Goodreads', fa:'کتاب در گودریدز'}, url:'https://www.goodreads.com/book/show/35297611-great-at-work'},
+      {label:{en:"Author's page for the book", fa:'صفحهٔ نویسنده برای کتاب'}, url:'https://www.mortenhansen.com/book/great-at-work/'}
+    ],
+    recs:[
+      { pri:'b', t:{en:'Cut to two priorities', fa:'به دو اولویت تقلیلش بده'}, d:{en:'Look at everything on your plate this week and pick just two priorities to obsess over — renegotiate or drop the rest.', fa:'به هرچه این هفته روی سرت ریخته نگاه کن و فقط دو اولویت انتخاب کن که رویشان وسواس به خرج بدهی — بقیه را دوباره چانه بزن یا رها کن.'} },
+      { pri:'b', t:{en:'Redesign one task for value', fa:'یک کار را برای ارزش از نو بچین'}, d:{en:'Take one routine task and rework it around the value it creates for others; cut the low-value steps.', fa:'یک کارِ روتین را بردار و دورِ ارزشی که برای دیگران می‌سازد از نو بچینش؛ قدم‌های کم‌ارزش را حذف کن.'} },
+      { pri:'n', t:{en:'Start one learning loop', fa:'یک چرخهٔ یادگیری شروع کن'}, d:{en:'Pick one small skill, practice it in short daily reps, and ask for feedback after each try.', fa:'یک مهارتِ کوچک انتخاب کن، در تکرارهای کوتاهِ روزانه تمرینش کن، و بعد از هر بار بازخورد بخواه.'} },
+      { pri:'n', t:{en:'Say no to one collaboration', fa:'به یک همکاری نه بگو'}, d:{en:'Decline one low-value meeting or project this week — collaborate only where the prize is big.', fa:'این هفته یک جلسه یا پروژهٔ کم‌ارزش را رد کن — فقط جایی همکاری کن که جایزه بزرگ است.'} }
+    ]
+  }
+};

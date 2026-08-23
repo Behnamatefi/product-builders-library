@@ -1,0 +1,258 @@
+/* config: How to Win Friends and Influence People — Dale Carnegie (Influence) */
+module.exports = {
+  slug:"htwf", brand:"How to Win Friends and Influence People",
+  titleTag:"How to Win Friends and Influence People — نقشهٔ دانش و یادگیری ۵ مرحله‌ای",
+  W:980, H:780, R1:220, R2:126, span:66,
+  leafKickEn:"Principle", leafKickFa:"اصلِ",
+  flowEn:["Appreciate","Listen","Influence"], flowFa:["قدردانی","گوش‌دادن","نفوذ"],
+
+  hero:`  <div class="eyebrow"><span class="edot"></span>
+    <span data-only="en">Book knowledge map · Dale Carnegie</span>
+    <span data-only="fa">نقشهٔ کتاب · دیل کارنگی</span>
+  </div>
+  <h1>
+    <span data-only="en">How to Win Friends and Influence People — The Classic on Human Relations</span>
+    <span data-only="fa">چطور دوست پیدا کنیم و بر مردم اثر بگذاریم — کلاسیکِ روابطِ انسانی</span>
+  </h1>
+  <p class="dek">
+    <span data-only="en">A knowledge graph of the whole book, plus a 5-stage path from a single idea to expert-level mastery — with an example at every step.</span>
+    <span data-only="fa">نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از یک ایدهٔ ساده تا حرفه‌ای — با یک مثال در هر مرحله.</span>
+  </p>
+  <div class="metastrip">
+    <div class="metaitem"><span class="mk" data-only="en">Book</span><span class="mk" data-only="fa">کتاب</span>
+      <span class="mv" data-only="en">How to Win Friends and Influence People</span><span class="mv" data-only="fa">چطور دوست پیدا کنیم و بر مردم اثر بگذاریم</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Author</span><span class="mk" data-only="fa">نویسنده</span>
+      <span class="mv" data-only="en">Dale Carnegie</span><span class="mv" data-only="fa">دیل کارنگی</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Published</span><span class="mk" data-only="fa">سالِ چاپ</span>
+      <span class="mv" data-only="en">1936</span><span class="mv" data-only="fa">۱۹۳۶</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Group</span><span class="mk" data-only="fa">گروه</span>
+      <span class="mv" data-only="en">Influence</span><span class="mv" data-only="fa">نفوذ</span></div>
+  </div>
+  <div class="chips">
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Parts</span><span data-only="fa">بخش</span></div>
+    <div class="chip"><b data-only="en">16</b><b data-only="fa">۱۶</b><span data-only="en">Ideas</span><span data-only="fa">ایده</span></div>
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Learning stages</span><span data-only="fa">مرحلهٔ یادگیری</span></div>
+  </div>`,
+
+  callout:`    <b data-only="en">The core idea:</b>
+    <b data-only="fa">ایدهٔ اصلی:</b>
+    <span data-only="en"> Carnegie's whole method rests on one truth: people act out of a deep craving to feel <i>important</i> and <i>appreciated</i>. So don't criticize — give <i>honest appreciation</i>, talk in terms of what the other person <i>wants</i>, and truly see things from their side. Do it sincerely, never as a trick.</span>
+    <span data-only="fa"> کلِ روشِ کارنگی روی یک حقیقت بنا شده: آدم‌ها از سرِ تشنگیِ عمیق برای حسِ <i>مهم‌بودن</i> و <i>قدردانی‌شدن</i> رفتار می‌کنند. پس انتقاد نکن — <i>قدردانیِ صادقانه</i> بده، از زاویهٔ چیزی که طرفِ مقابل <i>می‌خواهد</i> حرف بزن، و واقعاً از سمتِ او ببین. صادقانه انجامش بده، نه به‌عنوانِ کلک.</span>`,
+
+  kpis:`    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Parts (handle · be liked · win over · lead · human)</div><div class="l" data-only="fa">بخش (رفتار · دوست‌داشتنی · همراه‌کردن · رهبری · انسانی)</div></div>
+    <div class="kbox"><div class="v" data-only="en">16</div><div class="v" data-only="fa">۱۶</div><div class="l" data-only="en">Ideas you can use</div><div class="l" data-only="fa">ایده برای استفاده</div></div>
+    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Levels, simple → expert</div><div class="l" data-only="fa">مرحله، ساده تا حرفه‌ای</div></div>
+    <div class="kbox"><div class="v" data-only="en">3</div><div class="v" data-only="fa">۳</div><div class="l" data-only="en">The basics: no blame · honest appreciation · an eager want</div><div class="l" data-only="fa">پایه‌ها: بی‌سرزنش · قدردانیِ صادقانه · اشتیاق</div></div>`,
+
+  mapcallout:`      <b data-only="en">Read it as a flow:</b><b data-only="fa">به‌صورتِ یک جریان بخوانش:</b>
+      <span data-only="en"> handle people with <b>no blame</b> and honest appreciation, become <b>liked</b> through genuine interest and listening, <b>win people over</b> without arguing, and <b>lead</b> by praising and asking — all growing from one <b>human</b> root: make people feel important, sincerely.</span>
+      <span data-only="fa"> با آدم‌ها <b>بی‌سرزنش</b> و با قدردانیِ صادقانه رفتار کن، با علاقهٔ واقعی و گوش‌دادن <b>دوست‌داشتنی</b> شو، بدونِ بحث آن‌ها را <b>همراه</b> کن، و با تعریف و پرسیدن <b>رهبری</b> کن — همه از یک ریشهٔ <b>انسانی</b> می‌رویند: کاری کن آدم‌ها حس کنند مهم‌اند، صادقانه.</span>`,
+
+  methodFa:"<p><b>منبع:</b> کتابِ «How to Win Friends and Influence People» نوشتهٔ دیل کارنگی، چاپِ نخست ۱۹۳۶ (نشرِ Simon &amp; Schuster).</p><p><b>روشِ کار:</b> ساختارِ پنج‌بخشی و ایده‌ها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده؛ نقل‌قول‌ها مقابله و ویدیوها بررسی شده‌اند.</p><p><b>گروه:</b> «نفوذ» — یک خواندنیِ پایه برای رفتار با آدم‌ها و جلبِ همکاری.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای متنِ کامل، خودِ کتاب را بخوان.</p>",
+  methodEn:"<p><b>Source:</b> the book <i>How to Win Friends and Influence People</i> by Dale Carnegie, first published 1936 (Simon &amp; Schuster).</p><p><b>How this was built:</b> the five-part structure and ideas were gathered and rewritten from the book and reputable sources; quotes were cross-checked and the linked videos verified.</p><p><b>Group:</b> Influence — a foundational read on dealing with people and winning cooperation.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>",
+
+  data:{
+    tldr:[
+      {en:"The whole book in one line: to influence people, make them feel genuinely important — and stop trying to win them by force.",
+       fa:"کلِ کتاب در یک جمله: برای اثرگذاری روی آدم‌ها، کاری کن واقعاً حس کنند مهم‌اند — و دست از بردنشان با زور بردار."},
+      {en:"Start with three basics: <b>don't criticize</b>, give <b>honest appreciation</b>, and <b>arouse an eager want</b> in the other person.",
+       fa:"با سه پایه شروع کن: <b>انتقاد نکن</b>، <b>قدردانیِ صادقانه</b> بده، و در طرفِ مقابل <b>اشتیاق</b> بساز."},
+      {en:"To be liked, be genuinely <b>interested</b> in others, <b>smile</b>, remember <b>names</b>, and truly <b>listen</b>.",
+       fa:"برای دوست‌داشتنی‌شدن، واقعاً به دیگران <b>علاقه‌مند</b> شو، <b>لبخند</b> بزن، <b>اسم‌ها</b> را یادت باشد، و واقعاً <b>گوش</b> بده."},
+      {en:"To win people over, <b>avoid arguments</b>, never say <b>“you're wrong”</b>, and let the good idea feel like <b>theirs</b>.",
+       fa:"برای همراه‌کردنِ آدم‌ها، <b>از بحث دوری کن</b>، هیچ‌وقت نگو <b>«اشتباه می‌کنی»</b>، و بگذار ایدهٔ خوب حس شود مالِ <b>خودشان</b> است."},
+      {en:"To lead, <b>begin with praise</b>, <b>ask instead of order</b>, and give people a good name to live up to — always <b>sincerely</b>.",
+       fa:"برای رهبری، <b>با تعریف شروع کن</b>، <b>به‌جای دستور بپرس</b>، و به آدم‌ها اسمِ خوبی بده که پایش بمانند — همیشه <b>صادقانه</b>."}
+    ],
+    parts:[
+      { key:"handling", varc:"--c-teal", name:{en:"Handling People", fa:"رفتار با آدم‌ها"}, tag:{en:"The basics", fa:"پایه‌ها"},
+        gist:{en:"Three habits: no blame, honest appreciation, and arousing an eager want.", fa:"سه عادت: بی‌سرزنش، قدردانیِ صادقانه، و ساختنِ اشتیاق."},
+        more:{en:"Before any clever technique, three fundamentals change how people respond to you. Stop criticizing, give people a sincere sense of their worth, and frame everything around what they want — get these right and the rest gets easy.",
+              fa:"قبل از هر روشِ زیرکانه‌ای، سه اصلِ پایه طرزِ واکنشِ آدم‌ها به تو را عوض می‌کند. دست از انتقاد بردار، به آدم‌ها حسِ صادقانهٔ ارزش بده، و همه‌چیز را دورِ خواستهٔ آن‌ها بچین — این‌ها را درست کن، بقیه راحت می‌شود."},
+        chapters:["dontcrit","appreciate","eagerwant"] },
+      { key:"likeable", varc:"--c-blue", name:{en:"Make People Like You", fa:"دوست‌داشتنی‌شدن"}, tag:{en:"Six ways", fa:"شش راه"},
+        gist:{en:"Be interested, smile, remember names, and really listen.", fa:"علاقه‌مند باش، لبخند بزن، اسم‌ها را یادت باشد، و واقعاً گوش بده."},
+        more:{en:"Likeability isn't charm or cleverness; it's warmth aimed at the other person. Show real interest, smile, use their name, and listen as if they're the only person in the room — and people are drawn to you.",
+              fa:"دوست‌داشتنی‌بودن، جذابیت یا زرنگی نیست؛ گرمایی است که به سمتِ طرفِ مقابل نشانه رفته. علاقهٔ واقعی نشان بده، لبخند بزن، اسمش را به کار ببر، و طوری گوش بده که انگار تنها آدمِ اتاق اوست — آن‌وقت آدم‌ها به‌سمتت کشیده می‌شوند."},
+        chapters:["interested","smile","name","listen"] },
+      { key:"persuade", varc:"--c-amber", name:{en:"Win Them Over", fa:"همراه‌کردنِ دیگران"}, tag:{en:"Change minds", fa:"تغییرِ نظرها"},
+        gist:{en:"Avoid arguments, respect their view, and make the idea theirs.", fa:"از بحث دوری کن، به نظرشان احترام بگذار، و ایده را مالِ خودشان کن."},
+        more:{en:"You almost never change a mind by force. Skip the argument, never announce that someone is wrong, get them nodding early, and let them arrive at your idea themselves — persuasion is something people do to themselves once you make it safe.",
+              fa:"تقریباً هیچ‌وقت با زور نظری را عوض نمی‌کنی. بحث را رها کن، هیچ‌وقت اعلام نکن که کسی اشتباه می‌کند، زود کاری کن سرشان را به تأیید تکان دهند، و بگذار خودشان به ایده‌ات برسند — همراه‌شدن کاری است که آدم‌ها با خودشان می‌کنند، وقتی تو فضا را امن می‌کنی."},
+        chapters:["argue","noWrong","theirIdea"] },
+      { key:"leader", varc:"--c-violet", name:{en:"Be a Leader", fa:"رهبر باش"}, tag:{en:"Change without offense", fa:"تغییر بدونِ رنجش"},
+        gist:{en:"Praise first, ask instead of order, and grow people with a good name.", fa:"اول تعریف کن، به‌جای دستور بپرس، و آدم‌ها را با اسمِ خوب رشد بده."},
+        more:{en:"Leadership here is changing people without making enemies. Begin with genuine praise, correct gently and indirectly, ask rather than command, protect people's pride, and praise every small step — people grow toward the reputation you hand them.",
+              fa:"رهبری اینجا یعنی عوض‌کردنِ آدم‌ها بدونِ دشمن‌تراشیدن. با تعریفِ واقعی شروع کن، نرم و غیرمستقیم اصلاح کن، به‌جای فرمان‌دادن بپرس، از غرورِ آدم‌ها محافظت کن، و هر قدمِ کوچک را تحسین کن — آدم‌ها به‌سمتِ اعتباری که بهشان می‌دهی رشد می‌کنند."},
+        chapters:["praiseFirst","askQuestions","reputation"] },
+      { key:"human", varc:"--c-green", name:{en:"Human Principles", fa:"اصل‌های انسانی"}, tag:{en:"The root", fa:"ریشه"},
+        gist:{en:"People crave importance; see their view; stay sincere.", fa:"آدم‌ها تشنهٔ مهم‌بودن‌اند؛ دیدشان را ببین؛ صادق بمان."},
+        more:{en:"Underneath every technique are a few truths about people. Everyone hungers to feel important, everyone sees the world from their own angle, and none of it works as a trick — the methods only hold up when they come from sincere care.",
+              fa:"زیرِ هر روشی چند حقیقت دربارهٔ آدم‌ها هست. همه تشنهٔ حسِ مهم‌بودن‌اند، همه دنیا را از زاویهٔ خودشان می‌بینند، و هیچ‌کدامِ این‌ها به‌عنوانِ کلک جواب نمی‌دهد — این روش‌ها فقط وقتی دوام می‌آورند که از دلسوزیِ صادقانه بیایند."},
+        chapters:["importance","viewpoint","sincerity"] }
+    ],
+    chapters:{
+      dontcrit:{ part:"handling", n:1, name:{en:"Don't Criticize, Condemn or Complain", fa:"انتقاد، سرزنش و شکایت نکن"}, glabel:{en:"Don't Criticize", fa:"انتقاد نکن"},
+        principle:{en:"Criticism puts people on the defensive and wounds their pride; it changes almost no one. Drop the blame.", fa:"انتقاد آدم‌ها را گارد می‌کند و به غرورشان می‌زند؛ تقریباً هیچ‌کس را عوض نمی‌کند. سرزنش را بگذار کنار."},
+        more:{en:"People rarely blame themselves for anything, however wrong. Condemning them just makes them defend harder and resent you — so instead of criticizing, try to understand why they did what they did.", fa:"آدم‌ها هرچقدر هم اشتباه کنند، به‌ندرت خودشان را مقصر می‌دانند. سرزنش فقط باعث می‌شود سفت‌تر از خودشان دفاع کنند و از تو دلخور شوند — پس به‌جای انتقاد، سعی کن بفهمی چرا آن کار را کرده‌اند."},
+        example:{en:"After Gettysburg, Lincoln wrote a furious letter to a general who let the enemy escape — then never sent it. He knew blame would only start a fight.", fa:"لینکلن بعد از نبردِ گتیسبرگ نامه‌ای پُر از خشم برای فرمانده‌ای نوشت که گذاشت دشمن فرار کند — بعد هیچ‌وقت نفرستادش. می‌دانست سرزنش فقط دعوا راه می‌اندازد."},
+        tip:{en:"Before you criticize, ask what would make a decent person act this way — then say nothing.", fa:"قبل از انتقاد، بپرس چه چیزی یک آدمِ معمولی را به این کار می‌کشاند — بعد چیزی نگو."},
+        pitfall:{en:"Thinking that pointing out the fault will fix it — it usually just hardens it.", fa:"این خیال که نشان‌دادنِ اشتباه درستش می‌کند — معمولاً فقط سفت‌ترش می‌کند."} },
+      appreciate:{ part:"handling", n:2, name:{en:"Give Honest, Sincere Appreciation", fa:"قدردانیِ صادقانه بده"}, glabel:{en:"Appreciate", fa:"قدردانی"},
+        principle:{en:"The deepest human hunger is to feel appreciated. Feed it with honest, specific praise — not flattery.", fa:"عمیق‌ترین گرسنگیِ آدم این است که قدرش دانسته شود. با تعریفِ صادقانه و مشخص سیرش کن — نه با چاپلوسی."},
+        more:{en:"Everyone you meet wants to feel important. Give people a genuine sense of their worth and they'll do almost anything for you; withhold it and they wilt. The catch is that it must be sincere — appreciation from the heart, not the teeth.", fa:"هرکسی که می‌بینی می‌خواهد حس کند مهم است. اگر به آدم‌ها حسِ واقعیِ ارزش بدهی، تقریباً هر کاری برایت می‌کنند؛ اگر ندهی، پژمرده می‌شوند. رمزش این است که باید صادقانه باشد — قدردانی از دل، نه از سرِ زبان."},
+        example:{en:"Charles Schwab said his fortune was paid mainly for his ability to draw the best out of people with honest appreciation and encouragement.", fa:"چارلز شواب می‌گفت دستمزدِ کلانش بیشتر برای این بود که می‌توانست با قدردانی و تشویقِ صادقانه بهترینِ آدم‌ها را بیرون بکشد."},
+        tip:{en:"Today, tell one person exactly what you value about them — and mean it.", fa:"امروز به یک نفر دقیقاً بگو چه چیزی‌اش را قدر می‌دانی — و از ته دل بگو."},
+        pitfall:{en:"Sliding into empty flattery, which people see through at once.", fa:"لغزیدن به چاپلوسیِ توخالی، که آدم‌ها فوری دستش را می‌خوانند."} },
+      eagerwant:{ part:"handling", n:3, name:{en:"Arouse an Eager Want", fa:"میل و اشتیاق بساز"}, glabel:{en:"Eager Want", fa:"اشتیاق"},
+        principle:{en:"The only way to move anyone is to talk about what they want and show them how to get it.", fa:"تنها راهِ به‌حرکت‌درآوردنِ هر کسی این است که از چیزی حرف بزنی که او می‌خواهد و نشانش بدهی چطور به آن برسد."},
+        more:{en:"You want what you want; so does everyone else. Stop talking about your own needs and frame your idea around theirs. The person who can arouse an eager want in others has the whole world with them.", fa:"تو چیزی را می‌خواهی که می‌خواهی؛ بقیه هم همین‌طور. دست از حرف‌زدن دربارهٔ نیازِ خودت بردار و ایده‌ات را دورِ خواستهٔ او بچین. کسی که بتواند در دیگران اشتیاق بسازد، تمامِ دنیا با اوست."},
+        example:{en:"Carnegie put it plainly: he loved strawberries and cream, but he baited his hook with worms — because that is what the fish wanted.", fa:"کارنگی ساده می‌گفت: خودش عاشقِ توت‌فرنگی و خامه بود، اما قلابش را با کِرم طعمه می‌زد — چون ماهی این را می‌خواست."},
+        tip:{en:"Before you ask, write one line: why would the other person want to say yes?", fa:"قبل از اینکه چیزی بخواهی، یک خط بنویس: طرفِ مقابل چرا باید بخواهد بله بگوید؟"},
+        pitfall:{en:"Pitching everything in terms of what you need.", fa:"همه‌چیز را از زاویهٔ نیازِ خودت مطرح‌کردن."} },
+      interested:{ part:"likeable", n:4, name:{en:"Become Genuinely Interested in Others", fa:"واقعاً به دیگران علاقه‌مند شو"}, glabel:{en:"Be Interested", fa:"علاقه‌مند شو"},
+        principle:{en:"You make more friends in two months by being interested in others than in two years of trying to make them interested in you.", fa:"با علاقه‌مندشدن به دیگران در دو ماه بیشتر دوست پیدا می‌کنی تا با دو سال تلاش برای اینکه دیگران را به خودت علاقه‌مند کنی."},
+        more:{en:"Real, warm interest in other people opens doors that cleverness never will. Ask about them, remember what matters to them, and show up genuinely glad to see them — the way a dog greets you.", fa:"علاقهٔ واقعی و گرم به آدم‌ها دری را باز می‌کند که زرنگی هیچ‌وقت باز نمی‌کند. دربارهٔ خودشان بپرس، یادت باشد چه چیزی برایشان مهم است، و واقعاً خوشحال از دیدنشان ظاهر شو — مثلِ سگی که به استقبالت می‌آید."},
+        example:{en:"A dog makes a living purely by showing it's glad to see you — no skills, no résumé, just genuine delight.", fa:"سگ فقط با نشان‌دادنِ اینکه از دیدنت خوشحال است نانش را درمی‌آورد — نه مهارتی، نه رزومه‌ای، فقط شادیِ واقعی."},
+        tip:{en:"In your next chat, ask two real questions about them before you say anything about yourself.", fa:"در گفت‌وگوی بعدی، قبل از اینکه چیزی دربارهٔ خودت بگویی، دو سؤالِ واقعی دربارهٔ او بپرس."},
+        pitfall:{en:"Trying to be interesting instead of being interested.", fa:"تلاش برای جالب‌بودن، به‌جای علاقه‌مندبودن."} },
+      smile:{ part:"likeable", n:5, name:{en:"Smile", fa:"لبخند بزن"}, glabel:{en:"Smile", fa:"لبخند"},
+        principle:{en:"A simple smile says “I'm glad to see you” faster than any words — and it costs nothing.", fa:"یک لبخندِ ساده سریع‌تر از هر کلمه‌ای می‌گوید «از دیدنت خوشحالم» — و هیچ خرجی هم ندارد."},
+        more:{en:"Your expression tells people how you feel about them before you speak. A warm smile is a small act of generosity that makes the other person feel welcome; act cheerful and, as often as not, you begin to feel it too.", fa:"چهره‌ات قبل از اینکه حرف بزنی به آدم‌ها می‌گوید چه حسی به آن‌ها داری. یک لبخندِ گرم یک بخششِ کوچک است که طرف را حس می‌کند پذیرفته‌شده؛ شاد رفتار کن، اغلب کم‌کم خودت هم شاد می‌شوی."},
+        example:{en:"Carnegie tells of a man who forced himself to smile each morning and found his marriage and his business warm up within weeks.", fa:"کارنگی از مردی می‌گوید که هر صبح خودش را به لبخند وادار کرد و دید که در چند هفته هم زندگیِ زناشویی و هم کارش گرم‌تر شد."},
+        tip:{en:"Smile — a real one — at the next three people you talk to, even on the phone.", fa:"به سه نفرِ بعدی که با آن‌ها حرف می‌زنی لبخند بزن — یک لبخندِ واقعی — حتی پشتِ تلفن."},
+        pitfall:{en:"A cold or distracted face that pushes people away before you speak.", fa:"یک چهرهٔ سرد یا حواس‌پرت که قبل از حرف‌زدن آدم‌ها را پس می‌زند."} },
+      name:{ part:"likeable", n:6, name:{en:"Remember the Name", fa:"اسم را به یاد بسپار"}, glabel:{en:"Names", fa:"اسم"},
+        principle:{en:"A person's own name is to them the sweetest, most important sound in any language.", fa:"اسمِ خودِ آدم برایش شیرین‌ترین و مهم‌ترین صدا در هر زبانی است."},
+        more:{en:"Remembering and using someone's name tells them they matter to you. Forget it, misspell it, or mangle it, and you send the opposite message. Make the small effort to catch it, repeat it, and use it.", fa:"به‌یاد‌داشتن و به‌کاربردنِ اسمِ کسی به او می‌گوید که برایت مهم است. فراموشش کنی، غلط بنویسی‌اش یا خرابش کنی، پیامِ برعکس می‌فرستی. همان زحمتِ کوچک را بکش که بگیری‌اش، تکرارش کنی، و به کارش ببری."},
+        example:{en:"Politician Jim Farley could call thousands of people by their first names — and that gift helped put a president in office.", fa:"جیم فارلیِ سیاستمدار می‌توانست هزاران نفر را به اسمِ کوچک صدا بزند — و همین توانایی کمک کرد یک رئیس‌جمهور سرِ کار بیاید."},
+        tip:{en:"When you meet someone, repeat their name once out loud and picture it.", fa:"وقتی کسی را می‌بینی، اسمش را یک‌بار بلند تکرار کن و در ذهنت تصویرش کن."},
+        pitfall:{en:"The lazy “I'm terrible with names” — it just tells people they're not worth the effort.", fa:"آن بهانهٔ تنبلانهٔ «من اسم یادم نمی‌ماند» — فقط به آدم‌ها می‌گوید ارزشِ این زحمت را ندارند."} },
+      listen:{ part:"likeable", n:7, name:{en:"Be a Good Listener", fa:"شنوندهٔ خوبی باش"}, glabel:{en:"Listen", fa:"گوش بده"},
+        principle:{en:"Encourage others to talk about themselves, and listen as if nothing else matters.", fa:"دیگران را تشویق کن دربارهٔ خودشان حرف بزنند، و طوری گوش بده که انگار هیچ‌چیزِ دیگری مهم نیست."},
+        more:{en:"Most people would rather have a good listener than a clever talker. Give someone your full attention, ask about what they love, and let them do most of the talking — they'll walk away thinking you're wonderful company.", fa:"بیشترِ آدم‌ها یک شنوندهٔ خوب را به یک حرّافِ زبل ترجیح می‌دهند. تمامِ حواست را به کسی بده، از چیزی که دوست دارد بپرس، و بگذار بیشترِ حرف‌ها را او بزند — با این حس می‌رود که تو هم‌صحبتِ فوق‌العاده‌ای هستی."},
+        example:{en:"At a dinner Carnegie mostly listened to a botanist for hours; the man later called him a “most interesting conversationalist”.", fa:"سرِ یک شام، کارنگی ساعت‌ها بیشتر به یک گیاه‌شناس گوش داد؛ آن مرد بعداً او را «یک هم‌صحبتِ فوق‌العاده جالب» نامید."},
+        tip:{en:"In your next conversation, aim to speak less than a third of the time.", fa:"در گفت‌وگوی بعدی، هدفت این باشد که کمتر از یک‌سومِ وقت حرف بزنی."},
+        pitfall:{en:"Waiting for your turn to talk instead of actually listening.", fa:"منتظرِ نوبتِ حرف‌زدنِ خودت ماندن، به‌جای اینکه واقعاً گوش بدهی."} },
+      argue:{ part:"persuade", n:8, name:{en:"Avoid the Argument", fa:"از بحث دوری کن"}, glabel:{en:"Avoid Arguing", fa:"بحث نکن"},
+        principle:{en:"The only way to get the best of an argument is to avoid it — you can't win one.", fa:"تنها راهِ پیروزی در یک بحث این است که واردش نشوی — بحث را نمی‌شود بُرد."},
+        more:{en:"Win an argument and you still lose: the other person's pride is hurt and they resent you. Even when you're right, a beaten opponent keeps their old opinion. Better to sidestep the fight and keep the goodwill.", fa:"بحث را ببری، باز هم باخته‌ای: غرورِ طرف زخم می‌خورد و از تو دلخور می‌شود. حتی وقتی حق با توست، طرفِ شکست‌خورده باز همان نظرِ قبلی‌اش را دارد. بهتر است دعوا را دور بزنی و خوش‌بینی را نگه داری."},
+        example:{en:"At a banquet a man misquoted a line as Shakespeare; Carnegie's friend, under the table, told him to let it go — being right wasn't worth the bad feeling.", fa:"سرِ یک ضیافت، مردی جمله‌ای را اشتباه به شکسپیر نسبت داد؛ دوستِ کارنگی زیرِ میز به او گفت بی‌خیالش شود — حق‌داشتن ارزشِ آن دلخوری را نداشت."},
+        tip:{en:"Next time you feel the urge to correct someone, ask if winning is worth the friction.", fa:"دفعهٔ بعد که خواستی کسی را تصحیح کنی، بپرس بردن ارزشِ این کدورت را دارد یا نه."},
+        pitfall:{en:"Winning the point and losing the person.", fa:"بردنِ بحث و باختنِ آدم."} },
+      noWrong:{ part:"persuade", n:9, name:{en:"Never Say “You're Wrong”", fa:"هیچ‌وقت نگو «اشتباه می‌کنی»"}, glabel:{en:"Never Say Wrong", fa:"نگو اشتباهی"},
+        principle:{en:"Don't tell people they're wrong; show respect for their opinion — and admit your own mistakes fast.", fa:"به آدم‌ها نگو اشتباه می‌کنند؛ به نظرشان احترام بگذار — و اشتباهِ خودت را سریع بپذیر."},
+        more:{en:"“You're wrong” is a slap that makes people dig in. Begin in a friendly way, grant that you might be mistaken, and let them save face. And when you are wrong, say so quickly and warmly — it disarms people instantly.", fa:"«اشتباه می‌کنی» یک سیلی است که آدم‌ها را لجوج‌تر می‌کند. دوستانه شروع کن، قبول کن که شاید خودت اشتباه کنی، و بگذار آبرویشان را نگه دارند. و وقتی خودت اشتباه کردی، سریع و گرم بگو — این فوری خلعِ‌سلاحشان می‌کند."},
+        example:{en:"Ben Franklin dropped words like “certainly” for “I imagine”, and found people agreed with him far more often.", fa:"بنجامین فرانکلین کلماتی مثلِ «قطعاً» را کنار گذاشت و «به‌گمانم» گفت، و دید که آدم‌ها خیلی بیشتر باهاش موافقت می‌کنند."},
+        tip:{en:"Replace “you're wrong” with “I may be off, but here's how I see it”.", fa:"«اشتباه می‌کنی» را با «شاید من اشتباه کنم، اما من این‌طور می‌بینمش» عوض کن."},
+        pitfall:{en:"Correcting someone bluntly and watching them stop listening.", fa:"تصحیحِ رک و بی‌پردهٔ کسی و تماشای اینکه دیگر گوش نمی‌دهد."} },
+      theirIdea:{ part:"persuade", n:10, name:{en:"Make the Idea Theirs", fa:"بگذار ایده مالِ خودشان باشد"}, glabel:{en:"Their Idea", fa:"ایدهٔ خودشان"},
+        principle:{en:"Let the other person do the talking and feel the idea is their own — get them saying “yes, yes” early.", fa:"بگذار طرفِ مقابل حرف بزند و حس کند ایده مالِ خودش است — زود کاری کن که «بله، بله» بگوید."},
+        more:{en:"People back their own ideas, not yours. Ask questions that draw out a string of small yeses, let them talk themselves toward the conclusion, and plant your suggestion so they feel they thought of it. Then honestly try to see it their way.", fa:"آدم‌ها پُشتِ ایدهٔ خودشان می‌ایستند، نه ایدهٔ تو. سؤال‌هایی بپرس که یک‌رشته «بله»‌های کوچک بیرون بکشد، بگذار خودشان حرف‌زنان به نتیجه برسند، و پیشنهادت را طوری بکار که حس کنند خودشان فکرش کرده‌اند. بعد صادقانه سعی کن از دیدِ آن‌ها ببینی‌اش."},
+        example:{en:"Socrates kept asking questions his listeners had to agree with, leading them step by step to a conclusion they'd have fought head-on.", fa:"سقراط پشتِ‌سرِ هم سؤال‌هایی می‌پرسید که شنونده مجبور بود موافق باشد، و قدم‌به‌قدم آن‌ها را به نتیجه‌ای می‌رساند که رودررو باهاش می‌جنگیدند."},
+        tip:{en:"Turn your next request into a question that lets them reach the idea themselves.", fa:"درخواستِ بعدی‌ات را به سؤالی تبدیل کن که بگذارد خودشان به ایده برسند."},
+        pitfall:{en:"Pushing your conclusion so hard they push back on principle.", fa:"آن‌قدر نتیجهٔ خودت را هُل بدهی که از سرِ لج پسش بزنند."} },
+      praiseFirst:{ part:"leader", n:11, name:{en:"Begin With Praise, Correct Indirectly", fa:"با تعریف شروع کن، غیرمستقیم اصلاح کن"}, glabel:{en:"Praise First", fa:"اول تعریف"},
+        principle:{en:"Open with honest praise, point out mistakes indirectly, and talk about your own errors first.", fa:"با تعریفِ صادقانه باز کن، اشتباه‌ها را غیرمستقیم بگو، و اول از اشتباه‌های خودت حرف بزن."},
+        more:{en:"It's easier to hear hard truths after a sincere compliment, the way a barber lathers before he shaves. Mention faults indirectly, and admit you've made the same slip yourself — now you're a fellow human, not a judge.", fa:"شنیدنِ حرف‌های سخت بعد از یک تعریفِ صادقانه راحت‌تر است، همان‌طور که سلمانی قبل از تراشیدن، صابون می‌زند. اشتباه‌ها را غیرمستقیم بگو، و اعتراف کن که خودت هم همین لغزش را داشته‌ای — حالا یک همنوعی، نه یک قاضی."},
+        example:{en:"Finding workers smoking under a “No Smoking” sign, Schwab handed them cigars and asked them to smoke outside — no scolding, and they loved him for it.", fa:"شواب که کارگرها را زیرِ تابلوی «سیگار ممنوع» در حالِ سیگار‌کشیدن دید، به‌جای دعوا به آن‌ها سیگار برگ داد و خواست بیرون بکشند — و آن‌ها به‌خاطرش دوستش داشتند."},
+        tip:{en:"Before a correction, name one thing the person genuinely did well.", fa:"قبل از هر اصلاحی، یک کاری را که طرف واقعاً خوب انجام داده نام ببر."},
+        pitfall:{en:"Leading with the criticism so the praise sounds fake.", fa:"با انتقاد شروع‌کردن، طوری که تعریف بعدش الکی به‌نظر برسد."} },
+      askQuestions:{ part:"leader", n:12, name:{en:"Ask Questions, Not Orders", fa:"سؤال بپرس، دستور نده"}, glabel:{en:"Ask, Don't Order", fa:"بپرس نه دستور"},
+        principle:{en:"Give suggestions as questions, not commands, and always let the other person save face.", fa:"پیشنهادها را به‌شکلِ سؤال بده، نه دستور، و همیشه بگذار طرف آبرویش را نگه دارد."},
+        more:{en:"“Would you consider this?” invites cooperation; “Do it this way” invites resistance. Questions let people keep their dignity and often improve on your idea. And however things go, never make someone feel small — protect their pride.", fa:"«به این فکر می‌کنی؟» همکاری می‌آورد؛ «این‌طوری انجامش بده» مقاومت. سؤال می‌گذارد آدم‌ها عزتشان را نگه دارند و اغلب ایده‌ات را هم بهتر می‌کنند. و هرطور که پیش برود، هیچ‌وقت نگذار کسی حس کند کوچک شده — از غرورش محافظت کن."},
+        example:{en:"Executive Owen D. Young never gave a direct order; he asked “Do you think this would work?” and let people learn by doing.", fa:"اوون یانگِ مدیر هیچ‌وقت دستورِ مستقیم نمی‌داد؛ می‌پرسید «فکر می‌کنی این جواب می‌دهد؟» و می‌گذاشت آدم‌ها با انجام‌دادن یاد بگیرند."},
+        tip:{en:"Turn your next instruction into a genuine question.", fa:"دستورِ بعدی‌ات را به یک سؤالِ واقعی تبدیل کن."},
+        pitfall:{en:"Barking orders that dent pride and invite quiet resistance.", fa:"دستور‌دادنِ خشک که به غرور می‌زند و مقاومتِ خاموش می‌آورد."} },
+      reputation:{ part:"leader", n:13, name:{en:"Praise Improvement, Give a Reputation to Live Up To", fa:"پیشرفت را تحسین کن، اعتبار بده"}, glabel:{en:"Reputation", fa:"اعتبار"},
+        principle:{en:"Praise the slightest improvement, and give people a fine reputation to live up to.", fa:"کوچک‌ترین پیشرفت را تحسین کن، و به آدم‌ها یک اعتبارِ خوب بده که پایش بمانند."},
+        more:{en:"People rise to the label you give them. Praise every step in the right direction and make the fault seem easy to fix; tell someone they already have the very quality you want, and they'll strain to prove you right.", fa:"آدم‌ها به‌اندازهٔ برچسبی که بهشان می‌زنی بالا می‌روند. هر قدمِ درست را تحسین کن و طوری رفتار کن که انگار اشتباه راحت‌درست‌شدنی است؛ به کسی بگو همین حالا همان خصلتِ خوبی را که می‌خواهی دارد، آن‌وقت جان می‌کَند که ثابت کند حق با توست."},
+        example:{en:"Tell a careless worker you count on them for careful work, and often they start living up to the name you've given them.", fa:"به یک کارگرِ بی‌دقت بگو روی دقتِ کارش حساب می‌کنی، اغلب کم‌کم پایِ همان اسمی که بهش داده‌ای می‌ماند."},
+        tip:{en:"Catch someone doing something a little right today and name it out loud.", fa:"امروز کسی را در حالِ درست‌انجام‌دادنِ یک کارِ کوچک بگیر و بلند اسمش را ببر."},
+        pitfall:{en:"Noticing only mistakes and never the progress.", fa:"فقط اشتباه‌ها را دیدن و هیچ‌وقت پیشرفت را ندیدن."} },
+      importance:{ part:"human", n:14, name:{en:"Everyone Craves Importance", fa:"همه تشنهٔ مهم‌بودن‌اند"}, glabel:{en:"Importance", fa:"مهم‌بودن"},
+        principle:{en:"The deepest urge in human nature is the desire to feel important. Almost everything people do flows from it.", fa:"عمیق‌ترین کششِ سرشتِ آدمی، میل به حسِ مهم‌بودن است. تقریباً هر کاری که آدم‌ها می‌کنند از همین برمی‌آید."},
+        more:{en:"We crave a feeling of importance the way we crave food. This one hunger drives ambition, generosity, even crime. Once you see it in everyone, you understand what really moves people — and you can meet it honestly.", fa:"ما تشنهٔ حسِ مهم‌بودن‌ایم، همان‌طور که تشنهٔ غذا. همین یک گرسنگی، جاه‌طلبی و بخشش و حتی جنایت را پیش می‌راند. وقتی این را در همه ببینی، می‌فهمی واقعاً چه چیزی آدم‌ها را حرکت می‌دهد — و می‌توانی صادقانه برآورده‌اش کنی."},
+        example:{en:"William James wrote that the deepest principle in human nature is the craving to be appreciated.", fa:"ویلیام جیمز نوشت که عمیق‌ترین اصلِ سرشتِ آدمی، تشنگی برای قدردانی‌شدن است."},
+        tip:{en:"Ask what would make the person in front of you feel important — then give it.", fa:"بپرس چه چیزی به آدمِ روبه‌رویت حسِ مهم‌بودن می‌دهد — بعد همان را بده."},
+        pitfall:{en:"Ignoring people's need to matter, then wondering why they resist you.", fa:"نادیده‌گرفتنِ نیازِ آدم‌ها به مهم‌بودن، و بعد تعجب از اینکه چرا در برابرت مقاومت می‌کنند."} },
+      viewpoint:{ part:"human", n:15, name:{en:"See It Their Way", fa:"از دیدِ آن‌ها ببین"}, glabel:{en:"Their Viewpoint", fa:"دیدِ آن‌ها"},
+        principle:{en:"Try honestly to see things from the other person's point of view — it's the heart of every technique here.", fa:"صادقانه سعی کن چیزها را از زاویهٔ دیدِ طرفِ مقابل ببینی — این قلبِ همهٔ روش‌های اینجاست."},
+        more:{en:"If there's one secret of success, it's the ability to get the other person's angle and see things from it as well as your own. Ask why they might want what they want; suddenly your approach becomes obvious.", fa:"اگر یک رازِ موفقیت باشد، همان توانایی گرفتنِ زاویهٔ طرفِ مقابل و دیدنِ چیزها از آن است، به‌اندازهٔ زاویهٔ خودت. بپرس چرا او چیزی را که می‌خواهد می‌خواهد؛ ناگهان راهت روشن می‌شود."},
+        example:{en:"Carnegie baited the hook with what the fish wanted, not what he liked — the whole book is that one habit, applied to people.", fa:"کارنگی قلاب را با چیزی طعمه می‌زد که ماهی می‌خواست، نه چیزی که خودش دوست داشت — کلِ کتاب همین یک عادت است، به‌کاربسته روی آدم‌ها."},
+        tip:{en:"Before an ask, spend a minute genuinely arguing the other side to yourself.", fa:"قبل از هر درخواست، یک دقیقه صادقانه طرفِ مقابل را برای خودت استدلال کن."},
+        pitfall:{en:"Seeing only your own needs and calling it common sense.", fa:"فقط نیازِ خودت را دیدن و اسمش را عقلِ سلیم گذاشتن."} },
+      sincerity:{ part:"human", n:16, name:{en:"Sincerity, Not Manipulation", fa:"صداقت، نه بازی‌دادن"}, glabel:{en:"Sincerity", fa:"صداقت"},
+        principle:{en:"These aren't tricks. They only work when they come from genuine care — sincerity, never flattery.", fa:"این‌ها کلک نیستند. فقط وقتی جواب می‌دهند که از دلسوزیِ واقعی بیایند — صداقت، هیچ‌وقت چاپلوسی."},
+        more:{en:"The whole method rests on real goodwill. Flattery is telling people what they already think of themselves; appreciation is sincere and comes from the heart. Use these ideas to manipulate and they curdle; use them to genuinely value people and they last.", fa:"کلِ این روش روی خیرخواهیِ واقعی بنا شده. چاپلوسی یعنی گفتنِ همان چیزی که آدم‌ها خودشان دربارهٔ خودشان فکر می‌کنند؛ قدردانی صادقانه است و از دل می‌آید. اگر با این ایده‌ها آدم‌ها را بازی بدهی، فاسد می‌شوند؛ اگر با آن‌ها واقعاً قدرِ آدم‌ها را بدانی، ماندگارند."},
+        example:{en:"Carnegie's own line: the difference between appreciation and flattery is that one is sincere and the other insincere — one from the heart, one from the teeth.", fa:"جملهٔ خودِ کارنگی: فرقِ قدردانی و چاپلوسی این است که یکی صادقانه است و دیگری ریاکارانه — یکی از دل، دیگری از سرِ زبان."},
+        tip:{en:"Only say the appreciation you actually mean; skip the rest.", fa:"فقط همان قدردانی‌ای را بگو که واقعاً به آن باور داری؛ بقیه را ول کن."},
+        pitfall:{en:"Using these ideas as tactics, which people eventually smell.", fa:"استفاده از این ایده‌ها به‌عنوانِ تاکتیک، که آدم‌ها بالاخره بویش را می‌برند."} }
+    },
+    core:{ name:{en:"MAKE PEOPLE FEEL IMPORTANT", fa:"احساسِ مهم‌بودن بده"},
+      principle:{en:"Almost every technique in the book grows from one root: the deep human craving to feel important and appreciated. Don't criticize; give honest appreciation; talk in terms of what the other person wants; and truly try to see things from their side. Do it sincerely, and people open up to you.", fa:"تقریباً هر روشِ کتاب از یک ریشه می‌روید: تشنگیِ عمیقِ آدم برای اینکه حس کند مهم است و قدرش دانسته می‌شود. انتقاد نکن؛ قدردانیِ صادقانه بده؛ از زاویهٔ خواستهٔ طرفِ مقابل حرف بزن؛ و واقعاً سعی کن از سمتِ او ببینی. صادقانه انجامش بده، آن‌وقت آدم‌ها به رویت باز می‌شوند."},
+      more:{en:"Carnegie groups the ideas into a few moves: fundamental techniques for handling people (no blame, honest appreciation, arouse an eager want), ways to be liked (interest, a smile, names, listening), ways to win people to your thinking (avoid arguments, never say “you're wrong”, let the idea be theirs), and how to lead without giving offense (praise first, ask don't order, give a reputation to live up to). Underneath all of it is one principle: make the other person feel important — sincerely.", fa:"کارنگی ایده‌ها را در چند حرکت می‌چیند: روش‌های بنیادیِ رفتار با آدم‌ها (بی‌سرزنش، قدردانیِ صادقانه، ساختنِ اشتیاق)، راه‌های دوست‌داشتنی‌شدن (علاقه، لبخند، اسم، گوش‌دادن)، راه‌های همراه‌کردنِ دیگران با فکرت (دوری از بحث، نگفتنِ «اشتباه می‌کنی»، مالِ خودشان‌کردنِ ایده)، و رهبری بدونِ رنجاندن (اول تعریف، سؤال به‌جای دستور، اعتبار‌دادن). زیرِ همهٔ این‌ها یک اصل است: کاری کن طرفِ مقابل حس کند مهم است — صادقانه."},
+      example:{en:"Click any node to read a principle or a method. You can also drag the nodes around.", fa:"روی هر دایره کلیک کن تا یک اصل یا روش را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."} },
+    stages:[
+      { level:1, badge:{en:"Level 1 · Over-simplified", fa:"سطحِ ۱ · خیلی ساده"}, title:{en:"Make people feel important", fa:"کاری کن آدم‌ها حس کنند مهم‌اند"}, tagline:{en:"The whole book in a sentence.", fa:"کلِ کتاب در یک جمله."},
+        body:{en:"People do things for their reasons, not yours, and the biggest reason is wanting to feel important. Stop criticizing, start appreciating, and treat people like they matter — because to them, they do.", fa:"آدم‌ها کارها را به دلایلِ خودشان می‌کنند، نه دلایلِ تو، و بزرگ‌ترین دلیل، میل به حسِ مهم‌بودن است. دست از انتقاد بردار، شروع کن به قدردانی، و با آدم‌ها طوری رفتار کن که انگار مهم‌اند — چون برای خودشان مهم‌اند."},
+        example:{en:"Instead of telling a teammate they messed up, thank them for what they did well first.", fa:"به‌جای اینکه به هم‌تیمی‌ات بگویی خراب کرده، اول برای کاری که خوب انجام داده ازش تشکر کن."},
+        gain:{en:"You grasp the one idea the whole book expands on.", fa:"همان یک ایده‌ای را می‌گیری که کلِ کتاب بسطش می‌دهد."} },
+      { level:2, badge:{en:"Level 2 · Simple", fa:"سطحِ ۲ · ساده"}, title:{en:"Three basics", fa:"سه پایه"}, tagline:{en:"Don't criticize, appreciate, arouse a want.", fa:"انتقاد نکن، قدردانی کن، اشتیاق بساز."},
+        body:{en:"Start with the fundamentals of handling people. <b>Don't criticize, condemn, or complain.</b> Give <b>honest, sincere appreciation.</b> And <b>arouse an eager want</b> by talking about what the other person cares about, not what you need.", fa:"با اصل‌های پایهٔ رفتار با آدم‌ها شروع کن. <b>انتقاد و سرزنش و شکایت نکن.</b> <b>قدردانیِ صادقانه</b> بده. و با حرف‌زدن از چیزی که برای طرفِ مقابل مهم است — نه نیازِ تو — در او <b>اشتیاق</b> بساز."},
+        example:{en:"To get help, don't list your problems; show how helping you serves something they already want.", fa:"برای گرفتنِ کمک، مشکل‌هایت را ردیف نکن؛ نشان بده کمک‌کردن به تو چیزی را که خودش می‌خواهد پیش می‌برد."},
+        gain:{en:"You can change how people respond to you in a single day.", fa:"می‌توانی در یک روز طرزِ واکنشِ آدم‌ها به خودت را عوض کنی."} },
+      { level:3, badge:{en:"Level 3 · Balanced", fa:"سطحِ ۳ · متعادل"}, title:{en:"Be liked", fa:"دوست‌داشتنی شو"}, tagline:{en:"Interest, a smile, names, listening.", fa:"علاقه، لبخند، اسم، گوش‌دادن."},
+        body:{en:"Now win people's goodwill. Be genuinely <b>interested</b> in them, <b>smile</b>, remember and use their <b>name</b>, and become a real <b>listener</b> who lets them talk about themselves. None of it is clever — it's just warm attention.", fa:"حالا خوش‌بینیِ آدم‌ها را به‌دست بیاور. واقعاً به آن‌ها <b>علاقه‌مند</b> باش، <b>لبخند</b> بزن، <b>اسمشان</b> را یادت باشد و به کار ببر، و یک <b>شنوندهٔ</b> واقعی شو که می‌گذارد دربارهٔ خودشان حرف بزنند. هیچ‌کدام زرنگی نیست — فقط توجهِ گرم است."},
+        example:{en:"In your next meeting, ask about the other person and listen more than you talk.", fa:"در جلسهٔ بعدی، دربارهٔ طرفِ مقابل بپرس و بیشتر از آنکه حرف بزنی، گوش بده."},
+        gain:{en:"People start to warm to you and trust you.", fa:"آدم‌ها کم‌کم بهت گرم می‌شوند و اعتماد می‌کنند."} },
+      { level:4, badge:{en:"Level 4 · Advanced", fa:"سطحِ ۴ · پیشرفته"}, title:{en:"Win people over", fa:"آدم‌ها را همراه کن"}, tagline:{en:"Avoid arguing, no “you're wrong”, make it theirs.", fa:"بحث نکن، بی‌«اشتباه می‌کنی»، مالِ خودشان کن."},
+        body:{en:"To change minds, drop force. <b>Avoid arguments</b> — you can't win them. Never say <b>“you're wrong”</b>; begin friendly and admit your own errors fast. Get people saying <b>“yes, yes”</b>, let them talk, and let the good idea feel like <b>their own</b>.", fa:"برای عوض‌کردنِ نظرها، زور را کنار بگذار. <b>از بحث دوری کن</b> — نمی‌شود بُردش. هیچ‌وقت نگو <b>«اشتباه می‌کنی»</b>؛ دوستانه شروع کن و اشتباه‌های خودت را سریع بپذیر. کاری کن آدم‌ها <b>«بله، بله»</b> بگویند، بگذار حرف بزنند، و بگذار ایدهٔ خوب حس شود مالِ <b>خودشان</b> است."},
+        example:{en:"Instead of proving a colleague wrong, ask questions that lead them to rethink it themselves.", fa:"به‌جای اثباتِ اشتباهِ یک همکار، سؤال‌هایی بپرس که خودش را به بازاندیشی برساند."},
+        gain:{en:"You can shift opinions without making enemies.", fa:"می‌توانی نظرها را جابه‌جا کنی بدونِ دشمن‌تراشیدن."} },
+      { level:5, badge:{en:"Level 5 · Expert", fa:"سطحِ ۵ · حرفه‌ای"}, title:{en:"Lead — sincerely", fa:"رهبری کن — صادقانه"}, tagline:{en:"Praise, ask, grow people, and mean it.", fa:"تعریف کن، بپرس، آدم‌ها را رشد بده، و از دل."},
+        body:{en:"The expert leads people to change without resentment. <b>Begin with praise</b> and correct indirectly, talk about your own mistakes first, <b>ask questions</b> instead of giving orders, let people <b>save face</b>, and praise every improvement so they grow into a <b>reputation</b> worth living up to. Above all, none of this is a trick — it only works as <b>sincere</b> care for people, aimed at seeing the world from their side.", fa:"آدمِ حرفه‌ای آدم‌ها را بدونِ کینه به تغییر می‌رساند. <b>با تعریف شروع کن</b> و غیرمستقیم اصلاح کن، اول از اشتباه‌های خودت بگو، به‌جای دستور <b>سؤال بپرس</b>، بگذار آدم‌ها <b>آبرویشان</b> را نگه دارند، و هر پیشرفت را تحسین کن تا به‌سمتِ یک <b>اعتبارِ</b> ارزشمند رشد کنند. از همه مهم‌تر، هیچ‌کدامِ این‌ها کلک نیست — فقط به‌عنوانِ دلسوزیِ <b>صادقانه</b> برای آدم‌ها جواب می‌دهد، با نگاهی که دنیا را از سمتِ آن‌ها می‌بیند."},
+        example:{en:"You correct a struggling teammate by praising their strengths, asking how they'd fix it, and trusting them to rise to it.", fa:"یک هم‌تیمیِ درگیر را با تعریف از نقاطِ قوتش اصلاح می‌کنی، می‌پرسی خودش چطور درستش می‌کند، و بهش اعتماد می‌کنی که از پسش برمی‌آید."},
+        gain:{en:"You can lead and influence people while keeping their goodwill.", fa:"می‌توانی آدم‌ها را رهبری کنی و بر آن‌ها اثر بگذاری، درحالی‌که خوش‌بینی‌شان را نگه می‌داری."} }
+    ],
+    quotes:[
+      {en:"Any fool can criticize, condemn and complain — and most fools do. But it takes character and self-control to be understanding and forgiving.", fa:"هر آدمِ نادانی می‌تواند انتقاد و سرزنش و شکایت کند — و بیشترِ نادان‌ها همین کار را می‌کنند. اما فهمیدن و بخشیدن، شخصیت و خویشتن‌داری می‌خواهد."},
+      {en:"When dealing with people, let us remember we are not dealing with creatures of logic. We are dealing with creatures of emotion, creatures bristling with prejudices and motivated by pride and vanity.", fa:"وقتی با آدم‌ها سروکار داریم، یادمان باشد که با موجوداتِ منطق طرف نیستیم. با موجوداتِ احساس طرفیم، موجوداتی پُر از پیش‌داوری که غرور و خودخواهی به حرکتشان درمی‌آورد."},
+      {en:"You can make more friends in two months by becoming interested in other people than you can in two years by trying to get other people interested in you.", fa:"با علاقه‌مندشدن به دیگران در دو ماه می‌توانی بیشتر دوست پیدا کنی تا در دو سال تلاش برای اینکه دیگران را به خودت علاقه‌مند کنی."},
+      {en:"The only way to get the best of an argument is to avoid it.", fa:"تنها راهِ پیروزی در یک بحث این است که واردش نشوی."},
+      {en:"Remember that a person's name is to that person the sweetest and most important sound in any language.", fa:"یادت باشد که اسمِ آدم برای خودش شیرین‌ترین و مهم‌ترین صدا در هر زبانی است."},
+      {en:"The only way on earth to influence other people is to talk about what they want and show them how to get it.", fa:"تنها راهِ روی زمین برای اثرگذاری بر دیگران این است که از چیزی حرف بزنی که آن‌ها می‌خواهند و نشانشان بدهی چطور به آن برسند."},
+      {en:"If there is any one secret of success, it lies in the ability to get the other person's point of view and see things from that person's angle as well as from your own.", fa:"اگر یک رازِ موفقیت وجود داشته باشد، در توانایی گرفتنِ زاویهٔ دیدِ طرفِ مقابل است و دیدنِ چیزها از زاویهٔ او، به‌اندازهٔ زاویهٔ خودت."},
+      {en:"The deepest principle in human nature is the craving to be appreciated.", fa:"عمیق‌ترین اصلِ سرشتِ آدمی، تشنگی برای قدردانی‌شدن است."}
+    ],
+    media:[
+      { kind:"yt", id:"sdqA7VX_-5c", src:{en:"YouTube · Edarabia", fa:"یوتیوب · Edarabia"},
+        title:{en:"Top 10 Lessons — How to Win Friends", fa:"ده درسِ برتر — چطور دوست پیدا کنیم"},
+        desc:{en:"A ten-lesson summary of Carnegie's principles.", fa:"خلاصه‌ای ده‌درسی از اصولِ کارنگی."},
+        bullets:{en:["The core principles in a few minutes","Handling, liking, and influencing people","A fast, memorable overview"], fa:["اصولِ اصلی در چند دقیقه","رفتار، دوست‌داشتنی‌شدن، و اثرگذاری","یک مرورِ سریع و به‌یادماندنی"]},
+        best:{en:"Best for Stage 1–2.", fa:"خوب برای مرحلهٔ ۱ و ۲."} },
+      { kind:"yt", id:"Xo2Q4PQqqWU", src:{en:"YouTube · Escaping Ordinary", fa:"یوتیوب · Escaping Ordinary"},
+        title:{en:"How to Win Friends — in 20 Minutes", fa:"چطور دوست پیدا کنیم — در بیست دقیقه"},
+        desc:{en:"A 20-minute walkthrough of the whole book.", fa:"یک مرورِ بیست‌دقیقه‌ای از کلِ کتاب."},
+        bullets:{en:["All four ideas, condensed","Clear examples for each principle","Good after a first read"], fa:["همهٔ ایده‌ها، فشرده","مثالِ روشن برای هر اصل","خوب بعد از اولین خواندن"]},
+        best:{en:"Best for Stage 2–3.", fa:"خوب برای مرحلهٔ ۲ و ۳."} },
+      { kind:"img", url:"https://www.simonandschuster.com/books/How-to-Win-Friends-and-Influence-People/Dale-Carnegie/9781982171452",
+        src:{en:"Simon & Schuster · Publisher", fa:"Simon & Schuster · ناشر"},
+        title:{en:"How to Win Friends — Publisher Page", fa:"چطور دوست پیدا کنیم — صفحهٔ ناشر"},
+        desc:{en:"The publisher page for the book, with editions and details.", fa:"صفحهٔ ناشر برای کتاب، با نسخه‌ها و جزئیات."},
+        bullets:{en:["The definitive editions","Background on Carnegie","Straight from the source"], fa:["نسخه‌های معتبر","پیشینه‌ای دربارهٔ کارنگی","مستقیم از خودِ منبع"]},
+        best:{en:"For editions and the source.", fa:"برای نسخه‌ها و منبعِ اصلی."} }
+    ],
+    go:[
+      {label:{en:"Publisher page", fa:"صفحهٔ ناشر"}, url:"https://www.simonandschuster.com/books/How-to-Win-Friends-and-Influence-People/Dale-Carnegie/9781982171452"},
+      {label:{en:"Book on Goodreads", fa:"کتاب در گودریدز"}, url:"https://www.goodreads.com/book/show/4865.How_to_Win_Friends_Influence_People"},
+      {label:{en:"The book on Wikipedia", fa:"کتاب در ویکی‌پدیا"}, url:"https://en.wikipedia.org/wiki/How_to_Win_Friends_and_Influence_People"}
+    ],
+    recs:[
+      { pri:"b", t:{en:"Kill one criticism", fa:"یک انتقاد را بکُش"}, d:{en:"Today, catch one thing you're about to criticize and give honest appreciation instead.", fa:"امروز یک چیزی را که می‌خواهی انتقاد کنی بگیر و به‌جایش قدردانیِ صادقانه بگو."} },
+      { pri:"b", t:{en:"Ask, don't order", fa:"بپرس، دستور نده"}, d:{en:"Turn your next instruction to someone into a genuine question and watch what changes.", fa:"دستورِ بعدی‌ات به یک نفر را به یک سؤالِ واقعی تبدیل کن و ببین چه فرقی می‌کند."} },
+      { pri:"n", t:{en:"Nail one name", fa:"یک اسم را یاد بگیر"}, d:{en:"Meet someone new today, repeat their name, and use it before you part.", fa:"امروز با یک نفرِ تازه آشنا شو، اسمش را تکرار کن، و قبل از خداحافظی به کارش ببر."} },
+      { pri:"n", t:{en:"Listen twice as much", fa:"دو برابر گوش بده"}, d:{en:"In one conversation today, ask about the other person and let them do most of the talking.", fa:"امروز در یک گفت‌وگو، دربارهٔ طرفِ مقابل بپرس و بگذار بیشترِ حرف‌ها را او بزند."} }
+    ]
+  }
+};

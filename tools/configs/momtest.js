@@ -1,0 +1,262 @@
+/* config: The Mom Test — Rob Fitzpatrick (Product Success Rate) */
+module.exports = {
+  slug:'momtest', brand:'The Mom Test',
+  titleTag:'The Mom Test — نقشهٔ دانش و یادگیری ۵ مرحله‌ای',
+  W:980, H:780, R1:220, R2:126, span:66,
+  leafKickEn:'Rule', leafKickFa:'قانونِ',
+  flowEn:['Ask','Listen','Commit'], flowFa:['بپرس','گوش بده','تعهد بگیر'],
+
+  hero:`  <div class="eyebrow"><span class="edot"></span>
+    <span data-only="en">Book knowledge map · Rob Fitzpatrick</span>
+    <span data-only="fa">نقشهٔ کتاب · راب فیتزپاتریک</span>
+  </div>
+  <h1>
+    <span data-only="en">The Mom Test — How to Talk to Customers &amp; Learn if Your Business Is a Good Idea</span>
+    <span data-only="fa">تِستِ مامان — چطور با مشتری‌ها حرف بزنی و بفهمی ایده‌ات خوب است یا نه</span>
+  </h1>
+  <p class="dek">
+    <span data-only="en">A knowledge graph of the whole book, plus a 5-stage path from a single sentence to expert-level mastery — with an example at every step.</span>
+    <span data-only="fa">نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از یک جملهٔ ساده تا تسلطِ حرفه‌ای — با یک مثال در هر قدم.</span>
+  </p>
+  <div class="metastrip">
+    <div class="metaitem"><span class="mk" data-only="en">Book</span><span class="mk" data-only="fa">کتاب</span>
+      <span class="mv" data-only="en">The Mom Test</span><span class="mv" data-only="fa">تِستِ مامان</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Author</span><span class="mk" data-only="fa">نویسنده</span>
+      <span class="mv" data-only="en">Rob Fitzpatrick</span><span class="mv" data-only="fa">راب فیتزپاتریک</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Published</span><span class="mk" data-only="fa">سالِ چاپ</span>
+      <span class="mv" data-only="en">2013</span><span class="mv" data-only="fa">۲۰۱۳</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Group</span><span class="mk" data-only="fa">گروه</span>
+      <span class="mv" data-only="en">Product Success Rate</span><span class="mv" data-only="fa">نرخِ موفقیتِ محصول</span></div>
+  </div>
+  <div class="chips">
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Parts</span><span data-only="fa">بخش</span></div>
+    <div class="chip"><b data-only="en">16</b><b data-only="fa">۱۶</b><span data-only="en">Rules</span><span data-only="fa">قانون</span></div>
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Learning stages</span><span data-only="fa">مرحلهٔ یادگیری</span></div>
+  </div>`,
+
+  callout:`    <b data-only="en">The core idea:</b>
+    <b data-only="fa">ایدهٔ اصلی:</b>
+    <span data-only="en"> The Mom Test is a set of rules for asking questions so good that even your mom can't lie to you — because you stop pitching your idea and start asking about her <i>life</i>. Talk about their life, ask about the <i>past</i>, and <i>listen</i>. Good questions can't be answered wrong.</span>
+    <span data-only="fa"> تِستِ مامان مجموعه‌ای از قانون‌هاست برای پرسیدنِ سؤالی آن‌قدر خوب که حتی مامانت هم نتواند بهت دروغ بگوید — چون دست از فروختنِ ایده‌ات برمی‌داری و از <i>زندگیِ</i> خودش می‌پرسی. دربارهٔ زندگی‌شان حرف بزن، از <i>گذشته</i> بپرس، و <i>گوش بده</i>. سؤالِ خوب را نمی‌شود اشتباه جواب داد.</span>`,
+
+  kpis:`    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Parts (rules · questions · digging · commitment · process)</div><div class="l" data-only="fa">بخش (قانون‌ها · سؤال‌ها · کندوکاو · تعهد · فرایند)</div></div>
+    <div class="kbox"><div class="v" data-only="en">16</div><div class="v" data-only="fa">۱۶</div><div class="l" data-only="en">Rules you can use</div><div class="l" data-only="fa">قانون برای استفاده</div></div>
+    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Levels, simple → expert</div><div class="l" data-only="fa">مرحله، ساده تا حرفه‌ای</div></div>
+    <div class="kbox"><div class="v" data-only="en">3</div><div class="v" data-only="fa">۳</div><div class="l" data-only="en">Core rules: their life · the past · listen</div><div class="l" data-only="fa">قانونِ اصلی: زندگی‌شان · گذشته · گوش‌دادن</div></div>`,
+
+  mapcallout:`      <b data-only="en">Read it as a flow:</b><b data-only="fa">به‌صورتِ یک جریان بخوانش:</b>
+      <span data-only="en"> learn the <b>three rules</b>, ask <b>good questions</b> (dodge compliments, fluff, and pitching), <b>dig</b> for real problems and real spending, read <b>commitment</b> over kind words, and <b>run the process</b> — casual, framed, well-noted.</span>
+      <span data-only="fa"> <b>سه قانون</b> را یاد بگیر، <b>سؤالِ خوب</b> بپرس (از تعریف و حرفِ هوایی و فروختن دوری کن)، برای مشکلِ واقعی و خرجِ واقعی <b>کندوکاو</b> کن، <b>تعهد</b> را بالاتر از حرفِ محبت‌آمیز بخوان، و <b>فرایند را اجرا کن</b> — خودمانی، قاب‌گرفته، خوب‌یادداشت‌شده.</span>`,
+
+  methodFa:"<p><b>منبع:</b> کتابِ «The Mom Test» (تِستِ مامان) نوشتهٔ راب فیتزپاتریک، چاپِ ۲۰۱۳.</p><p><b>روشِ کار:</b> ساختارِ پنج‌بخشی و قانون‌ها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده؛ نقل‌قول‌ها با متنِ کتاب و گودریدز مقابله و ویدیوها بررسی شده‌اند.</p><p><b>پنج مرحله:</b> بر اساسِ یک نردبانِ سادگی از ۱ تا ۵ چیده شده — یک محتوا در پنج عمقِ مختلف، از خیلی ساده تا حرفه‌ای.</p><p><b>گروه:</b> «نرخِ موفقیتِ محصول».</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای متنِ کامل، خودِ کتاب را بخوان.</p>",
+  methodEn:"<p><b>Source:</b> the book <i>The Mom Test</i> by Rob Fitzpatrick, first published 2013.</p><p><b>How this was built:</b> the five-part structure and rules were gathered and rewritten from the book and reputable sources; quotes were cross-checked against the book and Goodreads, and the linked videos verified.</p><p><b>Five stages:</b> arranged on a simplicity ladder from 1 to 5 — one set of ideas at five depths, from over-simplified to expert.</p><p><b>Group:</b> Product Success Rate.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>",
+
+  data:{
+    tldr:[
+      {en:"The whole book in one line: stop asking people about your idea, and start asking about their life.",
+       fa:"خلاصهٔ کل کتاب در یک جمله: دست از پرسیدن دربارهٔ ایده‌ات بردار، و شروع کن به پرسیدن دربارهٔ زندگیِ آدم‌ها."},
+      {en:"The three rules: talk about <b>their life</b>, ask about <b>the past</b>, and <b>listen</b> more than you talk.",
+       fa:"سه قانون: دربارهٔ <b>زندگی‌شان</b> حرف بزن، از <b>گذشته</b> بپرس، و بیشتر از آنکه حرف بزنی <b>گوش بده</b>."},
+      {en:"Dodge <b>compliments, fluff, and pitching</b> — they hand you false positives that feel like success.",
+       fa:"از <b>تعریف، حرفِ هوایی، و فروختن</b> دوری کن — این‌ها جوابِ خوبِ دروغین به تو می‌دهند که حسِ موفقیت دارد."},
+      {en:"Dig for <b>real problems</b>: what they've done, how they cope now, and what they already pay.",
+       fa:"دنبالِ <b>مشکلِ واقعی</b> بگرد: چه کرده‌اند، الان چطور کنار می‌آیند، و همین‌حالا چقدر پول می‌دهند."},
+      {en:"Trust <b>commitment</b>, not compliments — time, money, or reputation — and push every meeting to advance.",
+       fa:"به <b>تعهد</b> اعتماد کن، نه تعریف — وقت، پول، یا آبرو — و هر جلسه را به جلو هُل بده."}
+    ],
+    parts:[
+      { key:'rules', varc:'--c-teal', name:{en:'The Three Rules', fa:'سه قانون'}, tag:{en:'The foundation', fa:'پایه'},
+        gist:{en:'Talk about their life, ask about the past, and listen more than you talk.', fa:'دربارهٔ زندگی‌شان حرف بزن، از گذشته بپرس، و بیشتر از آنکه حرف بزنی گوش بده.'},
+        more:{en:"These three rules are the whole method in miniature. Follow them and people can't lie to you — not because they're suddenly honest, but because you've stopped asking questions that beg for flattery.",
+              fa:"این سه قانون، کلِ روش‌اند در ابعادِ کوچک. رعایتشان کن، آن‌وقت آدم‌ها نمی‌توانند بهت دروغ بگویند — نه چون یک‌دفعه راست‌گو شده‌اند، بلکه چون تو دیگر سؤالی نمی‌پرسی که تعارف را دعوت کند."},
+        chapters:['theirlife','pastspecifics','listenmore'] },
+      { key:'questions', varc:'--c-blue', name:{en:'Good vs Bad Questions', fa:'سؤالِ خوب و بد'}, tag:{en:'What to ask', fa:'چه بپرسی'},
+        gist:{en:'Dodge compliments, fluff, and pitching — the three sources of false positives.', fa:'از تعریف، حرفِ هوایی، و فروختن دوری کن — سه سرچشمهٔ جوابِ خوبِ دروغین.'},
+        more:{en:"Bad questions practically beg for reassuring lies. Compliments, generic fluff, and your own pitching are what produce false positives — the cheerful yes that sends you off to build something nobody wants.",
+              fa:"سؤالِ بد عملاً التماسِ دروغِ دلگرم‌کننده می‌کند. تعریف، حرفِ هواییِ کلی، و فروختنِ خودت، همان‌هایی‌اند که جوابِ خوبِ دروغین می‌سازند — همان «آره»ِ شادی که می‌فرستدت چیزی بسازی که کسی نمی‌خواهد."},
+        chapters:['nocompliments','nofluff','nopitch'] },
+      { key:'digging', varc:'--c-amber', name:{en:'Digging for the Truth', fa:'کندوکاو برای حقیقت'}, tag:{en:'Go deeper', fa:'عمیق‌تر شو'},
+        gist:{en:'Find the real problem, their past behavior, their current fix, and what they pay.', fa:'مشکلِ واقعی، رفتارِ گذشته، راه‌حلِ فعلی، و چیزی که پول می‌دهند را پیدا کن.'},
+        more:{en:"Once the conversation is honest, dig. A real problem shows up in what people have already done and already paid to solve it. Understand their current workaround and their budget, and you'll know whether a business is even possible.",
+              fa:"وقتی گفت‌وگو صادقانه شد، بکَن. مشکلِ واقعی خودش را در کاری که آدم‌ها قبلاً کرده‌اند و پولی که قبلاً برایش داده‌اند نشان می‌دهد. راه‌حلِ فعلی و بودجه‌شان را بفهم، آن‌وقت می‌فهمی اصلاً کسب‌وکاری ممکن هست یا نه."},
+        chapters:['realproblem','pastbehavior','currentfix','whatpay'] },
+      { key:'commitment', varc:'--c-violet', name:{en:'Commitment & Advancement', fa:'تعهد و پیشروی'}, tag:{en:'Read the signal', fa:'نشانه را بخوان'},
+        gist:{en:'Words are cheap; trust commitment of time, money, or reputation.', fa:'حرف ارزان است؛ به تعهدِ وقت و پول و آبرو اعتماد کن.'},
+        more:{en:"This is where you tell real from polite. Customers lie with compliments, so measure interest by what they give up — time, money, or reputation — and by whether each meeting advances to a real next step.",
+              fa:"این‌جا همان‌جایی است که واقعی را از تعارف جدا می‌کنی. مشتری‌ها با تعریف دروغ می‌گویند، پس علاقه را با چیزی که از دست می‌دهند بسنج — وقت، پول، یا آبرو — و با اینکه هر جلسه به یک قدمِ بعدیِ واقعی پیش می‌رود یا نه."},
+        chapters:['complimenttrap','currencies','advancement'] },
+      { key:'process', varc:'--c-green', name:{en:'Running the Process', fa:'اجرای فرایند'}, tag:{en:'Make it work', fa:'عملی‌اش کن'},
+        gist:{en:'Keep it casual, frame it well, find the right people, take notes, and segment.', fa:'خودمانی نگهش دار، خوب قابش بگیر، آدمِ درست را پیدا کن، یادداشت بردار، و بخش‌بندی کن.'},
+        more:{en:"Good questions still need a good process around them. Keep conversations casual, frame the serious ones, spend your time on the right people, take honest notes, and segment your market so the lessons actually add up.",
+              fa:"سؤالِ خوب بازهم به یک فرایندِ خوب دورِ خودش نیاز دارد. گفت‌وگوها را خودمانی نگه دار، جدی‌ها را قاب بگیر، وقتت را روی آدم‌های درست بگذار، صادقانه یادداشت بردار، و بازارت را بخش‌بندی کن تا درس‌ها واقعاً روی‌هم جمع شوند."},
+        chapters:['keepcasual','framemeeting','notessegment'] }
+    ],
+    chapters:{
+      theirlife:{ part:'rules', n:1, name:{en:'Talk About Their Life', fa:'دربارهٔ زندگی‌شان حرف بزن'}, glabel:{en:'Their life', fa:'زندگی‌شان'},
+        principle:{en:"Talk about their life, not your idea. Their problems, routines and goals are facts; your idea is just a hypothesis they'll be too polite to attack.", fa:"دربارهٔ زندگی‌شان حرف بزن، نه ایده‌ات. مشکل‌ها و کارهای روزمره و هدف‌هایشان واقعیت‌اند؛ ایدهٔ تو فقط یک حدس است که آن‌قدر مؤدب‌اند که زیرِ سؤال نبرندش."},
+        more:{en:"The moment you mention your idea, people start protecting your feelings. Keep the spotlight on how they actually live and work, and the truth comes out on its own — no selling required.", fa:"همین که پای ایده‌ات را وسط بکشی، طرف شروع می‌کند به مراعاتِ دلِ تو. نورافکن را روی این بگذار که واقعاً چطور زندگی و کار می‌کنند، آن‌وقت حقیقت خودش بیرون می‌زند — بدونِ هیچ فروشی."},
+        example:{en:"Instead of “Would you use an app that does X?”, ask “Walk me through how you handle X today.”", fa:"به‌جای «از اپی که کارِ ایکس را انجام بدهد استفاده می‌کنی؟»، بپرس «بگو ببینم الان کارِ ایکس را چطور انجام می‌دهی.»"},
+        tip:{en:"Prepare three questions about your customer's life that you're a little scared to hear the answers to.", fa:"سه تا سؤال دربارهٔ زندگیِ مشتری آماده کن که یه‌کم از شنیدنِ جوابشان می‌ترسی."},
+        pitfall:{en:"Steering every conversation back to your idea instead of their world.", fa:"برگرداندنِ هر گفت‌وگو به ایدهٔ خودت، به‌جای دنیای آن‌ها."} },
+      pastspecifics:{ part:'rules', n:2, name:{en:'Specifics in the Past', fa:'جزئیاتِ گذشته'}, glabel:{en:'The past', fa:'گذشته'},
+        principle:{en:"Ask about specifics in the past, not opinions about the future. What people did last week is data; what they say they'll do is a fantasy.", fa:"دربارهٔ جزئیاتِ گذشته بپرس، نه نظر دربارهٔ آینده. کاری که آدم‌ها هفتهٔ پیش کردند داده است؛ کاری که می‌گویند بعداً می‌کنند خیال است."},
+        more:{en:"People are terrible at predicting their own behavior and generous with hypotheticals. Anchor every question to a real, concrete moment that already happened, and you get answers you can trust.", fa:"آدم‌ها در پیش‌بینیِ رفتارِ خودشان افتضاح‌اند و در «اگر» و «شاید» دست‌ودل‌باز. هر سؤال را به یک لحظهٔ واقعی و مشخص که قبلاً اتفاق افتاده گره بزن، آن‌وقت جوابی می‌گیری که می‌شود بهش تکیه کرد."},
+        example:{en:"Not “Would you pay for this?” but “When did you last pay to solve this, and how much?”", fa:"نه «حاضری پولش را بدهی؟» بلکه «آخرین بار کِی برای حلِ این پول دادی، و چقدر؟»"},
+        tip:{en:"Whenever you hear a “would” or a “generally”, pull it back to “tell me about the last time”.", fa:"هر جا یک «می‌کنم» یا «معمولاً» شنیدی، برش گردان به «از آخرین باری که این کار را کردی بگو»."},
+        pitfall:{en:"Accepting cheap promises about a hypothetical future purchase.", fa:"قبول‌کردنِ قول‌های ارزان دربارهٔ یک خریدِ فرضی در آینده."} },
+      listenmore:{ part:'rules', n:3, name:{en:'Talk Less, Listen More', fa:'کمتر حرف بزن، بیشتر گوش بده'}, glabel:{en:'Listen more', fa:'گوش بده'},
+        principle:{en:"Talk less and listen more. The more you talk, the less you learn — and the more you bias the very answers you came to find.", fa:"کمتر حرف بزن و بیشتر گوش بده. هرچه بیشتر حرف بزنی، کمتر یاد می‌گیری — و بیشتر همان جواب‌هایی را که آمده‌ای پیدا کنی، خراب می‌کنی."},
+        more:{en:"You're there to learn, not to be right. Ask a short question, then stay quiet long enough for them to fill the silence with something real.", fa:"آمده‌ای یاد بگیری، نه اینکه حق با تو باشد. یک سؤالِ کوتاه بپرس، بعد آن‌قدر ساکت بمان تا خودشان سکوت را با یک چیزِ واقعی پُر کنند."},
+        example:{en:"Aim to speak far less than the other person; if you're doing most of the talking, you're pitching, not learning.", fa:"سعی کن خیلی کمتر از طرفِ مقابل حرف بزنی؛ اگر بیشترِ حرف‌ها را تو می‌زنی، داری می‌فروشی، نه یاد می‌گیری."},
+        tip:{en:"After each answer, count to three before you say anything; let them keep going.", fa:"بعد از هر جواب، تا سه بشمار و بعد حرف بزن؛ بگذار ادامه بدهند."},
+        pitfall:{en:"Filling every pause and talking over the very insight you needed.", fa:"پُرکردنِ هر مکث و حرف‌زدن روی همان نکته‌ای که لازمش داشتی."} },
+      nocompliments:{ part:'questions', n:4, name:{en:'Deflect Compliments', fa:'تعریف را رد کن'}, glabel:{en:'No compliments', fa:'نه به تعریف'},
+        principle:{en:"Compliments are worthless — and dangerous. “I love it” and “great idea” feel like progress but teach you nothing; deflect them and get back to facts.", fa:"تعریف و تمجید بی‌ارزش است — و خطرناک. «عاشقشم» و «چه ایدهٔ خوبی» حسِ پیشرفت می‌دهند ولی هیچ چیزی یادت نمی‌دهند؛ ردشان کن و برگرد سراغِ واقعیت."},
+        more:{en:"Compliments are the fool's gold of customer conversations: shiny, satisfying, and worth nothing. When someone praises the idea, don't celebrate — steer straight back to their life and their last real action.", fa:"تعریف، طلای قلابیِ گفت‌وگو با مشتری است: برق می‌زند، حالت را خوب می‌کند، و هیچ نمی‌ارزد. وقتی کسی از ایده تعریف کرد، ذوق نکن — یک‌راست برگرد به زندگی‌شان و آخرین کارِ واقعی‌شان."},
+        example:{en:"They say “Cool idea!” You reply, “Thanks — but have you ever actually needed something like this? When?”", fa:"می‌گویند «چه ایدهٔ باحالی!» تو جواب می‌دهی «مرسی — ولی تا حالا واقعاً همچین چیزی لازمت شده؟ کِی؟»"},
+        tip:{en:"Treat every compliment as a warning light that the conversation just went off track.", fa:"هر تعریف را مثلِ یک چراغِ خطر بگیر که یعنی گفت‌وگو همین‌الان از ریل خارج شد."},
+        pitfall:{en:"Walking away happy because everyone said they loved it.", fa:"با خوشحالی برگشتن چون همه گفتند عاشقش شدند."} },
+      nofluff:{ part:'questions', n:5, name:{en:'Cut Through Fluff', fa:'حرفِ هوایی را بشکاف'}, glabel:{en:'No fluff', fa:'نه به حرفِ هوایی'},
+        principle:{en:"Anchor fluff — generic and hypothetical claims like “I would” or “I always” — down to real, specific stories.", fa:"حرف‌های کلی و هوایی را — ادعاهای فرضی مثلِ «حتماً می‌کنم» یا «همیشه» — بیاور روی زمین و به داستان‌های واقعی و مشخص وصلشان کن."},
+        more:{en:"Fluff comes in three flavors: generic claims, future promises, and hypothetical maybes. None of them are commitments or facts. Each time you hear fluff, redirect to a concrete past example.", fa:"حرفِ هوایی سه مدل است: ادعای کلی، قولِ آینده، و «شاید»ِ فرضی. هیچ‌کدام نه تعهدند نه واقعیت. هر بار حرفِ هوایی شنیدی، بِکِشش سمتِ یک مثالِ مشخص از گذشته."},
+        example:{en:"“I usually buy healthy food” means little; “What did you buy on your last shop?” gets the truth.", fa:"«معمولاً غذای سالم می‌خرم» چیزِ زیادی نمی‌گوید؛ «خریدِ دفعهٔ قبلت چی بود؟» حقیقت را بیرون می‌کشد."},
+        tip:{en:"When you catch a generic “always” or “usually”, ask for the last specific instance.", fa:"تا یک «همیشه» یا «معمولاً»ِ کلی گرفتی، آخرین موردِ مشخصش را بخواه."},
+        pitfall:{en:"Writing down opinions and generalities as if they were evidence.", fa:"یادداشت‌کردنِ نظرها و کلی‌گویی‌ها انگار که مدرک‌اند."} },
+      nopitch:{ part:'questions', n:6, name:{en:'Stop Pitching', fa:'دست از فروختن بردار'}, glabel:{en:'Don\'t pitch', fa:'نفروش'},
+        principle:{en:"You're not there to pitch. The moment you start selling, you stop learning — and they start being polite.", fa:"نیامده‌ای ایده‌ات را بفروشی. همین که شروع کنی به فروختن، دیگر یاد نمی‌گیری — و طرف هم شروع می‌کند به تعارف."},
+        more:{en:"It's tempting to explain how brilliant your solution is, but every minute you pitch is a minute you don't learn. Keep your idea in your pocket until the very end — if at all.", fa:"وسوسه‌کننده است که توضیح بدهی راه‌حلت چقدر درخشان است، ولی هر دقیقه که بفروشی، یک دقیقه یاد نمی‌گیری. ایده‌ات را تا همان آخرِ آخر — اگر اصلاً — توی جیبت نگه دار."},
+        example:{en:"If you feel the urge to say “what we're building is…”, bite your tongue and ask another question about them.", fa:"اگر حس کردی می‌خواهی بگویی «چیزی که داریم می‌سازیم…»، زبانت را گاز بگیر و یک سؤالِ دیگر دربارهٔ خودشان بپرس."},
+        tip:{en:"Ban the words “so, what I'm doing is…” from the first two-thirds of every chat.", fa:"کلماتِ «راستش کاری که دارم می‌کنم…» را از دوسومِ اولِ هر گفت‌وگو ممنوع کن."},
+        pitfall:{en:"Turning a learning conversation into a sales demo.", fa:"تبدیل‌کردنِ یک گفت‌وگوی یادگیری به یک نمایشِ فروش."} },
+      realproblem:{ part:'digging', n:7, name:{en:'Find the Real Problem', fa:'مشکلِ واقعی را پیدا کن'}, glabel:{en:'Real problem', fa:'مشکلِ واقعی'},
+        principle:{en:"Dig until you hit a real, painful problem — not the one that's convenient for your idea. If there's no real problem, there's no business.", fa:"آن‌قدر بکَن تا به یک مشکلِ واقعی و دردناک برسی — نه مشکلی که به‌دردِ ایده‌ات می‌خورد. اگر مشکلِ واقعی‌ای نباشد، کسب‌وکاری هم نیست."},
+        more:{en:"People will describe annoyances they'd never pay to fix. Your job is to tell a real problem from a mild preference by how much it actually costs them — in time, money, or frustration.", fa:"آدم‌ها از دردسرهایی می‌گویند که هیچ‌وقت برای حلشان پول نمی‌دهند. کارِ تو این است که مشکلِ واقعی را از یک سلیقهٔ کم‌رنگ تشخیص بدهی — از رویِ اینکه واقعاً چقدر برایشان خرج برمی‌دارد: وقت، پول، یا حرص‌خوردن."},
+        example:{en:"Ask “What are the implications of that?” to see whether the problem is a real headache or a small nuisance.", fa:"بپرس «خب این چه دردسری برایت درست می‌کند؟» تا ببینی مشکل یک سردردِ جدی است یا یک مزاحمتِ کوچک."},
+        tip:{en:"For each problem, ask what it costs them today; if the answer is “nothing much”, move on.", fa:"برای هر مشکل بپرس الان چقدر برایشان آب می‌خورد؛ اگر جواب «چیزِ خاصی نه» بود، ردش کن و برو جلو."},
+        pitfall:{en:"Hearing the problem you hoped for instead of the one they actually have.", fa:"شنیدنِ همان مشکلی که آرزویش را داشتی، به‌جای مشکلی که واقعاً دارند."} },
+      pastbehavior:{ part:'digging', n:8, name:{en:'Ask About Past Behavior', fa:'از رفتارِ گذشته بپرس'}, glabel:{en:'Past behavior', fa:'رفتارِ گذشته'},
+        principle:{en:"Real behavior beats stated intention. Find out what they've actually done about the problem, not what they imagine they might do.", fa:"رفتارِ واقعی از نیّتِ اعلام‌شده مهم‌تر است. بفهم واقعاً تا حالا برای این مشکل چه کرده‌اند، نه اینکه فکر می‌کنند شاید چه کنند."},
+        more:{en:"Someone who has already searched for a fix, cobbled together a workaround, or complained to their boss has a real problem. Someone who has done nothing about it probably won't buy either.", fa:"کسی که قبلاً دنبالِ راه‌حل گشته، یک‌جوری خودش سرِهم‌بندی کرده، یا پیشِ رئیسش غر زده، مشکلش واقعی است. کسی که تا حالا هیچ کاری نکرده، احتمالاً بعداً هم نمی‌خرد."},
+        example:{en:"“What have you already tried to fix this?” tells you more than any rating out of ten.", fa:"«تا حالا چه‌کارهایی کرده‌ای که این را درست کنی؟» بیشتر از هر نمرهٔ ده‌دهی به تو می‌گوید."},
+        tip:{en:"Ask for the story of the last time they hit the problem, start to finish.", fa:"بخواه داستانِ آخرین باری که به این مشکل خوردند را از اول تا آخر تعریف کنند."},
+        pitfall:{en:"Trusting enthusiasm from someone who has never lifted a finger about it.", fa:"اعتماد به هیجانِ کسی که تا حالا برایش دست به سیاه و سفید نزده."} },
+      currentfix:{ part:'digging', n:9, name:{en:'How They Solve It Now', fa:'الان چطور حلش می‌کنند'}, glabel:{en:'Current fix', fa:'راه‌حلِ فعلی'},
+        principle:{en:"Whatever they use today is your real competitor — even if it's a spreadsheet, a workaround, or nothing at all.", fa:"هر چیزی که الان استفاده می‌کنند، رقیبِ واقعیِ توست — حتی اگر یک فایلِ اکسل باشد، یک ترفندِ دست‌ساز، یا اصلاً هیچ‌چیز."},
+        more:{en:"Understanding their current workaround shows you how much the problem really bothers them, what they already pay, and the bar your solution has to clear to be worth switching.", fa:"فهمیدنِ راه‌حلِ فعلی‌شان نشانت می‌دهد مشکل واقعاً چقدر اذیتشان می‌کند، الان چقدر خرج می‌کنند، و راه‌حلِ تو باید از چه خطی رد شود تا ارزشِ عوض‌کردن داشته باشد."},
+        example:{en:"“How do you deal with it now?” often reveals a messy process they'd love to escape.", fa:"«الان چطور از پسش برمی‌آیی؟» بیشترِ وقت‌ها یک روالِ به‌هم‌ریخته را لو می‌دهد که دلشان می‌خواهد از دستش خلاص شوند."},
+        tip:{en:"Map their current workflow step by step, including the tools and the cost.", fa:"روالِ فعلی‌شان را قدم‌به‌قدم بکِش، همراهِ ابزارها و هزینه‌اش."},
+        pitfall:{en:"Assuming “nothing” means there's room — often it means they don't care.", fa:"فکرکردن به اینکه «هیچ‌کاری» یعنی جا هست — اغلب یعنی برایشان مهم نیست."} },
+      whatpay:{ part:'digging', n:10, name:{en:'What They Pay', fa:'چقدر پول می‌دهند'}, glabel:{en:'What they pay', fa:'چه پولی می‌دهند'},
+        principle:{en:"Follow the money. What people already spend — in cash, time, or workarounds — is the truest measure of how much a problem matters.", fa:"دنبالِ پول را بگیر. چیزی که آدم‌ها همین‌الان خرج می‌کنند — پول، وقت، یا ترفندهای دست‌ساز — راست‌ترین معیارِ این است که یک مشکل چقدر برایشان مهم است."},
+        more:{en:"A budget that already exists is a problem worth solving. If nobody currently pays anything — with money or effort — you'll have to create the pain and the budget from scratch, which is far harder.", fa:"بودجه‌ای که همین‌حالا وجود دارد، یعنی مشکل ارزشِ حل‌شدن دارد. اگر هیچ‌کس الان چیزی خرج نمی‌کند — نه پول نه انرژی — باید هم درد و هم بودجه را از صفر بسازی، که خیلی سخت‌تر است."},
+        example:{en:"“Where does the budget for this come from today?” separates a real market from a nice-to-have.", fa:"«الان پولِ این کار از کجا می‌آید؟» بازارِ واقعی را از یک «خوب است باشد» جدا می‌کند."},
+        tip:{en:"Ask who owns the budget and what they've paid for a fix before.", fa:"بپرس بودجه دستِ کیست و قبلاً برای حلش چقدر پول داده‌اند."},
+        pitfall:{en:"Believing “I'd pay for that” from someone who pays for nothing like it.", fa:"باورکردنِ «پولش را می‌دهم» از کسی که برای هیچ‌چیزِ شبیهش پول نمی‌دهد."} },
+      complimenttrap:{ part:'commitment', n:11, name:{en:'The Compliment Trap', fa:'تلهٔ تعریف'}, glabel:{en:'Compliment trap', fa:'تلهٔ تعریف'},
+        principle:{en:"Customers lie with kindness. A warm, encouraging meeting that ends in compliments and no commitment is a polite rejection in disguise.", fa:"مشتری‌ها با مهربانی دروغ می‌گویند. یک جلسهٔ گرم و دلگرم‌کننده که با تعریف تمام می‌شود و هیچ تعهدی ندارد، یک ردکردنِ مؤدبانه است که لباسِ تأیید پوشیده."},
+        more:{en:"It's not malice — people just don't want to hurt you. That's why you can't trust words alone: a warm yes with nothing behind it is worse than a clear no, because it feels like success.", fa:"بدجنسی نیست — آدم‌ها فقط نمی‌خواهند دلت را بشکنند. برای همین نمی‌شود فقط به حرف‌ها اعتماد کرد: یک «آره»ِ گرم که هیچ‌چیز پشتش نیست، از یک «نه»ِ روشن بدتر است، چون حسِ موفقیت می‌دهد."},
+        example:{en:"A meeting that ends with “keep me posted!” and nothing else has actually failed.", fa:"جلسه‌ای که با «خبرش را بهم بده!» تمام می‌شود و هیچِ دیگر، در واقع شکست خورده."},
+        tip:{en:"Judge meetings by what they gave up, not by how nice they were.", fa:"جلسه‌ها را با چیزی که از دست دادند بسنج، نه با اینکه چقدر خوش‌برخورد بودند."},
+        pitfall:{en:"Mistaking politeness and warmth for genuine demand.", fa:"اشتباه‌گرفتنِ ادب و گرمی با تقاضای واقعی."} },
+      currencies:{ part:'commitment', n:12, name:{en:'Time, Money, Reputation', fa:'وقت، پول، آبرو'}, glabel:{en:'Commitment', fa:'تعهد'},
+        principle:{en:"Real interest shows up as commitment — giving up something they value: time, money, or reputation.", fa:"علاقهٔ واقعی خودش را به‌شکلِ تعهد نشان می‌دهد — یعنی از دست‌دادنِ چیزی که برایشان ارزش دارد: وقت، پول، یا آبرو."},
+        more:{en:"Words are cheap; currencies are not. A real prospect gives you meaningful time (a long meeting, a trial), money (a deposit, a pre-order), or reputation (introductions to their boss or peers).", fa:"حرف ارزان است؛ این سه‌تا نه. یک مشتریِ واقعی به تو وقتِ باارزش می‌دهد (یک جلسهٔ طولانی، یک تست)، پول (بیعانه، پیش‌خرید)، یا آبرو (معرفی به رئیس یا هم‌کارهایش)."},
+        example:{en:"A signed letter of intent or a paid pre-order beats a hundred warm compliments.", fa:"یک تعهدنامهٔ امضاشده یا یک پیش‌خریدِ پولی، از صد تا تعریفِ گرم بهتر است."},
+        tip:{en:"End meetings by asking for a concrete next step that costs them something.", fa:"جلسه‌ها را با درخواستِ یک قدمِ بعدیِ مشخص تمام کن که برایشان خرج داشته باشد."},
+        pitfall:{en:"Collecting friendly nods instead of time, money, or reputation.", fa:"جمع‌کردنِ سرتکان‌دادن‌های دوستانه به‌جای وقت و پول و آبرو."} },
+      advancement:{ part:'commitment', n:13, name:{en:'Push for Advancement', fa:'برای پیشروی هُل بده'}, glabel:{en:'Advancement', fa:'پیشروی'},
+        principle:{en:"Every meeting should either advance to a real next step or reveal that this isn't a customer. No advancement is a no.", fa:"هر جلسه یا باید به یک قدمِ بعدیِ واقعی پیش برود، یا معلوم کند که این آدم اصلاً مشتری نیست. پیش‌نرفتن یعنی نه."},
+        more:{en:"A good conversation moves the relationship forward: a next meeting on the calendar, access to a decision-maker, a trial start date. If nothing advances, you've learned it isn't real — which is still useful.", fa:"یک گفت‌وگوی خوب رابطه را جلو می‌برد: یک جلسهٔ بعدی که توی تقویم می‌نشیند، دسترسی به تصمیم‌گیرنده، تاریخِ شروعِ یک تست. اگر هیچ‌چیز جلو نرفت، فهمیده‌ای که واقعی نیست — که خودش بازهم به‌درد می‌خورد."},
+        example:{en:"“What are the next steps?” — if there aren't any real ones, that's your answer.", fa:"«خب قدم‌های بعدی چی‌اند؟» — اگر هیچ قدمِ واقعی‌ای نبود، همان جوابت است."},
+        tip:{en:"Plan the specific ask you'll make before you walk into the room.", fa:"قبل از اینکه پا به جلسه بگذاری، همان درخواستِ مشخصی را که می‌خواهی بکنی از قبل تعیین کن."},
+        pitfall:{en:"Letting warm meetings end with no ask and no next step.", fa:"گذاشتن جلسه‌های گرم بی‌درخواست و بی‌قدمِ بعدی تمام شوند."} },
+      keepcasual:{ part:'process', n:14, name:{en:'Keep It Casual', fa:'خودمانی نگهش دار'}, glabel:{en:'Keep it casual', fa:'خودمانی باش'},
+        principle:{en:"The best customer conversations don't feel like meetings. Keep them short, casual, and unofficial to get honest answers.", fa:"بهترین گفت‌وگوها با مشتری اصلاً حسِ جلسه نمی‌دهند. کوتاه، خودمانی و غیررسمی نگهشان دار تا جوابِ صادقانه بگیری."},
+        more:{en:"Formality makes people cautious and polite. A five-minute chat over coffee — no slides, no agenda — often teaches you more than a scheduled hour, because nobody's performing.", fa:"رسمی‌بودن آدم‌ها را محتاط و مؤدب می‌کند. یک گپِ پنج‌دقیقه‌ایِ سرِ قهوه — بی‌اسلاید و بی‌دستورجلسه — بیشتر از یک ساعتِ برنامه‌ریزی‌شده یادت می‌دهد، چون کسی نقش بازی نمی‌کند."},
+        example:{en:"“Can I ask you about that for a minute?” beats “Can we schedule a user interview?”", fa:"«می‌تونم یه دقیقه دربارهٔ اون ازت بپرسم؟» از «می‌تونیم یه جلسهٔ مصاحبهٔ کاربری بذاریم؟» بهتر است."},
+        tip:{en:"Drop the word “meeting”; just ask your question where they already are.", fa:"کلمهٔ «جلسه» را بینداز دور؛ همان‌جا که هستند سؤالت را بپرس."},
+        pitfall:{en:"Making it so formal that people slip into polite, useless mode.", fa:"آن‌قدر رسمی‌اش کنی که آدم‌ها بروند توی حالتِ مؤدب و بی‌فایده."} },
+      framemeeting:{ part:'process', n:15, name:{en:'Frame It, Find the Right People', fa:'قابش بگیر، آدمِ درست را پیدا کن'}, glabel:{en:'Frame & find', fa:'قاب و آدمِ درست'},
+        principle:{en:"When you do need a real meeting, frame it well and talk to the right people — vision, framing, weakness, pedestal, ask.", fa:"وقتی واقعاً به یک جلسهٔ جدی نیاز داری، خوب قابش بگیر و با آدم‌های درست حرف بزن — چشم‌انداز، چارچوب، ضعف، جایگاه، درخواست."},
+        more:{en:"Set expectations up front: why you're there, that you're early and need help, and what you're asking for. And spend your energy on the people who actually have the problem, not whoever is easiest to reach.", fa:"از همان اول انتظارها را روشن کن: چرا آنجایی، اینکه اولِ کاری و به کمک نیاز داری، و دقیقاً چه می‌خواهی. و انرژی‌ات را بگذار روی آدم‌هایی که واقعاً مشکل را دارند، نه هرکسی که دم‌دست‌تر است."},
+        example:{en:"A warm intro to the right buyer beats ten easy chats with people who'll never pay.", fa:"یک معرفیِ گرم به خریدارِ درست، از ده تا گپِ راحت با آدم‌هایی که هیچ‌وقت پول نمی‌دهند بهتر است."},
+        tip:{en:"Prepare a one-line frame: who you are, why now, and the single thing you want.", fa:"یک قابِ یک‌خطی آماده کن: کی هستی، چرا حالا، و همان یک چیزی که می‌خواهی."},
+        pitfall:{en:"Talking to whoever's easy instead of whoever has the problem.", fa:"حرف‌زدن با هرکسی که در دسترس است، به‌جای کسی که مشکل را دارد."} },
+      notessegment:{ part:'process', n:16, name:{en:'Take Notes & Segment', fa:'یادداشت بردار و بخش‌بندی کن'}, glabel:{en:'Notes & segments', fa:'یادداشت و بخش‌بندی'},
+        principle:{en:"Write down what they said in their own words, and slice your market into specific segments so you know who you're really learning from.", fa:"همان چیزی را که گفتند با کلماتِ خودشان یادداشت کن، و بازارت را به بخش‌های مشخص تکه‌تکه کن تا بدانی واقعاً از کی داری یاد می‌گیری."},
+        more:{en:"Good notes — exact quotes, facts, and commitments — keep your team honest and let you spot patterns across conversations. Segmenting stops you from blending very different customers into a meaningless average.", fa:"یادداشتِ خوب — نقلِ‌قولِ دقیق، واقعیت‌ها، و تعهدها — تیمت را روراست نگه می‌دارد و می‌گذارد الگوها را در گفت‌وگوهای مختلف ببینی. بخش‌بندی هم جلویت را می‌گیرد که مشتری‌های خیلی متفاوت را در یک میانگینِ بی‌معنا قاطیِ هم نکنی."},
+        example:{en:"Instead of “young people”, narrow to “final-year students job-hunting this spring”.", fa:"به‌جای «جوان‌ها»، بِبَرش روی «دانشجوهای سالِ آخر که همین بهار دنبالِ کارند»."},
+        tip:{en:"Capture verbatim quotes and every commitment right after each chat.", fa:"درست بعد از هر گفت‌وگو، نقلِ‌قولِ دقیق و هر تعهدی را همان‌جا ثبت کن."},
+        pitfall:{en:"Vague memories and a market so broad it means nothing.", fa:"خاطره‌های مبهم و یک بازارِ آن‌قدر بزرگ که هیچ معنایی ندارد."} }
+    },
+    core:{ name:{en:'GOOD QUESTIONS', fa:'سؤالِ خوب'},
+      principle:{en:"The Mom Test is a set of rules for asking questions so good that even your mom can't lie to you — because you stop pitching your idea and start asking about her life. Good questions can't be answered wrong.", fa:"تِستِ مامان مجموعه‌ای از قانون‌هاست برای پرسیدنِ سؤالی آن‌قدر خوب که حتی مامانت هم نتواند بهت دروغ بگوید — چون دست از فروختنِ ایده‌ات برمی‌داری و شروع می‌کنی به پرسیدن دربارهٔ زندگیِ خودش. سؤالِ خوب را نمی‌شود اشتباه جواب داد."},
+      more:{en:"Fitzpatrick's insight is that bad data comes from bad questions, and it's your fault, not the customer's. Talk about their life, ask about the past, and listen; dodge compliments, fluff, and pitching; dig for real problems and real spending; and trust commitment over kind words.", fa:"حرفِ اصلیِ فیتزپاتریک این است که دادهٔ بد از سؤالِ بد می‌آید، و تقصیرِ توست، نه مشتری. دربارهٔ زندگی‌شان حرف بزن، از گذشته بپرس، و گوش بده؛ از تعریف و حرفِ هوایی و فروختن دوری کن؛ دنبالِ مشکلِ واقعی و خرجِ واقعی بگرد؛ و به تعهد بیشتر از حرفِ محبت‌آمیز اعتماد کن."},
+      example:{en:"Click any node to open a rule. You can also drag the nodes around.", fa:"روی هر دایره کلیک کن تا یک قانون باز شود. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."} },
+    stages:[
+      { level:1, badge:{en:'Level 1 · Over-simplified', fa:'سطحِ ۱ · خیلی ساده'}, title:{en:'Stop pitching', fa:'دست از فروختن بردار'}, tagline:{en:'The whole book in a sentence.', fa:'کلِ کتاب در یک جمله.'},
+        body:{en:"Don't ask people what they think of your idea — they'll lie to be nice. Ask about their own life and what they already do. Their behavior is the truth; their opinion of your idea is just politeness.", fa:"از آدم‌ها نپرس نظرشان دربارهٔ ایده‌ات چیست — از سرِ خوش‌رفتاری دروغ می‌گویند. از خودِ زندگی‌شان بپرس و از کارهایی که همین‌حالا می‌کنند. رفتارشان حقیقت است؛ نظرشان دربارهٔ ایدهٔ تو فقط تعارف است."},
+        example:{en:"Instead of “Do you like my app?”, ask “How do you do this today?”", fa:"به‌جای «اپم را دوست داری؟»، بپرس «الان این کار را چطور انجام می‌دهی؟»"},
+        gain:{en:"You stop fishing for compliments and start hearing the truth.", fa:"دست از تور انداختن برای تعریف برمی‌داری و شروع می‌کنی به شنیدنِ حقیقت."} },
+      { level:2, badge:{en:'Level 2 · Simple', fa:'سطحِ ۲ · ساده'}, title:{en:'The three rules', fa:'سه قانون'}, tagline:{en:'Their life, the past, and listening.', fa:'زندگی‌شان، گذشته، و گوش‌دادن.'},
+        body:{en:"Every good question follows three rules: talk about <b>their life</b>, not your idea; ask about <b>specifics in the past</b>, not opinions about the future; and <b>talk less, listen more</b>. Do this and you pass the Mom Test — even your mom couldn't lie.", fa:"هر سؤالِ خوب سه قانون دارد: دربارهٔ <b>زندگی‌شان</b> حرف بزن، نه ایده‌ات؛ از <b>جزئیاتِ گذشته</b> بپرس، نه نظر دربارهٔ آینده؛ و <b>کمتر حرف بزن، بیشتر گوش بده</b>. این‌طوری از تِستِ مامان سربلند بیرون می‌آیی — حتی مامانت هم نمی‌توانست دروغ بگوید."},
+        example:{en:"“When did you last run into this problem?” beats “Would you use a tool for this?”", fa:"«آخرین بار کِی به این مشکل خوردی؟» از «از ابزاری برای این کار استفاده می‌کنی؟» بهتر است."},
+        gain:{en:"You can turn any leading question into one that can't be answered wrong.", fa:"می‌توانی هر سؤالِ جهت‌دار را به سؤالی تبدیل کنی که نشود اشتباه جوابش داد."} },
+      { level:3, badge:{en:'Level 3 · Balanced', fa:'سطحِ ۳ · متعادل'}, title:{en:'Kill the false positives', fa:'جواب‌های خوبِ دروغین را بکُش'}, tagline:{en:'No compliments, fluff, or pitching.', fa:'نه تعریف، نه حرفِ هوایی، نه فروختن.'},
+        body:{en:"Now spot the traps. <b>Compliments</b> feel great and mean nothing. <b>Fluff</b> — “I always”, “I would”, “I might” — is generic and hypothetical. And your own <b>pitching</b> makes people polite. Deflect all three and anchor everything to concrete stories from the past.", fa:"حالا تله‌ها را بشناس. <b>تعریف</b> حالِ آدم را خوب می‌کند و هیچ معنایی ندارد. <b>حرفِ هوایی</b> — «همیشه»، «حتماً می‌کنم»، «شاید» — کلی و فرضی است. و <b>فروختنِ</b> خودت آدم‌ها را مؤدب می‌کند. هر سه را رد کن و همه‌چیز را به داستان‌های مشخص از گذشته گره بزن."},
+        example:{en:"They say “I'd totally buy that”; you ask “What do you use now, and what did it cost?”", fa:"می‌گویند «حتماً می‌خرمش»؛ تو می‌پرسی «الان از چی استفاده می‌کنی، و چقدر برایت آب خورد؟»"},
+        gain:{en:"You stop collecting cheerful lies that would waste months of building.", fa:"دست از جمع‌کردنِ دروغ‌های شاد برمی‌داری که ماه‌ها ساختن را هدر می‌دهند."} },
+      { level:4, badge:{en:'Level 4 · Advanced', fa:'سطحِ ۴ · پیشرفته'}, title:{en:'Dig and read commitment', fa:'بکَن و تعهد را بخوان'}, tagline:{en:'Real problems, real spending, real signals.', fa:'مشکلِ واقعی، خرجِ واقعی، نشانهٔ واقعی.'},
+        body:{en:"Go deeper. Find a <b>real problem</b> by asking what they've already done and already pay to solve it, and study their <b>current workaround</b>. Then read the true signal: customers lie with compliments, so trust <b>commitment</b> — time, money, or reputation — and make sure every meeting <b>advances</b>.", fa:"عمیق‌تر برو. <b>مشکلِ واقعی</b> را با پرسیدن از اینکه قبلاً چه کرده‌اند و چقدر برای حلش پول می‌دهند پیدا کن، و <b>راه‌حلِ فعلی‌شان</b> را وارسی کن. بعد نشانهٔ واقعی را بخوان: مشتری‌ها با تعریف دروغ می‌گویند، پس به <b>تعهد</b> اعتماد کن — وقت، پول، یا آبرو — و مطمئن شو هر جلسه <b>جلو می‌رود</b>."},
+        example:{en:"A paid pre-order or an intro to the boss beats a room full of “I love it”.", fa:"یک پیش‌خریدِ پولی یا یک معرفی به رئیس، از یک اتاقِ پُر از «عاشقشم» بهتر است."},
+        gain:{en:"You can separate a real customer from a friendly fan.", fa:"می‌توانی مشتریِ واقعی را از یک هوادارِ خوش‌برخورد جدا کنی."} },
+      { level:5, badge:{en:'Level 5 · Expert', fa:'سطحِ ۵ · حرفه‌ای'}, title:{en:'Run it as a system', fa:'مثلِ یک سیستم اجرایش کن'}, tagline:{en:'Casual, framed, well-noted, segmented.', fa:'خودمانی، قاب‌گرفته، خوب‌یادداشت‌شده، بخش‌بندی‌شده.'},
+        body:{en:"The expert turns good questions into a repeatable process. Keep conversations <b>casual</b>, <b>frame</b> the serious ones and pick the <b>right people</b>, take honest <b>notes</b> in their own words, and <b>segment</b> your market so lessons add up. Bad data comes from bad questions — and now it's your job, done well, every time.", fa:"آدمِ حرفه‌ای سؤالِ خوب را به یک فرایندِ تکرارشدنی تبدیل می‌کند. گفت‌وگوها را <b>خودمانی</b> نگه دار، جدی‌ها را <b>قاب</b> بگیر و <b>آدمِ درست</b> را انتخاب کن، صادقانه و با کلماتِ خودشان <b>یادداشت</b> بردار، و بازارت را <b>بخش‌بندی</b> کن تا درس‌ها روی‌هم جمع شوند. دادهٔ بد از سؤالِ بد می‌آید — و حالا این کارِ توست، که خوب انجامش بدهی، هر بار."},
+        example:{en:"You run five casual chats a week, log every commitment, and know exactly which segment is real.", fa:"هفته‌ای پنج گپِ خودمانی می‌کنی، هر تعهد را ثبت می‌کنی، و دقیقاً می‌دانی کدام بخش از بازار واقعی است."},
+        gain:{en:"You can validate an idea with conversations before writing a line of code.", fa:"می‌توانی یک ایده را با گفت‌وگو بسنجی، پیش از آنکه حتی یک خط کد بنویسی."} }
+    ],
+    quotes:[
+      {en:"The Mom Test: 1. Talk about their life instead of your idea. 2. Ask about specifics in the past instead of generics or opinions about the future. 3. Talk less and listen more.", fa:"تِستِ مامان: ۱. به‌جای ایده‌ات، دربارهٔ زندگی‌شان حرف بزن. ۲. به‌جای کلی‌گویی یا نظر دربارهٔ آینده، از جزئیاتِ گذشته بپرس. ۳. کمتر حرف بزن و بیشتر گوش بده."},
+      {en:"With the exception of industry experts who have built very similar businesses, opinions are worthless.", fa:"جز کارشناس‌های صنعتی که کسب‌وکارهای خیلی مشابه ساخته‌اند، بقیهٔ نظرها بی‌ارزش‌اند."},
+      {en:"You're searching for the truth, not trying to be right.", fa:"دنبالِ حقیقتی، نه اینکه بخواهی حق با تو باشد."},
+      {en:"Startups are about focusing and executing on a single, scalable idea rather than jumping on every good one which crosses your desk.", fa:"استارتاپ یعنی تمرکز و اجرا روی یک ایدهٔ واحد و مقیاس‌پذیر، نه پریدن روی هر ایدهٔ خوبی که از جلویت رد می‌شود."},
+      {en:"Rule of thumb: If you don't know what you're trying to learn, you shouldn't bother having the conversation.", fa:"یک قاعدهٔ سرانگشتی: اگر نمی‌دانی دنبالِ یادگرفتنِ چه چیزی هستی، اصلاً به خودت زحمتِ آن گفت‌وگو را نده."},
+      {en:"Taking good notes is the best way to keep your team (and investors and advisors) in the loop.", fa:"یادداشتِ خوب برداشتن، بهترین راه است برای اینکه تیمت (و سرمایه‌گذارها و مشاورها) را در جریان نگه داری."},
+      {en:"Warm intros are the goal.", fa:"معرفی‌های گرم، همان هدف‌اند."}
+    ],
+    media:[
+      { kind:'yt', id:'QIuEQo3WkP4', src:{en:'YouTube · VideoAsk', fa:'یوتیوب · VideoAsk'},
+        title:{en:'The Mom Test — Interactive Lecture with Rob Fitzpatrick', fa:'تِستِ مامان — درسِ تعاملی با خودِ راب فیتزپاتریک'},
+        desc:{en:'A free interactive video lecture from the author himself.', fa:'یک درسِ ویدیوییِ تعاملیِ رایگان از خودِ نویسنده.'},
+        bullets:{en:["The method straight from Rob","Why customers lie, and the fix","A great first watch"], fa:["روش، مستقیم از زبانِ راب","چرا مشتری‌ها دروغ می‌گویند و راهِ حلش","برای اولین تماشا عالی است"]},
+        best:{en:'Best for Stage 1–2.', fa:'خوب برای مرحلهٔ ۱ و ۲.'} },
+      { kind:'yt', id:'xvS__V1BEGY', src:{en:'YouTube · The Learning Leader Show', fa:'یوتیوب · The Learning Leader Show'},
+        title:{en:'How to Talk to Your Customers — Rob Fitzpatrick', fa:'چطور با مشتری‌هایت حرف بزنی — راب فیتزپاتریک'},
+        desc:{en:'A long-form interview with Rob on customer conversations.', fa:'یک گفت‌وگوی مفصل با راب دربارهٔ صحبت با مشتری.'},
+        bullets:{en:["The story behind the book","Real examples from founders","Good after a first read"], fa:["داستانِ پشتِ کتاب","مثال‌های واقعی از بنیان‌گذارها","خوب بعد از اولین خواندن"]},
+        best:{en:'Best for Stage 2–3.', fa:'خوب برای مرحلهٔ ۲ و ۳.'} },
+      { kind:'yt', id:'hM-AGTipv4E', src:{en:'YouTube · Jacob Haugen', fa:'یوتیوب · Jacob Haugen'},
+        title:{en:'The Mom Test — Summary, Notes & Review', fa:'تِستِ مامان — خلاصه، نکته‌ها و مرور'},
+        desc:{en:"A reader's structured summary and takeaways.", fa:'خلاصه و نکته‌های دسته‌بندی‌شدهٔ یک خواننده.'},
+        bullets:{en:["The rules, condensed","Bad vs good questions","A tidy recap"], fa:["قانون‌ها، فشرده","سؤالِ خوب در برابرِ بد","یک مرورِ مرتب"]},
+        best:{en:'Best for Stage 3–4.', fa:'خوب برای مرحلهٔ ۳ و ۴.'} },
+      { kind:'img', url:'https://www.momtestbook.com/',
+        src:{en:'momtestbook.com · Official', fa:'momtestbook.com · رسمی'},
+        title:{en:'The Mom Test — Official Book Site', fa:'تِستِ مامان — سایتِ رسمیِ کتاب'},
+        desc:{en:"The author's official page for the book, with details and where to buy.", fa:'صفحهٔ رسمیِ نویسنده برای کتاب، با جزئیات و محلِ خرید.'},
+        bullets:{en:["Straight from the author","Editions and formats","Extra resources"], fa:["مستقیم از خودِ نویسنده","نسخه‌ها و قالب‌ها","منابعِ بیشتر"]},
+        best:{en:'For the source and editions.', fa:'برای منبعِ اصلی و نسخه‌ها.'} }
+    ],
+    go:[
+      {label:{en:'Official book site', fa:'سایتِ رسمیِ کتاب'}, url:'https://www.momtestbook.com/'},
+      {label:{en:'Book on Goodreads', fa:'کتاب در گودریدز'}, url:'https://www.goodreads.com/book/show/18529000-the-mom-test'},
+      {label:{en:'Publisher page (Simon & Schuster)', fa:'صفحهٔ ناشر (سایمون و شوستر)'}, url:'https://www.simonandschuster.com/books/The-Mom-Test/Rob-Fitzpatrick/9798893312560'}
+    ],
+    recs:[
+      { pri:'b', t:{en:'Rewrite one question the Mom Test way', fa:'یک سؤالت را به سبکِ تِستِ مامان بازنویسی کن'}, d:{en:"Take a question you were about to ask and turn it into one about their past behavior, not your idea.", fa:'یک سؤالی که می‌خواستی بپرسی را بردار و به سؤالی دربارهٔ رفتارِ گذشته‌شان تبدیلش کن، نه ایده‌ات.'} },
+      { pri:'b', t:{en:'Have three casual chats this week', fa:'این هفته سه گپِ خودمانی بزن'}, d:{en:"Talk to three people who have the problem — no pitch, no slides, just questions about their life.", fa:'با سه نفر که مشکل را دارند حرف بزن — بی‌فروش، بی‌اسلاید، فقط سؤال دربارهٔ زندگی‌شان.'} },
+      { pri:'n', t:{en:'Ask for one real commitment', fa:'یک تعهدِ واقعی بخواه'}, d:{en:"End your next conversation by asking for time, money, or an intro — and see what happens.", fa:'گفت‌وگوی بعدی‌ات را با درخواستِ وقت، پول، یا یک معرفی تمام کن — و ببین چه می‌شود.'} },
+      { pri:'n', t:{en:'Write down their exact words', fa:'کلماتِ دقیقشان را یادداشت کن'}, d:{en:"After each chat, capture their verbatim quotes and any commitment before you forget.", fa:'بعد از هر گپ، نقلِ‌قولِ دقیق و هر تعهدی را قبل از اینکه یادت برود ثبت کن.'} }
+    ]
+  }
+};

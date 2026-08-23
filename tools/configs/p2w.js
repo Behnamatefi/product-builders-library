@@ -1,0 +1,264 @@
+/* config: Playing to Win — A.G. Lafley & Roger L. Martin (Strategy) */
+module.exports = {
+  slug:"p2w", brand:"Playing to Win",
+  titleTag:"Playing to Win — نقشهٔ دانش و یادگیری ۵ مرحله‌ای",
+  W:980, H:780, R1:220, R2:126, span:66,
+  leafKickEn:"Choice", leafKickFa:"انتخابِ",
+  flowEn:["Aspiration","Where to Play","How to Win","Capabilities"], flowFa:["آرمان","کجا بازی کنی","چطور ببری","قابلیت‌ها"],
+
+  hero:`  <div class="eyebrow"><span class="edot"></span>
+    <span data-only="en">Book knowledge map · Lafley &amp; Martin</span>
+    <span data-only="fa">نقشهٔ کتاب · لافلی و مارتین</span>
+  </div>
+  <h1>
+    <span data-only="en">Playing to Win — How Strategy Really Works</span>
+    <span data-only="fa">بازی برای بردن — استراتژی واقعاً چطور کار می‌کند</span>
+  </h1>
+  <p class="dek">
+    <span data-only="en">A knowledge graph of the whole book, plus a 5-stage path from a single sentence to expert-level mastery — with an example at every step.</span>
+    <span data-only="fa">نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از یک جمله تا تسلطِ حرفه‌ای — با یک مثال در هر مرحله.</span>
+  </p>
+  <div class="metastrip">
+    <div class="metaitem"><span class="mk" data-only="en">Book</span><span class="mk" data-only="fa">کتاب</span>
+      <span class="mv" data-only="en">Playing to Win</span><span class="mv" data-only="fa">بازی برای بردن</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Author</span><span class="mk" data-only="fa">نویسنده</span>
+      <span class="mv" data-only="en">A.G. Lafley &amp; Roger L. Martin</span><span class="mv" data-only="fa">ای.جی. لافلی و راجر ال. مارتین</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Published</span><span class="mk" data-only="fa">سالِ چاپ</span>
+      <span class="mv" data-only="en">2013</span><span class="mv" data-only="fa">۲۰۱۳</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Group</span><span class="mk" data-only="fa">گروه</span>
+      <span class="mv" data-only="en">Strategy</span><span class="mv" data-only="fa">استراتژی</span></div>
+  </div>
+  <div class="chips">
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Parts</span><span data-only="fa">بخش</span></div>
+    <div class="chip"><b data-only="en">16</b><b data-only="fa">۱۶</b><span data-only="en">Ideas</span><span data-only="fa">ایده</span></div>
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Learning stages</span><span data-only="fa">مرحلهٔ یادگیری</span></div>
+  </div>`,
+
+  callout:`    <b data-only="en">The core idea:</b>
+    <b data-only="fa">ایدهٔ اصلی:</b>
+    <span data-only="en"> Strategy isn't a vision or a plan — it's <i>an integrated set of five choices</i>: a <b>winning aspiration</b>, <b>where to play</b>, <b>how to win</b>, plus the <b>capabilities</b> and <b>management systems</b> to back them up. Choose to <i>win</i>, not just to play, and make every choice reinforce the next.</span>
+    <span data-only="fa"> استراتژی یک چشم‌انداز یا یک برنامه نیست — یک <i>مجموعهٔ به‌هم‌پیوسته از پنج انتخاب</i> است: <b>آرمانِ بردن</b>، <b>کجا بازی کنی</b>، <b>چطور ببری</b>، به‌علاوهٔ <b>قابلیت‌ها</b> و <b>سیستم‌های مدیریتی</b> که پشتشان را بگیرند. انتخاب کن که <i>ببری</i>، نه فقط بازی کنی، و کاری کن هر انتخاب، انتخابِ بعدی را تقویت کند.</span>`,
+
+  kpis:`    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Parts (the five cascading choices)</div><div class="l" data-only="fa">بخش (پنج انتخابِ آبشاری)</div></div>
+    <div class="kbox"><div class="v" data-only="en">16</div><div class="v" data-only="fa">۱۶</div><div class="l" data-only="en">Ideas you can use</div><div class="l" data-only="fa">ایده برای استفاده</div></div>
+    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Levels, simple → expert</div><div class="l" data-only="fa">مرحله، ساده تا حرفه‌ای</div></div>
+    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">The cascade: aspiration · where · how · capabilities · systems</div><div class="l" data-only="fa">آبشار: آرمان · کجا · چطور · قابلیت‌ها · سیستم‌ها</div></div>`,
+
+  mapcallout:`      <b data-only="en">Read it as a cascade:</b><b data-only="fa">به‌صورتِ یک آبشار بخوانش:</b>
+      <span data-only="en"> set a <b>winning aspiration</b>, choose <b>where to play</b>, decide <b>how to win</b> there, build the <b>capabilities</b> that make it possible, and put the <b>management systems</b> in place to sustain it — each choice constrains and reinforces the next.</span>
+      <span data-only="fa"> یک <b>آرمانِ بردن</b> بگذار، انتخاب کن <b>کجا بازی کنی</b>، تصمیم بگیر آن‌جا <b>چطور ببری</b>، <b>قابلیت‌هایی</b> بساز که ممکنش می‌کنند، و <b>سیستم‌های مدیریتی</b> را سرِ جایشان بگذار تا نگهش دارند — هر انتخاب، انتخابِ بعدی را هم محدود و هم تقویت می‌کند.</span>`,
+
+  methodFa:"<p><b>منبع:</b> کتابِ «Playing to Win» (بازی برای بردن) نوشتهٔ ای.جی. لافلی و راجر ال. مارتین، انتشاراتِ هاروارد بیزنس ریویو، ۲۰۱۳.</p><p><b>روشِ کار:</b> آبشارِ پنج‌انتخابی و ایده‌ها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده؛ نقل‌قول‌ها با متنِ کتاب مقابله و ویدیوها بررسی شده‌اند.</p><p><b>گروه:</b> «استراتژی» — یک کلاسیکِ امروزی دربارهٔ اینکه استراتژی واقعاً چطور کار می‌کند، که برای سازندگانِ محصول و کسب‌وکار زیاد توصیه می‌شود.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای متنِ کامل، خودِ کتاب را بخوان.</p>",
+  methodEn:"<p><b>Source:</b> the book <i>Playing to Win: How Strategy Really Works</i> by A.G. Lafley and Roger L. Martin, Harvard Business Review Press, 2013.</p><p><b>How this was built:</b> the five-choice cascade and the ideas were gathered and rewritten from the book and reputable sources; quotes were cross-checked and the linked videos verified.</p><p><b>Group:</b> Strategy — a modern classic on how strategy really works, widely recommended for product and business builders.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>",
+
+  data:{
+    tldr:[
+      {en:"The whole book in one line: strategy is choosing to <b>win</b>, not just to play — and winning takes real, specific choices.",
+       fa:"خلاصهٔ کل کتاب در یک جمله: استراتژی یعنی انتخابِ <b>بردن</b>، نه فقط بازی‌کردن — و بردن، انتخاب‌های واقعی و مشخص می‌خواهد."},
+      {en:"Strategy is <b>an integrated set of five choices</b>: winning aspiration, where to play, how to win, core capabilities, and management systems.",
+       fa:"استراتژی یک <b>مجموعهٔ به‌هم‌پیوسته از پنج انتخاب</b> است: آرمانِ بردن، کجا بازی کنی، چطور ببری، قابلیت‌های کلیدی، و سیستم‌های مدیریت."},
+      {en:"The two choices at the heart are <b>where to play</b> and <b>how to win</b> — pick a field, then a way to beat everyone on it.",
+       fa:"دو انتخابی که در قلب‌اند «<b>کجا بازی کنی</b>» و «<b>چطور ببری</b>» هستند — یک میدان انتخاب کن، بعد یک راه برای بردنِ همه در آن."},
+      {en:"Choices must <b>reinforce</b> each other; capabilities and systems exist to make where/how possible and keep them alive.",
+       fa:"انتخاب‌ها باید همدیگر را <b>تقویت</b> کنند؛ قابلیت‌ها و سیستم‌ها هستند تا «کجا» و «چطور» را ممکن و زنده نگه دارند."},
+      {en:"To test a choice, <b>reverse-engineer</b> it: ask 'what would have to be true?' for it to be a great choice — then check the shakiest condition.",
+       fa:"برای محک‌زدنِ یک انتخاب، <b>مهندسیِ معکوسش</b> کن: بپرس «چه چیزی باید درست باشد؟» تا این انتخابِ خوبی باشد — بعد لرزان‌ترین شرط را چک کن."}
+    ],
+    parts:[
+      { key:"aspire", varc:"--c-teal", name:{en:"Winning Aspiration", fa:"آرمانِ بردن"}, tag:{en:"Why you play", fa:"چرا بازی می‌کنی"},
+        gist:{en:"Choose to win, and define what winning means — for the consumer and for you.", fa:"انتخاب کن که ببری، و تعریف کن بردن یعنی چه — هم برای مشتری، هم برای خودت."},
+        more:{en:"Everything starts here. A winning aspiration frames the ideal future around the people you serve; without the will to win, the other choices never get sharp enough to matter.",
+              fa:"همه‌چیز از این‌جا شروع می‌شود. آرمانِ بردن، آیندهٔ دلخواه را دورِ آدم‌هایی که خدمتشان می‌کنی می‌چیند؛ بدونِ ارادهٔ بردن، بقیهٔ انتخاب‌ها هیچ‌وقت آن‌قدر تیز نمی‌شوند که مهم باشند."},
+        chapters:["definewin","aspiration","winwinwin"] },
+      { key:"whereplay", varc:"--c-blue", name:{en:"Where to Play", fa:"کجا بازی کنی"}, tag:{en:"Pick the field", fa:"میدان را انتخاب کن"},
+        gist:{en:"Narrow the field: the markets, segments and channels where you'll compete.", fa:"میدان را باریک کن: همان بازارها، بخش‌ها و کانال‌هایی که در آن‌ها رقابت می‌کنی."},
+        more:{en:"You can't win everywhere, so choose your ground on purpose. Where-to-play is a set of yes/no bets — and the fields you refuse matter as much as the ones you pick.",
+              fa:"همه‌جا نمی‌شود برد، پس زمینت را عمداً انتخاب کن. «کجا بازی کنی» مجموعه‌ای از شرط‌های بله/نه است — و میدان‌هایی که ردشان می‌کنی به‌اندازهٔ آن‌هایی که انتخاب می‌کنی مهم‌اند."},
+        chapters:["playfield","wherenot","fitwin"] },
+      { key:"howwin", varc:"--c-amber", name:{en:"How to Win", fa:"چطور ببری"}, tag:{en:"Beat the field", fa:"میدان را ببر"},
+        gist:{en:"Decide how you'll beat everyone on that field — cost or differentiation.", fa:"تصمیم بگیر در آن میدان چطور از همه جلو می‌زنی — هزینه یا تمایز."},
+        more:{en:"How-to-win is your unique route to more value than rivals. There are two basic paths — be the true low-cost player or be genuinely different — and it has to fit the field you chose.",
+              fa:"«چطور ببری» راهِ منحصربه‌فردِ تو برای ساختنِ ارزشی بیشتر از رقیب است. دو مسیرِ اصلی هست — یا واقعاً کم‌هزینه‌ترین باش، یا واقعاً متفاوت — و باید به میدانی که انتخاب کردی بخورد."},
+        chapters:["rightwin","lowcost","differ","heart"] },
+      { key:"capab", varc:"--c-violet", name:{en:"Core Capabilities", fa:"قابلیت‌های کلیدی"}, tag:{en:"What makes it possible", fa:"چه چیزی ممکنش می‌کند"},
+        gist:{en:"Be distinctly great at the few things that make winning possible.", fa:"در همان چند چیزی که بردن را ممکن می‌کنند، به‌طورِ متمایز عالی باش."},
+        more:{en:"Capabilities are the activities that deliver your how-to-win. On their own each can be copied; as a reinforcing system they become the moat rivals can't cross.",
+              fa:"قابلیت‌ها همان فعالیت‌هایی هستند که «چطور ببری»‌ات را می‌رسانند. هرکدام به‌تنهایی قابلِ‌کپی است؛ به‌صورتِ یک سیستمِ خودتقویت‌کننده، همان خندقی می‌شوند که رقیب نمی‌تواند از آن رد شود."},
+        chapters:["actsystem","reinforce","logicflow"] },
+      { key:"systems", varc:"--c-green", name:{en:"Management Systems", fa:"سیستم‌های مدیریت"}, tag:{en:"Keep it alive", fa:"زنده نگهش دار"},
+        gist:{en:"Put the structures, measures and routines in place to keep it alive.", fa:"ساختارها، سنجه‌ها و روتین‌ها را سرِ جایشان بگذار تا زنده بماند."},
+        more:{en:"Choices don't run themselves. Management systems build the capabilities, test the logic, measure what matters, and refresh the strategy as the world changes — so it stays a living set of choices, not a dusty plan.",
+              fa:"انتخاب‌ها خودشان اجرا نمی‌شوند. سیستم‌های مدیریتی قابلیت‌ها را می‌سازند، منطق را محک می‌زنند، چیزهای مهم را می‌سنجند، و همراهِ تغییرِ دنیا استراتژی را تازه می‌کنند — تا یک مجموعه انتخابِ زنده بماند، نه یک برنامهٔ خاک‌خورده."},
+        chapters:["sustain","reverseeng","measure"] }
+    ],
+    chapters:{
+      definewin:{ part:"aspire", n:1, name:{en:"Define Winning", fa:"بردن را تعریف کن"}, glabel:{en:"Winning", fa:"بردن"},
+        principle:{en:"Strategy begins with a choice to win, not merely to play. Decide what winning actually means for you.", fa:"استراتژی با یک انتخاب شروع می‌شود: بردن، نه فقط بازی‌کردن. اول تصمیم بگیر بردن برایت دقیقاً یعنی چه."},
+        more:{en:"Playing to win and playing to play are different games. Aiming only to take part keeps you safe and average; aiming to win forces the hard, specific choices that actually create advantage.", fa:"بازی برای بردن با بازی برای شرکت‌کردن فرق دارد. وقتی فقط می‌خواهی حاضر باشی، امن ولی متوسط می‌مانی؛ وقتی می‌خواهی ببری، مجبوری همان انتخاب‌های سخت و مشخص را بکنی که واقعاً برایت برتری می‌سازند."},
+        example:{en:"P&G didn't aim to 'compete in skin care' — it aimed to make Olay a winning, category-leading brand.", fa:"پی‌اندجی هدفش «حضور در بازارِ مراقبت از پوست» نبود — می‌خواست اولِی را به یک برندِ برنده و پیشرو تبدیل کند."},
+        tip:{en:"Write one sentence: 'We win when ______.' Make it concrete enough to act on.", fa:"یک جمله بنویس: «ما وقتی می‌بریم که ______.» آن‌قدر مشخصش کن که بشود روش کار کرد."},
+        pitfall:{en:"Treating 'showing up' or 'staying in the game' as if it were a strategy.", fa:"اینکه «حاضر بودن» یا «توی بازی ماندن» را جای استراتژی بگیری."} },
+      aspiration:{ part:"aspire", n:2, name:{en:"Aspiration, Not a Slogan", fa:"آرمان، نه یک شعار"}, glabel:{en:"Aspiration", fa:"آرمان"},
+        principle:{en:"A winning aspiration frames the ideal future in terms of the consumer — not as a vague mission statement.", fa:"آرمانِ بردن، آیندهٔ دلخواه را از نگاهِ مشتری می‌بیند — نه با یک بیانیهٔ مأموریتِ کلی و مبهم."},
+        more:{en:"Aspirations should be specific about who you serve and what winning looks like for them. Broad, feel-good mission statements rarely guide a single real decision.", fa:"آرمان باید مشخص باشد: چه کسی را خدمت می‌کنی و بردن برای او چه شکلی است. بیانیه‌های کلی و خوش‌آب‌ورنگ تقریباً هیچ تصمیمِ واقعی‌ای را هدایت نمی‌کنند."},
+        example:{en:"'Touch and improve more consumers' lives' is an aspiration; 'be world-class' is just a slogan.", fa:"«زندگیِ مشتری‌های بیشتری را لمس و بهتر کنیم» یک آرمان است؛ «در سطحِ جهانی باشیم» فقط یک شعار است."},
+        tip:{en:"Rewrite your mission around the consumer's life, and delete any word you can't act on.", fa:"مأموریتت را دورِ زندگیِ مشتری بازنویسی کن، و هر کلمه‌ای که نمی‌شود روش کاری کرد را حذف کن."},
+        pitfall:{en:"Abstract mission statements that sound noble but decide nothing.", fa:"بیانیه‌های انتزاعی که باشکوه به‌نظر می‌رسند ولی هیچ تصمیمی نمی‌گیرند."} },
+      winwinwin:{ part:"aspire", n:3, name:{en:"Win for Everyone", fa:"بردِ همه"}, glabel:{en:"Win-Win-Win", fa:"بردِ سه‌طرفه"},
+        principle:{en:"A winning strategy is a win-win-win: it creates value for consumers, customers, and the company at once.", fa:"استراتژیِ برنده یک بردِ سه‌طرفه است: هم‌زمان برای مصرف‌کننده، مشتری، و خودِ شرکت ارزش می‌سازد."},
+        more:{en:"Define winning against everyone who matters. If shoppers love it but retailers lose money, or the company can't profit, the strategy isn't really winning.", fa:"بردن را نسبت به همهٔ کسانی که مهم‌اند تعریف کن. اگر خریدار عاشقش باشد ولی فروشگاه ضرر کند، یا شرکت سود نکند، آن استراتژی واقعاً برنده نیست."},
+        example:{en:"Olay won because shoppers, retailers, and P&G all came out ahead — not one at the others' expense.", fa:"اولِی برد چون خریدار، فروشگاه، و پی‌اندجی هر سه جلو افتادند — نه یکی به قیمتِ آن دوتای دیگر."},
+        tip:{en:"For your plan, check each side: does the customer win, the partner win, and you win?", fa:"برای برنامه‌ات هر سه طرف را چک کن: مشتری می‌برد؟ شریک می‌برد؟ خودت می‌بری؟"},
+        pitfall:{en:"A 'win' that only helps you, and quietly loses your partners or customers.", fa:"یک «برد» که فقط به خودت کمک می‌کند و بی‌سروصدا شریک یا مشتری‌ات را می‌بازد."} },
+      playfield:{ part:"whereplay", n:4, name:{en:"Choose the Field", fa:"میدان را انتخاب کن"}, glabel:{en:"Field", fa:"میدان"},
+        principle:{en:"Where to play narrows the field: which markets, segments, geographies, channels, and products you compete in.", fa:"«کجا بازی کنی» میدان را باریک می‌کند: در کدام بازارها، بخش‌ها، مناطق، کانال‌ها، و محصول‌ها رقابت می‌کنی."},
+        more:{en:"You can't compete everywhere. Where-to-play is a set of deliberate choices about the specific arenas where you'll place your bets.", fa:"همه‌جا نمی‌شود رقابت کرد. «کجا بازی کنی» مجموعه‌ای از انتخاب‌های عمدی است دربارهٔ همان میدان‌هایی که می‌خواهی رویشان شرط ببندی."},
+        example:{en:"A brand might choose premium skin care, sold in mass retail, in specific countries — not 'beauty' in general.", fa:"یک برند شاید مراقبتِ پوستِ لوکس را انتخاب کند، در فروشگاه‌های زنجیره‌ای، در چند کشورِ مشخص — نه کلِ «زیبایی»."},
+        tip:{en:"List your arenas — segment, geography, channel, product — and mark where you'll actually compete.", fa:"میدان‌هایت را فهرست کن — بخش، منطقه، کانال، محصول — و مشخص کن واقعاً کجا رقابت می‌کنی."},
+        pitfall:{en:"Trying to be everywhere for everyone, so you're strong nowhere.", fa:"خواستنِ اینکه همه‌جا برای همه باشی، پس هیچ‌جا قوی نیستی."} },
+      wherenot:{ part:"whereplay", n:5, name:{en:"Decide Where Not to Play", fa:"تصمیم بگیر کجا بازی نکنی"}, glabel:{en:"Boundaries", fa:"مرزها"},
+        principle:{en:"Strategy is as much about what you won't do. Choosing where not to play is what makes the choice real.", fa:"استراتژی به‌همان‌اندازه دربارهٔ کارهایی است که نمی‌کنی. انتخابِ اینکه کجا بازی نکنی است که انتخاب را واقعی می‌کند."},
+        more:{en:"Every field you say yes to means fields you say no to. Refusing to chase every opportunity concentrates your strength where it counts.", fa:"به هر میدانی که «بله» می‌گویی یعنی به میدان‌هایی «نه» می‌گویی. وقتی دنبالِ هر فرصتی نمی‌دوی، نیرویت همان‌جایی جمع می‌شود که مهم است."},
+        example:{en:"P&G walked away from segments where it couldn't win, to pour resources into the ones it could.", fa:"پی‌اندجی از بخش‌هایی که نمی‌توانست ببرد کنار کشید، تا منابعش را روی همان‌هایی بریزد که می‌توانست."},
+        tip:{en:"Name one tempting market you'll deliberately not enter this year, and why.", fa:"یک بازارِ وسوسه‌انگیز را نام ببر که امسال عمداً واردش نمی‌شوی، و بگو چرا."},
+        pitfall:{en:"Saying yes to everything, which is the same as having no strategy.", fa:"به همه‌چیز «بله» گفتن، که یعنی اصلاً استراتژی نداشتن."} },
+      fitwin:{ part:"whereplay", n:6, name:{en:"Play Where You Can Win", fa:"جایی بازی کن که می‌توانی ببری"}, glabel:{en:"Fit", fa:"تناسب"},
+        principle:{en:"Choose fields where your capabilities give you a real chance to win — where-to-play and how-to-win must fit.", fa:"میدان‌هایی را انتخاب کن که قابلیت‌هایت به تو شانسِ واقعیِ بردن می‌دهند — «کجا» و «چطور» باید به هم بخورند."},
+        more:{en:"A field is only attractive if you can actually win there. The best where-to-play choices are the ones your how-to-win can back up.", fa:"یک میدان فقط وقتی جذاب است که واقعاً بتوانی در آن ببری. بهترین انتخابِ «کجا»، همانی است که «چطورِ» تو بتواند پشتش را بگیرد."},
+        example:{en:"Entering a market crowded with stronger, cheaper rivals is a bad where-to-play, however big the market.", fa:"واردشدن به بازاری پُر از رقیب‌های قوی‌تر و ارزان‌تر، انتخابِ بدی است، هرچقدر هم آن بازار بزرگ باشد."},
+        tip:{en:"For each target field, ask: do we have a believable way to win here?", fa:"برای هر میدانِ هدف بپرس: آیا راهی باورپذیر برای بردن این‌جا داریم؟"},
+        pitfall:{en:"Chasing big, attractive markets where you have no way to win.", fa:"دویدن دنبالِ بازارهای بزرگ و جذابی که هیچ راهی برای بردن در آن‌ها نداری."} },
+      rightwin:{ part:"howwin", n:7, name:{en:"Earn the Right to Win", fa:"حقِ بردن را به‌دست بیاور"}, glabel:{en:"Advantage", fa:"برتری"},
+        principle:{en:"How to win is your unique way to create more value than rivals on the field you chose.", fa:"«چطور ببری» یعنی راهِ منحصربه‌فردِ تو برای ساختنِ ارزشی بیشتر از رقیب‌ها، در همان میدانی که انتخاب کرده‌ای."},
+        more:{en:"How-to-win answers a hard question: on this specific field, what will let us win, again and again? It has to be a real, defensible advantage — not just effort.", fa:"«چطور ببری» به یک سؤالِ سخت جواب می‌دهد: در این میدانِ مشخص، چه چیزی باعث می‌شود بارها و بارها ببریم؟ باید یک برتریِ واقعی و قابلِ‌دفاع باشد — نه فقط تلاشِ بیشتر."},
+        example:{en:"Winning on 'better science plus a mass-market price' is a how-to-win; 'try harder' is not.", fa:"بردن با «علمِ بهتر به‌علاوهٔ قیمتِ بازارِ عمومی» یک «چطور ببری» است؛ «بیشتر تلاش کن» نیست."},
+        tip:{en:"State, in one line, exactly why customers will choose you over the next-best option.", fa:"در یک خط بگو دقیقاً چرا مشتری تو را به‌جای بهترین گزینهٔ بعدی انتخاب می‌کند."},
+        pitfall:{en:"Mistaking hard work or good intentions for a real competitive advantage.", fa:"اشتباه‌گرفتنِ سخت‌کوشی یا نیتِ خوب با یک برتریِ رقابتیِ واقعی."} },
+      lowcost:{ part:"howwin", n:8, name:{en:"Win on Cost", fa:"با هزینه ببر"}, glabel:{en:"Low-Cost", fa:"کم‌هزینه"},
+        principle:{en:"One way to win is cost leadership — but only the true lowest-cost player wins with a low-cost strategy.", fa:"یک راهِ بردن، رهبریِ هزینه است — ولی فقط بازیکنی که واقعاً کم‌هزینه‌ترین است با استراتژیِ کم‌هزینه می‌برد."},
+        more:{en:"Being 'cheapish' is a trap: someone lower will beat you. Cost leadership works only if your whole system is genuinely built to cost less than everyone else's.", fa:"«یه‌کم ارزان» بودن یک تله است: یکی که ارزان‌تر است شکستت می‌دهد. رهبریِ هزینه فقط وقتی جواب می‌دهد که کلِ سیستمت واقعاً برای کم‌هزینه‌تر بودن از همه ساخته شده باشد."},
+        example:{en:"A discounter wins only if its costs are structurally the lowest, not just its prices.", fa:"یک فروشگاهِ تخفیفی فقط وقتی می‌برد که هزینه‌هایش ساختاری کمترین باشد، نه فقط قیمت‌هایش."},
+        tip:{en:"If you compete on price, prove your costs are actually the lowest — or pick another way to win.", fa:"اگر سرِ قیمت رقابت می‌کنی، ثابت کن هزینه‌هایت واقعاً کمترین است — یا راهِ دیگری برای بردن انتخاب کن."},
+        pitfall:{en:"Cutting prices without being the real low-cost player, and bleeding margin.", fa:"پایین‌آوردنِ قیمت بدونِ اینکه واقعاً کم‌هزینه‌ترین باشی، و آب‌رفتنِ حاشیهٔ سود."} },
+      differ:{ part:"howwin", n:9, name:{en:"Win on Difference", fa:"با تمایز ببر"}, glabel:{en:"Differentiation", fa:"تمایز"},
+        principle:{en:"The other way to win is differentiation — be distinctly valuable so customers happily pay more.", fa:"راهِ دیگرِ بردن، تمایز است — آن‌قدر متمایز و ارزشمند باش که مشتری با رضایت بیشتر پول بدهد."},
+        more:{en:"Differentiation means offering something rivals can't easily match — brand, design, experience, quality — that customers truly value and will pay a premium for.", fa:"تمایز یعنی چیزی عرضه کنی که رقیب‌ها به‌راحتی نتوانند تقلیدش کنند — برند، طراحی، تجربه، کیفیت — چیزی که مشتری واقعاً برایش ارزش قائل است و بیشتر پول می‌دهد."},
+        example:{en:"A premium brand wins because buyers value what makes it different, not because it's the cheapest.", fa:"یک برندِ لوکس می‌برد چون خریدار به همان چیزی که متمایزش می‌کند ارزش می‌دهد، نه چون ارزان‌ترین است."},
+        tip:{en:"Name the one thing you offer that rivals can't copy — and that customers will pay for.", fa:"همان یک چیزی که عرضه می‌کنی و رقیب نمی‌تواند کپی کند — و مشتری برایش پول می‌دهد — را نام ببر."},
+        pitfall:{en:"Being 'a bit different' in ways customers don't actually care about or pay for.", fa:"«یه‌کم متفاوت» بودن در چیزهایی که مشتری واقعاً برایشان اهمیت یا پول نمی‌دهد."} },
+      heart:{ part:"howwin", n:10, name:{en:"Where + How Are the Heart", fa:"«کجا» و «چطور»، قلبِ کار"}, glabel:{en:"Coherence", fa:"هماهنگی"},
+        principle:{en:"Where to play and how to win are the heart of strategy — and they must reinforce each other.", fa:"«کجا بازی کنی» و «چطور ببری» قلبِ استراتژی‌اند — و باید همدیگر را تقویت کنند."},
+        more:{en:"These two choices are tightly linked: the field you pick shapes how you can win, and your way of winning makes some fields far better than others. Decide them together.", fa:"این دو انتخاب سخت به هم گره خورده‌اند: میدانی که انتخاب می‌کنی شکل می‌دهد که چطور می‌توانی ببری، و راهِ بردنت بعضی میدان‌ها را خیلی بهتر از بقیه می‌کند. با هم تصمیمشان بگیر."},
+        example:{en:"Cheap manufacturing (how) makes price-sensitive markets (where) attractive; the two only work as a pair.", fa:"تولیدِ ارزان (چطور) بازارهای حساس به قیمت (کجا) را جذاب می‌کند؛ این دو فقط به‌صورتِ یک جفت جواب می‌دهند."},
+        tip:{en:"Sanity-check: does your how-to-win actually fit the where-to-play you picked?", fa:"یک بازبینی: آیا «چطور ببری»‌ات واقعاً به «کجا بازی کنی»‌ای که انتخاب کردی می‌خورد؟"},
+        pitfall:{en:"Great-sounding choices that don't line up — a premium play in a bargain-only market.", fa:"انتخاب‌هایی که خوب به‌نظر می‌رسند ولی به هم نمی‌خورند — یک بازیِ لوکس در بازاری که فقط دنبالِ ارزانی است."} },
+      actsystem:{ part:"capab", n:11, name:{en:"Build the Activity System", fa:"سیستمِ فعالیت‌ها را بساز"}, glabel:{en:"Activities", fa:"فعالیت‌ها"},
+        principle:{en:"Capabilities are the set of activities that, working together, let you deliver your how-to-win.", fa:"قابلیت‌ها همان مجموعه فعالیت‌هایی هستند که با هم کار می‌کنند تا «چطور ببری»‌ات را ممکن کنند."},
+        more:{en:"Ask what you must be distinctly great at to win where and how you chose. Playing to Win points to a reinforcing map of activities — an activity system — not a single skill.", fa:"بپرس در چه چیزهایی باید به‌طورِ متمایز عالی باشی تا در همان «کجا» و «چطور»ی که انتخاب کردی ببری. کتاب به یک نقشهٔ به‌هم‌پیوسته از فعالیت‌ها اشاره می‌کند — یک سیستمِ فعالیت — نه فقط یک مهارتِ تنها."},
+        example:{en:"P&G's edge came from deep consumer research, branding, and go-to-market all working as one.", fa:"برتریِ پی‌اندجی از تحقیقِ عمیقِ مشتری، برندسازی، و ورود به بازار می‌آمد که همه مثلِ یک واحد کار می‌کردند."},
+        tip:{en:"List the 3–5 things you must be truly excellent at to win — and be honest about the gaps.", fa:"سه تا پنج چیزی که برای بردن باید واقعاً در آن‌ها عالی باشی را فهرست کن — و دربارهٔ کمبودها روراست باش."},
+        pitfall:{en:"Naming capabilities that sound nice but don't connect to how you actually win.", fa:"نام‌بردن از قابلیت‌هایی که قشنگ به‌نظر می‌رسند ولی به راهِ واقعیِ بردنت وصل نیستند."} },
+      reinforce:{ part:"capab", n:12, name:{en:"Make Capabilities Reinforce", fa:"قابلیت‌ها را به‌هم گره بزن"}, glabel:{en:"Reinforce", fa:"تقویت"},
+        principle:{en:"Capabilities are a mutually reinforcing system, not a checklist — the way they combine is the real moat.", fa:"قابلیت‌ها یک سیستمِ خودتقویت‌کننده‌اند، نه یک فهرست — همان طرزِ ترکیب‌شدنشان است که خندقِ واقعی را می‌سازد."},
+        more:{en:"Any single capability can be copied. When activities reinforce one another, the whole system becomes hard to imitate — a competitor would have to copy everything at once.", fa:"هر قابلیتِ تک را می‌شود کپی کرد. وقتی فعالیت‌ها همدیگر را تقویت می‌کنند، کلِ سیستم سخت‌تقلید می‌شود — رقیب باید همه‌چیز را یک‌جا کپی کند."},
+        example:{en:"It's the combination of research plus scale plus brand — not any one alone — that rivals can't match.", fa:"همان ترکیبِ تحقیق به‌علاوهٔ مقیاس به‌علاوهٔ برند است — نه هیچ‌کدام به‌تنهایی — که رقیب نمی‌تواند به آن برسد."},
+        tip:{en:"Draw how your capabilities feed each other; strengthen the links, not just the boxes.", fa:"بکش که قابلیت‌هایت چطور به هم غذا می‌رسانند؛ پیوندها را قوی کن، نه فقط جعبه‌ها را."},
+        pitfall:{en:"A pile of separate strengths with nothing connecting them into a system.", fa:"یک تلنبار از قوت‌های جدا که هیچ‌چیز آن‌ها را به یک سیستم وصل نمی‌کند."} },
+      logicflow:{ part:"capab", n:13, name:{en:"Test It with the Logic Flow", fa:"با منطقِ استراتژی محکش بزن"}, glabel:{en:"Logic-Flow", fa:"منطقِ استراتژی"},
+        principle:{en:"The strategy logic flow pressure-tests your choices against the industry, customers, competitors, and your own position.", fa:"منطقِ استراتژی، انتخاب‌هایت را در برابرِ صنعت، مشتری‌ها، رقیب‌ها، و جایگاهِ خودت محک می‌زند."},
+        more:{en:"Before you commit, walk the logic: how the industry makes money, what customers value, how you compare to rivals, and how they might react. It turns a hopeful plan into a tested one.", fa:"قبل از اینکه پایش بایستی، منطق را قدم‌به‌قدم برو: صنعت چطور پول درمی‌آورد، مشتری به چه چیزی ارزش می‌دهد، تو نسبت به رقیب کجا ایستاده‌ای، و او چطور ممکن است واکنش نشان دهد. این کار یک برنامهٔ امیدوارانه را به یک برنامهٔ آزموده‌شده تبدیل می‌کند."},
+        example:{en:"Mapping competitor reactions early can reveal a 'win' that would vanish the moment a rival cuts prices.", fa:"زود کشیدنِ نقشهٔ واکنشِ رقیب می‌تواند «بردی» را لو بدهد که همان لحظه‌ای که رقیب قیمت را پایین می‌آورد ناپدید می‌شود."},
+        tip:{en:"Run your strategy through four lenses: industry, customers, relative position, competitor response.", fa:"استراتژی‌ات را از چهار دریچه رد کن: صنعت، مشتری‌ها، جایگاهِ نسبی، واکنشِ رقیب."},
+        pitfall:{en:"Committing to a plan you never stress-tested against how the market actually works.", fa:"پایبندشدن به برنامه‌ای که هیچ‌وقت در برابرِ طرزِ واقعیِ کارِ بازار محکش نزدی."} },
+      sustain:{ part:"systems", n:14, name:{en:"Support It with Systems", fa:"با سیستم‌ها پشتیبانی‌اش کن"}, glabel:{en:"Systems", fa:"سیستم‌ها"},
+        principle:{en:"Management systems, structures, and processes make the choices real and keep them running day to day.", fa:"سیستم‌ها، ساختارها، و فرایندهای مدیریتی، انتخاب‌ها را واقعی می‌کنند و هر روز سرِ پا نگهشان می‌دارند."},
+        more:{en:"Choices don't execute themselves. You need the systems to build capabilities, communicate the strategy, and support the behaviors the strategy depends on.", fa:"انتخاب‌ها خودشان خودشان را اجرا نمی‌کنند. به سیستم‌هایی نیاز داری که قابلیت‌ها را بسازند، استراتژی را منتقل کنند، و همان رفتارهایی را که استراتژی به آن‌ها تکیه دارد پشتیبانی کنند."},
+        example:{en:"A strategy built on consumer insight needs real systems for research, or the insight never shows up.", fa:"استراتژی‌ای که روی شناختِ مشتری بنا شده، به سیستم‌های واقعیِ تحقیق نیاز دارد، وگرنه آن شناخت هیچ‌وقت پیدایش نمی‌شود."},
+        tip:{en:"For each key capability, ask: what system or routine keeps it strong?", fa:"برای هر قابلیتِ کلیدی بپرس: چه سیستم یا روتینی آن را قوی نگه می‌دارد؟"},
+        pitfall:{en:"Brilliant choices with no systems behind them, so nothing actually changes.", fa:"انتخاب‌های درخشان بدونِ هیچ سیستمی پشتشان، پس عملاً هیچ‌چیز عوض نمی‌شود."} },
+      reverseeng:{ part:"systems", n:15, name:{en:"Ask 'What Would Have to Be True?'", fa:"بپرس «چه چیزی باید درست باشد؟»"}, glabel:{en:"Reverse-Engineer", fa:"مهندسیِ معکوس"},
+        principle:{en:"To test a choice, reverse the question: instead of 'what is true?', ask 'what would have to be true?' for it to be a great choice.", fa:"برای محک‌زدنِ یک انتخاب، سؤال را برعکس کن: به‌جای «چه چیزی درست است؟» بپرس «چه چیزی باید درست باشد؟» تا این انتخاب، انتخابِ خوبی باشد."},
+        more:{en:"List the conditions each option needs to be right, then test the ones you're least sure of first. This turns arguments into shared inquiry and de-risks the bet before you make it.", fa:"شرط‌هایی که هر گزینه برای درست‌بودن لازم دارد را فهرست کن، بعد اول همان‌هایی را آزمایش کن که کمترین اطمینان را به آن‌ها داری. این کار بحث را به یک کاوشِ مشترک تبدیل می‌کند و قبل از اینکه شرط را ببندی، ریسکش را کم می‌کند."},
+        example:{en:"Team assumption: 'this wins if customers will switch brands.' Test that shaky condition before betting big.", fa:"فرضِ تیم: «این وقتی می‌برد که مشتری‌ها برند عوض کنند.» همین شرطِ لرزان را قبل از یک شرطِ بزرگ آزمایش کن."},
+        tip:{en:"For your next big decision, write the conditions that must hold — and test the weakest one.", fa:"برای تصمیمِ بزرگِ بعدی‌ات، شرط‌هایی که باید برقرار باشند را بنویس — و ضعیف‌ترینشان را آزمایش کن."},
+        pitfall:{en:"Defending the option you already like instead of testing what it depends on.", fa:"دفاع از گزینه‌ای که از قبل دوستش داری، به‌جای آزمایشِ چیزهایی که به آن‌ها وابسته است."} },
+      measure:{ part:"systems", n:16, name:{en:"Measure and Refresh", fa:"بسنج و تازه کن"}, glabel:{en:"Measure", fa:"سنجش"},
+        principle:{en:"What gets measured gets done — track the few things that matter and revisit the cascade as the world changes.", fa:"چیزی که سنجیده می‌شود، انجام می‌شود — همان چند چیزِ مهم را دنبال کن و همراهِ تغییرِ دنیا، آبشارِ انتخاب‌ها را دوباره ببین."},
+        more:{en:"Strategy is never finished. Pick metrics tied to your how-to-win, review them on a real cadence, and be willing to change choices when the evidence says so.", fa:"استراتژی هیچ‌وقت تمام نمی‌شود. سنجه‌هایی را انتخاب کن که به «چطور ببری»‌ات وصل‌اند، با یک ریتمِ واقعی مرورشان کن، و آماده باش وقتی شواهد می‌گویند، انتخاب‌ها را عوض کنی."},
+        example:{en:"Tracking share among your target shoppers tells you fast whether the how-to-win still works.", fa:"دنبال‌کردنِ سهمت میانِ خریدارهای هدف، سریع بهت می‌گوید که آیا «چطور ببری»‌ات هنوز کار می‌کند یا نه."},
+        tip:{en:"Choose 2–3 measures tied to winning, and put a regular date on the calendar to review them.", fa:"دو تا سه سنجه که به بردن وصل‌اند انتخاب کن، و یک تاریخِ منظم توی تقویم بگذار تا مرورشان کنی."},
+        pitfall:{en:"Setting a strategy once and never checking whether it still holds.", fa:"یک‌بار استراتژی را تعیین‌کردن و هیچ‌وقت چک‌نکردن که آیا هنوز برقرار است یا نه."} }
+    },
+    core:{ name:{en:"STRATEGIC CHOICE", fa:"انتخابِ استراتژیک"},
+      principle:{en:"Strategy is an integrated set of five choices — a winning aspiration, where to play, how to win, core capabilities, and management systems — that fit together and point at one thing: winning, not just playing.", fa:"استراتژی یک مجموعهٔ به‌هم‌پیوسته از پنج انتخاب است — آرمانِ بردن، کجا بازی کنی، چطور ببری، قابلیت‌های کلیدی، و سیستم‌های مدیریت — که به هم می‌خورند و به یک چیز اشاره می‌کنند: بردن، نه فقط بازی‌کردن."},
+      more:{en:"The five choices form a cascade: aspiration frames it, where-to-play and how-to-win are the heart, and capabilities and systems make them possible and keep them alive. Each choice constrains and reinforces the others — and you test the whole thing by asking what would have to be true.", fa:"پنج انتخاب یک آبشار می‌سازند: آرمان قابش را می‌زند، «کجا» و «چطور» قلبش‌اند، و قابلیت‌ها و سیستم‌ها ممکنشان می‌کنند و زنده نگهشان می‌دارند. هر انتخاب بقیه را هم محدود و هم تقویت می‌کند — و کلِ ماجرا را با پرسیدنِ «چه چیزی باید درست باشد؟» محک می‌زنی."},
+      example:{en:"Click any node to read a choice or an idea. You can also drag the nodes around.", fa:"روی هر دایره کلیک کن تا یک انتخاب یا ایده را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."} },
+    stages:[
+      { level:1, badge:{en:"Level 1 · Over-simplified", fa:"سطحِ ۱ · خیلی ساده"}, title:{en:"Choose to win", fa:"انتخاب کن که ببری"}, tagline:{en:"The whole book in a sentence.", fa:"کلِ کتاب در یک جمله."},
+        body:{en:"Strategy is choosing to <b>win</b>, not just to play. Playing merely to take part keeps you safe and average; deciding to win forces the specific, sometimes uncomfortable choices that actually create an edge.", fa:"استراتژی یعنی انتخابِ <b>بردن</b>، نه فقط بازی‌کردن. اگر فقط بخواهی شرکت کنی، امن و متوسط می‌مانی؛ وقتی تصمیم می‌گیری ببری، مجبوری همان انتخاب‌های مشخص و گاهی ناراحت‌کننده را بکنی که واقعاً برایت برتری می‌سازند."},
+        example:{en:"Don't set out to 'compete in the market'. Set out to win a specific part of it.", fa:"هدفت «رقابت در بازار» نباشد. هدفت بردنِ یک بخشِ مشخص از آن باشد."},
+        gain:{en:"You hold the one idea the whole book expands on.", fa:"همان یک ایده‌ای را داری که کلِ کتاب بسطش می‌دهد."} },
+      { level:2, badge:{en:"Level 2 · Simple", fa:"سطحِ ۲ · ساده"}, title:{en:"The five choices", fa:"پنج انتخاب"}, tagline:{en:"Aspiration, where, how, capabilities, systems.", fa:"آرمان، کجا، چطور، قابلیت‌ها، سیستم‌ها."},
+        body:{en:"Strategy is <b>an integrated set of five choices</b>: your <b>winning aspiration</b>, <b>where to play</b>, <b>how to win</b>, the <b>core capabilities</b> you need, and the <b>management systems</b> to support them. Answer all five and they form a single, connected strategy.", fa:"استراتژی یک <b>مجموعهٔ به‌هم‌پیوسته از پنج انتخاب</b> است: <b>آرمانِ بردن</b>، <b>کجا بازی کنی</b>، <b>چطور ببری</b>، <b>قابلیت‌های کلیدی</b> که لازم داری، و <b>سیستم‌های مدیریتی</b> که پشتیبانی‌شان کنند. به هر پنج تا جواب بده تا یک استراتژیِ واحد و به‌هم‌وصل بسازند."},
+        example:{en:"Write one clear answer to each of the five questions for your product or team.", fa:"برای محصول یا تیمت به هر کدام از پنج سؤال یک جوابِ روشن بنویس."},
+        gain:{en:"You can lay out a basic strategy across all five choices.", fa:"می‌توانی یک استراتژیِ پایه را روی هر پنج انتخاب بچینی."} },
+      { level:3, badge:{en:"Level 3 · Balanced", fa:"سطحِ ۳ · متعادل"}, title:{en:"Where + how are the heart", fa:"«کجا» و «چطور»، قلبِ کار"}, tagline:{en:"Pick a field and a way to beat it.", fa:"یک میدان و یک راهِ بردن انتخاب کن."},
+        body:{en:"The two choices at the core are <b>where to play</b> and <b>how to win</b>. Narrow the field — the markets, segments and channels you'll actually compete in — and pick a clear way to win there: <b>lower cost</b> or real <b>differentiation</b>. Above all, make the two <b>reinforce</b> each other.", fa:"دو انتخابی که در مرکزند «<b>کجا بازی کنی</b>» و «<b>چطور ببری</b>» هستند. میدان را باریک کن — همان بازارها، بخش‌ها و کانال‌هایی که واقعاً در آن‌ها رقابت می‌کنی — و یک راهِ روشنِ بردن انتخاب کن: <b>هزینهٔ کمتر</b> یا <b>تمایزِ</b> واقعی. از همه مهم‌تر، کاری کن این دو همدیگر را <b>تقویت</b> کنند."},
+        example:{en:"Cheap-to-make products fit price-sensitive markets; a premium brand fits buyers who'll pay more. Match them.", fa:"محصولِ ارزان‌ساخت به بازارِ حساس‌به‌قیمت می‌خورد؛ برندِ لوکس به خریداری که بیشتر پول می‌دهد. به هم بچسبانشان."},
+        gain:{en:"You can make the two choices that decide most of your strategy.", fa:"می‌توانی همان دو انتخابی را بکنی که بیشترِ استراتژی‌ات را تعیین می‌کنند."} },
+      { level:4, badge:{en:"Level 4 · Advanced", fa:"سطحِ ۴ · پیشرفته"}, title:{en:"Build the system", fa:"سیستم را بساز"}, tagline:{en:"Capabilities and systems that make it real.", fa:"قابلیت‌ها و سیستم‌هایی که واقعی‌اش می‌کنند."},
+        body:{en:"Now back the choices up. Name the <b>capabilities</b> you must be distinctly great at, and wire them into a <b>reinforcing system</b> so rivals can't copy just one piece. Then add the <b>management systems</b> — structures, processes and measures — that build those capabilities and keep the strategy running.", fa:"حالا انتخاب‌ها را پشتیبانی کن. <b>قابلیت‌هایی</b> را که باید به‌طورِ متمایز در آن‌ها عالی باشی نام ببر، و آن‌ها را در یک <b>سیستمِ خودتقویت‌کننده</b> به هم سیم‌کشی کن تا رقیب نتواند فقط یک تکه‌اش را کپی کند. بعد <b>سیستم‌های مدیریتی</b> را اضافه کن — ساختارها، فرایندها و سنجه‌ها — که آن قابلیت‌ها را می‌سازند و استراتژی را سرِ پا نگه می‌دارند."},
+        example:{en:"One skill can be copied; research plus scale plus brand, working together, can't be.", fa:"یک مهارت را می‌شود کپی کرد؛ تحقیق به‌علاوهٔ مقیاس به‌علاوهٔ برند، وقتی با هم کار می‌کنند، نه."},
+        gain:{en:"You can make choices that are hard for rivals to copy.", fa:"می‌توانی انتخاب‌هایی بکنی که کپی‌کردنشان برای رقیب سخت است."} },
+      { level:5, badge:{en:"Level 5 · Expert", fa:"سطحِ ۵ · حرفه‌ای"}, title:{en:"Reverse-engineer and refresh", fa:"مهندسیِ معکوس کن و تازه کن"}, tagline:{en:"Test the logic, measure, and renew.", fa:"منطق را محک بزن، بسنج، و تازه کن."},
+        body:{en:"Experts pressure-test the whole cascade. Run it through the <b>strategy logic flow</b> — industry, customers, relative position, competitor response — and reverse the question: instead of 'what's true?', ask '<b>what would have to be true?</b>' for each option, then test the shakiest condition first. Finally, <b>measure</b> what matters and <b>refresh</b> the choices as the world moves. Strategy is never finished — it's a set of choices you keep sharpening.", fa:"آدم‌های حرفه‌ای کلِ آبشار را محک می‌زنند. آن را از <b>منطقِ استراتژی</b> رد کن — صنعت، مشتری‌ها، جایگاهِ نسبی، واکنشِ رقیب — و سؤال را برعکس کن: به‌جای «چه چیزی درست است؟» برای هر گزینه بپرس «<b>چه چیزی باید درست باشد؟</b>»، بعد اول لرزان‌ترین شرط را آزمایش کن. آخرش، همان چیزهای مهم را <b>بسنج</b> و همراهِ حرکتِ دنیا انتخاب‌ها را <b>تازه</b> کن. استراتژی هیچ‌وقت تمام نمی‌شود — یک مجموعه انتخاب است که مدام تیزترش می‌کنی."},
+        example:{en:"Before a big bet, write the conditions it needs to work — and go test the one you're least sure of.", fa:"قبل از یک شرطِ بزرگ، شرط‌هایی که برای جواب‌دادن لازم دارد را بنویس — و برو همان‌یکی را آزمایش کن که کمترین اطمینان را بهش داری."},
+        gain:{en:"You can build, test, and keep renewing a real strategy — and coach others through it.", fa:"می‌توانی یک استراتژیِ واقعی را بسازی، محک بزنی و مدام تازه کنی — و دیگران را هم در آن راهنمایی کنی."} }
+    ],
+    quotes:[
+      {en:"Strategy is about making specific choices to win in the marketplace.", fa:"استراتژی یعنی انتخاب‌های مشخصی بکنی تا در بازار ببری."},
+      {en:"Strategy is choice. More specifically, strategy is an integrated set of choices that uniquely positions the firm in its industry so as to create sustainable advantage and superior value relative to the competition.", fa:"استراتژی یعنی انتخاب. دقیق‌تر بگوییم: استراتژی یک مجموعهٔ به‌هم‌پیوسته از انتخاب‌هاست که شرکت را در صنعتش جوری منحصربه‌فرد جای می‌دهد که نسبت به رقیب، برتریِ پایدار و ارزشِ بالاتر بسازد."},
+      {en:"Strategy is a coordinated and integrated set of five choices: a winning aspiration, where to play, how to win, core capabilities, and management systems.", fa:"استراتژی یک مجموعهٔ هماهنگ و به‌هم‌پیوسته از پنج انتخاب است: آرمانِ بردن، کجا بازی کنی، چطور ببری، قابلیت‌های کلیدی، و سیستم‌های مدیریت."},
+      {en:"A company must play to win. To play merely to participate is self-defeating.", fa:"یک شرکت باید برای بردن بازی کند. بازی‌کردن فقط برای شرکت‌کردن، خودزنی است."},
+      {en:"Strategy therefore requires making explicit choices—to do some things and not others—and building a business around those choices.", fa:"پس استراتژی نیاز دارد که انتخاب‌های صریح بکنی — بعضی کارها را بکنی و بعضی را نه — و کسب‌وکار را دورِ همان انتخاب‌ها بسازی."},
+      {en:"Winning should be at the heart of every strategy.", fa:"بردن باید در قلبِ هر استراتژی باشد."},
+      {en:"A winning strategy is a win-win-win; it creates value for consumers, customers, and the company.", fa:"استراتژیِ برنده یک بردِ سه‌طرفه است؛ هم برای مصرف‌کننده ارزش می‌سازد، هم برای مشتری، هم برای شرکت."},
+      {en:"What would have to be true for this choice to be strategically sound?", fa:"چه چیزی باید درست باشد تا این انتخاب از نظرِ استراتژیک درست باشد؟"},
+      {en:"I have a view worth hearing, but I may be missing something.", fa:"من نظری دارم که ارزشِ شنیدن دارد، ولی شاید چیزی را هم از قلم انداخته باشم."}
+    ],
+    media:[
+      { kind:"yt", id:"y7SN4FK8noY", src:{en:"YouTube · Lenny's Podcast", fa:"یوتیوب · Lenny's Podcast"},
+        title:{en:"5 Essential Questions to Craft a Winning Strategy", fa:"۵ سؤالِ کلیدی برای ساختنِ یک استراتژیِ برنده"},
+        desc:{en:"Roger Martin walks through the five strategic choices in depth.", fa:"راجر مارتین پنج انتخابِ استراتژیک را به‌طورِ عمیق توضیح می‌دهد."},
+        bullets:{en:["The full cascade, explained by the author","Real examples of where and how to win","Long, practical, and hands-on"], fa:["کلِ آبشار، به زبانِ خودِ نویسنده","مثال‌های واقعی از «کجا» و «چطور» بردن","بلند، کاربردی، و عملی"]},
+        best:{en:"Best for Stage 3–5.", fa:"خوب برای مرحلهٔ ۳ تا ۵."} },
+      { kind:"yt", id:"trax_OMOPcU", src:{en:"YouTube · Rotman School of Management", fa:"یوتیوب · Rotman School of Management"},
+        title:{en:"How Strategy Really Works — Roger Martin", fa:"استراتژی واقعاً چطور کار می‌کند — راجر مارتین"},
+        desc:{en:"Roger Martin's own talk on the ideas behind the book.", fa:"سخنرانیِ خودِ راجر مارتین دربارهٔ ایده‌های پشتِ کتاب."},
+        bullets:{en:["Straight from a co-author","Why strategy is choice, not planning","A clear, authoritative overview"], fa:["مستقیم از یکی از نویسنده‌ها","چرا استراتژی انتخاب است، نه برنامه‌ریزی","یک مرورِ روشن و معتبر"]},
+        best:{en:"Best for Stage 2–3.", fa:"خوب برای مرحلهٔ ۲ و ۳."} },
+      { kind:"yt", id:"uq6o0WOINH8", src:{en:"YouTube · Book Ginger", fa:"یوتیوب · Book Ginger"},
+        title:{en:"Playing to Win — Animated Book Summary", fa:"بازی برای بردن — خلاصهٔ انیمیشنیِ کتاب"},
+        desc:{en:"A short animated overview of the five choices.", fa:"یک مرورِ کوتاه و انیمیشنی از پنج انتخاب."},
+        bullets:{en:["The five choices in a few minutes","Simple, visual, and fast","A friendly first look"], fa:["پنج انتخاب در چند دقیقه","ساده، تصویری، و سریع","یک نگاهِ اول و راحت"]},
+        best:{en:"Best for Stage 1–2.", fa:"خوب برای مرحلهٔ ۱ و ۲."} },
+      { kind:"img", url:"https://hbr.org/books/playing-to-win",
+        src:{en:"Harvard Business Review Press · Publisher", fa:"Harvard Business Review Press · ناشر"},
+        title:{en:"Playing to Win — Publisher Page", fa:"بازی برای بردن — صفحهٔ ناشر"},
+        desc:{en:"The official publisher page, with the book's overview and details.", fa:"صفحهٔ رسمیِ ناشر، با معرفی و جزئیاتِ کتاب."},
+        bullets:{en:["Straight from the source","Background on Lafley and Martin","The definitive edition"], fa:["مستقیم از خودِ منبع","پیشینه‌ای دربارهٔ لافلی و مارتین","نسخهٔ معتبر"]},
+        best:{en:"For the source and editions.", fa:"برای منبع و نسخه‌ها."} }
+    ],
+    go:[
+      {label:{en:'Publisher page', fa:'صفحهٔ ناشر'}, url:'https://hbr.org/books/playing-to-win'},
+      {label:{en:'Book on Goodreads', fa:'کتاب در گودریدز'}, url:'https://www.goodreads.com/book/show/13586928-playing-to-win'},
+      {label:{en:"Roger Martin: Playing to Win", fa:'راجر مارتین: بازی برای بردن'}, url:'https://rogerlmartin.com/lets-read/playing-to-win'}
+    ],
+    recs:[
+      { pri:'b', t:{en:'Write your winning aspiration', fa:'آرمانِ بردنت را بنویس'}, d:{en:"In one line, say what winning looks like for your product or team this year.", fa:'در یک خط بگو بردن برای محصول یا تیمت امسال چه شکلی است.'} },
+      { pri:'b', t:{en:"Name where you won't play", fa:'بگو کجا بازی نمی‌کنی'}, d:{en:"Pick one tempting market or feature you'll deliberately drop to focus your strength.", fa:'یک بازار یا قابلیتِ وسوسه‌انگیز را انتخاب کن که عمداً کنارش می‌گذاری تا نیرویت جمع شود.'} },
+      { pri:'n', t:{en:'Pick your how-to-win', fa:'«چطور ببری»‌ات را انتخاب کن'}, d:{en:"Decide plainly: do you win by lower cost or by real differentiation? Write which.", fa:'ساده تصمیم بگیر: با هزینهٔ کمتر می‌بری یا با تمایزِ واقعی؟ بنویس کدام.'} },
+      { pri:'n', t:{en:'Reverse-engineer a big bet', fa:'یک شرطِ بزرگ را مهندسیِ معکوس کن'}, d:{en:"For a current decision, ask 'what would have to be true?' and test the shakiest condition.", fa:'برای یک تصمیمِ فعلی بپرس «چه چیزی باید درست باشد؟» و لرزان‌ترین شرط را آزمایش کن.'} }
+    ]
+  }
+};

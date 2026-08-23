@@ -1,0 +1,254 @@
+/* config: The 15 Commitments of Conscious Leadership — Dethmer, Chapman & Klemp (Leadership) */
+module.exports = {
+  slug:'cl15', brand:'Conscious Leadership',
+  titleTag:'The 15 Commitments of Conscious Leadership — نقشهٔ دانش و یادگیری ۵ مرحله‌ای',
+  W:980, H:780, R1:220, R2:126, span:66,
+  leafKickEn:'Commitment', leafKickFa:'تعهدِ',
+  flowEn:['Notice','Shift','Lead'], flowFa:['ببین','جابه‌جا شو','رهبری کن'],
+
+  hero:`  <div class="eyebrow"><span class="edot"></span>
+    <span data-only="en">Book knowledge map · Dethmer, Chapman & Klemp</span>
+    <span data-only="fa">نقشهٔ کتاب · دتمر، چپمن و کلمپ</span>
+  </div>
+  <h1>
+    <span data-only="en">The 15 Commitments of Conscious Leadership</span>
+    <span data-only="fa">پانزده تعهدِ رهبریِ آگاهانه</span>
+  </h1>
+  <p class="dek">
+    <span data-only="en">A knowledge graph of the whole book, plus a 5-stage path from a single question to expert-level mastery — with an example at every step.</span>
+    <span data-only="fa">نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از یک سؤالِ ساده تا حرفه‌ای — با یک مثال در هر مرحله.</span>
+  </p>
+  <div class="metastrip">
+    <div class="metaitem"><span class="mk" data-only="en">Book</span><span class="mk" data-only="fa">کتاب</span>
+      <span class="mv" data-only="en">The 15 Commitments of Conscious Leadership</span><span class="mv" data-only="fa">پانزده تعهدِ رهبریِ آگاهانه</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Authors</span><span class="mk" data-only="fa">نویسنده‌ها</span>
+      <span class="mv" data-only="en">Dethmer, Chapman & Klemp</span><span class="mv" data-only="fa">دتمر، چپمن و کلمپ</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Published</span><span class="mk" data-only="fa">سالِ چاپ</span>
+      <span class="mv" data-only="en">2014</span><span class="mv" data-only="fa">۲۰۱۴</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Group</span><span class="mk" data-only="fa">گروه</span>
+      <span class="mv" data-only="en">Leadership</span><span class="mv" data-only="fa">رهبری</span></div>
+  </div>
+  <div class="chips">
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Parts</span><span data-only="fa">بخش</span></div>
+    <div class="chip"><b data-only="en">15</b><b data-only="fa">۱۵</b><span data-only="en">Commitments</span><span data-only="fa">تعهد</span></div>
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Learning stages</span><span data-only="fa">مرحلهٔ یادگیری</span></div>
+  </div>`,
+
+  callout:`    <b data-only="en">The core idea:</b>
+    <b data-only="fa">ایدهٔ اصلی:</b>
+    <span data-only="en"> At any moment you are either <i>above the line</i> — open, curious, committed to learning — or <i>below the line</i> — closed, defensive, committed to being right. Conscious leadership is noticing which side you are on and choosing to shift. The 15 commitments are 15 ways to live above the line.</span>
+    <span data-only="fa"> هر لحظه یا <i>بالای خطی</i> — باز، کنجکاو، متعهد به یادگیری — یا <i>پایینِ خط</i> — بسته، تدافعی، متعهد به حق‌به‌جانب‌بودن. رهبریِ آگاهانه یعنی ببینی کدام سمتی و انتخاب کنی جابه‌جا شوی. پانزده تعهد، پانزده راهِ زندگی بالای خط‌اند.</span>`,
+
+  kpis:`    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Parts (locate · responsibility · curiosity · candor · abundance)</div><div class="l" data-only="fa">بخش (مکان‌یابی · مسئولیت · کنجکاوی · رک‌گویی · فراوانی)</div></div>
+    <div class="kbox"><div class="v" data-only="en">15</div><div class="v" data-only="fa">۱۵</div><div class="l" data-only="en">Commitments to practice</div><div class="l" data-only="fa">تعهد برای تمرین</div></div>
+    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Levels, simple → expert</div><div class="l" data-only="fa">مرحله، ساده تا حرفه‌ای</div></div>
+    <div class="kbox"><div class="v" data-only="en">2</div><div class="v" data-only="fa">۲</div><div class="l" data-only="en">States: above the line · below the line</div><div class="l" data-only="fa">حالت: بالای خط · پایینِ خط</div></div>`,
+
+  mapcallout:`      <b data-only="en">Read it as a flow:</b><b data-only="fa">به‌صورتِ یک جریان بخوانش:</b>
+      <span data-only="en"> first <b>locate yourself</b> above or below the line, take <b>radical responsibility</b>, choose <b>curiosity over being right</b>, then add <b>feelings and candor</b> — and lead from <b>appreciation, play and win-for-all</b>.</span>
+      <span data-only="fa"> اول <b>خودت را پیدا کن</b> بالای خط یا پایینش، <b>مسئولیتِ کامل</b> را بپذیر، <b>کنجکاوی به‌جای حق‌به‌جانبی</b> را انتخاب کن، بعد <b>احساسات و رک‌گویی</b> را اضافه کن — و از <b>قدردانی، بازی و بُرد برای همه</b> رهبری کن.</span>`,
+
+  methodFa:"<p><b>منبع:</b> کتابِ «The 15 Commitments of Conscious Leadership» نوشتهٔ جیم دتمر، دایانا چپمن و کیلی وارنر کلمپ، چاپِ ۲۰۱۴.</p><p><b>روشِ کار:</b> چارچوبِ «بالای خط / پایینِ خط» و پانزده تعهد از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده؛ نقل‌قول‌ها با متنِ کتاب و سایتِ رسمیِ conscious.is مقابله و ویدیو بررسی شده است.</p><p><b>گروه:</b> «رهبری» — از فهرستِ کتاب‌های ضروری برای سازندگانِ محصول و رهبرها.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای متنِ کامل، خودِ کتاب را بخوان.</p>",
+  methodEn:"<p><b>Source:</b> the book <i>The 15 Commitments of Conscious Leadership</i> by Jim Dethmer, Diana Chapman and Kaley Warner Klemp (2014).</p><p><b>How this was built:</b> the above-the-line / below-the-line frame and the fifteen commitments were gathered and rewritten from the book and reputable sources; quotes were cross-checked against the book and the authors’ site at conscious.is, and the linked video verified.</p><p><b>Group:</b> Leadership — from a list of essential books for product builders and leaders.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>",
+
+  data:{
+    tldr:[
+      {en:"The whole book in one line: at any moment you are either <b>above the line</b> (open) or <b>below the line</b> (closed) — and great leaders notice which.",
+       fa:"خلاصهٔ کلِ کتاب در یک خط: هر لحظه یا <b>بالای خطی</b> (باز) یا <b>پایینِ خط</b> (بسته) — و رهبرِ خوب می‌فهمد کدام."},
+      {en:"Above the line you are <b>curious and committed to learning</b>; below it you are <b>defensive and committed to being right</b>.",
+       fa:"بالای خط <b>کنجکاوی و متعهد به یادگیری</b>؛ پایینش <b>تدافعی و متعهد به حق‌به‌جانب‌بودن</b>."},
+      {en:"It starts with <b>radical responsibility</b>: drop blame, gossip and victim stories, and leave the drama triangle.",
+       fa:"با <b>مسئولیتِ کامل</b> شروع می‌شود: سرزنش و غیبت و قصه‌های قربانی را رها کن، و از مثلثِ نمایش بیرون بیا."},
+      {en:"Then <b>feel your feelings</b>, <b>speak candidly</b>, and stay in <b>integrity</b> — say the true thing, keep your word.",
+       fa:"بعد <b>احساساتت را حس کن</b>، <b>رک حرف بزن</b>، و در <b>یکپارچگی</b> بمان — حرفِ درست را بزن، سرِ قولت بمان."},
+      {en:"The top gear is <b>abundance</b>: real appreciation, enough instead of scarcity, play and rest, and <b>wins for everyone</b>.",
+       fa:"دندهٔ آخر <b>فراوانی</b> است: قدردانیِ واقعی، «کافی» به‌جای کمبود، بازی و استراحت، و <b>بُرد برای همه</b>."}
+    ],
+    parts:[
+      { key:'aboveline', varc:'--c-teal', name:{en:'Above vs Below the Line', fa:'بالای خط یا پایینِ خط'}, tag:{en:'Locate yourself', fa:'خودت را پیدا کن'},
+        gist:{en:'The one skill under everything: notice whether you are open or closed, right now.', fa:'مهارتی که زیرِ همه‌چیز است: همین حالا ببین باز هستی یا بسته.'},
+        more:{en:"At any moment you are above the line — open, curious, wanting to learn — or below it — closed, defensive, wanting to be right. You can't stay above all the time; the shift is simply noticing where you are and choosing to come back.",
+              fa:"هر لحظه یا بالای خطی — باز، کنجکاو، تشنهٔ یادگیری — یا پایینش — بسته، تدافعی، دنبالِ حق‌به‌جانب‌بودن. نمی‌شود همیشه بالا ماند؛ کلِ کار این است که ببینی کجایی و انتخاب کنی برگردی بالا."},
+        chapters:['locate','shift','fifteen'] },
+      { key:'responsibility', varc:'--c-blue', name:{en:'Radical Responsibility', fa:'مسئولیتِ تمام‌وکمال'}, tag:{en:'Own it all', fa:'همه‌اش را بپذیر'},
+        gist:{en:'Trade blame, complaint and victim stories for 100% ownership.', fa:'سرزنش و شکایت و قصه‌های قربانی را بده، صددرصد مسئولیت را بگیر.'},
+        more:{en:"Below the line we look for who to blame — including ourselves. Radical responsibility drops the whole drama triangle of victim, villain and hero, and asks a better question: what can I learn and create here?",
+              fa:"پایینِ خط دنبالِ مقصر می‌گردیم — حتی خودمان. مسئولیتِ تمام‌وکمال کلِ مثلثِ نمایشِ قربانی و ظالم و ناجی را کنار می‌گذارد و یک سؤالِ بهتر می‌پرسد: اینجا چه چیزی می‌توانم یاد بگیرم و بسازم؟"},
+        chapters:['radicalresp','drama','empower'] },
+      { key:'curiosity', varc:'--c-amber', name:{en:'Curiosity over Being Right', fa:'کنجکاوی به‌جای حق‌به‌جانبی'}, tag:{en:'Choose learning', fa:'یادگیری را انتخاب کن'},
+        gist:{en:'Give up defending your story; get curious, hear feedback, drop gossip.', fa:'دست از دفاع از قصه‌ات بردار؛ کنجکاو شو، بازخورد را بشنو، غیبت را رها کن.'},
+        more:{en:"Being right feels safe and keeps you stuck. Curiosity treats every person and every piece of feedback as something to learn from — and it means ending gossip and talking straight to the person instead.",
+              fa:"حق‌به‌جانب‌بودن حسِ امنیت می‌دهد و همان‌جا میخکوبت می‌کند. کنجکاوی هر آدم و هر بازخورد را چیزی برای یادگرفتن می‌بیند — و یعنی غیبت را تمام کنی و مستقیم با خودِ طرف حرف بزنی."},
+        chapters:['learning','beingright','gossip'] },
+      { key:'candor', varc:'--c-violet', name:{en:'Feelings & Candor', fa:'احساسات و رک‌گویی'}, tag:{en:'Feel it, say it', fa:'حسش کن، بگو'},
+        gist:{en:'Feel all feelings fully, speak the truth kindly, and stay in integrity.', fa:'همهٔ احساسات را کامل حس کن، حقیقت را مهربان بگو، و سرِ حرفت بمان.'},
+        more:{en:"Leaders leak the feelings they won't feel and the truths they won't say. Feeling emotions all the way through, speaking candidly, and keeping your word are three faces of one thing: integrity.",
+              fa:"رهبرها همان احساسی که حس نمی‌کنند و همان حقیقتی که نمی‌گویند را بی‌اجازه بیرون می‌ریزند. حس‌کردنِ کاملِ احساسات، رک حرف‌زدن، و سرِ قول ماندن سه رویِ یک چیزند: یکپارچگی."},
+        chapters:['feelings','speakcandid','integrity'] },
+      { key:'winforall', varc:'--c-green', name:{en:'Appreciation, Play & Win-for-All', fa:'قدردانی، بازی و بُردِ همه'}, tag:{en:'Abundance mindset', fa:'ذهنیتِ فراوانی'},
+        gist:{en:'Live in real appreciation and enough, play more, and build wins for everyone.', fa:'در قدردانیِ واقعی و «کافی‌بودن» زندگی کن، بیشتر بازی کن، و بُرد برای همه بساز.'},
+        more:{en:"The top commitments come from abundance, not scarcity. Genuine appreciation, the felt sense that there is enough, play and rest, and win-for-all solutions replace the zero-sum game most leaders are trapped in.",
+              fa:"تعهدهای بالایی از فراوانی می‌آیند، نه از کمبود. قدردانیِ واقعی، این حس که «به‌قدرِ کافی هست»، بازی و استراحت، و راه‌حل‌هایی که همه در آن می‌برند، جایِ آن بازیِ بُرد-باختی را می‌گیرند که بیشترِ رهبرها در آن گیرند."},
+        chapters:['appreciation','enough','play'] }
+    ],
+    chapters:{
+      locate:{ part:'aboveline', n:1, name:{en:'Locate Yourself', fa:'خودت را پیدا کن'}, glabel:{en:'Locate', fa:'مکان‌یابی'},
+        principle:{en:"Before you lead anything, notice where you are: above the line (open) or below it (closed).", fa:"قبل از اینکه چیزی را رهبری کنی، ببین کجایی: بالای خط (باز) یا پایینش (بسته)."},
+        more:{en:"This is the first question of conscious leadership. Above the line you are open, curious and willing to learn; below it you are closed, defensive and set on being right. Nobody stays above all day — the skill is catching yourself.", fa:"این اولین سؤالِ رهبریِ آگاهانه است. بالای خط باز و کنجکاوی و حاضری یاد بگیری؛ پایینش بسته و تدافعی هستی و چسبیده‌ای به حق‌به‌جانب‌بودن. هیچ‌کس تمامِ روز بالا نمی‌ماند — مهارت این است که خودت را سرِ بزنگاه بگیری."},
+        example:{en:"In a tense meeting, pause and ask yourself one question: am I open right now, or closed?", fa:"وسطِ یک جلسهٔ پرتنش، یک لحظه بایست و از خودت یک سؤال بپرس: الان بازم یا بسته؟"},
+        tip:{en:"A few times today, stop and name it out loud: above the line, or below?", fa:"امروز چند بار بایست و بلند اسمش را بگو: بالای خط، یا پایین؟"},
+        pitfall:{en:"Believing you are above the line while your body is clearly tense and defensive.", fa:"این توهم که بالای خطی، درحالی‌که بدنت آشکارا سفت و تدافعی است."} },
+      shift:{ part:'aboveline', n:2, name:{en:'The Shift', fa:'جابه‌جایی'}, glabel:{en:'Shift', fa:'جابه‌جایی'},
+        principle:{en:"You can't force yourself above the line, but you can become willing — and willingness is the shift.", fa:"نمی‌توانی به‌زور خودت را بالای خط ببری، اما می‌توانی «راضی» شوی — و همان رضایت، خودِ جابه‌جایی است."},
+        more:{en:"The move from closed to open starts with one honest question: am I willing to shift? You don't change by pushing harder; you change by letting go of needing to be right and getting curious about what else is true.", fa:"حرکت از بسته به باز با یک سؤالِ صادقانه شروع می‌شود: حاضرم جابه‌جا شوم؟ با فشارِ بیشتر عوض نمی‌شوی؛ با رهاکردنِ نیاز به حق‌به‌جانب‌بودن و کنجکاوشدن دربارهٔ چیزهای دیگری که درست‌اند عوض می‌شوی."},
+        example:{en:"Instead of defending, take a breath and ask: what if the opposite of my story is also true?", fa:"به‌جای دفاع، یک نفس بکش و بپرس: اگر عکسِ قصهٔ من هم درست باشد چه؟"},
+        tip:{en:"Next time you feel defensive, ask yourself: am I willing to be wrong about this?", fa:"دفعهٔ بعد که حالت تدافعی شد، از خودت بپرس: حاضرم دربارهٔ این اشتباه کرده باشم؟"},
+        pitfall:{en:"Trying to muscle your way above the line instead of simply becoming willing.", fa:"به‌زور خواستن که بالای خط بروی، به‌جای اینکه فقط راضی شوی."} },
+      fifteen:{ part:'aboveline', n:3, name:{en:'The 15 Commitments', fa:'پانزده تعهد'}, glabel:{en:'15 Commitments', fa:'۱۵ تعهد'},
+        principle:{en:"The fifteen commitments are fifteen concrete ways to live above the line, day to day.", fa:"پانزده تعهد، پانزده راهِ مشخص‌اند برای اینکه روزبه‌روز بالای خط زندگی کنی."},
+        more:{en:"Radical responsibility, curiosity, feeling feelings, candor, ending gossip, integrity, appreciation, zone of genius, play and rest, exploring the opposite, sourcing security, having enough, seeing the world as an ally, win-for-all, and being the resolution — each one is a practice, not a rule to obey.", fa:"مسئولیتِ کامل، کنجکاوی، حس‌کردنِ احساسات، رک‌گویی، حذفِ غیبت، یکپارچگی، قدردانی، منطقهٔ نبوغ، بازی و استراحت، کاوشِ نقطهٔ مقابل، تأمین از درون، «به‌قدرِ کافی داشتن»، جهان را متحد دیدن، بُرد برای همه، و «راهِ‌حل بودن» — هرکدام یک تمرین است، نه قانونی برای اطاعت."},
+        example:{en:"You don't have to master all fifteen; picking one to practice this week already shifts you.", fa:"لازم نیست هر ۱۵ تا را استاد شوی؛ همین که یکی را برای تمرینِ این هفته انتخاب کنی، جابه‌جایت می‌کند."},
+        tip:{en:"Skim all fifteen, then choose the single commitment you most need this month.", fa:"یک نگاهِ کلی به هر پانزده تا بینداز، بعد همان یک تعهدی را که این ماه بیشتر از همه لازم داری انتخاب کن."},
+        pitfall:{en:"Trying to do all fifteen at once and turning a practice into another rulebook.", fa:"خواستنِ اینکه هر پانزده را یک‌جا انجام دهی و تبدیل‌کردنِ یک تمرین به یک کتابِ قانونِ دیگر."} },
+      radicalresp:{ part:'responsibility', n:4, name:{en:'Take Radical Responsibility', fa:'مسئولیتِ کامل را بپذیر'}, glabel:{en:'Responsibility', fa:'مسئولیت'},
+        principle:{en:"Take full responsibility for your life and results — without blaming others or yourself.", fa:"مسئولیتِ کاملِ زندگی و نتیجه‌هایت را بپذیر — بی‌آنکه دیگران یا خودت را سرزنش کنی."},
+        more:{en:"Responsibility here isn't fault or shame; it's ownership. You drop 'who did this to me?' and pick up 'how am I creating or allowing this, and what do I want instead?' That question hands you back your power.", fa:"مسئولیت اینجا یعنی به‌عهده‌گرفتن، نه تقصیر و شرمندگی. «کی این را سرم آورد؟» را می‌گذاری زمین و برمی‌داری «من چطور دارم این را می‌سازم یا اجازه‌اش را می‌دهم، و به‌جایش چه می‌خواهم؟» همین سؤال قدرتت را بهت پس می‌دهد."},
+        example:{en:"Instead of 'the team missed the deadline', ask 'how did I set this up to slip?'", fa:"به‌جای «تیم به ددلاین نرسید»، بپرس «من چطور کاری کردم که این عقب بیفتد؟»"},
+        tip:{en:"Take one thing you've been blaming on someone else and ask what your part in it is.", fa:"یک چیز را که گردنِ دیگری انداخته‌ای بردار و بپرس سهمِ خودت در آن چیست."},
+        pitfall:{en:"Turning responsibility into self-blame — that is just being below the line about yourself.", fa:"مسئولیت را به خودزنی تبدیل‌کردن — این هم فقط پایینِ خط بودن است، منتها با خودت."} },
+      drama:{ part:'responsibility', n:5, name:{en:'Leave the Drama Triangle', fa:'از مثلثِ نمایش بیرون بیا'}, glabel:{en:'Drama Triangle', fa:'مثلثِ نمایش'},
+        principle:{en:"Below the line we play victim, villain, or hero — three roles that keep the drama spinning.", fa:"پایینِ خط نقشِ قربانی، ظالم یا ناجی را بازی می‌کنیم — سه نقشی که چرخِ نمایش را می‌چرخانند."},
+        more:{en:"The victim feels done-to, the villain blames and criticizes, the hero rescues so nobody has to grow. All three feel justified, and all three keep everyone stuck. The first step out is simply seeing which role you're in.", fa:"قربانی حس می‌کند بلایی سرش آمده، ظالم سرزنش و انتقاد می‌کند، ناجی نجات می‌دهد تا کسی مجبور به رشد نشود. هر سه حس می‌کنند حق دارند، و هر سه همه را گیر نگه می‌دارند. اولین قدمِ بیرون‌آمدن فقط این است که ببینی در کدام نقشی."},
+        example:{en:"Rescuing a struggling teammate by doing their work keeps you the hero and them the victim.", fa:"نجاتِ همکارِ درمانده با انجامِ کارش، تو را ناجی نگه می‌دارد و او را قربانی."},
+        tip:{en:"In your next conflict, name your role: am I playing victim, villain, or hero here?", fa:"در دعوای بعدی‌ات، نقشت را اسم ببر: اینجا دارم قربانی بازی می‌کنم، ظالم، یا ناجی؟"},
+        pitfall:{en:"The hero role looks generous but quietly keeps others dependent and small.", fa:"نقشِ ناجی سخاوتمند به‌نظر می‌رسد، اما بی‌سروصدا بقیه را وابسته و کوچک نگه می‌دارد."} },
+      empower:{ part:'responsibility', n:6, name:{en:'Shift to the Empowerment Triangle', fa:'برو به مثلثِ توانمندی'}, glabel:{en:'Empowerment', fa:'توانمندی'},
+        principle:{en:"Trade victim, villain and hero for creator, challenger and coach.", fa:"قربانی و ظالم و ناجی را با آفریننده، چالش‌گر و مربی عوض کن."},
+        more:{en:"The same three people can stand in empowering roles: the creator owns outcomes, the challenger provokes growth instead of blaming, and the coach helps others find their own answers rather than rescuing them.", fa:"همان سه آدم می‌توانند در نقش‌های توانمند بایستند: آفریننده مسئولِ نتیجه است، چالش‌گر به‌جای سرزنش، رشد را برمی‌انگیزد، و مربی به‌جای نجات‌دادن، به دیگران کمک می‌کند جوابِ خودشان را پیدا کنند."},
+        example:{en:"Instead of rescuing, a coach asks: what do you want, and what's one step you can take?", fa:"مربی به‌جای نجات‌دادن می‌پرسد: چه می‌خواهی، و یک قدمی که می‌توانی برداری چیست؟"},
+        tip:{en:"Turn one rescue into a question that helps the other person find their own next step.", fa:"یک نجات‌دادن را به سؤالی تبدیل کن که به طرف کمک کند قدمِ بعدی‌اش را خودش پیدا کند."},
+        pitfall:{en:"Slapping new labels on old behavior while staying in blame and rescue.", fa:"برچسبِ نو زدن روی رفتارِ کهنه، درحالی‌که هنوز در سرزنش و نجات‌دادن مانده‌ای."} },
+      learning:{ part:'curiosity', n:7, name:{en:'Learn Through Curiosity', fa:'با کنجکاوی یاد بگیر'}, glabel:{en:'Curiosity', fa:'کنجکاوی'},
+        principle:{en:"Treat every interaction as a chance to learn; curiosity is the fastest path to growth.", fa:"هر تعامل را فرصتی برای یادگیری بدان؛ کنجکاوی سریع‌ترین راهِ رشد است."},
+        more:{en:"Conscious leaders commit to growing in self-awareness and stay genuinely curious about themselves, others, and the world. Curiosity is above the line by nature — you can't be defensive and openly curious at the same time.", fa:"رهبرانِ آگاه متعهد می‌شوند در خودآگاهی رشد کنند و دربارهٔ خودشان، دیگران و جهان واقعاً کنجکاو بمانند. کنجکاوی ذاتاً بالای خط است — نمی‌شود هم‌زمان تدافعی باشی و هم روراست کنجکاو."},
+        example:{en:"When criticized, replace 'that's not true' with 'interesting — tell me more about that.'", fa:"وقتی ازت انتقاد شد، «این درست نیست» را با «جالبه — بیشتر برام بگو» عوض کن."},
+        tip:{en:"Ask one more genuinely curious question before you defend or explain yourself.", fa:"قبل از اینکه از خودت دفاع یا توضیح بدهی، یک سؤالِ واقعاً کنجکاوانهٔ دیگر بپرس."},
+        pitfall:{en:"Fake curiosity that is really cross-examination aimed at proving you're right.", fa:"کنجکاویِ قلابی که در واقع بازجویی است برای اثباتِ اینکه حق با توست."} },
+      beingright:{ part:'curiosity', n:8, name:{en:'Give Up Being Right', fa:'دست از حق‌به‌جانبی بردار'}, glabel:{en:'Being Right', fa:'حق‌به‌جانبی'},
+        principle:{en:"The need to be right is the engine of drama; letting it go opens you to feedback.", fa:"نیاز به حق‌به‌جانب‌بودن، موتورِ نمایش است؛ رهاکردنش تو را به روی بازخورد باز می‌کند."},
+        more:{en:"Wanting to be right keeps you closed, because being wrong feels like a threat. Above the line you'd rather learn than win the argument, so you welcome feedback as data about how you land — not as an attack.", fa:"خواستنِ حق‌به‌جانب‌بودن بسته نگهت می‌دارد، چون اشتباه‌بودن مثلِ تهدید حس می‌شود. بالای خط ترجیح می‌دهی یاد بگیری تا اینکه بحث را ببری، پس بازخورد را داده‌ای دربارهٔ اثری که می‌گذاری می‌بینی — نه یک حمله."},
+        example:{en:"Hear hard feedback and say 'thank you' before you say anything else.", fa:"بازخوردِ سخت را بشنو و قبل از هر حرفِ دیگری بگو «ممنون»."},
+        tip:{en:"In your next disagreement, aim to understand the other view before defending yours.", fa:"در اختلافِ بعدی‌ات، هدفت این باشد که نظرِ طرف را بفهمی، قبل از اینکه از خودت دفاع کنی."},
+        pitfall:{en:"Collecting evidence for your side instead of listening to what's true for them.", fa:"جمع‌کردنِ مدرک به‌نفعِ خودت، به‌جای گوش‌دادن به آنچه برای طرف درست است."} },
+      gossip:{ part:'curiosity', n:9, name:{en:'Eliminate Gossip', fa:'غیبت را تمام کن'}, glabel:{en:'Gossip', fa:'غیبت'},
+        principle:{en:"End gossip; take your concern straight to the person it's about.", fa:"غیبت را تمام کن؛ گله‌ات را مستقیم پیشِ همان کسی ببر که درباره‌اش است."},
+        more:{en:"Gossip is talking about someone in a way you wouldn't if they were in the room. It feels bonding but it's below the line — a way to be right and avoid a real conversation. Candor to their face replaces it.", fa:"غیبت یعنی طوری دربارهٔ کسی حرف بزنی که اگر خودش توی اتاق بود آن‌طور نمی‌گفتی. حسِ نزدیکی می‌دهد اما پایینِ خط است — راهی برای حق‌به‌جانب‌بودن و فرار از یک گفت‌وگوی واقعی. رک‌گویی روبه‌رو جایش را می‌گیرد."},
+        example:{en:"Instead of venting about a colleague to a third person, go talk to the colleague.", fa:"به‌جای اینکه پیشِ نفرِ سوم از یک همکار بنالی، برو با خودِ همکار حرف بزن."},
+        tip:{en:"Before repeating something about someone, ask: would I say this with them here?", fa:"قبل از اینکه چیزی دربارهٔ کسی تکرار کنی، بپرس: اگر خودش اینجا بود همین را می‌گفتم؟"},
+        pitfall:{en:"Dressing up gossip as 'venting' or 'just processing' with a sympathetic third party.", fa:"غیبت را با اسمِ «درد و دل» یا «فقط دارم تحلیل می‌کنم» پیشِ یک نفرِ همدل توجیه‌کردن."} },
+      feelings:{ part:'candor', n:10, name:{en:'Feel All Feelings', fa:'همهٔ احساسات را حس کن'}, glabel:{en:'Feelings', fa:'احساسات'},
+        principle:{en:"Let every emotion move through your body all the way to completion, instead of suppressing it.", fa:"بگذار هر احساس تا آخر از بدنت رد شود و کامل شود، به‌جای اینکه سرکوبش کنی."},
+        more:{en:"Anger, fear, sadness, joy — each carries useful information. Leaders who won't feel their feelings end up leaking them or acting them out. Locate the feeling in your body, breathe, and let it release; it passes far faster than you expect.", fa:"خشم، ترس، غم، شادی — هرکدام اطلاعاتِ به‌دردبخوری دارند. رهبری که حاضر نیست احساسش را حس کند، آخرش آن را بی‌اجازه بیرون می‌ریزد یا به عمل درمی‌آورد. احساس را در بدنت پیدا کن، نفس بکش، و بگذار رها شود؛ خیلی زودتر از آنچه فکر می‌کنی می‌گذرد."},
+        example:{en:"Feeling anger rise, name it silently and breathe instead of firing off an email.", fa:"وقتی خشم بالا می‌آید، در سکوت اسمش را بگو و نفس بکش، به‌جای اینکه یک ایمیلِ عصبانی بفرستی."},
+        tip:{en:"Next strong emotion, locate it in your body and breathe with it for thirty seconds.", fa:"احساسِ قویِ بعدی را در بدنت پیدا کن و سی ثانیه با آن نفس بکش."},
+        pitfall:{en:"Calling emotions unprofessional and stuffing them down until they leak out sideways.", fa:"احساسات را غیرحرفه‌ای بدانی و آن‌قدر تویِ خودت بریزی تا از یک گوشهٔ دیگر بیرون بزنند."} },
+      speakcandid:{ part:'candor', n:11, name:{en:'Speak Candidly', fa:'رک حرف بزن'}, glabel:{en:'Candor', fa:'رک‌گویی'},
+        principle:{en:"Say what's true for you, and be someone others can be candid with in return.", fa:"آنچه برای تو درست است را بگو، و کسی باش که دیگران هم می‌توانند با او رک باشند."},
+        more:{en:"Candor means revealing rather than concealing — sharing the facts, your feelings, and what you want, without blame or spin. It's not brutal honesty; it's speaking truth with care, and staying just as open to hearing it back.", fa:"رک‌گویی یعنی رو کردن به‌جای پنهان‌کردن — گفتنِ واقعیت‌ها، احساساتت، و آنچه می‌خواهی، بی‌سرزنش و بی‌لاپوشانی. صداقتِ بی‌رحمانه نیست؛ یعنی حقیقت را با مراقبت بگویی، و به همان اندازه هم برای شنیدنش باز بمانی."},
+        example:{en:"Say 'I felt shut down when you cut me off' instead of going quiet and resentful.", fa:"به‌جای اینکه ساکت و دلخور شوی، بگو «وقتی حرفم را قطع کردی حس کردم نادیده گرفته شدم»."},
+        tip:{en:"Share one true thing you've been withholding — the facts and how you feel about them.", fa:"یک چیزِ درست را که تویِ خودت نگه داشته‌ای بگو — هم واقعیتش را، هم اینکه چه حسی درباره‌اش داری."},
+        pitfall:{en:"Using 'candor' as a license to dump blame and call it honesty.", fa:"«رک‌گویی» را بهانه کنی تا سرزنش را خالی کنی و اسمش را بگذاری صداقت."} },
+      integrity:{ part:'candor', n:12, name:{en:'Practice Integrity', fa:'یکپارچگی را تمرین کن'}, glabel:{en:'Integrity', fa:'یکپارچگی'},
+        principle:{en:"Keep your agreements, and clean them up promptly when you break one.", fa:"سرِ قول‌هایت بمان، و وقتی یکی را زیر پا گذاشتی، سریع جمعش کن."},
+        more:{en:"Integrity here is wholeness: feeling all feelings, speaking candidly, keeping agreements, and acting in line with what you say matters. When you break an agreement — and you will — you name it and re-negotiate rather than hide it.", fa:"یکپارچگی اینجا یعنی یکپارچه‌بودن: حس‌کردنِ همهٔ احساسات، رک حرف‌زدن، سرِ قول ماندن، و رفتاری هم‌راستا با چیزی که می‌گویی برایت مهم است. وقتی قولی را زیر پا گذاشتی — که خواهی گذاشت — به‌جای پنهان‌کردن، اسمش را می‌بری و دوباره سرش توافق می‌کنی."},
+        example:{en:"Realizing you'll miss a promise, tell the person early and make a new agreement.", fa:"همین‌که فهمیدی به قولی نمی‌رسی، زود به طرف بگو و یک توافقِ تازه بساز."},
+        tip:{en:"Find one broken agreement and clean it up today — acknowledge it and re-commit.", fa:"یک قولِ زیرِپاگذاشته را پیدا کن و همین امروز جمعش کن — قبولش کن و دوباره متعهد شو."},
+        pitfall:{en:"Making vague agreements so you can never quite be held to them.", fa:"قول‌های سرِهم و مبهم دادن تا هیچ‌وقت نشود دقیق پایش نگهت داشت."} },
+      appreciation:{ part:'winforall', n:13, name:{en:'Generate Appreciation', fa:'قدردانی بساز'}, glabel:{en:'Appreciation', fa:'قدردانی'},
+        principle:{en:"Live in appreciation — fully giving it, and fully letting it in.", fa:"در قدردانی زندگی کن — هم کامل بده، هم کامل بگذار به دلت بنشیند."},
+        more:{en:"Appreciation has two halves most leaders do badly: giving it specifically and often, and actually receiving it without deflecting. Real appreciation isn't flattery or a management tactic; it's noticing and naming what's genuinely valued.", fa:"قدردانی دو نیمه دارد که بیشترِ رهبرها هر دو را بد انجام می‌دهند: مشخص و مکرر دادنش، و واقعاً گرفتنش بی‌آنکه ردش کنی. قدردانیِ واقعی چاپلوسی یا یک ترفندِ مدیریتی نیست؛ یعنی ببینی و به زبان بیاوری که واقعاً چه چیزی برایت باارزش است."},
+        example:{en:"When someone praises you, just say 'thank you' — don't brush it off or deflect.", fa:"وقتی کسی ازت تعریف می‌کند، فقط بگو «ممنون» — ردش نکن و کوچکش نکن."},
+        tip:{en:"Give one specific, genuine appreciation today, and fully receive one without deflecting.", fa:"امروز یک قدردانیِ مشخص و واقعی بکن، و یکی را هم کامل بگیر بی‌آنکه ردش کنی."},
+        pitfall:{en:"Generic praise ('good job') or deflecting appreciation the moment it comes your way.", fa:"تعریفِ کلی («کارت خوب بود») یا ردکردنِ قدردانی همان لحظه‌ای که به‌سمتت می‌آید."} },
+      enough:{ part:'winforall', n:14, name:{en:'Live in Enough, Not Scarcity', fa:'در «کافی» زندگی کن، نه کمبود'}, glabel:{en:'Abundance', fa:'فراوانی'},
+        principle:{en:"Be the source of your own approval, control and security — and experience that there is enough.", fa:"خودت سرچشمهٔ تأیید و کنترل و امنیتِ خودت باش — و این را تجربه کن که «به‌قدرِ کافی هست»."},
+        more:{en:"Scarcity whispers there's not enough approval, control, security, time or money, so you grip and compete. The shift is to source those from within and live from sufficiency — the felt sense that you already have enough and are enough.", fa:"کمبود در گوشت می‌گوید تأیید و کنترل و امنیت و وقت و پول کم است، پس چنگ می‌اندازی و رقابت می‌کنی. جابه‌جایی یعنی این‌ها را از درونِ خودت بگیری و از «کفایت» زندگی کنی — این حس که همین حالا به‌قدرِ کافی داری و به‌قدرِ کافی هستی."},
+        example:{en:"Chasing one more win to finally feel secure? Notice the security has to come from you.", fa:"دنبالِ یک بُردِ دیگری تا بالاخره حسِ امنیت کنی؟ ببین که امنیت باید از خودت بیاید."},
+        tip:{en:"Name where you feel 'not enough', and ask how you could source it from within instead.", fa:"جایی را که حسِ «کم است» داری اسم ببر، و بپرس چطور می‌توانی به‌جایش از درونِ خودت تأمینش کنی."},
+        pitfall:{en:"Chasing more approval or control to fill a hole that only inner sourcing can fill.", fa:"دنبالِ تأیید یا کنترلِ بیشتر دویدن برای پرکردنِ حفره‌ای که فقط از درون پر می‌شود."} },
+      play:{ part:'winforall', n:15, name:{en:'Play, Rest & Win for All', fa:'بازی، استراحت و بُرد برای همه'}, glabel:{en:'Play & Win', fa:'بازی و بُرد'},
+        principle:{en:"Make life more play and rest than grind — and look for solutions where everyone wins.", fa:"زندگی را بیشتر بازی و استراحت کن تا جان‌کندن — و دنبالِ راه‌حل‌هایی بگرد که همه در آن می‌برند."},
+        more:{en:"Above the line, work can feel like play: light, creative, energizing, balanced by real rest. From that abundance you stop fighting zero-sum battles and start creating win-for-all solutions — a win for you, the other, the organization, and the whole.", fa:"بالای خط، کار می‌تواند مثلِ بازی باشد: سبک، خلاق، انرژی‌بخش، و با استراحتِ واقعی متعادل. از دلِ همان فراوانی، دست از جنگ‌های بُرد-باختی برمی‌داری و شروع می‌کنی به ساختنِ راه‌حل‌هایی که همه می‌برند — بُرد برای تو، برای طرف، برای سازمان، و برای کل."},
+        example:{en:"In a negotiation, ask 'what would a win look like for all of us?' before splitting the pie.", fa:"سرِ یک مذاکره، قبل از تقسیمِ سهم بپرس «بُرد برای همهٔ ما چه شکلی است؟»"},
+        tip:{en:"Take one 'me vs. them' problem and find a solution where everyone actually wins.", fa:"یک مسئلهٔ «من در برابرِ آن‌ها» را بردار و راه‌حلی پیدا کن که همه واقعاً در آن ببرند."},
+        pitfall:{en:"Treating rest as laziness and every deal as a fight someone has to lose.", fa:"استراحت را تنبلی دانستن و هر معامله را جنگی دیدن که یکی باید در آن ببازد."} }
+    },
+    core:{ name:{en:'ABOVE THE LINE', fa:'بالای خط'},
+      principle:{en:"At any moment you are either above the line — open, curious, and committed to learning — or below it — closed, defensive, and committed to being right. Conscious leadership is the ongoing practice of noticing which side you're on and choosing to shift back above.", fa:"هر لحظه یا بالای خطی — باز، کنجکاو، و متعهد به یادگیری — یا پایینش — بسته، تدافعی، و متعهد به حق‌به‌جانب‌بودن. رهبریِ آگاهانه همین تمرینِ همیشگی است: ببینی کدام سمتی، و انتخاب کنی برگردی بالا."},
+      more:{en:"The whole book hangs on this one distinction. The 15 commitments are 15 ways of living above the line — taking radical responsibility, staying curious, feeling feelings, speaking candidly, appreciating, playing, and creating wins for all. You never arrive; you just keep locating yourself and shifting.", fa:"کلِ کتاب به همین یک تمایز آویزان است. پانزده تعهد، پانزده راهِ زندگی‌کردن بالای خط‌اند — مسئولیتِ کامل، کنجکاوماندن، حس‌کردنِ احساسات، رک‌گویی، قدردانی، بازی، و ساختنِ بُرد برای همه. هیچ‌وقت به مقصد نمی‌رسی؛ فقط مدام خودت را پیدا می‌کنی و جابه‌جا می‌شوی."},
+      example:{en:"Click any node to open a commitment or idea. You can also drag the nodes around.", fa:"روی هر دایره کلیک کن تا یک تعهد یا ایده باز شود. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."} },
+    stages:[
+      { level:1, badge:{en:'Level 1 · Over-simplified', fa:'سطحِ ۱ · خیلی ساده'}, title:{en:'Above or below?', fa:'بالا یا پایین؟'}, tagline:{en:'The whole book in one question.', fa:'کلِ کتاب در یک سؤال.'},
+        body:{en:"At any moment you're in one of two states. <b>Above the line</b>: open, curious, relaxed. <b>Below the line</b>: closed, defensive, tense. That's it. Everything else is how to notice which one you're in and how to come back up.", fa:"هر لحظه در یکی از دو حالتی. <b>بالای خط</b>: باز، کنجکاو، آرام. <b>پایینِ خط</b>: بسته، تدافعی، سفت. همین. بقیهٔ همه‌چیز این است که چطور بفهمی در کدامی و چطور برگردی بالا."},
+        example:{en:"Feeling defensive in a meeting? That's below the line. Just noticing it is the skill.", fa:"وسطِ جلسه حالت تدافعی شده؟ این یعنی پایینِ خط. همین که متوجهش شوی، خودش مهارت است."},
+        gain:{en:"You have the one distinction the entire book is built on.", fa:"همان یک تمایزی را داری که کلِ کتاب رویش ساخته شده."} },
+      { level:2, badge:{en:'Level 2 · Simple', fa:'سطحِ ۲ · ساده'}, title:{en:'Own your side', fa:'سهمِ خودت را بپذیر'}, tagline:{en:'Drop blame; take radical responsibility.', fa:'سرزنش را رها کن؛ مسئولیتِ کامل را بپذیر.'},
+        body:{en:"Below the line, we blame — others or ourselves — and slip into playing <b>victim, villain, or hero</b>. The first commitment is <b>radical responsibility</b>: own your results without blame, and step out of the drama triangle into creating what you actually want.", fa:"پایینِ خط سرزنش می‌کنیم — دیگران یا خودمان — و می‌افتیم در بازیِ <b>قربانی، ظالم، یا ناجی</b>. اولین تعهد <b>مسئولیتِ کامل</b> است: نتیجه‌هایت را بی‌سرزنش به عهده بگیر، و از مثلثِ نمایش بیرون بیا به‌سمتِ ساختنِ چیزی که واقعاً می‌خواهی."},
+        example:{en:"Swap 'they made me' for 'how am I creating this?' — and feel the power come back.", fa:"«آن‌ها مجبورم کردند» را با «من چطور دارم این را می‌سازم؟» عوض کن — و ببین قدرت چطور برمی‌گردد."},
+        gain:{en:"You can catch blame and take ownership in real time.", fa:"می‌توانی سرزنش را همان‌لحظه بگیری و مسئولیت را بپذیری."} },
+      { level:3, badge:{en:'Level 3 · Balanced', fa:'سطحِ ۳ · متعادل'}, title:{en:'Choose learning', fa:'یادگیری را انتخاب کن'}, tagline:{en:'Get curious, take feedback, drop gossip.', fa:'کنجکاو شو، بازخورد بگیر، غیبت را رها کن.'},
+        body:{en:"Now give up the need to be <b>right</b>. Treat every interaction as a chance to <b>learn</b>, welcome feedback instead of defending, and <b>end gossip</b> by talking straight to the person. Curiosity is what actually moves you above the line and keeps you there.", fa:"حالا نیاز به <b>حق‌به‌جانب‌بودن</b> را رها کن. هر تعامل را فرصتی برای <b>یادگیری</b> بدان، به‌جای دفاع، بازخورد را بپذیر، و <b>غیبت را تمام کن</b> با مستقیم حرف‌زدن با خودِ طرف. کنجکاوی همان چیزی است که واقعاً تو را بالای خط می‌برد و آنجا نگه می‌دارد."},
+        example:{en:"Hear tough feedback and answer 'tell me more' before you explain yourself.", fa:"بازخوردِ سخت را بشنو و قبل از توضیحِ خودت بگو «بیشتر بگو»."},
+        gain:{en:"You can stay open and learning even under criticism.", fa:"می‌توانی زیرِ انتقاد هم باز و در حالِ یادگیری بمانی."} },
+      { level:4, badge:{en:'Level 4 · Advanced', fa:'سطحِ ۴ · پیشرفته'}, title:{en:'Feel it and say it', fa:'حسش کن و بگو'}, tagline:{en:'All feelings, full candor, real integrity.', fa:'همهٔ احساسات، رک‌گوییِ کامل، یکپارچگیِ واقعی.'},
+        body:{en:"Go deeper into what most leaders avoid. <b>Feel all feelings</b> fully instead of leaking them, <b>speak candidly</b> — reveal rather than conceal — and live in <b>integrity</b>: keep your agreements and clean them up fast when you don't. These three are one practice.", fa:"برو عمیق‌تر، به همان‌جایی که بیشترِ رهبرها ازش فرار می‌کنند. <b>همهٔ احساسات را</b> کامل حس کن به‌جای اینکه بی‌اجازه بیرونشان بریزی، <b>رک حرف بزن</b> — رو کن نه پنهان — و در <b>یکپارچگی</b> زندگی کن: سرِ قول‌هایت بمان و وقتی نماندی، سریع جمعش کن. این سه، یک تمرین‌اند."},
+        example:{en:"Name the feeling, say the true thing kindly, and keep the promise you made.", fa:"احساس را اسم ببر، حرفِ درست را مهربان بگو، و سرِ قولی که داده‌ای بمان."},
+        gain:{en:"You can be honest and whole without dumping or hiding.", fa:"می‌توانی صادق و یکپارچه باشی، بی‌آنکه خالی کنی یا پنهان شوی."} },
+      { level:5, badge:{en:'Level 5 · Expert', fa:'سطحِ ۵ · حرفه‌ای'}, title:{en:'Lead from abundance', fa:'از فراوانی رهبری کن'}, tagline:{en:'Appreciation, enough, play, wins for all.', fa:'قدردانی، کافی، بازی، بُرد برای همه.'},
+        body:{en:"The expert lives above the line from <b>abundance</b>, not fear. You <b>generate appreciation</b>, source your own security so you feel there's <b>enough</b>, treat work as <b>play</b> balanced by rest, and build <b>win-for-all</b> solutions instead of zero-sum fights. You never master it — you just keep locating yourself and shifting.", fa:"آدمِ حرفه‌ای بالای خط زندگی می‌کند، از <b>فراوانی</b>، نه از ترس. <b>قدردانی می‌سازی</b>، امنیتت را از خودت می‌گیری تا حس کنی <b>به‌قدرِ کافی هست</b>، کار را <b>بازی</b> می‌بینی که با استراحت متعادل شده، و به‌جای جنگِ بُرد-باخت، راه‌حلِ <b>بُرد برای همه</b> می‌سازی. هیچ‌وقت کاملش نمی‌کنی — فقط مدام خودت را پیدا می‌کنی و جابه‌جا می‌شوی."},
+        example:{en:"You catch yourself below the line, breathe, appreciate someone, and look for the shared win.", fa:"خودت را پایینِ خط می‌گیری، نفس می‌کشی، از کسی قدردانی می‌کنی، و دنبالِ بُردِ مشترک می‌گردی."},
+        gain:{en:"You can lead consciously and help a whole team live above the line.", fa:"می‌توانی آگاهانه رهبری کنی و کمک کنی یک تیمِ کامل بالای خط زندگی کند."} }
+    ],
+    quotes:[
+      {en:"When we are above the line, we are open, curious and committed to learning. When we're below the line, we're closed, defensive and committed to being right.", fa:"وقتی بالای خطیم، باز و کنجکاو و متعهد به یادگیری‌ایم. وقتی پایینِ خطیم، بسته و تدافعی و متعهد به حق‌به‌جانب‌بودنیم."},
+      {en:"Knowing when you are below the line is more important than being below the line.", fa:"دانستنِ اینکه کِی پایینِ خطی، از خودِ پایینِ خط بودن مهم‌تر است."},
+      {en:"I commit to taking full responsibility for the circumstances of my life, and my physical, emotional, mental and spiritual wellbeing.", fa:"متعهد می‌شوم مسئولیتِ کاملِ شرایطِ زندگی‌ام و سلامتِ جسمی، عاطفی، ذهنی و معنوی‌ام را بپذیرم."},
+      {en:"I commit to growing in self-awareness. I commit to regarding every interaction as an opportunity to learn.", fa:"متعهد می‌شوم در خودآگاهی رشد کنم. متعهد می‌شوم هر تعامل را فرصتی برای یادگیری ببینم."},
+      {en:"I commit to ending gossip, talking directly to people with whom I have an issue or concern, and encouraging others to talk directly to people with whom they have an issue or concern.", fa:"متعهد می‌شوم غیبت را تمام کنم، مستقیم با کسانی که با آن‌ها مسئله یا گله‌ای دارم حرف بزنم، و دیگران را هم تشویق کنم مستقیم با کسانی که با آن‌ها مسئله یا گله‌ای دارند حرف بزنند."},
+      {en:"I commit to feeling my feelings all the way through to completion.", fa:"متعهد می‌شوم احساساتم را تا آخر و تا کامل‌شدن حس کنم."},
+      {en:"I commit to saying what is true for me. I commit to being a person to whom others can express themselves with candor.", fa:"متعهد می‌شوم آنچه را که برای من درست است بگویم. متعهد می‌شوم کسی باشم که دیگران می‌توانند با او رک و روراست حرف بزنند."},
+      {en:"I commit to living in appreciation, fully opening to both receiving and giving appreciation.", fa:"متعهد می‌شوم در قدردانی زندگی کنم، و کاملاً به هر دو، گرفتن و دادنِ قدردانی، باز باشم."},
+      {en:"I commit to creating win for all solutions (win for me, win for the other person, win for the organization, and win for the whole) for whatever issues, problems, concerns, or opportunities life gives me.", fa:"متعهد می‌شوم برای هر مسئله، مشکل، دغدغه یا فرصتی که زندگی جلویم می‌گذارد، راه‌حلی بسازم که همه در آن می‌برند (بُرد برای من، بُرد برای طرفِ مقابل، بُرد برای سازمان، و بُرد برای کل)."}
+    ],
+    media:[
+      { kind:'yt', id:'fLqzYDZAqCI', src:{en:'YouTube · The Conscious Leadership Group', fa:'یوتیوب · The Conscious Leadership Group'},
+        title:{en:'Locating Yourself — A Key to Conscious Leadership', fa:'خودت را پیدا کن — کلیدِ رهبریِ آگاهانه'},
+        desc:{en:"The authors' most-watched short video on the above-the-line / below-the-line distinction.", fa:'پربیننده‌ترین ویدیوی کوتاهِ نویسنده‌ها دربارهٔ تمایزِ بالای خط و پایینِ خط.'},
+        bullets:{en:["The core distinction in a few minutes","Open and curious vs. closed and defensive","The best place to start"], fa:["تمایزِ اصلی در چند دقیقه","باز و کنجکاو در برابرِ بسته و تدافعی","بهترین نقطه برای شروع"]},
+        best:{en:'Best for Stage 1–2.', fa:'خوب برای مرحلهٔ ۱ و ۲.'} },
+      { kind:'img', url:'https://conscious.is/15-commitments',
+        src:{en:'Conscious Leadership Group · Official', fa:'Conscious Leadership Group · رسمی'},
+        title:{en:'The 15 Commitments — Official Resource', fa:'پانزده تعهد — منبعِ رسمی'},
+        desc:{en:'The authors’ own overview of all fifteen commitments, with free tools and descriptions.', fa:'مرورِ خودِ نویسنده‌ها بر هر پانزده تعهد، همراه با ابزار و توضیحاتِ رایگان.'},
+        bullets:{en:["All 15 commitments in brief","Free assessments and tools","Straight from the source"], fa:["هر ۱۵ تعهد به‌اختصار","ابزار و ارزیابیِ رایگان","مستقیم از خودِ منبع"]},
+        best:{en:'For the framework and tools.', fa:'برای چارچوب و ابزارها.'} },
+      { kind:'img', url:'https://conscious.is/resources/videos',
+        src:{en:'Conscious Leadership Group · Videos', fa:'Conscious Leadership Group · ویدیوها'},
+        title:{en:'Talks & Videos from the Authors', fa:'گفت‌وگوها و ویدیوهای نویسنده‌ها'},
+        desc:{en:'A library of short talks by Jim Dethmer and Diana Chapman on each commitment.', fa:'کتابخانه‌ای از گفت‌وگوهای کوتاهِ جیم دتمر و دایانا چپمن دربارهٔ هر تعهد.'},
+        bullets:{en:["Short, practical clips","One topic at a time","Good alongside the book"], fa:["کلیپ‌های کوتاه و کاربردی","هر بار یک موضوع","خوب در کنارِ کتاب"]},
+        best:{en:'Best for Stage 2–4.', fa:'خوب برای مرحلهٔ ۲ تا ۴.'} }
+    ],
+    go:[
+      {label:{en:'Official: The 15 Commitments', fa:'رسمی: پانزده تعهد'}, url:'https://conscious.is/15-commitments'},
+      {label:{en:'Book on Goodreads', fa:'کتاب در گودریدز'}, url:'https://www.goodreads.com/book/show/24490392-the-15-commitments-of-conscious-leadership'},
+      {label:{en:'Video: Locating Yourself', fa:'ویدیو: خودت را پیدا کن'}, url:'https://conscious.is/video/locating-yourself-a-key-to-conscious-leadership'}
+    ],
+    recs:[
+      { pri:'b', t:{en:'Locate yourself right now', fa:'همین حالا خودت را پیدا کن'}, d:{en:"Stop and ask: am I above the line (open) or below it (closed)? Do this a few times a day.", fa:'بایست و بپرس: بالای خطم (باز) یا پایینش (بسته)؟ این را چند بار در روز انجام بده.'} },
+      { pri:'b', t:{en:'Take back one blame', fa:'یک سرزنش را پس بگیر'}, d:{en:'Pick something you blame on someone else and ask honestly: what is my part in this?', fa:'یک چیز را که گردنِ دیگری انداخته‌ای بردار و صادقانه بپرس: سهمِ من در این چیست؟'} },
+      { pri:'n', t:{en:'End one piece of gossip', fa:'یک غیبت را تمام کن'}, d:{en:'Take a concern you’ve been sharing sideways and bring it straight to the person it’s about.', fa:'گله‌ای را که دور از طرف مطرح کرده‌ای بردار و مستقیم پیشِ خودش ببر.'} },
+      { pri:'n', t:{en:'Appreciate, and let it in', fa:'قدردانی کن، و بگذار بنشیند'}, d:{en:'Give one specific appreciation today — and when someone appreciates you, just say thank you.', fa:'امروز یک قدردانیِ مشخص بکن — و وقتی کسی ازت قدردانی کرد، فقط بگو ممنون.'} }
+    ]
+  }
+};

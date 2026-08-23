@@ -153,14 +153,98 @@ html[data-lang="en"] .gname{font-family:Newsreader,Georgia,serif;font-weight:600
   .book:first-child{border-top:none}
   .hero h1{font-size:26px}
 }
+
+/* ── HEADER: centered logo + nav ── */
+.navin{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px;padding:8px 16px}
+.nav-side{display:flex;align-items:center;gap:8px;min-width:0}
+.nav-end{justify-content:flex-end}
+.homelink{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--mut);font-weight:700;font-size:12.5px;padding:6px 9px;border-radius:10px;white-space:nowrap}
+.homelink:hover{color:var(--accent);background:var(--card2)}
+.homelink svg{width:16px;height:16px;flex:0 0 auto}
+.logo{display:inline-flex;align-items:center;gap:9px;justify-self:center;text-decoration:none;color:var(--ink)}
+.logo .logomark{width:30px;height:30px;flex:0 0 auto}
+.logotype{font-weight:800;font-size:15px;letter-spacing:-.2px;white-space:nowrap}
+html[data-lang="en"] .logotype{font-family:Newsreader,Georgia,serif;font-weight:600}
+.pathbtn{display:inline-flex;align-items:center;gap:7px;border:1px solid transparent;background:var(--accent);color:var(--accent-ink);border-radius:20px;padding:8px 14px;font:inherit;font-size:12.5px;font-weight:700;cursor:pointer;white-space:nowrap}
+.pathbtn:hover{filter:brightness(1.07)}
+.pathbtn svg{width:15px;height:15px;flex:0 0 auto}
+
+/* ── HERO CTA ── */
+.herocta{display:flex;align-items:center;gap:14px;margin-top:24px;flex-wrap:wrap}
+.bigpath{display:inline-flex;align-items:center;gap:9px;background:#fff;color:var(--hero-2);border:none;border-radius:14px;padding:12px 20px;font:inherit;font-weight:800;font-size:15px;cursor:pointer;box-shadow:0 8px 22px rgba(0,0,0,.18);transition:transform .12s,box-shadow .12s}
+html[data-lang="en"] .bigpath{font-family:Inter,sans-serif}
+.bigpath:hover{transform:translateY(-1px);box-shadow:0 12px 26px rgba(0,0,0,.22)}
+[data-theme="dark"] .bigpath{color:#06312b}
+.bigpath svg{width:18px;height:18px;flex:0 0 auto}
+.ctahint{color:rgba(255,255,255,.92);font-size:13px;font-weight:600}
+
+/* ── WIZARD (modal on desktop, bottom sheet on mobile) ── */
+.wizmask{position:fixed;inset:0;background:rgba(8,12,18,.5);z-index:200;opacity:0;transition:opacity .2s;display:flex;align-items:center;justify-content:center;padding:16px}
+.wizmask.open{opacity:1}
+.wizmask[hidden]{display:none}
+.wizdlg{background:var(--card);color:var(--ink);width:min(560px,96vw);max-height:88vh;border-radius:20px;box-shadow:0 24px 64px rgba(0,0,0,.4);display:flex;flex-direction:column;overflow:hidden;transform:translateY(10px) scale(.98);opacity:0;transition:transform .22s cubic-bezier(.2,.7,.3,1),opacity .22s}
+.wizmask.open .wizdlg{transform:none;opacity:1}
+.wizhead{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:18px 20px 10px}
+.wiztitle{font-weight:800;font-size:18px;line-height:1.3}
+html[data-lang="en"] .wiztitle{font-family:Newsreader,Georgia,serif;font-weight:600}
+.wizstep{color:var(--mut);font-size:11.5px;font-weight:700;margin-top:4px;letter-spacing:.4px;text-transform:uppercase}
+.wizx{flex:0 0 auto;width:32px;height:32px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--mut);cursor:pointer;display:grid;place-items:center}
+.wizx:hover{color:var(--ink);border-color:var(--accent)}
+.wizx svg{width:15px;height:15px}
+.wizbody{padding:2px 20px 10px;overflow:auto}
+.wizq{font-weight:800;font-size:14px;margin:14px 0 3px}
+.wizqsub{color:var(--mut);font-size:12.5px;margin-bottom:11px}
+.chiprow{display:flex;flex-wrap:wrap;gap:9px}
+.wchip{border:1px solid var(--line);background:var(--card2);border-radius:22px;padding:9px 15px;font:inherit;font-size:13.5px;font-weight:600;cursor:pointer;color:var(--ink);transition:background .12s,border-color .12s,color .12s;display:inline-flex;flex-direction:column;align-items:center;line-height:1.3}
+.wchip small{font-weight:600;font-size:10.5px;opacity:.7;margin-top:1px}
+.wchip:hover{border-color:var(--accent)}
+.wchip.sel{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.wchip.sel small{opacity:.85}
+.wizfoot{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 20px 18px;border-top:1px solid var(--line);margin-top:6px}
+.wbtn{border-radius:12px;padding:10px 18px;font:inherit;font-weight:700;font-size:14px;cursor:pointer;border:1px solid var(--line);background:var(--card);color:var(--ink)}
+.wbtn:hover{border-color:var(--accent)}
+.wbtn.pri{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.wbtn.pri[disabled]{opacity:.45;cursor:not-allowed}
+.wbtn.ghost{border-color:transparent;color:var(--mut);padding-inline:8px}
+.wbtn.ghost:hover{color:var(--ink)}
+.rpath{display:flex;flex-direction:column;gap:10px;margin:8px 0 4px}
+.ritem{display:flex;gap:12px;align-items:flex-start;padding:12px;border:1px solid var(--line);border-radius:14px;background:var(--card2);text-decoration:none;color:inherit;transition:border-color .12s}
+.ritem:hover{border-color:var(--accent)}
+.rnum{flex:0 0 auto;width:26px;height:26px;border-radius:8px;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;font-weight:800;font-size:13px;font-variant-numeric:tabular-nums}
+.rmain{flex:1 1 auto;min-width:0}
+.rtitle{font-weight:700;font-size:14px;line-height:1.35}
+.rmeta{color:var(--mut);font-size:12px;margin-top:2px}
+.rwhy{font-size:12.5px;margin-top:5px;line-height:1.55;opacity:.9}
+.rgo{flex:0 0 auto;color:var(--accent);font-weight:800;font-size:12px;align-self:center;white-space:nowrap}
+.rstart{display:inline-block;font-size:10px;font-weight:800;color:var(--c-green);background:color-mix(in srgb,var(--c-green) 15%,transparent);border-radius:20px;padding:2px 8px;margin-inline-start:8px;vertical-align:middle}
+.rsummary{font-size:12.5px;color:var(--mut);margin:2px 0 4px;line-height:1.6}
+@media(max-width:640px){
+  .navin{grid-template-columns:1fr auto 1fr;padding:8px 12px}
+  .homelink span{display:none}
+  .homelink{padding:6px}
+  .pathbtn{display:none}
+  .langbtn span{display:none}
+  .langbtn{padding:0 10px}
+  .logotype{font-size:13.5px}
+  .wizmask{align-items:flex-end;padding:0}
+  .wizdlg{width:100%;max-width:100%;max-height:92vh;border-radius:22px 22px 0 0;transform:translateY(100%)}
+  .wizmask.open .wizdlg{transform:translateY(0)}
+}
 </style>
 </head>
 <body>
 
 <!-- ═══════════════ NAV ═══════════════ -->
-<div class="navbar"><div class="navin">
-  <div class="brand"><span class="dot"></span><span data-only="en">Product Builder's Library</span><span data-only="fa">کتابخانهٔ سازندهٔ محصول</span></div>
-  <div class="navctl">
+<div class="navbar" id="top"><div class="navin">
+  <div class="nav-side nav-start">
+    <a class="homelink" href="#top" aria-label="Home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg><span data-only="en">Home</span><span data-only="fa">خانه</span></a>
+  </div>
+  <a class="logo" href="#top" aria-label="Product Books — home">
+    <svg class="logomark" viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect x="4" y="6" width="24" height="20" rx="3" fill="var(--accent)"/><path d="M16 9v14" stroke="var(--card)" stroke-width="2"/><path d="M9 12h4M9 16h4M19 12h4M19 16h4" stroke="var(--card)" stroke-width="1.6" stroke-linecap="round"/></svg>
+    <span class="logotype"><span data-only="en">Product Books</span><span data-only="fa">کتاب‌های محصول</span></span>
+  </a>
+  <div class="nav-side nav-end">
+    <button class="pathbtn" id="pathBtnNav" type="button" aria-label="Find your reading path"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3v4M3 5h4M6 17v4M4 19h4M13 3l2.5 6.5L22 12l-6.5 2.5L13 21l-2.5-6.5L4 12l6.5-2.5z"/></svg><span data-only="en">Find your path</span><span data-only="fa">مسیرت را پیدا کن</span></button>
     <button class="langbtn" id="langBtn" aria-label="Switch language">
       <svg class="globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18"/></svg>
       <span data-only="en">فارسی</span><span data-only="fa">English</span>
@@ -183,7 +267,26 @@ html[data-lang="en"] .gname{font-family:Newsreader,Georgia,serif;font-weight:600
     <div class="chip"><b id="kDone">45</b><span data-only="en">distilled</span><span data-only="fa">آماده</span></div>
     <div class="chip"><b>EN·FA</b><span data-only="en">bilingual</span><span data-only="fa">دوزبانه</span></div>
   </div>
+  <div class="herocta">
+    <button class="bigpath" id="pathBtnHero" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3v4M3 5h4M6 17v4M4 19h4M13 3l2.5 6.5L22 12l-6.5 2.5L13 21l-2.5-6.5L4 12l6.5-2.5z"/></svg>
+      <span data-only="en">Find your reading path</span><span data-only="fa">مسیرِ مطالعه‌ات را پیدا کن</span>
+    </button>
+    <span class="ctahint"><span data-only="en">Answer 2 quick questions — get a ranked reading list.</span><span data-only="fa">به ۲ سؤالِ کوتاه جواب بده — یک فهرستِ مطالعهٔ مرتب‌شده بگیر.</span></span>
+  </div>
 </div></header>
+
+<!-- ═══════════════ WIZARD ═══════════════ -->
+<div class="wizmask" id="wizMask" hidden>
+  <div class="wizdlg" role="dialog" aria-modal="true" aria-labelledby="wizTitle">
+    <div class="wizhead">
+      <div><div class="wiztitle" id="wizTitle"></div><div class="wizstep" id="wizStep"></div></div>
+      <button class="wizx" id="wizClose" type="button" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    </div>
+    <div class="wizbody" id="wizBody"></div>
+    <div class="wizfoot" id="wizFoot"></div>
+  </div>
+</div>
 
 <div class="wrap">
 
@@ -431,6 +534,127 @@ function setLang(lg){
   try{ matchMedia('(prefers-color-scheme: dark)').addEventListener('change',function(e){
     if(!localStorage.getItem('pb-theme')){ document.documentElement.setAttribute('data-theme', e.matches?'dark':'light'); }
   }); }catch(e){}
+})();
+
+/* ── recommendation wizard: seniority × intent × time → ranked reading path ── */
+(function(){
+  var LEVELS=[{k:'j',en:'Junior',fa:'تازه‌کار'},{k:'m',en:'Mid-level',fa:'میانی'},{k:'s',en:'Senior',fa:'ارشد'},{k:'g',en:'Manager',fa:'مدیر'}];
+  var TIMES=[{k:'quick',n:2,en:'A quick pick',fa:'انتخابِ سریع',sub:{en:'1–2 books',fa:'۱ تا ۲ کتاب'}},
+             {k:'some',n:4,en:'A few weeks',fa:'چند هفته',sub:{en:'3–4 books',fa:'۳ تا ۴ کتاب'}},
+             {k:'deep',n:8,en:'A deep dive',fa:'مطالعهٔ عمیق',sub:{en:'6–8 books',fa:'۶ تا ۸ کتاب'}}];
+  var INTENTS=[
+    {k:'comm',en:'Communicate clearly',fa:'ارتباطِ شفاف',g:[1]},
+    {k:'exec',en:'Execute & ship',fa:'اجرا و تحویل',g:[2,7]},
+    {k:'strat',en:'Set strategy',fa:'استراتژی و جهت',g:[3,8]},
+    {k:'lead',en:'Lead & manage people',fa:'رهبری و مدیریت',g:[5,6]},
+    {k:'career',en:'Grow my career',fa:'رشدِ شغلی و نفوذ',g:[14,12]},
+    {k:'craft',en:'Craft & design',fa:'پیشه‌وری و طراحی',g:[10,11]},
+    {k:'startup',en:'Start & sell',fa:'راه‌اندازی و فروش',g:[13,9]},
+    {k:'inspire',en:'Get inspired',fa:'الهام و تعادل',g:[4,15]}
+  ];
+  /* per-book: [levels-string, priority(1 best)] */
+  var BM={
+    'nobody-wants-to-read-your-shit':['jmsg',2],'on-writing-well':['jmsg',1],'storyworthy':['jmsg',2],
+    'the-great-ceo-within':['sg',2],'scaling-people':['sg',2],'the-goal':['msg',2],
+    'good-strategy-bad-strategy':['msg',1],'playing-to-win':['sg',2],'working-backwards':['msg',2],
+    'the-making-of-prince-of-persia':['jmsg',3],'build':['jmsg',1],'shoe-dog':['jmsg',2],
+    'high-output-management':['msg',1],'the-making-of-a-manager':['mg',1],'radical-candor':['msg',2],
+    'amp-it-up':['sg',2],'15-commitments-conscious-leadership':['sg',3],'the-score-takes-care-of-itself':['sg',2],
+    'the-mom-test':['jms',1],'escaping-the-build-trap':['msg',2],'continuous-discovery-habits':['ms',1],
+    'empowered':['sg',2],'inspired':['jms',1],'thinking-in-bets':['msg',2],
+    'purple-cow':['jmsg',3],'obviously-awesome':['msg',2],'founding-sales':['sg',3],
+    'dont-make-me-think':['jm',1],'the-design-of-everyday-things':['jms',2],'refactoring-ui':['jm',2],
+    'the-war-of-art':['jmsg',2],'the-work-of-art':['ms',3],'creativity-inc':['sg',2],
+    'how-to-win-friends':['jmsg',1],'influence':['msg',2],'never-split-the-difference':['msg',2],
+    'the-lean-startup':['msg',1],'crossing-the-chasm':['sg',3],'fall-in-love-with-the-problem':['msg',2],
+    'great-at-work':['jmsg',1],'7-rules-of-power':['msg',2],'the-effective-executive':['msg',1],
+    'subtle-art-of-not-giving-a-fck':['jmsg',2],'a-guide-to-the-good-life':['jmsg',2],'stumbling-on-happiness':['jmsg',3]
+  };
+  var WIZ={step:1, level:null, intents:[], time:'some'};
+  function T(o){ return LANG==='fa'?faText(o.fa):o.en; }
+  function slugOf(b){ return b.href.split('/').pop().replace(/\.html$/,''); }
+  function flat(){ var a=[]; GROUPS.forEach(function(g){ g.books.forEach(function(b){ if(b.live) a.push({b:b,g:g.n}); }); }); return a; }
+  function tN(){ var t=TIMES.filter(function(x){return x.k===WIZ.time;})[0]; return t?t.n:4; }
+  function recommend(){
+    var books=flat(), sg={};
+    var ints = WIZ.intents.length?WIZ.intents:INTENTS.map(function(i){return i.k;});
+    ints.forEach(function(k){ var it=INTENTS.filter(function(x){return x.k===k;})[0]; if(it) it.g.forEach(function(n){sg[n]=1;}); });
+    var scored=books.map(function(x){
+      var m=BM[slugOf(x.b)]||['jmsg',2];
+      var lvlOk=WIZ.level?m[0].indexOf(WIZ.level)>=0:true, inOk=!!sg[x.g];
+      return {x:x, s:(lvlOk?2:0)+(inOk?3:0)+(3-m[1]), pri:m[1]};
+    });
+    scored.sort(function(a,b){ return b.s-a.s || a.pri-b.pri; });
+    var out=[], per={}, N=tN();
+    scored.forEach(function(r){ if(out.length>=N) return; var g=r.x.g; per[g]=per[g]||0; if(per[g]>=2) return; per[g]++; out.push(r); });
+    if(out.length<N){ scored.forEach(function(r){ if(out.length>=N||out.indexOf(r)>=0) return; out.push(r); }); }
+    return out.slice(0,N);
+  }
+  var mask=document.getElementById('wizMask'), body=document.getElementById('wizBody'),
+      foot=document.getElementById('wizFoot'), title=document.getElementById('wizTitle'), stepEl=document.getElementById('wizStep');
+  function renderWiz(){
+    if(WIZ.step===1){
+      title.innerHTML=T({en:"What's your level?",fa:'در چه سطحی هستی؟'});
+      stepEl.innerHTML=T({en:'Step 1 of 2',fa:'گامِ ۱ از ۲'});
+      body.innerHTML='<div class="wizq">'+T({en:'Pick the one that fits you best.',fa:'آن‌که بیشتر به تو می‌خورد را انتخاب کن.'})+'</div>'
+        +'<div class="chiprow">'+LEVELS.map(function(l){ return '<button type="button" class="wchip lvl'+(WIZ.level===l.k?' sel':'')+'" data-k="'+l.k+'">'+T(l)+'</button>'; }).join('')+'</div>';
+      foot.innerHTML='<button type="button" class="wbtn ghost" data-act="close">'+T({en:'Cancel',fa:'بی‌خیال'})+'</button>'
+        +'<button type="button" class="wbtn pri" data-act="next"'+(WIZ.level?'':' disabled')+'>'+T({en:'Next ›',fa:'بعدی ‹'})+'</button>';
+    } else if(WIZ.step===2){
+      title.innerHTML=T({en:'What are you focused on?',fa:'روی چه تمرکز داری؟'});
+      stepEl.innerHTML=T({en:'Step 2 of 2',fa:'گامِ ۲ از ۲'});
+      body.innerHTML='<div class="wizq">'+T({en:'Your focus',fa:'تمرکزت'})+'</div>'
+        +'<div class="wizqsub">'+T({en:'Choose any that apply — or none for a broad path.',fa:'هرچه به کارت می‌آید را انتخاب کن — یا هیچ، برای مسیری کلی.'})+'</div>'
+        +'<div class="chiprow">'+INTENTS.map(function(it){ return '<button type="button" class="wchip int'+(WIZ.intents.indexOf(it.k)>=0?' sel':'')+'" data-k="'+it.k+'">'+T(it)+'</button>'; }).join('')+'</div>'
+        +'<div class="wizq">'+T({en:'How much time do you have?',fa:'چقدر وقت داری؟'})+'</div>'
+        +'<div class="chiprow">'+TIMES.map(function(tm){ return '<button type="button" class="wchip tm'+(WIZ.time===tm.k?' sel':'')+'" data-k="'+tm.k+'">'+T(tm)+'<small>'+T(tm.sub)+'</small></button>'; }).join('')+'</div>';
+      foot.innerHTML='<button type="button" class="wbtn ghost" data-act="back">'+T({en:'‹ Back',fa:'بازگشت ›'})+'</button>'
+        +'<button type="button" class="wbtn pri" data-act="show">'+T({en:'Show my path',fa:'مسیرم را نشان بده'})+'</button>';
+    } else {
+      title.innerHTML=T({en:'Your reading path',fa:'مسیرِ مطالعه‌ات'});
+      stepEl.innerHTML=T({en:'Tailored to you',fa:'متناسب با تو'});
+      var list=recommend();
+      body.innerHTML='<div class="rsummary">'+T({en:'Start at the top and work down — it goes from foundational to advanced for your pick.',fa:'از بالا شروع کن و پایین بیا — از پایه‌ای تا پیشرفته برای انتخابِ تو مرتب شده.'})+'</div>'
+        +'<div class="rpath">'+list.map(function(r,i){
+          var b=r.x.b, g=GROUPS[r.x.g-1];
+          var st=i===0?'<span class="rstart">'+T({en:'Start here',fa:'از این‌جا'})+'</span>':'';
+          return '<a class="ritem" href="'+encodeURI(b.href)+'"><div class="rnum">'+num(i+1)+'</div>'
+            +'<div class="rmain"><div class="rtitle">'+T({en:b.en.t,fa:b.fa.t})+st+'</div>'
+            +'<div class="rmeta">'+T({en:g.en.name,fa:g.fa.name})+'</div>'
+            +'<div class="rwhy">'+T({en:b.en.why,fa:b.fa.why})+'</div></div>'
+            +'<div class="rgo">'+T({en:'Open →',fa:'باز کن ‹'})+'</div></a>';
+        }).join('')+'</div>';
+      foot.innerHTML='<button type="button" class="wbtn ghost" data-act="restart">'+T({en:'Start over',fa:'از نو'})+'</button>'
+        +'<button type="button" class="wbtn pri" data-act="close">'+T({en:'Done',fa:'تمام'})+'</button>';
+    }
+    body.querySelectorAll('.wchip').forEach(function(c){
+      c.addEventListener('click', function(){
+        var k=c.getAttribute('data-k');
+        if(c.classList.contains('lvl')) WIZ.level=k;
+        else if(c.classList.contains('int')){ var i=WIZ.intents.indexOf(k); if(i>=0) WIZ.intents.splice(i,1); else WIZ.intents.push(k); }
+        else if(c.classList.contains('tm')) WIZ.time=k;
+        renderWiz();
+      });
+    });
+    foot.querySelectorAll('[data-act]').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var a=btn.getAttribute('data-act');
+        if(a==='close') closeWiz();
+        else if(a==='next'){ if(WIZ.level){ WIZ.step=2; renderWiz(); } }
+        else if(a==='back'){ WIZ.step=1; renderWiz(); }
+        else if(a==='show'){ WIZ.step=3; renderWiz(); }
+        else if(a==='restart'){ WIZ.step=1; renderWiz(); }
+      });
+    });
+  }
+  function openWiz(){ WIZ.step=1; renderWiz(); mask.hidden=false; requestAnimationFrame(function(){ mask.classList.add('open'); }); document.documentElement.style.overflow='hidden'; }
+  function closeWiz(){ mask.classList.remove('open'); document.documentElement.style.overflow=''; setTimeout(function(){ mask.hidden=true; },230); }
+  var hero=document.getElementById('pathBtnHero'), navb=document.getElementById('pathBtnNav');
+  hero&&hero.addEventListener('click',openWiz); navb&&navb.addEventListener('click',openWiz);
+  mask&&mask.addEventListener('click',function(e){ if(e.target===mask) closeWiz(); });
+  var xb=document.getElementById('wizClose'); xb&&xb.addEventListener('click',closeWiz);
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&mask&&!mask.hidden) closeWiz(); });
+  var lb2=document.getElementById('langBtn'); lb2&&lb2.addEventListener('click',function(){ if(mask&&!mask.hidden) renderWiz(); });
 })();
 
 render();

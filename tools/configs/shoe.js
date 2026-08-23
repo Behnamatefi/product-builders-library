@@ -1,0 +1,258 @@
+/* config: Shoe Dog — Phil Knight (Inspiration) */
+module.exports = {
+  slug:'shoe', brand:'Shoe Dog',
+  titleTag:'Shoe Dog — نقشهٔ دانش و یادگیری ۵ مرحله‌ای',
+  W:980, H:780, R1:220, R2:126, span:66,
+  leafKickEn:'Lesson', leafKickFa:'درسِ',
+  flowEn:['Believe','Risk','Persist'], flowFa:['باور','ریسک','پافشاری'],
+
+  hero:`  <div class="eyebrow"><span class="edot"></span>
+    <span data-only="en">Book knowledge map · Phil Knight</span>
+    <span data-only="fa">نقشهٔ کتاب · فیل نایت</span>
+  </div>
+  <h1>
+    <span data-only="en">Shoe Dog — A Memoir by the Creator of Nike</span>
+    <span data-only="fa">کفش‌باز — خاطراتِ خالقِ نایکی</span>
+  </h1>
+  <p class="dek">
+    <span data-only="en">A knowledge graph of the whole memoir, plus a 5-stage path from the crazy idea to a lasting company — with a lesson and an example at every step.</span>
+    <span data-only="fa">نقشه‌ای از کلِ این خاطرات، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از آن ایدهٔ دیوانه‌وار تا یک شرکتِ ماندگار — با یک درس و یک مثال در هر قدم.</span>
+  </p>
+  <div class="metastrip">
+    <div class="metaitem"><span class="mk" data-only="en">Book</span><span class="mk" data-only="fa">کتاب</span>
+      <span class="mv" data-only="en">Shoe Dog</span><span class="mv" data-only="fa">کفش‌باز</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Author</span><span class="mk" data-only="fa">نویسنده</span>
+      <span class="mv" data-only="en">Phil Knight</span><span class="mv" data-only="fa">فیل نایت</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Published</span><span class="mk" data-only="fa">سالِ چاپ</span>
+      <span class="mv" data-only="en">2016</span><span class="mv" data-only="fa">۲۰۱۶</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Group</span><span class="mk" data-only="fa">گروه</span>
+      <span class="mv" data-only="en">Inspiration</span><span class="mv" data-only="fa">الهام</span></div>
+  </div>
+  <div class="chips">
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Parts</span><span data-only="fa">بخش</span></div>
+    <div class="chip"><b data-only="en">16</b><b data-only="fa">۱۶</b><span data-only="en">Lessons</span><span data-only="fa">درس</span></div>
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Learning stages</span><span data-only="fa">مرحلهٔ یادگیری</span></div>
+  </div>`,
+
+  callout:`    <b data-only="en">The core idea:</b>
+    <b data-only="fa">ایدهٔ اصلی:</b>
+    <span data-only="en"> Nike began as one <i>crazy idea</i> a young man refused to give up. It grew on borrowed money and a permanent cash-flow crisis, carried by a team of <i>misfits</i> who believed — and it survived because Phil Knight simply would not stop. The lesson of the whole memoir: <b>keep going</b>.</span>
+    <span data-only="fa"> نایکی با یک <i>ایدهٔ دیوانه‌وار</i> شروع شد که یک جوان حاضر نشد ازش دست بکشد. با پولِ قرضی و یک بحرانِ همیشگیِ نقدینگی بزرگ شد، رویِ دوشِ تیمی از <i>آدم‌های ناجور</i> که باور داشتند — و زنده ماند چون فیل نایت به‌سادگی حاضر نبود بایستد. درسِ کلِ کتاب همین است: <b>ادامه بده</b>.</span>`,
+
+  kpis:`    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Parts (idea · cash · team · grit · legacy)</div><div class="l" data-only="fa">بخش (ایده · پول · تیم · سماجت · میراث)</div></div>
+    <div class="kbox"><div class="v" data-only="en">16</div><div class="v" data-only="fa">۱۶</div><div class="l" data-only="en">Lessons drawn from the story</div><div class="l" data-only="fa">درس از دلِ داستان</div></div>
+    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Levels, simple → expert</div><div class="l" data-only="fa">مرحله، ساده تا حرفه‌ای</div></div>
+    <div class="kbox"><div class="v" data-only="en">1</div><div class="v" data-only="fa">۱</div><div class="l" data-only="en">Rule above all: keep going</div><div class="l" data-only="fa">قاعدهٔ بالاتر از همه: ادامه بده</div></div>`,
+
+  mapcallout:`      <b data-only="en">Read it as a journey:</b><b data-only="fa">به‌صورتِ یک سفر بخوانش:</b>
+      <span data-only="en"> it starts with a <b>crazy idea</b> and the leap to chase it, runs straight into a <b>cash</b> crisis, is saved by a <b>team of misfits</b>, is tested by <b>setbacks and betrayal</b>, and ends in <b>meaning</b> — what all the struggle was really for.</span>
+      <span data-only="fa"> با یک <b>ایدهٔ دیوانه‌وار</b> و پرش به‌سویش شروع می‌شود، یک‌راست به بحرانِ <b>پول</b> می‌خورد، با یک <b>تیم از آدم‌های ناجور</b> نجات پیدا می‌کند، با <b>شکست‌ها و خیانت</b> آزموده می‌شود، و به <b>معنا</b> می‌رسد — اینکه این‌همه تلاش واقعاً برای چه بود.</span>`,
+
+  methodFa:"<p><b>منبع:</b> کتابِ خاطراتِ «کفش‌باز» (Shoe Dog) نوشتهٔ فیل نایت، چاپِ ۲۰۱۶ توسطِ انتشاراتِ اسکریبنر (سایمون‌اند‌شوستر).</p><p><b>روشِ کار:</b> قوسِ پنج‌بخشی و درس‌ها از خودِ کتاب و منابعِ معتبر بیرون کشیده و ساده‌نویسی شده؛ نقل‌قول‌ها با متنِ کتاب مقابله و ویدیوی لینک‌شده بررسی شده است.</p><p><b>گروه:</b> «الهام» — یک داستان برای یادگرفتن، نه یک دفترچهٔ راهنما.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای کلِ داستان، خودش را بخوان.</p>",
+  methodEn:"<p><b>Source:</b> the memoir <i>Shoe Dog</i> by Phil Knight, published 2016 by Scribner (Simon & Schuster).</p><p><b>How this was built:</b> the five-part arc and the lessons were drawn and rewritten from the book and reputable sources; the quotes were cross-checked and the linked video verified.</p><p><b>Group:</b> Inspiration — a story to learn from, not a how-to manual.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book. For the full story, read it.</p>",
+
+  data:{
+    tldr:[
+      {en:"The whole memoir in one line: Nike began as a crazy idea, and it survived because its founder refused to stop.",
+       fa:"خلاصهٔ کل کتاب در یک جمله: نایکی یک ایدهٔ دیوانه‌وار بود، و زنده ماند چون بنیان‌گذارش حاضر نشد بایستد."},
+      {en:"It started tiny — Knight selling Japanese running shoes out of the trunk of his car.",
+       fa:"خیلی کوچک شروع شد — نایت کفش‌های دوِ ژاپنی را از صندوقِ ماشینش می‌فروخت."},
+      {en:"For years the company lived on the edge of bankruptcy — growth was constant, and so was the <b>cash</b> crisis.",
+       fa:"سال‌ها شرکت لبِ پرتگاهِ ورشکستگی زندگی کرد — رشد همیشگی بود، بحرانِ <b>پول</b> هم همیشگی."},
+      {en:"It was carried by a <b>team of misfits</b> — coach Bill Bowerman and a handful of odd, loyal believers.",
+       fa:"یک <b>تیم از آدم‌های ناجور</b> نگهش داشت — بیل باورمنِ مربی و یک مشت آدمِ عجیب و وفادار که باور داشتند."},
+      {en:"Through betrayal, lawsuits and near-ruin, one rule held: <b>keep going, don't stop</b> — and in the end it was never really about the money.",
+       fa:"از میانِ خیانت، شکایت‌های حقوقی و ورشکستگیِ نزدیک، یک قاعده ثابت ماند: <b>ادامه بده، نایست</b> — و آخرش هیچ‌وقت واقعاً بحثِ پول نبود."}
+    ],
+    parts:[
+      { key:'idea', varc:'--c-teal', name:{en:'The Crazy Idea', fa:'ایدهٔ دیوانه‌وار'}, tag:{en:'The beginning', fa:'شروع'},
+        gist:{en:'A wild idea, the leap to chase it, and shoes sold from a car trunk.', fa:'یک ایدهٔ عجیب، پرش به‌سویش، و کفش‌هایی که از صندوقِ ماشین فروخته می‌شدند.'},
+        more:{en:"Everything starts here: a 24-year-old with a term-paper idea about Japanese running shoes, and the nerve to actually try it. No plan survives contact with reality, but the leap does — you begin before you feel ready.",
+              fa:"همه‌چیز از این‌جا شروع می‌شود: یک جوانِ بیست‌وچهار ساله با یک ایده از دلِ یک مقالهٔ دانشگاهی دربارهٔ کفش‌های دوِ ژاپنی، و جراتِ اینکه واقعاً امتحانش کند. هیچ نقشه‌ای جلوی واقعیت دوام نمی‌آورد، اما آن پرش دوام می‌آورد — قبل از اینکه آماده حس کنی، شروع می‌کنی."},
+        chapters:['origin','leap','trunk'] },
+      { key:'cash', varc:'--c-blue', name:{en:'Cash Is King', fa:'پول، حرفِ اول'}, tag:{en:'Survival', fa:'بقا'},
+        gist:{en:'Constant growth, a constant cash crisis, and a bank that wants out.', fa:'رشدِ همیشگی، بحرانِ همیشگیِ پول، و بانکی که می‌خواهد بیرون بکشد.'},
+        more:{en:"Nike doubled sales almost every year and was still always broke. Growth eats cash: every extra pair ordered has to be paid for long before it sells. The real enemy wasn't a competitor — it was running out of money before the next payment came in.",
+              fa:"نایکی تقریباً هر سال فروشش را دوبرابر می‌کرد و بازهم همیشه بی‌پول بود. رشد، پول را می‌بلعد: هر جفتِ اضافه‌ای که سفارش می‌دهی باید مدت‌ها قبل از فروخته‌شدنش پولش را بدهی. دشمنِ اصلی یک رقیب نبود — تمام‌شدنِ پول بود، قبل از اینکه پرداختِ بعدی برسد."},
+        chapters:['cashcrisis','growordie','bank'] },
+      { key:'misfits', varc:'--c-amber', name:{en:'A Team of Misfits', fa:'تیمی از آدم‌های ناجور'}, tag:{en:'The people', fa:'آدم‌ها'},
+        gist:{en:'A legendary coach, a band of oddballs, and loyalty both ways.', fa:'یک مربیِ افسانه‌ای، یک مشت آدمِ عجیب، و وفاداریِ دوطرفه.'},
+        more:{en:"Knight didn't hire the polished; he hired believers — his old track coach, a paralyzed salesman, an overweight accountant with a big heart. They were odd, difficult, and completely committed. He gave them room and loyalty, and they gave him a company.",
+              fa:"نایت آدم‌های شیک و صیقلی را استخدام نکرد؛ آدم‌های باورمند را استخدام کرد — مربیِ قدیمیِ دو و میدانی‌اش، یک فروشندهٔ فلج، یک حسابدارِ چاق با یک دلِ بزرگ. عجیب بودند، سخت بودند، و تماماً پای کار. او به آن‌ها فضا و وفاداری داد، و آن‌ها به او یک شرکت دادند."},
+        chapters:['bowerman','oddhires','loyalty'] },
+      { key:'grit', varc:'--c-violet', name:{en:'Grit & Belief', fa:'سماجت و باور'}, tag:{en:'The test', fa:'آزمون'},
+        gist:{en:'Setbacks, the Onitsuka betrayal, the lawsuit — and refusing to quit.', fa:'شکست‌ها، خیانتِ اونیتسوکا، دعوای حقوقی — و حاضرنشدن به تسلیم.'},
+        more:{en:"The story is one crisis after another: a supplier that tries to steal the business, a lawsuit that could end everything, banks that pull out. What carries Knight through isn't a clever move; it's a decision made in advance to keep going no matter what.",
+              fa:"داستان یک بحران پشتِ بحرانِ دیگر است: تأمین‌کننده‌ای که می‌خواهد کسب‌وکار را بدزدد، دعوایی که می‌تواند همه‌چیز را تمام کند، بانک‌هایی که پا پس می‌کشند. چیزی که نایت را از این‌ها رد می‌کند یک حرکتِ زیرکانه نیست؛ یک تصمیمِ از پیش‌گرفته‌شده است: به هر قیمتی ادامه بده."},
+        chapters:['setbacks','betrayal','lawsuit','keepgoing'] },
+      { key:'legacy', varc:'--c-green', name:{en:'Meaning & Legacy', fa:'معنا و میراث'}, tag:{en:'What it was for', fa:'برای چه بود'},
+        gist:{en:'It was never about money — it was about building something that matters.', fa:'هیچ‌وقت بحثِ پول نبود — بحثِ ساختنِ چیزی بود که ارزش داشته باشد.'},
+        more:{en:"By the end, Knight is rich beyond counting and still asking what it all meant. The answer isn't the money; it's the work itself, the people, and the chance to make something that outlasts you — and to pass that spark to the next person who has a crazy idea.",
+              fa:"آخرِ کار، نایت آن‌قدر ثروتمند است که به شمار نمی‌آید و بازهم می‌پرسد همهٔ این‌ها یعنی چه. جواب، پول نیست؛ خودِ کار است، آدم‌ها هستند، و این فرصت که چیزی بسازی که از خودت بیشتر بماند — و آن جرقه را به آدمِ بعدی بسپاری که یک ایدهٔ دیوانه‌وار دارد."},
+        chapters:['morethanmoney','build','passiton'] }
+    ],
+    chapters:{
+      origin:{ part:'idea', n:1, name:{en:'It Began as an Idea', fa:'همه‌چیز با یک ایده شروع شد'}, glabel:{en:'The Idea', fa:'ایده'},
+        principle:{en:"Big things start as a small, half-formed idea you can't stop thinking about — take it seriously.", fa:"چیزهای بزرگ با یک ایدهٔ کوچک و نصفه‌نیمه شروع می‌شوند که نمی‌توانی از فکرش بیرون بیایی — جدی‌اش بگیر."},
+        more:{en:"Knight's 'Crazy Idea' came from a college paper: quality Japanese running shoes could beat the German brands the way Japanese cameras had. It sounds obvious now; then it was just a hunch nobody else believed. The lesson is to respect the hunch enough to test it.", fa:"«ایدهٔ دیوانه‌وارِ» نایت از یک مقالهٔ دانشگاهی آمد: کفش‌های دوِ باکیفیتِ ژاپنی می‌توانند برندهای آلمانی را شکست بدهند، همان‌طور که دوربین‌های ژاپنی شکست داده بودند. حالا بدیهی به‌نظر می‌رسد؛ آن موقع فقط یک حدس بود که هیچ‌کس باورش نداشت. درس این است: آن‌قدر به حدست احترام بگذار که امتحانش کنی."},
+        example:{en:"A class assignment about Japanese shoes became the seed of a multi-billion-dollar company.", fa:"یک تکلیفِ کلاسی دربارهٔ کفش‌های ژاپنی شد بذرِ یک شرکتِ چند-میلیارد-دلاری."},
+        tip:{en:"Write down the idea you keep coming back to, and take one small step to test it this week.", fa:"همان ایده‌ای را که مدام به سراغش برمی‌گردی بنویس، و همین هفته یک قدمِ کوچک برای امتحانش بردار."},
+        pitfall:{en:"Dismissing your own idea as 'crazy' before you ever test it.", fa:"ایدهٔ خودت را «دیوانه‌وار» بدانی و کنارش بگذاری، پیش از اینکه اصلاً امتحانش کنی."} },
+      leap:{ part:'idea', n:2, name:{en:'Take the Leap', fa:'دل به دریا بزن'}, glabel:{en:'The Leap', fa:'پرش'},
+        principle:{en:"You'll never feel fully ready; commit and begin before the fear goes away.", fa:"هیچ‌وقت کاملاً آماده حس نمی‌کنی؛ متعهد شو و شروع کن، پیش از اینکه ترس برود."},
+        more:{en:"Knight spent his savings on a plane ticket to Japan and bluffed his way into a meeting, inventing a company name — 'Blue Ribbon' — on the spot. He didn't wait for permission or certainty. The leap is where a wish turns into a story worth telling.", fa:"نایت پس‌اندازش را خرجِ یک بلیتِ هواپیما به ژاپن کرد و با یک بلوف خودش را به یک جلسه رساند و همان‌جا یک اسمِ شرکت — «بلو ریبِن» — از خودش ساخت. منتظرِ اجازه یا اطمینان نماند. آن پرش همان‌جایی است که یک آرزو به یک داستانِ گفتنی تبدیل می‌شود."},
+        example:{en:"Asked who he represented, Knight blurted out a company that didn't exist yet — and won the deal.", fa:"وقتی پرسیدند نمایندهٔ کیست، نایت اسمِ شرکتی را پراند که هنوز وجود نداشت — و قرارداد را برد."},
+        tip:{en:"Pick the leap you keep postponing and take the smallest irreversible step toward it.", fa:"همان پرشی را که مدام عقب می‌اندازی انتخاب کن و کوچک‌ترین قدمِ برگشت‌ناپذیر را به‌سمتش بردار."},
+        pitfall:{en:"Waiting to feel ready — that day rarely comes.", fa:"منتظرِ حسِ آماده‌بودن بمانی — آن روز کم پیش می‌آید که بیاید."} },
+      trunk:{ part:'idea', n:3, name:{en:'Sell from the Trunk', fa:'از صندوقِ ماشین بفروش'}, glabel:{en:'Start Small', fa:'کوچک شروع کن'},
+        principle:{en:"Start with whatever you have; humble, hands-on beginnings teach you what matters.", fa:"با هر چه داری شروع کن؛ شروعِ ساده و دست‌به‌کار به تو یاد می‌دهد چه چیزی مهم است."},
+        more:{en:"There was no store and no staff. Knight drove to track meets and sold shoes straight from the back of his green Plymouth, and they sold themselves because they were good. Selling face to face taught him his customer better than any market study could.", fa:"نه مغازه‌ای بود نه کارمندی. نایت با ماشین به مسابقه‌های دو می‌رفت و کفش‌ها را یک‌راست از صندوقِ پلیموثِ سبزش می‌فروخت، و خودشان خودشان را می‌فروختند چون خوب بودند. فروشِ رودررو، مشتری‌اش را بهتر از هر تحقیقِ بازاری به او شناساند."},
+        example:{en:"His first big 'store' was the trunk of a car at high-school and college track meets.", fa:"اولین «فروشگاهِ» بزرگش، صندوقِ یک ماشین بود، سرِ مسابقه‌های دوِ مدرسه و دانشگاه."},
+        tip:{en:"Sell or ship the smallest real version now, by hand, to real people.", fa:"همین حالا کوچک‌ترین نسخهٔ واقعی را، دستی، به آدم‌های واقعی بفروش یا برسان."},
+        pitfall:{en:"Waiting for the perfect setup instead of starting scrappy.", fa:"منتظرِ شرایطِ بی‌نقص بمانی، به‌جای اینکه با هر چه هست و به‌شکلِ زمخت شروع کنی."} },
+      cashcrisis:{ part:'cash', n:4, name:{en:'The Cash-Flow Crisis', fa:'بحرانِ همیشگیِ نقدینگی'}, glabel:{en:'Cash Flow', fa:'نقدینگی'},
+        principle:{en:"Profit on paper isn't cash in hand; a growing business can be starving for money.", fa:"سودِ روی کاغذ، پولِ توی دست نیست؛ یک کسب‌وکارِ در حالِ رشد می‌تواند از گرسنگیِ پول بمیرد."},
+        more:{en:"Blue Ribbon grew fast and was perpetually out of cash, because every dollar was tied up in the next, bigger shoe order. Knight learned that the number that keeps you alive isn't profit — it's whether there's money in the account when a bill is due.", fa:"بلو ریبِن سریع رشد می‌کرد و همیشه بی‌پول بود، چون هر دلار گیرِ سفارشِ بعدی و بزرگ‌ترِ کفش بود. نایت فهمید عددی که تو را زنده نگه می‌دارد سود نیست — این است که سرِ موعدِ یک قبض، پولی توی حساب باشد یا نه."},
+        example:{en:"Sales doubled year after year, yet the bank balance was often near zero.", fa:"فروش سال‌به‌سال دوبرابر می‌شد، اما موجودیِ بانک اغلب نزدیکِ صفر بود."},
+        tip:{en:"Track cash in the bank weekly, not just sales — know your runway.", fa:"هفتگی پولِ توی بانک را رصد کن، نه فقط فروش را — بدان چقدر تا ته‌کشیدن فاصله داری."},
+        pitfall:{en:"Celebrating record sales while quietly running out of cash.", fa:"جشن‌گرفتنِ رکوردِ فروش، در حالی که بی‌سروصدا پولت ته می‌کشد."} },
+      growordie:{ part:'cash', n:5, name:{en:'Grow or Die', fa:'رشد کن یا بمیر'}, glabel:{en:'Grow or Die', fa:'رشد یا مرگ'},
+        principle:{en:"Knight bet everything on growth — standing still felt more dangerous than pushing forward.", fa:"نایت همه‌چیز را روی رشد شرط بست — درجازدن از جلورفتن خطرناک‌تر به‌نظرش می‌رسید."},
+        more:{en:"Every year he reinvested every cent and borrowed to the hilt to double down. It was reckless by any textbook — but he believed a company that stops growing starts dying, and in a young market, momentum was survival. Growth was the strategy and the risk at once.", fa:"هر سال هر سِنت را دوباره سرمایه‌گذاری می‌کرد و تا خرخره قرض می‌گرفت تا باز هم بزرگ‌تر شود. طبقِ هر کتابِ درسی این کار بی‌پروا بود — اما او باور داشت شرکتی که رشدش می‌ایستد، مردنش شروع می‌شود، و در یک بازارِ جوان، شتاب یعنی بقا. رشد هم‌زمان هم استراتژی بود هم ریسک."},
+        example:{en:"His answer to every banker who wanted caution was to grow faster, not slower.", fa:"جوابِ او به هر بانکداری که احتیاط می‌خواست، این بود که سریع‌تر رشد کند، نه کندتر."},
+        tip:{en:"Decide where bold growth is worth the risk — and where it would sink you.", fa:"تصمیم بگیر کجا رشدِ جسورانه ارزشِ ریسک را دارد — و کجا غرقت می‌کند."},
+        pitfall:{en:"Confusing reckless expansion with healthy growth.", fa:"قاطیِ‌کردنِ توسعهٔ بی‌پروا با رشدِ سالم."} },
+      bank:{ part:'cash', n:6, name:{en:"The Bank Isn't Your Friend", fa:'بانک رفیقت نیست'}, glabel:{en:'The Bank', fa:'بانک'},
+        principle:{en:"Lenders want safety, not your dream; don't hand your fate to people who can walk away.", fa:"وام‌دهنده امنیت می‌خواهد، نه رؤیای تو را؛ سرنوشتت را دستِ کسانی نده که می‌توانند هر لحظه کنار بکشند."},
+        more:{en:"Knight's banks pushed him to slow down and, at the worst moment, dropped him entirely and even reported him — nearly finishing the company. He survived by finding other backers and, eventually, his own footing. The lesson: understand the incentives of anyone holding your lifeline.", fa:"بانک‌های نایت فشار می‌آوردند که کندتر برود و، در بدترین لحظه، کاملاً رهایش کردند و حتی ازش شکایت کردند — نزدیک بود شرکت را تمام کنند. او با پیدا‌کردنِ پشتیبان‌های دیگر و در نهایت با ایستادن روی پای خودش جان به در برد. درس: انگیزهٔ هر کسی را که طنابِ نجاتت دستِ اوست بشناس."},
+        example:{en:"At the brink, his bank cut him off — and Nike had to scramble to survive the week.", fa:"لبِ پرتگاه، بانکش قطعش کرد — و نایکی باید تقلا می‌کرد تا همان هفته را دوام بیاورد."},
+        tip:{en:"Line up a backup source of funding before you desperately need one.", fa:"قبل از اینکه ناچار به پولی نیاز پیدا کنی، یک منبعِ پشتیبان جور کن."},
+        pitfall:{en:"Depending on a single lender who can pull out at the worst time.", fa:"وابسته‌بودن به یک وام‌دهندهٔ واحد که می‌تواند بدترین وقت پا پس بکشد."} },
+      bowerman:{ part:'misfits', n:7, name:{en:'Find Your Bowerman', fa:'باورمنِ خودت را پیدا کن'}, glabel:{en:'Bowerman', fa:'باورمن'},
+        principle:{en:"A great partner or mentor who obsesses over the craft is worth more than any investor.", fa:"یک شریک یا مرشدِ عالی که وسواسِ خودِ کار را دارد، از هر سرمایه‌گذاری باارزش‌تر است."},
+        more:{en:"Bill Bowerman, Knight's old track coach, became his co-founder — a relentless tinkerer who tore shoes apart to make them lighter and faster, once pouring rubber into the family waffle iron. His obsession with the product gave Nike its soul, long before it had money.", fa:"بیل باورمن، مربیِ قدیمیِ دوِ نایت، شد هم‌بنیان‌گذارش — یک وسواسیِ همیشه‌در‌حالِ‌ساختن که کفش‌ها را از هم می‌درید تا سبک‌تر و سریع‌ترشان کند، و یک‌بار لاستیک را توی وافل‌سازِ خانه ریخت. وسواسش روی محصول، به نایکی روح داد، خیلی قبل از اینکه پول داشته باشد."},
+        example:{en:"Bowerman poured rubber into a waffle iron to invent a lighter, grippier sole.", fa:"باورمن لاستیک را توی یک وافل‌ساز ریخت تا یک کفِ سبک‌تر و چسبنده‌تر اختراع کند."},
+        tip:{en:"Partner with someone who cares about the work more than the payoff.", fa:"با کسی شریک شو که بیشتر از خودِ پاداش، به خودِ کار اهمیت می‌دهد."},
+        pitfall:{en:"Going it alone when the right partner would make you far stronger.", fa:"تنها پیش‌رفتن، وقتی شریکِ درست می‌توانست خیلی قوی‌ترت کند."} },
+      oddhires:{ part:'misfits', n:8, name:{en:'Hire the Misfits', fa:'آدم‌های ناجور را استخدام کن'}, glabel:{en:'Misfits', fa:'ناجورها'},
+        principle:{en:"Believers and oddballs who care will outwork the polished résumés every time.", fa:"آدم‌های باورمند و عجیبی که دلشان با کار است، هر بار از رزومه‌های شیک بیشتر کار می‌کنند."},
+        more:{en:"Knight's first team was a collection of misfits — a sales rep who was partly paralyzed, an accountant who wrote fierce letters, ex-runners with no business polish. They didn't fit anywhere else, so they gave everything to Blue Ribbon. Shared belief beat conventional credentials.", fa:"تیمِ اولِ نایت یک مجموعه از آدم‌های ناجور بود — یک فروشنده که تا حدی فلج بود، یک حسابدار که نامه‌های آتشین می‌نوشت، دونده‌های سابق بدونِ ژستِ تجاری. هیچ‌جای دیگری جا نمی‌شدند، پس همه‌چیزشان را به بلو ریبِن دادند. باورِ مشترک از مدرکِ متعارف جلو زد."},
+        example:{en:"His inner circle met over blunt, loyal, all-in retreats they nicknamed themselves.", fa:"حلقهٔ نزدیکش دورِ جلسه‌هایی رک، وفادار و تماماً‌پای‌کار جمع می‌شدند که خودشان اسمِ خودمانی رویش گذاشته بودند."},
+        tip:{en:"Hire for belief and grit, not just a tidy background.", fa:"برای باور و سماجت استخدام کن، نه فقط برای یک سابقهٔ مرتب."},
+        pitfall:{en:"Picking safe, credentialed hires over people who truly believe.", fa:"انتخابِ آدم‌های بی‌خطر و مدرک‌دار، به‌جای کسانی که واقعاً باور دارند."} },
+      loyalty:{ part:'misfits', n:9, name:{en:'Loyalty Runs Both Ways', fa:'وفاداری دوطرفه است'}, glabel:{en:'Loyalty', fa:'وفاداری'},
+        principle:{en:"Give people trust, room, and loyalty, and they'll carry you through the hard years.", fa:"به آدم‌ها اعتماد، فضا و وفاداری بده، و آن‌ها تو را از سال‌های سخت رد می‌کنند."},
+        more:{en:"Knight led with a loose hand — hire good people, then don't tell them how to do their jobs. He stuck by his team through danger and mistakes, and they stuck by him for decades, often for little pay, because the loyalty was real and mutual.", fa:"نایت با دستِ باز رهبری می‌کرد — آدم‌های خوب را بگیر، بعد بهشان نگو کارشان را چطور انجام بدهند. در خطر و اشتباه کنارِ تیمش ماند، و آن‌ها دهه‌ها کنارش ماندند، اغلب با حقوقِ کم، چون آن وفاداری واقعی و دوطرفه بود."},
+        example:{en:"His rule echoed General Patton: tell people what to do, not how, and let them surprise you.", fa:"قاعده‌اش یادآورِ ژنرال پاتِن بود: به آدم‌ها بگو چه‌کار کنند، نه چطور، و بگذار غافلگیرت کنند."},
+        tip:{en:"Back your people in public; give them problems to own, not orders to follow.", fa:"جلوی جمع پشتِ آدم‌هایت باش؛ به‌جای دستور، مسئله بده که مالِ خودشان باشد."},
+        pitfall:{en:"Micromanaging the very people you hired for their judgment.", fa:"ریزمدیریتِ همان آدم‌هایی که به‌خاطرِ قضاوتشان استخدامشان کردی."} },
+      setbacks:{ part:'grit', n:10, name:{en:'Setbacks Are Fuel', fa:'شکست‌ها سوختِ راه‌اند'}, glabel:{en:'Setbacks', fa:'شکست‌ها'},
+        principle:{en:"Treat each defeat as fuel for the next attempt, not a verdict on you.", fa:"هر شکست را سوختِ تلاشِ بعدی بدان، نه حکمی دربارهٔ خودت."},
+        more:{en:"Shoe Dog is a chain of near-death moments: canceled shipments, empty accounts, doors slammed shut. Knight, a former runner, treats them the way a racer treats pain — as information and fuel. If you're following a real calling, he says, the disappointments become fuel.", fa:"«کفش‌باز» یک زنجیره از لحظه‌های مرگِ نزدیک است: محموله‌های لغوشده، حساب‌های خالی، درهایی که کوبیده می‌شوند و بسته. نایت، که خودش دونده بوده، با آن‌ها همان‌طور برخورد می‌کند که یک دونده با درد — مثلِ اطلاعات و سوخت. می‌گوید اگر دنبالِ یک رسالتِ واقعی باشی، ناامیدی‌ها می‌شوند سوخت."},
+        example:{en:"When one supplier or bank failed him, he turned the setback into the push for the next move.", fa:"وقتی یک تأمین‌کننده یا بانک ناکامش می‌گذاشت، همان شکست را به هُلِ حرکتِ بعدی تبدیل می‌کرد."},
+        tip:{en:"After a failure, write the one lesson it taught you and use it immediately.", fa:"بعد از یک شکست، آن یک درسی را که یادت داد بنویس و همان‌جا به کارش ببر."},
+        pitfall:{en:"Reading a setback as proof you should quit.", fa:"شکست را دلیلی بخوانی بر اینکه باید کنار بکشی."} },
+      betrayal:{ part:'grit', n:11, name:{en:'The Onitsuka Betrayal', fa:'خیانتِ اونیتسوکا'}, glabel:{en:'Betrayal', fa:'خیانت'},
+        principle:{en:"Depending on one supplier or partner is a knife they can hold to your throat.", fa:"وابسته‌بودن به یک تأمین‌کننده یا شریکِ واحد، چاقویی است که می‌توانند بیخِ گلویت بگذارند."},
+        more:{en:"For years Blue Ribbon only sold shoes made by Japan's Onitsuka — until Onitsuka began looking for other US distributors and tried to take over the business. The betrayal nearly killed Knight's company, but it forced the leap that made Nike: making his own shoes, under his own name.", fa:"سال‌ها بلو ریبِن فقط کفش‌های ساختِ اونیتسوکای ژاپن را می‌فروخت — تا اینکه اونیتسوکا دنبالِ پخش‌کننده‌های دیگری در آمریکا افتاد و خواست کسب‌وکار را از چنگش دربیاورد. آن خیانت نزدیک بود شرکتِ نایت را بکشد، اما همان بود که او را به پرشی رساند که نایکی را ساخت: ساختنِ کفشِ خودش، با نامِ خودش."},
+        example:{en:"Losing his only supplier pushed Knight to launch his own brand — Nike.", fa:"از‌دست‌دادنِ تنها تأمین‌کننده‌اش، نایت را هُل داد تا برندِ خودش را راه بیندازد — نایکی."},
+        tip:{en:"Never let a single partner control something you can't survive without.", fa:"هرگز نگذار یک شریکِ واحد چیزی را کنترل کند که بدونش دوام نمی‌آوری."},
+        pitfall:{en:"Betting the whole company on one relationship you don't control.", fa:"شرط‌بستنِ کلِ شرکت روی یک رابطه که کنترلش دستِ تو نیست."} },
+      lawsuit:{ part:'grit', n:12, name:{en:'Fight for It', fa:'برایش بجنگ'}, glabel:{en:'The Fight', fa:'نبرد'},
+        principle:{en:"When someone tries to take what you built, stand and fight — belief plus nerve can win.", fa:"وقتی کسی می‌خواهد چیزی را که ساخته‌ای بگیرد، بایست و بجنگ — باور به‌علاوهٔ جرات می‌تواند ببرد."},
+        more:{en:"The break with Onitsuka ended in court. Outgunned and nearly broke, Knight and his misfits fought the lawsuit and won — because they believed they were in the right and refused to fold. Business, he says, is war without bullets; sometimes you simply have to outlast the other side.", fa:"شکاف با اونیتسوکا به دادگاه کشید. با دستِ خالی و تقریباً ورشکسته، نایت و آدم‌های ناجورش با دعوا جنگیدند و بردند — چون باور داشتند حق با آن‌هاست و حاضر نشدند کوتاه بیایند. می‌گوید کسب‌وکار جنگ است، منتها بدونِ گلوله؛ گاهی فقط باید بیشتر از طرفِ مقابل دوام بیاوری."},
+        example:{en:"Broke and outmatched, Nike fought the court battle with Onitsuka — and won.", fa:"ورشکسته و ضعیف‌تر، نایکی نبردِ دادگاهی با اونیتسوکا را جنگید — و برد."},
+        tip:{en:"Know what you'd fight for, and don't fold the moment it gets frightening.", fa:"بدان برای چه می‌جنگی، و همان لحظه‌ای که ترسناک می‌شود کوتاه نیا."},
+        pitfall:{en:"Folding under pressure on something you know is worth defending.", fa:"زیرِ فشار کوتاه‌آمدن، سرِ چیزی که می‌دانی ارزشِ دفاع دارد."} },
+      keepgoing:{ part:'grit', n:13, name:{en:"Don't Stop", fa:'نایست'}, glabel:{en:"Don't Stop", fa:'نایست'},
+        principle:{en:"Decide in advance to keep going — the ones who quit never learn how close they were.", fa:"از قبل تصمیم بگیر که ادامه بدهی — آن‌هایی که کنار می‌کشند هیچ‌وقت نمی‌فهمند چقدر نزدیک بودند."},
+        more:{en:"The single thread through every crisis is Knight's private vow: keep going, don't stop, don't even think about stopping. It isn't a strategy; it's a decision he made once and kept remaking. Almost every disaster in the book was survivable simply because he didn't quit.", fa:"نخِ رابطِ همهٔ بحران‌ها یک عهدِ شخصیِ نایت است: ادامه بده، نایست، حتی به ایستادن فکر نکن. این یک استراتژی نیست؛ تصمیمی است که یک‌بار گرفت و مدام از نو گرفتش. تقریباً هر فاجعه‌ای در کتاب فقط به این خاطر قابلِ‌تحمل شد که او کنار نکشید."},
+        example:{en:"His mantra from 1962 on: keep going, don't stop — whatever comes.", fa:"وِردِ او از سالِ ۱۹۶۲ به بعد: ادامه بده، نایست — هر چه پیش بیاید."},
+        tip:{en:"Decide now that quitting isn't on the table, so panic can't decide for you later.", fa:"همین حالا تصمیم بگیر که کنارکشیدن روی میز نیست، تا بعداً ترس به‌جای تو تصمیم نگیرد."},
+        pitfall:{en:"Quitting in the dip, right before things would have turned.", fa:"کنارکشیدن در گودی، درست قبل از جایی که ورق برمی‌گشت."} },
+      morethanmoney:{ part:'legacy', n:14, name:{en:'More Than Money', fa:'فراتر از پول'}, glabel:{en:'Meaning', fa:'معنا'},
+        principle:{en:"Chase a calling, not a paycheck — the meaning is what carries you through the pain.", fa:"دنبالِ یک رسالت باش، نه یک فیشِ حقوقی — این معناست که تو را از دلِ درد رد می‌کند."},
+        more:{en:"Knight was never really in it for the money; he was chasing the feeling of building something and of sport itself. That's why he could endure years of stress a purely financial motive would never justify. Find a calling, he urges, and the fatigue is easier to bear.", fa:"نایت هیچ‌وقت واقعاً به‌خاطرِ پول توی این کار نبود؛ دنبالِ آن حسِ ساختنِ چیزی و خودِ ورزش بود. برای همین توانست سال‌ها استرسی را تحمل کند که یک انگیزهٔ صرفاً مالی هیچ‌وقت توجیهش نمی‌کرد. می‌گوید یک رسالت پیدا کن، آن‌وقت خستگی آسان‌تر تحمل می‌شود."},
+        example:{en:"With more money than he could spend, he still measured success by the work, not the wealth.", fa:"با پولی بیشتر از آنچه می‌توانست خرج کند، بازهم موفقیت را با کار می‌سنجید، نه با ثروت."},
+        tip:{en:"Name the calling under your work — the reason that would keep you going unpaid.", fa:"آن رسالتی را که زیرِ کارت هست نام ببر — دلیلی که حتی بی‌مزد هم نگهت می‌داشت."},
+        pitfall:{en:"Working only for the payoff, so the first hard year hollows you out.", fa:"فقط برای پاداش کارکردن، طوری که همان سالِ سختِ اول ازتویت خالی کند."} },
+      build:{ part:'legacy', n:15, name:{en:'Build Something That Lasts', fa:'چیزی بساز که بماند'}, glabel:{en:'Build', fa:'ساختن'},
+        principle:{en:"Aim to build something that outlives you, not just a quick win.", fa:"هدفت این باشد چیزی بسازی که از خودت بیشتر بماند، نه فقط یک بُردِ زودگذر."},
+        more:{en:"What began as a trunk full of shoes became a brand, a culture, and a swoosh known everywhere. Knight's satisfaction comes from having built something durable and meaningful with people he loved — the enterprise itself, more than any single product or year, is the reward.", fa:"چیزی که با یک صندوقِ پُر از کفش شروع شد، تبدیل شد به یک برند، یک فرهنگ، و یک نشانِ سوئوش که همه‌جا شناخته می‌شود. رضایتِ نایت از این است که چیزی بادوام و بامعنا ساخته، با آدم‌هایی که دوستشان داشت — خودِ آن بنا، بیشتر از هر محصول یا سالِ خاصی، همان پاداش است."},
+        example:{en:"A car-trunk hustle grew into a global brand and its unmistakable swoosh.", fa:"یک دست‌فروشیِ صندوقِ‌ماشینی تبدیل شد به یک برندِ جهانی و آن نشانِ سوئوشِ بی‌همتا."},
+        tip:{en:"Ask whether today's work builds something that will still matter in ten years.", fa:"از خودت بپرس کارِ امروزت چیزی می‌سازد که ده سالِ دیگر هم مهم باشد یا نه."},
+        pitfall:{en:"Chasing quick wins that leave nothing standing behind them.", fa:"دویدن دنبالِ بُردهای زودگذری که هیچ‌چیزِ ماندگاری پشتشان نمی‌ماند."} },
+      passiton:{ part:'legacy', n:16, name:{en:'Pass It On', fa:'به دیگران بسپار'}, glabel:{en:'Pass It On', fa:'سپردن'},
+        principle:{en:"The final gift is to hand your spark, and your chances, to the ones coming after you.", fa:"آخرین هدیه این است که جرقه‌ات و فرصت‌هایت را به آن‌هایی بسپاری که بعد از تو می‌آیند."},
+        more:{en:"Knight closes by wishing he could tell the next generation to seek a calling and take their own crazy leap — and by pouring his fortune into helping others. A legacy isn't only what you build; it's the courage and the opportunities you pass to the people who come next.", fa:"نایت با این آرزو کتاب را می‌بندد که کاش می‌توانست به نسلِ بعد بگوید دنبالِ یک رسالت بروند و پرشِ دیوانه‌وارِ خودشان را بزنند — و با ریختنِ ثروتش پایِ کمک به دیگران. میراث فقط چیزی نیست که می‌سازی؛ آن جرات و فرصت‌هایی است که به آدم‌های بعدی می‌سپاری."},
+        example:{en:"He ends the book urging the young to seek a calling and dare their own crazy idea.", fa:"کتاب را با این ترغیب تمام می‌کند که جوان‌ها دنبالِ یک رسالت بروند و به ایدهٔ دیوانه‌وارِ خودشان جرات بدهند."},
+        tip:{en:"Teach, fund, or open a door for one person chasing their own crazy idea.", fa:"به یک نفر که دنبالِ ایدهٔ دیوانه‌وارِ خودش است چیزی یاد بده، کمکِ مالی کن، یا دری برایش باز کن."},
+        pitfall:{en:"Hoarding what you've learned instead of handing it forward.", fa:"چنگ‌زدن به آنچه یاد گرفته‌ای، به‌جای سپردنش به بعدی‌ها."} }
+    },
+    core:{ name:{en:'KEEP GOING', fa:'ادامه بده'},
+      principle:{en:"Shoe Dog is really one lesson told through a company: keep going. Have a crazy idea, take the leap, survive the cash crises, gather a team of believers, endure the betrayals and setbacks — and simply refuse to stop, because a calling makes the pain worth bearing.", fa:"«کفش‌باز» در واقع یک درس است که از دلِ یک شرکت گفته می‌شود: ادامه بده. یک ایدهٔ دیوانه‌وار داشته باش، پرش را بزن، از بحران‌های پول جان به در ببر، یک تیم از آدم‌های باورمند جمع کن، خیانت‌ها و شکست‌ها را تحمل کن — و به‌سادگی حاضر نشو بایستی، چون یک رسالت، دردش را ارزشمند می‌کند."},
+      more:{en:"The memoir moves through five parts — the crazy idea, the endless cash crisis, the team of misfits, the grit to survive betrayal and lawsuits, and finally the meaning of it all. The thread tying them together is a single private vow Knight made young and never broke: don't stop.", fa:"این خاطرات از پنج بخش می‌گذرد — ایدهٔ دیوانه‌وار، بحرانِ بی‌پایانِ پول، تیمِ آدم‌های ناجور، سماجتی که خیانت و دعوا را دوام می‌آورد، و در آخر معنای همهٔ این‌ها. نخی که این‌ها را به هم می‌بندد یک عهدِ شخصی است که نایت در جوانی بست و هیچ‌وقت نشکست: نایست."},
+      example:{en:"Click any node to read a lesson from the story. You can also drag the nodes around.", fa:"روی هر دایره کلیک کن تا یک درس از داستان را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."} },
+    stages:[
+      { level:1, badge:{en:'Level 1 · Over-simplified', fa:'سطحِ ۱ · خیلی ساده'}, title:{en:'Keep going', fa:'ادامه بده'}, tagline:{en:'The whole book in two words.', fa:'کلِ کتاب در دو کلمه.'},
+        body:{en:"Nike was built by a man who simply would not quit. Have an idea, start, and don't stop when it gets hard — that stubbornness is most of the story.", fa:"نایکی را مردی ساخت که به‌سادگی حاضر نبود کنار بکشد. یک ایده داشته باش، شروع کن، و وقتی سخت شد نایست — بیشترِ داستان همین یک‌دندگی است."},
+        example:{en:"Every crisis in the book ends the same way: he kept going.", fa:"هر بحرانی در کتاب یک‌جور تمام می‌شود: او ادامه داد."},
+        gain:{en:"You hold the single idea the whole memoir circles around.", fa:"همان یک ایده‌ای را داری که کلِ کتاب دورش می‌چرخد."} },
+      { level:2, badge:{en:'Level 2 · Simple', fa:'سطحِ ۲ · ساده'}, title:{en:'Idea, leap, hustle', fa:'ایده، پرش، تقلا'}, tagline:{en:'Start small and sell it yourself.', fa:'کوچک شروع کن و خودت بفروشش.'},
+        body:{en:"It begins with a <b>crazy idea</b> — good Japanese running shoes — and the <b>leap</b> to chase it before he felt ready. Knight sold shoes from his <b>car trunk</b>, face to face, and let the product prove itself.", fa:"با یک <b>ایدهٔ دیوانه‌وار</b> شروع می‌شود — کفش‌های دوِ خوبِ ژاپنی — و <b>پرشی</b> به‌سویش، قبل از اینکه آماده حس کند. نایت کفش‌ها را از <b>صندوقِ ماشینش</b> می‌فروخت، رودررو، و می‌گذاشت محصول خودش را ثابت کند."},
+        example:{en:"His first store was a car; his first pitch was at a track meet.", fa:"اولین فروشگاهش یک ماشین بود؛ اولین معرفی‌اش سرِ یک مسابقهٔ دو."},
+        gain:{en:"You can see how a real venture actually starts — scrappy and by hand.", fa:"می‌بینی یک کارِ واقعی چطور شروع می‌شود — زمخت و دستی."} },
+      { level:3, badge:{en:'Level 3 · Balanced', fa:'سطحِ ۳ · متعادل'}, title:{en:'Cash and people', fa:'پول و آدم‌ها'}, tagline:{en:'Survive the money; gather the misfits.', fa:'از پول جان به در ببر؛ ناجورها را جمع کن.'},
+        body:{en:"Now the real machinery. Growth eats <b>cash</b>, so the company lives on a knife-edge and can't trust the <b>bank</b>. What keeps it alive is a <b>team of misfits</b> — Bowerman and a few loyal believers — led with trust, not orders.", fa:"حالا ماشینِ اصلی. رشد، <b>پول</b> را می‌بلعد، پس شرکت لبِ تیغ زندگی می‌کند و نمی‌تواند به <b>بانک</b> اعتماد کند. چیزی که زنده نگهش می‌دارد یک <b>تیم از آدم‌های ناجور</b> است — باورمن و چند باورمندِ وفادار — که با اعتماد رهبری می‌شوند، نه با دستور."},
+        example:{en:"Sales doubled yearly, the account neared zero, and a band of oddballs held it together.", fa:"فروش سالانه دوبرابر می‌شد، حساب نزدیکِ صفر می‌رفت، و یک مشت آدمِ عجیب نگهش می‌داشتند."},
+        gain:{en:"You understand the two forces that make or break a young company: cash and people.", fa:"دو نیرویی را می‌فهمی که یک شرکتِ جوان را می‌سازند یا می‌شکنند: پول و آدم‌ها."} },
+      { level:4, badge:{en:'Level 4 · Advanced', fa:'سطحِ ۴ · پیشرفته'}, title:{en:'Grit under fire', fa:'سماجت زیرِ آتش'}, tagline:{en:'Setbacks, betrayal, and the fight.', fa:'شکست‌ها، خیانت، و نبرد.'},
+        body:{en:"The hardest stretch. His only supplier, <b>Onitsuka</b>, tries to steal the business; banks drop him; a <b>lawsuit</b> could end it all. He treats <b>setbacks as fuel</b>, fights the court battle, and holds to one vow — <b>don't stop</b> — until the danger passes.", fa:"سخت‌ترین بخش. تنها تأمین‌کننده‌اش، <b>اونیتسوکا</b>، می‌خواهد کسب‌وکار را بدزدد؛ بانک‌ها رهایش می‌کنند؛ یک <b>دعوای حقوقی</b> می‌تواند همه‌چیز را تمام کند. او <b>شکست‌ها را سوخت</b> می‌کند، نبردِ دادگاهی را می‌جنگد، و به یک عهد پایبند می‌ماند — <b>نایست</b> — تا خطر بگذرد."},
+        example:{en:"Betrayed by his supplier, he launched Nike; broke and outmatched, he won the lawsuit.", fa:"تأمین‌کننده‌اش بهش خیانت کرد، او نایکی را راه انداخت؛ ورشکسته و ضعیف‌تر، دعوا را برد."},
+        gain:{en:"You can see how belief and grit, not clever tricks, carry a company through crises.", fa:"می‌بینی که باور و سماجت — نه ترفندهای زیرکانه — یک شرکت را از دلِ بحران رد می‌کنند."} },
+      { level:5, badge:{en:'Level 5 · Expert', fa:'سطحِ ۵ · حرفه‌ای'}, title:{en:'Meaning & legacy', fa:'معنا و میراث'}, tagline:{en:'What all the struggle was for.', fa:'اینکه این‌همه تلاش برای چه بود.'},
+        body:{en:"The expert reads Shoe Dog past the business and into its heart. It was never about the <b>money</b>; it was a <b>calling</b> — the joy of building something, with people he loved, that would <b>last</b>. And the final move is to <b>pass it on</b>: to urge the next person to seek their calling and dare their own crazy idea. Keep going, and make it mean something.", fa:"آدمِ حرفه‌ای «کفش‌باز» را فراتر از کسب‌وکار می‌خواند و تا قلبش می‌رود. هیچ‌وقت بحثِ <b>پول</b> نبود؛ یک <b>رسالت</b> بود — لذتِ ساختنِ چیزی، با آدم‌هایی که دوستشان داشت، که <b>بماند</b>. و حرکتِ آخر <b>سپردن</b> است: ترغیبِ آدمِ بعدی که دنبالِ رسالتش برود و به ایدهٔ دیوانه‌وارِ خودش جرات بدهد. ادامه بده، و کاری کن که معنایی داشته باشد."},
+        example:{en:"Rich beyond measure, he still says: seek a calling, and pass the spark on.", fa:"با ثروتی بی‌اندازه، بازهم می‌گوید: دنبالِ یک رسالت بگرد، و آن جرقه را بسپار."},
+        gain:{en:"You can read the whole story as one lesson about calling, grit, and meaning — and live it.", fa:"می‌توانی کلِ داستان را مثلِ یک درس دربارهٔ رسالت، سماجت و معنا بخوانی — و زندگی‌اش کنی."} }
+    ],
+    quotes:[
+      {en:"Let everyone else call your idea crazy . . . just keep going. Don't stop.", fa:"بگذار بقیه ایده‌ات را دیوانه‌وار بنامند… تو فقط ادامه بده. نایست."},
+      {en:"The cowards never started and the weak died along the way. That leaves us, ladies and gentlemen. Us.", fa:"ترسوها اصلاً شروع نکردند و ضعیف‌ها توی راه از پا افتادند. می‌ماند ما، خانم‌ها و آقایان. ما."},
+      {en:"Seek a calling. Even if you don't know what that means, seek it.", fa:"دنبالِ یک رسالت بگرد. حتی اگر نمی‌دانی یعنی چه، دنبالش بگرد."},
+      {en:"Have faith in yourself, but also have faith in faith.", fa:"به خودت ایمان داشته باش، اما به خودِ ایمان هم ایمان داشته باش."},
+      {en:"Business is war without bullets.", fa:"کسب‌وکار یعنی جنگ، منتها بدونِ گلوله."},
+      {en:"Beating the competition is relatively easy. Beating yourself is a never-ending commitment.", fa:"بردنِ رقیب نسبتاً آسان است. بردنِ خودت یک تعهدِ بی‌پایان است."},
+      {en:"Life is growth. You grow or you die.", fa:"زندگی یعنی رشد. یا رشد می‌کنی یا می‌میری."}
+    ],
+    media:[
+      { kind:'yt', id:'cSe-qR4f1Ng', src:{en:'YouTube · Good Morning America', fa:'یوتیوب · Good Morning America'},
+        title:{en:'Phil Knight Discusses Shoe Dog', fa:'فیل نایت دربارهٔ کتابِ کفش‌باز'},
+        desc:{en:"Nike's founder talks about the story and ideas behind his memoir.", fa:'بنیان‌گذارِ نایکی از داستان و ایده‌های پشتِ خاطراتش می‌گوید.'},
+        bullets:{en:["Phil Knight in his own words","The idea and the early struggle","Straight from the founder"], fa:["فیل نایت با زبانِ خودش","ایده و تقلای روزهای اول","مستقیم از خودِ بنیان‌گذار"]},
+        best:{en:'Best for Stage 1–2.', fa:'خوب برای مرحلهٔ ۱ و ۲.'} },
+      { kind:'img', url:'https://www.simonandschuster.com/books/Shoe-Dog/Phil-Knight/9781501135927',
+        src:{en:'Simon & Schuster · Publisher', fa:'سایمون‌اند‌شوستر · ناشر'},
+        title:{en:'Shoe Dog — Publisher Page', fa:'کفش‌باز — صفحهٔ ناشر'},
+        desc:{en:'The official publisher page, with editions and details.', fa:'صفحهٔ رسمیِ ناشر، با نسخه‌ها و جزئیات.'},
+        bullets:{en:["The definitive editions","Background on the book","Straight from the source"], fa:["نسخه‌های معتبر","پیشینه‌ای دربارهٔ کتاب","مستقیم از خودِ منبع"]},
+        best:{en:'For editions and the source.', fa:'برای نسخه‌ها و منبعِ اصلی.'} },
+      { kind:'img', url:'https://www.gatesnotes.com/shoe-dog',
+        src:{en:'gatesnotes · Bill Gates', fa:'gatesnotes · بیل گیتس'},
+        title:{en:"Bill Gates' Review of Shoe Dog", fa:'نقدِ بیل گیتس بر کفش‌باز'},
+        desc:{en:'A short, warm review of the memoir from a famous reader.', fa:'یک نقدِ کوتاه و گرم بر این خاطرات، از زبانِ یک خوانندهٔ مشهور.'},
+        bullets:{en:["Why the book resonates","An outside perspective","Good after you finish"], fa:["اینکه چرا کتاب به دل می‌نشیند","یک نگاه از بیرون","خوب بعد از تمام‌کردنِ کتاب"]},
+        best:{en:'Best after Stage 4–5.', fa:'خوب بعد از مرحلهٔ ۴ و ۵.'} }
+    ],
+    go:[
+      {label:{en:'Publisher page', fa:'صفحهٔ ناشر'}, url:'https://www.simonandschuster.com/books/Shoe-Dog/Phil-Knight/9781501135927'},
+      {label:{en:'Book on Goodreads', fa:'کتاب در گودریدز'}, url:'https://www.goodreads.com/book/show/27220736-shoe-dog'},
+      {label:{en:"Bill Gates' review", fa:'نقدِ بیل گیتس'}, url:'https://www.gatesnotes.com/shoe-dog'}
+    ],
+    recs:[
+      { pri:'b', t:{en:'Name your crazy idea', fa:'ایدهٔ دیوانه‌وارت را نام ببر'}, d:{en:"Write down the idea you keep coming back to, and take one tiny step to test it this week.", fa:'همان ایده‌ای که مدام سراغش می‌روی را بنویس، و همین هفته یک قدمِ کوچک برای امتحانش بردار.'} },
+      { pri:'b', t:{en:'Decide not to stop', fa:'تصمیم بگیر که نایستی'}, d:{en:"Pick one hard thing and decide in advance that quitting isn't on the table.", fa:'یک کارِ سخت را انتخاب کن و از قبل تصمیم بگیر که کنارکشیدن روی میز نیست.'} },
+      { pri:'n', t:{en:'Watch your cash, not just wins', fa:'حواست به پول باشد، نه فقط بُردها'}, d:{en:"Check the money in the bank weekly and know how long your runway really is.", fa:'هفتگی پولِ توی بانک را چک کن و بدان واقعاً چقدر تا ته‌کشیدن فاصله داری.'} },
+      { pri:'n', t:{en:'Find your Bowerman', fa:'باورمنِ خودت را پیدا کن'}, d:{en:"Reach out to one person who cares about the work as much as you do.", fa:'به یک نفر که به‌اندازهٔ خودت به کار اهمیت می‌دهد پیام بده.'} }
+    ]
+  }
+};

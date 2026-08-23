@@ -1,0 +1,264 @@
+/* config: Creativity, Inc. — Ed Catmull with Amy Wallace (Taste & Craft) */
+module.exports = {
+  slug:"creativityinc", brand:"Creativity, Inc.",
+  titleTag:"Creativity, Inc. — نقشهٔ دانش و یادگیری ۵ مرحله‌ای",
+  W:980, H:780, R1:220, R2:126, span:66,
+  leafKickEn:"Lesson", leafKickFa:"درسِ",
+  flowEn:["Candor","Trust","Create"], flowFa:["صراحت","اعتماد","آفرینش"],
+
+  hero:`  <div class="eyebrow"><span class="edot"></span>
+    <span data-only="en">Book knowledge map · Ed Catmull</span>
+    <span data-only="fa">نقشهٔ کتاب · اد کتمول</span>
+  </div>
+  <h1>
+    <span data-only="en">Creativity, Inc. — Overcoming the Unseen Forces That Stand in the Way of True Inspiration</span>
+    <span data-only="fa">کارخانهٔ خلاقیت — غلبه بر نیروهای پنهانی که جلوی الهامِ واقعی را می‌گیرند</span>
+  </h1>
+  <p class="dek">
+    <span data-only="en">A knowledge graph of the whole book, plus a 5-stage path from a single idea to expert-level mastery — with an example at every step.</span>
+    <span data-only="fa">نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از یک ایدهٔ ساده تا حرفه‌ای — با یک مثال در هر مرحله.</span>
+  </p>
+  <div class="metastrip">
+    <div class="metaitem"><span class="mk" data-only="en">Book</span><span class="mk" data-only="fa">کتاب</span>
+      <span class="mv" data-only="en">Creativity, Inc.</span><span class="mv" data-only="fa">کارخانهٔ خلاقیت</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Author</span><span class="mk" data-only="fa">نویسنده</span>
+      <span class="mv" data-only="en">Ed Catmull with Amy Wallace</span><span class="mv" data-only="fa">اد کتمول با ایمی والاس</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Published</span><span class="mk" data-only="fa">سالِ چاپ</span>
+      <span class="mv" data-only="en">2014</span><span class="mv" data-only="fa">۲۰۱۴</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Group</span><span class="mk" data-only="fa">گروه</span>
+      <span class="mv" data-only="en">Taste &amp; Craft</span><span class="mv" data-only="fa">ذوق و پیشه‌وری</span></div>
+  </div>
+  <div class="chips">
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Parts</span><span data-only="fa">بخش</span></div>
+    <div class="chip"><b data-only="en">16</b><b data-only="fa">۱۶</b><span data-only="en">Ideas</span><span data-only="fa">ایده</span></div>
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Learning stages</span><span data-only="fa">مرحلهٔ یادگیری</span></div>
+  </div>`,
+
+  callout:`    <b data-only="en">The core idea:</b>
+    <b data-only="fa">ایدهٔ اصلی:</b>
+    <span data-only="en"> Great creative work comes from <i>people</i>, not from any single idea — so a leader's real job is to protect the fragile creative process. Build a culture of <i>candor</i> where the truth comes out early, make it <i>safe to fail</i>, and keep hunting the <i>hidden problems</i> that quietly stand in the way of inspiration.</span>
+    <span data-only="fa"> کارِ خلاقانهٔ خوب از <i>آدم‌ها</i> می‌آید، نه از یک ایدهٔ تنها — پس کارِ واقعیِ یک رهبر این است که از فرایندِ شکنندهٔ خلاقیت محافظت کند. فرهنگی از <i>صراحت</i> بساز که حقیقت زود رو بیاید، <i>شکست را بی‌خطر</i> کن، و مدام دنبالِ <i>مشکل‌های پنهانی</i> بگرد که بی‌سروصدا جلوی الهام را می‌گیرند.</span>`,
+
+  kpis:`    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Parts (culture · candor · failure · the unseen · sustaining)</div><div class="l" data-only="fa">بخش (فرهنگ · صراحت · شکست · نیروهای پنهان · تداوم)</div></div>
+    <div class="kbox"><div class="v" data-only="en">16</div><div class="v" data-only="fa">۱۶</div><div class="l" data-only="en">Ideas you can use</div><div class="l" data-only="fa">ایده برای استفاده</div></div>
+    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Levels, simple → expert</div><div class="l" data-only="fa">مرحله، ساده تا حرفه‌ای</div></div>
+    <div class="kbox"><div class="v" data-only="en">3</div><div class="v" data-only="fa">۳</div><div class="l" data-only="en">The rhythm: candor · trust · create</div><div class="l" data-only="fa">ریتمِ کار: صراحت · اعتماد · آفرینش</div></div>`,
+
+  mapcallout:`      <b data-only="en">Read it as a flow:</b><b data-only="fa">به‌صورتِ یک جریان بخوانش:</b>
+      <span data-only="en"> build a <b>people-first culture</b> and hire people smarter than you, run on <b>candor</b> through the Braintrust, make it <b>safe to fail</b>, then manage the <b>unseen forces</b> — feeding the Beast while protecting fragile new ideas — and <b>sustain</b> it by embracing change and never confusing your process with your goal.</span>
+      <span data-only="fa"> یک <b>فرهنگِ آدم‌محور</b> بساز و آدم‌هایی باهوش‌تر از خودت استخدام کن، کار را با <b>صراحت</b> و از راهِ برین‌تراست پیش ببر، <b>شکست را بی‌خطر</b> کن، بعد <b>نیروهای پنهان</b> را مدیریت کن — هیولا را سیر کن و در همان حال از ایده‌های تازه و شکننده محافظت کن — و با آغوش‌بازکردن به روی تغییر و اینکه هیچ‌وقت روند را با هدف اشتباه نگیری، <b>زنده‌اش</b> نگه دار.</span>`,
+
+  methodFa:"<p><b>منبع:</b> کتابِ «Creativity, Inc.: Overcoming the Unseen Forces That Stand in the Way of True Inspiration» نوشتهٔ اد کتمول با ایمی والاس، چاپِ ۲۰۱۴ (نشرِ Random House).</p><p><b>روشِ کار:</b> ساختارِ پنج‌بخشی و ایده‌ها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده؛ نقل‌قول‌ها مقابله و ویدیوها بررسی شده‌اند.</p><p><b>گروه:</b> «ذوق و پیشه‌وری» — یک خواندنیِ پایه دربارهٔ ساختن و محافظت از یک فرهنگِ خلاق.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای متنِ کامل، خودِ کتاب را بخوان.</p>",
+  methodEn:"<p><b>Source:</b> the book <i>Creativity, Inc.: Overcoming the Unseen Forces That Stand in the Way of True Inspiration</i> by Ed Catmull with Amy Wallace, published 2014 (Random House).</p><p><b>How this was built:</b> the five-part structure and ideas were gathered and rewritten from the book and reputable sources; quotes were cross-checked and the linked videos verified.</p><p><b>Group:</b> Taste &amp; Craft — a foundational read on building and protecting a creative culture.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>",
+
+  data:{
+    tldr:[
+      {en:"The whole book in one line: protect the fragile creative process by building a culture that surfaces and fixes hidden problems.",
+       fa:"خلاصهٔ کل کتاب در یک جمله: از فرایندِ شکنندهٔ خلاقیت محافظت کن، با ساختنِ فرهنگی که مشکل‌های پنهان را رو می‌کند و حلشان می‌کند."},
+      {en:"It's the <b>people</b>, not the idea — give a good idea to a mediocre team and they'll ruin it.",
+       fa:"مهم <b>آدم‌ها</b> هستند، نه ایده — یک ایدهٔ خوب را به یک تیمِ متوسط بده، خرابش می‌کنند."},
+      {en:"Run on <b>candor</b>: a trusted <b>Braintrust</b> gives frank feedback, and it's always about the work, never the person.",
+       fa:"کار را با <b>صراحت</b> پیش ببر: یک <b>برین‌تراستِ</b> قابل‌اعتماد بازخوردِ رک می‌دهد، و همیشه دربارهٔ کار است، نه آدم."},
+      {en:"Make it safe to <b>fail</b> — failure is the price of doing something new, and fixing errors usually beats preventing them.",
+       fa:"<b>شکست</b> را بی‌خطر کن — شکست بهای انجامِ کاری تازه است، و درست‌کردنِ خطاها معمولاً بهتر از جلوگیری از آن‌هاست."},
+      {en:"Watch the <b>unseen forces</b>, protect fragile new ideas, and sustain it by embracing change and never confusing process with goal.",
+       fa:"مراقبِ <b>نیروهای پنهان</b> باش، از ایده‌های تازه و شکننده محافظت کن، و با آغوش‌بازکردن به تغییر و اشتباه‌نگرفتنِ روند با هدف، تداومش بده."}
+    ],
+    parts:[
+      { key:"culture", varc:"--c-teal", name:{en:"Building the Culture", fa:"ساختنِ فرهنگ"}, tag:{en:"People first", fa:"اول آدم‌ها"},
+        gist:{en:"It's the people, not the idea — hire smart and build the team first.", fa:"مهم آدم‌ها هستند، نه ایده — باهوش استخدام کن و اول تیم را بساز."},
+        more:{en:"Pixar's real product isn't any single film, it's the community that makes them. Ideas are worthless without talented people to grow them, so a leader's first job is to find, hire, and protect a great team — then trust it.",
+              fa:"محصولِ واقعیِ پیکسار هیچ فیلمِ تنهایی نیست، همان جامعه‌ای است که فیلم‌ها را می‌سازد. ایده‌ها بدونِ آدم‌های بااستعدادی که پرورششان بدهند بی‌ارزش‌اند، پس اولین کارِ یک رهبر این است که یک تیمِ عالی را پیدا و استخدام کند و ازش محافظت کند — بعد به آن اعتماد کند."},
+        chapters:["people","hiresmart","greatteam"] },
+      { key:"candor", varc:"--c-blue", name:{en:"Candor & the Braintrust", fa:"صراحت و برین‌تراست"}, tag:{en:"How feedback works", fa:"بازخورد چطور کار می‌کند"},
+        gist:{en:"Make it safe to tell the truth, and keep feedback about the work.", fa:"گفتنِ حقیقت را بی‌خطر کن، و بازخورد را روی کار نگه دار."},
+        more:{en:"Hidden problems only surface when people feel safe being frank. The Braintrust is Pixar's engine for this: trusted peers give a project honest, expert notes, with no power to force any change — so the truth flows and the maker still decides.",
+              fa:"مشکل‌های پنهان فقط وقتی رو می‌آیند که آدم‌ها احساسِ امنیت کنند و رک باشند. برین‌تراست موتورِ پیکسار برای همین است: همکارانِ قابل‌اعتماد به یک پروژه نظرِ صادقانه و کارشناسانه می‌دهند، بی‌آنکه قدرتی داشته باشند تغییری را تحمیل کنند — پس حقیقت جاری می‌شود و باز هم خودِ سازنده تصمیم می‌گیرد."},
+        chapters:["frank","braintrust","separate"] },
+      { key:"failure", varc:"--c-amber", name:{en:"Fear & Failure", fa:"ترس و شکست"}, tag:{en:"Risk & learning", fa:"خطر و یادگیری"},
+        gist:{en:"Failure is the price of new work — make it safe, and fix rather than prevent.", fa:"شکست بهای کارِ تازه است — بی‌خطرش کن، و به‌جای جلوگیری، درست کن."},
+        more:{en:"If you're doing something genuinely new, you will be wrong a lot. Punishing mistakes just teaches people to hide them and play safe. Make failing survivable, fail fast and cheap, and get good at recovering instead of trying to prevent every error.",
+              fa:"اگر داری کاری واقعاً تازه می‌کنی، بارها اشتباه خواهی کرد. تنبیهِ اشتباه فقط به آدم‌ها یاد می‌دهد پنهانش کنند و محافظه‌کار بازی کنند. شکست را قابلِ‌تحمل کن، زود و کم‌هزینه شکست بخور، و به‌جای اینکه بخواهی جلوی هر خطا را بگیری، در بلندشدنِ دوباره ماهر شو."},
+        chapters:["failgood","safefail","fixnotprevent"] },
+      { key:"hidden", varc:"--c-violet", name:{en:"Managing the Unseen", fa:"مدیریتِ نادیده‌ها"}, tag:{en:"What you can't see", fa:"آنچه نمی‌بینی"},
+        gist:{en:"Unseen forces shape everything — feed the Beast and protect the Ugly Baby.", fa:"نیروهای پنهان همه‌چیز را شکل می‌دهند — هیولا را سیر کن و بچهٔ زشت را نگه دار."},
+        more:{en:"Much of what drives a company is invisible: fear, incentives, blind spots. Stay humble about your mental model. Balance the Hungry Beast — production's endless appetite — against the fragile, unformed new ideas it would happily devour.",
+              fa:"بخشِ زیادی از آنچه یک شرکت را می‌راند نامرئی است: ترس، انگیزه‌ها، نقطه‌های کور. دربارهٔ مدلِ ذهنی‌ات فروتن بمان. میانِ هیولای گرسنه — اشتهای بی‌پایانِ تولید — و ایده‌های تازه و شکل‌نگرفته‌ای که هیولا با کمالِ میل می‌بلعدشان، تعادل برقرار کن."},
+        chapters:["unseen","beast","baby"] },
+      { key:"sustain", varc:"--c-green", name:{en:"Sustaining Creativity", fa:"تداومِ خلاقیت"}, tag:{en:"Keep it alive", fa:"زنده نگه‌اش دار"},
+        gist:{en:"Embrace change, give everyone a voice, and keep learning.", fa:"تغییر را بپذیر، به همه صدا بده، و مدام یاد بگیر."},
+        more:{en:"A creative culture isn't set up once; it has to be renewed. Learn from strong, difficult partners, welcome change and randomness instead of controlling them away, pull honest feedback from everyone, and never let a useful process harden into the goal itself.",
+              fa:"یک فرهنگِ خلاق یک‌بار برای همیشه ساخته نمی‌شود؛ باید نو شود. از شریک‌های قوی و دشوار یاد بگیر، تغییر و تصادف را به‌جای اینکه با کنترل از میان برداری بپذیر، از همه بازخوردِ صادقانه بکش، و هیچ‌وقت نگذار یک روندِ مفید سفت شود و خودش تبدیل به هدف شود."},
+        chapters:["jobs","change","notesday","process"] }
+    ],
+    chapters:{
+      people:{ part:"culture", n:1, name:{en:"It's the People, Not the Idea", fa:"مهم آدم‌هاست، نه ایده"}, glabel:{en:"People", fa:"آدم‌ها"},
+        principle:{en:"Ideas come from people. A company's most valuable asset is its talented people and the way they work together — not any single idea.", fa:"ایده‌ها از آدم‌ها می‌آیند. باارزش‌ترین داراییِ یک شرکت آدم‌های بااستعدادش و شیوهٔ کارِ آن‌ها با هم است — نه یک ایدهٔ تنها."},
+        more:{en:"We tend to worship ideas, but an idea is really a bundle of thousands of decisions made by a group of people. Get the team and the chemistry right first, and the good ideas follow — not the other way around.", fa:"ما عادت داریم ایده‌ها را بپرستیم، اما یک ایده در واقع دسته‌ای از هزاران تصمیم است که گروهی از آدم‌ها گرفته‌اند. اول تیم و شیمیِ بینشان را درست کن، ایده‌های خوب خودشان می‌آیند — نه برعکس."},
+        example:{en:"Catmull says he'd sooner bet on a great team than a great idea; Pixar's real product is the community that makes the films.", fa:"کتمول می‌گوید ترجیح می‌دهد روی یک تیمِ عالی شرط ببندد تا یک ایدهٔ عالی؛ محصولِ واقعیِ پیکسار همان جامعه‌ای است که فیلم‌ها را می‌سازد."},
+        tip:{en:"When a project is stuck, look at the team and how it's working together before you blame the idea.", fa:"وقتی یک پروژه گیر کرده، قبل از اینکه ایده را مقصر بدانی، به تیم و شیوهٔ کارش با هم نگاه کن."},
+        pitfall:{en:"Chasing the perfect idea while ignoring whether the people can actually build it.", fa:"دنبالِ ایدهٔ کامل دویدن، درحالی‌که به این بی‌توجهی که آدم‌ها اصلاً می‌توانند بسازندش یا نه."} },
+      hiresmart:{ part:"culture", n:2, name:{en:"Hire People Smarter Than You", fa:"آدم‌هایی باهوش‌تر از خودت استخدام کن"}, glabel:{en:"Hire smart", fa:"استخدامِ باهوش"},
+        principle:{en:"Surround yourself with people smarter than you are, and be glad they can do things you can't. Their strength makes you stronger.", fa:"خودت را با آدم‌هایی باهوش‌تر از خودت احاطه کن، و خوشحال باش که کارهایی بلدند که تو نیستی. قدرتِ آن‌ها تو را قوی‌تر می‌کند."},
+        more:{en:"A leader who needs to be the smartest person in the room caps the whole team at their own level. Hire for raw talent and potential, bet on people who challenge you, and let them raise everyone around them.", fa:"رهبری که لازم دارد باهوش‌ترین آدمِ اتاق باشد، سقفِ کلِ تیم را در حدِ خودش می‌بندد. برای استعدادِ خام و ظرفیت استخدام کن، روی آدم‌هایی شرط ببند که به چالشت می‌کشند، و بگذار همه را دورِ خودشان بالا بکشند."},
+        example:{en:"Pixar hired for future potential over a polished résumé, trusting sharp people to grow into bigger roles.", fa:"پیکسار به‌جای رزومهٔ صیقلی برای ظرفیتِ آینده استخدام می‌کرد، و اعتماد داشت که آدم‌های تیز در نقش‌های بزرگ‌تر رشد می‌کنند."},
+        tip:{en:"In your next hire, favor the person who could outgrow you over the safe, lesser choice.", fa:"در استخدامِ بعدی‌ات، آدمی را که ممکن است از تو جلو بزند به گزینهٔ امن و کم‌مایه ترجیح بده."},
+        pitfall:{en:"Hiring people who won't threaten your ego — and quietly lowering the team's ceiling.", fa:"استخدامِ آدم‌هایی که غرورت را تهدید نمی‌کنند — و بی‌سروصدا پایین‌آوردنِ سقفِ تیم."} },
+      greatteam:{ part:"culture", n:3, name:{en:"Give It to a Great Team", fa:"به یک تیمِ عالی بسپارش"}, glabel:{en:"Great team", fa:"تیمِ عالی"},
+        principle:{en:"Give a good idea to a mediocre team and they'll ruin it; give a mediocre idea to a great team and they'll fix it or make something better.", fa:"یک ایدهٔ خوب را به یک تیمِ متوسط بده، خرابش می‌کنند؛ یک ایدهٔ متوسط را به یک تیمِ عالی بده، یا درستش می‌کنند یا چیزِ بهتری می‌سازند."},
+        more:{en:"This is why the team matters more than the pitch. A great team can rescue a weak idea, while a weak team wastes a strong one — so put your energy into building the team, not polishing the premise.", fa:"برای همین است که تیم از خودِ ایده مهم‌تر است. یک تیمِ عالی می‌تواند یک ایدهٔ ضعیف را نجات بدهد، اما یک تیمِ ضعیف یک ایدهٔ قوی را هدر می‌دهد — پس انرژی‌ات را بگذار روی ساختنِ تیم، نه صیقل‌دادنِ ایده."},
+        example:{en:"Catmull says every Pixar film starts out an ugly mess; it's the team, not the original idea, that turns it into something good.", fa:"کتمول می‌گوید هر فیلمِ پیکسار اولش یک آشفتگیِ زشت است؛ همان تیم است که آن را به چیزِ خوبی تبدیل می‌کند، نه ایدهٔ اولیه."},
+        tip:{en:"Judge a project by the strength of its team, not the shine of its premise.", fa:"یک پروژه را با قدرتِ تیمش بسنج، نه با برقِ ایده‌اش."},
+        pitfall:{en:"Betting everything on the concept and staffing it with whoever happens to be free.", fa:"همه‌چیز را روی ایده گذاشتن و هرکه سرش خلوت بود را رویش گذاشتن."} },
+      frank:{ part:"candor", n:4, name:{en:"Choose Candor", fa:"صراحت را انتخاب کن"}, glabel:{en:"Candor", fa:"صراحت"},
+        principle:{en:"Make it safe to tell the truth. Candor — real frankness — is the only way hidden problems come to the surface early.", fa:"گفتنِ حقیقت را بی‌خطر کن. صراحت — رک‌بودنِ واقعی — تنها راهی است که مشکل‌های پنهان زود رو می‌آیند."},
+        more:{en:"People naturally hold back to protect themselves and each other, so silence feels safe even when it's costly. A culture has to actively make candor the easy, expected thing, or the important feedback stays unsaid until it's too late.", fa:"آدم‌ها به‌طورِ طبیعی برای حفظِ خودشان و همدیگر حرف را نگه می‌دارند، پس سکوت امن به‌نظر می‌رسد حتی وقتی گران تمام می‌شود. یک فرهنگ باید فعالانه صراحت را به کارِ ساده و مورد‌انتظار تبدیل کند، وگرنه بازخوردِ مهم ناگفته می‌ماند تا وقتی دیگر دیر شده."},
+        example:{en:"Catmull found his open door wasn't enough — people still didn't bring him problems, so the culture had to be built to pull the truth out.", fa:"کتمول دید که درِ بازش کافی نیست — آدم‌ها باز هم مشکل‌ها را پیشش نمی‌آوردند، پس فرهنگ را باید طوری می‌ساخت که حقیقت را بیرون بکشد."},
+        tip:{en:"Ask directly for the thing people are afraid to say, and thank them when they say it.", fa:"مستقیم همان چیزی را بپرس که آدم‌ها می‌ترسند بگویند، و وقتی گفتند ازشان تشکر کن."},
+        pitfall:{en:"Assuming silence means everything is fine.", fa:"سکوت را به‌معنیِ اینکه همه‌چیز روبه‌راه است گرفتن."} },
+      braintrust:{ part:"candor", n:5, name:{en:"The Braintrust", fa:"برین‌تراست"}, glabel:{en:"Braintrust", fa:"برین‌تراست"},
+        principle:{en:"Gather a trusted group of peers to give a project frank, expert feedback — with no power to force any of it.", fa:"گروهی از همکارانِ قابل‌اعتماد را جمع کن تا به یک پروژه بازخوردِ رک و کارشناسانه بدهند — بی‌آنکه قدرتی برای تحمیلِ آن داشته باشند."},
+        more:{en:"The Braintrust works because it's smart people who love storytelling, talking candidly, and because the director keeps full authority. Feedback is offered as a gift to help, never as an order to obey.", fa:"برین‌تراست کار می‌کند چون آدم‌هایی باهوش‌اند که عاشقِ قصه‌گویی‌اند و رک حرف می‌زنند، و چون کارگردان اختیارِ کامل را نگه می‌دارد. بازخورد مثلِ یک هدیه برای کمک داده می‌شود، نه یک دستور برای اطاعت."},
+        example:{en:"At Pixar, directors screen unfinished films for the Braintrust, get blunt notes, and then decide for themselves what to change.", fa:"در پیکسار، کارگردان‌ها فیلمِ ناتمام را برای برین‌تراست نمایش می‌دهند، نظرِ بی‌پرده می‌گیرند، و بعد خودشان تصمیم می‌گیرند چه چیزی را عوض کنند."},
+        tip:{en:"Build your own small circle of trusted, candid peers — and leave the final call with the owner.", fa:"حلقهٔ کوچکِ خودت از همکارانِ قابل‌اعتماد و رک را بساز — و تصمیمِ نهایی را به صاحبِ کار بسپار."},
+        pitfall:{en:"Turning feedback into mandates, which makes people defensive and quiet.", fa:"تبدیل‌کردنِ بازخورد به دستور، که آدم‌ها را جبهه‌گیر و ساکت می‌کند."} },
+      separate:{ part:"candor", n:6, name:{en:"Separate the Problem From the Person", fa:"مشکل را از آدم جدا کن"}, glabel:{en:"Not personal", fa:"شخصی نیست"},
+        principle:{en:"Aim every note at the work, never at the person. People are not their ideas.", fa:"هر نظر را به کار نشانه بگیر، نه هیچ‌وقت به آدم. آدم‌ها همان ایده‌هایشان نیستند."},
+        more:{en:"When feedback feels like an attack on the maker, they defend instead of listen. When it targets the problem in the work, everyone can join the same side of the table and fix it together.", fa:"وقتی بازخورد مثلِ حمله به سازنده حس می‌شود، به‌جای گوش‌دادن دفاع می‌کند. وقتی مشکلِ درونِ کار را نشانه می‌رود، همه می‌توانند یک‌طرفِ میز بنشینند و با هم درستش کنند."},
+        example:{en:"Braintrust notes are about the movie on the screen, not the director's worth — so even hard feedback lands as help.", fa:"نظرهای برین‌تراست دربارهٔ فیلمِ روی پرده است، نه ارزشِ کارگردان — پس حتی بازخوردِ سخت هم مثلِ کمک می‌نشیند."},
+        tip:{en:"Phrase feedback about the thing on the table, not the character of the person who made it.", fa:"بازخورد را دربارهٔ چیزی که روی میز است بگو، نه دربارهٔ شخصیتِ کسی که ساختتش."},
+        pitfall:{en:"Letting critique of the work feel like a verdict on the person.", fa:"گذاشتن اینکه نقدِ کار مثلِ حکمی دربارهٔ خودِ آدم حس شود."} },
+      failgood:{ part:"failure", n:7, name:{en:"Failure Isn't Evil", fa:"شکست شر نیست"}, glabel:{en:"Failure", fa:"شکست"},
+        principle:{en:"Failure isn't a necessary evil — it isn't evil at all. It's the unavoidable cost of trying something new.", fa:"شکست یک شرِّ لازم نیست — اصلاً شر نیست. بهای ناگزیرِ امتحان‌کردنِ چیزی تازه است."},
+        more:{en:"If you're doing genuinely new work, you will be wrong a lot. Treating failure as shameful just teaches people to avoid the very risks that make new things possible in the first place.", fa:"اگر داری کارِ واقعاً تازه‌ای می‌کنی، بارها اشتباه خواهی کرد. شکست را ننگ دانستن فقط به آدم‌ها یاد می‌دهد از همان خطرهایی دوری کنند که اصلاً چیزهای تازه را ممکن می‌کنند."},
+        example:{en:"Every original Pixar film went through long stretches of being broken; the failures were part of finding the movie, not a sign of doing it wrong.", fa:"هر فیلمِ اصیلِ پیکسار دوره‌های طولانی‌ای را از سر گذراند که خراب بود؛ آن شکست‌ها بخشی از پیدا‌کردنِ فیلم بودند، نه نشانهٔ اشتباه‌کاری."},
+        tip:{en:"Reframe a recent failure as data — what did it teach you that nothing else could?", fa:"یک شکستِ اخیر را مثلِ داده ببین — چه چیزی یادت داد که هیچ‌چیزِ دیگری نمی‌توانست؟"},
+        pitfall:{en:"Treating every mistake as a verdict, so people stop taking real risks.", fa:"هر اشتباه را مثلِ یک حکم دیدن، طوری که آدم‌ها دیگر خطرِ واقعی نمی‌کنند."} },
+      safefail:{ part:"failure", n:8, name:{en:"Make It Safe to Fail", fa:"شکست را بی‌خطر کن"}, glabel:{en:"Safe to fail", fa:"شکستِ بی‌خطر"},
+        principle:{en:"People only take creative risks when they trust that failing won't be punished. Fear of failure is the quiet killer of originality.", fa:"آدم‌ها فقط وقتی خطرِ خلاقانه می‌کنند که مطمئن باشند شکست تنبیه نمی‌شود. ترس از شکست، قاتلِ خاموشِ اصالت است."},
+        more:{en:"If leaders react to mistakes with blame, everyone learns to play it safe and hide problems. Make failing survivable and people will experiment, share work early, and learn fast.", fa:"اگر رهبرها به اشتباه با سرزنش واکنش نشان بدهند، همه یاد می‌گیرند محافظه‌کار بازی کنند و مشکل‌ها را پنهان کنند. شکست را قابلِ‌تحمل کن، آن‌وقت آدم‌ها آزمایش می‌کنند، کار را زود نشان می‌دهند، و تند یاد می‌گیرند."},
+        example:{en:"Catmull's rule: to be wrong as fast as you can is to sign up for fast learning — so fail early and cheaply, on purpose.", fa:"قاعدهٔ کتمول: هرچه زودتر اشتباه کنی، یعنی برای یادگیریِ سریع ثبت‌نام کرده‌ای — پس عمداً زود و کم‌هزینه شکست بخور."},
+        tip:{en:"When someone's honest failure surfaces, respond with curiosity, not blame.", fa:"وقتی شکستِ صادقانهٔ کسی رو می‌آید، با کنجکاوی جواب بده، نه با سرزنش."},
+        pitfall:{en:"Punishing mistakes so hard that people bury them instead of fixing them.", fa:"آن‌قدر سختِ اشتباه‌ها را تنبیه‌کردن که آدم‌ها به‌جای درست‌کردن، دفنشان کنند."} },
+      fixnotprevent:{ part:"failure", n:9, name:{en:"Fix, Don't Prevent", fa:"درست کن، جلوگیری نکن"}, glabel:{en:"Fix, not prevent", fa:"درست‌کردن، نه جلوگیری"},
+        principle:{en:"The cost of preventing every error is usually higher than the cost of fixing errors as they happen. Build the ability to recover, not a cage.", fa:"هزینهٔ جلوگیری از هر خطا معمولاً از هزینهٔ درست‌کردنِ خطاها همان‌طور که پیش می‌آیند بیشتر است. توانِ بلندشدنِ دوباره را بساز، نه یک قفس."},
+        more:{en:"Trying to stop all mistakes slows everyone down and still fails. Assume people mean well, let them act, and get very good at catching and repairing problems quickly.", fa:"تلاش برای متوقف‌کردنِ همهٔ اشتباه‌ها همه را کُند می‌کند و باز هم شکست می‌خورد. فرض کن نیتِ آدم‌ها خوب است، بگذار عمل کنند، و در گرفتن و تعمیرِ سریعِ مشکل‌ها خیلی ماهر شو."},
+        example:{en:"Catmull puts it plainly: management's job is not to prevent risk but to build the ability to recover.", fa:"کتمول ساده می‌گویدش: کارِ مدیریت جلوگیری از خطر نیست، ساختنِ توانِ بلندشدنِ دوباره است."},
+        tip:{en:"Trade one heavy approval step for a fast way to catch and fix problems after the fact.", fa:"یک مرحلهٔ سنگینِ تأیید را با یک راهِ سریع برای گرفتن و درست‌کردنِ مشکل‌ها بعد از وقوع عوض کن."},
+        pitfall:{en:"Piling on controls that cost more than the mistakes they prevent.", fa:"روی هم انباشتنِ کنترل‌هایی که بیشتر از اشتباه‌هایی که جلویشان را می‌گیرند خرج برمی‌دارند."} },
+      unseen:{ part:"hidden", n:10, name:{en:"The Unseen Forces", fa:"نیروهای پنهان"}, glabel:{en:"The unseen", fa:"نادیده‌ها"},
+        principle:{en:"Powerful forces you can't see are always shaping how people behave. Your mental model of the company is never the whole truth.", fa:"نیروهای نیرومندی که نمی‌بینی‌شان همیشه دارند رفتارِ آدم‌ها را شکل می‌دهند. مدلِ ذهنیِ تو از شرکت هیچ‌وقت همهٔ حقیقت نیست."},
+        more:{en:"Much of what drives an organization stays hidden — fear, incentives, blind spots, habits. Good leaders stay humble about what they can't see and keep actively hunting for it instead of trusting the tidy picture in their head.", fa:"بخشِ زیادی از آنچه یک سازمان را می‌راند پنهان می‌ماند — ترس، انگیزه‌ها، نقطه‌های کور، عادت‌ها. رهبرهای خوب دربارهٔ آنچه نمی‌بینند فروتن می‌مانند و به‌جای اعتماد به تصویرِ مرتبِ توی سرشان، فعالانه دنبالش می‌گردند."},
+        example:{en:"Pixar's strength, Catmull says, is admitting there will always be problems hidden from view — and working hard to uncover them.", fa:"کتمول می‌گوید قوتِ پیکسار این است که قبول دارد همیشه مشکل‌هایی پنهان از دید خواهد بود — و سخت تلاش می‌کند رویشان کند."},
+        tip:{en:"Regularly ask: what's really going on here that I'm not seeing?", fa:"مرتب بپرس: واقعاً اینجا چه خبر است که من نمی‌بینم؟"},
+        pitfall:{en:"Mistaking your tidy mental model for reality.", fa:"مدلِ ذهنیِ مرتبت را به‌جای واقعیت گرفتن."} },
+      beast:{ part:"hidden", n:11, name:{en:"Feed the Beast — Carefully", fa:"هیولا را سیر کن — با احتیاط"}, glabel:{en:"The Beast", fa:"هیولا"},
+        principle:{en:"A studio has a Hungry Beast — the machinery and people that must be kept fed and busy — and it will happily eat quality if you let it.", fa:"یک استودیو یک هیولای گرسنه دارد — همان دستگاه و آدم‌هایی که باید سیر و مشغول نگه داشته شوند — و اگر بگذاری، با کمالِ میل کیفیت را می‌بلعد."},
+        more:{en:"The Beast's appetite for output is necessary but dangerous. Left in charge, it pushes for more, faster, safer, and starves the fragile new work. You have to feed it without letting it give the orders.", fa:"اشتهای هیولا برای تولید لازم است اما خطرناک. اگر رهایش کنی سرِ کار، فشار می‌آورد برای بیشتر، سریع‌تر، امن‌تر، و کارِ تازه و شکننده را گرسنه می‌گذارد. باید سیرش کنی، بی‌آنکه بگذاری او دستور بدهد."},
+        example:{en:"Catmull frames the tension as feeding the Beast — production's hunger — while refusing to let its demands dictate the art.", fa:"کتمول این کشمکش را این‌طور قاب می‌گیرد: سیر‌کردنِ هیولا — گرسنگیِ تولید — و در همان حال نگذاشتن که خواسته‌هایش به هنر دیکته کنند."},
+        tip:{en:"Notice where the pressure to just ship is quietly lowering the bar.", fa:"حواست باشد کجا فشارِ اینکه فقط تحویل بده، بی‌سروصدا سطح را پایین می‌آورد."},
+        pitfall:{en:"Letting the appetite for output run the creative decisions.", fa:"گذاشتن اینکه اشتها برای تولید، تصمیم‌های خلاقانه را بگرداند."} },
+      baby:{ part:"hidden", n:12, name:{en:"Protect the Ugly Baby", fa:"از بچهٔ زشت محافظت کن"}, glabel:{en:"The Baby", fa:"بچهٔ نوپا"},
+        principle:{en:"New ideas arrive as Ugly Babies — awkward, unformed, and fragile. Protect them, and balance that protection against the Beast's hunger.", fa:"ایده‌های تازه مثلِ بچه‌های زشت به دنیا می‌آیند — ناهنجار، شکل‌نگرفته و شکننده. ازشان محافظت کن، و این محافظت را با گرسنگیِ هیولا متعادل کن."},
+        more:{en:"Originality is fragile and, in its first moments, far from pretty. Judge a newborn idea by the standard of a finished one and you'll kill it. Shield it until it can stand on its own, while keeping the whole system in balance.", fa:"اصالت شکننده است و در لحظه‌های اولش، اصلاً قشنگ نیست. یک ایدهٔ نوزاد را با معیارِ یک کارِ تمام‌شده بسنجی، می‌کُشی‌اش. سپرش باش تا وقتی روی پای خودش بایستد، و در همان حال کلِ سیستم را در تعادل نگه دار."},
+        example:{en:"Catmull: originality is fragile, and in its first moments it's often far from pretty — so early work needs protectors, not critics.", fa:"کتمول: اصالت شکننده است، و در لحظه‌های اولش اغلب اصلاً قشنگ نیست — پس کارِ اولیه نگهبان می‌خواهد، نه منتقد."},
+        tip:{en:"Give a raw new idea a safe space before you expose it to hard judgment.", fa:"به یک ایدهٔ تازه و خام یک فضای امن بده، پیش از اینکه در معرضِ قضاوتِ سخت بگذاری‌اش."},
+        pitfall:{en:"Holding a newborn idea to the standard of a polished one.", fa:"یک ایدهٔ نوزاد را به معیارِ یک ایدهٔ صیقلی سنجیدن."} },
+      jobs:{ part:"sustain", n:13, name:{en:"The Steve Jobs Lessons", fa:"درس‌های استیو جابز"}, glabel:{en:"Steve Jobs", fa:"استیو جابز"},
+        principle:{en:"Over a long partnership with Steve Jobs, Catmull learned patience, listening, and how a demanding partner can grow — and how to hold your ground with one.", fa:"در طولِ یک شراکتِ بلند با استیو جابز، کتمول صبر، گوش‌دادن، و اینکه یک شریکِ سخت‌گیر چطور می‌تواند رشد کند را یاد گرفت — و اینکه چطور جلوی چنین آدمی سرِ حرفت بمانی."},
+        more:{en:"Jobs evolved from brash to wise across their decades together. The lesson isn't to copy him but to keep learning from strong, difficult people — and to push back with reason rather than fear.", fa:"جابز در طولِ دهه‌هایی که با هم بودند از یک آدمِ گستاخ به یک آدمِ خردمند تبدیل شد. درس این نیست که کپی‌اش کنی، بلکه این است که مدام از آدم‌های قوی و دشوار یاد بگیری — و به‌جای ترس، با منطق جلویشان بایستی."},
+        example:{en:"Catmull describes learning to disagree with Jobs by waiting, making the case with logic, and letting the better argument win.", fa:"کتمول تعریف می‌کند چطور یاد گرفت با جابز مخالفت کند: با صبر‌کردن، با منطق دلیل آوردن، و گذاشتن اینکه استدلالِ بهتر ببرد."},
+        tip:{en:"With a forceful colleague, argue the merits calmly instead of either yielding or fighting.", fa:"با یک همکارِ زورمند، به‌جای اینکه یا تسلیم شوی یا بجنگی، آرام سرِ اصلِ ماجرا بحث کن."},
+        pitfall:{en:"Either caving to the loudest voice or refusing to learn from it.", fa:"یا تسلیمِ بلندترین صدا شدن، یا اصلاً حاضر‌نبودن ازش یاد بگیری."} },
+      change:{ part:"sustain", n:14, name:{en:"Embrace Change & Randomness", fa:"تغییر و تصادف را بپذیر"}, glabel:{en:"Change", fa:"تغییر"},
+        principle:{en:"Change and randomness aren't threats to manage away — they're the raw material of creativity. There's no growth or success without change.", fa:"تغییر و تصادف تهدیدهایی نیستند که باید با مدیریت از میان برداری‌شان — مصالحِ خامِ خلاقیت‌اند. بدونِ تغییر، نه رشدی هست نه موفقیتی."},
+        more:{en:"The instinct to control and stabilize can quietly strangle the new. Instead, expect the unexpected, make room for luck, and treat change as the normal condition of creative work rather than an emergency.", fa:"غریزهٔ کنترل و تثبیت می‌تواند بی‌سروصدا چیزِ تازه را خفه کند. به‌جایش، منتظرِ چیزِ غیرمنتظره باش، برای شانس جا باز کن، و تغییر را وضعیتِ عادیِ کارِ خلاق بدان، نه یک بحران."},
+        example:{en:"Catmull argues that seeking too much stability makes a company fragile; welcoming change is what keeps it alive.", fa:"کتمول می‌گوید دنبالِ ثباتِ زیادی رفتن یک شرکت را شکننده می‌کند؛ خوش‌آمدگفتن به تغییر همان چیزی است که زنده نگهش می‌دارد."},
+        tip:{en:"When something unplanned happens, ask what opportunity it opens before you move to resist it.", fa:"وقتی یک چیزِ برنامه‌ریزی‌نشده پیش می‌آید، قبل از اینکه در برابرش مقاومت کنی، بپرس چه فرصتی باز می‌کند."},
+        pitfall:{en:"Craving stability so much that you smother new possibilities.", fa:"آن‌قدر تشنهٔ ثبات‌بودن که امکان‌های تازه را خفه کنی."} },
+      notesday:{ part:"sustain", n:15, name:{en:"Notes Day", fa:"روزِ یادداشت‌ها"}, glabel:{en:"Notes Day", fa:"روزِ یادداشت"},
+        principle:{en:"Give everyone, at every level, a real voice in fixing the company. Notes Day was Pixar's day of open, candid, company-wide problem-solving.", fa:"به همه، در هر رده‌ای، یک صدای واقعی در درست‌کردنِ شرکت بده. روزِ یادداشت‌ها روزِ حل‌مسئلهٔ باز، رک و سرتاسریِ پیکسار بود."},
+        more:{en:"A healthy culture pulls ideas and honest feedback from everyone, not just leaders. Notes Day paused all of Pixar so people at every level could speak frankly about how to make things better.", fa:"یک فرهنگِ سالم ایده و بازخوردِ صادقانه را از همه می‌کشد، نه فقط از رهبرها. روزِ یادداشت‌ها کلِ پیکسار را متوقف کرد تا آدم‌ها در هر رده‌ای بتوانند رک بگویند چطور می‌شود کارها را بهتر کرد."},
+        example:{en:"In 2013, Pixar shut down for a day so its whole staff could give candid notes on the studio itself.", fa:"در سالِ ۲۰۱۳، پیکسار یک روز تعطیل شد تا همهٔ کارکنانش دربارهٔ خودِ استودیو یادداشتِ رک بدهند."},
+        tip:{en:"Create a regular, safe channel for the whole team to name problems and propose fixes.", fa:"یک کانالِ منظم و امن بساز تا کلِ تیم مشکل‌ها را نام ببرد و راهِ حل پیشنهاد بدهد."},
+        pitfall:{en:"Letting only senior people define what needs fixing.", fa:"گذاشتن اینکه فقط آدم‌های ارشد تعیین کنند چه چیزی باید درست شود."} },
+      process:{ part:"sustain", n:16, name:{en:"Don't Confuse Process With Goal", fa:"روند را با هدف اشتباه نگیر"}, glabel:{en:"Process vs goal", fa:"روند و هدف"},
+        principle:{en:"Keep learning, and never mistake the process for the goal. Tools and rituals serve the work — they aren't the work.", fa:"مدام یاد بگیر، و هیچ‌وقت روند را با هدف اشتباه نگیر. ابزارها و آیین‌ها در خدمتِ کارند — خودشان کار نیستند."},
+        more:{en:"Over time, healthy practices harden into box-ticking that people follow for its own sake. Keep asking whether each process still serves the real goal — and keep learning as the world changes around you.", fa:"با گذرِ زمان، عادت‌های سالم سفت می‌شوند و به تیک‌زدنِ خانه‌ها تبدیل می‌شوند که آدم‌ها فقط برای خودش دنبالش می‌کنند. مدام بپرس هر روند هنوز به هدفِ واقعی خدمت می‌کند یا نه — و همان‌طور که دنیا دورت عوض می‌شود، یاد بگیر."},
+        example:{en:"Catmull warns that even Pixar's best mechanisms can ossify; the antidote is to keep questioning and keep learning.", fa:"کتمول هشدار می‌دهد که حتی بهترین ساز‌و‌کارهای پیکسار هم می‌توانند سنگ شوند؛ پادزهرش این است که مدام زیرِ سؤال ببری و مدام یاد بگیری."},
+        tip:{en:"For a familiar process, ask what goal it's meant to serve — and whether it still does.", fa:"برای یک روندِ آشنا، بپرس قرار بوده به چه هدفی خدمت کند — و هنوز می‌کند یا نه."},
+        pitfall:{en:"Following the ritual so faithfully you forget what it was for.", fa:"آن‌قدر وفادارانه دنبالِ آیین رفتن که یادت برود برای چه بوده."} }
+    },
+    core:{ name:{en:"PROTECT CREATIVITY", fa:"از خلاقیت محافظت کن"},
+      principle:{en:"Great creative work comes from talented people, not from any single idea — so a leader's real job is to build and protect the culture around them. Make it safe to tell the truth, treat failure as the price of doing new things, and keep hunting for the hidden problems that quietly stand in the way of inspiration.", fa:"کارِ خلاقانهٔ خوب از آدم‌های بااستعداد می‌آید، نه از یک ایدهٔ تنها — پس کارِ واقعیِ یک رهبر ساختن و محافظت از فرهنگِ دورِ آن‌هاست. گفتنِ حقیقت را بی‌خطر کن، شکست را بهای انجامِ کارهای تازه بدان، و مدام دنبالِ مشکل‌های پنهانی بگرد که بی‌سروصدا جلوی الهام را می‌گیرند."},
+      more:{en:"Catmull organizes it into five moves — build a people-first culture, run on candor through the Braintrust, make failure safe, manage the unseen forces while protecting fragile new ideas, and then sustain it all by embracing change and never confusing your process with your goal. The thread through everything: protect the fragile creative process from the forces that stand in its way.", fa:"کتمول آن را در پنج حرکت می‌چیند — یک فرهنگِ آدم‌محور بساز، کار را با صراحت و از راهِ برین‌تراست پیش ببر، شکست را بی‌خطر کن، نیروهای پنهان را مدیریت کن و در همان حال از ایده‌های تازه و شکننده محافظت کن، و بعد با پذیرفتنِ تغییر و اشتباه‌نگرفتنِ روند با هدف، همه‌اش را زنده نگه دار. نخِ رابطِ همه‌چیز: از فرایندِ شکنندهٔ خلاقیت در برابرِ نیروهایی که سرِ راهش می‌ایستند محافظت کن."},
+      example:{en:"Click any node to read a principle or a lesson. You can also drag the nodes around.", fa:"روی هر دایره کلیک کن تا یک اصل یا درس را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."} },
+    stages:[
+      { level:1, badge:{en:'Level 1 · Over-simplified', fa:'سطحِ ۱ · خیلی ساده'}, title:{en:'Protect the people', fa:'از آدم‌ها محافظت کن'}, tagline:{en:'The whole book in a sentence.', fa:'کلِ کتاب در یک جمله.'},
+        body:{en:"Great work comes from people, not ideas. Your job is to build a place where talented people can do their best work and tell the truth about what's not working.", fa:"کارِ عالی از آدم‌ها می‌آید، نه از ایده‌ها. کارِ تو این است که جایی بسازی که آدم‌های بااستعداد بهترین کارشان را بکنند و حقیقتِ آنچه کار نمی‌کند را بگویند."},
+        example:{en:"A good idea in the hands of a weak team goes nowhere; a great team can rescue a weak idea.", fa:"یک ایدهٔ خوب در دستِ یک تیمِ ضعیف به‌جایی نمی‌رسد؛ یک تیمِ عالی می‌تواند یک ایدهٔ ضعیف را نجات بدهد."},
+        gain:{en:"You hold the one idea the whole book expands on.", fa:"همان یک ایده‌ای را داری که کلِ کتاب بسطش می‌دهد."} },
+      { level:2, badge:{en:'Level 2 · Simple', fa:'سطحِ ۲ · ساده'}, title:{en:'People & candor', fa:'آدم‌ها و صراحت'}, tagline:{en:'Build the team, then tell the truth.', fa:'تیم را بساز، بعد حقیقت را بگو.'},
+        body:{en:"Two foundations. First, put <b>people</b> first — hire people smarter than you and build a great team before you worry about the idea. Second, run on <b>candor</b>: make it safe for anyone to say what's wrong, early.", fa:"دو پایه. اول، <b>آدم‌ها</b> را مقدم بدار — آدم‌هایی باهوش‌تر از خودت استخدام کن و پیش از اینکه نگرانِ ایده شوی یک تیمِ عالی بساز. دوم، با <b>صراحت</b> کار کن: بی‌خطرش کن که هرکسی زود بگوید چه چیزی خراب است."},
+        example:{en:"Instead of guarding your status, hire the person who could outgrow you — and thank people for hard feedback.", fa:"به‌جای اینکه از جایگاهت نگهبانی کنی، آدمی را استخدام کن که ممکن است از تو جلو بزند — و بابتِ بازخوردِ سخت از آدم‌ها تشکر کن."},
+        gain:{en:"You can build a team and pull the truth out of it.", fa:"می‌توانی یک تیم بسازی و حقیقت را از آن بیرون بکشی."} },
+      { level:3, badge:{en:'Level 3 · Balanced', fa:'سطحِ ۳ · متعادل'}, title:{en:'Braintrust & safe failure', fa:'برین‌تراست و شکستِ بی‌خطر'}, tagline:{en:'Frank feedback; failure as learning.', fa:'بازخوردِ رک؛ شکست همچون یادگیری.'},
+        body:{en:"Now the mechanisms. Build a <b>Braintrust</b> — trusted peers who give honest notes with no power to force them, aimed at the work and never the person. And make failure <b>safe</b>: it's the price of new work, so fix errors as they come rather than trying to prevent them all.", fa:"حالا ساز‌و‌کارها. یک <b>برین‌تراست</b> بساز — همکارانِ قابل‌اعتمادی که نظرِ صادقانه می‌دهند بی‌آنکه قدرتِ تحمیلش را داشته باشند، نشانه‌گرفته به کار و نه هیچ‌وقت به آدم. و شکست را <b>بی‌خطر</b> کن: بهای کارِ تازه است، پس خطاها را همان‌طور که می‌آیند درست کن، نه اینکه بخواهی جلوی همه‌شان را بگیری."},
+        example:{en:"A director shows an unfinished film, gets blunt notes, keeps the final call — and treats the messy early cut as normal.", fa:"یک کارگردان فیلمِ ناتمام را نشان می‌دهد، نظرِ بی‌پرده می‌گیرد، تصمیمِ نهایی را نگه می‌دارد — و نسخهٔ اولیهٔ درهم‌ریخته را عادی می‌داند."},
+        gain:{en:"You can give and take candor, and let failure teach.", fa:"می‌توانی صراحت بدهی و بگیری، و بگذاری شکست یادت بدهد."} },
+      { level:4, badge:{en:'Level 4 · Advanced', fa:'سطحِ ۴ · پیشرفته'}, title:{en:'Manage the unseen', fa:'نادیده‌ها را مدیریت کن'}, tagline:{en:'Hidden forces, the Beast, the Baby.', fa:'نیروهای پنهان، هیولا، بچهٔ نوپا.'},
+        body:{en:"Much of what shapes a company is invisible. Stay humble about your <b>mental model</b> and keep hunting the <b>hidden problems</b>. Feed the <b>Hungry Beast</b> — the appetite for output — without letting it run the art, and protect the <b>Ugly Baby</b>: fragile new ideas that look ugly before they're good. The whole job is balance.", fa:"بخشِ زیادی از آنچه یک شرکت را شکل می‌دهد نامرئی است. دربارهٔ <b>مدلِ ذهنی‌ات</b> فروتن بمان و مدام دنبالِ <b>مشکل‌های پنهان</b> بگرد. <b>هیولای گرسنه</b> را سیر کن — اشتها برای تولید — بی‌آنکه بگذاری هنر را بگرداند، و از <b>بچهٔ زشت</b> محافظت کن: ایده‌های تازه و شکننده‌ای که پیش از خوب‌شدن زشت به‌نظر می‌رسند. کلِ کار، تعادل است."},
+        example:{en:"You spot that the pressure to ship is quietly killing a risky new idea — so you shield it until it can stand.", fa:"می‌بینی که فشارِ تحویل‌دادن بی‌سروصدا دارد یک ایدهٔ تازه و پرخطر را می‌کُشد — پس سپرش می‌شوی تا وقتی روی پای خودش بایستد."},
+        gain:{en:"You can manage the forces you can't directly see.", fa:"می‌توانی نیروهایی را که مستقیم نمی‌بینی مدیریت کنی."} },
+      { level:5, badge:{en:'Level 5 · Expert', fa:'سطحِ ۵ · حرفه‌ای'}, title:{en:'Sustain it', fa:'زنده نگه‌اش دار'}, tagline:{en:'Change, Notes Day, keep learning.', fa:'تغییر، روزِ یادداشت‌ها، یادگیریِ مدام.'},
+        body:{en:"The expert keeps the culture alive. Learn from strong, difficult partners the way Catmull learned from <b>Steve Jobs</b>. Embrace <b>change and randomness</b> instead of controlling them away. Give everyone a voice, as Pixar did on <b>Notes Day</b>. And <b>never confuse your process with your goal</b> — keep questioning, keep learning. A creative culture is renewed, never finished.", fa:"آدمِ حرفه‌ای فرهنگ را زنده نگه می‌دارد. از شریک‌های قوی و دشوار یاد بگیر، همان‌طور که کتمول از <b>استیو جابز</b> یاد گرفت. <b>تغییر و تصادف</b> را به‌جای اینکه با کنترل از میان برداری، بپذیر. به همه صدا بده، همان‌طور که پیکسار در <b>روزِ یادداشت‌ها</b> داد. و <b>هیچ‌وقت روند را با هدف اشتباه نگیر</b> — مدام زیرِ سؤال ببر، مدام یاد بگیر. یک فرهنگِ خلاق نو می‌شود، هیچ‌وقت تمام نمی‌شود."},
+        example:{en:"You treat every process as a servant of the goal, invite candor from all levels, and renew the culture as the world shifts.", fa:"هر روند را خدمتگزارِ هدف می‌دانی، از همهٔ رده‌ها صراحت می‌خواهی، و فرهنگ را همان‌طور که دنیا جابه‌جا می‌شود نو می‌کنی."},
+        gain:{en:"You can build a creative culture and keep it alive over time.", fa:"می‌توانی یک فرهنگِ خلاق بسازی و در طولِ زمان زنده نگهش داری."} }
+    ],
+    quotes:[
+      {en:"If you give a good idea to a mediocre team, they will screw it up. If you give a mediocre idea to a brilliant team, they will either fix it or throw it away and come up with something better.", fa:"یک ایدهٔ خوب را به یک تیمِ متوسط بده، خرابش می‌کنند. یک ایدهٔ متوسط را به یک تیمِ درخشان بده، یا درستش می‌کنند یا دورش می‌اندازند و چیزِ بهتری می‌سازند."},
+      {en:"Find, develop, and support good people, and they in turn will find, develop, and own good ideas.", fa:"آدم‌های خوب را پیدا کن، رشدشان بده و هوایشان را داشته باش؛ آن‌ها هم به‌نوبهٔ خودشان ایده‌های خوب را پیدا می‌کنند، می‌پرورانند و مالِ خودشان می‌کنند."},
+      {en:"Candor isn't cruel. It does not destroy. On the contrary, any successful feedback system is built on empathy, on the idea that we are all in this together, that we understand your pain because we've experienced it ourselves.", fa:"صراحت بی‌رحم نیست. چیزی را خراب نمی‌کند. برعکس، هر نظامِ بازخوردِ موفق روی همدلی بنا شده؛ روی این فکر که همه با هم در یک قایقیم، و دردت را می‌فهمیم چون خودمان هم تجربه‌اش کرده‌ایم."},
+      {en:"Failure isn't a necessary evil. In fact, it isn't evil at all. It is a necessary consequence of doing something new.", fa:"شکست یک شرِّ لازم نیست. راستش اصلاً شر نیست. نتیجهٔ ناگزیرِ انجامِ کاری تازه است."},
+      {en:"To be wrong as fast as you can is to sign up for aggressive, rapid learning.", fa:"هرچه زودتر اشتباه کنی، یعنی برای یک یادگیریِ تند و پرشتاب ثبت‌نام کرده‌ای."},
+      {en:"Management's job is not to prevent risk but to build the ability to recover.", fa:"کارِ مدیریت جلوگیری از خطر نیست؛ ساختنِ توانِ بلندشدنِ دوباره است."},
+      {en:"Originality is fragile. And, in its first moments, it's often far from pretty.", fa:"اصالت شکننده است. و در لحظه‌های اولش، اغلب اصلاً قشنگ نیست."},
+      {en:"What makes Pixar special is that we acknowledge we will always have problems, many of them hidden from our view; that we work hard to uncover these problems, even if doing so means making ourselves uncomfortable; and that, when we come across a problem, we marshal all of our energies to solve it.", fa:"چیزی که پیکسار را خاص می‌کند این است که قبول داریم همیشه مشکل خواهیم داشت، خیلی‌هایشان پنهان از چشمِ ما؛ که سخت تلاش می‌کنیم این مشکل‌ها را رو کنیم، حتی اگر یعنی خودمان را معذب کنیم؛ و وقتی به مشکلی برمی‌خوریم، همهٔ توانمان را جمع می‌کنیم تا حلش کنیم."},
+      {en:"There is no growth or success without change.", fa:"بدونِ تغییر، نه رشدی هست نه موفقیتی."}
+    ],
+    media:[
+      { kind:'yt', id:'ffixfwt654I', src:{en:'YouTube · Stanford eCorner', fa:'یوتیوب · Stanford eCorner'},
+        title:{en:'Ed Catmull: Creativity, Inc. [Entire Talk]', fa:'اد کتمول: کارخانهٔ خلاقیت [سخنرانیِ کامل]'},
+        desc:{en:'The author gives a full talk on the ideas behind the book.', fa:'خودِ نویسنده یک سخنرانیِ کامل دربارهٔ ایده‌های پشتِ کتاب می‌دهد.'},
+        bullets:{en:["Culture, candor and failure in his own words","How Pixar surfaces hidden problems","A full, authoritative talk"], fa:["فرهنگ، صراحت و شکست به زبانِ خودش","اینکه پیکسار چطور مشکل‌های پنهان را رو می‌کند","یک سخنرانیِ کامل و معتبر"]},
+        best:{en:'Best for Stage 2–4.', fa:'خوب برای مرحلهٔ ۲ تا ۴.'} },
+      { kind:'yt', id:'ZrjusPeOZRk', src:{en:'YouTube · Milken Institute', fa:'یوتیوب · Milken Institute'},
+        title:{en:'Creativity, Inc. — Overcoming the Unseen Forces', fa:'کارخانهٔ خلاقیت — غلبه بر نیروهای پنهان'},
+        desc:{en:'A conversation with Ed Catmull built around the book.', fa:'یک گفت‌وگو با اد کتمول که حولِ کتاب شکل گرفته.'},
+        bullets:{en:["The Braintrust and honest feedback","Managing the forces you can't see","Applied to real teams"], fa:["برین‌تراست و بازخوردِ صادقانه","مدیریتِ نیروهایی که نمی‌بینی","به‌کار‌بسته روی تیم‌های واقعی"]},
+        best:{en:'Best for Stage 3–4.', fa:'خوب برای مرحلهٔ ۳ و ۴.'} },
+      { kind:'yt', id:'wiIoySsG66U', src:{en:'YouTube · 97th Floor', fa:'یوتیوب · 97th Floor'},
+        title:{en:'How the World’s Most Creative Teams Produce Magic', fa:'خلاق‌ترین تیم‌های دنیا چطور جادو می‌سازند'},
+        desc:{en:'Ed Catmull on sustaining a culture that keeps making great work.', fa:'اد کتمول دربارهٔ زنده نگه‌داشتنِ فرهنگی که مدام کارِ عالی می‌سازد.'},
+        bullets:{en:["Protecting fragile new ideas","Keeping candor alive at scale","A practical, applied talk"], fa:["محافظت از ایده‌های تازه و شکننده","زنده نگه‌داشتنِ صراحت در مقیاسِ بزرگ","یک سخنرانیِ عملی و کاربردی"]},
+        best:{en:'Best for Stage 4–5.', fa:'خوب برای مرحلهٔ ۴ و ۵.'} },
+      { kind:'img', url:'https://www.penguinrandomhouse.com/books/216369/creativity-inc-the-expanded-edition-by-ed-catmull-with-amy-wallace/',
+        src:{en:'Penguin Random House · Publisher', fa:'Penguin Random House · ناشر'},
+        title:{en:'Creativity, Inc. — Publisher Page', fa:'کارخانهٔ خلاقیت — صفحهٔ ناشر'},
+        desc:{en:'The publisher page for the book, with editions and details.', fa:'صفحهٔ ناشر برای کتاب، با نسخه‌ها و جزئیات.'},
+        bullets:{en:["The definitive editions","Background on the authors","Straight from the source"], fa:["نسخه‌های معتبر","پیشینه‌ای دربارهٔ نویسنده‌ها","مستقیم از خودِ منبع"]},
+        best:{en:'For editions and the source.', fa:'برای نسخه‌ها و منبعِ اصلی.'} }
+    ],
+    go:[
+      {label:{en:'Publisher page', fa:'صفحهٔ ناشر'}, url:'https://www.penguinrandomhouse.com/books/216369/creativity-inc-the-expanded-edition-by-ed-catmull-with-amy-wallace/'},
+      {label:{en:'Book on Goodreads', fa:'کتاب در گودریدز'}, url:'https://www.goodreads.com/book/show/18077903-creativity-inc'},
+      {label:{en:'Excerpt: Inside the Pixar Braintrust', fa:'برشی از کتاب: درونِ برین‌تراستِ پیکسار'}, url:'https://www.fastcompany.com/3027135/inside-the-pixar-braintrust'}
+    ],
+    recs:[
+      { pri:'b', t:{en:'Build your own Braintrust', fa:'برین‌تراستِ خودت را بساز'}, d:{en:'Gather a few trusted, candid peers to give frank feedback on your work — with the decision left to you.', fa:'چند همکارِ قابل‌اعتماد و رک را جمع کن تا روی کارت بازخوردِ صادقانه بدهند — و تصمیم دستِ خودت بماند.'} },
+      { pri:'b', t:{en:'Ask for the hard truth', fa:'حقیقتِ سخت را بخواه'}, d:{en:'In your next review, directly invite the feedback people are usually afraid to give — then thank them.', fa:'در بازبینیِ بعدی‌ات، مستقیم همان بازخوردی را بخواه که آدم‌ها معمولاً می‌ترسند بدهند — بعد ازشان تشکر کن.'} },
+      { pri:'n', t:{en:'Separate work from person', fa:'کار را از آدم جدا کن'}, d:{en:'Reframe one piece of feedback so it targets the problem in the work, not the person who made it.', fa:'یک بازخورد را طوری از نو بگو که مشکلِ درونِ کار را نشانه بگیرد، نه کسی که ساختتش.'} },
+      { pri:'n', t:{en:'Let one failure teach you', fa:'بگذار یک شکست یادت بدهد'}, d:{en:'Take a recent mistake, write down what it taught you, and share it so others can learn too.', fa:'یک اشتباهِ اخیر را بردار، بنویس چه یادت داد، و به اشتراک بگذارش تا بقیه هم یاد بگیرند.'} }
+    ]
+  }
+};

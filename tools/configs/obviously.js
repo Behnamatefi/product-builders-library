@@ -1,0 +1,263 @@
+/* config: Obviously Awesome — April Dunford (Sales & Marketing) */
+module.exports = {
+  slug:'obviously', brand:'Obviously Awesome',
+  titleTag:'Obviously Awesome — نقشهٔ دانش و یادگیری ۵ مرحله‌ای',
+  W:980, H:780, R1:220, R2:126, span:66,
+  leafKickEn:'Step', leafKickFa:'گامِ',
+  flowEn:['Context','Frame','Position'], flowFa:['زمینه','قاب','جایگاه'],
+
+  hero:`  <div class="eyebrow"><span class="edot"></span>
+    <span data-only="en">Book knowledge map · April Dunford</span>
+    <span data-only="fa">نقشهٔ کتاب · اپریل دانفورد</span>
+  </div>
+  <h1>
+    <span data-only="en">Obviously Awesome — How to Nail Product Positioning so Customers Get It, Buy It, Love It</span>
+    <span data-only="fa">آشکارا عالی — چطور جایگاهِ محصولت را درست بزنی تا مشتری‌ها بفهمندش، بخرندش و عاشقش شوند</span>
+  </h1>
+  <p class="dek">
+    <span data-only="en">A knowledge graph of the whole book, plus a 5-stage path from a single sentence to expert-level mastery — with an example at every step.</span>
+    <span data-only="fa">نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از یک جملهٔ ساده تا تسلطِ حرفه‌ای — با یک مثال در هر قدم.</span>
+  </p>
+  <div class="metastrip">
+    <div class="metaitem"><span class="mk" data-only="en">Book</span><span class="mk" data-only="fa">کتاب</span>
+      <span class="mv" data-only="en">Obviously Awesome</span><span class="mv" data-only="fa">آشکارا عالی</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Author</span><span class="mk" data-only="fa">نویسنده</span>
+      <span class="mv" data-only="en">April Dunford</span><span class="mv" data-only="fa">اپریل دانفورد</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Published</span><span class="mk" data-only="fa">سالِ چاپ</span>
+      <span class="mv" data-only="en">2019</span><span class="mv" data-only="fa">۲۰۱۹</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Group</span><span class="mk" data-only="fa">گروه</span>
+      <span class="mv" data-only="en">Sales &amp; Marketing</span><span class="mv" data-only="fa">فروش و بازاریابی</span></div>
+  </div>
+  <div class="chips">
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Parts</span><span data-only="fa">بخش</span></div>
+    <div class="chip"><b data-only="en">16</b><b data-only="fa">۱۶</b><span data-only="en">Ideas</span><span data-only="fa">ایده</span></div>
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Learning stages</span><span data-only="fa">مرحلهٔ یادگیری</span></div>
+  </div>`,
+
+  callout:`    <b data-only="en">The core idea:</b>
+    <b data-only="fa">ایدهٔ اصلی:</b>
+    <span data-only="en"> Positioning is <i>context</i>. You deliberately set the context around your product — the alternatives, what makes you different, the value, who it's for, and the market it lives in — so the right customers instantly get what it is and why it's <i>obviously awesome</i> for them.</span>
+    <span data-only="fa"> جایگاه‌یابی یعنی <i>زمینه‌سازی</i>. تو با دستِ خودت زمینهٔ دورِ محصول را می‌چینی — جایگزین‌ها، چیزی که فرقت می‌کند، ارزش، اینکه مالِ کیست، و بازاری که تویش زندگی می‌کند — تا مشتریِ درست همان لحظه بفهمد این چیست و چرا برایش <i>آشکارا عالی</i> است.</span>`,
+
+  kpis:`    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Parts (what it is · components · the process · the frame · making it stick)</div><div class="l" data-only="fa">بخش (چیستی · اجزا · فرایند · قاب · ماندگارکردن)</div></div>
+    <div class="kbox"><div class="v" data-only="en">16</div><div class="v" data-only="fa">۱۶</div><div class="l" data-only="en">Ideas you can use</div><div class="l" data-only="fa">ایده برای استفاده</div></div>
+    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Levels, simple → expert</div><div class="l" data-only="fa">مرحله، ساده تا حرفه‌ای</div></div>
+    <div class="kbox"><div class="v" data-only="en">5+1</div><div class="v" data-only="fa">۵+۱</div><div class="l" data-only="en">Components: alternatives · attributes · value · customers · category</div><div class="l" data-only="fa">جزء: جایگزین‌ها · ویژگی‌ها · ارزش · مشتری‌ها · دسته‌بندی</div></div>`,
+
+  mapcallout:`      <b data-only="en">Read it as a flow:</b><b data-only="fa">به‌صورتِ یک جریان بخوانش:</b>
+      <span data-only="en"> understand that positioning is <b>context</b>, assemble the <b>five components</b> (alternatives, attributes, value, best-fit customers, category), run the <b>ten-step process</b>, choose the <b>market frame</b> you can win, and <b>make it stick</b> across sales, marketing and product.</span>
+      <span data-only="fa"> بفهم که جایگاه‌یابی یعنی <b>زمینه</b>، <b>پنج جزء</b> را کنارِ هم بچین (جایگزین‌ها، ویژگی‌ها، ارزش، مشتریِ درست، دسته‌بندی)، <b>فرایندِ ده‌گامی</b> را اجرا کن، <b>قابِ بازاری</b> را که می‌توانی ببری انتخاب کن، و در فروش و بازاریابی و محصول <b>ماندگارش کن</b>.</span>`,
+
+  methodFa:"<p><b>منبع:</b> کتابِ «Obviously Awesome» (آشکارا عالی) نوشتهٔ اپریل دانفورد، چاپِ ۲۰۱۹.</p><p><b>روشِ کار:</b> ساختارِ پنج‌بخشی و ایده‌ها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده؛ نقل‌قول‌ها با متنِ کتاب و گودریدز مقابله و ویدیوها بررسی شده‌اند.</p><p><b>پنج مرحله:</b> بر اساسِ یک نردبانِ سادگی از ۱ تا ۵ چیده شده — یک محتوا در پنج عمقِ مختلف، از خیلی ساده تا حرفه‌ای.</p><p><b>گروه:</b> «فروش و بازاریابی» — از فهرستِ کتاب‌های ضروریِ سازندگانِ محصول.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای متنِ کامل، خودِ کتاب را بخوان.</p>",
+  methodEn:"<p><b>Source:</b> the book <i>Obviously Awesome</i> by April Dunford, published 2019.</p><p><b>How this was built:</b> the five-part structure and ideas were gathered and rewritten from the book and reputable sources; quotes were cross-checked against the book and Goodreads, and the linked videos verified.</p><p><b>Five stages:</b> arranged on a simplicity ladder from 1 to 5 — one set of ideas at five depths, from over-simplified to expert.</p><p><b>Group:</b> Sales &amp; Marketing — from the essential books for product builders.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>",
+
+  data:{
+    tldr:[
+      {en:"The whole book in one line: positioning is <b>context</b> — deliberately set the frame so the right customers instantly get why your product is awesome.",
+       fa:"خلاصهٔ کل کتاب در یک جمله: جایگاه‌یابی یعنی <b>زمینه</b> — با قصد، قاب را طوری بچین که مشتریِ درست همان لحظه بفهمد چرا محصولت عالی است."},
+      {en:"Great positioning has <b>five (+1) components</b>: competitive alternatives, unique attributes, value, best-fit customers, and market category — plus a trend.",
+       fa:"جایگاه‌یابیِ خوب <b>پنج جزء (به‌علاوهٔ یک)</b> دارد: جایگزین‌های رقابتی، ویژگی‌های خاص، ارزش، مشتریِ درست، و دسته‌بندیِ بازار — به‌علاوهٔ یک ترند."},
+      {en:"The position you <b>drift into by default</b> is usually weak; positioning is a deliberate choice, not an accident you inherit.",
+       fa:"جایگاهی که <b>خودبه‌خود</b> توش می‌افتی معمولاً ضعیف است؛ جایگاه‌یابی یک انتخابِ آگاهانه است، نه اتفاقی که به ارث می‌بری."},
+      {en:"Follow a <b>ten-step process</b>, from what customers would use instead of you all the way to a written positioning document.",
+       fa:"یک <b>فرایندِ ده‌گامی</b> را دنبال کن، از چیزی که مشتری به‌جایت استفاده می‌کند تا یک سندِ نوشته‌شدهٔ جایگاه‌یابی."},
+      {en:"Your biggest lever is the <b>market frame</b>; then <b>make it stick</b> by aligning sales, marketing and product and revisiting over time.",
+       fa:"بزرگ‌ترین اهرمت <b>قابِ بازار</b> است؛ بعد با هم‌راستاکردنِ فروش و بازاریابی و محصول و بازبینیِ هرازگاهی، <b>ماندگارش کن</b>."}
+    ],
+    parts:[
+      { key:'whatis', varc:'--c-teal', name:{en:'What Positioning Is', fa:'جایگاه‌یابی چیست'}, tag:{en:'The foundation', fa:'پایه'},
+        gist:{en:'Positioning is context — and the position you drift into by default is usually weak.', fa:'جایگاه‌یابی یعنی زمینه — و جایگاهی که خودبه‌خود توش می‌افتی معمولاً ضعیف است.'},
+        more:{en:"Before any tactic, understand what positioning really is: the context you set so customers instantly get your product. Most teams never choose it deliberately — they inherit a default frame from their first idea, and leave value on the table.",
+              fa:"قبل از هر تاکتیکی، بفهم جایگاه‌یابی واقعاً یعنی چه: زمینه‌ای که می‌چینی تا مشتری همان لحظه محصولت را بفهمد. بیشترِ تیم‌ها هیچ‌وقت با قصد انتخابش نمی‌کنند — یک قابِ پیش‌فرض را از اولین ایده‌شان به ارث می‌برند و کلی ارزش را روی میز جا می‌گذارند."},
+        chapters:['context','defaulttrap','obvious'] },
+      { key:'components', varc:'--c-blue', name:{en:'The Five (+1) Components', fa:'پنج جزء (به‌علاوهٔ یک)'}, tag:{en:'The building blocks', fa:'مصالحِ سازنده'},
+        gist:{en:'Alternatives, unique attributes, value, best-fit customers, and market category — plus a trend.', fa:'جایگزین‌ها، ویژگی‌های خاص، ارزش، مشتریِ درست، و دسته‌بندیِ بازار — به‌علاوهٔ یک ترند.'},
+        more:{en:"Positioning is assembled from a handful of connected pieces. Each one leads to the next: the alternatives reveal your differentiators, the differentiators create value, the value points to the customers who care, and the category frames all of it.",
+              fa:"جایگاه‌یابی از چند تکهٔ به‌هم‌پیوسته ساخته می‌شود. هر کدام به بعدی می‌رسد: جایگزین‌ها تمایزهایت را لو می‌دهند، تمایزها ارزش می‌سازند، ارزش به مشتریِ اهمیت‌دهنده اشاره می‌کند، و دسته‌بندی همه را قاب می‌گیرد."},
+        chapters:['alternatives','valueattr','bestfit','category'] },
+      { key:'process', varc:'--c-amber', name:{en:'The 10-Step Process', fa:'فرایندِ ده‌گامی'}, tag:{en:'How to do it', fa:'چطور انجامش بدهی'},
+        gist:{en:'A repeatable path from listing alternatives to a shared positioning document.', fa:'یک مسیرِ تکرارپذیر، از فهرست‌کردنِ جایگزین‌ها تا یک سندِ مشترکِ جایگاه‌یابی.'},
+        more:{en:"Dunford turns positioning into a concrete, repeatable process. Assemble a team and drop your baggage, work the components in order, then choose a frame, consider a trend, and capture the result in writing so it can be shared.",
+              fa:"دانفورد جایگاه‌یابی را به یک فرایندِ مشخص و تکرارپذیر تبدیل می‌کند. یک تیم جمع کن و بارِ اضافه‌ات را زمین بگذار، اجزا را به‌ترتیب کار کن، بعد یک قاب انتخاب کن، به یک ترند فکر کن، و نتیجه را بنویس تا بشود پخشش کرد."},
+        chapters:['assemble','buildcomp','capture'] },
+      { key:'frame', varc:'--c-violet', name:{en:'Choosing a Market Frame', fa:'انتخابِ قابِ بازار'}, tag:{en:'The biggest lever', fa:'بزرگ‌ترین اهرم'},
+        gist:{en:'The category you pick sets every expectation — choose a frame you can win.', fa:'دسته‌ای که انتخاب می‌کنی همهٔ انتظارها را تعیین می‌کند — قابی را انتخاب کن که بتوانی ببری.'},
+        more:{en:"The market category is the single most powerful choice in positioning. It decides who you're compared to and what customers expect. You can compete head-to-head, dominate a smaller niche, or create a new category — each with very different costs.",
+              fa:"دسته‌بندیِ بازار قوی‌ترین انتخابِ جایگاه‌یابی است. تعیین می‌کند با چه کسی مقایسه می‌شوی و مشتری چه انتظاری دارد. می‌توانی شاخ‌به‌شاخ رقابت کنی، یک بازارِ کوچک‌ترِ خاص را قبضه کنی، یا یک دستهٔ تازه بسازی — هرکدام با هزینه‌ای خیلی متفاوت."},
+        chapters:['frameexp','winmarket','newcategory'] },
+      { key:'stick', varc:'--c-green', name:{en:'Making Positioning Stick', fa:'ماندگارکردنِ جایگاه‌یابی'}, tag:{en:'Make it last', fa:'ماندگارش کن'},
+        gist:{en:'Write it down, align sales, marketing and product, and revisit as the market moves.', fa:'بنویسش، فروش و بازاریابی و محصول را هم‌راستا کن، و هرچه بازار تکان خورد بازبینی‌اش کن.'},
+        more:{en:"Positioning only pays off when the whole company acts on it. Capture it in a document, get sales, marketing and product telling the same story, and revisit it over time — because markets, customers and competitors keep changing.",
+              fa:"جایگاه‌یابی فقط وقتی جواب می‌دهد که کلِ شرکت رویش عمل کند. در یک سند ثبتش کن، کاری کن فروش و بازاریابی و محصول یک قصه بگویند، و هرازگاهی بازبینی‌اش کن — چون بازار و مشتری و رقیب مدام عوض می‌شوند."},
+        chapters:['document','align','revisit'] }
+    ],
+    chapters:{
+      context:{ part:'whatis', n:1, name:{en:'Positioning Is Context', fa:'جایگاه‌یابی یعنی زمینه'}, glabel:{en:'Context', fa:'زمینه'},
+        principle:{en:"Positioning is the context you set around a product so customers instantly understand what it is, why it's special, and why they should care.", fa:"جایگاه‌یابی همان زمینه‌ای است که دورِ محصول می‌چینی تا مشتری همان لحظه بفهمد این چیست، چرا خاص است، و چرا باید برایش مهم باشد."},
+        more:{en:"A product is like a joke: it only lands with the right setup. The same thing can look pointless in one frame and obviously perfect in another. Context — not the features alone — is what tells people how to see you.", fa:"محصول مثلِ یک جوک است: فقط با مقدمهٔ درست می‌گیرد. عینِ همان چیز در یک قاب بی‌فایده به‌نظر می‌رسد و در قابِ دیگر آشکارا عالی. زمینه — نه فقط ویژگی‌ها — همان چیزی است که به آدم‌ها می‌گوید چطور تو را ببینند."},
+        example:{en:"The same wine feels ordinary in a plastic cup and exceptional poured at a fine restaurant — the context moved, not the wine.", fa:"عینِ همان شراب در لیوانِ پلاستیکی معمولی حس می‌شود و در یک رستورانِ خوب بی‌نظیر — زمینه عوض شده، نه خودِ شراب."},
+        tip:{en:"Before describing your product, ask what context would make its strengths obvious.", fa:"قبل از توصیفِ محصولت، بپرس چه زمینه‌ای نقاطِ قوتش را آشکار می‌کند."},
+        pitfall:{en:"Assuming the product speaks for itself and setting no context at all.", fa:"این فرض که محصول خودش حرف می‌زند و اصلاً زمینه‌ای نچیدن."} },
+      defaulttrap:{ part:'whatis', n:2, name:{en:'The Default Trap', fa:'تلهٔ پیش‌فرض'}, glabel:{en:'Default Trap', fa:'تلهٔ پیش‌فرض'},
+        principle:{en:"Most products drift into a default position based on the founders' first idea — and that accidental frame is usually the weakest one.", fa:"بیشترِ محصول‌ها خودبه‌خود در یک جایگاهِ پیش‌فرض می‌افتند که از اولین ایدهٔ بنیان‌گذارها می‌آید — و آن قابِ اتفاقی معمولاً ضعیف‌ترین قاب است."},
+        more:{en:"You build a product with assumptions baked in, so you describe it the way you first imagined it. But competitors exist and customers see it their own way. Positioning by accident almost always undersells what you've actually got.", fa:"محصول را با یک عالمه فرضِ پنهان می‌سازی، برای همین همان‌طور توصیفش می‌کنی که اولش تصور کرده بودی. اما رقیب وجود دارد و مشتری به شیوهٔ خودش می‌بیندت. جایگاه‌یابیِ اتفاقی تقریباً همیشه چیزی را که واقعاً داری کم‌ارزش نشان می‌دهد."},
+        example:{en:"A team keeps calling their tool a 'note app' while customers actually buy it as a lightweight project tracker — the default label hides the real value.", fa:"یک تیم مدام ابزارش را «اپِ یادداشت» صدا می‌زند، در حالی که مشتری‌ها در واقع آن را به‌عنوانِ یک ردیابِ سبکِ پروژه می‌خرند — برچسبِ پیش‌فرض ارزشِ واقعی را پنهان می‌کند."},
+        tip:{en:"Write down your current positioning, then treat it as a hypothesis to challenge, not a fact.", fa:"جایگاه‌یابیِ فعلی‌ات را بنویس، بعد با آن مثلِ یک فرضیه برخورد کن که باید به چالش کشیده شود، نه یک حقیقت."},
+        pitfall:{en:"Clinging to the first label you ever gave the product.", fa:"چسبیدن به همان اولین برچسبی که به محصول دادی."} },
+      obvious:{ part:'whatis', n:3, name:{en:'Obviously Awesome', fa:'آشکارا عالی'}, glabel:{en:'Obviously Awesome', fa:'آشکارا عالی'},
+        principle:{en:"Great positioning makes a product obviously awesome to its best-fit customers — they get it in seconds, with no convincing.", fa:"جایگاه‌یابیِ خوب کاری می‌کند محصول برای مشتری‌های درستش آشکارا عالی باشد — در چند ثانیه می‌گیرندش، بی‌آنکه لازم باشد قانعشان کنی."},
+        more:{en:"The goal isn't to be awesome to everyone; it's to be an easy yes for the people whose needs you match. When the context is right, you stop persuading and start watching people nod along.", fa:"هدف این نیست که برای همه عالی باشی؛ این است که برای آدم‌هایی که نیازشان به تو می‌خورد یک «آره»ِ راحت باشی. وقتی زمینه درست است، دیگر مجبور نیستی متقاعد کنی و می‌بینی که آدم‌ها همراهت سر تکان می‌دهند."},
+        example:{en:"Well positioned, a prospect says 'oh, this is exactly what I needed' instead of 'wait, what does this even do?'", fa:"وقتی جایگاه‌یابی درست است، مشتریِ احتمالی می‌گوید «آها، دقیقاً همینو می‌خواستم»، نه «صبر کن، این اصلاً چی‌کار می‌کند؟»."},
+        tip:{en:"Judge your positioning by how fast the right customer gets it.", fa:"جایگاه‌یابی‌ات را با این بسنج که مشتریِ درست چقدر سریع می‌گیردش."},
+        pitfall:{en:"Trying to be a little awesome to everyone, and obvious to no one.", fa:"تلاش برای اینکه برای همه یک‌کم عالی باشی، و برای هیچ‌کس آشکار نباشی."} },
+      alternatives:{ part:'components', n:4, name:{en:'Competitive Alternatives', fa:'جایگزین‌های رقابتی'}, glabel:{en:'Alternatives', fa:'جایگزین‌ها'},
+        principle:{en:"Your real competition is whatever customers would use instead of you — a spreadsheet, an intern, or doing nothing at all.", fa:"رقیبِ واقعی‌ات هر چیزی است که مشتری به‌جای تو استفاده می‌کند — یک اکسل، یک کارآموز، یا اصلاً هیچ‌کاری‌نکردن."},
+        more:{en:"Customers judge 'better' against the alternative in their head, not against your feature list. That alternative is the yardstick, so it's the first component: it defines what actually counts as different about you.", fa:"مشتری «بهتر» را با جایگزینی که توی ذهنش است می‌سنجد، نه با فهرستِ ویژگی‌های تو. همان جایگزین خط‌کش است، برای همین اولین جزء است: مشخص می‌کند چه چیزی واقعاً به‌حساب تمایزِ تو گذاشته می‌شود."},
+        example:{en:"For a new analytics tool, the alternative is often a messy spreadsheet, not a rival startup — so 'easier than a spreadsheet' is the real bar.", fa:"برای یک ابزارِ تحلیلِ تازه، جایگزین اغلب یک اکسلِ به‌هم‌ریخته است، نه یک استارتاپِ رقیب — پس معیارِ واقعی «راحت‌تر از اکسل» است."},
+        tip:{en:"Ask real customers what they'd fall back on if you disappeared tomorrow.", fa:"از مشتری‌های واقعی بپرس اگر فردا ناپدید می‌شدی، سراغِ چه می‌رفتند."},
+        pitfall:{en:"Assuming your competition is only the products you personally obsess over.", fa:"این فرض که رقیبت فقط همان محصول‌هایی‌اند که خودت مدام به‌شان فکر می‌کنی."} },
+      valueattr:{ part:'components', n:5, name:{en:'Unique Attributes & Value', fa:'ویژگی‌های خاص و ارزش'}, glabel:{en:'Attributes & Value', fa:'ویژگی و ارزش'},
+        principle:{en:"Isolate the features only you have, then turn each one into the value a customer actually cares about.", fa:"ویژگی‌هایی که فقط تو داری را جدا کن، بعد هرکدام را به ارزشی تبدیل کن که واقعاً برای مشتری مهم است."},
+        more:{en:"Attributes are facts a customer could verify; value is what those facts do for them. Walk each unique attribute up the ladder — what benefit does it enable, and what real value does that benefit deliver in the customer's own terms?", fa:"ویژگی‌ها واقعیت‌هایی‌اند که مشتری می‌تواند راستی‌آزمایی‌شان کند؛ ارزش همان کاری است که آن واقعیت‌ها برایش می‌کنند. هر ویژگیِ خاص را روی نردبان بالا ببر — چه فایده‌ای می‌سازد، و آن فایده چه ارزشِ واقعی‌ای به زبانِ خودِ مشتری می‌رساند؟"},
+        example:{en:"Attribute: 'no setup'. Benefit: 'live today'. Value: 'start making decisions this week, not next quarter'.", fa:"ویژگی: «بدونِ نصب و راه‌اندازی». فایده: «همین امروز راه می‌افتی». ارزش: «همین این هفته تصمیم می‌گیری، نه سه‌ماهِ بعد»."},
+        tip:{en:"For every attribute, finish the sentence 'which means you can…' until you hit real value.", fa:"برای هر ویژگی، جملهٔ «که یعنی می‌توانی…» را کامل کن تا به ارزشِ واقعی برسی."},
+        pitfall:{en:"Selling raw features and leaving customers to guess the value themselves.", fa:"فروختنِ ویژگی‌های خام و واگذارکردنِ حدسِ ارزش به خودِ مشتری."} },
+      bestfit:{ part:'components', n:6, name:{en:'Best-Fit Customers', fa:'مشتری‌های درست'}, glabel:{en:'Best-Fit Customers', fa:'مشتریِ درست'},
+        principle:{en:"Target the specific customers who care a lot about the value you uniquely deliver.", fa:"سراغِ همان مشتری‌های مشخصی برو که ارزشی را که فقط تو می‌رسانی خیلی برایشان مهم است."},
+        more:{en:"Not everyone needs what you're best at. The best-fit segment has strong, specific, unmet needs that map straight to your value — and those customers buy fast, rarely haggle, and tell their friends.", fa:"همه به آن چیزی که تو در آن بهترینی احتیاج ندارند. بخشِ درستِ مشتری‌ها نیازهای پررنگ، مشخص و برآورده‌نشده‌ای دارند که یک‌راست به ارزشِ تو می‌خورد — و همان مشتری‌ها سریع می‌خرند، کم چانه می‌زنند، و به دوست‌هایشان می‌گویند."},
+        example:{en:"A compliance tool's best fit isn't 'all companies' but 'fast-growing fintechs about to hit their first audit'.", fa:"مشتریِ درستِ یک ابزارِ انطباق «همهٔ شرکت‌ها» نیست، بلکه «فین‌تک‌های تندرشدی است که دارند به اولین ممیزی‌شان می‌رسند»."},
+        tip:{en:"Describe the customer who buys quickest and needs you most — and aim straight there.", fa:"مشتری‌ای را که سریع‌تر از همه می‌خرد و بیشتر از همه به تو نیاز دارد توصیف کن — و یک‌راست همان‌جا را نشانه بگیر."},
+        pitfall:{en:"Chasing a huge, vague market instead of the segment that already loves you.", fa:"دنبالِ یک بازارِ بزرگ و مبهم دویدن به‌جای بخشی که همین حالا عاشقت است."} },
+      category:{ part:'components', n:7, name:{en:'Market Category & Trends', fa:'دسته‌بندیِ بازار و ترندها'}, glabel:{en:'Category & Trends', fa:'دسته و ترند'},
+        principle:{en:"Choose the market category that frames your value as obvious — and, carefully, ride a genuinely relevant trend.", fa:"دسته‌بندیِ بازاری‌ای را انتخاب کن که ارزشت را آشکار قاب می‌گیرد — و با احتیاط، سوارِ ترندی شو که واقعاً به تو ربط دارد."},
+        more:{en:"The category is the context that tells customers what to expect and who to compare you with. A well-chosen frame makes your strengths look essential. A trend can make you feel current — but only when it's honestly connected to what you do.", fa:"دسته‌بندی همان زمینه‌ای است که به مشتری می‌گوید چه انتظاری داشته باشد و تو را با کی مقایسه کند. یک قابِ خوب‌انتخاب‌شده نقاطِ قوتت را ضروری نشان می‌دهد. یک ترند می‌تواند به‌روزت نشان بدهد — اما فقط وقتی صادقانه به کاری که می‌کنی وصل باشد."},
+        example:{en:"Framed as 'email' you look boring; framed as 'shared inbox for support teams' the same product looks purpose-built.", fa:"در قابِ «ایمیل» کسل‌کننده به‌نظر می‌رسی؛ در قابِ «صندوقِ مشترک برای تیم‌های پشتیبانی» عینِ همان محصول انگار مخصوصِ همین کار ساخته شده."},
+        tip:{en:"Pick the category where your unique attributes matter most to buyers.", fa:"دسته‌ای را انتخاب کن که ویژگی‌های خاصت بیشترین اهمیت را برای خریدارها دارند."},
+        pitfall:{en:"Bolting on a hype trend that has nothing to do with your actual value.", fa:"چسباندنِ یک ترندِ پُرسروصدا که هیچ ربطی به ارزشِ واقعی‌ات ندارد."} },
+      assemble:{ part:'process', n:8, name:{en:'Assemble & Shed Baggage', fa:'تیم بچین و بار را زمین بگذار'}, glabel:{en:'Prep', fa:'آماده‌سازی'},
+        principle:{en:"Start by gathering a cross-functional team, learning from customers who already love you, and letting go of your positioning baggage.", fa:"با جمع‌کردنِ یک تیمِ چندبخشی شروع کن، از مشتری‌هایی که همین حالا عاشقت‌اند یاد بگیر، و بارِ اضافهٔ جایگاه‌یابی‌ات را زمین بگذار."},
+        more:{en:"Positioning touches sales, marketing, product and leadership, so do it together. Study the customers who already get it, and be willing to abandon the labels and assumptions you're emotionally attached to.", fa:"جایگاه‌یابی به فروش و بازاریابی و محصول و مدیریت مربوط می‌شود، پس با هم انجامش بده. مشتری‌هایی را که همین حالا می‌گیرندت خوب مطالعه کن، و آماده باش برچسب‌ها و فرض‌هایی را که به‌شان دلبستگیِ احساسی داری کنار بگذاری."},
+        example:{en:"Pull sales, product and marketing into one room and agree to question the current pitch from scratch.", fa:"فروش و محصول و بازاریابی را توی یک اتاق جمع کن و قرار بگذارید پیچِ فعلی را از صفر زیرِ سؤال ببرید."},
+        tip:{en:"Interview your happiest customers before you change a single word.", fa:"قبل از اینکه حتی یک کلمه عوض کنی، با راضی‌ترین مشتری‌هایت گفت‌وگو کن."},
+        pitfall:{en:"Letting one person's ego or the old story block a fresh look.", fa:"اجازه‌دادن به غرورِ یک نفر یا قصهٔ قدیمی که جلوِ یک نگاهِ تازه را بگیرد."} },
+      buildcomp:{ part:'process', n:9, name:{en:'Work the Components', fa:'اجزا را کار کن'}, glabel:{en:'Build', fa:'ساختن'},
+        principle:{en:"List true alternatives, isolate your unique attributes, map them to value, and identify who cares most.", fa:"جایگزین‌های واقعی را فهرست کن، ویژگی‌های خاصت را جدا کن، به ارزش ربطشان بده، و مشخص کن کی بیشتر از همه اهمیت می‌دهد."},
+        more:{en:"This is the heart of the process: walk the components in order. Each builds on the last — alternatives reveal your differentiators, differentiators reveal value, and value reveals the customers who'll happily pay for it.", fa:"این قلبِ فرایند است: اجزا را به‌ترتیب پیش برو. هرکدام روی قبلی سوار است — جایگزین‌ها تمایزهایت را لو می‌دهند، تمایزها ارزش را، و ارزش همان مشتری‌هایی را که با کمالِ میل پولش را می‌دهند."},
+        example:{en:"Alternatives: 'spreadsheets'; attribute: 'it's automatic'; value: 'hours saved'; best fit: 'ops teams drowning in manual work'.", fa:"جایگزین‌ها: «اکسل‌ها»؛ ویژگی: «خودکار است»؛ ارزش: «چند ساعت صرفه‌جویی»؛ مشتریِ درست: «تیم‌های عملیاتی که زیرِ کارِ دستی غرق‌اند»."},
+        tip:{en:"Do the components as a sequence, not a free-for-all brainstorm — the order matters.", fa:"اجزا را به‌صورتِ یک زنجیره انجام بده، نه یک طوفانِ فکریِ درهم — ترتیبش مهم است."},
+        pitfall:{en:"Jumping to a clever tagline before the components are actually done.", fa:"پریدن به یک شعارِ بامزه قبل از اینکه اجزا واقعاً تمام شده باشند."} },
+      capture:{ part:'process', n:10, name:{en:'Frame, Trend & Capture', fa:'قاب، ترند، و ثبت'}, glabel:{en:'Capture', fa:'ثبت'},
+        principle:{en:"Choose the market frame that highlights your strengths, layer on a trend only if it fits, then capture it all in a shareable document.", fa:"قابِ بازاری‌ای را انتخاب کن که نقاطِ قوتت را برجسته می‌کند، فقط اگر جور بود یک ترند رویش بگذار، بعد همه را در یک سندِ قابلِ‌پخش ثبت کن."},
+        more:{en:"With the components in hand, pick the category that makes your value obvious, optionally connect a real trend, and write the positioning down so the whole company can use it the same way.", fa:"حالا که اجزا را داری، دسته‌ای را انتخاب کن که ارزشت را آشکار می‌کند، اگر خواستی یک ترندِ واقعی به آن وصل کن، و جایگاه‌یابی را بنویس تا کلِ شرکت به یک شکل ازش استفاده کند."},
+        example:{en:"Frame it as 'project tracker for agencies', note the remote-work trend, and record it in a one-page positioning doc.", fa:"در قابِ «ردیابِ پروژه برای آژانس‌ها» بگذارش، به ترندِ دورکاری اشاره کن، و در یک سندِ یک‌صفحه‌ایِ جایگاه‌یابی ثبتش کن."},
+        tip:{en:"End the process with a written positioning everyone can point to.", fa:"فرایند را با یک جایگاه‌یابیِ نوشته‌شده تمام کن که همه بتوانند به آن اشاره کنند."},
+        pitfall:{en:"Doing all the work but never writing it down or sharing it.", fa:"همهٔ کار را کردن اما هیچ‌وقت ننوشتن و پخش‌نکردنش."} },
+      frameexp:{ part:'frame', n:11, name:{en:'The Frame Sets Expectations', fa:'قاب انتظارها را تعیین می‌کند'}, glabel:{en:'The Frame', fa:'قاب'},
+        principle:{en:"The market category you claim is the strongest force in positioning — it switches on every expectation a customer brings.", fa:"دسته‌بندیِ بازاری‌ای که ادعایش را داری قوی‌ترین نیرو در جایگاه‌یابی است — همهٔ انتظارهایی را که مشتری با خودش می‌آورد روشن می‌کند."},
+        more:{en:"Name a category and you instantly trigger assumptions about competitors, features, price and buyers. Choose it on purpose: the right frame makes your strengths look required, the wrong one makes them look beside the point.", fa:"اسمِ یک دسته را که بگویی، فوری یک عالمه فرض دربارهٔ رقبا، ویژگی‌ها، قیمت و خریدارها راه می‌افتد. با قصد انتخابش کن: قابِ درست نقاطِ قوتت را لازم نشان می‌دهد، قابِ غلط آن‌ها را بی‌ربط."},
+        example:{en:"Call yourself a 'CRM' and buyers expect Salesforce-style features and pricing — a fight you may not want.", fa:"خودت را «سی‌آر‌ام» صدا کن، آن‌وقت خریدارها ویژگی‌ها و قیمتی در حدِ سیلزفورس انتظار دارند — جنگی که شاید اصلاً نخواهی‌اش."},
+        tip:{en:"Ask what assumptions your category name switches on in the buyer's mind.", fa:"بپرس اسمِ دسته‌ات چه فرض‌هایی را در ذهنِ خریدار روشن می‌کند."},
+        pitfall:{en:"Picking a category out of habit and inheriting the wrong expectations.", fa:"انتخابِ یک دسته از رویِ عادت و به‌ارث‌بردنِ انتظارهای غلط."} },
+      winmarket:{ part:'frame', n:12, name:{en:'Play a Market You Can Win', fa:'بازاری را بازی کن که می‌توانی ببری'}, glabel:{en:'Win the Market', fa:'بردنِ بازار'},
+        principle:{en:"Decide between competing head-to-head and being a big fish in a smaller, well-defined pond.", fa:"تصمیم بگیر: شاخ‌به‌شاخ رقابت کنی، یا یک ماهیِ بزرگ در حوضِ کوچک‌تر و مشخص‌تری باشی."},
+        more:{en:"Head-to-head means claiming you're the best in an existing market — only do it if you can genuinely win. Often smarter is to define a sub-segment you can dominate, where your strengths make you the obvious leader.", fa:"شاخ‌به‌شاخ یعنی ادعا کنی در یک بازارِ موجود بهترینی — فقط وقتی این کار را بکن که واقعاً می‌توانی ببری. اغلب هوشمندانه‌تر این است که یک زیربخش را تعریف کنی که می‌توانی قبضه‌اش کنی، جایی که نقاطِ قوتت تو را رهبرِ آشکار می‌کند."},
+        example:{en:"Instead of 'another project tool', win as 'the project tool built specifically for design studios'.", fa:"به‌جای «یک ابزارِ پروژهٔ دیگر»، به‌عنوانِ «ابزارِ پروژه‌ای که مخصوصِ استودیوهای طراحی ساخته شده» ببر."},
+        tip:{en:"If you can't win the big category, carve out a niche you can truly own.", fa:"اگر نمی‌توانی دستهٔ بزرگ را ببری، یک بازارِ کوچکِ خاص بتراش که واقعاً بتوانی مالِ خودت کنی."},
+        pitfall:{en:"Fighting a giant head-to-head in a market you can't actually win.", fa:"شاخ‌به‌شاخ‌جنگیدن با یک غول در بازاری که واقعاً نمی‌توانی ببری‌اش."} },
+      newcategory:{ part:'frame', n:13, name:{en:'Creating a New Category', fa:'ساختنِ یک دستهٔ تازه'}, glabel:{en:'New Category', fa:'دستهٔ تازه'},
+        principle:{en:"Inventing a brand-new category is powerful but expensive — only attempt it when no existing frame fits.", fa:"ساختنِ یک دستهٔ کاملاً تازه قدرتمند است اما پُرخرج — فقط وقتی سراغش برو که هیچ قابِ موجودی جور نیست."},
+        more:{en:"A new category lets you define the rules, but you have to teach the whole market that the category exists and matters. That takes time, money and real demand for the problem — most products are better off in an existing frame.", fa:"دستهٔ تازه می‌گذارد خودت قاعده‌ها را تعیین کنی، اما باید به کلِ بازار یاد بدهی که این دسته اصلاً وجود دارد و مهم است. این کار وقت و پول و یک تقاضای واقعی برای آن مشکل می‌خواهد — بیشترِ محصول‌ها در یک قابِ موجود وضعشان بهتر است."},
+        example:{en:"'Marketing automation' was once a new category — a huge bet that paid off, but only after years of market education.", fa:"«اتوماسیونِ بازاریابی» یک‌زمانی یک دستهٔ تازه بود — یک شرطِ بزرگ که جواب داد، اما فقط بعد از سال‌ها آموزش‌دادن به بازار."},
+        tip:{en:"Try an existing frame first; create a category only as a last resort.", fa:"اول یک قابِ موجود را امتحان کن؛ ساختنِ دسته فقط آخرین راهِ چاره باشد."},
+        pitfall:{en:"Inventing a category nobody is searching for or asking about.", fa:"ساختنِ دسته‌ای که هیچ‌کس دنبالش نمی‌گردد و سراغش را نمی‌گیرد."} },
+      document:{ part:'stick', n:14, name:{en:'The Positioning Document', fa:'سندِ جایگاه‌یابی'}, glabel:{en:'The Document', fa:'سند'},
+        principle:{en:"Capture your positioning in a simple shared document so the whole company tells one story.", fa:"جایگاه‌یابی‌ات را در یک سندِ سادهٔ مشترک ثبت کن تا کلِ شرکت یک قصه بگوید."},
+        more:{en:"Positioning that lives only in one person's head can't scale. A short written doc — alternatives, attributes, value, customers, category — becomes the single source of truth for messaging, sales and product decisions.", fa:"جایگاه‌یابی‌ای که فقط توی سرِ یک نفر است نمی‌تواند بزرگ شود. یک سندِ کوتاهِ نوشته‌شده — جایگزین‌ها، ویژگی‌ها، ارزش، مشتری‌ها، دسته — می‌شود مرجعِ یگانهٔ حقیقت برای پیام‌ها، فروش و تصمیم‌های محصول."},
+        example:{en:"A one-page positioning doc that every new hire reads keeps the pitch consistent across the team.", fa:"یک سندِ یک‌صفحه‌ایِ جایگاه‌یابی که هر تازه‌واردی می‌خواندش، پیچ را در کلِ تیم یک‌دست نگه می‌دارد."},
+        tip:{en:"Write positioning as a living document, not a one-time slide.", fa:"جایگاه‌یابی را مثلِ یک سندِ زنده بنویس، نه یک اسلایدِ یک‌بارمصرف."},
+        pitfall:{en:"Leaving positioning implicit, so everyone improvises a different pitch.", fa:"جایگاه‌یابی را نگفته رهاکردن، طوری که هر کسی یک پیچِ متفاوت از خودش درمی‌آورد."} },
+      align:{ part:'stick', n:15, name:{en:'Align Sales, Marketing & Product', fa:'هم‌راستاکردنِ فروش، بازاریابی و محصول'}, glabel:{en:'Align Teams', fa:'هم‌راستایی'},
+        principle:{en:"Positioning only works when sales, marketing and product all act on the same story.", fa:"جایگاه‌یابی فقط وقتی جواب می‌دهد که فروش و بازاریابی و محصول همه رویِ یک قصه عمل کنند."},
+        more:{en:"It isn't marketing's private project. The sales pitch, the website, onboarding and the roadmap all have to reflect the same positioning — otherwise customers get mixed signals and the awesome stops being obvious.", fa:"این پروژهٔ خصوصیِ بازاریابی نیست. پیچِ فروش، وب‌سایت، فرایندِ آشناسازی و نقشهٔ راه همه باید همان یک جایگاه‌یابی را نشان بدهند — وگرنه مشتری سیگنالِ ضدونقیض می‌گیرد و آن «عالی‌بودن» دیگر آشکار نمی‌ماند."},
+        example:{en:"If marketing says 'simple' but the product needs an engineer to set up, the positioning breaks at first contact.", fa:"اگر بازاریابی بگوید «ساده» اما محصول برای راه‌اندازی به یک مهندس نیاز داشته باشد، جایگاه‌یابی همان اولین برخورد می‌شکند."},
+        tip:{en:"Audit your website, demo and onboarding against the positioning document.", fa:"وب‌سایت، دمو و آشناسازی‌ات را با سندِ جایگاه‌یابی محک بزن."},
+        pitfall:{en:"Marketing repositioning while sales and product keep telling the old story.", fa:"بازاریابی جایگاه را عوض می‌کند در حالی که فروش و محصول همان قصهٔ قدیمی را می‌گویند."} },
+      revisit:{ part:'stick', n:16, name:{en:'Revisit Over Time', fa:'هرازگاهی بازبینی کن'}, glabel:{en:'Revisit', fa:'بازبینی'},
+        principle:{en:"Positioning isn't permanent — revisit it as your market, customers and competitors change.", fa:"جایگاه‌یابی همیشگی نیست — هرچه بازار و مشتری و رقیبت عوض می‌شوند، دوباره بازبینی‌اش کن."},
+        more:{en:"New competitors, new features and new trends can make yesterday's frame stale. Treat positioning as something you review on purpose, especially after big product changes or a shift in who's actually buying.", fa:"رقیبِ تازه، ویژگیِ تازه و ترندِ تازه می‌تواند قابِ دیروز را کهنه کند. با جایگاه‌یابی مثلِ چیزی برخورد کن که عمداً مرورش می‌کنی، مخصوصاً بعد از تغییرهای بزرگِ محصول یا وقتی خریدارها عوض می‌شوند."},
+        example:{en:"A tool repositioned from 'for startups' to 'for enterprises' as its best customers changed.", fa:"یک ابزار که وقتی بهترین مشتری‌هایش عوض شدند، جایگاهش را از «برای استارتاپ‌ها» به «برای شرکت‌های بزرگ» تغییر داد."},
+        tip:{en:"Revisit positioning whenever the product or the market shifts noticeably.", fa:"هر وقت محصول یا بازار محسوس تکان خورد، جایگاه‌یابی را بازبینی کن."},
+        pitfall:{en:"Setting positioning once and then never touching it again.", fa:"یک‌بار جایگاه‌یابی را تعیین‌کردن و دیگر هیچ‌وقت سراغش نرفتن."} }
+    },
+    core:{ name:{en:'POSITIONING', fa:'جایگاه‌یابی'},
+      principle:{en:"Positioning is the act of deliberately defining how you are the best at something that a defined market cares a lot about. Set the right context — alternatives, unique attributes, value, best-fit customers and market category — and your product becomes obviously awesome to the people who need it.", fa:"جایگاه‌یابی یعنی اینکه با قصد مشخص کنی در چه چیزی بهترینی — چیزی که یک بازارِ مشخص خیلی برایش مهم است. زمینهٔ درست را بچین — جایگزین‌ها، ویژگی‌های خاص، ارزش، مشتریِ درست و دسته‌بندیِ بازار — تا محصولت برای آدم‌هایی که به آن نیاز دارند آشکارا عالی شود."},
+      more:{en:"Dunford breaks positioning into what it is (context), its five (+1) components, a ten-step process to build it, the crucial choice of market frame, and the work of making it stick across sales, marketing and product. The thread through all of it: positioning is a deliberate decision, not an accident you inherit.", fa:"دانفورد جایگاه‌یابی را می‌شکند به: چیستی‌اش (زمینه)، پنج جزءِ آن (به‌علاوهٔ یک)، یک فرایندِ ده‌گامی برای ساختنش، انتخابِ سرنوشت‌سازِ قابِ بازار، و کارِ ماندگارکردنش در فروش و بازاریابی و محصول. نخِ رابطِ همه: جایگاه‌یابی یک تصمیمِ آگاهانه است، نه اتفاقی که به ارث می‌بری."},
+      example:{en:"Click any node to read a component, a step or a move. You can also drag the nodes around.", fa:"روی هر دایره کلیک کن تا یک جزء، یک گام یا یک حرکت را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."} },
+    stages:[
+      { level:1, badge:{en:'Level 1 · Over-simplified', fa:'سطحِ ۱ · خیلی ساده'}, title:{en:'Set the context', fa:'زمینه را بچین'}, tagline:{en:'The whole book in a sentence.', fa:'کلِ کتاب در یک جمله.'},
+        body:{en:"Positioning is context. The exact same product can look confusing or perfect depending on how you frame it — so set the context that makes your product an obvious yes for the right person.", fa:"جایگاه‌یابی یعنی زمینه. عینِ همان محصول، بسته به اینکه چطور قابش بگیری، می‌تواند گیج‌کننده به‌نظر برسد یا عالی — پس زمینه‌ای بچین که محصولت را برای آدمِ درست یک «آره»ِ روشن کند."},
+        example:{en:"A plain gift feels ordinary in a paper bag and special in a beautiful box — same gift, different context.", fa:"یک کادوی ساده توی پاکتِ کاغذی معمولی حس می‌شود و توی یک جعبهٔ قشنگ خاص — همان کادو، زمینهٔ فرق."},
+        gain:{en:"You hold the single idea the whole book expands on.", fa:"همان یک ایده‌ای را داری که کلِ کتاب بسطش می‌دهد."} },
+      { level:2, badge:{en:'Level 2 · Simple', fa:'سطحِ ۲ · ساده'}, title:{en:'The five ingredients', fa:'پنج جزءِ سازنده'}, tagline:{en:'Alternatives, attributes, value, customers, category.', fa:'جایگزین‌ها، ویژگی‌ها، ارزش، مشتری‌ها، دسته‌بندی.'},
+        body:{en:"Great positioning is built from five components (plus a trend): the <b>alternatives</b> customers would use instead, your <b>unique attributes</b>, the <b>value</b> they create, the <b>best-fit customers</b> who care most, and the <b>market category</b> that frames it all.", fa:"جایگاه‌یابیِ خوب از پنج جزء ساخته می‌شود (به‌علاوهٔ یک ترند): <b>جایگزین‌هایی</b> که مشتری به‌جایت استفاده می‌کند، <b>ویژگی‌های خاصت</b>، <b>ارزشی</b> که می‌سازند، <b>مشتریِ درستی</b> که بیشتر از همه برایش مهم است، و <b>دسته‌بندیِ بازاری</b> که همه را قاب می‌گیرد."},
+        example:{en:"Alternative: a spreadsheet. Attribute: it's automatic. Value: hours saved every week. Customer: busy ops teams.", fa:"جایگزین: یک اکسل. ویژگی: خودکار است. ارزش: هر هفته چند ساعت صرفه‌جویی. مشتری: تیم‌های عملیاتیِ سرشلوغ."},
+        gain:{en:"You can name the raw materials of any product's positioning.", fa:"می‌توانی مصالحِ خامِ جایگاه‌یابیِ هر محصولی را نام ببری."} },
+      { level:3, badge:{en:'Level 3 · Balanced', fa:'سطحِ ۳ · متعادل'}, title:{en:'Run the process', fa:'فرایند را اجرا کن'}, tagline:{en:'Ten steps from alternatives to a document.', fa:'ده گام از جایگزین‌ها تا یک سند.'},
+        body:{en:"Now do it deliberately. Gather a team and drop your old assumptions, then work the components in order: list true <b>alternatives</b>, isolate <b>attributes</b>, map them to <b>value</b>, and find who <b>cares most</b>. Choose a <b>frame</b>, maybe layer a real trend, and <b>write it all down</b>.", fa:"حالا با قصد انجامش بده. یک تیم جمع کن و فرض‌های قدیمی‌ات را کنار بگذار، بعد اجزا را به‌ترتیب کار کن: <b>جایگزین‌های</b> واقعی را فهرست کن، <b>ویژگی‌ها</b> را جدا کن، به <b>ارزش</b> ربطشان بده، و ببین کی <b>بیشتر اهمیت می‌دهد</b>. یک <b>قاب</b> انتخاب کن، شاید یک ترندِ واقعی رویش بگذار، و <b>همه را بنویس</b>."},
+        example:{en:"The output is a short positioning document your whole team can share.", fa:"خروجی یک سندِ کوتاهِ جایگاه‌یابی است که کلِ تیمت می‌تواند از آن استفاده کند."},
+        gain:{en:"You can build positioning step by step, not by guesswork.", fa:"می‌توانی جایگاه‌یابی را گام‌به‌گام بسازی، نه با حدس‌وگمان."} },
+      { level:4, badge:{en:'Level 4 · Advanced', fa:'سطحِ ۴ · پیشرفته'}, title:{en:'Choose the frame', fa:'قاب را انتخاب کن'}, tagline:{en:'The category sets every expectation.', fa:'دسته‌بندی همهٔ انتظارها را تعیین می‌کند.'},
+        body:{en:"Your market category is the biggest lever you have — name it and customers instantly assume competitors, features and price. Decide how to play: go <b>head-to-head</b> only if you can win, be a <b>big fish in a smaller pond</b> you can own, or <b>create a new category</b> when nothing else fits (the hard, expensive option).", fa:"دسته‌بندیِ بازاری‌ات بزرگ‌ترین اهرمی است که داری — اسمش را که بگویی، مشتری فوری رقبا و ویژگی‌ها و قیمت را فرض می‌کند. تصمیم بگیر چطور بازی کنی: فقط وقتی <b>شاخ‌به‌شاخ</b> برو که می‌توانی ببری، یک <b>ماهیِ بزرگ در حوضِ کوچک‌تری</b> باش که می‌توانی مالِ خودت کنی، یا وقتی هیچ‌چیز جور نیست یک <b>دستهٔ تازه بساز</b> (گزینهٔ سخت و پُرخرج)."},
+        example:{en:"Not 'another project tool' but 'the project tool built for design studios' — a pond you can lead.", fa:"نه «یک ابزارِ پروژهٔ دیگر» بلکه «ابزارِ پروژه‌ای که برای استودیوهای طراحی ساخته شده» — حوضی که می‌توانی رهبرش باشی."},
+        gain:{en:"You can pick the frame where your strengths look essential.", fa:"می‌توانی قابی را انتخاب کنی که نقاطِ قوتت تویش ضروری به‌نظر برسند."} },
+      { level:5, badge:{en:'Level 5 · Expert', fa:'سطحِ ۵ · حرفه‌ای'}, title:{en:'Make it stick', fa:'ماندگارش کن'}, tagline:{en:'Align every team and revisit.', fa:'همهٔ تیم‌ها را هم‌راستا کن و بازبینی کن.'},
+        body:{en:"The expert makes positioning real and durable. Capture it in a shared <b>document</b>, then <b>align</b> sales, marketing and product so everyone tells one story — mixed signals kill the 'obvious'. And <b>revisit</b> it over time, because new competitors, features and trends can make yesterday's frame stale. Positioning is a deliberate decision you keep making, not an accident you inherit.", fa:"آدمِ حرفه‌ای جایگاه‌یابی را واقعی و ماندگار می‌کند. آن را در یک <b>سندِ</b> مشترک ثبت کن، بعد فروش و بازاریابی و محصول را <b>هم‌راستا</b> کن تا همه یک قصه بگویند — سیگنالِ ضدونقیض همان «آشکاری» را می‌کُشد. و هرازگاهی <b>بازبینی‌اش کن</b>، چون رقیب و ویژگی و ترندِ تازه می‌تواند قابِ دیروز را کهنه کند. جایگاه‌یابی تصمیمی است که مدام می‌گیری، نه اتفاقی که به ارث می‌بری."},
+        example:{en:"A team revisits its positioning after its best customers shift from startups to enterprises.", fa:"یک تیم بعد از اینکه بهترین مشتری‌هایش از استارتاپ‌ها به شرکت‌های بزرگ تغییر می‌کنند، جایگاه‌یابی‌اش را بازبینی می‌کند."},
+        gain:{en:"You can set positioning, align a company around it, and keep it current.", fa:"می‌توانی جایگاه‌یابی را تعیین کنی، یک شرکت را دورش هم‌راستا کنی، و به‌روز نگهش داری."} }
+    ],
+    quotes:[
+      {en:"Positioning is the act of deliberately defining how you are the best at something that a defined market cares a lot about.", fa:"جایگاه‌یابی یعنی اینکه با قصد، مشخص کنی در چه چیزی بهترینی — چیزی که یک بازارِ مشخص خیلی برایش مهم است."},
+      {en:"I like to describe positioning as 'context setting' for products.", fa:"من دوست دارم جایگاه‌یابی را «زمینه‌سازی» برای محصول‌ها توصیف کنم."},
+      {en:"Even a world-class product, poorly positioned, can fail.", fa:"حتی یک محصولِ در حدِ جهانی هم اگر بد جایگاه‌یابی شود، می‌تواند شکست بخورد."},
+      {en:"Like Joshua Bell delivering a world-class performance in a context that didn't ascribe value, lousy positioning makes your prospects work harder to figure out if you are worth paying attention to.", fa:"مثلِ جاشوا بل که یک اجرای در حدِ جهانی را جایی ارائه داد که برایش ارزشی قائل نبود، جایگاه‌یابیِ بد کاری می‌کند مشتری‌های احتمالی‌ات سخت‌تر تلاش کنند تا بفهمند اصلاً ارزشِ توجه‌کردن داری یا نه."},
+      {en:"It's important to really understand what customers compare your solution with, because that's the yardstick they use to define 'better.'", fa:"مهم است که واقعاً بفهمی مشتری راه‌حلت را با چه چیزی مقایسه می‌کند، چون همان خط‌کشی است که با آن «بهتر» را تعریف می‌کند."},
+      {en:"Features enable benefits, which can be translated into value in unique customer terms.", fa:"ویژگی‌ها فایده می‌سازند، و فایده‌ها را می‌شود به ارزش ترجمه کرد — به زبانِ خاصِ خودِ مشتری."},
+      {en:"Your target market is the customers who buy quickly, rarely ask for discounts and tell their friends about your offerings.", fa:"بازارِ هدفت همان مشتری‌هایی‌اند که سریع می‌خرند، کم پیشِ تخفیف می‌روند، و محصولت را به دوست‌هایشان معرفی می‌کنند."},
+      {en:"It's always better to be a little boring than completely baffling.", fa:"همیشه بهتر است کمی کسل‌کننده باشی تا کاملاً گیج‌کننده."}
+    ],
+    media:[
+      { kind:'yt', id:'S_v5JL1cWJ8', src:{en:'YouTube · Samuli Salonen', fa:'یوتیوب · Samuli Salonen'},
+        title:{en:'April Dunford: Positioning', fa:'اپریل دانفورد: جایگاه‌یابی'},
+        desc:{en:'A focused talk where Dunford walks through her positioning approach.', fa:'یک سخنرانیِ متمرکز که دانفورد رویکردش به جایگاه‌یابی را قدم‌به‌قدم می‌گوید.'},
+        bullets:{en:["Positioning as context, explained","The components in plain language","A clear, quick overview"], fa:["جایگاه‌یابی به‌عنوانِ زمینه، توضیح داده‌شده","اجزا به زبانِ ساده","یک مرورِ روشن و سریع"]},
+        best:{en:'Best for Stage 1–2.', fa:'خوب برای مرحلهٔ ۱ و ۲.'} },
+      { kind:'yt', id:'j7gYVXjDePw', src:{en:'YouTube · Wynter', fa:'یوتیوب · Wynter'},
+        title:{en:'Positioning in Crowded Markets', fa:'جایگاه‌یابی در بازارهای شلوغ'},
+        desc:{en:'How to make any offering obviously awesome when the market is crowded.', fa:'چطور وقتی بازار شلوغ است، هر چیزی را آشکارا عالی کنی.'},
+        bullets:{en:["Standing out against real alternatives","Choosing the right market frame","Worked examples"], fa:["متمایزشدن در برابرِ جایگزین‌های واقعی","انتخابِ قابِ بازاریِ درست","مثال‌های عملی"]},
+        best:{en:'Best for Stage 2–3.', fa:'خوب برای مرحلهٔ ۲ و ۳.'} },
+      { kind:'yt', id:'lAWpJ0LJfgI', src:{en:'YouTube · One Knight in Product', fa:'یوتیوب · One Knight in Product'},
+        title:{en:"Obviously Awesome 2.0: What's Changed in Product Positioning?", fa:'آشکارا عالی ۲.۰ — در جایگاه‌یابیِ محصول چه عوض شده؟'},
+        desc:{en:'An interview revisiting the ideas and what has evolved since the book.', fa:'یک گفت‌وگو که ایده‌ها را دوباره مرور می‌کند و می‌گوید از زمانِ کتاب چه چیزی تغییر کرده.'},
+        bullets:{en:["The core ideas, revisited","How positioning holds up over time","Deeper, conversational takes"], fa:["ایده‌های اصلی، از نو","اینکه جایگاه‌یابی در طولِ زمان چطور دوام می‌آورد","نگاه‌های عمیق‌تر و گفت‌وگومحور"]},
+        best:{en:'Best for Stage 3–4.', fa:'خوب برای مرحلهٔ ۳ و ۴.'} },
+      { kind:'img', url:'https://www.aprildunford.com/books',
+        src:{en:'April Dunford · Official book page', fa:'اپریل دانفورد · صفحهٔ رسمیِ کتاب'},
+        title:{en:'Obviously Awesome — Official Book Page', fa:'آشکارا عالی — صفحهٔ رسمیِ کتاب'},
+        desc:{en:"The author's own page for the book, with details and where to buy.", fa:'صفحهٔ خودِ نویسنده برای کتاب، با جزئیات و محلِ خرید.'},
+        bullets:{en:["Straight from the author","Book details and editions","Links to buy"], fa:["مستقیم از خودِ نویسنده","جزئیات و نسخه‌های کتاب","لینکِ خرید"]},
+        best:{en:'For the source and editions.', fa:'برای منبع و نسخه‌ها.'} }
+    ],
+    go:[
+      {label:{en:'Official book page', fa:'صفحهٔ رسمیِ کتاب'}, url:'https://www.aprildunford.com/books'},
+      {label:{en:'Book on Goodreads', fa:'کتاب در گودریدز'}, url:'https://www.goodreads.com/book/show/45166937-obviously-awesome'},
+      {label:{en:'April Dunford — positioning resources', fa:'اپریل دانفورد — منابعِ جایگاه‌یابی'}, url:'https://www.aprildunford.com/'}
+    ],
+    recs:[
+      { pri:'b', t:{en:'Name your true alternative', fa:'جایگزینِ واقعی‌ات را پیدا کن'}, d:{en:"Ask five customers what they'd use instead of you — that, not your favorite rival, is your real competition.", fa:'از پنج مشتری بپرس اگر تو نبودی از چه استفاده می‌کردند — رقیبِ واقعی‌ات همان است، نه آن رقیبی که مدام به‌ش فکر می‌کنی.'} },
+      { pri:'b', t:{en:'Walk one attribute up to value', fa:'یک ویژگی را تا ارزش بالا ببر'}, d:{en:"Take one thing only you do and finish 'which means you can…' until you reach real customer value.", fa:'یک کاری که فقط تو می‌کنی را بردار و جملهٔ «که یعنی می‌توانی…» را کامل کن تا به ارزشِ واقعیِ مشتری برسی.'} },
+      { pri:'n', t:{en:'Question your category', fa:'دسته‌بندی‌ات را زیرِ سؤال ببر'}, d:{en:'Write the category you claim and list the expectations it sets — is that a fight you can win?', fa:'دسته‌بندی‌ای که ادعایش را داری بنویس و انتظارهایی که می‌سازد را فهرست کن — این جنگی است که می‌توانی ببری؟'} },
+      { pri:'n', t:{en:'Write a one-page positioning doc', fa:'یک سندِ یک‌صفحه‌ایِ جایگاه‌یابی بنویس'}, d:{en:'Capture alternatives, attributes, value, customers and category so the whole team tells one story.', fa:'جایگزین‌ها، ویژگی‌ها، ارزش، مشتری‌ها و دسته‌بندی را ثبت کن تا کلِ تیم یک قصه بگوید.'} }
+    ]
+  }
+};

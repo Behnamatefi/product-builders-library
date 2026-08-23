@@ -1,0 +1,264 @@
+/* config: Don't Make Me Think, Revisited — Steve Krug (Design) */
+module.exports = {
+  slug:"dmmt", brand:"Don't Make Me Think",
+  titleTag:"Don't Make Me Think — نقشهٔ دانش و یادگیری ۵ مرحله‌ای",
+  W:980, H:780, R1:220, R2:126, span:66,
+  leafKickEn:"Rule", leafKickFa:"قانونِ",
+  flowEn:["Scan","Clarify","Test"], flowFa:["اسکن","شفاف‌سازی","تست"],
+
+  hero:`  <div class="eyebrow"><span class="edot"></span>
+    <span data-only="en">Book knowledge map · Steve Krug</span>
+    <span data-only="fa">نقشهٔ کتاب · استیو کروگ</span>
+  </div>
+  <h1>
+    <span data-only="en">Don't Make Me Think, Revisited — A Common Sense Approach to Web Usability</span>
+    <span data-only="fa">وادارم نکن فکر کنم — رویکردی ساده و مبتنی بر عقلِ سلیم به کاربردپذیریِ وب</span>
+  </h1>
+  <p class="dek">
+    <span data-only="en">A knowledge graph of the whole book, plus a 5-stage path from a single idea to expert-level mastery — with an example at every step.</span>
+    <span data-only="fa">نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از یک ایدهٔ ساده تا تسلطِ حرفه‌ای — با یک مثال در هر قدم.</span>
+  </p>
+  <div class="metastrip">
+    <div class="metaitem"><span class="mk" data-only="en">Book</span><span class="mk" data-only="fa">کتاب</span>
+      <span class="mv" data-only="en">Don't Make Me Think</span><span class="mv" data-only="fa">وادارم نکن فکر کنم</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Author</span><span class="mk" data-only="fa">نویسنده</span>
+      <span class="mv" data-only="en">Steve Krug</span><span class="mv" data-only="fa">استیو کروگ</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Published</span><span class="mk" data-only="fa">سالِ چاپ</span>
+      <span class="mv" data-only="en">2014</span><span class="mv" data-only="fa">۲۰۱۴</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Group</span><span class="mk" data-only="fa">گروه</span>
+      <span class="mv" data-only="en">Design</span><span class="mv" data-only="fa">طراحی</span></div>
+  </div>
+  <div class="chips">
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Parts</span><span data-only="fa">بخش</span></div>
+    <div class="chip"><b data-only="en">16</b><b data-only="fa">۱۶</b><span data-only="en">Rules</span><span data-only="fa">قانون</span></div>
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Learning stages</span><span data-only="fa">مرحلهٔ یادگیری</span></div>
+  </div>`,
+
+  callout:`    <b data-only="en">The core idea:</b>
+    <b data-only="fa">ایدهٔ اصلی:</b>
+    <span data-only="en"> A web page should be <i>self-evident</i> — obvious at a glance, so using it takes no thought. Every question mark it raises (Where am I? What do I click? Is this a button?) adds to your <b>cognitive load</b>. Good usability is really the craft of removing those question marks.</span>
+    <span data-only="fa"> یک صفحهٔ وب باید <i>خودگویا</i> باشد — همان یک نگاه کافی باشد و آدم مجبور نشود فکر کند. هر علامتِ سؤالی که می‌سازد (کجام؟ کجا را کلیک کنم؟ این دکمه است؟) به <b>بارِ ذهنیِ</b> تو اضافه می‌کند. کاربردپذیریِ خوب در واقع هنرِ برداشتنِ همین علامت‌های سؤال است.</span>`,
+
+  kpis:`    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Parts (law · behavior · scanning · navigation · testing)</div><div class="l" data-only="fa">بخش (قانون · رفتار · اسکن · ناوبری · تست)</div></div>
+    <div class="kbox"><div class="v" data-only="en">16</div><div class="v" data-only="fa">۱۶</div><div class="l" data-only="en">Rules you can use</div><div class="l" data-only="fa">قانون برای استفاده</div></div>
+    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Levels, simple → expert</div><div class="l" data-only="fa">مرحله، ساده تا حرفه‌ای</div></div>
+    <div class="kbox"><div class="v" data-only="en">3</div><div class="v" data-only="fa">۳</div><div class="l" data-only="en">Krug's Laws: self-evident · mindless clicks · fewer words</div><div class="l" data-only="fa">قانون‌های کروگ: خودگویا · کلیکِ بی‌فکر · کلماتِ کمتر</div></div>`,
+
+  mapcallout:`      <b data-only="en">Read it as a flow:</b><b data-only="fa">به‌صورتِ یک جریان بخوانش:</b>
+      <span data-only="en"> start from the one law — <b>don't make me think</b>; learn <b>how people really use the web</b> (they scan, satisfice, and muddle through); <b>design for scanning</b> with hierarchy and conventions; make <b>navigation</b> and the home page effortless; then <b>test</b> early and often to catch what you can no longer see.</span>
+      <span data-only="fa"> از همان یک قانون شروع کن — <b>وادارم نکن فکر کنم</b>؛ یاد بگیر <b>مردم واقعاً چطور از وب استفاده می‌کنند</b> (اسکن می‌کنند، به اولین گزینهٔ خوب بسنده می‌کنند، و دست‌وپا می‌زنند)؛ <b>برای اسکن‌شدن طراحی کن</b> با سلسله‌مراتب و قراردادها؛ <b>ناوبری</b> و صفحهٔ اصلی را بی‌دردسر کن؛ بعد زود و مکرر <b>تست کن</b> تا چیزی را که دیگر خودت نمی‌بینی بگیری.</span>`,
+
+  methodFa:"<p><b>منبع:</b> کتابِ «Don't Make Me Think, Revisited» نوشتهٔ استیو کروگ (چاپِ نخست ۲۰۰۰؛ نسخهٔ بازنگری‌شده ۲۰۱۴).</p><p><b>روشِ کار:</b> ساختارِ پنج‌بخشی و قانون‌ها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده؛ نقل‌قول‌ها با متنِ کتاب مقابله و ویدیوها بررسی شده‌اند.</p><p><b>گروه:</b> «طراحی» — از فهرستِ کتاب‌های ضروریِ سازندگانِ محصولِ لنی راچیتسکی.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای متنِ کامل، خودِ کتاب را بخوان.</p>",
+  methodEn:"<p><b>Source:</b> the book <i>Don't Make Me Think, Revisited</i> by Steve Krug (first published 2000; Revisited edition 2014).</p><p><b>How this was built:</b> the five-part structure and rules were gathered and rewritten from the book and reputable sources; quotes were cross-checked and the linked videos verified.</p><p><b>Group:</b> Design — from Lenny Rachitsky's essential books for product builders.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>",
+
+  data:{
+    tldr:[
+      {en:"The whole book in one line: a web page should be <b>self-evident</b>, so using it takes almost no thought.",
+       fa:"خلاصهٔ کل کتاب در یک جمله: یک صفحهٔ وب باید <b>خودگویا</b> باشد تا استفاده از آن تقریباً هیچ فکری نبرد."},
+      {en:"Every <b>question mark</b> a page raises adds cognitive load — usability is the art of removing them.",
+       fa:"هر <b>علامتِ سؤالی</b> که یک صفحه می‌سازد، بارِ ذهنی اضافه می‌کند — کاربردپذیری یعنی هنرِ برداشتنِ آن‌ها."},
+      {en:"People don't read, they <b>scan</b>; they don't optimize, they <b>satisfice</b>; they don't figure things out, they <b>muddle through</b>.",
+       fa:"مردم نمی‌خوانند، <b>اسکن</b> می‌کنند؛ دنبالِ بهترین نیستند، به <b>اولین گزینهٔ خوب بسنده</b> می‌کنند؛ چیزها را نمی‌فهمند، <b>دست‌وپا می‌زنند</b>."},
+      {en:"So design for that glance: clear <b>visual hierarchy</b>, familiar conventions, obvious clickables, and far fewer words.",
+       fa:"پس برای همان یک نگاه طراحی کن: <b>سلسله‌مراتبِ بصریِ</b> روشن، قراردادهای آشنا، دکمه‌های واضح، و کلماتِ خیلی کمتر."},
+      {en:"And <b>test early and often</b> — a few users, done cheaply, catch most of the serious problems.",
+       fa:"و <b>زود و مکرر تست کن</b> — چند کاربر، ارزان و ساده، بیشترِ مشکل‌های جدی را پیدا می‌کنند."}
+    ],
+    parts:[
+      { key:'law', varc:'--c-teal', name:{en:"Krug's First Law", fa:'قانونِ اولِ کروگ'}, tag:{en:"Don't make me think", fa:'وادارم نکن فکر کنم'},
+        gist:{en:'A page should be self-evident — obvious, with no thought required.', fa:'یک صفحه باید خودگویا باشد — واضح و بی‌نیاز به فکر.'},
+        more:{en:"This is the whole book in one rule. If people have to stop and puzzle over what a page is or how to use it, you've already lost some of them. Everything else exists to protect this.",
+              fa:"این کلِ کتاب در یک قانون است. اگر مردم مجبور شوند بایستند و کلنجار بروند که این صفحه چیست یا چطور کار می‌کند، همان‌جا بخشی از آن‌ها را از دست داده‌ای. بقیهٔ همه‌چیز برای محافظت از همین است."},
+        chapters:['selfevident','questionmarks','obvious'] },
+      { key:'behavior', varc:'--c-blue', name:{en:'How We Really Use the Web', fa:'ما واقعاً چطور از وب استفاده می‌کنیم'}, tag:{en:'Scan, satisfice, muddle', fa:'اسکن، بسنده، دست‌وپا'},
+        gist:{en:'We scan instead of reading, satisfice instead of optimizing, and muddle through.', fa:'به‌جای خواندن اسکن می‌کنیم، به‌جای بهترین‌گزینی بسنده می‌کنیم، و دست‌وپا می‌زنیم.'},
+        more:{en:"Design fails when it assumes a calm, careful reader. Real people are in a hurry, glance instead of read, grab the first thing that works, and never read the manual. Design for who they actually are.",
+              fa:"طراحی وقتی شکست می‌خورد که یک خوانندهٔ آرام و دقیق را فرض بگیرد. آدم‌های واقعی عجله دارند، به‌جای خواندن نگاهی می‌اندازند، اولین چیزی که کار می‌کند را برمی‌دارند، و هیچ‌وقت راهنما را نمی‌خوانند. برای همان کسی که واقعاً هستند طراحی کن."},
+        chapters:['scan','satisfice','muddle'] },
+      { key:'scanning', varc:'--c-amber', name:{en:'Design for Scanning', fa:'برای اسکن‌شدن طراحی کن'}, tag:{en:'Billboard, not essay', fa:'بیلبورد، نه مقاله'},
+        gist:{en:'Visual hierarchy, conventions, obvious clickables, and fewer words.', fa:'سلسله‌مراتبِ بصری، قراردادها، دکمه‌های واضح، و کلماتِ کمتر.'},
+        more:{en:"If people scan, give them something built to be scanned. A clear hierarchy, familiar patterns, unmistakable buttons, and half the words let a two-second glance find the right thing. Design pages like billboards, not essays.",
+              fa:"اگر مردم اسکن می‌کنند، چیزی به آن‌ها بده که برای اسکن‌شدن ساخته شده. یک سلسله‌مراتبِ روشن، الگوهای آشنا، دکمه‌های بی‌ابهام، و نصفِ کلمات کاری می‌کنند که یک نگاهِ دوثانیه‌ای چیزِ درست را پیدا کند. صفحه‌ها را مثلِ بیلبورد طراحی کن، نه مثلِ مقاله."},
+        chapters:['hierarchy','conventions','clickables','fewerwords'] },
+      { key:'navigation', varc:'--c-violet', name:{en:'Navigation & the Home Page', fa:'ناوبری و صفحهٔ اصلی'}, tag:{en:'Never leave them lost', fa:'نگذار گم شوند'},
+        gist:{en:'Persistent nav, a clear you are here, the trunk test, and a home page that orients.', fa:'ناوبریِ ثابت، «اینجایی»ِ روشن، آزمونِ صندوق‌عقب، و صفحهٔ اصلی‌ای که جهت می‌دهد.'},
+        more:{en:"Good navigation quietly answers where am I, what's here, and where can I go — on every page. The home page has the hardest job of all: say what this is and where to start, in seconds, for a total stranger.",
+              fa:"ناوبریِ خوب بی‌سروصدا به این جواب می‌دهد: کجام، اینجا چه هست، و کجا می‌توانم بروم — در هر صفحه. صفحهٔ اصلی سخت‌ترین کار را دارد: در چند ثانیه به یک غریبهٔ کامل بگوید این چیست و از کجا شروع کند."},
+        chapters:['persistentnav','trunktest','homepage'] },
+      { key:'testing', varc:'--c-green', name:{en:'Usability Testing', fa:'تستِ کاربردپذیری'}, tag:{en:'Early, often, cheap', fa:'زود، مکرر، ارزان'},
+        gist:{en:'Test early and often with a few users; fix the worst first; guard goodwill.', fa:'زود و مکرر با چند کاربر تست کن؛ اول بدترین‌ها را درست کن؛ مراقبِ خوش‌بینی باش.'},
+        more:{en:"You can't see your own site freshly anymore, so watch real people use it — cheaply, and often. A few users reveal the big problems; fix the most serious first. And treat usability as courtesy: protect goodwill and include everyone.",
+              fa:"دیگر نمی‌توانی سایتِ خودت را با چشمِ تازه ببینی، پس تماشا کن آدم‌های واقعی چطور از آن استفاده می‌کنند — ارزان، و مکرر. چند کاربر مشکل‌های بزرگ را رو می‌کنند؛ اول جدی‌ترین‌ها را درست کن. و کاربردپذیری را مثلِ ادب ببین: از خوش‌بینی محافظت کن و همه را در نظر بگیر."},
+        chapters:['testoften','threeusers','goodwill'] }
+    ],
+    chapters:{
+      selfevident:{ part:'law', n:1, name:{en:'Make It Self-Evident', fa:'خودگویا بسازش'}, glabel:{en:'Self-evident', fa:'خودگویا'},
+        principle:{en:"A page should explain itself at a glance; users shouldn't have to work out what it is or how to use it.", fa:"یک صفحه باید با یک نگاه خودش را توضیح بدهد؛ کاربر نباید مجبور شود بفهمد این چیست یا چطور کار می‌کند."},
+        more:{en:"When a page is self-evident, you look at it and just <i>get it</i> — what it is, where to start, what to click — with no effort. That effortless obviousness is the whole game; everything else in the book serves it.", fa:"وقتی یک صفحه خودگویا است، نگاهش می‌کنی و همان لحظه <i>می‌گیری‌اش</i> — که چیست، از کجا شروع کنی، کجا کلیک کنی — بدونِ هیچ زحمتی. همین واضح‌بودنِ بی‌زحمت، اصلِ ماجراست؛ بقیهٔ کتاب در خدمتِ همین است."},
+        example:{en:"A big search box with a button beside it needs no label or instructions — everyone knows what to do.", fa:"یک کادرِ جست‌وجوی بزرگ با یک دکمه کنارش، به هیچ برچسب و راهنمایی نیاز ندارد — همه می‌دانند باید چه کار کنند."},
+        tip:{en:"Show a draft to someone new and ask what this page is and what they would click; if they pause, it isn't self-evident yet.", fa:"یک پیش‌نویس را به یک آدمِ تازه نشان بده و بپرس این چه صفحه‌ای است و کجا را کلیک می‌کنی؛ اگر مکث کرد، هنوز خودگویا نیست."},
+        pitfall:{en:"Clever names, cute labels, and layouts that make people stop and decode them.", fa:"اسم‌های زیرکانه، برچسب‌های بامزه، و چیدمان‌هایی که آدم را وادار می‌کنند بایستد و رمزگشایی‌شان کند."} },
+      questionmarks:{ part:'law', n:2, name:{en:'Kill the Question Marks', fa:'علامت‌های سؤال را بکُش'}, glabel:{en:'Question marks', fa:'علامتِ سؤال'},
+        principle:{en:"Every little question a page makes you ask — where am I, can I click that — adds to your cognitive load.", fa:"هر سؤالِ کوچکی که یک صفحه در ذهنت می‌سازد — کجام، این را می‌شود کلیک کرد — به بارِ ذهنی‌ات اضافه می‌کند."},
+        more:{en:"Each question mark is a tiny tax on attention. One is harmless; a page full of them wears people down and makes the whole site feel like hard work. Your job is to remove them, one by one.", fa:"هر علامتِ سؤال یک مالیاتِ کوچک روی حواسِ آدم است. یکی‌اش بی‌ضرر است؛ اما یک صفحهٔ پُر از آن‌ها آدم را می‌ساید و کلِ سایت را شبیهِ یک کارِ سخت می‌کند. کارِ تو این است که یکی‌یکی برشان داری."},
+        example:{en:"An underlined word that isn't a link, or a heading you can't tell apart from a button, each plants a question mark.", fa:"یک کلمهٔ زیرخط‌دار که لینک نیست، یا عنوانی که از دکمه تشخیصش نمی‌دهی، هرکدام یک علامتِ سؤال می‌کارند."},
+        tip:{en:"Walk through a page and list every hmm it triggers; then redesign so each one is answered before it's asked.", fa:"یک صفحه را قدم‌به‌قدم برو و هر «اِاِ؟»ای که ایجاد می‌کند را یادداشت کن؛ بعد طوری بازطراحی کن که به هرکدام پیش از پرسیده‌شدن جواب داده شود."},
+        pitfall:{en:"Making people stop and think about things that have nothing to do with their actual task.", fa:"وادارکردنِ آدم به توقف و فکرکردن دربارهٔ چیزهایی که هیچ ربطی به کارِ اصلی‌اش ندارند."} },
+      obvious:{ part:'law', n:3, name:{en:'Obvious, or Self-Explanatory', fa:'واضح، یا لااقل خودتوضیح'}, glabel:{en:'Obvious', fa:'واضح'},
+        principle:{en:"Aim for obvious. When you can't make something obvious, at least make it self-explanatory — clear with barely a thought.", fa:"هدفت واضح‌بودن باشد. وقتی نمی‌توانی چیزی را واضح کنی، دستِ‌کم خودتوضیح‌اش کن — طوری که با کمترین فکر روشن شود."},
+        more:{en:"There's a ladder: self-evident needs no thought, self-explanatory needs a little, and requires-thought is where you lose people. Push everything up that ladder as far as it will go.", fa:"یک نردبان هست: خودگویا هیچ فکری نمی‌خواهد، خودتوضیح کمی می‌خواهد، و «نیاز به فکر» همان‌جایی است که آدم‌ها را از دست می‌دهی. همه‌چیز را تا جای ممکن روی این نردبان بالا ببر."},
+        example:{en:"A clearly labeled tab that looks like a tab is self-evident; a plain link that says exactly where it goes is self-explanatory.", fa:"یک زبانه با برچسبِ روشن که شبیهِ زبانه است، خودگویاست؛ یک لینکِ ساده که دقیقاً می‌گوید کجا می‌رود، خودتوضیح است."},
+        tip:{en:"For anything you can't make instantly obvious, add a few plain words that explain it right where it's needed.", fa:"برای هر چیزی که نمی‌توانی فوری واضحش کنی، همان‌جا که لازم است چند کلمهٔ ساده اضافه کن که توضیحش بدهد."},
+        pitfall:{en:"Settling for they'll figure it out — usually people won't, and they won't tell you.", fa:"رضایت‌دادن به اینکه «خودشان می‌فهمند» — معمولاً نمی‌فهمند، و به تو هم نمی‌گویند."} },
+      scan:{ part:'behavior', n:4, name:{en:"We Scan, We Don't Read", fa:'اسکن می‌کنیم، نمی‌خوانیم'}, glabel:{en:'We scan', fa:'اسکن می‌کنیم'},
+        principle:{en:"People don't read pages, they scan them — glancing for the words and links that match what they came to do.", fa:"مردم صفحه‌ها را نمی‌خوانند، اسکن می‌کنند — چشم می‌چرخانند دنبالِ کلمه‌ها و لینک‌هایی که به کارشان می‌خورد."},
+        more:{en:"We're usually in a hurry and we know we don't need most of what's on a page, so we sweep it for the first thing that looks relevant and click. Design has to survive that fast, jumpy glance.", fa:"معمولاً عجله داریم و می‌دانیم بیشترِ چیزهای یک صفحه به دردمان نمی‌خورد، پس چشم می‌گردانیم دنبالِ اولین چیزِ مرتبط و کلیک می‌کنیم. طراحی باید از پسِ همین نگاهِ سریع و پرش‌دار بربیاید."},
+        example:{en:"A visitor lands on a page, sweeps it for the word they want, and clicks the first promising link — never reading the intro.", fa:"یک بازدیدکننده وارد صفحه می‌شود، دنبالِ کلمه‌ای که می‌خواهد چشم می‌چرخاند، و اولین لینکِ امیدوارکننده را کلیک می‌کند — بی‌آنکه مقدمه را بخواند."},
+        tip:{en:"Assume a two-second glance; make sure the words people are hunting for jump out of it.", fa:"فرض کن فقط یک نگاهِ دوثانیه‌ای هست؛ مطمئن شو کلمه‌هایی که مردم دنبالشان‌اند از دلِ همان نگاه بیرون بزنند."},
+        pitfall:{en:"Writing careful paragraphs and assuming anyone will read them top to bottom.", fa:"نوشتنِ پاراگراف‌های دقیق و فرض‌کردنِ اینکه کسی آن‌ها را از اول تا آخر می‌خواند."} },
+      satisfice:{ part:'behavior', n:5, name:{en:"We Satisfice, We Don't Optimize", fa:'بسنده می‌کنیم، بهینه نمی‌کنیم'}, glabel:{en:'Satisfice', fa:'بسنده‌کردن'},
+        principle:{en:"People don't weigh every option for the best one — they pick the first reasonable choice. Krug calls it satisficing.", fa:"مردم همهٔ گزینه‌ها را برای پیداکردنِ بهترین نمی‌سنجند — اولین گزینهٔ معقول را برمی‌دارند. کروگ اسمش را می‌گذارد بسنده‌کردن."},
+        more:{en:"Optimizing is hard and the payoff is usually small, so we grab the first thing that seems like it'll work. If a so-so link is visible and roughly right, people click it — they don't scan the whole page first.", fa:"بهینه‌کردن سخت است و معمولاً سودِ کمی دارد، پس اولین چیزی که به‌نظر می‌رسد جواب می‌دهد را می‌قاپیم. اگر یک لینکِ متوسط جلوی چشم و کم‌وبیش درست باشد، مردم کلیکش می‌کنند — اول کلِ صفحه را نمی‌گردند."},
+        example:{en:"Faced with several links, a user clicks the first one that looks close enough, even if a better one sits lower down.", fa:"با چند لینکِ روبه‌رو، کاربر اولی را که به‌اندازهٔ کافی نزدیک به‌نظر می‌رسد کلیک می‌کند، حتی اگر گزینهٔ بهتری پایین‌تر باشد."},
+        tip:{en:"Don't count on people finding your best option; make every reasonable path lead somewhere good.", fa:"روی این حساب نکن که مردم بهترین گزینه‌ات را پیدا می‌کنند؛ کاری کن هر مسیرِ معقول به جای خوبی برسد."},
+        pitfall:{en:"Hiding the right answer and assuming users will keep looking until they find it.", fa:"پنهان‌کردنِ جوابِ درست و فرض‌کردنِ اینکه کاربر آن‌قدر می‌گردد تا پیدایش کند."} },
+      muddle:{ part:'behavior', n:6, name:{en:'We Muddle Through', fa:'دست‌وپا می‌زنیم'}, glabel:{en:'Muddle through', fa:'دست‌وپا زدن'},
+        principle:{en:"When something's confusing, people rarely stop to figure out how it truly works — they muddle through and invent their own story.", fa:"وقتی چیزی گیج‌کننده است، مردم به‌ندرت می‌ایستند تا بفهمند واقعاً چطور کار می‌کند — دست‌وپا می‌زنند و برای خودشان یک داستان می‌سازند."},
+        more:{en:"We use things in ways the designer never intended, and as long as it sort of works we keep doing it. It doesn't matter that we don't understand it — but muddling through is fragile, and it breaks the moment something changes.", fa:"ما چیزها را جوری استفاده می‌کنیم که طراح اصلاً در نظرش نبوده، و تا وقتی یک‌جورهایی کار کند، همان کار را ادامه می‌دهیم. مهم نیست که نمی‌فهمیمش — اما دست‌وپا زدن شکننده است، و همان لحظه که چیزی عوض شود می‌شکند."},
+        example:{en:"Someone uses a site for years by one habitual path, with no idea a faster, obvious feature exists.", fa:"یک نفر سال‌ها با یک مسیرِ عادتی از یک سایت استفاده می‌کند، بی‌آنکه بداند یک امکانِ سریع‌تر و واضح هم وجود دارد."},
+        tip:{en:"If people can succeed without understanding your model, help them — but never rely on them learning it.", fa:"اگر مردم می‌توانند بدونِ فهمیدنِ مدلِ ذهنیِ تو موفق شوند، کمکشان کن — اما هیچ‌وقت روی یادگرفتنش حساب نکن."},
+        pitfall:{en:"Assuming users read instructions or build an accurate mental model of your system.", fa:"فرض‌کردنِ اینکه کاربر راهنما را می‌خواند یا یک مدلِ ذهنیِ درست از سیستمِ تو می‌سازد."} },
+      hierarchy:{ part:'scanning', n:7, name:{en:'Build a Clear Visual Hierarchy', fa:'سلسله‌مراتبِ بصریِ روشن بساز'}, glabel:{en:'Hierarchy', fa:'سلسله‌مراتب'},
+        principle:{en:"Make the way a page looks match the way its content is organized — important things bigger and bolder, related things grouped.", fa:"کاری کن شکلِ ظاهریِ صفحه با نظمِ محتوایش بخواند — چیزهای مهم بزرگ‌تر و پررنگ‌تر، چیزهای مرتبط کنارِ هم."},
+        more:{en:"A good visual hierarchy pre-processes the page for the user, showing what's most important and how the pieces relate before they read a single word. It's the fastest way to make scanning work.", fa:"یک سلسله‌مراتبِ بصریِ خوب، صفحه را از پیش برای کاربر پردازش می‌کند و پیش از آنکه حتی یک کلمه بخواند، نشان می‌دهد چه چیزی مهم‌تر است و اجزا چه ربطی به هم دارند. این سریع‌ترین راه است تا اسکن جواب بدهد."},
+        example:{en:"A prominent headline, clear sub-sections, and indented items instantly show what's a group and what's a heading.", fa:"یک تیترِ برجسته، بخش‌های فرعیِ روشن، و آیتم‌های تورفته فوری نشان می‌دهند چه چیزی یک گروه است و چه چیزی یک عنوان."},
+        tip:{en:"Squint at your page until it blurs; the things that still stand out should be the most important ones.", fa:"چشم‌هایت را تنگ کن تا صفحه تار شود؛ چیزهایی که هنوز به چشم می‌آیند باید مهم‌ترین‌ها باشند."},
+        pitfall:{en:"Everything the same size and weight, so nothing signals what matters.", fa:"همه‌چیز هم‌اندازه و هم‌وزن، طوری که هیچ‌چیز نشان نمی‌دهد چه چیزی مهم است."} },
+      conventions:{ part:'scanning', n:8, name:{en:'Take Advantage of Conventions', fa:'از قراردادها استفاده کن'}, glabel:{en:'Conventions', fa:'قراردادها'},
+        principle:{en:"Lean on the patterns people already know — a logo top-left, a search box, underlined links. Conventions are your friend.", fa:"به الگوهایی که مردم از قبل بلدند تکیه کن — لوگو در بالا-چپ، کادرِ جست‌وجو، لینک‌های زیرخط‌دار. قراردادها دوستِ تو هستند."},
+        more:{en:"Every convention started as someone's bright idea that caught on; because people already know how it works, using it saves them thought. Innovate only where it truly adds value, and be conventional everywhere else.", fa:"هر قرارداد روزی ایدهٔ درخشانِ یک نفر بوده که جا افتاده؛ چون مردم از قبل می‌دانند چطور کار می‌کند، استفاده از آن فکرِ کمتری از آن‌ها می‌خواهد. فقط جایی نوآوری کن که واقعاً ارزش اضافه می‌کند، و همه‌جای دیگر معمولی و آشنا باش."},
+        example:{en:"Putting the site logo top-left and the shopping cart top-right — people find them without looking.", fa:"گذاشتنِ لوگوی سایت در بالا-چپ و سبدِ خرید در بالا-راست — مردم بی‌آنکه بگردند پیدایشان می‌کنند."},
+        tip:{en:"Before inventing a new pattern, ask whether a familiar one would do the job with zero learning.", fa:"پیش از اختراعِ یک الگوی جدید، بپرس آیا یک الگوی آشنا همان کار را بدونِ ذره‌ای یادگیری انجام نمی‌دهد."},
+        pitfall:{en:"Reinventing standard controls just to look original, forcing users to relearn the basics.", fa:"از نو ساختنِ کنترل‌های استاندارد فقط برای متفاوت‌به‌نظررسیدن، که کاربر را وادار می‌کند پایه‌ها را دوباره یاد بگیرد."} },
+      clickables:{ part:'scanning', n:9, name:{en:'Make Clickables Obvious', fa:'دکمه‌ها را واضح کن'}, glabel:{en:'Clickables', fa:'چیزهای کلیک‌شدنی'},
+        principle:{en:"Users should never spend a moment wondering whether something is clickable — make links and buttons look unmistakably clickable.", fa:"کاربر نباید حتی یک لحظه شک کند که چیزی کلیک‌شدنی هست یا نه — کاری کن لینک‌ها و دکمه‌ها بی‌هیچ ابهامی کلیک‌شدنی به‌نظر برسند."},
+        more:{en:"Krug's line is that you should never have to devote a millisecond of thought to whether things are clickable. Buttons should look like buttons, links should look like links, and nothing static should tease a click it can't deliver.", fa:"حرفِ کروگ این است که نباید حتی یک هزارمِ ثانیه فکر کنی که چیزی کلیک می‌شود یا نه. دکمه باید شبیهِ دکمه باشد، لینک شبیهِ لینک، و هیچ چیزِ بی‌حرکتی نباید وسوسهٔ کلیکی را بدهد که نمی‌تواند انجام دهد."},
+        example:{en:"A raised, colored button plainly invites a click; underlined colored text plainly signals a link.", fa:"یک دکمهٔ برجسته و رنگی آشکارا به کلیک دعوت می‌کند؛ متنِ رنگیِ زیرخط‌دار آشکارا می‌گوید لینک است."},
+        tip:{en:"Check that every interactive thing reads as clickable, and that nothing decorative pretends to be.", fa:"چک کن هر چیزِ تعاملی واقعاً کلیک‌شدنی به‌نظر برسد، و هیچ چیزِ تزئینی‌ای ادای کلیک‌شدنی درنیاورد."},
+        pitfall:{en:"Flat, mystery-meat elements where users can't tell a button from decoration.", fa:"عنصرهای تخت و مبهم که کاربر نمی‌تواند دکمه را از تزئین تشخیص بدهد."} },
+      fewerwords:{ part:'scanning', n:10, name:{en:'Omit Needless Words', fa:'کلماتِ اضافه را بردار'}, glabel:{en:'Fewer words', fa:'کلماتِ کمتر'},
+        principle:{en:"Get rid of half the words on each page, then get rid of half of what's left. Most of them weren't helping.", fa:"نصفِ کلمه‌های هر صفحه را بردار، بعد نصفِ آنچه مانده را هم بردار. بیشترشان کمکی نمی‌کردند."},
+        more:{en:"Cutting words lowers the noise, makes the useful content stand out, and shortens pages so more is visible at a glance. Happy talk and long instructions are the first things to go.", fa:"کم‌کردنِ کلمه‌ها سروصدا را پایین می‌آورد، محتوای مفید را برجسته می‌کند، و صفحه‌ها را کوتاه می‌کند تا با یک نگاه بیشترش دیده شود. خوش‌وبش‌های تشریفاتی و راهنماهای بلند، اولین چیزهایی‌اند که باید بروند."},
+        example:{en:"Replace a paragraph of welcoming preamble with one clear line that says what to do.", fa:"یک پاراگراف مقدمهٔ خوش‌آمدگویی را با یک خطِ روشن عوض کن که می‌گوید باید چه کرد."},
+        tip:{en:"Take any page and try to halve its word count without losing meaning; usually you can.", fa:"یک صفحه را بردار و سعی کن تعدادِ کلماتش را بدونِ ازدست‌دادنِ معنا نصف کنی؛ معمولاً می‌شود."},
+        pitfall:{en:"Filler, marketing fluff, and instructions nobody reads, burying the words that matter.", fa:"حرف‌های پُرکننده، شعارهای تبلیغاتیِ توخالی، و راهنماهایی که کسی نمی‌خواند، که کلماتِ مهم را زیرِ خود دفن می‌کنند."} },
+      persistentnav:{ part:'navigation', n:11, name:{en:'Persistent Navigation', fa:'ناوبریِ ثابت'}, glabel:{en:'Navigation', fa:'ناوبری'},
+        principle:{en:"Give every page the same persistent navigation — site ID, the main sections, and search — so people always see their options.", fa:"به هر صفحه همان ناوبریِ ثابت را بده — نشانِ سایت، بخش‌های اصلی، و جست‌وجو — تا مردم همیشه گزینه‌هایشان را ببینند."},
+        more:{en:"Consistent navigation on every page is like signage in a store: it says what's here, how to get around, and quietly reassures people the place is under control. Keep it in the same spot, page after page.", fa:"ناوبریِ یک‌دست در هر صفحه مثلِ تابلوهای راهنما در یک فروشگاه است: می‌گوید اینجا چه هست، چطور می‌شود چرخید، و بی‌سروصدا به مردم اطمینان می‌دهد که همه‌چیز رو‌به‌راه است. آن را صفحه‌به‌صفحه در همان جای ثابت نگه دار."},
+        example:{en:"A header with the logo, the same top-level sections, and a search box on every single page.", fa:"یک سربرگ با لوگو، همان بخش‌های سطحِ بالا، و یک کادرِ جست‌وجو در تک‌تکِ صفحه‌ها."},
+        tip:{en:"Make sure a user dropped onto any page can still see where they are and where else they can go.", fa:"مطمئن شو کاربری که وسطِ هر صفحه‌ای رها شود، هنوز می‌بیند کجاست و کجاهای دیگر می‌تواند برود."},
+        pitfall:{en:"Navigation that shifts around or vanishes on inner pages, leaving people stranded.", fa:"ناوبری‌ای که جابه‌جا می‌شود یا در صفحه‌های داخلی غیب می‌شود و مردم را سرگردان می‌گذارد."} },
+      trunktest:{ part:'navigation', n:12, name:{en:'You Are Here & the Trunk Test', fa:'«اینجایی» و آزمونِ صندوق‌عقب'}, glabel:{en:'Trunk test', fa:'آزمونِ صندوق‌عقب'},
+        principle:{en:"Every page must answer where am I — highlight the current spot, and pass the trunk test.", fa:"هر صفحه باید به این جواب بدهد که کجام — جای فعلی را برجسته کن، و از آزمونِ صندوق‌عقب رد شو."},
+        more:{en:"Imagine being blindfolded and popped open on a random page, like the trunk of a car: you should instantly find the site ID, the page name, the sections, where you are in them, and search. If you can't, the navigation is failing.", fa:"تصور کن چشم‌بسته وسطِ یک صفحهٔ تصادفی بازت کنند، مثلِ صندوق‌عقبِ ماشین: باید فوری نشانِ سایت، اسمِ صفحه، بخش‌ها، جای خودت در آن‌ها، و جست‌وجو را پیدا کنی. اگر نتوانی، ناوبری دارد شکست می‌خورد."},
+        example:{en:"A highlighted section tab and a clear page title tell you exactly where you've landed.", fa:"یک زبانهٔ بخشِ برجسته و یک عنوانِ صفحهٔ روشن دقیقاً می‌گویند کجا فرود آمده‌ای."},
+        tip:{en:"Open a random deep page cold and check you can name the site, the page, and your location in five seconds.", fa:"یک صفحهٔ عمیقِ تصادفی را ناگهانی باز کن و ببین می‌توانی در پنج ثانیه اسمِ سایت، صفحه، و جای خودت را بگویی."},
+        pitfall:{en:"Pages that never say where you are, so users lose track of where they've been.", fa:"صفحه‌هایی که هیچ‌وقت نمی‌گویند کجایی، طوری که کاربر ردِ اینکه کجاها بوده را گم می‌کند."} },
+      homepage:{ part:'navigation', n:13, name:{en:'The Humble Home Page', fa:'صفحهٔ اصلیِ فروتن'}, glabel:{en:'Home page', fa:'صفحهٔ اصلی'},
+        principle:{en:"The home page has hard jobs: show what the site is, what's here, and where to start — plus a tagline that says what you do.", fa:"صفحهٔ اصلی کارهای سختی دارد: نشان بدهد سایت چیست، اینجا چه هست، و از کجا شروع کنی — به‌علاوهٔ یک شعار که می‌گوید کارِ تو چیست."},
+        more:{en:"The home page carries the identity, the big picture, and the top of the hierarchy, all while competing with everyone's pet priorities. It has seconds to tell newcomers what this is and why they should care — a clear tagline does a lot of that work.", fa:"صفحهٔ اصلی هویت، تصویرِ کلی، و بالای سلسله‌مراتب را با خود حمل می‌کند، آن هم وسطِ چانه‌زنی بر سرِ اولویت‌های موردعلاقهٔ همه. فقط چند ثانیه وقت دارد تا به تازه‌واردها بگوید این چیست و چرا باید برایشان مهم باشد — یک شعارِ روشن بخشِ زیادی از این کار را انجام می‌دهد."},
+        example:{en:"A crisp tagline under the logo — a few words that capture what the site actually offers.", fa:"یک شعارِ کوتاه و تمیز زیرِ لوگو — چند کلمه که می‌گیرد سایت واقعاً چه چیزی ارائه می‌دهد."},
+        tip:{en:"Ask a first-time visitor what this is and what you can do here, using the home page alone.", fa:"از یک بازدیدکنندهٔ بارِ اول بپرس این چیست و اینجا چه کار می‌شود کرد، فقط با کمکِ خودِ صفحهٔ اصلی."},
+        pitfall:{en:"A cluttered home page that tries to please every department and ends up saying nothing clearly.", fa:"یک صفحهٔ اصلیِ شلوغ که می‌خواهد همهٔ بخش‌ها را راضی کند و آخرش هیچ‌چیز را روشن نمی‌گوید."} },
+      testoften:{ part:'testing', n:14, name:{en:'Test Early and Often', fa:'زود و مکرر تست کن'}, glabel:{en:'Test often', fa:'تستِ مکرر'},
+        principle:{en:"Do a little usability testing regularly, starting early. It needs no lab and no budget — a morning a month beats nothing.", fa:"مرتب و از همان اول، کمی تستِ کاربردپذیری انجام بده. نه آزمایشگاه می‌خواهد نه بودجه — یک صبح در ماه از هیچی بهتر است."},
+        more:{en:"Testing is the best cure for the fact that you can no longer see your own site freshly. A cheap, do-it-yourself test — one user, one morning — surfaces problems no amount of internal debate ever will. The trick is to make it easy enough that you keep doing it.", fa:"تست بهترین درمان برای این واقعیت است که دیگر نمی‌توانی سایتِ خودت را با چشمِ تازه ببینی. یک تستِ ارزان و خودمانی — یک کاربر، یک صبح — مشکل‌هایی را رو می‌کند که هیچ مقدار بحثِ داخلی رو نمی‌کند. رمزش این است که آن‌قدر ساده‌اش کنی که واقعاً ادامه‌اش بدهی."},
+        example:{en:"One tester, a quiet room, a few real tasks, and a couple of colleagues watching — that's a real usability test.", fa:"یک تست‌کننده، یک اتاقِ ساکت، چند کارِ واقعی، و یکی‌دو همکار که تماشا می‌کنند — همین یک تستِ کاربردپذیریِ واقعی است."},
+        tip:{en:"Book a recurring morning each month for testing, so it happens by default and not by heroics.", fa:"یک صبحِ ثابت در هر ماه را برای تست رزرو کن، تا خودبه‌خود اتفاق بیفتد نه با جان‌کندن."},
+        pitfall:{en:"Saving all testing for one big, expensive study at the end, when it's too late to fix much.", fa:"نگه‌داشتنِ همهٔ تست‌ها برای یک مطالعهٔ بزرگ و گران‌قیمت در آخرِ کار، وقتی دیگر برای درست‌کردنِ چیزی خیلی دیر شده."} },
+      threeusers:{ part:'testing', n:15, name:{en:'A Few Users Beat a Crowd', fa:'چند کاربر از یک جمعیت بهترند'}, glabel:{en:'Three users', fa:'سه کاربر'},
+        principle:{en:"You don't need a big sample. Testing three users and fixing the most serious problems beats testing dozens once.", fa:"به نمونهٔ بزرگ نیاز نداری. تستِ سه کاربر و درست‌کردنِ جدی‌ترین مشکل‌ها، از یک‌بار تست‌کردنِ ده‌ها نفر بهتر است."},
+        more:{en:"A handful of users reveals most of the important problems, because the same big issues trip almost everyone. Then fix the most serious first — and resist the urge to add things; usually the fix is taking something away.", fa:"یک مشتِ کوچک از کاربرها بیشترِ مشکل‌های مهم را رو می‌کنند، چون همان مشکل‌های بزرگ تقریباً همه را زمین می‌زنند. بعد اول جدی‌ترین‌ها را درست کن — و جلوی وسوسهٔ اضافه‌کردن را بگیر؛ معمولاً راهِ‌حل برداشتنِ یک چیز است، نه افزودن."},
+        example:{en:"Three testers all stumble on the same confusing label — that's your top thing to fix, found in one morning.", fa:"هر سه تست‌کننده روی همان برچسبِ گیج‌کننده گیر می‌کنند — همان مهم‌ترین چیزی است که باید درست کنی، پیداشده در یک صبح."},
+        tip:{en:"After each round, pick the one or two worst problems and fix only those before testing again.", fa:"بعد از هر دور، یکی‌دو تا از بدترین مشکل‌ها را انتخاب کن و پیش از تستِ بعدی فقط همان‌ها را درست کن."},
+        pitfall:{en:"Chasing statistical significance, or fixing trivial issues while the serious ones survive.", fa:"دنبالِ معناداریِ آماری دویدن، یا وصلهٔ مشکل‌های بی‌اهمیت درحالی‌که جدی‌ها سرِ جایشان می‌مانند."} },
+      goodwill:{ part:'testing', n:16, name:{en:'Goodwill & Accessibility', fa:'خوش‌بینی و دسترس‌پذیری'}, glabel:{en:'Goodwill', fa:'خوش‌بینی'},
+        principle:{en:"Every visitor arrives with a reservoir of goodwill; confusion drains it and small courtesies refill it. Accessibility is part of that.", fa:"هر بازدیدکننده با یک مخزنِ خوش‌بینی می‌آید؛ سردرگمی خالی‌اش می‌کند و ادب‌های کوچک دوباره پُرش می‌کنند. دسترس‌پذیری هم بخشی از همین است."},
+        more:{en:"People forgive a lot if you don't waste their time, hide things, or make them feel dumb. Making the site work for people with disabilities isn't just decent — it usually makes it clearer for everyone and deepens that goodwill.", fa:"مردم خیلی چیزها را می‌بخشند اگر وقتشان را تلف نکنی، چیزی را پنهان نکنی، و حسِ احمق‌بودن به آن‌ها ندهی. کاری‌کردن که سایت برای آدم‌های دارای معلولیت هم کار کند فقط کارِ درستی نیست — معمولاً سایت را برای همه روشن‌تر می‌کند و آن خوش‌بینی را عمیق‌تر."},
+        example:{en:"Clear labels, real answers to common questions, and pages that work with a screen reader all top up the reservoir.", fa:"برچسب‌های روشن، جوابِ واقعی به سؤال‌های رایج، و صفحه‌هایی که با نرم‌افزارِ صفحه‌خوان کار می‌کنند، همه مخزن را پُرتر می‌کنند."},
+        tip:{en:"Hunt for the things that annoy or exclude people, and fix them; each one refills the goodwill tank.", fa:"دنبالِ چیزهایی بگرد که مردم را کلافه یا کنار می‌گذارند، و درستشان کن؛ هرکدام مخزنِ خوش‌بینی را دوباره پُر می‌کند."},
+        pitfall:{en:"Small discourtesies and inaccessible pages that quietly drain goodwill until users give up.", fa:"بی‌ادبی‌های کوچک و صفحه‌های دسترس‌ناپذیر که بی‌سروصدا خوش‌بینی را می‌خشکانند تا کاربر بی‌خیال شود."} }
+    },
+    core:{ name:{en:"DON'T MAKE ME THINK", fa:'وادارم نکن فکر کنم'},
+      principle:{en:"A web page should be self-evident — obvious at a glance, so using it takes no thought. Every question mark it raises adds to your cognitive load, so good usability is really the craft of removing question marks.", fa:"یک صفحهٔ وب باید خودگویا باشد — با یک نگاه واضح، طوری که استفاده از آن هیچ فکری نبرد. هر علامتِ سؤالی که می‌سازد به بارِ ذهنی‌ات اضافه می‌کند، پس کاربردپذیریِ خوب در واقع هنرِ برداشتنِ علامت‌های سؤال است."},
+      more:{en:"Krug organizes it into a few common-sense moves: one law (don't make me think), the truth about how people actually use the web (they scan, satisfice, and muddle through), designing for scanning (hierarchy, conventions, obvious clickables, fewer words), effortless navigation and home pages, and cheap, frequent usability testing. The thread through all of it: reduce the thinking you ask of people.", fa:"کروگ آن را در چند حرکتِ عقلِ‌سلیمی می‌چیند: یک قانون (وادارم نکن فکر کنم)، حقیقتِ اینکه مردم واقعاً چطور از وب استفاده می‌کنند (اسکن می‌کنند، بسنده می‌کنند، و دست‌وپا می‌زنند)، طراحی برای اسکن (سلسله‌مراتب، قراردادها، دکمه‌های واضح، کلماتِ کمتر)، ناوبری و صفحه‌های اصلیِ بی‌دردسر، و تستِ کاربردپذیریِ ارزان و مکرر. نخِ رابطِ همه‌شان: مقدارِ فکری که از مردم می‌خواهی را کم کن."},
+      example:{en:"Click any node to read a rule; you can also drag the nodes around.", fa:"روی هر دایره کلیک کن تا یک قانون را بخوانی؛ دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."} },
+    stages:[
+      { level:1, badge:{en:'Level 1 · Over-simplified', fa:'سطحِ ۱ · خیلی ساده'}, title:{en:"Don't make me think", fa:'وادارم نکن فکر کنم'}, tagline:{en:'The whole book in four words.', fa:'کلِ کتاب در چهار کلمه.'},
+        body:{en:"If using your site ever feels like work, that's a bug. Make each page obvious enough that people never have to stop and puzzle over what to do.", fa:"اگر استفاده از سایتت هروقت شبیهِ یک کارِ سخت حس شد، این یک ایراد است. هر صفحه را آن‌قدر واضح کن که مردم هیچ‌وقت مجبور نشوند بایستند و سرِ اینکه چه کار کنند کلنجار بروند."},
+        example:{en:"You look at a page and instantly know what it is and where to click — no thinking required.", fa:"به یک صفحه نگاه می‌کنی و همان لحظه می‌فهمی چیست و کجا را کلیک کنی — بدونِ ذره‌ای فکر."},
+        gain:{en:"You hold the one rule the whole book expands on.", fa:"همان یک قانونی را داری که کلِ کتاب بسطش می‌دهد."} },
+      { level:2, badge:{en:'Level 2 · Simple', fa:'سطحِ ۲ · ساده'}, title:{en:"People scan, they don't read", fa:'مردم اسکن می‌کنند، نمی‌خوانند'}, tagline:{en:'Design for how people behave.', fa:'برای رفتارِ واقعیِ مردم طراحی کن.'},
+        body:{en:"Real users <b>scan</b> for what they want, grab the first okay option (<b>satisfice</b>), and <b>muddle through</b> without reading. Design for that hurried, glancing person — not a patient reader.", fa:"کاربرِ واقعی دنبالِ چیزی که می‌خواهد <b>اسکن</b> می‌کند، اولین گزینهٔ خوب را برمی‌دارد (<b>بسنده</b> می‌کند)، و بی‌آنکه بخواند <b>دست‌وپا می‌زند</b>. برای همان آدمِ عجول و نگاه‌اندازی طراحی کن — نه یک خوانندهٔ صبور."},
+        example:{en:"Someone sweeps the page, clicks the first link that looks close enough, and never reads your intro.", fa:"یک نفر صفحه را با نگاه جارو می‌کند، اولین لینکی که به‌اندازهٔ کافی نزدیک است را کلیک می‌کند، و اصلاً مقدمه‌ات را نمی‌خواند."},
+        gain:{en:"You can predict how people will really move through a page.", fa:"می‌توانی حدس بزنی مردم واقعاً چطور در یک صفحه حرکت می‌کنند."} },
+      { level:3, badge:{en:'Level 3 · Balanced', fa:'سطحِ ۳ · متعادل'}, title:{en:'Design for the glance', fa:'برای یک نگاه طراحی کن'}, tagline:{en:'Hierarchy, conventions, clickables, fewer words.', fa:'سلسله‌مراتب، قراردادها، دکمه‌ها، کلماتِ کمتر.'},
+        body:{en:"Make scanning work: a clear <b>visual hierarchy</b>, familiar <b>conventions</b>, obviously <b>clickable</b> things, and far fewer words. Get rid of half the words on a page, then half of what's left.", fa:"کاری کن اسکن جواب بدهد: یک <b>سلسله‌مراتبِ بصریِ</b> روشن، <b>قراردادهای</b> آشنا، چیزهای آشکارا <b>کلیک‌شدنی</b>، و کلماتِ خیلی کمتر. نصفِ کلمه‌های یک صفحه را بردار، بعد نصفِ آنچه مانده را."},
+        example:{en:"You squint at a page and the most important things still stand out; the buttons obviously look like buttons.", fa:"چشمت را که تنگ کنی، باز هم مهم‌ترین چیزها به چشم می‌آیند؛ و دکمه‌ها آشکارا شبیهِ دکمه‌اند."},
+        gain:{en:"You can build a page a hurried user reads at a glance.", fa:"می‌توانی صفحه‌ای بسازی که کاربرِ عجول با یک نگاه می‌خواندش."} },
+      { level:4, badge:{en:'Level 4 · Advanced', fa:'سطحِ ۴ · پیشرفته'}, title:{en:'Never make them lost', fa:'نگذار گم شوند'}, tagline:{en:'Navigation and a home page that orient.', fa:'ناوبری و صفحهٔ اصلی‌ای که جهت می‌دهند.'},
+        body:{en:"Nail <b>navigation</b> and the <b>home page</b>. Keep navigation persistent, mark a clear <b>you are here</b>, pass the <b>trunk test</b>, and make the home page instantly say what this is and where to start.", fa:"<b>ناوبری</b> و <b>صفحهٔ اصلی</b> را بی‌نقص کن. ناوبری را ثابت نگه دار، یک <b>«اینجایی»</b>ِ روشن بگذار، از <b>آزمونِ صندوق‌عقب</b> رد شو، و کاری کن صفحهٔ اصلی همان لحظه بگوید این چیست و از کجا باید شروع کرد."},
+        example:{en:"Dropped on any deep page, a user can still name the site, see where they are, and find where to go next.", fa:"کاربر روی هر صفحهٔ عمیقی که بیفتد، باز هم می‌تواند اسمِ سایت را بگوید، ببیند کجاست، و پیدا کند بعد کجا برود."},
+        gain:{en:"You can keep people oriented anywhere in the site.", fa:"می‌توانی مردم را در هر جای سایت سرِ جهت نگه داری."} },
+      { level:5, badge:{en:'Level 5 · Expert', fa:'سطحِ ۵ · حرفه‌ای'}, title:{en:'Test, and be kind', fa:'تست کن، و مهربان باش'}, tagline:{en:'Cheap testing, worst-first fixes, and goodwill.', fa:'تستِ ارزان، اول‌بدترین‌ها، و خوش‌بینی.'},
+        body:{en:"The expert <b>tests</b> early, often, and cheaply with a few users, then <b>fixes the most serious problems first</b>. And they treat usability as courtesy: protect each visitor's <b>goodwill</b> and make the site work for everyone, including with a screen reader. It's common sense — but not the kind that comes naturally.", fa:"آدمِ حرفه‌ای زود، مکرر و ارزان با چند کاربر <b>تست می‌کند</b>، بعد <b>اول جدی‌ترین مشکل‌ها را درست می‌کند</b>. و کاربردپذیری را مثلِ ادب می‌بیند: از <b>خوش‌بینیِ</b> هر بازدیدکننده محافظت می‌کند و کاری می‌کند سایت برای همه کار کند، از جمله با صفحه‌خوان. این عقلِ سلیم است — اما نه از آن نوعی که خودبه‌خود بیاید."},
+        example:{en:"You run a test every month, fix the top problem each time, and quietly make the site kinder to everyone.", fa:"هر ماه یک تست می‌گیری، هر بار مهم‌ترین مشکل را درست می‌کنی، و بی‌سروصدا سایت را برای همه مهربان‌تر می‌کنی."},
+        gain:{en:"You can make a site clear and welcoming, and teach others to do the same.", fa:"می‌توانی یک سایت را روشن و پذیرا کنی، و همین را به دیگران یاد بدهی."} }
+    ],
+    quotes:[
+      {en:"It means that as far as is humanly possible, when I look at a Web page it should be self-evident. Obvious. Self-explanatory.", fa:"یعنی تا جایی که برای یک انسان ممکن است، وقتی به یک صفحهٔ وب نگاه می‌کنم باید خودش خودش را توضیح بدهد. واضح. بی‌نیاز از توضیح."},
+      {en:"Every question mark adds to our cognitive workload, distracting our attention from the task at hand.", fa:"هر علامتِ سؤال به بارِ ذهنیِ ما اضافه می‌کند و حواسمان را از کاری که داریم می‌کنیم پرت می‌کند."},
+      {en:"We don't read pages. We scan them.", fa:"ما صفحه‌ها را نمی‌خوانیم. فقط اسکنشان می‌کنیم."},
+      {en:"Most of the time we don't choose the best option—we choose the first reasonable option, a strategy known as satisficing.", fa:"بیشترِ وقت‌ها بهترین گزینه را انتخاب نمی‌کنیم — اولین گزینهٔ به‌دردبخور را برمی‌داریم؛ به این کار می‌گویند بسنده‌کردن."},
+      {en:"The main thing you need to know about instructions is that no one is going to read them—at least not until after repeated attempts at “muddling through” have failed.", fa:"مهم‌ترین چیزی که باید دربارهٔ راهنماها بدانی این است که هیچ‌کس آن‌ها را نمی‌خواند — دستِ‌کم تا وقتی چند بار تلاش برای «دست‌وپا زدن» به نتیجه نرسد."},
+      {en:"It doesn't matter how many times I have to click, as long as each click is a mindless, unambiguous choice.", fa:"مهم نیست چند بار باید کلیک کنم، تا وقتی هر کلیک یک انتخابِ بی‌فکر و بی‌ابهام باشد."},
+      {en:"Get rid of half the words on each page, then get rid of half of what's left.", fa:"نصفِ کلمه‌های هر صفحه را بردار، بعد نصفِ آنچه مانده را هم بردار."},
+      {en:"Every time we enter a Web site, we start out with a reservoir of goodwill. Each problem we encounter on the site lowers the level of that reservoir.", fa:"هر بار که وارد یک سایت می‌شویم، با یک مخزنِ پُر از خوش‌بینی شروع می‌کنیم. هر مشکلی که در سایت می‌بینیم، سطحِ آن مخزن را پایین می‌آورد."},
+      {en:"If you want a great site, you've got to test. After you've worked on a site for even a few weeks, you can't see it freshly anymore.", fa:"اگر سایتِ عالی می‌خواهی، باید تست کنی. بعد از اینکه حتی چند هفته روی یک سایت کار کردی، دیگر نمی‌توانی آن را با چشمِ تازه ببینی."}
+    ],
+    media:[
+      { kind:'yt', id:'1UCDUOB_aS8', src:{en:'YouTube · Steve Krug', fa:'یوتیوب · Steve Krug'},
+        title:{en:'Usability Test Demo by Steve Krug', fa:'نمونهٔ تستِ کاربردپذیری با استیو کروگ'},
+        desc:{en:'Krug runs a real, simple usability test — exactly the kind the book recommends.', fa:'کروگ یک تستِ کاربردپذیریِ واقعی و ساده را اجرا می‌کند — دقیقاً همان چیزی که کتاب توصیه می‌کند.'},
+        bullets:{en:["What a do-it-yourself test looks like","How to watch without leading","Spotting the real problems"], fa:["یک تستِ خودمانی چه شکلی است","چطور بدونِ جهت‌دادن تماشا کنی","دیدنِ مشکل‌های واقعی"]},
+        best:{en:'Best for Stage 5.', fa:'خوب برای مرحلهٔ ۵.'} },
+      { kind:'yt', id:'vt_v-RwhUgg', src:{en:'YouTube · BostonCHI', fa:'یوتیوب · BostonCHI'},
+        title:{en:'Rocket Surgery Made Easy — Steve Krug talk', fa:'جراحیِ فضایی آسان است — سخنرانیِ استیو کروگ'},
+        desc:{en:"Krug's talk on finding and fixing usability problems with cheap, do-it-yourself testing.", fa:'سخنرانیِ کروگ دربارهٔ پیداکردن و درست‌کردنِ مشکل‌های کاربردپذیری با تستِ ارزان و خودمانی.'},
+        bullets:{en:["Why a few users are enough","Fix the most serious first","Make testing a habit"], fa:["چرا چند کاربر کافی‌اند","اول جدی‌ترین‌ها را درست کن","تست را به عادت تبدیل کن"]},
+        best:{en:'Best for Stage 4–5.', fa:'خوب برای مرحلهٔ ۴ و ۵.'} },
+      { kind:'yt', id:'paKsJ7vArgM', src:{en:'YouTube · Understand to Enlighten', fa:'یوتیوب · Understand to Enlighten'},
+        title:{en:"Don't Make Me Think — Audio Summary", fa:'وادارم نکن فکر کنم — خلاصهٔ صوتی'},
+        desc:{en:"A spoken walk-through of the book's core ideas.", fa:'یک مرورِ گفتاری از ایده‌های اصلیِ کتاب.'},
+        bullets:{en:["The big ideas, start to finish","A gentle first overview","Good before you read"], fa:["ایده‌های بزرگ، از اول تا آخر","یک مرورِ آرام و اولیه","خوب پیش از خواندنِ کتاب"]},
+        best:{en:'Best for Stage 1–2.', fa:'خوب برای مرحلهٔ ۱ و ۲.'} },
+      { kind:'img', url:'https://www.peachpit.com/store/dont-make-me-think-revisited-a-common-sense-approach-9780321965516',
+        src:{en:'Peachpit · Publisher', fa:'Peachpit · ناشر'},
+        title:{en:"Don't Make Me Think — Publisher Page", fa:'وادارم نکن فکر کنم — صفحهٔ ناشر'},
+        desc:{en:'The publisher page for the 3rd (Revisited) edition, with details and contents.', fa:'صفحهٔ ناشر برای ویرایشِ سوم (بازنگری‌شده)، با جزئیات و فهرست.'},
+        bullets:{en:["The definitive edition","Table of contents","Straight from the source"], fa:["ویرایشِ معتبر","فهرستِ مطالب","مستقیم از خودِ منبع"]},
+        best:{en:'For the source and editions.', fa:'برای منبع و ویرایش‌ها.'} }
+    ],
+    go:[
+      {label:{en:'Publisher page', fa:'صفحهٔ ناشر'}, url:'https://www.peachpit.com/store/dont-make-me-think-revisited-a-common-sense-approach-9780321965516'},
+      {label:{en:'Book on Goodreads', fa:'کتاب در گودریدز'}, url:'https://www.goodreads.com/book/show/18197267-don-t-make-me-think-revisited'},
+      {label:{en:"Steve Krug's site: Don't Make Me Think", fa:'سایتِ استیو کروگ: وادارم نکن فکر کنم'}, url:'https://sensible.com/dont-make-me-think/'}
+    ],
+    recs:[
+      { pri:'b', t:{en:'Kill your question marks', fa:'علامت‌های سؤالت را بکُش'}, d:{en:"Take one key page and list every hmm it triggers, then remove them one by one.", fa:'یک صفحهٔ مهم را بردار و هر «اِاِ؟»ای که می‌سازد را فهرست کن، بعد یکی‌یکی برشان دار.'} },
+      { pri:'b', t:{en:'Run one cheap test this month', fa:'این ماه یک تستِ ارزان بگیر'}, d:{en:'Grab one person, give them three real tasks, and just watch where they get stuck.', fa:'یک نفر را بگیر، سه کارِ واقعی به او بده، و فقط تماشا کن کجا گیر می‌کند.'} },
+      { pri:'n', t:{en:'Cut the words in half', fa:'کلمه‌ها را نصف کن'}, d:{en:"Take a page and delete half the words, then half again; keep only what helps.", fa:'یک صفحه را بردار و نصفِ کلمه‌ها را حذف کن، بعد باز نصف؛ فقط آنچه کمک می‌کند را نگه دار.'} },
+      { pri:'n', t:{en:'Check your clickables', fa:'دکمه‌هایت را چک کن'}, d:{en:"Make sure every button looks clickable and nothing static pretends to be.", fa:'مطمئن شو هر دکمه کلیک‌شدنی به‌نظر می‌رسد و هیچ چیزِ بی‌حرکتی ادایش را درنمی‌آورد.'} }
+    ]
+  }
+};

@@ -1,0 +1,264 @@
+/* config: Founding Sales — Pete Kazanjy (Sales & Marketing) */
+module.exports = {
+  slug:"foundingsales", brand:"Founding Sales",
+  titleTag:"Founding Sales — نقشهٔ دانش و یادگیری ۵ مرحله‌ای",
+  W:980, H:780, R1:220, R2:126, span:66,
+  leafKickEn:"Move", leafKickFa:"حرکتِ",
+  flowEn:["Learn","Sell","Scale"], flowFa:["یاد بگیر","بفروش","بزرگ کن"],
+
+  hero:`  <div class="eyebrow"><span class="edot"></span>
+    <span data-only="en">Book knowledge map · Pete Kazanjy</span>
+    <span data-only="fa">نقشهٔ کتاب · پیت کازانجی</span>
+  </div>
+  <h1>
+    <span data-only="en">Founding Sales — The Early-Stage Go-to-Market Handbook</span>
+    <span data-only="fa">فروشِ بنیان‌گذار — راهنمای فروش و ورود به بازار برای استارتاپِ نوپا</span>
+  </h1>
+  <p class="dek">
+    <span data-only="en">A knowledge graph of the whole book, plus a 5-stage path from a single sentence to expert-level mastery — with an example at every step.</span>
+    <span data-only="fa">نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از یک جملهٔ ساده تا تسلطِ حرفه‌ای — با یک مثال در هر قدم.</span>
+  </p>
+  <div class="metastrip">
+    <div class="metaitem"><span class="mk" data-only="en">Book</span><span class="mk" data-only="fa">کتاب</span>
+      <span class="mv" data-only="en">Founding Sales</span><span class="mv" data-only="fa">فروشِ بنیان‌گذار</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Author</span><span class="mk" data-only="fa">نویسنده</span>
+      <span class="mv" data-only="en">Pete Kazanjy</span><span class="mv" data-only="fa">پیت کازانجی</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Published</span><span class="mk" data-only="fa">سالِ چاپ</span>
+      <span class="mv" data-only="en">2020</span><span class="mv" data-only="fa">۲۰۲۰</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Group</span><span class="mk" data-only="fa">گروه</span>
+      <span class="mv" data-only="en">Sales &amp; Marketing</span><span class="mv" data-only="fa">فروش و بازاریابی</span></div>
+  </div>
+  <div class="chips">
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Parts</span><span data-only="fa">بخش</span></div>
+    <div class="chip"><b data-only="en">16</b><b data-only="fa">۱۶</b><span data-only="en">Moves</span><span data-only="fa">حرکت</span></div>
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Learning stages</span><span data-only="fa">مرحلهٔ یادگیری</span></div>
+  </div>`,
+
+  callout:`    <b data-only="en">The core idea:</b>
+    <b data-only="fa">ایدهٔ اصلی:</b>
+    <span data-only="en"> The technical founder has to learn to <i>sell first</i> — personally closing the early customers — before hiring any salespeople. Early selling is <i>evangelical product work</i>: helping real people fix a real pain. Learn discovery, build a repeatable process, close deals, and only then scale a team.</span>
+    <span data-only="fa"> بنیان‌گذارِ فنی باید <i>اول خودش یادِ فروش بگیرد</i> — و شخصاً مشتری‌های اول را ببندد — پیش از اینکه هیچ فروشنده‌ای استخدام کند. فروشِ اولِ کار <i>همان کارِ محصول است با شور و شوق</i>: کمک به آدم‌های واقعی برای حلِ یک دردِ واقعی. کشفِ نیاز را یاد بگیر، یک فرایندِ تکرارشدنی بساز، معامله‌ها را ببند، و تازه بعدش تیم را بزرگ کن.</span>`,
+
+  kpis:`    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Parts (mindset · discovery · process · closing · team)</div><div class="l" data-only="fa">بخش (ذهنیت · کشفِ نیاز · فرایند · بستن · تیم)</div></div>
+    <div class="kbox"><div class="v" data-only="en">16</div><div class="v" data-only="fa">۱۶</div><div class="l" data-only="en">Moves you can use</div><div class="l" data-only="fa">حرکت برای استفاده</div></div>
+    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Levels, simple → expert</div><div class="l" data-only="fa">مرحله، ساده تا حرفه‌ای</div></div>
+    <div class="kbox"><div class="v" data-only="en">3</div><div class="v" data-only="fa">۳</div><div class="l" data-only="en">Core beats: learn · sell · scale</div><div class="l" data-only="fa">حرکتِ اصلی: یاد بگیر · بفروش · بزرگ کن</div></div>`,
+
+  mapcallout:`      <b data-only="en">Read it as a flow:</b><b data-only="fa">به‌صورتِ یک جریان بخوانش:</b>
+      <span data-only="en"> get the <b>founder-seller mindset</b> (selling is helping), learn to sell through <b>discovery and qualification</b>, build a <b>repeatable process and pipeline</b>, <b>close and negotiate</b> deals, and only then <b>build and scale the team</b>.</span>
+      <span data-only="fa"> <b>ذهنیتِ بنیان‌گذارِ فروشنده</b> را بگیر (فروش یعنی کمک)، با <b>کشفِ نیاز و محک‌زدن</b> یادِ فروش بگیر، یک <b>فرایند و پایپ‌لاینِ تکرارشدنی</b> بساز، معامله‌ها را <b>ببند و چانه بزن</b>، و تازه بعدش <b>تیم را بساز و بزرگ کن</b>.</span>`,
+
+  methodFa:"<p><b>منبع:</b> کتابِ «Founding Sales» (فروشِ بنیان‌گذار) نوشتهٔ پیت کازانجی، چاپِ ۲۰۲۰ — که متنِ کاملش رایگان روی foundingsales.com هست.</p><p><b>روشِ کار:</b> ساختارِ پنج‌بخشی و حرکت‌ها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده؛ نقل‌قول‌ها با متنِ کتاب مقابله و ویدیوها بررسی شده‌اند.</p><p><b>پنج مرحله:</b> بر اساسِ یک نردبانِ سادگی از ۱ تا ۵ چیده شده — یک محتوا در پنج عمقِ مختلف، از خیلی ساده تا حرفه‌ای.</p><p><b>گروه:</b> «فروش و بازاریابی».</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای متنِ کامل، خودِ کتاب را بخوان.</p>",
+  methodEn:"<p><b>Source:</b> the book <i>Founding Sales: The Early-Stage Go-to-Market Handbook</i> by Pete Kazanjy, first published 2020 — the full text is free to read at foundingsales.com.</p><p><b>How this was built:</b> the five-part structure and moves were gathered and rewritten from the book and reputable sources; quotes were cross-checked against the book and the linked videos verified.</p><p><b>Five stages:</b> arranged on a simplicity ladder from 1 to 5 — one set of ideas at five depths, from over-simplified to expert.</p><p><b>Group:</b> Sales &amp; Marketing.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>",
+
+  data:{
+    tldr:[
+      {en:"The whole book in one line: the technical founder has to learn to sell — and do it personally — before hiring any salespeople.",
+       fa:"خلاصهٔ کل کتاب در یک جمله: بنیان‌گذارِ فنی باید یادِ فروش بگیرد — و خودش انجامش بدهد — پیش از اینکه هیچ فروشنده‌ای استخدام کند."},
+      {en:"Reframe the job: selling is <b>helping</b> — being the grease of the market, not tricking a 'mark' — and it's a learnable skill.",
+       fa:"کار را دوباره تعریف کن: فروش یعنی <b>کمک‌کردن</b> — یعنی روغن‌کاریِ بازار، نه گول‌زدنِ طرف — و یک مهارتِ یادگرفتنی است."},
+      {en:"Learn to sell through <b>discovery and qualification</b>: know your ideal customer, prospect on purpose, dig into the pain, and qualify hard.",
+       fa:"با <b>کشفِ نیاز و محک‌زدن</b> یادِ فروش بگیر: مشتریِ ایده‌آلت را بشناس، عمداً پیدایشان کن، توی درد بکَن، و سفت‌وسخت محک بزن."},
+      {en:"Turn wins into a <b>repeatable process</b> with clear stages, a clean pipeline, and metrics you can forecast from.",
+       fa:"بردها را به یک <b>فرایندِ تکرارشدنی</b> تبدیل کن، با مرحله‌های روشن، پایپ‌لاینِ تمیز، و شاخص‌هایی که می‌شود ازشان پیش‌بینی کرد."},
+      {en:"Close by handling <b>objections</b>, asking for the sale, and negotiating — then <b>scale a team</b> only after the motion is proven.",
+       fa:"با جواب‌دادن به <b>ایرادها</b>، درخواستِ فروش، و چانه‌زنی ببند — و <b>تیم را</b> فقط بعد از اینکه روش اثبات شد بزرگ کن."}
+    ],
+    parts:[
+      { key:'mindset', varc:'--c-teal', name:{en:'The Founder-Seller Mindset', fa:'ذهنیتِ بنیان‌گذارِ فروشنده'}, tag:{en:'Start here', fa:'از این‌جا شروع کن'},
+        gist:{en:'Selling is helping, not sleaze — and at the start, the founder has to do it.', fa:'فروختن یعنی کمک‌کردن، نه حقه‌بازی — و اولِ کار، خودِ بنیان‌گذار باید این کار را بکند.'},
+        more:{en:"Most technical founders dread sales because they picture a pushy huckster. Drop that image. Early selling is really evangelical product work — and nobody understands the product or the customer's pain better than you do yet.",
+              fa:"بیشترِ بنیان‌گذارهای فنی از فروش می‌ترسند، چون یک آدمِ سمج و حقه‌باز جلوی چشمشان می‌آید. آن تصویر را دور بریز. فروشِ اولِ کار در واقع همان کارِ محصول است با شور و شوق — و هنوز هیچ‌کس محصول و دردِ مشتری را بهتر از تو نمی‌فهمد."},
+        chapters:['helping','sellfirst','learnable'] },
+      { key:'discovery', varc:'--c-blue', name:{en:'Discovery & Qualification', fa:'کشفِ نیاز و محک‌زدن'}, tag:{en:'Learn to sell', fa:'یادِ فروش بگیر'},
+        gist:{en:'Talk to the right prospects, dig into their pain, and qualify hard before you invest time.', fa:'با آدم‌های درست حرف بزن، توی دردشان بکَن، و پیش از اینکه وقت بگذاری خوب محکشان بزن.'},
+        more:{en:"Selling well starts long before the pitch. You define who actually has the pain, go find them on purpose, ask enough questions to understand the problem, and rule out the ones who'll never buy — so your energy goes where deals really live.",
+              fa:"فروشِ خوب خیلی پیش از ارائه شروع می‌شود. مشخص می‌کنی واقعاً کی این درد را دارد، عمداً می‌روی پیدایشان می‌کنی، آن‌قدر سؤال می‌پرسی تا مشکل را بفهمی، و آن‌هایی را که هیچ‌وقت نمی‌خرند کنار می‌گذاری — تا انرژی‌ات برود همان‌جا که معامله واقعاً هست."},
+        chapters:['icp','prospect','qualify','pain'] },
+      { key:'process', varc:'--c-amber', name:{en:'Sales Process & Pipeline', fa:'فرایند و پایپ‌لاینِ فروش'}, tag:{en:'Make it repeatable', fa:'تکرارشدنی‌اش کن'},
+        gist:{en:'Turn scattered wins into a repeatable process with clear stages, a tidy pipeline, and honest metrics.', fa:'بردهای پراکنده را به یک فرایندِ تکرارشدنی تبدیل کن، با مرحله‌های روشن، پایپ‌لاینِ مرتب، و شاخص‌های صادقانه.'},
+        more:{en:"Once you're closing deals, write down how. A named set of stages, a disciplined pipeline where every deal has a next step, and a few real numbers turn a lucky streak into a machine you can trust, forecast, and eventually hand off.",
+              fa:"وقتی داری معامله می‌بندی، بنویس چطور. یک مجموعهٔ مرحلهٔ اسم‌دار، یک پایپ‌لاینِ منظم که هر معامله توش یک قدمِ بعدی دارد، و چند تا عددِ واقعی، یک دورهٔ خوش‌شانسی را به ماشینی تبدیل می‌کنند که می‌شود بهش اعتماد کرد، پیش‌بینی‌اش کرد، و آخرش به کسی سپردش."},
+        chapters:['repeatable','pipeline','forecast'] },
+      { key:'closing', varc:'--c-violet', name:{en:'Closing, Objections & Negotiation', fa:'بستنِ معامله، ایرادها و چانه‌زنی'}, tag:{en:'Advance the deal', fa:'معامله را جلو ببر'},
+        gist:{en:'Handle objections, ask for the close, and negotiate price without giving the store away.', fa:'به ایرادها جواب بده، برای بستن درخواست بده، و سرِ قیمت چانه بزن، بی‌اینکه همه‌چیز را ببخشی.'},
+        more:{en:"Deals don't close themselves. You meet objections calmly as buying signals, you actually ask for the business instead of hoping, and you negotiate from a prepared position — anchoring on price and protecting the economics until the money is in the bank.",
+              fa:"معامله‌ها خودشان بسته نمی‌شوند. با خونسردی به ایرادها به‌چشمِ نشانهٔ خرید نگاه می‌کنی، به‌جای امیدواربودن واقعاً درخواستِ معامله را می‌دهی، و از یک جای آماده چانه می‌زنی — سرِ قیمت لنگر می‌اندازی و صرفهٔ کار را نگه می‌داری تا وقتی پول به حساب بنشیند."},
+        chapters:['objections','askclose','negotiate'] },
+      { key:'team', varc:'--c-green', name:{en:'Building & Scaling the Team', fa:'ساختن و بزرگ‌کردنِ تیمِ فروش'}, tag:{en:'Scale it', fa:'مقیاسش بده'},
+        gist:{en:'Only after the motion works: hire quality reps, onboard them well, and manage with metrics.', fa:'فقط بعد از اینکه روش جواب داد: فروشندهٔ خوب استخدام کن، خوب راهشان بینداز، و با شاخص‌ها مدیریتشان کن.'},
+        more:{en:"Scaling is a reward for proof, not a shortcut to it. Once your numbers say the go-to-market repeats, hire carefully for quality over quantity, onboard reps into your written playbook, and run the team on clear comp and honest metrics.",
+              fa:"بزرگ‌شدن جایزهٔ اثبات است، نه میان‌بری به‌جای آن. وقتی اعدادت گفتند این روش تکرار می‌شود، با دقت و با تأکید بر کیفیت نه تعداد استخدام کن، فروشنده‌ها را توی همان دفترچهٔ نوشته‌شده‌ات راه بینداز، و تیم را با حقوقِ روشن و شاخص‌های صادقانه بگردان."},
+        chapters:['whenhire','onboard','compmanage'] }
+    ],
+    chapters:{
+      helping:{ part:'mindset', n:1, name:{en:'Sales Is Helping, Not Sleaze', fa:'فروش یعنی کمک، نه حقه'}, glabel:{en:'Helping', fa:'کمک، نه حقه'},
+        principle:{en:"Modern selling isn't tricking a 'mark' — it's finding people with a real problem your product solves, and helping them get it fixed.", fa:"فروشِ امروزی یعنی گول‌زدنِ یک طرف نیست — یعنی پیداکردنِ آدم‌هایی که یک مشکلِ واقعی دارند و محصولِ تو حلش می‌کند، و کمک به اینکه حلش کنند."},
+        more:{en:"Kazanjy calls good salespeople the grease of the market: they seek out inefficiencies — qualified people in real pain — and connect them to a cure. Reframed that way, selling is a service, and it stops feeling gross.", fa:"کازانجی به فروشنده‌های خوب می‌گوید روغن‌کاریِ بازار: دنبالِ جاهایی می‌گردند که چیزی لنگ می‌زند — آدم‌هایی که واقعاً درد دارند — و آن‌ها را به درمان وصل می‌کنند. وقتی این‌طور نگاهش کنی، فروش یک‌جور خدمت است و دیگر حالت را بد نمی‌کند."},
+        example:{en:"You're not persuading someone to buy junk; you're telling a stressed-out buyer “this fixes exactly the thing that's hurting you.”", fa:"داری کسی را راضی نمی‌کنی چیزِ بی‌ارزش بخرد؛ داری به یک خریدارِ کلافه می‌گویی «این دقیقاً همان چیزی را که اذیتت می‌کند درست می‌کند.»"},
+        tip:{en:"Before any pitch, write the one painful problem this customer has that you can genuinely remove.", fa:"پیش از هر ارائه، همان یک مشکلِ دردناکی را که این مشتری دارد و تو واقعاً می‌توانی برطرفش کنی، بنویس."},
+        pitfall:{en:"Avoiding sales because you think it means being pushy or dishonest.", fa:"دوری‌کردن از فروش، چون فکر می‌کنی یعنی باید سمج یا نادرست باشی."} },
+      sellfirst:{ part:'mindset', n:2, name:{en:'Founders Must Sell First', fa:'اول خودِ بنیان‌گذار باید بفروشد'}, glabel:{en:'You sell first', fa:'اول خودت'},
+        principle:{en:"You can't outsource the first sales. Until you've closed customers yourself, there's no motion to hand anyone — you need you.", fa:"فروشِ اول را نمی‌شود به کسی سپرد. تا وقتی خودت مشتری جوش نداده باشی، هیچ روشی نیست که به کسی بدهی — به خودت نیاز داری."},
+        more:{en:"Early sales is a tight feedback loop between the pitch and the product, and that loop has to live in the founder's head. Hand it to a hired rep too soon and you lose the very learning that tells you what to build and how to say it.", fa:"فروشِ اولِ کار یک حلقهٔ بازخوردِ تنگ بینِ حرفِ فروش و خودِ محصول است، و این حلقه باید توی سرِ بنیان‌گذار باشد. اگر زود بسپاری‌اش به یک فروشندهٔ استخدامی، همان چیزی را از دست می‌دهی که بهت می‌گوید چه بساز و چطور بگو."},
+        example:{en:"After ten demos you'll hear the same objection twice and fix the product or the story — a hired rep would just have lost the deals.", fa:"بعد از ده تا دمو، یک ایراد را دو بار می‌شنوی و محصول یا داستان را درست می‌کنی — یک فروشندهٔ استخدامی فقط معامله‌ها را می‌باخت و تمام."},
+        tip:{en:"Commit to personally closing your first dozen or more customers before you hire a single rep.", fa:"با خودت قرار بگذار که اولین ده‌دوازده مشتری یا بیشتر را خودت شخصاً ببندی، پیش از اینکه حتی یک فروشنده استخدام کنی."},
+        pitfall:{en:"Hiring a salesperson to avoid selling, before the motion even exists.", fa:"استخدامِ یک فروشنده برای فرار از فروش، پیش از اینکه اصلاً روشی وجود داشته باشد."} },
+      learnable:{ part:'mindset', n:3, name:{en:'Selling Is a Learnable Skill', fa:'فروختن یک مهارتِ یادگرفتنی است'}, glabel:{en:'Learnable', fa:'یادگرفتنی'},
+        principle:{en:"Sales acumen is not inborn; it's just another skill to learn — like coding or design, you get good at it by doing reps.", fa:"استعدادِ فروش ذاتی نیست؛ فقط یک مهارتِ دیگر است برای یادگرفتن — مثلِ برنامه‌نویسی یا طراحی، با تمرین و تکرار توش خوب می‌شوی."},
+        more:{en:"Founders who think “I'm just not a sales person” let a myth cost them their company. The early sale is mostly evangelism: explaining a new solution clearly and probing whether it helps. That's product work you already know how to do.", fa:"بنیان‌گذاری که فکر می‌کند «من اصلاً آدمِ فروش نیستم»، اجازه می‌دهد یک باورِ غلط شرکتش را ازش بگیرد. فروشِ اولِ کار بیشترش معرفی و آموزش است: یک راه‌حلِ تازه را روشن توضیح بدهی و ببینی به درد می‌خورد یا نه. این همان کارِ محصول است که بلدی."},
+        example:{en:"Treat your first 20 sales calls like a course: after each, note what landed, what confused people, and what you'll change.", fa:"بیست تا تماسِ فروشِ اولت را مثلِ یک دوره ببین: بعد از هر کدام یادداشت کن چه چیزی گرفت، کجا آدم‌ها گیج شدند، و چه چیزی را عوض می‌کنی."},
+        tip:{en:"Record or note every call and review it like game tape to get better each week.", fa:"هر تماس را ضبط یا یادداشت کن و مثلِ فیلمِ بازی مرورش کن تا هر هفته بهتر شوی."},
+        pitfall:{en:"Believing sales is a talent you either have or don't, so you never start.", fa:"باور به اینکه فروش یک استعداد است که یا داری‌اش یا نه، و برای همین هیچ‌وقت شروع نمی‌کنی."} },
+      icp:{ part:'discovery', n:4, name:{en:'Know Your Ideal Customer', fa:'مشتریِ ایده‌آلت را بشناس'}, glabel:{en:'Ideal customer', fa:'مشتریِ ایده‌آل'},
+        principle:{en:"Define the ideal customer profile — the specific kind of buyer whose distinct pain your solution resolves — so you can spot them in the wild.", fa:"مشتریِ ایده‌آلت را مشخص کن — همان نوعِ خاصی از خریدار که دردِ مشخصش را محصولِ تو حل می‌کند — تا بتوانی بینِ بقیه پیدایش کنی."},
+        more:{en:"A sharp profile — industry, size, role, the trigger that creates the pain — turns prospecting from guesswork into a repeatable search. The tighter your profile, the less time you waste talking to people who were never going to buy.", fa:"یک پروفایلِ دقیق — صنعت، اندازه، سِمَت، و آن اتفاقی که درد را می‌سازد — پیداکردنِ مشتری را از حدس‌زدن به یک جست‌وجوی تکرارشدنی تبدیل می‌کند. هرچه پروفایلت دقیق‌تر باشد، وقتِ کمتری را با آدم‌هایی که قرار نبود بخرند هدر می‌دهی."},
+        example:{en:"Not “any company”, but “a 50-person SaaS whose head of sales just missed quota two quarters running.”", fa:"نه «هر شرکتی»، بلکه «یک شرکتِ نرم‌افزاریِ پنجاه‌نفره که مدیرِ فروشش همین دو فصلِ پشتِ‌هم به هدف نرسیده.»"},
+        tip:{en:"Write a one-paragraph portrait of the buyer who needs you most, then only chase matches.", fa:"یک پاراگراف، همان خریداری را که بیشتر از همه بهت نیاز دارد توصیف کن، بعد فقط دنبالِ آدم‌های شبیهش برو."},
+        pitfall:{en:"Chasing “everyone” as your market and drowning in bad-fit conversations.", fa:"دنبالِ «همه» به‌عنوانِ بازار رفتن و غرق‌شدن در گفت‌وگوهای بی‌نتیجه."} },
+      prospect:{ part:'discovery', n:5, name:{en:'Prospect Repeatably', fa:'جست‌وجوی مشتری را تکرارشدنی کن'}, glabel:{en:'Prospecting', fa:'پیداکردنِ مشتری'},
+        principle:{en:"Prospecting is finding those ideal buyers in a repeatable fashion — proactively, in volume, not waiting for them to find you.", fa:"پیداکردنِ مشتری یعنی همان خریدارهای ایده‌آل را به شکلی تکرارشدنی پیدا کنی — فعالانه و به تعداد، نه اینکه بنشینی تا خودشان پیدایت کنند."},
+        more:{en:"Your goal early on is to proactively line up a large list of potential clients who have the pain, and get the product in front of them. Inbound is nice, but at the start you make your own luck by reaching out on purpose.", fa:"هدفت اولِ کار این است که فعالانه یک لیستِ بزرگ از مشتری‌های احتمالی که آن درد را دارند ردیف کنی، و محصول را جلوی چشمشان بگذاری. اینکه خودشان بیایند خوب است، ولی اولِ کار شانست را خودت می‌سازی، با اینکه عمداً سراغشان بروی."},
+        example:{en:"Build a list of 50–100 companies that fit your profile, then reach out to each with a reason you picked them.", fa:"یک لیست از پنجاه تا صد شرکت که به پروفایلت می‌خورند بساز، بعد به هرکدام پیام بده و بگو چرا انتخابشان کردی."},
+        tip:{en:"Block time weekly to add fresh, well-matched prospects so the top of your funnel never runs dry.", fa:"هر هفته یک وقتِ ثابت بگذار تا مشتریِ احتمالیِ تازه و جوردرست اضافه کنی، تا بالای قیفت هیچ‌وقت خالی نشود."},
+        pitfall:{en:"Waiting passively for inbound while your pipeline slowly empties.", fa:"منتظرِ‌ماندنِ منفعلانه برای اینکه خودشان بیایند، درحالی‌که پایپ‌لاینت آرام‌آرام خالی می‌شود."} },
+      qualify:{ part:'discovery', n:6, name:{en:'Qualify Hard', fa:'سفت‌وسخت محک بزن'}, glabel:{en:'Qualify', fa:'محک‌زدن'},
+        principle:{en:"Qualify every prospect on budget, authority, need, and timeline — and target based on real need, not just who you happen to know.", fa:"هر مشتریِ احتمالی را از چهار زاویه محک بزن: بودجه، اختیارِ تصمیم، نیاز، و زمان‌بندی — و سراغِ کسی برو که واقعاً نیاز دارد، نه فقط چون اتفاقی می‌شناسی‌اش."},
+        more:{en:"Targeting by relationship instead of need wastes time. Qualification is the discipline of asking early whether this person has the pain, the money, the power to decide, and a reason to act now — before you pour hours into a demo.", fa:"سراغِ کسی رفتن چون می‌شناسی‌اش به‌جای اینکه نیاز داشته باشد، وقت را هدر می‌دهد. محک‌زدن یعنی این عادت که از همان اول بپرسی این آدم درد را دارد؟ پول را دارد؟ اختیارِ تصمیم را دارد؟ و دلیلی دارد که همین حالا اقدام کند؟ — پیش از اینکه ساعت‌ها روی یک دمو بگذاری."},
+        example:{en:"A friendly contact with no budget and no urgency is not a deal; a stranger bleeding money on the problem is.", fa:"یک آشنای خوش‌برخورد که نه بودجه دارد نه عجله، معامله نیست؛ ولی یک غریبه که دارد سرِ این مشکل پول از دست می‌دهد، هست."},
+        tip:{en:"Ask your budget, authority, need, and timeline questions in the first call, not the fifth.", fa:"سؤال‌های بودجه، اختیار، نیاز و زمان را توی همان تماسِ اول بپرس، نه تماسِ پنجم."},
+        pitfall:{en:"Pouring weeks into a warm contact who was never able to buy.", fa:"هفته‌ها وقت‌گذاشتن روی یک آشنای گرم که از اول اصلاً نمی‌توانست بخرد."} },
+      pain:{ part:'discovery', n:7, name:{en:'Understand the Pain', fa:'دردش را بفهم'}, glabel:{en:'The pain', fa:'درد'},
+        principle:{en:"Diagnose before you prescribe. Ask enough questions to truly understand the customer's problem before you show a single feature.", fa:"پیش از نسخه‌پیچی، تشخیص بده. آن‌قدر سؤال بپرس تا مشکلِ مشتری را واقعاً بفهمی، پیش از اینکه حتی یک قابلیت نشان بدهی."},
+        more:{en:"The best demos are aimed. When you understand exactly what hurts and what it costs them, you can show only the parts of your product that speak to that pain — and let them feel understood instead of pitched at.", fa:"بهترین دموها نشانه‌گیری‌شده‌اند. وقتی دقیق بفهمی چه چیزی اذیتشان می‌کند و چقدر برایشان خرج دارد، می‌توانی فقط همان بخش‌هایی از محصول را نشان بدهی که به آن درد جواب می‌دهند — و طرف حس کند فهمیده شده، نه اینکه بهش چیزی فروخته شده."},
+        example:{en:"Open with “walk me through how you handle this today” before you ever open your slides.", fa:"پیش از اینکه اسلایدهایت را باز کنی، با «بگو ببینم الان این کار را چطور انجام می‌دهی» شروع کن."},
+        tip:{en:"Spend the first third of every meeting asking and listening, not presenting.", fa:"یک‌سومِ اولِ هر جلسه را بگذار برای پرسیدن و گوش‌دادن، نه ارائه‌دادن."},
+        pitfall:{en:"Launching into a feature dump before you know what the customer needs.", fa:"پریدن وسطِ ردیف‌کردنِ قابلیت‌ها، پیش از اینکه بدانی مشتری چه می‌خواهد."} },
+      repeatable:{ part:'process', n:8, name:{en:'Build a Repeatable Process', fa:'یک فرایندِ تکرارشدنی بساز'}, glabel:{en:'Repeatable process', fa:'فرایندِ تکرارشدنی'},
+        principle:{en:"Map your selling into named stages — from first contact to closed deal — so every rep can run the same play, not reinvent it.", fa:"فروشت را به مرحله‌های اسم‌دار بشکن — از اولین تماس تا بستنِ معامله — تا هر فروشنده‌ای بتواند همان بازی را اجرا کند، نه اینکه از نو اختراعش کند."},
+        more:{en:"A repeatable process is just the winning path written down: what happens at each step, what has to be true to advance, and what you say. It's what lets you diagnose where deals stall and later teach someone else to do what you do.", fa:"فرایندِ تکرارشدنی فقط همان مسیرِ برنده است که نوشته شده باشد: هر قدم چه اتفاقی می‌افتد، چه چیزی باید درست باشد تا جلو بروی، و چه می‌گویی. همین است که می‌گذارد بفهمی معامله‌ها کجا گیر می‌کنند و بعداً به یک نفرِ دیگر یاد بدهی همان کاری را که تو می‌کنی بکند."},
+        example:{en:"Stages like: prospected → discovery call → demo → proposal → negotiation → closed.", fa:"مرحله‌هایی مثلِ: پیدا شد ← تماسِ کشفِ نیاز ← دمو ← پیشنهاد ← چانه‌زنی ← بسته‌شد."},
+        tip:{en:"Write down the exact steps of your last three wins and look for the common path.", fa:"قدم‌های دقیقِ سه بردِ آخرت را بنویس و دنبالِ مسیرِ مشترکشان بگرد."},
+        pitfall:{en:"Selling on instinct alone, so nothing can be repeated or taught.", fa:"فروختن فقط از رویِ حس، طوری که هیچ‌چیز نه تکرار می‌شود نه یاد دادنی است."} },
+      pipeline:{ part:'process', n:9, name:{en:'Keep the Pipeline Clean', fa:'پایپ‌لاین را تمیز نگه دار'}, glabel:{en:'Pipeline discipline', fa:'نظمِ پایپ‌لاین'},
+        principle:{en:"Every open deal needs an explicit next step with a date. Pipelines rot when “what happens next, and when” is left blank.", fa:"هر معاملهٔ باز باید یک قدمِ بعدیِ مشخص با تاریخ داشته باشد. پایپ‌لاین وقتی می‌گندد که «قدمِ بعدی چیست، و کِی» خالی مانده باشد."},
+        more:{en:"Kazanjy is blunt: pipelines get out of control when there's no explicit next step, or there is one but no time and date to do it. A clean CRM where each deal has an owner, a stage, and a dated action is how you keep reality from drifting.", fa:"کازانجی رک می‌گوید: پایپ‌لاین وقتی از کنترل خارج می‌شود که یا قدمِ بعدیِ مشخصی نباشد، یا باشد ولی زمان و تاریخی برایش تعیین نشده باشد. یک سی‌آر‌امِ تمیز که هر معامله توش یک صاحب، یک مرحله، و یک کارِ تاریخ‌دار دارد، همان چیزی است که نمی‌گذارد واقعیت از دستت در برود."},
+        example:{en:"Not “following up sometime” but “send proposal Tuesday, review call Thursday 2pm.”", fa:"نه «یه‌وقتی پیگیری می‌کنم» بلکه «سه‌شنبه پیشنهاد را می‌فرستم، پنج‌شنبه ساعتِ دو تماسِ بررسی.»"},
+        tip:{en:"Once a week, delete or re-date any deal with no real next step.", fa:"هفته‌ای یک‌بار، هر معامله‌ای که قدمِ بعدیِ واقعی ندارد را یا پاک کن یا تاریخِ تازه بهش بده."},
+        pitfall:{en:"A bloated pipeline full of “someday” deals that will never close.", fa:"یک پایپ‌لاینِ باددارِ پُر از معامله‌های «یه‌روزی» که هیچ‌وقت بسته نمی‌شوند."} },
+      forecast:{ part:'process', n:10, name:{en:'Forecast & Measure', fa:'پیش‌بینی کن و اندازه بگیر'}, glabel:{en:'Metrics & forecast', fa:'شاخص و پیش‌بینی'},
+        principle:{en:"Track the few numbers that prove the motion works: conversion between stages, average deal size, and sales-cycle length.", fa:"همان چند عددی را دنبال کن که ثابت می‌کنند روشت جواب می‌دهد: نرخِ تبدیل بینِ مرحله‌ها، اندازهٔ متوسطِ معامله، و طولِ چرخهٔ فروش."},
+        more:{en:"Metrics turn selling from a feeling into a forecast. When you know your rates, you can predict revenue, see where deals leak, and prove to yourself the go-to-market is repeatable — the green light that says you're ready to hire.", fa:"شاخص‌ها فروش را از یک حس به یک پیش‌بینی تبدیل می‌کنند. وقتی نرخ‌هایت را بدانی، می‌توانی درآمد را پیش‌بینی کنی، ببینی معامله‌ها از کجا نشت می‌کنند، و به خودت ثابت کنی این روش تکرارشدنی است — همان چراغِ سبزی که می‌گوید آماده‌ای استخدام کنی."},
+        example:{en:"“One in four demos closes, average deal $12k, 30-day cycle” — now you can plan.", fa:"«از هر چهار دمو یکی می‌بندد، معاملهٔ متوسط دوازده‌هزار دلار، چرخهٔ سی‌روزه» — حالا می‌توانی برنامه بریزی."},
+        tip:{en:"Compute your demo-to-close rate this month; it sets everything else.", fa:"همین ماه نرخِ دمو-تا-بستن را حساب کن؛ همه‌چیزِ دیگر رویش سوار می‌شود."},
+        pitfall:{en:"Flying blind with no idea which stage loses the most deals.", fa:"کورکورانه پیش‌رفتن، بی‌اینکه بدانی کدام مرحله بیشترین معامله را می‌بازد."} },
+      objections:{ part:'closing', n:11, name:{en:'Handle Objections Calmly', fa:'خونسرد به ایرادها جواب بده'}, glabel:{en:'Objections', fa:'ایرادها'},
+        principle:{en:"Treat objections as questions, not rejections. A concern raised out loud is a buying signal — the prospect is helping you close them.", fa:"به ایرادها مثلِ سؤال نگاه کن، نه ردکردن. نگرانی‌ای که بلند گفته می‌شود یک نشانهٔ خرید است — مشتری دارد کمکت می‌کند که ببندی‌اش."},
+        more:{en:"Most objections are a handful of predictable worries: price, timing, trust, fit. Prepare honest answers in advance, address the real concern underneath, and you turn “I'm not sure” into a solved problem instead of a dead end.", fa:"بیشترِ ایرادها همان چند نگرانیِ قابلِ‌حدس‌اند: قیمت، زمان، اعتماد، تناسب. از قبل جوابِ صادقانه آماده کن، به نگرانیِ واقعیِ زیرش جواب بده، آن‌وقت «مطمئن نیستم» را به یک مشکلِ حل‌شده تبدیل می‌کنی، نه یک بن‌بست."},
+        example:{en:"“It's too expensive” usually means “show me the payback” — so show it.", fa:"«خیلی گران است» معمولاً یعنی «نشانم بده کِی برمی‌گردد» — پس نشانش بده."},
+        tip:{en:"List your top five objections and write a one-line honest answer to each.", fa:"پنج ایرادِ اصلی‌ات را فهرست کن و برای هرکدام یک جوابِ صادقانهٔ یک‌خطی بنویس."},
+        pitfall:{en:"Getting defensive or talking over a concern instead of answering it.", fa:"جبهه‌گرفتن یا رویِ نگرانی حرف‌زدن، به‌جای اینکه جوابش را بدهی."} },
+      askclose:{ part:'closing', n:12, name:{en:'Ask for the Close', fa:'درخواستِ بستن را بده'}, glabel:{en:'Ask for it', fa:'درخواستِ بستن'},
+        principle:{en:"Actually ask for the business, and don't celebrate early — run all the way until the money is in the bank.", fa:"واقعاً درخواستِ معامله را بده، و زود جشن نگیر — تا وقتی پول به حساب ننشسته، بدو تا خطِ آخر."},
+        more:{en:"Founders lose winnable deals by hoping the customer will close themselves. Advance every meeting to a concrete next step, ask the direct question, and keep pushing paperwork and signatures — a deal isn't done until it's paid.", fa:"بنیان‌گذارها معامله‌های قابلِ‌برد را با این امید که مشتری خودش ببندد، می‌بازند. هر جلسه را به یک قدمِ بعدیِ مشخص برسان، سؤالِ مستقیم را بپرس، و کارهای قرارداد و امضا را هُل بده جلو — معامله تا وقتی پولش پرداخت نشده، تمام نیست."},
+        example:{en:"After a good demo, say it plainly: “Shall we get you started? Here's what happens next.”", fa:"بعد از یک دموی خوب، رک بگو: «شروع کنیم؟ از این‌جا به بعد این‌طوری پیش می‌رود.»"},
+        tip:{en:"End every meeting by proposing the specific next step out loud.", fa:"هر جلسه را با پیشنهادِ بلندِ همان قدمِ بعدیِ مشخص تمام کن."},
+        pitfall:{en:"Doing a happy dance at “yes” and letting the deal slip before it's signed.", fa:"سرِ «بله» رقصِ شادی راه‌انداختن و گذاشتن معامله پیش از امضا از دست برود."} },
+      negotiate:{ part:'closing', n:13, name:{en:'Negotiate & Price', fa:'چانه بزن و قیمت بگذار'}, glabel:{en:'Negotiate & price', fa:'چانه و قیمت'},
+        principle:{en:"Anchor high and protect your economics. Start with pricing that anticipates being negotiated down, so wherever you land still works for you.", fa:"لنگرت را بالا بینداز و صرفهٔ کارت را نگه دار. با قیمتی شروع کن که از قبل حسابِ چانه‌زنیِ رو به پایین را کرده باشد، تا هرجا که فرود آمدی، بازهم برایت بصرفد."},
+        more:{en:"Don't back yourself into a corner and start negotiating against yourself. Set a price with room to give, trade concessions for something in return, and never discount so hard that the deal stops being worth doing.", fa:"خودت را توی گوشه‌ای گیر نینداز که مجبور شوی با خودت چانه بزنی. قیمتی بگذار که جا برای کوتاه‌آمدن داشته باشد، هر امتیازی را در ازای یک چیزِ دیگر بده، و هیچ‌وقت آن‌قدر تخفیف نده که دیگر ارزشِ انجام‌دادن نداشته باشد."},
+        example:{en:"If you'll accept $10k, open at $14k — the discount becomes a gift you give, not a loss.", fa:"اگر قرار است ده‌هزار دلار را قبول کنی، از چهارده‌هزار شروع کن — آن‌وقت تخفیف می‌شود هدیه‌ای که می‌دهی، نه ضرری که می‌کنی."},
+        tip:{en:"Decide your floor price before the call, and never drop below it on the fly.", fa:"کف‌قیمتت را پیش از تماس مشخص کن، و هیچ‌وقت وسطِ کار زیرش نرو."},
+        pitfall:{en:"Discounting fast just to feel progress, until the deal isn't worth closing.", fa:"تخفیفِ سریع‌دادن فقط برای اینکه حسِ پیشرفت کنی، تا جایی که دیگر معامله ارزشِ بستن ندارد."} },
+      whenhire:{ part:'team', n:14, name:{en:'Hire Only After It Works', fa:'فقط وقتی جواب داد استخدام کن'}, glabel:{en:'When to hire', fa:'کِی استخدام کنی'},
+        principle:{en:"Scale by adding people only once your metrics show the initial go-to-market is working. Proof first, hiring second.", fa:"فقط وقتی شاخص‌هایت نشان دادند روشِ اولیه جواب می‌دهد، با اضافه‌کردنِ آدم بزرگ شو. اول اثبات، بعد استخدام."},
+        more:{en:"Hire too early and you're paying someone to sell a motion that doesn't exist yet; they flail, you blame them, and you learn nothing. Once you can show repeatable numbers, adding reps multiplies something real instead of masking a gap.", fa:"زود استخدام کنی، یعنی داری به کسی پول می‌دهی تا روشی را بفروشد که هنوز وجود ندارد؛ دست‌وپا می‌زنند، تو مقصرشان می‌دانی، و هیچ‌چی یاد نمی‌گیری. وقتی توانستی اعدادِ تکرارشدنی نشان بدهی، اضافه‌کردنِ فروشنده یک چیزِ واقعی را چند برابر می‌کند، نه اینکه رویِ یک خلأ سرپوش بگذارد."},
+        example:{en:"Wait until you can say “I've closed 20 of these myself and know exactly how” before you hire.", fa:"صبر کن تا بتوانی بگویی «بیست تای اینها را خودم بسته‌ام و دقیقاً می‌دانم چطور»، بعد استخدام کن."},
+        tip:{en:"Make “the founder can repeat the sale” your gate before the first sales hire.", fa:"«بنیان‌گذار می‌تواند فروش را تکرار کند» را دروازه‌ات کن، پیش از اولین استخدامِ فروش."},
+        pitfall:{en:"Hiring reps to discover the motion for you — that's your job first.", fa:"استخدامِ فروشنده تا روش را برایت کشف کنند — این اولش کارِ خودِ توست."} },
+      onboard:{ part:'team', n:15, name:{en:'Hire Quality, Onboard Well', fa:'باکیفیت استخدام کن، خوب راه بینداز'}, glabel:{en:'Hire & onboard', fa:'استخدام و راه‌اندازی'},
+        principle:{en:"Hire for quality over quantity, then onboard each rep deliberately into your narrative, product, and process.", fa:"کیفیت را به تعداد ترجیح بده، بعد هر فروشنده را با برنامه توی داستان، محصول و فرایندت راه بینداز."},
+        more:{en:"Kazanjy warns against hiring lots of mediocre reps and firing the ones who fail — it's especially damaging for a young company selling something new. A few strong hires, trained properly on why the product wins, beat a churning crowd.", fa:"کازانجی هشدار می‌دهد که تعدادِ زیادی فروشندهٔ متوسط استخدام‌کردن و اخراجِ آن‌هایی که شکست می‌خورند، مخصوصاً برای یک شرکتِ جوان که چیزِ تازه‌ای می‌فروشد خیلی آسیب‌زننده است. چند استخدامِ قوی که درست آموزش دیده‌اند چرا محصول برنده است، از یک جمعیتِ مدام‌عوض‌شونده بهتر است."},
+        example:{en:"Give a new rep your recorded calls, your objection answers, and a live-deal shadow before they solo.", fa:"به فروشندهٔ تازه، تماس‌های ضبط‌شده‌ات، جواب‌های ایرادها، و همراهی در یک معاملهٔ واقعی را بده، پیش از اینکه تنها برود میدان."},
+        tip:{en:"Write a two-week onboarding plan before the rep's first day.", fa:"پیش از روزِ اولِ فروشنده، یک برنامهٔ راه‌اندازیِ دوهفته‌ای بنویس."},
+        pitfall:{en:"Throwing new hires at the phones with no training and hoping some stick.", fa:"پرتاب‌کردنِ نیروهای تازه پشتِ تلفن بدونِ هیچ آموزشی، به این امید که چندتاشان بمانند."} },
+      compmanage:{ part:'team', n:16, name:{en:'Comp, Manage & Measure', fa:'پاداش، مدیریت و اندازه‌گیری'}, glabel:{en:'Comp & manage', fa:'پاداش و مدیریت'},
+        principle:{en:"Pay reps a comp plan that rewards the behavior you want, and manage the team with the same metrics that proved the motion.", fa:"به فروشنده‌ها طرحِ پاداشی بده که همان رفتاری را که می‌خواهی جایزه بدهد، و تیم را با همان شاخص‌هایی مدیریت کن که روش را اثبات کردند."},
+        more:{en:"A good comp plan aligns the rep's paycheck with closed, healthy revenue. Manage with a weekly rhythm around pipeline and conversion, and great sales hiring and onboarding becomes a real competitive advantage over slower incumbents.", fa:"یک طرحِ پاداشِ خوب، حقوقِ فروشنده را با درآمدِ بسته‌شده و سالم هم‌راستا می‌کند. با یک ریتمِ هفتگی دورِ پایپ‌لاین و نرخِ تبدیل مدیریت کن، آن‌وقت استخدام و راه‌اندازیِ خوبِ فروش تبدیل می‌شود به یک برتریِ واقعی نسبت به رقیب‌های کندتر."},
+        example:{en:"Commission on paid deals, plus a weekly pipeline review — reps chase revenue, not vanity activity.", fa:"پورسانت روی معامله‌های پرداخت‌شده، به‌علاوهٔ یک مرورِ هفتگیِ پایپ‌لاین — فروشنده‌ها دنبالِ درآمد می‌روند، نه فعالیتِ نمایشی."},
+        tip:{en:"Tie most of variable pay to closed revenue, and review the pipeline every week.", fa:"بیشترِ حقوقِ متغیر را به درآمدِ بسته‌شده گره بزن، و هر هفته پایپ‌لاین را مرور کن."},
+        pitfall:{en:"A comp plan that rewards activity or bookings that never turn into cash.", fa:"یک طرحِ پاداش که فعالیت یا قراردادهایی را جایزه می‌دهد که هیچ‌وقت به پول تبدیل نمی‌شوند."} }
+    },
+    core:{ name:{en:'FOUNDER-LED SALES', fa:'فروشِ بنیان‌گذار'},
+      principle:{en:"The technical founder has to learn to sell before hiring salespeople. Early selling is evangelical product work — helping real people fix a real pain — and the founder is the only one who can run that tight loop between pitch and product.", fa:"بنیان‌گذارِ فنی باید پیش از استخدامِ فروشنده، خودش یادِ فروش بگیرد. فروشِ اولِ کار همان کارِ محصول است با شور و شوق — کمک به آدم‌های واقعی برای حلِ یک دردِ واقعی — و بنیان‌گذار تنها کسی است که می‌تواند آن حلقهٔ تنگِ بینِ حرفِ فروش و محصول را بچرخاند."},
+      more:{en:"Kazanjy's handbook walks a founder from mindset to a scaled team: reframe sales as helping, learn discovery and hard qualification, build a repeatable process and clean pipeline, close and negotiate deals, and only then hire, onboard, and manage a sales team — packaging your proven motion so others can run it.", fa:"دفترچهٔ کازانجی یک بنیان‌گذار را از ذهنیت تا یک تیمِ بزرگ‌شده می‌بَرد: فروش را دوباره «کمک» تعریف کن، کشفِ نیاز و محک‌زدنِ سفت‌وسخت را یاد بگیر، یک فرایندِ تکرارشدنی و پایپ‌لاینِ تمیز بساز، معامله‌ها را ببند و چانه بزن، و تازه بعدش تیمِ فروش استخدام و راه‌اندازی و مدیریت کن — روشِ اثبات‌شده‌ات را طوری بسته‌بندی کن که بقیه هم بتوانند اجرایش کنند."},
+      example:{en:"Click any node to open an idea. You can also drag the nodes around.", fa:"روی هر دایره کلیک کن تا یک ایده باز شود. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."} },
+    stages:[
+      { level:1, badge:{en:'Level 1 · Over-simplified', fa:'سطحِ ۱ · خیلی ساده'}, title:{en:'Founders sell first', fa:'اول بنیان‌گذار می‌فروشد'}, tagline:{en:'The whole book in a sentence.', fa:'کلِ کتاب در یک جمله.'},
+        body:{en:"If you built it, you have to sell it first. Before you hire a single salesperson, close the early customers yourself — nobody understands the product or the pain better than you do right now.", fa:"اگر ساختی‌اش، اول باید خودت بفروشی‌اش. پیش از اینکه حتی یک فروشنده استخدام کنی، مشتری‌های اول را خودت ببند — همین الان هیچ‌کس محصول و درد را بهتر از تو نمی‌فهمد."},
+        example:{en:"No sales hire yet — you personally get your first customers on the phone and close them.", fa:"هنوز خبری از استخدامِ فروش نیست — خودت شخصاً مشتری‌های اول را پای تلفن می‌آوری و می‌بندی."},
+        gain:{en:"You accept that founder-led selling is step one, not something to delegate.", fa:"می‌پذیری که فروشِ بنیان‌گذار قدمِ اول است، نه چیزی که بسپاری به دیگری."} },
+      { level:2, badge:{en:'Level 2 · Simple', fa:'سطحِ ۲ · ساده'}, title:{en:'Sell by helping', fa:'با کمک‌کردن بفروش'}, tagline:{en:'Sales is a service, and a skill.', fa:'فروش یک خدمت است، و یک مهارت.'},
+        body:{en:"Drop the sleazy image. Good selling is being the <b>grease of the market</b> — finding people in real pain and connecting them to a fix. And it's a <b>learnable skill</b>, not a talent you're born with; you get better with reps.", fa:"آن تصویرِ حقه‌بازانه را دور بریز. فروشِ خوب یعنی <b>روغن‌کاریِ بازار</b> باشی — آدم‌هایی را که واقعاً درد دارند پیدا کنی و به یک راه‌حل وصلشان کنی. و این یک <b>مهارتِ یادگرفتنی</b> است، نه استعدادی که باهاش به‌دنیا آمده باشی؛ با تمرین بهتر می‌شوی."},
+        example:{en:"You stop dreading calls and start each one by asking what actually hurts.", fa:"دیگر از تماس‌ها نمی‌ترسی و هر کدام را با پرسیدنِ اینکه واقعاً چه چیزی اذیت می‌کند شروع می‌کنی."},
+        gain:{en:"You can pick up the phone without feeling like a fraud.", fa:"می‌توانی گوشی را برداری بی‌اینکه حس کنی داری کلاه سرِ کسی می‌گذاری."} },
+      { level:3, badge:{en:'Level 3 · Balanced', fa:'سطحِ ۳ · متعادل'}, title:{en:'Run the motion', fa:'روش را اجرا کن'}, tagline:{en:'Discover, qualify, process, pipeline.', fa:'کشف کن، محک بزن، فرایند، پایپ‌لاین.'},
+        body:{en:"Now the craft. Define your <b>ideal customer</b>, <b>prospect</b> them on purpose, <b>qualify hard</b> on budget-authority-need-timing, and truly <b>understand the pain</b> before you demo. Then write it down as a <b>repeatable process</b> and keep a clean <b>pipeline</b> where every deal has a dated next step.", fa:"حالا فوت‌وفنِ کار. <b>مشتریِ ایده‌آلت</b> را مشخص کن، عمداً <b>پیدایشان کن</b>، سفت‌وسخت روی بودجه-اختیار-نیاز-زمان <b>محکشان بزن</b>، و پیش از دمو واقعاً <b>دردشان را بفهم</b>. بعد همه را به شکلِ یک <b>فرایندِ تکرارشدنی</b> بنویس و یک <b>پایپ‌لاینِ</b> تمیز نگه دار که هر معامله توش یک قدمِ بعدیِ تاریخ‌دار دارد."},
+        example:{en:"Fifty matched prospects, a five-stage pipeline, and a discovery call before every demo.", fa:"پنجاه مشتریِ احتمالیِ جوردرست، یک پایپ‌لاینِ پنج‌مرحله‌ای، و یک تماسِ کشفِ نیاز پیش از هر دمو."},
+        gain:{en:"You can run a real, measurable sales process instead of winging it.", fa:"می‌توانی یک فرایندِ فروشِ واقعی و قابلِ‌اندازه‌گیری اجرا کنی، نه اینکه سرِهم‌بندی کنی."} },
+      { level:4, badge:{en:'Level 4 · Advanced', fa:'سطحِ ۴ · پیشرفته'}, title:{en:'Close and negotiate', fa:'ببند و چانه بزن'}, tagline:{en:'Objections, the ask, and pricing.', fa:'ایرادها، درخواست، و قیمت.'},
+        body:{en:"Advance deals to the finish. Meet <b>objections</b> calmly as buying signals, actually <b>ask for the close</b> and run until the money's in the bank, and <b>negotiate</b> from an anchored price that protects your economics — never discounting so hard the deal stops being worth doing.", fa:"معامله‌ها را تا خطِ پایان جلو ببر. با خونسردی به <b>ایرادها</b> به‌چشمِ نشانهٔ خرید جواب بده، واقعاً <b>درخواستِ بستن</b> را بده و تا وقتی پول به حساب ننشسته بدو، و از یک <b>قیمتِ لنگرانداخته</b> که صرفهٔ کارت را نگه می‌دارد <b>چانه بزن</b> — هیچ‌وقت آن‌قدر تخفیف نده که دیگر معامله ارزشِ انجام نداشته باشد."},
+        example:{en:"You anchor high, trade every concession, and ask for the signature out loud.", fa:"لنگرت را بالا می‌اندازی، هر امتیاز را در ازای چیزی می‌دهی، و بلند درخواستِ امضا را می‌کنی."},
+        gain:{en:"You can turn interested prospects into signed, paid customers.", fa:"می‌توانی مشتری‌های علاقه‌مند را به مشتریِ امضاکرده و پول‌داده تبدیل کنی."} },
+      { level:5, badge:{en:'Level 5 · Expert', fa:'سطحِ ۵ · حرفه‌ای'}, title:{en:'Scale the team', fa:'تیم را بزرگ کن'}, tagline:{en:'Hire, onboard, comp, and manage.', fa:'استخدام، راه‌اندازی، پاداش، و مدیریت.'},
+        body:{en:"Only once the numbers prove the motion repeats do you scale. <b>Hire</b> for quality over quantity, <b>onboard</b> reps into your written playbook, set a <b>comp plan</b> that rewards paid revenue, and <b>manage</b> with the same metrics. Package your proven motion, hand it off, and great sales hiring becomes a competitive advantage.", fa:"فقط وقتی اعداد ثابت کردند روش تکرار می‌شود، بزرگش می‌کنی. با تأکید بر کیفیت نه تعداد <b>استخدام</b> کن، فروشنده‌ها را توی دفترچهٔ نوشته‌شده‌ات <b>راه بینداز</b>، یک <b>طرحِ پاداش</b> بگذار که درآمدِ پرداخت‌شده را جایزه بدهد، و با همان شاخص‌ها <b>مدیریت</b> کن. روشِ اثبات‌شده‌ات را بسته‌بندی کن، بسپارش به بقیه، و استخدامِ خوبِ فروش تبدیل می‌شود به یک برگِ برنده."},
+        example:{en:"You've handed a trained rep a repeatable playbook and a weekly pipeline review — and revenue grows without you on every call.", fa:"یک فروشندهٔ آموزش‌دیده را با یک دفترچهٔ تکرارشدنی و یک مرورِ هفتگیِ پایپ‌لاین راه انداخته‌ای — و درآمد بی‌اینکه تو پای هر تماس باشی بزرگ می‌شود."},
+        gain:{en:"You can build a sales team that scales the motion you proved.", fa:"می‌توانی یک تیمِ فروش بسازی که همان روشی را که اثبات کردی بزرگ می‌کند."} }
+    ],
+    quotes:[
+      {en:"Sales acumen is not inborn. It's just another skill to be learned.", fa:"استعدادِ فروش ذاتی نیست. فقط یک مهارتِ دیگر است که باید یاد گرفت."},
+      {en:"Modern sales is not about trying to sell snake oil to a 'mark.' Rather, sales professionals are the grease of the market. They seek out inefficiencies in the world, in the form of qualified prospects who have the business pain that the proposed solution resolves.", fa:"فروشِ امروزی این نیست که بخواهی به یک طرف جنسِ قلابی بیندازی. برعکس، فروشنده‌های حرفه‌ای روغن‌کاریِ بازارند. دنبالِ جاهایی می‌گردند که کار لنگ می‌زند — یعنی مشتری‌های واجدِ شرایطی که همان دردی را دارند که راه‌حلِ پیشنهادی حلش می‌کند."},
+      {en:"At this stage, your 'sales' is in large part evangelical product management and product marketing, and this is why you, as a founder, need to be involved in it.", fa:"در این مرحله، «فروشِ» تو بیشترش همان مدیریتِ محصول و بازاریابیِ محصول است با شور و ایمان، و برای همین است که تو، به‌عنوانِ بنیان‌گذار، باید خودت پایش باشی."},
+      {en:"Targeting based on relationship rather than need is ineffective and a waste of time.", fa:"هدف‌گرفتنِ آدم‌ها بر اساسِ رابطه به‌جای نیاز، بی‌فایده است و اتلافِ وقت."},
+      {en:"Prospecting is about finding those people in a repeatable fashion. By knowing your ideal customer profile, you'll be able to identify more prospects in the wild.", fa:"پیداکردنِ مشتری یعنی همان آدم‌ها را به شکلی تکرارشدنی پیدا کنی. وقتی پروفایلِ مشتریِ ایده‌آلت را بشناسی، می‌توانی بیرون، توی دنیای واقعی، مشتری‌های بیشتری را تشخیص بدهی."},
+      {en:"Pipelines get out of control when there's no explicit next step, and when there are specific next steps but no clear time and date for when to complete them.", fa:"پایپ‌لاین وقتی از کنترل خارج می‌شود که یا قدمِ بعدیِ مشخصی نباشد، یا قدم‌های مشخصی باشد ولی زمان و تاریخِ روشنی برای انجامشان تعیین نشده باشد."},
+      {en:"Start with inflated pricing in anticipation of being negotiated down, so that wherever you end up still provides an economically viable deal for you.", fa:"با قیمتی بالاتر شروع کن، با این حساب که قرار است پایین بیایی، طوری که هرجا هم که تمام شد، بازهم برایت یک معاملهٔ به‌صرفه باشد."},
+      {en:"Don't stop to do a happy dance and risk your deal. You have to run all the way until the money's in the bank.", fa:"نایست که رقصِ شادی راه بیندازی و معامله‌ات را به خطر بیندازی. باید تا خطِ آخر بدوی، تا وقتی پول به حساب بنشیند."},
+      {en:"The ability to attract, hire, and onboard successful, high-quality sales staff can be a monster competitive advantage that startups have against ossified incumbents.", fa:"توانایی جذب، استخدام، و راه‌اندازیِ نیروی فروشِ موفق و باکیفیت می‌تواند یک برگِ برندهٔ غول‌آسا باشد که استارتاپ‌ها در برابرِ غول‌های خشک‌وجامدِ قدیمی دارند."}
+    ],
+    media:[
+      { kind:'yt', id:'lAutzV21Gus', src:{en:'YouTube · Peter Kazanjy', fa:'یوتیوب · Peter Kazanjy'},
+        title:{en:'Startup Sales Maturity Stages & Founder-Led Selling', fa:'مرحله‌های بلوغِ فروشِ استارتاپ و فروشِ بنیان‌گذار'},
+        desc:{en:'A presentation from the author himself on founder-led selling.', fa:'یک ارائه از خودِ نویسنده دربارهٔ فروشِ بنیان‌گذار.'},
+        bullets:{en:["The big picture, straight from Pete","Why founders sell first","A great first watch"], fa:["تصویرِ کلی، مستقیم از زبانِ پیت","چرا اول بنیان‌گذار می‌فروشد","برای اولین تماشا عالی است"]},
+        best:{en:'Best for Stage 1–2.', fa:'خوب برای مرحلهٔ ۱ و ۲.'} },
+      { kind:'yt', id:'bbciemLuRRI', src:{en:"YouTube · 30 Minutes to President's Club", fa:"یوتیوب · 30 Minutes to President's Club"},
+        title:{en:'Founder-Led Sales: Taking Your Startup to Market', fa:'فروشِ بنیان‌گذار: بردنِ استارتاپت به بازار'},
+        desc:{en:'A tactical talk on running founder-led sales in practice.', fa:'یک صحبتِ کاربردی دربارهٔ اجرای عملیِ فروشِ بنیان‌گذار.'},
+        bullets:{en:["Discovery, qualification, and process","Real founder-selling tactics","Good after a first read"], fa:["کشفِ نیاز، محک‌زدن، و فرایند","تاکتیک‌های واقعیِ فروشِ بنیان‌گذار","خوب بعد از اولین خواندن"]},
+        best:{en:'Best for Stage 2–3.', fa:'خوب برای مرحلهٔ ۲ و ۳.'} },
+      { kind:'yt', id:'uWE6AgZM51M', src:{en:'YouTube · IO Podcast', fa:'یوتیوب · IO Podcast'},
+        title:{en:'The Sales Playbook Every Founder Needs to Know', fa:'دفترچهٔ فروشی که هر بنیان‌گذاری باید بلد باشد'},
+        desc:{en:'A long conversation with Pete on the founder sales playbook.', fa:'یک گفت‌وگوی طولانی با پیت دربارهٔ دفترچهٔ فروشِ بنیان‌گذار.'},
+        bullets:{en:["Closing, negotiation, and hiring","How the pieces fit together","A deeper dive"], fa:["بستن، چانه‌زنی، و استخدام","اینکه تکه‌ها چطور کنارِ هم می‌نشینند","یک غوطهٔ عمیق‌تر"]},
+        best:{en:'Best for Stage 3–4.', fa:'خوب برای مرحلهٔ ۳ و ۴.'} },
+      { kind:'img', url:'https://www.foundingsales.com/',
+        src:{en:'foundingsales.com · Official', fa:'foundingsales.com · رسمی'},
+        title:{en:'Founding Sales — Free Full Book Online', fa:'فروشِ بنیان‌گذار — کتابِ کاملِ رایگانِ آنلاین'},
+        desc:{en:"The author's official site, where the entire book is free to read.", fa:'سایتِ رسمیِ نویسنده، جایی که کلِ کتاب را می‌شود رایگان خواند.'},
+        bullets:{en:["The whole book, free","Straight from the source","Chapters and extras"], fa:["کلِ کتاب، رایگان","مستقیم از خودِ منبع","فصل‌ها و مطالبِ اضافه"]},
+        best:{en:'For the full text and source.', fa:'برای متنِ کامل و منبعِ اصلی.'} }
+    ],
+    go:[
+      {label:{en:'Read the full book free', fa:'کتابِ کامل را رایگان بخوان'}, url:'https://www.foundingsales.com/'},
+      {label:{en:'Book on Goodreads', fa:'کتاب در گودریدز'}, url:'https://www.goodreads.com/book/show/54339426-founding-sales'},
+      {label:{en:'Buy on Amazon', fa:'خرید از آمازون'}, url:'https://www.amazon.com/Founding-Sales-Go-Market-Handbook/dp/1734505117'}
+    ],
+    recs:[
+      { pri:'b', t:{en:'Close your next customer yourself', fa:'مشتریِ بعدی‌ات را خودت ببند'}, d:{en:"Take one live deal and run it end to end personally — no rep, no shortcut.", fa:'یک معاملهٔ واقعی را بردار و از اول تا آخر خودت پیش ببر — بی‌فروشنده، بی‌میان‌بر.'} },
+      { pri:'b', t:{en:'Write your ideal-customer profile', fa:'پروفایلِ مشتریِ ایده‌آلت را بنویس'}, d:{en:'In one paragraph, describe exactly who has the pain you fix, then list ten prospects who match.', fa:'در یک پاراگراف دقیق بنویس کی همان دردی را دارد که تو حلش می‌کنی، بعد ده مشتریِ احتمالیِ جوردرست فهرست کن.'} },
+      { pri:'n', t:{en:'Give every deal a dated next step', fa:'به هر معامله یک قدمِ بعدیِ تاریخ‌دار بده'}, d:{en:"Open your pipeline and add a specific next action and date to every deal, or drop it.", fa:'پایپ‌لاینت را باز کن و به هر معامله یک کارِ بعدیِ مشخص و تاریخ بده، یا بیرونش بینداز.'} },
+      { pri:'n', t:{en:'Prepare answers to your top objections', fa:'برای ایرادهای اصلی‌ات جواب آماده کن'}, d:{en:"List the five objections you hear most and write one honest, short answer for each.", fa:'پنج ایرادی که بیشتر از همه می‌شنوی را فهرست کن و برای هرکدام یک جوابِ صادقانهٔ کوتاه بنویس.'} }
+    ]
+  }
+};

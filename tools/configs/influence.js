@@ -1,0 +1,257 @@
+/* config: Influence — The Psychology of Persuasion — Robert Cialdini (Influence) */
+module.exports = {
+  slug:'influence', brand:'Influence',
+  titleTag:'Influence — نقشهٔ دانش و یادگیری ۵ مرحله‌ای',
+  W:980, H:780, R1:220, R2:126, span:66,
+  leafKickEn:'Principle', leafKickFa:'اصلِ',
+  flowEn:['Trigger','Comply','Defend'], flowFa:['محرک','تسلیم','دفاع'],
+
+  hero:`  <div class="eyebrow"><span class="edot"></span>
+    <span data-only="en">Book knowledge map · Robert Cialdini</span>
+    <span data-only="fa">نقشهٔ کتاب · رابرت چالدینی</span>
+  </div>
+  <h1>
+    <span data-only="en">Influence — The Psychology of Persuasion</span>
+    <span data-only="fa">نفوذ — روان‌شناسیِ اقناع</span>
+  </h1>
+  <p class="dek">
+    <span data-only="en">A knowledge graph of the whole book, plus a 5-stage path from a single idea to expert-level mastery — with an example at every step.</span>
+    <span data-only="fa">نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از یک ایدهٔ ساده تا حرفه‌ای — با یک مثال در هر مرحله.</span>
+  </p>
+  <div class="metastrip">
+    <div class="metaitem"><span class="mk" data-only="en">Book</span><span class="mk" data-only="fa">کتاب</span>
+      <span class="mv" data-only="en">Influence</span><span class="mv" data-only="fa">نفوذ</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Author</span><span class="mk" data-only="fa">نویسنده</span>
+      <span class="mv" data-only="en">Robert Cialdini</span><span class="mv" data-only="fa">رابرت چالدینی</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Published</span><span class="mk" data-only="fa">سالِ چاپ</span>
+      <span class="mv" data-only="en">2021</span><span class="mv" data-only="fa">۲۰۲۱</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Group</span><span class="mk" data-only="fa">گروه</span>
+      <span class="mv" data-only="en">Influence</span><span class="mv" data-only="fa">نفوذ</span></div>
+  </div>
+  <div class="chips">
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Parts</span><span data-only="fa">بخش</span></div>
+    <div class="chip"><b data-only="en">15</b><b data-only="fa">۱۵</b><span data-only="en">Principles</span><span data-only="fa">اصل</span></div>
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Learning stages</span><span data-only="fa">مرحلهٔ یادگیری</span></div>
+  </div>`,
+
+  callout:`    <b data-only="en">The core idea:</b>
+    <b data-only="fa">ایدهٔ اصلی:</b>
+    <span data-only="en"> Influence is largely automatic. A handful of <i>principles</i> — reciprocation, commitment &amp; consistency, social proof, liking, authority, scarcity, and unity — act as <i>shortcuts</i> that trigger an almost mechanical <i>click, whirr</i> “yes.” They usually serve us well, which is exactly why they can be counterfeited and turned into weapons — and why learning to spot them is your best defense.</span>
+    <span data-only="fa"> نفوذ تا حدِ زیادی خودکار است. چند <i>اصلِ</i> ساده — عملِ متقابل، تعهد و ثبات، گواهِ اجتماعی، دوست‌داشتن، اقتدار، کمیابی و هم‌گروهی — مثلِ <i>میان‌بر</i> کار می‌کنند و یک «بله»ی تقریباً ماشینی، <i>کلیک، ویرّ</i>، را روشن می‌کنند. معمولاً به سودمان‌اند، و دقیقاً برای همین می‌شود جعلشان کرد و تبدیلشان کرد به سلاح — و برای همین بهترین دفاع این است که یاد بگیری تشخیصشان بدهی.</span>`,
+
+  kpis:`    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Parts (reciprocation · consistency · social proof · liking &amp; authority · scarcity &amp; unity)</div><div class="l" data-only="fa">بخش (عملِ متقابل · ثبات · گواهِ اجتماعی · دوست‌داشتن و اقتدار · کمیابی و هم‌گروهی)</div></div>
+    <div class="kbox"><div class="v" data-only="en">15</div><div class="v" data-only="fa">۱۵</div><div class="l" data-only="en">Principles you can use</div><div class="l" data-only="fa">اصل برای استفاده</div></div>
+    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Levels, simple → expert</div><div class="l" data-only="fa">مرحله، ساده تا حرفه‌ای</div></div>
+    <div class="kbox"><div class="v" data-only="en">7</div><div class="v" data-only="fa">۷</div><div class="l" data-only="en">The principles: reciprocation · consistency · social proof · liking · authority · scarcity · unity</div><div class="l" data-only="fa">اصل‌ها: عملِ متقابل · ثبات · گواهِ اجتماعی · دوست‌داشتن · اقتدار · کمیابی · هم‌گروهی</div></div>`,
+
+  mapcallout:`      <b data-only="en">Read it as a flow:</b><b data-only="fa">به‌صورتِ یک جریان بخوانش:</b>
+      <span data-only="en"> a <b>trigger</b> fires one of the principles, we <b>comply</b> almost automatically — and the real skill is learning to <b>defend</b>: to notice when a genuine signal is being faked and to refuse the automatic yes.</span>
+      <span data-only="fa"> یک <b>محرک</b> یکی از اصل‌ها را شلیک می‌کند، ما تقریباً خودکار <b>تسلیم</b> می‌شویم — و مهارتِ اصلی این است که یاد بگیری <b>دفاع</b> کنی: بفهمی کِی یک نشانهٔ واقعی دارد جعل می‌شود و آن «بله»ی خودکار را رد کنی.</span>`,
+
+  methodFa:"<p><b>منبع:</b> کتابِ «Influence: The Psychology of Persuasion» نوشتهٔ رابرت چالدینی، چاپِ نخست ۱۹۸۴ و نسخهٔ نو و بازنگری‌شدهٔ ۲۰۲۱ (نشرِ Harper Business).</p><p><b>روشِ کار:</b> ساختارِ پنج‌بخشی و اصل‌ها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده؛ نقل‌قول‌ها مقابله و ویدیوها بررسی شده‌اند.</p><p><b>گروه:</b> «نفوذ» — کتابِ کلاسیکِ اقناع، برای هر کسی که اقناع می‌کند یا اقناع می‌شود.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای متنِ کامل، خودِ کتاب را بخوان.</p>",
+  methodEn:"<p><b>Source:</b> the book <i>Influence: The Psychology of Persuasion</i> by Robert Cialdini, first published 1984, New &amp; Expanded edition 2021 (Harper Business).</p><p><b>How this was built:</b> the five-part structure and principles were gathered and rewritten from the book and reputable sources; quotes were cross-checked and the linked videos verified.</p><p><b>Group:</b> Influence — the classic on persuasion, for anyone who persuades or is persuaded.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>",
+
+  data:{
+    tldr:[
+      {en:"The whole book in one line: most persuasion works by triggering automatic mental shortcuts — learn the shortcuts and you can both use them and refuse them.",
+       fa:"خلاصهٔ کل کتاب در یک جمله: بیشترِ اقناع با روشن‌کردنِ میان‌برهای خودکارِ ذهن کار می‌کند — میان‌برها را یاد بگیر تا هم بتوانی به کارشان ببری و هم ردشان کنی."},
+      {en:"There are six classic <b>principles</b> — reciprocation, commitment &amp; consistency, social proof, liking, authority, scarcity — plus a seventh: <b>unity</b>.",
+       fa:"شش <b>اصلِ</b> کلاسیک هست — عملِ متقابل، تعهد و ثبات، گواهِ اجتماعی، دوست‌داشتن، اقتدار، کمیابی — به‌علاوهٔ اصلِ هفتم: <b>هم‌گروهی</b>."},
+      {en:"These shortcuts (<b>click, whirr</b>) usually help us decide fast — which is exactly why 'compliance professionals' can exploit them.",
+       fa:"این میان‌برها (<b>کلیک، ویرّ</b>) معمولاً کمک می‌کنند سریع تصمیم بگیریم — و دقیقاً برای همین «حرفه‌ای‌های گرفتنِ بله» می‌توانند ازشان سوءاستفاده کنند."},
+      {en:"Each principle has telltale tactics: free samples, small yeses, 'everyone's doing it', flattery, titles, and 'only 2 left'.",
+       fa:"هر اصل ترفندهای لو‌دهندهٔ خودش را دارد: نمونهٔ رایگان، بله‌های کوچک، «همه دارند این کار را می‌کنند»، چاپلوسی، عنوان‌ها، و «فقط ۲ تا مانده»."},
+      {en:"The defense is the same every time: notice when the trigger is being faked, and don't let the automatic yes run.",
+       fa:"دفاع هر بار یکی است: بفهم کِی محرک دارد جعل می‌شود، و نگذار آن «بله»ی خودکار راه بیفتد."}
+    ],
+    parts:[
+      { key:'reciprocation', varc:'--c-teal', name:{en:'Reciprocation', fa:'عملِ متقابل'}, tag:{en:'We repay favors', fa:'لطف را جبران می‌کنیم'},
+        gist:{en:'We feel bound to give back — even for an uninvited gift, even in a bad deal.', fa:'حس می‌کنیم باید جبران کنیم — حتی برای هدیه‌ای که نخواسته‌ایم، حتی توی یک معاملهٔ بد.'},
+        more:{en:"The oldest rule in every society: repay what you receive. A small, unasked-for favor creates a lopsided sense of debt we rush to clear — so a free sample or a first concession can pull a much larger yes.",
+              fa:"قدیمی‌ترین قاعده در هر جامعه‌ای: هرچه می‌گیری پس بده. یک لطفِ کوچکِ نخواسته یک حسِ بدهیِ نامتوازن می‌سازد که عجله داریم صافش کنیم — برای همین یک نمونهٔ رایگان یا یک کوتاه‌آمدنِ اول می‌تواند یک «بله»ی خیلی بزرگ‌تر بیرون بکشد."},
+        chapters:['recirule','rejretreat','recidefend'] },
+      { key:'consistency', varc:'--c-blue', name:{en:'Commitment & Consistency', fa:'تعهد و ثبات'}, tag:{en:'We honor our word', fa:'پایِ حرفمان می‌مانیم'},
+        gist:{en:'Once we commit, we line up everything after with that stand.', fa:'همین که تعهد دادیم، هرچه بعدش می‌آید را با همان موضع ردیف می‌کنیم.'},
+        more:{en:"We badly want to look consistent with what we've already said and done. Coax someone into a small step — a written note, a public stand — and later, bigger requests in the same direction feel natural.",
+              fa:"بدجور می‌خواهیم با آنچه قبلاً گفته و کرده‌ایم هماهنگ به‌نظر برسیم. کسی را به یک قدمِ کوچک بکش — یک یادداشتِ نوشته‌شده، یک موضعِ علنی — و بعد، خواسته‌های بزرگ‌ترِ هم‌جهت طبیعی به‌نظر می‌رسند."},
+        chapters:['consistency','footdoor','consistdefend'] },
+      { key:'socialproof', varc:'--c-amber', name:{en:'Social Proof', fa:'گواهِ اجتماعی'}, tag:{en:'We follow the crowd', fa:'از جمع پیروی می‌کنیم'},
+        gist:{en:'We read what is right off what others do — most of all when unsure.', fa:'درست را از رویِ کارِ دیگران می‌خوانیم — بیشتر از همه وقتی مطمئن نیستیم.'},
+        more:{en:"When we're uncertain, we look to the people around us — especially people like us — to learn the right move. Usually smart; but 'everyone's doing it' can be manufactured, and copying similar others can snowball into a stampede.",
+              fa:"وقتی مطمئن نیستیم، به آدم‌های دوروبرمان نگاه می‌کنیم — به‌خصوص آدم‌هایی که شبیهِ ما هستند — تا حرکتِ درست را یاد بگیریم. معمولاً هوشمندانه است؛ اما «همه دارند این کار را می‌کنند» را می‌شود ساختگی درست کرد، و تقلید از آدم‌های شبیهِ خودمان می‌تواند مثلِ بهمن راه بیفتد."},
+        chapters:['crowd','uncertainty','proofdefend'] },
+      { key:'likeauth', varc:'--c-violet', name:{en:'Liking & Authority', fa:'دوست‌داشتن و اقتدار'}, tag:{en:'Who is doing the asking', fa:'چه کسی دارد می‌خواهد'},
+        gist:{en:'We say yes to people we like and to credible authorities.', fa:'به آدم‌هایی که دوستشان داریم و به مرجع‌های معتبر «بله» می‌گوییم.'},
+        more:{en:"Two of the strongest shortcuts ride on the messenger, not the message. We comply more with people who are similar, familiar, good-looking and complimentary — and with figures who signal authority through titles, clothes and props.",
+              fa:"دوتا از قوی‌ترین میان‌برها روی پیام‌رسان سوارند، نه روی پیام. بیشتر با آدم‌هایی راه می‌آییم که شبیه، آشنا، خوش‌قیافه و تعریف‌کننده‌اند — و با کسانی که با عنوان و لباس و ظاهر، اقتدار را علامت می‌دهند."},
+        chapters:['liking','authority','likeauthdefend'] },
+      { key:'scarunity', varc:'--c-green', name:{en:'Scarcity & Unity', fa:'کمیابی و هم‌گروهی'}, tag:{en:'Rare, and “one of us”', fa:'کمیاب، و «خودی»'},
+        gist:{en:'We want what is scarce or forbidden — and we favor our own group.', fa:'چیزی را که کمیاب یا ممنوع است می‌خواهیم — و هوایِ گروهِ خودمان را داریم.'},
+        more:{en:"Things feel more valuable as they grow less available, and a threatened freedom makes us want them more. And the newest principle, unity, is stronger still: when someone is truly 'one of us' — family, tribe, identity — we treat their cause as our own.",
+              fa:"چیزها هرچه کمیاب‌تر می‌شوند باارزش‌تر حس می‌شوند، و آزادی‌ای که تهدید شود، بیشتر می‌خواهیمش. و تازه‌ترین اصل، هم‌گروهی، از این هم قوی‌تر است: وقتی کسی واقعاً «خودی» است — خانواده، قبیله، هویت — با خواستهٔ او مثلِ خواستهٔ خودمان رفتار می‌کنیم."},
+        chapters:['scarcity','unity','scardefend'] }
+    ],
+    chapters:{
+      recirule:{ part:'reciprocation', n:1, name:{en:'The Rule of Reciprocation', fa:'قاعدهٔ عملِ متقابل'}, glabel:{en:'Reciprocity', fa:'جبران'},
+        principle:{en:"We feel obligated to repay what others give us — so an uninvited gift can create a debt we never chose.", fa:"حس می‌کنیم موظفیم آنچه دیگران به ما می‌دهند را جبران کنیم — برای همین یک هدیهٔ نخواسته می‌تواند بدهی‌ای بسازد که ما انتخابش نکرده‌ایم."},
+        more:{en:"Every society teaches the rule: don't take without giving back. The obligation is so strong that even a small, unwanted favor makes us uneasy until we repay it — often with far more than we got. A free gift is rarely free.", fa:"هر جامعه‌ای این قاعده را یاد می‌دهد: بی‌آنکه پس بدهی، نگیر. این تعهد آن‌قدر قوی است که حتی یک لطفِ کوچکِ ناخواسته هم تا وقتی جبرانش نکنیم معذبمان می‌کند — اغلب با چیزی خیلی بیشتر از آنچه گرفته‌ایم. هدیهٔ رایگان به‌ندرت رایگان است."},
+        example:{en:"The Hare Krishnas handed travelers a flower before asking for a donation — the tiny 'gift' made refusing feel rude, and donations jumped.", fa:"هَرِه‌کریشناها قبل از اینکه از مسافرها کمکِ مالی بخواهند، یک گُل دستشان می‌دادند — همان «هدیهٔ» کوچک، نه‌گفتن را بی‌ادبانه جلوه می‌داد و کمک‌ها بالا رفت."},
+        tip:{en:"When a 'gift' arrives with a request behind it, split the two: treat the gift as a sales tactic, not a favor.", fa:"وقتی یک «هدیه» با یک خواسته پشتش می‌رسد، این دو را از هم جدا کن: هدیه را یک ترفندِ فروش بدان، نه یک لطف."},
+        pitfall:{en:"Treating a marketer's free sample as genuine kindness you must repay.", fa:"نمونهٔ رایگانِ یک فروشنده را یک مهربانیِ واقعی پنداشتن که باید جبرانش کنی."} },
+      rejretreat:{ part:'reciprocation', n:2, name:{en:'Rejection-Then-Retreat', fa:'اول رد، بعد عقب‌نشینی'}, glabel:{en:'The Retreat', fa:'عقب‌نشینی'},
+        principle:{en:"After you refuse a big request, a smaller one feels like a concession you should match — so you say yes.", fa:"وقتی یک خواستهٔ بزرگ را رد می‌کنی، خواستهٔ کوچک‌تر مثلِ یک کوتاه‌آمدن به‌نظر می‌رسد که باید جبرانش کنی — پس «بله» می‌گویی."},
+        more:{en:"Start with an extreme ask you'll turn down; the requester then 'retreats' to a smaller one. Their step back feels like a favor, so reciprocity pushes you to step toward them — and the contrast makes the second ask look modest.", fa:"با یک خواستهٔ افراطی شروع می‌کنند که ردش می‌کنی؛ بعد طرف به یک خواستهٔ کوچک‌تر «عقب می‌نشیند». عقب‌نشینی‌اش مثلِ یک لطف حس می‌شود، پس عملِ متقابل هُلت می‌دهد که تو هم به‌سمتش قدم برداری — و تضاد، خواستهٔ دوم را کوچک جلوه می‌دهد."},
+        example:{en:"Asked to mentor a boy weekly for two years — no. Then just take him to the zoo once? Cialdini said yes, and realized he'd been played.", fa:"از چالدینی خواستند دو سال هفته‌ای یک بار مربیِ یک پسر باشد — نه. خب فقط یک بار او را به باغ‌وحش ببرد؟ چالدینی «بله» گفت، و بعد فهمید که بازی‌اش داده‌اند."},
+        tip:{en:"Judge the smaller request on its own merits, as if the big one had never been made.", fa:"خواستهٔ کوچک‌تر را به‌خاطرِ خودش بسنج، انگار خواستهٔ بزرگ اصلاً مطرح نشده بود."},
+        pitfall:{en:"Reading a scripted 'concession' as generosity and matching it with your own.", fa:"یک «کوتاه‌آمدنِ» از‌پیش‌نوشته را سخاوت خواندن و با کوتاه‌آمدنِ خودت جوابش را دادن."} },
+      recidefend:{ part:'reciprocation', n:3, name:{en:'Defending Against Reciprocity', fa:'دفاع در برابرِ جبران'}, glabel:{en:'Defense', fa:'دفاع'},
+        principle:{en:"Accept genuine favors, but relabel a favor as a sales tactic the moment it is used to extract compliance.", fa:"لطف‌های واقعی را بپذیر، اما همان لحظه‌ای که یک لطف برای بیرون‌کشیدنِ «بله» به کار می‌رود، اسمش را بگذار ترفندِ فروش."},
+        more:{en:"The defense isn't to refuse all gifts — that would starve real generosity. It's to stay open to favors while being ready to redefine one as a trick if it turns out to be the opening move of an exchange. A trick doesn't deserve repayment.", fa:"دفاع این نیست که همهٔ هدیه‌ها را رد کنی — این جلوی سخاوتِ واقعی را می‌گیرد. دفاع این است که به لطف‌ها باز بمانی اما آماده باشی که یکی‌شان را ترفند بنامی اگر معلوم شد اولین حرکتِ یک معامله بوده. ترفند، جبران نمی‌خواهد."},
+        example:{en:"If a 'free inspection' is really the first move in a sales sequence, you owe nothing back — the offer was bait, not a gift.", fa:"اگر یک «بازدیدِ رایگان» در واقع اولین حرکتِ یک زنجیرهٔ فروش باشد، هیچ بدهی‌ای نداری — آن پیشنهاد طعمه بود، نه هدیه."},
+        tip:{en:"Ask: is this a genuine favor, or the first move in a deal? Repay favors, not tactics.", fa:"بپرس: این یک لطفِ واقعی است یا اولین حرکتِ یک معامله؟ لطف را جبران کن، نه ترفند را."},
+        pitfall:{en:"Refusing all kindness to stay safe — and losing real reciprocity in the process.", fa:"رد‌کردنِ هر مهربانی برای در‌امان‌ماندن — و از‌دست‌دادنِ عملِ متقابلِ واقعی در این میان."} },
+      consistency:{ part:'consistency', n:4, name:{en:'The Need to Be Consistent', fa:'نیاز به ثابت‌بودن'}, glabel:{en:'Consistency', fa:'ثبات'},
+        principle:{en:"Once we take a stand, we feel pressure to act in line with it — consistency is a shortcut we trust.", fa:"همین که سرِ حرفی می‌ایستیم، فشار حس می‌کنیم که همسو با آن رفتار کنیم — ثبات میان‌بری است که به آن اعتماد داریم."},
+        more:{en:"Looking and staying consistent with our past words and choices is prized as a sign of good character, and it saves us from rethinking everything. That's why an early commitment quietly steers all the decisions that follow.", fa:"هماهنگ‌ماندن با حرف‌ها و انتخاب‌های گذشته‌مان نشانهٔ شخصیتِ خوب دانسته می‌شود، و ما را از فکرِ‌مجددِ همه‌چیز خلاص می‌کند. برای همین یک تعهدِ اولیه بی‌سروصدا همهٔ تصمیم‌های بعدی را هدایت می‌کند."},
+        example:{en:"Bettors at a racetrack grew far more sure their horse would win just after placing the bet — the commitment reshaped their view.", fa:"شرط‌بندهای مسابقهٔ اسب، درست بعد از بستنِ شرط خیلی مطمئن‌تر می‌شدند که اسبشان می‌برد — تعهد، نگاهشان را از نو شکل داد."},
+        tip:{en:"Ask whether you'd make this choice today, knowing what you now know — not just to stay consistent with an old one.", fa:"بپرس با چیزی که الان می‌دانی، امروز هم همین انتخاب را می‌کردی؟ — نه اینکه فقط بخواهی با انتخابِ قدیمی‌ات هماهنگ بمانی."},
+        pitfall:{en:"Honoring a foolish past commitment only to avoid looking inconsistent.", fa:"پایبندی به یک تعهدِ گذشتهٔ احمقانه، فقط برای اینکه بی‌ثبات به‌نظر نرسی."} },
+      footdoor:{ part:'consistency', n:5, name:{en:'Foot-in-the-Door', fa:'پا لای در'}, glabel:{en:'Small Yeses', fa:'بله‌های کوچک'},
+        principle:{en:"A small first commitment changes your self-image, making a bigger, matching request far easier to grant.", fa:"یک تعهدِ کوچکِ اول، تصویری که از خودت داری را عوض می‌کند و «بله»‌گفتن به یک خواستهٔ بزرگ‌ترِ هم‌جهت را خیلی راحت‌تر می‌کند."},
+        more:{en:"Get someone to agree to something tiny and public, and they start to see themselves as the kind of person who does that — then bigger asks in the same direction fit the new self-image. Written and public commitments grip hardest.", fa:"کسی را وادار کن به چیزِ کوچک و علنی «بله» بگوید، آن‌وقت کم‌کم خودش را آدمی می‌بیند که این کار را می‌کند — بعد خواسته‌های بزرگ‌ترِ هم‌جهت با آن تصویرِ تازه جور در‌می‌آیند. تعهدهای نوشته‌شده و علنی محکم‌تر از همه چنگ می‌اندازند."},
+        example:{en:"Homeowners who agreed to a tiny 'be a safe driver' sticker later allowed a huge ugly billboard on their lawn — the small yes led to the big one.", fa:"صاحب‌خانه‌هایی که به یک برچسبِ کوچکِ «رانندهٔ ایمن باش» رضایت دادند، بعداً اجازه دادند یک بیلبوردِ بزرگ و زشت توی حیاطشان بگذارند — آن «بله»ی کوچک به «بله»ی بزرگ رساند."},
+        tip:{en:"Watch for small, self-defining 'yeses'; a trivial first step is often engineered to grow.", fa:"مراقبِ «بله»‌های کوچکی باش که هویتت را تعریف می‌کنند؛ یک قدمِ اولِ بی‌اهمیت اغلب طوری چیده شده که رشد کند."},
+        pitfall:{en:"Signing or saying something small without seeing where the staircase leads.", fa:"امضا یا گفتنِ یک چیزِ کوچک، بی‌آنکه ببینی این پلکان به کجا می‌رسد."} },
+      consistdefend:{ part:'consistency', n:6, name:{en:'Defending Against Consistency', fa:'دفاع در برابرِ ثبات'}, glabel:{en:'Defense', fa:'دفاع'},
+        principle:{en:"Listen for two signals — a tight stomach, or a heart that no longer means it — and be willing to break a commitment.", fa:"دنبالِ دو نشانه باش — یک دلِ گرفته، یا یک قلبی که دیگر پایش نیست — و حاضر باش یک تعهد را بشکنی."},
+        more:{en:"Consistency for its own sake is foolish. When a commitment traps you, notice the gut feeling that says you're being pushed, or ask: knowing what I now know, would I make this commitment again? If not, you're free to stop.", fa:"ثبات به‌خاطرِ خودِ ثبات، احمقانه است. وقتی یک تعهد به دامت انداخته، به آن حسِ درونی که می‌گوید داری هُل داده می‌شوی توجه کن، یا بپرس: با چیزی که الان می‌دانم، باز هم این تعهد را می‌دادم؟ اگر نه، آزادی که بایستی."},
+        example:{en:"Cialdini's rule: if the answer to 'knowing what I know, would I choose the same again?' is no, walk away — whatever you agreed before.", fa:"قاعدهٔ چالدینی: اگر جوابِ «با چیزی که می‌دانم، باز هم همین را انتخاب می‌کردم؟» نه است، بی‌خیال شو — هرچه هم که قبلاً قبول کرده باشی."},
+        tip:{en:"Use 'would I choose this again today?' as a release valve from commitments that no longer fit.", fa:"از «امروز باز هم همین را انتخاب می‌کردم؟» مثلِ یک سوپاپِ خروج برای تعهدهایی که دیگر جور نیستند استفاده کن."},
+        pitfall:{en:"Letting pride in never changing your mind lock you into a bad decision.", fa:"گذاشتنِ اینکه غرورِ «هیچ‌وقت نظرم را عوض نمی‌کنم» تو را در یک تصمیمِ بد حبس کند."} },
+      crowd:{ part:'socialproof', n:7, name:{en:'Following the Crowd', fa:'دنبال‌کردنِ جمع'}, glabel:{en:'The Crowd', fa:'جمع'},
+        principle:{en:"We decide what is correct by watching what most others do — if everyone's doing it, it must be right.", fa:"با نگاه‌کردن به کارِ اکثرِ آدم‌ها تصمیم می‌گیریم چه چیزی درست است — اگر همه دارند انجامش می‌دهند، حتماً درست است."},
+        more:{en:"Social proof is a genuine shortcut: usually the crowd is right, and copying saves effort. But it runs on autopilot, so a faked majority — canned laughter, 'bestseller' labels, planted lines — steers us as easily as a real one.", fa:"گواهِ اجتماعی یک میان‌برِ واقعی است: معمولاً جمع درست می‌گوید و تقلید، انرژی را کم می‌کند. اما روی خلبانِ خودکار کار می‌کند، پس یک اکثریتِ جعلی — خندهٔ ضبط‌شده، برچسبِ «پرفروش»، صف‌های چیده‌شده — به همان راحتیِ اکثریتِ واقعی هدایتمان می‌کند."},
+        example:{en:"Bartenders and buskers 'salt' their own tip jars with a few bills so customers see that tipping is what people here do.", fa:"متصدی‌های بار و نوازنده‌های خیابانی، ظرفِ انعامشان را با چند اسکناس «چاشنی» می‌زنند تا مشتری ببیند انعام‌دادن کاری است که اینجا همه می‌کنند."},
+        tip:{en:"Ask whether the crowd actually knows something — or is just copying each other, like you are.", fa:"بپرس آیا جمع واقعاً چیزی می‌داند — یا فقط دارند از هم تقلید می‌کنند، مثلِ خودت."},
+        pitfall:{en:"Assuming that because many are doing it, it must be the smart thing to do.", fa:"فرض‌کردنِ اینکه چون خیلی‌ها دارند انجامش می‌دهند، حتماً کارِ عاقلانه‌ای است."} },
+      uncertainty:{ part:'socialproof', n:8, name:{en:'Uncertainty & Similarity', fa:'تردید و شباهت'}, glabel:{en:'Uncertainty', fa:'تردید'},
+        principle:{en:"Social proof bites hardest when we're unsure — and when the people we're copying are like us.", fa:"گواهِ اجتماعی وقتی بیشترین گاز را می‌گیرد که مطمئن نیستیم — و وقتی آدم‌هایی که ازشان تقلید می‌کنیم شبیهِ ما هستند."},
+        more:{en:"Two conditions supercharge the crowd effect. In ambiguous situations we assume others know more, so we all watch each other (and no one acts). And we follow people similar to us most of all — which is why testimonials feature 'ordinary people just like you'.", fa:"دو شرط، اثرِ جمع را چند برابر می‌کند. در موقعیت‌های مبهم فرض می‌کنیم بقیه بیشتر می‌دانند، پس همه همدیگر را می‌پاییم (و هیچ‌کس کاری نمی‌کند). و بیشتر از همه از آدم‌های شبیهِ خودمان پیروی می‌کنیم — برای همین است که در تبلیغ‌ها «آدم‌های معمولی، درست مثلِ تو» را نشان می‌دهند."},
+        example:{en:"In an ambiguous emergency, each bystander stays calm because everyone else looks calm — so no one helps, each misreading the others.", fa:"در یک وضعیتِ اضطراریِ مبهم، هر تماشاگر آرام می‌ماند چون بقیه هم آرام به‌نظر می‌رسند — پس هیچ‌کس کمک نمی‌کند، و هرکس دیگران را اشتباه می‌خواند."},
+        tip:{en:"When unsure, don't just scan the crowd — get one clear fact, or single out one person, to break the freeze.", fa:"وقتی مطمئن نیستی، فقط جمع را نپا — یک واقعیتِ روشن پیدا کن، یا یک نفر را جدا کن، تا آن انجماد بشکند."},
+        pitfall:{en:"Mistaking a room full of equally clueless people for people who know.", fa:"اتاقی پر از آدم‌هایی که به‌یک‌اندازه بی‌خبرند را با آدم‌هایی که می‌دانند اشتباه‌گرفتن."} },
+      proofdefend:{ part:'socialproof', n:9, name:{en:'Defending Against Social Proof', fa:'دفاع در برابرِ گواهِ اجتماعی'}, glabel:{en:'Defense', fa:'دفاع'},
+        principle:{en:"Treat automatic crowd data as suspect — check whether the evidence is real, and be ready to override it.", fa:"دادهٔ خودکارِ جمع را مشکوک بدان — بررسی کن که شواهد واقعی است یا نه، و آماده باش که زیرش بزنی."},
+        more:{en:"You don't have to distrust every crowd, just the counterfeit ones. When the social proof looks manufactured or the herd is clearly on autopilot, switch off the automatic pilot, look at the facts directly, and act on them even if others aren't.", fa:"لازم نیست به هر جمعی بی‌اعتماد باشی، فقط به جمع‌های جعلی. وقتی گواهِ اجتماعی ساختگی به‌نظر می‌رسد یا گله آشکارا روی خلبانِ خودکار است، خلبانِ خودکار را خاموش کن، مستقیم به واقعیت‌ها نگاه کن، و بر اساسِ آن‌ها عمل کن حتی اگر بقیه نمی‌کنند."},
+        example:{en:"Seeing a stalled crowd walk past someone in trouble, you pick one person, point, and ask directly for help — cutting through the freeze.", fa:"وقتی می‌بینی یک جمعِ بی‌حرکت از کنارِ کسی که گرفتار است رد می‌شود، یک نفر را انتخاب می‌کنی، به او اشاره می‌کنی و مستقیم کمک می‌خواهی — و انجماد را می‌شکنی."},
+        tip:{en:"When numbers feel staged, verify the source before you follow the herd.", fa:"وقتی عددها صحنه‌سازی‌شده حس می‌شوند، قبل از اینکه دنبالِ گله بروی، منبع را راستی‌آزمایی کن."},
+        pitfall:{en:"Following an obviously manipulated 'everyone' straight off a cliff.", fa:"دنبال‌کردنِ یک «همهٔ» آشکارا دست‌کاری‌شده، یک‌راست تا لبِ پرتگاه."} },
+      liking:{ part:'likeauth', n:10, name:{en:'Liking', fa:'دوست‌داشتن'}, glabel:{en:'Liking', fa:'دوست‌داشتن'},
+        principle:{en:"We say yes far more to people we like — and liking is easily built with similarity, praise and cooperation.", fa:"به آدم‌هایی که دوستشان داریم خیلی بیشتر «بله» می‌گوییم — و دوست‌داشتن را راحت می‌شود با شباهت، تعریف و همکاری ساخت."},
+        more:{en:"We prefer to agree with people we know and like, and a few levers reliably build liking: good looks, similarity to us, compliments, familiarity, and cooperating toward a shared goal. Even a mentioned mutual friend does the work.", fa:"ترجیح می‌دهیم با آدم‌هایی که می‌شناسیم و دوست داریم موافقت کنیم، و چند اهرم مطمئن دوست‌داشتن را می‌سازند: خوش‌قیافگی، شباهت به ما، تعریف‌ و تمجید، آشنایی، و همکاری به‌سمتِ یک هدفِ مشترک. حتی نامِ یک دوستِ مشترک هم این کار را می‌کند."},
+        example:{en:"Tupperware parties sell through a friend hosting: you're really saying yes to the friend in the room, not to the plastic.", fa:"مهمانی‌های تاپِرور از طریقِ دوستی که میزبان است می‌فروشند: تو در واقع داری به دوستی که توی اتاق است «بله» می‌گویی، نه به آن ظرفِ پلاستیکی."},
+        tip:{en:"Separate the person from the deal: ask whether you like the offer as much as you like the seller.", fa:"آدم را از معامله جدا کن: بپرس آیا پیشنهاد را همان‌قدر دوست داری که فروشنده را؟"},
+        pitfall:{en:"Letting a warm, flattering, familiar salesperson stand in for a good product.", fa:"گذاشتنِ اینکه یک فروشندهٔ گرم، چاپلوس و آشنا جای یک محصولِ خوب را بگیرد."} },
+      authority:{ part:'likeauth', n:11, name:{en:'Authority', fa:'اقتدار'}, glabel:{en:'Authority', fa:'اقتدار'},
+        principle:{en:"We defer to credible authority — and often obey the mere symbols of it: titles, suits, and trappings.", fa:"به مرجعِ معتبر تن می‌دهیم — و اغلب از خودِ نشانه‌هایش اطاعت می‌کنیم: عنوان، کت‌وشلوار، و ظاهر."},
+        more:{en:"Obedience to legitimate authority is trained into us and usually useful, so we take a shortcut: we respond to signs of authority instead of its substance. Titles, uniforms, expensive suits and cars can trigger deference with no real expertise behind them.", fa:"اطاعت از مرجعِ مشروع در ما پرورش داده شده و معمولاً به‌درد‌بخور است، پس یک میان‌بر می‌زنیم: به نشانه‌های اقتدار واکنش می‌دهیم نه به محتوایش. عنوان‌ها، لباس‌های فرم، کت‌وشلوار و ماشینِ گران می‌توانند تسلیم را روشن کنند، بی‌آنکه هیچ تخصصِ واقعی پشتشان باشد."},
+        example:{en:"In Milgram's experiments, ordinary people delivered what they thought were dangerous shocks simply because a man in a lab coat told them to.", fa:"در آزمایش‌های میلگرم، آدم‌های معمولی چیزی را که فکر می‌کردند شوک‌های خطرناک است وارد کردند، فقط چون مردی با روپوشِ آزمایشگاه بهشان گفت."},
+        tip:{en:"Ask two questions: is this authority truly an expert, and how honest are they likely to be here?", fa:"دو سؤال بپرس: این مرجع واقعاً متخصص است، و احتمالاً اینجا چقدر صادق است؟"},
+        pitfall:{en:"Confusing the symbols of authority — a title or a uniform — with real expertise.", fa:"اشتباه‌گرفتنِ نشانه‌های اقتدار — یک عنوان یا یک لباسِ فرم — با تخصصِ واقعی."} },
+      likeauthdefend:{ part:'likeauth', n:12, name:{en:'Defending Against Liking & Authority', fa:'دفاع در برابرِ دوست‌داشتن و اقتدار'}, glabel:{en:'Defense', fa:'دفاع'},
+        principle:{en:"When you feel yourself liking someone 'too fast', or deferring to a title, pause and check the substance.", fa:"وقتی حس می‌کنی داری کسی را «خیلی سریع» دوست پیدا می‌کنی، یا داری به یک عنوان تن می‌دهی، مکث کن و محتوا را وارسی کن."},
+        more:{en:"You can't stop liking people or respecting experts — nor should you. The defense is to notice undue warmth or automatic deference as a signal, then focus narrowly on the merits: is this person actually an expert, and does liking them have anything to do with whether the deal is good?", fa:"نمی‌توانی جلوی دوست‌داشتنِ آدم‌ها یا احترام به متخصص‌ها را بگیری — و نباید هم بگیری. دفاع این است که گرمایِ بی‌جا یا تسلیمِ خودکار را یک نشانه ببینی، بعد فقط روی گوهرِ ماجرا تمرکز کنی: این آدم واقعاً متخصص است، و دوست‌داشتنش اصلاً ربطی دارد به اینکه معامله خوب است یا نه؟"},
+        example:{en:"Feeling you like a salesperson more than the short encounter warrants is itself the warning sign to slow down and judge the offer alone.", fa:"همین که حس کنی یک فروشنده را بیش از آنچه این ملاقاتِ کوتاه اقتضا می‌کند دوست داری، خودش زنگِ خطر است که یواش‌تر بروی و پیشنهاد را تک‌وتنها بسنجی."},
+        tip:{en:"Let a rush of liking or deference be a cue to separate the messenger from the message.", fa:"بگذار یک موجِ ناگهانیِ دوست‌داشتن یا تسلیم، نشانه‌ای باشد برای جدا‌کردنِ پیام‌رسان از پیام."},
+        pitfall:{en:"Buying from someone because they're likable or credentialed, not because they're right.", fa:"خریدن از کسی چون دوست‌داشتنی یا مدرک‌دار است، نه چون حق با اوست."} },
+      scarcity:{ part:'scarunity', n:13, name:{en:'Scarcity', fa:'کمیابی'}, glabel:{en:'Scarcity', fa:'کمیابی'},
+        principle:{en:"Opportunities look more valuable as they become less available — and a threatened freedom makes us want them more.", fa:"فرصت‌ها هرچه کمیاب‌تر می‌شوند باارزش‌تر به‌نظر می‌رسند — و آزادی‌ای که تهدید شود، بیشتر می‌خواهیمش."},
+        more:{en:"We use availability as a shortcut for quality, so 'rare' reads as 'good'. Worse, losing a freedom fuels reactance: when something is suddenly restricted or forbidden, we want it more than before. Deadlines, 'limited editions' and 'only 2 left' all pull this lever.", fa:"از دسترس‌پذیری مثلِ میان‌بری برای کیفیت استفاده می‌کنیم، پس «کمیاب» را «خوب» می‌خوانیم. بدتر، از‌دست‌دادنِ یک آزادی، واکنشِ سرکشی را شعله‌ور می‌کند: وقتی چیزی ناگهان محدود یا ممنوع می‌شود، بیشتر از قبل می‌خواهیمش. مهلت‌ها، «نسخهٔ محدود» و «فقط ۲ تا مانده» همه همین اهرم را می‌کشند."},
+        example:{en:"'Limited time', 'while supplies last' and one-day-only sales manufacture scarcity so buyers act now instead of thinking.", fa:"«فقط برای مدتِ محدود»، «تا وقتی موجودی هست» و حراج‌های فقط‌یک‌روزه، کمیابی را می‌سازند تا خریدار به‌جای فکر‌کردن، همین حالا اقدام کند."},
+        tip:{en:"When you feel the rush of 'it's almost gone', ask what you actually want it for — not just to have it.", fa:"وقتی هیجانِ «دارد تمام می‌شود» را حس کردی، بپرس واقعاً برای چه می‌خواهی‌اش — نه فقط برای اینکه داشته باشی‌اش."},
+        pitfall:{en:"Letting a countdown clock replace the question of whether you want the thing at all.", fa:"گذاشتنِ اینکه یک ساعتِ شمارشِ‌معکوس جای این سؤال را بگیرد که اصلاً آن چیز را می‌خواهی یا نه."} },
+      unity:{ part:'scarunity', n:14, name:{en:"Unity — 'One of Us'", fa:'هم‌گروهی — «خودی»'}, glabel:{en:'Unity', fa:'هم‌گروهی'},
+        principle:{en:"We say yes most of all to those we share an identity with — family, tribe, place — the 'we' that is us.", fa:"بیشتر از همه به کسانی «بله» می‌گوییم که با آن‌ها یک هویتِ مشترک داریم — خانواده، قبیله، سرزمین — همان «ما»یی که خودمان است."},
+        more:{en:"The newest, seventh principle is stronger than mere liking. Unity is about shared identities — kin, ethnicity, hometown, team, faith — the categories where 'they' become 'we'. Inside that circle we treat another's interests almost as our own.", fa:"تازه‌ترین اصل، اصلِ هفتم، از صرفِ دوست‌داشتن قوی‌تر است. هم‌گروهی دربارهٔ هویت‌های مشترک است — خویشاوند، قومیت، شهر، تیم، باور — همان دسته‌هایی که در آن‌ها «آن‌ها» می‌شود «ما». درونِ آن دایره، با منافعِ دیگری تقریباً مثلِ منافعِ خودمان رفتار می‌کنیم."},
+        example:{en:"Fundraisers and campaigns lean on 'we're family here' and shared roots, because a felt common identity beats any argument.", fa:"کمپین‌ها و جمع‌کننده‌های کمکِ مالی روی «اینجا همه خانواده‌ایم» و ریشه‌های مشترک تکیه می‌کنند، چون یک هویتِ مشترکِ حس‌شده از هر استدلالی قوی‌تر است."},
+        tip:{en:"Ask whether a claimed 'we' is a real shared identity — or a label pinned on to win your yes.", fa:"بپرس آیا آن «ما»یی که ادعا می‌شود یک هویتِ مشترکِ واقعی است — یا برچسبی که چسبانده‌اند تا «بله»‌ات را بگیرند."},
+        pitfall:{en:"Granting automatic trust to anyone who claims to be 'one of us'.", fa:"اعتمادِ خودکار‌دادن به هر کسی که ادعا می‌کند «خودی» است."} },
+      scardefend:{ part:'scarunity', n:15, name:{en:'Defending Against Scarcity & Unity', fa:'دفاع در برابرِ کمیابی و هم‌گروهی'}, glabel:{en:'Defense', fa:'دفاع'},
+        principle:{en:"Feel the rush scarcity or belonging creates, then use it as a cue to stop and ask what you truly want.", fa:"هیجانی که کمیابی یا حسِ خودی‌بودن می‌سازد را حس کن، بعد ازش مثلِ یک نشانه استفاده کن تا بایستی و بپرسی واقعاً چه می‌خواهی."},
+        more:{en:"Both levers work through arousal — the thrill of the rare, the warmth of the tribe — that makes calm thought hard. The defense is to catch that surge of feeling and treat it as a red flag: step back, and decide on the merits rather than on the emotion of the moment.", fa:"هر دو اهرم از راهِ برانگیختگی کار می‌کنند — هیجانِ چیزِ کمیاب، گرمای قبیله — که فکرِ آرام را سخت می‌کند. دفاع این است که آن موجِ احساس را بگیری و مثلِ یک پرچمِ قرمز ببینی‌اش: یک قدم عقب برو، و بر اساسِ گوهرِ ماجرا تصمیم بگیر، نه بر اساسِ احساسِ آن لحظه."},
+        example:{en:"When 'only for our people, and only today' makes your heart race, that very rush is the signal to slow down and think.", fa:"وقتی «فقط برای آدم‌های خودمان، و فقط امروز» قلبت را به تپش می‌اندازد، همان هیجان، خودش نشانه‌ای است برای اینکه یواش‌تر بروی و فکر کنی."},
+        tip:{en:"Let a spike of urgency or belonging be your reminder to pause before you decide.", fa:"بگذار یک جهشِ ناگهانیِ فوریت یا تعلق، یادآورت باشد که قبل از تصمیم مکث کنی."},
+        pitfall:{en:"Acting on the adrenaline of 'rare' or 'us' instead of the value of the thing itself.", fa:"عمل‌کردن بر اساسِ آدرنالینِ «کمیاب» یا «خودی»، به‌جای ارزشِ خودِ آن چیز."} }
+    },
+    core:{ name:{en:'PERSUASION', fa:'اقناع'},
+      principle:{en:"Most compliance runs on a handful of psychological principles that trigger an automatic, almost mechanical 'yes': reciprocation, commitment and consistency, social proof, liking, authority, scarcity, and unity. Each is a normally-useful shortcut — which is exactly why it can be counterfeited and turned into a weapon of influence. Knowing them lets you use them ethically, and defend against them.", fa:"بیشترِ «بله»‌گرفتن روی چند اصلِ روان‌شناختی سوار است که یک «بله»ی خودکار و تقریباً ماشینی را روشن می‌کنند: عملِ متقابل، تعهد و ثبات، گواهِ اجتماعی، دوست‌داشتن، اقتدار، کمیابی و هم‌گروهی. هر کدام یک میان‌برِ معمولاً به‌درد‌بخور است — و دقیقاً برای همین می‌شود جعلش کرد و به سلاحِ نفوذ تبدیلش کرد. شناختنشان کاری می‌کند که هم بتوانی اخلاقی به کارشان ببری، و هم در برابرشان دفاع کنی."},
+      more:{en:"Cialdini groups the science of yes into seven principles: we repay favors (reciprocation), we stay true to our commitments (consistency), we follow the crowd (social proof), we agree with people we like (liking) and with credible authorities (authority), we chase what's scarce (scarcity), and we favor those we share an identity with (unity). Each fires from a simple trigger; each can be defended against by noticing when that trigger is being faked.", fa:"چالدینی علمِ «بله» را در هفت اصل می‌چیند: لطف را جبران می‌کنیم (عملِ متقابل)، پایِ تعهدهایمان می‌مانیم (ثبات)، دنبالِ جمع می‌رویم (گواهِ اجتماعی)، با آدم‌هایی که دوست داریم (دوست‌داشتن) و با مرجع‌های معتبر (اقتدار) موافقت می‌کنیم، دنبالِ چیزِ کمیاب می‌دویم (کمیابی)، و هوایِ کسانی را داریم که با آن‌ها هویتِ مشترک داریم (هم‌گروهی). هر کدام از یک محرکِ ساده شلیک می‌شود؛ و در برابرِ هر کدام می‌شود دفاع کرد، با فهمیدنِ اینکه کِی آن محرک دارد جعل می‌شود."},
+      example:{en:"Click any node to read a principle or a defense. You can also drag the nodes around.", fa:"روی هر دایره کلیک کن تا یک اصل یا یک راهِ دفاع را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."} },
+    stages:[
+      { level:1, badge:{en:'Level 1 · Over-simplified', fa:'سطحِ ۱ · خیلی ساده'}, title:{en:'Yes runs on autopilot', fa:'«بله» روی خلبانِ خودکار است'}, tagline:{en:'The whole book in a sentence.', fa:'کلِ کتاب در یک جمله.'},
+        body:{en:"Most of the time we don't reason our way to yes — a trigger fires and we comply automatically. Learn the triggers and you can both use them and refuse them.", fa:"بیشترِ وقت‌ها با استدلال به «بله» نمی‌رسیم — یک محرک شلیک می‌شود و ما خودکار تسلیم می‌شویم. محرک‌ها را یاد بگیر تا هم بتوانی به کارشان ببری و هم ردشان کنی."},
+        example:{en:"A price tag that reads 'was $100, now $60' makes us buy — we judge the deal by contrast, not by whether we need it.", fa:"یک برچسبِ قیمت که می‌گوید «بود ۱۰۰ دلار، حالا ۶۰ دلار» ما را به خرید می‌کشاند — معامله را با تضاد می‌سنجیم، نه با اینکه لازمش داریم یا نه."},
+        gain:{en:"You know persuasion is mostly automatic — and can be spotted.", fa:"می‌دانی اقناع بیشترش خودکار است — و می‌شود تشخیصش داد."} },
+      { level:2, badge:{en:'Level 2 · Simple', fa:'سطحِ ۲ · ساده'}, title:{en:'The seven principles', fa:'هفت اصل'}, tagline:{en:'Reciprocation, consistency, social proof, liking, authority, scarcity, unity.', fa:'عملِ متقابل، ثبات، گواهِ اجتماعی، دوست‌داشتن، اقتدار، کمیابی، هم‌گروهی.'},
+        body:{en:"Almost every yes rides one of seven shortcuts: we repay <b>favors</b>, honor our <b>commitments</b>, follow the <b>crowd</b>, agree with people we <b>like</b> and with <b>authorities</b>, chase what's <b>scarce</b>, and back our own <b>group</b>.", fa:"تقریباً هر «بله»‌ای روی یکی از هفت میان‌بر سوار است: <b>لطف</b> را جبران می‌کنیم، پایِ <b>تعهدهایمان</b> می‌مانیم، دنبالِ <b>جمع</b> می‌رویم، با آدم‌هایی که <b>دوست</b> داریم و با <b>مرجع‌ها</b> موافقت می‌کنیم، دنبالِ چیزِ <b>کمیاب</b> می‌دویم، و پشتِ <b>گروهِ</b> خودمان می‌ایستیم."},
+        example:{en:"'Free sample' (reciprocation), 'only 2 left' (scarcity) and 'bestseller' (social proof) are three different levers on the same shelf.", fa:"«نمونهٔ رایگان» (عملِ متقابل)، «فقط ۲ تا مانده» (کمیابی) و «پرفروش» (گواهِ اجتماعی) سه اهرمِ متفاوت روی یک قفسه‌اند."},
+        gain:{en:"You can name the principle behind almost any pitch.", fa:"می‌توانی اصلِ پشتِ تقریباً هر ترفندِ فروشی را نام ببری."} },
+      { level:3, badge:{en:'Level 3 · Balanced', fa:'سطحِ ۳ · متعادل'}, title:{en:'Spot the tactics', fa:'ترفندها را ببین'}, tagline:{en:"Free gifts, small yeses, 'everyone's doing it'.", fa:'هدیهٔ رایگان، بله‌های کوچک، «همه دارند انجامش می‌دهند».'},
+        body:{en:"Each principle has signature moves. Reciprocation uses free gifts and the door-in-the-face retreat. Consistency uses the foot-in-the-door. Social proof uses 'everyone's buying it'. Liking uses flattery and similarity; authority uses titles and uniforms; scarcity uses deadlines and 'limited'.", fa:"هر اصل حرکت‌های امضایی خودش را دارد. عملِ متقابل از هدیهٔ رایگان و عقب‌نشینیِ در‌توصورت استفاده می‌کند. ثبات از پا‌لای‌در. گواهِ اجتماعی از «همه دارند می‌خرندش». دوست‌داشتن از چاپلوسی و شباهت؛ اقتدار از عنوان و لباسِ فرم؛ کمیابی از مهلت و «محدود»."},
+        example:{en:"'Would you mentor a boy for two years? No? Then just an afternoon at the zoo?' — a scripted retreat, not a real concession.", fa:"«دو سال مربیِ یک پسر می‌شوی؟ نه؟ خب فقط یک بعدازظهر باغ‌وحش؟» — یک عقب‌نشینیِ از‌پیش‌نوشته، نه یک کوتاه‌آمدنِ واقعی."},
+        gain:{en:"You can recognize the specific trick as it's being used.", fa:"می‌توانی همان ترفندِ مشخص را همان‌طور که به کار می‌رود بشناسی."} },
+      { level:4, badge:{en:'Level 4 · Advanced', fa:'سطحِ ۴ · پیشرفته'}, title:{en:'Why they work', fa:'چرا کار می‌کنند'}, tagline:{en:'Uncertainty, similarity, contrast, reactance.', fa:'تردید، شباهت، تضاد، سرکشی.'},
+        body:{en:"The principles bite hardest under certain conditions. Social proof spikes when we're <b>uncertain</b> and when others are <b>similar</b> to us. Scarcity spikes through <b>reactance</b> — a threatened freedom we scramble to keep. <b>Contrast</b> makes a second price or request look small. Commitments grip hardest when <b>public</b> and <b>written</b>.", fa:"اصل‌ها زیرِ شرایطِ خاص بیشترین گاز را می‌گیرند. گواهِ اجتماعی وقتی <b>مطمئن نیستیم</b> و وقتی بقیه <b>شبیهِ</b> ما هستند اوج می‌گیرد. کمیابی از راهِ <b>سرکشی</b> اوج می‌گیرد — آزادی‌ای که تهدید شده و دست‌وپا می‌زنیم نگهش داریم. <b>تضاد</b>، قیمت یا خواستهٔ دوم را کوچک جلوه می‌دهد. تعهدها وقتی <b>علنی</b> و <b>نوشته‌شده</b> باشند محکم‌تر چنگ می‌اندازند."},
+        example:{en:"In an ambiguous emergency, everyone stays calm because everyone else looks calm — social proof plus uncertainty freezes the whole room.", fa:"در یک وضعیتِ اضطراریِ مبهم، همه آرام می‌مانند چون بقیه هم آرام به‌نظر می‌رسند — گواهِ اجتماعی به‌علاوهٔ تردید، کلِ اتاق را منجمد می‌کند."},
+        gain:{en:"You understand the conditions that make each lever strong.", fa:"شرایطی را که هر اهرم را قوی می‌کند می‌فهمی."} },
+      { level:5, badge:{en:'Level 5 · Expert', fa:'سطحِ ۵ · حرفه‌ای'}, title:{en:'Use it and defend it', fa:'هم به کارش ببر، هم دفاع کن'}, tagline:{en:'Ethics, counterfeits, and saying no.', fa:'اخلاق، جعل‌ها، و «نه» گفتن.'},
+        body:{en:"The expert sees that each principle is a real, useful signal — and that the fight is against <b>counterfeits</b>. Use the principles honestly by supplying real evidence of reciprocity, consistency, proof, liking, authority and scarcity. <b>Defend</b> by noticing when a trigger is faked and refusing the automatic yes — the gut feeling of being rushed is itself the cue. Persuade with the truth; walk away from the fakes.", fa:"آدمِ حرفه‌ای می‌بیند که هر اصل یک نشانهٔ واقعی و به‌درد‌بخور است — و اینکه نبرد بر سرِ <b>جعل‌ها</b>ست. اصل‌ها را صادقانه به کار ببر، با فراهم‌کردنِ شواهدِ واقعیِ عملِ متقابل، ثبات، گواه، دوست‌داشتن، اقتدار و کمیابی. <b>دفاع</b> کن با فهمیدنِ اینکه کِی یک محرک جعل شده و ردکردنِ آن «بله»ی خودکار — همان حسِ درونیِ «دارند هُلم می‌دهند» خودش نشانه است. با حقیقت اقناع کن؛ از جعل‌ها فاصله بگیر."},
+        example:{en:"You feel the 'only today, only for us' rush, recognize it as manufactured scarcity-plus-unity, and calmly decide on the merits instead.", fa:"هیجانِ «فقط امروز، فقط برای خودمان» را حس می‌کنی، می‌فهمی که کمیابیِ ساختگی به‌علاوهٔ هم‌گروهی است، و به‌جایش با خونسردی بر اساسِ گوهرِ ماجرا تصمیم می‌گیری."},
+        gain:{en:"You can influence ethically and resist manipulation on sight.", fa:"می‌توانی اخلاقی نفوذ کنی و دست‌کاری را همان لحظه که می‌بینی‌اش پس بزنی."} }
+    ],
+    quotes:[
+      {en:"The rule says that we should try to repay, in kind, what another person has provided us.", fa:"قاعده می‌گوید هرچه کسی به ما داده، باید سعی کنیم به همان شکل جبرانش کنیم."},
+      {en:"Once we have made a choice or taken a stand, we will encounter personal and interpersonal pressures to behave consistently with that commitment.", fa:"همین که یک انتخاب کردیم یا سرِ حرفی ایستادیم، از درون و بیرون فشار می‌آید که همسو با همان تعهد رفتار کنیم."},
+      {en:"One means we use to determine what is correct is to find out what other people think is correct.", fa:"یکی از راه‌هایی که با آن می‌فهمیم چه چیزی درست است، این است که ببینیم بقیه چه چیزی را درست می‌دانند."},
+      {en:"In general, when we are unsure of ourselves, when the situation is unclear or ambiguous, when uncertainty reigns, we are most likely to look to and accept the actions of others as correct.", fa:"معمولاً وقتی از خودمان مطمئن نیستیم، وقتی موقعیت مبهم و ناروشن است و تردید حاکم است، بیشتر از همیشه به کارِ دیگران نگاه می‌کنیم و آن را درست می‌پذیریم."},
+      {en:"We most prefer to say yes to the requests of someone we know and like.", fa:"بیشتر از همه دوست داریم به خواستهٔ کسی «بله» بگوییم که می‌شناسیم و دوستش داریم."},
+      {en:"We are trained from birth that obedience to proper authority is right and disobedience is wrong.", fa:"از بدوِ تولد به ما یاد داده‌اند که اطاعت از یک مرجعِ درست، درست است و نافرمانی، غلط."},
+      {en:"Opportunities seem more valuable to us when their availability is limited.", fa:"فرصت‌ها وقتی کمیاب می‌شوند، در نظرمان باارزش‌تر جلوه می‌کنند."},
+      {en:"Whenever free choice is limited or threatened, the need to retain our freedoms makes us desire them (as well as the goods and services associated with them) significantly more than previously.", fa:"هر وقت آزادیِ انتخابمان محدود یا تهدید شود، نیاز به حفظِ آزادی‌مان باعث می‌شود آن را (و کالاها و خدماتِ وابسته به آن را) خیلی بیشتر از قبل بخواهیم."}
+    ],
+    media:[
+      { kind:'yt', id:'cFdCzN7RYbw', src:{en:'YouTube · Team Cialdini', fa:'یوتیوب · تیمِ چالدینی'},
+        title:{en:'Science of Persuasion (animated)', fa:'علمِ اقناع (انیمیشن)'},
+        desc:{en:"The famous animated overview of all the principles, from Cialdini's own team.", fa:'همان مرورِ انیمیشنیِ معروف از همهٔ اصل‌ها، از تیمِ خودِ چالدینی.'},
+        bullets:{en:["All seven principles in about eleven minutes","Clear, memorable animation","Straight from Cialdini's team"], fa:["هر هفت اصل در حدودِ یازده دقیقه","انیمیشنِ روشن و ماندگار","مستقیم از تیمِ چالدینی"]},
+        best:{en:'Best for Stage 1–2.', fa:'خوب برای مرحلهٔ ۱ و ۲.'} },
+      { kind:'yt', id:'9gP_rv8VB-U', src:{en:'YouTube · Inc.', fa:'یوتیوب · Inc.'},
+        title:{en:'How to Get People to Say Yes', fa:'چطور کاری کنیم مردم «بله» بگویند'},
+        desc:{en:'Cialdini himself explains the science of persuasion in a short interview.', fa:'خودِ چالدینی در یک مصاحبهٔ کوتاه علمِ اقناع را توضیح می‌دهد.'},
+        bullets:{en:["The principles in the author's words","Everyday examples of yes","A quick, practical talk"], fa:["اصل‌ها به زبانِ خودِ نویسنده","مثال‌های روزمرهٔ «بله» گرفتن","یک گفت‌وگوی سریع و عملی"]},
+        best:{en:'Best for Stage 2–3.', fa:'خوب برای مرحلهٔ ۲ و ۳.'} },
+      { kind:'yt', id:'6Af7Yqe_54w', src:{en:'YouTube · Interview', fa:'یوتیوب · مصاحبه'},
+        title:{en:'The 7th Principle: Unity', fa:'اصلِ هفتم: هم‌گروهی'},
+        desc:{en:'Cialdini on unity — the newest principle and why shared identity is so powerful.', fa:'چالدینی دربارهٔ هم‌گروهی — تازه‌ترین اصل و اینکه چرا هویتِ مشترک این‌قدر قدرتمند است.'},
+        bullets:{en:["What unity adds to the six","Why 'one of us' beats 'like us'","Straight from the author"], fa:["هم‌گروهی چه چیزی به آن شش‌تا اضافه می‌کند","چرا «خودی» از «شبیهِ ما» قوی‌تر است","مستقیم از خودِ نویسنده"]},
+        best:{en:'Best for Stage 4–5.', fa:'خوب برای مرحلهٔ ۴ و ۵.'} },
+      { kind:'img', url:'https://www.harpercollins.ca/9780062937650/influence-new-and-expanded/',
+        src:{en:'Harper Business · Publisher', fa:'Harper Business · ناشر'},
+        title:{en:'Influence — Publisher Page', fa:'نفوذ — صفحهٔ ناشر'},
+        desc:{en:'The publisher page for the New & Expanded edition, with editions and details.', fa:'صفحهٔ ناشر برای نسخهٔ نو و بازنگری‌شده، با نسخه‌ها و جزئیات.'},
+        bullets:{en:["The New & Expanded 2021 edition","Background on Cialdini","Straight from the source"], fa:["نسخهٔ نو و بازنگری‌شدهٔ ۲۰۲۱","پیشینه‌ای دربارهٔ چالدینی","مستقیم از خودِ منبع"]},
+        best:{en:'For editions and the source.', fa:'برای نسخه‌ها و منبعِ اصلی.'} }
+    ],
+    go:[
+      {label:{en:'Publisher page', fa:'صفحهٔ ناشر'}, url:'https://www.harpercollins.ca/9780062937650/influence-new-and-expanded/'},
+      {label:{en:'Book on Goodreads', fa:'کتاب در گودریدز'}, url:'https://www.goodreads.com/book/show/28815.Influence'},
+      {label:{en:'Cialdini at Influence at Work', fa:'چالدینی در Influence at Work'}, url:'https://www.influenceatwork.com/'}
+    ],
+    recs:[
+      { pri:'b', t:{en:'Name the principle', fa:'اصل را نام ببر'}, d:{en:"Next time you feel pulled to say yes, pause and name which of the seven principles is firing.", fa:'دفعهٔ بعد که حس کردی داری به‌سمتِ «بله» کشیده می‌شوی، مکث کن و نام ببر کدام‌یک از آن هفت اصل دارد شلیک می‌کند.'} },
+      { pri:'b', t:{en:'Repay favors, not tactics', fa:'لطف را جبران کن، نه ترفند را'}, d:{en:'Before returning a free gift, ask whether it was genuine or the opening move of a sale.', fa:'قبل از اینکه یک هدیهٔ رایگان را جبران کنی، بپرس واقعی بود یا اولین حرکتِ یک فروش.'} },
+      { pri:'n', t:{en:'Ask “would I choose this again?”', fa:'بپرس «باز هم همین را انتخاب می‌کردم؟»'}, d:{en:'When an old commitment traps you, ask if you would make it today; if not, drop it.', fa:'وقتی یک تعهدِ قدیمی به دامت انداخته، بپرس اگر امروز بود همین کار را می‌کردی؛ اگر نه، رهایش کن.'} },
+      { pri:'n', t:{en:'Let the rush be the cue', fa:'بگذار همان هیجان، نشانه باشد'}, d:{en:'When scarcity or belonging makes your heart race, treat that surge as your signal to slow down.', fa:'وقتی کمیابی یا حسِ خودی‌بودن قلبت را به تپش می‌اندازد، همان موج را نشانه‌ای بگیر برای اینکه یواش‌تر بروی.'} }
+    ]
+  }
+};

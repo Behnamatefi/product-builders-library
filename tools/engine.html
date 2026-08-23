@@ -1,0 +1,1327 @@
+<!DOCTYPE html>
+<!-- complexity-level: 1→5 (this page teaches the SAME book at five depths, over-simplified … expert) -->
+<!-- Effortless (Greg McKeown) — bilingual EN/FA knowledge graph & 5-stage learning page -->
+<html lang="fa" dir="rtl" data-lang="fa">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Atomic Habits — عادت‌های اتمی · نقشهٔ دانش و یادگیری ۵ مرحله‌ای</title>
+
+<!-- Boot theme + language BEFORE paint to avoid a flash -->
+<script>
+(function(){
+  try{
+    var th = localStorage.getItem('ah-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
+    document.documentElement.setAttribute('data-theme', th);
+  }catch(e){ document.documentElement.setAttribute('data-theme','light'); }
+  try{
+    var lg = localStorage.getItem('ah-lang') || 'fa';
+    document.documentElement.setAttribute('data-lang', lg);
+    document.documentElement.setAttribute('lang', lg);
+    document.documentElement.setAttribute('dir', lg==='fa' ? 'rtl' : 'ltr');
+  }catch(e){}
+})();
+</script>
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:ital,opsz@0,6..72;1,6..72&display=swap" rel="stylesheet">
+
+<style>
+/* ── TOKENS ───────────────────────────────────────────────── */
+:root, [data-theme="light"]{
+  --bg:#f5f6f8; --bg2:#eef2f7; --card:#fff; --card2:#f8fafb;
+  --ink:#1c2330; --mut:#6b7280; --line:#e6e8ee;
+  --accent:#0e7c86; --accent-ink:#fff; --warm:#c2410c;
+  --shadow:0 1px 2px rgba(20,30,50,.05),0 6px 24px rgba(20,30,50,.06);
+  --hero-1:#0e7c86; --hero-2:#0b5e66;
+  --c-teal:#0e9aa6; --c-blue:#2f6fb0; --c-violet:#7c3aed; --c-amber:#d97706;
+  --c-green:#15a34a; --c-red:#e11d48; --c-gold:#c98a12; --c-gray:#6b7280;
+  --state:#0e9aa6; --action:#d97706; --results:#7c3aed; --core:#0e7c86;
+}
+[data-theme="dark"]{
+  --bg:#0e131a; --bg2:#161d27; --card:#151c26; --card2:#1b2430;
+  --ink:#e9eef5; --mut:#9aa7b6; --line:#27313d;
+  --accent:#2dd4bf; --accent-ink:#06231f; --warm:#fb923c;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 28px rgba(0,0,0,.45);
+  --hero-1:#0c5f67; --hero-2:#07323a;
+  --c-teal:#2dd4bf; --c-blue:#5b9bd5; --c-violet:#a78bfa; --c-amber:#fbbf24;
+  --c-green:#34d399; --c-red:#fb7185; --c-gold:#e2b04a; --c-gray:#94a3b8;
+  --state:#2dd4bf; --action:#fbbf24; --results:#a78bfa; --core:#2dd4bf;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:Vazirmatn,"Segoe UI",Tahoma,Arial,sans-serif;line-height:1.85;font-size:15px;
+  transition:background .25s,color .25s}
+html[data-lang="en"] body{font-family:Inter,"Segoe UI",system-ui,Arial,sans-serif;line-height:1.7}
+.wrap{max-width:960px;margin:0 auto;padding:0 18px 40px}
+
+/* language visibility */
+html[data-lang="en"] [data-only="fa"]{display:none !important}
+html[data-lang="fa"] [data-only="en"]{display:none !important}
+
+/* ── HERO ─────────────────────────────────────────────────── */
+.hero{background:linear-gradient(135deg,var(--hero-1),var(--hero-2));color:#fff;padding:44px 0 34px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset-inline-end:-80px;top:-80px;width:280px;height:280px;
+  background:radial-gradient(circle,rgba(255,255,255,.12),transparent 70%);pointer-events:none}
+.hero .wrap{padding-bottom:0;position:relative;z-index:1}
+.hero h1{margin:0 0 8px;font-size:30px;font-weight:800;letter-spacing:-.3px;line-height:1.25}
+html[data-lang="en"] .hero h1{font-family:Newsreader,Georgia,serif;font-weight:600;letter-spacing:-.5px}
+.hero .dek{margin:0;opacity:.94;font-size:15.5px;max-width:640px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;
+  color:rgba(255,255,255,.95);background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.24);
+  padding:5px 13px;border-radius:20px;margin-bottom:15px}
+.eyebrow .edot{width:7px;height:7px;border-radius:50%;background:#fff;box-shadow:0 0 0 3px rgba(255,255,255,.25)}
+.metastrip{display:flex;flex-wrap:wrap;gap:14px 30px;margin-top:20px;padding-top:16px;
+  border-top:1px solid rgba(255,255,255,.18)}
+.metaitem{display:flex;flex-direction:column;gap:3px}
+.metaitem .mk{font-size:10.5px;color:rgba(255,255,255,.62);font-weight:700;letter-spacing:.6px;text-transform:uppercase}
+.metaitem .mv{font-size:14px;color:#fff;font-weight:700}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);
+  border-radius:11px;padding:9px 15px;font-size:13px}
+.chip b{font-size:20px;display:block;font-weight:800}
+
+/* ── NAV + TOC ────────────────────────────────────────────── */
+.navbar{position:sticky;top:0;z-index:60;background:color-mix(in srgb,var(--card) 92%,transparent);
+  backdrop-filter:saturate(180%) blur(10px);-webkit-backdrop-filter:saturate(180%) blur(10px);
+  border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+.navin{max-width:960px;margin:0 auto;padding:8px 16px;display:flex;align-items:center;gap:12px}
+.brand{flex:0 0 auto;font-weight:800;font-size:12.5px;color:var(--accent);white-space:nowrap;
+  display:flex;align-items:center;gap:7px}
+.brand .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);
+  box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 18%,transparent)}
+.toc{flex:1 1 auto;display:flex;flex-wrap:wrap;gap:7px;justify-content:center}
+.toc a{font-size:12.5px;color:var(--mut);text-decoration:none;border:1px solid var(--line);
+  border-radius:20px;padding:5px 12px;background:var(--card);white-space:nowrap;
+  transition:background .15s,color .15s,border-color .15s}
+.toc a:hover{color:var(--accent);border-color:var(--accent)}
+.toc a.active{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.navctl{flex:0 0 auto;display:flex;align-items:center;gap:8px}
+.langbtn{height:34px;border-radius:18px;border:1px solid var(--line);background:var(--card);
+  color:var(--ink);cursor:pointer;font:inherit;font-size:12.5px;font-weight:700;padding:0 13px;
+  display:flex;align-items:center;gap:6px}
+.langbtn:hover{border-color:var(--accent);color:var(--accent)}
+.langbtn .globe{width:15px;height:15px;display:block}
+.themebtn{flex:0 0 auto;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);
+  background:var(--card);color:var(--ink);cursor:pointer;line-height:1;display:grid;place-items:center}
+.themebtn svg{width:17px;height:17px;display:block}
+.themebtn:hover{border-color:var(--accent);color:var(--accent)}
+[data-theme="light"] .themebtn .ic-sun{display:none}
+[data-theme="dark"]  .themebtn .ic-moon{display:none}
+
+/* ── BLOCKS ───────────────────────────────────────────────── */
+h2{font-size:21px;margin:44px 0 6px;font-weight:800;scroll-margin-top:92px;line-height:1.35}
+html[data-lang="en"] h2{font-family:Newsreader,Georgia,serif;font-weight:600}
+h2 .num{color:var(--accent);font-variant-numeric:tabular-nums}
+.sub{color:var(--mut);font-size:13.5px;margin:0 0 16px;max-width:680px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;
+  padding:20px 22px;margin:14px 0;box-shadow:var(--shadow)}
+.lead{font-size:15.5px}
+.lead b{color:var(--warm)}
+.kgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin:8px 0}
+.kbox{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:15px 16px;text-align:center}
+.kbox .v{font-size:26px;font-weight:800;color:var(--accent);font-variant-numeric:tabular-nums}
+.kbox .l{font-size:12.5px;color:var(--mut);margin-top:3px}
+ul.clean{margin:6px 0;padding-inline-start:20px} ul.clean li{margin:8px 0}
+.callout{background:color-mix(in srgb,var(--warm) 9%,var(--card));
+  border:1px solid color-mix(in srgb,var(--warm) 30%,var(--line));
+  border-radius:12px;padding:14px 18px;margin:12px 0}
+.callout b{color:var(--warm)}
+.callout.accent{background:color-mix(in srgb,var(--accent) 9%,var(--card));
+  border-color:color-mix(in srgb,var(--accent) 30%,var(--line))}
+.callout.accent b{color:var(--accent)}
+a{color:var(--accent)}
+
+/* ── GRAPH ────────────────────────────────────────────────── */
+.gtabs{display:inline-flex;gap:4px;background:var(--bg2);border:1px solid var(--line);
+  border-radius:11px;padding:4px;margin:6px 0 2px}
+.gtab{border:0;background:transparent;color:var(--mut);font:inherit;font-size:13px;font-weight:700;
+  padding:7px 15px;border-radius:8px;cursor:pointer}
+.gtab.active{background:var(--card);color:var(--accent);box-shadow:var(--shadow)}
+.graphcard{padding:14px}
+.legend{display:flex;flex-wrap:wrap;gap:14px;margin:2px 4px 12px;font-size:12.5px;color:var(--mut)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:11px;height:11px;border-radius:50%;display:inline-block}
+.graphstage{display:grid;grid-template-columns:1fr;gap:14px}
+@media(min-width:760px){.graphstage{grid-template-columns:1.35fr .95fr}}
+.svgwrap{position:relative;background:var(--card2);border:1px solid var(--line);border-radius:12px;
+  overflow:hidden;min-height:300px}
+#netsvg{display:block;width:100%;height:560px;touch-action:none;cursor:grab}
+#netsvg text{pointer-events:none;user-select:none}
+.ghint{position:absolute;inset-inline-start:12px;top:10px;font-size:11.5px;color:var(--mut);
+  background:color-mix(in srgb,var(--card) 82%,transparent);border:1px solid var(--line);
+  border-radius:20px;padding:3px 11px;backdrop-filter:blur(4px);max-width:70%}
+.greset{position:absolute;inset-inline-end:10px;top:10px;border:1px solid var(--line);background:var(--card);
+  color:var(--mut);border-radius:8px;font:inherit;font-size:11.5px;padding:4px 10px;cursor:pointer}
+.greset:hover{color:var(--accent);border-color:var(--accent)}
+/* node + link interaction states */
+.node{cursor:pointer}
+/* the inner <g class="ns"> is what scales; fill-box keeps the pivot on the node itself, not the SVG viewport */
+.ns{transform-box:fill-box;transform-origin:center;transition:transform .2s cubic-bezier(.2,.75,.25,1)}
+.node.hover .ns{transform:scale(1.1)}
+.node.sel  .ns{transform:scale(1.34)}                 /* selected node grows */
+.node.ncore.hover .ns{transform:scale(1.06)}
+.node.ncore.sel   .ns{transform:none}                 /* the centre 'Effortless' node keeps default size */
+.node.sel circle{stroke:var(--ink);stroke-width:2.5;filter:drop-shadow(0 0 8px color-mix(in srgb,var(--accent) 60%,transparent))}
+.node.hl circle{stroke:var(--ink);stroke-opacity:.5;stroke-width:2.5}
+.node.dim{opacity:.2}
+.node text{font-family:Vazirmatn,Tahoma,sans-serif;font-weight:700}
+html[data-lang="en"] .node text{font-family:Inter,sans-serif}
+.glink{transition:opacity .2s,stroke .2s}
+.glink.dim{opacity:.08}
+.glink.hl{stroke:var(--accent) !important;stroke-opacity:.8}
+/* detail panel */
+.detail{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;min-height:220px}
+@media(min-width:760px){.detail{max-height:480px;overflow:auto}}
+.detail .dkick{font-size:11.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;display:flex;align-items:center;gap:7px;color:var(--mut)}
+.detail .dkick i{width:10px;height:10px;border-radius:50%}
+.detail h4{margin:8px 0 3px;font-size:18px;font-weight:800}
+html[data-lang="en"] .detail h4{font-family:Newsreader,serif;font-weight:600}
+.detail .drow{margin:11px 0}
+.detail .dlab{font-size:10.5px;font-weight:800;color:var(--accent);letter-spacing:.5px;text-transform:uppercase;
+  display:inline-flex;align-items:center;gap:5px}
+.detail .drow.tip .dlab{color:var(--c-green)}
+.detail .drow.pit .dlab{color:var(--warm)}
+.detail .drow.more{border-inline-start:2px solid color-mix(in srgb,var(--accent) 32%,var(--line));padding-inline-start:11px}
+.detail .drow.more .dlab{color:var(--mut)}
+.detail .dtxt{font-size:13.6px;margin-top:3px}
+.dchips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.dchip{font-size:12px;border:1px solid var(--line);background:var(--card2);border-radius:16px;padding:4px 11px;
+  cursor:pointer;color:var(--ink);display:inline-flex;align-items:center;gap:6px;font-family:inherit}
+.dchip:hover{border-color:var(--accent);color:var(--accent)}
+.dchip i{width:8px;height:8px;border-radius:50%;flex:0 0 auto}
+
+/* ── CONCEPT MAP ──────────────────────────────────────────── */
+.mapgrid{display:grid;grid-template-columns:1fr;gap:14px}
+@media(min-width:820px){.mapgrid{grid-template-columns:repeat(3,1fr)}}
+.partcol{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:16px;position:relative}
+.partcol .ph{display:flex;align-items:center;gap:9px;margin-bottom:3px}
+.partcol .pdot{width:13px;height:13px;border-radius:50%;flex:0 0 auto}
+.partcol .pnum{font-size:11px;font-weight:800;color:var(--mut)}
+.partcol h4{margin:0;font-size:16.5px;font-weight:800}
+html[data-lang="en"] .partcol h4{font-family:Newsreader,serif;font-weight:600}
+.partcol .ptag{font-size:12px;color:var(--mut);margin:2px 0 4px;font-weight:700}
+.partcol .pgist{font-size:12.8px;color:var(--mut);margin:0 0 12px}
+.chapchip{display:flex;align-items:baseline;gap:8px;padding:7px 10px;border:1px solid var(--line);
+  border-radius:9px;margin:6px 0;background:var(--card2);font-size:13px}
+.chapchip .cn{font-size:11px;font-weight:800;color:var(--mut);flex:0 0 auto;font-variant-numeric:tabular-nums}
+.chapchip b{font-weight:700}
+.chapchip small{color:var(--mut);display:block;font-size:11.5px;line-height:1.5}
+.flowline{display:flex;align-items:center;justify-content:center;gap:10px;color:var(--mut);
+  font-size:12.5px;font-weight:700;margin:6px 0 2px;flex-wrap:wrap}
+.flowline .ar{color:var(--accent)}
+
+/* ── STAGE LADDER ─────────────────────────────────────────── */
+.ladder{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 4px}
+.rung{flex:1 1 150px;border:1px solid var(--line);background:var(--card);border-radius:11px;
+  padding:11px 13px;cursor:pointer;transition:transform .12s,border-color .12s;position:relative}
+.rung:hover{border-color:var(--accent);transform:translateY(-2px)}
+.rung.active{border-color:var(--accent);box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 35%,transparent)}
+.rung .lv{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.4px}
+.rung .lt{font-size:13.5px;font-weight:800;margin-top:2px}
+.rung .lbar{height:5px;border-radius:4px;background:var(--bg2);margin-top:9px;overflow:hidden}
+.rung .lbar i{display:block;height:100%;background:linear-gradient(90deg,var(--c-teal),var(--c-violet))}
+.stagecard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 24px;
+  margin:14px 0;box-shadow:var(--shadow)}
+.stagecard .shead{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.stagecard .badge{font-size:12px;font-weight:800;color:#fff;background:var(--accent);
+  border-radius:8px;padding:4px 11px;white-space:nowrap}
+.stagecard h3{margin:0;font-size:21px;font-weight:800}
+html[data-lang="en"] .stagecard h3{font-family:Newsreader,serif;font-weight:600}
+.stagecard .tagline{color:var(--mut);font-size:13.5px;margin:4px 0 14px;font-weight:700}
+.stagecard .sbody{font-size:15px}
+.exbox{background:var(--card2);border:1px solid var(--line);border-inline-start:3px solid var(--accent);
+  border-radius:0 11px 11px 0;padding:13px 16px;margin:14px 0 6px}
+.exbox .exk{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.5px;text-transform:uppercase}
+.exbox .ext{font-size:13.8px;margin-top:3px}
+.gainrow{display:flex;align-items:flex-start;gap:9px;margin-top:12px;font-size:13px;color:var(--mut)}
+.gainrow .gi{flex:0 0 auto;color:var(--c-green);font-weight:800}
+.stagenav{display:flex;justify-content:space-between;gap:10px;margin-top:16px}
+.stagenav button{border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit;
+  font-size:13px;font-weight:700;border-radius:9px;padding:8px 14px;cursor:pointer}
+.stagenav button:hover:not(:disabled){border-color:var(--accent);color:var(--accent)}
+.stagenav button:disabled{opacity:.4;cursor:default}
+
+/* ── QUOTES ───────────────────────────────────────────────── */
+.qgrid{display:grid;grid-template-columns:1fr;gap:12px}
+@media(min-width:720px){.qgrid{grid-template-columns:1fr 1fr}}
+blockquote{margin:0;background:var(--card2);border-inline-start:3px solid var(--accent);
+  border-radius:0 12px 12px 0;padding:15px 18px;font-size:14.5px;position:relative}
+blockquote .qm{font-size:34px;line-height:0;color:var(--accent);opacity:.35;font-family:Georgia,serif;
+  position:absolute;inset-inline-start:10px;top:20px}
+blockquote p{margin:0;padding-inline-start:22px}
+html[data-lang="en"] blockquote{font-family:Newsreader,Georgia,serif;font-size:15.5px}
+
+/* ── MEDIA ────────────────────────────────────────────────── */
+.mgrid{display:grid;grid-template-columns:1fr;gap:16px}
+@media(min-width:640px){.mgrid{grid-template-columns:1fr 1fr}}
+.mcard{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;
+  box-shadow:var(--shadow);display:flex;flex-direction:column}
+.mthumb{position:relative;display:block;aspect-ratio:16/9;background:var(--bg2);overflow:hidden;text-decoration:none}
+.mthumb img{width:100%;height:100%;object-fit:cover;display:block}
+.mthumb .play{position:absolute;inset:0;display:grid;place-items:center}
+.mthumb .play span{width:54px;height:54px;border-radius:50%;background:rgba(0,0,0,.6);
+  display:grid;place-items:center;border:2px solid rgba(255,255,255,.9)}
+.mthumb .play svg{width:22px;height:22px;fill:#fff;margin-inline-start:3px}
+.mthumb .ptype{position:absolute;inset-inline-start:9px;top:9px;background:rgba(0,0,0,.72);color:#fff;
+  font-size:11px;font-weight:700;border-radius:6px;padding:3px 9px;letter-spacing:.3px}
+.mfake{aspect-ratio:16/9;display:grid;place-items:center;
+  background:linear-gradient(135deg,color-mix(in srgb,var(--c-violet) 22%,var(--card)),color-mix(in srgb,var(--c-teal) 22%,var(--card)))}
+.mfake svg{width:52px;height:52px;color:var(--ink);opacity:.6}
+.mbody{padding:15px 17px;display:flex;flex-direction:column;gap:7px;flex:1}
+.mbody .msrc{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.3px;text-transform:uppercase}
+.mbody h4{margin:0;font-size:15.5px;font-weight:800;line-height:1.4}
+html[data-lang="en"] .mbody h4{font-family:Newsreader,serif;font-weight:600}
+.mbody .mdesc{font-size:13px;color:var(--mut);margin:0}
+.mbody ul{margin:4px 0 0;padding-inline-start:18px}
+.mbody ul li{font-size:12.8px;margin:5px 0}
+.mbody .mbest{font-size:12px;font-weight:700;color:var(--warm);margin-top:auto;padding-top:8px}
+.mlink{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;
+  text-decoration:none;color:var(--accent);margin-top:4px}
+.mlink:hover{text-decoration:underline}
+.golist{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.golist a{font-size:12.5px;text-decoration:none;color:var(--ink);border:1px solid var(--line);
+  border-radius:20px;padding:6px 13px;background:var(--card);font-weight:700}
+.golist a:hover{border-color:var(--accent);color:var(--accent)}
+
+/* ── RECS + METHOD + CREDIT ───────────────────────────────── */
+.rec{display:grid;gap:10px;margin:8px 0}
+.rec .item{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--card)}
+.rec .item .t{font-weight:800;font-size:14.5px;margin-bottom:3px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.rec .item .t .pri{font-size:11px;font-weight:700;color:#fff;background:var(--warm);border-radius:6px;padding:2px 9px}
+.rec .item .t .pri.b{background:var(--accent)}
+.rec .item .d{font-size:13.4px;color:var(--mut)}
+.method{color:var(--mut);font-size:13.4px}
+.method p{margin:8px 0}
+.method b{color:var(--ink)}
+.credit{text-align:center;margin-top:40px;padding:22px 0 8px;border-top:1px solid var(--line);
+  color:var(--mut);font-size:14px}
+.credit .cname{color:var(--ink);font-weight:800}
+.credit a{font-weight:700;text-decoration:none}
+.credit a:hover{text-decoration:underline}
+.credit .sep{opacity:.5;margin:0 8px}
+.credit .li{display:inline-flex;align-items:center;gap:5px;vertical-align:middle}
+.credit .li svg{width:15px;height:15px;vertical-align:-3px}
+
+@media (max-width:640px){
+  body{font-size:14px}
+  .wrap{padding:0 13px 30px}
+  .hero{padding:28px 0 22px} .hero h1{font-size:22px}
+  h2{font-size:18px;scroll-margin-top:66px}
+  .brand{display:none}
+  .toc{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;scrollbar-width:none}
+  .toc::-webkit-scrollbar{display:none}
+  #netsvg{height:420px}
+}
+</style>
+</head>
+<body>
+
+<!-- ── HERO ───────────────────────────────────────────────── -->
+<header class="hero"><div class="wrap">
+  <div class="eyebrow"><span class="edot"></span>
+    <span data-only="en">Book knowledge map · James Clear</span>
+    <span data-only="fa">نقشهٔ کتاب · جیمز کلیر</span>
+  </div>
+  <h1>
+    <span data-only="en">Atomic Habits — Tiny Changes, Remarkable Results</span>
+    <span data-only="fa">عادت‌های اتمی — تغییرهای کوچک، نتیجه‌های چشمگیر</span>
+  </h1>
+  <p class="dek">
+    <span data-only="en">A knowledge graph of the whole book, plus a 5-stage path from a single sentence to expert-level mastery — with an example at every step.</span>
+    <span data-only="fa">نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از خیلی ساده تا حرفه‌ای — با یک مثال در هر مرحله.</span>
+  </p>
+  <div class="metastrip">
+    <div class="metaitem"><span class="mk" data-only="en">Book</span><span class="mk" data-only="fa">کتاب</span>
+      <span class="mv">Atomic Habits</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Author</span><span class="mk" data-only="fa">نویسنده</span>
+      <span class="mv" data-only="en">James Clear</span><span class="mv" data-only="fa">جیمز کلیر</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Published</span><span class="mk" data-only="fa">سالِ چاپ</span>
+      <span class="mv" data-only="en">2018</span><span class="mv" data-only="fa">۲۰۱۸</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Framework</span><span class="mk" data-only="fa">چارچوب</span>
+      <span class="mv" data-only="en">The 4 Laws</span><span class="mv" data-only="fa">چهار قانون</span></div>
+  </div>
+  <div class="chips">
+    <div class="chip"><b data-only="en">4</b><b data-only="fa">۴</b><span data-only="en">Laws</span><span data-only="fa">قانون</span></div>
+    <div class="chip"><b data-only="en">20</b><b data-only="fa">۲۰</b><span data-only="en">Techniques</span><span data-only="fa">تکنیک</span></div>
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Learning stages</span><span data-only="fa">مرحلهٔ یادگیری</span></div>
+  </div>
+</div></header>
+
+<!-- ── STICKY NAV ─────────────────────────────────────────── -->
+<div class="navbar"><div class="navin">
+  <a class="liblink" href="../index.html" style="flex:0 0 auto;display:inline-flex;align-items:center;gap:5px;text-decoration:none;color:var(--accent);font-weight:800;font-size:12.5px;white-space:nowrap" title="Library"><span data-only="en">‹ Library</span><span data-only="fa">کتابخانه ›</span></a>
+  <span class="brand"><span class="dot"></span>Atomic Habits</span>
+  <nav class="toc">
+    <a href="#tldr" data-only="en">In a nutshell</a><a href="#tldr" data-only="fa">خلاصه</a>
+    <a href="#graph" data-only="en">Knowledge graph</a><a href="#graph" data-only="fa">نقشهٔ دانش</a>
+    <a href="#stages" data-only="en">5 stages</a><a href="#stages" data-only="fa">۵ مرحله</a>
+    <a href="#quotes" data-only="en">Quotes</a><a href="#quotes" data-only="fa">جمله‌ها</a>
+    <a href="#media" data-only="en">Watch &amp; explore</a><a href="#media" data-only="fa">تماشا و منابع</a>
+    <a href="#apply" data-only="en">Apply it</a><a href="#apply" data-only="fa">کاربرد</a>
+  </nav>
+  <div class="navctl">
+    <button class="langbtn" id="langBtn" aria-label="Switch language">
+      <svg class="globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>
+      <span data-only="en">فارسی</span><span data-only="fa">English</span>
+    </button>
+    <button class="themebtn" id="themeBtn" aria-label="Toggle theme" title="Light / Dark">
+      <span class="ic-sun" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5 19 19M19 5l-1.5 1.5M6.5 17.5 5 19"/></svg></span>
+      <span class="ic-moon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.6 6.6 0 0 0 9.8 9.8Z"/></svg></span>
+    </button>
+  </div>
+</div></div>
+
+<div class="wrap">
+
+  <!-- ── TL;DR ────────────────────────────────────────────── -->
+  <h2 id="tldr"><span class="num" data-only="en">1.</span><span class="num" data-only="fa">۱.</span>
+    <span data-only="en"> In a nutshell</span><span data-only="fa"> خلاصه</span></h2>
+  <p class="sub" data-only="en">If you read only this, you still get the whole idea.</p>
+  <p class="sub" data-only="fa">اگر فقط همین بخش را بخوانی، کلِ ایده دستت می‌آید.</p>
+  <div class="card lead"><ul class="clean" id="tldrHost"></ul></div>
+  <div class="kgrid">
+    <div class="kbox"><div class="v" data-only="en">4</div><div class="v" data-only="fa">۴</div><div class="l" data-only="en">Laws of behavior change</div><div class="l" data-only="fa">قانونِ تغییرِ رفتار</div></div>
+    <div class="kbox"><div class="v" data-only="en">20</div><div class="v" data-only="fa">۲۰</div><div class="l" data-only="en">Techniques you can use</div><div class="l" data-only="fa">تکنیک برای استفاده</div></div>
+    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Levels, simple → expert</div><div class="l" data-only="fa">مرحله، ساده تا حرفه‌ای</div></div>
+    <div class="kbox"><div class="v">∞</div><div class="l" data-only="en">1% gains compound</div><div class="l" data-only="fa">سودهای ۱٪ روی هم جمع می‌شوند</div></div>
+  </div>
+  <div class="callout accent">
+    <b data-only="en">The core idea:</b>
+    <b data-only="fa">ایدهٔ اصلی:</b>
+    <span data-only="en"> You don't rise to your goals, you fall to your systems. Tiny habits — 1% better each day — compound into who you become. Make the good ones <i>obvious, attractive, easy</i> and <i>satisfying</i>.</span>
+    <span data-only="fa"> تو به هدف‌هایت نمی‌رسی، به سیستم‌هایت سقوط می‌کنی. عادت‌های کوچک — روزی ۱٪ بهتر — روی هم جمع می‌شوند و می‌سازند که چه‌کسی می‌شوی. عادت‌های خوب را <i>واضح، جذاب، آسان</i> و <i>رضایت‌بخش</i> کن.</span>
+  </div>
+
+  <!-- ── KNOWLEDGE GRAPH ──────────────────────────────────── -->
+  <h2 id="graph"><span class="num" data-only="en">2.</span><span class="num" data-only="fa">۲.</span>
+    <span data-only="en"> The knowledge graph</span><span data-only="fa"> نقشهٔ دانش</span></h2>
+  <p class="sub" data-only="en">The whole book as one picture. Click any node to focus its connections and read more — or switch to the structured map.</p>
+  <p class="sub" data-only="fa">کلِ کتاب در یک تصویر. روی هر دایره کلیک کن تا ارتباط‌هایش را ببینی و بیشتر بخوانی — یا به نقشهٔ مرتب برو.</p>
+
+  <div class="gtabs">
+    <button class="gtab active" id="tabNet"><span data-only="en">Interactive network</span><span data-only="fa">شبکهٔ تعاملی</span></button>
+    <button class="gtab" id="tabMap"><span data-only="en">Structured map</span><span data-only="fa">نقشهٔ مرتب</span></button>
+  </div>
+
+  <!-- network view -->
+  <div class="card graphcard" id="netView">
+    <div class="legend" id="legendHost"></div>
+    <div class="graphstage">
+      <div class="svgwrap">
+        <svg id="netsvg" viewBox="0 0 820 560" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Effortless knowledge network"></svg>
+        <div class="ghint" id="ghint"></div>
+        <button class="greset" id="greset"></button>
+      </div>
+      <div class="detail" id="detailHost"></div>
+    </div>
+  </div>
+
+  <!-- map view -->
+  <div class="card graphcard" id="mapView" style="display:none">
+    <div class="flowline" id="flowTop"></div>
+    <div class="mapgrid" id="mapHost"></div>
+    <div class="callout" style="margin-top:16px">
+      <b data-only="en">Read it as a flow:</b><b data-only="fa">به‌صورتِ یک جریان بخوانش:</b>
+      <span data-only="en"> the <b>Foundations</b> explain why habits work; then the four Laws follow the habit loop — <b>Obvious</b> (cue), <b>Attractive</b> (craving), <b>Easy</b> (response), <b>Satisfying</b> (reward).</span>
+      <span data-only="fa"> <b>بنیان‌ها</b> توضیح می‌دهند چرا عادت‌ها کار می‌کنند؛ بعد چهار قانون از حلقهٔ عادت پیروی می‌کنند — <b>واضح</b> (نشانه)، <b>جذاب</b> (ولع)، <b>آسان</b> (واکنش)، <b>رضایت‌بخش</b> (پاداش).</span>
+    </div>
+  </div>
+
+  <!-- ── 5 STAGES ─────────────────────────────────────────── -->
+  <h2 id="stages"><span class="num" data-only="en">3.</span><span class="num" data-only="fa">۳.</span>
+    <span data-only="en"> Learn it in 5 stages</span><span data-only="fa"> یادگیری در ۵ مرحله</span></h2>
+  <p class="sub" data-only="en">The same book at five depths. Start over-simplified, climb to expert. Tap a rung to jump.</p>
+  <p class="sub" data-only="fa">یک کتاب در پنج عمق. از خیلی ساده شروع کن و تا حرفه‌ای بالا برو. روی هر پله بزن تا بپری.</p>
+  <div class="ladder" id="ladderHost"></div>
+  <div id="stageHost"></div>
+
+  <!-- ── QUOTES ───────────────────────────────────────────── -->
+  <h2 id="quotes"><span class="num" data-only="en">4.</span><span class="num" data-only="fa">۴.</span>
+    <span data-only="en"> Lines worth keeping</span><span data-only="fa"> جمله‌هایی که ارزشِ نگه‌داشتن دارند</span></h2>
+  <p class="sub" data-only="en">Verbatim quotes from the book, translated alongside.</p>
+  <p class="sub" data-only="fa">جمله‌های مستقیم از کتاب، همراه با ترجمه.</p>
+  <div class="qgrid" id="quoteHost"></div>
+
+  <!-- ── MEDIA ────────────────────────────────────────────── -->
+  <h2 id="media"><span class="num" data-only="en">5.</span><span class="num" data-only="fa">۵.</span>
+    <span data-only="en"> Watch &amp; explore</span><span data-only="fa"> تماشا و منابع</span></h2>
+  <p class="sub" data-only="en">Special resources found online — each with what it covers and who it's best for.</p>
+  <p class="sub" data-only="fa">منابعِ ویژه‌ای که آنلاین پیدا شد — هرکدام با اینکه چه می‌گوید و به چه دردی می‌خورد.</p>
+  <div class="mgrid" id="mediaHost"></div>
+  <div class="card" style="margin-top:16px">
+    <div style="font-weight:800;font-size:13.5px;margin-bottom:4px">
+      <span data-only="en">Go straight to the source</span><span data-only="fa">مستقیم سراغِ منبع برو</span>
+    </div>
+    <div class="golist" id="goHost"></div>
+  </div>
+
+  <!-- ── APPLY ────────────────────────────────────────────── -->
+  <h2 id="apply"><span class="num" data-only="en">6.</span><span class="num" data-only="fa">۶.</span>
+    <span data-only="en"> Apply it this week</span><span data-only="fa"> این هفته امتحانش کن</span></h2>
+  <p class="sub" data-only="en">Four small moves that turn the idea into a habit.</p>
+  <p class="sub" data-only="fa">چهار حرکتِ کوچک که این ایده را به عادت تبدیل می‌کنند.</p>
+  <div class="rec" id="recHost"></div>
+
+  <!-- ── METHOD ───────────────────────────────────────────── -->
+  <h2 id="method"><span class="num" data-only="en">7.</span><span class="num" data-only="fa">۷.</span>
+    <span data-only="en"> Sources &amp; notes</span><span data-only="fa"> منابع و توضیح</span></h2>
+  <div class="card method" id="methodHost"></div>
+
+  <!-- ── CREDIT FOOTER ────────────────────────────────────── -->
+  <div class="credit">
+    <span data-only="en">Created by <span class="cname">Behnam Atefi</span><span class="sep">·</span><a class="li" href="https://www.linkedin.com/in/behnamatefi/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.3c0-1.26-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9z"/></svg>LinkedIn</a></span>
+    <span data-only="fa">ساخته‌شده توسط <span class="cname">بهنام عاطفی</span><span class="sep">·</span><a class="li" href="https://www.linkedin.com/in/behnamatefi/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.3c0-1.26-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9z"/></svg>لینکدین</a></span>
+  </div>
+</div>
+
+<!-- ═══════════════════════ SCRIPTS ═══════════════════════ -->
+<script>
+/* ── 1) language + formatters ─────────────────────────────── */
+var LANG = document.documentElement.getAttribute('data-lang') || 'fa';
+var FA_D = '۰۱۲۳۴۵۶۷۸۹';
+var RLM  = '‏';
+function faDigits(s){ return String(s).replace(/[0-9]/g, function(d){ return FA_D[+d]; }); }
+/* honor the RTL preference: isolate Latin runs (word order preserved) and mark with U+200F */
+function rlm(s){
+  return String(s)
+    .replace(/[A-Za-zÀ-ɏ][A-Za-zÀ-ɏ0-9'’.&:\/\-]*(?:\s+[A-Za-zÀ-ɏ0-9'’.&:\/\-]+)*/g,
+      function(m){ return RLM+'⁦'+m+'⁩'+RLM; })
+    .replace(/[0-9۰-۹]+/g, function(m){ return m+RLM; });
+}
+/* transform only TEXT segments, never HTML tags (so <b>/<i> survive) */
+function faText(s){ return String(s).replace(/(<[^>]+>)|([^<]+)/g, function(m,tag,txt){ return tag ? tag : faDigits(rlm(txt)); }); }
+function TX(o){ if(o==null) return ''; if(typeof o==='string') return o; return LANG==='fa' ? faText(o.fa) : o.en; }
+function num(n){ return LANG==='fa' ? faDigits(n) : String(n); }
+function tok(name){ return getComputedStyle(document.documentElement).getPropertyValue(name).trim(); }
+</script>
+
+<script>
+/* ── DATA LAYER — Atomic Habits (bilingual, plain-spoken Persian) ── */
+var DATA = {
+  tldr: [
+    {en:"The whole book in one line: you don't need big goals, you need tiny habits repeated daily — they compound into remarkable results.",
+     fa:"خلاصهٔ کل کتاب در یک جمله: به هدف‌های بزرگ نیاز نداری، به عادت‌های کوچک نیاز داری که هر روز تکرار شوند — این‌ها روی هم جمع می‌شوند و نتیجه‌های چشمگیر می‌سازند."},
+    {en:"Focus on <b>systems, not goals</b>, and on <b>who you want to become</b> — every action is a vote for that identity.",
+     fa:"روی <b>سیستم تمرکز کن نه هدف</b>، و روی <b>اینکه می‌خواهی چه‌کسی بشوی</b> — هر کار یک رأی به آن هویت است."},
+    {en:"Build any good habit with four laws: make it <b>Obvious, Attractive, Easy, Satisfying</b> — and invert them to break a bad one.",
+     fa:"هر عادتِ خوبی را با چهار قانون بساز: <b>واضح، جذاب، آسان، رضایت‌بخش</b> — و برای شکستنِ یک عادتِ بد، برعکسشان کن."},
+    {en:"Every habit runs a loop — <b>cue → craving → response → reward</b>; the four laws each tune one part of it.",
+     fa:"هر عادت یک حلقه دارد — <b>نشانه ← ولع ← واکنش ← پاداش</b>؛ هر یک از چهار قانون، یک قسمتش را تنظیم می‌کند."},
+    {en:"This page teaches it in 5 stages, from a single sentence to identity and compounding — climb at your own pace.",
+     fa:"این صفحه آن را در ۵ مرحله می‌آموزد، از یک جمله تا هویت و انباشت — با ریتمِ خودت بالا برو."}
+  ],
+
+  parts: [
+    { key:'found', varc:'--c-teal',
+      name:{en:'Foundations', fa:'بنیان‌ها'},
+      tag:{en:'The mindset', fa:'طرزِ فکر'},
+      gist:{en:'Why tiny habits work: they compound, they beat goals, and they change who you are.',
+            fa:'چرا عادت‌های کوچک جواب می‌دهند: روی هم جمع می‌شوند، از هدف‌ها بهترند، و تو را عوض می‌کنند.'},
+      more:{en:"Before any tactic, get the mental model right. Results are lagging indicators of your habits; change feels slow at first (the 'valley of disappointment') and then compounds fast. Aim at systems and identity, and the outcomes follow.",
+            fa:"قبل از هر تکنیک، مدلِ ذهنی را درست کن. نتیجه‌ها، بازتابِ دیرهنگامِ عادت‌های تو هستند؛ تغییر اولش کند به‌نظر می‌رسد («درهٔ ناامیدی») و بعد سریع روی هم جمع می‌شود. هدفت را روی سیستم و هویت بگذار، نتیجه‌ها خودشان می‌آیند."},
+      chapters:['compound','systems','identity','loop'] },
+    { key:'obvious', varc:'--c-blue',
+      name:{en:'Law 1 · Make it Obvious', fa:'قانون ۱ · واضحش کن'},
+      tag:{en:'The cue', fa:'نشانه'},
+      gist:{en:'Make the cues for good habits impossible to miss (and hide the cues for bad ones).',
+            fa:'نشانه‌های عادتِ خوب را طوری بچین که نشود نادیده گرفت (و نشانه‌های عادتِ بد را پنهان کن).'},
+      more:{en:"Behavior starts with a cue. If you want a habit to stick, make its trigger loud and specific — a time, a place, an obvious object in your environment. Most habits fail not from lack of willpower but because the cue never shows up.",
+            fa:"رفتار با یک نشانه شروع می‌شود. اگر می‌خواهی عادتی بماند، محرکش را پُررنگ و مشخص کن — یک زمان، یک مکان، یک شیءِ واضح در محیطت. بیشترِ عادت‌ها نه به‌خاطرِ کمبودِ اراده، بلکه چون نشانه‌شان اصلاً پیدا نمی‌شود شکست می‌خورند."},
+      chapters:['scorecard','intention','stacking','environment'] },
+    { key:'attractive', varc:'--c-violet',
+      name:{en:'Law 2 · Make it Attractive', fa:'قانون ۲ · جذابش کن'},
+      tag:{en:'The craving', fa:'ولع'},
+      gist:{en:"The more appealing a habit feels, the more you'll want to do it.",
+            fa:'هرچه یک عادت جذاب‌تر حس شود، بیشتر دلت می‌خواهد انجامش بدهی.'},
+      more:{en:"A craving is the anticipation of a reward — that's what actually drives action. Tie your habits to things you already enjoy, surround yourself with people for whom the behavior is normal, and the pull grows on its own.",
+            fa:"ولع یعنی انتظارِ یک پاداش — همین است که واقعاً تو را به عمل وامی‌دارد. عادت‌هایت را به چیزهایی که همین حالا دوست داری گره بزن، و کنارِ آدم‌هایی باش که آن رفتار برایشان عادی است؛ آن‌وقت کشش خودش بیشتر می‌شود."},
+      chapters:['bundling','tribe','reframe','dopamine'] },
+    { key:'easy', varc:'--c-amber',
+      name:{en:'Law 3 · Make it Easy', fa:'قانون ۳ · آسانش کن'},
+      tag:{en:'The response', fa:'واکنش'},
+      gist:{en:"Reduce the effort a good habit takes until it's almost impossible to skip.",
+            fa:'زحمتی که عادتِ خوب می‌برد را آن‌قدر کم کن که تقریباً نشود از زیرش در رفت.'},
+      more:{en:"Habits form through repetition, not perfection, so lower the barrier to starting. Cut friction, shrink the habit to two minutes, and prepare your environment in advance. Make the good thing the path of least resistance.",
+            fa:"عادت‌ها با تکرار ساخته می‌شوند، نه با بی‌نقص‌بودن؛ پس مانعِ شروع را پایین بیاور. اصطکاک را کم کن، عادت را به دو دقیقه کوچک کن، و محیطت را از قبل آماده کن. کاری کن که کارِ خوب، کم‌مقاومت‌ترین مسیر باشد."},
+      chapters:['friction','twomin','prime','commit'] },
+    { key:'satisfying', varc:'--c-green',
+      name:{en:'Law 4 · Make it Satisfying', fa:'قانون ۴ · رضایت‌بخشش کن'},
+      tag:{en:'The reward', fa:'پاداش'},
+      gist:{en:'What feels good gets repeated — give good habits an immediate payoff.',
+            fa:'هر چیزی که حسِ خوبی بدهد، تکرار می‌شود — به عادتِ خوب یک پاداشِ فوری بده.'},
+      more:{en:"The first three laws make a behavior likely; the fourth makes it stick. Because good habits often pay off only later, add a small reward now, make progress visible, and add a cost to slipping — so your brain votes to repeat it.",
+            fa:"سه قانونِ اول یک رفتار را محتمل می‌کنند؛ قانونِ چهارم آن را ماندگار می‌کند. چون عادتِ خوب معمولاً فقط بعداً نتیجه می‌دهد، همین حالا یک پاداشِ کوچک اضافه کن، پیشرفت را قابلِ‌دیدن کن، و برای جازدن یک هزینه بگذار — تا مغزت رأی به تکرارش بدهد."},
+      chapters:['reward','tracking','nevertwice','contract'] }
+  ],
+
+  chapters: {
+    compound:{ part:'found', n:1, name:{en:'1% Better (Compounding)', fa:'۱٪ بهتر (انباشت)'}, glabel:{en:'1% Better', fa:'۱٪ بهتر'},
+      principle:{en:"Getting just 1% better every day barely shows at first, but compounds into being ~37x better over a year. Tiny gains are the real engine of big change.",
+                 fa:"فقط ۱٪ بهتر شدن در هر روز اولش تقریباً دیده نمی‌شود، اما در طولِ یک سال روی هم جمع می‌شود و حدودِ ۳۷ برابر بهترت می‌کند. سودهای کوچک، موتورِ واقعیِ تغییرِ بزرگ‌اند."},
+      more:{en:"Habits are the compound interest of self-improvement. The flip side is also true — 1% worse each day nearly wipes you out over a year. What matters is the direction of your daily slope, not today's snapshot.",
+            fa:"عادت‌ها، سودِ مرکبِ خودسازی‌اند. رویِ دیگرِ سکه هم درست است — ۱٪ بدتر شدن در هر روز، در طولِ یک سال تقریباً نابودت می‌کند. چیزی که مهم است جهتِ شیبِ روزانهٔ توست، نه عکسِ همین امروز."},
+      example:{en:"Read one page a night. It feels like nothing, but it's a shelf of books in a few years.",
+               fa:"هر شب یک صفحه بخوان. حس می‌کنی هیچ است، اما چند سال بعد می‌شود یک قفسه کتاب."},
+      tip:{en:"Pick one habit and make it 1% easier or smaller today — aim for repeatable, not impressive.",
+           fa:"یک عادت را انتخاب کن و همین امروز ۱٪ آسان‌تر یا کوچک‌ترش کن — هدفت تکرارپذیری باشد، نه چشمگیر بودن."},
+      pitfall:{en:"Expecting fast results makes you quit in the 'valley of disappointment', right before habits pay off.",
+               fa:"انتظارِ نتیجهٔ سریع باعث می‌شود درست در «درهٔ ناامیدی»، دقیقاً قبل از اینکه عادت‌ها نتیجه بدهند، رها کنی."} },
+    systems:{ part:'found', n:2, name:{en:'Systems > Goals', fa:'سیستم، نه هدف'}, glabel:{en:'Systems', fa:'سیستم'},
+      principle:{en:"You do not rise to the level of your goals; you fall to the level of your systems. Goals set the direction, but daily systems make the progress.",
+                 fa:"تو به سطحِ هدف‌هایت نمی‌رسی؛ به سطحِ سیستم‌هایت سقوط می‌کنی. هدف جهت را مشخص می‌کند، اما سیستمِ روزانه پیشرفت را می‌سازد."},
+      more:{en:"Winners and losers often share the same goal, so the goal isn't what separates them — the system is. Fall in love with the routine, not just the result, and progress stops depending on motivation.",
+            fa:"برنده و بازنده اغلب یک هدفِ مشترک دارند، پس هدف آن‌ها را از هم جدا نمی‌کند — سیستم جدا می‌کند. عاشقِ روتین شو، نه فقط نتیجه؛ آن‌وقت پیشرفت دیگر به انگیزه وابسته نیست."},
+      example:{en:"Instead of 'lose 10 kg' (goal), build the system: cook at home five nights a week.",
+               fa:"به‌جای «۱۰ کیلو کم کنم» (هدف)، سیستم را بساز: هفته‌ای پنج شب خانه غذا بپز."},
+      tip:{en:"Turn a goal into a repeatable rule you can run today, no motivation required.",
+           fa:"یک هدف را به یک قاعدهٔ تکرارپذیر تبدیل کن که همین امروز بشود اجرایش کرد، بدونِ نیاز به انگیزه."},
+      pitfall:{en:"Chasing the goal while ignoring the system gets you a burst, then you snap back to old habits.",
+               fa:"دنبالِ هدف‌دویدن و بی‌خیالِ سیستم‌شدن، یک جهش می‌دهد و بعد دوباره به عادت‌های قدیمی برمی‌گردی."} },
+    identity:{ part:'found', n:3, name:{en:'Identity-based Habits', fa:'عادت‌های هویت‌محور'}, glabel:{en:'Identity', fa:'هویت'},
+      principle:{en:"The deepest way to change is to change your identity: decide who you want to be, and let each habit be a small vote for that person.",
+                 fa:"عمیق‌ترین راهِ تغییر، عوض‌کردنِ هویت است: تصمیم بگیر چه‌کسی می‌خواهی باشی، و بگذار هر عادت یک رأیِ کوچک به آن آدم باشد."},
+      more:{en:"There are three layers: outcomes (what you get), processes (what you do), and identity (what you believe). Most people start from outcomes; lasting change starts from identity — 'I am a runner' beats 'I want to run'.",
+            fa:"سه لایه وجود دارد: نتیجه (چه به‌دست می‌آوری)، فرایند (چه انجام می‌دهی)، و هویت (به چه باور داری). بیشترِ آدم‌ها از نتیجه شروع می‌کنند؛ اما تغییرِ ماندگار از هویت شروع می‌شود — «من یک دونده‌ام» از «می‌خواهم بدوم» قوی‌تر است."},
+      example:{en:"Don't aim to 'write a book'. Become 'a writer' — someone who writes a little every day.",
+               fa:"هدفت «نوشتنِ یک کتاب» نباشد. «یک نویسنده» شو — کسی که هر روز کمی می‌نویسد."},
+      tip:{en:"Ask: 'what would a healthy / organized person do?' Then take that action, however small.",
+           fa:"بپرس: «یک آدمِ سالم / منظم چه‌کار می‌کند؟» بعد همان کار را انجام بده، هرچقدر هم کوچک."},
+      pitfall:{en:"Habits that clash with your self-image never last — you'll quietly sabotage them.",
+               fa:"عادت‌هایی که با تصویرِ ذهنی‌ات از خودت جور نیستند هیچ‌وقت نمی‌مانند — بی‌سروصدا خرابشان می‌کنی."} },
+    loop:{ part:'found', n:4, name:{en:'The Habit Loop', fa:'حلقهٔ عادت'}, glabel:{en:'Loop', fa:'حلقه'},
+      principle:{en:"Every habit runs on a four-step loop: cue → craving → response → reward. The Four Laws are just how you tune each step.",
+                 fa:"هر عادت روی یک حلقهٔ چهار‌مرحله‌ای کار می‌کند: نشانه ← ولع ← واکنش ← پاداش. چهار قانون فقط راهِ تنظیمِ هر مرحله‌اند."},
+      more:{en:"The cue notices a reward is available, the craving is the wanting, the response is the action, and the reward closes the loop and teaches your brain to remember it. Understand the loop and you can build or break any habit on purpose.",
+            fa:"نشانه متوجه می‌شود که یک پاداش در دسترس است، ولع همان خواستن است، واکنش همان عمل است، و پاداش حلقه را می‌بندد و به مغزت یاد می‌دهد آن را به‌خاطر بسپارد. حلقه را بفهمی، می‌توانی هر عادتی را عمداً بسازی یا بشکنی."},
+      example:{en:"Phone buzzes (cue) → you want to check (craving) → you pick it up (response) → a little hit of news (reward).",
+               fa:"گوشی می‌لرزد (نشانه) ← دلت می‌خواهد چک کنی (ولع) ← برش می‌داری (واکنش) ← یک ذره خبرِ تازه (پاداش)."},
+      tip:{en:"For any habit you want, ask which of the four steps is missing or weak, and fix that one.",
+           fa:"برای هر عادتی که می‌خواهی، بپرس کدام‌یک از چهار مرحله غایب یا ضعیف است، و همان را درست کن."},
+      pitfall:{en:"Trying to fix a habit without knowing which step is broken is guesswork.",
+               fa:"درست‌کردنِ یک عادت بدونِ اینکه بدانی کدام مرحله‌اش خراب است، یعنی حدس‌زدن."} },
+
+    scorecard:{ part:'obvious', n:5, name:{en:'Habits Scorecard', fa:'کارنامهٔ عادت‌ها'}, glabel:{en:'Scorecard', fa:'کارنامه'},
+      principle:{en:"Awareness comes first. List your daily habits and mark each one good, bad, or neutral — you can't change what you can't see.",
+                 fa:"اول آگاهی. عادت‌های روزانه‌ات را فهرست کن و کنارِ هرکدام بزن خوب، بد، یا خنثی — چیزی را که نمی‌بینی نمی‌توانی عوض کنی."},
+      more:{en:"Many habits are so automatic you don't notice them. Simply naming a behavior out loud ('I'm about to eat this and I don't need it') pulls it out of autopilot and back under your control.",
+            fa:"خیلی از عادت‌ها آن‌قدر خودکارند که اصلاً متوجهشان نمی‌شوی. فقط بلند‌گفتنِ یک رفتار («الان می‌خواهم این را بخورم و لازمش ندارم») آن را از حالتِ خودکار درمی‌آورد و دوباره زیرِ کنترلت می‌برد."},
+      example:{en:"Write down everything you do in a morning; you'll spot the autopilot habits you never noticed.",
+               fa:"هر کاری را که یک صبح انجام می‌دهی بنویس؛ آن عادت‌های خودکاری را که هیچ‌وقت ندیده بودی پیدا می‌کنی."},
+      tip:{en:"Make a quick list of today's habits and tag each +, –, or =. Start there.",
+           fa:"یک فهرستِ سریع از عادت‌های امروزت بساز و کنارِ هرکدام بزن +، – یا =. از همان‌جا شروع کن."},
+      pitfall:{en:"You can't improve habits you've never consciously noticed.",
+               fa:"عادت‌هایی را که هیچ‌وقت آگاهانه ندیده‌ای نمی‌توانی بهتر کنی."} },
+    intention:{ part:'obvious', n:6, name:{en:'Implementation Intentions', fa:'قصدِ اجرا'}, glabel:{en:'Intention', fa:'قصد'},
+      principle:{en:"Make a plan with a time and place: 'I will [habit] at [time] in [location].' Specific intentions get done; vague ones don't.",
+                 fa:"یک برنامه با زمان و مکان بریز: «من [عادت] را در [زمان] در [مکان] انجام می‌دهم.» قصدهای مشخص انجام می‌شوند؛ قصدهای مبهم نه."},
+      more:{en:"'I'll exercise more' leaves the when and where undecided, so it keeps getting postponed. Deciding the exact time and place in advance removes the daily negotiation and turns intention into a plan your future self just follows.",
+            fa:"«بیشتر ورزش می‌کنم» زمان و مکان را نامشخص می‌گذارد، برای همین مدام عقب می‌افتد. تعیینِ دقیقِ زمان و مکان از قبل، آن چانه‌زنیِ روزانه را حذف می‌کند و قصد را به برنامه‌ای تبدیل می‌کند که خودِ فردایت فقط دنبالش می‌رود."},
+      example:{en:"'I will meditate for 5 minutes at 7am in the kitchen' works far better than 'I'll meditate more.'",
+               fa:"«ساعتِ ۷ صبح در آشپزخانه ۵ دقیقه مراقبه می‌کنم» خیلی بهتر از «بیشتر مراقبه می‌کنم» جواب می‌دهد."},
+      tip:{en:"Fill in the blanks for one habit right now: I will ___ at ___ in ___.",
+           fa:"همین حالا برای یک عادت جاهای خالی را پر کن: من ___ را در ___ در ___ انجام می‌دهم."},
+      pitfall:{en:"Leaving 'when' and 'where' undecided is how good intentions quietly die.",
+               fa:"نامشخص‌گذاشتنِ «کِی» و «کجا»، همان راهی است که قصدهای خوب بی‌سروصدا می‌میرند."} },
+    stacking:{ part:'obvious', n:7, name:{en:'Habit Stacking', fa:'زنجیرهٔ عادت'}, glabel:{en:'Stacking', fa:'زنجیره'},
+      principle:{en:"Anchor a new habit to one you already do: 'After [current habit], I will [new habit].' Your existing routine becomes the cue.",
+                 fa:"یک عادتِ جدید را به عادتی که همین حالا داری گره بزن: «بعد از [عادتِ فعلی]، [عادتِ جدید] را انجام می‌دهم.» روتینِ فعلی‌ات می‌شود نشانه."},
+      more:{en:"You already have dozens of reliable daily habits — brushing teeth, making coffee. Stacking a new habit right on top of one of them borrows its built-in trigger, so you don't need to remember or find willpower.",
+            fa:"تو همین حالا ده‌ها عادتِ روزانهٔ قابلِ‌اعتماد داری — مسواک‌زدن، قهوه‌درست‌کردن. سوارکردنِ یک عادتِ جدید روی یکی از آن‌ها، محرکِ آماده‌اش را قرض می‌گیرد، پس نه لازم است یادت بماند نه اراده به خرج بدهی."},
+      example:{en:"'After I pour my morning coffee, I will write down one thing I'm grateful for.'",
+               fa:"«بعد از اینکه قهوهٔ صبحم را ریختم، یک چیزی که بابتش شکرگزارم را می‌نویسم.»"},
+      tip:{en:"Name a solid daily habit, then bolt your new one right after it.",
+           fa:"یک عادتِ روزانهٔ محکم را نام ببر، بعد عادتِ جدیدت را درست بعد از آن سوار کن."},
+      pitfall:{en:"A new habit with no anchor floats free and is easy to forget.",
+               fa:"یک عادتِ جدید بدونِ لنگر، سرگردان می‌ماند و راحت فراموش می‌شود."} },
+    environment:{ part:'obvious', n:8, name:{en:'Design your Environment', fa:'طراحیِ محیط'}, glabel:{en:'Environment', fa:'محیط'},
+      principle:{en:"Design your surroundings so good cues are visible and bad ones disappear. Environment usually beats willpower.",
+                 fa:"محیطت را طوری بچین که نشانه‌های خوب دیده شوند و نشانه‌های بد ناپدید شوند. محیط معمولاً از اراده قوی‌تر است."},
+      more:{en:"You don't decide with pure willpower; you respond to what's in front of you. Put the guitar in the middle of the room and you'll play it; hide the cookies and you'll forget them. Make the cue for a good habit the most obvious thing in the space.",
+            fa:"تو با ارادهٔ خالص تصمیم نمی‌گیری؛ به چیزی که جلوی چشمت است واکنش نشان می‌دهی. گیتار را وسطِ اتاق بگذار، می‌زنی‌اش؛ شیرینی‌ها را قایم کن، فراموششان می‌کنی. نشانهٔ عادتِ خوب را واضح‌ترین چیزِ فضا کن."},
+      example:{en:"Want to drink more water? Put a full bottle on your desk where you can't miss it.",
+               fa:"می‌خواهی آب بیشتری بخوری؟ یک بطریِ پُر روی میزت بگذار، جایی که نشود ندیدش."},
+      tip:{en:"Make one good cue visible today, and hide one bad cue (put the snacks out of sight).",
+           fa:"امروز یک نشانهٔ خوب را جلوی چشم بگذار، و یک نشانهٔ بد را قایم کن (تنقلات را از جلوی چشم بردار)."},
+      pitfall:{en:"Relying on willpower in a bad environment is a fight you'll usually lose.",
+               fa:"تکیه به اراده در یک محیطِ بد، جنگی است که معمولاً می‌بازی‌اش."} },
+
+    bundling:{ part:'attractive', n:9, name:{en:'Temptation Bundling', fa:'بسته‌بندیِ وسوسه'}, glabel:{en:'Bundling', fa:'بسته‌بندی'},
+      principle:{en:"Temptation bundling: pair something you want to do with something you need to do, so the habit borrows the appeal.",
+                 fa:"بسته‌بندیِ وسوسه: کاری را که دلت می‌خواهد با کاری که باید انجام بدهی جفت کن، تا عادت، جذابیت را قرض بگیرد."},
+      more:{en:"If a habit feels unattractive, glue it to a pleasure you'd have anyway. Over time the two link up, and the thing you 'need' to do starts to feel like the thing you 'get' to do.",
+            fa:"اگر عادتی جذاب نیست، بچسبانش به لذتی که به‌هرحال داری. با گذشتِ زمان این دو به هم گره می‌خورند، و کاری که «باید» انجام بدهی کم‌کم حس می‌شود کاری که «می‌رسی» انجام بدهی."},
+      example:{en:"Only let yourself watch your favorite show while you're on the exercise bike.",
+               fa:"فقط وقتی اجازه بده سریالِ محبوبت را ببینی که روی دوچرخهٔ ثابت نشسته‌ای."},
+      tip:{en:"Take a chore you avoid and bundle it with a treat you love.",
+           fa:"یک کارِ کسل‌کننده که ازش فرار می‌کنی را با یک لذتی که دوستش داری بسته‌بندی کن."},
+      pitfall:{en:"If the habit stays boring and reward-free, motivation quietly runs out.",
+               fa:"اگر عادت کسل‌کننده و بی‌پاداش بماند، انگیزه بی‌سروصدا ته می‌کشد."} },
+    tribe:{ part:'attractive', n:10, name:{en:'Join the Right Tribe', fa:'قبیلهٔ درست'}, glabel:{en:'Right Tribe', fa:'قبیله'},
+      principle:{en:"We copy the habits of the people around us. Join a group where your desired behavior is the normal, everyday thing.",
+                 fa:"ما عادت‌های آدم‌های دورو‌برمان را کپی می‌کنیم. عضوِ گروهی شو که رفتارِ موردِ نظرت در آن، کارِ عادی و هرروزه است."},
+      more:{en:"We imitate three groups: the close (family, friends), the many (the crowd), and the powerful (people with status). The strongest pull is belonging — when a habit helps you fit in with people you admire, it becomes attractive automatically.",
+            fa:"ما از سه گروه تقلید می‌کنیم: نزدیکان (خانواده، دوستان)، اکثریت (جمع)، و قدرتمندان (آدم‌های دارایِ جایگاه). قوی‌ترین کشش، حسِ تعلق است — وقتی یک عادت کمک می‌کند بینِ آدم‌هایی که تحسینشان می‌کنی جا بیفتی، خودبه‌خود جذاب می‌شود."},
+      example:{en:"Want to read more? Join a book club — suddenly reading is just what your group does.",
+               fa:"می‌خواهی بیشتر بخوانی؟ عضوِ یک باشگاهِ کتاب شو — یک‌دفعه خواندن می‌شود کاری که گروهت انجام می‌دهد."},
+      tip:{en:"Find one group — online or in person — where the habit you want is already normal.",
+           fa:"یک گروه پیدا کن — آنلاین یا حضوری — که عادتِ موردِ نظرت در آن از قبل عادی است."},
+      pitfall:{en:"If everyone around you has the bad habit, swimming against them is exhausting.",
+               fa:"اگر همهٔ اطرافیانت آن عادتِ بد را دارند، خلافِ جهتشان شنا‌کردن خسته‌کننده است."} },
+    reframe:{ part:'attractive', n:11, name:{en:'Reframe the Story', fa:'بازقاب‌بندی'}, glabel:{en:'Reframe', fa:'بازقاب'},
+      principle:{en:"Change the story: say 'I get to' instead of 'I have to'. How you frame a habit changes how attractive it feels.",
+                 fa:"قصه را عوض کن: به‌جای «مجبورم» بگو «می‌رسم که». اینکه یک عادت را چطور قاب می‌گیری، جذابیتش را عوض می‌کند."},
+      more:{en:"The same action can feel like a burden or a privilege depending on the words you attach to it. Reframing the hard parts as chances ('I get to train, my body is capable') makes the habit something you move toward, not away from.",
+            fa:"یک کارِ واحد بسته به کلماتی که به آن می‌چسبانی می‌تواند حسِ بار یا حسِ امتیاز بدهد. بازقاب‌بندیِ قسمت‌های سخت به‌عنوان فرصت («می‌رسم که تمرین کنم، بدنم توانا است») عادت را به چیزی تبدیل می‌کند که به‌سمتش می‌روی، نه ازش فرار می‌کنی."},
+      example:{en:"'I get to go for a run' (my legs work, I have the time) instead of 'I have to exercise.'",
+               fa:"«می‌رسم که بروم بدوم» (پاهایم کار می‌کنند، وقتش را دارم) به‌جای «مجبورم ورزش کنم.»"},
+      tip:{en:"Rewrite one dreaded habit as something you're lucky to be able to do.",
+           fa:"یک عادتِ منفور را دوباره بنویس، به‌عنوانِ کاری که خوش‌شانسی که می‌توانی انجامش بدهی."},
+      pitfall:{en:"Framing habits as chores makes even good ones feel heavy and skippable.",
+               fa:"قاب‌گرفتنِ عادت‌ها به‌شکلِ بیگاری، حتی خوب‌هایشان را سنگین و قابلِ‌جازدن می‌کند."} },
+    dopamine:{ part:'attractive', n:12, name:{en:'Anticipation & Ritual', fa:'انتظار و آیین'}, glabel:{en:'Anticipation', fa:'انتظار'},
+      principle:{en:"Craving is driven by the anticipation of a reward, not the reward itself. Build a little ritual that makes you look forward to the habit.",
+                 fa:"ولع را انتظارِ پاداش می‌سازد، نه خودِ پاداش. یک آیینِ کوچک بساز که باعث شود منتظرِ عادت باشی."},
+      more:{en:"Your brain releases the most dopamine before the reward, while wanting it. You can use this by creating a motivation ritual — do something you enjoy right before a hard habit — so the good feeling gets attached to starting.",
+            fa:"مغزت بیشترین دوپامین را قبل از پاداش، موقعِ خواستنش، آزاد می‌کند. می‌توانی از این استفاده کنی: یک آیینِ انگیزشی بساز — درست قبل از یک عادتِ سخت کاری کن که دوستش داری — تا آن حسِ خوب به «شروع‌کردن» بچسبد."},
+      example:{en:"Play the same upbeat song right before you start deep work, every time.",
+               fa:"هر بار درست قبل از شروعِ کارِ عمیق، همان آهنگِ پُرانرژی را پخش کن."},
+      tip:{en:"Attach a small enjoyable ritual to the moment you begin a hard habit.",
+           fa:"یک آیینِ کوچکِ لذت‌بخش را به لحظهٔ شروعِ یک عادتِ سخت بچسبان."},
+      pitfall:{en:"Waiting to 'feel like it' fails, because the good feeling is meant to come from anticipation you build.",
+               fa:"منتظرِ «حسش‌کردن» ماندن شکست می‌خورد، چون آن حسِ خوب قرار است از انتظاری بیاید که خودت می‌سازی."} },
+
+    friction:{ part:'easy', n:13, name:{en:'Reduce Friction', fa:'کاهشِ اصطکاک'}, glabel:{en:'Less Friction', fa:'اصطکاکِ کم'},
+      principle:{en:"The less effort a habit takes, the more likely you'll do it. Remove steps and obstacles between you and the good behavior.",
+                 fa:"هرچه یک عادت زحمتِ کمتری ببرد، احتمالِ انجامش بیشتر است. مرحله‌ها و موانعِ بینِ خودت و رفتارِ خوب را بردار."},
+      more:{en:"We naturally drift toward whatever is easiest, so don't fight that — redirect it. Cut friction for good habits (prep in advance) and add friction to bad ones (unplug the TV, delete the app). Small changes in effort steer behavior more than motivation does.",
+            fa:"ما به‌طورِ طبیعی به‌سمتِ هرچه آسان‌تر است کشیده می‌شویم، پس با آن نجنگ — مسیرش را عوض کن. اصطکاکِ عادت‌های خوب را کم کن (از قبل آماده کن) و به عادت‌های بد اصطکاک اضافه کن (تلویزیون را از برق بکش، اپ را پاک کن). تغییرِ کوچک در میزانِ زحمت، بیشتر از انگیزه رفتار را هدایت می‌کند."},
+      example:{en:"Lay out your gym clothes the night before, so the morning workout needs almost no decision.",
+               fa:"لباسِ ورزشت را شبِ قبل آماده بگذار، تا تمرینِ صبح تقریباً به هیچ تصمیمی نیاز نداشته باشد."},
+      tip:{en:"Remove one step from a good habit today, and add one step to a bad one.",
+           fa:"امروز یک مرحله از یک عادتِ خوب کم کن، و یک مرحله به یک عادتِ بد اضافه کن."},
+      pitfall:{en:"Even a tiny bit of friction is often enough to stop a good habit before it starts.",
+               fa:"حتی یک ذره اصطکاک هم اغلب کافی است تا یک عادتِ خوب قبل از شروع متوقف شود."} },
+    twomin:{ part:'easy', n:14, name:{en:'The Two-Minute Rule', fa:'قانونِ دو دقیقه'}, glabel:{en:'2-Min Rule', fa:'دو دقیقه'},
+      principle:{en:"Shrink any new habit down to two minutes to start. 'Read before bed' becomes 'read one page' — a habit must exist before it can improve.",
+                 fa:"هر عادتِ جدید را برای شروع به دو دقیقه کوچک کن. «قبلِ خواب مطالعه کن» می‌شود «یک صفحه بخوان» — یک عادت باید اول وجود داشته باشد تا بعد بهتر شود."},
+      more:{en:"The point isn't to do only two minutes forever; it's to master showing up. Make the start so easy you can't say no, and the identity of 'someone who does this' takes hold. Once you're in motion, continuing is easy.",
+            fa:"هدف این نیست که برای همیشه فقط دو دقیقه کار کنی؛ هدف این است که «حاضر‌شدن» را استاد شوی. شروع را آن‌قدر آسان کن که نتوانی نه بگویی، تا هویتِ «کسی که این کار را می‌کند» جا بیفتد. همین که به حرکت افتادی، ادامه‌دادن آسان است."},
+      example:{en:"'Do 30 minutes of yoga' starts as 'take out the mat.' Showing up is the habit.",
+               fa:"«۳۰ دقیقه یوگا کن» شروع می‌شود با «مَت را پهن کن.» حاضر‌شدن، همان عادت است."},
+      tip:{en:"Scale your habit down until it takes two minutes, then just do that part.",
+           fa:"عادتت را آن‌قدر کوچک کن که دو دقیقه‌ای شود، بعد فقط همان قسمت را انجام بده."},
+      pitfall:{en:"Starting too big feels heavy, so you skip it — small is what makes it repeatable.",
+               fa:"خیلی بزرگ شروع‌کردن سنگین حس می‌شود، پس جا می‌اندازی‌اش — کوچک‌بودن است که تکرارپذیرش می‌کند."} },
+    prime:{ part:'easy', n:15, name:{en:'Prime the Environment', fa:'آماده‌سازیِ محیط'}, glabel:{en:'Prime Env.', fa:'آماده‌سازی'},
+      principle:{en:"Set things up in advance so the next good action is ready to go and the bad one is a hassle.",
+                 fa:"همه‌چیز را از قبل جوری بچین که کارِ خوبِ بعدی آماده باشد و کارِ بد دردسر داشته باشد."},
+      more:{en:"Priming is friction reduction applied ahead of time. Prepare the space when you have energy so your future self meets an easy on-ramp. Reset a room after use, and each fresh start begins already halfway done.",
+            fa:"آماده‌سازی، همان کاهشِ اصطکاک است که از قبل انجام می‌شود. وقتی انرژی داری فضا را آماده کن تا خودِ فردایت با یک مسیرِ آسانِ ورود روبه‌رو شود. هر اتاق را بعد از استفاده به حالتِ اول برگردان، تا هر شروعِ تازه از نیمهٔ راه آغاز شود."},
+      example:{en:"Prep the coffee machine at night; morning-you just presses a button.",
+               fa:"شب دستگاهِ قهوه را آماده کن؛ صبح فقط یک دکمه فشار می‌دهی."},
+      tip:{en:"Before you stop tonight, set up the first step of tomorrow's good habit.",
+           fa:"امشب قبل از اینکه دست بکشی، اولین قدمِ عادتِ خوبِ فردا را آماده کن."},
+      pitfall:{en:"An unprepared environment adds just enough hassle to make you skip the habit.",
+               fa:"محیطِ آماده‌نشده، دقیقاً آن‌قدر دردسر اضافه می‌کند که عادت را جا بیندازی."} },
+    commit:{ part:'easy', n:16, name:{en:'Commitment Devices', fa:'ابزارِ تعهد'}, glabel:{en:'Commitment', fa:'تعهد'},
+      principle:{en:"Lock in future good behavior now, while you're motivated, with a one-time choice or automation that's hard to undo.",
+                 fa:"رفتارِ خوبِ آینده را همین حالا که باانگیزه‌ای قفل کن، با یک انتخابِ یک‌باره یا خودکارسازی‌ای که به‌سختی بشود برش‌گرداند."},
+      more:{en:"A commitment device is a decision made today that controls tomorrow — auto-transfer to savings, buying only single servings, unsubscribing from temptation. One-time actions keep paying off with no ongoing willpower.",
+            fa:"ابزارِ تعهد یعنی تصمیمی که امروز گرفته می‌شود و فردا را کنترل می‌کند — انتقالِ خودکار به پس‌انداز، خریدِ فقط بسته‌های تک‌نفره، لغوِ اشتراکِ چیزهای وسوسه‌انگیز. کارهای یک‌باره بدونِ ارادهٔ مداوم مدام سود می‌دهند."},
+      example:{en:"Set up an automatic transfer to savings on payday, so saving needs no willpower.",
+               fa:"یک انتقالِ خودکار به پس‌انداز در روزِ حقوق تنظیم کن، تا پس‌اندازکردن به هیچ اراده‌ای نیاز نداشته باشد."},
+      tip:{en:"Automate one good habit or make one bad habit harder to start this week.",
+           fa:"این هفته یک عادتِ خوب را خودکار کن، یا شروعِ یک عادتِ بد را سخت‌تر کن."},
+      pitfall:{en:"Relying on future willpower, instead of locking things in now, usually backfires.",
+               fa:"تکیه به ارادهٔ آینده، به‌جای قفل‌کردنِ همین حالا، معمولاً نتیجهٔ عکس می‌دهد."} },
+
+    reward:{ part:'satisfying', n:17, name:{en:'Immediate Reward', fa:'پاداشِ فوری'}, glabel:{en:'Reward', fa:'پاداش'},
+      principle:{en:"What gets rewarded gets repeated. Good habits often pay off later, so add a small reward now to make the ending satisfying.",
+                 fa:"هر چیزی که پاداش بگیرد، تکرار می‌شود. عادت‌های خوب معمولاً بعداً نتیجه می‌دهند، پس همین حالا یک پاداشِ کوچک اضافه کن تا پایانش رضایت‌بخش شود."},
+      more:{en:"We're wired to prefer immediate rewards over delayed ones — that's why bad habits (instant payoff) win over good ones (delayed payoff). Flip it by attaching a small, immediate treat to good habits, and an immediate cost to bad ones.",
+            fa:"ما طوری ساخته شده‌ایم که پاداشِ فوری را به پاداشِ دیرهنگام ترجیح می‌دهیم — برای همین عادت‌های بد (سودِ آنی) بر عادت‌های خوب (سودِ دیرهنگام) پیروز می‌شوند. برعکسش کن: یک پاداشِ کوچک و فوری به عادت‌های خوب بچسبان، و یک هزینهٔ فوری به عادت‌های بد."},
+      example:{en:"Every time you skip a coffee out, move that money into a 'trip' account — an instant, visible win.",
+               fa:"هر بار که از خریدِ قهوهٔ بیرون گذشتی، همان پول را به حسابِ «سفر» منتقل کن — یک بُردِ فوری و قابلِ‌دیدن."},
+      tip:{en:"Give one good habit a small immediate reward that fits the identity you want.",
+           fa:"به یک عادتِ خوب یک پاداشِ کوچکِ فوری بده که با هویتِ موردِ نظرت جور باشد."},
+      pitfall:{en:"If a good habit feels like all cost and no payoff now, you won't come back to it.",
+               fa:"اگر یک عادتِ خوب همین حالا فقط هزینه حس شود و هیچ سودی نداشته باشد، دیگر سراغش نمی‌روی."} },
+    tracking:{ part:'satisfying', n:18, name:{en:'Habit Tracking', fa:'ردیابیِ عادت'}, glabel:{en:'Tracking', fa:'ردیابی'},
+      principle:{en:"Track the habit and don't break the chain. Seeing your streak is satisfying, and it becomes its own motivation.",
+                 fa:"عادت را ردیابی کن و زنجیره را نشکن. دیدنِ زنجیره‌ات رضایت‌بخش است و خودش می‌شود یک انگیزه."},
+      more:{en:"A simple mark on a calendar makes progress visible, and progress feels good. The tracker itself becomes a cue and a small reward — you don't want to see a gap in the chain, so you keep it going.",
+            fa:"یک علامتِ ساده روی تقویم، پیشرفت را قابلِ‌دیدن می‌کند، و پیشرفت حسِ خوبی دارد. خودِ ردیاب می‌شود هم نشانه هم یک پاداشِ کوچک — دلت نمی‌خواهد یک خالی در زنجیره ببینی، پس ادامه‌اش می‌دهی."},
+      example:{en:"Put an X on the calendar each day you write. The growing chain pulls you to continue.",
+               fa:"هر روزی که نوشتی، یک ضربدر روی تقویم بزن. زنجیره‌ای که بلند می‌شود، تو را به ادامه می‌کشد."},
+      tip:{en:"Pick one habit and mark it on a calendar or app every day you do it.",
+           fa:"یک عادت را انتخاب کن و هر روزی که انجامش دادی روی تقویم یا اپ علامتش بزن."},
+      pitfall:{en:"Tracking too many habits at once gets overwhelming — you'll drop the whole thing.",
+               fa:"ردیابیِ چند عادت با هم، طاقت‌فرسا می‌شود — کلِ کار را رها می‌کنی."} },
+    nevertwice:{ part:'satisfying', n:19, name:{en:'Never Miss Twice', fa:'هرگز دوبار جا ننداز'}, glabel:{en:'Never Twice', fa:'دوبار نه'},
+      principle:{en:"Missing once is an accident; missing twice is the start of a new habit. Whatever happens, don't skip two in a row.",
+                 fa:"یک بار جاانداختن، یک اتفاق است؛ دو بار جاانداختن، شروعِ یک عادتِ جدید. هر اتفاقی افتاد، دو بارِ پشتِ‌هم را جا ننداز."},
+      more:{en:"Perfection isn't the goal — consistency is. Everyone slips; what separates people who keep habits is how fast they get back. Bouncing back immediately protects the identity and keeps a single bad day from becoming a trend.",
+            fa:"بی‌نقص‌بودن هدف نیست — ثبات هدف است. همه گاهی می‌لغزند؛ چیزی که آدم‌هایی که عادت‌ها را نگه می‌دارند را جدا می‌کند، سرعتِ برگشتنشان است. فوری برگشتن، هویت را حفظ می‌کند و نمی‌گذارد یک روزِ بد به یک روند تبدیل شود."},
+      example:{en:"Miss a workout on Monday? Fine — just make absolutely sure you show up Tuesday.",
+               fa:"دوشنبه تمرین را جا انداختی؟ اشکالی ندارد — فقط حتماً مطمئن شو که سه‌شنبه حاضر می‌شوی."},
+      tip:{en:"Give yourself a rule: one miss is allowed, two in a row is not.",
+           fa:"برای خودت یک قاعده بگذار: یک بار جاانداختن مجاز است، دو بارِ پشتِ‌هم نه."},
+      pitfall:{en:"One 'off day' isn't the problem; letting it become two, then three, is.",
+               fa:"یک «روزِ تعطیل» مشکل نیست؛ گذاشتنِ اینکه دو تا، بعد سه تا شود، مشکل است."} },
+    contract:{ part:'satisfying', n:20, name:{en:'Accountability / Habit Contract', fa:'قراردادِ عادت'}, glabel:{en:'Contract', fa:'قرارداد'},
+      principle:{en:"Add a real cost to failing: tell someone, or sign a habit contract, so slipping up becomes immediately unsatisfying.",
+                 fa:"برای شکست یک هزینهٔ واقعی بگذار: به کسی بگو، یا یک قراردادِ عادت امضا کن، تا لغزیدن فوراً ناخوشایند شود."},
+      more:{en:"We change when there's a witness and a consequence. An accountability partner or a written contract with a penalty makes the pain of skipping immediate and social — which balances out the instant pleasure of a bad habit.",
+            fa:"ما وقتی عوض می‌شویم که یک شاهد و یک عاقبت وجود داشته باشد. یک همراهِ پاسخگو یا یک قراردادِ نوشته‌شده با جریمه، دردِ جازدن را فوری و اجتماعی می‌کند — که آن لذتِ آنیِ عادتِ بد را خنثی می‌کند."},
+      example:{en:"Tell a friend you'll pay them for every week you skip the gym — you suddenly won't.",
+               fa:"به یک دوست بگو هر هفته که باشگاه را جا انداختی، بهش پول می‌دهی — یک‌دفعه دیگر جا نمی‌اندازی."},
+      tip:{en:"Tell one person your habit and ask them to check in on you.",
+           fa:"عادتت را به یک نفر بگو و ازش بخواه که پیگیرت باشد."},
+      pitfall:{en:"A habit with no witness and no cost is the easiest one to quietly abandon.",
+               fa:"عادتی که نه شاهدی دارد نه هزینه‌ای، راحت‌ترین عادت برای رهاکردنِ بی‌سروصداست."} }
+  },
+
+  core:{ name:{en:'ATOMIC HABITS', fa:'عادت‌های اتمی'},
+    principle:{en:"Tiny habits, repeated daily, compound into remarkable results. Don't chase big goals — build small systems and become the type of person who does them.",
+               fa:"عادت‌های کوچک که هر روز تکرار شوند، روی هم جمع می‌شوند و نتیجه‌های بزرگ می‌سازند. دنبالِ هدف‌های بزرگ نرو — سیستم‌های کوچک بساز و به آدمی تبدیل شو که آن کارها را انجام می‌دهد."},
+    more:{en:"The book's engine is the habit loop — cue, craving, response, reward — and its playbook is the Four Laws: make a good habit Obvious, Attractive, Easy and Satisfying (and invert each to break a bad one). Under it all sits one shift: change your identity, not just your outcomes.",
+          fa:"موتورِ کتاب، حلقهٔ عادت است — نشانه، ولع، واکنش، پاداش — و دستورالعملش، چهار قانون: یک عادتِ خوب را واضح، جذاب، آسان و رضایت‌بخش کن (و برای ترکِ عادتِ بد، هرکدام را برعکس کن). زیرِ همهٔ این‌ها یک تغییر نشسته است: هویتت را عوض کن، نه فقط نتیجه‌ها را."},
+    example:{en:"Click any node to read a foundation, a Law, or a technique. You can also drag the nodes around.",
+             fa:"روی هر دایره کلیک کن تا یک بنیان، یک قانون یا یک تکنیک را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."} },
+
+  stages: [
+    { level:1, badge:{en:'Level 1 · Over-simplified', fa:'سطحِ ۱ · خیلی ساده'},
+      title:{en:'Tiny wins', fa:'بُردهای کوچک'},
+      tagline:{en:'The whole book as a single sentence.', fa:'کلِ کتاب در یک جمله.'},
+      body:{en:"You don't need a huge change to transform your life — you need tiny habits repeated every day. A little bit, done consistently, quietly adds up to something big. Small is not weak; small is how big things actually happen.",
+            fa:"برای تغییرِ زندگی‌ات به یک تحولِ بزرگ نیاز نداری — به عادت‌های کوچک نیاز داری که هر روز تکرار شوند. یک ذره، اگر با ثبات انجام شود، بی‌سروصدا روی هم جمع می‌شود و چیزِ بزرگی می‌سازد. کوچک، ضعیف نیست؛ کوچک، همان راهی است که کارهای بزرگ واقعاً اتفاق می‌افتند."},
+      example:{en:"One push-up a day sounds pointless. But it keeps the habit alive — and soon one becomes ten.",
+               fa:"روزی یک شنا مسخره به‌نظر می‌رسد. اما عادت را زنده نگه می‌دارد — و به‌زودی یکی می‌شود ده تا."},
+      gain:{en:"You now hold the one idea the whole book is built on.", fa:"حالا همان یک ایده‌ای را بلدی که کلِ کتاب رویش ساخته شده."} },
+    { level:2, badge:{en:'Level 2 · Simple', fa:'سطحِ ۲ · ساده'},
+      title:{en:'Four easy moves', fa:'چهار حرکتِ ساده'},
+      tagline:{en:'How to build (or break) any habit.', fa:'چطور هر عادتی را بسازی (یا بشکنی).'},
+      body:{en:"To build a good habit, run four simple moves: make it <b>Obvious</b>, make it <b>Attractive</b>, make it <b>Easy</b>, and make it <b>Satisfying</b>. To break a bad habit, just flip each one — make it invisible, unattractive, difficult, and unsatisfying.",
+            fa:"برای ساختنِ یک عادتِ خوب، چهار حرکتِ ساده را اجرا کن: <b>واضحش</b> کن، <b>جذابش</b> کن، <b>آسانش</b> کن، و <b>رضایت‌بخشش</b> کن. برای شکستنِ یک عادتِ بد، فقط هرکدام را برعکس کن — نامرئی، بی‌جاذبه، سخت، و ناخوشایندش کن."},
+      example:{en:"Want to floss? Leave it on the sink (obvious), do just one tooth (easy), and grin at the streak on your tracker (satisfying).",
+               fa:"می‌خواهی نخِ دندان بکشی؟ کنارِ روشویی بگذارش (واضح)، فقط یک دندان را نخ بکش (آسان)، و به زنجیره‌ات روی ردیاب لبخند بزن (رضایت‌بخش)."},
+      gain:{en:"You can now build or break a habit with a simple four-step checklist.", fa:"حالا می‌توانی با یک چک‌لیستِ سادهٔ چهار‌مرحله‌ای یک عادت را بسازی یا بشکنی."} },
+    { level:3, badge:{en:'Level 3 · Balanced', fa:'سطحِ ۳ · متعادل'},
+      title:{en:'How habits actually work', fa:'عادت‌ها واقعاً چطور کار می‌کنند'},
+      tagline:{en:'Systems, identity, and the habit loop.', fa:'سیستم، هویت، و حلقهٔ عادت.'},
+      body:{en:"Underneath the four laws are three big ideas. First, aim at <b>systems, not goals</b> — your daily routine, not your target, makes the progress. Second, change your <b>identity</b>: every action is a vote for the person you want to be. Third, every habit runs a loop — <b>cue → craving → response → reward</b> — and each of the four laws tunes one part of it.",
+            fa:"زیرِ چهار قانون، سه ایدهٔ بزرگ نشسته است. اول، هدفت را روی <b>سیستم بگذار، نه هدف</b> — روتینِ روزانه‌ات، نه هدفت، پیشرفت را می‌سازد. دوم، <b>هویتت</b> را عوض کن: هر کار یک رأی است به آدمی که می‌خواهی باشی. سوم، هر عادت یک حلقه دارد — <b>نشانه ← ولع ← واکنش ← پاداش</b> — و هر یک از چهار قانون، یک قسمتش را تنظیم می‌کند."},
+      example:{en:"British Cycling won by improving hundreds of tiny things 1% each (systems), and habits like the two-minute rule and habit tracking make those tiny improvements stick.",
+               fa:"تیمِ دوچرخه‌سواریِ بریتانیا با ۱٪ بهترکردنِ صدها چیزِ کوچک (سیستم) قهرمان شد، و عادت‌هایی مثلِ قانونِ دو دقیقه و ردیابیِ عادت، همان بهبودهای کوچک را ماندگار می‌کنند."},
+      gain:{en:"You understand the 'why' beneath the tactics and can explain it with a real example.", fa:"«چرا»ی زیرِ تکنیک‌ها را می‌فهمی و می‌توانی با یک مثالِ واقعی توضیحش بدهی."} },
+    { level:4, badge:{en:'Level 4 · Advanced', fa:'سطحِ ۴ · پیشرفته'},
+      title:{en:'The full toolkit', fa:'جعبه‌ابزارِ کامل'},
+      tagline:{en:'~20 techniques, grouped by the law they serve.', fa:'حدودِ ۲۰ تکنیک، دسته‌بندی‌شده بر اساسِ قانونی که به آن خدمت می‌کنند.'},
+      body:{en:"Now you stop thinking in four laws and start pulling <b>individual techniques</b>. Obvious: habits scorecard, implementation intentions, habit stacking, environment design. Attractive: temptation bundling, the right tribe, reframing, motivation rituals. Easy: reduce friction, the two-minute rule, priming, commitment devices. Satisfying: immediate rewards, habit tracking, never miss twice, habit contracts. Open the graph above and click any node — its principle, an in-depth note, an example, a try-this and a watch-out are all there.",
+            fa:"حالا دیگر فقط در قالبِ چهار قانون فکر نمی‌کنی و شروع می‌کنی به کشیدنِ <b>تک‌تکِ تکنیک‌ها</b>. واضح: کارنامهٔ عادت‌ها، قصدِ اجرا، زنجیرهٔ عادت، طراحیِ محیط. جذاب: بسته‌بندیِ وسوسه، قبیلهٔ درست، بازقاب‌بندی، آیینِ انگیزشی. آسان: کاهشِ اصطکاک، قانونِ دو دقیقه، آماده‌سازیِ محیط، ابزارِ تعهد. رضایت‌بخش: پاداشِ فوری، ردیابیِ عادت، هرگز دوبار جا ننداز، قراردادِ عادت. نقشهٔ بالا را باز کن و روی هر دایره بزن — اصل، یک توضیحِ عمیق‌تر، یک مثال، یک راهکار و یک هشدارش همان‌جا هست."},
+      example:{en:"Habit stuck? Diagnose which law is missing: no trigger → Obvious; no appeal → Attractive; too hard → Easy; no payoff → Satisfying. Then pull that technique.",
+               fa:"عادت گیر کرده؟ تشخیص بده کدام قانون غایب است: نشانه ندارد ← واضح؛ جذابیت ندارد ← جذاب؛ خیلی سخت است ← آسان؛ سود ندارد ← رضایت‌بخش. بعد همان تکنیک را بکش."},
+      gain:{en:"You can diagnose a failing habit and reach for the exact technique that fixes it.", fa:"می‌توانی یک عادتِ شکست‌خورده را تشخیص بدهی و دقیقاً همان تکنیکی را برداری که درستش می‌کند."} },
+    { level:5, badge:{en:'Level 5 · Expert', fa:'سطحِ ۵ · حرفه‌ای'},
+      title:{en:'Identity & compounding', fa:'هویت و انباشت'},
+      tagline:{en:'Why habits shape who you become — and where they fall short.', fa:'چرا عادت‌ها می‌سازند که چه‌کسی می‌شوی — و کجا کم می‌آورند.'},
+      body:{en:"The expert sees habits as a two-way street with identity: your habits shape your identity, and your identity drives your habits. Real change is identity change, reinforced by evidence — small wins that prove 'this is who I am now'. Results lag behind effort (the plateau of latent potential), so you have to trust the slope through the flat part. Keep habits at the edge of your ability — the <b>Goldilocks Rule</b>, hard enough to stay interesting — and beware the downside: once a skill is automatic, mindless repetition stops improvement, so pair habits with <b>reflection and review</b>. Habits are the foundation of mastery, not the ceiling.",
+            fa:"آدمِ حرفه‌ای، عادت را یک خیابانِ دوطرفه با هویت می‌بیند: عادت‌هایت هویتت را می‌سازند، و هویتت عادت‌هایت را پیش می‌برد. تغییرِ واقعی، تغییرِ هویت است که با شواهد تقویت می‌شود — بُردهای کوچکی که ثابت می‌کنند «این حالا همان کسی است که هستم». نتیجه‌ها از تلاش عقب می‌مانند (فلاتِ توانِ نهفته)، پس باید در آن قسمتِ صاف به شیب اعتماد کنی. عادت‌ها را لبِ توانت نگه دار — <b>قاعدهٔ گلدیلاکس</b>، آن‌قدر سخت که جالب بماند — و مراقبِ رویِ دیگرش باش: همین که یک مهارت خودکار شد، تکرارِ بی‌فکر جلوی پیشرفت را می‌گیرد، پس عادت را با <b>بازتاب و مرور</b> جفت کن. عادت‌ها پایهٔ استادی‌اند، نه سقفِ آن."},
+      example:{en:"A great writer doesn't just 'have a writing habit'. They write daily (habit), see themselves as a writer (identity), and regularly review their work to keep improving (reflection) — habit plus deliberate practice.",
+               fa:"یک نویسندهٔ عالی فقط «عادتِ نوشتن ندارد». هر روز می‌نویسد (عادت)، خودش را نویسنده می‌داند (هویت)، و مرتب کارش را مرور می‌کند تا بهتر شود (بازتاب) — عادت به‌علاوهٔ تمرینِ عمدی."},
+      gain:{en:"You can teach the system, connect habits to identity and mastery, and see where habit alone isn't enough.", fa:"می‌توانی این سیستم را آموزش بدهی، عادت را به هویت و استادی وصل کنی، و ببینی کجا فقط عادت کافی نیست."} }
+  ],
+
+  quotes: [
+    {en:"You do not rise to the level of your goals. You fall to the level of your systems.",
+     fa:"تو به سطحِ هدف‌هایت نمی‌رسی؛ به سطحِ سیستم‌هایت سقوط می‌کنی."},
+    {en:"Every action you take is a vote for the type of person you wish to become.",
+     fa:"هر کاری که انجام می‌دهی، یک رأی است به آدمی که می‌خواهی بشوی."},
+    {en:"Habits are the compound interest of self-improvement.",
+     fa:"عادت‌ها، سودِ مرکبِ خودسازی‌اند."},
+    {en:"You should be far more concerned with your current trajectory than your current results.",
+     fa:"باید خیلی بیشتر نگرانِ مسیرِ فعلی‌ات باشی تا نتیجهٔ فعلی‌ات."},
+    {en:"The goal is not to read a book, the goal is to become a reader.",
+     fa:"هدف، خواندنِ یک کتاب نیست؛ هدف، تبدیل‌شدن به یک کتاب‌خوان است."},
+    {en:"Success is the product of daily habits, not once-in-a-lifetime transformations.",
+     fa:"موفقیت، حاصلِ عادت‌های روزانه است، نه تحول‌های یک‌بار‌در‌عمر."},
+    {en:"You do not have to be the victim of your environment. You can also be the architect of it.",
+     fa:"مجبور نیستی قربانیِ محیطت باشی. می‌توانی معمارش هم باشی."},
+    {en:"Every habit is initiated by a cue, and we are more likely to notice cues that stand out.",
+     fa:"هر عادت با یک نشانه شروع می‌شود، و ما نشانه‌هایی را که به چشم می‌آیند بیشتر می‌بینیم."},
+    {en:"When you fall in love with the process rather than the product, you don't have to wait to give yourself permission to be happy.",
+     fa:"وقتی عاشقِ فرایند بشوی نه محصول، دیگر لازم نیست منتظر بمانی تا به خودت اجازهٔ خوشحال‌بودن بدهی."}
+  ],
+
+  media: [
+    { kind:'yt', id:'bGih9fTh2lk', src:{en:'YouTube · Animated Summary', fa:'یوتیوب · خلاصهٔ انیمیشنی'},
+      title:{en:'Atomic Habits — Animated Book Summary', fa:'عادت‌های اتمی — خلاصهٔ انیمیشنی'},
+      desc:{en:'A short animated tour of the book\'s big ideas — the quickest way to meet the framework.',
+            fa:'یک تورِ انیمیشنیِ کوتاه از ایده‌های اصلیِ کتاب — سریع‌ترین راه برای آشنایی با چارچوب.'},
+      bullets:{en:['A visual overview of the four laws','Turns the concepts into simple pictures','Great first look before you read'],
+               fa:['نگاهِ کلیِ تصویری به چهار قانون','مفاهیم را به تصویرهای ساده تبدیل می‌کند','برای شروع و اولین آشنایی عالی است']},
+      best:{en:'Best for Stage 1–2 — your first 10 minutes.', fa:'خوب برای مرحلهٔ ۱ و ۲ — ده دقیقهٔ اولت.'} },
+    { kind:'yt', id:'U_nzqnXWvSo', src:{en:'YouTube · James Clear (talk)', fa:'یوتیوب · سخنرانیِ جیمز کلیر'},
+      title:{en:'How to Get 1% Better Every Day — James Clear', fa:'چطور هر روز ۱٪ بهتر شویم — جیمز کلیر'},
+      desc:{en:'James Clear\'s own talk on tiny gains, systems, and identity.',
+            fa:'سخنرانیِ خودِ جیمز کلیر دربارهٔ سودهای کوچک، سیستم، و هویت.'},
+      bullets:{en:['The author\'s framing of 1% and compounding','Systems over goals','Identity-based habits'],
+               fa:['روایتِ نویسنده از ۱٪ و انباشت','سیستم به‌جای هدف','عادت‌های هویت‌محور']},
+      best:{en:'Best for Stage 3 — hear it from the author.', fa:'خوب برای مرحلهٔ ۳ — از زبانِ خودِ نویسنده بشنو.'} },
+    { kind:'yt', id:'12kUehMtJ9Q', src:{en:'YouTube · A Bit of Optimism', fa:'یوتیوب · A Bit of Optimism'},
+      title:{en:'Atomic Habits — James Clear & Simon Sinek', fa:'عادت‌های اتمی — جیمز کلیر و سایمون سینک'},
+      desc:{en:'A relaxed, in-depth conversation with the author about habits and change.',
+            fa:'یک گفت‌وگوی آرام و مفصل با نویسنده دربارهٔ عادت‌ها و تغییر.'},
+      bullets:{en:['Deeper stories and nuance','How identity and environment interact','Good after you know the basics'],
+               fa:['داستان‌ها و ظرافت‌های عمیق‌تر','اینکه هویت و محیط چطور روی هم اثر می‌گذارند','بعد از یادگرفتنِ پایه‌ها خوب است']},
+      best:{en:'Best for Stage 5 — go deeper.', fa:'خوب برای مرحلهٔ ۵ — عمیق‌تر شو.'} },
+    { kind:'img', url:'https://jamesclear.com/atomic-habits',
+      src:{en:'jamesclear.com · Official', fa:'jamesclear.com · رسمی'},
+      title:{en:'Atomic Habits — Cheat Sheet & Guides', fa:'عادت‌های اتمی — برگهٔ راهنما و ابزارها'},
+      desc:{en:'James Clear\'s own one-page Habits Cheat Sheet, habit tracker, and companion guides.',
+            fa:'برگهٔ یک‌صفحه‌ایِ راهنمای عادت‌ها، ردیابِ عادت، و راهنماهای همراهِ خودِ جیمز کلیر.'},
+      bullets:{en:['Free one-page cheat sheet of all four laws','Printable habit tracker template','Business & parenting application guides'],
+               fa:['برگهٔ راهنمای یک‌صفحه‌ایِ رایگان از هر چهار قانون','قالبِ چاپ‌شدنیِ ردیابِ عادت','راهنمای کاربرد در کار و فرزندپروری']},
+      best:{en:'Best for a printable, at-a-glance reference.', fa:'خوب برای یک مرجعِ چاپ‌شدنی و یک‌نگاهی.'} }
+  ],
+
+  go: [
+    {label:{en:'Atomic Habits (official)', fa:'عادت‌های اتمی (رسمی)'}, url:'https://jamesclear.com/atomic-habits'},
+    {label:{en:'The 3-2-1 Newsletter', fa:'خبرنامهٔ ۳-۲-۱'}, url:'https://jamesclear.com/3-2-1'},
+    {label:{en:'James Clear\'s Habit Guide', fa:'راهنمای عادتِ جیمز کلیر'}, url:'https://jamesclear.com/habits'},
+    {label:{en:'Book on Goodreads', fa:'کتاب در گودریدز'}, url:'https://www.goodreads.com/book/show/40121378-atomic-habits'}
+  ],
+
+  recs: [
+    { pri:'b', t:{en:'Shrink one habit to two minutes', fa:'یک عادت را به دو دقیقه کوچک کن'},
+      d:{en:'Pick a habit you keep avoiding and start a two-minute version today. Showing up is the win.',
+         fa:'یک عادت که مدام از زیرش در می‌روی را انتخاب کن و همین امروز یک نسخهٔ دو‌دقیقه‌ای‌اش را شروع کن. حاضر‌شدن، همان بُرد است.'} },
+    { pri:'b', t:{en:'Stack it on a habit you already have', fa:'رویِ عادتی که همین حالا داری سوارش کن'},
+      d:{en:'Write: "After ___ , I will ___ ." Let an existing routine be the reminder.',
+         fa:'بنویس: «بعد از ___ ، من ___ را انجام می‌دهم.» بگذار یک روتینِ موجود، یادآورش باشد.'} },
+    { pri:'n', t:{en:'Design your environment', fa:'محیطت را طراحی کن'},
+      d:{en:'Make one good cue visible and hide one bad one. Environment beats willpower.',
+         fa:'یک نشانهٔ خوب را جلوی چشم بگذار و یک نشانهٔ بد را قایم کن. محیط از اراده قوی‌تر است.'} },
+    { pri:'n', t:{en:'Track it and never miss twice', fa:'ردیابی‌اش کن و هرگز دوبار جا ننداز'},
+      d:{en:'Mark each day you do the habit; if you miss, make sure you\'re back the very next day.',
+         fa:'هر روزی که عادت را انجام دادی علامت بزن؛ اگر جا انداختی، حتماً روزِ بعد برگرد.'} }
+  ]
+};
+</script>
+
+<script>
+/* ── 3) RENDER (text sections) ────────────────────────────── */
+function elClear(id){ var e=document.getElementById(id); if(e) e.innerHTML=''; return e; }
+
+function renderText(){
+  var t=elClear('tldrHost');
+  DATA.tldr.forEach(function(o){ var li=document.createElement('li'); li.innerHTML = TX(o); t.appendChild(li); });
+
+  var q=elClear('quoteHost');
+  DATA.quotes.forEach(function(o){
+    var bq=document.createElement('blockquote');
+    bq.innerHTML = '<span class="qm">“</span><p>'+TX(o)+'</p>';
+    q.appendChild(bq);
+  });
+
+  var m=elClear('mediaHost');
+  DATA.media.forEach(function(o){
+    var card=document.createElement('div'); card.className='mcard';
+    var thumb;
+    if(o.kind==='yt'){
+      var url='https://www.youtube.com/watch?v='+o.id;
+      var img='https://i.ytimg.com/vi/'+o.id+'/hqdefault.jpg';
+      thumb='<a class="mthumb" href="'+url+'" target="_blank" rel="noopener">'
+        +'<img src="'+img+'" alt="" loading="lazy" onerror="this.style.display=\'none\'">'
+        +'<span class="ptype">'+(LANG==='fa'?'ویدیو':'VIDEO')+'</span>'
+        +'<span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></span></a>';
+    } else {
+      thumb='<a class="mthumb" href="'+o.url+'" target="_blank" rel="noopener"><span class="mfake">'
+        +'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.6"/><path d="M21 15l-5-5L5 21"/></svg>'
+        +'</span><span class="ptype">'+(LANG==='fa'?'تصویر':'IMAGE')+'</span></a>';
+    }
+    var link = o.kind==='yt' ? 'https://www.youtube.com/watch?v='+o.id : o.url;
+    var bl = (LANG==='fa'?o.bullets.fa:o.bullets.en).map(function(b){ return '<li>'+ (LANG==='fa'?faText(b):b) +'</li>'; }).join('');
+    card.innerHTML = thumb + '<div class="mbody">'
+      + '<div class="msrc">'+TX(o.src)+'</div>'
+      + '<h4>'+TX(o.title)+'</h4>'
+      + '<p class="mdesc">'+TX(o.desc)+'</p>'
+      + '<ul>'+bl+'</ul>'
+      + '<a class="mlink" href="'+link+'" target="_blank" rel="noopener">'+(LANG==='fa'?'باز کردن ↗':'Open ↗')+'</a>'
+      + '<div class="mbest">'+TX(o.best)+'</div>'
+      + '</div>';
+    m.appendChild(card);
+  });
+
+  var g=elClear('goHost');
+  DATA.go.forEach(function(o){
+    var a=document.createElement('a'); a.href=o.url; a.target='_blank'; a.rel='noopener';
+    a.textContent=TX(o.label); g.appendChild(a);
+  });
+
+  var r=elClear('recHost');
+  DATA.recs.forEach(function(o){
+    var it=document.createElement('div'); it.className='item';
+    var priLabel = o.pri==='b' ? (LANG==='fa'?'از اینجا شروع کن':'Start here') : (LANG==='fa'?'بعدش این':'Then this');
+    it.innerHTML='<div class="t">'+TX(o.t)+'<span class="pri '+(o.pri==='b'?'b':'')+'">'+priLabel+'</span></div>'
+      +'<div class="d">'+TX(o.d)+'</div>';
+    r.appendChild(it);
+  });
+
+  var mth=document.getElementById('methodHost');
+  if(LANG==='fa'){
+    mth.innerHTML = faText(
+      '<p><b>منبع:</b> کتابِ «Atomic Habits» (عادت‌های اتمی) نوشتهٔ جیمز کلیر، چاپِ ۲۰۱۸.</p>'
+      +'<p><b>روشِ کار:</b> چارچوبِ چهار قانونِ تغییرِ رفتار و مفاهیمِ پایه، اصل‌ها و مثال‌ها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده‌اند؛ نقل‌قول‌ها با نسخه‌های منتشرشده و سایتِ رسمیِ jamesclear.com چک شده‌اند.</p>'
+      +'<p><b>پنج مرحله:</b> بر اساسِ یک نردبانِ سادگی از ۱ تا ۵ چیده شده — یک محتوا در پنج عمقِ مختلف، از خیلی ساده تا حرفه‌ای.</p>'
+      +'<p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای متنِ کامل و جزئیات، خودِ کتاب را بخوان.</p>'
+    );
+  } else {
+    mth.innerHTML =
+      '<p><b>Source:</b> the book <i>Atomic Habits: An Easy & Proven Way to Build Good Habits & Break Bad Ones</i> by James Clear (2018).</p>'
+      +'<p><b>How this was built:</b> the Four Laws framework and foundational concepts, principles, and examples were gathered and rewritten from the book and reputable sources; quotes were cross-checked against published collections and the official jamesclear.com site.</p>'
+      +'<p><b>The five stages</b> follow a 1–5 complexity ladder: the same material at five depths, from over-simplified to expert.</p>'
+      +'<p><b>Limitation:</b> this page is a learning aid, not a substitute for the book. Read the book itself for the full text and nuance.</p>';
+  }
+
+  var fl=document.getElementById('flowTop');
+  if(fl){
+    var loop = LANG==='fa' ? ['نشانه','ولع','واکنش','پاداش'] : ['Cue','Craving','Response','Reward'];
+    var ar = LANG==='fa' ? '⟵' : '⟶';
+    fl.innerHTML = loop.map(function(w){ return '<b>'+ (LANG==='fa'?faText(w):w) +'</b>'; }).join(' <span class="ar">'+ar+'</span> ');
+  }
+}
+</script>
+
+<script>
+/* ── 4) CONCEPT MAP ───────────────────────────────────────── */
+function renderMap(){
+  var host=document.getElementById('mapHost'); if(!host) return; host.innerHTML='';
+  DATA.parts.forEach(function(p, i){
+    var col=document.createElement('div'); col.className='partcol';
+    var chaps=p.chapters.map(function(ck){
+      var c=DATA.chapters[ck];
+      return '<div class="chapchip"><span class="cn">'+num(c.n)+'</span><div><b>'+TX(c.name)+'</b>'
+        +'<small>'+TX(c.principle).replace(/<[^>]+>/g,'').slice(0, LANG==='fa'?86:76)+'…</small></div></div>';
+    }).join('');
+    col.innerHTML='<div class="ph"><span class="pdot" style="background:var('+p.varc+')"></span>'
+      +'<span class="pnum">'+(LANG==='fa'?'بخشِ ':'PART ')+num(i+1)+'</span></div>'
+      +'<h4>'+TX(p.name)+'</h4>'
+      +'<div class="ptag" style="color:var('+p.varc+')">'+TX(p.tag)+'</div>'
+      +'<p class="pgist">'+TX(p.gist)+'</p>'+chaps;
+    host.appendChild(col);
+  });
+}
+</script>
+
+<script>
+/* ── 5) INTERACTIVE NETWORK GRAPH (deterministic radial layout, no physics) ── */
+var GRAPH = (function(){
+  var svg, W=980, H=780, nodes=[], links=[], sel=null, dragNode=null, moved=false, startPt=null;
+
+  function build(){
+    svg=document.getElementById('netsvg');
+    svg.setAttribute('viewBox','0 0 '+W+' '+H);
+    nodes=[]; links=[];
+    var cx=W/2, cy=H/2, R1=220, R2=126, span=66*Math.PI/180;
+    var N=DATA.parts.length, partAng=DATA.parts.map(function(_,i){ return -Math.PI/2 + i*(2*Math.PI/N); });
+    nodes.push({id:'core', kind:'core', varc:'--core', r:38, x:cx, y:cy, label:DATA.core.name, data:DATA.core});
+    DATA.parts.forEach(function(p,i){
+      var a=partAng[i], px=cx+Math.cos(a)*R1, py=cy+Math.sin(a)*R1;
+      nodes.push({id:'p_'+p.key, kind:'part', varc:p.varc, r:25, x:px, y:py,
+        label:p.name, data:{name:p.name, principle:p.gist, more:p.more, tag:p.tag, key:p.key}});
+      links.push({s:'core', t:'p_'+p.key, strong:true});
+      var nc=p.chapters.length, start=a-span/2;
+      p.chapters.forEach(function(ck,j){
+        var ca = nc>1 ? start+span*(j/(nc-1)) : a;   // fan the 5 chapters outward
+        var c=DATA.chapters[ck];
+        nodes.push({id:'c_'+ck, kind:'chap', varc:p.varc, r:15,
+          x:px+Math.cos(ca)*R2, y:py+Math.sin(ca)*R2,
+          label:(c.glabel||c.name), data:c, ck:ck});
+        links.push({s:'p_'+p.key, t:'c_'+ck});
+      });
+    });
+    nodes.forEach(function(n){ n.hx=n.x; n.hy=n.y; });   // remember home positions for reset
+    draw();
+    select('core');
+  }
+
+  function byId(id){ for(var i=0;i<nodes.length;i++) if(nodes[i].id===id) return nodes[i]; return null; }
+
+  function draw(){
+    var ln='', nd='';
+    links.forEach(function(l){ ln+='<line class="glink" data-s="'+l.s+'" data-t="'+l.t+'" stroke="var(--line)" stroke-width="'+(l.strong?2.4:1.5)+'" stroke-linecap="round"/>'; });
+    nodes.forEach(function(n){
+      var inside='', below='';
+      if(n.kind==='core'){
+        inside='<text text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="800" fill="#fff" letter-spacing="0.3">'+shortLabel(n)+'</text>';
+      } else {
+        if(n.kind==='chap'){
+          inside='<text text-anchor="middle" dominant-baseline="central" font-size="11" font-weight="800" fill="#fff">'+num(n.data.n)+'</text>';
+        }
+        var ly = n.r + (n.kind==='part'?17:14);
+        var fs = n.kind==='part'?13:11;
+        var stroke = 'paint-order:stroke;stroke:var(--card2);stroke-width:3.6px;stroke-linejoin:round';
+        below='<text class="nlab" text-anchor="middle" y="'+ly+'" font-size="'+fs+'" font-weight="'+(n.kind==='part'?'800':'700')+'" fill="var(--ink)" style="'+stroke+'">'+shortLabel(n)+'</text>';
+      }
+      nd+='<g class="node'+(n.kind==='core'?' ncore':'')+'" data-id="'+n.id+'"><g class="ns">'
+        +'<circle r="'+n.r+'" fill="var('+n.varc+')" fill-opacity="'+(n.kind==='chap'?0.94:1)+'" stroke="var(--card)" stroke-width="2.5"/>'
+        +inside+below+'</g></g>';
+    });
+    svg.innerHTML='<g id="glinks">'+ln+'</g><g id="gnodes">'+nd+'</g>';
+    svg.querySelectorAll('.node').forEach(function(gEl){
+      gEl.addEventListener('pointerdown', onDown);
+      gEl.addEventListener('click', function(){ if(!moved) select(gEl.getAttribute('data-id')); });
+      gEl.addEventListener('pointerenter', function(){ if(!dragNode) gEl.classList.add('hover'); });
+      gEl.addEventListener('pointerleave', function(){ gEl.classList.remove('hover'); });
+    });
+    positions();
+  }
+  function shortLabel(n){ return TX(n.label); }
+
+  function positions(){
+    svg.querySelectorAll('.node').forEach(function(g){
+      var n=byId(g.getAttribute('data-id'));
+      g.setAttribute('transform','translate('+n.x.toFixed(1)+','+n.y.toFixed(1)+')');
+    });
+    svg.querySelectorAll('.glink').forEach(function(l){
+      var a=byId(l.getAttribute('data-s')), b=byId(l.getAttribute('data-t'));
+      l.setAttribute('x1',a.x.toFixed(1)); l.setAttribute('y1',a.y.toFixed(1));
+      l.setAttribute('x2',b.x.toFixed(1)); l.setAttribute('y2',b.y.toFixed(1));
+    });
+  }
+
+  /* drag: just move the grabbed node — no simulation, so nothing else shifts */
+  function toSvg(e){
+    var pt=svg.createSVGPoint(); pt.x=e.clientX; pt.y=e.clientY;
+    var m=svg.getScreenCTM(); if(!m) return {x:e.clientX,y:e.clientY};
+    return pt.matrixTransform(m.inverse());
+  }
+  function onDown(e){
+    e.preventDefault();
+    dragNode=byId(e.currentTarget.getAttribute('data-id'));
+    moved=false; startPt=toSvg(e); svg.style.cursor='grabbing';
+    e.currentTarget.classList.remove('hover');
+    window.addEventListener('pointermove', onMove);
+    window.addEventListener('pointerup', onUp);
+  }
+  function onMove(e){
+    if(!dragNode) return; var p=toSvg(e);
+    if(startPt && (Math.abs(p.x-startPt.x)>4 || Math.abs(p.y-startPt.y)>4)) moved=true;
+    dragNode.x=Math.max(dragNode.r+4, Math.min(W-dragNode.r-4, p.x));
+    dragNode.y=Math.max(dragNode.r+4, Math.min(H-dragNode.r-24, p.y));
+    positions();
+  }
+  function onUp(){
+    dragNode=null; svg.style.cursor='grab';
+    window.removeEventListener('pointermove', onMove);
+    window.removeEventListener('pointerup', onUp);
+  }
+
+  function keepSet(id){
+    var n=byId(id); if(!n || id==='core') return null;   // core → show everything
+    var keep={}; keep[id]=1; keep['core']=1;
+    var pk = (n.kind==='part') ? n.data.key : n.data.part;
+    keep['p_'+pk]=1;
+    DATA.parts.forEach(function(p){ if(p.key===pk) p.chapters.forEach(function(ck){ keep['c_'+ck]=1; }); });
+    return keep;   // highlight the whole branch: core → part → its chapters
+  }
+  function applyFocus(id){
+    var keep=keepSet(id), full=(keep===null);
+    svg.querySelectorAll('.node').forEach(function(g){
+      var nid=g.getAttribute('data-id');
+      g.classList.toggle('dim', !full && !keep[nid]);
+      g.classList.toggle('hl', !full && keep[nid] && nid!==id);
+    });
+    svg.querySelectorAll('.glink').forEach(function(l){
+      var s=l.getAttribute('data-s'), t=l.getAttribute('data-t');
+      var on = full || (keep[s] && keep[t]);
+      l.classList.toggle('dim', !on);
+      l.classList.toggle('hl', !full && on);
+    });
+  }
+
+  function relatedIds(node){
+    var ids=[];
+    if(node.id==='core'){ DATA.parts.forEach(function(p){ ids.push('p_'+p.key); }); }
+    else if(node.kind==='part'){ var pk=node.data.key; DATA.parts.forEach(function(p){ if(p.key===pk) p.chapters.forEach(function(ck){ ids.push('c_'+ck); }); }); }
+    else { var pk2=node.data.part; ids.push('p_'+pk2);
+      DATA.parts.forEach(function(p){ if(p.key===pk2) p.chapters.forEach(function(ck){ if('c_'+ck!==node.id) ids.push('c_'+ck); }); }); }
+    return ids;
+  }
+
+  function drow(cls,label,txt){ return '<div class="drow '+cls+'"><div class="dlab">'+label+'</div><div class="dtxt">'+txt+'</div></div>'; }
+
+  function select(id){
+    var n=byId(id); if(!n) return;
+    sel=id;
+    svg.querySelectorAll('.node').forEach(function(g){ g.classList.toggle('sel', g.getAttribute('data-id')===id); });
+    var selEl=svg.querySelector('.node[data-id="'+id+'"]'); if(selEl&&selEl.parentNode) selEl.parentNode.appendChild(selEl);  // raise on top
+    applyFocus(id);
+    var d=n.data, pv = n.kind==='core' ? '--core' : n.varc;
+    var kicker = n.kind==='core' ? (LANG==='fa'?'ایدهٔ مرکزی':'Core idea')
+             : n.kind==='part' ? (LANG==='fa'?'بخش':'Part') + ' · ' + TX(d.tag)
+             : (LANG==='fa'?'تکنیکِ':'Technique') + ' ' + num(d.n);
+    var prLab = (n.kind==='chap') ? (LANG==='fa'?'اصل':'Principle') : (LANG==='fa'?'ایدهٔ اصلی':'Big idea');
+    var html='<div class="dkick"><i style="background:var('+pv+')"></i>'+ (LANG==='fa'?faText(kicker):kicker) +'</div>'
+      +'<h4>'+TX(d.name)+'</h4>'
+      + drow('', prLab, TX(d.principle));
+    if(d.more)    html += drow('more', (LANG==='fa'?'بیشتر':'In depth'), TX(d.more));
+    if(d.example) html += drow('', (LANG==='fa'?'مثال':'Example'), TX(d.example));
+    if(d.tip)     html += drow('tip', (LANG==='fa'?'امتحان کن':'Try this'), TX(d.tip));
+    if(d.pitfall) html += drow('pit', (LANG==='fa'?'حواست باشد':'Watch out'), TX(d.pitfall));
+    // related chips
+    var rel=relatedIds(n);
+    if(rel.length){
+      var chips=rel.map(function(rid){ var rn=byId(rid); if(!rn) return '';
+        return '<span class="dchip" data-goto="'+rid+'"><i style="background:var('+rn.varc+')"></i>'+TX(rn.data.name)+'</span>'; }).join('');
+      html += '<div class="drow"><div class="dlab">'+(LANG==='fa'?'مرتبط':'Related')+'</div><div class="dchips">'+chips+'</div></div>';
+    }
+    var host=document.getElementById('detailHost');
+    host.innerHTML=html;
+    host.querySelectorAll('.dchip').forEach(function(c){
+      c.addEventListener('click', function(){ select(c.getAttribute('data-goto')); });
+    });
+  }
+
+  function relabel(){ if(!svg) return; draw(); select(sel||'core'); }
+
+  return {
+    build:build,
+    kick:function(){},                                    // no-op; layout is static
+    relabel:relabel,
+    reset:function(){ nodes.forEach(function(n){ n.x=n.hx; n.y=n.hy; }); positions(); },
+    resetFocus:function(){ select('core'); },
+    selectNode:function(id){ select(id); },
+    hasNodes:function(){ return nodes.length>0; }
+  };
+})();
+</script>
+
+<script>
+/* ── 6) 5-STAGE LADDER ────────────────────────────────────── */
+var curStage=0;
+function renderLadder(){
+  var host=document.getElementById('ladderHost'); host.innerHTML='';
+  DATA.stages.forEach(function(s,i){
+    var r=document.createElement('div'); r.className='rung'+(i===curStage?' active':'');
+    r.innerHTML='<div class="lv">'+ (LANG==='fa'?('سطحِ '+num(s.level)):('Level '+s.level)) +'</div>'
+      +'<div class="lt">'+TX(s.title)+'</div>'
+      +'<div class="lbar"><i style="width:'+(s.level*20)+'%"></i></div>';
+    r.addEventListener('click', function(){ curStage=i; renderLadder(); renderStage();
+      document.getElementById('stageHost').scrollIntoView({behavior:'smooth',block:'nearest'}); });
+    host.appendChild(r);
+  });
+}
+function renderStage(){
+  var s=DATA.stages[curStage];
+  var host=document.getElementById('stageHost');
+  var exLabel = LANG==='fa'?'مثال':'Example';
+  var prev = LANG==='fa'?'مرحلهٔ قبل':'‹ Prev', next = LANG==='fa'?'مرحلهٔ بعد':'Next ›';
+  host.innerHTML=''+
+    '<div class="stagecard">'
+    +'<div class="shead"><span class="badge">'+TX(s.badge)+'</span><h3>'+TX(s.title)+'</h3></div>'
+    +'<div class="tagline">'+TX(s.tagline)+'</div>'
+    +'<div class="sbody">'+TX(s.body)+'</div>'
+    +'<div class="exbox"><div class="exk">'+exLabel+'</div><div class="ext">'+TX(s.example)+'</div></div>'
+    +'<div class="gainrow"><span class="gi">✓</span><span>'+TX(s.gain)+'</span></div>'
+    +'<div class="stagenav">'
+      +'<button id="stPrev" '+(curStage===0?'disabled':'')+'>'+prev+'</button>'
+      +'<button id="stNext" '+(curStage===DATA.stages.length-1?'disabled':'')+'>'+next+'</button>'
+    +'</div></div>';
+  var pv=document.getElementById('stPrev'), nx=document.getElementById('stNext');
+  if(pv) pv.onclick=function(){ if(curStage>0){curStage--; renderLadder(); renderStage();} };
+  if(nx) nx.onclick=function(){ if(curStage<DATA.stages.length-1){curStage++; renderLadder(); renderStage();} };
+}
+</script>
+
+<script>
+/* ── 7) legend + graph tabs ───────────────────────────────── */
+function renderLegend(){
+  var host=document.getElementById('legendHost'); if(!host) return;
+  var items=[{c:'--core', en:'Core idea', fa:'ایدهٔ مرکزی'}]
+    .concat(DATA.parts.map(function(p){ return {c:p.varc, en:p.name.en, fa:p.name.fa}; }));
+  host.innerHTML = items.map(function(it){
+    return '<span><i style="background:var('+it.c+')"></i>'+(LANG==='fa'?faText(it.fa):it.en)+'</span>';
+  }).join('');
+  document.getElementById('ghint').textContent = LANG==='fa' ? 'روی هر دایره کلیک کن تا بیشتر بخوانی · می‌توانی بکشی‌شان' : 'Click a node to read more · drag to move';
+  document.getElementById('greset').textContent = LANG==='fa' ? '↺ چیدمان' : '↺ Reset';
+}
+function setupTabs(){
+  function show(net){
+    document.getElementById('netView').style.display = net?'':'none';
+    document.getElementById('mapView').style.display = net?'none':'';
+    document.getElementById('tabNet').classList.toggle('active',net);
+    document.getElementById('tabMap').classList.toggle('active',!net);
+    if(net) GRAPH.kick();
+  }
+  document.getElementById('tabNet').onclick=function(){show(true);};
+  document.getElementById('tabMap').onclick=function(){show(false);};
+  document.getElementById('greset').onclick=function(){ GRAPH.reset(); };
+  // click empty graph space resets the focus
+  var svg=document.getElementById('netsvg');
+  svg.addEventListener('click', function(e){ if(!e.target.closest('.node')) GRAPH.resetFocus(); });
+}
+</script>
+
+<script>
+/* ── 8) toggles + boot ────────────────────────────────────── */
+function setLang(lg){
+  LANG=lg;
+  document.documentElement.setAttribute('data-lang',lg);
+  document.documentElement.setAttribute('lang',lg);
+  document.documentElement.setAttribute('dir', lg==='fa'?'rtl':'ltr');
+  try{ localStorage.setItem('ah-lang',lg); }catch(e){}
+  renderAll();
+}
+function renderAll(){
+  renderText();
+  renderMap();
+  renderLegend();
+  renderLadder();
+  renderStage();
+  if(GRAPH.hasNodes()) GRAPH.relabel(); else GRAPH.build();
+}
+(function(){
+  var lb=document.getElementById('langBtn');
+  lb && lb.addEventListener('click', function(){ setLang(LANG==='fa'?'en':'fa'); });
+
+  var tb=document.getElementById('themeBtn');
+  function curT(){ return document.documentElement.getAttribute('data-theme'); }
+  tb && tb.addEventListener('click', function(){
+    var t=curT()==='dark'?'light':'dark';
+    document.documentElement.setAttribute('data-theme',t);
+    try{ localStorage.setItem('ah-theme',t); }catch(e){}
+  });
+  try{ matchMedia('(prefers-color-scheme: dark)').addEventListener('change',function(e){
+    if(!localStorage.getItem('ah-theme')){ document.documentElement.setAttribute('data-theme', e.matches?'dark':'light'); }
+  }); }catch(e){}
+})();
+
+/* scroll-spy */
+(function(){
+  var links=[].slice.call(document.querySelectorAll('.toc a'));
+  var seen={}, ids=[];
+  links.forEach(function(a){ var id=a.getAttribute('href').slice(1); if(!seen[id]){seen[id]=1; ids.push(id);} });
+  var secs=ids.map(function(id){return document.getElementById(id);}).filter(Boolean);
+  function setActive(id){ links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('href')==='#'+id); }); }
+  if('IntersectionObserver' in window){
+    var obs=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+    },{rootMargin:'-45% 0px -50% 0px',threshold:0});
+    secs.forEach(function(s){ obs.observe(s); });
+  }
+})();
+
+document.addEventListener('DOMContentLoaded', function(){
+  setupTabs();
+  renderAll();
+});
+</script>
+</body>
+</html>

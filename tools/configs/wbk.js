@@ -1,0 +1,263 @@
+/* config: Working Backwards — Colin Bryar & Bill Carr (Strategy) */
+module.exports = {
+  slug:"wbk", brand:"Working Backwards",
+  titleTag:"Working Backwards — نقشهٔ دانش و یادگیری ۵ مرحله‌ای",
+  W:980, H:780, R1:220, R2:126, span:66,
+  leafKickEn:"Mechanism", leafKickFa:"سازوکارِ",
+  flowEn:["Customer","PR/FAQ","Build","Iterate"], flowFa:["مشتری","پی‌آر/سؤالات","ساختن","تکرار"],
+
+  hero:`  <div class="eyebrow"><span class="edot"></span>
+    <span data-only="en">Book knowledge map · Colin Bryar & Bill Carr</span>
+    <span data-only="fa">نقشهٔ کتاب · کالین برایار و بیل کار</span>
+  </div>
+  <h1>
+    <span data-only="en">Working Backwards — Insights, Stories, and Secrets from Inside Amazon</span>
+    <span data-only="fa">از آخر به اول — بینش‌ها، داستان‌ها و رازهایی از دلِ آمازون</span>
+  </h1>
+  <p class="dek">
+    <span data-only="en">A knowledge graph of the whole book, plus a 5-stage path from a single idea to expert-level mastery — with an example at every step.</span>
+    <span data-only="fa">نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از یک ایدهٔ ساده تا حرفه‌ای — با یک مثال در هر مرحله.</span>
+  </p>
+  <div class="metastrip">
+    <div class="metaitem"><span class="mk" data-only="en">Book</span><span class="mk" data-only="fa">کتاب</span>
+      <span class="mv" data-only="en">Working Backwards</span><span class="mv" data-only="fa">از آخر به اول</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Authors</span><span class="mk" data-only="fa">نویسنده‌ها</span>
+      <span class="mv" data-only="en">Colin Bryar &amp; Bill Carr</span><span class="mv" data-only="fa">کالین برایار و بیل کار</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Published</span><span class="mk" data-only="fa">سالِ چاپ</span>
+      <span class="mv" data-only="en">2021</span><span class="mv" data-only="fa">۲۰۲۱</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Group</span><span class="mk" data-only="fa">گروه</span>
+      <span class="mv" data-only="en">Strategy</span><span class="mv" data-only="fa">استراتژی</span></div>
+  </div>
+  <div class="chips">
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Parts</span><span data-only="fa">بخش</span></div>
+    <div class="chip"><b data-only="en">16</b><b data-only="fa">۱۶</b><span data-only="en">Mechanisms</span><span data-only="fa">سازوکار</span></div>
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Learning stages</span><span data-only="fa">مرحلهٔ یادگیری</span></div>
+  </div>`,
+
+  callout:`    <b data-only="en">The core idea:</b>
+    <b data-only="fa">ایدهٔ اصلی:</b>
+    <span data-only="en"> Great products don't start with what you can build — they start with the <i>customer</i>. Write the press release first and work <i>backwards</i> to what to build. Run on a shared set of <i>Leadership Principles</i>, and turn good intentions into <i>mechanisms</i> that make the right thing happen by default.</span>
+    <span data-only="fa"> محصولِ عالی از «چه چیزی می‌توانیم بسازیم» شروع نمی‌شود — از <i>مشتری</i> شروع می‌شود. اول خبرِ محصول را بنویس و <i>از آخر به اول</i> برگرد به اینکه چه باید ساخت. روی یک مجموعه <i>اصولِ رهبریِ</i> مشترک کار کن، و نیتِ خوب را به <i>سازوکارهایی</i> تبدیل کن که کارِ درست را خودبه‌خود پیش ببرند.</span>`,
+
+  kpis:`    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Parts (being Amazonian · hiring · organizing · communicating · working backwards)</div><div class="l" data-only="fa">بخش (آمازونی‌بودن · استخدام · سازمان‌دهی · ارتباط · از آخر به اول)</div></div>
+    <div class="kbox"><div class="v" data-only="en">16</div><div class="v" data-only="fa">۱۶</div><div class="l" data-only="en">Mechanisms you can use</div><div class="l" data-only="fa">سازوکار برای استفاده</div></div>
+    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Levels, simple → expert</div><div class="l" data-only="fa">مرحله، ساده تا حرفه‌ای</div></div>
+    <div class="kbox"><div class="v" data-only="en">14</div><div class="v" data-only="fa">۱۴</div><div class="l" data-only="en">Leadership Principles that anchor it all</div><div class="l" data-only="fa">اصلِ رهبری که همه‌چیز را نگه می‌دارند</div></div>`,
+
+  mapcallout:`      <b data-only="en">Read it as a flow:</b><b data-only="fa">به‌صورتِ یک جریان بخوانش:</b>
+      <span data-only="en"> get the <b>culture</b> right (Leadership Principles, mechanisms), <b>hire</b> with the Bar Raiser, <b>organize</b> into single-threaded teams, <b>communicate</b> in six-page narratives, and start every product by <b>working backwards</b> from the customer with a PR/FAQ.</span>
+      <span data-only="fa"> اول <b>فرهنگ</b> را درست کن (اصولِ رهبری، سازوکارها)، با «بالابرندهٔ استاندارد» <b>استخدام</b> کن، در تیم‌های تک‌مسئولیتی <b>سازمان‌دهی</b> کن، با روایت‌های شش‌صفحه‌ای <b>حرف بزن</b>، و هر محصول را با یک پی‌آر/سؤالات <b>از آخر به اولِ</b> مشتری شروع کن.</span>`,
+
+  methodFa:"<p><b>منبع:</b> کتابِ «Working Backwards: Insights, Stories, and Secrets from Inside Amazon» نوشتهٔ کالین برایار و بیل کار (نشرِ سنت مارتینز، ۲۰۲۱).</p><p><b>روشِ کار:</b> ساختارِ پنج‌بخشی و سازوکارها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده؛ نقل‌قول‌ها مقابله و ویدیوها بررسی شده‌اند.</p><p><b>گروه:</b> «استراتژی» — از فهرستِ کتاب‌های ضروریِ سازندگانِ محصولِ لنی راچیتسکی.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای متنِ کامل، خودِ کتاب را بخوان.</p>",
+  methodEn:"<p><b>Source:</b> the book <i>Working Backwards: Insights, Stories, and Secrets from Inside Amazon</i> by Colin Bryar and Bill Carr (St. Martin's Press, 2021).</p><p><b>How this was built:</b> the five-part structure and mechanisms were gathered and rewritten from the book and reputable sources; quotes were cross-checked and the linked videos verified.</p><p><b>Group:</b> Strategy — from Lenny Rachitsky's essential books for product builders.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>",
+
+  data:{
+    tldr:[
+      {en:"The whole book in one line: build great products by starting from the customer and working backwards to what to build.",
+       fa:"خلاصهٔ کل کتاب در یک جمله: محصولِ عالی را با شروع از مشتری و برگشتن از آخر به اول بساز."},
+      {en:"Amazon runs on <b>14 Leadership Principles</b> turned into real <b>mechanisms</b> — because good intentions don't work, mechanisms do.",
+       fa:"آمازون روی <b>۱۴ اصلِ رهبری</b> کار می‌کند که به <b>سازوکارهای</b> واقعی تبدیل شده‌اند — چون نیتِ خوب کار نمی‌کند، سازوکار کار می‌کند."},
+      {en:"Hire with the <b>Bar Raiser</b>, and organize the work into <b>separable, single-threaded teams</b> that own their piece end to end.",
+       fa:"با <b>بالابرندهٔ استاندارد</b> استخدام کن، و کار را در <b>تیم‌های مستقل و تک‌مسئولیتی</b> بچین که تکه‌شان را از اول تا آخر خودشان دارند."},
+      {en:"Communicate in <b>six-page narratives</b>, not PowerPoint — and start every meeting by reading the memo in silence.",
+       fa:"با <b>روایت‌های شش‌صفحه‌ای</b> حرف بزن، نه پاورپوینت — و هر جلسه را با خواندنِ یادداشت در سکوت شروع کن."},
+      {en:"Start every product from a <b>PR/FAQ</b>, and steer by <b>controllable input metrics</b>, not lagging outputs like revenue.",
+       fa:"هر محصول را از یک <b>پی‌آر/سؤالات</b> شروع کن، و با <b>سنجه‌های ورودیِ قابلِ‌کنترل</b> هدایتش کن، نه خروجی‌های عقب‌افتاده‌ای مثلِ درآمد."}
+    ],
+    parts:[
+      { key:"amazonian", varc:"--c-teal", name:{en:"Being Amazonian", fa:"آمازونی‌بودن"}, tag:{en:"The culture", fa:"فرهنگ"},
+        gist:{en:"Shared Leadership Principles, customer obsession, and mechanisms instead of good intentions.", fa:"اصولِ رهبریِ مشترک، وسواسِ مشتری، و سازوکار به‌جای نیتِ خوب."},
+        more:{en:"Everything at Amazon rests on a shared culture: fourteen Leadership Principles that give people a common language, an obsession with customers over competitors, and the habit of turning any good intention into a concrete mechanism. Get this base right and the rest follows.",
+              fa:"همه‌چیز در آمازون روی یک فرهنگِ مشترک بنا شده: چهارده اصلِ رهبری که به آدم‌ها یک زبانِ مشترک می‌دهد، یک وسواس نسبت به مشتری به‌جای رقیب، و این عادت که هر نیتِ خوب را به یک سازوکارِ ملموس تبدیل کنی. این پایه را درست کن، بقیه دنبالش می‌آید."},
+        chapters:["lps","custobsess","mechanisms"] },
+      { key:"hiring", varc:"--c-blue", name:{en:"Hiring", fa:"استخدام"}, tag:{en:"Raise the bar", fa:"استاندارد را بالا ببر"},
+        gist:{en:"The Bar Raiser process, structured interviews, and never lowering the bar to fill a seat.", fa:"فرایندِ بالابرندهٔ استاندارد، مصاحبهٔ ساختارمند، و پایین‌نیاوردنِ استاندارد برای پرکردنِ یک صندلی."},
+        more:{en:"Amazon treats hiring as its highest-leverage mechanism. A trained Bar Raiser from outside the team joins each loop with the power to veto, interviews are structured around the Leadership Principles, and the rule is simple: every new hire should raise the bar, not fill a gap in a hurry.",
+              fa:"آمازون استخدام را پرُاهرم‌ترین سازوکارش می‌داند. یک «بالابرندهٔ استاندارد»ِ آموزش‌دیده از بیرونِ تیم با حقِ وتو به هر مصاحبه می‌آید، مصاحبه‌ها دورِ اصولِ رهبری ساختار دارند، و قاعده ساده است: هر استخدامِ تازه باید استاندارد را بالا ببرد، نه اینکه با عجله یک جای خالی را پُر کند."},
+        chapters:["barraiser","interviewing","raisebar"] },
+      { key:"organizing", varc:"--c-amber", name:{en:"Organizing", fa:"سازمان‌دهی"}, tag:{en:"Structure the teams", fa:"تیم‌ها را بچین"},
+        gist:{en:"Single-threaded leadership, separable two-pizza teams, and removing dependencies.", fa:"رهبریِ تک‌مسئولیتی، تیم‌های مستقلِ دو-پیتزایی، و حذفِ وابستگی‌ها."},
+        more:{en:"As a company grows, the real drag is coordination between teams. Amazon's answer is to give each important initiative one fully dedicated leader, and to build small, autonomous teams that own their work and interfaces — so they can move fast without waiting on everyone else.",
+              fa:"وقتی یک شرکت بزرگ می‌شود، ترمزِ اصلی همان هماهنگیِ بینِ تیم‌هاست. جوابِ آمازون این است که هر کارِ مهم را به یک رهبرِ کاملاً تمام‌وقت بسپارد، و تیم‌های کوچک و مستقلی بسازد که کار و مرزهایشان را خودشان دارند — تا بتوانند بدونِ منتظرِ بقیه ماندن، سریع پیش بروند."},
+        chapters:["stl","separable","dependencies"] },
+      { key:"communicating", varc:"--c-violet", name:{en:"Communicating", fa:"ارتباط"}, tag:{en:"Write it down", fa:"بنویسش"},
+        gist:{en:"Six-page narratives, banning PowerPoint, silent reading, and writing that reveals thinking.", fa:"روایت‌های شش‌صفحه‌ای، حذفِ پاورپوینت، خواندن در سکوت، و نوشتنی که فکر را لو می‌دهد."},
+        more:{en:"Amazon banned slides for important meetings and replaced them with a six-page written narrative that everyone reads in silence before anyone speaks. Full sentences force complete, connected thinking — and the meeting reacts to the idea itself, not to a slick presenter.",
+              fa:"آمازون برای جلسه‌های مهم اسلاید را حذف کرد و جایش یک روایتِ نوشتهٔ شش‌صفحه‌ای گذاشت که همه قبل از حرف‌زدنِ کسی، در سکوت می‌خوانندش. جملهٔ کامل، فکرِ کامل و به‌هم‌پیوسته را مجبور می‌کند — و جلسه به خودِ ایده واکنش می‌دهد، نه به یک ارائه‌دهندهٔ خوش‌بیان."},
+        chapters:["sixpager","noppt","silentread","writingthinking"] },
+      { key:"backwards", varc:"--c-green", name:{en:"Working Backwards", fa:"از آخر به اول"}, tag:{en:"Start with the customer", fa:"از مشتری شروع کن"},
+        gist:{en:"The PR/FAQ, controllable input metrics, and the self-reinforcing flywheel.", fa:"پی‌آر/سؤالات، سنجه‌های ورودیِ قابلِ‌کنترل، و چرخ‌طیارِ خودتقویت‌شونده."},
+        more:{en:"This is the idea the book is named for. Before building anything, you write a mock press release plus an FAQ describing the finished product from the customer's point of view — then work backwards to what to build. You steer by input metrics you control, and let the flywheel compound.",
+              fa:"این همان ایده‌ای است که کتاب به‌نامش است. قبل از ساختنِ هرچیز، یک خبرِ محصولِ فرضی به‌علاوهٔ فهرستی از سؤالات می‌نویسی که محصولِ آماده را از چشمِ مشتری توصیف می‌کند — بعد از آخر به اول برمی‌گردی به اینکه چه باید ساخت. با سنجه‌های ورودی‌ای که در دستِ خودت است هدایت می‌کنی، و می‌گذاری چرخ‌طیار روی هم جمع شود."},
+        chapters:["prfaq","inputmetrics","flywheel"] }
+    ],
+    chapters:{
+      lps:{ part:"amazonian", n:1, name:{en:"Leadership Principles", fa:"اصولِ رهبری"}, glabel:{en:"Principles", fa:"اصول"},
+        principle:{en:"Amazon's fourteen Leadership Principles are a shared operating system — a common language used every day for hiring, decisions, and trade-offs.", fa:"چهارده اصلِ رهبریِ آمازون یک سیستمِ کاریِ مشترک‌اند — یک زبانِ مشترک که هر روز برای استخدام، تصمیم و انتخاب‌های سخت به کار می‌رود."},
+        more:{en:"They aren't posters on a wall. Principles like Customer Obsession, Ownership, Invent and Simplify, Dive Deep, and Have Backbone; Disagree and Commit are woven into interviews, reviews, and everyday debate, so people across a huge company reason in roughly the same way.", fa:"این‌ها پوستر روی دیوار نیستند. اصولی مثلِ وسواسِ مشتری، مالکیت، اختراع و ساده‌سازی، عمیق‌شدن، و اینکه «پشتوانه داشته باش؛ مخالفت کن ولی بعد پایش بمان» توی مصاحبه‌ها، بازبینی‌ها و بحث‌های روزمره تنیده شده‌اند، تا آدم‌ها در یک شرکتِ عظیم کمابیش یک‌جور فکر کنند."},
+        example:{en:"In a hiring debrief, an interviewer argues 'this candidate showed weak Customer Obsession' and points to a specific story — the principle settles it.", fa:"در جمع‌بندیِ یک استخدام، یک مصاحبه‌گر می‌گوید «این نامزد وسواسِ مشتریِ ضعیفی نشان داد» و به یک داستانِ مشخص اشاره می‌کند — همان اصل، بحث را تمام می‌کند."},
+        tip:{en:"Pick three principles your team actually needs and name them out loud in your next decision.", fa:"سه اصل را که تیمت واقعاً لازم دارد انتخاب کن و در تصمیمِ بعدی‌ات با صدای بلند اسمشان را ببر."},
+        pitfall:{en:"Writing nice values on a wall and never using them to decide anything.", fa:"نوشتنِ ارزش‌های قشنگ روی دیوار و هیچ‌وقت استفاده‌نکردن از آن‌ها برای تصمیم‌گیری."} },
+      custobsess:{ part:"amazonian", n:2, name:{en:"Customer Obsession", fa:"وسواسِ مشتری"}, glabel:{en:"Customer Obsession", fa:"وسواسِ مشتری"},
+        principle:{en:"Start with the customer and work backwards; obsess over customers, not competitors.", fa:"از مشتری شروع کن و از آخر به اول برگرد؛ وسواسِ مشتری داشته باش، نه وسواسِ رقیب."},
+        more:{en:"It is Leadership Principle number one and the north star of the whole book. Watching competitors keeps you level with them; obsessing over customers is what pulls you forward, because customers are always 'divinely discontent' and want more than they have today.", fa:"این اصلِ رهبریِ شمارهٔ یک است و ستارهٔ قطبیِ کلِ کتاب. تماشای رقیب تو را هم‌ترازِ او نگه می‌دارد؛ وسواسِ مشتری همان چیزی است که جلو می‌کشدت، چون مشتری همیشه یک‌جور «ناراضیِ همیشگی» است و بیشتر از چیزی که امروز دارد می‌خواهد."},
+        example:{en:"Instead of matching a rival's feature, ask what would genuinely delight the customer — then build that.", fa:"به‌جای اینکه قابلیتِ رقیب را کپی کنی، بپرس چه چیزی واقعاً مشتری را خوشحال می‌کند — بعد همان را بساز."},
+        tip:{en:"In your next planning meeting, start the first sentence with the customer, not the competitor.", fa:"در جلسهٔ برنامه‌ریزیِ بعدی‌ات، جملهٔ اول را با مشتری شروع کن، نه با رقیب."},
+        pitfall:{en:"Copying competitors and mistaking that for strategy.", fa:"کپی‌کردن از رقیب و اشتباه‌گرفتنِ آن با استراتژی."} },
+      mechanisms:{ part:"amazonian", n:3, name:{en:"Mechanisms, Not Good Intentions", fa:"سازوکار، نه نیتِ خوب"}, glabel:{en:"Mechanisms", fa:"سازوکارها"},
+        principle:{en:"Good intentions don't work; mechanisms do. Turn every principle into a tool, process, or habit that makes the right thing happen by default.", fa:"نیتِ خوب کار نمی‌کند؛ سازوکار کار می‌کند. هر اصل را به یک ابزار، فرایند یا عادت تبدیل کن که کارِ درست را خودبه‌خود پیش ببرد."},
+        more:{en:"Telling people to 'care more' or 'be careful' rarely changes behavior at scale. A mechanism is a complete loop — a tool, its adoption, and the inspection that keeps it honest — that bakes the intention into how work actually gets done.", fa:"گفتنِ «بیشتر اهمیت بده» یا «حواست باشد» به آدم‌ها، در مقیاسِ بزرگ کمتر رفتار را عوض می‌کند. سازوکار یک حلقهٔ کامل است — یک ابزار، پذیرفته‌شدنش، و بازرسی‌ای که صادق نگهش می‌دارد — که نیت را در خودِ نحوهٔ انجامِ کار جا می‌اندازد."},
+        example:{en:"To keep quality high, Amazon didn't just ask for care — it built the Andon cord and the weekly metrics review as mechanisms.", fa:"برای بالا نگه‌داشتنِ کیفیت، آمازون فقط دقت نخواست — «طنابِ آندون» و بازبینیِ هفتگیِ سنجه‌ها را به‌عنوانِ سازوکار ساخت."},
+        tip:{en:"Take one recurring problem and design a small mechanism — a checklist or a standing review — instead of another reminder.", fa:"یک مشکلِ تکرارشونده را بردار و یک سازوکارِ کوچک برایش طراحی کن — یک چک‌لیست یا یک بازبینیِ همیشگی — به‌جای یک یادآوریِ دیگر."},
+        pitfall:{en:"Relying on willpower and reminders that quietly fade away.", fa:"تکیه به اراده و یادآوری‌هایی که بی‌سروصدا محو می‌شوند."} },
+      barraiser:{ part:"hiring", n:4, name:{en:"The Bar Raiser", fa:"بالابرندهٔ استاندارد"}, glabel:{en:"Bar Raiser", fa:"بالابرنده"},
+        principle:{en:"A trained interviewer from outside the hiring team, with the power to veto any hire, keeps the hiring bar high as the company scales.", fa:"یک مصاحبه‌گرِ آموزش‌دیده از بیرونِ تیمِ استخدام‌کننده، با قدرتِ وتوی هر استخدام، استاندارد را حینِ بزرگ‌شدنِ شرکت بالا نگه می‌دارد."},
+        more:{en:"The Bar Raiser is Amazon's signature hiring mechanism. This person has no stake in filling the specific role, is trained to run a rigorous, unbiased process, and can override even the hiring manager — so short-term pressure to fill a seat can't quietly lower long-term quality.", fa:"«بالابرندهٔ استاندارد» سازوکارِ امضاداری استخدامِ آمازون است. این آدم هیچ نفعی در پرکردنِ آن نقشِ خاص ندارد، آموزش دیده که یک فرایندِ دقیق و بی‌طرف را اجرا کند، و می‌تواند حتی نظرِ مدیرِ استخدام‌کننده را هم رد کند — تا فشارِ کوتاه‌مدتِ پرکردنِ یک صندلی نتواند بی‌سروصدا کیفیتِ بلندمدت را پایین بیاورد."},
+        example:{en:"The team loves a candidate, but the Bar Raiser vetoes because the evidence for one Leadership Principle is thin — and the search continues.", fa:"تیم عاشقِ یک نامزد است، ولی بالابرندهٔ استاندارد وتو می‌کند چون شواهدِ یکی از اصولِ رهبری کم است — و جست‌وجو ادامه پیدا می‌کند."},
+        tip:{en:"Add one neutral interviewer to your next loop who can say no and whose only job is protecting the bar.", fa:"به مصاحبهٔ بعدی‌ات یک مصاحبه‌گرِ بی‌طرف اضافه کن که بتواند «نه» بگوید و تنها کارش نگه‌داشتنِ استاندارد باشد."},
+        pitfall:{en:"Letting the desperate hiring manager have the only vote.", fa:"اینکه بگذاری مدیرِ مستأصلِ استخدام‌کننده تنها رأی را داشته باشد."} },
+      interviewing:{ part:"hiring", n:5, name:{en:"Structured Interviewing", fa:"مصاحبهٔ ساختارمند"}, glabel:{en:"Interviewing", fa:"مصاحبه"},
+        principle:{en:"Interview against the Leadership Principles with behavioral questions and written, evidence-based feedback — data over gut.", fa:"دورِ اصولِ رهبری با سؤال‌های رفتاری مصاحبه کن و بازخوردِ نوشته و مبتنی‌بر‌شواهد بده — داده به‌جای حس."},
+        more:{en:"Each interviewer owns a couple of principles and asks for real past examples ('tell me about a time you…'), then writes detailed notes with specifics before hearing anyone else's view. The debrief weighs written evidence, which strips out charisma, halo effects, and gut calls.", fa:"هر مصاحبه‌گر مسئولِ یکی‌دو اصل است و سراغِ مثال‌های واقعیِ گذشته می‌رود («از باری بگو که…»)، بعد قبل از شنیدنِ نظرِ بقیه، یادداشت‌های دقیق و مشخص می‌نویسد. در جمع‌بندی، شواهدِ نوشته سنجیده می‌شود، که کاریزما، هالهٔ خوش‌بینی و تصمیم‌های حسی را کنار می‌گذارد."},
+        example:{en:"Instead of 'I liked her,' an interviewer writes exactly what the candidate did, said, and decided in a specific situation.", fa:"به‌جای «ازش خوشم آمد»، مصاحبه‌گر دقیقاً می‌نویسد نامزد در یک موقعیتِ مشخص چه کرد، چه گفت و چه تصمیمی گرفت."},
+        tip:{en:"Before you compare notes, have every interviewer write their evidence down first.", fa:"قبل از اینکه نظرها را با هم مقایسه کنید، بگذار هر مصاحبه‌گر اول شواهدش را بنویسد."},
+        pitfall:{en:"Hiring on a good vibe and a great résumé.", fa:"استخدام بر اساسِ یک حسِ خوب و یک رزومهٔ درخشان."} },
+      raisebar:{ part:"hiring", n:6, name:{en:"Raise the Bar", fa:"استاندارد را بالا ببر"}, glabel:{en:"Raise the Bar", fa:"استانداردِ بالاتر"},
+        principle:{en:"Every new hire should be better in some important way than the people already there; never lower the bar to fill a seat fast.", fa:"هر استخدامِ تازه باید در یک جنبهٔ مهم بهتر از آدم‌هایی باشد که همین‌الان هستند؛ هیچ‌وقت استاندارد را برای پرکردنِ سریعِ یک صندلی پایین نیاور."},
+        more:{en:"If each hire raises the average, the whole organization keeps getting stronger over time; if you compromise under deadline pressure, quality erodes one 'good enough' hire at a time. The discipline is to keep looking rather than settle.", fa:"اگر هر استخدام میانگین را بالا ببرد، کلِ سازمان با گذرِ زمان قوی‌تر می‌شود؛ اگر زیرِ فشارِ ضرب‌الاجل کوتاه بیایی، کیفیت یکی‌یکی با هر استخدامِ «به‌اندازهٔ کافی خوب» فرو می‌ریزد. انضباط این است که به‌جای رضایت‌دادن، به گشتن ادامه بدهی."},
+        example:{en:"Six weeks behind, the team still says no to an okay candidate and keeps the role open rather than dilute the team.", fa:"با شش هفته تأخیر، تیم باز هم به یک نامزدِ متوسط «نه» می‌گوید و نقش را باز نگه می‌دارد تا تیم را رقیق نکند."},
+        tip:{en:"Ask of each finalist: does this person raise our average, or just fill the gap?", fa:"دربارهٔ هر نامزدِ نهایی بپرس: این آدم میانگینِ ما را بالا می‌برد، یا فقط جای خالی را پُر می‌کند؟"},
+        pitfall:{en:"Settling for 'good enough' because you're behind schedule.", fa:"رضایت‌دادن به «به‌اندازهٔ کافی خوب» چون از برنامه عقبی."} },
+      stl:{ part:"organizing", n:7, name:{en:"Single-Threaded Leadership", fa:"رهبریِ تک‌مسئولیتی"}, glabel:{en:"Single-Threaded", fa:"تک‌مسئولیتی"},
+        principle:{en:"Give each important initiative one leader whose only job is that initiative — the best way to fail at inventing something is to make it somebody's part-time job.", fa:"هر کارِ مهم را به یک رهبر بسپار که تنها کارش همان است — بهترین راه برای شکست در اختراعِ یک چیز این است که آن را کارِ نیمه‌وقتِ کسی کنی."},
+        more:{en:"When a promising project is one of ten things on a busy leader's plate, it starves. A single-threaded leader owns one thing completely, with a dedicated team, so it always gets full attention and clear accountability instead of competing for scraps of time.", fa:"وقتی یک پروژهٔ امیدوارکننده یکی از دَه کارِ روی میزِ یک رهبرِ شلوغ است، گرسنه می‌ماند. رهبرِ تک‌مسئولیتی یک چیز را کامل مالک است، با تیمی اختصاصی، تا همیشه توجهِ کامل و پاسخگوییِ روشن بگیرد، نه اینکه سرِ تکه‌های وقت رقابت کند."},
+        example:{en:"Amazon put one dedicated leader and team on Prime Video rather than adding it to an existing manager's to-do list.", fa:"آمازون یک رهبر و تیمِ اختصاصی روی «پرایم ویدیو» گذاشت، نه اینکه آن را به فهرستِ کارهای یک مدیرِ موجود اضافه کند."},
+        tip:{en:"For your most important new bet, give one person full ownership and take everything else off their plate.", fa:"برای مهم‌ترین شرطِ تازه‌ات، مالکیتِ کامل را به یک نفر بده و بقیهٔ کارها را از روی میزش بردار."},
+        pitfall:{en:"Making your key initiative a side project for an already-busy manager.", fa:"تبدیلِ کارِ کلیدی‌ات به یک پروژهٔ جانبی برای یک مدیرِ از پیش شلوغ."} },
+      separable:{ part:"organizing", n:8, name:{en:"Separable, Single-Threaded Teams", fa:"تیم‌های مستقل و تک‌مسئولیتی"}, glabel:{en:"Separable Teams", fa:"تیم‌های مستقل"},
+        principle:{en:"Build small, autonomous teams that own their own work and interfaces — “two-pizza teams” move fast because they aren't entangled with everyone else.", fa:"تیم‌های کوچک و مستقلی بساز که کار و مرزهایشان را خودشان دارند — «تیم‌های دو-پیتزایی» سریع‌اند چون به همه گره نخورده‌اند."},
+        more:{en:"A team small enough to be fed by two pizzas, that owns a well-defined piece with clean interfaces to the rest, can decide and ship on its own. Separable means as loosely coupled organizationally as good software APIs are technically.", fa:"تیمی که به‌قدری کوچک است که با دو پیتزا سیر می‌شود، و یک تکهٔ خوش‌تعریف با مرزهای تمیز به بقیه دارد، می‌تواند خودش تصمیم بگیرد و تحویل بدهد. «مستقل» یعنی در سازمان همان‌قدر شُل به هم وصل که APIهای خوب از نظرِ فنی هستند."},
+        example:{en:"A team owns the checkout service end to end and ships improvements without a dozen sign-offs from other groups.", fa:"یک تیم سرویسِ پرداخت را از اول تا آخر مالک است و بهبودها را بدونِ دَه‌ها امضای گروه‌های دیگر تحویل می‌دهد."},
+        tip:{en:"Draw the boundary so your team can ship its main thing without waiting on three other teams.", fa:"مرز را طوری بکش که تیمت بتواند کارِ اصلی‌اش را بدونِ منتظرِ سه تیمِ دیگر ماندن تحویل بدهد."},
+        pitfall:{en:"Giant teams tangled together so nothing ships without everyone's approval.", fa:"تیم‌های غول‌پیکرِ درهم‌تنیده که هیچ‌چیز بدونِ تأییدِ همه تحویل نمی‌شود."} },
+      dependencies:{ part:"organizing", n:9, name:{en:"Remove Dependencies", fa:"حذفِ وابستگی‌ها"}, glabel:{en:"Dependencies", fa:"وابستگی‌ها"},
+        principle:{en:"The real drag on a growing organization is coordination between teams; design the org so teams depend on each other as little as possible.", fa:"ترمزِ واقعیِ یک سازمانِ روبه‌رشد، هماهنگیِ بینِ تیم‌هاست؛ سازمان را طوری طراحی کن که تیم‌ها تا جای ممکن کم به هم وابسته باشند."},
+        more:{en:"More people don't automatically mean more output — often they mean more meetings, hand-offs, and waiting. Amazon's org design attacks that cost directly by reducing cross-team dependencies, so adding people actually adds speed instead of overhead.", fa:"آدمِ بیشتر خودبه‌خود یعنی خروجیِ بیشتر نیست — اغلب یعنی جلسه، تحویلِ دستی و انتظارِ بیشتر. طراحیِ سازمانیِ آمازون مستقیم به این هزینه حمله می‌کند و وابستگیِ بینِ تیم‌ها را کم می‌کند، تا اضافه‌کردنِ آدم واقعاً سرعت اضافه کند، نه سربار."},
+        example:{en:"Instead of a shared queue that blocks everyone, each team is given the tools to serve itself.", fa:"به‌جای یک صفِ مشترک که همه را قفل می‌کند، به هر تیم ابزاری داده می‌شود که خودش کارِ خودش را راه بیندازد."},
+        tip:{en:"List what blocks your team most, and remove your single biggest dependency on another group.", fa:"فهرست کن چه چیزی بیشتر از همه تیمت را قفل می‌کند، و بزرگ‌ترین وابستگی‌ات به یک گروهِ دیگر را حذف کن."},
+        pitfall:{en:"Adding headcount and getting more coordination, not more output.", fa:"اضافه‌کردنِ نیرو و گرفتنِ هماهنگیِ بیشتر، نه خروجیِ بیشتر."} },
+      sixpager:{ part:"communicating", n:10, name:{en:"The Six-Page Narrative", fa:"روایتِ شش‌صفحه‌ای"}, glabel:{en:"Six-Pager", fa:"شش‌صفحه‌ای"},
+        principle:{en:"Big meetings run on a six-page written narrative, not slides — full sentences force complete, connected thinking.", fa:"جلسه‌های مهم روی یک روایتِ نوشتهٔ شش‌صفحه‌ای می‌چرخند، نه اسلاید — جملهٔ کامل، فکرِ کامل و به‌هم‌پیوسته را مجبور می‌کند."},
+        more:{en:"Six pages is about what people can read carefully in the first part of a one-hour meeting. Writing in real prose, with logic and evidence connected, is far harder than bullet points — and that difficulty is the point, because it exposes weak reasoning before decisions are made.", fa:"شش صفحه تقریباً همان‌قدری است که آدم‌ها در بخشِ اولِ یک جلسهٔ یک‌ساعته با دقت می‌خوانند. نوشتن به نثرِ واقعی، با منطق و شواهدِ به‌هم‌وصل، خیلی سخت‌تر از نکته‌های خط‌به‌خط است — و همین سختی نکته است، چون استدلالِ ضعیف را قبل از تصمیم لو می‌دهد."},
+        example:{en:"A team writes a six-page memo that spells out the plan, the data, and the risks in full sentences, then defends it in the meeting.", fa:"یک تیم یک یادداشتِ شش‌صفحه‌ای می‌نویسد که برنامه، داده و ریسک‌ها را با جملهٔ کامل شرح می‌دهد، بعد در جلسه از آن دفاع می‌کند."},
+        tip:{en:"For your next big decision, write two pages of prose instead of a deck and see what gets sharper.", fa:"برای تصمیمِ بزرگِ بعدی‌ات، به‌جای یک دستهٔ اسلاید، دو صفحه نثر بنویس و ببین چه چیزی تیزتر می‌شود."},
+        pitfall:{en:"Hiding a fuzzy plan behind neat bullet points.", fa:"پنهان‌کردنِ یک برنامهٔ مبهم پشتِ نکته‌های مرتب."} },
+      noppt:{ part:"communicating", n:11, name:{en:"No PowerPoint", fa:"بدونِ پاورپوینت"}, glabel:{en:"No PowerPoint", fa:"بی‌پاورپوینت"},
+        principle:{en:"Bullet points hide fuzzy thinking and let a confident presenter carry a weak idea; ban slides so the idea has to stand on its own.", fa:"نکته‌های خط‌به‌خط، فکرِ مبهم را پنهان می‌کنند و می‌گذارند یک ارائه‌دهندهٔ بااعتماد یک ایدهٔ ضعیف را جلو ببرد؛ اسلاید را حذف کن تا ایده مجبور شود روی پای خودش بایستد."},
+        more:{en:"A slide holds a few dozen words and leans on the speaker's delivery. Amazon decided the argument, not the performance, should win — so it removed the slideshow entirely and put every claim, number, and caveat into writing that anyone can scrutinize.", fa:"یک اسلاید چند دَه کلمه جا می‌دهد و به بیانِ ارائه‌دهنده تکیه می‌کند. آمازون تصمیم گرفت استدلال ببرد، نه اجرا — برای همین نمایشِ اسلاید را کاملاً برداشت و هر ادعا، عدد و «اما و اگر» را در نوشته‌ای گذاشت که هرکسی می‌تواند موشکافی‌اش کند."},
+        example:{en:"No projector in the room: the discussion is about the words on the page, not who presents best.", fa:"هیچ ویدئوپروژکتوری توی اتاق نیست: بحث دربارهٔ کلماتِ روی کاغذ است، نه اینکه چه‌کسی بهتر ارائه می‌دهد."},
+        tip:{en:"Kill the deck for one important meeting and make people engage with the argument itself.", fa:"برای یک جلسهٔ مهم اسلایدها را کنار بگذار و کاری کن آدم‌ها با خودِ استدلال درگیر شوند."},
+        pitfall:{en:"Letting a charismatic presenter sell a half-baked idea.", fa:"اجازه‌دادن به یک ارائه‌دهندهٔ کاریزماتیک که یک ایدهٔ نیم‌پز را بفروشد."} },
+      silentread:{ part:"communicating", n:12, name:{en:"Silent Reading", fa:"خواندن در سکوت"}, glabel:{en:"Silent Reading", fa:"خواندن در سکوت"},
+        principle:{en:"Open every narrative meeting with everyone reading the memo in silence — so the room reacts to what's actually written, not a rushed pitch.", fa:"هر جلسهٔ روایتی را با خواندنِ یادداشت در سکوتِ همه شروع کن — تا اتاق به چیزی که واقعاً نوشته شده واکنش بدهد، نه به یک ارائهٔ باعجله."},
+        more:{en:"Nobody is expected to have read it beforehand. The first fifteen or twenty minutes are spent reading together, taking notes, so everyone shares the same context and the discussion starts from a genuinely informed place instead of a summary.", fa:"از کسی انتظار نمی‌رود از قبل خوانده باشدش. پانزده‌بیست دقیقهٔ اول صرفِ خواندنِ باهم و یادداشت‌برداری می‌شود، تا همه یک زمینهٔ مشترک داشته باشند و بحث از جای واقعاً آگاهانه شروع شود، نه از یک خلاصه."},
+        example:{en:"The meeting starts in total quiet as everyone reads and annotates the six-pager for twenty minutes.", fa:"جلسه در سکوتِ کامل شروع می‌شود، همه بیست دقیقه شش‌صفحه‌ای را می‌خوانند و رویش یادداشت می‌زنند."},
+        tip:{en:"Hand out the doc and read it together at the start rather than assuming people prepped.", fa:"سند را پخش کن و اولِ جلسه با هم بخوانیدش، به‌جای اینکه فرض کنی آدم‌ها آماده آمده‌اند."},
+        pitfall:{en:"A meeting where half the room skimmed and nobody really read it.", fa:"جلسه‌ای که نصفِ اتاق سرسری نگاه کرده‌اند و هیچ‌کس واقعاً نخوانده."} },
+      writingthinking:{ part:"communicating", n:13, name:{en:"Writing Reveals Thinking", fa:"نوشتن، فکر را لو می‌دهد"}, glabel:{en:"Writing", fa:"نوشتن"},
+        principle:{en:"Writing a tight narrative is hard precisely because it exposes where your thinking is muddy — which is exactly the value.", fa:"نوشتنِ یک روایتِ فشرده دقیقاً به این دلیل سخت است که جاهای گِل‌آلودِ فکرت را لو می‌دهد — و همین دقیقاً ارزشش است."},
+        more:{en:"You can wave past a gap with a bullet, but a full paragraph forces you to say how A leads to B. The struggle to write clearly is the struggle to think clearly; a great memo often takes a week of drafts and reveals the real questions.", fa:"با یک نکتهٔ خط‌به‌خط می‌شود از رویِ یک خلأ پرید، ولی یک پاراگرافِ کامل مجبورت می‌کند بگویی چطور «الف» به «ب» می‌رسد. کلنجارِ روشن‌نوشتن همان کلنجارِ روشن‌فکرکردن است؛ یک یادداشتِ عالی اغلب یک هفته پیش‌نویس می‌خواهد و پرسش‌های واقعی را رو می‌کند."},
+        example:{en:"Halfway through writing the memo, the team realizes it has no real answer to an obvious customer question — better now than after launch.", fa:"وسطِ نوشتنِ یادداشت، تیم می‌فهمد برای یک سؤالِ واضحِ مشتری هیچ جوابِ واقعی ندارد — حالا بهتر است تا بعد از عرضه."},
+        tip:{en:"When a paragraph is hard to write, don't smooth it over — that's where your thinking needs work.", fa:"وقتی نوشتنِ یک پاراگراف سخت است، رویش سرسری رد نشو — همان‌جاست که فکرت کار دارد."},
+        pitfall:{en:"Papering over a logical hole with a tidy bullet.", fa:"پوشاندنِ یک حفرهٔ منطقی با یک نکتهٔ مرتب."} },
+      prfaq:{ part:"backwards", n:14, name:{en:"The PR/FAQ", fa:"پی‌آر/سؤالات (PR/FAQ)"}, glabel:{en:"PR/FAQ", fa:"پی‌آر/سؤالات"},
+        principle:{en:"Before building anything, write a mock press release plus an FAQ for the finished product — start from the customer experience and work backwards.", fa:"قبل از ساختنِ هرچیز، یک خبرِ محصولِ فرضی به‌علاوهٔ فهرستی از سؤالات دربارهٔ محصولِ آماده بنویس — از تجربهٔ مشتری شروع کن و از آخر به اول برگرد."},
+        more:{en:"The press release describes the launched product as a customer would hear about it: the problem, the solution, why it's great. The FAQ answers the hard customer and business questions. It's far cheaper to rewrite a one-page PR/FAQ than to rebuild a shipped product, so you iterate on the idea on paper first.", fa:"خبرِ محصول، محصولِ عرضه‌شده را همان‌طور توصیف می‌کند که مشتری می‌شنودش: مشکل، راه‌حل، و اینکه چرا عالی است. بخشِ سؤالات به پرسش‌های سختِ مشتری و کسب‌وکار جواب می‌دهد. بازنویسیِ یک پی‌آر/سؤالاتِ یک‌صفحه‌ای خیلی ارزان‌تر از بازساختنِ یک محصولِ عرضه‌شده است، پس اول روی ایده، روی کاغذ، ورز می‌روی."},
+        example:{en:"The Kindle idea got clearer only once the team wrote its press release from the reader's point of view and worked backwards.", fa:"ایدهٔ «کیندل» تازه وقتی روشن شد که تیم خبرِ محصولش را از چشمِ کتاب‌خوان نوشت و از آخر به اول برگشت."},
+        tip:{en:"Draft a one-page press release for your next feature before you write a line of code.", fa:"برای قابلیتِ بعدی‌ات، قبل از نوشتنِ یک خطِ کد، یک خبرِ محصولِ یک‌صفحه‌ای بنویس."},
+        pitfall:{en:"Building first and figuring out the customer story afterward.", fa:"اول ساختن و بعد فهمیدنِ داستانِ مشتری."} },
+      inputmetrics:{ part:"backwards", n:15, name:{en:"Input vs Output Metrics", fa:"سنجه‌های ورودی و خروجی"}, glabel:{en:"Inputs vs Outputs", fa:"ورودی و خروجی"},
+        principle:{en:"You can't directly move output metrics like revenue; find and relentlessly improve the controllable input metrics that drive them.", fa:"سنجه‌های خروجی مثلِ درآمد را نمی‌شود مستقیم جابه‌جا کرد؛ سنجه‌های ورودیِ قابلِ‌کنترلی را که آن‌ها را پیش می‌برند پیدا کن و بی‌امان بهترشان کن."},
+        more:{en:"Revenue and stock price are outputs — you don't control them directly. But you do control inputs like selection, price, and how fast a page loads. Find the few inputs that genuinely move the outputs, and manage those; the results follow with a lag.", fa:"درآمد و قیمتِ سهام خروجی‌اند — مستقیم دستِ تو نیستند. ولی ورودی‌هایی مثلِ تنوعِ کالا، قیمت، و اینکه یک صفحه چقدر سریع باز می‌شود دستِ توست. همان چند ورودی‌ای را که واقعاً خروجی‌ها را جابه‌جا می‌کنند پیدا کن و مدیریتشان کن؛ نتیجه با کمی تأخیر می‌آید."},
+        example:{en:"Rather than chase a sales target, Amazon obsessed over adding selection and lowering prices — the inputs that produce sales.", fa:"آمازون به‌جای دنبال‌کردنِ یک هدفِ فروش، روی زیادکردنِ تنوعِ کالا و پایین‌آوردنِ قیمت وسواس داشت — همان ورودی‌هایی که فروش را می‌سازند."},
+        tip:{en:"Pick the one input you control that most affects your key result, and track it weekly.", fa:"همان یک ورودی‌ای را که دستِ توست و بیشترین اثر را روی نتیجهٔ کلیدی‌ات دارد انتخاب کن و هفتگی دنبالش کن."},
+        pitfall:{en:"Staring at revenue you can't move while ignoring the inputs you can.", fa:"زل‌زدن به درآمدی که نمی‌توانی جابه‌جایش کنی و بی‌خیالِ ورودی‌هایی که می‌توانی."} },
+      flywheel:{ part:"backwards", n:16, name:{en:"The Flywheel", fa:"چرخ‌طیار"}, glabel:{en:"Flywheel", fa:"چرخ‌طیار"},
+        principle:{en:"Lower prices bring more customers, which brings more sellers and bigger selection, which improves the experience — each turn of the virtuous cycle powers the next.", fa:"قیمتِ پایین‌تر مشتریِ بیشتر می‌آورد، که فروشندهٔ بیشتر و تنوعِ بزرگ‌تر می‌آورد، که تجربه را بهتر می‌کند — هر دورِ این چرخهٔ فضیلت، دورِ بعدی را نیرو می‌دهد."},
+        more:{en:"Bezos sketched Amazon's flywheel on a napkin: growth lowers the cost structure, which lowers prices, which grows traffic and selection, which grows again. Once you identify your own flywheel, you push on any part of it and the whole thing accelerates over time.", fa:"بیزوس چرخ‌طیارِ آمازون را روی یک دستمال‌کاغذی کشید: رشد ساختارِ هزینه را پایین می‌آورد، که قیمت را پایین می‌آورد، که ترافیک و تنوع را زیاد می‌کند، که باز رشد می‌کند. وقتی چرخ‌طیارِ خودت را پیدا کردی، به هر تکه‌اش فشار بیاوری، کلِ چرخ با گذرِ زمان تندتر می‌شود."},
+        example:{en:"Every new seller adds selection, which pulls in customers, which attracts still more sellers — the loop feeds itself.", fa:"هر فروشندهٔ تازه تنوع اضافه می‌کند، که مشتری می‌کشد، که باز فروشندهٔ بیشتری جذب می‌کند — حلقه خودش را تغذیه می‌کند."},
+        tip:{en:"Draw your own flywheel: name the loop where each win makes the next one easier.", fa:"چرخ‌طیارِ خودت را بکش: همان حلقه‌ای را نام ببر که هر بُرد، بُردِ بعدی را آسان‌تر می‌کند."},
+        pitfall:{en:"Chasing one-off wins that don't feed any repeating loop.", fa:"دنبال‌کردنِ بُردهای یک‌باره که هیچ حلقهٔ تکرارشونده‌ای را تغذیه نمی‌کنند."} }
+    },
+    core:{ name:{en:"THE CUSTOMER", fa:"مشتری"},
+      principle:{en:"Everything at Amazon starts from the customer. Instead of asking 'what can we build with what we have?', you start from the customer's ideal experience and work backwards to what to build — and you protect that focus with Leadership Principles, mechanisms, the right teams, and clear writing.", fa:"همه‌چیز در آمازون از مشتری شروع می‌شود. به‌جای اینکه بپرسی «با چیزی که داریم چه می‌توانیم بسازیم؟»، از تجربهٔ آرمانیِ مشتری شروع می‌کنی و از آخر به اول برمی‌گردی به اینکه چه باید ساخت — و این تمرکز را با اصولِ رهبری، سازوکارها، تیم‌های درست، و نوشتنِ روشن محافظت می‌کنی."},
+      more:{en:"Bryar and Carr organize Amazon's method into a few connected systems: being Amazonian (Leadership Principles and mechanisms), hiring through the Bar Raiser, organizing into single-threaded teams, communicating in six-page narratives, and working backwards from the customer with a PR/FAQ and input metrics. The thread through all of it: start with the customer, then build the mechanisms that keep you honest.", fa:"برایار و کار روشِ آمازون را در چند سیستمِ به‌هم‌پیوسته می‌چینند: آمازونی‌بودن (اصولِ رهبری و سازوکارها)، استخدام از راهِ بالابرندهٔ استاندارد، سازمان‌دهی در تیم‌های تک‌مسئولیتی، حرف‌زدن با روایت‌های شش‌صفحه‌ای، و از آخر به اول رفتن از مشتری با پی‌آر/سؤالات و سنجه‌های ورودی. نخِ رابطِ همه‌شان: از مشتری شروع کن، بعد سازوکارهایی بساز که صادق نگهت می‌دارند."},
+      example:{en:"Click any node to read a mechanism or a principle. You can also drag the nodes around.", fa:"روی هر دایره کلیک کن تا یک سازوکار یا اصل را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."} },
+    stages:[
+      { level:1, badge:{en:"Level 1 · Over-simplified", fa:"سطحِ ۱ · خیلی ساده"}, title:{en:"Start with the customer", fa:"از مشتری شروع کن"}, tagline:{en:"The whole book in a sentence.", fa:"کلِ کتاب در یک جمله."},
+        body:{en:"Don't start from what you can build. Start from the customer's ideal experience and work backwards to what to make. Everything else in the book protects that one habit.", fa:"از چیزی که می‌توانی بسازی شروع نکن. از تجربهٔ آرمانیِ مشتری شروع کن و از آخر به اول برگرد به اینکه چه بسازی. بقیهٔ کتاب همین یک عادت را محافظت می‌کند."},
+        example:{en:"Before writing code, describe how a happy customer would explain the finished product to a friend.", fa:"قبل از نوشتنِ کد، توصیف کن یک مشتریِ راضی محصولِ آماده را چطور برای یک دوست تعریف می‌کند."},
+        gain:{en:"You hold the one idea the whole book expands on.", fa:"همان یک ایده‌ای را داری که کلِ کتاب بسطش می‌دهد."} },
+      { level:2, badge:{en:"Level 2 · Simple", fa:"سطحِ ۲ · ساده"}, title:{en:"Two beliefs", fa:"دو باور"}, tagline:{en:"Customer obsession and mechanisms.", fa:"وسواسِ مشتری و سازوکار."},
+        body:{en:"Being Amazonian rests on two beliefs. First, <b>obsess over customers</b>, not competitors — they pull you forward. Second, <b>good intentions don't work; mechanisms do</b> — so turn every value into a concrete tool, process, or habit.", fa:"آمازونی‌بودن روی دو باور بنا شده. اول، <b>وسواسِ مشتری</b> داشته باش، نه رقیب — مشتری جلو می‌کشدت. دوم، <b>نیتِ خوب کار نمی‌کند؛ سازوکار کار می‌کند</b> — پس هر ارزش را به یک ابزار، فرایند یا عادتِ ملموس تبدیل کن."},
+        example:{en:"Instead of telling people to 'care about quality,' build a checklist and a weekly review that make quality automatic.", fa:"به‌جای اینکه به آدم‌ها بگویی «به کیفیت اهمیت بده»، یک چک‌لیست و یک بازبینیِ هفتگی بساز که کیفیت را خودکار کند."},
+        gain:{en:"You know what makes the culture actually work.", fa:"می‌دانی چه چیزی فرهنگ را واقعاً کار می‌اندازد."} },
+      { level:3, badge:{en:"Level 3 · Balanced", fa:"سطحِ ۳ · متعادل"}, title:{en:"Build the machine", fa:"ماشین را بساز"}, tagline:{en:"Hire well, then organize well.", fa:"خوب استخدام کن، بعد خوب سازمان بده."},
+        body:{en:"Now the machine. Hire with a <b>Bar Raiser</b> — a neutral interviewer with a veto — and never lower the bar to fill a seat. Then organize the work into <b>separable, single-threaded teams</b>: one dedicated leader per important initiative, small teams that own their piece with few dependencies.", fa:"حالا ماشین. با <b>بالابرندهٔ استاندارد</b> استخدام کن — یک مصاحبه‌گرِ بی‌طرف با حقِ وتو — و هیچ‌وقت استاندارد را برای پرکردنِ صندلی پایین نیاور. بعد کار را در <b>تیم‌های مستقل و تک‌مسئولیتی</b> بچین: یک رهبرِ اختصاصی برای هر کارِ مهم، تیم‌های کوچکی که تکه‌شان را با کم‌ترین وابستگی خودشان دارند."},
+        example:{en:"Give your most important bet one full-time owner instead of adding it to a busy manager's list.", fa:"مهم‌ترین شرطت را به یک مالکِ تمام‌وقت بسپار، نه اینکه به فهرستِ یک مدیرِ شلوغ اضافه‌اش کنی."},
+        gain:{en:"You can staff and structure a team that moves fast.", fa:"می‌توانی تیمی بچینی و بسازی که سریع حرکت می‌کند."} },
+      { level:4, badge:{en:"Level 4 · Advanced", fa:"سطحِ ۴ · پیشرفته"}, title:{en:"Communicate in writing", fa:"با نوشتن حرف بزن"}, tagline:{en:"Six-page narratives, not slides.", fa:"روایت‌های شش‌صفحه‌ای، نه اسلاید."},
+        body:{en:"Change how you decide. Replace PowerPoint with a <b>six-page narrative</b> written in full sentences, and open the meeting by <b>reading it in silence</b>. Prose is harder than bullets because it exposes fuzzy thinking — and that's the point. The best idea, not the best presenter, should win.", fa:"طرزِ تصمیم‌گرفتنت را عوض کن. پاورپوینت را با یک <b>روایتِ شش‌صفحه‌ای</b> که با جملهٔ کامل نوشته شده عوض کن، و جلسه را با <b>خواندنش در سکوت</b> شروع کن. نثر سخت‌تر از نکته‌های خط‌به‌خط است چون فکرِ مبهم را لو می‌دهد — و همین نکته است. بهترین ایده باید ببرد، نه بهترین ارائه‌دهنده."},
+        example:{en:"Write a two-page memo for your next proposal and have the room read it before anyone talks.", fa:"برای پیشنهادِ بعدی‌ات یک یادداشتِ دوصفحه‌ای بنویس و بگذار اتاق قبل از حرف‌زدنِ کسی بخواندش."},
+        gain:{en:"Your decisions run on clear thinking, not slick decks.", fa:"تصمیم‌هایت روی فکرِ روشن می‌چرخند، نه اسلایدهای براق."} },
+      { level:5, badge:{en:"Level 5 · Expert", fa:"سطحِ ۵ · حرفه‌ای"}, title:{en:"Working backwards, for real", fa:"از آخر به اول، واقعی"}, tagline:{en:"PR/FAQ, input metrics, and the flywheel.", fa:"پی‌آر/سؤالات، سنجه‌های ورودی، و چرخ‌طیار."},
+        body:{en:"The expert runs the full method. Start every product from a <b>PR/FAQ</b> — a mock press release and FAQ written from the customer's point of view — and iterate on paper before building. Steer by <b>controllable input metrics</b> instead of lagging outputs like revenue. And find your <b>flywheel</b>, the loop where each win makes the next easier, then push on it relentlessly. Start with the customer; let mechanisms keep you honest.", fa:"آدمِ حرفه‌ای کلِ روش را اجرا می‌کند. هر محصول را از یک <b>پی‌آر/سؤالات</b> شروع کن — یک خبرِ محصولِ فرضی و فهرستِ سؤالات که از چشمِ مشتری نوشته شده — و قبل از ساختن، روی کاغذ ورز برو. با <b>سنجه‌های ورودیِ قابلِ‌کنترل</b> هدایت کن، نه خروجی‌های عقب‌افتاده‌ای مثلِ درآمد. و <b>چرخ‌طیارت</b> را پیدا کن، همان حلقه‌ای که هر بُرد، بُردِ بعدی را آسان‌تر می‌کند، بعد بی‌امان به آن فشار بیاور. از مشتری شروع کن؛ بگذار سازوکارها صادق نگهت دارند."},
+        example:{en:"You draft a PR/FAQ, kill the weak ideas on paper, ship the strong one, and track the inputs that grow it.", fa:"یک پی‌آر/سؤالات می‌نویسی، ایده‌های ضعیف را روی کاغذ حذف می‌کنی، ایدهٔ قوی را عرضه می‌کنی، و ورودی‌هایی را که بزرگش می‌کنند دنبال می‌کنی."},
+        gain:{en:"You can invent from the customer backwards, like Amazon.", fa:"می‌توانی مثلِ آمازون، از مشتری به عقب اختراع کنی."} }
+    ],
+    quotes:[
+      {en:"Good intentions don't work. Mechanisms do.", fa:"نیتِ خوب کار نمی‌کند. سازوکار کار می‌کند."},
+      {en:"The best way to fail at inventing something is by making it somebody's part-time job.", fa:"بهترین راه برای شکست در اختراعِ یک چیز این است که آن را کارِ نیمه‌وقتِ کسی کنی."},
+      {en:"We had freed ourselves of the quantitative demands of Excel, the visual seduction of PowerPoint, and the distracting effect of personal performance. The idea had to be in the writing.", fa:"خودمان را از خواسته‌های عددیِ اکسل، وسوسهٔ بصریِ پاورپوینت، و اثرِ حواس‌پرت‌کنِ اجرای شخصی رها کرده بودیم. ایده باید در خودِ نوشته می‌بود."},
+      {en:"We know that people read complex information at the rough average of three minutes per page, which in turn defines the functional length of a written narrative as about six pages for a 60-minute meeting.", fa:"می‌دانیم که آدم‌ها اطلاعاتِ پیچیده را به‌طورِ میانگین حدودِ سه دقیقه در هر صفحه می‌خوانند، و همین طولِ کاربردیِ یک روایتِ نوشته را برای یک جلسهٔ ۶۰ دقیقه‌ای حدودِ شش صفحه تعیین می‌کند."},
+      {en:"Input metrics measure things that, done right, bring about the desired results in your output metrics.", fa:"سنجه‌های ورودی چیزهایی را اندازه می‌گیرند که اگر درست انجام شوند، نتیجه‌های دلخواه را در سنجه‌های خروجی‌ات پدید می‌آورند."},
+      {en:"Separable means almost as separable organizationally as APIs are for software. Single-threaded means they don't work on anything else.", fa:"«مستقل» یعنی از نظرِ سازمانی تقریباً همان‌قدر جدا که APIها برای نرم‌افزار جدا هستند. «تک‌مسئولیتی» یعنی روی هیچ‌چیزِ دیگری کار نمی‌کنند."},
+      {en:"The reason writing a good four-page memo is harder than writing a twenty-page PowerPoint is because the narrative structure of a good memo forces better thought and better understanding of what's more important than what, and how things are related.", fa:"دلیلِ اینکه نوشتنِ یک یادداشتِ خوبِ چهارصفحه‌ای سخت‌تر از نوشتنِ یک پاورپوینتِ بیست‌صفحه‌ای است این است که ساختارِ روایتیِ یک یادداشتِ خوب، فکرِ بهتر و فهمِ بهتری از اینکه چه چیزی از چه چیزی مهم‌تر است و چیزها چطور به هم ربط دارند را مجبور می‌کند."},
+      {en:"Be stubborn on the vision but flexible on the details.", fa:"روی چشم‌انداز سرسخت باش ولی روی جزئیات انعطاف داشته باش."}
+    ],
+    media:[
+      { kind:"yt", id:"nrxP6Gua96k", src:{en:"YouTube · St. Martin's Press", fa:"یوتیوب · St. Martin's Press"},
+        title:{en:"Working Backwards — Official Book Trailer", fa:"از آخر به اول — تریلرِ رسمیِ کتاب"},
+        desc:{en:"The publisher's short trailer introducing the book and its ideas.", fa:"تریلرِ کوتاهِ ناشر که کتاب و ایده‌هایش را معرفی می‌کند."},
+        bullets:{en:["A one-minute overview","Straight from the publisher","A quick first taste"], fa:["یک مرورِ یک‌دقیقه‌ای","مستقیم از خودِ ناشر","یک چشیدنِ سریعِ اولیه"]},
+        best:{en:"Best for Stage 1.", fa:"خوب برای مرحلهٔ ۱."} },
+      { kind:"yt", id:"dYbZIG5rBag", src:{en:"YouTube · Leading Authorities", fa:"یوتیوب · Leading Authorities"},
+        title:{en:"Colin Bryar & Bill Carr — Working Backwards", fa:"کالین برایار و بیل کار — از آخر به اول"},
+        desc:{en:"A talk with both authors on the mechanisms and stories behind Amazon.", fa:"گفت‌وگویی با هر دو نویسنده دربارهٔ سازوکارها و داستان‌های پشتِ آمازون."},
+        bullets:{en:["Working backwards and the PR/FAQ","Leadership Principles in practice","Straight from the authors"], fa:["از آخر به اول و پی‌آر/سؤالات","اصولِ رهبری در عمل","مستقیم از خودِ نویسنده‌ها"]},
+        best:{en:"Best for Stage 2–4.", fa:"خوب برای مرحلهٔ ۲ تا ۴."} },
+      { kind:"yt", id:"buXWZodS3k4", src:{en:"YouTube · Drift Podcast", fa:"یوتیوب · Drift Podcast"},
+        title:{en:"Working Backwards with Colin Bryar & Bill Carr", fa:"از آخر به اول با کالین برایار و بیل کار"},
+        desc:{en:"An interview digging into hiring, single-threaded teams, and metrics.", fa:"مصاحبه‌ای که سراغِ استخدام، تیم‌های تک‌مسئولیتی و سنجه‌ها می‌رود."},
+        bullets:{en:["The Bar Raiser and hiring","Single-threaded leadership","Good after a first read"], fa:["بالابرندهٔ استاندارد و استخدام","رهبریِ تک‌مسئولیتی","خوب بعد از اولین خواندن"]},
+        best:{en:"Best for Stage 3–4.", fa:"خوب برای مرحلهٔ ۳ و ۴."} },
+      { kind:"img", url:"https://us.macmillan.com/books/9781250267597/workingbackwards/",
+        src:{en:"St. Martin's Press · Publisher", fa:"نشرِ سنت مارتینز · ناشر"},
+        title:{en:"Working Backwards — Publisher Page", fa:"از آخر به اول — صفحهٔ ناشر"},
+        desc:{en:"The publisher page, with the book, editions, and details.", fa:"صفحهٔ ناشر، همراه با کتاب، نسخه‌ها و جزئیات."},
+        bullets:{en:["Overview and editions","Background on the authors","Straight from the source"], fa:["مرور و نسخه‌ها","پیشینه‌ای دربارهٔ نویسنده‌ها","مستقیم از خودِ منبع"]},
+        best:{en:"For editions and the source.", fa:"برای نسخه‌ها و منبعِ اصلی."} }
+    ],
+    go:[
+      {label:{en:"Publisher page (St. Martin's Press)", fa:"صفحهٔ ناشر (نشرِ سنت مارتینز)"}, url:"https://us.macmillan.com/books/9781250267597/workingbackwards/"},
+      {label:{en:"Book on Goodreads", fa:"کتاب در گودریدز"}, url:"https://www.goodreads.com/book/show/53138083-working-backwards"},
+      {label:{en:"The authors' site (Working Backwards)", fa:"سایتِ نویسنده‌ها (Working Backwards)"}, url:"https://workingbackwards.com/"}
+    ],
+    recs:[
+      { pri:"b", t:{en:"Write the press release first", fa:"اول خبرِ محصول را بنویس"}, d:{en:"For your next project, draft a one-page PR/FAQ from the customer's point of view before you build anything.", fa:"برای پروژهٔ بعدی‌ات، قبل از ساختنِ هرچیز، یک پی‌آر/سؤالاتِ یک‌صفحه‌ای از چشمِ مشتری بنویس."} },
+      { pri:"b", t:{en:"Replace your next deck with a memo", fa:"اسلایدِ بعدی‌ات را با یک یادداشت عوض کن"}, d:{en:"Write a one- to two-page narrative in full sentences instead of slides, and read it together at the start.", fa:"به‌جای اسلاید، یک روایتِ یک‌تا‌دو‌صفحه‌ای با جملهٔ کامل بنویس، و اولِ جلسه با هم بخوانیدش."} },
+      { pri:"n", t:{en:"Find one input metric", fa:"یک سنجهٔ ورودی پیدا کن"}, d:{en:"Pick the controllable activity that most drives your key result, and track that instead of the output.", fa:"همان کارِ قابلِ‌کنترلی را که بیشترین اثر را روی نتیجهٔ کلیدی‌ات دارد انتخاب کن، و به‌جای خروجی همان را دنبال کن."} },
+      { pri:"n", t:{en:"Make one initiative single-threaded", fa:"یک کار را تک‌مسئولیتی کن"}, d:{en:"Give one person undivided ownership of your most important bet and clear the rest off their plate.", fa:"مالکیتِ کاملِ مهم‌ترین شرطت را به یک نفر بده و بقیهٔ کارها را از روی میزش بردار."} }
+    ]
+  }
+};

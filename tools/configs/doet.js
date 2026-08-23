@@ -1,0 +1,264 @@
+/* config: The Design of Everyday Things — Don Norman (Design) */
+module.exports = {
+  slug:'doet', brand:'The Design of Everyday Things',
+  titleTag:'The Design of Everyday Things — نقشهٔ دانش و یادگیری ۵ مرحله‌ای',
+  W:980, H:780, R1:220, R2:126, span:66,
+  leafKickEn:'Idea', leafKickFa:'ایدهٔ',
+  flowEn:['Signal','Map','Feedback'], flowFa:['نشانه','نگاشت','بازخورد'],
+
+  hero:`  <div class="eyebrow"><span class="edot"></span>
+    <span data-only="en">Book knowledge map · Don Norman</span>
+    <span data-only="fa">نقشهٔ کتاب · دان نورمن</span>
+  </div>
+  <h1>
+    <span data-only="en">The Design of Everyday Things — Why Good Design Makes Things Usable</span>
+    <span data-only="fa">طراحیِ چیزهای روزمره — چرا طراحیِ خوب چیزها را کاربردی می‌کند</span>
+  </h1>
+  <p class="dek">
+    <span data-only="en">A knowledge graph of the whole book, plus a 5-stage path from a single idea to expert-level mastery — with an example at every step.</span>
+    <span data-only="fa">نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از یک ایدهٔ ساده تا حرفه‌ای — با یک مثال در هر مرحله.</span>
+  </p>
+  <div class="metastrip">
+    <div class="metaitem"><span class="mk" data-only="en">Book</span><span class="mk" data-only="fa">کتاب</span>
+      <span class="mv" data-only="en">The Design of Everyday Things</span><span class="mv" data-only="fa">طراحیِ چیزهای روزمره</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Author</span><span class="mk" data-only="fa">نویسنده</span>
+      <span class="mv" data-only="en">Don Norman</span><span class="mv" data-only="fa">دان نورمن</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Published</span><span class="mk" data-only="fa">سالِ چاپ</span>
+      <span class="mv" data-only="en">2013</span><span class="mv" data-only="fa">۲۰۱۳</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Group</span><span class="mk" data-only="fa">گروه</span>
+      <span class="mv" data-only="en">Design</span><span class="mv" data-only="fa">طراحی</span></div>
+  </div>
+  <div class="chips">
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Parts</span><span data-only="fa">بخش</span></div>
+    <div class="chip"><b data-only="en">16</b><b data-only="fa">۱۶</b><span data-only="en">Ideas</span><span data-only="fa">ایده</span></div>
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Learning stages</span><span data-only="fa">مرحلهٔ یادگیری</span></div>
+  </div>`,
+
+  callout:`    <b data-only="en">The core idea:</b>
+    <b data-only="fa">ایدهٔ اصلی:</b>
+    <span data-only="en"> If a thing is hard to use, the fault is the <i>design</i>, not you. Good design communicates how it works: its <i>affordances</i> and <i>signifiers</i> show what you can do, a natural <i>mapping</i> and clear <i>feedback</i> show what is happening, and it builds the right model in your head. The two marks of good design are <i>discoverability</i> and <i>understanding</i>.</span>
+    <span data-only="fa"> اگر چیزی سختِ استفاده است، عیب از <i>طراحی</i> است، نه از تو. طراحیِ خوب طرزِ کارش را می‌گوید: <i>قابلیت‌ها</i> و <i>نشانه‌ها</i>یش می‌گویند چه می‌توانی بکنی، یک <i>نگاشتِ</i> طبیعی و <i>بازخوردِ</i> روشن می‌گویند چه دارد اتفاق می‌افتد، و مدلِ درست را در سرت می‌سازد. دو نشانهٔ طراحیِ خوب، <i>کشف‌پذیری</i> و <i>فهم</i> است.</span>`,
+
+  kpis:`    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Parts (affordances · mapping · models · error · human-centered)</div><div class="l" data-only="fa">بخش (قابلیت‌ها · نگاشت · مدل‌ها · خطا · انسان‌محور)</div></div>
+    <div class="kbox"><div class="v" data-only="en">16</div><div class="v" data-only="fa">۱۶</div><div class="l" data-only="en">Ideas you can use</div><div class="l" data-only="fa">ایده برای استفاده</div></div>
+    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Levels, simple → expert</div><div class="l" data-only="fa">مرحله، ساده تا حرفه‌ای</div></div>
+    <div class="kbox"><div class="v" data-only="en">2</div><div class="v" data-only="fa">۲</div><div class="l" data-only="en">Good design: discoverability + understanding</div><div class="l" data-only="fa">طراحیِ خوب: کشف‌پذیری + فهم</div></div>`,
+
+  mapcallout:`      <b data-only="en">Read it as a flow:</b><b data-only="fa">به‌صورتِ یک جریان بخوانش:</b>
+      <span data-only="en"> make actions possible and visible with <b>affordances</b> and <b>signifiers</b>, connect controls to effects with a natural <b>mapping</b> and clear <b>feedback</b>, build the right <b>conceptual model</b> across the gulfs of execution and evaluation, treat <b>human error</b> as design error, and run a <b>human-centered</b> process to solve the right problem.</span>
+      <span data-only="fa"> کارها را با <b>قابلیت‌ها</b> و <b>نشانه‌ها</b> ممکن و دیدنی کن، کنترل‌ها را با یک <b>نگاشتِ</b> طبیعی و <b>بازخوردِ</b> روشن به اثرشان وصل کن، مدلِ ذهنیِ درست را در دو خلیجِ اجرا و ارزیابی بساز، <b>خطای انسانی</b> را خطای طراحی بدان، و یک فرایندِ <b>انسان‌محور</b> را اجرا کن تا مسئلهٔ درست را حل کنی.</span>`,
+
+  methodFa:"<p><b>منبع:</b> کتابِ «The Design of Everyday Things» نوشتهٔ دان نورمن، چاپِ نخست ۱۹۸۸ (با عنوانِ The Psychology of Everyday Things)، نسخهٔ ویرایش‌شده و گسترش‌یافتهٔ ۲۰۱۳ (نشرِ Basic Books).</p><p><b>روشِ کار:</b> ساختارِ پنج‌بخشی و ایده‌ها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده؛ نقل‌قول‌ها مقابله و ویدیوها بررسی شده‌اند.</p><p><b>گروه:</b> «طراحی» — یک خواندنیِ پایه برای هرکسی که چیزی برای آدم‌ها می‌سازد.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای متنِ کامل، خودِ کتاب را بخوان.</p>",
+  methodEn:"<p><b>Source:</b> the book <i>The Design of Everyday Things</i> by Don Norman, first published 1988 (as <i>The Psychology of Everyday Things</i>), revised and expanded edition 2013 (Basic Books).</p><p><b>How this was built:</b> the five-part structure and ideas were gathered and rewritten from the book and reputable sources; quotes were cross-checked and the linked videos verified.</p><p><b>Group:</b> Design — a foundational read for anyone who builds things for people.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>",
+
+  data:{
+    tldr:[
+      {en:"The whole book in one line: if something is hard to use, blame the design, not yourself.",
+       fa:"خلاصهٔ کل کتاب در یک جمله: اگر چیزی سختِ استفاده است، طراحی را مقصر بدان، نه خودت را."},
+      {en:"Good design is <b>communication</b>: <b>affordances</b> and <b>signifiers</b> show what you can do and how.",
+       fa:"طراحیِ خوب یعنی <b>ارتباط</b>: <b>قابلیت‌ها</b> و <b>نشانه‌ها</b> می‌گویند چه می‌توانی بکنی و چطور."},
+      {en:"<b>Natural mapping</b> and <b>immediate feedback</b> let you know which control does what, and that it worked.",
+       fa:"<b>نگاشتِ طبیعی</b> و <b>بازخوردِ فوری</b> می‌گذارند بدانی کدام کنترل چه می‌کند، و اینکه کارت گرفت."},
+      {en:"You act on a <b>mental model</b>, crossing the gulfs of <b>execution</b> and <b>evaluation</b> — good design bridges both.",
+       fa:"تو بر اساسِ یک <b>مدلِ ذهنی</b> عمل می‌کنی و از خلیجِ <b>اجرا</b> و <b>ارزیابی</b> رد می‌شوی — طراحیِ خوب هر دو را پُل می‌زند."},
+      {en:"Most <b>human error</b> is design error — so observe real people, prototype, iterate, and solve the <b>right problem</b>.",
+       fa:"بیشترِ <b>خطای انسانی</b> خطای طراحی است — پس آدم‌های واقعی را ببین، نمونه بساز، تکرار کن، و <b>مسئلهٔ درست</b> را حل کن."}
+    ],
+    parts:[
+      { key:'afford', varc:'--c-teal', name:{en:'Affordances & Signifiers', fa:'قابلیت‌ها و نشانه‌ها'}, tag:{en:'What you can do', fa:'چه‌کاری می‌شود کرد'},
+        gist:{en:'What actions are possible — and the signals that reveal them.', fa:'چه کارهایی ممکن است — و نشانه‌هایی که لوشان می‌دهند.'},
+        more:{en:"This is where usability begins. Affordances make the right actions possible; signifiers make them noticeable; together they give a design discoverability — the power to be understood at a glance, without a manual.",
+              fa:"کاربری از همین‌جا شروع می‌شود. قابلیت‌ها کارِ درست را ممکن می‌کنند؛ نشانه‌ها آن را به‌چشم می‌آورند؛ این دو با هم به یک طراحی کشف‌پذیری می‌دهند — قدرتِ اینکه با یک نگاه و بی دفترچهٔ راهنما فهمیده شود."},
+        chapters:['affordance','signifier','discoverability'] },
+      { key:'mapfeed', varc:'--c-blue', name:{en:'Mapping & Feedback', fa:'نگاشت و بازخورد'}, tag:{en:'Controls and results', fa:'کنترل‌ها و نتیجه‌ها'},
+        gist:{en:'Controls that map naturally to their effects, and results you can feel right away.', fa:'کنترل‌هایی که طبیعی به اثرشان می‌خورند، و نتیجه‌هایی که همان لحظه حسشان می‌کنی.'},
+        more:{en:"Once you know an action is possible, two things make it usable: a natural mapping, so you know which control does what, and immediate feedback, so you know it worked. Where mapping can't be natural, a shared convention carries the load.",
+              fa:"وقتی فهمیدی یک کار ممکن است، دو چیز کاربردی‌اش می‌کند: یک نگاشتِ طبیعی، تا بدانی کدام کنترل چه می‌کند، و یک بازخوردِ فوری، تا بدانی کارت گرفت. جایی که نگاشت نمی‌تواند طبیعی باشد، یک قراردادِ مشترک بار را به دوش می‌کشد."},
+        chapters:['mapping','feedback','standards'] },
+      { key:'model', varc:'--c-amber', name:{en:'Conceptual Models & the Two Gulfs', fa:'مدلِ ذهنی و دو خلیج'}, tag:{en:'The mental picture', fa:'تصویرِ ذهنی'},
+        gist:{en:'A good mental model, and bridging the gulfs between intention, action, and understanding.', fa:'یک مدلِ ذهنیِ خوب، و پُل‌زدن بر خلیجِ بینِ نیت، کنش، و فهم.'},
+        more:{en:"People run on a mental model of how a thing works, and every action crosses two gulfs: execution (how do I do it?) and evaluation (what happened?). Norman's seven stages of action map the whole loop, showing exactly where a design must help.",
+              fa:"آدم‌ها بر اساسِ یک مدلِ ذهنی از کارکردِ یک چیز جلو می‌روند، و هر کنش از دو خلیج رد می‌شود: اجرا (چطور انجامش دهم؟) و ارزیابی (چه شد؟). هفت مرحلهٔ کنشِ نورمن کلِ این حلقه را نقشه می‌کنند و دقیقاً نشان می‌دهند طراحی کجا باید کمک کند."},
+        chapters:['conceptual','execution','evaluation','sevenstages'] },
+      { key:'error', varc:'--c-violet', name:{en:'Human Error Is Design Error', fa:'خطای انسانی، خطای طراحی است'}, tag:{en:'When things go wrong', fa:'وقتی کارها خراب می‌شود'},
+        gist:{en:'Blame the design, not the person — then prevent and tolerate the errors that remain.', fa:'طراحی را مقصر بدان، نه آدم را — بعد جلوی خطاهای باقی‌مانده را بگیر و تابشان را بیاور.'},
+        more:{en:"Most so-called human error is really poor design. Tell slips from mistakes, block the worst errors with constraints and forcing functions, and design so that the errors you can't prevent are easy to catch and undo.",
+              fa:"بیشترِ آنچه خطای انسانی می‌نامیم در واقع طراحیِ بد است. لغزش را از اشتباه تشخیص بده، بدترین خطاها را با محدودیت و کنشِ اجباری ببند، و طوری طراحی کن که خطاهایی که نمی‌شود جلویشان را گرفت، راحت گرفته و برگردانده شوند."},
+        chapters:['sliptypes','forcing','tolerate'] },
+      { key:'hcd', varc:'--c-green', name:{en:'Human-Centered Design', fa:'طراحیِ انسان‌محور'}, tag:{en:'How to get there', fa:'چطور به آن برسیم'},
+        gist:{en:'Observe real users, prototype and iterate, and make sure you are solving the right problem.', fa:'کاربرِ واقعی را ببین، نمونه بساز و تکرار کن، و مطمئن شو مسئلهٔ درست را حل می‌کنی.'},
+        more:{en:"Human-centered design is the process that produces all of the above. Watch real people, build rough prototypes and iterate quickly, and above all spend the effort to find the right problem before you invest in a solution.",
+              fa:"طراحیِ انسان‌محور همان فرایندی است که همهٔ چیزهای بالا را می‌سازد. آدم‌های واقعی را تماشا کن، نمونه‌های خام بساز و سریع تکرار کن، و از همه مهم‌تر وقت بگذار و مسئلهٔ درست را پیدا کن، پیش از اینکه روی یک راه‌حل سرمایه‌گذاری کنی."},
+        chapters:['observe','prototype','rightproblem'] }
+    ],
+    chapters:{
+      affordance:{ part:'afford', n:1, name:{en:'Affordances', fa:'قابلیت‌ها'}, glabel:{en:'Affordance', fa:'قابلیت'},
+        principle:{en:"An affordance is a possible action an object offers — a chair affords sitting, a handle affords pulling.", fa:"قابلیت یعنی کاری که یک شیء به تو اجازه می‌دهد بکنی — صندلی قابلیتِ نشستن دارد، دستگیره قابلیتِ کشیدن."},
+        more:{en:"Affordances come from the relationship between a thing and the person using it, not from the thing alone. Good design starts by making the right actions physically possible and the wrong ones hard or impossible.", fa:"قابلیت از رابطهٔ بینِ یک شیء و آدمی که ازش استفاده می‌کند می‌آید، نه فقط از خودِ شیء. طراحیِ خوب از همین‌جا شروع می‌شود: کارِ درست را ممکن کن و کارِ غلط را سخت یا ناممکن."},
+        example:{en:"A flat metal plate on a door affords pushing; a rounded bar affords grasping and pulling — the shape itself invites the action.", fa:"یک صفحهٔ فلزیِ صاف روی در، قابلیتِ هُل‌دادن دارد؛ یک میلهٔ گِرد، قابلیتِ گرفتن و کشیدن — خودِ شکل، کار را دعوت می‌کند."},
+        tip:{en:"For each control, ask what actions its shape makes possible — and whether those are the ones you want.", fa:"برای هر کنترل بپرس شکلش چه کارهایی را ممکن می‌کند — و آیا همان‌هایی است که می‌خواهی."},
+        pitfall:{en:"Relying on labels to explain an object whose shape suggests the wrong action.", fa:"تکیه به برچسب برای توضیحِ شیئی که شکلش کارِ اشتباه را پیشنهاد می‌دهد."} },
+      signifier:{ part:'afford', n:2, name:{en:'Signifiers', fa:'نشانه‌ها'}, glabel:{en:'Signifier', fa:'نشانه'},
+        principle:{en:"A signifier is any signal — a mark, a shape, a light — that tells people where and how to act.", fa:"نشانه یعنی هر سیگنالی — یک علامت، یک شکل، یک چراغ — که به آدم‌ها می‌گوید کجا و چطور کاری بکنند."},
+        more:{en:"Affordances say what is possible; signifiers make it perceivable. When an affordance is hidden, a clear signifier — an arrow, a push-plate, a glowing button — is what rescues it.", fa:"قابلیت می‌گوید چه چیزی ممکن است؛ نشانه آن را دیدنی می‌کند. وقتی یک قابلیت پنهان است، یک نشانهٔ روشن — یک فلش، یک صفحهٔ هُل، یک دکمهٔ روشن — نجاتش می‌دهد."},
+        example:{en:"If a door needs a sign that says push, the design has failed; the plate should have signified push on its own.", fa:"اگر یک در به تابلویی نیاز دارد که بنویسد هُل بده، طراحی شکست خورده؛ خودِ صفحه باید هُل‌دادن را نشان می‌داد."},
+        tip:{en:"Wherever users hesitate, add a signifier that answers can I act here, and how.", fa:"هرجا کاربر مکث می‌کند، یک نشانه بگذار که جواب بدهد: اینجا می‌شود کاری کرد؟ و چطور؟"},
+        pitfall:{en:"Beautiful, clean designs that hide every clue about how to use them.", fa:"طراحی‌های زیبا و تمیزی که هر سرنخِ استفاده را پنهان می‌کنند."} },
+      discoverability:{ part:'afford', n:3, name:{en:'Discoverability', fa:'کشف‌پذیری'}, glabel:{en:'Discoverability', fa:'کشف‌پذیری'},
+        principle:{en:"Discoverability is being able to figure out what a thing can do and how to do it — just by looking.", fa:"کشف‌پذیری یعنی فقط با نگاه‌کردن بفهمی یک چیز چه کار می‌کند و چطور باید انجامش دهی."},
+        more:{en:"When affordances and signifiers line up, the possibilities are obvious and you need no manual. Norman calls discoverability one of the two traits of good design; without it, people are stuck guessing.", fa:"وقتی قابلیت‌ها و نشانه‌ها با هم جور می‌شوند، امکان‌ها واضح‌اند و به دفترچهٔ راهنما نیاز نداری. نورمن کشف‌پذیری را یکی از دو ویژگیِ طراحیِ خوب می‌داند؛ بدونش، آدم‌ها گیرِ حدس‌زدن می‌مانند."},
+        example:{en:"A well-designed door tells you which side opens and whether to push or pull, with no words at all.", fa:"یک درِ خوب‌طراحی‌شده بی هیچ کلمه‌ای به تو می‌گوید کدام طرف باز می‌شود و باید هُل بدهی یا بکشی."},
+        tip:{en:"Hand your design to someone new; if they can't tell what to do, discoverability is missing.", fa:"طراحی‌ات را دستِ یک آدمِ تازه بده؛ اگر نتواند بفهمد چه کار کند، کشف‌پذیری کم است."},
+        pitfall:{en:"Hidden functions you can only find if someone tells you they exist.", fa:"کارکردهای پنهانی که فقط وقتی پیدایشان می‌کنی که یکی بهت بگوید وجود دارند."} },
+      mapping:{ part:'mapfeed', n:4, name:{en:'Natural Mapping', fa:'نگاشتِ طبیعی'}, glabel:{en:'Mapping', fa:'نگاشت'},
+        principle:{en:"Lay out controls so their arrangement matches what they control; the link should be obvious.", fa:"کنترل‌ها را طوری بچین که چیدمانشان به چیزی که کنترل می‌کنند بخورد؛ ربط باید واضح باشد."},
+        more:{en:"Natural mapping uses spatial correspondence and physical analogy so you know which control does what without thinking. When the map is natural, errors nearly vanish; when it's arbitrary, you memorize and still get it wrong.", fa:"نگاشتِ طبیعی از تطابقِ مکانی و شباهتِ فیزیکی استفاده می‌کند تا بی‌فکر بدانی کدام کنترل چه‌کار می‌کند. وقتی نگاشت طبیعی است، خطاها تقریباً محو می‌شوند؛ وقتی دلبخواهی است، حفظ می‌کنی و باز هم اشتباه می‌کنی."},
+        example:{en:"Arrange the stove knobs in the same pattern as the burners and no one ever turns on the wrong ring.", fa:"دکمه‌های گاز را به همان شکلِ چیدمانِ شعله‌ها بچین، آن‌وقت هیچ‌کس شعلهٔ اشتباه را روشن نمی‌کند."},
+        tip:{en:"Place each control next to, or shaped like, the thing it affects.", fa:"هر کنترل را کنارِ چیزی که رویش اثر می‌گذارد بگذار، یا به شکلِ همان چیز دربیاور."},
+        pitfall:{en:"A neat row of identical knobs for things scattered in space.", fa:"یک ردیفِ مرتب از دکمه‌های یک‌شکل، برای چیزهایی که در فضا پخش‌اند."} },
+      feedback:{ part:'mapfeed', n:5, name:{en:'Feedback', fa:'بازخورد'}, glabel:{en:'Feedback', fa:'بازخورد'},
+        principle:{en:"Every action needs an immediate, visible result so people know it worked.", fa:"هر کنش به یک نتیجهٔ فوری و دیدنی نیاز دارد تا آدم بفهمد کارش گرفت."},
+        more:{en:"Feedback tells you the system heard you and what it's doing now. It has to be instant and informative — delayed or missing feedback makes people repeat the action, and too much feedback is just as bad as none.", fa:"بازخورد به تو می‌گوید سیستم صدایت را شنید و حالا دارد چه می‌کند. باید فوری و گویا باشد — بازخوردِ دیرآمده یا نبودنش باعث می‌شود آدم کار را تکرار کند، و بازخوردِ زیادی هم به‌بدیِ نبودنش است."},
+        example:{en:"Press an elevator button and it lights up; if nothing lights, you press again and again, unsure it registered.", fa:"دکمهٔ آسانسور را می‌زنی و روشن می‌شود؛ اگر چیزی روشن نشود، بارها می‌زنی، مطمئن نیستی ثبت شده."},
+        tip:{en:"Confirm every important action with a sound, a light, or a visible change — right away.", fa:"هر کنشِ مهم را همان لحظه با یک صدا، یک چراغ، یا یک تغییرِ دیدنی تأیید کن."},
+        pitfall:{en:"Silent controls that leave people wondering whether anything happened.", fa:"کنترل‌های ساکتی که آدم را در این فکر می‌گذارند که اصلاً اتفاقی افتاد یا نه."} },
+      standards:{ part:'mapfeed', n:6, name:{en:'Standards & Conventions', fa:'قرارداد و استاندارد'}, glabel:{en:'Standards', fa:'قرارداد'},
+        principle:{en:"When there's no natural mapping, a shared convention lets everyone learn once and know forever.", fa:"وقتی نگاشتِ طبیعی وجود ندارد، یک قراردادِ مشترک کاری می‌کند که همه یک‌بار یاد بگیرند و همیشه بدانند."},
+        more:{en:"Some links can't be made obvious, so culture fills the gap: red means stop, clockwise means more, a clock face means time. Standards are a last resort, but once learned they become invisible and reliable.", fa:"بعضی ربط‌ها را نمی‌شود واضح کرد، پس فرهنگ جای خالی را پُر می‌کند: قرمز یعنی ایست، ساعت‌گرد یعنی بیشتر، صفحهٔ ساعت یعنی زمان. قرارداد آخرین چاره است، اما وقتی یاد گرفته شد، نامرئی و قابل‌اعتماد می‌شود."},
+        example:{en:"We read any clock instantly because the whole world learned the same convention as children.", fa:"هر ساعتی را فوری می‌خوانیم، چون همهٔ دنیا در بچگی همان یک قرارداد را یاد گرفت."},
+        tip:{en:"If you can't make a mapping natural, follow the convention people already know — don't invent your own.", fa:"اگر نمی‌توانی یک نگاشت را طبیعی کنی، از قراردادی که مردم از قبل بلدند پیروی کن — قراردادِ خودت را اختراع نکن."},
+        pitfall:{en:"Breaking a familiar standard to look original, and confusing everyone.", fa:"شکستنِ یک استانداردِ آشنا برای بکر به‌نظر رسیدن، و گیج‌کردنِ همه."} },
+      conceptual:{ part:'model', n:7, name:{en:'Conceptual Models', fa:'مدلِ ذهنی'}, glabel:{en:'Model', fa:'مدلِ ذهنی'},
+        principle:{en:"People act on a mental story of how a thing works; good design gives them the right one.", fa:"آدم‌ها بر اساسِ یک داستانِ ذهنی از کارکردِ یک چیز عمل می‌کنند؛ طراحیِ خوب داستانِ درست را دستشان می‌دهد."},
+        more:{en:"A conceptual model is your simple picture of what's going on inside. When the design's signals build an accurate model, you can predict what each action will do — when they build a wrong one, nothing you try makes sense.", fa:"مدلِ ذهنی یعنی تصویرِ سادهٔ تو از اینکه تویِ آن چیز چه می‌گذرد. وقتی نشانه‌های طراحی یک مدلِ درست می‌سازند، می‌توانی پیش‌بینی کنی هر کنش چه می‌کند — وقتی مدلِ غلطی می‌سازند، هیچ‌کاری که امتحان کنی جور درنمی‌آید."},
+        example:{en:"A fridge with a freezer dial and a fridge dial implies two separate coolers; really one unit does both, so you can never set it right.", fa:"یخچالی با یک دکمهٔ فریزر و یک دکمهٔ یخچال، این تصور را می‌سازد که دو سردکنندهٔ جداست؛ در واقع یک دستگاه هر دو را انجام می‌دهد، برای همین هیچ‌وقت نمی‌توانی درست تنظیمش کنی."},
+        tip:{en:"Design the signals so the model people build in their head matches how it actually works.", fa:"نشانه‌ها را طوری طراحی کن که مدلی که آدم‌ها در ذهنشان می‌سازند با کارکردِ واقعی جور باشد."},
+        pitfall:{en:"Controls that imply a model the machine doesn't actually follow.", fa:"کنترل‌هایی که مدلی را القا می‌کنند که دستگاه واقعاً از آن پیروی نمی‌کند."} },
+      execution:{ part:'model', n:8, name:{en:'The Gulf of Execution', fa:'خلیجِ اجرا'}, glabel:{en:'Execution', fa:'خلیجِ اجرا'},
+        principle:{en:"The Gulf of Execution is the gap between what you want to do and knowing how to do it here.", fa:"خلیجِ اجرا فاصلهٔ بینِ کاری است که می‌خواهی بکنی و اینکه بدانی همین‌جا چطور باید انجامش دهی."},
+        more:{en:"You stand in front of a device with a goal but can't tell which action produces it. Good design bridges this gulf with visible options and clear signifiers, so the path from intention to action is obvious.", fa:"با یک هدف روبه‌روی یک دستگاه می‌ایستی اما نمی‌توانی بگویی کدام کنش آن را انجام می‌دهد. طراحیِ خوب این خلیج را با گزینه‌های دیدنی و نشانه‌های روشن پُل می‌زند، تا راهِ از نیت تا کنش واضح باشد."},
+        example:{en:"Facing an unfamiliar shower with a single odd lever, you can't tell how to get warm water — that's the gulf.", fa:"روبه‌روی یک دوشِ ناآشنا با یک اهرمِ عجیب، نمی‌توانی بفهمی چطور آبِ گرم بیاوری — این همان خلیج است."},
+        tip:{en:"Make the possible actions and their effects visible right where the user is looking.", fa:"کنش‌های ممکن و اثرشان را همان‌جا که کاربر نگاه می‌کند دیدنی کن."},
+        pitfall:{en:"Hiding actions behind invisible gestures or buried menus.", fa:"قایم‌کردنِ کنش‌ها پشتِ حرکت‌های نامرئی یا منوهای تودرتو."} },
+      evaluation:{ part:'model', n:9, name:{en:'The Gulf of Evaluation', fa:'خلیجِ ارزیابی'}, glabel:{en:'Evaluation', fa:'خلیجِ ارزیابی'},
+        principle:{en:"The Gulf of Evaluation is the effort it takes to tell what state a thing is in after you act.", fa:"خلیجِ ارزیابی یعنی زحمتی که باید بکشی تا بعد از کنش بفهمی آن چیز در چه وضعیتی است."},
+        more:{en:"After acting you need to read the result and judge whether it matched your goal. When feedback is clear the gulf is small; when the system's state is hidden, you're left guessing whether anything changed.", fa:"بعد از کنش باید نتیجه را بخوانی و بسنجی که با هدفت جور شد یا نه. وقتی بازخورد روشن است، خلیج کوچک است؛ وقتی وضعیتِ سیستم پنهان است، می‌مانی که اصلاً چیزی عوض شد یا نه."},
+        example:{en:"You change a setting but nothing visibly changes, so you can't tell if it took effect — the gulf is wide.", fa:"یک تنظیم را عوض می‌کنی اما چیزی به‌طورِ دیدنی عوض نمی‌شود، پس نمی‌فهمی اثر کرد یا نه — خلیج پهن است."},
+        tip:{en:"Show the current state plainly, so users can read the result at a glance.", fa:"وضعیتِ فعلی را ساده نشان بده، تا کاربر نتیجه را با یک نگاه بخواند."},
+        pitfall:{en:"A system whose state you can only infer, never simply see.", fa:"سیستمی که وضعیتش را فقط می‌شود حدس زد، نه اینکه ساده ببینی‌اش."} },
+      sevenstages:{ part:'model', n:10, name:{en:'The Seven Stages of Action', fa:'هفت مرحلهٔ کنش'}, glabel:{en:'Stages', fa:'مرحله‌ها'},
+        principle:{en:"Every action runs a little loop: form a goal, do something, then check what happened.", fa:"هر کنش یک حلقهٔ کوچک را طی می‌کند: یک هدف بساز، کاری بکن، بعد ببین چه شد."},
+        more:{en:"Norman breaks doing into seven steps — goal, plan, specify, perform, then perceive, interpret, compare. Execution covers the doing; evaluation covers the checking; and a design can help or trip you up at any one of the seven.", fa:"نورمن انجام‌دادن را به هفت قدم می‌شکند — هدف، نقشه، مشخص‌کردن، انجام، بعد دیدن، تفسیر، مقایسه. اجرا مربوط به انجام است؛ ارزیابی مربوط به وارسی؛ و یک طراحی می‌تواند در هرکدام از این هفت قدم کمکت کند یا زمینت بزند."},
+        example:{en:"To read at night: goal, more light; plan, use the lamp; act, flip the switch; then see the room brighten and check it's enough.", fa:"برای خواندن در شب: هدف، نورِ بیشتر؛ نقشه، از چراغ استفاده کن؛ کنش، کلید را بزن؛ بعد ببین اتاق روشن شد و بسنج که کافی است."},
+        tip:{en:"Walk a task through all seven stages and see which step your design leaves unsupported.", fa:"یک کار را از هر هفت مرحله عبور بده و ببین طراحی‌ات کدام قدم را بی‌پشتیبان گذاشته."},
+        pitfall:{en:"Supporting the doing but not the checking, or the reverse.", fa:"پشتیبانی از انجام‌دادن اما نه از وارسی‌کردن، یا برعکس."} },
+      sliptypes:{ part:'error', n:11, name:{en:'Slips vs. Mistakes', fa:'لغزش در برابرِ اشتباه'}, glabel:{en:'Two Errors', fa:'دو خطا'},
+        principle:{en:"Errors come in two kinds: slips (right goal, wrong action) and mistakes (wrong goal or plan).", fa:"خطاها دو جورند: لغزش (هدفِ درست، کنشِ غلط) و اشتباه (هدف یا نقشهٔ غلط)."},
+        more:{en:"A slip is an autopilot glitch — you meant to do the right thing and your hands did another. A mistake is a thinking error — the plan itself was wrong. Each needs a different design fix, so it helps to know which you're preventing.", fa:"لغزش یک خطای روی‌خلبانِ‌خودکار است — قصدِ کارِ درست را داشتی و دستت کارِ دیگری کرد. اشتباه یک خطای فکری است — خودِ نقشه غلط بود. هرکدام یک درمانِ طراحیِ متفاوت می‌خواهد، برای همین خوب است بدانی داری جلوی کدام را می‌گیری."},
+        example:{en:"Pouring orange juice into your cereal while thinking of something else is a slip; the goal was right, the hand slipped.", fa:"ریختنِ آب‌پرتقال روی غلات وقتی حواست جای دیگری است، یک لغزش است؛ هدف درست بود، دست لغزید."},
+        tip:{en:"Ask whether a given error is a slip or a mistake — the cure is different for each.", fa:"بپرس یک خطای مشخص لغزش است یا اشتباه — درمانش برای هرکدام فرق دارد."},
+        pitfall:{en:"Blaming the person for a slip the design practically invited.", fa:"مقصر دانستنِ آدم برای لغزشی که طراحی عملاً دعوتش کرده."} },
+      forcing:{ part:'error', n:12, name:{en:'Constraints & Forcing Functions', fa:'محدودیت و کنشِ اجباری'}, glabel:{en:'Forcing', fa:'اجبار'},
+        principle:{en:"Build in constraints that make the wrong action hard and the dangerous one impossible.", fa:"محدودیت‌هایی بساز که کارِ غلط را سخت و کارِ خطرناک را ناممکن کنند."},
+        more:{en:"A forcing function stops you from moving on until you've done the necessary step. Physical, logical, and cultural constraints quietly rule out whole classes of error before they can happen.", fa:"کنشِ اجباری نمی‌گذارد جلو بروی تا وقتی قدمِ لازم را برنداشته‌ای. محدودیت‌های فیزیکی، منطقی و فرهنگی، بی‌سروصدا دسته‌های کاملی از خطا را قبل از رخ‌دادن کنار می‌گذارند."},
+        example:{en:"An ATM that returns your card before it releases the cash makes forgetting the card almost impossible.", fa:"خودپردازی که قبل از دادنِ پول، کارتت را پس می‌دهد، جا‌گذاشتنِ کارت را تقریباً ناممکن می‌کند."},
+        tip:{en:"For any costly error, add a constraint that blocks it rather than a warning that begs to be ignored.", fa:"برای هر خطای پرهزینه، یک محدودیت بگذار که جلویش را بگیرد، نه یک هشدار که به‌راحتی نادیده گرفته می‌شود."},
+        pitfall:{en:"Relying on warning labels where a physical lock-out belongs.", fa:"تکیه به برچسبِ هشدار، جایی که یک قفلِ فیزیکی جایش است."} },
+      tolerate:{ part:'error', n:13, name:{en:'Design to Tolerate Error', fa:'طراحی برای تابِ خطا'}, glabel:{en:'Tolerate', fa:'تابِ خطا'},
+        principle:{en:"Assume errors will happen; make them easy to catch and cheap to undo.", fa:"فرض کن خطا رخ می‌دهد؛ کاری کن که راحت گرفته شود و ارزان جبران شود."},
+        more:{en:"You can't prevent every error, so design as if people will slip. Sensible defaults, confirmations for the irreversible, and a reliable way back turn a disaster into a shrug.", fa:"نمی‌توانی جلوی هر خطا را بگیری، پس طوری طراحی کن که انگار آدم‌ها لغزش می‌کنند. پیش‌فرض‌های عاقلانه، تأیید برای کارهای برگشت‌ناپذیر، و یک راهِ مطمئن برای برگرداندنِ کار، یک فاجعه را به یک شانه‌بالا‌انداختن تبدیل می‌کنند."},
+        example:{en:"The Undo command assumes you'll make mistakes and makes most of them free to reverse.", fa:"دستورِ برگرداندن فرض می‌کند که اشتباه می‌کنی و برگرداندنِ بیشترشان را مجانی می‌کند."},
+        tip:{en:"Add an easy undo and a gentle confirm before anything permanent.", fa:"یک راهِ آسان برای برگرداندن بگذار، و قبل از هر کارِ همیشگی یک تأییدِ ملایم."},
+        pitfall:{en:"Irreversible actions with no confirmation and no way back.", fa:"کارهای برگشت‌ناپذیر، بی هیچ تأیید و بی هیچ راهِ بازگشت."} },
+      observe:{ part:'hcd', n:14, name:{en:'Observe Real People', fa:'مردمِ واقعی را ببین'}, glabel:{en:'Observe', fa:'مشاهده'},
+        principle:{en:"Start by watching real people use things — what they do, not what they say they do.", fa:"با تماشای آدم‌های واقعی موقعِ استفاده شروع کن — کاری که می‌کنند، نه چیزی که می‌گویند می‌کنند."},
+        more:{en:"People adapt to bad design and forget their own workarounds, so asking isn't enough. Watching them struggle in real life reveals the true needs a survey would never surface.", fa:"آدم‌ها خودشان را با طراحیِ بد وفق می‌دهند و راه‌حل‌های سرِهم‌بندیِ خودشان را فراموش می‌کنند، پس فقط پرسیدن کافی نیست. تماشای دست‌وپازدنشان در زندگیِ واقعی، نیازهای واقعی‌ای را لو می‌دهد که هیچ نظرسنجی‌ای پیدایشان نمی‌کند."},
+        example:{en:"Watch someone fight the current tool; the workaround they invented is the real requirement, hiding in plain sight.", fa:"کسی را تماشا کن که با ابزارِ فعلی کلنجار می‌رود؛ راه‌حلی که خودش سرِهم کرده، همان نیازِ واقعی است که جلوی چشم پنهان مانده."},
+        tip:{en:"Spend an hour watching one real user before you draw a single screen.", fa:"قبل از اینکه حتی یک صفحه بکشی، یک ساعت یک کاربرِ واقعی را تماشا کن."},
+        pitfall:{en:"Designing from what people claim in a meeting instead of what they do.", fa:"طراحی از رویِ چیزی که آدم‌ها در جلسه ادعا می‌کنند، به‌جای کاری که واقعاً می‌کنند."} },
+      prototype:{ part:'hcd', n:15, name:{en:'Prototype & Iterate', fa:'نمونه بساز و تکرار کن'}, glabel:{en:'Prototype', fa:'نمونه'},
+        principle:{en:"Build something rough, test it with real people, then refine — and repeat, fast.", fa:"یک چیزِ خام بساز، با آدم‌های واقعی امتحانش کن، بعد صیقلش بده — و سریع تکرار کن."},
+        more:{en:"Iterative design circles through observe, ideate, prototype, and test. Each cheap, quick loop exposes problems early, while they're still easy and cheap to fix.", fa:"طراحیِ تکرارشونده مدام دورِ ببین، ایده بده، نمونه بساز، و امتحان کن می‌چرخد. هر حلقهٔ ارزان و سریع، مشکل‌ها را زود لو می‌دهد، همان‌وقتی که هنوز حل‌کردنشان آسان و ارزان است."},
+        example:{en:"A paper sketch tested on five people teaches more than months of arguing in a conference room.", fa:"یک طرحِ رویِ کاغذ که روی پنج نفر امتحان شود، بیشتر از ماه‌ها بحث در یک اتاقِ جلسه یاد می‌دهد."},
+        tip:{en:"Make the cheapest thing you can test this week, and put it in front of users.", fa:"ارزان‌ترین چیزی را که همین هفته می‌شود امتحان کرد بساز، و بگذارش جلوی کاربرها."},
+        pitfall:{en:"Polishing in secret for months, then meeting reality all at once.", fa:"ماه‌ها در خفا صیقل‌دادن، بعد یک‌دفعه با واقعیت روبه‌رو شدن."} },
+      rightproblem:{ part:'hcd', n:16, name:{en:'Solve the Right Problem', fa:'مسئلهٔ درست را حل کن'}, glabel:{en:'Right Problem', fa:'مسئلهٔ درست'},
+        principle:{en:"Before solving the problem you were handed, make sure it's the real one.", fa:"قبل از حل‌کردنِ مسئله‌ای که دستت داده‌اند، مطمئن شو که همان مسئلهٔ واقعی است."},
+        more:{en:"Norman's double-diamond first opens up to find the right problem, then opens up again to find the right solution. A brilliant answer to the wrong question helps no one; the hard, valuable work is framing the question.", fa:"الماسِ دوگانهٔ نورمن اول باز می‌شود تا مسئلهٔ درست را پیدا کند، بعد دوباره باز می‌شود تا راه‌حلِ درست را پیدا کند. یک جوابِ درخشان به سوالِ غلط به‌دردِ هیچ‌کس نمی‌خورد؛ کارِ سخت و باارزش، درست‌قاب‌کردنِ سوال است."},
+        example:{en:"A team was told to improve the help line; watching users showed the real problem was the confusing product generating all the calls.", fa:"به یک تیم گفتند خطِ پشتیبانی را بهتر کنید؛ تماشای کاربرها نشان داد مسئلهٔ واقعی، خودِ محصولِ گیج‌کننده است که این‌همه تماس می‌سازد."},
+        tip:{en:"Spend real effort finding the right problem before you fall in love with a solution.", fa:"قبل از اینکه عاشقِ یک راه‌حل شوی، واقعاً وقت بگذار و مسئلهٔ درست را پیدا کن."},
+        pitfall:{en:"Rushing to build a slick answer to the wrong question.", fa:"عجله برای ساختنِ یک جوابِ شیک به سوالِ غلط."} }
+    },
+    core:{ name:{en:'HUMAN-CENTERED DESIGN', fa:'طراحیِ انسان‌محور'},
+      principle:{en:"When something is hard to use, the fault is in the design, not in you. Good design communicates: its affordances and signifiers show what you can do, its mapping and feedback show what's happening, and it builds the right mental model in your head. Its two hallmarks are discoverability and understanding.", fa:"وقتی چیزی سختِ استفاده است، عیب از طراحی است، نه از تو. طراحیِ خوب حرف می‌زند: قابلیت‌ها و نشانه‌هایش می‌گویند چه می‌توانی بکنی، نگاشت و بازخوردش می‌گویند چه دارد اتفاق می‌افتد، و مدلِ ذهنیِ درست را در سرت می‌سازد. دو نشانهٔ اصلی‌اش کشف‌پذیری و فهم است."},
+      more:{en:"Norman organizes the field into a few big ideas — Affordances and Signifiers (what's possible and how you can tell), Mapping and Feedback (controls that match their effects and results you can see), Conceptual Models and the two Gulfs of execution and evaluation, why Human Error is really design error, and the Human-Centered Design process that ties it together. The thread through all of it: design is communication, so make the thing explain itself.", fa:"نورمن این حوزه را در چند ایدهٔ بزرگ می‌چیند — قابلیت‌ها و نشانه‌ها (چه ممکن است و چطور می‌فهمی)، نگاشت و بازخورد (کنترل‌هایی که به اثرشان می‌خورند و نتیجه‌هایی که می‌بینی)، مدلِ ذهنی و دو خلیجِ اجرا و ارزیابی، اینکه چرا خطای انسانی در واقع خطای طراحی است، و فرایندِ طراحیِ انسان‌محور که همه را به هم گره می‌زند. نخِ رابطِ همه‌شان: طراحی یعنی ارتباط، پس کاری کن که خودِ آن چیز، خودش را توضیح بدهد."},
+      example:{en:"Click any node to read a principle or a method. You can also drag the nodes around.", fa:"روی هر دایره کلیک کن تا یک اصل یا روش را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."} },
+    stages:[
+      { level:1, badge:{en:'Level 1 · Over-simplified', fa:'سطحِ ۱ · خیلی ساده'}, title:{en:"It's not your fault", fa:'تقصیرِ تو نیست'}, tagline:{en:'The whole book in a sentence.', fa:'کلِ کتاب در یک جمله.'},
+        body:{en:"When you can't work a door, a stove, or an app, stop blaming yourself. A thing that's hard to use is badly designed. Good design would have told you what to do.", fa:"وقتی نمی‌توانی با یک در، یک گاز، یا یک اپلیکیشن کنار بیایی، دست از مقصر‌دانستنِ خودت بردار. چیزی که سختِ استفاده است، بد طراحی شده. طراحیِ خوب به تو می‌گفت چه کار کنی."},
+        example:{en:"If you have to push and pull to find out how a door opens, the door failed — not you.", fa:"اگر مجبوری هم هُل بدهی هم بکشی تا بفهمی یک در چطور باز می‌شود، آن در شکست خورده — نه تو."},
+        gain:{en:"You stop blaming users and start looking at the design.", fa:"دست از مقصر‌دانستنِ کاربر برمی‌داری و شروع می‌کنی به نگاه‌کردن به طراحی."} },
+      { level:2, badge:{en:'Level 2 · Simple', fa:'سطحِ ۲ · ساده'}, title:{en:'Make it discoverable', fa:'کشف‌پذیرش کن'}, tagline:{en:'Affordances and signifiers.', fa:'قابلیت‌ها و نشانه‌ها.'},
+        body:{en:"Two ideas make a thing understandable at a glance. <b>Affordances</b> are the actions a thing makes possible; <b>signifiers</b> are the signals that reveal them. Together they give <b>discoverability</b> — you can tell what to do just by looking.", fa:"دو ایده کاری می‌کنند که یک چیز با یک نگاه فهمیده شود. <b>قابلیت‌ها</b> کارهایی‌اند که یک چیز ممکن می‌کند؛ <b>نشانه‌ها</b> سیگنال‌هایی‌اند که لوشان می‌دهند. این دو با هم <b>کشف‌پذیری</b> می‌سازند — فقط با نگاه‌کردن می‌فهمی چه کار کنی."},
+        example:{en:"A flat plate says push; a graspable handle says pull. No label needed.", fa:"یک صفحهٔ صاف می‌گوید هُل بده؛ یک دستگیرهٔ قابلِ‌گرفتن می‌گوید بکش. بی‌نیاز به برچسب."},
+        gain:{en:"You can make the right action obvious without instructions.", fa:"می‌توانی کارِ درست را بی هیچ دستورالعملی واضح کنی."} },
+      { level:3, badge:{en:'Level 3 · Balanced', fa:'سطحِ ۳ · متعادل'}, title:{en:'Map it and answer back', fa:'نگاشتش کن و جواب بده'}, tagline:{en:'Mapping, feedback, and the mental model.', fa:'نگاشت، بازخورد، و مدلِ ذهنی.'},
+        body:{en:"Now make it usable. Give controls a <b>natural mapping</b> so their layout matches what they control, and <b>immediate feedback</b> so every action has a visible result. Together these build the right <b>conceptual model</b> in the user's head — an accurate picture of how the thing works.", fa:"حالا کاربردی‌اش کن. به کنترل‌ها یک <b>نگاشتِ طبیعی</b> بده تا چیدمانشان به چیزی که کنترل می‌کنند بخورد، و یک <b>بازخوردِ فوری</b> بده تا هر کنش یک نتیجهٔ دیدنی داشته باشد. این‌ها با هم <b>مدلِ ذهنیِ</b> درست را در سرِ کاربر می‌سازند — یک تصویرِ درست از کارکردِ آن چیز."},
+        example:{en:"Stove knobs laid out like the burners, each click giving instant heat, teach themselves.", fa:"دکمه‌های گازی که مثلِ چیدمانِ شعله‌ها چیده شده‌اند و هر بار فوری گرما می‌دهند، خودشان خودشان را یاد می‌دهند."},
+        gain:{en:"You can build things people understand and control with confidence.", fa:"می‌توانی چیزهایی بسازی که آدم‌ها با اطمینان می‌فهمند و کنترلشان می‌کنند."} },
+      { level:4, badge:{en:'Level 4 · Advanced', fa:'سطحِ ۴ · پیشرفته'}, title:{en:'Design for error', fa:'برای خطا طراحی کن'}, tagline:{en:'Slips, mistakes, constraints, and undo.', fa:'لغزش، اشتباه، محدودیت، و برگرداندن.'},
+        body:{en:"Real people slip and err, so design for it. Tell <b>slips</b> (right goal, wrong action) from <b>mistakes</b> (wrong plan). Block the worst errors with <b>constraints</b> and <b>forcing functions</b>, and make the rest easy to catch and <b>undo</b>. When something goes wrong, look at the design first.", fa:"آدم‌های واقعی لغزش و خطا می‌کنند، پس برایش طراحی کن. <b>لغزش</b> (هدفِ درست، کنشِ غلط) را از <b>اشتباه</b> (نقشهٔ غلط) تشخیص بده. بدترین خطاها را با <b>محدودیت</b> و <b>کنشِ اجباری</b> ببند، و بقیه را راحتِ گرفتن و <b>برگرداندن</b> کن. وقتی چیزی خراب می‌شود، اول به طراحی نگاه کن."},
+        example:{en:"An ATM hands back your card before the cash, and Undo reverses a slip — errors become harmless.", fa:"خودپرداز قبل از پول کارتت را پس می‌دهد، و «برگرداندن» یک لغزش را خنثی می‌کند — خطاها بی‌ضرر می‌شوند."},
+        gain:{en:"You can prevent the errors you can, and tolerate the ones you can't.", fa:"می‌توانی جلوی خطاهایی را که می‌شود بگیری، و تابِ آن‌هایی را که نمی‌شود بیاوری."} },
+      { level:5, badge:{en:'Level 5 · Expert', fa:'سطحِ ۵ · حرفه‌ای'}, title:{en:'Solve the right problem', fa:'مسئلهٔ درست را حل کن'}, tagline:{en:'Observe, prototype, iterate — the double diamond.', fa:'ببین، نمونه بساز، تکرار کن — الماسِ دوگانه.'},
+        body:{en:"The expert runs a process, not a hunch. <b>Observe</b> real people to find their true needs, <b>prototype</b> rough and <b>iterate</b> fast, and use the double-diamond to <b>find the right problem</b> before designing the right solution. Every principle serves one goal: design is communication, so make the thing explain itself — <b>discoverable</b> and <b>understandable</b> to a first-time user.", fa:"آدمِ حرفه‌ای یک فرایند را اجرا می‌کند، نه یک حدس. آدم‌های واقعی را <b>ببین</b> تا نیازِ واقعی‌شان را پیدا کنی، نمونهٔ خام <b>بساز</b> و سریع <b>تکرار</b> کن، و با الماسِ دوگانه <b>مسئلهٔ درست</b> را پیدا کن، پیش از طراحیِ راه‌حلِ درست. هر اصل یک هدف را خدمت می‌کند: طراحی یعنی ارتباط، پس کاری کن که خودِ آن چیز خودش را توضیح بدهد — برای کسی که بارِ اول است <b>کشف‌پذیر</b> و <b>فهمیدنی</b>."},
+        example:{en:"You watch users, sketch, test, and reframe the problem — turning a confusing product into one that needs no manual.", fa:"کاربرها را تماشا می‌کنی، طرح می‌زنی، امتحان می‌کنی، و مسئله را از نو قاب می‌گیری — یک محصولِ گیج‌کننده را به چیزی تبدیل می‌کنی که به دفترچهٔ راهنما نیاز ندارد."},
+        gain:{en:"You can design things that fit people — and teach others to do the same.", fa:"می‌توانی چیزهایی طراحی کنی که به آدم‌ها می‌خورند — و همین را به دیگران یاد بدهی."} }
+    ],
+    quotes:[
+      {en:"Good design is actually a lot harder to notice than poor design, in part because good designs fit our needs so well that the design is invisible, serving us without drawing attention to itself.", fa:"طراحیِ خوب در واقع خیلی سخت‌تر از طراحیِ بد به‌چشم می‌آید، تا حدی چون طراحیِ خوب آن‌قدر خوب به نیازهامان می‌خورد که نامرئی می‌شود، بی اینکه توجه را به خودش جلب کند به ما خدمت می‌کند."},
+      {en:"Two of the most important characteristics of good design are discoverability and understanding.", fa:"دوتا از مهم‌ترین ویژگی‌های طراحیِ خوب، کشف‌پذیری و فهم است."},
+      {en:"Affordances determine what actions are possible. Signifiers communicate where the action should take place.", fa:"قابلیت‌ها تعیین می‌کنند چه کنش‌هایی ممکن است. نشانه‌ها می‌گویند کنش باید کجا انجام شود."},
+      {en:"Natural mapping, by which I mean taking advantage of physical analogies and cultural standards, leads to immediate understanding.", fa:"نگاشتِ طبیعی، که منظورم استفاده از شباهت‌های فیزیکی و استانداردهای فرهنگی است، به فهمِ فوری می‌انجامد."},
+      {en:"Design is really an act of communication, which means having a deep understanding of the person with whom the designer is communicating.", fa:"طراحی در واقع یک کنشِ ارتباطی است، یعنی داشتنِ درکی عمیق از آدمی که طراح دارد با او ارتباط برقرار می‌کند."},
+      {en:"We have to accept human behavior the way it is, not the way we would wish it to be.", fa:"باید رفتارِ انسان را همان‌طور که هست بپذیریم، نه آن‌طور که آرزو داریم باشد."},
+      {en:"A brilliant solution to the wrong problem can be worse than no solution at all: solve the correct problem.", fa:"یک راه‌حلِ درخشان برای مسئلهٔ غلط می‌تواند از نداشتنِ هیچ راه‌حلی هم بدتر باشد: مسئلهٔ درست را حل کن."},
+      {en:"Rule of thumb: if you think something is clever and sophisticated beware—it is probably self-indulgence.", fa:"یک قاعدهٔ سرانگشتی: اگر فکر می‌کنی چیزی زیرکانه و پیچیده است، مراقب باش — احتمالاً فقط خودنمایی است."}
+    ],
+    media:[
+      { kind:'yt', id:'_Kc57XAE_V4', src:{en:'YouTube · Nielsen Norman Group', fa:'یوتیوب · گروه نیلسن نورمن'},
+        title:{en:'Don Norman: The Design of Everyday Things', fa:'دان نورمن: طراحیِ چیزهای روزمره'},
+        desc:{en:'Norman himself on the ideas behind his classic book.', fa:'خودِ نورمن دربارهٔ ایده‌های پشتِ کتابِ کلاسیکش.'},
+        bullets:{en:["Affordances and signifiers, briefly","Why usable things need no manual","Straight from the author"], fa:["قابلیت‌ها و نشانه‌ها، کوتاه","چرا چیزهای کاربردی به دفترچه نیاز ندارند","مستقیم از خودِ نویسنده"]},
+        best:{en:'Best for Stage 1–2.', fa:'خوب برای مرحلهٔ ۱ و ۲.'} },
+      { kind:'yt', id:'FMbP4pRxT2k', src:{en:'YouTube · ADPList', fa:'یوتیوب · ADPList'},
+        title:{en:'Don Norman: 21st-Century Design, AI, and Legacy', fa:'دان نورمن: طراحیِ قرنِ بیست‌ویکم، هوشِ مصنوعی، و میراث'},
+        desc:{en:"A long interview where Norman revisits and extends the book's ideas.", fa:'یک گفت‌وگوی بلند که نورمن ایده‌های کتاب را مرور و گسترش می‌دهد.'},
+        bullets:{en:["Human-centered design in practice","Solving the right problem","The ideas, decades later"], fa:["طراحیِ انسان‌محور در عمل","حل‌کردنِ مسئلهٔ درست","ایده‌ها، دهه‌ها بعد"]},
+        best:{en:'Best for Stage 4–5.', fa:'خوب برای مرحلهٔ ۴ و ۵.'} },
+      { kind:'img', url:'https://www.hachettebookgroup.com/titles/don-norman/the-design-of-everyday-things/9780465050659/?lens=basic-books',
+        src:{en:'Basic Books · Publisher', fa:'Basic Books · ناشر'},
+        title:{en:'The Design of Everyday Things — Publisher Page', fa:'طراحیِ چیزهای روزمره — صفحهٔ ناشر'},
+        desc:{en:'The publisher page for the revised and expanded edition, with details.', fa:'صفحهٔ ناشر برای نسخهٔ ویرایش‌شده و گسترش‌یافته، همراه با جزئیات.'},
+        bullets:{en:["The definitive revised edition","Background on Norman","Straight from the source"], fa:["نسخهٔ ویرایش‌شدهٔ معتبر","پیشینه‌ای دربارهٔ نورمن","مستقیم از خودِ منبع"]},
+        best:{en:'For editions and the source.', fa:'برای نسخه‌ها و منبعِ اصلی.'} },
+      { kind:'img', url:'https://www.nngroup.com/books/design-everyday-things-revised/',
+        src:{en:'Nielsen Norman Group · Book', fa:'گروه نیلسن نورمن · کتاب'},
+        title:{en:'The Design of Everyday Things — Overview', fa:'طراحیِ چیزهای روزمره — مرور'},
+        desc:{en:"An overview of the book from Norman's own group.", fa:'یک مرور از کتاب، از خودِ گروهِ نورمن.'},
+        bullets:{en:["A concise summary of the core ideas","Why the book still matters","A trusted design source"], fa:["خلاصه‌ای فشرده از ایده‌های اصلی","چرا کتاب هنوز مهم است","یک منبعِ طراحیِ قابل‌اعتماد"]},
+        best:{en:'Best for Stage 2–3.', fa:'خوب برای مرحلهٔ ۲ و ۳.'} }
+    ],
+    go:[
+      {label:{en:'Publisher page', fa:'صفحهٔ ناشر'}, url:'https://www.hachettebookgroup.com/titles/don-norman/the-design-of-everyday-things/9780465050659/?lens=basic-books'},
+      {label:{en:'Book on Goodreads', fa:'کتاب در گودریدز'}, url:'https://www.goodreads.com/book/show/840.The_Design_of_Everyday_Things'},
+      {label:{en:"Norman's own page for the book", fa:'صفحهٔ خودِ نورمن برای کتاب'}, url:'https://jnd.org/books/the-design-of-everyday-things-revised-and-expanded-edition/'}
+    ],
+    recs:[
+      { pri:'b', t:{en:'Fix one bad door', fa:'یک درِ بد را درست کن'}, d:{en:"Find a door, switch, or app you fumble with and name the missing affordance or signifier.", fa:'یک در، کلید، یا اپی را که باهاش دست‌وپا می‌زنی پیدا کن و بگو کدام قابلیت یا نشانه‌اش کم است.'} },
+      { pri:'b', t:{en:'Add the feedback', fa:'بازخورد را اضافه کن'}, d:{en:"Pick one action in your product that gives no response, and add an immediate, visible one.", fa:'یک کنش در محصولت که هیچ جوابی نمی‌دهد انتخاب کن، و یک جوابِ فوری و دیدنی بهش اضافه کن.'} },
+      { pri:'n', t:{en:'Turn a mistake into a design fix', fa:'یک خطا را به یک اصلاحِ طراحی تبدیل کن'}, d:{en:"Take a recent user error and ask what constraint or undo would have prevented or reversed it.", fa:'یک خطای اخیرِ کاربر را بردار و بپرس کدام محدودیت یا برگرداندن جلویش را می‌گرفت یا برش می‌گرداند.'} },
+      { pri:'n', t:{en:'Watch one real user', fa:'یک کاربرِ واقعی را تماشا کن'}, d:{en:"Before your next feature, watch one person use the current thing and note where they get stuck.", fa:'قبل از قابلیتِ بعدی‌ات، یک نفر را موقعِ استفاده از چیزِ فعلی تماشا کن و بنویس کجا گیر می‌کند.'} }
+    ]
+  }
+};

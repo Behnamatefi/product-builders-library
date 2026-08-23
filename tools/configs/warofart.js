@@ -1,0 +1,264 @@
+/* config: The War of Art — Steven Pressfield (Taste & Craft) */
+module.exports = {
+  slug:"warofart", brand:"The War of Art",
+  titleTag:"The War of Art — نقشهٔ دانش و یادگیری ۵ مرحله‌ای",
+  W:980, H:780, R1:220, R2:126, span:66,
+  leafKickEn:"Idea", leafKickFa:"ایدهٔ",
+  flowEn:["Resist","Turn Pro","Create"], flowFa:["مقاومت","حرفه‌ای شو","بیافرین"],
+
+  hero:`  <div class="eyebrow"><span class="edot"></span>
+    <span data-only="en">Book knowledge map · Steven Pressfield</span>
+    <span data-only="fa">نقشهٔ کتاب · استیون پرسفیلد</span>
+  </div>
+  <h1>
+    <span data-only="en">The War of Art — Break Through the Blocks and Win Your Inner Creative Battles</span>
+    <span data-only="fa">جنگِ هنر — از سدها عبور کن و در نبردِ خلاقانهٔ درونت پیروز شو</span>
+  </h1>
+  <p class="dek">
+    <span data-only="en">A knowledge graph of the whole book, plus a 5-stage path from a single idea to expert-level mastery — with an example at every step.</span>
+    <span data-only="fa">نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از یک ایدهٔ ساده تا حرفه‌ای — با یک مثال در هر مرحله.</span>
+  </p>
+  <div class="metastrip">
+    <div class="metaitem"><span class="mk" data-only="en">Book</span><span class="mk" data-only="fa">کتاب</span>
+      <span class="mv" data-only="en">The War of Art</span><span class="mv" data-only="fa">جنگِ هنر</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Author</span><span class="mk" data-only="fa">نویسنده</span>
+      <span class="mv" data-only="en">Steven Pressfield</span><span class="mv" data-only="fa">استیون پرسفیلد</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Published</span><span class="mk" data-only="fa">سالِ چاپ</span>
+      <span class="mv" data-only="en">2002</span><span class="mv" data-only="fa">۲۰۰۲</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Group</span><span class="mk" data-only="fa">گروه</span>
+      <span class="mv" data-only="en">Taste &amp; Craft</span><span class="mv" data-only="fa">ذوق و پیشه‌وری</span></div>
+  </div>
+  <div class="chips">
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Parts</span><span data-only="fa">بخش</span></div>
+    <div class="chip"><b data-only="en">16</b><b data-only="fa">۱۶</b><span data-only="en">Ideas</span><span data-only="fa">ایده</span></div>
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Learning stages</span><span data-only="fa">مرحلهٔ یادگیری</span></div>
+  </div>`,
+
+  callout:`    <b data-only="en">The core idea:</b>
+    <b data-only="fa">ایدهٔ اصلی:</b>
+    <span data-only="en"> There's an invisible force — Pressfield calls it <i>Resistance</i> — that rises up the moment you try to do important creative work, and its only job is to stop you. You beat it the same way every day: quit being an amateur, <i>turn pro</i>, and sit down to do the work whether you feel like it or not. Do your part, and inspiration — the <i>Muse</i> — shows up to meet you.</span>
+    <span data-only="fa"> یک نیروی نامرئی هست — پرسفیلد اسمش را می‌گذارد <i>مقاومت</i> — که همان لحظه‌ای که می‌خواهی کارِ خلاقانهٔ مهمی بکنی بلند می‌شود، و تنها کارش این است که جلویت را بگیرد. هر روز به یک شکل شکستش می‌دهی: دست از آماتوری بردار، <i>حرفه‌ای شو</i>، و بنشین کار را انجام بده — چه حالش را داشته باشی چه نداشته باشی. سهمِ خودت را انجام بده، آن‌وقت الهام — <i>الهه</i> — به استقبالت می‌آید.</span>`,
+
+  kpis:`    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Parts (the enemy · its faces · turning pro · the code · the muse)</div><div class="l" data-only="fa">بخش (دشمن · نقاب‌هایش · حرفه‌ای‌شدن · مرام · الهه)</div></div>
+    <div class="kbox"><div class="v" data-only="en">16</div><div class="v" data-only="fa">۱۶</div><div class="l" data-only="en">Ideas you can use</div><div class="l" data-only="fa">ایده برای استفاده</div></div>
+    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Levels, simple → expert</div><div class="l" data-only="fa">مرحله، ساده تا حرفه‌ای</div></div>
+    <div class="kbox"><div class="v" data-only="en">3</div><div class="v" data-only="fa">۳</div><div class="l" data-only="en">The arc: resist · turn pro · create</div><div class="l" data-only="fa">مسیر: مقاومت · حرفه‌ای‌شو · بیافرین</div></div>`,
+
+  mapcallout:`      <b data-only="en">Read it as a flow:</b><b data-only="fa">به‌صورتِ یک جریان بخوانش:</b>
+      <span data-only="en"> Start by naming the enemy — <b>Resistance</b> is universal, internal, and lethal. Learn its <b>disguises</b> (procrastination, fear, excuses, self-sabotage), then <b>turn pro</b>: show up every day and treat the craft like a job. Live by the professional's <b>code</b>, and go <b>beyond Resistance</b> to meet the Muse — where doing the work brings the inspiration.</span>
+      <span data-only="fa"> با نام‌بردنِ دشمن شروع کن — <b>مقاومت</b> همگانی، درونی و کُشنده است. <b>نقاب‌هایش</b> را بشناس (امروز و فردا کردن، ترس، بهانه، خرابکاری در کارِ خود)، بعد <b>حرفه‌ای شو</b>: هر روز سرِ کار حاضر شو و پیشه‌ات را مثلِ یک شغل بگیر. با <b>مرامِ</b> حرفه‌ای زندگی کن، و <b>آن‌سوی مقاومت</b> برو تا الهه را ببینی — همان‌جا که انجامِ کار، الهام را می‌آورد.</span>`,
+
+  methodFa:"<p><b>منبع:</b> کتابِ «The War of Art: Break Through the Blocks and Win Your Inner Creative Battles» نوشتهٔ استیون پرسفیلد، چاپِ نخست ۲۰۰۲ (نشرِ Black Irish Books).</p><p><b>روشِ کار:</b> ساختارِ پنج‌بخشی و ایده‌ها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده؛ نقل‌قول‌ها مقابله و ویدیوها بررسی شده‌اند.</p><p><b>گروه:</b> «ذوق و پیشه‌وری» — برای هر کسی که باید چیزی بسازد و مدام گیرِ سد می‌افتد.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای متنِ کامل، خودِ کتاب را بخوان.</p>",
+  methodEn:"<p><b>Source:</b> the book <i>The War of Art: Break Through the Blocks and Win Your Inner Creative Battles</i> by Steven Pressfield, first published 2002 (Black Irish Books).</p><p><b>How this was built:</b> the five-part structure and ideas were gathered and rewritten from the book and reputable sources; quotes were cross-checked and the linked videos verified.</p><p><b>Group:</b> Taste &amp; Craft — for anyone who has to make things and keeps getting blocked.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>",
+
+  data:{
+    tldr:[
+      {en:"The whole book in one line: an invisible force called Resistance fights you whenever you try to create — beat it by doing the work every day.",
+       fa:"خلاصهٔ کل کتاب در یک جمله: یک نیروی نامرئی به‌نامِ مقاومت هر وقت می‌خواهی چیزی بیافرینی با تو می‌جنگد — با انجامِ کار در هر روز شکستش بده."},
+      {en:"Resistance is <b>universal, internal</b>, and self-generated. It shows up as procrastination, fear, self-doubt, and clever excuses.",
+       fa:"مقاومت <b>همگانی، درونی</b> و خودساخته است. خودش را به‌شکلِ امروز و فردا کردن، ترس، تردید و بهانه‌های زیرکانه نشان می‌دهد."},
+      {en:"Rule of thumb: <b>the more the work matters to you, the more Resistance you feel</b> — so fear is a compass, not a stop sign.",
+       fa:"یک قاعدهٔ سرانگشتی: <b>هرچه کار برایت مهم‌تر باشد، مقاومتِ بیشتری حس می‌کنی</b> — پس ترس یک قطب‌نماست، نه تابلوی ایست."},
+      {en:"The answer is to <b>turn pro</b>: show up every day, treat the craft like a job, and do the work whether you're inspired or not.",
+       fa:"جوابش این است که <b>حرفه‌ای شوی</b>: هر روز سرِ کار حاضر شو، پیشه را مثلِ یک شغل بگیر، و کار را چه بااِلهام چه بی‌اِلهام انجام بده."},
+      {en:"Do the work first, and <b>inspiration follows</b> — the Muse rewards the pro who sits down and starts.",
+       fa:"اول کار را انجام بده، بعد <b>الهام می‌آید</b> — الهه به حرفه‌ای‌ای که می‌نشیند و شروع می‌کند پاداش می‌دهد."}
+    ],
+    parts:[
+      { key:"enemy", varc:"--c-teal", name:{en:"Resistance: The Enemy", fa:"مقاومت: دشمن"}, tag:{en:"Name the force", fa:"دشمن را بشناس"},
+        gist:{en:"The invisible force that stops you — universal, internal, and lethal to dreams.", fa:"همان نیروی نامرئی که جلویت را می‌گیرد — همگانی، درونی، و کُشندهٔ رؤیاها."},
+        more:{en:"Before you can beat it, you have to see it. Pressfield gives the block a single name — Resistance — and shows that it's the same enemy for everyone, it comes from inside you, and if you let it win, it quietly kills the work you were born to do.",
+              fa:"قبل از اینکه بتوانی شکستش بدهی، باید ببینی‌اش. پرسفیلد به این سدِ درونی یک اسم می‌دهد — مقاومت — و نشان می‌دهد که برای همه همین یک دشمن است، از درونِ خودت می‌آید، و اگر بگذاری ببرد، بی‌سروصدا همان کاری را که برایش ساخته شده‌ای می‌کُشد."},
+        chapters:["resistance","internal","lethal"] },
+      { key:"faces", varc:"--c-blue", name:{en:"How Resistance Shows Up", fa:"مقاومت چطور ظاهر می‌شود"}, tag:{en:"Know its disguises", fa:"نقاب‌هایش را بشناس"},
+        gist:{en:"Procrastination, fear, self-doubt, rationalization, distraction, self-sabotage.", fa:"امروز و فردا کردن، ترس، تردید، بهانه‌تراشی، حواس‌پرتی، خرابکاری در کارِ خود."},
+        more:{en:"Resistance almost never shows its face. It hides behind reasonable excuses, sudden urges to do anything else, and a fear that feels like a stop sign. Learn its masks and you can catch it in the act — and the biggest clue is simple: the more a piece of work matters to you, the harder Resistance pushes back.",
+              fa:"مقاومت تقریباً هیچ‌وقت رُک جلو نمی‌آید. پشتِ بهانه‌های منطقی، پشتِ میلِ ناگهانی به انجامِ هر کارِ دیگری، و پشتِ ترسی که مثلِ تابلوی ایست است قایم می‌شود. نقاب‌هایش را یاد بگیر تا سرِ بزنگاه بگیری‌اش — و بزرگ‌ترین سرنخ ساده است: هرچه کاری برایت مهم‌تر باشد، مقاومت محکم‌تر پسَت می‌زند."},
+        chapters:["procrastination","fear","rationalization","sabotage"] },
+      { key:"pro", varc:"--c-amber", name:{en:"Turning Pro", fa:"حرفه‌ای‌شدن"}, tag:{en:"The answer", fa:"راهِ‌حل"},
+        gist:{en:"Amateur vs. professional — the pro shows up every day, no matter what.", fa:"آماتور در برابرِ حرفه‌ای — حرفه‌ای هر روز سرِ کار حاضر می‌شود، هر جور شده."},
+        more:{en:"The cure for Resistance isn't more willpower in one heroic burst; it's a change of identity. Stop being an amateur who works when the mood is right, and turn pro: decide the work is your job, show up for it every single day, and do it whether you feel like it or not.",
+              fa:"درمانِ مقاومت، ارادهٔ بیشتر در یک جهشِ قهرمانانه نیست؛ عوض‌شدنِ هویت است. دست از آماتوری بردار که فقط وقتِ حال‌داشتن کار می‌کند، و حرفه‌ای شو: تصمیم بگیر که این کار، شغلِ توست، هر روزِ خدا سرش حاضر شو، و انجامش بده — چه حالش را داشته باشی چه نداشته باشی."},
+        chapters:["amateur","showup","craftjob"] },
+      { key:"code", varc:"--c-violet", name:{en:"The Professional's Code", fa:"مرامِ حرفه‌ای"}, tag:{en:"How the pro works", fa:"حرفه‌ای چطور کار می‌کند"},
+        gist:{en:"Be patient, seek order, don't take failure personally, master the craft.", fa:"صبور باش، زندگی‌ات را مرتب نگه دار، شکست را به دل نگیر، و در کارت استاد شو."},
+        more:{en:"Turning pro is a mindset, and it runs on a few plain habits. The professional is patient, keeps a calm and ordered life so chaos can't feed Resistance, refuses to take failure or praise personally, and quietly masters the craft instead of waiting for inspiration.",
+              fa:"حرفه‌ای‌شدن یک طرزِ فکر است، و روی چند عادتِ ساده می‌چرخد. آدمِ حرفه‌ای صبور است، زندگی‌اش را آرام و مرتب نگه می‌دارد تا آشوب به مقاومت خوراک ندهد، شکست و تعریف را به دل نمی‌گیرد، و بی‌سروصدا در کارش استاد می‌شود، به‌جای اینکه منتظرِ الهام بماند."},
+        chapters:["patience","personally","mastery"] },
+      { key:"muse", varc:"--c-green", name:{en:"Beyond Resistance — The Muse", fa:"آن‌سوی مقاومت — الهه"}, tag:{en:"The reward", fa:"پاداش"},
+        gist:{en:"Do the work and inspiration follows; create as an act of service.", fa:"کار را انجام بده تا الهام بیاید؛ آفریدن را یک‌جور خدمت بدان."},
+        more:{en:"Here's the payoff. When you do your part — sit down and start — something meets you halfway: call it the Muse, the angels, or just flow. Orient your life around the work itself rather than other people's applause, treat creating as a gift you give, and Resistance loses for good.",
+              fa:"این هم پاداشش. وقتی سهمِ خودت را انجام می‌دهی — می‌نشینی و شروع می‌کنی — چیزی نیمهٔ راه به استقبالت می‌آید: اسمش را بگذار الهه، فرشته‌ها، یا فقط جریان. زندگی‌ات را دورِ خودِ کار بچین، نه دورِ تشویقِ دیگران، آفریدن را هدیه‌ای بدان که می‌بخشی — آن‌وقت مقاومت برای همیشه می‌بازد."},
+        chapters:["inspiration","territory","service"] }
+    ],
+    chapters:{
+      resistance:{ part:"enemy", n:1, name:{en:"The Invisible Force", fa:"مقاومت"}, glabel:{en:"Resistance", fa:"مقاومت"},
+        principle:{en:"There's an invisible force that shows up whenever you sit down to do meaningful creative work — its only aim is to stop you.", fa:"یک نیروی نامرئی هست که هر وقت می‌نشینی تا کارِ خلاقانهٔ مهمی بکنی سبز می‌شود — تنها هدفش این است که جلویت را بگیرد."},
+        more:{en:"Pressfield gives this force one name: Resistance. You can't see it or touch it, but you feel it as the drag that keeps you from starting. Naming it is the first victory, because once you know the enemy, you can fight it.", fa:"پرسفیلد به این نیرو یک اسم می‌دهد: مقاومت. نه می‌بینی‌اش نه لمسش می‌کنی، اما به‌شکلِ همان کششی که نمی‌گذارد شروع کنی حسش می‌کنی. نام‌بردنش اولین پیروزی است، چون وقتی دشمن را شناختی، می‌توانی با او بجنگی."},
+        example:{en:"You finally sit down to write, and suddenly the kitchen needs cleaning, your inbox needs checking, and the couch looks very inviting. That pull is Resistance.", fa:"بالاخره می‌نشینی که بنویسی، و یک‌دفعه آشپزخانه باید تمیز شود، ایمیل‌ها باید چک شوند، و کاناپه هم که حسابی وسوسه‌انگیز است. آن کشش، مقاومت است."},
+        tip:{en:"Give it a name. Next time you feel the drag away from your real work, say out loud: “That’s Resistance.”", fa:"اسمش را بگذار. دفعهٔ بعد که آن کشش دورت می‌کند از کارِ اصلی، بلند بگو: «این مقاومت است.»"},
+        pitfall:{en:"Thinking the problem is you — laziness, bad luck, no talent — instead of a force you can name and fight.", fa:"فکر‌کردن به اینکه مشکل خودتی — تنبلی، بدشانسی، بی‌استعدادی — به‌جای نیرویی که می‌توانی نامش را ببری و با آن بجنگی."} },
+      internal:{ part:"enemy", n:2, name:{en:"It Comes From Within", fa:"از درون می‌آید"}, glabel:{en:"Internal", fa:"از درون"},
+        principle:{en:"Resistance isn't out in the world — it's self-generated, rising from inside you. You are both the one who creates and the one who blocks.", fa:"مقاومت بیرون، در دنیا نیست — خودساخته است و از درونِ تو بلند می‌شود. هم آفریننده تویی، هم کسی که سد می‌سازد."},
+        more:{en:"No boss, critic, or circumstance makes Resistance; you do. That's bad news and good news: bad, because you can't blame anyone else; good, because a force you generate is a force you can learn to overpower.", fa:"هیچ رئیس، منتقد یا شرایطی مقاومت نمی‌سازد؛ خودت می‌سازی. این هم خبرِ بد است هم خوب: بد، چون نمی‌توانی گردنِ کسِ دیگری بیندازی؛ خوب، چون نیرویی که خودت می‌سازی، نیرویی است که می‌توانی یاد بگیری بر آن چیره شوی."},
+        example:{en:"The room is quiet, the day is free, nobody is stopping you — and still you can't begin. The obstacle was never the room; it was inside.", fa:"اتاق ساکت است، روز خالی است، هیچ‌کس جلویت را نگرفته — و باز هم نمی‌توانی شروع کنی. مانع هیچ‌وقت اتاق نبود؛ درونت بود."},
+        tip:{en:"Stop hunting for the perfect conditions. The block is internal, so the fix is too — just start.", fa:"دست از گشتن دنبالِ شرایطِ بی‌نقص بردار. سد درونی است، پس راه‌حل هم درونی است — فقط شروع کن."},
+        pitfall:{en:"Waiting for the outside world to change (more time, more quiet, more money) when the real block is within.", fa:"منتظرِ عوض‌شدنِ دنیای بیرون ماندن (وقتِ بیشتر، سکوتِ بیشتر، پولِ بیشتر) وقتی سدِ واقعی درون است."} },
+      lethal:{ part:"enemy", n:3, name:{en:"It Kills Dreams", fa:"رؤیاها را می‌کُشد"}, glabel:{en:"Lethal", fa:"کُشنده"},
+        principle:{en:"Resistance is the most toxic force there is. Left unopposed, it keeps you from the life and work you were meant for.", fa:"مقاومت سمّی‌ترین نیرویی است که هست. جلویش را که نگیری، تو را از زندگی و کاری که برایش ساخته شده‌ای دور نگه می‌دارد."},
+        more:{en:"Between the life you live and the unlived life inside you stands Resistance. It doesn't just make you procrastinate — over a lifetime it can quietly bury a book, a business, or a calling that never got made.", fa:"بینِ زندگی‌ای که می‌کنی و زندگیِ نکرده‌ای که درونت است، مقاومت ایستاده. فقط کاری نمی‌کند که امروز و فردا کنی — در طولِ یک عمر می‌تواند بی‌سروصدا یک کتاب، یک کسب‌وکار، یا یک رسالت را که هیچ‌وقت ساخته نشد دفن کند."},
+        example:{en:"The person who “always meant to” paint, start the company, or write the novel — and never did. Resistance won, one postponed day at a time.", fa:"همان آدمی که «همیشه می‌خواست» نقاشی کند، شرکت بزند، یا رمان بنویسد — و هیچ‌وقت نکرد. مقاومت برد، یک روزِ عقب‌افتاده پشتِ روزِ عقب‌افتاده."},
+        tip:{en:"Picture the unlived work you'd regret most. That's what Resistance is trying to take from you.", fa:"همان کارِ نکرده‌ای را که بیشتر از همه حسرتش را می‌خوری تصور کن. همان است که مقاومت می‌خواهد از تو بگیرد."},
+        pitfall:{en:"Treating “someday” as safe. Someday is where Resistance buries dreams.", fa:"«یک‌روزی» را امن پنداشتن. «یک‌روزی» همان‌جایی است که مقاومت رؤیاها را دفن می‌کند."} },
+      procrastination:{ part:"faces", n:4, name:{en:"Procrastination", fa:"امروز و فردا کردن"}, glabel:{en:"Procrastination", fa:"فردا فردا"},
+        principle:{en:"Resistance's favorite disguise is procrastination — the endless “I’ll start tomorrow.”", fa:"محبوب‌ترین نقابِ مقاومت، امروز و فردا کردن است — همان «از فردا شروع می‌کنم»ِ بی‌پایان."},
+        more:{en:"Procrastination is seductive because it never says never; it just says later. But later becomes a habit, and the habit becomes a life. The pro fights it by working now, today, in the only moment that exists.", fa:"امروز و فردا کردن فریبنده است چون هیچ‌وقت نمی‌گوید هرگز؛ فقط می‌گوید بعداً. اما بعداً یک عادت می‌شود، و عادت یک زندگی. حرفه‌ای با کارکردن در همین حالا، همین امروز، در تنها لحظه‌ای که وجود دارد، با آن می‌جنگد."},
+        example:{en:"“I’ll begin on Monday, once things settle down.” Monday comes, things never settle, and the work stays unstarted.", fa:"«دوشنبه شروع می‌کنم، وقتی اوضاع آرام شد.» دوشنبه می‌رسد، اوضاع هیچ‌وقت آرام نمی‌شود، و کار نشروع می‌ماند."},
+        tip:{en:"Shrink it: do just the first ten minutes today. Starting is the whole battle.", fa:"کوچکش کن: فقط همان ده دقیقهٔ اول را امروز انجام بده. شروع‌کردن، تمامِ نبرد است."},
+        pitfall:{en:"Believing tomorrow will be different. It won't — only today is real.", fa:"باور به اینکه فردا فرق می‌کند. فرقی نمی‌کند — فقط امروز واقعی است."} },
+      fear:{ part:"faces", n:5, name:{en:"Fear & Self-Doubt", fa:"ترس و تردید"}, glabel:{en:"Fear", fa:"ترس"},
+        principle:{en:"Fear and self-doubt are fuel for Resistance — but they're also a signpost pointing at work that matters.", fa:"ترس و تردید سوختِ مقاومت‌اند — اما در عینِ حال تابلویی‌اند که به کارِ مهم اشاره می‌کنند."},
+        more:{en:"The more scared you are of a project, the more sure you can be that you have to do it. Fear doesn't mean stop; it means you've found something important. Self-doubt is the same — even asking “am I really an artist?” is a hopeful sign.", fa:"هرچه از کاری بیشتر بترسی، مطمئن‌تر باش که باید انجامش بدهی. ترس یعنی بایست نیست؛ یعنی چیزِ مهمی پیدا کرده‌ای. تردید هم همین است — حتی همین که بپرسی «واقعاً هنرمندم؟» نشانهٔ امیدوارکننده‌ای است."},
+        example:{en:"You're terrified to share the thing you made. That terror is proof it means something to you.", fa:"از به‌اشتراک‌گذاشتنِ چیزی که ساخته‌ای وحشت داری. همان وحشت، مدرکِ این است که برایت معنا دارد."},
+        tip:{en:"When fear spikes, read it as a compass: move toward the thing that scares you, not away.", fa:"وقتی ترس اوج می‌گیرد، مثلِ قطب‌نما بخوانش: به‌سمتِ چیزی که می‌ترساندت برو، نه دور از آن."},
+        pitfall:{en:"Reading fear as a red light. It's a green one.", fa:"ترس را چراغِ قرمز خواندن. چراغِ سبز است."} },
+      rationalization:{ part:"faces", n:6, name:{en:"Rationalization & Distraction", fa:"بهانه‌تراشی و حواس‌پرتی"}, glabel:{en:"Excuses", fa:"بهانه"},
+        principle:{en:"Resistance is a smooth-talking lawyer — it hands you reasonable-sounding excuses and shiny distractions so you never notice you're avoiding the work.", fa:"مقاومت یک وکیلِ خوش‌زبان است — بهانه‌های منطقی‌به‌نظر و حواس‌پرتی‌های براق دستت می‌دهد تا اصلاً نفهمی که داری از کار فرار می‌کنی."},
+        more:{en:"Unlike raw fear, rationalization doesn't feel like fear at all; it feels like good sense. “I’m too busy, I need more research, now’s not the right time.” Distraction does the rest. The trick is to see the excuse as Resistance in a suit.", fa:"برخلافِ ترسِ خام، بهانه‌تراشی اصلاً حسِ ترس نمی‌دهد؛ حسِ عقلِ سلیم می‌دهد. «سرم خیلی شلوغ است، باید بیشتر تحقیق کنم، الان وقتش نیست.» حواس‌پرتی هم بقیه‌اش را تکمیل می‌کند. کلک این است که بهانه را مقاومتی ببینی که کت‌وشلوار پوشیده."},
+        example:{en:"You spend the whole morning “researching” and reorganizing your notes — and never write a single real sentence.", fa:"کلِ صبح را «تحقیق» می‌کنی و یادداشت‌هایت را مرتب می‌کنی — و حتی یک جملهٔ واقعی نمی‌نویسی."},
+        tip:{en:"When a very reasonable excuse appears right before the work, suspect Resistance.", fa:"وقتی درست پیش از کار یک بهانهٔ خیلی منطقی سبز می‌شود، به مقاومت شک کن."},
+        pitfall:{en:"Mistaking busywork and research for the work itself.", fa:"کارِ الکی و تحقیق را با خودِ کار اشتباه‌گرفتن."} },
+      sabotage:{ part:"faces", n:7, name:{en:"Self-Sabotage & the Compass", fa:"خرابکاری در کارِ خود و قطب‌نما"}, glabel:{en:"Self-sabotage", fa:"خودزنی"},
+        principle:{en:"Resistance will even make you wreck your own progress — and the closer you are to a breakthrough, the harder it pushes.", fa:"مقاومت حتی وادارت می‌کند پیشرفتِ خودت را خراب کنی — و هرچه به یک جهش نزدیک‌تری، محکم‌تر هُل می‌دهد."},
+        more:{en:"The same rule becomes a compass: the more important a call is to your soul, the more Resistance you'll feel. So the strength of the resistance tells you exactly where your real work is. Follow the fear to find your calling.", fa:"همین قاعده به یک قطب‌نما تبدیل می‌شود: هرچه یک ندا برای روحت مهم‌تر باشد، مقاومتِ بیشتری حس می‌کنی. پس شدتِ مقاومت دقیقاً می‌گوید کارِ اصلی‌ات کجاست. دنبالِ ترس برو تا رسالتت را پیدا کنی."},
+        example:{en:"The night before a big creative leap, you pick a fight, stay up too late, or “suddenly” get sick — self-sabotage right at the finish line.", fa:"شبِ قبل از یک جهشِ بزرگِ خلاقانه، دعوا راه می‌اندازی، تا دیروقت بیدار می‌مانی، یا «یک‌دفعه» مریض می‌شوی — خرابکاری درست سرِ خطِ پایان."},
+        tip:{en:"Rank your projects by how much Resistance each stirs up; the top of that list is your true work.", fa:"کارهایت را برحسبِ اینکه هرکدام چقدر مقاومت به‌پا می‌کند رتبه‌بندی کن؛ بالای آن فهرست، کارِ واقعیِ توست."},
+        pitfall:{en:"Fleeing the projects that scare you most — those are exactly the ones that matter.", fa:"فرار از همان کارهایی که بیشتر از همه می‌ترسانندت — دقیقاً همان‌ها هستند که مهم‌اند."} },
+      amateur:{ part:"pro", n:8, name:{en:"Amateur vs. Professional", fa:"آماتور در برابرِ حرفه‌ای"}, glabel:{en:"Amateur/Pro", fa:"آماتور/حرفه‌ای"},
+        principle:{en:"The amateur plays for fun and waits to feel ready; the professional plays for keeps and commits fully.", fa:"آماتور برای تفریح بازی می‌کند و منتظر می‌ماند تا آماده حس کند؛ حرفه‌ای برای بُرد بازی می‌کند و تمام‌وکمال پایش می‌ایستد."},
+        more:{en:"An amateur loves the work but keeps it a hobby — done when the mood strikes, abandoned when it's hard. Turning pro is a mental switch, not a paycheck: you decide the work is who you are, and you stop giving Resistance the escape hatch of “only when I feel inspired.”", fa:"آماتور کارش را دوست دارد اما سرگرمی نگهش می‌دارد — وقتی حال‌وحوصله باشد انجامش می‌دهد، وقتی سخت شود رهایش می‌کند. حرفه‌ای‌شدن یک کلیدِ ذهنی است، نه حقوق: تصمیم می‌گیری که این کار همان کسی است که هستی، و دیگر درِ فرارِ «فقط وقتی الهام بشوم» را به مقاومت نمی‌دهی."},
+        example:{en:"The weekend writer waits for a magical burst of motivation; the pro writes on Tuesday morning because it's Tuesday morning.", fa:"نویسندهٔ آخرِهفته منتظرِ یک فورانِ جادوییِ انگیزه می‌ماند؛ حرفه‌ای سه‌شنبه صبح می‌نویسد چون سه‌شنبه صبح است."},
+        tip:{en:"Decide, once: “This is my job now,” and treat it that way — no more waiting for the mood.", fa:"یک‌بار برای همیشه تصمیم بگیر: «این حالا شغلِ من است»، و همان‌طور با آن رفتار کن — دیگر منتظرِ حال‌وحوصله نمان."},
+        pitfall:{en:"Staying an amateur — keeping your calling a hobby you only touch when it's easy.", fa:"آماتور ماندن — رسالتت را سرگرمی‌ای نگه‌داشتن که فقط وقتِ آسان‌بودن سراغش می‌روی."} },
+      showup:{ part:"pro", n:9, name:{en:"Show Up Every Day", fa:"هر روز سرِ کار حاضر شو"}, glabel:{en:"Show up", fa:"حاضر شو"},
+        principle:{en:"The professional sits down and works every day — inspired or not, sick or well, in the mood or not.", fa:"حرفه‌ای هر روز می‌نشیند و کار می‌کند — بااِلهام یا بی‌اِلهام، مریض یا سالم، سرِحال یا بی‌حوصله."},
+        more:{en:"This is the heart of the whole book. You beat Resistance not with a heroic one-time effort but with dull, daily consistency. Show up, put in the hours, and go home; then do it again tomorrow. The showing-up is the win.", fa:"این قلبِ کلِ کتاب است. مقاومت را با یک تلاشِ قهرمانانهٔ یک‌باره شکست نمی‌دهی، بلکه با پایداریِ کسل‌کننده و روزانه. حاضر شو، ساعت‌هایت را بگذار، و برو خانه؛ بعد فردا دوباره همین کار. همین حاضرشدن، خودِ بُرد است."},
+        example:{en:"Somerset Maugham said he wrote only when inspiration struck — and made sure it struck every morning at nine o'clock sharp.", fa:"سامرست موآم می‌گفت فقط وقتی الهام بشود می‌نویسد — و کاری می‌کرد که هر روز صبح رأسِ ساعتِ نُه الهام بشود."},
+        tip:{en:"Set a fixed time and show up to the work daily, even for a short session. Consistency beats intensity.", fa:"یک ساعتِ ثابت بگذار و هر روز سرِ کار حاضر شو، حتی برای یک جلسهٔ کوتاه. پایداری بر شدت می‌چربد."},
+        pitfall:{en:"Waiting for inspiration before you'll start. It arrives after you start, not before.", fa:"منتظرِ الهام ماندن تا بعد شروع کنی. الهام بعد از شروع می‌آید، نه قبلش."} },
+      craftjob:{ part:"pro", n:10, name:{en:"Treat the Craft Like a Job", fa:"پیشه را مثلِ یک شغل بگیر"}, glabel:{en:"Like a job", fa:"مثلِ شغل"},
+        principle:{en:"The pro treats creative work like a real job — clocking in on schedule, staying all day, and sticking with it over the long haul.", fa:"حرفه‌ای با کارِ خلاقانه مثلِ یک شغلِ واقعی رفتار می‌کند — سرِ ساعت شروع می‌کند، تمامِ روز می‌ماند، و در درازمدت پایش می‌ایستد."},
+        more:{en:"Think of a plumber or a doctor: they don't wait to feel like it, they don't quit when a task is hard, and they don't fall apart over one bad day. Bring that same steady, unglamorous professionalism to your art and Resistance loses its grip.", fa:"به یک لوله‌کش یا پزشک فکر کن: منتظر نمی‌مانند که حالش را داشته باشند، وقتی کاری سخت است ول نمی‌کنند، و به‌خاطرِ یک روزِ بد از هم نمی‌پاشند. همین حرفه‌ای‌گریِ بی‌سروصدا و باثبات را به هنرت بیاور، آن‌وقت مقاومت چنگش شل می‌شود."},
+        example:{en:"A working writer treats nine-to-one as office hours — shows up, does the work, handles the boring parts, and comes back tomorrow.", fa:"یک نویسندهٔ کاربلد ساعتِ نُه تا یک را ساعتِ اداری می‌داند — حاضر می‌شود، کار می‌کند، بخش‌های کسل‌کننده را هم انجام می‌دهد، و فردا برمی‌گردد."},
+        tip:{en:"Give your creative work real, scheduled office hours and keep them like any job.", fa:"برای کارِ خلاقانه‌ات یک «ساعتِ اداریِ» واقعی و برنامه‌ریزی‌شده بگذار و مثلِ هر شغلی نگهش دار."},
+        pitfall:{en:"Treating your calling as precious and fragile instead of as steady, professional work.", fa:"رسالتت را چیزی نازک و شکننده پنداشتن، به‌جای کاری باثبات و حرفه‌ای."} },
+      patience:{ part:"code", n:11, name:{en:"Be Patient, Seek Order", fa:"صبور باش و نظم داشته باش"}, glabel:{en:"Patience", fa:"صبر و نظم"},
+        principle:{en:"The pro is patient — art takes time — and keeps life ordered, because disorder feeds Resistance.", fa:"حرفه‌ای صبور است — هنر زمان می‌برد — و زندگی‌اش را مرتب نگه می‌دارد، چون بی‌نظمی به مقاومت خوراک می‌دهد."},
+        more:{en:"Big work rarely comes fast; the professional arms himself with patience so he doesn't burn out or panic. And he keeps his days simple and orderly, because chaos, drama, and clutter are the mud Resistance grows in. A plain, ordered life protects the work.", fa:"کارِ بزرگ به‌ندرت زود به‌دست می‌آید؛ حرفه‌ای خودش را به صبر مسلح می‌کند تا نه بسوزد نه دستپاچه شود. و روزهایش را ساده و مرتب نگه می‌دارد، چون آشوب و دلهره و شلوغی همان گِلی‌اند که مقاومت در آن می‌روید. یک زندگیِ ساده و منظم از کار محافظت می‌کند."},
+        example:{en:"Instead of chasing a dramatic all-nighter, the pro keeps a calm routine and lets the work accumulate over months.", fa:"به‌جای دنبالِ یک شب‌بیداریِ پرهیجان رفتن، حرفه‌ای یک روال آرام نگه می‌دارد و می‌گذارد کار در طولِ ماه‌ها روی‌هم جمع شود."},
+        tip:{en:"Simplify your day and remove one source of drama or clutter that keeps stealing your focus.", fa:"روزت را ساده کن و یک منبعِ دلهره یا شلوغی را که مدام تمرکزت را می‌دزدد بردار."},
+        pitfall:{en:"Expecting fast results and quitting — or letting a chaotic life crowd out the work.", fa:"انتظارِ نتیجهٔ سریع داشتن و بعد ول‌کردن — یا گذاشتن یک زندگیِ پرآشوب جای کار را تنگ کند."} },
+      personally:{ part:"code", n:12, name:{en:"Don't Take It Personally", fa:"به دل نگیر"}, glabel:{en:"Not personal", fa:"شخصی‌اش نکن"},
+        principle:{en:"The pro doesn't take failure — or success — personally. Praise and criticism land in the world, not on the soul.", fa:"حرفه‌ای شکست — یا موفقیت — را به دل نمی‌گیرد. تعریف و انتقاد در دنیا فرود می‌آیند، نه روی روح."},
+        more:{en:"Your work is what you do, not who you are. Keep that gap and a rejection can't crush you and applause can't inflate you. The professional accepts no excuses, acts in the face of fear, and keeps going regardless of how any single piece is received.", fa:"کارت همان چیزی است که می‌کنی، نه کسی که هستی. این فاصله را که نگه داری، یک ردّ‌شدن نمی‌تواند لِهت کند و یک تشویق نمی‌تواند بادت کند. حرفه‌ای هیچ بهانه‌ای را نمی‌پذیرد، در دلِ ترس عمل می‌کند، و فارغ از اینکه یک اثر چطور دیده می‌شود، به راهش ادامه می‌دهد."},
+        example:{en:"A pro gets a brutal review, feels the sting for an hour, and is back at the desk the next morning working.", fa:"حرفه‌ای یک نقدِ بی‌رحم می‌گیرد، یک ساعت سوزشش را حس می‌کند، و صبحِ روزِ بعد پشتِ میز مشغولِ کار است."},
+        tip:{en:"After a win or a loss, get back to the work quickly — that's how you keep your balance.", fa:"بعد از یک بُرد یا یک باخت، زود برگرد سرِ کار — تعادلت را این‌طوری نگه می‌داری."},
+        pitfall:{en:"Letting one rejection define you, or one success make you coast.", fa:"گذاشتن یک ردّ‌شدن تعریفت کند، یا یک موفقیت سُستت کند."} },
+      mastery:{ part:"code", n:13, name:{en:"Master the Craft", fa:"در کارت استاد شو"}, glabel:{en:"Mastery", fa:"استادی"},
+        principle:{en:"The pro dedicates herself to mastering technique — and never waits for inspiration to begin.", fa:"حرفه‌ای خودش را وقفِ استادشدن در فن می‌کند — و هیچ‌وقت منتظرِ الهام نمی‌ماند تا شروع کند."},
+        more:{en:"Talent is common; the professional's edge is craft, learned through years of deliberate practice. Because she's prepared and skilled, she can sit down and work on demand instead of praying for a magic mood. Mastery is what lets you keep the daily appointment no matter what.", fa:"استعداد فراوان است؛ برتریِ حرفه‌ای در فن است، که با سال‌ها تمرینِ سنجیده به‌دست می‌آید. چون آماده و ماهر است، می‌تواند بنشیند و به‌فرمان کار کند، نه اینکه التماسِ یک حالِ جادویی را بکند. استادی همان چیزی است که می‌گذارد قرارِ روزانه‌ات را هر جور شده نگه داری."},
+        example:{en:"A seasoned musician runs scales and drills technique for years, so that on stage the hard parts simply work.", fa:"یک نوازندهٔ کارکشته سال‌ها گام‌ها را تمرین می‌کند و فن را صیقل می‌دهد، تا روی صحنه بخش‌های سخت به‌سادگی جواب بدهند."},
+        tip:{en:"Pick one concrete skill in your craft and practice it deliberately this week.", fa:"یک مهارتِ مشخص در کارت را انتخاب کن و همین هفته سنجیده تمرینش کن."},
+        pitfall:{en:"Leaning on raw talent and waiting for inspiration instead of building real skill.", fa:"تکیه به استعدادِ خام و منتظرِ الهام ماندن، به‌جای ساختنِ مهارتِ واقعی."} },
+      inspiration:{ part:"muse", n:14, name:{en:"Do the Work, Inspiration Follows", fa:"کار را انجام بده، الهام می‌آید"}, glabel:{en:"Inspiration", fa:"الهام"},
+        principle:{en:"Sit down and start, and unseen forces come to help — the Muse rewards the pro who shows up.", fa:"بنشین و شروع کن، آن‌وقت نیروهای نادیده به کمک می‌آیند — الهه به حرفه‌ای‌ای که حاضر می‌شود پاداش می‌دهد."},
+        more:{en:"Pressfield's near-mystical claim: when you commit and begin the work, ideas, help, and inspiration arrive that weren't there before. The Muse — the angels, the flow — meets you at the desk, but only after you've done your part and started. Begin, and the magic comes to you.", fa:"ادعای تقریباً رازآلودِ پرسفیلد: وقتی پا پیش می‌گذاری و کار را شروع می‌کنی، ایده و کمک و الهامی می‌آید که پیش‌تر نبود. الهه — فرشته‌ها، جریان — پشتِ میز به استقبالت می‌آید، اما فقط بعد از اینکه سهمِ خودت را انجام دادی و شروع کردی. شروع کن، جادو خودش می‌آید سراغت."},
+        example:{en:"You force yourself to start, uninspired — and twenty minutes in, ideas are suddenly flowing faster than you can write them.", fa:"به‌زور و بی‌اِلهام شروع می‌کنی — و بیست دقیقه بعد، ایده‌ها تندتر از آنی که بتوانی بنویسی‌شان سرازیرند."},
+        tip:{en:"Never wait to feel inspired. Start first; let inspiration catch up to you.", fa:"هیچ‌وقت منتظر نمان تا الهام حس کنی. اول شروع کن؛ بگذار الهام به تو برسد."},
+        pitfall:{en:"Sitting around waiting for the Muse. She only shows up once you're already working.", fa:"لم‌دادن و منتظرِ الهه نشستن. او فقط وقتی می‌آید که تو از قبل مشغولِ کار باشی."} },
+      territory:{ part:"muse", n:15, name:{en:"Territory, Not Hierarchy", fa:"قلمرو، نه سلسله‌مراتب"}, glabel:{en:"Territory", fa:"قلمرو"},
+        principle:{en:"Orient yourself territorially, not hierarchically — draw your worth from the work itself, not from others' approval.", fa:"خودت را قلمرو‌محور بچین، نه سلسله‌مراتب‌محور — ارزشت را از خودِ کار بگیر، نه از تأییدِ دیگران."},
+        more:{en:"The hierarchical person acts to climb above others and lives on their reactions. The territorial person has a “territory” — running, writing, playing — that sustains them regardless of anyone's opinion. Own your territory, and Resistance loses its favorite weapon: your hunger for approval.", fa:"آدمِ سلسله‌مراتبی کار می‌کند تا بالای دیگران برود و با واکنشِ آن‌ها زندگی می‌کند. آدمِ قلمرو‌محور یک «قلمرو» دارد — دویدن، نوشتن، نواختن — که فارغ از نظرِ هرکسی سرِپا نگهش می‌دارد. قلمرو‌ات را از آنِ خود کن، آن‌وقت مقاومت محبوب‌ترین سلاحش را از دست می‌دهد: گرسنگی‌ات برای تأیید."},
+        example:{en:"A musician who plays because the playing itself feeds her is unshakable; one who plays only for applause is at the mercy of the crowd.", fa:"نوازنده‌ای که می‌نوازد چون خودِ نواختن سیرش می‌کند، تکان‌ناپذیر است؛ آن‌که فقط برای تشویق می‌نوازد، دستِ جمعیت است."},
+        tip:{en:"Ask of your work: does this feed me even if no one claps? Build your life around that answer.", fa:"از کارت بپرس: این حتی اگر کسی هم دست نزند سیرم می‌کند؟ زندگی‌ات را دورِ همان جواب بساز."},
+        pitfall:{en:"Living for likes, ranks, and applause — handing Resistance the keys to your motivation.", fa:"برای لایک و رتبه و تشویق زندگی‌کردن — دادنِ کلیدِ انگیزه‌ات به دستِ مقاومت."} },
+      service:{ part:"muse", n:16, name:{en:"Creativity as Service", fa:"آفرینش به‌مثابهٔ خدمت"}, glabel:{en:"Service", fa:"خدمت"},
+        principle:{en:"Do the work for its own sake, as a gift and an act of service — then let the results go.", fa:"کار را به‌خاطرِ خودش انجام بده، مثلِ یک هدیه و یک‌جور خدمت — بعد نتیجه را رها کن."},
+        more:{en:"In the end the work isn't about you. You show up, do your best, and offer it; the ego wants reward, but the deeper Self just wants to serve the gift. Work done for love — not fortune or applause — is the work that beats Resistance for good and blesses everyone it reaches.", fa:"آخرِ سر، کار دربارهٔ تو نیست. حاضر می‌شوی، بهترینت را می‌کنی، و تقدیمش می‌کنی؛ خودپرستی پاداش می‌خواهد، اما آن خودِ عمیق‌ترت فقط می‌خواهد به این موهبت خدمت کند. کاری که از سرِ عشق انجام می‌شود — نه برای ثروت یا تشویق — همان کاری است که مقاومت را برای همیشه می‌بازاند و به هر کسی که به او می‌رسد برکت می‌دهد."},
+        example:{en:"An artist finishes the piece, releases it into the world without clinging to how it's received, and starts the next one.", fa:"هنرمند اثر را تمام می‌کند، بی‌آنکه به نحوهٔ دیده‌شدنش بچسبد رهایش می‌کند توی دنیا، و سراغِ بعدی می‌رود."},
+        tip:{en:"Make the work your gift: do it as well as you can, offer it, and move on to the next.", fa:"کارت را هدیه‌ات کن: تا می‌توانی خوب انجامش بده، تقدیمش کن، و برو سراغِ بعدی."},
+        pitfall:{en:"Working only for money, fame, or applause — the surest way to let Resistance back in.", fa:"فقط برای پول، شهرت یا تشویق کارکردن — مطمئن‌ترین راه برای اینکه دوباره درِ خانه را به روی مقاومت باز کنی."} }
+    },
+    core:{ name:{en:"BEAT RESISTANCE", fa:"مقاومت را شکست بده"},
+      principle:{en:"Every time you try to do meaningful creative work, an invisible, self-generated force called Resistance rises to stop you — through procrastination, fear, doubt, and clever excuses. You defeat it the same way every day: turn pro, sit down, and do the work whether you feel like it or not. Do your part, and inspiration comes to meet you.", fa:"هر بار که می‌خواهی کارِ خلاقانهٔ معناداری بکنی، یک نیروی نامرئیِ خودساخته به‌نامِ مقاومت بلند می‌شود تا جلویت را بگیرد — با امروز و فردا کردن، ترس، تردید و بهانه‌های زیرکانه. هر روز به یک شکل شکستش می‌دهی: حرفه‌ای شو، بنشین، و کار را انجام بده، چه حالش را داشته باشی چه نداشته باشی. سهمِ خودت را انجام بده، الهام به استقبالت می‌آید."},
+      more:{en:"Pressfield maps the fight in a simple arc — name the enemy (Resistance is universal, internal, and lethal to dreams), learn its disguises (procrastination, fear, rationalization, self-sabotage), turn pro (show up every day and treat the craft like a job), live by the professional's code (patience, order, mastery, not taking it personally), and go beyond Resistance to the Muse (do the work and inspiration follows; create as service). The thread through all of it: the work is won by showing up.", fa:"پرسفیلد این نبرد را در یک قوسِ ساده می‌چیند — دشمن را نام ببر (مقاومت همگانی، درونی و کُشندهٔ رؤیاست)، نقاب‌هایش را بشناس (امروز و فردا کردن، ترس، بهانه‌تراشی، خرابکاری در کارِ خود)، حرفه‌ای شو (هر روز سرِ کار حاضر شو و پیشه را مثلِ یک شغل بگیر)، با مرامِ حرفه‌ای زندگی کن (صبر، نظم، استادی، و به‌دل‌نگرفتن)، و از مقاومت فراتر برو تا به الهه برسی (کار را انجام بده تا الهام بیاید؛ آفریدن یک خدمت است). نخِ رابطِ همه‌شان: کار با سرِ کار حاضر‌شدن برده می‌شود."},
+      example:{en:"Click any node to read a principle or an idea. You can also drag the nodes around.", fa:"روی هر دایره کلیک کن تا یک اصل یا ایده را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."} },
+    stages:[
+      { level:1, badge:{en:"Level 1 · Over-simplified", fa:"سطحِ ۱ · خیلی ساده"}, title:{en:"Just start", fa:"فقط شروع کن"}, tagline:{en:"The whole book in a sentence.", fa:"کلِ کتاب در یک جمله."},
+        body:{en:"Something inside you fights every time you try to create. Beat it the same way every day: stop waiting to feel ready and just do the work.", fa:"یک چیزی درونت هر بار که می‌خواهی بیافرینی می‌جنگد. هر روز به یک شکل شکستش بده: دست از منتظرِ آماده‌شدن ماندن بردار و کار را انجام بده."},
+        example:{en:"You don't feel like writing. You write anyway, for ten minutes. That's the entire book in action.", fa:"حالِ نوشتن را نداری. با این‌حال ده دقیقه می‌نویسی. همین، کلِ کتاب در عمل است."},
+        gain:{en:"You know the one move the whole book comes back to: do the work.", fa:"همان یک حرکتی را می‌دانی که کلِ کتاب به آن برمی‌گردد: کار را انجام بده."} },
+      { level:2, badge:{en:"Level 2 · Simple", fa:"سطحِ ۲ · ساده"}, title:{en:"Meet Resistance", fa:"با مقاومت آشنا شو"}, tagline:{en:"Name the invisible enemy.", fa:"دشمنِ نامرئی را نام ببر."},
+        body:{en:"Pressfield gives the block a name: <b>Resistance</b>. It's <b>universal</b>, it comes from <b>within</b> you, and it's <b>lethal</b> — left alone it buries the work you were meant to do. You can't fight what you can't see, so naming it is the first win.", fa:"پرسفیلد به این سد یک اسم می‌دهد: <b>مقاومت</b>. <b>همگانی</b> است، از <b>درونِ</b> خودت می‌آید، و <b>کُشنده</b> است — به‌حالِ‌خود رها شود، همان کاری را که باید بکنی دفن می‌کند. چیزی را که نمی‌بینی نمی‌توانی بشکنی، پس نام‌بردنش اولین بُرد است."},
+        example:{en:"The pull toward the fridge, the inbox, the couch — the second you sit down to create — that's Resistance, and now you can call it by name.", fa:"همان کشش به‌سمتِ یخچال و صندوقِ ایمیل و کاناپه، درست لحظه‌ای که می‌نشینی تا بیافرینی — این مقاومت است، و حالا می‌توانی به اسم صدایش کنی."},
+        gain:{en:"You can spot Resistance the moment it shows up.", fa:"می‌توانی مقاومت را همان لحظه که ظاهر می‌شود بشناسی."} },
+      { level:3, badge:{en:"Level 3 · Balanced", fa:"سطحِ ۳ · متعادل"}, title:{en:"Know its disguises", fa:"نقاب‌هایش را بشناس"}, tagline:{en:"Procrastination, fear, excuses, sabotage.", fa:"امروز و فردا کردن، ترس، بهانه، خرابکاری."},
+        body:{en:"Resistance rarely looks like Resistance. It shows up as <b>procrastination</b> (“tomorrow”), as <b>fear</b> and <b>self-doubt</b>, as reasonable-sounding <b>rationalization</b> and distraction, and even as <b>self-sabotage</b> right before a breakthrough. The compass: the more a project scares you, the more it matters.", fa:"مقاومت به‌ندرت شبیهِ مقاومت است. خودش را به‌شکلِ <b>امروز و فردا کردن</b> («فردا»)، <b>ترس</b> و <b>تردید</b>، <b>بهانه‌های</b> منطقی‌به‌نظر و حواس‌پرتی، و حتی <b>خرابکاری در کارِ خود</b> درست پیش از یک جهش نشان می‌دهد. قطب‌نما: هرچه کاری بیشتر می‌ترساندت، بیشتر مهم است."},
+        example:{en:"A whole morning of “research” and reorganizing — and not one real sentence written. That's Resistance in disguise.", fa:"یک صبحِ کامل «تحقیق» و مرتب‌کردنِ یادداشت‌ها — و حتی یک جملهٔ واقعی نوشته نمی‌شود. این مقاومت است در لباسِ مبدل."},
+        gain:{en:"You can catch Resistance behind its everyday masks.", fa:"می‌توانی مقاومت را پشتِ نقاب‌های روزمره‌اش بگیری."} },
+      { level:4, badge:{en:"Level 4 · Advanced", fa:"سطحِ ۴ · پیشرفته"}, title:{en:"Turn pro", fa:"حرفه‌ای شو"}, tagline:{en:"Show up every day, no matter what.", fa:"هر روز سرِ کار حاضر شو، هر جور شده."},
+        body:{en:"The answer isn't more inspiration — it's professionalism. The <b>amateur</b> waits for the mood; the <b>professional</b> shows up every day and treats the craft like a <b>job</b>. Live by the pro's <b>code</b>: be patient, keep life ordered, don't take failure personally, and master your technique.", fa:"جواب، الهامِ بیشتر نیست — حرفه‌ای‌گری است. <b>آماتور</b> منتظرِ حال‌وحوصله می‌ماند؛ <b>حرفه‌ای</b> هر روز سرِ کار حاضر می‌شود و پیشه را مثلِ یک <b>شغل</b> می‌گیرد. با <b>مرامِ</b> حرفه‌ای زندگی کن: صبور باش، زندگی‌ات را مرتب نگه دار، شکست را به دل نگیر، و در فنّت استاد شو."},
+        example:{en:"Maugham wrote only when inspiration struck — and made sure it struck every morning at nine o'clock sharp. That's turning pro.", fa:"موآم فقط وقتی الهام می‌شد می‌نوشت — و کاری می‌کرد که هر روز صبح رأسِ ساعتِ نُه الهام بشود. این یعنی حرفه‌ای‌شدن."},
+        gain:{en:"You can beat Resistance with daily, professional consistency.", fa:"می‌توانی مقاومت را با پایداریِ روزانه و حرفه‌ای شکست بدهی."} },
+      { level:5, badge:{en:"Level 5 · Expert", fa:"سطحِ ۵ · حرفه‌ای"}, title:{en:"Meet the Muse", fa:"الهه را ملاقات کن"}, tagline:{en:"Do the work and inspiration follows.", fa:"کار را انجام بده تا الهام بیاید."},
+        body:{en:"Do your part first and something meets you halfway. Start the work, and <b>inspiration</b> — the Muse — arrives that wasn't there before. Orient <b>territorially</b>, not hierarchically: draw your worth from the work itself, not from applause. And do it as <b>service</b> — a gift given for its own sake. That's how you win the war for good, one day at a time.", fa:"اول سهمِ خودت را انجام بده تا چیزی نیمهٔ راه به استقبالت بیاید. کار را شروع کن، و <b>الهام</b> — الهه — می‌آید که پیش‌تر نبود. به‌جای سلسله‌مراتب، <b>قلمرو‌محور</b> باش: ارزشت را از خودِ کار بگیر، نه از تشویق. و آن را یک <b>خدمت</b> بدان — هدیه‌ای که به‌خاطرِ خودش می‌دهی. این‌طوری جنگ را برای همیشه می‌بری، روزی یک روز."},
+        example:{en:"You sit down uninspired, force the first lines, and twenty minutes later ideas are pouring out faster than you can catch them.", fa:"بی‌اِلهام می‌نشینی، خطهای اول را به‌زور می‌نویسی، و بیست دقیقه بعد ایده‌ها تندتر از آنی که بتوانی بگیری‌شان سرازیر می‌شوند."},
+        gain:{en:"You can win the daily fight and help others win theirs.", fa:"می‌توانی نبردِ روزانه را ببری و به دیگران هم یاد بدهی که ببرند."} }
+    ],
+    quotes:[
+      {en:"Most of us have two lives. The life we live, and the unlived life within us. Between the two stands Resistance.", fa:"بیشترِ ما دو زندگی داریم. زندگی‌ای که می‌کنیم، و زندگیِ نکرده‌ای که درونمان است. بینِ این دو، مقاومت ایستاده است."},
+      {en:"Resistance is the most toxic force on the planet.", fa:"مقاومت سمّی‌ترین نیروی روی زمین است."},
+      {en:"The more important a call or action is to our soul's evolution, the more Resistance we will feel toward pursuing it.", fa:"هرچه یک ندا یا کار برای رشدِ روحِ ما مهم‌تر باشد، مقاومتِ بیشتری برای دنبال‌کردنش حس می‌کنیم."},
+      {en:"Are you paralyzed with fear? That's a good sign. Fear is good. Like self-doubt, fear is an indicator.", fa:"از ترس فلج شده‌ای؟ نشانهٔ خوبی است. ترس خوب است. ترس هم مثلِ تردید، یک نشانگر است."},
+      {en:"Resistance is always lying and always full of shit.", fa:"مقاومت همیشه دروغ می‌گوید و همیشه سراپا مزخرف است."},
+      {en:"The amateur plays for fun. The professional plays for keeps.", fa:"آماتور برای سرگرمی بازی می‌کند. حرفه‌ای برای بُرد."},
+      {en:"I write only when inspiration strikes. Fortunately it strikes every morning at nine o'clock sharp.", fa:"فقط وقتی الهام به سراغم می‌آید می‌نویسم. خوشبختانه هر روز رأسِ ساعتِ نُهِ صبح به سراغم می‌آید."},
+      {en:"Fear doesn't go away. The warrior and the artist live by the same code of necessity, which dictates that the battle must be fought anew every day.", fa:"ترس از بین نمی‌رود. جنگجو و هنرمند با یک مرامِ ناگزیرِ مشترک زندگی می‌کنند که حکمش این است: نبرد را باید هر روز از نو جنگید."},
+      {en:"We must do our work for its own sake, not for fortune or attention or applause.", fa:"کارمان را باید به‌خاطرِ خودش انجام دهیم، نه برای ثروت یا توجه یا تشویق."}
+    ],
+    media:[
+      { kind:"yt", id:"-esGykKrdb8", src:{en:"YouTube · Finding Mastery", fa:"یوتیوب · Finding Mastery"},
+        title:{en:"Pressfield on Fear, Doubt & Procrastination", fa:"پرسفیلد دربارهٔ ترس، تردید و امروز و فردا کردن"},
+        desc:{en:"The author himself on conquering the everyday faces of Resistance.", fa:"خودِ نویسنده دربارهٔ غلبه بر چهره‌های روزمرهٔ مقاومت."},
+        bullets:{en:["Resistance in the author's own words","Fear and self-doubt as signposts","Practical, honest, and direct"], fa:["مقاومت به زبانِ خودِ نویسنده","ترس و تردید به‌عنوانِ نشانه","عملی، صادقانه و مستقیم"]},
+        best:{en:"Best for Stage 1–3.", fa:"خوب برای مرحلهٔ ۱ تا ۳."} },
+      { kind:"yt", id:"-RhjESIYsuE", src:{en:"YouTube · Marie Forleo", fa:"یوتیوب · Marie Forleo"},
+        title:{en:"The Truth About Overcoming Resistance", fa:"حقیقتِ غلبه بر مقاومت"},
+        desc:{en:"A warm interview with Pressfield on beating the block and turning pro.", fa:"یک گفت‌وگوی گرم با پرسفیلد دربارهٔ شکستِ سد و حرفه‌ای‌شدن."},
+        bullets:{en:["Why the work is won daily","Amateur vs. professional","Turning fear into fuel"], fa:["چرا کار هر روز برده می‌شود","آماتور در برابرِ حرفه‌ای","تبدیلِ ترس به سوخت"]},
+        best:{en:"Best for Stage 2–4.", fa:"خوب برای مرحلهٔ ۲ تا ۴."} },
+      { kind:"yt", id:"cpKsogGdem4", src:{en:"YouTube · Andrew Huberman", fa:"یوتیوب · Andrew Huberman"},
+        title:{en:"How to Overcome Inner Resistance", fa:"چطور بر مقاومتِ درونی غلبه کنیم"},
+        desc:{en:"Pressfield and Huberman on the daily discipline that starves Resistance.", fa:"پرسفیلد و هابرمن دربارهٔ انضباطِ روزانه‌ای که مقاومت را گرسنه می‌گذارد."},
+        bullets:{en:["The pro's daily practice","Doing the work regardless of mood","Where inspiration really comes from"], fa:["تمرینِ روزانهٔ حرفه‌ای","انجامِ کار فارغ از حال‌وحوصله","الهام واقعاً از کجا می‌آید"]},
+        best:{en:"Best for Stage 3–5.", fa:"خوب برای مرحلهٔ ۳ تا ۵."} },
+      { kind:"img", url:"https://blackirishbooks.com/product/the-war-of-art/",
+        src:{en:"Black Irish Books · Publisher", fa:"Black Irish Books · ناشر"},
+        title:{en:"The War of Art — Publisher Page", fa:"جنگِ هنر — صفحهٔ ناشر"},
+        desc:{en:"The author's own publishing house page, with editions and the audiobook he narrates.", fa:"صفحهٔ انتشاراتیِ خودِ نویسنده، با نسخه‌ها و نسخهٔ صوتی‌ای که خودش می‌خواند."},
+        bullets:{en:["The definitive editions","Author-narrated audiobook","Straight from the source"], fa:["نسخه‌های معتبر","نسخهٔ صوتی با صدای نویسنده","مستقیم از خودِ منبع"]},
+        best:{en:"For editions and the source.", fa:"برای نسخه‌ها و منبعِ اصلی."} }
+    ],
+    go:[
+      {label:{en:"Publisher page", fa:"صفحهٔ ناشر"}, url:"https://blackirishbooks.com/product/the-war-of-art/"},
+      {label:{en:"Book on Goodreads", fa:"کتاب در گودریدز"}, url:"https://www.goodreads.com/book/show/1319.The_War_of_Art"},
+      {label:{en:"Author's site: The War of Art", fa:"سایتِ نویسنده: جنگِ هنر"}, url:"https://stevenpressfield.com/books/the-war-of-art/"}
+    ],
+    recs:[
+      { pri:"b", t:{en:"Name it out loud", fa:"بلند اسمش را ببر"}, d:{en:"Next time you dodge your real work, say “That’s Resistance” — then do the first ten minutes anyway.", fa:"دفعهٔ بعد که از کارِ اصلی‌ات طفره رفتی، بگو «این مقاومت است» — بعد همان ده دقیقهٔ اول را به‌هرحال انجام بده."} },
+      { pri:"b", t:{en:"Turn pro this week", fa:"همین هفته حرفه‌ای شو"}, d:{en:"Give your most important work fixed daily office hours, and keep them like any job.", fa:"برای مهم‌ترین کارت یک ساعتِ کاریِ ثابتِ روزانه بگذار، و مثلِ هر شغلی سرِ آن حاضر شو."} },
+      { pri:"n", t:{en:"Follow the fear", fa:"دنبالِ ترس برو"}, d:{en:"List your projects by how much each scares you; the scariest one is your real work. Start it.", fa:"کارهایت را برحسبِ اینکه هرکدام چقدر می‌ترساندت فهرست کن؛ ترسناک‌ترینش کارِ اصلیِ توست. شروعش کن."} },
+      { pri:"n", t:{en:"Start before you're ready", fa:"قبل از آماده‌شدن شروع کن"}, d:{en:"Pick a task you keep waiting to feel inspired for, and begin it now — let the Muse catch up.", fa:"کاری را که مدام منتظری برایش الهام بشوی انتخاب کن، و همین حالا شروعش کن — بگذار الهه بعداً به تو برسد."} }
+    ]
+  }
+};

@@ -1,0 +1,268 @@
+/* config: The Work of Art — Adam Moss (Taste & Craft) */
+module.exports = {
+  slug:"workofart", brand:"The Work of Art",
+  titleTag:"The Work of Art — نقشهٔ دانش و یادگیری ۵ مرحله‌ای",
+  W:980, H:780, R1:220, R2:126, span:66,
+  leafKickEn:"Lesson", leafKickFa:"درسِ",
+  flowEn:["Spark","Wrestle","Finish"], flowFa:["جرقه","کلنجار","پایان"],
+
+  hero:`  <div class="eyebrow"><span class="edot"></span>
+    <span data-only="en">Book knowledge map · Adam Moss</span>
+    <span data-only="fa">نقشهٔ کتاب · آدام ماس</span>
+  </div>
+  <h1>
+    <span data-only="en">The Work of Art — How Something Comes from Nothing</span>
+    <span data-only="fa">کارِ هنر — چطور چیزی از هیچ پدید می‌آید</span>
+  </h1>
+  <p class="dek">
+    <span data-only="en">A knowledge graph of the whole book, plus a 5-stage path from a single spark to seeing like an artist — with an example at every step.</span>
+    <span data-only="fa">نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از یک جرقهٔ ساده تا دیدن مثلِ یک هنرمند — با یک مثال در هر مرحله.</span>
+  </p>
+  <div class="metastrip">
+    <div class="metaitem"><span class="mk" data-only="en">Book</span><span class="mk" data-only="fa">کتاب</span>
+      <span class="mv" data-only="en">The Work of Art</span><span class="mv" data-only="fa">کارِ هنر</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Author</span><span class="mk" data-only="fa">نویسنده</span>
+      <span class="mv" data-only="en">Adam Moss</span><span class="mv" data-only="fa">آدام ماس</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Published</span><span class="mk" data-only="fa">سالِ چاپ</span>
+      <span class="mv" data-only="en">2024</span><span class="mv" data-only="fa">۲۰۲۴</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Group</span><span class="mk" data-only="fa">گروه</span>
+      <span class="mv" data-only="en">Taste &amp; Craft</span><span class="mv" data-only="fa">ذوق و پیشه‌وری</span></div>
+  </div>
+  <div class="chips">
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Parts</span><span data-only="fa">بخش</span></div>
+    <div class="chip"><b data-only="en">16</b><b data-only="fa">۱۶</b><span data-only="en">Lessons</span><span data-only="fa">درس</span></div>
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Learning stages</span><span data-only="fa">مرحلهٔ یادگیری</span></div>
+  </div>`,
+
+  callout:`    <b data-only="en">The core idea:</b>
+    <b data-only="fa">ایدهٔ اصلی:</b>
+    <span data-only="en"> Making art isn't magic — it's <i>work</i>. Adam Moss asked 43 artists exactly how they made one specific thing, and the same shape appears every time: a small spark, a long mess, the struggle to get unstuck, and knowing when to stop. Creativity is a human process, and you can see right inside it.</span>
+    <span data-only="fa"> ساختنِ هنر جادو نیست — <i>کار</i> است. آدام ماس از ۴۳ هنرمند پرسید دقیقاً یک اثرِ مشخص را چطور ساختند، و هر بار یک شکلِ آشنا پیدا می‌شود: یک جرقهٔ کوچک، یک آشفتگیِ طولانی، تقلا برای بیرون‌آمدن از گیر، و فهمیدنِ اینکه کِی باید ایستاد. خلاقیت یک فرایندِ انسانی است، و می‌شود درست از تویش را دید.</span>`,
+
+  kpis:`    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Parts (spark · mess · unstuck · done · patterns)</div><div class="l" data-only="fa">بخش (جرقه · آشفتگی · گیر · پایان · الگو)</div></div>
+    <div class="kbox"><div class="v" data-only="en">16</div><div class="v" data-only="fa">۱۶</div><div class="l" data-only="en">Lessons you can use</div><div class="l" data-only="fa">درس برای استفاده</div></div>
+    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Stages, simple → expert</div><div class="l" data-only="fa">مرحله، ساده تا حرفه‌ای</div></div>
+    <div class="kbox"><div class="v" data-only="en">43</div><div class="v" data-only="fa">۴۳</div><div class="l" data-only="en">Artists Moss interviewed</div><div class="l" data-only="fa">هنرمند که ماس با آن‌ها حرف زد</div></div>`,
+
+  mapcallout:`      <b data-only="en">Read it as an arc:</b><b data-only="fa">به‌صورتِ یک قوس بخوانش:</b>
+      <span data-only="en"> catch a <b>spark</b>, then <b>wrestle</b> the messy middle — drafts, dead ends, doubt — until the thing tells you it's <b>done</b>. The last part steps back to the <b>patterns</b> every artist shares.</span>
+      <span data-only="fa"> یک <b>جرقه</b> بگیر، بعد با <b>وسطِ آشفته</b> کلنجار برو — پیش‌نویس‌ها، بن‌بست‌ها، تردید — تا خودِ اثر بگوید که <b>تمام</b> شده. بخشِ آخر یک قدم عقب می‌رود سراغِ <b>الگوهایی</b> که هر هنرمند دارد.</span>`,
+
+  methodFa:"<p><b>منبع:</b> کتابِ «کارِ هنر: چطور چیزی از هیچ پدید می‌آید» نوشتهٔ آدام ماس (نشرِ Penguin Press، ۲۰۲۴) — گفت‌وگو با ۴۳ هنرمند، نویسنده و موسیقی‌دان دربارهٔ اینکه یک اثرِ مشخص را چطور ساختند.</p><p><b>روشِ کار:</b> قوسِ پنج‌بخشی و درس‌ها از خودِ کتاب، مصاحبه‌ها و منابعِ معتبر گردآوری و ساده‌نویسی شده؛ نقل‌قول‌ها مقابله و ویدیوها بررسی شده‌اند.</p><p><b>گروه:</b> «ذوق و پیشه‌وری» — کتاب‌هایی دربارهٔ قضاوت، ساختن، و فرایندِ خلاقیت.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای متنِ کامل، خودِ کتاب را بخوان.</p>",
+  methodEn:"<p><b>Source:</b> the book <i>The Work of Art: How Something Comes from Nothing</i> by Adam Moss (Penguin Press, 2024) — conversations with 43 artists, writers, and musicians about how they made one specific work.</p><p><b>How this was built:</b> the five-part arc and the lessons were gathered and rewritten from the book, interviews, and reputable sources; quotes were cross-checked and the linked videos verified.</p><p><b>Group:</b> Taste &amp; Craft — books about judgment, making, and the creative process.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>",
+
+  data:{
+    tldr:[
+      {en:"The whole book in one line: art doesn't arrive by magic — it's made, step by messy step.",
+       fa:"خلاصهٔ کل کتاب در یک جمله: هنر با جادو نمی‌آید — قدم‌به‌قدم و با آشفتگی ساخته می‌شود."},
+      {en:"Every project follows a shape: a <b>spark</b>, a <b>mess</b>, a <b>stuck</b> place, and a <b>finish</b>.",
+       fa:"هر پروژه یک شکل دارد: یک <b>جرقه</b>، یک <b>آشفتگی</b>، یک نقطهٔ <b>گیر</b>، و یک <b>پایان</b>."},
+      {en:"Ideas start small and fragile — the job is to <b>notice</b> them and give yourself permission to begin.",
+       fa:"ایده‌ها کوچک و شکننده شروع می‌شوند — کار این است که <b>ببینی‌شان</b> و به خودت اجازهٔ شروع بدهی."},
+      {en:"The middle is meant to feel like a mess. You <b>follow the material</b>, revise, and use the accidents.",
+       fa:"قرار است وسطِ کار حسِ آشفتگی بدهد. تو <b>دنبالِ مصالح</b> می‌روی، بازنویسی می‌کنی، و از اتفاق‌ها استفاده می‌کنی."},
+      {en:"Across 43 artists, the real reward isn't the finished object — it's the making itself.",
+       fa:"بینِ ۴۳ هنرمند، پاداشِ واقعی خودِ اثرِ تمام‌شده نیست — خودِ ساختن است."}
+    ],
+    parts:[
+      { key:"spark", varc:"--c-teal", name:{en:"The Spark", fa:"جرقه"}, tag:{en:"Where it begins", fa:"جایی که شروع می‌شود"},
+        gist:{en:"Ideas start as a small, fragile impulse — your first job is to notice it and begin.",
+              fa:"ایده‌ها یک تکانهٔ کوچک و شکننده‌اند — کارِ اولت این است که ببینی‌اش و شروع کنی."},
+        more:{en:"No artist in the book waits for lightning. They stay curious, catch a fragment that snags their attention, and — the hard part — give themselves permission to start before they know where it goes.",
+              fa:"هیچ هنرمندی در کتاب منتظرِ رعدوبرق نمی‌ماند. کنجکاو می‌مانند، تکه‌ای را که توجهشان را می‌گیرد شکار می‌کنند، و — قسمتِ سخت — به خودشان اجازهٔ شروع می‌دهند، قبل از اینکه بدانند به کجا می‌رسد."},
+        chapters:["notice","permission","fragile"] },
+      { key:"wrestle", varc:"--c-blue", name:{en:"Wrestling with the Mess", fa:"کلنجار با آشفتگی"}, tag:{en:"Do the work", fa:"کارِ اصلی"},
+        gist:{en:"The middle is messy by design: draft badly, follow the material, and revise toward clear.",
+              fa:"وسطِ کار طبیعتاً آشفته است: بد پیش‌نویس بزن، دنبالِ مصالح برو، و به‌سمتِ روشنی بازنویسی کن."},
+        more:{en:"This is where most of the work lives. You make something rough, let the material talk back, keep the happy accidents, and rewrite again and again until the mess turns into a shape.",
+              fa:"بیشترِ کار همین‌جاست. یک چیزِ خام می‌سازی، می‌گذاری مصالح جوابت را بدهد، اتفاق‌های خوب را نگه می‌داری، و بارها بازنویسی می‌کنی تا آشفتگی تبدیل به یک شکل شود."},
+        chapters:["draft","material","revise"] },
+      { key:"unstuck", varc:"--c-amber", name:{en:"Getting Unstuck", fa:"بیرون آمدن از گیر"}, tag:{en:"When it stalls", fa:"وقتی گیر می‌کند"},
+        gist:{en:"Doubt and dead ends are normal — use limits, change the problem, or walk away and return.",
+              fa:"تردید و بن‌بست عادی‌اند — از محدودیت استفاده کن، مسئله را عوض کن، یا برو و برگرد."},
+        more:{en:"Every maker gets stuck. The trick isn't pushing harder; it's a set of moves: sit with the doubt, let a constraint narrow the field, reframe the problem, or step away so your mind can keep working in the background.",
+              fa:"هر سازنده‌ای گیر می‌کند. ترفند این نیست که سخت‌تر فشار بیاوری؛ چند حرکت است: با تردید بنشین، بگذار یک محدودیت میدان را تنگ کند، مسئله را از نو قاب بگیر، یا کنار برو تا ذهنت پشتِ صحنه کار کند."},
+        chapters:["doubt","constraints","reframe"] },
+      { key:"done", varc:"--c-violet", name:{en:"Knowing When It's Done", fa:"فهمیدنِ اینکه کِی تمام شده"}, tag:{en:"The finish", fa:"پایان"},
+        gist:{en:"Finishing is a feeling you learn to trust — taste, a sense of rightness, and letting go.",
+              fa:"تمام‌کردن یک حس است که یاد می‌گیری بهش اعتماد کنی — ذوق، حسِ درست‌بودن، و رهاکردن."},
+        more:{en:"There's rarely a bell. Artists finish when it feels right — a judgment built from taste — and then face the hardest part: letting the thing be imperfect and out of their hands.",
+              fa:"به‌ندرت زنگی به صدا درمی‌آید. هنرمندها وقتی تمام می‌کنند که حس می‌کنند درست است — یک قضاوت که از ذوق ساخته شده — و بعد با سخت‌ترین قسمت روبه‌رو می‌شوند: گذاشتن که اثر ناقص بماند و از دستشان برود."},
+        chapters:["taste","rightness","letgo"] },
+      { key:"patterns", varc:"--c-green", name:{en:"Patterns Across Artists", fa:"الگوهای مشترکِ هنرمندان"}, tag:{en:"What they share", fa:"چیزِ مشترک"},
+        gist:{en:"Routine, play, self-trust, other people — and a compulsion to keep making things.",
+              fa:"روتین، بازی، اعتماد به خود، آدم‌های دیگر — و یک اجبار برای ادامهٔ ساختن."},
+        more:{en:"Step back and the same habits repeat across every discipline: a steady routine that leaves room for play, trust in your own taste, a few trusted people to react — and, underneath it all, a compulsion to make that never really turns off.",
+              fa:"یک قدم عقب برو، همان عادت‌ها در هر رشته‌ای تکرار می‌شوند: یک روتینِ ثابت که جا برای بازی می‌گذارد، اعتماد به ذوقِ خودت، چند آدمِ مطمئن برای واکنش — و زیرِ همهٔ این‌ها، یک اجبار برای ساختن که هیچ‌وقت واقعاً خاموش نمی‌شود."},
+        chapters:["routine","selftrust","others","compulsion"] }
+    ],
+    chapters:{
+      notice:{ part:"spark", n:1, name:{en:"Ideas Begin in Noticing", fa:"ایده از دیدن شروع می‌شود"}, glabel:{en:"Notice", fa:"دیدن"},
+        principle:{en:"Ideas don't fall from the sky — they come from paying close attention to what catches you.", fa:"ایده از آسمان نمی‌افتد — از توجهِ دقیق به چیزی می‌آید که تو را می‌گیرد."},
+        more:{en:"Artists train themselves to notice: a stray image, an odd phrase, a feeling that won't leave. Moss describes letting your imagination go fishing — staying open enough for something to bite.", fa:"هنرمندها خودشان را تمرین می‌دهند که ببینند: یک تصویرِ سرگردان، یک عبارتِ عجیب، حسی که ول نمی‌کند. ماس می‌گوید بگذار خیالت به ماهیگیری برود — آن‌قدر باز بمانی که چیزی گاز بگیرد."},
+        example:{en:"Cartoonist Roz Chast builds a strip from a scrap of overheard conversation — the idea was just lying there, noticed.", fa:"رز چَست، کارتونیست، از یک تکه‌گفت‌وگوی از سرِ اتفاق شنیده‌شده یک کارتون می‌سازد — ایده همان‌جا افتاده بود، فقط دیده شد."},
+        tip:{en:"Keep a scrap file. Write down the small things that snag your attention, before they slip away.", fa:"یک دفترِ تکه‌ها داشته باش. چیزهای کوچکی که توجهت را می‌گیرند بنویس، قبل از اینکه در بروند."},
+        pitfall:{en:"Waiting for a big, finished idea to arrive whole — it almost never does.", fa:"منتظرِ یک ایدهٔ بزرگ و کاملِ آماده ماندن — که تقریباً هیچ‌وقت این‌طوری نمی‌آید."} },
+      permission:{ part:"spark", n:2, name:{en:"Give Yourself Permission", fa:"به خودت اجازه بده"}, glabel:{en:"Permission", fa:"اجازه"},
+        principle:{en:"You don't need to be ready or qualified — you just need to let yourself begin.", fa:"لازم نیست آماده یا واجدِ شرایط باشی — فقط باید به خودت اجازهٔ شروع بدهی."},
+        more:{en:"The scariest moment is the blank page. Many artists describe a private permission — a decision that it's okay to make something bad, okay to play, okay to not know yet — that unlocks the whole process.", fa:"ترسناک‌ترین لحظه، صفحهٔ سفید است. خیلی از هنرمندها از یک اجازهٔ شخصی می‌گویند — تصمیمی که اشکالی ندارد چیزِ بد بسازی، اشکالی ندارد بازی کنی، اشکالی ندارد هنوز ندانی — و همین کلِ کار را باز می‌کند."},
+        example:{en:"The permission is simple: it doesn't have to begin with something good — it just has to begin.", fa:"اجازه ساده است: لازم نیست با یک چیزِ خوب شروع شود — فقط باید شروع شود."},
+        tip:{en:"Give yourself a tiny, ugly first draft on purpose. Lower the bar until starting feels easy.", fa:"عمداً یک پیش‌نویسِ اولِ کوچک و زشت به خودت بده. سقفِ توقع را آن‌قدر پایین بیاور که شروع آسان شود."},
+        pitfall:{en:"Waiting to feel ready or qualified enough — that feeling rarely comes before you start.", fa:"منتظرِ حسِ آماده‌بودن یا به‌اندازهٔ کافی‌بودن ماندن — این حس به‌ندرت قبل از شروع می‌آید."} },
+      fragile:{ part:"spark", n:3, name:{en:"Protect the Fragile First Idea", fa:"از ایدهٔ اولِ شکننده محافظت کن"}, glabel:{en:"First Idea", fa:"ایدهٔ اول"},
+        principle:{en:"A new idea is delicate; judge it too early and you'll kill it before it can grow.", fa:"ایدهٔ نو ظریف است؛ زیادی زود قضاوتش کنی، قبل از اینکه رشد کند می‌کُشی‌اش."},
+        more:{en:"The first impulse is usually vague and easy to dismiss. Artists learn to shelter it — to hold off the inner critic, keep the fragment alive, and let it become something before deciding whether it's any good.", fa:"تکانهٔ اول معمولاً مبهم است و راحت می‌شود ردش کرد. هنرمندها یاد می‌گیرند پناهش بدهند — منتقدِ درونی را عقب نگه دارند، تکه را زنده نگه دارند، و بگذارند چیزی شود، قبل از اینکه تصمیم بگیرند خوب است یا نه."},
+        example:{en:"A songwriter hums a rough melody into their phone before the critic wakes up and calls it silly.", fa:"یک ترانه‌سرا یک ملودیِ خام را توی گوشی‌اش زمزمه می‌کند، قبل از اینکه منتقد بیدار شود و بگوید مسخره است."},
+        tip:{en:"Separate making from judging. Capture the raw idea first; evaluate it later, on a different day.", fa:"ساختن را از قضاوت جدا کن. اول ایدهٔ خام را ثبت کن؛ بعداً، یک روزِ دیگر، ارزیابی‌اش کن."},
+        pitfall:{en:"Editing an idea to death in the first hour, before it ever had a chance.", fa:"ایده را همان ساعتِ اول با ویرایش کشتن، قبل از اینکه اصلاً فرصتی داشته باشد."} },
+      draft:{ part:"wrestle", n:4, name:{en:"Make a Mess First", fa:"اول آشفته بساز"}, glabel:{en:"Rough Draft", fa:"پیش‌نویسِ خام"},
+        principle:{en:"Start by making something bad on purpose — you can't fix a blank page.", fa:"با ساختنِ یک چیزِ بد و عمدی شروع کن — صفحهٔ سفید را نمی‌شود درست کرد."},
+        more:{en:"The first version exists to be wrong. Getting a rough, ugly whole out of your head gives you material to react to; artists rush through the bad part precisely so they can reach the good part.", fa:"نسخهٔ اول هست که غلط باشد. بیرون‌کشیدنِ یک کلِ خام و زشت از سرت، به تو مصالحی می‌دهد که بهش واکنش نشان بدهی؛ هنرمندها عمداً از قسمتِ بد سریع رد می‌شوند تا به قسمتِ خوب برسند."},
+        example:{en:"Musician Rostam Batmanglij's rule: you've got to get through the bad in order to get to the good.", fa:"قاعدهٔ رستم بتمنقلیج، موسیقی‌دان: باید از بد رد شوی تا به خوب برسی."},
+        tip:{en:"Set a timer and produce a whole rough version fast — quantity now, quality later.", fa:"یک تایمر بگذار و سریع یک نسخهٔ خامِ کامل بساز — اول کمیت، بعد کیفیت."},
+        pitfall:{en:"Trying to make the first attempt perfect, so you freeze and never finish a draft.", fa:"خواستنِ اینکه اولین تلاش بی‌نقص باشد، که یخ می‌زنی و هیچ‌وقت یک پیش‌نویس تمام نمی‌کنی."} },
+      material:{ part:"wrestle", n:5, name:{en:"Follow the Material", fa:"دنبالِ مصالح برو"}, glabel:{en:"The Material", fa:"مصالح"},
+        principle:{en:"The work starts talking back — listen, and let it lead you somewhere you didn't plan.", fa:"کار شروع می‌کند جوابت را بدهد — گوش کن، و بگذار جایی ببردت که برنامه‌اش را نداشتی."},
+        more:{en:"Once something exists, it develops its own logic. Artists follow where the material wants to go, and treat accidents as gifts — a wrong note, a smudge, a typo — that often become the best part.", fa:"همین که چیزی به‌وجود آمد، منطقِ خودش را پیدا می‌کند. هنرمندها دنبالِ جایی می‌روند که مصالح می‌خواهد برود، و اتفاق‌ها را هدیه می‌بینند — یک نتِ اشتباه، یک لکه، یک غلطِ تایپی — که اغلب بهترین قسمت می‌شوند."},
+        example:{en:"A painter keeps a mistake color that dropped onto the canvas because it makes the whole thing sing.", fa:"یک نقاش یک رنگِ اشتباهی را که روی بوم چکیده نگه می‌دارد، چون کلِ اثر را به آواز درمی‌آورد."},
+        tip:{en:"When something surprises you mid-work, don't delete it — chase it for ten minutes and see.", fa:"وقتی وسطِ کار چیزی غافلگیرت کرد، پاکش نکن — ده دقیقه دنبالش برو و ببین چه می‌شود."},
+        pitfall:{en:"Clinging to your original plan so tightly that you miss the better thing emerging.", fa:"آن‌قدر محکم به نقشهٔ اولت چسبیدن که چیزِ بهتری را که دارد پیدا می‌شود از دست بدهی."} },
+      revise:{ part:"wrestle", n:6, name:{en:"Revise Toward Clear", fa:"به‌سمتِ روشنی بازنویسی کن"}, glabel:{en:"Revision", fa:"بازنویسی"},
+        principle:{en:"Most of the work is rewriting — turning the big mess in your head into its simplest version.", fa:"بیشترِ کار بازنویسی است — تبدیلِ آن آشفتگیِ بزرگ توی سرت به ساده‌ترین شکلش."},
+        more:{en:"Revision isn't polishing; it's where the real thinking happens. You cut, reorder, and simplify pass after pass, because the shape only becomes clear by working the raw draft over and over.", fa:"بازنویسی صیقل‌دادن نیست؛ جایی است که فکرِ اصلی اتفاق می‌افتد. برش می‌زنی، دوباره می‌چینی، و ساده می‌کنی، دور به دور، چون شکل فقط با ورزدادنِ پیش‌نویسِ خام، بارها و بارها، روشن می‌شود."},
+        example:{en:"A writer cuts a chapter they loved because the book gets clearer without it — the mess becomes a line.", fa:"یک نویسنده فصلی را که دوستش داشت حذف می‌کند، چون کتاب بدونش روشن‌تر می‌شود — آشفتگی تبدیل به یک خط می‌شود."},
+        tip:{en:"Revise in passes: one for structure, one for cuts, one for clarity. Don't fix everything at once.", fa:"دور به دور بازنویسی کن: یک دور برای ساختار، یک دور برای حذف، یک دور برای روشنی. همه‌چیز را یک‌جا درست نکن."},
+        pitfall:{en:"Treating the first draft as finished, or polishing words before the structure is right.", fa:"پیش‌نویسِ اول را تمام‌شده پنداشتن، یا صیقل‌دادنِ کلمه‌ها قبل از اینکه ساختار درست باشد."} },
+      doubt:{ part:"unstuck", n:7, name:{en:"Sit With the Doubt", fa:"با تردید بنشین"}, glabel:{en:"Doubt", fa:"تردید"},
+        principle:{en:"Feeling lost and full of doubt isn't a sign you're failing — it's part of the process.", fa:"حسِ گم‌شدن و پُر از تردید بودن، نشانهٔ شکست نیست — بخشی از فرایند است."},
+        more:{en:"Nearly every artist hits dead ends and wants to quit. Moss found the difference isn't confidence; it's tolerance — staying in the discomfort, and often walking away so the mind can keep solving it in the background.", fa:"تقریباً هر هنرمندی به بن‌بست می‌خورد و می‌خواهد ول کند. ماس فهمید فرق در اعتمادبه‌نفس نیست؛ در تحمل است — ماندن در ناراحتی، و اغلب کنارکشیدن تا ذهن پشتِ صحنه حلش کند."},
+        example:{en:"Stuck on a problem, an artist takes a long walk — and the answer arrives when they've stopped forcing it.", fa:"گیرِ یک مسئله، هنرمند یک پیاده‌رویِ طولانی می‌کند — و جواب وقتی می‌آید که دیگر به‌زور دنبالش نیست."},
+        tip:{en:"When you're stuck, step away on purpose — a walk, a shower, a night's sleep — then come back.", fa:"وقتی گیر کردی، عمداً کنار برو — یک پیاده‌روی، یک دوش، یک شب خواب — بعد برگرد."},
+        pitfall:{en:"Reading the discomfort of being stuck as proof you have no talent, and quitting.", fa:"ناراحتیِ گیرکردن را دلیلِ بی‌استعدادی خواندن، و ول‌کردن."} },
+      constraints:{ part:"unstuck", n:8, name:{en:"Let Limits Free You", fa:"بگذار محدودیت آزادت کند"}, glabel:{en:"Limits", fa:"محدودیت"},
+        principle:{en:"A blank field of infinite options is paralyzing; a constraint gives you something to push against.", fa:"یک میدانِ خالی با گزینه‌های بی‌نهایت فلجت می‌کند؛ یک محدودیت به تو چیزی می‌دهد که بهش تکیه کنی."},
+        more:{en:"Moss heard it again and again: limitations are helpful. A deadline, a small budget, a fixed form, a rule you set yourself — narrowing the choices is what makes the work possible instead of endless.", fa:"ماس بارها شنید: محدودیت‌ها کمک‌کننده‌اند. یک ضرب‌الاجل، یک بودجهٔ کوچک، یک قالبِ ثابت، یک قاعده که خودت می‌گذاری — تنگ‌کردنِ گزینه‌ها همان چیزی است که کار را ممکن می‌کند، نه بی‌پایان."},
+        example:{en:"A filmmaker with almost no money invents a simpler shot — and the limit makes the scene better.", fa:"یک فیلم‌ساز که تقریباً پول ندارد یک نمای ساده‌تر ابداع می‌کند — و همان محدودیت صحنه را بهتر می‌کند."},
+        tip:{en:"When you're overwhelmed by options, invent a rule: one color, ten minutes, a single page.", fa:"وقتی گزینه‌ها غرقت می‌کنند، یک قاعده بساز: یک رنگ، ده دقیقه، یک صفحه."},
+        pitfall:{en:"Believing total freedom helps, when in fact endless options are what keep you stuck.", fa:"باور به اینکه آزادیِ کامل کمک می‌کند، درحالی‌که در واقع گزینه‌های بی‌پایان همان چیزی است که گیرت می‌اندازد."} },
+      reframe:{ part:"unstuck", n:9, name:{en:"Change the Problem", fa:"مسئله را عوض کن"}, glabel:{en:"Reframe", fa:"قابِ نو"},
+        principle:{en:"When you're stuck, the problem you're solving is often the wrong one — change the question.", fa:"وقتی گیر می‌کنی، مسئله‌ای که داری حل می‌کنی اغلب مسئلهٔ غلط است — سؤال را عوض کن."},
+        more:{en:"A dead end usually means you've framed the task badly. Artists get unstuck by stepping back and asking a different question — not how do I fix this, but what is this actually about — and the block dissolves.", fa:"بن‌بست معمولاً یعنی کار را بد قاب گرفته‌ای. هنرمندها با یک قدم عقب و پرسیدنِ یک سؤالِ دیگر از گیر درمی‌آیند — نه اینکه «چطور درستش کنم»، بلکه «این اصلاً دربارهٔ چیست» — و گره باز می‌شود."},
+        example:{en:"Blocked on an ending, a writer realizes the story was really about the sister — and it unlocks.", fa:"گیرِ یک پایان، نویسنده می‌فهمد داستان در واقع دربارهٔ خواهر بوده — و همه‌چیز باز می‌شود."},
+        tip:{en:"Stuck? Write down what the piece is really about in one sentence. Then solve that instead.", fa:"گیر کرده‌ای؟ در یک جمله بنویس اثر واقعاً دربارهٔ چیست. بعد آن را حل کن."},
+        pitfall:{en:"Grinding harder on the original problem when the fix is to redefine it.", fa:"سخت‌تر رویِ مسئلهٔ اولیه سابیدن، درحالی‌که راهِ حل، بازتعریفِ آن است."} },
+      taste:{ part:"done", n:10, name:{en:"Trust Your Taste", fa:"به ذوقت اعتماد کن"}, glabel:{en:"Taste", fa:"ذوق"},
+        principle:{en:"Knowing when it's done is a matter of taste — your own read of what's good, built over time.", fa:"فهمیدنِ اینکه کِی تمام شده، یک مسئلهٔ ذوق است — خوانشِ خودت از اینکه چه خوب است، که در طول زمان ساخته می‌شود."},
+        more:{en:"There's no formula for finished. Artists rely on a trained sense of quality — taste — that tells them when a thing is working. It isn't innate; it grows from making a lot and paying attention to what you admire.", fa:"برای «تمام‌شده» فرمولی نیست. هنرمندها به یک حسِ تربیت‌شده از کیفیت تکیه می‌کنند — ذوق — که می‌گوید کِی یک چیز جواب می‌دهد. ذاتی نیست؛ از زیاد ساختن و توجه به آنچه تحسینش می‌کنی رشد می‌کند."},
+        example:{en:"An editor cuts one more line because it's better — and can't fully explain why, except that it is.", fa:"یک ویراستار یک خطِ دیگر را حذف می‌کند چون بهتر است — و نمی‌تواند کامل توضیح دهد چرا، جز اینکه همین‌طور است."},
+        tip:{en:"Study work you love and ask why it's good. Naming what you admire sharpens your own taste.", fa:"کاری را که دوست داری بررسی کن و بپرس چرا خوب است. نام‌گذاریِ آنچه تحسین می‌کنی، ذوقِ خودت را تیز می‌کند."},
+        pitfall:{en:"Outsourcing the call to rules or other people instead of building your own judgment.", fa:"واگذارکردنِ تصمیم به قاعده‌ها یا آدم‌های دیگر، به‌جای ساختنِ قضاوتِ خودت."} },
+      rightness:{ part:"done", n:11, name:{en:"Feel for Rightness", fa:"دنبالِ حسِ درست‌بودن باش"}, glabel:{en:"Rightness", fa:"درست‌بودن"},
+        principle:{en:"Done often arrives as a quiet feeling that the pieces have clicked into place.", fa:"پایان اغلب به‌شکلِ یک حسِ آرام می‌آید که تکه‌ها سرِ جای خودشان جفت شده‌اند."},
+        more:{en:"Many artists describe a bodily sense of rightness — a click, a settling — when a work is done. It's not euphoria; Moss notes it's often undramatic, more that's it than fireworks. You learn to recognize and trust that signal.", fa:"خیلی از هنرمندها از یک حسِ بدنیِ درست‌بودن می‌گویند — یک جفت‌شدن، یک ته‌نشین‌شدن — وقتی کار تمام است. سرخوشی نیست؛ ماس می‌گوید اغلب بی‌سروصداست، بیشتر «همین است» تا آتش‌بازی. یاد می‌گیری این نشانه را بشناسی و بهش اعتماد کنی."},
+        example:{en:"A poet reads the last line aloud, feels it settle, and knows — without drama — that the poem is finished.", fa:"یک شاعر خطِ آخر را بلند می‌خواند، حس می‌کند ته‌نشین شد، و می‌داند — بی‌هیچ هیاهو — که شعر تمام است."},
+        tip:{en:"Look at your work fresh — out loud, or the next morning; notice where it clicks and where it snags.", fa:"کارت را با نگاهِ تازه ببین — بلند بخوانش، یا صبحِ روزِ بعد؛ ببین کجا جفت می‌شود و کجا گیر می‌کند."},
+        pitfall:{en:"Endlessly tweaking past the point of rightness, until you polish the life out of it.", fa:"بی‌پایان ور رفتن، بعد از نقطهٔ درست‌بودن، تا جانِ اثر را با صیقل بگیری."} },
+      letgo:{ part:"done", n:12, name:{en:"Learn to Let Go", fa:"رهاکردن را یاد بگیر"}, glabel:{en:"Let Go", fa:"رهاکردن"},
+        principle:{en:"At some point you have to release the work, imperfect, and let it belong to others.", fa:"یک جایی باید کار را رها کنی، ناقص، و بگذاری مالِ دیگران شود."},
+        more:{en:"Nothing is ever fully finished — it's abandoned at a good moment. Artists accept that the thing in the world will never match the thing in their head, and let it go anyway, so they can start the next one.", fa:"هیچ‌چیز واقعاً «تمام» نمی‌شود — در یک لحظهٔ خوب رهایش می‌کنی. هنرمندها می‌پذیرند که آن چیزی که در دنیاست هیچ‌وقت با آن چیزی که در سرشان بود جور درنمی‌آید، و بازهم رهایش می‌کنند، تا بتوانند بعدی را شروع کنند."},
+        example:{en:"Moss found nobody is fully satisfied; you finish, the next day is fine, and you go back to work.", fa:"ماس فهمید هیچ‌کس کاملاً راضی نیست؛ تمام می‌کنی، روزِ بعد حالت خوب است، و برمی‌گردی سرِ کار."},
+        tip:{en:"Set a real deadline and ship it. Better can wait for the next project; done teaches more than perfect.", fa:"یک ضرب‌الاجلِ واقعی بگذار و منتشرش کن. «بهتر» می‌تواند برای پروژهٔ بعدی صبر کند؛ تمام‌کردن بیشتر از بی‌نقص‌بودن یاد می‌دهد."},
+        pitfall:{en:"Holding a piece forever, afraid to let anyone see it fall short of the version in your head.", fa:"یک اثر را تا ابد نگه‌داشتن، از ترسِ اینکه کسی ببیند از نسخهٔ توی سرت کوتاه‌تر است."} },
+      routine:{ part:"patterns", n:13, name:{en:"Routine and Play", fa:"روتین و بازی"}, glabel:{en:"Routine", fa:"روتین"},
+        principle:{en:"A steady routine does the heavy lifting; play is what lets discovery happen inside it.", fa:"یک روتینِ ثابت بارِ سنگین را می‌کشد؛ بازی همان چیزی است که می‌گذارد کشف در دلش اتفاق بیفتد."},
+        more:{en:"Almost every artist has ordinary habits — same hours, same desk — that remove the drama of starting. But the routine exists to protect play: showing up reliably so that, some days, something surprising can happen.", fa:"تقریباً هر هنرمندی عادت‌های معمولی دارد — همان ساعت‌ها، همان میز — که هیجانِ اضطراب‌آورِ شروع را برمی‌دارد. اما روتین هست که از بازی محافظت کند: مرتب سرِ کار حاضرشدن، تا بعضی روزها چیزِ غافلگیرکننده‌ای اتفاق بیفتد."},
+        example:{en:"A painter works the same hours every day; the discipline is exactly what frees them to experiment.", fa:"یک نقاش هر روز همان ساعت‌ها کار می‌کند؛ همین نظم دقیقاً همان چیزی است که آزادش می‌کند تا آزمایش کند."},
+        tip:{en:"Fix the boring parts — time and place — so your energy goes into the work, not into deciding.", fa:"قسمت‌های خسته‌کننده را ثابت کن — زمان و مکان — تا انرژی‌ات صرفِ کار شود، نه تصمیم‌گرفتن."},
+        pitfall:{en:"Waiting for inspiration instead of building a routine that makes the work happen anyway.", fa:"منتظرِ الهام ماندن، به‌جای ساختنِ یک روتین که کار را به‌هرحال پیش می‌برد."} },
+      selftrust:{ part:"patterns", n:14, name:{en:"Trust Yourself", fa:"به خودت اعتماد کن"}, glabel:{en:"Self-Trust", fa:"اعتماد به خود"},
+        principle:{en:"In the end, you have to believe your own instinct more than the noise around you.", fa:"آخرش، باید به غریزهٔ خودت بیشتر از سروصدای دورت باور داشته باشی."},
+        more:{en:"Every artist faces the moment where no one can tell them the answer. Self-trust — the willingness to back your own choice even when you're unsure — is what carries a personal work through to the end.", fa:"هر هنرمندی به لحظه‌ای می‌رسد که هیچ‌کس نمی‌تواند جواب را بگوید. اعتماد به خود — حاضربودن برای پشتیبانی از انتخابِ خودت، حتی وقتی مطمئن نیستی — همان چیزی است که یک اثرِ شخصی را تا آخر می‌رساند."},
+        example:{en:"Told a choice was too strange, an artist keeps it anyway — and that oddness becomes the signature.", fa:"به یک هنرمند می‌گویند یک انتخاب زیادی عجیب است، بازهم نگهش می‌دارد — و همان عجیب‌بودن امضایش می‌شود."},
+        tip:{en:"Notice when you're editing to please a critic in your head. Ask what you'd choose if no one watched.", fa:"حواست باشد کِی داری برای راضی‌کردنِ یک منتقدِ توی سرت ویرایش می‌کنی. بپرس اگر کسی نگاه نمی‌کرد چه انتخاب می‌کردی."},
+        pitfall:{en:"Sanding off what's most personal to match what you think others expect.", fa:"سابیدنِ شخصی‌ترین چیز، برای جورشدن با چیزی که فکر می‌کنی دیگران انتظار دارند."} },
+      others:{ part:"patterns", n:15, name:{en:"You Need Other People", fa:"به آدم‌های دیگر نیاز داری"}, glabel:{en:"Others", fa:"دیگران"},
+        principle:{en:"Even solitary work needs a few trusted eyes — someone to react, push back, and see what you can't.", fa:"حتی کارِ تک‌نفره هم چند چشمِ مطمئن می‌خواهد — کسی که واکنش نشان دهد، مخالفت کند، و چیزی را ببیند که تو نمی‌توانی."},
+        more:{en:"The lone genius is a myth. Behind most work is an editor, a partner, a friend whose reaction reveals what's really there — the whole book is Moss doing exactly that, drawing the process out through conversation.", fa:"نابغهٔ تنها یک افسانه است. پشتِ بیشترِ کارها یک ویراستار، یک شریک، یک دوست است که واکنشش نشان می‌دهد واقعاً چه چیزی آنجاست — کلِ کتاب همین است، ماس با گفت‌وگو فرایند را بیرون می‌کشد."},
+        example:{en:"A novelist's editor asks one blunt question that reveals the real story hiding under the draft.", fa:"ویراستارِ یک رمان‌نویس یک سؤالِ رک می‌پرسد که داستانِ واقعیِ پنهان زیرِ پیش‌نویس را آشکار می‌کند."},
+        tip:{en:"Find one or two people you trust and show them work early. You want reaction, not just praise.", fa:"یکی‌دو نفر پیدا کن که بهشان اعتماد داری و کارت را زود نشانشان بده. تو واکنش می‌خواهی، نه فقط تعریف."},
+        pitfall:{en:"Either hiding your work from everyone, or handing your judgment over to the crowd.", fa:"یا کارت را از همه پنهان‌کردن، یا قضاوتت را دستِ جمعیت سپردن."} },
+      compulsion:{ part:"patterns", n:16, name:{en:"Why They Keep Making", fa:"چرا ادامه می‌دهند"}, glabel:{en:"The Drive", fa:"کشش"},
+        principle:{en:"Underneath every artist is a compulsion to make — the process matters more than the product.", fa:"زیرِ هر هنرمندی یک اجبار برای ساختن هست — خودِ فرایند بیشتر از محصول مهم است."},
+        more:{en:"Asked why they keep going, the artists don't point to fame or the finished object. They describe a need to make, and a love of the making itself — the reason the book is called The Work of Art: it's about the work.", fa:"وقتی می‌پرسی چرا ادامه می‌دهند، هنرمندها به شهرت یا شیءِ تمام‌شده اشاره نمی‌کنند. از یک نیاز به ساختن می‌گویند، و از عشق به خودِ ساختن — به همین دلیل اسمِ کتاب «کارِ هنر» است: دربارهٔ کار است."},
+        example:{en:"Moss says the makers are consumed by the work; the end product, they insist, is not the point.", fa:"ماس می‌گوید سازنده‌ها غرقِ کارند؛ اصرار دارند که محصولِ نهایی، اصلِ مطلب نیست."},
+        tip:{en:"Chase projects that pull you into the making. If only the finished trophy appeals, motivation won't last.", fa:"دنبالِ پروژه‌هایی برو که تو را به دلِ ساختن می‌کشند. اگر فقط جامِ تمام‌شده جذابت کند، انگیزه دوام نمی‌آورد."},
+        pitfall:{en:"Chasing only the outcome — applause, sales — until the making feels empty and you burn out.", fa:"دنبالِ فقط نتیجه‌رفتن — تشویق، فروش — تا وقتی ساختن پوچ حس شود و بسوزی."} }
+    },
+    core:{ name:{en:"HOW ART GETS MADE", fa:"هنر چطور ساخته می‌شود"},
+      principle:{en:"Creativity isn't magic — it's a messy, human process, and you can see right inside it. Adam Moss asked 43 artists how they made one specific thing, and the same arc appears: a spark, a long wrestle with the mess, the work of getting unstuck, and the quiet judgment of knowing when it's done.", fa:"خلاقیت جادو نیست — یک فرایندِ آشفته و انسانی است، و می‌شود درست از تویش را دید. آدام ماس از ۴۳ هنرمند پرسید یک چیزِ مشخص را چطور ساختند، و همان قوس پیدا می‌شود: یک جرقه، یک کلنجارِ طولانی با آشفتگی، کارِ بیرون‌آمدن از گیر، و قضاوتِ آرامِ فهمیدنِ اینکه کِی تمام است."},
+      more:{en:"The book maps into five parts — The Spark (noticing, permission, the fragile first idea), Wrestling with the Mess (draft, follow the material, revise), Getting Unstuck (doubt, limits, changing the problem), Knowing When It's Done (taste, rightness, letting go), and Patterns Across Artists (routine, self-trust, other people, the compulsion to make). The thread through all of it: the finished object isn't the point — the making is.", fa:"کتاب به پنج بخش نقشه می‌شود — جرقه (دیدن، اجازه، ایدهٔ اولِ شکننده)، کلنجار با آشفتگی (پیش‌نویس، دنبالِ مصالح، بازنویسی)، بیرون‌آمدن از گیر (تردید، محدودیت، عوض‌کردنِ مسئله)، فهمیدنِ اینکه کِی تمام شده (ذوق، درست‌بودن، رهاکردن)، و الگوهای مشترکِ هنرمندان (روتین، اعتماد به خود، آدم‌های دیگر، اجبار به ساختن). نخِ رابطِ همه‌شان: شیءِ تمام‌شده اصلِ مطلب نیست — ساختن است."},
+      example:{en:"Click any node to read a lesson or a part. You can also drag the nodes around.", fa:"روی هر دایره کلیک کن تا یک درس یا بخش را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."} },
+    stages:[
+      { level:1, badge:{en:"Level 1 · Over-simplified", fa:"سطحِ ۱ · خیلی ساده"}, title:{en:"Art is made, not magic", fa:"هنر ساخته می‌شود، جادو نیست"}, tagline:{en:"The whole book in a sentence.", fa:"کلِ کتاب در یک جمله."},
+        body:{en:"Great work doesn't drop from the sky onto gifted people. It's built, step by messy step — a spark, a lot of trying, and a slow shaping. Anyone who makes things goes through the same struggle.", fa:"کارِ بزرگ از آسمان روی آدم‌های بااستعداد نمی‌افتد. ساخته می‌شود، قدم‌به‌قدم و با آشفتگی — یک جرقه، کلی تلاش، و یک شکل‌دادنِ آرام. هر کسی که چیزی می‌سازد، همین کشمکش را می‌گذراند."},
+        example:{en:"The genius you admire made an ugly first draft too — you just never saw it.", fa:"همان «نابغه‌ای» که تحسینش می‌کنی هم یک پیش‌نویسِ اولِ زشت داشت — تو فقط ندیدی‌اش."},
+        gain:{en:"You stop waiting for magic and accept that making is work.", fa:"دست از انتظارِ جادو برمی‌داری و می‌پذیری که ساختن، کار است."} },
+      { level:2, badge:{en:"Level 2 · Simple", fa:"سطحِ ۲ · ساده"}, title:{en:"The four-beat arc", fa:"قوسِ چهارضربی"}, tagline:{en:"Spark, mess, unstuck, done.", fa:"جرقه، آشفتگی، گیر، پایان."},
+        body:{en:"Every project moves through the same beats: a <b>spark</b> to begin, a messy <b>middle</b> where most of the work happens, a <b>stuck</b> stretch you have to push through, and a <b>finish</b> you decide by feel. Knowing the arc makes the hard parts feel normal.", fa:"هر پروژه از همان ضرب‌ها می‌گذرد: یک <b>جرقه</b> برای شروع، یک <b>وسطِ</b> آشفته که بیشترِ کار همان‌جاست، یک تکهٔ <b>گیر</b> که باید از تویش رد شوی، و یک <b>پایان</b> که با حس تصمیمش می‌گیری. دانستنِ این قوس، قسمت‌های سخت را عادی می‌کند."},
+        example:{en:"Feeling lost in the middle? That's not failure — it's the map telling you you're on track.", fa:"وسطِ کار حس می‌کنی گم شده‌ای؟ این شکست نیست — نقشه دارد می‌گوید سرِ راهی."},
+        gain:{en:"You can locate yourself in any project instead of panicking.", fa:"می‌توانی جای خودت را در هر پروژه پیدا کنی، به‌جای وحشت‌کردن."} },
+      { level:3, badge:{en:"Level 3 · Balanced", fa:"سطحِ ۳ · متعادل"}, title:{en:"Work the messy middle", fa:"با وسطِ آشفته کار کن"}, tagline:{en:"Draft badly, follow it, revise.", fa:"بد پیش‌نویس بزن، دنبالش برو، بازنویسی کن."},
+        body:{en:"Now the craft. Make a rough <b>draft</b> on purpose — you can't fix blank. Then <b>follow the material</b>, keeping the accidents it hands you. Then <b>revise</b> in passes, cutting and simplifying until the mess becomes a shape. Most of the real work lives here.", fa:"حالا صنعتِ کار. عمداً یک <b>پیش‌نویسِ</b> خام بساز — سفید را نمی‌شود درست کرد. بعد <b>دنبالِ مصالح</b> برو، و اتفاق‌هایی را که بهت می‌دهد نگه دار. بعد دور به دور <b>بازنویسی</b> کن، برش بزن و ساده کن تا آشفتگی تبدیل به یک شکل شود. بیشترِ کارِ اصلی همین‌جاست."},
+        example:{en:"Halve a rough draft, keep the surprising bits, and rebuild — it's almost always better.", fa:"یک پیش‌نویسِ خام را نصف کن، تکه‌های غافلگیرکننده را نگه دار، و از نو بساز — تقریباً همیشه بهتر است."},
+        gain:{en:"You can turn a rough start into a finished thing.", fa:"می‌توانی یک شروعِ خام را به یک چیزِ تمام‌شده تبدیل کنی."} },
+      { level:4, badge:{en:"Level 4 · Advanced", fa:"سطحِ ۴ · پیشرفته"}, title:{en:"Get unstuck on purpose", fa:"عمدی از گیر دربیا"}, tagline:{en:"Limits, reframing, walking away.", fa:"محدودیت، قابِ نو، کنارکشیدن."},
+        body:{en:"The advanced maker has moves for the wall. Add a <b>constraint</b> so infinite options stop paralyzing you. <b>Reframe</b> the problem — often you're solving the wrong one. And when you're truly stuck, <b>walk away</b>, trusting your mind to keep working in the background until the answer surfaces.", fa:"سازندهٔ پیشرفته برای دیوار، حرکت دارد. یک <b>محدودیت</b> اضافه کن تا گزینه‌های بی‌نهایت فلجت نکنند. مسئله را <b>از نو قاب بگیر</b> — اغلب داری مسئلهٔ غلط را حل می‌کنی. و وقتی واقعاً گیر کردی، <b>کنار برو</b>، با اعتماد به اینکه ذهنت پشتِ صحنه کار می‌کند تا جواب رو بیاید."},
+        example:{en:"Blocked for days, you set one rule and take a walk — and the fix arrives when you stop forcing it.", fa:"چند روز گیر بوده‌ای، یک قاعده می‌گذاری و پیاده‌روی می‌کنی — و راهِ حل وقتی می‌آید که دیگر به‌زور دنبالش نیستی."},
+        gain:{en:"A block becomes a step in the process, not the end of it.", fa:"گیرکردن تبدیل به یک قدم در فرایند می‌شود، نه پایانِ آن."} },
+      { level:5, badge:{en:"Level 5 · Expert", fa:"سطحِ ۵ · حرفه‌ای"}, title:{en:"See like an artist", fa:"مثلِ یک هنرمند ببین"}, tagline:{en:"Taste, self-trust, and the love of making.", fa:"ذوق، اعتماد به خود، و عشق به ساختن."},
+        body:{en:"The expert trusts the whole process. You know done by <b>taste</b> and a felt sense of <b>rightness</b>, then <b>let the work go</b>, imperfect. You lean on a <b>routine</b> that protects play, a few trusted <b>people</b>, and above all your own <b>instinct</b>. And you keep making — because the point was never the finished object; it was the work itself.", fa:"آدمِ حرفه‌ای به کلِ فرایند اعتماد دارد. پایان را با <b>ذوق</b> و یک حسِ <b>درست‌بودن</b> می‌شناسی، بعد کار را <b>رها می‌کنی</b>، ناقص. به یک <b>روتین</b> که از بازی محافظت می‌کند تکیه می‌کنی، به چند <b>آدمِ</b> مطمئن، و از همه مهم‌تر به <b>غریزهٔ</b> خودت. و ادامه می‌دهی به ساختن — چون اصل هیچ‌وقت شیءِ تمام‌شده نبود؛ خودِ کار بود."},
+        example:{en:"You ship work you believe in, learn from it, and start the next thing the very next day.", fa:"کاری را که بهش باور داری منتشر می‌کنی، ازش یاد می‌گیری، و همان روزِ بعد چیزِ بعدی را شروع می‌کنی."},
+        gain:{en:"You can make things with confidence — and help others do the same.", fa:"می‌توانی با اطمینان چیز بسازی — و به دیگران هم کمک کنی همین کار را بکنند."} }
+    ],
+    quotes:[
+      {en:"It's taught me to appreciate the making, not the made. — Adam Moss", fa:"به من یاد داد قدرِ ساختن را بدانم، نه ساخته‌شده را. — آدام ماس"},
+      {en:"The end product is not the point. — Adam Moss", fa:"محصولِ نهایی، اصلِ مطلب نیست. — آدام ماس"},
+      {en:"They all have drive. They all have a compulsion — an obsession to make something. — Adam Moss", fa:"همه‌شان کشش دارند. همه‌شان یک اجبار دارند — وسواسِ ساختنِ یک چیز. — آدام ماس"},
+      {en:"You need to be distracted enough for your mind, for your imagination to go fishing, and you need to be focused enough to know what to do with it. — Adam Moss", fa:"باید آن‌قدر حواست پرت باشد که ذهنت، خیالت، به ماهیگیری برود، و آن‌قدر متمرکز باشی که بدانی با آن چه کنی. — آدام ماس"},
+      {en:"Limitations are helpful. — Adam Moss", fa:"محدودیت‌ها کمک‌کننده‌اند. — آدام ماس"},
+      {en:"I really wanted to be good, and it made the act of making art so frustrating for me. — Adam Moss", fa:"واقعاً می‌خواستم خوب باشم، و همین باعث شد ساختنِ هنر برایم خیلی عذاب‌آور شود. — آدام ماس"},
+      {en:"You've got to get through the bad in order to get to the good. — Rostam Batmanglij", fa:"باید از بد رد شوی تا به خوب برسی. — رستم بتمنقلیج"},
+      {en:"The book is called ‘The Work of Art,’ and that is kind of what it's about. It's about the work. — Adam Moss", fa:"اسمِ کتاب «کارِ هنر» است، و یک‌جورهایی هم موضوعش همین است. موضوعش کار است. — آدام ماس"}
+    ],
+    media:[
+      { kind:"yt", id:"VU_XKJ_VnQY", src:{en:"YouTube · Hammer Museum", fa:"یوتیوب · Hammer Museum"},
+        title:{en:"Adam Moss Reads from The Work of Art", fa:"آدام ماس از «کارِ هنر» می‌خواند"},
+        desc:{en:"A live reading and talk at the Hammer Museum, May 2024.", fa:"یک خوانش و گفت‌وگوی زنده در موزهٔ هامر، مه ۲۰۲۴."},
+        bullets:{en:["Moss in his own words","How the book came together","A warm, personal introduction"], fa:["ماس با زبانِ خودش","اینکه کتاب چطور شکل گرفت","یک مقدمهٔ گرم و شخصی"]},
+        best:{en:"Best for Stage 1–2.", fa:"خوب برای مرحلهٔ ۱ و ۲."} },
+      { kind:"yt", id:"SkXRPf0b-pM", src:{en:"YouTube · Barnes & Noble", fa:"یوتیوب · Barnes & Noble"},
+        title:{en:"#PouredOver: Adam Moss on The Work of Art", fa:"گفت‌وگوی پادکستِ بارنز اند نوبل با آدام ماس"},
+        desc:{en:"A podcast conversation about the making of the book and its ideas.", fa:"یک گفت‌وگوی پادکستی دربارهٔ ساختِ کتاب و ایده‌هایش."},
+        bullets:{en:["The process behind the book","Stories from the interviews","Good after a first look"], fa:["فرایندِ پشتِ کتاب","قصه‌هایی از مصاحبه‌ها","خوب بعد از نگاهِ اول"]},
+        best:{en:"Best for Stage 2–3.", fa:"خوب برای مرحلهٔ ۲ و ۳."} },
+      { kind:"yt", id:"C2c_xOzc6dU", src:{en:"YouTube · Midtown Scholar", fa:"یوتیوب · Midtown Scholar"},
+        title:{en:"The Work of Art — Keynote with Vinson Cunningham", fa:"کارِ هنر — گفت‌وگو با وینسن کانینگهام"},
+        desc:{en:"A longer keynote conversation digging into creativity and craft.", fa:"یک گفت‌وگوی بلندترِ کلیدی که به خلاقیت و پیشه‌وری می‌پردازد."},
+        bullets:{en:["A deeper, unhurried talk","Creativity across disciplines","For when you want more"], fa:["یک گفت‌وگوی عمیق‌تر و بی‌عجله","خلاقیت در رشته‌های مختلف","برای وقتی بیشتر می‌خواهی"]},
+        best:{en:"Best for Stage 4–5.", fa:"خوب برای مرحلهٔ ۴ و ۵."} },
+      { kind:"img", url:"https://www.penguinrandomhouse.com/books/669522/the-work-of-art-by-adam-moss/",
+        src:{en:"Penguin Press · Publisher", fa:"Penguin Press · ناشر"},
+        title:{en:"The Work of Art — Publisher Page", fa:"کارِ هنر — صفحهٔ ناشر"},
+        desc:{en:"The publisher page, with the description, contributors, and editions.", fa:"صفحهٔ ناشر، با توضیحات، فهرستِ هنرمندان، و نسخه‌ها."},
+        bullets:{en:["Straight from the source","The full list of artists","Editions and details"], fa:["مستقیم از خودِ منبع","فهرستِ کاملِ هنرمندان","نسخه‌ها و جزئیات"]},
+        best:{en:"For the source and details.", fa:"برای منبع و جزئیات."} }
+    ],
+    go:[
+      {label:{en:"Publisher page (Penguin Press)", fa:"صفحهٔ ناشر (Penguin Press)"}, url:"https://www.penguinrandomhouse.com/books/669522/the-work-of-art-by-adam-moss/"},
+      {label:{en:"Book on Goodreads", fa:"کتاب در گودریدز"}, url:"https://www.goodreads.com/book/show/192723955-the-work-of-art"},
+      {label:{en:"NPR: Adam Moss on making art", fa:"NPR: آدام ماس دربارهٔ ساختنِ هنر"}, url:"https://www.npr.org/2024/04/16/1245150280/whats-the-key-to-creating-great-art-this-author-spoke-to-40-artists-to-find-out"}
+    ],
+    recs:[
+      { pri:"b", t:{en:"Catch one spark today", fa:"امروز یک جرقه بگیر"}, d:{en:"Write down one small thing that snagged your attention — an image, a line, a question — before it slips away.", fa:"یک چیزِ کوچک که توجهت را گرفت بنویس — یک تصویر، یک جمله، یک سؤال — قبل از اینکه در برود."} },
+      { pri:"b", t:{en:"Make an ugly first draft", fa:"یک پیش‌نویسِ اولِ زشت بساز"}, d:{en:"Set a timer and make something rough and whole on purpose. You can't fix a blank page.", fa:"یک تایمر بگذار و عمداً یک چیزِ خام و کامل بساز. صفحهٔ سفید را نمی‌شود درست کرد."} },
+      { pri:"n", t:{en:"When stuck, add a limit", fa:"وقتی گیر کردی، یک محدودیت بگذار"}, d:{en:"Overwhelmed by options? Invent one rule — one color, ten minutes, a single page — and push against it.", fa:"گزینه‌ها غرقت کرده؟ یک قاعده بساز — یک رنگ، ده دقیقه، یک صفحه — و بهش تکیه کن."} },
+      { pri:"n", t:{en:"Finish and let it go", fa:"تمام کن و رها کن"}, d:{en:"Set a real deadline and ship something imperfect. Done teaches you more than endless polishing.", fa:"یک ضرب‌الاجلِ واقعی بگذار و یک چیزِ ناقص را منتشر کن. تمام‌کردن بیشتر از صیقلِ بی‌پایان یادت می‌دهد."} }
+    ]
+  }
+};

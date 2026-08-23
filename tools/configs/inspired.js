@@ -1,0 +1,264 @@
+/* config: INSPIRED — Marty Cagan (Product Org) */
+module.exports = {
+  slug:"inspired", brand:"INSPIRED",
+  titleTag:"INSPIRED — نقشهٔ دانش و یادگیری ۵ مرحله‌ای",
+  W:980, H:780, R1:220, R2:126, span:66,
+  leafKickEn:"Idea", leafKickFa:"ایدهٔ",
+  flowEn:["Discover","Validate","Deliver"], flowFa:["کشف","آزمودن","تحویل"],
+
+  hero:`  <div class="eyebrow"><span class="edot"></span>
+    <span data-only="en">Book knowledge map · Marty Cagan</span>
+    <span data-only="fa">نقشهٔ کتاب · مارتی کیگن</span>
+  </div>
+  <h1>
+    <span data-only="en">INSPIRED — How to Create Tech Products Customers Love</span>
+    <span data-only="fa">اینسپایرد — چطور محصولی بسازیم که مشتری‌ها عاشقش شوند</span>
+  </h1>
+  <p class="dek">
+    <span data-only="en">A knowledge graph of the whole book, plus a 5-stage path from a single idea to expert-level product craft — with an example at every step.</span>
+    <span data-only="fa">نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از یک ایدهٔ ساده تا کارِ حرفه‌ایِ محصول — با یک مثال در هر مرحله.</span>
+  </p>
+  <div class="metastrip">
+    <div class="metaitem"><span class="mk" data-only="en">Book</span><span class="mk" data-only="fa">کتاب</span>
+      <span class="mv" data-only="en">INSPIRED</span><span class="mv" data-only="fa">اینسپایرد</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Author</span><span class="mk" data-only="fa">نویسنده</span>
+      <span class="mv" data-only="en">Marty Cagan</span><span class="mv" data-only="fa">مارتی کیگن</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Published</span><span class="mk" data-only="fa">سالِ چاپ</span>
+      <span class="mv" data-only="en">2017 (2nd ed.)</span><span class="mv" data-only="fa">۲۰۱۷ (ویرایشِ دوم)</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Group</span><span class="mk" data-only="fa">گروه</span>
+      <span class="mv" data-only="en">Product Org</span><span class="mv" data-only="fa">سازمانِ محصول</span></div>
+  </div>
+  <div class="chips">
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Parts</span><span data-only="fa">بخش</span></div>
+    <div class="chip"><b data-only="en">16</b><b data-only="fa">۱۶</b><span data-only="en">Ideas</span><span data-only="fa">ایده</span></div>
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Learning stages</span><span data-only="fa">مرحلهٔ یادگیری</span></div>
+  </div>`,
+
+  callout:`    <b data-only="en">The core idea:</b>
+    <b data-only="fa">ایدهٔ اصلی:</b>
+    <span data-only="en"> Great products come from <i>empowered</i> teams of missionaries doing real <i>product discovery</i> — testing ideas for value, usability, feasibility and viability <i>before</i> building — so you build what customers actually love.</span>
+    <span data-only="fa"> محصولِ عالی از تیم‌های <i>توانمند</i> و پُرانگیزه‌ای می‌آید که <i>کشفِ محصولِ</i> واقعی می‌کنند — ایده‌ها را از نظرِ ارزش، کاربردپذیری، ساختنی‌بودن و به‌صرفه‌بودن <i>پیش از</i> ساخت می‌آزمایند — تا چیزی بسازی که مشتری واقعاً دوستش دارد.</span>`,
+
+  kpis:`    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Parts (teams · people · product · process · culture)</div><div class="l" data-only="fa">بخش (تیم‌ها · آدم‌ها · محصول · فرایند · فرهنگ)</div></div>
+    <div class="kbox"><div class="v" data-only="en">16</div><div class="v" data-only="fa">۱۶</div><div class="l" data-only="en">Ideas you can use</div><div class="l" data-only="fa">ایده برای استفاده</div></div>
+    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Levels, simple → expert</div><div class="l" data-only="fa">مرحله، ساده تا حرفه‌ای</div></div>
+    <div class="kbox"><div class="v" data-only="en">4</div><div class="v" data-only="fa">۴</div><div class="l" data-only="en">Risks tested in discovery: value · usability · feasibility · viability</div><div class="l" data-only="fa">ریسکی که در کشف می‌آزمایی: ارزش · کاربردپذیری · ساختنی‌بودن · به‌صرفه‌بودن</div></div>`,
+
+  mapcallout:`      <b data-only="en">Read it as a flow:</b><b data-only="fa">به‌صورتِ یک جریان بخوانش:</b>
+      <span data-only="en"> get the <b>teams</b> right (empowered, missionaries), staff the <b>right people</b> (PM, design, engineers, leaders), find the <b>right product</b> through discovery, run the <b>right process</b> (assess, prototype, test), and protect a <b>strong product culture</b>.</span>
+      <span data-only="fa"> <b>تیم‌ها</b> را درست کن (توانمند، پُرانگیزه)، <b>آدم‌های درست</b> را بچین (محصول، طراحی، مهندسی، رهبری)، <b>محصولِ درست</b> را با کشف پیدا کن، <b>فرایندِ درست</b> را اجرا کن (ارزیابی، پروتوتایپ، آزمون)، و از یک <b>فرهنگِ محصولِ قوی</b> محافظت کن.</span>`,
+
+  methodFa:"<p><b>منبع:</b> کتابِ «اینسپایرد: چطور محصولی بسازیم که مشتری‌ها عاشقش شوند» نوشتهٔ مارتی کیگن (ویرایشِ دوم، ۲۰۱۷)، از گروهِ محصولِ سیلیکون‌ولی.</p><p><b>روشِ کار:</b> ساختارِ پنج‌بخشی و ایده‌ها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده؛ نقل‌قول‌ها مقابله و ویدیوی لینک‌شده بررسی شده.</p><p><b>خوب است بدانی:</b> اینسپایرد کتابِ پایه‌ایِ «چطور محصول بسازیم» است. کتابِ همراهش، امپاورد، کتابِ رهبری است دربارهٔ کوچینگ و توانمندکردنِ تیم‌ها — این صفحه دربارهٔ اینسپایرد است.</p><p><b>گروه:</b> سازمانِ محصول — از فهرستِ کتاب‌های ضروریِ سازندگانِ محصولِ لنی راچیتسکی.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب.</p>",
+  methodEn:"<p><b>Source:</b> the book <i>INSPIRED: How to Create Tech Products Customers Love</i> by Marty Cagan (2nd edition, 2017), from the Silicon Valley Product Group.</p><p><b>How this was built:</b> the five-part structure and ideas were gathered and rewritten from the book and reputable sources; quotes were cross-checked and the linked video verified.</p><p><b>Good to know:</b> INSPIRED is the foundational how-to-build-products book. Its companion, EMPOWERED, is the leadership book about coaching and empowering teams — this page is about INSPIRED.</p><p><b>Group:</b> Product Org — from Lenny Rachitsky's essential books for product builders.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>",
+
+  data:{
+    tldr:[
+      {en:"The whole book in one line: build products people love by doing real <b>product discovery</b> before you build — not just shipping features off a roadmap.",
+       fa:"خلاصهٔ کل کتاب در یک جمله: محصولی بساز که مردم دوستش دارند، با <b>کشفِ محصولِ</b> واقعی پیش از ساخت — نه فقط تحویلِ فیچرها از روی یک نقشهٔ راه."},
+      {en:"Great products come from <b>empowered product teams</b> of missionaries — a product manager, a designer, and engineers who own an outcome.",
+       fa:"محصولِ عالی از <b>تیم‌های توانمندِ</b> پُرانگیزه می‌آید — یک مدیرِ محصول، یک طراح، و مهندس‌هایی که مسئولِ یک نتیجه‌اند."},
+      {en:"Two inconvenient truths: <b>at least half your ideas won't work</b>, and the ones that do take several tries — so test cheaply first.",
+       fa:"دو حقیقتِ ناخوشایند: <b>دستِ‌کم نصفِ ایده‌هایت جواب نمی‌دهند</b>، و آن‌هایی که جواب می‌دهند چند بار باید تکرار شوند — پس اول ارزان آزمایش کن."},
+      {en:"In discovery you tackle four risks: <b>value, usability, feasibility, and viability</b> — will they buy it, can they use it, can we build it, does it work for the business.",
+       fa:"در کشف با چهار ریسک سروکار داری: <b>ارزش، کاربردپذیری، ساختنی‌بودن، و به‌صرفه‌بودن</b> — می‌خرندش، می‌توانند ازش استفاده کنند، می‌توانیم بسازیمش، برای کسب‌وکار جور درمی‌آید."},
+      {en:"Then protect a <b>strong product culture</b>: innovate and execute, and keep teams empowered to solve problems, not just build features.",
+       fa:"بعد از یک <b>فرهنگِ محصولِ قوی</b> محافظت کن: هم نوآوری، هم اجرا، و تیم‌ها را توانمند نگه دار تا مسئله حل کنند، نه فقط فیچر بسازند."}
+    ],
+    parts:[
+      { key:"teams", varc:"--c-teal", name:{en:"Product Teams", fa:"تیم‌های محصول"}, tag:{en:"How teams work", fa:"تیم چطور کار می‌کند"},
+        gist:{en:"Empowered, cross-functional teams of missionaries — not feature factories.", fa:"تیم‌های توانمند و بین‌رشته‌ای از آدم‌های پُرانگیزه — نه کارخانهٔ فیچر."},
+        more:{en:"Everything starts here. The best products come from durable, cross-functional teams that own a problem and are trusted to solve it — a team of missionaries who believe in the vision, not mercenaries just building a list.",
+              fa:"همه‌چیز از این‌جا شروع می‌شود. بهترین محصول‌ها از تیم‌های پایدار و بین‌رشته‌ای می‌آیند که مسئولِ یک مسئله‌اند و بهشان اعتماد شده حلش کنند — تیمی از آدم‌های پُرانگیزه که به چشم‌انداز باور دارند، نه مزدورهایی که فقط یک فهرست می‌سازند."},
+        chapters:["empowered","missionaries","crossfunc"] },
+      { key:"people", varc:"--c-blue", name:{en:"The Right People", fa:"آدم‌های درست"}, tag:{en:"Roles & leaders", fa:"نقش‌ها و رهبرها"},
+        gist:{en:"The product manager, product designer, engineers, and product leadership.", fa:"مدیرِ محصول، طراحِ محصول، مهندس‌ها، و رهبریِ محصول."},
+        more:{en:"A team is only as good as its people and how they work together. Each role is distinct: the PM owns value and viability, the designer owns the experience, engineers own how it gets built — and leaders coach them all.",
+              fa:"یک تیم به‌اندازهٔ آدم‌هایش و طرزِ کارِ باهم‌شان خوب است. هر نقش جداست: مدیرِ محصول مسئولِ ارزش و به‌صرفه‌بودن است، طراح مسئولِ تجربه، مهندس‌ها مسئولِ اینکه چطور ساخته شود — و رهبرها همه‌شان را کوچ می‌کنند."},
+        chapters:["pm","designer","engineers","leadership"] },
+      { key:"product", varc:"--c-amber", name:{en:"The Right Product", fa:"محصولِ درست"}, tag:{en:"Discovery", fa:"کشف"},
+        gist:{en:"Vision and strategy, the big risks, and discovery before delivery.", fa:"چشم‌انداز و راهبرد، ریسک‌های بزرگ، و کشف پیش از تحویل."},
+        more:{en:"Knowing what to build is the hard part. A compelling vision and a focused strategy point the way; then product discovery figures out — quickly and cheaply — which ideas are actually worth building before engineering delivers them.",
+              fa:"دانستنِ اینکه چه باید ساخت، بخشِ سخت است. یک چشم‌اندازِ گیرا و یک راهبردِ متمرکز مسیر را نشان می‌دهند؛ بعد کشفِ محصول — سریع و ارزان — می‌فهمد کدام ایده‌ها واقعاً ارزشِ ساخت دارند، پیش از اینکه مهندسی تحویلشان دهد."},
+        chapters:["vision","discovery","fourrisks"] },
+      { key:"process", varc:"--c-violet", name:{en:"The Right Process", fa:"فرایندِ درست"}, tag:{en:"Techniques", fa:"تکنیک‌ها"},
+        gist:{en:"Assess the opportunity, prototype, and test with real users.", fa:"فرصت را بسنج، پروتوتایپ بساز، و با کاربرِ واقعی آزمایش کن."},
+        more:{en:"Discovery is a set of concrete techniques, not a vibe. Frame the opportunity, map the work, build prototypes at the right fidelity, and put them in front of real users and stakeholders to test value, usability and feasibility.",
+              fa:"کشف یک مشت تکنیکِ مشخص است، نه یک حسِ مبهم. فرصت را قاب بگیر، کار را نقشه کن، پروتوتایپ با درست‌ترین کیفیت بساز، و بگذارشان جلوی کاربر و ذی‌نفعِ واقعی تا ارزش، کاربردپذیری و ساختنی‌بودن را بیازمایی."},
+        chapters:["framing","prototypes","testing"] },
+      { key:"culture", varc:"--c-green", name:{en:"The Right Culture", fa:"فرهنگِ درست"}, tag:{en:"The environment", fa:"محیطِ کار"},
+        gist:{en:"A strong product culture that innovates and executes.", fa:"یک فرهنگِ محصولِ قوی که هم نوآوری می‌کند هم اجرا."},
+        more:{en:"Even great people fail in a bad environment. A strong product culture keeps teams innovating (experimenting, feeling safe to fail) and executing (delivering with high integrity) — and it defends the work against the objections that kill good products.",
+              fa:"حتی آدم‌های عالی هم در محیطِ بد شکست می‌خورند. یک فرهنگِ محصولِ قوی تیم‌ها را هم در نوآوری نگه می‌دارد (آزمایش‌کردن، امنیت برای شکست) هم در اجرا (تحویلِ درست‌وحسابی) — و از کار در برابرِ مخالفت‌هایی که محصولِ خوب را می‌کُشند دفاع می‌کند."},
+        chapters:["culture","innovexec","objections"] }
+    ],
+    chapters:{
+      empowered:{ part:"teams", n:1, name:{en:"Empowered Product Teams", fa:"تیم‌های محصولِ توانمند"}, glabel:{en:"Empowered", fa:"توانمند"},
+        principle:{en:"Give a cross-functional team a problem to solve and the room to solve it — outcomes, not a feature list.", fa:"به یک تیمِ بین‌رشته‌ای یک مسئله بده که حلش کند و فضا بده که حلش کند — نتیجه بخواه، نه یک فهرستِ فیچر."},
+        more:{en:"Empowered teams are handed problems and business outcomes, then trusted to discover the best solution. That is the opposite of a feature team that just builds whatever the roadmap dictates.", fa:"به تیم‌های توانمند مسئله و نتیجهٔ کاری داده می‌شود، بعد بهشان اعتماد می‌شود که بهترین راه‌حل را کشف کنند. این درست برعکسِ «تیمِ فیچری» است که فقط هرچه نقشهٔ راه بگوید می‌سازد."},
+        example:{en:"Instead of 'build a referral page', the team gets 'grow signups 20%' and finds how.", fa:"به‌جای «یک صفحهٔ معرفی بساز»، به تیم می‌گویند «ثبت‌نام را ۲۰٪ بیشتر کن» و خودش راهش را پیدا می‌کند."},
+        tip:{en:"State each team's mission as an outcome to reach, not an output to ship.", fa:"مأموریتِ هر تیم را به‌شکلِ نتیجه‌ای که باید برسد بنویس، نه خروجی‌ای که باید تحویل دهد."},
+        pitfall:{en:"A feature factory shipping a roadmap nobody validated.", fa:"کارخانهٔ فیچری که یک نقشهٔ راهِ آزمایش‌نشده را تحویل می‌دهد."} },
+      missionaries:{ part:"teams", n:2, name:{en:"Missionaries, Not Mercenaries", fa:"پُرانگیزه، نه مزدور"}, glabel:{en:"Missionaries", fa:"پُرانگیزه"},
+        principle:{en:"Build a team that believes in the vision and owns the outcome — not one that just takes orders.", fa:"تیمی بساز که به چشم‌انداز باور دارد و مسئولِ نتیجه است — نه تیمی که فقط دستور می‌گیرد."},
+        more:{en:"Missionaries care about the customer and the mission, so they push through hard problems; mercenaries build whatever they're told and leave when it's convenient. The difference shows up in the product.", fa:"آدمِ پُرانگیزه به مشتری و مأموریت اهمیت می‌دهد، برای همین از دلِ مسئله‌های سخت رد می‌شود؛ مزدور هرچه بهش بگویند می‌سازد و هر وقت به‌صرفه‌اش باشد می‌رود. این فرق خودش را در محصول نشان می‌دهد."},
+        example:{en:"A missionary team keeps digging until users actually adopt; a mercenary ships and moves on.", fa:"تیمِ پُرانگیزه آن‌قدر می‌کاود تا کاربر واقعاً استفاده کند؛ مزدور تحویل می‌دهد و می‌رود سراغِ بعدی."},
+        tip:{en:"Share the why and the customer with every engineer, not just the ticket.", fa:"«چرا»ی کار و خودِ مشتری را با هر مهندس در میان بگذار، نه فقط تیکت را."},
+        pitfall:{en:"Teams handed tasks with no context, invested in nothing.", fa:"تیم‌هایی که کار را بدونِ هیچ زمینه‌ای می‌گیرند و به هیچ‌چیز دل نمی‌بندند."} },
+      crossfunc:{ part:"teams", n:3, name:{en:"One Cross-Functional Team", fa:"یک تیمِ بین‌رشته‌ای"}, glabel:{en:"Cross-functional", fa:"بین‌رشته‌ای"},
+        principle:{en:"Put product, design, and engineering side by side on one durable, co-located team.", fa:"محصول، طراحی و مهندسی را کنارِ هم در یک تیمِ پایدار و هم‌جا بگذار."},
+        more:{en:"The team is a small, stable group — a product manager, a product designer, and a handful of engineers — who sit together and stay together. Durability builds the deep knowledge that quick wins need.", fa:"تیم یک گروهِ کوچک و باثبات است — یک مدیرِ محصول، یک طراحِ محصول، و چند مهندس — که کنارِ هم می‌نشینند و کنارِ هم می‌مانند. پایداری همان دانشِ عمیقی را می‌سازد که بردهای سریع لازم دارند."},
+        example:{en:"Roughly a PM, a designer, and 2 to 10 engineers who own one product area for the long run.", fa:"تقریباً یک مدیرِ محصول، یک طراح، و ۲ تا ۱۰ مهندس که مدت‌ها مسئولِ یک بخشِ محصول‌اند."},
+        tip:{en:"Keep teams together long enough to build real domain expertise.", fa:"تیم‌ها را آن‌قدر کنارِ هم نگه دار که تخصصِ واقعی در آن حوزه پیدا کنند."},
+        pitfall:{en:"Shuffling people project to project so no one owns anything.", fa:"جابه‌جاکردنِ آدم‌ها از پروژه‌ای به پروژهٔ دیگر، تا هیچ‌کس مسئولِ هیچ‌چیز نباشد."} },
+      pm:{ part:"people", n:4, name:{en:"The Product Manager", fa:"مدیرِ محصول"}, glabel:{en:"Product Manager", fa:"مدیرِ محصول"},
+        principle:{en:"Own whether the product is valuable and viable — through deep knowledge of users, data, business, and market.", fa:"مسئولِ این باش که محصول ارزشمند و به‌صرفه است یا نه — با شناختِ عمیق از کاربر، داده، کسب‌وکار، و بازار."},
+        more:{en:"The PM isn't the boss of the team; they're accountable for the product succeeding. That means knowing the customer better than anyone, knowing the data, the business constraints, and the market — and using judgment to decide what's worth building.", fa:"مدیرِ محصول رئیسِ تیم نیست؛ او پاسخگوی موفقیتِ محصول است. یعنی مشتری را از هرکسی بهتر بشناسد، داده را بداند، محدودیت‌های کسب‌وکار و بازار را بداند — و با قضاوت تصمیم بگیرد چه چیزی ارزشِ ساخت دارد."},
+        example:{en:"Before pitching a feature, the PM can say who wants it, why, and how success is measured.", fa:"قبل از پیشنهادِ یک فیچر، مدیرِ محصول می‌تواند بگوید چه کسی می‌خواهدش، چرا، و موفقیت چطور اندازه گرفته می‌شود."},
+        tip:{en:"Do the homework: know your users, your data, and your business cold.", fa:"تکلیفت را انجام بده: کاربر، داده، و کسب‌وکارت را مثلِ کفِ دستت بشناس."},
+        pitfall:{en:"A PM who just gathers requirements and manages a backlog.", fa:"مدیرِ محصولی که فقط نیازمندی جمع می‌کند و یک صفِ کار را می‌چرخاند."} },
+      designer:{ part:"people", n:5, name:{en:"The Product Designer", fa:"طراحِ محصول"}, glabel:{en:"Product Designer", fa:"طراحِ محصول"},
+        principle:{en:"Own the whole customer experience and work in discovery from day one — design is how it works, not just how it looks.", fa:"مسئولِ کلِ تجربهٔ مشتری باش و از روزِ اول در کشف حاضر باش — طراحی یعنی چطور کار می‌کند، نه فقط چه شکلی است."},
+        more:{en:"A great product designer is a partner in discovery, not a service you order screens from. They shape the experience end to end, build the prototypes, and run continuous user testing to learn what actually works.", fa:"طراحِ محصولِ خوب شریکِ کشف است، نه سرویسی که ازش صفحه سفارش می‌دهی. او تجربه را از سر تا ته شکل می‌دهد، پروتوتایپ‌ها را می‌سازد، و مدام آزمونِ کاربری اجرا می‌کند تا بفهمد واقعاً چه چیزی جواب می‌دهد."},
+        example:{en:"The designer tests a prototype with users weekly, not polishing final screens at the end.", fa:"طراح هر هفته یک پروتوتایپ را با کاربر می‌آزماید، نه اینکه آخرِ کار صفحه‌های نهایی را برق بیندازد."},
+        tip:{en:"Bring design into discovery early; don't hand off specs to be skinned later.", fa:"طراحی را زود واردِ کشف کن؛ نه اینکه سندِ آماده بدهی که بعداً فقط رویش «روکش» بکشند."},
+        pitfall:{en:"Treating design as decoration bolted on after the decisions.", fa:"با طراحی مثلِ تزئینی رفتار کردن که بعد از تصمیم‌ها بهش می‌چسبانند."} },
+      engineers:{ part:"people", n:6, name:{en:"The Engineers", fa:"مهندس‌ها"}, glabel:{en:"Engineers", fa:"مهندس‌ها"},
+        principle:{en:"Bring engineers into discovery early — they know what's just now possible, and that sparks the best ideas.", fa:"مهندس‌ها را زود واردِ کشف کن — آن‌ها می‌دانند همین حالا چه چیزی ممکن شده، و همین بهترین ایده‌ها را جرقه می‌زند."},
+        more:{en:"Engineers aren't just there to build the spec; brought in early, they surface possibilities no one else sees and flag feasibility risks before they get expensive. Some of the best product ideas come from them.", fa:"مهندس‌ها فقط برای ساختنِ سند آن‌جا نیستند؛ اگر زود بیایند، امکان‌هایی را رو می‌کنند که کسِ دیگری نمی‌بیند و ریسکِ ساختنی‌بودن را قبل از اینکه گران شود علامت می‌زنند. بعضی از بهترین ایده‌های محصول از خودِ آن‌ها می‌آید."},
+        example:{en:"An engineer who knows a new API can suggest a solution the PM never imagined.", fa:"مهندسی که یک ای‌پی‌آیِ تازه را می‌شناسد، می‌تواند راه‌حلی پیشنهاد دهد که مدیرِ محصول اصلاً تصورش را نمی‌کرد."},
+        tip:{en:"Show engineers the customer problem, not just the ticket to implement.", fa:"مسئلهٔ مشتری را به مهندس‌ها نشان بده، نه فقط تیکتی که باید پیاده کنند."},
+        pitfall:{en:"Keeping engineers heads-down until the spec is ready.", fa:"سرِ مهندس‌ها را پایین نگه داشتن تا وقتی «سند آماده شود»."} },
+      leadership:{ part:"people", n:7, name:{en:"Product Leadership", fa:"رهبریِ محصول"}, glabel:{en:"Leadership", fa:"رهبری"},
+        principle:{en:"Leaders don't dictate features — they set vision and strategy, then coach teams to greatness.", fa:"رهبرها فیچر دیکته نمی‌کنند — چشم‌انداز و راهبرد را می‌گذارند، بعد تیم‌ها را کوچ می‌کنند تا عالی شوند."},
+        more:{en:"Heads of product and design provide the vision, strategy, and consistent coaching that let empowered teams thrive. Their job is to develop people and align direction, not to hand down a to-do list.", fa:"رؤسای محصول و طراحی همان چشم‌انداز، راهبرد و کوچینگِ پایداری را می‌دهند که به تیم‌های توانمند اجازهٔ شکوفایی می‌دهد. کارشان پروراندنِ آدم‌ها و هم‌راستاکردنِ مسیر است، نه دادنِ یک فهرستِ کارها."},
+        example:{en:"A leader spends time coaching each PM, not reviewing and approving every feature.", fa:"یک رهبر وقت می‌گذارد و هر مدیرِ محصول را کوچ می‌کند، نه اینکه هر فیچر را بررسی و تأیید کند."},
+        tip:{en:"Invest in coaching your people; a strong team beats a clever plan.", fa:"روی کوچ‌کردنِ آدم‌هایت سرمایه‌گذاری کن؛ یک تیمِ قوی از یک نقشهٔ زیرکانه بهتر است."},
+        pitfall:{en:"Micromanaging the roadmap while starving teams of real direction.", fa:"ریزبه‌ریزِ نقشهٔ راه را کنترل کردن، و در عوض تیم‌ها را از مسیرِ واقعی محروم کردن."} },
+      vision:{ part:"product", n:8, name:{en:"Product Vision & Strategy", fa:"چشم‌انداز و راهبردِ محصول"}, glabel:{en:"Vision & Strategy", fa:"چشم‌انداز و راهبرد"},
+        principle:{en:"A vision inspires the direction (2 to 5 years out); a strategy focuses effort on one market at a time.", fa:"چشم‌انداز مسیر را الهام می‌بخشد (۲ تا ۵ سالِ آینده)؛ راهبرد تلاش را هر بار روی یک بازار متمرکز می‌کند."},
+        more:{en:"The vision is the compelling future you're trying to create — it recruits and motivates. The strategy is your sequence of steps to get there, focusing on one target market or persona at a time rather than trying to please everyone at once.", fa:"چشم‌انداز همان آینده‌ی گیرایی است که می‌خواهی بسازی — آدم جذب می‌کند و انگیزه می‌دهد. راهبرد ترتیبِ قدم‌هایی است که تو را به آن‌جا می‌رساند، با تمرکز هر بار روی یک بازار یا یک پرسونا، نه اینکه بخواهی یک‌دفعه همه را راضی کنی."},
+        example:{en:"'Be the camera everyone carries' is a vision; 'win photographers first' is strategy.", fa:"«همان دوربینی باش که همه با خودشان دارند» چشم‌انداز است؛ «اول عکاس‌ها را ببر» راهبرد است."},
+        tip:{en:"Be stubborn on the vision, but flexible on the details of how you get there.", fa:"سرِ چشم‌انداز کله‌شق باش، اما سرِ جزئیاتِ رسیدن به آن انعطاف داشته باش."},
+        pitfall:{en:"A vague vision and a strategy that chases every market at once.", fa:"یک چشم‌اندازِ مبهم و راهبردی که هم‌زمان دنبالِ هر بازاری می‌دود."} },
+      discovery:{ part:"product", n:9, name:{en:"Discovery vs Delivery", fa:"کشف در برابرِ تحویل"}, glabel:{en:"Discovery vs Delivery", fa:"کشف و تحویل"},
+        principle:{en:"First figure out the right product to build (discovery); only then build it right (delivery).", fa:"اول بفهم محصولِ درست چیست که باید ساخت (کشف)؛ تازه بعد درست بسازش (تحویل)."},
+        more:{en:"These are two different jobs. Discovery is fast, cheap experimentation to decide what's worth building; delivery is the slower, careful work of building it to ship. The two biggest risks are building something of no value, or something you can't actually build — discovery attacks both before you waste months.", fa:"این‌ها دو کارِ متفاوت‌اند. کشف یعنی آزمایشِ سریع و ارزان برای تصمیم دربارهٔ اینکه چه چیزی ارزشِ ساخت دارد؛ تحویل یعنی کارِ کندتر و دقیق‌ترِ ساختنش برای عرضه. دو ریسکِ بزرگ این است: چیزی بسازی که ارزشی ندارد، یا چیزی که اصلاً نمی‌توانی بسازی — کشف قبل از اینکه ماه‌ها هدر بدهی به هر دو حمله می‌کند."},
+        example:{en:"Test a fake-door or a prototype this week; don't spend a quarter building the wrong thing.", fa:"این هفته یک درِ قلابی یا یک پروتوتایپ را آزمایش کن؛ یک فصل را صرفِ ساختنِ چیزِ اشتباه نکن."},
+        tip:{en:"Run discovery and delivery in parallel — never wait for one to finish.", fa:"کشف و تحویل را هم‌زمان پیش ببر — هیچ‌وقت منتظرِ تمام‌شدنِ یکی نمان."},
+        pitfall:{en:"Committing to a roadmap and building for months before validating anything.", fa:"قول‌دادنِ یک نقشهٔ راه و ماه‌ها ساختن، قبل از اینکه چیزی را اعتبارسنجی کنی."} },
+      fourrisks:{ part:"product", n:10, name:{en:"The Four Big Risks", fa:"چهار ریسکِ بزرگ"}, glabel:{en:"Four Risks", fa:"چهار ریسک"},
+        principle:{en:"Test every idea against four risks: value, usability, feasibility, and viability.", fa:"هر ایده را با چهار ریسک بسنج: ارزش، کاربردپذیری، ساختنی‌بودن، و به‌صرفه‌بودن."},
+        more:{en:"Value: will people buy it or choose to use it? Usability: can they figure out how to use it? Feasibility: can our engineers actually build it? Viability: does it work for the rest of the business — legal, sales, finance, brand? Discovery exists to answer these cheaply.", fa:"ارزش: مردم می‌خرندش یا استفاده‌اش را انتخاب می‌کنند؟ کاربردپذیری: می‌توانند بفهمند چطور ازش استفاده کنند؟ ساختنی‌بودن: مهندس‌های ما واقعاً می‌توانند بسازندش؟ به‌صرفه‌بودن: با بقیهٔ کسب‌وکار جور است — حقوقی، فروش، مالی، برند؟ کشف هست تا این‌ها را ارزان جواب دهد."},
+        example:{en:"A feature can be usable, buildable, and legal — and still fail on value if no one wants it.", fa:"یک فیچر می‌تواند کاربردپذیر، ساختنی و قانونی باشد — و باز سرِ ارزش شکست بخورد، اگر کسی نخواهدش."},
+        tip:{en:"For any big idea, name which of the four risks scares you most, and test that first.", fa:"برای هر ایدهٔ بزرگ، بگو کدام‌یک از چهار ریسک بیشتر می‌ترساندت، و همان را اول بیازما."},
+        pitfall:{en:"Only asking 'can we build it?' and ignoring whether anyone wants it.", fa:"فقط پرسیدنِ «می‌توانیم بسازیمش؟» و بی‌خیالِ اینکه اصلاً کسی می‌خواهدش یا نه."} },
+      framing:{ part:"process", n:11, name:{en:"Opportunity Assessment & Story Maps", fa:"ارزیابیِ فرصت و نقشهٔ داستان"}, glabel:{en:"Framing", fa:"قاب‌بندی"},
+        principle:{en:"Frame the work before you build it: what problem, for whom, and how you'll know it worked.", fa:"قبل از ساخت، کار را قاب بگیر: چه مسئله‌ای، برای چه کسی، و از کجا می‌فهمی جواب داده."},
+        more:{en:"An opportunity assessment answers four quick questions: what business objective, how you'll measure success, what customer problem, and for which market. Then a story map lays the work out as a user's journey, so the whole team sees the shape of it and can slice a small first version.", fa:"ارزیابیِ فرصت چهار پرسشِ سریع را جواب می‌دهد: چه هدفِ کاری، موفقیت را چطور اندازه می‌گیری، چه مسئله‌ای از مشتری، و برای کدام بازار. بعد نقشهٔ داستان کار را به‌شکلِ سفرِ کاربر می‌چیند، تا کلِ تیم شکلِ کار را ببیند و بتواند یک نسخهٔ اولِ کوچک از آن ببُرد."},
+        example:{en:"Four lines — objective, key result, problem, target market — beat a ten-page spec.", fa:"چهار خط — هدف، نتیجهٔ کلیدی، مسئله، بازارِ هدف — از یک سندِ ده‌صفحه‌ای بهتر است."},
+        tip:{en:"Write the opportunity in four sentences before anyone opens a design tool.", fa:"قبل از اینکه کسی ابزارِ طراحی را باز کند، فرصت را در چهار جمله بنویس."},
+        pitfall:{en:"Jumping to solutions before you can state the problem clearly.", fa:"پریدن به راه‌حل، قبل از اینکه بتوانی مسئله را روشن بیان کنی."} },
+      prototypes:{ part:"process", n:12, name:{en:"Prototypes", fa:"پروتوتایپ‌ها"}, glabel:{en:"Prototypes", fa:"پروتوتایپ"},
+        principle:{en:"Build a cheap prototype — not the real thing — to learn fast and tackle a specific risk.", fa:"یک پروتوتایپِ ارزان بساز — نه محصولِ واقعی — تا سریع یاد بگیری و به یک ریسکِ مشخص بپردازی."},
+        more:{en:"A prototype is many times cheaper than a product and exists to answer a question. Choose the fidelity to fit the risk: a rough feasibility spike for engineers, a realistic user prototype to test value and usability. It can even double as the spec for delivery.", fa:"پروتوتایپ چند برابر از محصول ارزان‌تر است و هست تا یک سؤال را جواب دهد. کیفیتش را به اندازهٔ ریسک انتخاب کن: یک نمونهٔ خامِ ساختنی‌بودن برای مهندس‌ها، یک پروتوتایپِ واقع‌نمای کاربری برای آزمونِ ارزش و کاربردپذیری. حتی می‌تواند هم‌زمان نقشِ سندِ تحویل را هم بازی کند."},
+        example:{en:"A clickable mockup users think is real teaches more than a finished, shipped feature.", fa:"یک ماکتِ کلیک‌شدنی که کاربر فکر می‌کند واقعی است، بیشتر از یک فیچرِ تمام‌شده و عرضه‌شده یاد می‌دهد."},
+        tip:{en:"Match the prototype's fidelity to the one risk you're trying to retire.", fa:"کیفیتِ پروتوتایپ را به همان یک ریسکی که می‌خواهی از سرِ راه برداری، جور کن."},
+        pitfall:{en:"Over-building the prototype until it's as costly as the real product.", fa:"آن‌قدر پروتوتایپ را سنگین ساختن که به گرانیِ خودِ محصول شود."} },
+      testing:{ part:"process", n:13, name:{en:"Testing Value, Usability & Feasibility", fa:"آزمونِ ارزش، کاربردپذیری و ساختنی‌بودن"}, glabel:{en:"Testing", fa:"آزمون"},
+        principle:{en:"Put prototypes in front of real users and stakeholders — test usability, value, feasibility, viability.", fa:"پروتوتایپ‌ها را بگذار جلوی کاربر و ذی‌نفعِ واقعی — کاربردپذیری، ارزش، ساختنی‌بودن و به‌صرفه‌بودن را بیازما."},
+        more:{en:"Usability testing watches real users try to complete a task. Value testing is the hardest and most important — you're looking for evidence people will actually choose or pay, not just say they like it. Feasibility and viability get checked with engineers and the wider business.", fa:"آزمونِ کاربردپذیری یعنی تماشای کاربرِ واقعی که سعی می‌کند یک کار را انجام دهد. آزمونِ ارزش سخت‌ترین و مهم‌ترین است — دنبالِ شواهدی هستی که مردم واقعاً انتخاب یا پرداخت می‌کنند، نه فقط اینکه بگویند خوششان آمده. ساختنی‌بودن و به‌صرفه‌بودن هم با مهندس‌ها و کلِ کسب‌وکار بررسی می‌شوند."},
+        example:{en:"Watch five users struggle with the flow — you'll learn more than from any opinion survey.", fa:"تماشا کن پنج کاربر با آن مسیر کلنجار می‌روند — بیشتر از هر نظرسنجی‌ای یاد می‌گیری."},
+        tip:{en:"Test value with real commitment — money, reputation, or time — not just 'do you like it?'.", fa:"ارزش را با یک تعهدِ واقعی بیازما — پول، آبرو، یا وقت — نه فقط «خوشت می‌آید؟»."},
+        pitfall:{en:"Mistaking a polite 'I'd use that' for real demand.", fa:"اشتباه‌گرفتنِ «آره استفاده می‌کنم»ِ از رویِ ادب با تقاضای واقعی."} },
+      culture:{ part:"culture", n:14, name:{en:"Strong Product Culture", fa:"فرهنگِ محصولِ قوی"}, glabel:{en:"Product Culture", fa:"فرهنگِ محصول"},
+        principle:{en:"The best teams live in a culture of customer obsession, experimentation, and trust.", fa:"بهترین تیم‌ها در فرهنگی زندگی می‌کنند از وسواسِ مشتری، آزمایش‌کردن، و اعتماد."},
+        more:{en:"Culture is what surrounds the team: an obsession with customers, comfort with testing and being wrong, real empowerment, and continuous learning. Get it right and good people do their best work; get it wrong and even great people leave.", fa:"فرهنگ همان چیزی است که دورِ تیم را گرفته: وسواسِ مشتری، راحت‌بودن با آزمایش و اشتباه‌کردن، توانمندیِ واقعی، و یادگیریِ پیوسته. اگر درستش کنی، آدمِ خوب بهترین کارش را می‌کند؛ اگر خرابش کنی، حتی آدمِ عالی هم می‌رود."},
+        example:{en:"In a strong culture, a failed test is a lesson to celebrate, not a mistake to hide.", fa:"در فرهنگِ قوی، آزمونِ شکست‌خورده درسی است برای جشن‌گرفتن، نه اشتباهی برای پنهان‌کردن."},
+        tip:{en:"Celebrate learning and customer impact, not just shipping on schedule.", fa:"یادگیری و اثر روی مشتری را جشن بگیر، نه فقط تحویلِ سرِوقت را."},
+        pitfall:{en:"A culture that punishes failed experiments and rewards shipping alone.", fa:"فرهنگی که آزمایشِ شکست‌خورده را تنبیه می‌کند و فقط به تحویل‌دادن پاداش می‌دهد."} },
+      innovexec:{ part:"culture", n:15, name:{en:"Innovation & Execution", fa:"نوآوری و اجرا"}, glabel:{en:"Innovate & Execute", fa:"نوآوری و اجرا"},
+        principle:{en:"A strong culture does both: it keeps innovating and it consistently delivers.", fa:"فرهنگِ قوی هر دو را می‌کند: هم مدام نوآوری می‌کند، هم پیوسته تحویل می‌دهد."},
+        more:{en:"Innovation needs experimentation, safety to fail, and empowered teams. Execution needs accountability, urgency, and high-integrity commitments you can rely on. Most companies are decent at one; the strongest product cultures manage both at once.", fa:"نوآوری آزمایش‌کردن می‌خواهد، امنیت برای شکست، و تیم‌های توانمند. اجرا پاسخگویی می‌خواهد، فوریت، و تعهدهای درست‌وحسابی که بشود روی‌شان حساب کرد. بیشترِ شرکت‌ها در یکی خوب‌اند؛ قوی‌ترین فرهنگ‌های محصول هر دو را هم‌زمان اداره می‌کنند."},
+        example:{en:"The team explores bold bets and still hits the dates it truly promises.", fa:"تیم سراغِ شرط‌های جسورانه می‌رود و باز به تاریخ‌هایی که واقعاً قول داده می‌رسد."},
+        tip:{en:"Use high-integrity commitments for real deadlines; keep the rest open for discovery.", fa:"برای ضرب‌الاجل‌های واقعی از تعهدِ درست‌وحسابی استفاده کن؛ بقیه را برای کشف باز نگه دار."},
+        pitfall:{en:"Being so obsessed with predictability that innovation never gets room.", fa:"آن‌قدر شیفتهٔ قابلِ‌پیش‌بینی‌بودن که نوآوری هیچ‌وقت جا پیدا نمی‌کند."} },
+      objections:{ part:"culture", n:16, name:{en:"Overcoming Objections", fa:"غلبه بر مخالفت‌ها"}, glabel:{en:"Objections", fa:"مخالفت‌ها"},
+        principle:{en:"Expect resistance from around the company — and win it with evidence, not authority.", fa:"توقعِ مقاومت از گوشه‌کنارِ شرکت را داشته باش — و با شواهد ببَرش، نه با زور و مقام."},
+        more:{en:"Sales, legal, marketing, and finance all have real concerns, and good products can die on their objections. The way through is to understand each stakeholder, bring them along early, and answer with discovery evidence rather than opinion or org-chart power.", fa:"فروش، حقوقی، بازاریابی و مالی همه دغدغه‌های واقعی دارند، و محصولِ خوب می‌تواند سرِ مخالفتِ آن‌ها بمیرد. راهِ عبور این است که هر ذی‌نفع را بفهمی، زود همراهشان کنی، و با شواهدِ کشف جواب بدهی، نه با نظر یا قدرتِ روی چارتِ سازمان."},
+        example:{en:"Bring legal a tested prototype and data, and 'no' often turns into 'how'.", fa:"برای حقوقی یک پروتوتایپِ آزموده و داده ببر، و اغلب «نه» تبدیل می‌شود به «چطور»."},
+        tip:{en:"Meet each objecting team early; turn them into partners before launch, not blockers at the end.", fa:"زود با هر تیمِ مخالف بنشین؛ قبل از عرضه شریکشان کن، نه اینکه آخرِ کار سدِ راه شوند."},
+        pitfall:{en:"Springing a finished product on stakeholders and getting vetoed at the finish line.", fa:"یک محصولِ تمام‌شده را ناگهان جلوی ذی‌نفع‌ها گذاشتن و سرِ خطِ پایان وتو شدن."} }
+    },
+    core:{ name:{en:"PRODUCTS CUSTOMERS LOVE", fa:"محصولی که دوستش دارند"},
+      principle:{en:"Great products come from empowered teams of missionaries who do continuous product discovery — testing ideas for value, usability, feasibility, and viability before delivery — inside a strong product culture. You build what customers love by learning what's worth building first.", fa:"محصولِ عالی از تیم‌های توانمند و پُرانگیزه‌ای می‌آید که پیوسته کشفِ محصول می‌کنند — ایده‌ها را از نظرِ ارزش، کاربردپذیری، ساختنی‌بودن و به‌صرفه‌بودن، پیش از تحویل می‌آزمایند — آن هم داخلِ یک فرهنگِ محصولِ قوی. چیزی می‌سازی که مشتری دوستش دارد، چون اول یاد می‌گیری چه چیزی ارزشِ ساخت دارد."},
+      more:{en:"Cagan organizes it into five parts — the empowered Product Teams, the Right People and roles, the Right Product found through discovery, the Right Process of discovery and delivery techniques, and the Right Culture that sustains it all. The thread: stop shipping features off a roadmap and start solving problems for customers.", fa:"کیگن این را در پنج بخش می‌چیند — تیم‌های محصولِ توانمند، آدم‌های درست و نقش‌ها، محصولِ درست که با کشف پیدا می‌شود، فرایندِ درست از تکنیک‌های کشف و تحویل، و فرهنگِ درست که همه را سرِپا نگه می‌دارد. نخِ رابط: دست از تحویلِ فیچر از روی نقشهٔ راه بردار و شروع کن به حلِ مسئلهٔ مشتری."},
+      example:{en:"Click any node to read a principle or a role. You can also drag the nodes around.", fa:"روی هر دایره کلیک کن تا یک اصل یا نقش را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."} },
+    stages:[
+      { level:1, badge:{en:"Level 1 · Over-simplified", fa:"سطحِ ۱ · خیلی ساده"}, title:{en:"Solve real problems", fa:"مسئلهٔ واقعی را حل کن"}, tagline:{en:"The whole book in a sentence.", fa:"کلِ کتاب در یک جمله."},
+        body:{en:"Don't just build the features someone asked for. Figure out the real problem customers have, and build something they actually want — then you get products people love.", fa:"فقط فیچرهایی را که یکی خواسته نساز. بفهم مشتری واقعاً چه مسئله‌ای دارد، و چیزی بساز که واقعاً می‌خواهد — آن‌وقت به محصولی می‌رسی که مردم دوستش دارند."},
+        example:{en:"Before building, ask: what problem does this actually solve, and for whom?", fa:"قبل از ساخت بپرس: این واقعاً چه مسئله‌ای را حل می‌کند، و برای چه کسی؟"},
+        gain:{en:"You hold the single idea the whole book expands on.", fa:"همان یک ایده‌ای را داری که کلِ کتاب بسطش می‌دهد."} },
+      { level:2, badge:{en:"Level 2 · Simple", fa:"سطحِ ۲ · ساده"}, title:{en:"Teams and discovery", fa:"تیم‌ها و کشف"}, tagline:{en:"Empowered teams, testing before building.", fa:"تیم‌های توانمند، آزمایش پیش از ساخت."},
+        body:{en:"Two ideas do most of the work. First, use <b>empowered</b> cross-functional teams that own an outcome. Second, do <b>product discovery</b> — test ideas quickly and cheaply before you commit to building them.", fa:"دو ایده بیشترِ کار را می‌کنند. اول، از تیم‌های <b>توانمندِ</b> بین‌رشته‌ای استفاده کن که مسئولِ یک نتیجه‌اند. دوم، <b>کشفِ محصول</b> بکن — ایده‌ها را سریع و ارزان بیازما، قبل از اینکه به ساختشان قول بدهی."},
+        example:{en:"Give a team 'reduce churn', not 'build these three screens'.", fa:"به تیم بگو «ریزش را کم کن»، نه «این سه صفحه را بساز»."},
+        gain:{en:"You can tell a feature factory from a real product team.", fa:"می‌توانی کارخانهٔ فیچر را از یک تیمِ محصولِ واقعی تشخیص دهی."} },
+      { level:3, badge:{en:"Level 3 · Balanced", fa:"سطحِ ۳ · متعادل"}, title:{en:"People and product", fa:"آدم‌ها و محصول"}, tagline:{en:"Roles, vision, and the four risks.", fa:"نقش‌ها، چشم‌انداز، و چهار ریسک."},
+        body:{en:"Now the substance. Staff each team with a real <b>product manager</b>, <b>designer</b>, and <b>engineers</b>, guided by <b>leaders</b> who coach. Point them with a <b>vision and strategy</b>, and in discovery test every idea against four risks: <b>value, usability, feasibility, viability</b>.", fa:"حالا اصلِ مطلب. هر تیم را با یک <b>مدیرِ محصولِ</b> واقعی، یک <b>طراح</b>، و <b>مهندس‌ها</b> بچین، با <b>رهبرهایی</b> که کوچ می‌کنند. با یک <b>چشم‌انداز و راهبرد</b> جهت‌شان بده، و در کشف هر ایده را با چهار ریسک بسنج: <b>ارزش، کاربردپذیری، ساختنی‌بودن، به‌صرفه‌بودن</b>."},
+        example:{en:"Ask of any idea: do they want it, can they use it, can we build it, does it work for us?", fa:"از هر ایده بپرس: می‌خواهندش، می‌توانند ازش استفاده کنند، می‌توانیم بسازیمش، برای ما جور است؟"},
+        gain:{en:"You can staff a team and pressure-test an idea before building.", fa:"می‌توانی یک تیم را بچینی و یک ایده را قبل از ساخت زیرِ فشار بیازمایی."} },
+      { level:4, badge:{en:"Level 4 · Advanced", fa:"سطحِ ۴ · پیشرفته"}, title:{en:"Run the process", fa:"فرایند را اجرا کن"}, tagline:{en:"Assess, prototype, and test with users.", fa:"بسنج، پروتوتایپ بساز، با کاربر آزمایش کن."},
+        body:{en:"Discovery is concrete techniques. Write a quick <b>opportunity assessment</b> and map the work; build <b>prototypes</b> at the right fidelity for the risk; then <b>test</b> them with real users and stakeholders — especially the hard, crucial test of value.", fa:"کشف یعنی تکنیک‌های مشخص. یک <b>ارزیابیِ فرصتِ</b> سریع بنویس و کار را نقشه کن؛ <b>پروتوتایپ‌هایی</b> بساز با کیفیتی که به اندازهٔ آن ریسک باشد؛ بعد با کاربر و ذی‌نفعِ واقعی <b>آزمایششان</b> کن — به‌خصوص آن آزمونِ سخت و حیاتیِ ارزش."},
+        example:{en:"A clickable prototype tested on five users retires more risk than a month of building.", fa:"یک پروتوتایپِ کلیک‌شدنی که روی پنج کاربر آزمایش شود، بیشتر از یک ماه ساختن ریسک را کم می‌کند."},
+        gain:{en:"You can run a real discovery loop, not just talk about it.", fa:"می‌توانی یک حلقهٔ کشفِ واقعی را اجرا کنی، نه اینکه فقط درباره‌اش حرف بزنی."} },
+      { level:5, badge:{en:"Level 5 · Expert", fa:"سطحِ ۵ · حرفه‌ای"}, title:{en:"Culture that lasts", fa:"فرهنگی که می‌ماند"}, tagline:{en:"Innovate, execute, and win the objections.", fa:"نوآوری کن، اجرا کن، و مخالفت‌ها را ببَر."},
+        body:{en:"The expert protects the environment. A <b>strong product culture</b> both <b>innovates</b> (experiments, safe to fail) and <b>executes</b> (delivers with high integrity), keeps teams empowered as the company scales, and <b>overcomes objections</b> with evidence. This is what INSPIRED builds; its companion EMPOWERED is the leadership book that goes deeper on coaching teams to get here.", fa:"آدمِ حرفه‌ای از محیط محافظت می‌کند. یک <b>فرهنگِ محصولِ قوی</b> هم <b>نوآوری</b> می‌کند (آزمایش، امنیت برای شکست) هم <b>اجرا</b> می‌کند (تحویلِ درست‌وحساب)، تیم‌ها را با بزرگ‌شدنِ شرکت توانمند نگه می‌دارد، و <b>مخالفت‌ها</b> را با شواهد <b>پشتِ سر می‌گذارد</b>. این همان چیزی است که اینسپایرد می‌سازد؛ کتابِ همراهش، امپاورد، کتابِ رهبری است که عمیق‌تر به کوچ‌کردنِ تیم‌ها برای رسیدن به این‌جا می‌پردازد."},
+        example:{en:"Teams take bold bets, hit the dates that matter, and bring sales and legal along early.", fa:"تیم‌ها شرطِ جسورانه می‌بندند، به تاریخ‌های مهم می‌رسند، و فروش و حقوقی را زود همراه می‌کنند."},
+        gain:{en:"You can build products customers love — and the culture that keeps doing it.", fa:"می‌توانی محصولی بسازی که مشتری دوستش دارد — و فرهنگی که مدام همین را می‌سازد."} }
+    ],
+    quotes:[
+      {en:"We need teams of missionaries, not teams of mercenaries.", fa:"ما به تیم‌هایی از آدم‌های پُرانگیزه نیاز داریم، نه تیم‌هایی از مزدور."},
+      {en:"Winning products come from the deep understanding of the user's needs combined with an equally deep understanding of what's just now possible.", fa:"محصولِ برنده از شناختِ عمیقِ نیازهای کاربر می‌آید، کنارِ شناختی به همان عمق از اینکه همین حالا چه چیزی ممکن شده."},
+      {en:"Software projects can be thought of as having two distinct stages: figuring out what to build (build the right product), and building it (building the product right).", fa:"پروژه‌های نرم‌افزاری را می‌شود دارای دو مرحلهٔ جدا دید: فهمیدنِ اینکه چه باید ساخت (محصولِ درست را بساز)، و ساختنش (محصول را درست بساز)."},
+      {en:"It doesn't matter how good your engineering team is if they are not given something worthwhile to build.", fa:"مهم نیست تیمِ مهندسی‌ات چقدر خوب است، اگر چیزی که ارزشِ ساخت داشته باشد به دستش ندهی."},
+      {en:"Product management is about insights and judgment, both of which require a sharp mind.", fa:"مدیریتِ محصول دربارهٔ بینش و قضاوت است، و هر دو ذهنی تیز می‌خواهند."},
+      {en:"Fall in love with the problem, not with the solution.", fa:"عاشقِ مسئله شو، نه عاشقِ راه‌حل."},
+      {en:"Great teams are made up of ordinary people who are inspired and empowered.", fa:"تیم‌های عالی از آدم‌های معمولی‌ای ساخته شده‌اند که الهام گرفته‌اند و توانمند شده‌اند."}
+    ],
+    media:[
+      { kind:"yt", id:"saF8fViOrO8", src:{en:"YouTube · Product Faculty", fa:"یوتیوب · Product Faculty"},
+        title:{en:"Marty Cagan — Product Discovery, Strategy & Empowered Teams", fa:"مارتی کیگن — کشفِ محصول، راهبرد، و تیم‌های توانمند"},
+        desc:{en:"Cagan himself on the core ideas behind INSPIRED — discovery, strategy, and empowered product teams.", fa:"خودِ کیگن دربارهٔ ایده‌های اصلیِ پشتِ اینسپایرد — کشف، راهبرد، و تیم‌های توانمندِ محصول."},
+        bullets:{en:["Discovery vs delivery, explained","Why empowered teams win","Straight from the author"], fa:["فرقِ کشف و تحویل، توضیح‌داده‌شده","چرا تیم‌های توانمند می‌برند","مستقیم از خودِ نویسنده"]},
+        best:{en:"Best for Stage 2–4.", fa:"خوب برای مرحلهٔ ۲ تا ۴."} },
+      { kind:"img", url:"https://www.wiley.com/en-us/INSPIRED:+How+to+Create+Tech+Products+Customers+Love,+2nd+Edition-p-9781119387503",
+        src:{en:"Wiley · Publisher", fa:"وایلی · ناشر"},
+        title:{en:"INSPIRED, 2nd Edition — Publisher Page", fa:"اینسپایرد، ویرایشِ دوم — صفحهٔ ناشر"},
+        desc:{en:"The publisher page for the second edition, with details and formats.", fa:"صفحهٔ ناشر برای ویرایشِ دوم، با جزئیات و قالب‌ها."},
+        bullets:{en:["The definitive 2nd edition","Details and formats","Straight from the source"], fa:["ویرایشِ دومِ معتبر","جزئیات و قالب‌ها","مستقیم از خودِ منبع"]},
+        best:{en:"For editions and the source.", fa:"برای نسخه‌ها و منبعِ اصلی."} },
+      { kind:"img", url:"https://www.svpg.com/inspired-v2/",
+        src:{en:"SVPG · Marty Cagan", fa:"SVPG · مارتی کیگن"},
+        title:{en:"INSPIRED on Silicon Valley Product Group", fa:"اینسپایرد در گروهِ محصولِ سیلیکون‌ولی"},
+        desc:{en:"The author's own page on the book and why he rewrote it for the second edition.", fa:"صفحهٔ خودِ نویسنده دربارهٔ کتاب و اینکه چرا برای ویرایشِ دوم بازنویسی‌اش کرد."},
+        bullets:{en:["Why the 2nd edition is all-new","The author's own framing","Links to related articles"], fa:["چرا ویرایشِ دوم کاملاً نو است","قابِ خودِ نویسنده","لینک به مقاله‌های مرتبط"]},
+        best:{en:"For the author's own take.", fa:"برای دیدگاهِ خودِ نویسنده."} },
+      { kind:"img", url:"https://www.goodreads.com/book/show/35249663-inspired",
+        src:{en:"Goodreads · Readers", fa:"گودریدز · خواننده‌ها"},
+        title:{en:"INSPIRED on Goodreads", fa:"اینسپایرد در گودریدز"},
+        desc:{en:"Reader ratings, reviews, and highlighted quotes from the book.", fa:"امتیاز و نقدِ خواننده‌ها، و نقل‌قول‌هایی از کتاب."},
+        bullets:{en:["Thousands of reader reviews","Popular highlighted quotes","See what resonated"], fa:["هزاران نقدِ خواننده","نقل‌قول‌های پرطرفدار","ببین چه چیزی روی مردم اثر گذاشته"]},
+        best:{en:"For reviews and quotes.", fa:"برای نقد و نقل‌قول."} }
+    ],
+    go:[
+      {label:{en:"Publisher page (2nd edition)", fa:"صفحهٔ ناشر (ویرایشِ دوم)"}, url:"https://www.wiley.com/en-us/INSPIRED:+How+to+Create+Tech+Products+Customers+Love,+2nd+Edition-p-9781119387503"},
+      {label:{en:"Book on Goodreads", fa:"کتاب در گودریدز"}, url:"https://www.goodreads.com/book/show/35249663-inspired"},
+      {label:{en:"SVPG: Product Discovery", fa:"SVPG: کشفِ محصول"}, url:"https://www.svpg.com/product-discovery/"}
+    ],
+    recs:[
+      { pri:"b", t:{en:"Turn a feature into a problem", fa:"یک فیچر را به مسئله تبدیل کن"}, d:{en:"Take the next thing on your roadmap and rewrite it as the customer problem and outcome it should hit.", fa:"کارِ بعدی روی نقشهٔ راهت را بردار و به‌شکلِ مسئلهٔ مشتری و نتیجه‌ای که باید بزند بازنویسی‌اش کن."} },
+      { pri:"b", t:{en:"Name the riskiest assumption", fa:"پرریسک‌ترین فرض را نام ببر"}, d:{en:"For a current idea, write which of the four risks — value, usability, feasibility, viability — is most likely to sink it, and test that first.", fa:"برای یک ایدهٔ فعلی بنویس کدام‌یک از چهار ریسک — ارزش، کاربردپذیری، ساختنی‌بودن، به‌صرفه‌بودن — بیشتر از همه ممکن است غرقش کند، و همان را اول بیازما."} },
+      { pri:"n", t:{en:"Prototype before you build", fa:"قبل از ساخت، پروتوتایپ بساز"}, d:{en:"Make a quick clickable prototype and put it in front of five real users this week.", fa:"یک پروتوتایپِ کلیک‌شدنیِ سریع بساز و این هفته بگذارش جلوی پنج کاربرِ واقعی."} },
+      { pri:"n", t:{en:"Bring an objector along early", fa:"یک مخالف را زود همراه کن"}, d:{en:"Pick one stakeholder who usually says no — sales, legal, finance — and involve them before the work is done.", fa:"یک ذی‌نفع را که معمولاً نه می‌گوید انتخاب کن — فروش، حقوقی، مالی — و قبل از تمام‌شدنِ کار درگیرش کن."} }
+    ]
+  }
+};

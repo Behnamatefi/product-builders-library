@@ -1,0 +1,264 @@
+/* config: The Subtle Art of Not Giving a F*ck — Mark Manson (Happiness) */
+module.exports = {
+  slug:"subtleart", brand:"The Subtle Art of Not Giving a F*ck",
+  titleTag:"The Subtle Art of Not Giving a F*ck — نقشهٔ دانش و یادگیری ۵ مرحله‌ای",
+  W:980, H:780, R1:220, R2:126, span:66,
+  leafKickEn:"Idea", leafKickFa:"ایدهٔ",
+  flowEn:["Choose","Own","Commit"], flowFa:["انتخاب کن","مسئولیتش را بپذیر","متعهد شو"],
+
+  hero:`  <div class="eyebrow"><span class="edot"></span>
+    <span data-only="en">Book knowledge map · Mark Manson</span>
+    <span data-only="fa">نقشهٔ کتاب · مارک منسون</span>
+  </div>
+  <h1>
+    <span data-only="en">The Subtle Art of Not Giving a F*ck — A Counterintuitive Approach to Living a Good Life</span>
+    <span data-only="fa">هنرِ ظریفِ بی‌خیالی — رویکردی خلافِ‌جریان به یک زندگیِ خوب</span>
+  </h1>
+  <p class="dek">
+    <span data-only="en">A knowledge graph of the whole book, plus a 5-stage path from a single idea to expert-level mastery — with an example at every step.</span>
+    <span data-only="fa">نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از یک ایدهٔ ساده تا حرفه‌ای — با یک مثال در هر مرحله.</span>
+  </p>
+  <div class="metastrip">
+    <div class="metaitem"><span class="mk" data-only="en">Book</span><span class="mk" data-only="fa">کتاب</span>
+      <span class="mv" data-only="en">The Subtle Art of Not Giving a F*ck</span><span class="mv" data-only="fa">هنرِ ظریفِ بی‌خیالی</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Author</span><span class="mk" data-only="fa">نویسنده</span>
+      <span class="mv" data-only="en">Mark Manson</span><span class="mv" data-only="fa">مارک منسون</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Published</span><span class="mk" data-only="fa">سالِ چاپ</span>
+      <span class="mv" data-only="en">2016</span><span class="mv" data-only="fa">۲۰۱۶</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Group</span><span class="mk" data-only="fa">گروه</span>
+      <span class="mv" data-only="en">Happiness</span><span class="mv" data-only="fa">شادکامی</span></div>
+  </div>
+  <div class="chips">
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Parts</span><span data-only="fa">بخش</span></div>
+    <div class="chip"><b data-only="en">16</b><b data-only="fa">۱۶</b><span data-only="en">Ideas</span><span data-only="fa">ایده</span></div>
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Learning stages</span><span data-only="fa">مرحلهٔ یادگیری</span></div>
+  </div>`,
+
+  callout:`    <b data-only="en">The core idea:</b>
+    <b data-only="fa">ایدهٔ اصلی:</b>
+    <span data-only="en"> You only have so many f*cks to give — a limited supply — so spend them on what is <i>true, immediate</i> and <i>important</i>. Chasing an <i>always positive</i> life backfires; accepting struggle and choosing good values is what brings peace. Caring about less, but better, is the whole game.</span>
+    <span data-only="fa"> تعدادِ «اهمیت»‌هایی که می‌توانی بدهی محدود است — پس خرجِ چیزی‌شان کن که <i>واقعی، همین‌الانی</i> و <i>مهم</i> است. دنبالِ یک زندگیِ <i>همیشه‌مثبت</i> بودن نتیجهٔ عکس می‌دهد؛ پذیرفتنِ سختی و انتخابِ ارزش‌های خوب است که آرامش می‌آورد. به چیزهای کمتر، اما بهتر، اهمیت بده — کلِ بازی همین است.</span>`,
+
+  kpis:`    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Parts (backwards law · choose · responsibility · uncertainty · commitment)</div><div class="l" data-only="fa">بخش (قانونِ وارونه · انتخاب · مسئولیت · تردید · تعهد)</div></div>
+    <div class="kbox"><div class="v" data-only="en">16</div><div class="v" data-only="fa">۱۶</div><div class="l" data-only="en">Ideas you can use</div><div class="l" data-only="fa">ایده برای استفاده</div></div>
+    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Levels, simple → expert</div><div class="l" data-only="fa">مرحله، ساده تا حرفه‌ای</div></div>
+    <div class="kbox"><div class="v" data-only="en">3</div><div class="v" data-only="fa">۳</div><div class="l" data-only="en">The arc: choose · own · commit</div><div class="l" data-only="fa">مسیر: انتخاب کن · گردن بگیر · متعهد شو</div></div>`,
+
+  mapcallout:`      <b data-only="en">Read it as a flow:</b><b data-only="fa">به‌صورتِ یک جریان بخوانش:</b>
+      <span data-only="en"> stop forcing the positive and <b>accept</b> the negative (the backwards law); <b>choose</b> the few things worth caring about and the struggles behind them; <b>own</b> your response to everything, fault or not; stay uncertain enough to grow; then <b>commit</b>, set boundaries, and let death show you what matters.</span>
+      <span data-only="fa"> دست از زورزدن برای مثبت‌بودن بردار و منفی را <b>بپذیر</b> (قانونِ وارونه)؛ همان چند چیزی را که ارزشِ اهمیت‌دادن دارند و سختی‌های پشتشان را <b>انتخاب کن</b>؛ واکنشت به هر چیزی را — تقصیرت باشد یا نه — <b>گردن بگیر</b>؛ آن‌قدر بی‌تردید نباش که رشد کنی؛ بعد <b>متعهد شو</b>، مرز بگذار، و بگذار مرگ نشانت بدهد چه چیزی مهم است.</span>`,
+
+  methodFa:"<p><b>منبع:</b> کتابِ «The Subtle Art of Not Giving a F*ck: A Counterintuitive Approach to Living a Good Life» نوشتهٔ مارک منسون، چاپِ ۲۰۱۶ (نشرِ HarperOne).</p><p><b>روشِ کار:</b> ساختارِ پنج‌بخشی و ایده‌ها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده؛ نقل‌قول‌ها مقابله و ویدیوها بررسی شده‌اند.</p><p><b>گروه:</b> «شادکامی» — یک کتابِ رک و بامزه دربارهٔ اینکه اهمیتِ محدودت را عاقلانه خرج کنی.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای متنِ کامل، خودِ کتاب را بخوان.</p>",
+  methodEn:"<p><b>Source:</b> the book <i>The Subtle Art of Not Giving a F*ck: A Counterintuitive Approach to Living a Good Life</i> by Mark Manson, published 2016 (HarperOne).</p><p><b>How this was built:</b> the five-part structure and ideas were gathered and rewritten from the book and reputable sources; quotes were cross-checked and the linked videos verified.</p><p><b>Group:</b> Happiness — a blunt, funny book about spending your limited care wisely.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>",
+
+  data:{
+    tldr:[
+      {en:"The whole book in one line: you have a limited number of f*cks to give, so spend them only on what is true, immediate, and important.",
+       fa:"خلاصهٔ کل کتاب در یک جمله: تعدادِ «اهمیت»‌هایی که می‌توانی بدهی محدود است، پس فقط خرجِ چیزی‌شان کن که واقعی، همین‌الانی و مهم است."},
+      {en:"Chasing a constantly <b>positive</b> life backfires — wanting it more makes you feel worse. Accepting the negative is what brings peace.",
+       fa:"دنبالِ یک زندگیِ همیشه <b>مثبت</b> بودن نتیجهٔ عکس می‌دهد — هرچه بیشتر بخواهی‌اش، حالت بدتر می‌شود. پذیرفتنِ منفی است که آرامش می‌آورد."},
+      {en:"You are <b>always choosing</b> what to care about. Choose fewer things, and better ones, built on good values.",
+       fa:"تو <b>همیشه</b> داری انتخاب می‌کنی به چه چیزی اهمیت بدهی. چیزهای کمتر انتخاب کن، و بهتر — بر پایهٔ ارزش‌های خوب."},
+      {en:"You are <b>responsible</b> for how you respond to everything that happens to you — even the parts that are not your fault.",
+       fa:"تو <b>مسئولِ</b> این هستی که به هر چیزی که سرت می‌آید چطور واکنش نشان می‌دهی — حتی همان بخش‌هایی که تقصیرِ تو نیست."},
+      {en:"Then <b>commit</b>: go deep on a few things, set boundaries, and let the fact that you will die remind you what deserves your care.",
+       fa:"بعد <b>متعهد شو</b>: روی چند چیز عمیق شو، مرز بگذار، و بگذار این واقعیت که روزی می‌میری یادت بیندازد چه چیزی ارزشِ اهمیت‌دادن دارد."}
+    ],
+    parts:[
+      { key:"dont_try", varc:"--c-teal", name:{en:"Don't Try", fa:"زور نزن"}, tag:{en:"The Backwards Law", fa:"قانونِ وارونه"},
+        gist:{en:"Wanting a positive experience is a negative one; accepting the negative is positive.", fa:"خواستنِ تجربهٔ مثبت، خودش منفی است؛ پذیرفتنِ منفی، خودش مثبت است."},
+        more:{en:"Manson opens with Charles Bukowski's epitaph — “Don't try.” The harder you chase feeling good, the more you notice you don't have it. The way out isn't more positivity; it's accepting struggle and pain as a normal part of a good life.",
+              fa:"منسون کتاب را با سنگِ‌قبرِ چارلز بوکوفسکی باز می‌کند — «زور نزن.» هرچه سخت‌تر دنبالِ حالِ خوب بدوی، بیشتر می‌بینی که نداری‌اش. راهِ بیرون، مثبت‌بودنِ بیشتر نیست؛ پذیرفتنِ سختی و درد است، به‌عنوانِ بخشی عادی از یک زندگیِ خوب."},
+        chapters:["backwards","acceptance","feedbackloop"] },
+      { key:"choose_care", varc:"--c-blue", name:{en:"Choose What to Care About", fa:"انتخاب کن به چی اهمیت بدهی"}, tag:{en:"Spend your care well", fa:"اهمیتت را خوب خرج کن"},
+        gist:{en:"You always pick what to give a f*ck about — so pick meaningful struggles and good values.", fa:"تو همیشه انتخاب می‌کنی به چه چیزی اهمیت بدهی — پس سختی‌های معنادار و ارزش‌های خوب را انتخاب کن."},
+        more:{en:"Not giving a f*ck doesn't mean indifference; it means caring about less, and about the right things. Happiness comes from solving problems you find worth solving, so the real question is which struggles and values you'll commit to.",
+              fa:"بی‌خیالی یعنی بی‌تفاوتی نیست؛ یعنی به چیزهای کمتر اهمیت بدهی، و به چیزهای درست. شادکامی از حلِ مشکل‌هایی می‌آید که به‌نظرت ارزشِ حل‌شدن دارند، پس پرسشِ اصلی این است که به کدام سختی‌ها و ارزش‌ها متعهد می‌شوی."},
+        chapters:["choosing","struggle","problems"] },
+      { key:"not_special", varc:"--c-amber", name:{en:"You're Not Special & Radical Responsibility", fa:"تو خاص نیستی و مسئولیتِ کامل"}, tag:{en:"Own your response", fa:"واکنشت را گردن بگیر"},
+        gist:{en:"Entitlement is a trap; you're responsible for everything you experience, fault or not.", fa:"حسِ استحقاق یک تله است؛ تو مسئولِ هر چیزی هستی که تجربه می‌کنی، تقصیرت باشد یا نه."},
+        more:{en:"Feeling exceptional — either “I'm amazing” or “I'm worthless” — is a form of entitlement that keeps you stuck. The antidote is radical responsibility: you don't control what happens, but you always control how you respond, so take ownership of it.",
+              fa:"حسِ اینکه استثنایی هستی — چه «من فوق‌العاده‌ام» چه «من به‌دردنخورم» — نوعی حسِ استحقاق است که زمین‌گیرت می‌کند. پادزهرش مسئولیتِ کامل است: تو کنترلِ اتفاق‌ها را نداری، اما همیشه کنترلِ واکنشت را داری، پس گردنش بگیر."},
+        chapters:["entitlement","responsibility","faultresp"] },
+      { key:"uncertainty", varc:"--c-violet", name:{en:"Uncertainty & Failure", fa:"تردید و شکست"}, tag:{en:"Grow by being wrong", fa:"با اشتباه‌کردن رشد کن"},
+        gist:{en:"Hold your identity loosely, stay a little wrong, and let failure move you forward.", fa:"هویتت را شل بگیر، کمی اشتباه بمان، و بگذار شکست جلو ببردت."},
+        more:{en:"The more a fact threatens your self-image, the more you avoid it — that's Manson's law of avoidance. Certainty is the enemy of growth, so aim to be less wrong over time. Failure is the way forward, and action, not motivation, gets you started.",
+              fa:"هرچه یک واقعیت بیشتر خودانگاره‌ات را تهدید کند، بیشتر از آن فرار می‌کنی — این قانونِ اجتنابِ منسون است. اطمینانِ کامل دشمنِ رشد است، پس هدفت این باشد که به‌مرور کمتر اشتباه کنی. شکست، راهِ جلو رفتن است، و این عمل است که راهت می‌اندازد، نه انگیزه."},
+        chapters:["avoidance","wrong","failure","dosomething"] },
+      { key:"commitment", varc:"--c-green", name:{en:"Commitment, Boundaries & Death", fa:"تعهد، مرز، و مرگ"}, tag:{en:"Go deep, then remember death", fa:"عمیق شو، بعد مرگ را یادت باشد"},
+        gist:{en:"Commitment is freedom, boundaries protect what you value, and death clarifies it all.", fa:"تعهد یعنی آزادی، مرزها از چیزی که برایت مهم است محافظت می‌کنند، و مرگ همه‌چیز را روشن می‌کند."},
+        more:{en:"Endless options keep you shallow; committing to a few things — a person, a craft, a purpose — is where depth and meaning live. That means saying no and holding boundaries. And the final clarifier is mortality: remembering you'll die burns off everything trivial.",
+              fa:"گزینه‌های بی‌پایان سطحی نگهت می‌دارند؛ متعهد‌شدن به چند چیز — یک آدم، یک کار، یک هدف — همان‌جایی است که عمق و معنا زندگی می‌کنند. این یعنی نه‌گفتن و نگه‌داشتنِ مرزها. و روشن‌کنندهٔ نهایی مرگ است: یادِ اینکه می‌میری، هر چیزِ بی‌اهمیتی را می‌سوزاند."},
+        chapters:["commit","boundaries","death"] }
+    ],
+    chapters:{
+      backwards:{ part:"dont_try", n:1, name:{en:"The Backwards Law", fa:"قانونِ وارونه"}, glabel:{en:"Backwards Law", fa:"قانونِ وارونه"},
+        principle:{en:"Wanting a more positive experience is itself a negative experience. The harder you chase feeling good, the less satisfied you feel.", fa:"خواستنِ یک تجربهٔ مثبت‌تر، خودش یک تجربهٔ منفی است. هرچه سخت‌تر دنبالِ حالِ خوب بدوی، کمتر راضی می‌شوی."},
+        more:{en:"Manson borrows Alan Watts's “backwards law”: pursuing something reminds you that you lack it. So the chase for constant positivity quietly reinforces the feeling that you're not enough — the wanting becomes the wound.", fa:"منسون «قانونِ وارونهٔ» آلن واتس را وام می‌گیرد: دنبالِ چیزی دویدن، یادت می‌اندازد که نداری‌اش. برای همین، دویدن دنبالِ مثبت‌بودنِ همیشگی، بی‌سروصدا همین حس را تقویت می‌کند که کافی نیستی — همان خواستن می‌شود زخم."},
+        example:{en:"The more desperately someone wants to be happy or rich, the more their own mind keeps whispering that they are neither.", fa:"هرچه کسی دیوانه‌وارتر بخواهد خوشحال یا پولدار باشد، ذهنِ خودش بیشتر در گوشش می‌گوید که هیچ‌کدام نیست."},
+        tip:{en:"When you feel restless, stop chasing the good feeling for a moment and just let the discomfort be there.", fa:"وقتی بی‌قراری، یک لحظه دست از دنبالِ حالِ خوب دویدن بردار و بگذار همان ناراحتی سرِ جایش باشد."},
+        pitfall:{en:"Treating every negative feeling as a problem to be fixed immediately.", fa:"هر حسِ منفی را مشکلی دیدن که باید همین‌الان درستش کنی."} },
+      acceptance:{ part:"dont_try", n:2, name:{en:"Accept the Negative", fa:"منفی را بپذیر"}, glabel:{en:"Acceptance", fa:"پذیرش"},
+        principle:{en:"Accepting a negative experience is itself a positive experience. Pain and problems are part of a good life, not a sign it has gone wrong.", fa:"پذیرفتنِ یک تجربهٔ منفی، خودش یک تجربهٔ مثبت است. درد و مشکل بخشی از یک زندگیِ خوب‌اند، نه نشانهٔ اینکه چیزی خراب شده."},
+        more:{en:"Everything worthwhile comes with an unpleasant side, and struggle is how anything meaningful gets built. When you stop demanding that life feel good all the time, ordinary struggles stop feeling like injustices.", fa:"هر چیزِ ارزشمندی یک طرفِ ناخوشایند دارد، و سختی همان راهی است که هر چیزِ معناداری با آن ساخته می‌شود. وقتی دست از این توقع برداری که زندگی همیشه خوب حس شود، سختی‌های معمولی دیگر مثلِ بی‌عدالتی حس نمی‌شوند."},
+        example:{en:"The pain of the gym, the awkwardness of hard conversations, the risk of rejection — each is the price of something you actually want.", fa:"دردِ باشگاه، ناراحتیِ حرف‌های سخت، خطرِ ردشدن — هرکدام بهای چیزی است که واقعاً می‌خواهی‌اش."},
+        tip:{en:"Name one struggle you're carrying and ask what good thing it is the price of.", fa:"یک سختی را که داری تحمل می‌کنی نام ببر و بپرس بهای کدام چیزِ خوب است."},
+        pitfall:{en:"Believing a good life should be free of pain, so any pain means you failed.", fa:"باور به اینکه یک زندگیِ خوب باید بی‌درد باشد، پس هر دردی یعنی شکست خورده‌ای."} },
+      feedbackloop:{ part:"dont_try", n:3, name:{en:"The Feedback Loop from Hell", fa:"حلقهٔ بازخوردِ جهنمی"}, glabel:{en:"Feedback Loop", fa:"حلقهٔ جهنمی"},
+        principle:{en:"Getting upset about being upset stacks a second layer of suffering on the first. You feel bad about feeling bad.", fa:"ناراحت‌شدن از ناراحت‌بودن، یک لایهٔ دومِ رنج روی لایهٔ اول می‌گذارد. از بد‌بودنِ حالت، حالت بد می‌شود."},
+        more:{en:"Anxiety about your anxiety, anger at your anger, guilt over your guilt — the judgment multiplies the emotion. The escape is to let the first feeling simply exist, without making it mean something is wrong with you.", fa:"اضطراب از اضطرابت، خشم از خشمت، عذابِ‌وجدان از عذابِ‌وجدانت — قضاوت، احساس را چند برابر می‌کند. راهِ فرار این است که بگذاری همان احساسِ اول فقط وجود داشته باشد، بی‌آنکه معنی‌اش کنی که یک‌جای تو خراب است."},
+        example:{en:"You're anxious, then anxious that you're anxious, then ashamed of that — three problems where there was one.", fa:"مضطربی، بعد مضطرب از اینکه مضطربی، بعد شرمنده از همین — سه مشکل، جایی که یکی بود."},
+        tip:{en:"Next time a hard feeling shows up, let it be there for a minute without judging yourself for having it.", fa:"دفعهٔ بعد که یک حسِ سخت آمد، یک دقیقه بگذار باشد، بی‌آنکه خودت را برای داشتنش قضاوت کنی."},
+        pitfall:{en:"Beating yourself up for negative emotions, which only breeds more of them.", fa:"خودخوری برای احساس‌های منفی، که فقط بیشترشان می‌کند."} },
+      choosing:{ part:"choose_care", n:4, name:{en:"You Always Choose", fa:"انتخاب همیشه با توست"}, glabel:{en:"You Choose", fa:"انتخاب با توست"},
+        principle:{en:"You are always choosing what to give a f*ck about, even when it feels like you have no choice.", fa:"تو همیشه داری انتخاب می‌کنی به چه چیزی اهمیت بدهی، حتی وقتی حس می‌کنی هیچ انتخابی نداری."},
+        more:{en:"Maturity is learning to give a f*ck only about what's truly f*ckworthy. As you get older, the goal isn't to care about nothing — it's to reserve your limited care for the few people and things that genuinely earn it.", fa:"بلوغ یعنی یاد بگیری فقط به چیزی اهمیت بدهی که واقعاً ارزشش را دارد. هرچه بزرگ‌تر می‌شوی، هدف این نیست که به هیچ‌چیز اهمیت ندهی — این است که اهمیتِ محدودت را برای همان چند آدم و چیزی نگه داری که واقعاً حقش را دارند."},
+        example:{en:"The person who reacts to every small annoyance is spending their care on things that don't matter, and has none left for what does.", fa:"کسی که به هر آزارِ کوچکی واکنش نشان می‌دهد، اهمیتش را خرجِ چیزهایی می‌کند که مهم نیستند، و چیزی برای مهم‌ها نمی‌ماند."},
+        tip:{en:"Pick one thing that regularly annoys you and consciously decide to stop giving it your care.", fa:"یک چیز را که مرتب حرصت می‌دهد انتخاب کن و آگاهانه تصمیم بگیر دیگر اهمیتش ندهی."},
+        pitfall:{en:"Spreading your care so thin that everything, and therefore nothing, matters.", fa:"آن‌قدر نازک پخش‌کردنِ اهمیتت که همه‌چیز، و در نتیجه هیچ‌چیز، مهم شود."} },
+      struggle:{ part:"choose_care", n:5, name:{en:"Choose Your Struggle", fa:"سختی‌ات را انتخاب کن"}, glabel:{en:"Struggle", fa:"سختی"},
+        principle:{en:"Happiness comes from solving problems, so the real question isn't “what do you want?” but “what pain are you willing to sustain?”", fa:"شادکامی از حلِ مشکل می‌آید، پس پرسشِ اصلی این نیست که «چه می‌خواهی؟» بلکه «حاضری چه دردی را تحمل کنی؟»"},
+        more:{en:"Everyone wants the reward; who you become is decided by the struggle you'll accept to get it. Good values make the struggle worth it — pick problems that come from things you actually care about, not borrowed shoulds.", fa:"همه پاداش را می‌خواهند؛ اینکه چه‌کسی می‌شوی را سختی‌ای تعیین می‌کند که حاضری برایش قبول کنی. ارزش‌های خوب، سختی را ارزشمند می‌کنند — مشکل‌هایی را انتخاب کن که از چیزی می‌آیند که واقعاً برایت مهم است، نه «باید»‌های قرضی."},
+        example:{en:"Plenty of people want to write a book; the writer is the one willing to sustain the daily grind of bad drafts.", fa:"خیلی‌ها می‌خواهند کتاب بنویسند؛ نویسنده کسی است که حاضر است کلنجارِ روزانه با پیش‌نویس‌های بد را تحمل کند."},
+        tip:{en:"For a goal you have, write down the ugly daily work it requires and ask if you want that work.", fa:"برای هدفی که داری، کارِ روزانه و زشتش را بنویس و بپرس آیا خودِ آن کار را می‌خواهی."},
+        pitfall:{en:"Chasing the prize while refusing the process that actually produces it.", fa:"دنبالِ جایزه دویدن و رد‌کردنِ همان مسیری که واقعاً می‌سازدش."} },
+      problems:{ part:"choose_care", n:6, name:{en:"Problems Never End", fa:"مشکل‌ها تمام نمی‌شوند"}, glabel:{en:"Problems", fa:"مشکل‌ها"},
+        principle:{en:"Life is an endless series of problems; solving one just creates the next. You don't get rid of problems, you upgrade them.", fa:"زندگی یک زنجیرهٔ بی‌پایان از مشکل است؛ حلِ یکی فقط بعدی را می‌سازد. تو از شرِ مشکل‌ها خلاص نمی‌شوی، ارتقایشان می‌دهی."},
+        more:{en:"Happiness isn't a place with no problems; it's the ongoing activity of solving them. The aim isn't a problem-free life but better problems — trading the problems of being broke for the richer problems of building something.", fa:"شادکامی جایی بدونِ مشکل نیست؛ خودِ کارِ مداومِ حل‌کردنِ آن‌هاست. هدف، زندگیِ بی‌مشکل نیست، بلکه مشکل‌های بهتر است — عوض‌کردنِ مشکل‌های بی‌پولی با مشکل‌های غنی‌ترِ ساختنِ یک چیز."},
+        example:{en:"Solve the problem of no customers and you earn the problem of managing a team — a better problem, but still a problem.", fa:"مشکلِ نداشتنِ مشتری را حل کن، آن‌وقت مشکلِ ادارهٔ یک تیم را می‌گیری — مشکلی بهتر، اما بازهم مشکل."},
+        tip:{en:"When a problem is solved, expect the next one and pick your next challenge on purpose.", fa:"وقتی مشکلی حل شد، منتظرِ بعدی باش و چالشِ بعدی‌ات را عمداً انتخاب کن."},
+        pitfall:{en:"Believing that once you fix this one thing, life will finally be problem-free.", fa:"باور به اینکه همین که این یک چیز را درست کنی، زندگی بالاخره بی‌مشکل می‌شود."} },
+      entitlement:{ part:"not_special", n:7, name:{en:"You Are Not Special", fa:"تو خاص نیستی"}, glabel:{en:"Entitlement", fa:"حسِ استحقاق"},
+        principle:{en:"Feeling entitled — that you deserve good things without earning them — keeps you stuck. You are not exceptional, and that is freeing.", fa:"حسِ استحقاق — اینکه لایقِ چیزهای خوبی بدونِ به‌دست‌آوردنشان — زمین‌گیرت می‌کند. تو استثنایی نیستی، و همین آزادت می‌کند."},
+        more:{en:"Entitlement wears two masks: “I'm better than everyone” and “I'm worse than everyone.” Both put you at the center of the universe. Accepting that you're pretty average at most things frees you to improve without the drama.", fa:"حسِ استحقاق دو نقاب دارد: «من از همه بهترم» و «من از همه بدترم». هر دو تو را مرکزِ عالم می‌گذارند. پذیرفتنِ اینکه در بیشترِ چیزها آدمِ متوسطی هستی، آزادت می‌کند که بدونِ نمایش بهتر شوی."},
+        example:{en:"The person convinced they're a misunderstood genius and the one convinced they're worthless both dodge the ordinary work of getting better.", fa:"کسی که مطمئن است یک نابغهٔ درک‌نشده است و کسی که مطمئن است به‌دردنخور است، هر دو از کارِ معمولیِ بهتر‌شدن فرار می‌کنند."},
+        tip:{en:"Let yourself be a beginner at something and be genuinely okay with being average at it.", fa:"بگذار در یک چیز تازه‌کار باشی و واقعاً با متوسط‌بودن در آن کنار بیا."},
+        pitfall:{en:"Using either grandiosity or self-pity to avoid honest effort.", fa:"استفاده از خودبزرگ‌بینی یا خودترحمی برای فرار از تلاشِ صادقانه."} },
+      responsibility:{ part:"not_special", n:8, name:{en:"Radical Responsibility", fa:"مسئولیتِ کامل"}, glabel:{en:"Responsibility", fa:"مسئولیت"},
+        principle:{en:"You are responsible for everything that happens to you, even when it isn't your fault. You may not control events, but you always control your response.", fa:"تو مسئولِ هر چیزی هستی که سرت می‌آید، حتی وقتی تقصیرِ تو نیست. شاید کنترلِ اتفاق‌ها را نداشته باشی، اما همیشه کنترلِ واکنشت را داری."},
+        more:{en:"With great responsibility comes great power — Manson flips the Spider-Man line on purpose. The more you take responsibility for your life, the more power you have over it; blaming circumstances feels righteous but hands your power away.", fa:"با مسئولیتِ بزرگ، قدرتِ بزرگ می‌آید — منسون عمداً جملهٔ مردِعنکبوتی را وارونه می‌کند. هرچه مسئولیتِ زندگی‌ات را بیشتر بپذیری، قدرتِ بیشتری رویش داری؛ مقصر‌دانستنِ شرایط حسِ حق‌به‌جانبی می‌دهد اما قدرتت را دو‌دستی تقدیم می‌کند."},
+        example:{en:"You didn't choose the traffic, the rude boss, or the bad news — but you do choose whether it wrecks your whole day.", fa:"تو ترافیک، رئیسِ بی‌ادب، یا خبرِ بد را انتخاب نکردی — اما این را انتخاب می‌کنی که کلِ روزت را خراب کند یا نه."},
+        tip:{en:"Take one thing you've been blaming on someone else and ask what your next move is anyway.", fa:"یک چیز را که داری گردنِ کسِ دیگری می‌اندازی بردار و بپرس به‌هرحال حرکتِ بعدیِ خودت چیست."},
+        pitfall:{en:"Confusing “not my fault” with “not my problem to deal with.”", fa:"اشتباه‌گرفتنِ «تقصیرِ من نیست» با «مشکلِ من نیست که حلش کنم»."} },
+      faultresp:{ part:"not_special", n:9, name:{en:"Fault vs. Responsibility", fa:"تقصیر یا مسئولیت"}, glabel:{en:"Fault vs. Responsibility", fa:"تقصیر یا مسئولیت"},
+        principle:{en:"Fault is about the past — who caused it. Responsibility is about the present — who chooses to deal with it now. They are not the same.", fa:"تقصیر مالِ گذشته است — چه‌کسی باعثش شد. مسئولیت مالِ حال است — چه‌کسی الان انتخاب می‌کند که با آن کنار بیاید. این دو یکی نیستند."},
+        more:{en:"Others can be at fault for hurting you, and you can still be the only one responsible for healing. Waiting for the person at fault to fix things leaves your life in their hands; taking responsibility takes it back.", fa:"دیگران می‌توانند مقصرِ زخمی باشند که به تو زده‌اند و بازهم تو تنها کسی باشی که مسئولِ خوب‌شدنش است. منتظر‌ماندن که مقصر درستش کند، زندگی‌ات را دستِ او می‌گذارد؛ پذیرفتنِ مسئولیت، پسش می‌گیرد."},
+        example:{en:"If someone leaves you with an emotional mess, it may be their fault — but cleaning it up is still your responsibility.", fa:"اگر کسی برایت یک آشوبِ عاطفی به‌جا بگذارد، شاید تقصیرِ او باشد — اما جمع‌کردنش بازهم مسئولیتِ توست."},
+        tip:{en:"Separate the two out loud: “This wasn't my fault, and it is still my responsibility to handle.”", fa:"این دو را بلند از هم جدا کن: «این تقصیرِ من نبود، و بازهم مسئولیتِ من است که با آن کنار بیایم.»"},
+        pitfall:{en:"Staying stuck until whoever is at fault finally apologizes or changes.", fa:"گیر‌ماندن تا وقتی هرکه مقصر است بالاخره عذر بخواهد یا عوض شود."} },
+      avoidance:{ part:"uncertainty", n:10, name:{en:"Manson's Law of Avoidance", fa:"قانونِ اجتنابِ منسون"}, glabel:{en:"Law of Avoidance", fa:"قانونِ اجتناب"},
+        principle:{en:"The more something threatens your identity, the more you will avoid it. We dodge the very things that could change us.", fa:"هرچه چیزی بیشتر هویتت را تهدید کند، بیشتر از آن فرار می‌کنی. ما دقیقاً از همان چیزهایی طفره می‌رویم که می‌توانند عوضمان کنند."},
+        more:{en:"A narrow self-image (“I'm not a math person,” “I'm the funny one”) makes any challenge to it feel dangerous. Keep your identity small and loose, and fewer things feel threatening, so you can try, fail, and grow.", fa:"یک خودانگارهٔ تنگ («من آدمِ ریاضی نیستم»، «من آدمِ بامزه‌ام») هر تهدیدی به آن را خطرناک جلوه می‌دهد. هویتت را کوچک و شل نگه دار، آن‌وقت چیزهای کمتری تهدید حس می‌شوند، و می‌توانی امتحان کنی، شکست بخوری، و رشد کنی."},
+        example:{en:"Someone who defines himself as “a natural talent” avoids anything hard, because struggling would prove he isn't.", fa:"کسی که خودش را «یک استعدادِ ذاتی» تعریف می‌کند از هر چیزِ سختی فرار می‌کند، چون کلنجار‌رفتن ثابت می‌کند که نیست."},
+        tip:{en:"Define yourself in the least specific way you can, so growth doesn't feel like losing who you are.", fa:"خودت را با کم‌ترین جزئیاتِ ممکن تعریف کن، تا رشد‌کردن مثلِ ازدست‌دادنِ خودت حس نشود."},
+        pitfall:{en:"Guarding a rigid self-image at the cost of never growing.", fa:"نگهبانی از یک خودانگارهٔ خشک، به بهای هیچ‌وقت رشد‌نکردن."} },
+      wrong:{ part:"uncertainty", n:11, name:{en:"Be a Little Wrong", fa:"کمی اشتباه باش"}, glabel:{en:"Be Less Wrong", fa:"کمتر اشتباه"},
+        principle:{en:"Certainty is the enemy of growth. You're never fully right — the goal is to be a little less wrong tomorrow than today.", fa:"اطمینانِ کامل دشمنِ رشد است. تو هیچ‌وقت کاملاً درست نیستی — هدف این است که فردا کمی کمتر اشتباه کنی تا امروز."},
+        more:{en:"The more certain you are, the more you shut out anything that could correct you. Holding your beliefs loosely — assuming you're probably wrong in some way — keeps you curious and open to becoming better.", fa:"هرچه مطمئن‌تر باشی، بیشتر درِ هر چیزی را که می‌تواند اصلاحت کند می‌بندی. شل‌گرفتنِ باورها — با این فرض که احتمالاً یک‌جوری اشتباه می‌کنی — کنجکاو نگهت می‌دارد و بازِ به بهتر‌شدن."},
+        example:{en:"The person sure they already know how the world works stops learning; the one who assumes they might be wrong keeps growing.", fa:"کسی که مطمئن است از قبل می‌داند دنیا چطور کار می‌کند، از یادگیری می‌ایستد؛ کسی که فرض می‌کند شاید اشتباه کند، به رشد ادامه می‌دهد."},
+        tip:{en:"Take one strong opinion you hold and honestly ask where it might be wrong.", fa:"یک عقیدهٔ محکم را که داری بردار و صادقانه بپرس کجایش ممکن است اشتباه باشد."},
+        pitfall:{en:"Mistaking certainty for strength when it's really a refusal to learn.", fa:"اطمینان را با قدرت اشتباه‌گرفتن، درحالی‌که واقعاً سرباز‌زدن از یادگیری است."} },
+      failure:{ part:"uncertainty", n:12, name:{en:"Failure Is the Way Forward", fa:"شکست، راهِ جلو رفتن است"}, glabel:{en:"Failure", fa:"شکست"},
+        principle:{en:"Failure is how you learn and improve. Avoiding failure is really avoiding growth — the denial of failure is itself a failure.", fa:"شکست همان راهی است که با آن یاد می‌گیری و بهتر می‌شوی. فرار از شکست در واقع فرار از رشد است — انکارِ شکست، خودش یک شکست است."},
+        more:{en:"We're taught to fear failure, but skill is built by failing and adjusting, over and over. The willingness to fail at something is the price of ever being good at it, so lower the stakes and let yourself be bad at first.", fa:"به ما یاد داده‌اند از شکست بترسیم، اما مهارت با شکست‌خوردن و تنظیم‌کردن، بارها و بارها ساخته می‌شود. آمادگی برای شکست در یک کار، بهای خوب‌شدن در آن است، پس فشار را کم کن و بگذار اولش بد باشی."},
+        example:{en:"A child learning to walk falls a thousand times and never once concludes that walking isn't for them.", fa:"بچه‌ای که راه‌رفتن یاد می‌گیرد هزار بار می‌افتد و حتی یک‌بار هم نتیجه نمی‌گیرد که راه‌رفتن به دردش نمی‌خورد."},
+        tip:{en:"Pick something you're afraid to be bad at and let yourself do it badly this week.", fa:"چیزی را که می‌ترسی در آن بد باشی انتخاب کن و این هفته بگذار بد انجامش بدهی."},
+        pitfall:{en:"Avoiding anything you can't do well immediately, so you never start.", fa:"فرار از هر چیزی که نمی‌توانی فوری خوب انجامش بدهی، پس هیچ‌وقت شروع نمی‌کنی."} },
+      dosomething:{ part:"uncertainty", n:13, name:{en:"The Do-Something Principle", fa:"اصلِ یک‌کاری‌بکن"}, glabel:{en:"Do Something", fa:"یک کاری بکن"},
+        principle:{en:"Don't wait for motivation to act — action creates motivation, not just the other way around. Do something, and the answers follow.", fa:"منتظرِ انگیزه نمان تا کاری کنی — عمل، انگیزه می‌سازد، نه فقط برعکس. یک کاری بکن، و جواب‌ها می‌آیند."},
+        more:{en:"We think it goes inspiration, then motivation, then action, so we wait to feel ready. Manson makes it a loop: any small action creates a little inspiration, which fuels more action. When stuck, do the tiniest thing and let momentum build.", fa:"فکر می‌کنیم مسیر این است: اول الهام، بعد انگیزه، بعد عمل، پس منتظر می‌مانیم آماده حس کنیم. منسون آن را یک حلقه می‌کند: هر عملِ کوچک کمی الهام می‌سازد، که عملِ بیشتری را سوخت می‌رساند. وقتی گیر کردی، کوچک‌ترین کار را بکن و بگذار حرکت جان بگیرد."},
+        example:{en:"You don't feel like writing, so you write one bad sentence — and twenty minutes later you're in it.", fa:"حالِ نوشتن نداری، پس یک جملهٔ بد می‌نویسی — و بیست دقیقه بعد وسطِ کاری."},
+        tip:{en:"When you can't get started, shrink the task until the first step feels almost too easy, then do it.", fa:"وقتی نمی‌توانی شروع کنی، کار را آن‌قدر کوچک کن که قدمِ اول تقریباً زیادی آسان حس شود، بعد انجامش بده."},
+        pitfall:{en:"Waiting to feel motivated before you'll take the first step.", fa:"منتظر‌ماندن تا انگیزه پیدا کنی، پیش از آنکه قدمِ اول را برداری."} },
+      commit:{ part:"commitment", n:14, name:{en:"The Freedom of Commitment", fa:"آزادیِ تعهد"}, glabel:{en:"Commitment", fa:"تعهد"},
+        principle:{en:"Commitment gives you freedom, not less of it. Keeping every option open keeps you shallow and distracted.", fa:"تعهد به تو آزادی می‌دهد، نه کمتر. بازنگه‌داشتنِ همهٔ گزینه‌ها سطحی و حواس‌پرت نگهت می‌دارد."},
+        more:{en:"An ocean of choices sounds like freedom but leaves you skimming the surface of everything. Committing to fewer things — one person, one craft, one purpose — is what lets you go deep, and depth is where the real rewards are.", fa:"اقیانوسی از انتخاب‌ها شبیهِ آزادی به‌نظر می‌رسد اما تو را روی سطحِ همه‌چیز سُر می‌دهد. متعهد‌شدن به چیزهای کمتر — یک آدم، یک کار، یک هدف — همان چیزی است که می‌گذارد عمیق شوی، و عمق همان‌جایی است که پاداش‌های واقعی‌اند."},
+        example:{en:"Chasing every new hobby and relationship, you stay a beginner at all of them; commit to one and it finally becomes rich.", fa:"با دنبال‌کردنِ هر سرگرمی و رابطهٔ جدید، در همه‌شان تازه‌کار می‌مانی؛ به یکی متعهد شو تا بالاخره غنی شود."},
+        tip:{en:"Choose one thing to go all-in on for a year and let the other shiny options go.", fa:"یک چیز را انتخاب کن که یک سال تمام‌قد پایش بایستی و بقیهٔ گزینه‌های براق را رها کن."},
+        pitfall:{en:"Keeping every door open until you never truly walk through any of them.", fa:"بازنگه‌داشتنِ همهٔ درها تا وقتی هیچ‌وقت واقعاً از هیچ‌کدام رد نمی‌شوی."} },
+      boundaries:{ part:"commitment", n:15, name:{en:"Boundaries & Saying No", fa:"مرزها و نه‌گفتن"}, glabel:{en:"Boundaries", fa:"مرزها"},
+        principle:{en:"To truly value something you must reject the alternatives. Healthy relationships need honest boundaries and the ability to say no.", fa:"برای اینکه واقعاً به چیزی ارزش بدهی، باید بقیهٔ گزینه‌ها را رد کنی. رابطه‌های سالم به مرزهای صادقانه و توانِ نه‌گفتن نیاز دارند."},
+        more:{en:"Rejection is part of caring: saying yes to one thing means saying no to others. Clear boundaries — being able to say no and to hear it — are what keep love and commitment healthy instead of tangled and resentful.", fa:"رد‌کردن بخشی از اهمیت‌دادن است: بله‌گفتن به یک چیز یعنی نه‌گفتن به بقیه. مرزهای روشن — توانِ نه‌گفتن و شنیدنِ نه — همان چیزی است که عشق و تعهد را سالم نگه می‌دارد، نه گره‌خورده و پُر‌از‌کینه."},
+        example:{en:"In a healthy relationship, each person can say “no” and trust the bond will hold; without that, it curdles into control.", fa:"در یک رابطهٔ سالم، هر کدام می‌توانند «نه» بگویند و مطمئن باشند که پیوند دوام می‌آورد؛ بدونِ آن، رابطه به کنترل تبدیل می‌شود."},
+        tip:{en:"Say a clear, kind no to one request this week instead of a resentful yes.", fa:"این هفته به یک درخواست، به‌جای یک بله‌ی پُر‌از‌کینه، یک نهِ روشن و مهربان بگو."},
+        pitfall:{en:"Saying yes to everything to be liked, until you resent everyone.", fa:"به همه‌چیز بله‌گفتن برای دوست‌داشته‌شدن، تا وقتی از همه دلگیر می‌شوی."} },
+      death:{ part:"commitment", n:16, name:{en:"Death Is the Compass", fa:"مرگ، قطب‌نماست"}, glabel:{en:"Mortality", fa:"مرگ"},
+        principle:{en:"Confronting your own death clarifies what matters. Remembering you will die burns away the trivial and shows you what deserves your care.", fa:"روبه‌رو‌شدن با مرگِ خودت روشن می‌کند چه چیزی مهم است. یادِ اینکه می‌میری، چیزهای بی‌اهمیت را می‌سوزاند و نشانت می‌دهد چه چیزی ارزشِ اهمیتت را دارد."},
+        more:{en:"Death is the one certainty, and Manson ends there on purpose: only against the fact that our time runs out do our choices get their weight. Keeping mortality in view is the simplest way to stop wasting f*cks on what won't matter.", fa:"مرگ تنها قطعیت است، و منسون عمداً همان‌جا تمام می‌کند: فقط در برابرِ این واقعیت که وقتمان تمام می‌شود، انتخاب‌هایمان وزن پیدا می‌کنند. پیشِ‌چشم نگه‌داشتنِ مرگ، ساده‌ترین راه است برای اینکه دست از تلف‌کردنِ اهمیت روی چیزهای بی‌ارزش برداری."},
+        example:{en:"Picturing yourself at the end of your life makes today's petty worries shrink to their real size.", fa:"تصورِ خودت در پایانِ زندگی، نگرانی‌های کوچکِ امروز را تا اندازهٔ واقعی‌شان آب می‌کند."},
+        tip:{en:"Ask what today's problem will look like from your deathbed; then act on the answer.", fa:"بپرس مشکلِ امروز از نگاهِ بسترِ مرگت چه شکلی است؛ بعد به همان جواب عمل کن."},
+        pitfall:{en:"Filling life with distractions so you never have to think about the end.", fa:"پُر‌کردنِ زندگی از حواس‌پرتی تا مجبور نباشی هیچ‌وقت به پایان فکر کنی."} }
+    },
+    core:{ name:{en:"CHOOSE YOUR VALUES", fa:"ارزش‌هایت را انتخاب کن"},
+      principle:{en:"You have a limited number of f*cks to give, so choose them wisely. Not giving a f*ck isn't indifference — it's caring about less, and about better things, chosen around good values. Accept struggle as the price of anything worthwhile, take responsibility for your response to everything, and commit. Caring about less brings peace.", fa:"تعدادِ «اهمیت»‌هایی که می‌توانی بدهی محدود است، پس عاقلانه انتخابشان کن. بی‌خیالی یعنی بی‌تفاوتی نیست — یعنی به چیزهای کمتر اهمیت بدهی، و به چیزهای بهتر، که دورِ ارزش‌های خوب انتخاب شده‌اند. سختی را به‌عنوانِ بهای هر چیزِ ارزشمند بپذیر، مسئولیتِ واکنشت به هر چیزی را گردن بگیر، و متعهد شو. اهمیت‌دادن به کمتر، آرامش می‌آورد."},
+      more:{en:"Manson builds the book from five moves: the backwards law (chasing positivity backfires, accepting the negative helps), choosing what to care about (meaningful struggles and good values), radical responsibility (you own your response, fault or not), the value of uncertainty and failure (be a little wrong, act anyway), and commitment (go deep, set boundaries, remember death). The thread: spend your limited care on what's true, immediate, and important.", fa:"منسون کتاب را از پنج حرکت می‌سازد: قانونِ وارونه (دنبالِ مثبت‌بودن دویدن نتیجهٔ عکس می‌دهد، پذیرفتنِ منفی کمک می‌کند)، انتخابِ اینکه به چه چیزی اهمیت بدهی (سختی‌های معنادار و ارزش‌های خوب)، مسئولیتِ کامل (واکنشت را گردن می‌گیری، تقصیرت باشد یا نه)، ارزشِ تردید و شکست (کمی اشتباه باش، به‌هرحال عمل کن)، و تعهد (عمیق شو، مرز بگذار، مرگ را یادت باشد). نخِ رابط: اهمیتِ محدودت را خرجِ چیزی کن که واقعی، همین‌الانی و مهم است."},
+      example:{en:"Click any node to read a principle or a method. You can also drag the nodes around.", fa:"روی هر دایره کلیک کن تا یک اصل یا روش را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."} },
+    stages:[
+      { level:1, badge:{en:"Level 1 · Over-simplified", fa:"سطحِ ۱ · خیلی ساده"}, title:{en:"Care about less", fa:"به کمتر اهمیت بده"}, tagline:{en:"The whole book in a sentence.", fa:"کلِ کتاب در یک جمله."},
+        body:{en:"You only have so much energy to care with. Spend it on a few things that truly matter and stop wasting it on the rest. Caring about less, but better, is the whole point.", fa:"تو فقط به‌اندازهٔ محدودی انرژی برای اهمیت‌دادن داری. خرجِ چند چیزی کن که واقعاً مهم‌اند و بقیه را ول کن. اهمیت‌دادن به کمتر، اما بهتر، کلِ ماجراست."},
+        example:{en:"Letting a rude stranger ruin your afternoon is spending your care on someone who'll never matter to you.", fa:"اینکه بگذاری یک غریبهٔ بی‌ادب بعدازظهرت را خراب کند، یعنی خرجِ اهمیتت برای کسی که هیچ‌وقت برایت مهم نخواهد بود."},
+        gain:{en:"You hold the one idea the whole book expands on.", fa:"همان یک ایده‌ای را داری که کلِ کتاب بسطش می‌دهد."} },
+      { level:2, badge:{en:"Level 2 · Simple", fa:"سطحِ ۲ · ساده"}, title:{en:"The backwards law", fa:"قانونِ وارونه"}, tagline:{en:"Stop forcing the positive.", fa:"دست از زور‌زدن برای مثبت‌بودن بردار."},
+        body:{en:"Chasing constant good feelings backfires: wanting them more makes you feel their absence. <b>Accept</b> the negative — pain, struggle, failure — as a normal part of any good life, and it stops feeling like something has gone wrong.", fa:"دنبالِ حالِ خوبِ همیشگی دویدن نتیجهٔ عکس می‌دهد: هرچه بیشتر بخواهی‌اش، نبودش را بیشتر حس می‌کنی. منفی را — درد، سختی، شکست — به‌عنوانِ بخشی عادی از هر زندگیِ خوب <b>بپذیر</b>، آن‌وقت دیگر حس نمی‌شود که چیزی خراب شده."},
+        example:{en:"Instead of demanding to feel calm before a big talk, you let the nerves be there and speak anyway.", fa:"به‌جای اینکه پیش از یک سخنرانیِ مهم توقع داشته باشی آرام باشی، می‌گذاری استرس باشد و به‌هرحال حرف می‌زنی."},
+        gain:{en:"You stop fighting every hard feeling and suffer less for it.", fa:"دست از جنگیدن با هر حسِ سخت برمی‌داری و کمتر رنج می‌کشی."} },
+      { level:3, badge:{en:"Level 3 · Balanced", fa:"سطحِ ۳ · متعادل"}, title:{en:"Choose your struggles", fa:"سختی‌هایت را انتخاب کن"}, tagline:{en:"Good values, meaningful problems.", fa:"ارزش‌های خوب، مشکل‌های معنادار."},
+        body:{en:"Happiness comes from solving problems, and problems never end — you just <b>upgrade</b> them. So choose: which struggles are worth it, and which values are they built on? Ask not “what do I want?” but “what pain am I willing to sustain?”", fa:"شادکامی از حلِ مشکل می‌آید، و مشکل‌ها تمام نمی‌شوند — تو فقط <b>ارتقایشان</b> می‌دهی. پس انتخاب کن: کدام سختی‌ها ارزشش را دارند، و روی کدام ارزش‌ها بنا شده‌اند؟ نپرس «چه می‌خواهم؟» بلکه «حاضرم چه دردی را تحمل کنم؟»"},
+        example:{en:"You want the fit body, but the real question is whether you want the sweat and the sore mornings that build it.", fa:"بدنِ روفرم را می‌خواهی، اما پرسشِ اصلی این است که آیا عرق و صبح‌های کوفتهٔ سازنده‌اش را می‌خواهی."},
+        gain:{en:"You can pick problems worth having instead of drifting.", fa:"می‌توانی مشکل‌هایی را انتخاب کنی که ارزشِ داشتن دارند، به‌جای بی‌هدف رفتن."} },
+      { level:4, badge:{en:"Level 4 · Advanced", fa:"سطحِ ۴ · پیشرفته"}, title:{en:"Own it, and be wrong", fa:"گردنش بگیر، و اشتباه کن"}, tagline:{en:"Responsibility, uncertainty, failure.", fa:"مسئولیت، تردید، شکست."},
+        body:{en:"Take <b>radical responsibility</b>: you didn't cause everything, but you answer for how you respond — fault and responsibility aren't the same. Then loosen your grip on being right. <b>Certainty</b> blocks growth, <b>failure</b> teaches it, and <b>action</b> (not motivation) gets you moving.", fa:"<b>مسئولیتِ کامل</b> را بپذیر: تو باعثِ همه‌چیز نبودی، اما جوابگوی این هستی که چطور واکنش نشان می‌دهی — تقصیر و مسئولیت یکی نیستند. بعد دستت را از درست‌بودن شل کن. <b>اطمینان</b> جلوِ رشد را می‌گیرد، <b>شکست</b> یادش می‌دهد، و <b>عمل</b> (نه انگیزه) راهت می‌اندازد."},
+        example:{en:"A setback that wasn't your fault still becomes yours to answer — you act, fail a little, and adjust.", fa:"یک ضربهٔ ناخواسته که تقصیرت نبود، بازهم جوابش با توست — عمل می‌کنی، کمی شکست می‌خوری، و تنظیم می‌کنی."},
+        gain:{en:"You take back power over your life and keep growing through failure.", fa:"قدرتت را روی زندگی‌ات پس می‌گیری و از دلِ شکست به رشد ادامه می‌دهی."} },
+      { level:5, badge:{en:"Level 5 · Expert", fa:"سطحِ ۵ · حرفه‌ای"}, title:{en:"Commit, and remember death", fa:"متعهد شو، و مرگ را یادت باشد"}, tagline:{en:"Depth, boundaries, mortality.", fa:"عمق، مرزها، مرگ."},
+        body:{en:"The deepest freedom is <b>commitment</b>: going all-in on a few people and pursuits instead of skimming everything. That takes <b>boundaries</b> — saying no, and hearing it. And the final compass is <b>death</b>: measuring today's worries against the fact that your time ends is what finally sorts the important from the trivial. Care about less; care about it fully.", fa:"عمیق‌ترین آزادی، <b>تعهد</b> است: تمام‌قد پای چند آدم و چند کار ایستادن، به‌جای سُر‌خوردن روی همه‌چیز. این کار <b>مرز</b> می‌خواهد — نه‌گفتن، و نه‌شنیدن. و قطب‌نمای نهایی <b>مرگ</b> است: سنجیدنِ نگرانی‌های امروز در برابرِ این واقعیت که وقتت تمام می‌شود، همان چیزی است که بالاخره مهم را از بی‌اهمیت جدا می‌کند. به کمتر اهمیت بده؛ اما تمام‌وکمال."},
+        example:{en:"You pour yourself into one relationship and one craft, guard them with clear boundaries, and let death keep your priorities honest.", fa:"خودت را در یک رابطه و یک کار می‌ریزی، با مرزهای روشن ازشان محافظت می‌کنی، و می‌گذاری مرگ اولویت‌هایت را صادق نگه دارد."},
+        gain:{en:"You can live for a few chosen things and let everything else go.", fa:"می‌توانی برای چند چیزِ انتخاب‌شده زندگی کنی و بقیه را رها کنی."} }
+    ],
+    quotes:[
+      {en:"The desire for more positive experience is itself a negative experience. And, paradoxically, the acceptance of one's negative experience is itself a positive experience.", fa:"میلِ به تجربهٔ مثبت‌ترِ بیشتر، خودش یک تجربهٔ منفی است. و به‌طرزِ متناقضی، پذیرفتنِ تجربهٔ منفیِ آدم، خودش یک تجربهٔ مثبت است."},
+      {en:"The key to a good life is giving a fuck about less, giving a fuck about only what is true and immediate and important.", fa:"کلیدِ یک زندگیِ خوب این است که به چیزهای کمتری اهمیت بدهی، فقط به چیزی که واقعی و همین‌الانی و مهم است."},
+      {en:"Who you are is defined by what you're willing to struggle for.", fa:"اینکه چه‌کسی هستی را همان چیزی تعریف می‌کند که حاضری برایش سختی بکشی."},
+      {en:"Life is essentially an endless series of problems. The solution to one problem is merely the creation of another.", fa:"زندگی در اصل یک زنجیرهٔ بی‌پایان از مشکل است. حلِ یک مشکل، فقط ساختنِ مشکلی دیگر است."},
+      {en:"With great responsibility comes great power.", fa:"با مسئولیتِ بزرگ، قدرتِ بزرگ می‌آید."},
+      {en:"The more something threatens your identity, the more you will avoid it.", fa:"هرچه چیزی بیشتر هویتت را تهدید کند، بیشتر از آن فرار می‌کنی."},
+      {en:"Certainty is the enemy of growth.", fa:"اطمینانِ کامل دشمنِ رشد است."},
+      {en:"Don't just sit there. Do something. The answers will follow.", fa:"همین‌طور آنجا ننشین. یک کاری بکن. جواب‌ها خودشان می‌آیند."},
+      {en:"You too are going to die, and that's because you too were fortunate enough to have lived.", fa:"تو هم روزی می‌میری، و این فقط به این خاطر است که تو هم آن‌قدر خوش‌شانس بودی که زندگی کرده‌ای."}
+    ],
+    media:[
+      { kind:"yt", id:"lz8sUiXAnbs", src:{en:"YouTube · Mark Manson", fa:"یوتیوب · Mark Manson"},
+        title:{en:"The Subtle Art — Summarized by the Author", fa:"هنرِ ظریفِ بی‌خیالی — به‌روایتِ خودِ نویسنده"},
+        desc:{en:"Mark Manson sums up his own book in a short talk.", fa:"مارک منسون در یک ویدیوی کوتاه، کتابِ خودش را جمع‌بندی می‌کند."},
+        bullets:{en:["The core message from the author himself","The backwards law, briefly","A fast, faithful overview"], fa:["پیامِ اصلی از زبانِ خودِ نویسنده","قانونِ وارونه، کوتاه","یک مرورِ سریع و وفادار"]},
+        best:{en:"Best for Stage 1–2.", fa:"خوب برای مرحلهٔ ۱ و ۲."} },
+      { kind:"yt", id:"BuuDztcqnko", src:{en:"YouTube · The Diary of a CEO", fa:"یوتیوب · The Diary of a CEO"},
+        title:{en:"Mark Manson on The Subtle Art (Full Interview)", fa:"مارک منسون دربارهٔ «هنرِ ظریفِ بی‌خیالی» (گفت‌وگوی کامل)"},
+        desc:{en:"A long, candid interview turning the book's ideas into real-life advice.", fa:"یک گفت‌وگوی بلند و رک که ایده‌های کتاب را به توصیه‌های واقعیِ زندگی تبدیل می‌کند."},
+        bullets:{en:["Choosing what to care about","Responsibility and values in practice","Applied to work and relationships"], fa:["انتخابِ اینکه به چه چیزی اهمیت بدهی","مسئولیت و ارزش‌ها در عمل","به‌کار‌بسته در کار و رابطه"]},
+        best:{en:"Best for Stage 2–4.", fa:"خوب برای مرحلهٔ ۲ تا ۴."} },
+      { kind:"yt", id:"SMZjbWgWSUQ", src:{en:"YouTube · André Duqum", fa:"یوتیوب · André Duqum"},
+        title:{en:"The Subtle Art of Not Giving a F*ck — In Conversation", fa:"هنرِ ظریفِ بی‌خیالی — یک گفت‌وگو"},
+        desc:{en:"A reflective conversation with Manson on values, commitment and meaning.", fa:"یک گفت‌وگوی تأملی با منسون دربارهٔ ارزش‌ها، تعهد و معنا."},
+        bullets:{en:["Commitment and depth","Uncertainty and growth","Good after a first read"], fa:["تعهد و عمق","تردید و رشد","خوب بعد از اولین خواندن"]},
+        best:{en:"Best for Stage 3–4.", fa:"خوب برای مرحلهٔ ۳ و ۴."} },
+      { kind:"img", url:"https://www.harpercollins.ca/9780062457714/the-subtle-art-of-not-giving-a-fck/",
+        src:{en:"HarperCollins · Publisher", fa:"HarperCollins · ناشر"},
+        title:{en:"The Subtle Art — Publisher Page", fa:"هنرِ ظریفِ بی‌خیالی — صفحهٔ ناشر"},
+        desc:{en:"The publisher page for the book, with editions and details.", fa:"صفحهٔ ناشر برای کتاب، با نسخه‌ها و جزئیات."},
+        bullets:{en:["The definitive editions","Background on Manson","Straight from the source"], fa:["نسخه‌های معتبر","پیشینه‌ای دربارهٔ منسون","مستقیم از خودِ منبع"]},
+        best:{en:"For editions and the source.", fa:"برای نسخه‌ها و منبعِ اصلی."} }
+    ],
+    go:[
+      {label:{en:"Publisher page", fa:"صفحهٔ ناشر"}, url:"https://www.harpercollins.ca/9780062457714/the-subtle-art-of-not-giving-a-fck/"},
+      {label:{en:"Book on Goodreads", fa:"کتاب در گودریدز"}, url:"https://www.goodreads.com/book/show/28257707-the-subtle-art-of-not-giving-a-f-ck"},
+      {label:{en:"Manson's essay that started it all", fa:"جستارِ منسون که همه‌چیز از آن شروع شد"}, url:"https://markmanson.net/not-giving-a-fuck"}
+    ],
+    recs:[
+      { pri:"b", t:{en:"Name what you actually give a f*ck about", fa:"اسم ببر واقعاً به چی اهمیت می‌دهی"}, d:{en:"Write down the three things truly worth your care right now — and one you'll stop caring about.", fa:"سه چیزی را که همین‌الان واقعاً ارزشِ اهمیتت را دارند بنویس — و یک چیز را که دیگر اهمیتش نمی‌دهی."} },
+      { pri:"b", t:{en:"Choose your struggle", fa:"سختی‌ات را انتخاب کن"}, d:{en:"For one goal, ask “what pain am I willing to sustain?” and commit to that work, not just the reward.", fa:"برای یک هدف بپرس «حاضرم چه دردی را تحمل کنم؟» و به خودِ آن کار متعهد شو، نه فقط به پاداش."} },
+      { pri:"n", t:{en:"Own one thing that isn't your fault", fa:"یک چیز را که تقصیرت نیست گردن بگیر"}, d:{en:"Take something you've been blaming on others and decide your next move regardless.", fa:"چیزی را که داری گردنِ دیگران می‌اندازی بردار و صرفِ‌نظر از آن، حرکتِ بعدی‌ات را تصمیم بگیر."} },
+      { pri:"n", t:{en:"Do the smallest something", fa:"کوچک‌ترین کار را بکن"}, d:{en:"Where you're stuck, shrink the first step until it's almost too easy — then act, and let motivation catch up.", fa:"هرجا گیر کرده‌ای، قدمِ اول را آن‌قدر کوچک کن که تقریباً زیادی آسان شود — بعد عمل کن، و بگذار انگیزه برسد."} }
+    ]
+  }
+};

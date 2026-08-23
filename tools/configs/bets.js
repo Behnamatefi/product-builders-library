@@ -1,0 +1,264 @@
+/* config: Thinking in Bets — Annie Duke (Product Org) */
+module.exports = {
+  slug:"bets", brand:"Thinking in Bets",
+  titleTag:"Thinking in Bets — نقشهٔ دانش و یادگیری ۵ مرحله‌ای",
+  W:980, H:780, R1:220, R2:126, span:66,
+  leafKickEn:"Idea", leafKickFa:"ایدهٔ",
+  flowEn:["Bet","Update","Decide"], flowFa:["شرط ببند","به‌روز کن","تصمیم بگیر"],
+
+  hero:`  <div class="eyebrow"><span class="edot"></span>
+    <span data-only="en">Book knowledge map · Annie Duke</span>
+    <span data-only="fa">نقشهٔ کتاب · آنی دیوک</span>
+  </div>
+  <h1>
+    <span data-only="en">Thinking in Bets — Making Smarter Decisions When You Don't Have All the Facts</span>
+    <span data-only="fa">شرط‌بندانه فکر کن — تصمیم‌های بهتر وقتی همهٔ اطلاعات را نداری</span>
+  </h1>
+  <p class="dek">
+    <span data-only="en">A knowledge graph of the whole book, plus a 5-stage path from a single idea to expert-level mastery — with an example at every step.</span>
+    <span data-only="fa">نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از یک ایدهٔ ساده تا تسلطِ حرفه‌ای — با یک مثال در هر مرحله.</span>
+  </p>
+  <div class="metastrip">
+    <div class="metaitem"><span class="mk" data-only="en">Book</span><span class="mk" data-only="fa">کتاب</span>
+      <span class="mv" data-only="en">Thinking in Bets</span><span class="mv" data-only="fa">شرط‌بندانه فکر کن</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Author</span><span class="mk" data-only="fa">نویسنده</span>
+      <span class="mv" data-only="en">Annie Duke</span><span class="mv" data-only="fa">آنی دیوک</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Published</span><span class="mk" data-only="fa">سالِ چاپ</span>
+      <span class="mv" data-only="en">2018</span><span class="mv" data-only="fa">۲۰۱۸</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Group</span><span class="mk" data-only="fa">گروه</span>
+      <span class="mv" data-only="en">Product Org</span><span class="mv" data-only="fa">سازمانِ محصول</span></div>
+  </div>
+  <div class="chips">
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Parts</span><span data-only="fa">بخش</span></div>
+    <div class="chip"><b data-only="en">16</b><b data-only="fa">۱۶</b><span data-only="en">Ideas</span><span data-only="fa">ایده</span></div>
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Learning stages</span><span data-only="fa">مرحلهٔ یادگیری</span></div>
+  </div>`,
+
+  callout:`    <b data-only="en">The core idea:</b>
+    <b data-only="fa">ایدهٔ اصلی:</b>
+    <span data-only="en"> Every decision is a <i>bet on an uncertain future</i>. Separate the <i>quality of the decision</i> from the <i>quality of the outcome</i> — because luck and hidden information sit in between. Decide how sure you are, place the smartest bet you can, and keep learning as the cards turn over.</span>
+    <span data-only="fa"> هر تصمیم یک <i>شرط روی آینده‌ای نامعلوم</i> است. <i>کیفیتِ تصمیم</i> را از <i>کیفیتِ نتیجه</i> جدا کن — چون شانس و اطلاعاتِ پنهان وسط نشسته‌اند. بفهم چقدر مطمئنی، بهترین شرطی که می‌توانی را ببند، و همین‌طور که کارت‌ها رو می‌شوند یاد بگیر.</span>`,
+
+  kpis:`    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Parts (poker · bets · resulting · truthseeking · time travel)</div><div class="l" data-only="fa">بخش (پوکر · شرط · نتیجه‌زدگی · حقیقت‌جویی · سفرِ زمان)</div></div>
+    <div class="kbox"><div class="v" data-only="en">16</div><div class="v" data-only="fa">۱۶</div><div class="l" data-only="en">Ideas you can use</div><div class="l" data-only="fa">ایده برای استفاده</div></div>
+    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Levels, simple → expert</div><div class="l" data-only="fa">مرحله، ساده تا حرفه‌ای</div></div>
+    <div class="kbox"><div class="v" data-only="en">2</div><div class="v" data-only="fa">۲</div><div class="l" data-only="en">Forces behind every result: skill + luck</div><div class="l" data-only="fa">نیروی پشتِ هر نتیجه: مهارت + شانس</div></div>`,
+
+  mapcallout:`      <b data-only="en">Read it as a flow:</b><b data-only="fa">به‌صورتِ یک جریان بخوانش:</b>
+      <span data-only="en"> see life as <b>poker</b> (luck and hidden cards), treat each decision as a <b>bet</b>, stop <b>resulting</b>, seek the <b>truth</b> in groups that welcome dissent, and use <b>mental time travel</b> to pressure-test the bet before you commit.</span>
+      <span data-only="fa"> زندگی را <b>پوکر</b> ببین (شانس و کارتِ پنهان)، هر تصمیم را یک <b>شرط</b> بدان، دست از <b>نتیجه‌زدگی</b> بردار، <b>حقیقت</b> را در گروه‌هایی بجوی که از مخالفت استقبال می‌کنند، و با <b>سفرِ ذهنی در زمان</b> شرط را قبل از اینکه پایش بایستی محک بزن.</span>`,
+
+  methodFa:"<p><b>منبع:</b> کتابِ «Thinking in Bets» نوشتهٔ آنی دیوک، چاپِ ۲۰۱۸.</p><p><b>روشِ کار:</b> ساختارِ پنج‌بخشی و ایده‌ها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده؛ نقل‌قول‌ها با متنِ کتاب مقابله و ویدیوها بررسی شده‌اند.</p><p><b>گروه:</b> «سازمانِ محصول» — از فهرستِ کتاب‌های ضروریِ سازندگانِ محصولِ لنی راچیتسکی.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای متنِ کامل، خودِ کتاب را بخوان.</p>",
+  methodEn:"<p><b>Source:</b> the book <i>Thinking in Bets</i> by Annie Duke, published 2018.</p><p><b>How this was built:</b> the five-part structure and ideas were gathered and rewritten from the book and reputable sources; quotes were cross-checked and the linked videos verified.</p><p><b>Group:</b> Product Org — from Lenny Rachitsky's essential books for product builders.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>",
+
+  data:{
+    tldr:[
+      {en:"The whole book in one line: every decision is a bet on an uncertain future, so judge the decision, not just how it turned out.",
+       fa:"خلاصهٔ کل کتاب در یک جمله: هر تصمیم یک شرط است روی آینده‌ای نامعلوم، پس تصمیم را قضاوت کن، نه فقط اینکه چطور تمام شد."},
+      {en:"Life is <b>poker, not chess</b>: luck and hidden information shape every result — skill is only part of the story.",
+       fa:"زندگی <b>پوکر است، نه شطرنج</b>: شانس و اطلاعاتِ پنهان هر نتیجه را می‌سازند — مهارت فقط بخشی از ماجراست."},
+      {en:"Beware <b>resulting</b>: a good outcome doesn't prove a good decision, and a bad outcome doesn't prove a bad one.",
+       fa:"مواظبِ <b>نتیجه‌زدگی</b> باش: نتیجهٔ خوب ثابتِ تصمیمِ خوب نیست، و نتیجهٔ بد هم ثابتِ تصمیمِ بد نیست."},
+      {en:"Get better by <b>truthseeking</b>: say “I'm not sure,” put odds on your beliefs, and welcome people who disagree.",
+       fa:"با <b>حقیقت‌جویی</b> بهتر شو: بگو «مطمئن نیستم»، روی باورهایت احتمال بگذار، و از آدم‌هایی که مخالف‌اند استقبال کن."},
+      {en:"Pressure-test with <b>mental time travel</b>: 10-10-10, premortems, and scenario trees before you commit.",
+       fa:"با <b>سفرِ ذهنی در زمان</b> محک بزن: ۱۰-۱۰-۱۰، پیش‌مرگی، و درختِ سناریو، قبل از اینکه پای چیزی بایستی."}
+    ],
+    parts:[
+      { key:"poker", varc:"--c-teal", name:{en:"Life Is Poker, Not Chess", fa:"زندگی پوکر است، نه شطرنج"}, tag:{en:"Luck & hidden cards", fa:"شانس و کارتِ پنهان"},
+        gist:{en:"Not everything is skill — luck and hidden information are always in play.", fa:"همه‌چیز مهارت نیست — شانس و اطلاعاتِ پنهان همیشه در بازی‌اند."},
+        more:{en:"Chess shows every piece; lose and you simply erred. Real life hides cards and deals luck, so a great decision can still lose and a poor one can still win. Seeing life as poker is where clear thinking about decisions begins.",
+              fa:"شطرنج همهٔ مهره‌ها را نشان می‌دهد؛ ببازی یعنی صرفاً اشتباه کردی. زندگیِ واقعی کارت‌ها را پنهان می‌کند و شانس پخش می‌کند، پس یک تصمیمِ عالی هم می‌تواند ببازد و یک تصمیمِ ضعیف هم می‌تواند ببرد. دیدنِ زندگی به‌شکلِ پوکر همان‌جایی است که فکرِ روشن دربارهٔ تصمیم‌ها شروع می‌شود."},
+        chapters:["pokerchess","luckskill","uncertainty"] },
+      { key:"bets", varc:"--c-blue", name:{en:"Decisions Are Bets", fa:"تصمیم‌ها شرط‌بندی‌اند"}, tag:{en:"Bet on the future", fa:"شرط روی آینده"},
+        gist:{en:"Every choice stakes something on a future you can't fully see.", fa:"هر انتخاب چیزی را روی آینده‌ای می‌گذارد که کامل نمی‌بینی‌اش."},
+        more:{en:"Once decisions are bets, everything sharpens. You ask how sure you really are, say “I'm not sure” without shame, and hold beliefs as probabilities you'd actually wager on — not as fixed truths about the world.",
+              fa:"وقتی تصمیم‌ها را شرط ببینی، همه‌چیز تیز می‌شود. می‌پرسی واقعاً چقدر مطمئنی، بی‌خجالت می‌گویی «مطمئن نیستم»، و باورها را به‌شکلِ احتمال‌هایی نگه می‌داری که واقعاً رویشان شرط می‌بندی — نه حقیقت‌های ثابت دربارهٔ دنیا."},
+        chapters:["everybet","notsure","beliefs"] },
+      { key:"outcomes", varc:"--c-amber", name:{en:"Resulting & Hindsight", fa:"نتیجه‌زدگی و پس‌نگری"}, tag:{en:"Outcome is not the decision", fa:"نتیجه همان تصمیم نیست"},
+        gist:{en:"Stop grading decisions by how they happened to turn out.", fa:"دست از نمره‌دادن به تصمیم‌ها بر اساسِ اینکه اتفاقی چطور تمام شدند بردار."},
+        more:{en:"Because luck sits between choice and result, the outcome is a noisy grade. “Resulting” and hindsight bias trick us into praising lucky mistakes and punishing unlucky good calls. Judge the bet, then sort what was skill and what was luck.",
+              fa:"چون شانس بینِ انتخاب و نتیجه نشسته، نتیجه یک نمرهٔ پُرنویز است. «نتیجه‌زدگی» و سوگیریِ پس‌نگری گولمان می‌زنند که اشتباه‌های خوش‌شانس را تحسین کنیم و تصمیم‌های خوبِ بدشانس را تنبیه. شرط را قضاوت کن، بعد جدا کن چه چیزی مهارت بود و چه چیزی شانس."},
+        chapters:["resulting","fielding","hindsight"] },
+      { key:"truth", varc:"--c-violet", name:{en:"Truthseeking & Being Wrong", fa:"حقیقت‌جویی و اشتباه‌بودن"}, tag:{en:"Update your beliefs", fa:"باورهایت را به‌روز کن"},
+        gist:{en:"Chase accuracy, not comfort — and let being wrong be an update.", fa:"دنبالِ دقت باش، نه راحتی — و بگذار اشتباه‌بودن یک به‌روزرسانی باشد."},
+        more:{en:"Our minds bend information to protect what we already believe, so we need others. Find a small group that rewards accuracy, welcome dissent instead of fearing it, and treat “I was wrong” as new information rather than a failure of character.",
+              fa:"ذهنِ ما اطلاعات را خم می‌کند تا از آنچه از قبل باور داریم محافظت کند، پس به دیگران نیاز داریم. یک گروهِ کوچک پیدا کن که به دقت پاداش می‌دهد، به‌جای ترسیدن از مخالفت ازش استقبال کن، و «اشتباه کردم» را اطلاعاتِ تازه بدان، نه نقصِ شخصیت."},
+        chapters:["pod","dissent","beingwrong"] },
+      { key:"timetravel", varc:"--c-green", name:{en:"Mental Time Travel", fa:"سفرِ ذهنی در زمان"}, tag:{en:"Pressure-test the bet", fa:"شرط را محک بزن"},
+        gist:{en:"Bring your future self into the decision before you commit.", fa:"خودِ آینده‌ات را قبل از تصمیم، پای کار بیاور."},
+        more:{en:"The strongest tool is time. Use 10-10-10 to hear your future self, map the range of futures with rough odds, run premortems and backcasting to see failure and success in advance, and set Ulysses contracts that bind you before temptation arrives.",
+              fa:"قوی‌ترین ابزار، زمان است. با ۱۰-۱۰-۱۰ صدای خودِ آینده‌ات را بشنو، گسترهٔ آینده‌ها را با احتمالِ تقریبی نقشه کن، با پیش‌مرگی و پس‌نگاری شکست و موفقیت را از پیش ببین، و قراردادِ اولیس ببند که قبل از رسیدنِ وسوسه دست‌وپایت را ببندد."},
+        chapters:["tenten","scenario","premortem","ulysses"] }
+    ],
+    chapters:{
+      pokerchess:{ part:"poker", n:1, name:{en:"Poker, Not Chess", fa:"پوکر، نه شطرنج"}, glabel:{en:"Poker vs Chess", fa:"پوکر یا شطرنج"},
+        principle:{en:"Life isn't chess, where everything is on the board; it's poker — a game of decisions made with hidden cards and luck.", fa:"زندگی شطرنج نیست که همه‌چیز روی تخته باشد؛ پوکر است — بازیِ تصمیم‌گرفتن با کارت‌های پنهان و کمی شانس."},
+        more:{en:"In chess, if you lose, you made a mistake — there's no luck to hide behind. Real life is the opposite: you can play a hand perfectly and still lose, or play it badly and still win. Once you see life as poker, you stop expecting certainty and start playing the odds.", fa:"در شطرنج اگر ببازی، یعنی اشتباه کرده‌ای — شانسی در کار نیست که پشتش قایم شوی. زندگیِ واقعی برعکس است: می‌توانی یک دست را بی‌نقص بازی کنی و باز ببازی، یا بد بازی کنی و باز ببری. وقتی زندگی را پوکر ببینی، دیگر دنبالِ قطعیت نیستی و روی احتمال‌ها بازی می‌کنی."},
+        example:{en:"A CEO makes a careful, well-reasoned hire that blows up in six months. Chess thinking says “you failed.” Poker thinking asks “was the decision sound, given what you knew?”", fa:"یک مدیر با دقت و منطق کسی را استخدام می‌کند و شش ماه بعد همه‌چیز خراب می‌شود. ذهنِ شطرنجی می‌گوید «شکست خوردی». ذهنِ پوکری می‌پرسد «با آنچه می‌دانستی، تصمیم درست بود؟»"},
+        tip:{en:"Next time something goes wrong, ask whether it was a bad decision or just bad luck.", fa:"دفعهٔ بعد که چیزی خراب شد، از خودت بپرس تصمیمِ بد بود یا فقط شانسِ بد."},
+        pitfall:{en:"Treating every loss as proof of a mistake, and every win as proof of skill.", fa:"هر باخت را نشانهٔ اشتباه بدانی، و هر برد را نشانهٔ مهارت."} },
+      luckskill:{ part:"poker", n:2, name:{en:"Luck and Skill", fa:"شانس و مهارت"}, glabel:{en:"Luck & Skill", fa:"شانس و مهارت"},
+        principle:{en:"Every outcome is a mix of the quality of your decisions and the luck of the draw; your job is to tell the two apart.", fa:"هر نتیجه ترکیبی است از کیفیتِ تصمیم‌هایت و شانسِ روزگار؛ کارِ تو این است که این دو را از هم جدا کنی."},
+        more:{en:"We hate admitting how much luck decides. But if you can't separate skill from luck, you learn the wrong lessons — copying decisions that only worked by chance and dropping good ones that happened to fail. The point isn't to control luck; it's to keep making good bets so that, over many hands, skill wins out.", fa:"دوست نداریم قبول کنیم چقدر شانس تعیین‌کننده است. اما اگر نتوانی مهارت را از شانس جدا کنی، درس‌های اشتباه یاد می‌گیری — تصمیم‌هایی را تکرار می‌کنی که فقط شانسی جواب داده‌اند و تصمیم‌های خوبی را کنار می‌گذاری که اتفاقی شکست خورده‌اند. هدف کنترلِ شانس نیست؛ این است که آن‌قدر شرطِ خوب ببندی که در طولِ ده‌ها دست، مهارت برنده شود."},
+        example:{en:"Win a bet on a single coin flip and you got lucky, not skilled. Flip it ten thousand times and skill — knowing the real odds — is all that's left.", fa:"روی یک بار شیر یا خط شرط ببند و ببر، شانس آورده‌ای، نه مهارت. ده‌هزار بار پرتابش کن، آن‌وقت فقط مهارت — یعنی دانستنِ احتمالِ واقعی — می‌ماند."},
+        tip:{en:"For a recent win or loss, jot down how much was your call and how much was luck.", fa:"برای یک برد یا باختِ اخیر، بنویس چقدرش تصمیمِ تو بود و چقدرش شانس."},
+        pitfall:{en:"Crediting all your wins to skill and blaming all your losses on bad luck.", fa:"همهٔ بردها را به‌حسابِ مهارتت بگذاری و همهٔ باخت‌ها را گردنِ بدشانسی بیندازی."} },
+      uncertainty:{ part:"poker", n:3, name:{en:"Decide With Hidden Cards", fa:"با کارت‌های رونشده تصمیم بگیر"}, glabel:{en:"Uncertainty", fa:"اطلاعاتِ ناقص"},
+        principle:{en:"You will almost never have all the facts; good decisions are made under uncertainty, not after it clears.", fa:"تقریباً هیچ‌وقت همهٔ اطلاعات را نداری؛ تصمیمِ خوب همان وسطِ ابهام گرفته می‌شود، نه بعد از اینکه همه‌چیز روشن شد."},
+        more:{en:"Two things shape every result: luck and hidden information — the cards still face-down. Waiting for certainty means never deciding at all. The skill is acting well while you're still unsure, using the best guess you have instead of freezing until the fog lifts.", fa:"دو چیز هر نتیجه را می‌سازند: شانس و اطلاعاتِ پنهان — کارت‌هایی که هنوز رو نشده‌اند. منتظرِ قطعیت ماندن یعنی هیچ‌وقت تصمیم نگرفتن. مهارت این است که همان وقتی که هنوز مطمئن نیستی خوب عمل کنی، با بهترین حدسی که داری، نه اینکه تا رفتنِ مه خشکت بزند."},
+        example:{en:"You take a job without knowing the boss, the market, or your future self's needs — and you still have to choose. You bet on the best information you have.", fa:"یک شغل را قبول می‌کنی بی‌آنکه رئیس، بازار، یا نیازهای خودت در آینده را بدانی — و باز باید انتخاب کنی. روی بهترین اطلاعاتی که داری شرط می‌بندی."},
+        tip:{en:"Before a choice, list what you don't know — then decide anyway, on purpose.", fa:"قبل از هر انتخاب، فهرست کن چه چیزهایی را نمی‌دانی — بعد آگاهانه تصمیم بگیر."},
+        pitfall:{en:"Stalling for more certainty that never actually arrives.", fa:"معطل‌کردن برای قطعیتی که هیچ‌وقت واقعاً نمی‌رسد."} },
+      everybet:{ part:"bets", n:4, name:{en:"Every Decision Is a Bet", fa:"هر تصمیم یک شرط‌بندی است"}, glabel:{en:"Decisions = Bets", fa:"تصمیم = شرط"},
+        principle:{en:"Every choice is a bet on one uncertain future over the others — you're staking time, money, or happiness on how things will turn out.", fa:"هر انتخاب یک شرط است روی یکی از آینده‌های ممکن در برابرِ بقیه — داری وقت، پول، یا خوشحالی‌ات را می‌گذاری روی اینکه اوضاع چطور پیش می‌رود."},
+        more:{en:"A bet doesn't need a casino. When you pick a job, a partner, or a route home, you're committing resources to a future you can't see, and giving up every other version you didn't pick. Calling it a bet makes the trade-off honest: you're choosing against all the other futures you could have had.", fa:"شرط‌بندی کازینو نمی‌خواهد. وقتی یک شغل، یک همراه، یا یک مسیرِ خانه را انتخاب می‌کنی، داری منابعت را روی آینده‌ای می‌گذاری که نمی‌بینی‌اش، و از هر نسخهٔ دیگری که نگرفتی می‌گذری. اسمش را شرط بگذاری، معامله صادقانه می‌شود: داری در برابرِ همهٔ آینده‌های دیگری که می‌توانستی داشته باشی انتخاب می‌کنی."},
+        example:{en:"Duke's line: we mostly aren't betting against another person — we're betting against all the future versions of ourselves we didn't choose.", fa:"جملهٔ دیوک: ما بیشترِ وقت‌ها در برابرِ آدمِ دیگری شرط نمی‌بندیم — در برابرِ همهٔ نسخه‌های آینده‌مان شرط می‌بندیم که انتخابشان نکردیم."},
+        tip:{en:"Reframe your next decision as “I'm betting that…” and say what you're staking.", fa:"تصمیمِ بعدی‌ات را این‌طور بگو: «دارم شرط می‌بندم که…» و بگو چه چیزی را وسط گذاشته‌ای."},
+        pitfall:{en:"Pretending a choice is risk-free just because no money is on the table.", fa:"وانمود کنی یک انتخاب بی‌ریسک است، فقط چون پولی وسط نیست."} },
+      notsure:{ part:"bets", n:5, name:{en:"“I'm Not Sure” Is a Strength", fa:"«مطمئن نیستم» یک نقطهٔ قوت است"}, glabel:{en:"Not Sure", fa:"مطمئن نیستم"},
+        principle:{en:"Admitting “I'm not sure” isn't weakness — it's the most accurate, and most useful, thing you can say.", fa:"گفتنِ «مطمئن نیستم» ضعف نیست — دقیق‌ترین و به‌دردبخورترین چیزی است که می‌توانی بگویی."},
+        more:{en:"We're taught that confident people say things for sure. But certainty is usually a lie about a world full of luck and hidden cards. Saying “I'm about 70% sure” is braver and smarter: it's honest about what you know, and it leaves the door open to being wrong without falling apart.", fa:"به ما یاد داده‌اند آدمِ مطمئن قاطع حرف می‌زند. اما قطعیت معمولاً یک دروغ است دربارهٔ دنیایی پُر از شانس و کارتِ پنهان. گفتنِ «حدودِ ۷۰٪ مطمئنم» هم شجاعانه‌تر است هم باهوش‌تر: با آنچه می‌دانی صادق است، و راهِ اشتباه‌بودن را باز می‌گذارد بی‌آنکه به‌هم بریزی."},
+        example:{en:"Asked about a coin flipped four times, the correct answer really is “I'm not sure” — anything more certain is pretending.", fa:"وقتی از سکه‌ای می‌پرسند که چهار بار پرتاب شده، جوابِ درست واقعاً «مطمئن نیستم» است — هر چیزِ قاطع‌تری وانمودکردن است."},
+        tip:{en:"Attach a percentage to your next confident claim; watch how it softens.", fa:"به ادعای قاطعِ بعدی‌ات یک درصد بچسبان؛ ببین چطور نرم‌تر می‌شود."},
+        pitfall:{en:"Faking certainty to look competent, then defending it past the evidence.", fa:"جعلِ قطعیت برای باکفایت به‌نظر رسیدن، و بعد دفاع از آن حتی وقتی شواهد خلافش را می‌گویند."} },
+      beliefs:{ part:"bets", n:6, name:{en:"Bet on Your Beliefs", fa:"روی باورهایت شرط ببند"}, glabel:{en:"Beliefs", fa:"باورها"},
+        principle:{en:"Hold beliefs as probabilities, not certainties — and be willing to bet on them, so you find out how sure you really are.", fa:"باورهایت را به‌شکلِ احتمال نگه دار، نه قطعیت — و حاضر باش رویشان شرط ببندی، تا بفهمی واقعاً چقدر مطمئنی."},
+        more:{en:"We form beliefs carelessly — hear something, accept it, rarely check it — and then defend them as if they were us. Asking “wanna bet?” changes everything: suddenly you weigh how you actually know, and adjust your confidence to fit the evidence instead of your ego.", fa:"باورهایمان را شلخته می‌سازیم — چیزی می‌شنویم، قبولش می‌کنیم، کم پیش می‌آید وارسی‌اش کنیم — و بعد جوری ازشان دفاع می‌کنیم انگار خودِ ما هستند. پرسیدنِ «شرط می‌بندی؟» همه‌چیز را عوض می‌کند: یک‌دفعه سبک‌سنگین می‌کنی که واقعاً از کجا می‌دانی، و اطمینانت را با شواهد تنظیم می‌کنی، نه با غرورت."},
+        example:{en:"Imagine someone offers real money against your firm opinion. If you suddenly feel shaky, your belief was never as solid as it sounded.", fa:"تصور کن کسی روی نظرِ محکمت پولِ واقعی شرط ببندد. اگر یک‌دفعه دلت لرزید، باورت هیچ‌وقت آن‌قدر که به‌نظر می‌رسید محکم نبوده."},
+        tip:{en:"When you catch a strong opinion, ask yourself: would I bet on this? At what odds?", fa:"هر وقت یک نظرِ محکم داشتی، از خودت بپرس: رویش شرط می‌بندم؟ با چه احتمالی؟"},
+        pitfall:{en:"Treating a belief as part of your identity, so changing it feels like losing.", fa:"باور را بخشی از هویتت بدانی، جوری که عوض‌کردنش مثلِ باختن حس شود."} },
+      resulting:{ part:"outcomes", n:7, name:{en:"Beware Resulting", fa:"مواظبِ نتیجه‌زدگی باش"}, glabel:{en:"Resulting", fa:"نتیجه‌زدگی"},
+        principle:{en:"Don't judge a decision by how it turned out — a good outcome can follow a bad bet, and a bad outcome a good one.", fa:"تصمیم را با نتیجه‌اش قضاوت نکن — نتیجهٔ خوب می‌تواند پیِ شرطِ بد بیاید، و نتیجهٔ بد پیِ شرطِ خوب."},
+        more:{en:"“Resulting” is Duke's word for reading the quality of a decision backward from the result. Because luck sits in between, the outcome is a noisy signal. Judge the process instead: what you knew, what odds you gave it, and whether you'd make the same bet again.", fa:"«نتیجه‌زدگی» واژهٔ دیوک است برای اینکه کیفیتِ یک تصمیم را از رویِ نتیجه‌اش به عقب بخوانی. چون شانس وسط نشسته، نتیجه یک سیگنالِ پُرنویز است. به‌جایش فرایند را قضاوت کن: چه می‌دانستی، چه احتمالی برایش قائل بودی، و آیا همان شرط را دوباره می‌بندی."},
+        example:{en:"Pete Carroll's goal-line pass call lost the Super Bowl and was branded “the worst play in history” — yet the odds behind it were sound. Same decision, a completed pass, and he's a genius.", fa:"تصمیمِ پاسِ پیت کارول در خطِ گل، سوپربول را باخت و «بدترین حرکتِ تاریخ» لقب گرفت — با اینکه احتمال‌های پشتش منطقی بود. همان تصمیم، اگر پاس می‌رسید، و او نابغه بود."},
+        tip:{en:"Review a decision by asking “was it a good bet?” before you look at the result.", fa:"یک تصمیم را این‌طور مرور کن که اول بپرسی «شرطِ خوبی بود؟»، بعد به نتیجه نگاه کنی."},
+        pitfall:{en:"Rewarding lucky bad decisions and punishing unlucky good ones.", fa:"به تصمیم‌های بدِ خوش‌شانس پاداش بدهی و تصمیم‌های خوبِ بدشانس را تنبیه کنی."} },
+      fielding:{ part:"outcomes", n:8, name:{en:"Sort Luck From Skill", fa:"شانس را از مهارت سوا کن"}, glabel:{en:"Fielding Outcomes", fa:"خواندنِ نتیجه"},
+        principle:{en:"For each outcome, honestly sort how much was skill and how much was luck — and resist the self-serving split.", fa:"برای هر نتیجه، صادقانه جدا کن چقدرش مهارت بود و چقدرش شانس — و در برابرِ تقسیمِ به‌نفعِ خودت مقاومت کن."},
+        more:{en:"Duke calls this “fielding” outcomes. Left alone, we field them selfishly: our wins are skill, our losses are bad luck, and for other people we flip it. That bias feels good and teaches nothing. Fielding honestly — sometimes crediting luck for a win, sometimes owning a loss — is how experience actually turns into learning.", fa:"دیوک اسمِ این را «خواندنِ» نتیجه‌ها می‌گذارد. اگر رهایش کنی، خودخواهانه می‌خوانی‌شان: بردهایمان مهارت است، باخت‌هایمان بدشانسی، و برای دیگران برعکسش می‌کنیم. این سوگیری خوشایند است و هیچ درسی نمی‌دهد. خواندنِ صادقانه — گاهی یک برد را به‌حسابِ شانس گذاشتن، گاهی یک باخت را گردن‌گرفتن — همان‌جایی است که تجربه واقعاً به یادگیری تبدیل می‌شود."},
+        example:{en:"Two drivers run a red light: one hits nobody and calls himself skilled, one crashes and blames the road. The decision was identical — only luck differed.", fa:"دو راننده از چراغِ قرمز رد می‌شوند: یکی به کسی نمی‌زند و خودش را ماهر می‌داند، یکی تصادف می‌کند و جاده را مقصر می‌داند. تصمیم یکی بود — فقط شانس فرق داشت."},
+        tip:{en:"After a win, ask “what part was luck?” After a loss, ask “what part was me?”", fa:"بعد از یک برد بپرس «چه بخشی‌اش شانس بود؟» بعد از یک باخت بپرس «چه بخشی‌اش خودم بودم؟»"},
+        pitfall:{en:"Self-serving bias: skill for your wins, luck for your losses.", fa:"سوگیریِ به‌نفعِ خود: مهارت برای بردهایت، شانس برای باخت‌هایت."} },
+      hindsight:{ part:"outcomes", n:9, name:{en:"The Hindsight Trap", fa:"دامِ پس‌نگری"}, glabel:{en:"Hindsight", fa:"پس‌نگری"},
+        principle:{en:"Once you know the outcome, your memory rewrites the past to make it feel inevitable — “I knew it all along.”", fa:"همین که نتیجه را فهمیدی، حافظه‌ات گذشته را بازنویسی می‌کند تا حتمی به‌نظر برسد — «از اول می‌دانستم»."},
+        more:{en:"Hindsight bias is the tendency, after an outcome is known, to see it as having been obvious and unavoidable. It quietly erases how uncertain things really were at the moment of choosing, which makes you too hard on good decisions that failed and too kind to bad ones that worked.", fa:"پس‌نگری این تمایل است که بعد از دانستنِ نتیجه، آن را واضح و اجتناب‌ناپذیر ببینی. بی‌سروصدا پاک می‌کند که در لحظهٔ انتخاب اوضاع واقعاً چقدر نامعلوم بوده، و همین باعث می‌شود با تصمیم‌های خوبی که شکست خورده‌اند زیادی سخت‌گیر باشی و با تصمیم‌های بدی که جواب داده‌اند زیادی مهربان."},
+        example:{en:"After a startup fails, everyone says the signs were obvious. They weren't — they only look obvious now that we know the ending.", fa:"بعد از اینکه یک استارتاپ شکست می‌خورد، همه می‌گویند نشانه‌ها واضح بود. نبود — فقط حالا که پایان را می‌دانیم واضح به‌نظر می‌رسد."},
+        tip:{en:"Write down what you expected before you know the result; reread it afterward.", fa:"قبل از دانستنِ نتیجه بنویس چه انتظاری داشتی؛ بعد از نتیجه دوباره بخوانش."},
+        pitfall:{en:"Rewriting the past so a lucky or unlucky result looks like it was certain.", fa:"بازنویسیِ گذشته تا نتیجهٔ خوش‌شانس یا بدشانس انگار حتمی بوده به‌نظر برسد."} },
+      pod:{ part:"truth", n:10, name:{en:"Find Your Truthseeking Pod", fa:"گروهِ حقیقت‌جویت را پیدا کن"}, glabel:{en:"The Pod", fa:"گروهِ همراه"},
+        principle:{en:"Truthseeking is hard alone; join a small group that rewards accuracy and holds each other accountable.", fa:"حقیقت‌جویی به‌تنهایی سخت است؛ به یک گروهِ کوچک بپیوند که به دقت پاداش می‌دهد و اعضا همدیگر را پاسخگو نگه می‌دارند."},
+        more:{en:"Our own brains are wired to protect our beliefs, so we need others to check us. A good pod agrees on a shared rule: focus on accuracy, invite dissent, and separate ideas from the person holding them. You don't need everyone in your life to join — just a few people who'd rather be right than comfortable.", fa:"مغزِ خودمان طوری سیم‌کشی شده که از باورهایمان محافظت کند، پس به دیگران نیاز داریم که ما را بررسی کنند. یک گروهِ خوب سرِ یک قاعده توافق می‌کند: تمرکز روی دقت، دعوت از مخالفت، و جداکردنِ ایده از کسی که آن را دارد. لازم نیست همهٔ آدم‌های زندگی‌ات عضو شوند — فقط چند نفر که ترجیح می‌دهند درست باشند تا راحت."},
+        example:{en:"Duke points to the norms of good science: groups that prize accuracy, share data openly, and treat every claim as open to challenge.", fa:"دیوک به قواعدِ علمِ خوب اشاره می‌کند: گروه‌هایی که برای دقت ارزش قائل‌اند، داده‌ها را باز به اشتراک می‌گذارند، و هر ادعا را قابلِ به‌چالش‌کشیدن می‌دانند."},
+        tip:{en:"Find two or three people who'll tell you when you're wrong — and thank them when they do.", fa:"دو سه نفر را پیدا کن که وقتی اشتباه می‌کنی بهت بگویند — و وقتی گفتند، ازشان تشکر کن."},
+        pitfall:{en:"Surrounding yourself with people who only echo what you already believe.", fa:"دورِ خودت آدم‌هایی جمع کنی که فقط همان چیزی را که باور داری تکرار می‌کنند."} },
+      dissent:{ part:"truth", n:11, name:{en:"Welcome Dissent", fa:"از مخالفت استقبال کن"}, glabel:{en:"Dissent", fa:"مخالفت"},
+        principle:{en:"Actively seek out people who disagree; the point of view you're missing is worth more than another “you're right.”", fa:"فعالانه دنبالِ آدم‌هایی برو که با تو مخالف‌اند؛ آن زاویهٔ دیدی که کم داری بیشتر می‌ارزد تا یک «حق با توست»ِ دیگر."},
+        more:{en:"Agreement feels nice but teaches nothing. The most useful person in the room is the one who can show you what you're missing. So reward dissent instead of punishing it — ask for the strongest case against your view, and judge an idea on its merits, not on who said it.", fa:"موافقت حسِ خوبی دارد اما چیزی یاد نمی‌دهد. مفیدترین آدمِ اتاق کسی است که می‌تواند نشانت دهد چه چیزی را نمی‌بینی. پس به‌جای تنبیهِ مخالفت، بهش پاداش بده — قوی‌ترین دلیلِ مخالفِ نظرت را بخواه، و یک ایده را به‌خاطرِ خودش قضاوت کن، نه به‌خاطرِ کسی که گفته."},
+        example:{en:"Before committing, ask a skeptic: “What's the best argument that I'm wrong?” — and actually listen to the answer.", fa:"قبل از اینکه پای چیزی بایستی، از یک آدمِ شکاک بپرس: «قوی‌ترین دلیل اینکه من اشتباه می‌کنم چیست؟» — و واقعاً به جوابش گوش بده."},
+        tip:{en:"Invite one person to argue the opposite of your plan before you commit to it.", fa:"قبل از اینکه پای نقشه‌ات بایستی، یک نفر را دعوت کن که خلافش را برایت استدلال کند."},
+        pitfall:{en:"Dismissing an argument because of who's making it instead of what it says.", fa:"یک استدلال را به‌خاطرِ گوینده‌اش رد کنی، نه به‌خاطرِ محتوایش."} },
+      beingwrong:{ part:"truth", n:12, name:{en:"Redefine Being Wrong", fa:"اشتباه‌بودن را از نو معنا کن"}, glabel:{en:"Being Wrong", fa:"اشتباه‌بودن"},
+        principle:{en:"Being wrong isn't a failure of character — it's just new information telling you to update your bet.", fa:"اشتباه‌بودن نقصِ شخصیت نیست — فقط اطلاعاتِ تازه‌ای است که می‌گوید شرطت را به‌روز کن."},
+        more:{en:"If you aren't wrong just because things went badly, you also aren't right just because they went well. Beliefs are bets placed with today's information; when the facts change, updating isn't losing face — it's winning, because your model of the world just got more accurate. Say “I was wrong” more often and it stops stinging.", fa:"اگر فقط به‌خاطرِ اینکه اوضاع بد پیش رفت اشتباه نیستی، فقط به‌خاطرِ اینکه خوب پیش رفت هم درست نیستی. باورها شرط‌هایی‌اند که با اطلاعاتِ امروز بسته‌ای؛ وقتی واقعیت عوض می‌شود، به‌روزکردن کم‌آوردن نیست — بردن است، چون تصویرت از دنیا تازه دقیق‌تر شد. «اشتباه کردم» را بیشتر بگو تا دیگر نسوزاند."},
+        example:{en:"A scientist who changes her mind when the data shifts isn't flip-flopping — she's doing exactly what good thinking requires.", fa:"دانشمندی که وقتی داده‌ها عوض می‌شوند نظرش را عوض می‌کند، بوقلمون‌صفت نیست — دارد دقیقاً همان کاری را می‌کند که فکرِ خوب می‌طلبد."},
+        tip:{en:"When new evidence arrives, say “I'm updating,” not “I was stupid.”", fa:"وقتی شواهدِ تازه رسید، بگو «دارم به‌روز می‌کنم»، نه «چقدر احمق بودم»."},
+        pitfall:{en:"Clinging to a belief to avoid the discomfort of admitting you were wrong.", fa:"به یک باور بچسبی تا از ناراحتیِ اعترافِ اشتباه فرار کنی."} },
+      tenten:{ part:"timetravel", n:13, name:{en:"10-10-10", fa:"۱۰-۱۰-۱۰"}, glabel:{en:"10-10-10", fa:"۱۰-۱۰-۱۰"},
+        principle:{en:"Before deciding, ask how you'll feel about it in ten minutes, ten months, and ten years.", fa:"قبل از تصمیم، بپرس ده دقیقهٔ دیگر، ده ماهِ دیگر، و ده سالِ دیگر چه حسی نسبت به آن خواهی داشت."},
+        more:{en:"Borrowed from Suzy Welch, 10-10-10 pulls you out of the heat of the moment and lets your future self weigh in. The choice that feels great in ten minutes is often the one you'll regret in ten months; holding all three horizons at once keeps short-term emotion from hijacking the bet.", fa:"۱۰-۱۰-۱۰ که از سوزی ولش وام گرفته شده، تو را از داغیِ لحظه بیرون می‌کشد و می‌گذارد خودِ آینده‌ات هم نظر بدهد. انتخابی که ده دقیقهٔ دیگر عالی حس می‌شود، اغلب همان است که ده ماهِ دیگر ازش پشیمانی؛ نگه‌داشتنِ هر سه بازهٔ زمانی با هم نمی‌گذارد احساسِ کوتاه‌مدت شرط را بدزدد."},
+        example:{en:"That tempting late-night email feels satisfying in ten minutes, awkward in ten months, and irrelevant in ten years — so maybe don't send it.", fa:"آن ایمیلِ وسوسه‌انگیزِ نیمه‌شب، ده دقیقهٔ دیگر لذت‌بخش است، ده ماهِ دیگر معذب‌کننده، و ده سالِ دیگر بی‌اهمیت — پس شاید نفرستی‌اش."},
+        tip:{en:"Run your next hard choice through 10 minutes / 10 months / 10 years.", fa:"انتخابِ سختِ بعدی‌ات را از صافیِ ۱۰ دقیقه / ۱۰ ماه / ۱۰ سال رد کن."},
+        pitfall:{en:"Letting the feeling of the moment make a bet your future self will pay for.", fa:"بگذاری احساسِ همین لحظه شرطی ببندد که خودِ آینده‌ات تاوانش را می‌دهد."} },
+      scenario:{ part:"timetravel", n:14, name:{en:"Map the Futures", fa:"آینده‌ها را نقشه کن"}, glabel:{en:"Scenario Planning", fa:"سناریوها"},
+        principle:{en:"Don't plan for one future; map the tree of things that could happen and give each branch a rough probability.", fa:"برای یک آینده نقشه نکش؛ درختِ چیزهایی که ممکن است پیش بیاید را بکش و به هر شاخه یک احتمالِ تقریبی بده."},
+        more:{en:"A single expected future is a fantasy. Scenario planning lays out the range of ways things could go — good and bad — and attaches odds, so no result blindsides you. The probabilities won't be exact, but the discipline of naming the branches makes your bet far more honest than hoping for the one outcome you want.", fa:"یک آیندهٔ واحدِ موردِانتظار خیال‌بافی است. سناریوچینی گسترهٔ راه‌هایی که ممکن است اوضاع پیش برود را می‌چیند — خوب و بد — و به هرکدام احتمال می‌چسباند، تا هیچ نتیجه‌ای غافلگیرت نکند. احتمال‌ها دقیق نخواهند بود، اما همین انضباطِ نام‌بردنِ شاخه‌ها شرطت را خیلی صادقانه‌تر می‌کند از اینکه فقط امیدِ همان یک نتیجه‌ای را داشته باشی که می‌خواهی."},
+        example:{en:"Instead of “the launch will go well,” list five ways it could land — and how likely each is.", fa:"به‌جای «راه‌اندازی خوب پیش می‌رود»، پنج جوری که ممکن است تمام شود را فهرست کن — و اینکه هرکدام چقدر محتمل است."},
+        tip:{en:"For your next plan, write three futures — good, middling, bad — with rough odds.", fa:"برای نقشهٔ بعدی‌ات، سه آینده بنویس — خوب، متوسط، بد — با احتمالِ تقریبی."},
+        pitfall:{en:"Betting everything on the single future you were hoping for.", fa:"همه‌چیز را روی همان یک آینده‌ای که امیدش را داشتی شرط ببندی."} },
+      premortem:{ part:"timetravel", n:15, name:{en:"Premortem & Backcasting", fa:"پیش‌مرگی و پس‌نگاری"}, glabel:{en:"Premortem", fa:"پیش‌مرگی"},
+        principle:{en:"Imagine the decision has already failed — and separately, that it triumphed — then work backward to find why.", fa:"تصور کن تصمیم شکست خورده — و جداگانه، تصور کن پیروز شده — بعد به عقب برگرد تا بفهمی چرا."},
+        more:{en:"A premortem imagines a negative future: it's a year later and the plan flopped — what killed it? Backcasting imagines the positive future and traces the path that got you there. Together they map both the negative and the positive space, so you spot risks early and give yourself honest permission to name what could go wrong.", fa:"پیش‌مرگی یک آیندهٔ منفی را تصور می‌کند: یک سال گذشته و نقشه شکست خورده — چه چیزی نابودش کرد؟ پس‌نگاری آیندهٔ مثبت را تصور می‌کند و مسیری را که تو را به آنجا رسانده دنبال می‌کند. این دو با هم، هم فضای منفی و هم فضای مثبت را نقشه می‌کنند، تا زود ریسک‌ها را ببینی و به خودت اجازهٔ صادقانه بدهی که بگویی چه چیزی ممکن است خراب شود."},
+        example:{en:"Duke's image: backcasting is the cheerleader, the premortem is the heckler — you need both voices in the room.", fa:"تصویرِ دیوک: پس‌نگاری تشویق‌کننده است، پیش‌مرگی همان کسی که از تویِ جمعیت متلک می‌اندازد — به هر دو صدا در اتاق نیاز داری."},
+        tip:{en:"Before a big move, write the headline “Why it failed,” dated one year out.", fa:"قبل از یک حرکتِ بزرگ، تیترِ «چرا شکست خورد» را برای یک سالِ بعد بنویس."},
+        pitfall:{en:"Only picturing success, so the risks stay invisible until they hit.", fa:"فقط موفقیت را تصور کنی، جوری که ریسک‌ها تا وقتی ضربه بزنند نامرئی بمانند."} },
+      ulysses:{ part:"timetravel", n:16, name:{en:"Ulysses Contracts", fa:"قراردادِ اولیس"}, glabel:{en:"Precommit", fa:"پیش‌تعهد"},
+        principle:{en:"Bind your future self in advance, while you're calm and clear, so a heated moment can't blow up the plan.", fa:"همین حالا که آرام و روشنی، خودِ آینده‌ات را از پیش ببند، تا یک لحظهٔ داغ نتواند نقشه را خراب کند."},
+        more:{en:"Named after Ulysses tying himself to the mast against the Sirens, these are decisions that limit your future options on purpose. Your calm, rational self sets a barrier — an automatic transfer, a deleted app, a rule you can't easily undo — that your future, tempted self will run into. It's how you win a bet against your own worst impulses.", fa:"به‌نامِ اولیس که خودش را به دکلِ کشتی بست تا در برابرِ آوازِ پری‌ها مقاومت کند، این‌ها تصمیم‌هایی‌اند که آگاهانه گزینه‌های آینده‌ات را محدود می‌کنند. خودِ آرام و منطقی‌ات یک مانع می‌گذارد — یک انتقالِ خودکارِ پول، یک اپِ پاک‌شده، یک قاعده که به‌راحتی نتوانی برش‌گردانی — که خودِ وسوسه‌شدهٔ آینده‌ات به آن بخورد. این‌طوری در شرطی که با بدترین تکانه‌های خودت داری برنده می‌شوی."},
+        example:{en:"Setting up automatic savings so the money is gone before you can spend it is a Ulysses contract with your paycheck.", fa:"راه‌انداختنِ پس‌اندازِ خودکار، جوری که پول قبل از اینکه بتوانی خرجش کنی رفته باشد، یک قراردادِ اولیس با حقوقت است."},
+        tip:{en:"Pick one temptation and build a barrier now that your future self can't easily skip.", fa:"یک وسوسه را انتخاب کن و همین حالا مانعی بساز که خودِ آینده‌ات نتواند راحت ازش رد شود."},
+        pitfall:{en:"Relying on in-the-moment willpower instead of deciding in advance.", fa:"به ارادهٔ لحظه‌ای تکیه کنی به‌جای اینکه از قبل تصمیم بگیری."} }
+    },
+    core:{ name:{en:"THINK IN BETS", fa:"شرط‌بندانه فکر کن"},
+      principle:{en:"Every decision is a bet on an uncertain future, so quality lives in the process, not the result. Figure out how sure you are, place the smartest bet you can, and treat luck and hidden information as part of the game — not as excuses.", fa:"هر تصمیم یک شرط است روی آینده‌ای نامعلوم، پس کیفیت در فرایند است، نه در نتیجه. بفهم چقدر مطمئنی، بهترین شرطی که می‌توانی را ببند، و شانس و اطلاعاتِ پنهان را بخشی از بازی بدان — نه بهانه."},
+      more:{en:"Duke turns twenty years of poker into a way of thinking. Life is poker, not chess (luck and hidden cards are always in play); decisions are bets on probabilities; stop “resulting” by judging choices only by outcomes; seek the truth in groups that welcome dissent and reward being wrong; and use mental time travel — 10-10-10, scenario trees, premortems, Ulysses contracts — to make your future self proud of today's bet.", fa:"دیوک بیست سال پوکر را به یک شیوهٔ فکر تبدیل می‌کند. زندگی پوکر است، نه شطرنج (شانس و کارتِ پنهان همیشه در بازی‌اند)؛ تصمیم‌ها شرط روی احتمال‌اند؛ دست از «نتیجه‌زدگی» بردار و انتخاب‌ها را فقط با نتیجه قضاوت نکن؛ حقیقت را در گروه‌هایی بجوی که از مخالفت استقبال می‌کنند و به اشتباه‌بودن پاداش می‌دهند؛ و با سفرِ ذهنی در زمان — ۱۰-۱۰-۱۰، درختِ سناریو، پیش‌مرگی، قراردادِ اولیس — کاری کن که خودِ آینده‌ات به شرطِ امروزت افتخار کند."},
+      example:{en:"Click any node to open an idea. Drag the nodes around to explore the map.", fa:"روی هر دایره کلیک کن تا یک ایده باز شود. دایره‌ها را بکش و جابه‌جا کن تا نقشه را بگردی."} },
+    stages:[
+      { level:1, badge:{en:"Level 1 · Over-simplified", fa:"سطحِ ۱ · خیلی ساده"}, title:{en:"Judge the bet, not the result", fa:"شرط را قضاوت کن، نه نتیجه را"}, tagline:{en:"The whole book in a sentence.", fa:"کلِ کتاب در یک جمله."},
+        body:{en:"A good outcome doesn't prove you were smart, and a bad one doesn't prove you were dumb. Luck sits in between. So judge the decision by whether it was a good bet with what you knew — not by how it happened to turn out.", fa:"نتیجهٔ خوب ثابت نمی‌کند باهوش بودی، و نتیجهٔ بد ثابت نمی‌کند احمق بودی. شانس وسط نشسته. پس تصمیم را با این قضاوت کن که با آنچه می‌دانستی شرطِ خوبی بود یا نه — نه با اینکه اتفاقی چطور تمام شد."},
+        example:{en:"You ran a red light and got home safe. Safe isn't the same as smart — it was a bad bet that happened to win.", fa:"از چراغِ قرمز رد شدی و سالم رسیدی خانه. سالم با باهوش یکی نیست — یک شرطِ بد بود که اتفاقی برد."},
+        gain:{en:"You stop confusing a lucky result with a good decision.", fa:"دیگر نتیجهٔ خوش‌شانس را با تصمیمِ خوب اشتباه نمی‌گیری."} },
+      { level:2, badge:{en:"Level 2 · Simple", fa:"سطحِ ۲ · ساده"}, title:{en:"Life is poker, not chess", fa:"زندگی پوکر است، نه شطرنج"}, tagline:{en:"Luck and hidden cards are always in play.", fa:"شانس و کارتِ پنهان همیشه در بازی‌اند."},
+        body:{en:"Chess has no luck — lose and you erred. Life is poker: you decide with cards still face-down and luck in every hand. That means <b>uncertainty is normal</b>, and every choice is a <b>bet</b> on a future you can't fully see. Your goal isn't certainty; it's a good bet.", fa:"شطرنج شانس ندارد — ببازی یعنی اشتباه کردی. زندگی پوکر است: با کارت‌هایی که هنوز رو نشده‌اند و شانسی که در هر دست هست تصمیم می‌گیری. یعنی <b>نامعلومی طبیعی است</b>، و هر انتخاب یک <b>شرط</b> است روی آینده‌ای که کامل نمی‌بینی‌اش. هدفت قطعیت نیست؛ یک شرطِ خوب است."},
+        example:{en:"A careful hire that fails wasn't necessarily a mistake — sometimes the cards just fell badly.", fa:"یک استخدامِ بادقت که شکست می‌خورد لزوماً اشتباه نبوده — گاهی فقط کارت‌ها بد آمده‌اند."},
+        gain:{en:"You expect uncertainty and treat choices as bets.", fa:"انتظارِ نامعلومی را داری و انتخاب‌ها را شرط می‌بینی."} },
+      { level:3, badge:{en:"Level 3 · Balanced", fa:"سطحِ ۳ · متعادل"}, title:{en:"Say how sure you are", fa:"بگو چقدر مطمئنی"}, tagline:{en:"“I'm not sure” and calibrated beliefs.", fa:"«مطمئن نیستم» و باورهای درجه‌دار."},
+        body:{en:"Now add honesty about confidence. Drop the fake certainty: <b>“I'm not sure”</b> is a strength, and the sharpest move is to put a <b>number</b> on your belief — “I'm about 70% sure.” Hold beliefs as bets you'd actually place, and let the odds, not your ego, set your confidence.", fa:"حالا صداقت دربارهٔ اطمینان را اضافه کن. قطعیتِ جعلی را کنار بگذار: <b>«مطمئن نیستم»</b> یک نقطهٔ قوت است، و تیزترین حرکت این است که روی باورت یک <b>عدد</b> بگذاری — «حدودِ ۷۰٪ مطمئنم». باورها را شرط‌هایی بدان که واقعاً می‌بندی، و بگذار احتمال‌ها اطمینانت را تعیین کنند، نه غرورت."},
+        example:{en:"“It'll definitely work” becomes “I'd put this at 60% — here's what would change my mind.”", fa:"«حتماً جواب می‌دهد» می‌شود «این را ۶۰٪ می‌دانم — و این چیزی است که نظرم را عوض می‌کند»."},
+        gain:{en:"You can state your confidence in odds and update it.", fa:"می‌توانی اطمینانت را با احتمال بگویی و به‌روزش کنی."} },
+      { level:4, badge:{en:"Level 4 · Advanced", fa:"سطحِ ۴ · پیشرفته"}, title:{en:"Seek the truth together", fa:"حقیقت را با هم بجویید"}, tagline:{en:"Pods, dissent, and being wrong out loud.", fa:"گروهِ همراه، مخالفت، و بلندگفتنِ اشتباه."},
+        body:{en:"Your brain protects your beliefs, so recruit help. Build a small <b>truthseeking pod</b> that rewards accuracy, <b>welcomes dissent</b>, and judges ideas apart from who said them. Redefine <b>being wrong</b> as an update, not a defeat — when the facts change, changing your mind is the win.", fa:"مغزت از باورهایت محافظت می‌کند، پس کمک بگیر. یک <b>گروهِ کوچکِ حقیقت‌جو</b> بساز که به دقت پاداش می‌دهد، <b>از مخالفت استقبال می‌کند</b>، و ایده‌ها را جدا از گوینده‌شان قضاوت می‌کند. <b>اشتباه‌بودن</b> را از نو معنا کن؛ یک به‌روزرسانی است، نه شکست — وقتی واقعیت عوض می‌شود، عوض‌کردنِ نظر همان برد است."},
+        example:{en:"You ask a skeptical colleague for the strongest case against your plan — and thank them for it.", fa:"از یک همکارِ شکاک می‌خواهی قوی‌ترین دلیلِ مخالفِ نقشه‌ات را بگوید — و بابتش ازش تشکر می‌کنی."},
+        gain:{en:"You use other minds to catch your own blind spots.", fa:"از ذهنِ دیگران استفاده می‌کنی تا نقطه‌کورهای خودت را بگیری."} },
+      { level:5, badge:{en:"Level 5 · Expert", fa:"سطحِ ۵ · حرفه‌ای"}, title:{en:"Bet with your future self", fa:"با خودِ آینده‌ات شرط ببند"}, tagline:{en:"10-10-10, premortems, Ulysses contracts.", fa:"۱۰-۱۰-۱۰، پیش‌مرگی، قراردادِ اولیس."},
+        body:{en:"The expert recruits time itself. Use <b>10-10-10</b> to let your future self vote, <b>map the futures</b> with rough odds instead of hoping for one, run a <b>premortem</b> so risks surface early, and set <b>Ulysses contracts</b> that bind you before temptation hits. Now you're not just making one good bet — you're building a life where good process compounds and luck evens out.", fa:"آدمِ حرفه‌ای خودِ زمان را به خدمت می‌گیرد. با <b>۱۰-۱۰-۱۰</b> بگذار خودِ آینده‌ات رأی بدهد، به‌جای امید به یک آینده <b>آینده‌ها را</b> با احتمالِ تقریبی نقشه کن، یک <b>پیش‌مرگی</b> اجرا کن تا ریسک‌ها زود رو بیایند، و <b>قراردادِ اولیس</b> ببند که قبل از رسیدنِ وسوسه دست‌وپایت را می‌بندد. حالا فقط یک شرطِ خوب نمی‌بندی — داری زندگی‌ای می‌سازی که فرایندِ خوب در آن روی هم انباشته می‌شود و شانس سرِ فرصت سربه‌سر می‌شود."},
+        example:{en:"Before a big call you run 10-10-10, list three futures with odds, write a premortem, and automate the follow-through.", fa:"قبل از یک تصمیمِ بزرگ، ۱۰-۱۰-۱۰ را اجرا می‌کنی، سه آینده با احتمال می‌نویسی، یک پیش‌مرگی می‌نویسی، و اجرای کار را خودکار می‌کنی."},
+        gain:{en:"You make calm, calibrated bets and let good process win over time.", fa:"شرط‌های آرام و درجه‌دار می‌بندی و می‌گذاری فرایندِ خوب در طولِ زمان برنده شود."} }
+    ],
+    quotes:[
+      {en:"What makes a decision great is not that it has a great outcome. A great decision is the result of a good process, and that process must include an attempt to accurately represent our own state of knowledge.", fa:"چیزی که یک تصمیم را عالی می‌کند، نتیجهٔ عالی‌اش نیست. تصمیمِ عالی حاصلِ یک فرایندِ خوب است، و آن فرایند باید تلاشی باشد برای اینکه صادقانه نشان دهیم واقعاً چقدر می‌دانیم."},
+      {en:"Life is more like poker. You could make the smartest, most careful decision in firing a company president and still have it blow up in your face.", fa:"زندگی بیشتر شبیهِ پوکر است. می‌توانی باهوش‌ترین و بادقت‌ترین تصمیم را در برکناریِ رئیسِ یک شرکت بگیری و باز هم همه‌چیز توی صورتت منفجر شود."},
+      {en:"In most of our decisions, we are not betting against another person. Rather, we are betting against all the future versions of ourselves that we are not choosing.", fa:"در بیشترِ تصمیم‌هایمان، در برابرِ یک آدمِ دیگر شرط نمی‌بندیم. بلکه در برابرِ همهٔ نسخه‌های آینده‌مان شرط می‌بندیم که انتخابشان نمی‌کنیم."},
+      {en:"If we aren't wrong just because things didn't work out, then we aren't right just because things worked out well.", fa:"اگر فقط به‌خاطرِ اینکه اوضاع خوب پیش نرفت اشتباه نیستیم، پس فقط به‌خاطرِ اینکه خوب پیش رفت هم درست نیستیم."},
+      {en:"The more we recognize that we are betting on our beliefs (with our happiness, attention, health, money, time, or some other limited resource), the more we are likely to temper our statements, getting closer to the truth as we acknowledge the risk inherent in what we believe.", fa:"هرچه بیشتر بفهمیم که داریم روی باورهایمان شرط می‌بندیم (با خوشحالی، توجه، سلامتی، پول، وقت، یا هر منبعِ محدودِ دیگر)، بیشتر حرف‌هایمان را ملایم‌تر می‌گوییم و به حقیقت نزدیک‌تر می‌شویم، چون ریسکی را که در باورمان هست می‌پذیریم."},
+      {en:"Truthseeking, the desire to know the truth regardless of whether the truth aligns with the beliefs we currently hold, is not naturally supported by the way we process information.", fa:"حقیقت‌جویی، یعنی میلِ به دانستنِ حقیقت فارغ از اینکه با باورهای فعلی‌مان جور در می‌آید یا نه، به‌طورِ طبیعی با شیوه‌ای که اطلاعات را پردازش می‌کنیم همخوان نیست."},
+      {en:"Hindsight bias is the tendency, after an outcome is known, to see the outcome as having been inevitable.", fa:"سوگیریِ پس‌نگری این تمایل است که بعد از دانستنِ نتیجه، آن را اجتناب‌ناپذیر ببینیم."},
+      {en:"Despite the popular wisdom that we achieve success through positive visualization, it turns out that incorporating negative visualization makes us more likely to achieve our goals.", fa:"برخلافِ باورِ رایج که می‌گوید موفقیت را با تجسمِ مثبت به دست می‌آوریم، معلوم می‌شود که واردکردنِ تجسمِ منفی احتمالِ رسیدن به هدف‌هایمان را بیشتر می‌کند."}
+    ],
+    media:[
+      { kind:"yt", id:"uYNsSeYjkp4", src:{en:"YouTube · Talks at Google", fa:"یوتیوب · Talks at Google"},
+        title:{en:"Thinking in Bets — Talks at Google", fa:"شرط‌بندانه فکر کن — سخنرانی در گوگل"},
+        desc:{en:"Annie Duke presents the book's core ideas and takes questions.", fa:"آنی دیوک ایده‌های اصلیِ کتاب را ارائه می‌دهد و به پرسش‌ها جواب می‌دهد."},
+        bullets:{en:["The poker-to-life analogy, first-hand","Decisions as bets, explained by the author","A full talk with real examples"], fa:["قیاسِ پوکر با زندگی، از زبانِ خودش","تصمیم‌ها به‌مثابهِ شرط، به‌روایتِ نویسنده","یک سخنرانیِ کامل با مثال‌های واقعی"]},
+        best:{en:"Best for Stage 2–3.", fa:"خوب برای مرحلهٔ ۲ و ۳."} },
+      { kind:"yt", id:"svQMODvIGAE", src:{en:"YouTube · Lenny's Podcast", fa:"یوتیوب · Lenny's Podcast"},
+        title:{en:"Become a Better Decision Maker", fa:"تصمیم‌گیرندهٔ بهتری شو"},
+        desc:{en:"Annie Duke on decision-making, in depth, on the product community's favorite podcast.", fa:"آنی دیوک دربارهٔ تصمیم‌گیری، به‌طورِ عمیق، در پادکستِ محبوبِ جامعهٔ محصول."},
+        bullets:{en:["Practical decision tools for work","Resulting, uncertainty, and when to quit","A long, applied conversation"], fa:["ابزارهای عملیِ تصمیم برای کار","نتیجه‌زدگی، نامعلومی، و کِی رها کنیم","یک گفت‌وگوی بلند و کاربردی"]},
+        best:{en:"Best for Stage 3–4.", fa:"خوب برای مرحلهٔ ۳ و ۴."} },
+      { kind:"img", url:"https://www.penguinrandomhouse.com/books/552885/thinking-in-bets-by-annie-duke/",
+        src:{en:"Penguin Random House · Publisher", fa:"پنگوئن رندوم هاوس · ناشر"},
+        title:{en:"Thinking in Bets — Publisher Page", fa:"شرط‌بندانه فکر کن — صفحهٔ ناشر"},
+        desc:{en:"The official publisher page, with editions, description, and details.", fa:"صفحهٔ رسمیِ ناشر، با نسخه‌ها، توضیح، و جزئیات."},
+        bullets:{en:["The definitive editions","Official summary and author bio","Straight from the source"], fa:["نسخه‌های معتبر","خلاصهٔ رسمی و معرفیِ نویسنده","مستقیم از خودِ منبع"]},
+        best:{en:"For editions and the source.", fa:"برای نسخه‌ها و منبعِ اصلی."} },
+      { kind:"img", url:"https://www.goodreads.com/book/show/35957157-thinking-in-bets",
+        src:{en:"Goodreads · Reviews", fa:"گودریدز · نقد و نظر"},
+        title:{en:"Thinking in Bets on Goodreads", fa:"شرط‌بندانه فکر کن در گودریدز"},
+        desc:{en:"Ratings, reader reviews, and verified highlighted quotes from the book.", fa:"امتیازها، نظرِ خواننده‌ها، و نقل‌قول‌های تأییدشده از کتاب."},
+        bullets:{en:["Hundreds of thousands of ratings","Reader takes, pro and con","Popular highlighted quotes"], fa:["صدها هزار امتیاز","نظرِ خواننده‌ها، موافق و مخالف","نقل‌قول‌های پرطرفدار"]},
+        best:{en:"For reviews and quotes.", fa:"برای نقد و نقل‌قول."} }
+    ],
+    go:[
+      {label:{en:"Publisher page", fa:"صفحهٔ ناشر"}, url:"https://www.penguinrandomhouse.com/books/552885/thinking-in-bets-by-annie-duke/"},
+      {label:{en:"Book on Goodreads", fa:"کتاب در گودریدز"}, url:"https://www.goodreads.com/book/show/35957157-thinking-in-bets"},
+      {label:{en:"Annie Duke — author page", fa:"آنی دیوک — صفحهٔ نویسنده"}, url:"https://www.penguinrandomhouse.com/authors/228221/annie-duke/"}
+    ],
+    recs:[
+      { pri:"b", t:{en:"Stop resulting this week", fa:"این هفته نتیجه‌زدگی را کنار بگذار"}, d:{en:"Pick one recent outcome and judge the decision behind it — was it a good bet given what you knew?", fa:"یک نتیجهٔ اخیر را بردار و تصمیمِ پشتش را قضاوت کن — با آنچه می‌دانستی، شرطِ خوبی بود؟"} },
+      { pri:"b", t:{en:"Put a number on it", fa:"رویش یک عدد بگذار"}, d:{en:"On your next confident claim, say how sure you are as a percentage — and what would change it.", fa:"روی ادعای قاطعِ بعدی‌ات بگو چند درصد مطمئنی — و چه چیزی عوضش می‌کند."} },
+      { pri:"n", t:{en:"Run a premortem", fa:"یک پیش‌مرگی اجرا کن"}, d:{en:"Before your next big move, imagine it failed in a year and write down why.", fa:"قبل از حرکتِ بزرگِ بعدی، تصور کن یک سال بعد شکست خورده و بنویس چرا."} },
+      { pri:"n", t:{en:"Find one truthteller", fa:"یک حقیقت‌گو پیدا کن"}, d:{en:"Ask one person for the strongest case against a plan you love — and really listen.", fa:"از یک نفر بخواه قوی‌ترین دلیلِ مخالفِ نقشه‌ای که دوستش داری را بگوید — و واقعاً گوش بده."} }
+    ]
+  }
+};

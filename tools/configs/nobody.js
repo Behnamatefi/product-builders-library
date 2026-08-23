@@ -1,0 +1,242 @@
+/* config: Nobody Wants to Read Your Sh*t — Steven Pressfield (Communication) */
+module.exports = {
+  slug:'nwr', brand:'Nobody Wants to Read Your Sh*t',
+  titleTag:'Nobody Wants to Read Your Sh*t — نقشهٔ دانش و یادگیری ۵ مرحله‌ای',
+  W:900, H:720, R1:196, R2:132, span:78,
+  leafKickEn:'Idea', leafKickFa:'ایدهٔ',
+  flowEn:['Hook','Build','Payoff'], flowFa:['قلاب','ساخت','پاداش'],
+
+  hero:`  <div class="eyebrow"><span class="edot"></span>
+    <span data-only="en">Book knowledge map · Steven Pressfield</span>
+    <span data-only="fa">نقشهٔ کتاب · استیون پرسفیلد</span>
+  </div>
+  <h1>
+    <span data-only="en">Nobody Wants to Read Your Sh*t — And What to Do About It</span>
+    <span data-only="fa">هیچ‌کس نمی‌خواهد نوشته‌ات را بخواند — و چه باید کرد</span>
+  </h1>
+  <p class="dek">
+    <span data-only="en">A knowledge graph of the whole book, plus a 5-stage path from a single sentence to expert-level mastery — with an example at every step.</span>
+    <span data-only="fa">نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از خیلی ساده تا حرفه‌ای — با یک مثال در هر مرحله.</span>
+  </p>
+  <div class="metastrip">
+    <div class="metaitem"><span class="mk" data-only="en">Book</span><span class="mk" data-only="fa">کتاب</span>
+      <span class="mv" data-only="en">Nobody Wants to Read Your Sh*t</span><span class="mv" data-only="fa">هیچ‌کس نمی‌خواهد نوشته‌ات را بخواند</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Author</span><span class="mk" data-only="fa">نویسنده</span>
+      <span class="mv" data-only="en">Steven Pressfield</span><span class="mv" data-only="fa">استیون پرسفیلد</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Published</span><span class="mk" data-only="fa">سالِ چاپ</span>
+      <span class="mv" data-only="en">2016</span><span class="mv" data-only="fa">۲۰۱۶</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Group</span><span class="mk" data-only="fa">گروه</span>
+      <span class="mv" data-only="en">Communication</span><span class="mv" data-only="fa">ارتباط</span></div>
+  </div>
+  <div class="chips">
+    <div class="chip"><b data-only="en">4</b><b data-only="fa">۴</b><span data-only="en">Themes</span><span data-only="fa">بخش</span></div>
+    <div class="chip"><b data-only="en">13</b><b data-only="fa">۱۳</b><span data-only="en">Lessons</span><span data-only="fa">درس</span></div>
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Learning stages</span><span data-only="fa">مرحلهٔ یادگیری</span></div>
+  </div>`,
+
+  callout:`    <b data-only="en">The core idea:</b>
+    <b data-only="fa">ایدهٔ اصلی:</b>
+    <span data-only="en"> Nobody owes you their attention. Readers are busy and indifferent, so the whole job is to <i>earn</i> the read — with empathy, a clear idea, and a story's shape.</span>
+    <span data-only="fa"> هیچ‌کس توجهش را به تو بدهکار نیست. خواننده‌ها سرشان شلوغ و بی‌تفاوت‌اند، پس کلِ کار این است که خواندن را <i>به‌دست بیاوری</i> — با همدلی، یک ایدهٔ روشن، و شکلِ یک داستان.</span>`,
+
+  kpis:`    <div class="kbox"><div class="v" data-only="en">4</div><div class="v" data-only="fa">۴</div><div class="l" data-only="en">Themes (truth · concept · structure · pro)</div><div class="l" data-only="fa">بخش (حقیقت · ایده · ساختار · حرفه‌ای)</div></div>
+    <div class="kbox"><div class="v" data-only="en">13</div><div class="v" data-only="fa">۱۳</div><div class="l" data-only="en">Lessons you can use</div><div class="l" data-only="fa">درس برای استفاده</div></div>
+    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Levels, simple → expert</div><div class="l" data-only="fa">مرحله، ساده تا حرفه‌ای</div></div>
+    <div class="kbox"><div class="v" data-only="en">3</div><div class="v" data-only="fa">۳</div><div class="l" data-only="en">Acts: hook · build · payoff</div><div class="l" data-only="fa">پرده: قلاب · ساخت · پاداش</div></div>`,
+
+  mapcallout:`      <b data-only="en">Read it as a flow:</b><b data-only="fa">به‌صورتِ یک جریان بخوانش:</b>
+      <span data-only="en"> accept the hard truth (empathy), find your concept and theme, give it a three-act shape — <b>hook</b>, <b>build</b>, <b>payoff</b> — then turn pro and finish.</span>
+      <span data-only="fa"> حقیقتِ تلخ را بپذیر (همدلی)، ایده و مضمونت را پیدا کن، به آن ساختارِ سه‌پرده‌ای بده — <b>قلاب</b>، <b>ساخت</b>، <b>پاداش</b> — بعد حرفه‌ای شو و تمامش کن.</span>`,
+
+  methodFa:"<p><b>منبع:</b> کتابِ «Nobody Wants to Read Your Sh*t» نوشتهٔ استیون پرسفیلد (با ویرایشِ شاون کوین)، چاپِ ۲۰۱۶.</p><p><b>روشِ کار:</b> ساختار و درس‌ها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده؛ نقل‌قول‌ها با متنِ کتاب مقابله و ویدیوها بررسی شده‌اند.</p><p><b>گروه:</b> «ارتباط» — از فهرستِ کتاب‌های ضروریِ سازندگانِ محصولِ لنی راچیتسکی.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای متنِ کامل، خودِ کتاب را بخوان.</p>",
+  methodEn:"<p><b>Source:</b> the book <i>Nobody Wants to Read Your Sh*t</i> by Steven Pressfield (edited by Shawn Coyne), 2016.</p><p><b>How this was built:</b> the structure and lessons were gathered and rewritten from the book and reputable sources; quotes were cross-checked against the text and the linked videos verified.</p><p><b>Group:</b> Communication — from Lenny Rachitsky's essential books for product builders.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>",
+
+  data:{
+    tldr:[
+      {en:"The whole book in one line: nobody wants to read your work, so it's your job — not theirs — to make it worth reading.",
+       fa:"خلاصهٔ کل کتاب در یک جمله: هیچ‌کس نمی‌خواهد کارِ تو را بخواند، پس این وظیفهٔ توست — نه او — که ارزشِ خواندن به آن بدهی."},
+      {en:"That hard truth is a gift: it forces <b>empathy</b> — you start seeing every sentence through a busy reader's eyes.",
+       fa:"این حقیقتِ تلخ یک هدیه است: تو را وادار به <b>همدلی</b> می‌کند — هر جمله را از چشمِ یک خوانندهٔ سرشلوغ می‌بینی."},
+      {en:"Every piece needs a <b>concept</b>, a clear <b>theme</b> (what's it about?), and a <b>three-act shape</b>: hook, build, payoff.",
+       fa:"هر نوشته به یک <b>ایده</b>، یک <b>مضمونِ</b> روشن (دربارهٔ چیست؟)، و یک <b>ساختارِ سه‌پرده‌ای</b> نیاز دارد: قلاب، ساخت، پاداش."},
+      {en:"The same rules govern ads, novels, films, nonfiction and talks — even facts should be told like a story.",
+       fa:"همین قواعد بر تبلیغات، رمان، فیلم، ناداستان و سخنرانی حاکم‌اند — حتی واقعیت‌ها را هم باید مثلِ داستان تعریف کرد."},
+      {en:"Then turn pro: beat Resistance, finish the work, and build a career — not one perfect piece.",
+       fa:"بعد حرفه‌ای شو: بر «مقاومت» غلبه کن، کار را تمام کن، و یک مسیرِ حرفه‌ای بساز — نه فقط یک اثرِ بی‌نقص."}
+    ],
+    parts:[
+      { key:'truth', varc:'--c-red', name:{en:'The Hard Truth', fa:'حقیقتِ تلخ'}, tag:{en:'The reader', fa:'خواننده'},
+        gist:{en:'Readers owe you nothing — earn attention with empathy and interest.', fa:'خواننده هیچ به تو بدهکار نیست — با همدلی و جذابیت، توجه را به‌دست بیاور.'},
+        more:{en:"This is the mindset the whole book rests on. The moment you truly believe nobody wants to read your work, you stop writing for yourself and start writing for a distracted stranger — which is exactly what makes writing good.",
+              fa:"این همان طرزِ فکری است که کلِ کتاب رویش بنا شده. لحظه‌ای که واقعاً باور کنی هیچ‌کس نمی‌خواهد کارت را بخواند، دیگر برای خودت نمی‌نویسی و برای یک غریبهٔ حواس‌پرت می‌نویسی — و دقیقاً همین است که نوشته را خوب می‌کند."},
+        chapters:['nobody','empathy','interesting'] },
+      { key:'concept', varc:'--c-amber', name:{en:'Concept & Theme', fa:'ایده و مضمون'}, tag:{en:'The idea', fa:'ایده'},
+        gist:{en:"Before you write, know your organizing idea and what it's really about.", fa:'پیش از نوشتن، ایدهٔ محوری‌ات و اینکه واقعاً دربارهٔ چیست را بدان.'},
+        more:{en:"A concept is a fresh spin that frames the whole piece; a theme is the single answer to 'what is this about?'. Get both clear and every later choice becomes easy; skip them and you produce content with no center.",
+              fa:"ایده یک نگاهِ تازه است که کلِ نوشته را قاب می‌گیرد؛ مضمون، تنها پاسخِ «این دربارهٔ چیست؟» است. این دو را روشن کن، هر تصمیمِ بعدی آسان می‌شود؛ ردشان کن، محتوایی بی‌مرکز می‌سازی."},
+        chapters:['concept','theme','problem'] },
+      { key:'structure', varc:'--c-blue', name:{en:'Story Structure', fa:'ساختارِ داستان'}, tag:{en:'The shape', fa:'شکل'},
+        gist:{en:'Give any piece the shape of a story: a beginning, middle, and end.', fa:'به هر نوشته شکلِ یک داستان بده: آغاز، میانه، و پایان.'},
+        more:{en:"Pressfield's rule of thumb from screenwriting: hook the reader, build rising tension, then pay it off — and know your ending before you start, because the climax is already hidden in the opening.",
+              fa:"قاعدهٔ سرانگشتیِ پرسفیلد از فیلم‌نامه‌نویسی: خواننده را قلاب کن، تنشِ فزاینده بساز، بعد جوابش را بده — و پایان را قبل از شروع بدان، چون اوجِ داستان از همان ابتدا در دلِ آن پنهان است."},
+        chapters:['threeact','hookbuild','incite'] },
+      { key:'pro', varc:'--c-violet', name:{en:'Turn Pro', fa:'حرفه‌ای شو'}, tag:{en:'The mindset', fa:'طرزِ فکر'},
+        gist:{en:'Beat Resistance, finish the work, and build a body of work over a career.', fa:'بر مقاومت غلبه کن، کار را تمام کن، و در طولِ یک مسیرِ حرفه‌ای، مجموعه‌ای از آثار بساز.'},
+        more:{en:"Talent is common; finishing is rare. The professional shows up despite fear (Resistance), thinks in drafts so perfectionism can't freeze them, and measures success across a lifetime of shipped work rather than one masterpiece.",
+              fa:"استعداد فراوان است؛ تمام‌کردن نادر. آدمِ حرفه‌ای با وجودِ ترس (مقاومت) سرِ کار حاضر می‌شود، به‌شکلِ پیش‌نویس فکر می‌کند تا کمال‌گرایی فلجش نکند، و موفقیت را در طولِ یک عمر کارِ منتشرشده می‌سنجد، نه در یک شاهکار."},
+        chapters:['resistance','finish','career','give'] }
+    ],
+    chapters:{
+      nobody:{ part:'truth', n:1, name:{en:'Nobody Wants to Read It', fa:'هیچ‌کس نمی‌خواهد بخواندش'}, glabel:{en:'Nobody reads', fa:'هیچ‌کس'},
+        principle:{en:"Attention must be earned, never assumed — the reader is busy, skeptical, and ready to click away.", fa:"توجه را باید به‌دست آورد، نه فرض کرد — خواننده سرش شلوغ است، بدبین است، و آمادهٔ رفتن."},
+        more:{en:"Pressfield learned this in advertising, where readers actively hate ads and skip them. The same is true of your article, email or deck: assume indifference and it changes how you write every line.", fa:"پرسفیلد این را در تبلیغات یاد گرفت، جایی که خواننده‌ها فعالانه از آگهی بدشان می‌آید و ردش می‌کنند. دربارهٔ مقاله، ایمیل یا اسلایدِ تو هم همین است: بی‌تفاوتی را فرض بگیر، آن‌وقت طرزِ نوشتنِ هر خطت عوض می‌شود."},
+        example:{en:"People flip past magazine ads without a glance — your job is to be the rare one they stop on.", fa:"مردم بی‌آنکه نگاه کنند از رویِ آگهیِ مجله رد می‌شوند — کارِ تو این است که همان آگهیِ نادری باشی که رویش می‌ایستند."},
+        tip:{en:"Before sending anything, imagine the reader with their finger on 'delete'. Now make them stop.", fa:"قبل از فرستادنِ هر چیزی، خواننده را تصور کن که انگشتش روی «حذف» است. حالا کاری کن بایستد."},
+        pitfall:{en:"Writing as if the world is waiting for your words — it isn't.", fa:"نوشتن انگار دنیا منتظرِ کلماتِ توست — این‌طور نیست."} },
+      empathy:{ part:'truth', n:2, name:{en:'Switch to the Reader', fa:'جای خواننده بنشین'}, glabel:{en:'Empathy', fa:'همدلی'},
+        principle:{en:"Great writers toggle between their own view and the reader's, constantly asking 'how does this land for a stranger?'", fa:"نویسنده‌های خوب مدام بینِ دیدِ خودشان و دیدِ خواننده جابه‌جا می‌شوند و می‌پرسند «این برای یک غریبه چطور جا می‌افتد؟»"},
+        more:{en:"This is the master skill the hard truth forces on you. You can't move a reader you can't see; imagining their boredom, confusion and impatience is what tells you which words to cut.", fa:"این همان مهارتِ اصلی است که حقیقتِ تلخ به تو تحمیل می‌کند. نمی‌توانی خواننده‌ای را که نمی‌بینی تکان بدهی؛ تصورِ کسالت، سردرگمی و بی‌حوصلگیِ او همان چیزی است که به تو می‌گوید کدام کلمه‌ها را حذف کنی."},
+        example:{en:"An ad writer pictures the tired commuter flipping the page, and writes the one line that makes them pause.", fa:"یک آگهی‌نویس، مسافرِ خستهٔ درونِ قطار را تصور می‌کند که صفحه را ورق می‌زند، و همان یک خطی را می‌نویسد که مکثش می‌دهد."},
+        tip:{en:"Read your draft aloud as if you were the busy reader, not the proud author.", fa:"پیش‌نویست را بلند بخوان، انگار خوانندهٔ سرشلوغی، نه نویسندهٔ مغرور."},
+        pitfall:{en:"Only ever seeing the page as its author, never as a stranger.", fa:"همیشه فقط از چشمِ نویسنده به صفحه نگاه‌کردن، نه از چشمِ یک غریبه."} },
+      interesting:{ part:'truth', n:3, name:{en:'Make It Interesting', fa:'جذابش کن'}, glabel:{en:'Interesting', fa:'جذابیت'},
+        principle:{en:"Writing is a transaction: you owe the reader something so compelling they'd be crazy to stop.", fa:"نوشتن یک معامله است: به خواننده چیزی بدهکاری آن‌قدر گیرا که دیوانه باشد اگر ادامه ندهد."},
+        more:{en:"Interrogate every sentence — is this fun, surprising, useful, or inventive? Correct-but-boring is the most common failure, and the reader punishes it by leaving.", fa:"هر جمله را بازجویی کن — این سرگرم‌کننده، غافلگیرکننده، مفید یا خلاقانه است؟ «درست ولی کسل‌کننده» رایج‌ترین شکست است، و خواننده با رفتن تنبیهش می‌کند."},
+        example:{en:"Two accurate reports; the one full of vivid, concrete detail gets read to the end — the dry one doesn't.", fa:"دو گزارشِ دقیق؛ آن‌که پُر از جزئیاتِ زنده و ملموس است تا آخر خوانده می‌شود — گزارشِ خشک نه."},
+        tip:{en:"Cut the dullest paragraph you wrote today and see if anything is lost.", fa:"کسل‌کننده‌ترین پاراگرافی که امروز نوشتی را حذف کن و ببین چیزی از دست می‌رود یا نه."},
+        pitfall:{en:"Work that is complete and correct but has no spark.", fa:"کاری که کامل و درست است اما هیچ جرقه‌ای ندارد."} },
+      concept:{ part:'concept', n:4, name:{en:'Start With a Concept', fa:'با یک ایده شروع کن'}, glabel:{en:'Concept', fa:'ایده'},
+        principle:{en:"A concept takes an ordinary claim and puts a spin on it, giving the whole piece a frame bigger than its parts.", fa:"یک ایده، یک ادعای معمولی را برمی‌دارد و رویش یک چرخش می‌گذارد، و به کلِ نوشته قابی بزرگ‌تر از اجزایش می‌دهد."},
+        more:{en:"Campaigns and books live or die on this organizing twist. Without a concept you have facts and paragraphs; with one, everything points the same direction.", fa:"کمپین‌ها و کتاب‌ها با همین چرخشِ سازمان‌دهنده زنده یا مرده‌اند. بدونِ ایده، فقط واقعیت و پاراگراف داری؛ با ایده، همه‌چیز به یک سمت اشاره می‌کند."},
+        example:{en:"'What happens in Vegas stays in Vegas' isn't a fact about a city — it's a concept that frames a whole campaign.", fa:"«هرچه در وگاس اتفاق می‌افتد، در وگاس می‌ماند» یک واقعیت دربارهٔ یک شهر نیست — یک ایده است که کلِ یک کمپین را قاب می‌گیرد."},
+        tip:{en:"Before writing, finish this: 'the one fresh idea here is ___.'", fa:"قبل از نوشتن، این را کامل کن: «تنها ایدهٔ تازهٔ اینجا ___ است.»"},
+        pitfall:{en:"Producing 'content' with no single idea holding it together.", fa:"تولیدِ «محتوا» بدونِ یک ایدهٔ واحد که کنارِ هم نگهش دارد."} },
+      theme:{ part:'concept', n:5, name:{en:'Find the Theme', fa:'مضمون را پیدا کن'}, glabel:{en:'Theme', fa:'مضمون'},
+        principle:{en:"Every piece must answer 'what is this thing about?' — and the answer then governs every choice.", fa:"هر نوشته باید به «این اصلاً دربارهٔ چیست؟» جواب بدهد — و همان جواب بعد هر تصمیم را هدایت می‌کند."},
+        more:{en:"Theme is the invisible spine. Once you can say it in a sentence, you know what to keep, what to cut, and how it should end.", fa:"مضمون، ستونِ فقراتِ نامرئی است. همین که بتوانی در یک جمله بگویی‌اش، می‌دانی چه نگه داری، چه حذف کنی، و باید چطور تمام شود."},
+        example:{en:"Pressfield says his novel Gates of Fire is about how 'the opposite of fear is love' — that theme drives every scene.", fa:"پرسفیلد می‌گوید رمانش «دروازه‌های آتش» دربارهٔ این است که «نقطهٔ مقابلِ ترس، عشق است» — همین مضمون هر صحنه را پیش می‌برد."},
+        tip:{en:"Write your theme on a sticky note and keep it in view while you draft.", fa:"مضمونت را روی یک کاغذِ یادداشت بنویس و موقعِ نوشتن جلوی چشمت نگه دار."},
+        pitfall:{en:"A heap of scenes or facts with no controlling idea.", fa:"تلنباری از صحنه‌ها یا واقعیت‌ها بدونِ یک ایدهٔ حاکم."} },
+      problem:{ part:'concept', n:6, name:{en:'Writing Is Problem-Solving', fa:'نوشتن یعنی حلِ مسئله'}, glabel:{en:'Solve it', fa:'حلِ مسئله'},
+        principle:{en:"Swap 'what should I write?' for 'what's the problem here?' — naming the problem is half of solving it.", fa:"«چه بنویسم؟» را با «مسئله اینجا چیست؟» عوض کن — نام‌گذاریِ مسئله، نیمی از حلِ آن است."},
+        more:{en:"A blank page is paralyzing; a defined problem is workable. Turning writing into a series of problems to solve keeps you moving instead of waiting for inspiration.", fa:"صفحهٔ خالی فلج‌کننده است؛ مسئلهٔ تعریف‌شده قابلِ‌کار. تبدیلِ نوشتن به رشته‌ای از مسئله‌ها که باید حل شوند، تو را در حرکت نگه می‌دارد به‌جای اینکه منتظرِ الهام بمانی."},
+        example:{en:"Stuck on an intro? Reframe it: 'the problem is the reader doesn't yet care — how do I make them?'", fa:"سرِ مقدمه گیر کرده‌ای؟ بازقابش کن: «مسئله این است که خواننده هنوز اهمیت نمی‌دهد — چطور وادارش کنم؟»"},
+        tip:{en:"State today's writing task as a problem sentence before you type anything.", fa:"کارِ نوشتنِ امروزت را قبل از تایپِ هر چیزی، به‌شکلِ یک جملهٔ مسئله بیان کن."},
+        pitfall:{en:"Staring at a blank page, waiting for inspiration to strike.", fa:"زل‌زدن به صفحهٔ خالی، به انتظارِ اینکه الهام از راه برسد."} },
+      threeact:{ part:'structure', n:7, name:{en:'Three-Act Shape', fa:'ساختارِ سه‌پرده‌ای'}, glabel:{en:'3 Acts', fa:'سه پرده'},
+        principle:{en:"Break any piece into a beginning, a middle, and an end — the oldest, most reliable shape there is.", fa:"هر نوشته را به آغاز، میانه و پایان بشکن — قدیمی‌ترین و قابلِ‌اعتمادترین شکلی که وجود دارد."},
+        more:{en:"It works identically for an ad, a novel, a memo or a talk. The three acts give the reader a sense of movement and a promise that the piece is going somewhere.", fa:"برای یک آگهی، یک رمان، یک یادداشت یا یک سخنرانی یکسان کار می‌کند. سه پرده به خواننده حسِ حرکت می‌دهند و این نویدِ که نوشته دارد به جایی می‌رود."},
+        example:{en:"A product update: the problem (act 1), what you built (act 2), what changes now (act 3).", fa:"یک به‌روزرسانیِ محصول: مسئله (پردهٔ ۱)، چیزی که ساختی (پردهٔ ۲)، چیزی که حالا عوض می‌شود (پردهٔ ۳)."},
+        tip:{en:"Outline your next piece as just three bullets: beginning, middle, end.", fa:"نوشتهٔ بعدی‌ات را فقط با سه خط طرح بزن: آغاز، میانه، پایان."},
+        pitfall:{en:"Formless writing that wanders with no arc.", fa:"نوشتهٔ بی‌شکل که بی هیچ قوسی پرسه می‌زند."} },
+      hookbuild:{ part:'structure', n:8, name:{en:'Hook · Build · Payoff', fa:'قلاب · ساخت · پاداش'}, glabel:{en:'Hook·Build·Payoff', fa:'قلاب·ساخت·پاداش'},
+        principle:{en:"Grab attention fast, escalate tension in the middle, and deliver a satisfying payoff at the end.", fa:"سریع توجه را بگیر، در میانه تنش را بالا ببر، و در پایان یک پاداشِ رضایت‌بخش تحویل بده."},
+        more:{en:"'That is how a joke is told; that is how any story is told.' A weak hook loses them at the door; a weak payoff makes the whole trip feel wasted.", fa:"«یک جوک این‌طور تعریف می‌شود؛ هر داستانی این‌طور تعریف می‌شود.» قلابِ ضعیف، خواننده را دمِ در از دست می‌دهد؛ پاداشِ ضعیف، کلِ سفر را بیهوده جلوه می‌دهد."},
+        example:{en:"A joke: setup (hook), escalation (build), punchline (payoff) — remove any one and it dies.", fa:"یک جوک: زمینه‌چینی (قلاب)، اوج‌گیری (ساخت)، ضربهٔ نهایی (پاداش) — هرکدام را برداری، می‌میرد."},
+        tip:{en:"Check your draft: is there a real hook up top and a real payoff at the end?", fa:"پیش‌نویست را بررسی کن: آیا بالای آن یک قلابِ واقعی و در پایانش یک پاداشِ واقعی هست؟"},
+        pitfall:{en:"A limp opening or an ending that fizzles out, unearned.", fa:"یک شروعِ بی‌رمق یا پایانی که بی‌آنکه حقش را ادا کند، ته می‌کشد."} },
+      incite:{ part:'structure', n:9, name:{en:'Inciting Incident → Climax', fa:'جرقهٔ آغاز ← اوج'}, glabel:{en:'Know the end', fa:'پایان را بدان'},
+        principle:{en:"A strong opening event launches the story, and the climax that resolves it is already hidden inside that opening.", fa:"یک رویدادِ آغازینِ قوی، داستان را راه می‌اندازد، و اوجی که آن را حل می‌کند از همان ابتدا در دلِ آن آغاز پنهان است."},
+        more:{en:"Pressfield's screenwriting rule: know your ending before you start, because the climax must pay off the promise the opening made. Write toward a destination, not away from a start.", fa:"قاعدهٔ فیلم‌نامه‌نویسیِ پرسفیلد: پایانت را قبل از شروع بدان، چون اوج باید وعده‌ای را که آغاز داده ادا کند. به‌سمتِ یک مقصد بنویس، نه دورشدن از یک شروع."},
+        example:{en:"Set up 'can this team ship in time?' in line one, and your ending must answer exactly that.", fa:"در خطِ اول بپرس «آیا این تیم به‌موقع می‌رساند؟»، و پایانت باید دقیقاً به همان جواب بدهد."},
+        tip:{en:"Write your last line first, then write toward it.", fa:"آخرین خطت را اول بنویس، بعد به‌سمتش بنویس."},
+        pitfall:{en:"A meandering setup and an off-theme, accidental finish.", fa:"یک زمینه‌چینیِ پرسه‌زن و پایانی تصادفی که به مضمون ربطی ندارد."} },
+      resistance:{ part:'pro', n:10, name:{en:'Beat Resistance', fa:'غلبه بر مقاومت'}, glabel:{en:'Resistance', fa:'مقاومت'},
+        principle:{en:"The real enemy is Resistance — fear, procrastination, self-doubt. The professional does the work anyway.", fa:"دشمنِ واقعی «مقاومت» است — ترس، اهمال‌کاری، شکِ به خود. آدمِ حرفه‌ای به‌هرحال کار را انجام می‌دهد."},
+        more:{en:"Resistance is strongest right before you begin. You beat it not by feeling ready but by showing up on schedule, whether or not the muse arrives.", fa:"مقاومت درست قبل از شروع قوی‌ترین است. بر آن غلبه نمی‌کنی با «آماده حس‌کردن»، بلکه با سرِ ساعت حاضر‌شدن، چه الهام بیاید چه نیاید."},
+        example:{en:"The pro sits down at 9am and writes, even on the mornings the words feel impossible.", fa:"حرفه‌ای ساعتِ ۹ می‌نشیند و می‌نویسد، حتی صبح‌هایی که کلمات غیرممکن به‌نظر می‌رسند."},
+        tip:{en:"Set a fixed start time and keep it, no matter how you feel.", fa:"یک زمانِ شروعِ ثابت بگذار و پایبندش باش، هر جور که حس می‌کنی."},
+        pitfall:{en:"Waiting to feel inspired or 'ready' before starting.", fa:"منتظرماندن برای حسِ الهام یا «آمادگی» قبل از شروع."} },
+      finish:{ part:'pro', n:11, name:{en:'Finish — Think in Drafts', fa:'تمام کن — پیش‌نویسی فکر کن'}, glabel:{en:'Finish', fa:'تمام‌کردن'},
+        principle:{en:"Complete the work; telling yourself 'it is only a draft' takes the pressure off and keeps you moving.", fa:"کار را تمام کن؛ گفتنِ «این فقط یک پیش‌نویس است» به خودت، فشار را برمی‌دارد و تو را در حرکت نگه می‌دارد."},
+        more:{en:"Talent is common; finishers are rare. Perfectionism disguises Resistance — a rough finished draft you can fix beats a flawless fragment you never complete.", fa:"استعداد فراوان است؛ تمام‌کننده‌ها نادرند. کمال‌گرایی، لباسِ مبدلِ مقاومت است — یک پیش‌نویسِ خامِ تمام‌شده که بشود درستش کرد، از یک تکهٔ بی‌نقص که هیچ‌وقت کاملش نمی‌کنی بهتر است."},
+        example:{en:"Write the whole ugly first draft end-to-end before you let yourself edit a single line.", fa:"کلِ پیش‌نویسِ اولِ زشت را از اول تا آخر بنویس، قبل از اینکه اجازه بدهی حتی یک خط را ویرایش کنی."},
+        tip:{en:"Give yourself permission for a 'bad' first draft — just reach the end.", fa:"به خودت اجازهٔ یک پیش‌نویسِ اولِ «بد» را بده — فقط به پایان برس."},
+        pitfall:{en:"Polishing one paragraph forever and never finishing.", fa:"صیقل‌دادنِ ابدیِ یک پاراگراف و هیچ‌وقت تمام‌نکردن."} },
+      career:{ part:'pro', n:12, name:{en:'A Career, Not One Hit', fa:'یک مسیر، نه یک شاهکار'}, glabel:{en:'Career', fa:'مسیرِ کاری'},
+        principle:{en:"Writing is a lifetime body of work, built project by project — not a single magic breakthrough.", fa:"نوشتن، مجموعه‌ای از آثارِ یک عمر است، پروژه به پروژه ساخته می‌شود — نه یک جهشِ جادوییِ یگانه."},
+        more:{en:"Betting everything on one masterpiece is a trap. Ship, learn, and start the next one; the craft compounds across a career the way habits compound across a life.", fa:"شرط‌بستنِ همه‌چیز روی یک شاهکار، یک دام است. منتشر کن، یاد بگیر، و بعدی را شروع کن؛ صنعتِ کار در طولِ یک مسیرِ حرفه‌ای همان‌طور روی هم جمع می‌شود که عادت‌ها در طولِ یک زندگی."},
+        example:{en:"Pressfield wrote for decades — ad copy, unproduced scripts — before a breakout; each project taught the next.", fa:"پرسفیلد دهه‌ها نوشت — متنِ آگهی، فیلم‌نامه‌های ساخته‌نشده — پیش از موفقیت؛ هر پروژه، پروژهٔ بعدی را آموخت."},
+        tip:{en:"Finish this piece, then immediately start the next — don't wait for it to be a hit.", fa:"این نوشته را تمام کن، بعد فوری بعدی را شروع کن — منتظرِ اینکه شاهکار شود نمان."},
+        pitfall:{en:"Staking your whole identity on one over-worked manuscript.", fa:"گِره‌زدنِ کلِ هویتت به یک دست‌نوشتهٔ بیش‌ازحد‌کارشده."} },
+      give:{ part:'pro', n:13, name:{en:'Have Something to Give', fa:'چیزی برای دادن داشته باش'}, glabel:{en:'Give', fa:'بخشیدن'},
+        principle:{en:"A real writer writes to give the reader something of value — not to get attention or validation.", fa:"نویسندهٔ واقعی می‌نویسد تا به خواننده چیزی باارزش بدهد — نه برای گرفتنِ توجه یا تأیید."},
+        more:{en:"The mature creator has lived, struggled and learned enough to have something worth handing over. Shift from 'look at me' to 'here, this will help you' and the work gets both better and easier to read.", fa:"آفرینندهٔ پخته آن‌قدر زندگی کرده، جنگیده و آموخته که چیزی ارزشمند برای دادن دارد. از «به من نگاه کن» به «بیا، این کمکت می‌کند» جابه‌جا شو، آن‌وقت کار هم بهتر می‌شود هم خواندنش آسان‌تر."},
+        example:{en:"A useful how-to that solves the reader's real problem beats a clever essay that only shows off.", fa:"یک راهنمای مفید که مسئلهٔ واقعیِ خواننده را حل می‌کند، از یک جستارِ زیرکانه که فقط خودنمایی می‌کند بهتر است."},
+        tip:{en:"Before publishing, ask: what does the reader walk away with?", fa:"قبل از انتشار بپرس: خواننده با چه چیزی از اینجا می‌رود؟"},
+        pitfall:{en:"Writing to get (attention, applause) instead of to give.", fa:"نوشتن برای گرفتن (توجه، تشویق) به‌جای دادن."} }
+    },
+    core:{ name:{en:'THE READER', fa:'خواننده'},
+      principle:{en:"Nobody is waiting to read your work — readers are busy and indifferent, so the whole job is to earn their attention by making the work irresistibly worth their time.", fa:"هیچ‌کس منتظرِ خواندنِ کارِ تو نیست — خواننده‌ها سرشان شلوغ است و بی‌تفاوت‌اند، پس کلِ کار این است که با ساختنِ چیزی که واقعاً ارزشِ وقتشان را دارد، توجهشان را به‌دست بیاوری."},
+      more:{en:"Pressfield learned this across advertising, fiction, film, nonfiction and self-help — and found the same craft underneath all of them: a concept, a clear theme (what is this about?), and a three-act shape (hook, build, payoff). Accept that nobody owes you their attention and you gain the empathy to write something they actually want.", fa:"پرسفیلد این را در تبلیغات، داستان، فیلم، ناداستان و خودیاری یاد گرفت — و زیرِ همه‌شان یک صنعتِ مشترک دید: یک ایده، یک مضمونِ روشن (این دربارهٔ چیست؟)، و یک ساختارِ سه‌پرده‌ای (قلاب، ساخت، پاداش). بپذیر که هیچ‌کس توجهش را به تو بدهکار نیست، آن‌وقت همدلی‌ای پیدا می‌کنی که چیزی بنویسی که واقعاً بخواهندش."},
+      example:{en:"Click any node to read a theme or a lesson. You can also drag the nodes around.", fa:"روی هر دایره کلیک کن تا یک بخش یا درس را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."} },
+    stages:[
+      { level:1, badge:{en:'Level 1 · Over-simplified', fa:'سطحِ ۱ · خیلی ساده'}, title:{en:'Earn the read', fa:'خواندن را به‌دست بیاور'}, tagline:{en:'The whole book as a single sentence.', fa:'کلِ کتاب در یک جمله.'},
+        body:{en:"Nobody is obligated to read what you write. So the job isn't to express yourself — it's to make your writing so worth reading that a busy stranger can't stop.", fa:"هیچ‌کس موظف نیست چیزی را که می‌نویسی بخواند. پس کار این نیست که خودت را بیان کنی — این است که نوشته‌ات را آن‌قدر ارزشمند کنی که یک غریبهٔ سرشلوغ نتواند دست بکشد."},
+        example:{en:"Before hitting send on an email, cut it in half. The shorter, sharper version is the one people actually read.", fa:"قبل از فرستادنِ یک ایمیل، نصفش کن. نسخهٔ کوتاه‌تر و تیزتر همان است که مردم واقعاً می‌خوانند."},
+        gain:{en:"You now hold the one idea the whole book defends.", fa:"حالا همان یک ایده‌ای را بلدی که کلِ کتاب از آن دفاع می‌کند."} },
+      { level:2, badge:{en:'Level 2 · Simple', fa:'سطحِ ۲ · ساده'}, title:{en:'See it their way', fa:'از دیدِ او ببین'}, tagline:{en:'Empathy and interest come first.', fa:'همدلی و جذابیت، اول از همه.'},
+        body:{en:"Because nobody wants to read your work, you develop <b>empathy</b> — you see every line through the reader's tired, distracted eyes. Then you make each line <b>interesting</b>: is it fun, surprising, or useful enough to earn the next one?", fa:"چون هیچ‌کس نمی‌خواهد کارت را بخواند، <b>همدلی</b> پیدا می‌کنی — هر خط را از چشمِ خسته و حواس‌پرتِ خواننده می‌بینی. بعد هر خط را <b>جذاب</b> می‌کنی: سرگرم‌کننده، غافلگیرکننده یا مفید هست، آن‌قدر که خطِ بعدی را حق کند؟"},
+        example:{en:"Swap 'we leveraged synergies' for 'we saved three days a week' — concrete and worth reading.", fa:"«از هم‌افزایی‌ها بهره بردیم» را با «هفته‌ای سه روز صرفه‌جویی کردیم» عوض کن — ملموس و ارزشِ خواندن."},
+        gain:{en:"You judge your writing by the reader's attention, not your own intent.", fa:"نوشته‌ات را با توجهِ خواننده می‌سنجی، نه با نیتِ خودت."} },
+      { level:3, badge:{en:'Level 3 · Balanced', fa:'سطحِ ۳ · متعادل'}, title:{en:'Give it a shape', fa:'به آن شکل بده'}, tagline:{en:'Concept, theme, and three acts.', fa:'ایده، مضمون، و سه پرده.'},
+        body:{en:"Now the craft. Start with a <b>concept</b> (a fresh spin) and a <b>theme</b> (what's it about?). Then give it a story's <b>three-act shape</b>: a hook that grabs, a middle that builds tension, and a payoff that lands. Know your ending before you begin.", fa:"حالا صنعتِ کار. با یک <b>ایده</b> (یک چرخشِ تازه) و یک <b>مضمون</b> (دربارهٔ چیست؟) شروع کن. بعد به آن <b>ساختارِ سه‌پرده‌ایِ</b> یک داستان بده: قلابی که می‌گیرد، میانه‌ای که تنش می‌سازد، و پاداشی که جا می‌افتد. پایانت را قبل از شروع بدان."},
+        example:{en:"A memo about a launch: hook with the stakes, build with what you did, pay off with what changes now.", fa:"یک یادداشت دربارهٔ یک عرضه: با اهمیتِ ماجرا قلاب کن، با کاری که کردی بساز، با چیزی که حالا عوض می‌شود پاداش بده."},
+        gain:{en:"You can structure any piece — even a factual one — like a story.", fa:"می‌توانی هر نوشته‌ای را — حتی یک نوشتهٔ واقعی — مثلِ داستان بسازی."} },
+      { level:4, badge:{en:'Level 4 · Advanced', fa:'سطحِ ۴ · پیشرفته'}, title:{en:'Same rules, every form', fa:'همان قواعد، در هر قالب'}, tagline:{en:'Ads, novels, film, nonfiction, talks.', fa:'آگهی، رمان، فیلم، ناداستان، سخنرانی.'},
+        body:{en:"At this depth you see one shared toolkit under every form Pressfield worked in. A grant proposal, a dissertation, a keynote, a landing page — each still needs a concept, a theme, a hero-and-obstacle, and a three-act arc. Structure even facts like a story, kept on-theme, and dump-of-information writing disappears.", fa:"در این عمق، زیرِ هر قالبی که پرسفیلد در آن کار کرد یک جعبه‌ابزارِ مشترک می‌بینی. یک طرحِ پیشنهادی، یک پایان‌نامه، یک سخنرانیِ کلیدی، یک صفحهٔ فرود — هرکدام باز هم به یک ایده، یک مضمون، یک قهرمان‌و‌مانع، و یک قوسِ سه‌پرده‌ای نیاز دارد. حتی واقعیت‌ها را هم مثلِ داستان و وفادار به مضمون بساز، آن‌وقت نوشتهٔ «تلنبارِ اطلاعات» ناپدید می‌شود."},
+        example:{en:"A dry quarterly report becomes readable when framed as: the challenge, the fight, the turning point.", fa:"یک گزارشِ فصلیِ خشک وقتی خواندنی می‌شود که این‌طور قاب شود: چالش، نبرد، نقطهٔ عطف."},
+        gain:{en:"You can carry one craft across every kind of writing you do.", fa:"می‌توانی یک صنعت را در هر نوع نوشتنی که انجام می‌دهی به کار ببری."} },
+      { level:5, badge:{en:'Level 5 · Expert', fa:'سطحِ ۵ · حرفه‌ای'}, title:{en:'Turn pro', fa:'حرفه‌ای شو'}, tagline:{en:'Beat Resistance, finish, and give.', fa:'بر مقاومت غلبه کن، تمام کن، و ببخش.'},
+        body:{en:"The expert has internalized the mindset. The real enemy is <b>Resistance</b> — fear dressed as procrastination and perfectionism — and you beat it by showing up on schedule and <b>thinking in drafts</b>. You measure yourself across a whole <b>career</b> of finished work, not one masterpiece. And underneath it all is a shift from getting to giving: the mature writer has lived enough to have something worth handing the reader. That generosity is what finally makes the work worth reading.", fa:"آدمِ حرفه‌ای این طرزِ فکر را درونی کرده. دشمنِ واقعی <b>مقاومت</b> است — ترسی که لباسِ اهمال‌کاری و کمال‌گرایی پوشیده — و با سرِ ساعت حاضر‌شدن و <b>پیش‌نویسی فکر‌کردن</b> شکستش می‌دهی. خودت را در طولِ یک <b>مسیرِ حرفه‌ای</b> از کارِ تمام‌شده می‌سنجی، نه یک شاهکار. و زیرِ همهٔ این‌ها یک جابه‌جایی است از گرفتن به دادن: نویسندهٔ پخته آن‌قدر زندگی کرده که چیزی ارزشمند برای دادن به خواننده دارد. همین سخاوت است که بالاخره کار را ارزشِ خواندن می‌کند."},
+        example:{en:"You stop guarding one 'perfect' essay, publish weekly, and each piece gives readers a real, usable takeaway.", fa:"دست از نگهبانیِ یک جستارِ «بی‌نقص» برمی‌داری، هفتگی منتشر می‌کنی، و هر نوشته به خواننده یک نتیجهٔ واقعی و قابلِ‌استفاده می‌دهد."},
+        gain:{en:"You can teach the craft, ship consistently, and write to serve the reader.", fa:"می‌توانی این صنعت را آموزش بدهی، پیوسته منتشر کنی، و در خدمتِ خواننده بنویسی."} }
+    ],
+    quotes:[
+      {en:"Nobody wants to read your shit.", fa:"هیچ‌کس نمی‌خواهد نوشته‌ات را بخواند."},
+      {en:"When you understand that nobody wants to read your shit, you develop empathy.", fa:"وقتی بفهمی هیچ‌کس نمی‌خواهد نوشته‌ات را بخواند، همدلی پیدا می‌کنی."},
+      {en:"Writing/reading is, above all, a transaction.", fa:"نوشتن و خواندن، بیش از هر چیز، یک معامله است."},
+      {en:"Ask yourself with every sentence and every phrase: Is this interesting? Is it fun or challenging or inventive?", fa:"با هر جمله و هر عبارت از خودت بپرس: این جذاب است؟ سرگرم‌کننده یا چالش‌برانگیز یا خلاقانه است؟"},
+      {en:"Make it so compelling that a person would have to be crazy NOT to read it.", fa:"آن‌قدر گیرایش کن که آدم باید دیوانه باشد که نخواندش."},
+      {en:"Hook. Build. Payoff. This is the shape any story must take.", fa:"قلاب. ساخت. پاداش. این همان شکلی است که هر داستانی باید بگیرد."},
+      {en:"Nonfiction is fiction.", fa:"ناداستان، داستان است."},
+      {en:"A concept takes a conventional claim and puts a spin on it.", fa:"یک ایده، یک ادعای معمولی را برمی‌دارد و رویش یک چرخش می‌گذارد."},
+      {en:"What is this thing about? In other words, what's the theme?", fa:"این اصلاً دربارهٔ چیست؟ به بیانِ دیگر، مضمونش چیست؟"}
+    ],
+    media:[
+      { kind:'yt', id:'CR4MsTA61gQ', src:{en:'YouTube · Heroic (Brian Johnson)', fa:'یوتیوب · Heroic (برایان جانسون)'},
+        title:{en:'Nobody Wants to Read Your Sh*t — Big Ideas', fa:'هیچ‌کس نمی‌خواهد نوشته‌ات را بخواند — ایده‌های اصلی'},
+        desc:{en:"A crisp walkthrough of the book's core ideas.", fa:'یک مرورِ فشرده از ایده‌های اصلیِ کتاب.'},
+        bullets:{en:['The reader-indifference premise in plain terms','Why empathy is the writer\'s master skill','Concept, theme, and three-act shape'], fa:['فرضِ بی‌تفاوتیِ خواننده به زبانِ ساده','چرا همدلی مهارتِ اصلیِ نویسنده است','ایده، مضمون، و ساختارِ سه‌پرده‌ای']},
+        best:{en:'Best for Stage 1–2 — a fast overview.', fa:'خوب برای مرحلهٔ ۱ و ۲ — یک مرورِ سریع.'} },
+      { kind:'yt', id:'4VUADkfNjJY', src:{en:'YouTube · bestbookbits', fa:'یوتیوب · bestbookbits'},
+        title:{en:'Nobody Wants to Read Your Sh*t — Book Summary', fa:'هیچ‌کس نمی‌خواهد نوشته‌ات را بخواند — خلاصهٔ کتاب'},
+        desc:{en:'A concise summary of the main lessons.', fa:'یک خلاصهٔ فشرده از درس‌های اصلی.'},
+        bullets:{en:['The main lessons, chapter by chapter','Practical craft takeaways','A good recap after a first read'], fa:['درس‌های اصلی، فصل به فصل','نکته‌های کاربردیِ صنعتِ نوشتن','مرورِ خوب بعد از اولین خواندن']},
+        best:{en:'Best for Stage 2–3.', fa:'خوب برای مرحلهٔ ۲ و ۳.'} },
+      { kind:'yt', id:'imFW4GnNK8g', src:{en:'YouTube · Better Than Food', fa:'یوتیوب · Better Than Food'},
+        title:{en:'Nobody Wants to Read Your Sh*t — Book Review', fa:'هیچ‌کس نمی‌خواهد نوشته‌ات را بخواند — نقدِ کتاب'},
+        desc:{en:"A thoughtful review with context on Pressfield's craft.", fa:'یک نقدِ تأمل‌برانگیز با زمینه‌ای دربارهٔ صنعتِ پرسفیلد.'},
+        bullets:{en:['A reflective review of the book','How it fits Pressfield\'s work on Resistance','Context and honest critique'], fa:['یک نقدِ تأمل‌برانگیز از کتاب','جایگاهش در کارهای پرسفیلد دربارهٔ مقاومت','زمینه و نقدِ صادقانه']},
+        best:{en:'Best for Stage 4–5 — a deeper take.', fa:'خوب برای مرحلهٔ ۴ و ۵ — نگاهی عمیق‌تر.'} },
+      { kind:'img', url:'https://stevenpressfield.com/books/nobody-wants-to-read-your-sht/',
+        src:{en:'stevenpressfield.com · Official', fa:'stevenpressfield.com · رسمی'},
+        title:{en:'Steven Pressfield — Writing Wednesdays', fa:'استیون پرسفیلد — یادداشت‌های نویسندگی'},
+        desc:{en:"The author's own site, blog and books on craft and Resistance.", fa:'سایت، وبلاگ و کتاب‌های خودِ نویسنده دربارهٔ صنعتِ نوشتن و مقاومت.'},
+        bullets:{en:['The author\'s blog on craft and Resistance','His other books (The War of Art, Turning Pro)','Straight from the source'], fa:['وبلاگِ نویسنده دربارهٔ صنعتِ نوشتن و مقاومت','کتاب‌های دیگرش («جنگِ هنر»، «حرفه‌ای‌شدن»)','مستقیم از خودِ منبع']},
+        best:{en:'For going to the source.', fa:'برای رفتن سراغِ منبعِ اصلی.'} }
+    ],
+    go:[
+      {label:{en:"Steven Pressfield's site", fa:'سایتِ استیون پرسفیلد'}, url:'https://stevenpressfield.com/'},
+      {label:{en:'The book page', fa:'صفحهٔ کتاب'}, url:'https://stevenpressfield.com/books/nobody-wants-to-read-your-sht/'},
+      {label:{en:'The War of Art', fa:'کتابِ «جنگِ هنر»'}, url:'https://stevenpressfield.com/books/the-war-of-art/'},
+      {label:{en:'Book on Goodreads', fa:'کتاب در گودریدز'}, url:'https://www.goodreads.com/book/show/30556551-nobody-wants-to-read-your-sh-t'}
+    ],
+    recs:[
+      { pri:'b', t:{en:'Cut your next thing in half', fa:'چیزِ بعدی‌ات را نصف کن'}, d:{en:"Write it, then delete every line that isn't interesting or useful. Shorter almost always wins.", fa:'بنویسش، بعد هر خطی که جذاب یا مفید نیست را حذف کن. کوتاه‌تر تقریباً همیشه برنده است.'} },
+      { pri:'b', t:{en:'Name the theme in one sentence', fa:'مضمون را در یک جمله بگو'}, d:{en:"Before you draft, finish: 'this is about ___.' Keep it in view and cut anything that strays.", fa:'قبل از نوشتن، این را کامل کن: «این دربارهٔ ___ است.» جلوی چشمت نگهش دار و هرچه منحرف می‌شود را حذف کن.'} },
+      { pri:'n', t:{en:'Write the ugly first draft to the end', fa:'پیش‌نویسِ اولِ زشت را تا آخر بنویس'}, d:{en:'No editing until you reach the last line. Finishing beats polishing.', fa:'تا به آخرین خط نرسیدی ویرایش نکن. تمام‌کردن از صیقل‌دادن بهتر است.'} },
+      { pri:'n', t:{en:'Read it aloud as the reader', fa:'مثلِ خواننده بلند بخوانش'}, d:{en:'Hear where a busy stranger would get bored or confused, and fix those spots.', fa:'بشنو کجا یک غریبهٔ سرشلوغ خسته یا گیج می‌شود، و همان‌جاها را درست کن.'} }
+    ]
+  }
+};

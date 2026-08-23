@@ -1,0 +1,263 @@
+/* config: Scaling People — Claire Hughes Johnson (Executing) */
+module.exports = {
+  slug:'scp', brand:'Scaling People',
+  titleTag:'Scaling People — نقشهٔ دانش و یادگیری ۵ مرحله‌ای',
+  W:980, H:780, R1:220, R2:126, span:66,
+  leafKickEn:'Tactic', leafKickFa:'تاکتیکِ',
+  flowEn:['Foundation','Hire','Develop','Plan'], flowFa:['پایه','استخدام','پرورش','برنامه‌ریزی'],
+
+  hero:`  <div class="eyebrow"><span class="edot"></span>
+    <span data-only="en">Book knowledge map · Claire Hughes Johnson</span>
+    <span data-only="fa">نقشهٔ کتاب · کلر هیوز جانسون</span>
+  </div>
+  <h1>
+    <span data-only="en">Scaling People — Tactics for Management and Company Building</span>
+    <span data-only="fa">بزرگ‌کردنِ آدم‌ها — تاکتیک‌هایی برای مدیریت و شرکت‌سازی</span>
+  </h1>
+  <p class="dek">
+    <span data-only="en">A knowledge graph of the whole book, plus a 5-stage path from a single idea to expert-level mastery — with an example at every step.</span>
+    <span data-only="fa">نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از یک ایدهٔ ساده تا حرفه‌ای — با یک مثال در هر مرحله.</span>
+  </p>
+  <div class="metastrip">
+    <div class="metaitem"><span class="mk" data-only="en">Book</span><span class="mk" data-only="fa">کتاب</span>
+      <span class="mv" data-only="en">Scaling People</span><span class="mv" data-only="fa">بزرگ‌کردنِ آدم‌ها</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Author</span><span class="mk" data-only="fa">نویسنده</span>
+      <span class="mv" data-only="en">Claire Hughes Johnson</span><span class="mv" data-only="fa">کلر هیوز جانسون</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Published</span><span class="mk" data-only="fa">سالِ چاپ</span>
+      <span class="mv" data-only="en">2023</span><span class="mv" data-only="fa">۲۰۲۳</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Group</span><span class="mk" data-only="fa">گروه</span>
+      <span class="mv" data-only="en">Executing</span><span class="mv" data-only="fa">اجرا</span></div>
+  </div>
+  <div class="chips">
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Parts</span><span data-only="fa">بخش</span></div>
+    <div class="chip"><b data-only="en">16</b><b data-only="fa">۱۶</b><span data-only="en">Tactics</span><span data-only="fa">تاکتیک</span></div>
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Learning stages</span><span data-only="fa">مرحلهٔ یادگیری</span></div>
+  </div>`,
+
+  callout:`    <b data-only="en">The core idea:</b>
+    <b data-only="fa">ایدهٔ اصلی:</b>
+    <span data-only="en"> You don't scale a company, you scale its <i>people</i>. Start with <i>self-awareness</i>, make your principles and plans explicit, then build the systems — hiring, feedback, goals — that let a growing team stay <i>clear, aligned</i> and <i>human</i>.</span>
+    <span data-only="fa"> تو شرکت را بزرگ نمی‌کنی، <i>آدم‌هایش</i> را بزرگ می‌کنی. از <i>خودآگاهی</i> شروع کن، اصول و برنامه‌هایت را نوشته و روشن کن، بعد سیستم‌ها را بساز — استخدام، بازخورد، هدف — تا یک تیمِ روبه‌رشد <i>روشن، هماهنگ</i> و <i>انسانی</i> بماند.</span>`,
+
+  kpis:`    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Parts (self-awareness · hiring · managing · planning · culture)</div><div class="l" data-only="fa">بخش (خودآگاهی · استخدام · مدیریت · برنامه‌ریزی · فرهنگ)</div></div>
+    <div class="kbox"><div class="v" data-only="en">16</div><div class="v" data-only="fa">۱۶</div><div class="l" data-only="en">Tactics you can use</div><div class="l" data-only="fa">تاکتیک برای استفاده</div></div>
+    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Levels, simple → expert</div><div class="l" data-only="fa">مرحله، ساده تا حرفه‌ای</div></div>
+    <div class="kbox"><div class="v" data-only="en">4</div><div class="v" data-only="fa">۴</div><div class="l" data-only="en">Operating principles that anchor it</div><div class="l" data-only="fa">اصلِ کاری که همه‌چیز را نگه می‌دارند</div></div>`,
+
+  mapcallout:`      <b data-only="en">Read it as a flow:</b><b data-only="fa">به‌صورتِ یک جریان بخوانش:</b>
+      <span data-only="en"> get your <b>foundation</b> right (self-awareness, principles), <b>hire</b> a strong team, <b>develop</b> them with feedback and clear expectations, and <b>plan</b> the goals and cadence that keep everyone aligned as you grow.</span>
+      <span data-only="fa"> <b>پایه</b> را درست کن (خودآگاهی، اصول)، یک تیمِ قوی <b>استخدام</b> کن، با بازخورد و انتظارهای روشن <b>پرورششان</b> بده، و <b>هدف</b> و ریتمی را <b>برنامه‌ریزی</b> کن که همه را حینِ رشد هماهنگ نگه دارد.</span>`,
+
+  methodFa:"<p><b>منبع:</b> کتابِ «Scaling People» نوشتهٔ کلر هیوز جانسون (نشرِ استرایپ، ۲۰۲۳).</p><p><b>روشِ کار:</b> ساختارِ پنج‌بخشی و تاکتیک‌ها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده؛ نقل‌قول‌ها مقابله و ویدیوها بررسی شده‌اند.</p><p><b>گروه:</b> «اجرا» — از فهرستِ کتاب‌های ضروریِ سازندگانِ محصولِ لنی راچیتسکی.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای متنِ کامل، خودِ کتاب را بخوان.</p>",
+  methodEn:"<p><b>Source:</b> the book <i>Scaling People: Tactics for Management and Company Building</i> by Claire Hughes Johnson (Stripe Press, 2023).</p><p><b>How this was built:</b> the five-part structure and tactics were gathered and rewritten from the book and reputable sources; quotes were cross-checked and the linked videos verified.</p><p><b>Group:</b> Executing — from Lenny Rachitsky's essential books for product builders.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>",
+
+  data:{
+    tldr:[
+      {en:"The whole book in one line: you scale a company by intentionally scaling its people.",
+       fa:"خلاصهٔ کل کتاب در یک جمله: شرکت را با بزرگ‌کردنِ عمدیِ آدم‌هایش بزرگ می‌کنی."},
+      {en:"It starts with <b>self-awareness</b> — know your work style, strengths, and blind spots before you lead others.",
+       fa:"همه‌چیز از <b>خودآگاهی</b> شروع می‌شود — قبل از رهبریِ دیگران، سبکِ کاری، نقاطِ قوت و نقاطِ کورت را بشناس."},
+      {en:"Make the implicit explicit: write down your <b>principles, mission, and values</b> so a growing team stays aligned.",
+       fa:"نانوشته‌ها را نوشته کن: <b>اصول، مأموریت و ارزش‌ها</b> را بنویس تا تیمِ روبه‌رشد هماهنگ بماند."},
+      {en:"Build the machine: <b>hire</b> deliberately, give honest <b>feedback</b>, and run real one-on-ones and goals.",
+       fa:"ماشین را بساز: با دقت <b>استخدام</b> کن، <b>بازخوردِ</b> صادقانه بده، و جلسه‌های تک‌به‌تک و هدف‌های واقعی داشته باش."},
+      {en:"Then keep it human: <b>say the thing you cannot say</b>, and remember you are the foundation your team stands on.",
+       fa:"بعد انسانی نگهش دار: <b>همان چیزی را که فکر می‌کنی نمی‌توانی بگویی، بگو</b>، و یادت باشد تو همان پایه‌ای هستی که تیمت رویش ایستاده."}
+    ],
+    parts:[
+      { key:'found', varc:'--c-teal', name:{en:'Self-Awareness & Principles', fa:'خودآگاهی و اصول'}, tag:{en:'The foundation', fa:'پایه'},
+        gist:{en:'Know yourself, then set the operating principles you lead by.', fa:'اول خودت را بشناس، بعد اصولی را که با آن‌ها رهبری می‌کنی تعیین کن.'},
+        more:{en:"Everything starts here. If you don't understand your own work style and blind spots, you'll misread everyone else. Self-awareness plus a few explicit principles give a team a stable base to grow on.",
+              fa:"همه‌چیز از اینجا شروع می‌شود. اگر سبکِ کاری و نقاطِ کورِ خودت را نفهمی، بقیه را هم اشتباه می‌خوانی. خودآگاهی به‌علاوهٔ چند اصلِ روشن، به تیم یک پایهٔ باثبات برای رشد می‌دهد."},
+        chapters:['selfaware','principles','mgmtlead'] },
+      { key:'team', varc:'--c-blue', name:{en:'Hiring & Team', fa:'استخدام و تیم'}, tag:{en:'Get the right people', fa:'آدم‌های درست را بیاور'},
+        gist:{en:'Build a pipeline, interview with structure, and onboard on purpose.', fa:'یک قیف بساز، ساختارمند مصاحبه کن، و شروعِ کار را عمداً طراحی کن.'},
+        more:{en:"Hiring is the highest-leverage thing a manager does. Treating it as an always-on funnel with consistent, rubric-based interviews beats scrambling to fill a seat — and a deliberate onboarding turns a good hire into a fast contributor.",
+              fa:"استخدام پرُاهرم‌ترین کاری است که یک مدیر می‌کند. برخورد با آن مثلِ یک قیفِ همیشه‌روشن با مصاحبه‌های یک‌دست و معیارمحور، بهتر از تقلا برای پرکردنِ یک صندلی است — و یک شروعِ کارِ حساب‌شده، یک استخدامِ خوب را به یک نیروی سریع تبدیل می‌کند."},
+        chapters:['pipeline','interview','onboard'] },
+      { key:'manage', varc:'--c-amber', name:{en:'Managing People', fa:'مدیریتِ آدم‌ها'}, tag:{en:'Grow the team', fa:'تیم را رشد بده'},
+        gist:{en:'Feedback, one-on-ones, performance, and real delegation.', fa:'بازخورد، جلسه‌های تک‌به‌تک، عملکرد، و واگذاریِ واقعی.'},
+        more:{en:"Managing well is a set of repeatable habits: give feedback as an explorer holding up a mirror, protect regular one-on-ones, judge performance on results and behavior, and delegate real ownership so people — and you — can grow.",
+              fa:"خوب مدیریت‌کردن یک مجموعه عادتِ تکرارشدنی است: بازخورد را مثلِ یک کاشف که آینه می‌گیرد بده، جلسه‌های تک‌به‌تکِ منظم را حفظ کن، عملکرد را با نتیجه و رفتار بسنج، و مالکیتِ واقعی را واگذار کن تا آدم‌ها — و خودت — رشد کنید."},
+        chapters:['feedback','oneonone','performance','delegate'] },
+      { key:'plan', varc:'--c-violet', name:{en:'Structure & Planning', fa:'ساختار و برنامه‌ریزی'}, tag:{en:'Align on goals', fa:'روی هدف‌ها هم‌سو شو'},
+        gist:{en:'Foundational documents, measurable goals, and a steady cadence.', fa:'سندهای پایه، هدف‌های قابلِ‌اندازه‌گیری، و یک ریتمِ باثبات.'},
+        more:{en:"Structure is what lets a bigger team stay coherent. Write the mission, vision, and values; set goals that name outcomes; and run a predictable operating cadence so planning and review happen on rhythm, not on panic.",
+              fa:"ساختار همان چیزی است که به یک تیمِ بزرگ‌تر اجازه می‌دهد یک‌پارچه بماند. مأموریت، چشم‌انداز و ارزش‌ها را بنویس؛ هدف‌هایی تعیین کن که نتیجه را نام می‌برند؛ و یک ریتمِ اجرای قابلِ‌پیش‌بینی بگردان تا برنامه‌ریزی و بازبینی روی ریتم انجام شود، نه از سرِ هول."},
+        chapters:['mvv','goals','cadence'] },
+      { key:'culture', varc:'--c-green', name:{en:'Communication & Culture', fa:'ارتباط و فرهنگ'}, tag:{en:'Keep it human', fa:'انسانی نگهش دار'},
+        gist:{en:'Candor, great meetings, and scaling yourself and the culture.', fa:'صراحت، جلسه‌های خوب، و بزرگ‌کردنِ خودت و فرهنگ.'},
+        more:{en:"Systems only work if people trust each other. Say the hard thing kindly, make meetings actually decide, and — as you grow — build people and a culture that hold your standards when you can't be everywhere.",
+              fa:"سیستم‌ها فقط وقتی کار می‌کنند که آدم‌ها به هم اعتماد داشته باشند. حرفِ سخت را مهربانانه بزن، کاری کن جلسه‌ها واقعاً تصمیم بگیرند، و — همین‌طور که بزرگ می‌شوی — آدم‌ها و فرهنگی بساز که وقتی نمی‌توانی همه‌جا باشی، استانداردهایت را نگه دارند."},
+        chapters:['candor','meetings','scaleself'] }
+    ],
+    chapters:{
+      selfaware:{ part:'found', n:1, name:{en:'Self-Awareness', fa:'خودآگاهی'}, glabel:{en:'Self', fa:'خودآگاهی'},
+        principle:{en:"Know your work style, motivators, strengths, and blind spots before you try to lead anyone else.", fa:"قبل از اینکه بخواهی کسی را رهبری کنی، سبکِ کاری، انگیزه‌ها، نقاطِ قوت و نقاطِ کورت را بشناس."},
+        more:{en:"Self-awareness is the foundation the whole book rests on. When you understand how you work — where you shine and where you trip — you can adapt to others instead of expecting them to adapt to you.", fa:"خودآگاهی همان پایه‌ای است که کلِ کتاب رویش بنا شده. وقتی می‌فهمی چطور کار می‌کنی — کجا می‌درخشی و کجا می‌لغزی — می‌توانی خودت را با بقیه وفق بدهی، نه اینکه توقع داشته باشی آن‌ها با تو وفق بدهند."},
+        example:{en:"Write down whether you're an analyzer, director, promoter, or collaborator — and share it with your team.", fa:"بنویس که تحلیل‌گری، تصمیم‌گیر، مروج، یا هم‌کار — و با تیمت درمیانش بگذار."},
+        tip:{en:"Ask three colleagues for one strength and one blind spot they see in you.", fa:"از سه هم‌کار بخواه یک نقطهٔ قوت و یک نقطهٔ کورِ تو را بگویند."},
+        pitfall:{en:"Assuming everyone works — and should work — the way you do.", fa:"این فرض که همه مثلِ تو کار می‌کنند و باید بکنند."} },
+      principles:{ part:'found', n:2, name:{en:'Operating Principles', fa:'اصولِ کاری'}, glabel:{en:'Principles', fa:'اصول'},
+        principle:{en:"Agree on a short set of operating principles — shared rules for how you work and decide together.", fa:"روی یک مجموعهٔ کوتاه از اصولِ کاری توافق کن — قاعده‌های مشترک برای اینکه چطور با هم کار و تصمیم می‌گیرید."},
+        more:{en:"Principles turn vague culture into something you can actually use in a hard moment. Hughes Johnson's own include 'build self-awareness to build mutual awareness' and 'say the thing you think you cannot say'.", fa:"اصول، فرهنگِ مبهم را به چیزی تبدیل می‌کنند که واقعاً در یک لحظهٔ سخت به کار می‌آید. اصولِ خودِ هیوز جانسون شاملِ «خودآگاهی بساز تا آگاهیِ دوطرفه بسازی» و «همان چیزی را که فکر می‌کنی نمی‌توانی بگویی، بگو» است."},
+        example:{en:"When a meeting feels tense, name it out loud instead of pretending everything is fine.", fa:"وقتی یک جلسه پرتنش می‌شود، به‌جای اینکه وانمود کنی همه‌چیز خوب است، بلند اسمش را بیاور."},
+        tip:{en:"Draft three principles your team can point to when a decision gets hard.", fa:"سه اصل بنویس که تیمت وقتِ سختیِ یک تصمیم بتواند بهش اشاره کند."},
+        pitfall:{en:"Leaving the 'how we work' rules unspoken until they're broken.", fa:"نانوشته گذاشتنِ قاعده‌های «چطور کار می‌کنیم» تا وقتی شکسته شوند."} },
+      mgmtlead:{ part:'found', n:3, name:{en:'Management vs. Leadership', fa:'مدیریت در برابرِ رهبری'}, glabel:{en:'Lead', fa:'رهبری'},
+        principle:{en:"Management creates stability; leadership drives change. You need both, and you need to know which one the moment calls for.", fa:"مدیریت ثبات می‌سازد؛ رهبری تغییر می‌آورد. به هر دو نیاز داری، و باید بدانی هر لحظه کدام‌یک لازم است."},
+        more:{en:"Managing is the day-to-day machine — plans, reviews, one-on-ones. Leading is setting direction and taking people somewhere new. Great operators move fluidly between the two instead of doing only the part they enjoy.", fa:"مدیریت همان ماشینِ روزمره است — برنامه، بازبینی، جلسه‌های تک‌به‌تک. رهبری یعنی جهت‌دادن و بردنِ آدم‌ها به جایی نو. آدم‌های کاربلد روان بینِ این دو جابه‌جا می‌شوند، نه اینکه فقط بخشی را که دوست دارند انجام بدهند."},
+        example:{en:"Shipping the quarterly plan is management; convincing the team to bet on a new direction is leadership.", fa:"رساندنِ برنامهٔ فصلی مدیریت است؛ قانع‌کردنِ تیم برای شرط‌بستن روی یک مسیرِ نو رهبری است."},
+        tip:{en:"This week, name one thing you're managing and one thing you're leading.", fa:"این هفته، یک چیز را که مدیریت می‌کنی و یک چیز را که رهبری می‌کنی نام ببر."},
+        pitfall:{en:"Doing only the visionary part and letting the operating machine rust.", fa:"فقط انجام‌دادنِ بخشِ رؤیاپرداز و رهاکردنِ ماشینِ اجرا تا زنگ بزند."} },
+      pipeline:{ part:'team', n:4, name:{en:'Recruiting Pipeline', fa:'قیفِ استخدام'}, glabel:{en:'Pipeline', fa:'قیف'},
+        principle:{en:"Treat hiring like a funnel you build on purpose, not a scramble you start when a seat opens.", fa:"با استخدام مثلِ یک قیف رفتار کن که عمداً می‌سازی، نه یک تقلای عجولانه که وقتِ خالی‌شدنِ یک صندلی شروع می‌شود."},
+        more:{en:"A steady pipeline means you're always meeting people, so you hire from strength instead of desperation. Define the role, the must-have attributes, and the sourcing plan before you post anything.", fa:"یک قیفِ همیشگی یعنی مدام آدم می‌بینی، پس از سرِ قدرت استخدام می‌کنی نه از سرِ استیصال. قبل از انتشارِ هر آگهی، نقش، ویژگی‌های حتمی، و برنامهٔ پیداکردنِ آدم را مشخص کن."},
+        example:{en:"Keep a running list of strong people you've met, long before you have a role for them.", fa:"یک فهرستِ همیشه‌فعال از آدم‌های قوی که دیده‌ای نگه دار، خیلی قبل از اینکه نقشی برایشان داشته باشی."},
+        tip:{en:"Before opening a role, write the one-line scorecard of what great looks like.", fa:"قبل از بازکردنِ یک نقش، در یک خط بنویس که «عالی» چه شکلی است."},
+        pitfall:{en:"Starting the search only after someone quits, then rushing the hire.", fa:"شروعِ جست‌وجو فقط بعد از اینکه کسی می‌رود، و بعد عجله در استخدام."} },
+      interview:{ part:'team', n:5, name:{en:'Structured Interviews', fa:'مصاحبهٔ ساختارمند'}, glabel:{en:'Interview', fa:'مصاحبه'},
+        principle:{en:"Ask every candidate the same core questions against a clear rubric, so you compare signal, not vibes.", fa:"از هر داوطلب همان پرسش‌های اصلی را با یک معیارِ روشن بپرس، تا سیگنال را مقایسه کنی، نه حسِ لحظه‌ای را."},
+        more:{en:"Unstructured interviews mostly measure how much someone reminds you of yourself. A shared scorecard, attributes split across interviewers, and written feedback turn a gut call into a real decision.", fa:"مصاحبهٔ بی‌ساختار بیشتر اندازه می‌گیرد که طرف چقدر تو را یادِ خودت می‌اندازد. یک کارنامهٔ مشترک، تقسیمِ ویژگی‌ها بینِ مصاحبه‌گرها، و بازخوردِ نوشتاری، یک قضاوتِ شکمی را به یک تصمیمِ واقعی تبدیل می‌کنند."},
+        example:{en:"Give each interviewer one attribute to probe — ownership, craft, collaboration — and a scale to score it.", fa:"به هر مصاحبه‌گر یک ویژگی بده تا بکاود — مالکیت، مهارت، هم‌کاری — و یک مقیاس تا نمره بدهد."},
+        tip:{en:"Write your feedback before you hear anyone else's, to avoid groupthink.", fa:"بازخوردت را قبل از شنیدنِ نظرِ بقیه بنویس، تا گرفتارِ هم‌رنگیِ گروهی نشوی."},
+        pitfall:{en:"Hiring the person who feels most like you and calling it 'culture fit'.", fa:"استخدامِ کسی که بیشتر شبیهِ توست و اسمش را «تناسبِ فرهنگی» گذاشتن."} },
+      onboard:{ part:'team', n:6, name:{en:'Onboarding & Ramp', fa:'شروعِ کار و جاافتادن'}, glabel:{en:'Onboard', fa:'شروع'},
+        principle:{en:"A new hire's first weeks decide how fast they'll contribute — design the ramp, don't leave it to chance.", fa:"هفته‌های اولِ یک آدمِ تازه تعیین می‌کند چقدر زود مفید می‌شود — مسیرِ جاافتادن را طراحی کن، به شانس نسپارش."},
+        more:{en:"Clear early goals, a buddy, and a written map of who does what shorten the time to real impact. The care you put into week one signals the standards of the whole team.", fa:"هدف‌های روشنِ اولیه، یک هم‌راه، و یک نقشهٔ نوشته‌شده از اینکه چه‌کسی چه‌کاری می‌کند، زمانِ رسیدن به تأثیرِ واقعی را کوتاه می‌کند. دقتی که خرجِ هفتهٔ اول می‌کنی، نشانهٔ استانداردِ کلِ تیم است."},
+        example:{en:"Give a new engineer a small, shippable task in week one so they feel real progress.", fa:"به یک مهندسِ تازه در هفتهٔ اول یک کارِ کوچکِ قابلِ‌تحویل بده تا پیشرفتِ واقعی حس کند."},
+        tip:{en:"Write a thirty-day plan together with the new hire on day one.", fa:"روزِ اول با آدمِ تازه یک برنامهٔ سی‌روزه بنویس."},
+        pitfall:{en:"Dropping someone in with no plan and hoping they figure it out.", fa:"رهاکردنِ کسی بدونِ هیچ برنامه‌ای و امید به اینکه خودش سر دربیاورد."} },
+      feedback:{ part:'manage', n:7, name:{en:'Feedback: Explorer, Not Lecturer', fa:'بازخورد: کاشف باش نه سخنران'}, glabel:{en:'Feedback', fa:'بازخورد'},
+        principle:{en:"Give feedback by holding up a mirror and getting curious — explore what happened together instead of lecturing.", fa:"بازخورد را با گرفتنِ یک آینه جلوی طرف و کنجکاوشدن بده — به‌جای سخنرانی، با هم بکاوید که چه شد."},
+        more:{en:"You don't need every answer. Describe the specific behavior and its impact, ask genuine questions, and let the other person help solve it — that keeps feedback honest without turning it into a verdict.", fa:"لازم نیست همهٔ جواب‌ها را داشته باشی. رفتارِ مشخص و اثرش را توصیف کن، پرسش‌های واقعی بپرس، و بگذار طرفِ مقابل در حلش کمک کند — این کار بازخورد را صادق نگه می‌دارد بی‌آنکه به یک حکم تبدیلش کند."},
+        example:{en:"Not 'you were unprepared', but 'the deck had no data — what got in the way?'", fa:"نه «تو آماده نبودی»، بلکه «اسلایدها هیچ داده‌ای نداشت — چه چیزی سرِ راه بود؟»"},
+        tip:{en:"Open your next feedback with an observation and a real question, not a judgment.", fa:"بازخوردِ بعدی‌ات را با یک مشاهده و یک پرسشِ واقعی باز کن، نه یک قضاوت."},
+        pitfall:{en:"Feeling you must have every answer before you can give feedback.", fa:"این حس که باید همهٔ جواب‌ها را داشته باشی تا بتوانی بازخورد بدهی."} },
+      oneonone:{ part:'manage', n:8, name:{en:'Effective One-on-Ones', fa:'جلسه‌های تک‌به‌تکِ مؤثر'}, glabel:{en:'One-on-ones', fa:'تک‌به‌تک'},
+        principle:{en:"Protect a regular one-on-one with each person — it's their meeting, for what matters to them.", fa:"با هر نفر یک جلسهٔ تک‌به‌تکِ منظم را حفظ کن — این جلسهٔ اوست، برای چیزی که برای او مهم است."},
+        more:{en:"The best one-on-ones aren't status updates; they're where trust, growth, and early warning signs live. Come with a light agenda, then mostly listen and follow their thread.", fa:"بهترین جلسه‌های تک‌به‌تک گزارشِ وضعیت نیستند؛ جایی‌اند که اعتماد، رشد، و اولین نشانه‌های خطر زندگی می‌کنند. با یک دستورِ کارِ سبک بیا، بعد بیشتر گوش بده و نخِ حرفِ او را دنبال کن."},
+        example:{en:"Start with 'what's most on your mind this week?' and let them set the direction.", fa:"با «این هفته بیشتر از همه ذهنت درگیرِ چیست؟» شروع کن و بگذار او مسیر را تعیین کند."},
+        tip:{en:"Keep a shared running doc so nothing important waits for the next meeting.", fa:"یک سندِ مشترکِ همیشه‌فعال نگه دار تا هیچ چیزِ مهمی منتظرِ جلسهٔ بعد نماند."},
+        pitfall:{en:"Turning it into a status report you could have gotten over chat.", fa:"تبدیلش به گزارشِ وضعیتی که با یک پیام هم می‌شد گرفت."} },
+      performance:{ part:'manage', n:9, name:{en:'Performance Management', fa:'مدیریتِ عملکرد'}, glabel:{en:'Performance', fa:'عملکرد'},
+        principle:{en:"Judge performance on both results and how they were achieved — the what and the how together.", fa:"عملکرد را هم با نتیجه و هم با نحوهٔ رسیدن به آن بسنج — «چه» و «چطور» با هم."},
+        more:{en:"Someone who hits every number while burning the team isn't a top performer. Set expectations early, review against them honestly, and never let a rating be a surprise.", fa:"کسی که به همهٔ عددها می‌رسد ولی تیم را می‌سوزاند، عملکردِ برتر نیست. انتظارها را زود تعیین کن، صادقانه در برابرشان ارزیابی کن، و هرگز نگذار یک نمره غافلگیرکننده باشد."},
+        example:{en:"Rate a strong-results, poor-collaboration person honestly on both axes, not just the numbers.", fa:"کسی را که نتیجه‌اش قوی ولی هم‌کاری‌اش ضعیف است، صادقانه روی هر دو محور نمره بده، نه فقط عددها."},
+        tip:{en:"Write expectations at the start of a cycle so the review writes itself.", fa:"انتظارها را اولِ دوره بنویس تا ارزیابی خودش خودش را بنویسد."},
+        pitfall:{en:"Rewarding results alone and ignoring the damage done to reach them.", fa:"پاداش‌دادن فقط به نتیجه و نادیده‌گرفتنِ خرابی‌ای که برای رسیدن به آن شده."} },
+      delegate:{ part:'manage', n:10, name:{en:'Delegation & Growth', fa:'واگذاری و رشد'}, glabel:{en:'Delegate', fa:'واگذاری'},
+        principle:{en:"Delegate real ownership, not just tasks — it's how people grow and how you scale beyond yourself.", fa:"مالکیتِ واقعی را واگذار کن، نه فقط کارها را — آدم‌ها این‌طور رشد می‌کنند و تو این‌طور از خودت فراتر می‌روی."},
+        more:{en:"Hold on to everything and you become the bottleneck. Hand over the outcome and the authority, agree on how you'll check in, then let people do it their way — even if it's not your way.", fa:"اگر همه‌چیز را نگه داری، خودت گلوگاه می‌شوی. نتیجه و اختیار را واگذار کن، روی نحوهٔ پیگیری توافق کن، بعد بگذار آدم‌ها به روشِ خودشان انجامش بدهند — حتی اگر روشِ تو نباشد."},
+        example:{en:"Give a report a whole project end to end, not a list of small to-dos.", fa:"به یکی از اعضای تیم یک پروژهٔ کامل را از اول تا آخر بده، نه یک فهرست از کارهای ریز."},
+        tip:{en:"Pick one thing only you currently do and hand it fully to someone this month.", fa:"یک کار را که فعلاً فقط خودت انجام می‌دهی انتخاب کن و این ماه کاملاً به کسی بسپار."},
+        pitfall:{en:"Delegating the task but keeping the decisions, so nobody really owns it.", fa:"واگذاریِ کار ولی نگه‌داشتنِ تصمیم‌ها، جوری که هیچ‌کس واقعاً مالکش نیست."} },
+      mvv:{ part:'plan', n:11, name:{en:'Mission, Vision, Values', fa:'مأموریت، چشم‌انداز، ارزش‌ها'}, glabel:{en:'Mission', fa:'مأموریت'},
+        principle:{en:"Write down why you exist, where you're going, and how you behave — the foundational documents a team aligns on.", fa:"بنویس چرا وجود داری، کجا می‌روی، و چطور رفتار می‌کنی — همان سندهای پایه‌ای که تیم رویشان هم‌سو می‌شود."},
+        more:{en:"Mission is the enduring why, vision is the destination, values are how you act on the way. Writing them makes the implicit explicit, so a growing team makes consistent calls without you in the room.", fa:"مأموریت همان «چرا»ی ماندگار است، چشم‌انداز مقصد است، ارزش‌ها نحوهٔ رفتارت در راه‌اند. نوشتنشان نانوشته‌ها را نوشته می‌کند، تا تیمِ روبه‌رشد بدونِ حضورِ تو هم تصمیم‌های یک‌دست بگیرد."},
+        example:{en:"A one-page doc: our mission, our three-year vision, and five values with what each means.", fa:"یک سندِ یک‌صفحه‌ای: مأموریتمان، چشم‌اندازِ سه‌ساله‌مان، و پنج ارزش با معنیِ هرکدام."},
+        tip:{en:"Draft your mission in one sentence a new hire could repeat back.", fa:"مأموریتت را در یک جمله بنویس که یک آدمِ تازه بتواند برایت تکرارش کند."},
+        pitfall:{en:"Vague slogans on a wall that never guide an actual decision.", fa:"شعارهای مبهم روی دیوار که هیچ‌وقت یک تصمیمِ واقعی را راهنمایی نمی‌کنند."} },
+      goals:{ part:'plan', n:12, name:{en:'Goals & OKRs', fa:'هدف‌ها و OKRها'}, glabel:{en:'Goals', fa:'هدف‌ها'},
+        principle:{en:"Set a few clear, measurable goals that describe outcomes — then let teams choose how to hit them.", fa:"چند هدفِ روشن و قابلِ‌اندازه‌گیری تعیین کن که نتیجه را توصیف می‌کنند — بعد بگذار تیم‌ها روشِ رسیدن را خودشان انتخاب کنند."},
+        more:{en:"A good goal names the result you want, not the activity. If it starts with a verb like 'launch' or 'build', it's an action; reframe it as the outcome that action is supposed to produce.", fa:"یک هدفِ خوب نتیجه‌ای را که می‌خواهی نام می‌برد، نه فعالیت را. اگر با فعلی مثلِ «راه‌اندازی» یا «ساختن» شروع شود، یک کار است؛ بازقابش کن به آن نتیجه‌ای که آن کار قرار است بسازد."},
+        example:{en:"Not 'launch the new checkout', but 'cut checkout drop-off from a third to a sixth'.", fa:"نه «راه‌اندازیِ پرداختِ جدید»، بلکه «کاهشِ رهاکردنِ پرداخت از یک‌سوم به یک‌ششم»."},
+        tip:{en:"For each goal ask: could we measure whether we hit it? If not, rewrite it.", fa:"برای هر هدف بپرس: می‌شود اندازه گرفت که بهش رسیدیم یا نه؟ اگر نه، بازنویسی‌اش کن."},
+        pitfall:{en:"Goals that are really activity lists, so you're busy but not moving.", fa:"هدف‌هایی که در واقع فهرستِ فعالیت‌اند، جوری که مشغولی ولی جلو نمی‌روی."} },
+      cadence:{ part:'plan', n:13, name:{en:'Operating Cadence', fa:'ریتمِ اجرا'}, glabel:{en:'Cadence', fa:'ریتم'},
+        principle:{en:"Run a predictable rhythm of planning and review — a sound operating system is what turns strategy into execution.", fa:"یک ریتمِ قابلِ‌پیش‌بینی از برنامه‌ریزی و بازبینی داشته باش — یک سیستمِ کاریِ سالم همان چیزی است که استراتژی را به اجرا تبدیل می‌کند."},
+        more:{en:"Weekly, monthly, and quarterly beats keep everyone synced without constant fire drills. When the cadence is clear, people know when decisions get made and stop pinging you for them.", fa:"ضرب‌آهنگِ هفتگی، ماهانه و فصلی همه را هماهنگ نگه می‌دارد بدونِ آژیرهای دائمی. وقتی ریتم روشن است، آدم‌ها می‌دانند تصمیم‌ها کِی گرفته می‌شوند و دیگر برایش مدام سراغت را نمی‌گیرند."},
+        example:{en:"Weekly team sync, monthly metrics review, quarterly planning — same shape every time.", fa:"هماهنگیِ هفتگیِ تیم، بازبینیِ ماهانهٔ شاخص‌ها، برنامه‌ریزیِ فصلی — هر بار همان شکل."},
+        tip:{en:"Put your planning and review meetings on the calendar for the whole quarter now.", fa:"جلسه‌های برنامه‌ریزی و بازبینی را همین حالا برای کلِ فصل توی تقویم بگذار."},
+        pitfall:{en:"An ad-hoc rhythm where every decision needs a brand-new meeting.", fa:"یک ریتمِ بی‌نظم که هر تصمیم به یک جلسهٔ تازه نیاز دارد."} },
+      candor:{ part:'culture', n:14, name:{en:'Say the Thing', fa:'همان حرف را بزن'}, glabel:{en:'Candor', fa:'صراحت'},
+        principle:{en:"Say the thing you think you cannot say — name the hard truth kindly instead of letting it fester.", fa:"همان چیزی را که فکر می‌کنی نمی‌توانی بگویی، بگو — حقیقتِ سخت را مهربانانه نام ببر، به‌جای اینکه بگذاری چرک کند."},
+        more:{en:"Most team problems are things everyone senses but no one voices. Naming the awkward thing — with care and in the open — builds trust far faster than polite avoidance ever will.", fa:"بیشترِ مشکلاتِ تیم چیزهایی‌اند که همه حسشان می‌کنند ولی کسی به زبان نمی‌آورد. نام‌بردنِ آن چیزِ معذب‌کننده — با ملاحظه و رو-راست — خیلی سریع‌تر از هر طفره‌رویِ مؤدبانه‌ای اعتماد می‌سازد."},
+        example:{en:"Tell a peer 'I think we're avoiding the real issue here' instead of staying quiet.", fa:"به یک هم‌کار بگو «فکر می‌کنم داریم از مسئلهٔ اصلی فرار می‌کنیم» به‌جای اینکه ساکت بمانی."},
+        tip:{en:"Name one thing you've been avoiding saying, kindly, this week.", fa:"این هفته یک چیز را که از گفتنش طفره می‌رفتی، مهربانانه به زبان بیاور."},
+        pitfall:{en:"Staying polite and quiet while the real problem grows.", fa:"مؤدب و ساکت‌ماندن در حالی که مشکلِ اصلی بزرگ‌تر می‌شود."} },
+      meetings:{ part:'culture', n:15, name:{en:'Run Great Meetings', fa:'جلسه‌های خوب بگردان'}, glabel:{en:'Meetings', fa:'جلسه'},
+        principle:{en:"Every meeting needs an owner, a purpose, and a decision — otherwise cancel it and send a note.", fa:"هر جلسه به یک صاحب، یک هدف، و یک تصمیم نیاز دارد — وگرنه لغوش کن و یک یادداشت بفرست."},
+        more:{en:"Meetings are the most expensive thing a company does with its time. Say up front whether you're deciding, informing, or brainstorming; end with clear owners and next steps, written down.", fa:"جلسه گران‌ترین کاری است که یک شرکت با وقتش می‌کند. از اول بگو داری تصمیم می‌گیری، اطلاع می‌دهی، یا ایده می‌سازی؛ با صاحب‌های روشن و قدم‌های بعدیِ نوشته‌شده تمامش کن."},
+        example:{en:"Open with 'the goal of this meeting is to decide X' so everyone knows why they're there.", fa:"با «هدفِ این جلسه تصمیم‌گرفتن دربارهٔ فلان‌چیز است» شروع کن تا همه بدانند چرا اینجایند."},
+        tip:{en:"Before sending an invite, write the one decision the meeting must produce.", fa:"قبل از فرستادنِ دعوت، آن یک تصمیمی را که جلسه باید بسازد بنویس."},
+        pitfall:{en:"Recurring meetings with no owner that no one is allowed to cancel.", fa:"جلسه‌های تکراریِ بی‌صاحب که کسی اجازه ندارد لغوشان کند."} },
+      scaleself:{ part:'culture', n:16, name:{en:'Scale Yourself & the Culture', fa:'خودت و فرهنگ را بزرگ کن'}, glabel:{en:'Scale', fa:'مقیاس'},
+        principle:{en:"As the company grows, you are the foundation — scale your own habits and let the culture carry them.", fa:"همین‌طور که شرکت بزرگ می‌شود، تو همان پایه‌ای — عادت‌های خودت را بزرگ کن و بگذار فرهنگ حملشان کند."},
+        more:{en:"You can't be in every room, so your job becomes building people and systems that hold your standards when you're not there. The steadier and clearer you are, the more your team can rely on you as their stable point.", fa:"نمی‌توانی توی هر اتاقی باشی، پس کارَت می‌شود ساختنِ آدم‌ها و سیستم‌هایی که وقتی نیستی استانداردهایت را نگه دارند. هرچه باثبات‌تر و روشن‌تر باشی، تیمت بیشتر می‌تواند به تو به‌عنوانِ نقطهٔ ثابتش تکیه کند."},
+        example:{en:"Teach two managers to run the review you always run, then step back.", fa:"به دو مدیر یاد بده همان بازبینی‌ای را که همیشه خودت می‌گردانی بگردانند، بعد کنار بکش."},
+        tip:{en:"Ask what only you can do right now — and start handing the rest away.", fa:"بپرس همین حالا چه‌کاری فقط از خودت برمی‌آید — و بقیه را شروع کن به سپردن."},
+        pitfall:{en:"Staying the single point of failure because it feels faster to do it yourself.", fa:"ماندن به‌عنوانِ تنها نقطهٔ شکست، چون خودت‌انجام‌دادن سریع‌تر به‌نظر می‌رسد."} }
+    },
+    core:{ name:{en:'PEOPLE', fa:'آدم‌ها'},
+      principle:{en:"A company is just a collection of people, so you scale it by scaling them — deliberately. Start with self-awareness, make your principles and plans explicit, hire and manage with care, and keep communication honest as you grow.", fa:"یک شرکت فقط مجموعه‌ای از آدم‌هاست، پس با بزرگ‌کردنِ آن‌ها بزرگش می‌کنی — عمداً. از خودآگاهی شروع کن، اصول و برنامه‌هایت را نوشته و روشن کن، با دقت استخدام و مدیریت کن، و حینِ رشد ارتباط را صادق نگه دار."},
+      more:{en:"Hughes Johnson organizes company building into a few connected systems: self-awareness and operating principles, hiring and team-building, managing through feedback and one-on-ones, structure and planning, and communication and culture. The thread through all of it: make the implicit explicit, and treat people as the thing you're actually scaling.", fa:"هیوز جانسون شرکت‌سازی را در چند سیستمِ به‌هم‌پیوسته می‌چیند: خودآگاهی و اصولِ کاری، استخدام و تیم‌سازی، مدیریت با بازخورد و جلسه‌های تک‌به‌تک، ساختار و برنامه‌ریزی، و ارتباط و فرهنگ. نخِ رابطِ همه‌شان: نانوشته‌ها را نوشته کن، و آدم‌ها را همان چیزی بدان که واقعاً داری بزرگش می‌کنی."},
+      example:{en:"Click any node to read a tactic or a principle. You can also drag the nodes around.", fa:"روی هر دایره کلیک کن تا یک تاکتیک یا اصل را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."} },
+    stages:[
+      { level:1, badge:{en:'Level 1 · Over-simplified', fa:'سطحِ ۱ · خیلی ساده'}, title:{en:'Scale the people', fa:'آدم‌ها را بزرگ کن'}, tagline:{en:'The whole book in a sentence.', fa:'کلِ کتاب در یک جمله.'},
+        body:{en:"A company is just a group of people. You don't grow the company directly — you grow its people and the systems around them. Do that on purpose.", fa:"یک شرکت فقط گروهی از آدم‌هاست. تو شرکت را مستقیم بزرگ نمی‌کنی — آدم‌هایش و سیستم‌های دورشان را بزرگ می‌کنی. این کار را عمداً بکن."},
+        example:{en:"When something breaks at scale, ask which person or system is missing — not just what to patch.", fa:"وقتی چیزی در مقیاس خراب می‌شود، بپرس کدام آدم یا سیستم غایب است — نه فقط چه چیزی را وصله کنی."},
+        gain:{en:"You hold the one idea the whole book expands on.", fa:"همان یک ایده‌ای را داری که کلِ کتاب بسطش می‌دهد."} },
+      { level:2, badge:{en:'Level 2 · Simple', fa:'سطحِ ۲ · ساده'}, title:{en:'Start with yourself', fa:'از خودت شروع کن'}, tagline:{en:'Self-awareness is the foundation.', fa:'خودآگاهی پایه است.'},
+        body:{en:"Before you manage anyone, understand yourself — your <b>work style</b>, <b>strengths</b>, and <b>blind spots</b>. Then agree on a few <b>operating principles</b> so your team knows how you work and decide together.", fa:"قبل از مدیریتِ هر کسی، خودت را بفهم — <b>سبکِ کاری</b>، <b>نقاطِ قوت</b>، و <b>نقاطِ کور</b>. بعد روی چند <b>اصلِ کاری</b> توافق کن تا تیمت بداند چطور کار و تصمیم می‌گیرید."},
+        example:{en:"Name your style — analyzer, director, promoter, collaborator — and tell your team.", fa:"سبکت را نام ببر — تحلیل‌گر، تصمیم‌گیر، مروج، هم‌کار — و به تیمت بگو."},
+        gain:{en:"You lead from self-knowledge instead of guesswork.", fa:"از سرِ خودشناسی رهبری می‌کنی، نه از سرِ حدس."} },
+      { level:3, badge:{en:'Level 3 · Balanced', fa:'سطحِ ۳ · متعادل'}, title:{en:'Build the team', fa:'تیم را بساز'}, tagline:{en:'Hire well, then manage well.', fa:'خوب استخدام کن، بعد خوب مدیریت کن.'},
+        body:{en:"Now the machine. <b>Hire</b> from a real pipeline with <b>structured interviews</b>. Then manage: honest <b>feedback</b> (explorer, not lecturer), regular <b>one-on-ones</b>, and <b>performance</b> judged on results and how they're reached.", fa:"حالا ماشین. از یک قیفِ واقعی با <b>مصاحبهٔ ساختارمند</b> <b>استخدام</b> کن. بعد مدیریت کن: <b>بازخوردِ</b> صادق (کاشف باش نه سخنران)، <b>جلسه‌های تک‌به‌تکِ</b> منظم، و <b>عملکردی</b> که با نتیجه و نحوهٔ رسیدن به آن سنجیده می‌شود."},
+        example:{en:"Give feedback as 'here's what I saw, what got in the way?' — not a verdict.", fa:"بازخورد را این‌طور بده: «این چیزی است که دیدم، چه چیزی سرِ راه بود؟» — نه یک حکم."},
+        gain:{en:"You can hire a strong team and manage it honestly.", fa:"می‌توانی یک تیمِ قوی استخدام کنی و صادقانه مدیریتش کنی."} },
+      { level:4, badge:{en:'Level 4 · Advanced', fa:'سطحِ ۴ · پیشرفته'}, title:{en:'Give it structure', fa:'بهش ساختار بده'}, tagline:{en:'Mission, goals, and a steady cadence.', fa:'مأموریت، هدف، و یک ریتمِ باثبات.'},
+        body:{en:"Scale needs structure. Write the <b>mission, vision, and values</b>. Set a few measurable <b>goals</b> that name outcomes, not tasks. And run a predictable <b>operating cadence</b> — weekly, monthly, quarterly — so strategy actually turns into execution.", fa:"مقیاس به ساختار نیاز دارد. <b>مأموریت، چشم‌انداز و ارزش‌ها</b> را بنویس. چند <b>هدفِ</b> قابلِ‌اندازه‌گیری تعیین کن که نتیجه را نام می‌برند، نه کار را. و یک <b>ریتمِ اجرای</b> قابلِ‌پیش‌بینی بگردان — هفتگی، ماهانه، فصلی — تا استراتژی واقعاً به اجرا تبدیل شود."},
+        example:{en:"Reframe 'build the dashboard' into 'give every team its numbers by Monday'.", fa:"«ساختنِ داشبورد» را بازقاب کن به «رساندنِ عددها به دستِ هر تیم تا دوشنبه»."},
+        gain:{en:"You give a growing team the rails to run without you.", fa:"به یک تیمِ روبه‌رشد ریلی می‌دهی که بدونِ تو هم برود."} },
+      { level:5, badge:{en:'Level 5 · Expert', fa:'سطحِ ۵ · حرفه‌ای'}, title:{en:'Keep it human at scale', fa:'در مقیاس، انسانی نگهش دار'}, tagline:{en:'Communication, culture, and you as the foundation.', fa:'ارتباط، فرهنگ، و تویی که پایه‌ای.'},
+        body:{en:"The expert holds the systems and keeps them human. <b>Say the thing you cannot say</b>, run meetings that actually decide, and make the implicit explicit everywhere. As the company grows, remember <b>you are the foundation</b> — your steadiness becomes the culture, and your job is to build people and systems that hold your standards when you're not in the room.", fa:"آدمِ حرفه‌ای سیستم‌ها را نگه می‌دارد و انسانی‌شان می‌کند. <b>همان حرفی را که نمی‌توانی بزنی، بزن</b>، جلسه‌هایی بگردان که واقعاً تصمیم می‌گیرند، و همه‌جا نانوشته‌ها را نوشته کن. همین‌طور که شرکت بزرگ می‌شود، یادت باشد <b>تو همان پایه‌ای</b> — ثباتِ تو همان فرهنگ می‌شود، و کارَت ساختنِ آدم‌ها و سیستم‌هایی است که وقتی توی اتاق نیستی استانداردهایت را نگه دارند."},
+        example:{en:"You've taught others to run your reviews, and the team stays aligned whether or not you're there.", fa:"به دیگران یاد داده‌ای بازبینی‌هایت را بگردانند، و تیم چه باشی چه نباشی هماهنگ می‌ماند."},
+        gain:{en:"You can build people and a culture that scale beyond you.", fa:"می‌توانی آدم‌ها و فرهنگی بسازی که فراتر از تو بزرگ می‌شوند."} }
+    ],
+    quotes:[
+      {en:"We always talk about scaling companies, but companies are just collections of people.", fa:"ما همیشه از بزرگ‌کردنِ شرکت‌ها حرف می‌زنیم، ولی شرکت‌ها فقط مجموعه‌ای از آدم‌ها هستند."},
+      {en:"Build self-awareness to build mutual awareness.", fa:"خودآگاهی بساز تا آگاهیِ دوطرفه بسازی."},
+      {en:"Say the thing you think you cannot say.", fa:"همان چیزی را که فکر می‌کنی نمی‌توانی بگویی، بگو."},
+      {en:"Distinguish between management and leadership.", fa:"بینِ مدیریت و رهبری فرق بگذار."},
+      {en:"A sound operating system running on an efficient cadence is essential to execution and lays the groundwork for great management.", fa:"یک سیستمِ کاریِ سالم که روی یک ریتمِ کارآمد کار می‌کند، برای اجرا ضروری است و زمینه را برای مدیریتِ عالی فراهم می‌کند."},
+      {en:"Be an explorer, not a lecturer.", fa:"کاشف باش، نه سخنران."},
+      {en:"If you don't understand yourself — your work style preferences, your motivators, your strengths, your blind spots — you're going to have trouble being an effective manager and a leader.", fa:"اگر خودت را نفهمی — ترجیح‌های سبکِ کاری، انگیزه‌ها، نقاطِ قوت، نقاطِ کورت — در مدیر و رهبرِ مؤثربودن به مشکل می‌خوری."},
+      {en:"Ultimately, you are the foundation. You are the stability point and the foundation for your team and for your organization.", fa:"در نهایت، تو همان پایه‌ای. تو نقطهٔ ثبات و پایه‌ای برای تیم و سازمانت هستی."}
+    ],
+    media:[
+      { kind:'yt', id:'Mv0o9o4MRh0', src:{en:"YouTube · Lenny's Podcast", fa:"یوتیوب · Lenny's Podcast"},
+        title:{en:'Lessons from Scaling Stripe — Claire Hughes Johnson', fa:'درس‌هایی از بزرگ‌کردنِ استرایپ — کلر هیوز جانسون'},
+        desc:{en:'A deep, tactical interview with the ex-COO of Stripe on the ideas in the book.', fa:'یک مصاحبهٔ عمیق و تاکتیکی با معاونِ اجراییِ سابقِ استرایپ دربارهٔ ایده‌های کتاب.'},
+        bullets:{en:["Self-awareness and operating principles","How Stripe hired and managed at scale","Straight from the author"], fa:["خودآگاهی و اصولِ کاری","اینکه استرایپ چطور در مقیاس استخدام و مدیریت کرد","مستقیم از خودِ نویسنده"]},
+        best:{en:'Best for Stage 1–3.', fa:'خوب برای مرحلهٔ ۱ تا ۳.'} },
+      { kind:'yt', id:'Dofw-YiBfZI', src:{en:'YouTube · Newcomer', fa:'یوتیوب · Newcomer'},
+        title:{en:'Scaling People, with Claire Hughes Johnson', fa:'بزرگ‌کردنِ آدم‌ها، با کلر هیوز جانسون'},
+        desc:{en:'A conversation on company building and the tactics behind the book.', fa:'گفت‌وگویی دربارهٔ شرکت‌سازی و تاکتیک‌های پشتِ کتاب.'},
+        bullets:{en:["Why she wrote a tactical handbook","Foundations, hiring, and feedback","Good after a first read"], fa:["چرا یک کتابچهٔ تاکتیکی نوشت","پایه‌ها، استخدام، و بازخورد","خوب بعد از اولین خواندن"]},
+        best:{en:'Best for Stage 2–4.', fa:'خوب برای مرحلهٔ ۲ تا ۴.'} },
+      { kind:'yt', id:'Dswk83wBDd4', src:{en:'YouTube · Permanent Equity', fa:'یوتیوب · Permanent Equity'},
+        title:{en:'Claire Hughes Johnson — Scaling People', fa:'کلر هیوز جانسون — بزرگ‌کردنِ آدم‌ها'},
+        desc:{en:'A practical talk on management, feedback, and building durable teams.', fa:'یک گفت‌وگوی کاربردی دربارهٔ مدیریت، بازخورد، و ساختنِ تیم‌های ماندگار.'},
+        bullets:{en:["Management vs. leadership","Feedback and performance in practice","A solid, applied overview"], fa:["مدیریت در برابرِ رهبری","بازخورد و عملکرد در عمل","یک مرورِ محکم و کاربردی"]},
+        best:{en:'Best for Stage 3–4.', fa:'خوب برای مرحلهٔ ۳ و ۴.'} },
+      { kind:'img', url:'https://press.stripe.com/scaling-people',
+        src:{en:'Stripe Press · Publisher', fa:'نشرِ استرایپ · ناشر'},
+        title:{en:'Scaling People — Publisher Page', fa:'بزرگ‌کردنِ آدم‌ها — صفحهٔ ناشر'},
+        desc:{en:'The publisher page, with the book, excerpts, and free companion resources.', fa:'صفحهٔ ناشر، همراه با کتاب، بخش‌هایی از متن، و منابعِ رایگانِ همراه.'},
+        bullets:{en:["Overview and excerpts","Free templates and worksheets","Straight from the source"], fa:["مرور و بخش‌هایی از متن","قالب‌ها و کاربرگ‌های رایگان","مستقیم از خودِ منبع"]},
+        best:{en:'For the book and its toolkit.', fa:'برای کتاب و جعبه‌ابزارش.'} }
+    ],
+    go:[
+      {label:{en:'Publisher page (Stripe Press)', fa:'صفحهٔ ناشر (نشرِ استرایپ)'}, url:'https://press.stripe.com/scaling-people'},
+      {label:{en:'Book on Goodreads', fa:'کتاب در گودریدز'}, url:'https://www.goodreads.com/book/show/63063173-scaling-people'},
+      {label:{en:"Lenny's Podcast interview", fa:'مصاحبهٔ پادکستِ لنی'}, url:'https://www.lennyspodcast.com/lessons-from-scaling-stripe/'}
+    ],
+    recs:[
+      { pri:'b', t:{en:'Write down your work style', fa:'سبکِ کاری‌ات را بنویس'}, d:{en:"Name your strengths and blind spots, and share them with your team this week.", fa:'نقاطِ قوت و نقاطِ کورت را نام ببر، و این هفته با تیمت درمیانشان بگذار.'} },
+      { pri:'b', t:{en:"Say one thing you've been avoiding", fa:'یک حرفی که ازش طفره می‌رفتی را بزن'}, d:{en:'Kindly name the hard truth in your next one-on-one instead of letting it sit.', fa:'در جلسهٔ تک‌به‌تکِ بعدی‌ات حقیقتِ سخت را مهربانانه نام ببر، به‌جای اینکه بماند.'} },
+      { pri:'n', t:{en:'Turn one task into an outcome', fa:'یک کار را به یک نتیجه تبدیل کن'}, d:{en:"Take a goal that starts with a verb and rewrite it as the result you actually want.", fa:'یک هدف که با فعل شروع می‌شود را بردار و به آن نتیجه‌ای که واقعاً می‌خواهی بازنویسی‌اش کن.'} },
+      { pri:'n', t:{en:'Delegate one thing fully', fa:'یک چیز را کامل واگذار کن'}, d:{en:'Hand over a whole outcome and the authority to decide, then check in lightly.', fa:'یک نتیجهٔ کامل و اختیارِ تصمیم‌گیری را واگذار کن، بعد سبک پیگیری کن.'} }
+    ]
+  }
+};

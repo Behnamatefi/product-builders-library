@@ -1,0 +1,263 @@
+/* config: Amp It Up — Frank Slootman (Leadership) */
+module.exports = {
+  slug:"ampup", brand:"Amp It Up",
+  titleTag:"Amp It Up — نقشهٔ دانش و یادگیری ۵ مرحله‌ای",
+  W:980, H:780, R1:220, R2:126, span:66,
+  leafKickEn:"Move", leafKickFa:"حرکتِ",
+  flowEn:["Raise","Focus","Accelerate"], flowFa:["بالا بردن","تمرکز","شتاب"],
+
+  hero:`  <div class="eyebrow"><span class="edot"></span>
+    <span data-only="en">Book knowledge map · Frank Slootman</span>
+    <span data-only="fa">نقشهٔ کتاب · فرانک اسلوتمن</span>
+  </div>
+  <h1>
+    <span data-only="en">Amp It Up — Leading for Hypergrowth by Raising Expectations, Increasing Urgency, and Elevating Intensity</span>
+    <span data-only="fa">آمپش را ببر بالا — رهبری برای رشدِ انفجاری با بالا بردنِ انتظارها، افزایشِ فوریت و بالا بردنِ شدت</span>
+  </h1>
+  <p class="dek">
+    <span data-only="en">A knowledge graph of the whole book, plus a 5-stage path from a single sentence to expert-level mastery — with an example at every step.</span>
+    <span data-only="fa">نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از یک جملهٔ ساده تا تسلطِ حرفه‌ای — با یک مثال در هر مرحله.</span>
+  </p>
+  <div class="metastrip">
+    <div class="metaitem"><span class="mk" data-only="en">Book</span><span class="mk" data-only="fa">کتاب</span>
+      <span class="mv" data-only="en">Amp It Up</span><span class="mv" data-only="fa">آمپش را ببر بالا</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Author</span><span class="mk" data-only="fa">نویسنده</span>
+      <span class="mv" data-only="en">Frank Slootman</span><span class="mv" data-only="fa">فرانک اسلوتمن</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Published</span><span class="mk" data-only="fa">سالِ چاپ</span>
+      <span class="mv" data-only="en">2022</span><span class="mv" data-only="fa">۲۰۲۲</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Group</span><span class="mk" data-only="fa">گروه</span>
+      <span class="mv" data-only="en">Leadership</span><span class="mv" data-only="fa">رهبری</span></div>
+  </div>
+  <div class="chips">
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Parts</span><span data-only="fa">بخش</span></div>
+    <div class="chip"><b data-only="en">16</b><b data-only="fa">۱۶</b><span data-only="en">Moves</span><span data-only="fa">حرکت</span></div>
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Learning stages</span><span data-only="fa">مرحلهٔ یادگیری</span></div>
+  </div>`,
+
+  callout:`    <b data-only="en">The core idea:</b>
+    <b data-only="fa">ایدهٔ اصلی:</b>
+    <span data-only="en"> Take whatever you're already doing and <i>amp it up</i> — raise your standards, sharpen focus to a few priorities, and move with real urgency. Most teams have far more potential than they use; the leader's job is to turn up the intensity and refuse mediocrity.</span>
+    <span data-only="fa"> هر کاری که همین حالا داری می‌کنی را بردار و <i>آمپش را ببر بالا</i> — استانداردت را بالا ببر، تمرکزت را روی چند اولویت تیز کن، و با فوریتِ واقعی حرکت کن. بیشترِ تیم‌ها خیلی بیشتر از چیزی که استفاده می‌کنند توان دارند؛ کارِ رهبر این است که شدت را ببرد بالا و به کارِ متوسط تن ندهد.</span>`,
+
+  kpis:`    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Parts (standards · alignment · focus · pace · culture)</div><div class="l" data-only="fa">بخش (استاندارد · هم‌سویی · تمرکز · سرعت · فرهنگ)</div></div>
+    <div class="kbox"><div class="v" data-only="en">16</div><div class="v" data-only="fa">۱۶</div><div class="l" data-only="en">Moves you can make</div><div class="l" data-only="fa">حرکت که می‌توانی انجام بدهی</div></div>
+    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Levels, simple → expert</div><div class="l" data-only="fa">مرحله، ساده تا حرفه‌ای</div></div>
+    <div class="kbox"><div class="v" data-only="en">1</div><div class="v" data-only="fa">۱</div><div class="l" data-only="en">Real priority at a time, not many</div><div class="l" data-only="fa">یک اولویتِ واقعی در هر زمان، نه چندتا</div></div>`,
+
+  mapcallout:`      <b data-only="en">Read it as a flow:</b><b data-only="fa">به‌صورتِ یک جریان بخوانش:</b>
+      <span data-only="en"> First <b>raise</b> standards and align everyone, then <b>focus</b> on a few priorities, then <b>accelerate</b> — pick up urgency and intensity — and finally lift ambition and put drivers, not passengers, in the seats.</span>
+      <span data-only="fa"> اول استانداردها را <b>ببر بالا</b> و همه را هم‌سو کن، بعد روی چند اولویت <b>تمرکز</b> کن، بعد <b>شتاب بگیر</b> — فوریت و شدت را بالا ببر — و آخرش هم جاه‌طلبی را بالا ببر و آدم‌های راننده را، نه مسافر، پشتِ فرمان بنشان.</span>`,
+
+  methodFa:"<p><b>منبع:</b> کتابِ «Amp It Up» نوشتهٔ فرانک اسلوتمن (مدیرعاملِ اسنوفلیک)، چاپِ ۲۰۲۲، انتشاراتِ Wiley.</p><p><b>روشِ کار:</b> ساختارِ پنج‌بخشی و حرکت‌ها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده؛ نقل‌قول‌ها با متن مقابله و ویدیوها بررسی شده‌اند.</p><p><b>گروه:</b> «رهبری» — کتابی دربارهٔ رهبریِ اجرا و رشدِ سریع.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای متنِ کامل، خودِ کتاب را بخوان.</p>",
+  methodEn:"<p><b>Source:</b> the book <i>Amp It Up</i> by Frank Slootman (CEO of Snowflake), published 2022 by Wiley.</p><p><b>How this was built:</b> the five-part structure and moves were gathered and rewritten from the book and reputable sources; quotes were cross-checked and the linked videos verified.</p><p><b>Group:</b> Leadership — a book about the leadership of execution and fast growth.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>",
+
+  data:{
+    tldr:[
+      {en:"The whole book in one line: take what you're already doing and amp it up — more intensity, higher standards, more urgency.",
+       fa:"خلاصهٔ کل کتاب در یک جمله: هر کاری که همین حالا می‌کنی را بردار و آمپش را ببر بالا — شدتِ بیشتر، استانداردِ بالاتر، فوریتِ بیشتر."},
+      {en:"Raising expectations costs nothing and changes everything — most teams perform far below their real potential.",
+       fa:"بالا بردنِ انتظارها هیچ خرجی ندارد و همه‌چیز را عوض می‌کند — بیشترِ تیم‌ها خیلی پایین‌تر از توانِ واقعی‌شان کار می‌کنند."},
+      {en:"<b>“Priority” is singular</b>: do fewer things, decide what <i>not</i> to do, and put your best people on the one that matters.",
+       fa:"<b>«اولویت» مفرد است</b>: کمتر کار کن، تصمیم بگیر چه‌کاری را <i>نکنی</i>، و بهترین آدم‌هایت را روی همان یک چیزِ مهم بگذار."},
+      {en:"Speed and urgency are <b>choices, not resources</b> — you can almost always move faster than feels normal.",
+       fa:"سرعت و فوریت <b>انتخاب‌اند، نه منبع</b> — تقریباً همیشه می‌توانی سریع‌تر از چیزی که عادی به‌نظر می‌رسد حرکت کنی."},
+      {en:"Culture follows: lift ambition, hire drivers not passengers, and remember <b>no strategy is better than its execution</b>.",
+       fa:"فرهنگ دنبال می‌آید: جاه‌طلبی را بالا ببر، راننده استخدام کن نه مسافر، و یادت باشد <b>هیچ استراتژی‌ای بهتر از اجرایش نیست</b>."}
+    ],
+    parts:[
+      { key:'raise', varc:'--c-teal', name:{en:'Raise Your Standards', fa:'استانداردت را بالا ببر'}, tag:{en:'The mindset shift', fa:'تغییرِ نگرش'},
+        gist:{en:'Amp up expectations and declare war on mediocrity.', fa:'انتظارها را ببر بالا و با کارِ متوسط بجنگ.'},
+        more:{en:"Everything starts here. Raising the bar costs nothing but changes what your team believes is possible; most people rise to the standard you set out loud, and no higher.",
+              fa:"همه‌چیز از این‌جا شروع می‌شود. بالا بردنِ استاندارد هیچ خرجی ندارد ولی باورِ تیمت را دربارهٔ اینکه چه چیزی ممکن است عوض می‌کند؛ بیشترِ آدم‌ها تا همان سطحی که با صدای بلند تعیین می‌کنی بالا می‌آیند، نه بالاتر."},
+        chapters:['ampup','mediocrity','standards','excellence'] },
+      { key:'align', varc:'--c-blue', name:{en:'Align the Whole Company', fa:'کلِ شرکت را هم‌سو کن'}, tag:{en:'One direction', fa:'یک جهت'},
+        gist:{en:'Get everyone on the same page and make priorities explicit.', fa:'همه را روی یک خط بیاور و اولویت‌ها را روشن کن.'},
+        more:{en:"Speed without alignment just scatters energy. Say out loud what matters most, repeat it until it's boring, and make sure the same priorities are understood from the top to the front line.",
+              fa:"سرعت بدونِ هم‌سویی فقط انرژی را پخش‌وپلا می‌کند. با صدای بلند بگو چه چیزی از همه مهم‌تر است، آن‌قدر تکرارش کن که خسته‌کننده شود، و مطمئن شو همان اولویت‌ها از بالا تا خطِ مقدم فهمیده شده‌اند."},
+        chapters:['sameplane','priorities','overcommunicate'] },
+      { key:'focus', varc:'--c-amber', name:{en:'Sharpen Your Focus', fa:'تمرکزت را تیز کن'}, tag:{en:'Do fewer things', fa:'کمتر انجام بده'},
+        gist:{en:'Do fewer things, narrow the priorities, and decide what not to do.', fa:'کمتر انجام بده، اولویت‌ها را کم کن، و تصمیم بگیر چه‌کاری را نکنی.'},
+        more:{en:"Focus is a force multiplier. The moment you have many priorities you have none — so cut the list hard, put your best people on the few things that matter, and protect them from everything else.",
+              fa:"تمرکز، ضریبِ نیروست. لحظه‌ای که چند اولویت داری، هیچ اولویتی نداری — پس فهرست را قاطعانه کوتاه کن، بهترین آدم‌هایت را روی همان چند چیزِ مهم بگذار، و از بقیهٔ چیزها حفظشان کن."},
+        chapters:['fewerthings','onepriority','notdo'] },
+      { key:'pace', varc:'--c-violet', name:{en:'Pick Up the Pace', fa:'سرعت را ببر بالا'}, tag:{en:'Urgency & intensity', fa:'فوریت و شدت'},
+        gist:{en:'Treat urgency, intensity, and speed as choices you make.', fa:'فوریت، شدت و سرعت را تصمیم‌هایی بدان که خودت می‌گیری.'},
+        more:{en:"Time is not your friend. Most deadlines can be shorter, most work can move faster, and the pace of the leader sets the pace of the company — so raise it on purpose.",
+              fa:"زمان دوستِ تو نیست. بیشترِ مهلت‌ها می‌توانند کوتاه‌تر باشند، بیشترِ کارها می‌توانند سریع‌تر پیش بروند، و سرعتِ رهبر، سرعتِ شرکت را تعیین می‌کند — پس عمداً ببرش بالا."},
+        chapters:['urgency','speed','intensity'] },
+      { key:'transform', varc:'--c-green', name:{en:'Transform Strategy & Culture', fa:'استراتژی و فرهنگ را دگرگون کن'}, tag:{en:'Ambition & people', fa:'جاه‌طلبی و آدم‌ها'},
+        gist:{en:'Elevate ambition and hire drivers, not passengers.', fa:'جاه‌طلبی را بالا ببر و آدم‌های راننده استخدام کن، نه مسافر.'},
+        more:{en:"Big ambition attracts big talent and forces sharper strategy. Go after the largest opportunity you can, put people who own outcomes in charge, and remember: no strategy is better than its execution.",
+              fa:"جاه‌طلبیِ بزرگ، استعدادِ بزرگ را جذب می‌کند و استراتژی را تیزتر می‌کند. دنبالِ بزرگ‌ترین فرصتی که می‌توانی برو، آدم‌هایی را که مسئولیتِ نتیجه را می‌پذیرند سرِ کار بگذار، و یادت باشد: هیچ استراتژی‌ای بهتر از اجرایش نیست."},
+        chapters:['ambition','drivers','execution'] }
+    ],
+    chapters:{
+      ampup:{ part:'raise', n:1, name:{en:'Amp It Up', fa:'آمپش را ببر بالا'}, glabel:{en:'Amp It Up', fa:'آمپ'},
+        principle:{en:"Take whatever you're already doing and turn up the intensity — more energy, higher expectations, faster action.", fa:"هر کاری که همین حالا می‌کنی را بردار و شدتش را ببر بالا — انرژیِ بیشتر، انتظارِ بالاتر، اقدامِ سریع‌تر."},
+        more:{en:"You rarely need a new strategy; you need more intensity behind the one you have. Amping up is a decision a leader can make on any ordinary Monday, and it changes the whole tempo of the team.", fa:"خیلی کم پیش می‌آید که به استراتژیِ نو نیاز داشته باشی؛ به شدتِ بیشتر پشتِ همان استراتژی نیاز داری. بالا بردنِ آمپ تصمیمی است که رهبر در هر دوشنبهٔ معمولی می‌تواند بگیرد، و کلِ ریتمِ تیم را عوض می‌کند."},
+        example:{en:"Slootman turned companies around not by changing the plan but by raising the energy, standards, and speed around it.", fa:"اسلوتمن شرکت‌ها را نه با عوض‌کردنِ نقشه، بلکه با بالا بردنِ انرژی، استاندارد و سرعتِ دورِ آن، زیر و رو کرد."},
+        tip:{en:"Pick one thing your team does at an okay level this week and demand it be done at a high level instead.", fa:"این هفته یک کار را که تیمت در حدِ «بد نیست» انجام می‌دهد انتخاب کن و به‌جایش سطحِ بالا بخواه."},
+        pitfall:{en:"Waiting for a grand new strategy while the real problem is low energy and low expectations.", fa:"منتظرِ یک استراتژیِ بزرگِ جدید ماندن، درحالی‌که مشکلِ واقعی انرژیِ کم و انتظارِ کم است."} },
+      mediocrity:{ part:'raise', n:2, name:{en:'Declare War on Mediocrity', fa:'با کارِ متوسط اعلانِ جنگ کن'}, glabel:{en:'Anti-Mediocrity', fa:'ضدِ متوسط'},
+        principle:{en:"Refuse “good enough.” Treat mediocre work as a problem to attack, not a normal state to tolerate.", fa:"به «به‌اندازهٔ کافی خوب» تن نده. کارِ متوسط را مشکلی بدان که باید به آن حمله کنی، نه حالتی عادی که تحملش کنی."},
+        more:{en:"Mediocrity spreads quietly when leaders let it pass. Naming it, calling it out, and expecting better resets what the team thinks is acceptable — and that reset is contagious in a good way.", fa:"کارِ متوسط بی‌سروصدا پخش می‌شود وقتی رهبرها از کنارش رد می‌شوند. اسم‌بردن از آن، تذکر دادنش، و انتظارِ بهتر، این را که تیم چه چیزی را قابل‌قبول می‌داند از نو تنظیم می‌کند — و این تنظیمِ تازه به شکلِ خوبی مسری است."},
+        example:{en:"A report that's “fine” gets sent back with a clear bar for what excellent would look like.", fa:"گزارشی که «بد نیست» است، با یک معیارِ روشن از اینکه عالی چه شکلی است، پس فرستاده می‌شود."},
+        tip:{en:"Next time you almost say “that's fine,” stop and say what a great version would look like.", fa:"دفعهٔ بعد که نزدیک است بگویی «خوبه»، بایست و بگو نسخهٔ عالی‌اش چه شکلی است."},
+        pitfall:{en:"Letting “good enough” slide to keep the peace, until it becomes the standard.", fa:"رها کردنِ «به‌اندازهٔ کافی خوب» برای حفظِ آرامش، تا وقتی که خودش می‌شود استاندارد."} },
+      standards:{ part:'raise', n:3, name:{en:'Raise Your Standards', fa:'استانداردت را بالا ببر'}, glabel:{en:'Standards', fa:'استاندارد'},
+        principle:{en:"Set the bar higher than feels comfortable; people usually rise to the expectation you make explicit.", fa:"معیار را بالاتر از چیزی که راحت است بگذار؛ آدم‌ها معمولاً تا همان انتظاری که روشن بیان می‌کنی بالا می‌آیند."},
+        more:{en:"Higher standards cost nothing and are the cheapest performance upgrade a leader has. The trick is to raise them out loud and then hold the line, instead of hoping people guess what you want.", fa:"استانداردِ بالاتر هیچ خرجی ندارد و ارزان‌ترین ارتقای عملکردی است که یک رهبر دارد. رمزش این است که با صدای بلند بالایشان ببری و بعد پایش بایستی، نه اینکه امید داشته باشی آدم‌ها حدس بزنند چه می‌خواهی."},
+        example:{en:"Announcing “we ship this at world-class quality, not just done” changes how the whole team works on it.", fa:"گفتنِ «این را در کیفیتِ جهانی می‌فرستیم، نه فقط تمام‌شده» عوض می‌کند که کلِ تیم چطور رویش کار می‌کند."},
+        tip:{en:"Say your standard for one deliverable in a single sentence, out loud, before work starts.", fa:"استانداردت برای یک خروجی را در یک جمله، با صدای بلند، قبل از شروعِ کار بگو."},
+        pitfall:{en:"Keeping high standards in your head and feeling let down when no one meets them.", fa:"استانداردِ بالا را توی سرت نگه‌داشتن و بعد دلخور شدن که چرا کسی به آن نمی‌رسد."} },
+      excellence:{ part:'raise', n:4, name:{en:'Expect Excellence', fa:'انتظارِ عالی‌بودن داشته باش'}, glabel:{en:'Excellence', fa:'عالی‌بودن'},
+        principle:{en:"Make excellence the default expectation, not a rare bonus reserved for special projects.", fa:"عالی‌بودن را انتظارِ پیش‌فرض کن، نه جایزه‌ای نادر که فقط برای پروژه‌های خاص کنار گذاشته شده."},
+        more:{en:"When excellence is normal, average work starts to feel out of place. This isn't about pressure for its own sake; it's about respecting the team enough to believe they can do great work — and asking for it.", fa:"وقتی عالی‌بودن عادی است، کارِ متوسط شروع می‌کند به بی‌جا به‌نظر رسیدن. این دربارهٔ فشار به‌خاطرِ خودِ فشار نیست؛ دربارهٔ این است که آن‌قدر به تیم احترام بگذاری که باور کنی می‌توانند کارِ عالی کنند — و از آن‌ها بخواهی‌اش."},
+        example:{en:"A team that treats every release as a chance to be excellent outperforms one that just clears the bug list.", fa:"تیمی که هر انتشار را فرصتی برای عالی‌بودن می‌داند، از تیمی که فقط فهرستِ باگ‌ها را تمام می‌کند بهتر عمل می‌کند."},
+        tip:{en:"Praise the specific thing that made a piece of work excellent, so people know what to repeat.", fa:"همان چیزِ مشخصی که یک کار را عالی کرد تحسین کن، تا آدم‌ها بدانند چه چیزی را تکرار کنند."},
+        pitfall:{en:"Rewarding effort and busyness instead of the quality of the result.", fa:"پاداش‌دادن به تلاش و مشغول‌بودن، به‌جای کیفیتِ نتیجه."} },
+      sameplane:{ part:'align', n:5, name:{en:'Get Everyone on the Same Page', fa:'همه را روی یک خط بیاور'}, glabel:{en:'Alignment', fa:'هم‌سویی'},
+        principle:{en:"Alignment means every team is pointed at the same goal and knows how their work connects to it.", fa:"هم‌سویی یعنی هر تیم به همان هدفِ واحد نشانه رفته و می‌داند کارش چطور به آن وصل می‌شود."},
+        more:{en:"Smart people pulling in slightly different directions waste enormous energy. The leader's job is to make the shared destination so clear that everyone can check their own work against it.", fa:"آدم‌های باهوش که هرکدام کمی به سمتِ متفاوتی می‌کشند، انرژیِ عظیمی را هدر می‌دهند. کارِ رهبر این است که مقصدِ مشترک را آن‌قدر روشن کند که هرکس بتواند کارِ خودش را با آن بسنجد."},
+        example:{en:"Every team can state the company's top goal this quarter in the same words.", fa:"هر تیم می‌تواند هدفِ اصلیِ شرکت در این فصل را با همان کلمات بگوید."},
+        tip:{en:"Ask three people on different teams what the top priority is; if answers differ, you have an alignment problem.", fa:"از سه نفر در تیم‌های مختلف بپرس اولویتِ اصلی چیست؛ اگر جواب‌ها فرق داشت، مشکلِ هم‌سویی داری."},
+        pitfall:{en:"Assuming people are aligned because no one is arguing.", fa:"فرض کردن اینکه آدم‌ها هم‌سو هستند چون کسی بحث نمی‌کند."} },
+      priorities:{ part:'align', n:6, name:{en:'Spell Out the Priorities', fa:'اولویت‌ها را مو به مو بگو'}, glabel:{en:'Priorities', fa:'اولویت‌ها'},
+        principle:{en:"Say exactly what matters most, in plain words; don't assume it's obvious.", fa:"دقیقاً بگو چه چیزی از همه مهم‌تر است، با زبانِ ساده؛ فرض نکن که واضح است."},
+        more:{en:"Priorities that are clear at the top get blurrier at every level below. If you don't spell them out precisely, they arrive at the front line distorted or lost — so over-specify on purpose.", fa:"اولویت‌هایی که بالا روشن‌اند، در هر سطحِ پایین‌تر تارتر می‌شوند. اگر دقیق بیانشان نکنی، به خطِ مقدم که می‌رسند تحریف‌شده یا گم‌شده‌اند — پس عمداً بیش‌ازحد دقیق باش."},
+        example:{en:"“Ship X by March and hit Y quality” beats a vague “let's focus on the product.”", fa:"«X را تا مارس بفرست و به کیفیتِ Y برس» از «بیایید روی محصول تمرکز کنیم»ِ مبهم بهتر است."},
+        tip:{en:"Write your top priority in one specific sentence a new hire could understand.", fa:"اولویتِ اصلی‌ات را در یک جملهٔ مشخص بنویس که یک تازه‌واردْ هم بفهمدش."},
+        pitfall:{en:"Fuzzy priorities that everyone nods at and no one can act on.", fa:"اولویت‌های مبهمی که همه سرشان را تکان می‌دهند و هیچ‌کس نمی‌تواند رویشان اقدام کند."} },
+      overcommunicate:{ part:'align', n:7, name:{en:'Over-Communicate the Message', fa:'پیام را بیش‌ازحد تکرار کن'}, glabel:{en:'Repeat It', fa:'تکرار'},
+        principle:{en:"Repeat the direction far more than feels necessary — by the time it's boring to you, it's just landing for them.", fa:"جهت را خیلی بیشتر از چیزی که لازم به‌نظر می‌رسد تکرار کن — وقتی برای تو خسته‌کننده شد، تازه دارد به آن‌ها می‌رسد."},
+        more:{en:"A message you've said three times feels overdone to you and is brand-new to half the room. Consistent repetition, in the same words, is how a direction becomes something the whole company actually shares.", fa:"پیامی که سه بار گفته‌ای برای تو زیادی به‌نظر می‌رسد و برای نصفِ اتاق کاملاً تازه است. تکرارِ یک‌دست، با همان کلمات، همان راهی است که یک جهت به چیزی تبدیل می‌شود که کلِ شرکت واقعاً در آن شریک است."},
+        example:{en:"The same three priorities show up in every all-hands, every update, every review.", fa:"همان سه اولویت در هر جلسهٔ عمومی، هر به‌روزرسانی، هر بازبینی پیدایشان می‌شود."},
+        tip:{en:"Put your top priority in the same words at the start of every team meeting this month.", fa:"این ماه، اولویتِ اصلی‌ات را با همان کلمات اولِ هر جلسهٔ تیمی بگو."},
+        pitfall:{en:"Saying something important once and assuming it stuck.", fa:"یک چیزِ مهم را یک‌بار گفتن و فرض کردن که جا افتاد."} },
+      fewerthings:{ part:'focus', n:8, name:{en:'Do Fewer Things', fa:'کارهای کمتری انجام بده'}, glabel:{en:'Fewer Things', fa:'کمتر'},
+        principle:{en:"Concentrate effort on a short list; spreading thin across many projects guarantees weak results everywhere.", fa:"تلاش را روی یک فهرستِ کوتاه متمرکز کن؛ پخش‌شدن روی پروژه‌های زیاد، نتیجهٔ ضعیف را همه‌جا تضمین می‌کند."},
+        more:{en:"Doing fewer things well beats doing many things adequately. Cutting projects feels risky, but a focused team moving fast on a few bets almost always outperforms a busy team inching everything forward.", fa:"کمتر کار کردن ولی خوب، از زیاد کار کردنِ متوسط بهتر است. کم‌کردنِ پروژه‌ها ترسناک به‌نظر می‌رسد، ولی یک تیمِ متمرکز که روی چند شرط سریع می‌دود، تقریباً همیشه از یک تیمِ شلوغ که همه‌چیز را ذره‌ذره جلو می‌برد بهتر عمل می‌کند."},
+        example:{en:"Cutting a roadmap from twelve initiatives to three often ships more real value, sooner.", fa:"کم‌کردنِ نقشهٔ راه از دوازده اقدام به سه‌تا، اغلب ارزشِ واقعیِ بیشتری را زودتر می‌رساند."},
+        tip:{en:"List everything in flight, then cross out until only the few that truly matter remain.", fa:"هر چیزی که در جریان است را فهرست کن، بعد آن‌قدر خط بزن تا فقط همان چند تای واقعاً مهم بماند."},
+        pitfall:{en:"Keeping every project alive so no one is disappointed, and finishing none of them well.", fa:"زنده نگه‌داشتنِ هر پروژه تا کسی ناامید نشود، و هیچ‌کدام را خوب تمام نکردن."} },
+      onepriority:{ part:'focus', n:9, name:{en:'One Priority, Not Many', fa:'یک اولویت، نه چندتا'}, glabel:{en:'One Priority', fa:'یک اولویت'},
+        principle:{en:"“Priority” is meant to be singular; the moment you have many, you effectively have none.", fa:"«اولویت» قرار است مفرد باشد؛ لحظه‌ای که چندتا داری، در عمل هیچ‌کدام را نداری."},
+        more:{en:"A long list of “priorities” is really a way of avoiding the hard choice. Naming the single most important thing tells everyone what wins when there's a conflict — and there's always a conflict.", fa:"یک فهرستِ بلند از «اولویت‌ها» در واقع راهی است برای فرار از انتخابِ سخت. اسم‌بردن از تنها مهم‌ترین چیز، به همه می‌گوید وقتی تعارض پیش بیاید چه چیزی برنده می‌شود — و همیشه تعارض پیش می‌آید."},
+        example:{en:"When two urgent things collide, the team already knows which one the whole company backs.", fa:"وقتی دو چیزِ فوری به هم می‌خورند، تیم از قبل می‌داند کلِ شرکت پشتِ کدام‌یک است."},
+        tip:{en:"If you have five priorities, force-rank them and treat number one as the real one.", fa:"اگر پنج اولویت داری، به‌زور رتبه‌بندی‌شان کن و شمارهٔ یک را اولویتِ واقعی بدان."},
+        pitfall:{en:"Calling everything a priority so nothing can actually be deprioritized.", fa:"همه‌چیز را اولویت نامیدن، تا هیچ‌چیز واقعاً نتواند از اولویت بیفتد."} },
+      notdo:{ part:'focus', n:10, name:{en:'Decide What Not to Do', fa:'تصمیم بگیر چه‌کاری را نکنی'}, glabel:{en:'What Not to Do', fa:'نکردن'},
+        principle:{en:"Focus is defined by what you say no to; a real priority list has a real “not doing” list beside it.", fa:"تمرکز با چیزی که به آن نه می‌گویی تعریف می‌شود؛ یک فهرستِ اولویتِ واقعی، یک فهرستِ «انجام‌نمی‌دهیم»ِ واقعی هم کنارش دارد."},
+        more:{en:"Every yes is a no to something else, whether you admit it or not. Deciding out loud what you won't do frees your best people and stops good-looking distractions from eating the plan.", fa:"هر «بله» یک «نه» به چیزِ دیگری است، چه اعترافش کنی چه نکنی. تصمیم‌گرفتنِ باصدای بلند دربارهٔ کاری که نمی‌کنی، بهترین آدم‌هایت را آزاد می‌کند و نمی‌گذارد حواس‌پرتی‌های خوش‌ظاهر نقشه را بخورند."},
+        example:{en:"A “not now” list for tempting features keeps the team from quietly picking them up.", fa:"یک فهرستِ «الان نه» برای قابلیت‌های وسوسه‌انگیز، نمی‌گذارد تیم بی‌سروصدا سراغشان برود."},
+        tip:{en:"For every priority you set, name one thing you'll stop or postpone to protect it.", fa:"برای هر اولویتی که می‌گذاری، یک چیز را نام ببر که برای حفاظت از آن متوقف یا عقب می‌اندازی."},
+        pitfall:{en:"Adding new priorities without ever removing old ones.", fa:"اضافه‌کردنِ اولویت‌های جدید بدونِ اینکه هیچ‌وقت قدیمی‌ها را برداری."} },
+      urgency:{ part:'pace', n:11, name:{en:'Increase the Urgency', fa:'فوریت را بالا ببر'}, glabel:{en:'Urgency', fa:'فوریت'},
+        principle:{en:"Treat time as scarce and competition as real; act now rather than when it's comfortable.", fa:"زمان را کمیاب و رقیب را واقعی بدان؛ همین حالا اقدام کن، نه وقتی که راحت است."},
+        more:{en:"Time is not your friend — deals cool off, competitors move, momentum fades. A leader who treats most things as more urgent than the team assumed pulls decisions and delivery forward by weeks.", fa:"زمان دوستِ تو نیست — معامله‌ها سرد می‌شوند، رقیب‌ها حرکت می‌کنند، شتاب فروکش می‌کند. رهبری که بیشترِ چیزها را فوری‌تر از آنچه تیم فرض کرده می‌داند، تصمیم‌ها و تحویل را هفته‌ها جلو می‌کشد."},
+        example:{en:"Turning a “next quarter” decision into a “this week” decision, on purpose.", fa:"تبدیلِ عمدیِ یک تصمیمِ «فصلِ بعد» به تصمیمِ «همین هفته»."},
+        tip:{en:"Take one deadline on your list and ask honestly, “why not sooner?”", fa:"یک مهلت از فهرستت را بردار و صادقانه بپرس: «چرا زودتر نه؟»"},
+        pitfall:{en:"Letting default timelines stand just because no one questioned them.", fa:"رها کردنِ زمان‌بندی‌های پیش‌فرض فقط به این خاطر که کسی زیرِ سوال نبردشان."} },
+      speed:{ part:'pace', n:12, name:{en:'Speed Is a Choice', fa:'سرعت یک انتخاب است'}, glabel:{en:'Speed', fa:'سرعت'},
+        principle:{en:"Moving fast is a decision, not a resource you wait for; you can almost always go faster than feels normal.", fa:"سریع حرکت کردن یک تصمیم است، نه منبعی که منتظرش بمانی؛ تقریباً همیشه می‌توانی سریع‌تر از چیزی که عادی به‌نظر می‌رسد بروی."},
+        more:{en:"People treat the current pace as fixed, but it's mostly habit. When a leader asks “why not faster?” and means it, work that seemed to need a month often gets done well in a week.", fa:"آدم‌ها سرعتِ فعلی را ثابت فرض می‌کنند، ولی بیشترش عادت است. وقتی رهبری می‌پرسد «چرا سریع‌تر نه؟» و واقعاً منظورش همین است، کاری که انگار یک ماه لازم داشت، اغلب در یک هفته خوب انجام می‌شود."},
+        example:{en:"Compressing a launch timeline in half and discovering the team can actually hit it.", fa:"نصف‌کردنِ زمان‌بندیِ یک عرضه و کشفِ اینکه تیم واقعاً می‌تواند به آن برسد."},
+        tip:{en:"Pick one task and ask what it would take to finish it in half the time.", fa:"یک کار را انتخاب کن و بپرس چه لازم است تا در نصفِ زمان تمامش کنی."},
+        pitfall:{en:"Confusing “we've always taken this long” with “this is how long it takes.”", fa:"اشتباه‌گرفتنِ «همیشه این‌قدر طول کشیده» با «این‌قدر طول می‌کشد»."} },
+      intensity:{ part:'pace', n:13, name:{en:'Raise the Intensity', fa:'شدت را بالا ببر'}, glabel:{en:'Intensity', fa:'شدت'},
+        principle:{en:"Bring sustained, focused energy to the work; intensity is the fuel that turns standards and urgency into results.", fa:"انرژیِ پایدار و متمرکز به کار بیاور؛ شدت همان سوختی است که استاندارد و فوریت را به نتیجه تبدیل می‌کند."},
+        more:{en:"Intensity isn't frantic busyness or long hours for their own sake — it's the whole team caring hard about the outcome and pushing on what matters. The leader sets this temperature more than anyone.", fa:"شدت یعنی مشغولیتِ سراسیمه یا ساعت‌های طولانی به‌خاطرِ خودش نیست — یعنی کلِ تیم سختْ به نتیجه اهمیت بدهد و روی چیزی که مهم است فشار بیاورد. رهبر بیشتر از هرکسی این دما را تعیین می‌کند."},
+        example:{en:"A leader who shows visible energy about the goal raises the energy of everyone around the table.", fa:"رهبری که دربارهٔ هدف انرژیِ آشکار نشان می‌دهد، انرژیِ همهٔ کسانی که دورِ میزند را بالا می‌برد."},
+        tip:{en:"Show up to the meeting about your top goal with visibly more energy than usual.", fa:"با انرژیِ آشکارا بیشتر از همیشه به جلسهٔ هدفِ اصلی‌ات برو."},
+        pitfall:{en:"Mistaking a calm, low-energy meeting for a productive one.", fa:"اشتباه‌گرفتنِ یک جلسهٔ آرام و کم‌انرژی با یک جلسهٔ پربازده."} },
+      ambition:{ part:'transform', n:14, name:{en:'Elevate Your Ambition', fa:'جاه‌طلبی‌ات را بالا ببر'}, glabel:{en:'Ambition', fa:'جاه‌طلبی'},
+        principle:{en:"Aim at the biggest opportunity you can credibly go after; big goals sharpen strategy and attract strong people.", fa:"بزرگ‌ترین فرصتی که به‌شکلِ باورپذیر می‌توانی دنبالش بروی را هدف بگیر؛ هدف‌های بزرگ استراتژی را تیز می‌کنند و آدم‌های قوی را جذب می‌کنند."},
+        more:{en:"Small ambitions produce small plans and attract people who want an easy ride. A bold destination forces harder thinking about strategy and draws the kind of talent that wants to build something that matters.", fa:"جاه‌طلبیِ کوچک، نقشهٔ کوچک می‌سازد و آدم‌هایی را جذب می‌کند که سواریِ راحت می‌خواهند. یک مقصدِ جسورانه، فکرِ سخت‌تری دربارهٔ استراتژی را مجبور می‌کند و همان جور استعدادی را می‌کشد که می‌خواهد چیزی بسازد که مهم است."},
+        example:{en:"Choosing to build the category leader, not a comfortable niche player, changes every decision after it.", fa:"انتخابِ ساختنِ رهبرِ بازار، نه یک بازیگرِ گوشه‌ای و راحت، هر تصمیمِ بعد از آن را عوض می‌کند."},
+        tip:{en:"Ask if your current goal is the biggest one you could believe in — and if not, why.", fa:"بپرس آیا هدفِ فعلی‌ات بزرگ‌ترین هدفی است که می‌توانی به آن باور داشته باشی — و اگر نه، چرا."},
+        pitfall:{en:"Setting safe, modest targets that quietly cap what the team will ever reach.", fa:"گذاشتنِ هدف‌های امن و کوچک که بی‌سروصدا سقفِ چیزی که تیم به آن می‌رسد را تعیین می‌کنند."} },
+      drivers:{ part:'transform', n:15, name:{en:'Hire Drivers, Not Passengers', fa:'راننده استخدام کن، نه مسافر'}, glabel:{en:'Drivers', fa:'راننده‌ها'},
+        principle:{en:"Hire people who take ownership and move the dial, and move the wrong people out of the seats.", fa:"آدم‌هایی را استخدام کن که مسئولیت را به دست می‌گیرند و عقربه را جابه‌جا می‌کنند، و آدم‌های نادرست را از صندلی بیرون بیاور."},
+        more:{en:"Drivers own outcomes, push for decisions, and make things happen; passengers wait to be told and coast on others' energy. A few drivers in the right seats change the pace of an entire company.", fa:"راننده‌ها مسئولیتِ نتیجه را می‌پذیرند، برای تصمیم فشار می‌آورند، و کارها را پیش می‌برند؛ مسافرها منتظرِ دستورند و روی انرژیِ دیگران سُر می‌خورند. چند راننده در صندلی‌های درست، سرعتِ کلِ یک شرکت را عوض می‌کنند."},
+        example:{en:"Celebrate the person who owns a problem end to end over the one who just attends the meetings.", fa:"کسی را که یک مشکل را از اول تا آخر مالِ خودش می‌داند، بیشتر از کسی که فقط در جلسه‌ها حاضر می‌شود تحسین کن."},
+        tip:{en:"For a key role, ask in the interview for a time they drove an outcome without being told to.", fa:"برای یک نقشِ کلیدی، در مصاحبه بخواه یک بار را بگویند که بدونِ اینکه بهشان گفته شود یک نتیجه را جلو بردند."},
+        pitfall:{en:"Keeping pleasant, passive people in critical seats because moving them is awkward.", fa:"نگه‌داشتنِ آدم‌های خوش‌برخورد و منفعل در صندلی‌های حیاتی، چون جابه‌جا کردنشان معذب‌کننده است."} },
+      execution:{ part:'transform', n:16, name:{en:'Execution Beats Strategy', fa:'اجرا از استراتژی جلو می‌زند'}, glabel:{en:'Execution', fa:'اجرا'},
+        principle:{en:"A good plan poorly executed loses to an okay plan executed with intensity; no strategy is better than its execution.", fa:"یک نقشهٔ خوب که بد اجرا شود، به یک نقشهٔ متوسط که با شدت اجرا شود می‌بازد؛ هیچ استراتژی‌ای بهتر از اجرایش نیست."},
+        more:{en:"Strategy gets the glory, but execution wins the market. The everyday work of raising standards, focusing, and moving fast is how strategy actually turns into results — the plan is only a promise until it's executed.", fa:"استراتژی تحسین را می‌گیرد، ولی اجرا بازار را می‌برد. کارِ روزمرهٔ بالا بردنِ استاندارد، تمرکز و سریع حرکت کردن، همان راهی است که استراتژی واقعاً به نتیجه تبدیل می‌شود — نقشه تا وقتی اجرا نشده فقط یک قول است."},
+        example:{en:"Two companies with the same plan get opposite results; the difference is entirely in the execution.", fa:"دو شرکت با همان نقشه، نتیجهٔ مخالف می‌گیرند؛ تفاوت کاملاً در اجراست."},
+        tip:{en:"When something isn't working, check execution intensity before you rewrite the strategy.", fa:"وقتی چیزی جواب نمی‌دهد، قبل از بازنویسیِ استراتژی، شدتِ اجرا را چک کن."},
+        pitfall:{en:"Endlessly polishing the plan while the real gap is weak execution.", fa:"بی‌پایان صیقل‌دادنِ نقشه، درحالی‌که شکافِ واقعی اجرای ضعیف است."} }
+    },
+    core:{ name:{en:'RAISE THE BAR', fa:'سطح را بالا ببر'},
+      principle:{en:"Take everything you already do and amp it up — raise standards, align everyone, focus on a few priorities, and move with urgency and intensity. Growth comes less from a new strategy than from the energy and expectations you bring to the one you have.", fa:"هر کاری که همین حالا می‌کنی را بردار و آمپش را ببر بالا — استانداردها را بالا ببر، همه را هم‌سو کن، روی چند اولویت تمرکز کن، و با فوریت و شدت حرکت کن. رشد کمتر از یک استراتژیِ نو می‌آید و بیشتر از انرژی و انتظاری که به همان استراتژیِ فعلی می‌آوری."},
+      more:{en:"Slootman groups the leader's job into five moves — raise your standards, align the whole company, sharpen focus to a few priorities, pick up the pace, and transform strategy and culture with bigger ambition and better people. The thread through all of it: intensity is a choice, and most teams are capable of far more than they currently deliver.", fa:"اسلوتمن کارِ رهبر را در پنج حرکت دسته‌بندی می‌کند — استانداردت را بالا ببر، کلِ شرکت را هم‌سو کن، تمرکز را روی چند اولویت تیز کن، سرعت را بالا ببر، و استراتژی و فرهنگ را با جاه‌طلبیِ بزرگ‌تر و آدم‌های بهتر دگرگون کن. نخِ رابطِ همه‌شان: شدت یک انتخاب است، و بیشترِ تیم‌ها توانِ خیلی بیشتر از چیزی که الان تحویل می‌دهند دارند."},
+      example:{en:"Click any node to read a move or a principle. You can also drag the nodes around.", fa:"روی هر دایره کلیک کن تا یک حرکت یا اصل را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."} },
+    stages:[
+      { level:1, badge:{en:'Level 1 · Over-simplified', fa:'سطحِ ۱ · خیلی ساده'}, title:{en:'Turn it up', fa:'ببرش بالا'}, tagline:{en:'The whole book in a sentence.', fa:'کلِ کتاب در یک جمله.'},
+        body:{en:"The whole book in one line: take what you're already doing and amp it up. More energy, higher expectations, faster action — starting today.", fa:"کلِ کتاب در یک جمله: هر کاری که همین حالا می‌کنی را بردار و آمپش را ببر بالا. انرژیِ بیشتر، انتظارِ بالاتر، اقدامِ سریع‌تر — از همین امروز."},
+        example:{en:"You don't need a new plan to raise the energy around the plan you already have.", fa:"برای بالا بردنِ انرژیِ دورِ نقشه‌ای که داری، به نقشهٔ جدید نیاز نداری."},
+        gain:{en:"You hold the single idea the whole book expands on.", fa:"همان یک ایده‌ای را داری که کلِ کتاب بسطش می‌دهد."} },
+      { level:2, badge:{en:'Level 2 · Simple', fa:'سطحِ ۲ · ساده'}, title:{en:'Standards & alignment', fa:'استاندارد و هم‌سویی'}, tagline:{en:'Raise the bar, point everyone one way.', fa:'سطح را بالا ببر، همه را یک‌سو کن.'},
+        body:{en:"First raise your <b>standards</b> and declare war on <b>mediocrity</b> — the cheapest upgrade a leader has. Then get the whole company <b>aligned</b>: spell out the priorities and repeat them until everyone shares the same direction.", fa:"اول <b>استانداردت</b> را ببر بالا و با <b>کارِ متوسط</b> بجنگ — ارزان‌ترین ارتقایی که یک رهبر دارد. بعد کلِ شرکت را <b>هم‌سو</b> کن: اولویت‌ها را مو به مو بگو و آن‌قدر تکرارشان کن که همه در یک جهت شریک شوند."},
+        example:{en:"Say your standard out loud, then say the one priority everyone should rally around.", fa:"استانداردت را با صدای بلند بگو، بعد همان یک اولویتی که همه باید دورش جمع شوند را بگو."},
+        gain:{en:"You can lift expectations and point everyone the same way.", fa:"می‌توانی انتظارها را بالا ببری و همه را به یک سمت نشانه بروی."} },
+      { level:3, badge:{en:'Level 3 · Balanced', fa:'سطحِ ۳ · متعادل'}, title:{en:'Do fewer things', fa:'کارهای کمتری کن'}, tagline:{en:'Fewer things, one real priority.', fa:'کارهای کمتر، یک اولویتِ واقعی.'},
+        body:{en:"Now <b>focus</b>. “Priority” is singular — the moment you have many, you have none. Do <b>fewer things</b>, force-rank to the <b>one</b> that matters most, and decide clearly <b>what not to do</b> so your best people aren't spread thin.", fa:"حالا <b>تمرکز</b>. «اولویت» مفرد است — لحظه‌ای که چندتا داری، هیچ‌کدام را نداری. <b>کمتر</b> کار کن، تا همان <b>یک</b> چیزِ مهم رتبه‌بندی کن، و روشن تصمیم بگیر <b>چه‌کاری را نکنی</b> تا بهترین آدم‌هایت پخش‌وپلا نشوند."},
+        example:{en:"Cut the roadmap from twelve items to three and ship the three well.", fa:"نقشهٔ راه را از دوازده مورد به سه‌تا کم کن و همان سه‌تا را خوب بفرست."},
+        gain:{en:"You can turn a long wish-list into a short, real plan.", fa:"می‌توانی یک فهرستِ آرزوی بلند را به یک نقشهٔ کوتاه و واقعی تبدیل کنی."} },
+      { level:4, badge:{en:'Level 4 · Advanced', fa:'سطحِ ۴ · پیشرفته'}, title:{en:'Pick up the pace', fa:'سرعت را ببر بالا'}, tagline:{en:'Urgency, speed, and intensity.', fa:'فوریت، سرعت و شدت.'},
+        body:{en:"Add speed. <b>Urgency</b> is a mindset — time is not your friend. <b>Speed</b> is a choice, not a resource; most work can move faster than feels normal. And <b>intensity</b> — sustained, focused energy — is the fuel that turns high standards and tight focus into real results.", fa:"سرعت را اضافه کن. <b>فوریت</b> یک طرزِ فکر است — زمان دوستِ تو نیست. <b>سرعت</b> یک انتخاب است، نه یک منبع؛ بیشترِ کارها می‌توانند سریع‌تر از چیزی که عادی به‌نظر می‌رسد بروند. و <b>شدت</b> — انرژیِ پایدار و متمرکز — همان سوختی است که استانداردِ بالا و تمرکزِ فشرده را به نتیجهٔ واقعی تبدیل می‌کند."},
+        example:{en:"Halve a timeline on purpose and watch the team rise to meet it.", fa:"یک زمان‌بندی را عمداً نصف کن و ببین تیم چطور بالا می‌آید تا به آن برسد."},
+        gain:{en:"You can raise the tempo of the whole team on purpose.", fa:"می‌توانی ریتمِ کلِ تیم را عمداً بالا ببری."} },
+      { level:5, badge:{en:'Level 5 · Expert', fa:'سطحِ ۵ · حرفه‌ای'}, title:{en:'Ambition, people, execution', fa:'جاه‌طلبی، آدم‌ها، اجرا'}, tagline:{en:'Ambition, drivers, and execution.', fa:'جاه‌طلبی، راننده‌ها و اجرا.'},
+        body:{en:"The expert amps up the system itself. Lift <b>ambition</b> so the goal is big enough to sharpen strategy and attract talent. Put <b>drivers, not passengers</b>, in the key seats. And remember the deepest rule: <b>no strategy is better than its execution</b> — the everyday intensity of raising standards, focusing, and moving fast is what actually wins.", fa:"آدمِ حرفه‌ای خودِ سیستم را آمپ می‌کند. <b>جاه‌طلبی</b> را بالا ببر تا هدف آن‌قدر بزرگ باشد که استراتژی را تیز کند و استعداد را جذب کند. <b>راننده‌ها را، نه مسافرها را</b>، در صندلی‌های کلیدی بنشان. و عمیق‌ترین قاعده را یادت باشد: <b>هیچ استراتژی‌ای بهتر از اجرایش نیست</b> — همان شدتِ روزمرهٔ بالا بردنِ استاندارد، تمرکز و سریع حرکت کردن است که واقعاً می‌برد."},
+        example:{en:"You raise the bar, name one priority, move fast, and put owners in every key seat.", fa:"سطح را بالا می‌بری، یک اولویت را نام می‌بری، سریع حرکت می‌کنی، و در هر صندلیِ کلیدی یک صاحب می‌نشانی."},
+        gain:{en:"You can amp up a whole organization — and teach others to do it.", fa:"می‌توانی یک سازمانِ کامل را آمپ کنی — و به دیگران هم یادش بدهی."} }
+    ],
+    quotes:[
+      {en:"The moment you have many priorities, you actually have none.", fa:"لحظه‌ای که چند اولویت داری، در واقع هیچ‌کدام را نداری."},
+      {en:"No strategy is better than its execution.", fa:"هیچ استراتژی‌ای بهتر از اجرایش نیست."},
+      {en:"Time is not our friend. The faster we separate from the competition, the more likely we are to succeed.", fa:"زمان دوستِ ما نیست. هرچه سریع‌تر از رقیب فاصله بگیریم، احتمالِ موفقیتمان بیشتر است."},
+      {en:"Celebrate people who own their responsibilities, take and defend clear positions, argue for their preferred strategies, and seek to move the dial.", fa:"از آدم‌هایی تجلیل کن که مسئولیتشان را مالِ خودشان می‌دانند، موضعِ روشن می‌گیرند و از آن دفاع می‌کنند، برای استراتژیِ موردِ نظرشان بحث می‌کنند، و می‌خواهند عقربه را جابه‌جا کنند."},
+      {en:"Work on fewer things at the same time, and prioritize hard.", fa:"هم‌زمان روی چیزهای کمتری کار کن، و قاطعانه اولویت‌بندی کن."},
+      {en:"High-growth enterprises are not easy places to live. The pressure is relentless.", fa:"شرکت‌های پُررشد جاهای راحتی برای زندگی نیستند. فشار بی‌امان است."},
+      {en:"Hire drivers, not passengers, and get the wrong people off the bus.", fa:"راننده استخدام کن، نه مسافر، و آدم‌های نادرست را از اتوبوس پیاده کن."},
+      {en:"Spell out what you mean! If priorities are not clearly understood at the top, how distorted will they be down the line?", fa:"منظورت را مو به مو بگو! اگر اولویت‌ها همان بالا هم درست فهمیده نشوند، پایین‌ترها چقدر تحریف می‌شوند؟"}
+    ],
+    media:[
+      { kind:'yt', id:'4kZC8p26Fpo', src:{en:'YouTube · Kleiner Perkins', fa:'یوتیوب · Kleiner Perkins'},
+        title:{en:'Frank Slootman on Amp It Up', fa:'فرانک اسلوتمن دربارهٔ کتاب'},
+        desc:{en:"The author in conversation with Kleiner Perkins about the book's core ideas.", fa:'گفت‌وگوی نویسنده با Kleiner Perkins دربارهٔ ایده‌های اصلیِ کتاب.'},
+        bullets:{en:["Straight from the author","Why raising standards works","How he thinks about urgency"], fa:["مستقیم از زبانِ نویسنده","چرا بالا بردنِ استاندارد جواب می‌دهد","اینکه چطور دربارهٔ فوریت فکر می‌کند"]},
+        best:{en:'Best for Stage 1–2.', fa:'خوب برای مرحلهٔ ۱ و ۲.'} },
+      { kind:'yt', id:'Cbq6o9dl_tY', src:{en:'YouTube · The Learning Leader', fa:'یوتیوب · The Learning Leader'},
+        title:{en:'How to Raise Your Standards', fa:'چطور استانداردت را بالا ببری'},
+        desc:{en:'Slootman on raising standards and demanding more, in conversation with Ryan Hawk.', fa:'اسلوتمن دربارهٔ بالا بردنِ استاندارد و بیشتر خواستن، در گفت‌وگو با رایان هاک.'},
+        bullets:{en:["Raising the bar in practice","Declaring war on mediocrity","Leading for intensity"], fa:["بالا بردنِ سطح در عمل","اعلانِ جنگ به کارِ متوسط","رهبری برای شدت"]},
+        best:{en:'Best for Stage 2–3.', fa:'خوب برای مرحلهٔ ۲ و ۳.'} },
+      { kind:'yt', id:'Nov3fdvPujM', src:{en:'YouTube · Sean DeLaney', fa:'یوتیوب · Sean DeLaney'},
+        title:{en:'The Amp It Up Framework', fa:'چارچوبِ کتاب'},
+        desc:{en:"A clear walkthrough of the book's five-part framework and how to apply it.", fa:'یک مرورِ روشن از چارچوبِ پنج‌بخشیِ کتاب و اینکه چطور به کارش ببندی.'},
+        bullets:{en:["The five moves, summarized","Focus and priorities","What to apply first"], fa:["پنج حرکت، خلاصه‌شده","تمرکز و اولویت‌ها","اینکه اول چه چیزی را به کار ببندی"]},
+        best:{en:'Best for Stage 3–4.', fa:'خوب برای مرحلهٔ ۳ و ۴.'} },
+      { kind:'img', url:'https://www.wiley.com/en-gb/Amp+It+Up:+Leading+for+Hypergrowth+by+Raising+Expectations,+Increasing+Urgency,+and+Elevating+Intensity-p-9781119836117',
+        src:{en:'Wiley · Publisher', fa:'Wiley · ناشر'},
+        title:{en:'Amp It Up — Publisher Page', fa:'آمپش را ببر بالا — صفحهٔ ناشر'},
+        desc:{en:'The publisher page for the book, with editions and details.', fa:'صفحهٔ ناشر برای کتاب، با نسخه‌ها و جزئیات.'},
+        bullets:{en:["The official editions","Background on the book","Straight from the source"], fa:["نسخه‌های رسمی","پیشینه‌ای دربارهٔ کتاب","مستقیم از خودِ منبع"]},
+        best:{en:'For editions and the source.', fa:'برای نسخه‌ها و منبعِ اصلی.'} }
+    ],
+    go:[
+      {label:{en:'Publisher page (Wiley)', fa:'صفحهٔ ناشر (Wiley)'}, url:'https://www.wiley.com/en-gb/Amp+It+Up:+Leading+for+Hypergrowth+by+Raising+Expectations,+Increasing+Urgency,+and+Elevating+Intensity-p-9781119836117'},
+      {label:{en:'Book on Goodreads', fa:'کتاب در گودریدز'}, url:'https://www.goodreads.com/book/show/59383944-amp-it-up'},
+      {label:{en:'Official book site', fa:'سایتِ رسمیِ کتاب'}, url:'https://ampitupbook.com/'}
+    ],
+    recs:[
+      { pri:'b', t:{en:'Raise one standard today', fa:'یک استاندارد را همین امروز بالا ببر'}, d:{en:"Take one deliverable and state, out loud, what a high-standard version looks like before work starts.", fa:'یک خروجی را بردار و قبل از شروعِ کار، با صدای بلند بگو نسخهٔ استانداردبالایش چه شکلی است.'} },
+      { pri:'b', t:{en:'Cut down to one priority', fa:'به یک اولویت برسان'}, d:{en:'Force-rank your current list and protect the single most important thing from everything else.', fa:'فهرستِ فعلی‌ات را به‌زور رتبه‌بندی کن و همان تنها چیزِ مهم‌تر را از بقیهٔ چیزها حفظ کن.'} },
+      { pri:'n', t:{en:'Ask “why not sooner?”', fa:'بپرس «چرا زودتر نه؟»'}, d:{en:'Pick one deadline this week and honestly test whether it could be much shorter.', fa:'یک مهلت را این هفته انتخاب کن و صادقانه امتحان کن که آیا می‌تواند خیلی کوتاه‌تر باشد.'} },
+      { pri:'n', t:{en:'Spot drivers and passengers', fa:'راننده‌ها و مسافرها را تشخیص بده'}, d:{en:'Look at a key project and notice who owns the outcome versus who is just along for the ride.', fa:'به یک پروژهٔ کلیدی نگاه کن و ببین چه کسی مسئولِ نتیجه است و چه کسی فقط سوارِ ماشین شده.'} }
+    ]
+  }
+};

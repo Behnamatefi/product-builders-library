@@ -1,0 +1,264 @@
+/* config: The Lean Startup — Eric Ries (Starting a Company) */
+module.exports = {
+  slug:"leanstartup", brand:"The Lean Startup",
+  titleTag:"The Lean Startup — نقشهٔ دانش و یادگیری ۵ مرحله‌ای",
+  W:980, H:780, R1:220, R2:126, span:66,
+  leafKickEn:"Idea", leafKickFa:"ایدهٔ",
+  flowEn:["Build","Measure","Learn"], flowFa:["بساز","بسنج","یاد بگیر"],
+
+  hero:`  <div class="eyebrow"><span class="edot"></span>
+    <span data-only="en">Book knowledge map · Eric Ries</span>
+    <span data-only="fa">نقشهٔ کتاب · اریک ریس</span>
+  </div>
+  <h1>
+    <span data-only="en">The Lean Startup — How Today's Entrepreneurs Use Continuous Innovation to Create Radically Successful Businesses</span>
+    <span data-only="fa">استارتاپِ ناب — چطور کارآفرین‌های امروز با نوآوریِ پیوسته کسب‌وکارهای بسیار موفق می‌سازند</span>
+  </h1>
+  <p class="dek">
+    <span data-only="en">A knowledge graph of the whole book, plus a 5-stage path from a single idea to expert-level mastery — with an example at every step.</span>
+    <span data-only="fa">نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از یک ایدهٔ ساده تا حرفه‌ای — با یک مثال در هر مرحله.</span>
+  </p>
+  <div class="metastrip">
+    <div class="metaitem"><span class="mk" data-only="en">Book</span><span class="mk" data-only="fa">کتاب</span>
+      <span class="mv" data-only="en">The Lean Startup</span><span class="mv" data-only="fa">استارتاپِ ناب</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Author</span><span class="mk" data-only="fa">نویسنده</span>
+      <span class="mv" data-only="en">Eric Ries</span><span class="mv" data-only="fa">اریک ریس</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Published</span><span class="mk" data-only="fa">سالِ چاپ</span>
+      <span class="mv" data-only="en">2011</span><span class="mv" data-only="fa">۲۰۱۱</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Group</span><span class="mk" data-only="fa">گروه</span>
+      <span class="mv" data-only="en">Starting a Company</span><span class="mv" data-only="fa">راه‌اندازیِ شرکت</span></div>
+  </div>
+  <div class="chips">
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Parts</span><span data-only="fa">بخش</span></div>
+    <div class="chip"><b data-only="en">16</b><b data-only="fa">۱۶</b><span data-only="en">Ideas</span><span data-only="fa">ایده</span></div>
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Learning stages</span><span data-only="fa">مرحلهٔ یادگیری</span></div>
+  </div>`,
+
+  callout:`    <b data-only="en">The core idea:</b>
+    <b data-only="fa">ایدهٔ اصلی:</b>
+    <span data-only="en"> A startup is an <i>experiment</i>. Instead of betting everything on a big launch, use <i>validated learning</i> and the <i>Build-Measure-Learn</i> loop to test your riskiest assumptions fast — and find a sustainable business before you run out of runway.</span>
+    <span data-only="fa"> استارتاپ یک <i>آزمایش</i> است. به‌جای اینکه همه‌چیز را روی یک راه‌اندازیِ بزرگ شرط ببندی، با <i>یادگیریِ تأییدشده</i> و حلقهٔ <i>بساز، بسنج، یاد بگیر</i> ریسکی‌ترین فرض‌هایت را تند بیازما — و پیش از آنکه باندِ پروازت تمام شود، یک کسب‌وکارِ ماندگار پیدا کن.</span>`,
+
+  kpis:`    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Parts (vision · steer · measure · pivot · grow)</div><div class="l" data-only="fa">بخش (چشم‌انداز · فرمان · اندازه‌گیری · چرخش · رشد)</div></div>
+    <div class="kbox"><div class="v" data-only="en">16</div><div class="v" data-only="fa">۱۶</div><div class="l" data-only="en">Ideas you can use</div><div class="l" data-only="fa">ایده برای استفاده</div></div>
+    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Levels, simple → expert</div><div class="l" data-only="fa">مرحله، ساده تا حرفه‌ای</div></div>
+    <div class="kbox"><div class="v" data-only="en">3</div><div class="v" data-only="fa">۳</div><div class="l" data-only="en">The loop: build · measure · learn</div><div class="l" data-only="fa">حلقه: بساز · بسنج · یاد بگیر</div></div>`,
+
+  mapcallout:`      <b data-only="en">Read it as a flow:</b><b data-only="fa">به‌صورتِ یک جریان بخوانش:</b>
+      <span data-only="en"> start with a <b>vision</b> and treat the startup as an experiment, <b>steer</b> with Build-Measure-Learn and a minimum viable product, <b>measure</b> real progress with innovation accounting, decide to <b>pivot or persevere</b>, then <b>accelerate</b> with small batches and an engine of growth.</span>
+      <span data-only="fa"> با یک <b>چشم‌انداز</b> شروع کن و استارتاپ را یک آزمایش ببین، با <b>بساز، بسنج، یاد بگیر</b> و یک کمینه‌محصول <b>فرمان</b> بده، پیشرفتِ واقعی را با حساب‌داریِ نوآوری <b>بسنج</b>، تصمیم بگیر که <b>بچرخی یا پافشاری کنی</b>، بعد با دسته‌های کوچک و یک موتورِ رشد <b>شتاب</b> بگیر.</span>`,
+
+  methodFa:"<p><b>منبع:</b> کتابِ «The Lean Startup» نوشتهٔ اریک ریس، چاپِ ۲۰۱۱ (نشرِ Crown Business / Penguin Random House).</p><p><b>روشِ کار:</b> ساختارِ پنج‌بخشی و ایده‌ها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده؛ نقل‌قول‌ها مقابله و ویدیوها بررسی شده‌اند.</p><p><b>گروه:</b> «راه‌اندازیِ شرکت» — یک خواندنیِ پایه برای هر کسی که دارد چیزی تازه را زیرِ نااطمینانی می‌سازد.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای متنِ کامل، خودِ کتاب را بخوان.</p>",
+  methodEn:"<p><b>Source:</b> the book <i>The Lean Startup</i> by Eric Ries, published 2011 (Crown Business / Penguin Random House).</p><p><b>How this was built:</b> the five-part structure and ideas were gathered and rewritten from the book and reputable sources; quotes were cross-checked and the linked videos verified.</p><p><b>Group:</b> Starting a Company — a foundational read for anyone building something new under uncertainty.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>",
+
+  data:{
+    tldr:[
+      {en:"The whole book in one line: a startup is an experiment — use validated learning to find a business that works before the money runs out.",
+       fa:"خلاصهٔ کل کتاب در یک جمله: استارتاپ یک آزمایش است — با یادگیریِ تأییدشده کسب‌وکاری را که جواب می‌دهد پیدا کن، پیش از آنکه پول تمام شود."},
+      {en:"The core is the <b>Build-Measure-Learn</b> loop: turn ideas into a product, measure how real customers behave, and learn what to do next.",
+       fa:"قلبِ کار، حلقهٔ <b>بساز، بسنج، یاد بگیر</b> است: ایده را به محصول تبدیل کن، ببین مشتریِ واقعی چه‌کار می‌کند، و یاد بگیر قدمِ بعدی چیست."},
+      {en:"Progress isn't features shipped or hours worked — it's <b>validated learning</b>, proof you now know something true about customers.",
+       fa:"پیشرفت یعنی نه تعدادِ قابلیت‌هایی که ساخته‌ای نه ساعت‌هایی که کار کرده‌ای — یعنی <b>یادگیریِ تأییدشده</b>، نشانه‌ای که حالا چیزِ درستی دربارهٔ مشتری می‌دانی."},
+      {en:"Keep score honestly with <b>innovation accounting</b> — actionable metrics and cohorts, not vanity numbers that only go up.",
+       fa:"با <b>حساب‌داریِ نوآوری</b> صادقانه امتیاز نگه دار — شاخص‌های کاربردی و هم‌گروه‌ها، نه عددهای پوچی که فقط بالا می‌روند."},
+      {en:"When the numbers won't move, <b>pivot</b>; your real runway is the number of pivots you have left — so speed up the loop.",
+       fa:"وقتی عددها تکان نمی‌خورند، <b>بچرخ</b>؛ باندِ پروازِ واقعی‌ات تعدادِ چرخش‌هایی است که برایت مانده — پس حلقه را تندتر کن."}
+    ],
+    parts:[
+      { key:"vision", varc:"--c-teal", name:{en:"Vision", fa:"چشم‌انداز"}, tag:{en:"What a startup really is", fa:"استارتاپ واقعاً چیست"},
+        gist:{en:"Entrepreneurship is management, and the unit of progress is validated learning.", fa:"کارآفرینی یعنی مدیریت، و واحدِ پیشرفت، یادگیریِ تأییدشده است."},
+        more:{en:"A startup is a human institution built under extreme uncertainty, so it needs its own kind of management. Its job isn't to ship — it's to learn what sustainable business to build, by treating the whole company as one big experiment.",
+              fa:"استارتاپ یک نهادِ انسانی است که زیرِ نااطمینانیِ شدید ساخته می‌شود، پس مدیریتِ خاصِ خودش را می‌خواهد. کارش «تحویلِ محصول» نیست — یاد گرفتن است که چه کسب‌وکارِ ماندگاری بسازد، با اینکه کلِ شرکت را یک آزمایشِ بزرگ ببیند."},
+        chapters:["management","learning","experiment"] },
+      { key:"steer", varc:"--c-blue", name:{en:"Steer", fa:"فرمان‌گیری"}, tag:{en:"The Build-Measure-Learn loop", fa:"حلقهٔ بساز، بسنج، یاد بگیر"},
+        gist:{en:"Name your riskiest assumptions and test them with a minimum viable product.", fa:"ریسکی‌ترین فرض‌هایت را نام ببر و با یک کمینه‌محصول آزمایششان کن."},
+        more:{en:"Steering a startup means driving the Build-Measure-Learn loop as fast as you can. Find the leap-of-faith assumptions your business rests on, build the smallest product that can test them, and get out of the building to watch real people use it.",
+              fa:"فرمان‌گیریِ استارتاپ یعنی حلقهٔ بساز، بسنج، یاد بگیر را تا می‌توانی تند بچرخانی. فرض‌های جهشی‌ای را که کسب‌وکارت روی آن‌ها بنا شده پیدا کن، کوچک‌ترین محصولی که می‌تواند آزمایششان کند بساز، و از دفتر بزن بیرون تا آدمِ واقعی را موقعِ استفاده ببینی."},
+        chapters:["assumptions","mvp","getout"] },
+      { key:"measure", varc:"--c-amber", name:{en:"Measure", fa:"اندازه‌گیری"}, tag:{en:"Know if you're really making progress", fa:"بفهم واقعاً پیشرفت می‌کنی یا نه"},
+        gist:{en:"Innovation accounting, actionable metrics, and cohort analysis over vanity numbers.", fa:"حساب‌داریِ نوآوری، شاخص‌های کاربردی و تحلیلِ هم‌گروهی، به‌جای عددهای پوچ."},
+        more:{en:"How do you know all that learning is adding up? Innovation accounting gives a startup its own scoreboard: set a real baseline, tune the engine, and lean on actionable metrics and cohort analysis so you can't hide behind numbers that only ever rise.",
+              fa:"از کجا بفهمی این‌همه یادگیری دارد جمع می‌شود؟ حساب‌داریِ نوآوری به استارتاپ یک تابلوی امتیازِ خودش را می‌دهد: یک مبنای واقعی بگذار، موتور را تنظیم کن، و به شاخص‌های کاربردی و تحلیلِ هم‌گروهی تکیه کن تا نتوانی پشتِ عددهایی که فقط بالا می‌روند قایم شوی."},
+        chapters:["innovacct","vanity","cohort","milestones"] },
+      { key:"pivot", varc:"--c-violet", name:{en:"Pivot or Persevere", fa:"چرخش یا پافشاری"}, tag:{en:"Change course, or push on", fa:"مسیر را عوض کن، یا ادامه بده"},
+        gist:{en:"A pivot is a structured change of course — and runway is the number of pivots you have left.", fa:"چرخش یعنی تغییرِ مسیرِ حساب‌شده — و باندِ پرواز یعنی تعدادِ چرخش‌هایی که برایت مانده."},
+        more:{en:"Sooner or later the data forces a choice: keep going, or change one big part of the plan. Ries lays out the kinds of pivots, a regular meeting to decide without panic, and a hard truth — you only get so many pivots before the money runs out.",
+              fa:"دیر یا زود، داده‌ها مجبورت می‌کنند انتخاب کنی: ادامه بدهی، یا یک تکهٔ بزرگِ نقشه را عوض کنی. ریس انواعِ چرخش را می‌گوید، یک جلسهٔ منظم که بی‌هول‌وولا تصمیم بگیری، و یک حقیقتِ تلخ — تا پیش از تمام‌شدنِ پول، فقط چند چرخش داری."},
+        chapters:["pivottypes","pivotmeeting","runway"] },
+      { key:"grow", varc:"--c-green", name:{en:"Accelerate & Grow", fa:"شتاب و رشد"}, tag:{en:"Speed up without breaking", fa:"سریع‌تر شو بی‌آنکه بشکنی"},
+        gist:{en:"Small batches, one engine of growth, and the Five Whys build an adaptive company.", fa:"دسته‌های کوچک، یک موتورِ رشد، و پنج چرا، یک شرکتِ سازگارشونده می‌سازند."},
+        more:{en:"Once the model works, speed it up. Work in small batches to catch problems early, grow through one clear engine — sticky, viral, or paid — and use the Five Whys to fix root causes, turning your startup into an adaptive organization that learns as it scales.",
+              fa:"وقتی مدل جواب داد، تندترش کن. با دسته‌های کوچک کار کن تا زود مشکل را بگیری، از راهِ یک موتورِ رشدِ روشن بزرگ شو — چسبنده، ویروسی، یا پولی — و با پنج چرا ریشهٔ مشکل‌ها را درست کن، تا استارتاپت به سازمانی سازگارشونده تبدیل شود که همان‌طور که بزرگ می‌شود یاد می‌گیرد."},
+        chapters:["batches","engines","fivewhys"] }
+    ],
+    chapters:{
+      management:{ part:"vision", n:1, name:{en:"Entrepreneurship Is Management", fa:"کارآفرینی یعنی مدیریت"}, glabel:{en:"Management", fa:"مدیریت"},
+        principle:{en:"A startup is an institution, not just a product, so it needs a new kind of management built for extreme uncertainty.", fa:"استارتاپ یک نهاد است، نه فقط یک محصول، پس به یک نوع مدیریتِ تازه نیاز دارد که برای نااطمینانیِ شدید ساخته شده باشد."},
+        more:{en:"Entrepreneurs are everywhere — anyone building something new under uncertainty, even inside a big company. Old-school management doesn't fit, but neither does 'just wing it.' The Lean Startup is a real management discipline for exactly these conditions.", fa:"کارآفرین همه‌جا هست — هر کسی که زیرِ نااطمینانی چیزی تازه می‌سازد، حتی داخلِ یک شرکتِ بزرگ. مدیریتِ سنتی به این کار نمی‌خورد، اما «همین‌جوری پیش برویم» هم جواب نمی‌دهد. استارتاپِ ناب یک نظمِ مدیریتیِ واقعی است، دقیقاً برای همین شرایط."},
+        example:{en:"At his own startup IMVU, Ries shipped a hard-working, polished product that almost nobody used — proof that startups need their own way of managing.", fa:"ریس در استارتاپِ خودش، IMVU، یک محصولِ پُرزحمت و صیقلی داد بیرون که تقریباً هیچ‌کس ازش استفاده نکرد — گواهی بر اینکه استارتاپ‌ها به روشِ مدیریتیِ خودشان نیاز دارند."},
+        tip:{en:"Treat your startup as an institution to be built, not just a product to be shipped.", fa:"استارتاپت را یک نهادی بدان که باید ساخته شود، نه فقط محصولی که باید تحویل شود."},
+        pitfall:{en:"Applying heavy big-company process — or no process at all — to a startup.", fa:"به‌کار‌بستنِ فرایندِ سنگینِ شرکت‌های بزرگ — یا اصلاً هیچ فرایندی — روی یک استارتاپ."} },
+      learning:{ part:"vision", n:2, name:{en:"Validated Learning", fa:"یادگیریِ تأییدشده"}, glabel:{en:"Learning", fa:"یادگیری"},
+        principle:{en:"The real unit of progress is validated learning — proof, from real behavior, that you've found something true about what customers want.", fa:"واحدِ واقعیِ پیشرفت، یادگیریِ تأییدشده است — نشانه‌ای از رفتارِ واقعی که ثابت می‌کند چیزِ درستی دربارهٔ خواستهٔ مشتری پیدا کرده‌ای."},
+        more:{en:"A startup can look busy and feel productive while going nowhere. Validated learning swaps 'did we build it?' for 'did we learn whether we should?' — and the proof is what customers actually do, not what they say.", fa:"استارتاپ می‌تواند شلوغ به‌نظر برسد و حسِ بهره‌وری بدهد، درحالی‌که جایی نمی‌رود. یادگیریِ تأییدشده، «ساختیمش؟» را با «یاد گرفتیم که اصلاً باید بسازیمش؟» عوض می‌کند — و مدرکش کاری است که مشتری واقعاً می‌کند، نه حرفی که می‌زند."},
+        example:{en:"IMVU's early data showed customers behaving nothing like the plan assumed; the learning, not the code, was the real progress.", fa:"داده‌های اولیهٔ IMVU نشان داد مشتری‌ها اصلاً آن‌طور که نقشه فرض کرده بود رفتار نمی‌کنند؛ پیشرفتِ واقعی، آن یادگیری بود، نه کدها."},
+        tip:{en:"After each release, ask what you now know about customers that you didn't before.", fa:"بعد از هر انتشار بپرس حالا چه چیزی دربارهٔ مشتری می‌دانی که قبلش نمی‌دانستی."},
+        pitfall:{en:"Mistaking activity — features shipped, hours worked — for progress.", fa:"اشتباه‌گرفتنِ جنب‌وجوش — قابلیت‌هایی که ساخته شد، ساعت‌هایی که کار شد — با پیشرفت."} },
+      experiment:{ part:"vision", n:3, name:{en:"A Startup Is an Experiment", fa:"استارتاپ یک آزمایش است"}, glabel:{en:"Experiment", fa:"آزمایش"},
+        principle:{en:"Treat the startup as one big experiment: turn your vision into testable hypotheses and run experiments to check them.", fa:"استارتاپ را یک آزمایشِ بزرگ ببین: چشم‌اندازت را به فرضیه‌هایی آزمون‌پذیر تبدیل کن و برای وارسیِ آن‌ها آزمایش راه بینداز."},
+        more:{en:"All innovation begins with a vision, but a vision is just a bundle of untested guesses. Instead of asking 'can this be built?', ask 'should this be built?' and 'can we build a sustainable business around it?' — then test, ready to pivot or persevere.", fa:"هر نوآوری با یک چشم‌انداز شروع می‌شود، اما چشم‌انداز فقط یک دسته حدسِ آزمایش‌نشده است. به‌جای اینکه بپرسی «می‌شود ساختش؟»، بپرس «باید ساختش؟» و «می‌شود دورش یک کسب‌وکارِ ماندگار ساخت؟» — بعد آزمایش کن، آماده که بچرخی یا پافشاری کنی."},
+        example:{en:"Zappos began as an experiment: its founder photographed shoes in local stores to test whether people would buy shoes online at all — before holding any inventory.", fa:"زَپوس با یک آزمایش شروع شد: بنیان‌گذارش از کفش‌های مغازه‌های محلی عکس گرفت تا بسنجد اصلاً مردم آنلاین کفش می‌خرند یا نه — پیش از آنکه هیچ انباری داشته باشد."},
+        tip:{en:"Rewrite your plan as a list of hypotheses you can actually test this month.", fa:"نقشه‌ات را به فهرستی از فرضیه‌ها بازنویسی کن که همین ماه واقعاً بتوانی آزمایششان کنی."},
+        pitfall:{en:"Guarding the vision as sacred instead of putting it to the test.", fa:"مقدس‌شمردنِ چشم‌انداز، به‌جای اینکه به آزمایش بگذاری‌اش."} },
+      assumptions:{ part:"steer", n:4, name:{en:"Leap-of-Faith Assumptions", fa:"فرض‌های جهشی"}, glabel:{en:"Assumptions", fa:"فرض‌ها"},
+        principle:{en:"Find the two riskiest beliefs your whole business rests on — the value hypothesis and the growth hypothesis — and test them first.", fa:"دو باورِ ریسکی‌ای را که کلِ کسب‌وکارت روی آن‌ها بنا شده پیدا کن — فرضِ ارزش و فرضِ رشد — و اول همان‌ها را بیازما."},
+        more:{en:"Every plan hides leap-of-faith assumptions: that customers will find real value here, and that more of them will keep coming. If these are wrong, nothing else matters. Name them, then design the cheapest test that could prove them false.", fa:"هر نقشه‌ای فرض‌های جهشی را پنهان دارد: اینکه مشتری اینجا ارزشِ واقعی پیدا می‌کند، و اینکه تعدادِ بیشتری هم می‌آیند. اگر این‌ها اشتباه باشند، بقیه‌اش مهم نیست. نامشان را ببر، بعد ارزان‌ترین آزمونی را طراحی کن که می‌تواند نشان دهد غلط‌اند."},
+        example:{en:"The value hypothesis asks 'does using this actually deliver value?'; the growth hypothesis asks 'how will new customers find it?'", fa:"فرضِ ارزش می‌پرسد «استفاده از این واقعاً ارزش می‌رساند؟»؛ فرضِ رشد می‌پرسد «مشتری‌های تازه چطور پیدایش می‌کنند؟»"},
+        tip:{en:"Write your two riskiest assumptions on one line each, then test the riskier one first.", fa:"دو تا از ریسکی‌ترین فرض‌هایت را هرکدام در یک خط بنویس، بعد اول ریسکی‌ترش را آزمایش کن."},
+        pitfall:{en:"Testing the easy, comfortable assumptions while the risky ones go unchecked.", fa:"آزمودنِ فرض‌های آسان و راحت، درحالی‌که ریسکی‌ها وارسی‌نشده می‌مانند."} },
+      mvp:{ part:"steer", n:5, name:{en:"The Minimum Viable Product", fa:"کمینه‌محصول (MVP)"}, glabel:{en:"MVP", fa:"کمینه‌محصول"},
+        principle:{en:"Build the smallest thing that starts the learning loop — an MVP is for learning, not for impressing.", fa:"کوچک‌ترین چیزی که حلقهٔ یادگیری را روشن می‌کند بساز — کمینه‌محصول برای یادگیری است، نه برای تحسین‌برانگیز بودن."},
+        more:{en:"The MVP is the fastest way through Build-Measure-Learn with the least effort. It isn't a smaller, cheaper product — it's the minimum needed to test your assumptions. Cut anything that doesn't drive learning.", fa:"کمینه‌محصول تندترین راهِ عبور از بساز، بسنج، یاد بگیر با کمترین تلاش است. یک محصولِ کوچک‌تر و ارزان‌تر نیست — کمینه‌ای است که برای آزمودنِ فرض‌هایت لازم داری. هرچه به یادگیری کمک نمی‌کند را بردار."},
+        example:{en:"Dropbox tested demand with a simple demo video of how sync would feel — before building the hard technology — and the waitlist exploded overnight.", fa:"دراپ‌باکس تقاضا را با یک ویدیوی نمایشیِ ساده از حسِ کارکردنِ همگام‌سازی سنجید — پیش از ساختنِ آن فناوریِ سخت — و فهرستِ انتظار یک‌شبه ترکید."},
+        tip:{en:"For your next test, remove every feature that doesn't directly drive learning.", fa:"برای آزمونِ بعدی‌ات، هر قابلیتی که مستقیم به یادگیری کمک نمی‌کند را بردار."},
+        pitfall:{en:"Polishing a full product for months before you know anyone wants it.", fa:"ماه‌ها صیقل‌دادنِ یک محصولِ کامل، پیش از آنکه بدانی اصلاً کسی می‌خواهدش."} },
+      getout:{ part:"steer", n:6, name:{en:"Get Out of the Building", fa:"از دفتر بزن بیرون"}, glabel:{en:"Go & See", fa:"برو و ببین"},
+        principle:{en:"You can't learn about customers from behind a desk — go and see for yourself by watching real people use the thing.", fa:"از پشتِ میز نمی‌شود مشتری را شناخت — برو و با چشمِ خودت ببین، با تماشای آدم‌های واقعی که دارند ازش استفاده می‌کنند."},
+        more:{en:"Assumptions feel like facts until you meet a customer. Borrowed from Toyota, 'go and see for yourself' means grounding every decision in first-hand contact with real users, not in reports and averages.", fa:"فرض‌ها تا وقتی با یک مشتری روبه‌رو نشده‌ای، حسِ حقیقت می‌دهند. این ایده که از تویوتا آمده — «برو و با چشمِ خودت ببین» — یعنی هر تصمیم را روی تماسِ دستِ‌اول با کاربرِ واقعی بنا کن، نه روی گزارش و میانگین."},
+        example:{en:"Ries pushes founders to leave the office and watch real customers struggle with the product — the surprises there reset the whole plan.", fa:"ریس بنیان‌گذارها را هُل می‌دهد که از دفتر بیرون بروند و ببینند مشتریِ واقعی چطور با محصول کلنجار می‌رود — غافلگیری‌های آنجا کلِ نقشه را از نو می‌چیند."},
+        tip:{en:"This week, watch one real person try to use your product, in silence.", fa:"همین هفته، در سکوت تماشا کن یک آدمِ واقعی چطور می‌خواهد از محصولت استفاده کند."},
+        pitfall:{en:"Deciding from a spreadsheet what customers 'must' want.", fa:"از روی یک صفحهٔ گسترده تصمیم‌گرفتن که مشتری «حتماً» چه می‌خواهد."} },
+      innovacct:{ part:"measure", n:7, name:{en:"Innovation Accounting", fa:"حساب‌داریِ نوآوری"}, glabel:{en:"Accounting", fa:"حساب‌داری"},
+        principle:{en:"Hold a startup accountable with innovation accounting — measure learning, not just money, so you can prove real progress.", fa:"استارتاپ را با حساب‌داریِ نوآوری پاسخگو نگه دار — یادگیری را بسنج، نه فقط پول را، تا بتوانی پیشرفتِ واقعی را ثابت کنی."},
+        more:{en:"Standard accounting can't tell whether a startup is on track. Innovation accounting works in three steps: use an MVP to set a real baseline, tune the engine from that baseline toward the ideal, then decide to pivot or persevere.", fa:"حساب‌داریِ معمولی نمی‌تواند بگوید استارتاپ روی ریل هست یا نه. حساب‌داریِ نوآوری در سه گام کار می‌کند: با یک کمینه‌محصول یک مبنای واقعی بگذار، موتور را از آن مبنا به‌سمتِ حالتِ ایده‌آل تنظیم کن، بعد تصمیم بگیر بچرخی یا پافشاری کنی."},
+        example:{en:"Instead of 'revenue went up,' it asks 'did the changes we shipped move the metrics that matter, for real customers?'", fa:"به‌جای «درآمد بالا رفت»، می‌پرسد «تغییرهایی که دادیم بیرون، شاخص‌های مهم را برای مشتریِ واقعی تکان داد؟»"},
+        tip:{en:"Set a baseline with real data first; then judge every change against it.", fa:"اول با دادهٔ واقعی یک مبنا بگذار؛ بعد هر تغییر را با همان بسنج."},
+        pitfall:{en:"Reporting activity to investors while dodging whether the model actually works.", fa:"گزارشِ جنب‌وجوش به سرمایه‌گذارها، درحالی‌که از این سؤال که مدل واقعاً جواب می‌دهد یا نه فرار می‌کنی."} },
+      vanity:{ part:"measure", n:8, name:{en:"Actionable vs Vanity Metrics", fa:"شاخصِ کاربردی در برابرِ پوچ"}, glabel:{en:"Metrics", fa:"شاخص‌ها"},
+        principle:{en:"Chase actionable metrics that link cause to effect — and distrust vanity metrics that only ever go up.", fa:"دنبالِ شاخص‌های کاربردی برو که علت را به معلول وصل می‌کنند — و به شاخص‌های پوچی که فقط بالا می‌روند بدبین باش."},
+        more:{en:"Total registered users and raw page views flatter you but guide nothing. Good metrics pass three tests: actionable (they show clear cause and effect), accessible (everyone can read them), and auditable (they're real, not made up).", fa:"کلِ کاربرهای ثبت‌نام‌شده و بازدیدِ خامِ صفحه، خرت می‌کنند اما هیچ راهی نشانت نمی‌دهند. شاخصِ خوب از سه آزمون رد می‌شود: کاربردی (علت و معلولِ روشن نشان می‌دهد)، دردسترس (همه می‌توانند بخوانندش)، و راستی‌آزماشدنی (واقعی است، نه ساختگی)."},
+        example:{en:"'Total users, ever' always rises and hides the truth; conversion rate for each new group of customers tells you if the product is actually improving.", fa:"«کلِ کاربرها تا حالا» همیشه بالا می‌رود و حقیقت را پنهان می‌کند؛ نرخِ تبدیل برای هر دستهٔ تازهٔ مشتری می‌گوید محصول واقعاً دارد بهتر می‌شود یا نه."},
+        tip:{en:"For each number on your dashboard, ask: what decision does this change? If none, drop it.", fa:"برای هر عددِ روی داشبوردت بپرس: این کدام تصمیم را عوض می‌کند؟ اگر هیچ، بیندازش دور."},
+        pitfall:{en:"Celebrating big cumulative totals that can only ever climb.", fa:"جشن‌گرفتنِ جمع‌های بزرگِ انباشته که فقط می‌توانند بالا بروند."} },
+      cohort:{ part:"measure", n:9, name:{en:"Cohort Analysis", fa:"تحلیلِ هم‌گروهی"}, glabel:{en:"Cohorts", fa:"هم‌گروه‌ها"},
+        principle:{en:"Track each fresh group of customers separately over time — cohort analysis shows whether the product is really getting better.", fa:"هر دستهٔ تازهٔ مشتری را جداگانه در طولِ زمان دنبال کن — تحلیلِ هم‌گروهی نشان می‌دهد محصول واقعاً دارد بهتر می‌شود یا نه."},
+        more:{en:"Instead of lumping everyone into one running total, look at each week's or month's new customers as a cohort and follow what they do. If newer cohorts behave better than older ones, your changes are working.", fa:"به‌جای اینکه همه را در یک جمعِ روبه‌بالا قاطی کنی، مشتری‌های تازهٔ هر هفته یا هر ماه را یک هم‌گروه ببین و دنبال کن چه‌کار می‌کنند. اگر هم‌گروه‌های تازه‌تر بهتر از قدیمی‌ترها رفتار کنند، تغییرهایت دارند جواب می‌دهند."},
+        example:{en:"Rather than 'sales are up,' ask whether each new month's users sign up, activate, and pay at higher rates than the month before.", fa:"به‌جای «فروش بالاست»، بپرس کاربرهای هر ماهِ تازه، با نرخِ بالاتری از ماهِ قبل ثبت‌نام و فعال و پرداخت می‌کنند یا نه."},
+        tip:{en:"Split your users by the week they joined and compare their behavior side by side.", fa:"کاربرهایت را بر اساسِ هفته‌ای که آمده‌اند جدا کن و رفتارشان را کنارِ هم بگذار."},
+        pitfall:{en:"Hiding a flat product behind rising gross totals.", fa:"پنهان‌کردنِ یک محصولِ درجازده پشتِ جمع‌های کلیِ روبه‌بالا."} },
+      milestones:{ part:"measure", n:10, name:{en:"The Three Learning Milestones", fa:"سه نقطهٔ عطفِ یادگیری"}, glabel:{en:"Milestones", fa:"نقاطِ عطف"},
+        principle:{en:"Progress runs through three milestones: establish a baseline, tune the engine, then pivot or persevere.", fa:"پیشرفت از سه نقطهٔ عطف می‌گذرد: یک مبنا بساز، موتور را تنظیم کن، بعد بچرخ یا پافشاری کن."},
+        more:{en:"First, an MVP gives you real numbers instead of guesses — that's the baseline. Then you make small changes to move those numbers toward the ideal — that's tuning. When tuning stalls, the data itself tells you it's time to decide.", fa:"اول، کمینه‌محصول به‌جای حدس، عددِ واقعی به تو می‌دهد — این همان مبناست. بعد تغییرهای کوچک می‌دهی تا آن عددها را به‌سمتِ حالتِ ایده‌آل ببری — این تنظیم است. وقتی تنظیم گیر می‌کند، خودِ داده‌ها می‌گویند وقتِ تصمیم است."},
+        example:{en:"A team sets a baseline signup rate, spends a few cycles trying to lift it, and if it won't budge toward the goal, that's the signal to pivot.", fa:"یک تیم یک نرخِ ثبت‌نامِ مبنا می‌گذارد، چند دور تلاش می‌کند بالایش ببرد، و اگر به‌سمتِ هدف تکان نخورد، همین علامتِ چرخش است."},
+        tip:{en:"Name where you are — baseline, tuning, or decision — before your next planning meeting.", fa:"پیش از جلسهٔ برنامه‌ریزیِ بعدی، مشخص کن کجایی — مبنا، تنظیم، یا تصمیم."},
+        pitfall:{en:"Tuning forever on an engine that's never going to reach the goal.", fa:"بی‌پایان تنظیم‌کردنِ موتوری که هیچ‌وقت به هدف نمی‌رسد."} },
+      pivottypes:{ part:"pivot", n:11, name:{en:"Types of Pivots", fa:"انواعِ چرخش"}, glabel:{en:"Pivots", fa:"چرخش‌ها"},
+        principle:{en:"A pivot is a structured change of course that keeps one foot planted — not starting over, but changing one part of the strategy.", fa:"چرخش یعنی یک تغییرِ مسیرِ حساب‌شده که یک پایت را ثابت نگه می‌داری — نه شروعِ دوباره از صفر، بلکه عوض‌کردنِ یک بخش از استراتژی."},
+        more:{en:"There are many kinds: a zoom-in (one feature becomes the whole product), zoom-out, customer-segment, platform, channel, or engine-of-growth pivot. Each keeps what you've learned while changing direction.", fa:"جورهای زیادی دارد: چرخشِ درشت‌نمایی (یک قابلیت می‌شود کلِ محصول)، درشت‌به‌کل، بخشِ‌مشتری، سکو، کانال، یا چرخشِ موتورِ رشد. هرکدام آنچه یاد گرفته‌ای را نگه می‌دارد و درعوض جهت را عوض می‌کند."},
+        example:{en:"A zoom-in pivot: the single feature customers actually loved becomes the entire product, and everything else is dropped.", fa:"چرخشِ درشت‌نمایی: همان یک قابلیتی که مشتری‌ها واقعاً عاشقش بودند می‌شود کلِ محصول، و بقیهٔ چیزها کنار گذاشته می‌شوند."},
+        tip:{en:"When you pivot, name exactly which one thing is changing — and what stays.", fa:"وقتی می‌چرخی، دقیق بگو کدام یک چیز دارد عوض می‌شود — و چه چیزی می‌ماند."},
+        pitfall:{en:"Confusing a real pivot with a tiny tweak, or with quitting.", fa:"اشتباه‌گرفتنِ یک چرخشِ واقعی با یک دست‌کاریِ ریز، یا با جا‌زدن."} },
+      pivotmeeting:{ part:"pivot", n:12, name:{en:"The Pivot-or-Persevere Meeting", fa:"جلسهٔ چرخش یا پافشاری"}, glabel:{en:"Decide", fa:"تصمیم"},
+        principle:{en:"Meet on a fixed schedule to ask one honest question: is our tuning moving the numbers, or is it time to pivot?", fa:"سرِ یک برنامهٔ ثابت جمع شو تا یک سؤالِ صادقانه بپرسی: تنظیم‌کردنِ ما عددها را تکان می‌دهد، یا وقتِ چرخش است؟"},
+        more:{en:"Pivots get delayed because the decision feels scary and vague. Fix that by scheduling a regular pivot-or-persevere meeting, where product and business look at the innovation-accounting data together and decide on purpose, not in a panic.", fa:"چرخش‌ها عقب می‌افتند چون تصمیمش ترسناک و مبهم است. این را با یک جلسهٔ منظمِ چرخش‌یا‌پافشاری درست کن، جایی که محصول و کسب‌وکار با هم به دادهٔ حساب‌داریِ نوآوری نگاه می‌کنند و از رویِ حساب تصمیم می‌گیرند، نه از سرِ هول."},
+        example:{en:"If several cycles of hard work barely move the metrics, that pattern — seen plainly in the meeting — is the case for a pivot.", fa:"اگر چند دور کارِ سخت به‌زور شاخص‌ها را تکان بدهد، همین الگو — که در جلسه روشن دیده می‌شود — دلیلِ چرخش است."},
+        tip:{en:"Put a recurring pivot-or-persevere review on the calendar, with the metrics in hand.", fa:"یک بازبینیِ تکرارشوندهٔ چرخش‌یا‌پافشاری را با شاخص‌ها در دست، توی تقویم بگذار."},
+        pitfall:{en:"Avoiding the question until a crisis finally forces it.", fa:"طفره‌رفتن از این سؤال تا وقتی یک بحران بالاخره مجبورت کند."} },
+      runway:{ part:"pivot", n:13, name:{en:"Runway Is Pivots Left", fa:"باندِ پرواز یعنی چرخش‌های باقی‌مانده"}, glabel:{en:"Runway", fa:"باندِ پرواز"},
+        principle:{en:"Real runway isn't the money in the bank — it's the number of pivots you have left before it runs out.", fa:"باندِ پروازِ واقعی، پولِ توی بانک نیست — تعدادِ چرخش‌هایی است که پیش از تمام‌شدنش برایت مانده."},
+        more:{en:"Reframing runway this way changes everything: you extend it not only by spending less, but by getting through the Build-Measure-Learn loop faster, so each remaining pivot costs less time and cash.", fa:"وقتی باندِ پرواز را این‌جوری قاب بگیری، همه‌چیز عوض می‌شود: نه‌فقط با کمتر خرج‌کردن بلندش می‌کنی، بلکه با تندتر ردشدن از حلقهٔ بساز، بسنج، یاد بگیر — تا هر چرخشِ باقی‌مانده وقت و پولِ کمتری ببرد."},
+        example:{en:"A startup with a year of cash but a six-month loop has only about two pivots left; a faster loop buys more tries, not just more months.", fa:"استارتاپی با پولِ یک‌ساله ولی حلقهٔ شش‌ماهه، تقریباً فقط دو چرخش برایش مانده؛ حلقهٔ تندتر، فرصتِ بیشتر می‌خرد، نه فقط ماهِ بیشتر."},
+        tip:{en:"Count your runway in pivots, then shorten your loop to buy more of them.", fa:"باندِ پروازت را با چرخش بشمار، بعد حلقه‌ات را کوتاه کن تا چرخشِ بیشتری بخری."},
+        pitfall:{en:"Burning your last pivots on slow, oversized experiments.", fa:"سوزاندنِ آخرین چرخش‌هایت روی آزمایش‌های کُند و گنده."} },
+      batches:{ part:"grow", n:14, name:{en:"Work in Small Batches", fa:"با دسته‌های کوچک کار کن"}, glabel:{en:"Small Batches", fa:"دسته‌های کوچک"},
+        principle:{en:"Move work through the loop in small batches — small batches surface problems sooner and let you learn faster.", fa:"کار را با دسته‌های کوچک از حلقه رد کن — دسته‌های کوچک مشکل را زودتر رو می‌کنند و تندتر یادت می‌دهند."},
+        more:{en:"Borrowed from lean manufacturing, small batches mean shipping and testing tiny increments instead of one giant release. You catch defects and wrong assumptions early, when they're cheap to fix, and the whole loop speeds up.", fa:"این ایده که از تولیدِ ناب آمده، یعنی به‌جای یک انتشارِ غول‌آسا، تکه‌های ریز را بده بیرون و بیازما. عیب‌ها و فرض‌های غلط را زود می‌گیری، وقتی که ارزان درست می‌شوند، و کلِ حلقه تندتر می‌شود."},
+        example:{en:"The famous envelope-stuffing test shows that doing letters one at a time (small batches) often finishes sooner than doing every step in bulk.", fa:"آزمونِ معروفِ پُرکردنِ پاکت‌نامه نشان می‌دهد نامه‌ها را یکی‌یکی انجام‌دادن (دستهٔ کوچک) اغلب زودتر از انبوه‌انجام‌دادنِ هر مرحله تمام می‌شود."},
+        tip:{en:"Cut your next release in half, ship it, and learn before building more.", fa:"انتشارِ بعدی‌ات را نصف کن، بده بیرون، و پیش از ساختنِ بیشتر یاد بگیر."},
+        pitfall:{en:"Saving everything up for one huge launch that hides problems until the end.", fa:"همه‌چیز را برای یک راه‌اندازیِ عظیم نگه‌داشتن که مشکل‌ها را تا آخر پنهان می‌کند."} },
+      engines:{ part:"grow", n:15, name:{en:"The Engines of Growth", fa:"موتورهای رشد"}, glabel:{en:"Growth", fa:"رشد"},
+        principle:{en:"Sustainable growth comes from one of three engines — sticky, viral, or paid — so focus on one at a time.", fa:"رشدِ ماندگار از یکی از سه موتور می‌آید — چسبنده، ویروسی، یا پولی — پس هر بار روی یکی تمرکز کن."},
+        more:{en:"New customers come from the actions of past customers. The sticky engine keeps customers (low churn); the viral engine spreads person to person; the paid engine reinvests revenue into acquiring more. Each has its own key metric to tune.", fa:"مشتری‌های تازه از کارهای مشتری‌های قبلی می‌آیند. موتورِ چسبنده مشتری را نگه می‌دارد (ریزشِ کم)؛ موتورِ ویروسی نفر‌به‌نفر پخش می‌شود؛ موتورِ پولی درآمد را دوباره خرجِ جذبِ بیشتر می‌کند. هرکدام شاخصِ کلیدیِ خودش را برای تنظیم دارد."},
+        example:{en:"A subscription product lives on the sticky engine — if churn is lower than sign-ups it grows; if not, no marketing will save it.", fa:"یک محصولِ اشتراکی روی موتورِ چسبنده زنده است — اگر ریزش کمتر از ثبت‌نام باشد رشد می‌کند؛ اگر نه، هیچ بازاریابی‌ای نجاتش نمی‌دهد."},
+        tip:{en:"Pick the one engine that fits your business and tune its single key metric.", fa:"همان یک موتوری را که به کسب‌وکارت می‌خورد انتخاب کن و شاخصِ کلیدیِ واحدش را تنظیم کن."},
+        pitfall:{en:"Chasing all three engines at once and mastering none.", fa:"هم‌زمان دنبالِ هر سه موتور دویدن و در هیچ‌کدام استاد نشدن."} },
+      fivewhys:{ part:"grow", n:16, name:{en:"The Five Whys", fa:"پنج چرا"}, glabel:{en:"Five Whys", fa:"پنج چرا"},
+        principle:{en:"Ask 'why?' five times to trace any problem to its root — then invest in fixes proportional to the pain.", fa:"پنج بار بپرس «چرا؟» تا هر مشکل را تا ریشه‌اش دنبال کنی — بعد به‌اندازهٔ دردی که داشته، خرجِ درست‌کردنش کن."},
+        more:{en:"Most failures get blamed on a person, but the real cause is usually a process. Asking why five times turns a technical glitch into a human, systemic root cause — and small, proportional fixes each time slowly build a resilient, adaptive organization.", fa:"بیشترِ شکست‌ها را گردنِ یک آدم می‌اندازند، اما علتِ واقعی معمولاً یک فرایند است. پنج بار پرسیدنِ چرا، یک ایرادِ فنی را به یک ریشهٔ انسانی و سیستمی تبدیل می‌کند — و هر بار یک درست‌کردنِ کوچک و به‌اندازه، کم‌کم یک سازمانِ مقاوم و سازگارشونده می‌سازد."},
+        example:{en:"A server crash traced through five whys leads past the bug to a missing test to an untrained engineer — so you fix the training, not just the code.", fa:"یک خرابیِ سرور که با پنج چرا دنبال می‌شود، از باگ می‌گذرد و به یک آزمونِ نبوده و بعد به یک مهندسِ آموزش‌ندیده می‌رسد — پس آموزش را درست می‌کنی، نه فقط کد را."},
+        tip:{en:"At your next outage, ask 'why?' five times and fix the deepest cause you can afford.", fa:"سرِ خرابیِ بعدی، پنج بار بپرس «چرا؟» و عمیق‌ترین علتی را که از پسش برمی‌آیی درست کن."},
+        pitfall:{en:"Stopping at “who broke it?” instead of “what let it break?” — the five blames.", fa:"ایستادن سرِ «چه کسی خرابش کرد؟» به‌جای «چه چیزی گذاشت خراب شود؟» — یعنی پنج سرزنش."} }
+    },
+    core:{ name:{en:"BUILD-MEASURE-LEARN", fa:"بساز، بسنج، یاد بگیر"},
+      principle:{en:"A startup is an experiment for finding a sustainable business under extreme uncertainty. Turn your vision into hypotheses, build a minimum viable product to test them, measure real customer behavior with innovation accounting, and learn whether to pivot or persevere — looping through Build-Measure-Learn as fast as you can before the runway runs out.", fa:"استارتاپ یک آزمایش است برای پیدا‌کردنِ یک کسب‌وکارِ ماندگار، زیرِ نااطمینانیِ شدید. چشم‌اندازت را به فرضیه تبدیل کن، یک کمینه‌محصول بساز تا آزمایششان کنی، رفتارِ واقعیِ مشتری را با حساب‌داریِ نوآوری بسنج، و یاد بگیر که بچرخی یا پافشاری کنی — حلقهٔ بساز، بسنج، یاد بگیر را تا می‌توانی تند بچرخان، پیش از آنکه باندِ پرواز تمام شود."},
+      more:{en:"Ries organizes the method into five moves — Vision (a startup is an institution practicing validated learning, run as an experiment), Steer (the Build-Measure-Learn loop, driven by leap-of-faith assumptions and a minimum viable product), Measure (innovation accounting, actionable metrics, cohort analysis), Pivot or Persevere (structured changes of course, with runway counted in pivots), and Accelerate (small batches, the engines of growth, and the Five Whys for an adaptive organization). The single thread through it all: minimize the total time through the loop.", fa:"ریس این روش را در پنج حرکت می‌چیند — چشم‌انداز (استارتاپ یک نهاد است که یادگیریِ تأییدشده تمرین می‌کند و مثلِ یک آزمایش اداره می‌شود)، فرمان‌گیری (حلقهٔ بساز، بسنج، یاد بگیر، که فرض‌های جهشی و یک کمینه‌محصول می‌رانَدش)، اندازه‌گیری (حساب‌داریِ نوآوری، شاخص‌های کاربردی، تحلیلِ هم‌گروهی)، چرخش یا پافشاری (تغییرِ مسیرِ حساب‌شده، با باندِ پروازی که با چرخش شمرده می‌شود)، و شتاب (دسته‌های کوچک، موتورهای رشد، و پنج چرا برای یک سازمانِ سازگارشونده). نخِ رابطِ همه: کل‌زمانِ عبور از حلقه را کم کن."},
+      example:{en:"Click any node to read a principle or a method. You can also drag the nodes around.", fa:"روی هر دایره کلیک کن تا یک اصل یا روش را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."} },
+    stages:[
+      { level:1, badge:{en:"Level 1 · Over-simplified", fa:"سطحِ ۱ · خیلی ساده"}, title:{en:"Test before you build", fa:"قبل از ساختن، آزمایش کن"}, tagline:{en:"The whole book in a sentence.", fa:"کلِ کتاب در یک جمله."},
+        body:{en:"Don't bet everything on a big launch. A startup is really an experiment: figure out what customers actually want by testing it cheaply — before you spend a year building the wrong thing.", fa:"همه‌چیز را روی یک راه‌اندازیِ بزرگ شرط نبند. استارتاپ در اصل یک آزمایش است: با یک آزمونِ ارزان بفهم مشتری واقعاً چه می‌خواهد — پیش از آنکه یک سال وقت بگذاری و چیزِ اشتباه را بسازی."},
+        example:{en:"Before building, put up a simple page or demo and see if anyone actually signs up.", fa:"پیش از ساختن، یک صفحه یا نمونهٔ ساده بگذار و ببین اصلاً کسی ثبت‌نام می‌کند یا نه."},
+        gain:{en:"You stop confusing being busy with making progress.", fa:"دیگر مشغول‌بودن را با پیشرفت‌کردن اشتباه نمی‌گیری."} },
+      { level:2, badge:{en:"Level 2 · Simple", fa:"سطحِ ۲ · ساده"}, title:{en:"Build-Measure-Learn", fa:"بساز، بسنج، یاد بگیر"}, tagline:{en:"The one loop everything runs on.", fa:"همان یک حلقه‌ای که همه‌چیز رویش می‌چرخد."},
+        body:{en:"Turn an idea into a small product (<b>build</b>), see how real customers respond (<b>measure</b>), and decide what to do next (<b>learn</b>). Then go around again — faster each time. The goal is to get through the loop with the least wasted effort.", fa:"یک ایده را به محصولِ کوچک تبدیل کن (<b>بساز</b>)، ببین مشتریِ واقعی چه واکنشی نشان می‌دهد (<b>بسنج</b>)، و تصمیم بگیر قدمِ بعدی چیست (<b>یاد بگیر</b>). بعد دوباره دور بزن — هر بار تندتر. هدف این است که با کمترین تلاشِ هدررفته از حلقه رد شوی."},
+        example:{en:"Ship a tiny version, watch what people do, change it, and ship again.", fa:"یک نسخهٔ کوچک بده بیرون، ببین مردم چه‌کار می‌کنند، عوضش کن، و دوباره بده بیرون."},
+        gain:{en:"You have a repeatable way to make and test decisions.", fa:"یک راهِ تکرارشدنی برای گرفتن و آزمودنِ تصمیم‌ها داری."} },
+      { level:3, badge:{en:"Level 3 · Balanced", fa:"سطحِ ۳ · متعادل"}, title:{en:"Measure honestly", fa:"صادقانه اندازه بگیر"}, tagline:{en:"Innovation accounting, real metrics.", fa:"حساب‌داریِ نوآوری، شاخص‌های واقعی."},
+        body:{en:"Now keep score properly. <b>Innovation accounting</b> sets a baseline and checks whether your changes really move it. Trust <b>actionable metrics</b> that show cause and effect, use <b>cohort analysis</b> to follow each new group of customers, and ignore <b>vanity metrics</b> that only ever go up.", fa:"حالا درست امتیاز نگه دار. <b>حساب‌داریِ نوآوری</b> یک مبنا می‌گذارد و می‌سنجد که تغییرهایت واقعاً آن را تکان می‌دهند یا نه. به <b>شاخص‌های کاربردی</b> که علت و معلول را نشان می‌دهند اعتماد کن، با <b>تحلیلِ هم‌گروهی</b> هر دستهٔ تازهٔ مشتری را دنبال کن، و <b>شاخص‌های پوچی</b> را که فقط بالا می‌روند نادیده بگیر."},
+        example:{en:"Not 'total users, ever' but 'do this month's new users pay more than last month's?'", fa:"نه «کلِ کاربرها تا حالا» بلکه «کاربرهای تازهٔ این ماه بیشتر از ماهِ قبل پول می‌دهند؟»"},
+        gain:{en:"You can tell real progress from a flattering chart.", fa:"می‌توانی پیشرفتِ واقعی را از یک نمودارِ خوش‌ظاهر تشخیص بدهی."} },
+      { level:4, badge:{en:"Level 4 · Advanced", fa:"سطحِ ۴ · پیشرفته"}, title:{en:"Pivot or persevere", fa:"بچرخ یا پافشاری کن"}, tagline:{en:"Change course on purpose.", fa:"مسیر را از رویِ حساب عوض کن."},
+        body:{en:"When tuning stops moving the numbers, it's time to decide. A <b>pivot</b> is a structured change to one part of the strategy while keeping what you've learned. Hold a regular <b>pivot-or-persevere meeting</b>, and remember: your <b>runway</b> is really the number of pivots you have left, so a faster loop buys more tries.", fa:"وقتی تنظیم‌کردن دیگر عددها را تکان نمی‌دهد، وقتِ تصمیم است. <b>چرخش</b> یعنی یک تغییرِ حساب‌شده در یک بخش از استراتژی، بی‌آنکه چیزی را که یاد گرفته‌ای دور بریزی. یک <b>جلسهٔ چرخش‌یا‌پافشاریِ</b> منظم بگذار، و یادت باشد: <b>باندِ پروازت</b> در اصل تعدادِ چرخش‌هایی است که برایت مانده، پس یک حلقهٔ تندتر، فرصتِ بیشتری می‌خرد."},
+        example:{en:"A feature everyone actually used becomes the whole product; the rest is dropped.", fa:"قابلیتی که همه واقعاً از آن استفاده می‌کردند، می‌شود کلِ محصول؛ بقیه کنار گذاشته می‌شود."},
+        gain:{en:"You change direction early, on evidence, not in a panic.", fa:"زود و بر پایهٔ شواهد مسیر عوض می‌کنی، نه از سرِ هول."} },
+      { level:5, badge:{en:"Level 5 · Expert", fa:"سطحِ ۵ · حرفه‌ای"}, title:{en:"Accelerate", fa:"شتاب بگیر"}, tagline:{en:"Small batches, growth engines, Five Whys.", fa:"دسته‌های کوچک، موتورهای رشد، پنج چرا."},
+        body:{en:"The expert speeds the whole loop up. Work in <b>small batches</b> so problems show up early and cheap. Grow through one clear <b>engine of growth</b> — sticky, viral, or paid — and tune its key metric. Use the <b>Five Whys</b> to trace failures to their root and make small, proportional fixes, building an <b>adaptive organization</b> that gets faster and stronger as it grows.", fa:"آدمِ حرفه‌ای کلِ حلقه را تندتر می‌کند. با <b>دسته‌های کوچک</b> کار کن تا مشکل زود و ارزان خودش را نشان دهد. از راهِ یک <b>موتورِ رشدِ</b> روشن بزرگ شو — چسبنده، ویروسی، یا پولی — و شاخصِ کلیدی‌اش را تنظیم کن. با <b>پنج چرا</b> شکست‌ها را تا ریشه دنبال کن و درست‌های کوچک و به‌اندازه انجام بده، تا یک <b>سازمانِ سازگارشونده</b> بسازی که هرچه بزرگ‌تر می‌شود، تندتر و قوی‌تر می‌شود."},
+        example:{en:"A crash traced through five whys ends at a training gap; you fix the process, not just the bug.", fa:"یک خرابی که با پنج چرا دنبال می‌شود، به یک نقصِ آموزش می‌رسد؛ فرایند را درست می‌کنی، نه فقط باگ را."},
+        gain:{en:"You can scale a startup without losing the ability to learn.", fa:"می‌توانی استارتاپ را بزرگ کنی بی‌آنکه توانِ یادگیری‌اش را از دست بدهی."} }
+    ],
+    quotes:[
+      {en:"A startup is a human institution designed to create a new product or service under conditions of extreme uncertainty.", fa:"استارتاپ یک نهادِ انسانی است که ساخته شده تا زیرِ شرایطِ نااطمینانیِ شدید، محصول یا خدمتی تازه بیافریند."},
+      {en:"The goal of a startup is to figure out the right thing to build—the thing customers want and will pay for—as quickly as possible.", fa:"هدفِ استارتاپ این است که هرچه سریع‌تر بفهمد چیزِ درست برای ساختن چیست — همان چیزی که مشتری می‌خواهد و پولش را می‌دهد."},
+      {en:"The only way to win is to learn faster than anyone else.", fa:"تنها راهِ بُردن این است که تندتر از هر کسِ دیگری یاد بگیری."},
+      {en:"The ability to learn faster from customers is the essential competitive advantage that startups must possess.", fa:"توانِ تندتر یاد‌گرفتن از مشتری، همان مزیتِ رقابتیِ اساسی است که استارتاپ‌ها باید داشته باشند."},
+      {en:"We must learn what customers really want, not what they say they want or what we think they should want.", fa:"باید یاد بگیریم مشتری واقعاً چه می‌خواهد، نه آنچه می‌گوید می‌خواهد یا آنچه ما فکر می‌کنیم باید بخواهد."},
+      {en:"In the Lean Startup model, an experiment is more than just a theoretical inquiry; it is also a first product.", fa:"در مدلِ استارتاپِ ناب، آزمایش فقط یک پرس‌وجوی نظری نیست؛ یک محصولِ اول هم هست."},
+      {en:"As you consider building your own minimum viable product, let this simple rule suffice: remove any feature, process, or effort that does not contribute directly to the learning you seek.", fa:"وقتی می‌خواهی کمینه‌محصولِ خودت را بسازی، همین قاعدهٔ ساده بس است: هر قابلیت، فرایند یا تلاشی را که مستقیم به یادگیریِ موردنظرت کمک نمی‌کند، بردار."},
+      {en:"Ask most entrepreneurs who have decided to pivot and they will tell you that they wish they had made the decision sooner.", fa:"از بیشترِ کارآفرین‌هایی که تصمیم به چرخش گرفته‌اند بپرس، می‌گویند کاش زودتر این تصمیم را گرفته بودند."},
+      {en:"Sustainable growth is characterized by one simple rule: New customers come from the actions of past customers.", fa:"رشدِ ماندگار یک قاعدهٔ ساده دارد: مشتری‌های تازه از کارهای مشتری‌های قبلی می‌آیند."}
+    ],
+    media:[
+      { kind:"yt", id:"fEvKo90qBns", src:{en:"YouTube · Talks at Google", fa:"یوتیوب · Talks at Google"},
+        title:{en:"The Lean Startup — Eric Ries at Google", fa:"استارتاپِ ناب — اریک ریس در گوگل"},
+        desc:{en:"The author gives a full, in-depth talk on the method to a Google audience.", fa:"خودِ نویسنده یک سخنرانیِ کامل و مفصل دربارهٔ این روش برای مخاطبانِ گوگل می‌دهد."},
+        bullets:{en:["The whole method in the author's own words","Real startup stories and examples","A full, authoritative talk"], fa:["کلِ روش به زبانِ خودِ نویسنده","داستان‌ها و مثال‌های واقعیِ استارتاپ","یک سخنرانیِ کامل و معتبر"]},
+        best:{en:"Best for Stage 2–4.", fa:"خوب برای مرحلهٔ ۲ تا ۴."} },
+      { kind:"yt", id:"joViUzhTDk0", src:{en:"YouTube · Stanford eCorner", fa:"یوتیوب · Stanford eCorner"},
+        title:{en:"Evangelizing for the Lean Startup", fa:"دفاع از استارتاپِ ناب"},
+        desc:{en:"Ries tells the origin story of the method in a well-known full-length talk.", fa:"ریس در یک سخنرانیِ کاملِ معروف، داستانِ شکل‌گیریِ این روش را می‌گوید."},
+        bullets:{en:["Where validated learning came from","Lessons drawn from his own failures","A candid, story-driven talk"], fa:["یادگیریِ تأییدشده از کجا آمد","درس‌هایی از شکست‌های خودش","یک سخنرانیِ روراست و پُر از داستان"]},
+        best:{en:"Best for Stage 1–3.", fa:"خوب برای مرحلهٔ ۱ تا ۳."} },
+      { kind:"yt", id:"UG_bEEgv2HU", src:{en:"YouTube · BCC Speakers", fa:"یوتیوب · BCC Speakers"},
+        title:{en:"Eric Ries — The Lean Startup", fa:"اریک ریس — استارتاپِ ناب"},
+        desc:{en:"A concise stage talk introducing the core ideas of the book.", fa:"یک سخنرانیِ کوتاهِ روی صحنه که ایده‌های اصلیِ کتاب را معرفی می‌کند."},
+        bullets:{en:["A quick tour of the big ideas","Build-Measure-Learn, explained simply","Good as a first look"], fa:["یک گشتِ سریع در ایده‌های بزرگ","بساز، بسنج، یاد بگیر، به زبانِ ساده","خوب برای اولین نگاه"]},
+        best:{en:"Best for Stage 1–2.", fa:"خوب برای مرحلهٔ ۱ و ۲."} },
+      { kind:"img", url:"https://www.penguinrandomhouse.com/books/210088/the-lean-startup-by-eric-ries/",
+        src:{en:"Penguin Random House · Publisher", fa:"Penguin Random House · ناشر"},
+        title:{en:"The Lean Startup — Publisher Page", fa:"استارتاپِ ناب — صفحهٔ ناشر"},
+        desc:{en:"The publisher page for the book, with editions and details.", fa:"صفحهٔ ناشر برای کتاب، با نسخه‌ها و جزئیات."},
+        bullets:{en:["The definitive editions","Background on Eric Ries","Straight from the source"], fa:["نسخه‌های معتبر","پیشینه‌ای دربارهٔ اریک ریس","مستقیم از خودِ منبع"]},
+        best:{en:"For editions and the source.", fa:"برای نسخه‌ها و منبعِ اصلی."} }
+    ],
+    go:[
+      {label:{en:"Publisher page", fa:"صفحهٔ ناشر"}, url:"https://www.penguinrandomhouse.com/books/210088/the-lean-startup-by-eric-ries/"},
+      {label:{en:"Book on Goodreads", fa:"کتاب در گودریدز"}, url:"https://www.goodreads.com/book/show/10127019-the-lean-startup"},
+      {label:{en:"Eric Ries: The Lean Startup principles", fa:"اریک ریس: اصولِ استارتاپِ ناب"}, url:"https://theleanstartup.com/principles"}
+    ],
+    recs:[
+      { pri:"b", t:{en:"Name your two riskiest assumptions", fa:"دو تا از ریسکی‌ترین فرض‌هایت را نام ببر"}, d:{en:"Write the one belief about value and the one about growth your whole plan depends on.", fa:"همان یک باور دربارهٔ ارزش و یک باور دربارهٔ رشد را که کلِ نقشه‌ات به آن‌ها بند است بنویس."} },
+      { pri:"b", t:{en:"Ship a real MVP this week", fa:"همین هفته یک کمینه‌محصولِ واقعی بده بیرون"}, d:{en:"Build the smallest thing that tests one assumption, and put it in front of real users.", fa:"کوچک‌ترین چیزی که یک فرض را می‌آزماید بساز، و جلوی کاربرِ واقعی بگذارش."} },
+      { pri:"n", t:{en:"Kill one vanity metric", fa:"یک شاخصِ پوچ را حذف کن"}, d:{en:"Find a number on your dashboard that only goes up, and replace it with an actionable one.", fa:"یک عددِ روی داشبوردت که فقط بالا می‌رود پیدا کن، و با یک شاخصِ کاربردی عوضش کن."} },
+      { pri:"n", t:{en:"Run the Five Whys once", fa:"یک‌بار پنج چرا را اجرا کن"}, d:{en:"Take your last failure and ask 'why?' five times until you reach the real, human root cause.", fa:"آخرین شکستت را بردار و پنج بار بپرس «چرا؟» تا به ریشهٔ واقعی و انسانی‌اش برسی."} }
+    ]
+  }
+};

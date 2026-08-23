@@ -1,0 +1,258 @@
+/* config: Fall in Love with the Problem, Not the Solution — Uri Levine (Starting a Company) */
+module.exports = {
+  slug:"fallinlove", brand:"Fall in Love with the Problem",
+  titleTag:"Fall in Love with the Problem — نقشهٔ دانش و یادگیری ۵ مرحله‌ای",
+  W:980, H:780, R1:220, R2:126, span:66,
+  leafKickEn:"Lesson", leafKickFa:"درسِ",
+  flowEn:["Problem","Fit","Scale"], flowFa:["مسئله","تطابق","گسترش"],
+
+  hero:`  <div class="eyebrow"><span class="edot"></span>
+    <span data-only="en">Book knowledge map · Uri Levine</span>
+    <span data-only="fa">نقشهٔ کتاب · اوری لواین</span>
+  </div>
+  <h1>
+    <span data-only="en">Fall in Love with the Problem, Not the Solution — A Handbook for Entrepreneurs</span>
+    <span data-only="fa">عاشقِ مسئله شو، نه راه‌حل — کتابِ راهنمای کارآفرین‌ها</span>
+  </h1>
+  <p class="dek">
+    <span data-only="en">A knowledge graph of the whole book, plus a 5-stage path from a single idea to expert-level mastery — with an example at every step.</span>
+    <span data-only="fa">نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از یک ایدهٔ ساده تا حرفه‌ای — با یک مثال در هر مرحله.</span>
+  </p>
+  <div class="metastrip">
+    <div class="metaitem"><span class="mk" data-only="en">Book</span><span class="mk" data-only="fa">کتاب</span>
+      <span class="mv" data-only="en">Fall in Love with the Problem</span><span class="mv" data-only="fa">عاشقِ مسئله شو</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Author</span><span class="mk" data-only="fa">نویسنده</span>
+      <span class="mv" data-only="en">Uri Levine</span><span class="mv" data-only="fa">اوری لواین</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Published</span><span class="mk" data-only="fa">سالِ چاپ</span>
+      <span class="mv" data-only="en">2023</span><span class="mv" data-only="fa">۲۰۲۳</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Group</span><span class="mk" data-only="fa">گروه</span>
+      <span class="mv" data-only="en">Starting a Company</span><span class="mv" data-only="fa">راه‌اندازیِ شرکت</span></div>
+  </div>
+  <div class="chips">
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Parts</span><span data-only="fa">بخش</span></div>
+    <div class="chip"><b data-only="en">15</b><b data-only="fa">۱۵</b><span data-only="en">Ideas</span><span data-only="fa">ایده</span></div>
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Learning stages</span><span data-only="fa">مرحلهٔ یادگیری</span></div>
+  </div>`,
+
+  callout:`    <b data-only="en">The core idea:</b>
+    <b data-only="fa">ایدهٔ اصلی:</b>
+    <span data-only="en"> Fall in love with the <i>problem</i>, not the solution. A startup is a journey of failures until you succeed — so pick a big, real problem and stay loyal to it while the solution keeps changing. Get to <i>product-market fit</i>, build for the users who will actually use it, fund the ride, and hire a team that fits the phase.</span>
+    <span data-only="fa"> عاشقِ <i>مسئله</i> شو، نه راه‌حل. استارتاپ یک سفرِ پُر از شکست است تا وقتی موفق شوی — پس یک مسئلهٔ بزرگ و واقعی انتخاب کن و به آن وفادار بمان، درحالی‌که راه‌حل مدام عوض می‌شود. به <i>تطابقِ محصول و بازار</i> برس، برای کاربرهایی بساز که واقعاً استفاده‌اش می‌کنند، خرجِ سفر را دربیاور، و تیمی بگیر که به مرحله بخورد.</span>`,
+
+  kpis:`    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Parts (problem · fit · users · money · team)</div><div class="l" data-only="fa">بخش (مسئله · تطابق · کاربر · پول · تیم)</div></div>
+    <div class="kbox"><div class="v" data-only="en">15</div><div class="v" data-only="fa">۱۵</div><div class="l" data-only="en">Ideas you can use</div><div class="l" data-only="fa">ایده برای استفاده</div></div>
+    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Levels, simple → expert</div><div class="l" data-only="fa">مرحله، ساده تا حرفه‌ای</div></div>
+    <div class="kbox"><div class="v" data-only="en">1</div><div class="v" data-only="fa">۱</div><div class="l" data-only="en">Rule above all: love the problem</div><div class="l" data-only="fa">یک قاعده بالاتر از همه: عاشقِ مسئله باش</div></div>`,
+
+  mapcallout:`      <b data-only="en">Read it as a flow:</b><b data-only="fa">به‌صورتِ یک جریان بخوانش:</b>
+      <span data-only="en"> fall in love with a big enough <b>problem</b>, iterate through failures to <b>product-market fit</b>, build for the users who will really use it, then fund the journey and hire a <b>team</b> that fits the phase — all while staying loyal to the problem, not the solution.</span>
+      <span data-only="fa"> عاشقِ یک <b>مسئلهٔ</b> به‌قدرِ کافی بزرگ شو، از دلِ شکست‌ها تا <b>تطابقِ محصول و بازار</b> تکرار کن، برای کاربرهایی بساز که واقعاً استفاده‌اش می‌کنند، بعد خرجِ سفر را دربیاور و <b>تیمی</b> بگیر که به مرحله بخورد — همهٔ این‌ها درحالی‌که به مسئله وفاداری، نه به راه‌حل.</span>`,
+
+  methodFa:"<p><b>منبع:</b> کتابِ «Fall in Love with the Problem, Not the Solution» (عاشقِ مسئله شو، نه راه‌حل) نوشتهٔ اوری لواین، هم‌بنیان‌گذارِ Waze، چاپِ ۲۰۲۳ (نشرِ Matt Holt Books / BenBella).</p><p><b>روشِ کار:</b> ساختارِ پنج‌بخشی و ایده‌ها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده؛ نقل‌قول‌ها مقابله و ویدیوها بررسی شده‌اند.</p><p><b>گروه:</b> «راه‌اندازیِ شرکت» — از فهرستِ کتاب‌های ضروریِ سازندگانِ محصولِ لنی رچیتسکی.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای متنِ کامل، خودِ کتاب را بخوان.</p>",
+  methodEn:"<p><b>Source:</b> the book <i>Fall in Love with the Problem, Not the Solution: A Handbook for Entrepreneurs</i> by Uri Levine, co-founder of Waze, published 2023 (Matt Holt Books / BenBella).</p><p><b>How this was built:</b> the five-part structure and ideas were gathered and rewritten from the book and reputable sources; quotes were cross-checked and the linked videos verified.</p><p><b>Group:</b> Starting a Company — from Lenny Rachitsky's essential books for product builders.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>",
+
+  data:{
+    tldr:[
+      {en:"The whole book in one line: fall in love with the problem, not the solution — the solution will change many times, the problem will not.",
+       fa:"خلاصهٔ کل کتاب در یک جمله: عاشقِ مسئله شو، نه راه‌حل — راه‌حل بارها عوض می‌شود، مسئله نه."},
+      {en:"A startup is a <b>journey of failures</b> until you succeed. Make your mistakes fast and cheap, then adjust.",
+       fa:"استارتاپ یک <b>سفرِ پُر از شکست</b> است تا وقتی موفق شوی. اشتباه‌هایت را سریع و ارزان بکن، بعد تنظیم کن."},
+      {en:"<b>Product-market fit or die.</b> It is the most important phase — do not scale or spend big until users keep coming back on their own.",
+       fa:"<b>تطابقِ محصول و بازار، یا مرگ.</b> مهم‌ترین مرحله است — تا وقتی کاربرها خودشان برنگردند، بزرگ نشو و پولِ کلان خرج نکن."},
+      {en:"Understand your users: <b>build for the dogs</b> (will they eat the dog food?), keep it simple, and know which phase each user is in.",
+       fa:"کاربرت را بفهم: <b>برای سگ‌ها بساز</b> (غذا را می‌خورند؟)، ساده نگهش دار، و بدان هر کاربر در کدام مرحله است."},
+      {en:"Fundraising is <b>sales</b> — a series of NOs; guard your <b>runway</b>; hire for the phase and <b>fire fast</b> — if you are not sure, the answer is no.",
+       fa:"جذبِ سرمایه یعنی <b>فروش</b> — یک زنجیره از «نه»؛ حواست به <b>باندِ پرواز</b> باشد؛ برای مرحله آدم بگیر و <b>سریع خداحافظی کن</b> — اگر مطمئن نیستی، جواب «نه» است."}
+    ],
+    parts:[
+      { key:"problem", varc:"--c-teal", name:{en:"Fall in Love with the Problem", fa:"عاشقِ مسئله شو"}, tag:{en:"Where it starts", fa:"از کجا شروع می‌شود"},
+        gist:{en:"Start with a big, real problem — and stay loyal to it, not to your first solution.", fa:"از یک مسئلهٔ واقعی و بزرگ شروع کن — و به آن وفادار بمان، نه به اولین راه‌حلت."},
+        more:{en:"Everything begins here. A great company is built on a problem worth years of your life — big, common, and painful enough that solving it clearly changes something for a lot of people. Name the problem and the value you promise, and stay loyal to them even as the product changes shape.",
+              fa:"همه‌چیز از اینجا شروع می‌شود. یک شرکتِ خوب روی مسئله‌ای بنا می‌شود که ارزشِ سال‌ها از عمرت را دارد — آن‌قدر بزرگ، رایج و دردناک که حلش واقعاً چیزی را برای کلی آدم عوض کند. مسئله و ارزشی را که قول می‌دهی نام ببر، و به آن‌ها وفادار بمان، حتی وقتی محصول شکل عوض می‌کند."},
+        chapters:["bigproblem","valueprop","problemfirst"] },
+      { key:"pmf", varc:"--c-blue", name:{en:"The Product-Market Fit Journey", fa:"سفرِ تطابقِ محصول و بازار"}, tag:{en:"The main phase", fa:"مرحلهٔ اصلی"},
+        gist:{en:"PMF or die. Keep changing the product until the market pulls it from your hands.", fa:"تطابق یا مرگ. آن‌قدر محصول را عوض کن تا بازار خودش از دستت بکشدش."},
+        more:{en:"This is the longest, hardest, most important phase — and the one you cannot skip. Product-market fit means the market actually wants what you built and keeps coming back. You find it by iterating: build, measure, learn, and change direction, failing fast and cheap until the product finally clicks.",
+              fa:"این طولانی‌ترین، سخت‌ترین و مهم‌ترین مرحله است — و همانی که نمی‌شود ازش پرید. تطابقِ محصول و بازار یعنی بازار واقعاً چیزی را که ساخته‌ای می‌خواهد و مدام برمی‌گردد. با تکرار پیدایش می‌کنی: بساز، بسنج، یاد بگیر، و مسیر را عوض کن؛ سریع و ارزان شکست بخور تا وقتی محصول بالاخره جفت شود."},
+        chapters:["pmfphase","iterate","failadjust"] },
+      { key:"users", varc:"--c-amber", name:{en:"Understand Your Users", fa:"کاربرت را بفهم"}, tag:{en:"Build for them", fa:"برای آن‌ها بساز"},
+        gist:{en:"Build for the dogs, keep it dead simple, and know which phase each user is in.", fa:"برای سگ‌ها بساز، خیلی ساده نگهش دار، و بدان هر کاربر در کدام مرحله است."},
+        more:{en:"The only judge that matters is the user. Build for the dogs — put the product in front of real people and watch whether they eat the dog food, not whether they praise it. Keep it simple, because every extra feature costs you users, and remember that early adopters and the mainstream are two different crowds.",
+              fa:"تنها داوری که مهم است، کاربر است. برای سگ‌ها بساز — محصول را جلوی آدم‌های واقعی بگذار و ببین غذا را می‌خورند یا نه، نه اینکه تعریفش می‌کنند یا نه. ساده نگهش دار، چون هر فیچرِ اضافه کاربر برایت آب می‌کند، و یادت باشد پذیرندگانِ اولیه و بازارِ اصلی دو جمعیتِ متفاوت‌اند."},
+        chapters:["dogfood","simplicity","userphase"] },
+      { key:"money", varc:"--c-violet", name:{en:"Raising Money & Business Model", fa:"جذبِ سرمایه و مدلِ کسب‌وکار"}, tag:{en:"Fuel the journey", fa:"سوختِ سفر"},
+        gist:{en:"Fundraising is sales through a wall of NOs; guard your runway; figure out the money later.", fa:"جذبِ سرمایه یعنی فروش از پشتِ دیواری از «نه»؛ حواست به باندِ پرواز باشد؛ پول را بعداً حل کن."},
+        more:{en:"Money buys time, and time buys iterations. Fundraising is a sales process — a long series of NOs before the yes you need — so expect rejection and keep pitching. Watch your runway like a pilot watching fuel, and do not force a business model too early: build value and users first, and the money will follow.",
+              fa:"پول، زمان می‌خرد، و زمان، تکرار. جذبِ سرمایه یک فرآیندِ فروش است — یک زنجیرهٔ بلند از «نه» قبل از آن «بله‌ای» که لازم داری — پس منتظرِ ردشدن باش و باز پیشنهاد بده. مثلِ خلبانی که حواسش به سوخت است، حواست به باندِ پرواز باشد، و مدلِ کسب‌وکار را زیادی زود تحمیل نکن: اول ارزش و کاربر بساز، پول خودش می‌آید."},
+        chapters:["fundraising","runway","businessmodel"] },
+      { key:"team", varc:"--c-green", name:{en:"Building the Team & Culture", fa:"ساختنِ تیم و فرهنگ"}, tag:{en:"Who does it", fa:"چه‌کسی انجامش می‌دهد"},
+        gist:{en:"Hire for the phase you are in, fire fast when it is not working, and protect DNA and focus.", fa:"برای مرحله‌ای که در آن هستی آدم بگیر، وقتی جواب نمی‌دهد سریع خداحافظی کن، و از DNA و تمرکز محافظت کن."},
+        more:{en:"In the end, people build the company. Hire for the phase you are in — scrappy builders early, specialists later — and when you are unsure about someone, treat that doubt as a no and act fast. Set the culture on purpose, because the first team's habits become the company's DNA, and protect focus above almost everything else.",
+              fa:"آخرِ کار، آدم‌ها شرکت را می‌سازند. برای مرحله‌ای که در آن هستی آدم بگیر — اولش سازنده‌های چابک، بعدتر متخصص‌ها — و وقتی دربارهٔ کسی مطمئن نیستی، آن تردید را یک «نه» بدان و سریع عمل کن. فرهنگ را عمدی بساز، چون عادت‌های تیمِ اول به DNAی شرکت تبدیل می‌شوند، و از تمرکز تقریباً بیشتر از هر چیزی محافظت کن."},
+        chapters:["hirephase","firefast","dnafocus"] }
+    ],
+    chapters:{
+      bigproblem:{ part:"problem", n:1, name:{en:"A Big Enough Problem", fa:"مسئله‌ای به‌قدرِ کافی بزرگ"}, glabel:{en:"Big Problem", fa:"مسئلهٔ بزرگ"},
+        principle:{en:"Solve a problem that bothers a lot of people, often. The bigger and more common the pain, the bigger the opportunity.", fa:"مسئله‌ای را حل کن که کلی آدم را، آن‌هم مدام، اذیت می‌کند. هرچه دردِ بزرگ‌تر و رایج‌تر، فرصتِ بزرگ‌تر."},
+        more:{en:"A problem worth building on is frequent, painful, and shared by many. You can even measure it — how often it hits, how much it frustrates, what today's workaround costs, and how much time it wastes. Small annoyances build small companies; big, shared problems build big ones.", fa:"مسئله‌ای که ارزشِ ساختن رویش را دارد، پُرتکرار و دردناک است و بینِ کلی آدم مشترک. حتی می‌شود اندازه‌اش گرفت — هر چند وقت یک‌بار پیش می‌آید، چقدر کلافه می‌کند، راهِ جایگزینِ فعلی چقدر خرج برمی‌دارد، و چقدر وقت هدر می‌دهد. آزارهای کوچک، شرکت‌های کوچک می‌سازند؛ مسئله‌های بزرگ و مشترک، شرکت‌های بزرگ."},
+        example:{en:"Waze took on traffic — a daily frustration for hundreds of millions of drivers. A problem that big is worth years of your life.", fa:"Waze سراغِ ترافیک رفت — کلافگیِ روزانهٔ صدها میلیون راننده. مسئله‌ای به این بزرگی، ارزشِ سال‌ها از عمرت را دارد."},
+        tip:{en:"Write down who has the problem and how often it hits. If it is rare or trivial, keep looking.", fa:"بنویس چه‌کسی این مسئله را دارد و هر چند وقت یک‌بار به آن برمی‌خورد. اگر کمیاب یا بی‌اهمیت است، بگرد."},
+        pitfall:{en:"Building for a problem only you have, or one too small to matter.", fa:"ساختن برای مسئله‌ای که فقط خودت داری، یا آن‌قدر کوچک که مهم نیست."} },
+      valueprop:{ part:"problem", n:2, name:{en:"The Value Proposition", fa:"ارزشِ پیشنهادی"}, glabel:{en:"Value Prop", fa:"ارزشِ پیشنهادی"},
+        principle:{en:"Say in one plain sentence what changes for the user. If you cannot, you do not understand the problem yet.", fa:"در یک جملهٔ ساده بگو برای کاربر چه چیزی عوض می‌شود. اگر نمی‌توانی، هنوز مسئله را نفهمیده‌ای."},
+        more:{en:"The value proposition is your promise: here is the pain, and here is how the product takes it away. It should be clear enough that a user gets it in seconds and a stranger can repeat it back. Get this line right and everything downstream gets easier.", fa:"ارزشِ پیشنهادی، قولِ توست: این دردِ کاربر است، و این هم راهی که محصول برش می‌دارد. باید آن‌قدر روشن باشد که کاربر در چند ثانیه بگیردش و یک غریبه بتواند برایت تکرارش کند. این یک خط را درست کن، بقیهٔ کارها راحت‌تر می‌شوند."},
+        example:{en:"Waze's promise was simple: help you dodge traffic and get there faster. One sentence anyone understands.", fa:"قولِ Waze ساده بود: کمکت می‌کنم از ترافیک در بروی و زودتر برسی. یک جمله که هر کسی می‌فهمد."},
+        tip:{en:"Finish this line: “We help ___ who struggle with ___ by ___.” Rewrite until it is obvious.", fa:"این خط را کامل کن: «ما به ___ که با ___ دست‌وپنجه نرم می‌کنند، با ___ کمک می‌کنیم.» آن‌قدر بازنویسی کن تا واضح شود."},
+        pitfall:{en:"A fuzzy pitch full of features but with no clear before-and-after for the user.", fa:"یک معرفیِ مبهم، پُر از فیچر اما بی‌هیچ قبل‌و‌بعدِ روشن برای کاربر."} },
+      problemfirst:{ part:"problem", n:3, name:{en:"Problem Before Solution", fa:"اول مسئله، بعد راه‌حل"}, glabel:{en:"Problem First", fa:"اول مسئله"},
+        principle:{en:"Fall in love with the problem, not the solution. Solutions change many times; the problem is your north star.", fa:"عاشقِ مسئله شو، نه راه‌حل. راه‌حل‌ها بارها عوض می‌شوند؛ مسئله، ستارهٔ قطبیِ توست."},
+        more:{en:"Founders who marry their first solution keep defending it long after it stops working. Stay loyal to the problem instead, and you can drop features, pivot, even rebuild — because you are chasing the outcome, not protecting your idea.", fa:"بنیان‌گذارهایی که با اولین راه‌حلشان ازدواج می‌کنند، مدت‌ها بعد از اینکه دیگر جواب نمی‌دهد هم ازش دفاع می‌کنند. به‌جایش به مسئله وفادار بمان، آن‌وقت می‌توانی فیچر حذف کنی، بچرخی، حتی از نو بسازی — چون دنبالِ نتیجه‌ای، نه محافظت از ایده‌ات."},
+        example:{en:"Levine's rule from Waze and beyond: the solution you launch with is almost never the one that wins.", fa:"قاعدهٔ لواین از Waze و جاهای دیگر: راه‌حلی که با آن راه می‌افتی، تقریباً هیچ‌وقت همانی نیست که می‌بَرد."},
+        tip:{en:"When you feel defensive about a feature, ask: does this still serve the problem, or just my ego?", fa:"هر وقت دربارهٔ یک فیچر حالتِ دفاعی گرفتی، بپرس: این هنوز به مسئله خدمت می‌کند، یا فقط به غرورِ من؟"},
+        pitfall:{en:"Guarding a beloved solution while the real problem goes unsolved.", fa:"نگهبانی از یک راه‌حلِ محبوب، درحالی‌که مسئلهٔ واقعی حل‌نشده می‌ماند."} },
+      pmfphase:{ part:"pmf", n:4, name:{en:"The Most Important Phase", fa:"مهم‌ترین مرحله"}, glabel:{en:"PMF Phase", fa:"مرحلهٔ تطابق"},
+        principle:{en:"Product-market fit is the one phase you cannot skip. Before it, nothing else matters; after it, everything gets easier.", fa:"تطابقِ محصول و بازار همان مرحله‌ای است که نمی‌شود ازش پرید. قبلش، هیچ‌چیزِ دیگر مهم نیست؛ بعدش، همه‌چیز راحت‌تر می‌شود."},
+        more:{en:"Levine puts PMF at the center of the journey: it is the longest and hardest stretch, where you find out whether the market truly wants what you built. Do not scale, do not spend big, do not hire fast until you have it.", fa:"لواین تطابق را وسطِ سفر می‌گذارد: طولانی‌ترین و سخت‌ترین بخش است، جایی که می‌فهمی بازار واقعاً چیزی را که ساخته‌ای می‌خواهد یا نه. تا وقتی به آن نرسیده‌ای، بزرگ نشو، پولِ کلان خرج نکن، و سریع آدم نگیر."},
+        example:{en:"“Product market fit or die” — until users keep coming back on their own, you have not earned the right to grow.", fa:"«تطابقِ محصول و بازار، یا مرگ» — تا وقتی کاربرها خودشان برنگردند، حقِ رشد را به دست نیاورده‌ای."},
+        tip:{en:"Before scaling, ask honestly: do users come back without me pushing them? If not, you are not there yet.", fa:"قبل از بزرگ‌شدن، صادقانه بپرس: کاربرها بدونِ اینکه من هُلشان بدهم برمی‌گردند؟ اگر نه، هنوز نرسیده‌ای."},
+        pitfall:{en:"Pouring money into growth before the product actually fits the market.", fa:"ریختنِ پول توی رشد، قبل از اینکه محصول واقعاً با بازار جفت شده باشد."} },
+      iterate:{ part:"pmf", n:5, name:{en:"Iterate Until It Fits", fa:"آن‌قدر تکرار کن تا جفت شود"}, glabel:{en:"Iterate", fa:"تکرار"},
+        principle:{en:"Fit is found by trying, measuring, and changing — again and again — not by planning it perfectly up front.", fa:"تطابق با آزمودن، سنجیدن و عوض‌کردن پیدا می‌شود — بارها و بارها — نه با یک برنامه‌ریزیِ بی‌نقص از همان اول."},
+        more:{en:"You reach PMF through many rounds of build, test, and learn. Watch what real users do, keep what works, cut what does not, and change direction fast. Nobody knows how many rounds it takes; your job is to survive long enough to run them.", fa:"به تطابق از راهِ دورهای زیادِ بساز، بیازما و یاد بگیر می‌رسی. ببین کاربرهای واقعی چه می‌کنند، هرچه جواب می‌دهد را نگه دار، هرچه نه را حذف کن، و سریع مسیر را عوض کن. هیچ‌کس نمی‌داند چند دور طول می‌کشد؛ کارِ تو این است که آن‌قدر دوام بیاوری که بتوانی این دورها را بروی."},
+        example:{en:"Most winning products look nothing like their first version — they got there by iterating toward what the market kept asking for.", fa:"بیشترِ محصول‌های برنده هیچ شباهتی به نسخهٔ اولشان ندارند — با تکرار به‌سمتِ چیزی که بازار مدام می‌خواست، به آنجا رسیدند."},
+        tip:{en:"Ship small changes often and measure each one against real user behavior.", fa:"تغییرهای کوچک را مرتب منتشر کن و هرکدام را با رفتارِ واقعیِ کاربر بسنج."},
+        pitfall:{en:"Falling in love with version one and stopping before the market fits.", fa:"عاشقِ نسخهٔ یک شدن و ایستادن، قبل از اینکه بازار جفت شود."} },
+      failadjust:{ part:"pmf", n:6, name:{en:"Be Ready to Fail", fa:"آمادهٔ شکست باش"}, glabel:{en:"Fail Fast", fa:"شکستِ سریع"},
+        principle:{en:"The journey is a series of failures until you succeed. Make your mistakes fast and cheap, then adjust.", fa:"سفر یک زنجیره از شکست است تا وقتی موفق شوی. اشتباه‌هایت را سریع و ارزان بکن، بعد تنظیم کن."},
+        more:{en:"Here, failure is not the opposite of success — it is the path to it. What matters is failing quickly, taking the lesson, and moving on before it drains you. Founders who cannot stand being wrong never find fit.", fa:"اینجا، شکست نقطهٔ مقابلِ موفقیت نیست — راهِ رسیدن به آن است. چیزی که مهم است، سریع شکست‌خوردن، برداشتنِ درس، و رفتن است، قبل از اینکه تو را از پا دربیاورد. بنیان‌گذارهایی که تحملِ اشتباه‌بودن را ندارند، هیچ‌وقت به تطابق نمی‌رسند."},
+        example:{en:"“Make your mistakes fast” — the sooner you learn a direction is wrong, the sooner you find the one that is right.", fa:"«اشتباه‌هایت را سریع بکن» — هرچه زودتر بفهمی یک مسیر غلط است، زودتر آن مسیرِ درست را پیدا می‌کنی."},
+        tip:{en:"Treat each failed experiment as data, not defeat; ask what it taught you and adjust.", fa:"هر آزمایشِ شکست‌خورده را داده بدان، نه شکست؛ بپرس چه یادت داد و تنظیم کن."},
+        pitfall:{en:"Dragging out a doomed approach because admitting the mistake hurts.", fa:"کِش‌دادنِ یک رویکردِ محکوم‌به‌شکست، چون قبولِ اشتباه دردناک است."} },
+      dogfood:{ part:"users", n:7, name:{en:"Will the Dogs Eat It?", fa:"سگ‌ها غذا را می‌خورند؟"}, glabel:{en:"Dog Food", fa:"غذای سگ"},
+        principle:{en:"Build for the dogs. It does not matter how good the dog food looks — the only test is whether the dogs actually eat it.", fa:"برای سگ‌ها بساز. مهم نیست غذای سگ چقدر خوشگل به‌نظر می‌رسد — تنها آزمون این است که سگ‌ها واقعاً می‌خورندش یا نه."},
+        more:{en:"Your opinion, your investors' opinion, the design awards — none of it counts. Real users voting with their behavior is the only proof. Put the product in front of them early and watch whether they come back, not whether they say nice things.", fa:"نظرِ تو، نظرِ سرمایه‌گذارت، جایزه‌های طراحی — هیچ‌کدام به حساب نمی‌آید. تنها مدرک، کاربرهای واقعی‌اند که با رفتارشان رأی می‌دهند. محصول را زود جلویشان بگذار و ببین برمی‌گردند یا نه، نه اینکه تعریف می‌کنند یا نه."},
+        example:{en:"Levine's dog-food test: you can love your product all you want, but if the dogs will not eat it, it is not food.", fa:"آزمونِ غذای سگِ لواین: هرچقدر دلت می‌خواهد عاشقِ محصولت باش، اما اگر سگ‌ها نخورندش، غذا نیست."},
+        tip:{en:"Ship to real users early and measure retention, not compliments.", fa:"زود به کاربرهای واقعی برسانش و ماندگاری را بسنج، نه تعریف‌ها را."},
+        pitfall:{en:"Trusting flattering feedback instead of watching what users actually do.", fa:"اعتماد به بازخوردِ چاپلوسانه، به‌جای دیدنِ کاری که کاربرها واقعاً می‌کنند."} },
+      simplicity:{ part:"users", n:8, name:{en:"Keep It Simple", fa:"ساده نگهش دار"}, glabel:{en:"Simplicity", fa:"سادگی"},
+        principle:{en:"More = less. Every extra feature adds complexity and pushes users away. Simplicity is what keeps them.", fa:"بیشتر = کمتر. هر فیچرِ اضافه پیچیدگی می‌آورد و کاربر را فراری می‌دهد. سادگی همان چیزی است که نگهشان می‌دارد."},
+        more:{en:"The first rule of complexity is that more features mean more confusion, so fewer people can actually use the product. Cut relentlessly to the core value. A product a stranger understands in seconds beats a powerful one nobody can figure out.", fa:"اولین قاعدهٔ پیچیدگی این است که فیچرِ بیشتر یعنی سردرگمیِ بیشتر، پس آدم‌های کمتری واقعاً می‌توانند از محصول استفاده کنند. بی‌رحمانه تا ارزشِ اصلی هَرَسش کن. محصولی که یک غریبه در چند ثانیه می‌فهمدش، از یک محصولِ پُرقدرت که هیچ‌کس سر در نمی‌آورد بهتر است."},
+        example:{en:"“More features means more complexity” — so the more you pile on, the fewer active users you often end up with.", fa:"«فیچرِ بیشتر یعنی پیچیدگیِ بیشتر» — پس هرچه بیشتر روی هم تلنبار کنی، اغلب کاربرِ فعالِ کمتری برایت می‌ماند."},
+        tip:{en:"For every new feature, ask what you can remove to keep the product simple.", fa:"برای هر فیچرِ جدید، بپرس چه چیزی را می‌توانی برداری تا محصول ساده بماند."},
+        pitfall:{en:"Piling on features until the product is too complex for ordinary users.", fa:"تلنبارکردنِ فیچر تا وقتی محصول برای کاربرهای معمولی زیادی پیچیده شود."} },
+      userphase:{ part:"users", n:9, name:{en:"Which Phase Is the User In?", fa:"کاربر در کدام مرحله است؟"}, glabel:{en:"User Phase", fa:"مرحلهٔ کاربر"},
+        principle:{en:"Different users are at different stages of the journey — early adopters are not the mainstream. Build for the phase you are actually in.", fa:"کاربرهای مختلف در مرحله‌های مختلفِ سفرند — پذیرندگانِ اولیه، بازارِ اصلی نیستند. برای مرحله‌ای بساز که واقعاً در آن هستی."},
+        more:{en:"The people who try you first forgive rough edges and love new things; the mainstream that arrives later wants simple and reliable. Know which crowd you are serving right now, because building for the wrong phase burns time and money.", fa:"آدم‌هایی که اول امتحانت می‌کنند، زبری‌ها را می‌بخشند و عاشقِ چیزهای تازه‌اند؛ بازارِ اصلی که بعدتر می‌رسد، سادگی و قابلِ‌اعتماد بودن می‌خواهد. بدان همین حالا به کدام جمعیت خدمت می‌کنی، چون ساختن برای مرحلهٔ اشتباه، وقت و پول می‌سوزاند."},
+        example:{en:"Early users tolerate a raw product; mainstream users will not — the same feature can be right for one phase and wrong for the next.", fa:"کاربرهای اولیه یک محصولِ خام را تحمل می‌کنند؛ کاربرهای بازارِ اصلی نه — یک فیچرِ واحد می‌تواند برای یک مرحله درست باشد و برای مرحلهٔ بعدی غلط."},
+        tip:{en:"Ask whether today's users are early adopters or mainstream, and build for that group.", fa:"بپرس کاربرهای امروزت پذیرندهٔ اولیه‌اند یا بازارِ اصلی، و برای همان گروه بساز."},
+        pitfall:{en:"Treating enthusiastic early adopters as if they were the whole market.", fa:"با پذیرندگانِ اولیهٔ پُرشور طوری رفتار کردن که انگار کلِ بازارند."} },
+      fundraising:{ part:"money", n:10, name:{en:"Fundraising Is Sales", fa:"جذبِ سرمایه یعنی فروش"}, glabel:{en:"Fundraising", fa:"جذبِ سرمایه"},
+        principle:{en:"Raising money is a sales process, and sales is a series of NOs until a yes. Expect rejection and keep going.", fa:"جذبِ سرمایه یک فرآیندِ فروش است، و فروش یعنی یک زنجیره از «نه» تا رسیدن به یک «بله». منتظرِ ردشدن باش و ادامه بده."},
+        more:{en:"You are selling a story to investors, and most of them will say no. That is normal — you only need the few who say yes. Treat each no as one step closer, learn from the pushback, and never let the rejections stop you.", fa:"داری یک داستان به سرمایه‌گذارها می‌فروشی، و بیشترشان «نه» می‌گویند. این طبیعی است — تو فقط به همان چند نفری نیاز داری که «بله» می‌گویند. هر «نه» را یک قدمِ نزدیک‌تر بدان، از مخالفت‌ها یاد بگیر، و هیچ‌وقت نگذار ردشدن‌ها متوقفت کنند."},
+        example:{en:"“VCs are slow, until they think they're going to lose the deal” — the game changes the moment they fear missing out.", fa:"«سرمایه‌گذارها کُندند، تا وقتی فکر کنند دارند معامله را از دست می‌دهند» — بازی همان لحظه‌ای عوض می‌شود که بترسند جا بمانند."},
+        tip:{en:"Line up many investors and expect a wall of NOs; you only need a handful of yeses.", fa:"کلی سرمایه‌گذار ردیف کن و منتظرِ دیواری از «نه» باش؛ تو فقط به یک‌مشت «بله» نیاز داری."},
+        pitfall:{en:"Taking each no personally and quitting before you reach the yes.", fa:"هر «نه» را به دل گرفتن و کنار کشیدن، قبل از رسیدن به «بله»."} },
+      runway:{ part:"money", n:11, name:{en:"Watch the Runway", fa:"حواست به باندِ پرواز باشد"}, glabel:{en:"Runway", fa:"باندِ پرواز"},
+        principle:{en:"Cash is time. Your runway is how long you can keep flying before you run out — always know the number.", fa:"پولِ نقد یعنی زمان. باندِ پروازت یعنی چقدر می‌توانی در پرواز بمانی تا ته بکشی — همیشه این عدد را بدان."},
+        more:{en:"Money buys you iterations, and iterations buy you fit. Run out of runway before you find PMF and the journey ends, no matter how good the idea. Raise enough to reach the next milestone, spend carefully, and never get surprised by an empty tank.", fa:"پول برایت تکرار می‌خرد، و تکرار برایت تطابق. اگر قبل از رسیدن به تطابق باندِ پرواز تمام شود، سفر تمام است، هرچقدر هم ایده خوب باشد. آن‌قدر جذب کن که به نقطهٔ عطفِ بعدی برسی، با احتیاط خرج کن، و هیچ‌وقت نگذار باکِ خالی غافلگیرت کند."},
+        example:{en:"Fundraising is a roller coaster in the dark — you cannot see the drops coming, so keep enough runway to survive them.", fa:"جذبِ سرمایه یک ترن هوایی در تاریکی است — سقوط‌ها را نمی‌بینی که دارند می‌آیند، پس آن‌قدر باندِ پرواز نگه دار که از آن‌ها جانِ سالم به در ببری."},
+        tip:{en:"Always know how many months of cash you have left and what milestone it must reach.", fa:"همیشه بدان چند ماه پولِ نقد برایت مانده و باید به کدام نقطهٔ عطف برساندت."},
+        pitfall:{en:"Burning through cash without a clear milestone the runway has to buy.", fa:"سوزاندنِ پول بی‌آنکه یک نقطهٔ عطفِ روشن داشته باشی که باندِ پرواز باید بخردش."} },
+      businessmodel:{ part:"money", n:12, name:{en:"Make Money Later", fa:"پول را بعداً دربیاور"}, glabel:{en:"Money Later", fa:"پولِ بعدی"},
+        principle:{en:"First build value and users; the business model can come later. Solve the problem before you monetize it.", fa:"اول ارزش و کاربر بساز؛ مدلِ کسب‌وکار می‌تواند بعداً بیاید. مسئله را حل کن، بعد ازش پول دربیاور."},
+        more:{en:"Chasing revenue too early can kill a product before it ever fits the market. Get people to love the product and keep using it, and the ways to make money will show up. Value first, users second, money third — in that order.", fa:"دنبالِ درآمد رفتنِ زیادی زود می‌تواند یک محصول را بکشد، قبل از اینکه اصلاً با بازار جفت شود. کاری کن آدم‌ها عاشقِ محصول شوند و ازش استفاده کنند، آن‌وقت راه‌های پول‌درآوردن خودشان پیدا می‌شوند. اول ارزش، دوم کاربر، سوم پول — به همین ترتیب."},
+        example:{en:"Waze grew a huge, loyal user base first; the money followed once the value was undeniable.", fa:"Waze اول یک پایگاهِ کاربریِ بزرگ و وفادار ساخت؛ پول وقتی آمد که دیگر ارزشش انکارناپذیر بود."},
+        tip:{en:"Prove people love and keep using the product before you worry about charging for it.", fa:"اول ثابت کن آدم‌ها عاشقِ محصول‌اند و مدام ازش استفاده می‌کنند، بعد نگرانِ پول‌گرفتن بابتش باش."},
+        pitfall:{en:"Forcing monetization so early that it strangles growth and value.", fa:"تحمیلِ پول‌درآوردنِ آن‌قدر زود که رشد و ارزش را خفه کند."} },
+      hirephase:{ part:"team", n:13, name:{en:"Hire for the Phase", fa:"برای مرحله آدم بگیر"}, glabel:{en:"Hire for Phase", fa:"استخدام برای مرحله"},
+        principle:{en:"The people who fit a startup at the start are not the same as those who fit at scale. Hire for the phase you are in now.", fa:"آدم‌هایی که اولِ کار به یک استارتاپ می‌خورند، همان‌هایی نیستند که در مقیاسِ بزرگ می‌خورند. برای مرحله‌ای که همین حالا در آن هستی آدم بگیر."},
+        more:{en:"Early on you need scrappy generalists who thrive in chaos; later you need specialists who build for scale. A great hire for the wrong phase is still a bad hire. Match people to the stage of the journey the company is actually in.", fa:"اولِ کار به همه‌فن‌حریف‌های چابک نیاز داری که توی هرج‌ومرج جان می‌گیرند؛ بعدتر به متخصص‌هایی که برای مقیاس می‌سازند. یک استخدامِ عالی برای مرحلهٔ اشتباه، باز هم یک استخدامِ بد است. آدم‌ها را به مرحله‌ای از سفر که شرکت واقعاً در آن است بچسبان."},
+        example:{en:"A brilliant big-company executive can drown in a five-person startup — and a scrappy founder-type can stall a large org.", fa:"یک مدیرِ درخشانِ شرکتِ بزرگ می‌تواند توی یک استارتاپِ پنج‌نفره غرق شود — و یک آدمِ چابکِ بنیان‌گذارمآب می‌تواند یک سازمانِ بزرگ را زمین بزند."},
+        tip:{en:"Before hiring, name the phase you are in and pick someone who thrives in that phase.", fa:"قبل از استخدام، اسمِ مرحله‌ای را که در آن هستی ببر و کسی را انتخاب کن که توی همان مرحله جان می‌گیرد."},
+        pitfall:{en:"Hiring big-company polish for a job that needs raw, scrappy builders.", fa:"استخدامِ برق‌و‌زرقِ شرکتِ بزرگ برای کاری که به سازنده‌های خام و چابک نیاز دارد."} },
+      firefast:{ part:"team", n:14, name:{en:"Fire Fast", fa:"سریع خداحافظی کن"}, glabel:{en:"Fire Fast", fa:"خداحافظیِ سریع"},
+        principle:{en:"If you are not sure about someone, the answer is no. Hire slow, fire fast — hesitation costs the whole team.", fa:"اگر دربارهٔ کسی مطمئن نیستی، جواب «نه» است. با حوصله بگیر، سریع خداحافظی کن — دودلی به کلِ تیم آسیب می‌زند."},
+        more:{en:"Keeping the wrong person hurts everyone: the work, the culture, and the morale of your best people. The moment you are clearly unsure, act — for their sake and yours. A hard, quick decision beats a slow, kind delay that drags everyone down.", fa:"نگه‌داشتنِ آدمِ اشتباه به همه آسیب می‌زند: به کار، به فرهنگ، و به روحیهٔ بهترین آدم‌هایت. همان لحظه که آشکارا مطمئن نیستی، عمل کن — هم به‌خاطرِ او، هم به‌خاطرِ خودت. یک تصمیمِ سختِ سریع، از یک تعللِ آرام و مهربان که همه را پایین می‌کشد بهتر است."},
+        example:{en:"Levine's rule: when you hesitate over a hire or a keep, that hesitation is your answer — it is a no.", fa:"قاعدهٔ لواین: وقتی سرِ گرفتن یا نگه‌داشتنِ کسی دودل می‌شوی، همان دودلی جوابِ توست — یعنی «نه»."},
+        tip:{en:"If a name makes you hesitate, treat the hesitation as a no and act quickly.", fa:"اگر یک اسم دودلت می‌کند، آن دودلی را یک «نه» بدان و سریع عمل کن."},
+        pitfall:{en:"Holding on to a bad fit out of guilt while the team pays the price.", fa:"از سرِ عذابِ‌وجدان چسبیدن به آدمی که جور نیست، درحالی‌که تیم تاوانش را می‌دهد."} },
+      dnafocus:{ part:"team", n:15, name:{en:"DNA & Focus", fa:"DNA و تمرکز"}, glabel:{en:"DNA & Focus", fa:"DNA و تمرکز"},
+        principle:{en:"Culture is the company's DNA — set it early and protect focus, because a startup's scarcest resource is attention.", fa:"فرهنگ، DNAی شرکت است — زود بسازش و از تمرکز محافظت کن، چون کمیاب‌ترین منبعِ یک استارتاپ، توجه است."},
+        more:{en:"A startup can only do a few things well, so focus is survival: say no to good ideas to protect the one that matters. And the values you live in the first months become the DNA everyone copies later — so build the culture on purpose, or it builds itself by accident.", fa:"یک استارتاپ فقط چند کار را خوب می‌تواند انجام دهد، پس تمرکز یعنی بقا: به ایده‌های خوب «نه» بگو تا از آن یکی که مهم است محافظت کنی. و ارزش‌هایی که در ماه‌های اول با آن‌ها زندگی می‌کنی، همان DNAیی می‌شوند که بعداً همه کپی‌اش می‌کنند — پس فرهنگ را عمدی بساز، وگرنه خودش تصادفی ساخته می‌شود."},
+        example:{en:"The habits and values of the first handful of people become the culture hundreds will inherit — so choose them deliberately.", fa:"عادت‌ها و ارزش‌های همان یک‌مشت آدمِ اول، فرهنگی می‌شوند که صدها نفر به ارث می‌برند — پس با دقت انتخابشان کن."},
+        tip:{en:"Pick the few things that matter most and say no to the rest, out loud and often.", fa:"همان چند چیزی را که بیشترین اهمیت را دارند انتخاب کن و به بقیه «نه» بگو، بلند و مکرر."},
+        pitfall:{en:"Chasing every opportunity until focus and culture both blur.", fa:"دنبالِ هر فرصت دویدن تا وقتی هم تمرکز و هم فرهنگ محو شوند."} }
+    },
+    core:{ name:{en:"LOVE THE PROBLEM", fa:"عاشقِ مسئله شو"},
+      principle:{en:"Fall in love with the problem, not the solution. A startup is a journey of failures until you succeed: pick a big, real problem, then keep changing the solution until the market pulls it from your hands. Product-market fit is the phase that matters most; everything else — users, money, team — serves the search for it.", fa:"عاشقِ مسئله شو، نه راه‌حل. استارتاپ یک سفرِ پُر از شکست است تا وقتی موفق شوی: یک مسئلهٔ بزرگ و واقعی را انتخاب کن، بعد آن‌قدر راه‌حل را عوض کن تا بازار خودش از دستت بکشدش. تطابقِ محصول و بازار مهم‌ترین مرحله است؛ بقیهٔ چیزها — کاربر، پول، تیم — همه در خدمتِ همین جست‌وجو هستند."},
+      more:{en:"Uri Levine, co-founder of Waze, boils a company down to five moves: fall in love with a big enough Problem and its value proposition; grind through the Product-Market Fit journey by iterating and failing fast; Understand Your Users by building for the dogs and keeping it simple; raise Money as a sales process full of NOs while guarding your runway; and build a Team and culture that fit the phase, firing fast when they do not. The thread through all of it: stay loyal to the problem, and let the solution keep changing.", fa:"اوری لواین، هم‌بنیان‌گذارِ Waze، یک شرکت را به پنج حرکت خلاصه می‌کند: عاشقِ یک مسئلهٔ به‌قدرِ کافی بزرگ و ارزشِ پیشنهادی‌اش شو؛ با تکرار و شکستِ سریع، سفرِ تطابقِ محصول و بازار را طی کن؛ کاربرت را بفهم، برای سگ‌ها بساز و ساده نگهش دار؛ پول را مثلِ یک فرآیندِ فروشِ پُر از «نه» جذب کن و حواست به باندِ پرواز باشد؛ و تیم و فرهنگی بساز که به مرحله بخورد، و وقتی نمی‌خورد سریع خداحافظی کن. نخِ رابطِ همه‌شان: به مسئله وفادار بمان، و بگذار راه‌حل مدام عوض شود."},
+      example:{en:"Click any node to read a principle or a method. You can also drag the nodes around.", fa:"روی هر دایره کلیک کن تا یک اصل یا روش را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."} },
+    stages:[
+      { level:1, badge:{en:"Level 1 · Over-simplified", fa:"سطحِ ۱ · خیلی ساده"}, title:{en:"Love the problem", fa:"عاشقِ مسئله باش"}, tagline:{en:"The whole book in a sentence.", fa:"کلِ کتاب در یک جمله."},
+        body:{en:"Fall in love with the problem, not your solution. Pick something that frustrates a lot of people, and stay loyal to fixing it — even as your product changes shape again and again.", fa:"عاشقِ مسئله شو، نه راه‌حلت. چیزی را انتخاب کن که کلی آدم را کلافه می‌کند، و به حل‌کردنش وفادار بمان — حتی وقتی محصولت بارها شکل عوض می‌کند."},
+        example:{en:"Waze did not fall in love with a map app; it fell in love with beating traffic.", fa:"Waze عاشقِ یک اپِ نقشه نشد؛ عاشقِ شکست‌دادنِ ترافیک شد."},
+        gain:{en:"You know the one rule the whole book expands on.", fa:"همان یک قاعده‌ای را می‌دانی که کلِ کتاب بسطش می‌دهد."} },
+      { level:2, badge:{en:"Level 2 · Simple", fa:"سطحِ ۲ · ساده"}, title:{en:"Find the fit", fa:"تطابق را پیدا کن"}, tagline:{en:"PMF or die — iterate until it clicks.", fa:"تطابق یا مرگ — آن‌قدر تکرار کن تا جفت شود."},
+        body:{en:"The heart of the journey is <b>product-market fit</b>: keep changing the product until users actually want it and come back on their own. You get there by <b>iterating</b> and <b>failing fast</b> — most first versions are wrong, and that is fine.", fa:"قلبِ سفر، <b>تطابقِ محصول و بازار</b> است: آن‌قدر محصول را عوض کن تا کاربرها واقعاً بخواهندش و خودشان برگردند. با <b>تکرار</b> و <b>شکستِ سریع</b> به آن می‌رسی — بیشترِ نسخه‌های اول غلط‌اند، و این طبیعی است."},
+        example:{en:"If users do not come back without you nudging them, you do not have fit yet — change something.", fa:"اگر کاربرها بدونِ اینکه تو هُلشان بدهی برنمی‌گردند، هنوز تطابق نداری — چیزی را عوض کن."},
+        gain:{en:"You can tell whether the market actually wants your product.", fa:"می‌توانی بفهمی بازار واقعاً محصولت را می‌خواهد یا نه."} },
+      { level:3, badge:{en:"Level 3 · Balanced", fa:"سطحِ ۳ · متعادل"}, title:{en:"Build for the dogs", fa:"برای سگ‌ها بساز"}, tagline:{en:"Users decide — keep it simple.", fa:"کاربرها تصمیم می‌گیرند — ساده نگهش دار."},
+        body:{en:"Your opinion does not matter; the <b>dogs</b> do. Will they eat the dog food? Watch what real users <i>do</i>, not what they say. Fight complexity — <b>more features usually means fewer users</b> — and remember early adopters are not the mainstream.", fa:"نظرِ تو مهم نیست؛ <b>سگ‌ها</b> مهم‌اند. غذا را می‌خورند؟ ببین کاربرهای واقعی چه <i>می‌کنند</i>، نه چه می‌گویند. با پیچیدگی بجنگ — <b>فیچرِ بیشتر معمولاً یعنی کاربرِ کمتر</b> — و یادت باشد پذیرندگانِ اولیه، بازارِ اصلی نیستند."},
+        example:{en:"A feature the early crowd loves can scare off the mainstream — build for the phase you are in.", fa:"فیچری که جمعیتِ اولیه عاشقش است می‌تواند بازارِ اصلی را فراری بدهد — برای مرحله‌ای که در آن هستی بساز."},
+        gain:{en:"You judge the product by real behavior, not applause.", fa:"محصول را با رفتارِ واقعی می‌سنجی، نه با تشویق."} },
+      { level:4, badge:{en:"Level 4 · Advanced", fa:"سطحِ ۴ · پیشرفته"}, title:{en:"Fuel the journey", fa:"سوختِ سفر را برسان"}, tagline:{en:"Fundraising, runway, and money later.", fa:"جذبِ سرمایه، باندِ پرواز، و پول برای بعد."},
+        body:{en:"Now keep the plane flying. <b>Fundraising is sales</b> — a long series of NOs before a yes, so expect rejection and keep pitching. Guard your <b>runway</b>: cash buys the iterations that buy fit. And do not force the <b>business model</b> too early — build value and users first; the money follows.", fa:"حالا هواپیما را در آسمان نگه دار. <b>جذبِ سرمایه یعنی فروش</b> — یک زنجیرهٔ بلند از «نه» قبل از یک «بله»، پس منتظرِ ردشدن باش و باز پیشنهاد بده. مراقبِ <b>باندِ پروازت</b> باش: پول همان تکرارهایی را می‌خرد که تطابق را می‌خرند. و <b>مدلِ کسب‌وکار</b> را زیادی زود تحمیل نکن — اول ارزش و کاربر بساز؛ پول خودش می‌آید."},
+        example:{en:"Waze grew a massive, loyal user base first; the revenue question came later.", fa:"Waze اول یک پایگاهِ کاربریِ بزرگ و وفادار ساخت؛ سؤالِ درآمد بعداً آمد."},
+        gain:{en:"You can fund and sustain the search for fit without running dry.", fa:"می‌توانی جست‌وجوی تطابق را تأمینِ مالی و سرِپا نگه داری، بی‌آنکه ته بکشی."} },
+      { level:5, badge:{en:"Level 5 · Expert", fa:"سطحِ ۵ · حرفه‌ای"}, title:{en:"Team & DNA", fa:"تیم و DNA"}, tagline:{en:"Hire for the phase, fire fast, protect focus.", fa:"برای مرحله آدم بگیر، سریع خداحافظی کن، از تمرکز محافظت کن."},
+        body:{en:"The expert wins with people. <b>Hire for the phase</b> you are in — scrappy builders early, specialists at scale — and <b>fire fast</b>: if you are not sure about someone, the answer is no. Set the <b>culture</b> deliberately, because the first team's habits become the company's DNA, and protect <b>focus</b> — a startup's scarcest resource is attention. Stay in love with the problem, and let the solution, the users, the money and the team all keep evolving around it.", fa:"آدمِ حرفه‌ای با آدم‌ها می‌بَرد. <b>برای مرحله‌ات آدم بگیر</b> — اولش سازنده‌های چابک، در مقیاس متخصص‌ها — و <b>سریع خداحافظی کن</b>: اگر دربارهٔ کسی مطمئن نیستی، جواب «نه» است. <b>فرهنگ</b> را عمدی بساز، چون عادت‌های تیمِ اول به DNAی شرکت تبدیل می‌شوند، و از <b>تمرکز</b> محافظت کن — کمیاب‌ترین منبعِ یک استارتاپ، توجه است. عاشقِ مسئله بمان، و بگذار راه‌حل و کاربر و پول و تیم همه دورِ آن مدام تغییر کنند."},
+        example:{en:"You hire for today's phase, let people go the moment you are unsure, and say no to good ideas to protect the one that matters.", fa:"برای مرحلهٔ امروز آدم می‌گیری، همان لحظه که مطمئن نیستی رهایشان می‌کنی، و به ایده‌های خوب «نه» می‌گویی تا از آنِ مهم محافظت کنی."},
+        gain:{en:"You can build the team and culture that carry a company past the finish line.", fa:"می‌توانی تیم و فرهنگی بسازی که یک شرکت را از خطِ پایان رد می‌کنند."} }
+    ],
+    quotes:[
+      {en:"Fall in love with the problem, not the solution.", fa:"عاشقِ مسئله شو، نه راه‌حل."},
+      {en:"Product market fit (PMF) or die", fa:"تطابقِ محصول و بازار (PMF)، یا مرگ."},
+      {en:"Make your mistakes fast", fa:"اشتباه‌هایت را سریع بکن."},
+      {en:"The disruptor's journey is always the same. First, they laugh at you, then they ignore you, and then you win.", fa:"سفرِ آدمِ ساختارشکن همیشه یکی است. اول به‌ات می‌خندند، بعد نادیده‌ات می‌گیرند، و بعد می‌بَری."},
+      {en:"Problems can be measured by frequency of use, the magnitude of the frustration, the alternative cost, or time saved.", fa:"مسئله‌ها را می‌شود با تکرارِ استفاده، اندازهٔ کلافگی، هزینهٔ راهِ جایگزین، یا زمانی که ذخیره می‌شود سنجید."},
+      {en:"The first rule of complexity is more = less. More features means more complexity, and therefore it's harder for users to adapt and likely results in less active users.", fa:"اولین قاعدهٔ پیچیدگی این است: بیشتر = کمتر. فیچرِ بیشتر یعنی پیچیدگیِ بیشتر، و در نتیجه سازگارشدنِ کاربرها سخت‌تر می‌شود و احتمالاً کاربرِ فعالِ کمتری می‌ماند."},
+      {en:"If building a startup is a roller-coaster ride, then fund-raising is a roller coaster in the dark - you don't even know what's coming!", fa:"اگر ساختنِ استارتاپ یک سواریِ ترن هوایی باشد، جذبِ سرمایه یک ترن هوایی در تاریکی است — حتی نمی‌دانی چه در راه است!"},
+      {en:"VCs are slow, until they think they're going to lose the deal", fa:"سرمایه‌گذارها کُندند، تا وقتی فکر کنند دارند معامله را از دست می‌دهند."},
+      {en:"If you don't love what you're doing, do yourself a favor and instead do something you do love, because otherwise, you'll sentence yourself to suffering. You should be happy!", fa:"اگر کاری را که می‌کنی دوست نداری، به خودت لطف کن و به‌جایش کاری کن که دوستش داری، چون وگرنه خودت را به رنج محکوم می‌کنی. باید خوشحال باشی!"}
+    ],
+    media:[
+      { kind:"yt", id:"RtUGIbvlReM", src:{en:"YouTube · FranklinCovey", fa:"یوتیوب · FranklinCovey"},
+        title:{en:"Uri Levine: Fall in Love with the Problem", fa:"اوری لواین: عاشقِ مسئله شو"},
+        desc:{en:"The author lays out his core idea in a focused talk.", fa:"خودِ نویسنده ایدهٔ اصلی‌اش را در یک سخنرانیِ متمرکز می‌گوید."},
+        bullets:{en:["Problem before solution, from the source","Why product-market fit is everything","Lessons from building Waze"], fa:["اول مسئله، بعد راه‌حل، از زبانِ خودش","چرا تطابقِ محصول و بازار همه‌چیز است","درس‌هایی از ساختنِ Waze"]},
+        best:{en:"Best for Stage 1–2.", fa:"خوب برای مرحلهٔ ۱ و ۲."} },
+      { kind:"yt", id:"IXW0d6tPag8", src:{en:"YouTube · CeBIT", fa:"یوتیوب · CeBIT"},
+        title:{en:"Keynote — Uri Levine (Waze, FeeX)", fa:"سخنرانیِ کلیدی — اوری لواین (Waze، FeeX)"},
+        desc:{en:"A full keynote on his entrepreneurial journey and the lessons behind it.", fa:"یک سخنرانیِ کلیدیِ کامل دربارهٔ سفرِ کارآفرینی‌اش و درس‌های پشتِ آن."},
+        bullets:{en:["The startup journey end to end","Fundraising, users, and focus","War stories from real companies"], fa:["سفرِ استارتاپ از اول تا آخر","جذبِ سرمایه، کاربرها، و تمرکز","خاطره‌های واقعی از شرکت‌های واقعی"]},
+        best:{en:"Best for Stage 2–4.", fa:"خوب برای مرحلهٔ ۲ تا ۴."} },
+      { kind:"yt", id:"K_qVs0qZ8Fg", src:{en:"YouTube · Nasdaq Entrepreneurial Center", fa:"یوتیوب · Nasdaq Entrepreneurial Center"},
+        title:{en:"Author in Residence — Fall in Love with the Problem", fa:"نویسندهٔ میهمان — عاشقِ مسئله شو"},
+        desc:{en:"A deeper conversation and Q&A around the book's ideas.", fa:"یک گفت‌وگو و پرسش‌وپاسخِ عمیق‌تر دربارهٔ ایده‌های کتاب."},
+        bullets:{en:["Problem, PMF, and pivots","Team, culture, and firing fast","Practical founder questions"], fa:["مسئله، تطابق، و چرخش‌ها","تیم، فرهنگ، و خداحافظیِ سریع","پرسش‌های عملیِ بنیان‌گذارها"]},
+        best:{en:"Best for Stage 3–5.", fa:"خوب برای مرحلهٔ ۳ تا ۵."} },
+      { kind:"img", url:"https://www.simonandschuster.com/books/Fall-in-Love-with-the-Problem-Not-the-Solution/Uri-Levine/9781637746608",
+        src:{en:"Simon & Schuster · Publisher", fa:"Simon & Schuster · ناشر"},
+        title:{en:"Fall in Love with the Problem — Publisher Page", fa:"عاشقِ مسئله شو — صفحهٔ ناشر"},
+        desc:{en:"The official publisher page for the book, with editions and details.", fa:"صفحهٔ رسمیِ ناشر برای کتاب، با نسخه‌ها و جزئیات."},
+        bullets:{en:["The definitive editions","Background on Uri Levine","Straight from the source"], fa:["نسخه‌های معتبر","پیشینه‌ای دربارهٔ اوری لواین","مستقیم از خودِ منبع"]},
+        best:{en:"For editions and the source.", fa:"برای نسخه‌ها و منبعِ اصلی."} }
+    ],
+    go:[
+      {label:{en:"Publisher page", fa:"صفحهٔ ناشر"}, url:"https://www.simonandschuster.com/books/Fall-in-Love-with-the-Problem-Not-the-Solution/Uri-Levine/9781637746608"},
+      {label:{en:"Book on Goodreads", fa:"کتاب در گودریدز"}, url:"https://www.goodreads.com/book/show/61131333-fall-in-love-with-the-problem-not-the-solution"},
+      {label:{en:"Uri Levine's book site", fa:"سایتِ کتابِ اوری لواین"}, url:"https://urilevine.com/book/"}
+    ],
+    recs:[
+      { pri:"b", t:{en:"Write the problem in one sentence", fa:"مسئله را در یک جمله بنویس"}, d:{en:"Name the problem your product solves — who has it, and how often — in a single plain line.", fa:"مسئله‌ای را که محصولت حل می‌کند در یک خطِ ساده نام ببر — چه‌کسی دارَدش، و هر چند وقت یک‌بار."} },
+      { pri:"b", t:{en:"Check for real fit", fa:"تطابقِ واقعی را بسنج"}, d:{en:"Look at whether users come back on their own; if not, change the product, not the marketing.", fa:"ببین کاربرها خودشان برمی‌گردند یا نه؛ اگر نه، محصول را عوض کن، نه تبلیغات را."} },
+      { pri:"n", t:{en:"Cut one feature", fa:"یک فیچر را حذف کن"}, d:{en:"Find the feature that adds the most complexity for the least value and remove it this week.", fa:"فیچری را پیدا کن که بیشترین پیچیدگی و کمترین ارزش را دارد و همین هفته حذفش کن."} },
+      { pri:"n", t:{en:"Name your runway", fa:"باندِ پروازت را مشخص کن"}, d:{en:"Work out how many months of cash you have and which milestone it must reach.", fa:"حساب کن چند ماه پولِ نقد داری و باید به کدام نقطهٔ عطف برساندت."} }
+    ]
+  }
+};

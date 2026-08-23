@@ -1,0 +1,247 @@
+/* config: On Writing Well — William Zinsser (Communication) */
+module.exports = {
+  slug:'oww', brand:'On Writing Well',
+  titleTag:'On Writing Well — نقشهٔ دانش و یادگیری ۵ مرحله‌ای',
+  W:940, H:740, R1:205, R2:128, span:74,
+  leafKickEn:'Idea', leafKickFa:'ایدهٔ',
+  flowEn:['Clarity','Simplicity','Brevity','Humanity'], flowFa:['شفافیت','سادگی','کوتاهی','انسانیت'],
+
+  hero:`  <div class="eyebrow"><span class="edot"></span>
+    <span data-only="en">Book knowledge map · William Zinsser</span>
+    <span data-only="fa">نقشهٔ کتاب · ویلیام زینسر</span>
+  </div>
+  <h1>
+    <span data-only="en">On Writing Well — The Classic Guide to Writing Nonfiction</span>
+    <span data-only="fa">خوب نوشتن — راهنمای کلاسیکِ نوشتنِ ناداستان</span>
+  </h1>
+  <p class="dek">
+    <span data-only="en">A knowledge graph of the whole book, plus a 5-stage path from a single sentence to expert-level mastery — with an example at every step.</span>
+    <span data-only="fa">نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از خیلی ساده تا حرفه‌ای — با یک مثال در هر مرحله.</span>
+  </p>
+  <div class="metastrip">
+    <div class="metaitem"><span class="mk" data-only="en">Book</span><span class="mk" data-only="fa">کتاب</span>
+      <span class="mv" data-only="en">On Writing Well</span><span class="mv" data-only="fa">خوب نوشتن</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Author</span><span class="mk" data-only="fa">نویسنده</span>
+      <span class="mv" data-only="en">William Zinsser</span><span class="mv" data-only="fa">ویلیام زینسر</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Published</span><span class="mk" data-only="fa">سالِ چاپ</span>
+      <span class="mv" data-only="en">1976</span><span class="mv" data-only="fa">۱۹۷۶</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Group</span><span class="mk" data-only="fa">گروه</span>
+      <span class="mv" data-only="en">Communication</span><span class="mv" data-only="fa">ارتباط</span></div>
+  </div>
+  <div class="chips">
+    <div class="chip"><b data-only="en">4</b><b data-only="fa">۴</b><span data-only="en">Parts</span><span data-only="fa">بخش</span></div>
+    <div class="chip"><b data-only="en">14</b><b data-only="fa">۱۴</b><span data-only="en">Ideas</span><span data-only="fa">ایده</span></div>
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Learning stages</span><span data-only="fa">مرحلهٔ یادگیری</span></div>
+  </div>`,
+
+  callout:`    <b data-only="en">The core idea:</b>
+    <b data-only="fa">ایدهٔ اصلی:</b>
+    <span data-only="en"> Good writing is <i>clear, simple, brief</i> and <i>human</i>. Strip every sentence to its cleanest parts, fight clutter, and let your real voice show — clear writing comes from clear thinking and rewriting.</span>
+    <span data-only="fa"> نوشتهٔ خوب <i>روشن، ساده، کوتاه</i> و <i>انسانی</i> است. هر جمله را تا تمیزترین اجزایش کم کن، با زواید بجنگ، و بگذار صدای واقعی‌ات دیده شود — نوشتنِ روشن از فکرِ روشن و بازنویسی می‌آید.</span>`,
+
+  kpis:`    <div class="kbox"><div class="v" data-only="en">4</div><div class="v" data-only="fa">۴</div><div class="l" data-only="en">Parts (principles · methods · forms · attitudes)</div><div class="l" data-only="fa">بخش (اصول · روش‌ها · قالب‌ها · نگرش‌ها)</div></div>
+    <div class="kbox"><div class="v" data-only="en">14</div><div class="v" data-only="fa">۱۴</div><div class="l" data-only="en">Ideas you can use</div><div class="l" data-only="fa">ایده برای استفاده</div></div>
+    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Levels, simple → expert</div><div class="l" data-only="fa">مرحله، ساده تا حرفه‌ای</div></div>
+    <div class="kbox"><div class="v" data-only="en">4</div><div class="v" data-only="fa">۴</div><div class="l" data-only="en">Foundations: clear · simple · brief · human</div><div class="l" data-only="fa">پایه: روشن · ساده · کوتاه · انسانی</div></div>`,
+
+  mapcallout:`      <b data-only="en">Read it as a flow:</b><b data-only="fa">به‌صورتِ یک جریان بخوانش:</b>
+      <span data-only="en"> get the <b>principles</b> right (clarity, cutting clutter), master the <b>methods</b> (unity, verbs, rewriting), adapt to the <b>forms</b>, and sustain the right <b>attitudes</b> — voice, enjoyment, standards.</span>
+      <span data-only="fa"> <b>اصول</b> را درست کن (شفافیت، حذفِ زواید)، <b>روش‌ها</b> را استاد شو (یکپارچگی، فعل، بازنویسی)، به <b>قالب‌ها</b> وفق بده، و <b>نگرش‌های</b> درست را نگه دار — صدا، لذت، استاندارد.</span>`,
+
+  methodFa:"<p><b>منبع:</b> کتابِ «On Writing Well» نوشتهٔ ویلیام زینسر، چاپِ نخست ۱۹۷۶ (با ویرایش‌های متعدد).</p><p><b>روشِ کار:</b> ساختارِ چهاربخشی و ایده‌ها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده؛ نقل‌قول‌ها با متنِ کتاب مقابله و ویدیوها بررسی شده‌اند.</p><p><b>گروه:</b> «ارتباط» — از فهرستِ کتاب‌های ضروریِ سازندگانِ محصولِ لنی راچیتسکی.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای متنِ کامل، خودِ کتاب را بخوان.</p>",
+  methodEn:"<p><b>Source:</b> the book <i>On Writing Well</i> by William Zinsser, first published 1976 (many revised editions).</p><p><b>How this was built:</b> the four-part structure and ideas were gathered and rewritten from the book and reputable sources; quotes were cross-checked and the linked videos verified.</p><p><b>Group:</b> Communication — from Lenny Rachitsky's essential books for product builders.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>",
+
+  data:{
+    tldr:[
+      {en:"The whole book in one line: write clearly by stripping every sentence to its cleanest components.",
+       fa:"خلاصهٔ کل کتاب در یک جمله: روشن بنویس، با کم‌کردنِ هر جمله تا تمیزترین اجزایش."},
+      {en:"Four foundations run through everything: <b>clarity, simplicity, brevity</b>, and <b>humanity</b>.",
+       fa:"چهار پایه در همه‌چیز جاری‌اند: <b>شفافیت، سادگی، کوتاهی</b>، و <b>انسانیت</b>."},
+      {en:"<b>Clutter</b> is the enemy — jargon and padding — and rewriting is where you defeat it.",
+       fa:"<b>زواید</b> دشمن است — اصطلاحات و پُرکردن — و بازنویسی همان‌جایی است که شکستش می‌دهی."},
+      {en:"Master the methods: unity, a strong lead and ending, active verbs, and ruthless rewriting.",
+       fa:"روش‌ها را استاد شو: یکپارچگی، شروع و پایانِ قوی، فعل‌های فعال، و بازنویسیِ بی‌رحم."},
+      {en:"Then let warmth show: find your voice, enjoy the subject, and write as well as you can — every time.",
+       fa:"بعد بگذار گرما دیده شود: صدایت را پیدا کن، از موضوع لذت ببر، و تا می‌توانی خوب بنویس — هر بار."}
+    ],
+    parts:[
+      { key:'principles', varc:'--c-teal', name:{en:'Principles', fa:'اصول'}, tag:{en:'The foundations', fa:'پایه‌ها'},
+        gist:{en:'Clarity, simplicity, and cutting clutter — the non-negotiables.', fa:'شفافیت، سادگی، و حذفِ زواید — اصولِ غیرقابل‌مذاکره.'},
+        more:{en:"Everything else rests on these. Most bad writing isn't wrong, it's cluttered: too many words, too much jargon, too little courage to be plain. Fix that first.",
+              fa:"بقیهٔ همه‌چیز روی این‌ها بنا شده. بیشترِ نوشتهٔ بد غلط نیست، شلوغ است: کلماتِ زیادی، اصطلاحاتِ زیاد، و جرئتِ کمِ ساده‌بودن. اول همین را درست کن."},
+        chapters:['simplicity','clutter','style','audience'] },
+      { key:'methods', varc:'--c-blue', name:{en:'Methods', fa:'روش‌ها'}, tag:{en:'The craft', fa:'صنعتِ کار'},
+        gist:{en:'Unity, strong leads and endings, active verbs, and rewriting.', fa:'یکپارچگی، شروع و پایانِ قوی، فعل‌های فعال، و بازنویسی.'},
+        more:{en:"Principles tell you what good writing is; methods are how you build it. The single most important one is rewriting — the first draft is only where you find out what you're trying to say.",
+              fa:"اصول به تو می‌گویند نوشتهٔ خوب چیست؛ روش‌ها می‌گویند چطور بسازی‌اش. مهم‌ترینشان بازنویسی است — پیش‌نویسِ اول فقط جایی است که می‌فهمی می‌خواهی چه بگویی."},
+        chapters:['unity','leadend','verbs','rewrite'] },
+      { key:'forms', varc:'--c-amber', name:{en:'Forms', fa:'قالب‌ها'}, tag:{en:'Apply it', fa:'به‌کارگیری'},
+        gist:{en:'How to write about people, places, and yourself.', fa:'چطور دربارهٔ آدم‌ها، مکان‌ها، و خودت بنویسی.'},
+        more:{en:"The same principles bend to fit any genre. Across interviews, travel and memoir, the rule repeats: find the human being and the specific, telling detail — that's what brings nonfiction to life.",
+              fa:"همان اصول خم می‌شوند تا به هر قالبی بخورند. در مصاحبه، سفر و خاطره، یک قاعده تکرار می‌شود: آدم و آن جزئیاتِ مشخص و گویا را پیدا کن — همین است که ناداستان را زنده می‌کند."},
+        chapters:['people','places','yourself'] },
+      { key:'attitudes', varc:'--c-violet', name:{en:'Attitudes', fa:'نگرش‌ها'}, tag:{en:'The mindset', fa:'طرزِ فکر'},
+        gist:{en:'Voice, confidence, enjoyment, and the will to do your best.', fa:'صدا، اعتماد، لذت، و ارادهٔ بهترین‌بودن.'},
+        more:{en:"Craft can be taught; attitude is what sustains it. Confidence and evident enjoyment travel straight from the page to the reader — and holding yourself to a high standard on every job is what makes a writer.",
+              fa:"صنعت را می‌شود آموزش داد؛ نگرش همان چیزی است که نگهش می‌دارد. اعتماد و لذتِ آشکار مستقیم از صفحه به خواننده می‌رسند — و پایبندی به یک استانداردِ بالا در هر کار، همان چیزی است که یک نویسنده می‌سازد."},
+        chapters:['voice','enjoyment','best'] }
+    ],
+    chapters:{
+      simplicity:{ part:'principles', n:1, name:{en:'Simplicity', fa:'سادگی'}, glabel:{en:'Simplicity', fa:'سادگی'},
+        principle:{en:"Strip every sentence to its cleanest components; if a word does no work, cut it.", fa:"هر جمله را تا تمیزترین اجزایش کم کن؛ اگر کلمه‌ای کاری نمی‌کند، حذفش کن."},
+        more:{en:"The clearest writing is the simplest. Short words, plain sentences, and one idea at a time carry more meaning than any fancy construction — and they cost the reader far less effort.", fa:"روشن‌ترین نوشته، ساده‌ترین است. کلماتِ کوتاه، جمله‌های ساده، و هر بار یک ایده، بیشتر از هر ساختارِ پُرزرق‌ومعنا می‌رسانند — و برای خواننده خیلی کم‌زحمت‌ترند."},
+        example:{en:"Prefer 'now' to 'at the present time', and 'buy' to 'make a purchase'.", fa:"«حالا» را به «در حالِ حاضر» ترجیح بده، و «بخر» را به «اقدام به خرید کن»."},
+        tip:{en:"Reread your draft and delete every word the sentence doesn't need.", fa:"پیش‌نویست را دوباره بخوان و هر کلمه‌ای که جمله لازمش ندارد را حذف کن."},
+        pitfall:{en:"Padding and wordiness that bury the meaning.", fa:"پُرکردن و زیاده‌گویی که معنا را دفن می‌کند."} },
+      clutter:{ part:'principles', n:2, name:{en:'Cut the Clutter', fa:'حذفِ زواید'}, glabel:{en:'Clutter', fa:'زواید'},
+        principle:{en:"Clutter — jargon, euphemism, pompous frills — is the disease of writing; hunt it in every line.", fa:"زواید — اصطلاحاتِ تخصصی، حسن‌تعبیر، تزئیناتِ پُرطمطراق — بیماریِ نوشتن است؛ در هر خط شکارش کن."},
+        more:{en:"We inflate to sound important, and the reader pays with confusion. Fighting clutter is like fighting weeds — you're always a little behind — so keep pruning.", fa:"برای مهم‌جلوه‌کردن باد می‌کنیم، و خواننده با سردرگمی تاوانش را می‌دهد. جنگ با زواید مثلِ جنگ با علفِ هرز است — همیشه کمی عقبی — پس مدام هَرَس کن."},
+        example:{en:"'Experiencing significant pain' is just 'hurts' — cut back to the plain word.", fa:"«در حالِ تجربهٔ دردِ قابلِ‌توجه» فقط یعنی «درد می‌کند» — به همان کلمهٔ ساده برگرد."},
+        tip:{en:"Bracket every word you could remove, then remove most of them.", fa:"هر کلمه‌ای که می‌شود برداشت را داخلِ قلاب بگذار، بعد بیشترشان را بردار."},
+        pitfall:{en:"Using long words and buzzwords to sound impressive.", fa:"استفاده از کلماتِ بلند و مُدروز برای تأثیرگذار جلوه‌کردن."} },
+      style:{ part:'principles', n:3, name:{en:'Style Is Being Yourself', fa:'سبک یعنی خودت‌بودن'}, glabel:{en:'Style', fa:'سبک'},
+        principle:{en:"Style grows out of clarity and from being yourself — not from decoration added on top.", fa:"سبک از شفافیت و از خودت‌بودن می‌روید — نه از تزئیناتی که رویش می‌گذاری."},
+        more:{en:"You can't add personality by dressing plain sentences in costume. Warmth comes through when you write plainly, in your own voice; the more you try to 'sound like a writer', the less like yourself you sound.", fa:"با پوشاندنِ جمله‌های ساده در لباسِ فاخر نمی‌توانی شخصیت اضافه کنی. گرما وقتی می‌آید که ساده و با صدای خودت بنویسی؛ هرچه بیشتر بخواهی «مثلِ یک نویسنده به‌نظر برسی»، کمتر شبیهِ خودت می‌شوی."},
+        example:{en:"A plain 'I think' beats a stiff 'it is the opinion of this writer that'.", fa:"«فکر می‌کنم»ِ ساده از «نظرِ این نگارنده بر آن است که»ِ خشک بهتر است."},
+        tip:{en:"Write the sentence the way you'd say it to a friend, then tidy it.", fa:"جمله را همان‌طور بنویس که به یک دوست می‌گویی، بعد مرتبش کن."},
+        pitfall:{en:"Imitating a 'literary' voice that isn't your own.", fa:"تقلیدِ یک صدای «ادبی» که مالِ تو نیست."} },
+      audience:{ part:'principles', n:4, name:{en:'Write for Yourself', fa:'برای خودت بنویس'}, glabel:{en:'Audience', fa:'مخاطب'},
+        principle:{en:"Write to please yourself and to master the craft — don't chase a faceless mass audience.", fa:"برای رضایتِ خودت و برای تسلط بر صنعتِ کار بنویس — دنبالِ یک مخاطبِ تودهٔ بی‌چهره نرو."},
+        more:{en:"You are the one reader you can truly know. Care about the craft and trust that readers who share your taste will follow; pandering to everyone drains the voice that made the writing worth reading.", fa:"تو تنها خواننده‌ای هستی که واقعاً می‌شناسی‌اش. به صنعتِ کار اهمیت بده و اعتماد کن که خواننده‌هایی با ذائقهٔ تو دنبال می‌کنند؛ خودشیرینی برای همه، همان صدایی را می‌خشکاند که نوشته را ارزشِ خواندن کرده بود."},
+        example:{en:"Zinsser's own rule: 'You are writing for yourself' — every reader is a different person anyway.", fa:"قاعدهٔ خودِ زینسر: «تو برای خودت می‌نویسی» — به‌هرحال هر خواننده یک آدمِ متفاوت است."},
+        tip:{en:"Write the piece you'd want to read; stop trying to please everyone.", fa:"همان نوشته‌ای را بنویس که خودت دوست داری بخوانی؛ دست از راضی‌کردنِ همه بردار."},
+        pitfall:{en:"Second-guessing a faceless crowd until your voice disappears.", fa:"آن‌قدر گمانه‌زنی دربارهٔ یک جمعیتِ بی‌چهره تا صدایت محو شود."} },
+      unity:{ part:'methods', n:5, name:{en:'Choose Unity', fa:'یکپارچگی را انتخاب کن'}, glabel:{en:'Unity', fa:'یکپارچگی'},
+        principle:{en:"Pick one tense, one point of view, one mood, and hold them steady through the piece.", fa:"یک زمان، یک زاویهٔ دید، یک لحن را انتخاب کن و در کلِ نوشته ثابت نگهشان دار."},
+        more:{en:"Unity is what keeps the reader oriented. Decide up front whether you're 'I', 'you' or 'we', past or present, formal or casual — then don't drift, because every unexplained shift quietly confuses.", fa:"یکپارچگی همان چیزی است که خواننده را سرِ جهت نگه می‌دارد. از اول تصمیم بگیر «من»ی، «تو»یی یا «ما»یی، گذشته یا حال، رسمی یا خودمانی — بعد منحرف نشو، چون هر تغییرِ بی‌توضیح، بی‌سروصدا گیج می‌کند."},
+        example:{en:"Don't open in past tense and slide into present midway; pick one and stay.", fa:"با زمانِ گذشته شروع نکن و وسطِ راه به حال نلغز؛ یکی را انتخاب کن و بمان."},
+        tip:{en:"Before drafting, decide your tense, person, and tone in one line.", fa:"قبل از نوشتن، زمان، شخص و لحنت را در یک خط تعیین کن."},
+        pitfall:{en:"Jarring shifts of voice or tense that unsettle the reader.", fa:"تغییرهای ناگهانیِ صدا یا زمان که خواننده را به‌هم می‌ریزند."} },
+      leadend:{ part:'methods', n:6, name:{en:'The Lead & the Ending', fa:'شروع و پایان'}, glabel:{en:'Lead & End', fa:'شروع و پایان'},
+        principle:{en:"The first sentence must seize the reader; the ending should snap shut, often with a surprise.", fa:"جملهٔ اول باید خواننده را بگیرد؛ پایان باید ناگهان بسته شود، اغلب با یک غافلگیری."},
+        more:{en:"The lead earns the second sentence, which earns the third. The ending should stop the moment the job is done — a strong quote or a clean turn, never a droning summary that keeps going after the reader has arrived.", fa:"شروع، جملهٔ دوم را حق می‌کند، و دومی سومی را. پایان باید همان لحظه‌ای بایستد که کار تمام شده — یک نقلِ‌قولِ قوی یا یک چرخشِ تمیز، نه یک خلاصهٔ یک‌نواخت که بعد از رسیدنِ خواننده هم ادامه دارد."},
+        example:{en:"Open with one provocative fact the reader can't walk away from; end on a line that turns.", fa:"با یک واقعیتِ محرک شروع کن که خواننده نتواند رهایش کند؛ با خطی که می‌چرخد تمام کن."},
+        tip:{en:"Cut your first paragraph and your last; often the piece is better.", fa:"پاراگرافِ اول و آخرت را حذف کن؛ اغلب نوشته بهتر می‌شود."},
+        pitfall:{en:"A slow warm-up opening and an ending that won't stop.", fa:"یک شروعِ کُندِ گرم‌کننده و پایانی که تمام نمی‌شود."} },
+      verbs:{ part:'methods', n:7, name:{en:'Use Active Verbs', fa:'فعلِ فعال به کار ببر'}, glabel:{en:'Verbs', fa:'فعل‌ها'},
+        principle:{en:"Verbs are your strongest tool; use active ones and distrust adverbs, adjectives and qualifiers.", fa:"فعل، قوی‌ترین ابزارِ توست؛ فعلِ فعال به کار ببر و به قید و صفت و تعدیل‌کننده‌ها بدبین باش."},
+        more:{en:"Active verbs push a sentence forward and give it momentum. Words like 'very', 'little', and 'sort of' usually signal a weak verb underneath — replace the verb, don't prop it up.", fa:"فعلِ فعال جمله را جلو می‌راند و به آن شتاب می‌دهد. کلماتی مثلِ «خیلی»، «کمی» و «یه‌جورایی» معمولاً نشانهٔ یک فعلِ ضعیف در زیرند — فعل را عوض کن، نه اینکه زیرِ بغلش را بگیری."},
+        example:{en:"'Be confused. Be tired.' beats 'a bit confused and sort of tired.'", fa:"«گیج باش. خسته باش.» از «یه‌کم گیج و یه‌جورایی خسته» بهتر است."},
+        tip:{en:"Find the strongest verb in each sentence; if it's weak, upgrade it.", fa:"قوی‌ترین فعلِ هر جمله را پیدا کن؛ اگر ضعیف است، ارتقایش بده."},
+        pitfall:{en:"Weak passive verbs propped up by piles of modifiers.", fa:"فعل‌های مجهولِ ضعیف که با تلنباری از تعدیل‌کننده سرِپا نگه داشته شده‌اند."} },
+      rewrite:{ part:'methods', n:8, name:{en:'Rewrite, Rewrite', fa:'بازنویسی کن، بازنویسی'}, glabel:{en:'Rewrite', fa:'بازنویسی'},
+        principle:{en:"Rewriting is the essence of writing well — most first drafts can be cut by half.", fa:"بازنویسی، جوهرِ خوب‌نوشتن است — بیشترِ پیش‌نویس‌های اول را می‌شود نصف کرد."},
+        more:{en:"Few sentences come out right the first time. The real work is trimming, tightening and reordering until only the essential remains; the writer who thinks the first draft is finished stops just before the writing gets good.", fa:"کمتر جمله‌ای بارِ اول درست از آب درمی‌آید. کارِ اصلی، کوتاه‌کردن، فشرده‌کردن و مرتب‌کردنِ دوباره است تا فقط ضروری بماند؛ نویسنده‌ای که فکر می‌کند پیش‌نویسِ اول تمام است، درست قبل از اینکه نوشته خوب شود دست می‌کشد."},
+        example:{en:"Take a finished draft and cut it by a third; it almost always reads better.", fa:"یک پیش‌نویسِ تمام‌شده را بردار و یک‌سومش را حذف کن؛ تقریباً همیشه بهتر خوانده می‌شود."},
+        tip:{en:"Treat the first draft as raw material, never as the final piece.", fa:"پیش‌نویسِ اول را مادهٔ خام بدان، نه هیچ‌وقت نوشتهٔ نهایی."},
+        pitfall:{en:"Treating the first draft as finished.", fa:"پیش‌نویسِ اول را تمام‌شده پنداشتن."} },
+      people:{ part:'forms', n:9, name:{en:'Write About People', fa:'دربارهٔ آدم‌ها بنویس'}, glabel:{en:'People', fa:'آدم‌ها'},
+        principle:{en:"People and their own words bring nonfiction to life — get someone talking and quote them.", fa:"آدم‌ها و کلماتِ خودشان، ناداستان را زنده می‌کنند — کسی را به حرف بیاور و از او نقلِ‌قول بیاور."},
+        more:{en:"Abstract writing goes dead; a real person speaking makes it breathe. Build a piece around someone's voice rather than your paraphrase, and readers lean in.", fa:"نوشتهٔ انتزاعی می‌میرد؛ یک آدمِ واقعی که حرف می‌زند، نفَسش می‌دهد. نوشته را دورِ صدای یک نفر بساز، نه دورِ بازگوییِ خودت، تا خواننده جلو بیاید."},
+        example:{en:"An article built on a nurse's own quotes beats one that only describes the hospital.", fa:"مقاله‌ای که روی نقلِ‌قول‌های خودِ یک پرستار ساخته شده، از مقاله‌ای که فقط بیمارستان را توصیف می‌کند بهتر است."},
+        tip:{en:"In your next piece, let a real person's words carry a key point.", fa:"در نوشتهٔ بعدی‌ات، بگذار کلماتِ یک آدمِ واقعی یک نکتهٔ کلیدی را حمل کند."},
+        pitfall:{en:"Dry, abstract writing with no human voice in it.", fa:"نوشتهٔ خشک و انتزاعی که هیچ صدای انسانی در آن نیست."} },
+      places:{ part:'forms', n:10, name:{en:'Write About Places', fa:'دربارهٔ مکان‌ها بنویس'}, glabel:{en:'Places', fa:'مکان‌ها'},
+        principle:{en:"Report the one specific, telling detail — and resist the picturesque cliché.", fa:"همان یک جزئیاتِ مشخص و گویا را گزارش کن — و در برابرِ کلیشهٔ خوش‌منظره مقاومت کن."},
+        more:{en:"'Charming', 'quaint', 'breathtaking' tell the reader nothing. One exact, observed detail puts them in the place better than a paragraph of scenery adjectives.", fa:"«دلنشین»، «بامزه»، «نفس‌گیر» هیچ به خواننده نمی‌گویند. یک جزئیاتِ دقیق و دیده‌شده، بهتر از یک پاراگراف صفتِ منظره، خواننده را در آن مکان می‌نشاند."},
+        example:{en:"Not 'a charming café' but 'a café where the waiter knew every regular's order'.", fa:"نه «یک کافهٔ دلنشین» بلکه «کافه‌ای که پیش‌خدمتش سفارشِ هر مشتریِ همیشگی را از بر بود»."},
+        tip:{en:"Replace one travel adjective with one concrete, observed detail.", fa:"یک صفتِ سفرنامه‌ای را با یک جزئیاتِ ملموس و دیده‌شده عوض کن."},
+        pitfall:{en:"Clichéd travel-brochure adjectives and secondhand scenery.", fa:"صفت‌های کلیشه‌ایِ بروشورِ سفر و منظره‌های دستِ‌دوم."} },
+      yourself:{ part:'forms', n:11, name:{en:'Write About Yourself', fa:'دربارهٔ خودت بنویس'}, glabel:{en:'Yourself', fa:'خودت'},
+        principle:{en:"Write about yourself with candor and warmth — your own life is your best material.", fa:"دربارهٔ خودت با صداقت و گرما بنویس — زندگیِ خودت بهترین مصالحِ توست."},
+        more:{en:"The memoir works when the writer stops hiding. Told in a genuine voice, family and personal history become universal; hedged and self-conscious, it stays flat.", fa:"خاطره وقتی جواب می‌دهد که نویسنده دست از پنهان‌شدن بردارد. با یک صدای صادق که گفته شود، تاریخِ خانوادگی و شخصی جهان‌شمول می‌شود؛ محتاط و خودآگاه، صاف و بی‌روح می‌ماند."},
+        example:{en:"A memoir that admits real fear and doubt moves us more than a polished highlight reel.", fa:"خاطره‌ای که به ترس و تردیدِ واقعی اعتراف می‌کند، بیشتر از یک نمایشِ صیقلیِ لحظه‌های خوب تکانمان می‌دهد."},
+        tip:{en:"Write one true, slightly uncomfortable memory in your own plain voice.", fa:"یک خاطرهٔ واقعی و کمی ناراحت‌کننده را با صدای سادهٔ خودت بنویس."},
+        pitfall:{en:"Self-conscious hedging that hides the real person.", fa:"احتیاط‌کاریِ خودآگاه که آدمِ واقعی را پنهان می‌کند."} },
+      voice:{ part:'attitudes', n:12, name:{en:'Find Your Voice', fa:'صدایت را پیدا کن'}, glabel:{en:'Voice', fa:'صدا'},
+        principle:{en:"Develop a consistent, personal voice — write the way you naturally speak, only better.", fa:"یک صدای شخصی و یک‌دست بپروران — همان‌طور بنویس که طبیعی حرف می‌زنی، فقط بهتر."},
+        more:{en:"Voice is what makes a reader trust and enjoy you. Read your prose aloud to hear its rhythm and catch the false, institutional notes that don't sound like a human being.", fa:"صدا همان چیزی است که خواننده به‌خاطرش به تو اعتماد و از تو لذت می‌برد. نوشته‌ات را بلند بخوان تا ریتمش را بشنوی و آن نت‌های دروغین و اداری را که شبیهِ یک انسان نیستند بگیری."},
+        example:{en:"Reading aloud reveals the stiff sentence you'd never actually say out loud.", fa:"بلندخواندن، همان جملهٔ خشکی را لو می‌دهد که هیچ‌وقت واقعاً به زبان نمی‌آوری."},
+        tip:{en:"Read today's draft out loud and fix whatever you'd never say.", fa:"پیش‌نویسِ امروز را بلند بخوان و هرچه را هیچ‌وقت نمی‌گویی درست کن."},
+        pitfall:{en:"A flat, institutional tone with no human behind it.", fa:"یک لحنِ صاف و اداری که هیچ انسانی پشتش نیست."} },
+      enjoyment:{ part:'attitudes', n:13, name:{en:'Enjoyment & Confidence', fa:'لذت و اعتماد'}, glabel:{en:'Enjoyment', fa:'لذت'},
+        principle:{en:"Confidence and evident enjoyment transmit straight to the reader — so write what you care about.", fa:"اعتماد و لذتِ آشکار، مستقیم به خواننده منتقل می‌شوند — پس دربارهٔ چیزی بنویس که برایت مهم است."},
+        more:{en:"When you enjoy the subject, the pleasure shows and pulls the reader along; when you write from fear, the hedging shows too. Interest is contagious in both directions.", fa:"وقتی از موضوع لذت می‌بری، آن لذت دیده می‌شود و خواننده را با خود می‌کشد؛ وقتی از سرِ ترس می‌نویسی، آن احتیاط هم دیده می‌شود. علاقه در هر دو جهت مسری است."},
+        example:{en:"A piece by someone who loves their subject reads warm; a dutiful one reads cold.", fa:"نوشتهٔ کسی که موضوعش را دوست دارد گرم خوانده می‌شود؛ نوشتهٔ از سرِ وظیفه، سرد."},
+        tip:{en:"Pick subjects you genuinely care about; the enjoyment carries.", fa:"موضوع‌هایی را انتخاب کن که واقعاً برایت مهم‌اند؛ لذتش خودش را می‌رساند."},
+        pitfall:{en:"Timid, hedged writing driven by fear of being wrong.", fa:"نوشتهٔ ترسو و محتاط که از ترسِ اشتباه‌کردن می‌آید."} },
+      best:{ part:'attitudes', n:14, name:{en:'Write as Well as You Can', fa:'تا می‌توانی خوب بنویس'}, glabel:{en:'Do your best', fa:'بهترینت'},
+        principle:{en:"Hold yourself to your highest standard on every job, however humble.", fa:"در هر کار، هرچقدر هم ساده، خودت را به بالاترین استانداردت پایبند بدار."},
+        more:{en:"Taste and standards are a decision, not a talent. Even a routine assignment deserves real craftsmanship; settle for 'good enough' a few times and you quietly lose the standard that made you good.", fa:"ذائقه و استاندارد یک تصمیم است، نه استعداد. حتی یک کارِ روزمره هم شایستهٔ صنعتگریِ واقعی است؛ چند بار به «به‌اندازهٔ کافی خوب» رضایت بده، و بی‌سروصدا همان استانداردی را از دست می‌دهی که خوبت کرده بود."},
+        example:{en:"Give the same care to a short email as to an essay; the habit shows everywhere.", fa:"همان دقتی را که به یک جستار می‌دهی، به یک ایمیلِ کوتاه هم بده؛ این عادت همه‌جا خودش را نشان می‌دهد."},
+        tip:{en:"Do the small, unglamorous piece as well as you possibly can.", fa:"همان کارِ کوچک و بی‌زرق‌وبرق را تا جایی که می‌توانی خوب انجام بده."},
+        pitfall:{en:"Settling for 'good enough' until your standards erode.", fa:"رضایت به «به‌اندازهٔ کافی خوب» تا وقتی استانداردهایت فرو بریزند."} }
+    },
+    core:{ name:{en:'CLARITY', fa:'شفافیت'},
+      principle:{en:"Good nonfiction is clear, simple, brief and human. Strip every sentence to its cleanest components, respect the reader's time, and let your real self show — because clear writing comes from clear thinking and relentless rewriting.", fa:"ناداستانِ خوب، روشن، ساده، کوتاه و انسانی است. هر جمله را تا تمیزترین اجزایش کم کن، به وقتِ خواننده احترام بگذار، و بگذار خودِ واقعی‌ات دیده شود — چون نوشتنِ روشن از فکرِ روشن و بازنویسیِ بی‌امان می‌آید."},
+      more:{en:"Zinsser organizes the craft into four parts — Principles (clarity, simplicity, cutting clutter), Methods (unity, leads and endings, strong verbs, rewriting), Forms (writing about people, places, yourself), and Attitudes (voice, confidence, enjoyment). The thread through all of it: warmth and humanity survive only after the clutter is gone.", fa:"زینسر این صنعت را در چهار بخش می‌چیند — اصول (شفافیت، سادگی، حذفِ زواید)، روش‌ها (یکپارچگی، شروع و پایان، فعل‌های قوی، بازنویسی)، قالب‌ها (نوشتن دربارهٔ آدم‌ها، مکان‌ها، خودت)، و نگرش‌ها (صدا، اعتماد، لذت). نخِ رابطِ همه‌شان: گرما و انسانیت فقط بعد از رفتنِ زواید می‌مانند."},
+      example:{en:"Click any node to read a principle or a method. You can also drag the nodes around.", fa:"روی هر دایره کلیک کن تا یک اصل یا روش را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."} },
+    stages:[
+      { level:1, badge:{en:'Level 1 · Over-simplified', fa:'سطحِ ۱ · خیلی ساده'}, title:{en:'Cut the fat', fa:'چربی را بگیر'}, tagline:{en:'The whole book in a sentence.', fa:'کلِ کتاب در یک جمله.'},
+        body:{en:"Good writing is clear writing, and clear writing is lean. Say what you mean in the fewest, plainest words — then delete the ones you didn't need.", fa:"نوشتهٔ خوب یعنی نوشتهٔ روشن، و نوشتهٔ روشن یعنی کم‌چربی. منظورت را با کمترین و ساده‌ترین کلمات بگو — بعد آن‌هایی را که لازم نداشتی حذف کن."},
+        example:{en:"'At this point in time' is just 'now'. Make that swap a hundred times.", fa:"«در این برهه از زمان» فقط یعنی «حالا». این جایگزینی را صد بار انجام بده."},
+        gain:{en:"You hold the single rule the whole book expands on.", fa:"همان یک قاعده‌ای را داری که کلِ کتاب بسطش می‌دهد."} },
+      { level:2, badge:{en:'Level 2 · Simple', fa:'سطحِ ۲ · ساده'}, title:{en:'Four foundations', fa:'چهار پایه'}, tagline:{en:'Clarity, simplicity, brevity, humanity.', fa:'شفافیت، سادگی، کوتاهی، انسانیت.'},
+        body:{en:"Every good sentence rests on four things: it's <b>clear</b>, it's <b>simple</b>, it's <b>brief</b>, and it keeps its <b>humanity</b>. Your main job is to hunt <b>clutter</b> — the jargon and padding that smother all four.", fa:"هر جملهٔ خوب روی چهار چیز بنا شده: <b>روشن</b> است، <b>ساده</b> است، <b>کوتاه</b> است، و <b>انسانیتش</b> را حفظ می‌کند. کارِ اصلی‌ات شکارِ <b>زواید</b> است — اصطلاحات و پُرکردنی که هر چهار را خفه می‌کند."},
+        example:{en:"Turn 'we utilized' into 'we used', and 'in order to' into 'to'.", fa:"«ما بهره‌برداری کردیم» را به «ما استفاده کردیم»، و «به‌منظورِ» را به «برای» تبدیل کن."},
+        gain:{en:"You can spot and cut clutter in any sentence.", fa:"می‌توانی زواید را در هر جمله ببینی و حذف کنی."} },
+      { level:3, badge:{en:'Level 3 · Balanced', fa:'سطحِ ۳ · متعادل'}, title:{en:'Build it well', fa:'خوب بسازش'}, tagline:{en:'Unity, leads, verbs, rewriting.', fa:'یکپارچگی، شروع، فعل، بازنویسی.'},
+        body:{en:"Now the methods. Hold <b>unity</b> of tense and voice. Open with a <b>lead</b> that grabs and close with an <b>ending</b> that snaps shut. Lean on <b>active verbs</b>. And above all, <b>rewrite</b> — the first draft is where you find out what you mean; the rewrite is where you say it.", fa:"حالا روش‌ها. <b>یکپارچگیِ</b> زمان و صدا را نگه دار. با یک <b>شروعِ</b> گیرا باز کن و با یک <b>پایانِ</b> ناگهانی ببند. به <b>فعل‌های فعال</b> تکیه کن. و از همه مهم‌تر، <b>بازنویسی</b> کن — پیش‌نویسِ اول جایی است که می‌فهمی چه می‌خواهی بگویی؛ بازنویسی جایی است که می‌گویی‌اش."},
+        example:{en:"Halve a finished draft. What's left is almost always sharper.", fa:"یک پیش‌نویسِ تمام‌شده را نصف کن. آنچه می‌ماند تقریباً همیشه تیزتر است."},
+        gain:{en:"You can build a clean piece from lead to ending.", fa:"می‌توانی یک نوشتهٔ تمیز را از شروع تا پایان بسازی."} },
+      { level:4, badge:{en:'Level 4 · Advanced', fa:'سطحِ ۴ · پیشرفته'}, title:{en:'Fit the form', fa:'به قالب بنشان'}, tagline:{en:'People, places, yourself — any genre.', fa:'آدم‌ها، مکان‌ها، خودت — هر قالب.'},
+        body:{en:"The same principles bend to fit any genre. Writing about <b>people</b>? Quote them. Writing about <b>places</b>? Give one exact detail, not travel-brochure adjectives. Writing about <b>yourself</b>? Do it with candor. Interview, travel, memoir, science, business — the rule holds: find the human and the specific detail.", fa:"همان اصول خم می‌شوند تا به هر قالبی بخورند. دربارهٔ <b>آدم‌ها</b> می‌نویسی؟ نقلِ‌قولشان کن. دربارهٔ <b>مکان‌ها</b>؟ یک جزئیاتِ دقیق بده، نه صفت‌های بروشورِ سفر. دربارهٔ <b>خودت</b>؟ با صداقت. مصاحبه، سفر، خاطره، علم، کسب‌وکار — قاعده پابرجاست: آدم و آن جزئیاتِ مشخص را پیدا کن."},
+        example:{en:"A profile lives on its subject's own words; a travel piece on one vivid, exact scene.", fa:"یک نیم‌رخ با کلماتِ خودِ سوژه‌اش زنده است؛ یک سفرنامه با یک صحنهٔ زنده و دقیق."},
+        gain:{en:"You can adapt the craft to whatever you need to write.", fa:"می‌توانی صنعتِ کار را با هر چیزی که باید بنویسی وفق بدهی."} },
+      { level:5, badge:{en:'Level 5 · Expert', fa:'سطحِ ۵ · حرفه‌ای'}, title:{en:'Warmth & standards', fa:'گرما و استاندارد'}, tagline:{en:'Voice, enjoyment, and doing your best.', fa:'صدا، لذت، و بهترین‌بودن.'},
+        body:{en:"The expert has the craft and adds the attitudes. A consistent <b>voice</b> and visible <b>enjoyment</b> travel straight to the reader — warmth survives only after the clutter is gone. And the deepest rule is a standard: <b>write as well as you can</b> on every job, however small, because taste is a decision you keep making. Clear thinking becomes clear writing; one can't exist without the other.", fa:"آدمِ حرفه‌ای صنعت را دارد و نگرش‌ها را به آن می‌افزاید. یک <b>صدای</b> یک‌دست و <b>لذتِ</b> آشکار مستقیم به خواننده می‌رسند — گرما فقط بعد از رفتنِ زواید می‌ماند. و عمیق‌ترین قاعده یک استاندارد است: در هر کار، هرچقدر کوچک، <b>تا می‌توانی خوب بنویس</b>، چون ذائقه تصمیمی است که مدام می‌گیری. فکرِ روشن به نوشتهٔ روشن تبدیل می‌شود؛ هیچ‌کدام بدونِ دیگری نمی‌تواند وجود داشته باشد."},
+        example:{en:"You read every draft aloud, keep your voice, and give a two-line email the same care as an essay.", fa:"هر پیش‌نویس را بلند می‌خوانی، صدایت را نگه می‌داری، و به یک ایمیلِ دوخطی همان دقتِ یک جستار را می‌دهی."},
+        gain:{en:"You can write clearly and warmly, and teach others to do the same.", fa:"می‌توانی روشن و گرم بنویسی، و همین را به دیگران یاد بدهی."} }
+    ],
+    quotes:[
+      {en:"Clutter is the disease of American writing. We are a society strangling in unnecessary words, circular constructions, pompous frills and meaningless jargon.", fa:"زواید، بیماریِ نوشتنِ آمریکایی است. ما جامعه‌ای هستیم که در کلماتِ غیرضروری، ساختارهای دورانی، تزئیناتِ پُرطمطراق و اصطلاحاتِ بی‌معنا خفه می‌شویم."},
+      {en:"The secret of good writing is to strip every sentence to its cleanest components.", fa:"رازِ خوب‌نوشتن این است که هر جمله را تا تمیزترین اجزایش کم کنی."},
+      {en:"Clear thinking becomes clear writing; one can't exist without the other.", fa:"فکرِ روشن به نوشتهٔ روشن تبدیل می‌شود؛ هیچ‌کدام بدونِ دیگری نمی‌تواند وجود داشته باشد."},
+      {en:"Fighting clutter is like fighting weeds — the writer is always slightly behind.", fa:"جنگ با زواید مثلِ جنگ با علفِ هرز است — نویسنده همیشه کمی عقب است."},
+      {en:"Writing is hard work. A clear sentence is no accident. Very few sentences come out right the first time.", fa:"نوشتن کارِ سختی است. یک جملهٔ روشن تصادفی نیست. کمتر جمله‌ای بارِ اول درست از آب درمی‌آید."},
+      {en:"You are writing for yourself. Don't try to visualize the great mass audience.", fa:"تو برای خودت می‌نویسی. سعی نکن آن مخاطبِ تودهٔ بزرگ را تصور کنی."},
+      {en:"Verbs are the most important of all your tools. They push the sentence forward and give it momentum.", fa:"فعل‌ها مهم‌ترینِ همهٔ ابزارهای تو هستند. جمله را جلو می‌رانند و به آن شتاب می‌دهند."},
+      {en:"Don't say you were a bit confused and sort of tired. Be confused. Be tired.", fa:"نگو یه‌کم گیج و یه‌جورایی خسته بودی. گیج باش. خسته باش."},
+      {en:"Writing is an intimate transaction between two people, conducted on paper.", fa:"نوشتن یک معاملهٔ صمیمانه بینِ دو نفر است که روی کاغذ انجام می‌شود."}
+    ],
+    media:[
+      { kind:'yt', id:'LgI_Nt-82Hk', src:{en:'YouTube · Productivity Game', fa:'یوتیوب · Productivity Game'},
+        title:{en:'On Writing Well — Core Message', fa:'خوب نوشتن — پیامِ اصلی'},
+        desc:{en:'An animated core-message summary of the book.', fa:'یک خلاصهٔ انیمیشنی از پیامِ اصلیِ کتاب.'},
+        bullets:{en:["The four foundations in a few minutes","Cutting clutter, in pictures","A fast, memorable overview"], fa:["چهار پایه در چند دقیقه","حذفِ زواید، به‌شکلِ تصویری","یک مرورِ سریع و به‌یادماندنی"]},
+        best:{en:'Best for Stage 1–2.', fa:'خوب برای مرحلهٔ ۱ و ۲.'} },
+      { kind:'yt', id:'lHbqoJpymRs', src:{en:'YouTube · Alex and Books', fa:'یوتیوب · Alex and Books'},
+        title:{en:'Lessons from On Writing Well', fa:'درس‌هایی از خوب نوشتن'},
+        desc:{en:"A reader's practical lessons drawn from the book.", fa:'درس‌های کاربردیِ یک خواننده از کتاب.'},
+        bullets:{en:["Concrete before/after examples","How the principles apply day to day","Good after a first read"], fa:["مثال‌های ملموسِ قبل و بعد","اینکه اصول روزبه‌روز چطور به کار می‌آیند","خوب بعد از اولین خواندن"]},
+        best:{en:'Best for Stage 2–3.', fa:'خوب برای مرحلهٔ ۲ و ۳.'} },
+      { kind:'yt', id:'VkCn7ga--aU', src:{en:'YouTube · SnapTale', fa:'یوتیوب · SnapTale'},
+        title:{en:'On Writing Well — 9-Minute Summary', fa:'خوب نوشتن — خلاصهٔ ۹ دقیقه‌ای'},
+        desc:{en:'A quick summary of the key points.', fa:'یک خلاصهٔ سریع از نکات کلیدی.'},
+        bullets:{en:["The methods, condensed","Leads, verbs, and rewriting","A tidy recap"], fa:["روش‌ها، فشرده","شروع، فعل، و بازنویسی","یک مرورِ مرتب"]},
+        best:{en:'Best for Stage 3–4.', fa:'خوب برای مرحلهٔ ۳ و ۴.'} },
+      { kind:'img', url:'https://www.harpercollins.com/products/on-writing-well-william-zinsser',
+        src:{en:'HarperCollins · Publisher', fa:'HarperCollins · ناشر'},
+        title:{en:'On Writing Well — Publisher Page', fa:'خوب نوشتن — صفحهٔ ناشر'},
+        desc:{en:'The publisher page for the classic guide, with editions and details.', fa:'صفحهٔ ناشر برای این راهنمای کلاسیک، با نسخه‌ها و جزئیات.'},
+        bullets:{en:["The definitive editions","Background on Zinsser","Straight from the source"], fa:["نسخه‌های معتبر","پیشینه‌ای دربارهٔ زینسر","مستقیم از خودِ منبع"]},
+        best:{en:'For editions and the source.', fa:'برای نسخه‌ها و منبعِ اصلی.'} }
+    ],
+    go:[
+      {label:{en:'Publisher page', fa:'صفحهٔ ناشر'}, url:'https://www.harpercollins.com/products/on-writing-well-william-zinsser'},
+      {label:{en:'Book on Goodreads', fa:'کتاب در گودریدز'}, url:'https://www.goodreads.com/book/show/53343.On_Writing_Well'},
+      {label:{en:'Zinsser essay: Writing English as a Second Language', fa:'جستارِ زینسر: نوشتن به انگلیسی'}, url:'https://theamericanscholar.org/writing-english-as-a-second-language/'}
+    ],
+    recs:[
+      { pri:'b', t:{en:'Cut every sentence to the bone', fa:'هر جمله را تا استخوان بتراش'}, d:{en:"Reread your last email or doc and delete every word that isn't doing work.", fa:'آخرین ایمیل یا سندت را دوباره بخوان و هر کلمه‌ای که کاری نمی‌کند را حذف کن.'} },
+      { pri:'b', t:{en:'Rewrite it once more', fa:'یک‌بارِ دیگر بازنویسی‌اش کن'}, d:{en:'Take a finished draft and cut it by a third before you send it.', fa:'یک پیش‌نویسِ تمام‌شده را بردار و قبل از فرستادن، یک‌سومش را حذف کن.'} },
+      { pri:'n', t:{en:'Hunt one kind of clutter', fa:'یک نوع زواید را شکار کن'}, d:{en:"Pick a crutch — 'very', 'in order to', 'utilize' — and remove it everywhere today.", fa:'یک عصا را انتخاب کن — «خیلی»، «به‌منظورِ»، «بهره‌برداری» — و امروز همه‌جا حذفش کن.'} },
+      { pri:'n', t:{en:'Read it aloud', fa:'بلند بخوانش'}, d:{en:"Hear the stiff, inhuman sentences and rewrite them the way you'd speak.", fa:'جمله‌های خشک و غیرانسانی را بشنو و همان‌طور که حرف می‌زنی بازنویسی‌شان کن.'} }
+    ]
+  }
+};

@@ -1,0 +1,264 @@
+/* config: The Goal — Eliyahu M. Goldratt (Executing) */
+module.exports = {
+  slug:"goal", brand:"The Goal",
+  titleTag:"The Goal — نقشهٔ دانش و یادگیری ۵ مرحله‌ای",
+  W:980, H:780, R1:220, R2:126, span:66,
+  leafKickEn:"Idea", leafKickFa:"ایدهٔ",
+  flowEn:["Identify","Exploit","Subordinate","Elevate"], flowFa:["شناسایی","بهره‌گیری","هم‌سوسازی","ارتقا"],
+
+  hero:`  <div class="eyebrow"><span class="edot"></span>
+    <span data-only="en">Book knowledge map · Eliyahu M. Goldratt</span>
+    <span data-only="fa">نقشهٔ کتاب · الیاهو گلدرت</span>
+  </div>
+  <h1>
+    <span data-only="en">The Goal — A Process of Ongoing Improvement</span>
+    <span data-only="fa">هدف — فرآیندی برای بهبودِ مستمر</span>
+  </h1>
+  <p class="dek">
+    <span data-only="en">A knowledge graph of the whole book, plus a 5-stage path from a single sentence to expert-level mastery — with an example at every step.</span>
+    <span data-only="fa">نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از خیلی ساده تا حرفه‌ای — با یک مثال در هر مرحله.</span>
+  </p>
+  <div class="metastrip">
+    <div class="metaitem"><span class="mk" data-only="en">Book</span><span class="mk" data-only="fa">کتاب</span>
+      <span class="mv" data-only="en">The Goal</span><span class="mv" data-only="fa">هدف</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Author</span><span class="mk" data-only="fa">نویسنده</span>
+      <span class="mv" data-only="en">Eliyahu M. Goldratt</span><span class="mv" data-only="fa">الیاهو گلدرت</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Published</span><span class="mk" data-only="fa">سالِ چاپ</span>
+      <span class="mv" data-only="en">1984</span><span class="mv" data-only="fa">۱۹۸۴</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Group</span><span class="mk" data-only="fa">گروه</span>
+      <span class="mv" data-only="en">Executing</span><span class="mv" data-only="fa">اجرا</span></div>
+  </div>
+  <div class="chips">
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Parts</span><span data-only="fa">بخش</span></div>
+    <div class="chip"><b data-only="en">16</b><b data-only="fa">۱۶</b><span data-only="en">Ideas</span><span data-only="fa">ایده</span></div>
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Learning stages</span><span data-only="fa">مرحلهٔ یادگیری</span></div>
+  </div>`,
+
+  callout:`    <b data-only="en">The core idea:</b>
+    <b data-only="fa">ایدهٔ اصلی:</b>
+    <span data-only="en"> The goal of any company is simple: <i>make money</i>. A system's output is limited by its weakest link — the <i>constraint</i>. Find that one bottleneck, wring the most out of it, make everything else serve it, then lift it — and repeat, forever.</span>
+    <span data-only="fa"> هدفِ هر شرکت ساده است: <i>پول درآوردن</i>. خروجیِ هر سیستم را ضعیف‌ترین حلقه‌اش تعیین می‌کند — همان <i>محدودیت</i>. آن یک گلوگاه را پیدا کن، بیشترین بهره را از آن بکش، بقیهٔ کارها را در خدمتش بگذار، بعد ارتقایش بده — و این را تا ابد تکرار کن.</span>`,
+
+  kpis:`    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Parts (goal · measures · constraints · steps · improvement)</div><div class="l" data-only="fa">بخش (هدف · سنجه‌ها · گلوگاه · گام‌ها · بهبود)</div></div>
+    <div class="kbox"><div class="v" data-only="en">16</div><div class="v" data-only="fa">۱۶</div><div class="l" data-only="en">Ideas you can use</div><div class="l" data-only="fa">ایده برای استفاده</div></div>
+    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Levels, simple → expert</div><div class="l" data-only="fa">مرحله، ساده تا حرفه‌ای</div></div>
+    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Focusing steps: identify → exploit → subordinate → elevate → repeat</div><div class="l" data-only="fa">گام: شناسایی → بهره‌گیری → هم‌سوسازی → ارتقا → تکرار</div></div>`,
+
+  mapcallout:`      <b data-only="en">Read it as a flow:</b><b data-only="fa">به‌صورتِ یک جریان بخوانش:</b>
+      <span data-only="en"> pin down the <b>goal</b> (make money), measure it with <b>throughput, inventory</b> and <b>operating expense</b>, find the <b>constraint</b> that caps the system, then run the <b>five focusing steps</b> — and keep repeating.</span>
+      <span data-only="fa"> اول <b>هدف</b> را روشن کن (پول درآوردن)، با <b>تراپوت، موجودی</b> و <b>هزینهٔ عملیاتی</b> بسنجش، بعد <b>محدودیتی</b> را که سقفِ سیستم است پیدا کن، و <b>پنج گامِ تمرکز</b> را اجرا کن — و مدام تکرار کن.</span>`,
+
+  methodFa:"<p><b>منبع:</b> کتابِ «هدف: فرآیندی برای بهبودِ مستمر» نوشتهٔ الیاهو گلدرت با همکاریِ جف کاکس، چاپِ نخست ۱۹۸۴ (با ویرایش‌های بعدی).</p><p><b>روشِ کار:</b> ساختارِ پنج‌بخشی و ایده‌ها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده؛ نقل‌قول‌ها با متنِ کتاب مقابله و ویدیوها بررسی شده‌اند.</p><p><b>گروه:</b> «اجرا» — از فهرستِ کتاب‌های ضروریِ سازندگانِ محصولِ لنی راچیتسکی.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای متنِ کامل، خودِ کتاب را بخوان.</p>",
+  methodEn:"<p><b>Source:</b> the book <i>The Goal: A Process of Ongoing Improvement</i> by Eliyahu M. Goldratt with Jeff Cox, first published 1984 (revised editions since).</p><p><b>How this was built:</b> the five-part structure and ideas were gathered and rewritten from the book and reputable sources; quotes were cross-checked and the linked videos verified.</p><p><b>Group:</b> Executing — from Lenny Rachitsky's essential books for product builders.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>",
+
+  data:{
+    tldr:[
+      {en:"The whole book in one line: the goal of any company is to <b>make money</b> — judge every action by whether it moves you closer.",
+       fa:"خلاصهٔ کل کتاب در یک جمله: هدفِ هر شرکت <b>پول درآوردن</b> است — هر کاری را با این بسنج که تو را نزدیک‌تر می‌کند یا نه."},
+      {en:"Measure it with three numbers: <b>throughput</b> (money from sales), <b>inventory</b>, and <b>operating expense</b>.",
+       fa:"با سه عدد بسنجش: <b>تراپوت</b> (پولی که از فروش می‌آید)، <b>موجودی</b>، و <b>هزینهٔ عملیاتی</b>."},
+      {en:"Every system has one <b>constraint</b> — a weakest link that caps the whole output. Local efficiency everywhere is not the goal.",
+       fa:"هر سیستم یک <b>محدودیت</b> دارد — ضعیف‌ترین حلقه‌ای که سقفِ کلِ خروجی است. اینکه همه‌جا پُربازده باشی، هدف نیست."},
+      {en:"Manage that constraint with the <b>five focusing steps</b>: identify, exploit, subordinate, elevate — then repeat.",
+       fa:"آن محدودیت را با <b>پنج گامِ تمرکز</b> مدیریت کن: شناسایی، بهره‌گیری، هم‌سوسازی، ارتقا — بعد تکرار."},
+      {en:"Then never stop: improvement is <b>ongoing</b>, and the real skill is thinking like a scientist about what to change.",
+       fa:"بعد هیچ‌وقت نایست: بهبود <b>مستمر</b> است، و مهارتِ اصلی این است که مثلِ یک دانشمند فکر کنی که چه چیزی را باید عوض کنی."}
+    ],
+    parts:[
+      { key:"goal", varc:"--c-teal", name:{en:"The Goal", fa:"هدف"}, tag:{en:"Define it", fa:"تعریفش کن"},
+        gist:{en:"The one goal of any company: make money. Everything else is a means.", fa:"تنها هدفِ هر شرکت: پول درآوردن. بقیهٔ همه‌چیز فقط وسیله است."},
+        more:{en:"Alex nearly saves his plant by chasing efficiency — until Jonah forces one question: what is the goal? Strip away the buzzwords and there is only one answer for a business: make money. Every decision is judged against that, and nothing else.",
+              fa:"الکس نزدیک است کارخانه‌اش را با دویدن دنبالِ کارایی نجات بدهد — تا اینکه جونا یک سؤال را جلویش می‌گذارد: هدف چیست؟ وقتی کلمه‌های قلمبه را کنار بزنی، برای یک کسب‌وکار فقط یک جواب می‌ماند: پول درآوردن. هر تصمیم با همین سنجیده می‌شود، نه چیزِ دیگر."},
+        chapters:["makemoney","netmeasures","productive"] },
+      { key:"measures", varc:"--c-blue", name:{en:"Core Measures", fa:"سنجه‌های اصلی"}, tag:{en:"Measure it", fa:"بسنجش"},
+        gist:{en:"Three numbers tell you if you are making money: throughput, inventory, operating expense.", fa:"سه عدد به تو می‌گویند پول درمی‌آوری یا نه: تراپوت، موجودی، هزینهٔ عملیاتی."},
+        more:{en:"Net profit and return on investment are too far from the floor to steer by. Goldratt translates them into three shop-floor measures: the money coming in (throughput), the money stuck inside (inventory), and the money spent to run the place (operating expense). Make throughput go up while the other two go down.",
+              fa:"سودِ خالص و بازگشتِ سرمایه آن‌قدر از کفِ کارخانه دورند که نمی‌شود با آن‌ها فرمان راند. گلدرت آن‌ها را به سه سنجهٔ کفِ کار ترجمه می‌کند: پولی که می‌آید (تراپوت)، پولی که داخل گیر کرده (موجودی)، و پولی که خرجِ چرخاندنِ جا می‌شود (هزینهٔ عملیاتی). کاری کن تراپوت بالا برود و آن دو تای دیگر پایین."},
+        chapters:["throughput","inventory","opexpense"] },
+      { key:"constraints", varc:"--c-amber", name:{en:"Bottlenecks & Constraints", fa:"گلوگاه‌ها و محدودیت‌ها"}, tag:{en:"Find the limit", fa:"سقف را پیدا کن"},
+        gist:{en:"Every system has one weak link that sets the pace for the whole thing.", fa:"هر سیستم یک حلقهٔ ضعیف دارد که سرعتِ کلِ کار را تعیین می‌کند."},
+        more:{en:"On a hike with his son's troop, Alex sees it: a line of boys can move no faster than its slowest walker, Herbie. A plant is the same — dependent steps plus normal fluctuations mean one bottleneck governs the output of everything downstream. Time lost there is lost forever.",
+              fa:"در یک پیاده‌رویِ گروهی با پسرش، الکس آن را می‌بیند: یک صفِ بچه‌ها نمی‌تواند تندتر از کندترین راه‌رونده‌اش، هربی، برود. کارخانه هم همین‌طور است — مرحله‌های وابسته به‌علاوهٔ نوسان‌های معمولی یعنی یک گلوگاه، خروجیِ همهٔ مراحلِ بعدی را تعیین می‌کند. زمانی که آنجا از دست برود، برای همیشه رفته."},
+        chapters:["herbie","bottleneck","hourlost"] },
+      { key:"focus", varc:"--c-violet", name:{en:"The Five Focusing Steps", fa:"پنج گامِ تمرکز"}, tag:{en:"Work the constraint", fa:"روی محدودیت کار کن"},
+        gist:{en:"A repeatable loop for managing any constraint: identify, exploit, subordinate, elevate.", fa:"یک حلقهٔ تکرارشونده برای مدیریتِ هر محدودیت: شناسایی، بهره‌گیری، هم‌سوسازی، ارتقا."},
+        more:{en:"This is the engine of the whole theory. Find the constraint, get the maximum out of it before spending a dime, make every other resource serve its pace, and only then add capacity. Do them in order — most plants jump straight to buying more before they have wrung out what they already own.",
+              fa:"این موتورِ کلِ نظریه است. محدودیت را پیدا کن، قبل از خرجِ یک ریال بیشترین بهره را از آن بکش، هر منبعِ دیگر را در خدمتِ سرعتش بگذار، و تازه بعد ظرفیت اضافه کن. به‌ترتیب انجامشان بده — بیشترِ کارخانه‌ها یک‌راست می‌پرند سراغِ خریدِ بیشتر، قبل از اینکه از چیزی که دارند نهایتِ استفاده را کرده باشند."},
+        chapters:["identify","exploit","subordinate","elevate"] },
+      { key:"improve", varc:"--c-green", name:{en:"Ongoing Improvement", fa:"بهبودِ مستمر"}, tag:{en:"Never stop", fa:"هیچ‌وقت نایست"},
+        gist:{en:"Break one constraint and another appears — so improvement is a process that never ends.", fa:"یک محدودیت را که بشکنی، یکی دیگر پیدا می‌شود — پس بهبود فرآیندی است که تمام نمی‌شود."},
+        more:{en:"The subtitle is the point: <i>a process of ongoing improvement</i>. Once you elevate a constraint, it moves somewhere else, so you go back to step one — and never let old rules (inertia) become the new limit. Underneath the plant story is a bigger lesson: manage by thinking like a scientist, asking what to change, what to change to, and how.",
+              fa:"عنوانِ فرعیِ کتاب همان حرفِ اصلی است: <i>فرآیندی برای بهبودِ مستمر</i>. وقتی یک محدودیت را ارتقا می‌دهی، جایِ دیگری می‌رود، پس به گامِ اول برمی‌گردی — و هیچ‌وقت نمی‌گذاری قاعده‌های کهنه (اینرسی) خودشان محدودیتِ تازه بشوند. زیرِ داستانِ کارخانه یک درسِ بزرگ‌تر هست: مثلِ یک دانشمند فکر کن و بپرس چه چیزی را عوض کنم، به چه تبدیلش کنم، و چطور."},
+        chapters:["repeat","science","questions"] }
+    ],
+    chapters:{
+      makemoney:{ part:"goal", n:1, name:{en:"Make Money", fa:"پول درآوردن"}, glabel:{en:"Money", fa:"پول"},
+        principle:{en:"The goal of a manufacturing organization is to make money; everything else is just a means to that end.", fa:"هدفِ یک سازمانِ تولیدی پول درآوردن است؛ بقیهٔ همه‌چیز فقط وسیله‌ای برای همین است."},
+        more:{en:"Quality, technology, efficiency, market share — all are good only if they help the company make money now and in the future. Treat any of them as the goal itself and you can 'improve' your way straight out of business.", fa:"کیفیت، فناوری، کارایی، سهمِ بازار — همه‌شان فقط وقتی خوب‌اند که به شرکت کمک کنند حالا و در آینده پول دربیاورد. هرکدام را که خودِ هدف بگیری، ممکن است با «بهبود» یک‌راست به ورشکستگی برسی."},
+        example:{en:"A plant can run every machine at full speed, pile up efficiency reports, and still lose money every month.", fa:"یک کارخانه می‌تواند همهٔ ماشین‌ها را تمام‌سرعت براند، گزارش‌های کارایی روی هم تلنبار کند، و باز هر ماه ضرر بدهد."},
+        tip:{en:"Before any big decision, ask plainly: does this make the company more money?", fa:"قبل از هر تصمیمِ بزرگ، ساده بپرس: این کار پولِ بیشتری برای شرکت می‌سازد؟"},
+        pitfall:{en:"Chasing efficiency, tech or awards as if they were the goal.", fa:"دویدن دنبالِ کارایی، فناوری یا جایزه، انگار که خودشان هدف‌اند."} },
+      netmeasures:{ part:"goal", n:2, name:{en:"The Bottom-Line Scorecard", fa:"کارنامهٔ نهایی"}, glabel:{en:"Scorecard", fa:"کارنامه"},
+        principle:{en:"You are making money when three top numbers move together: net profit up, return on investment up, cash flow up.", fa:"وقتی پول درمی‌آوری که سه عددِ بالادست با هم حرکت کنند: سودِ خالص بالا، بازگشتِ سرمایه بالا، جریانِ نقدی بالا."},
+        more:{en:"Net profit alone can hide a company that is drowning; a healthy business grows profit, the return on what it invested, and the cash in the bank at the same time. These are the scoreboard — but they sit too high up to steer the shop floor directly.", fa:"سودِ خالص به‌تنهایی می‌تواند شرکتی را که دارد غرق می‌شود پنهان کند؛ یک کسب‌وکارِ سالم هم‌زمان سود، بازگشتِ سرمایه، و پولِ نقدِ توی بانک را رشد می‌دهد. این‌ها تابلوی امتیازند — اما آن‌قدر بالا نشسته‌اند که نمی‌شود مستقیم با آن‌ها کفِ کارخانه را هدایت کرد."},
+        example:{en:"A big order that boosts profit on paper but drains all your cash can still sink the company.", fa:"یک سفارشِ بزرگ که روی کاغذ سود را بالا می‌برد اما همهٔ پولِ نقدت را می‌مکد، باز می‌تواند شرکت را غرق کند."},
+        tip:{en:"Look at profit, ROI and cash flow together — never just one.", fa:"سود، بازگشتِ سرمایه و جریانِ نقدی را با هم نگاه کن — هیچ‌وقت فقط یکی را."},
+        pitfall:{en:"Celebrating a rise in one measure while another quietly collapses.", fa:"جشن‌گرفتنِ بالارفتنِ یک سنجه، وقتی یکی دیگر بی‌سروصدا دارد فرو می‌ریزد."} },
+      productive:{ part:"goal", n:3, name:{en:"What 'Productive' Means", fa:"«بهره‌ور» یعنی چه"}, glabel:{en:"Productive", fa:"بهره‌وری"},
+        principle:{en:"Productivity is the act of bringing a company closer to its goal — nothing you do is productive unless it does that.", fa:"بهره‌وری یعنی کاری که شرکت را به هدفش نزدیک‌تر می‌کند — هیچ کاری بهره‌ور نیست مگر همین را بکند."},
+        more:{en:"Without a goal the word 'productive' is meaningless. A machine running full-out looks productive, but if it just makes parts nobody needs yet, it is moving the company away from money — the opposite of productive.", fa:"بدونِ هدف، کلمهٔ «بهره‌ور» بی‌معناست. یک ماشینِ تمام‌سرعت بهره‌ور به‌نظر می‌رسد، اما اگر فقط قطعه‌هایی بسازد که هنوز کسی لازمشان ندارد، دارد شرکت را از پول دور می‌کند — درست عکسِ بهره‌وری."},
+        example:{en:"Making 1,000 parts you can't sell yet isn't productive — it's inventory you paid for early.", fa:"ساختنِ ۱۰۰۰ قطعه که هنوز نمی‌توانی بفروشی بهره‌وری نیست — موجودی‌ای است که زودتر پولش را داده‌ای."},
+        tip:{en:"Judge activity by movement toward the goal, not by how busy it looks.", fa:"کار را با حرکت به‌سمتِ هدف بسنج، نه با اینکه چقدر شلوغ به‌نظر می‌رسد."},
+        pitfall:{en:"Mistaking busyness and high utilization for real productivity.", fa:"اشتباه‌گرفتنِ شلوغی و پُرکاری با بهره‌وریِ واقعی."} },
+      throughput:{ part:"measures", n:4, name:{en:"Throughput", fa:"تراپوت"}, glabel:{en:"Throughput", fa:"تراپوت"},
+        principle:{en:"Throughput is the rate at which the system generates money through sales — through sales, not production.", fa:"تراپوت یعنی نرخی که سیستم از راهِ فروش پول تولید می‌کند — از راهِ فروش، نه تولید."},
+        more:{en:"Goods that are made but not sold are not throughput; they are inventory. Money only counts as throughput when a customer pays. That single distinction kills the temptation to 'produce for the warehouse' just to keep machines busy.", fa:"کالایی که ساخته می‌شود ولی فروش نمی‌رود تراپوت نیست؛ موجودی است. پول فقط وقتی تراپوت حساب می‌شود که مشتری پولش را بدهد. همین یک تفاوت، وسوسهٔ «تولید برای انبار» را — که فقط ماشین‌ها را مشغول نگه دارد — از بین می‌برد."},
+        example:{en:"Ten finished machines sitting in the yard earn zero throughput until one is actually sold.", fa:"ده دستگاهِ ساخته‌شده که توی محوطه مانده‌اند، تا وقتی یکی واقعاً فروش نرود، صفر تراپوت دارند."},
+        tip:{en:"Count money as earned only when the product is sold, not when it's made.", fa:"پول را فقط وقتی به‌دست‌آمده بشمار که محصول فروش رفته، نه وقتی ساخته شده."},
+        pitfall:{en:"Counting unsold production as if it were income.", fa:"شمردنِ تولیدِ فروش‌نرفته، انگار که درآمد است."} },
+      inventory:{ part:"measures", n:5, name:{en:"Inventory", fa:"موجودی"}, glabel:{en:"Inventory", fa:"موجودی"},
+        principle:{en:"Inventory is all the money the system has invested in things it intends to sell.", fa:"موجودی یعنی همهٔ پولی که سیستم روی چیزهایی که قصد دارد بفروشد سرمایه‌گذاری کرده."},
+        more:{en:"Raw materials, half-finished parts, finished goods — all of it is cash frozen on the floor. High inventory hides problems, slows response, and costs money to hold, so lower is better as long as throughput is protected.", fa:"موادِ اولیه، قطعه‌های نیمه‌ساخته، کالای آماده — همه‌شان پولِ منجمدشده روی کفِ کارخانه‌اند. موجودیِ زیاد مشکل‌ها را پنهان می‌کند، واکنش را کند می‌کند، و نگه‌داشتنش خرج دارد؛ پس هرچه کمتر بهتر، تا وقتی تراپوت حفظ شود."},
+        example:{en:"Aisles full of work-in-process look productive but are really cash you can't spend.", fa:"راهروهای پُر از کارِ نیمه‌تمام بهره‌ور به‌نظر می‌رسند، اما در واقع پولی‌اند که نمی‌توانی خرجش کنی."},
+        tip:{en:"Treat every pile of work-in-process as trapped cash you want to free.", fa:"هر تودهٔ کارِ نیمه‌تمام را پولِ گیرافتاده‌ای بدان که می‌خواهی آزادش کنی."},
+        pitfall:{en:"Building inventory just to show high machine utilization.", fa:"انباشتنِ موجودی فقط برای نشان‌دادنِ استفادهٔ بالای ماشین‌ها."} },
+      opexpense:{ part:"measures", n:6, name:{en:"Operating Expense", fa:"هزینهٔ عملیاتی"}, glabel:{en:"Expense", fa:"هزینه"},
+        principle:{en:"Operating expense is all the money the system spends to turn inventory into throughput.", fa:"هزینهٔ عملیاتی یعنی همهٔ پولی که سیستم خرج می‌کند تا موجودی را به تراپوت تبدیل کند."},
+        more:{en:"Wages, rent, utilities, depreciation — the running cost of the whole operation. The aim is not to slash it blindly, but to grow throughput far faster than expense, so each dollar of cost carries more money out the door.", fa:"دستمزد، اجاره، قبض‌ها، استهلاک — هزینهٔ جاریِ کلِ عملیات. هدف این نیست که کورکورانه بزنی‌اش، بلکه این است که تراپوت را خیلی تندتر از هزینه بزرگ کنی، تا هر واحدِ خرج، پولِ بیشتری بیرون بفرستد."},
+        example:{en:"Cutting staff to shrink expense can backfire if it also throttles throughput.", fa:"زدنِ نیرو برای کم‌کردنِ هزینه می‌تواند نتیجهٔ عکس بدهد، اگر تراپوت را هم خفه کند."},
+        tip:{en:"Grow throughput faster than you grow expense — that's real leverage.", fa:"تراپوت را تندتر از هزینه بزرگ کن — اهرمِ واقعی همین است."},
+        pitfall:{en:"Cost-cutting that quietly starves throughput.", fa:"هزینه‌زنی‌ای که بی‌سروصدا تراپوت را گرسنه می‌گذارد."} },
+      herbie:{ part:"constraints", n:7, name:{en:"Dependency & Fluctuations", fa:"وابستگی و نوسان"}, glabel:{en:"Herbie", fa:"هربی"},
+        principle:{en:"When steps depend on each other and each varies a little, the slowest step drags on the whole line.", fa:"وقتی مرحله‌ها به هم وابسته‌اند و هرکدام کمی نوسان دارند، کندترین مرحله کلِ خط را عقب می‌کشد."},
+        more:{en:"On the boy-scout hike, the whole troop can only move as fast as Herbie, the slowest walker, and the gaps keep growing. Statistical fluctuations don't average out along a dependent chain — they accumulate, and the slowest link sets the pace for everyone.", fa:"در پیاده‌رویِ پیشاهنگی، کلِ گروه فقط می‌تواند به‌تندیِ هربی — کندترین راه‌رونده — برود، و فاصله‌ها مدام بیشتر می‌شود. نوسان‌های آماری در یک زنجیرهٔ وابسته همدیگر را خنثی نمی‌کنند — روی هم جمع می‌شوند، و کندترین حلقه سرعتِ همه را تعیین می‌کند."},
+        example:{en:"Fast hikers keep bunching up behind Herbie while the front of the line pulls away.", fa:"راه‌روندگانِ تند پشتِ هربی تلنبار می‌شوند، درحالی‌که جلوی صف دور می‌شود."},
+        tip:{en:"Look for your 'Herbie' — the one step everything else waits on.", fa:"دنبالِ «هربی»ات بگرد — همان یک مرحله‌ای که بقیه منتظرش می‌مانند."},
+        pitfall:{en:"Assuming fast steps make up for slow ones — they don't.", fa:"این خیال که مرحله‌های تند جبرانِ کندها را می‌کنند — نمی‌کنند."} },
+      bottleneck:{ part:"constraints", n:8, name:{en:"The Bottleneck", fa:"گلوگاه"}, glabel:{en:"Bottleneck", fa:"گلوگاه"},
+        principle:{en:"A bottleneck is any resource whose capacity is equal to or less than the demand placed on it.", fa:"گلوگاه یعنی هر منبعی که ظرفیتش برابر یا کمتر از تقاضایی است که رویش گذاشته شده."},
+        more:{en:"The capacity of the plant equals the capacity of its bottleneck — no more. Everything upstream can only feed it; everything downstream can only wait for it. Find that resource and you have found the lever that controls the entire output.", fa:"ظرفیتِ کارخانه برابرِ ظرفیتِ گلوگاهش است — نه بیشتر. هرچه بالادستِ آن است فقط می‌تواند تغذیه‌اش کند؛ هرچه پایین‌دست است فقط می‌تواند منتظرش بماند. آن منبع را پیدا کن، اهرمی را پیدا کرده‌ای که کلِ خروجی را کنترل می‌کند."},
+        example:{en:"One slow heat-treat oven can cap the output of a plant full of fast machines.", fa:"یک کورهٔ عملیاتِ حرارتیِ کند می‌تواند سقفِ خروجیِ کارخانه‌ای پُر از ماشین‌های تند باشد."},
+        tip:{en:"Identify the single resource where demand meets or beats capacity.", fa:"همان یک منبعی را پیدا کن که تقاضا به ظرفیتش می‌رسد یا از آن می‌زند."},
+        pitfall:{en:"Spreading improvement everywhere instead of at the bottleneck.", fa:"پخش‌کردنِ بهبود در همه‌جا، به‌جای تمرکز روی گلوگاه."} },
+      hourlost:{ part:"constraints", n:9, name:{en:"An Hour Lost", fa:"یک ساعتِ ازدست‌رفته"}, glabel:{en:"Hour", fa:"ساعت"},
+        principle:{en:"An hour lost at the bottleneck is an hour lost for the whole system; an hour saved at a non-bottleneck is a mirage.", fa:"یک ساعتی که سرِ گلوگاه از دست برود، یک ساعت از کلِ سیستم رفته؛ و یک ساعتی که سرِ یک منبعِ غیرگلوگاه صرفه‌جویی شود، سراب است."},
+        more:{en:"Because the bottleneck sets the pace, downtime there — a breakdown, a bad setup, an idle lunch break — reduces the output of the entire plant and can never be recovered. Speeding up a resource that already has spare capacity, by contrast, changes nothing.", fa:"چون گلوگاه سرعت را تعیین می‌کند، هر توقفی آنجا — یک خرابی، یک تنظیمِ بد، یک وقفهٔ ناهار — خروجیِ کلِ کارخانه را کم می‌کند و دیگر هیچ‌وقت جبران نمی‌شود. در عوض، تندترکردنِ منبعی که همین حالا ظرفیتِ اضافه دارد، هیچ چیزی را عوض نمی‌کند."},
+        example:{en:"Letting the bottleneck sit idle over lunch quietly costs the plant a lunch-hour of sales.", fa:"بی‌کار گذاشتنِ گلوگاه سرِ ناهار، بی‌سروصدا یک ساعت فروش را از کارخانه می‌گیرد."},
+        tip:{en:"Never let the bottleneck stop — feed it and cover its breaks.", fa:"نگذار گلوگاه هیچ‌وقت بایستد — تغذیه‌اش کن و وقفه‌هایش را پوشش بده."},
+        pitfall:{en:"Optimizing idle non-bottlenecks and starving the one that matters.", fa:"بهینه‌کردنِ منبع‌های بی‌کارِ غیرگلوگاه، و گرسنه‌گذاشتنِ همانی که مهم است."} },
+      identify:{ part:"focus", n:10, name:{en:"1 · Identify", fa:"۱ · شناسایی"}, glabel:{en:"Identify", fa:"شناسایی"},
+        principle:{en:"Step one: find the system's constraint — the one resource or policy that limits the whole output.", fa:"گامِ اول: محدودیتِ سیستم را پیدا کن — همان یک منبع یا قاعده‌ای که کلِ خروجی را محدود می‌کند."},
+        more:{en:"You can't manage what you haven't located. Look for the place where work piles up in front and everything behind runs dry — that queue points straight at the constraint. Sometimes it isn't a machine at all, but a rule or a market.", fa:"چیزی را که پیدایش نکرده‌ای نمی‌توانی مدیریت کنی. دنبالِ جایی بگرد که کار جلویش تلنبار می‌شود و پشتِ سرش همه‌چیز خشک می‌ماند — همان صف مستقیم به محدودیت اشاره می‌کند. گاهی اصلاً یک ماشین نیست، بلکه یک قاعده یا یک بازار است."},
+        example:{en:"The tall pile of parts waiting in front of one machine tells you where the constraint is.", fa:"تودهٔ بلندِ قطعه‌هایی که جلوی یک ماشین منتظرند به تو می‌گویند محدودیت کجاست."},
+        tip:{en:"Follow the biggest queue; it usually sits right in front of the constraint.", fa:"دنبالِ بزرگ‌ترین صف برو؛ معمولاً درست جلوی محدودیت است."},
+        pitfall:{en:"Guessing at the constraint instead of following the evidence.", fa:"حدس‌زدنِ محدودیت، به‌جای دنبال‌کردنِ شواهد."} },
+      exploit:{ part:"focus", n:11, name:{en:"2 · Exploit", fa:"۲ · بهره‌گیری"}, glabel:{en:"Exploit", fa:"بهره‌گیری"},
+        principle:{en:"Step two: get the maximum out of the constraint before spending a cent on more capacity.", fa:"گامِ دوم: قبل از خرجِ یک ریال برای ظرفیتِ بیشتر، بیشترین بهره را از محدودیت بکش."},
+        more:{en:"Most constraints are quietly wasted — sitting idle during breaks, processing junk that will be scrapped, or held up by bad scheduling. Make sure the constraint always has good work to do and never stops; you often 'find' huge capacity you already owned.", fa:"بیشترِ محدودیت‌ها بی‌سروصدا هدر می‌روند — سرِ استراحت بی‌کار می‌مانند، چیزی را پردازش می‌کنند که آخر دور ریخته می‌شود، یا با زمان‌بندیِ بد معطل می‌شوند. مطمئن شو محدودیت همیشه کارِ خوب برای انجام‌دادن دارد و هیچ‌وقت نمی‌ایستد؛ اغلب ظرفیتِ بزرگی را «کشف» می‌کنی که از اول مالِ خودت بوده."},
+        example:{en:"Inspect parts before the bottleneck, not after, so it never works on future scrap.", fa:"قطعه‌ها را قبل از گلوگاه بازرسی کن، نه بعدش، تا هیچ‌وقت روی چیزی که آخر دورریز می‌شود کار نکند."},
+        tip:{en:"Protect the constraint's time first: no idling, no defective input.", fa:"اول از وقتِ محدودیت محافظت کن: نه بی‌کاری، نه ورودیِ معیوب."},
+        pitfall:{en:"Rushing to buy capacity before using what you have.", fa:"شتاب برای خریدِ ظرفیت، قبل از استفاده از چیزی که داری."} },
+      subordinate:{ part:"focus", n:12, name:{en:"3 · Subordinate", fa:"۳ · هم‌سوسازی"}, glabel:{en:"Subordinate", fa:"هم‌سوسازی"},
+        principle:{en:"Step three: make every other resource run at the pace of the constraint — not its own.", fa:"گامِ سوم: کاری کن هر منبعِ دیگر با سرعتِ محدودیت کار کند — نه با سرعتِ خودش."},
+        more:{en:"Non-bottlenecks should produce only what the constraint can actually use, when it can use it. Releasing material any faster just builds inventory and hides the real signal. The whole plant marches to the constraint's drum — this is where local efficiency is deliberately given up.", fa:"منبع‌های غیرگلوگاه باید فقط همان‌قدری تولید کنند که محدودیت واقعاً می‌تواند مصرف کند، همان وقتی که می‌تواند. رهاکردنِ مواد تندتر از این، فقط موجودی می‌سازد و سیگنالِ واقعی را پنهان می‌کند. کلِ کارخانه با طبلِ محدودیت رژه می‌رود — اینجا همان‌جایی است که از کاراییِ محلی عمداً دست می‌کشی."},
+        example:{en:"Release raw material only at the rate the bottleneck can consume it — no faster.", fa:"مواد را فقط با همان نرخی رها کن که گلوگاه می‌تواند مصرفش کند — نه تندتر."},
+        tip:{en:"Pace material release to the constraint, and let non-bottlenecks idle.", fa:"رهاکردنِ مواد را با محدودیت هماهنگ کن، و بگذار منبع‌های غیرگلوگاه بی‌کار بمانند."},
+        pitfall:{en:"Keeping every machine busy and burying the plant in inventory.", fa:"مشغول نگه‌داشتنِ همهٔ ماشین‌ها و غرق‌کردنِ کارخانه در موجودی."} },
+      elevate:{ part:"focus", n:13, name:{en:"4 · Elevate", fa:"۴ · ارتقا"}, glabel:{en:"Elevate", fa:"ارتقا"},
+        principle:{en:"Step four: if the constraint still limits you after that, add capacity to it — now it's worth the money.", fa:"گامِ چهارم: اگر بعد از همهٔ این‌ها محدودیت باز محدودت می‌کند، به آن ظرفیت اضافه کن — حالا دیگر ارزشِ خرج‌کردن دارد."},
+        more:{en:"Only after exploiting and subordinating do you spend: another shift, an extra machine, an outside supplier, an old machine pulled back into service. Because you already wrung out the free capacity, every dollar now buys real throughput instead of papering over waste.", fa:"فقط بعد از بهره‌گیری و هم‌سوسازی است که خرج می‌کنی: یک شیفتِ دیگر، یک ماشینِ اضافه، یک تأمین‌کنندهٔ بیرونی، یک ماشینِ قدیمی که دوباره به کار برمی‌گردانی. چون ظرفیتِ مجانی را از قبل درآورده‌ای، حالا هر واحدِ خرج، تراپوتِ واقعی می‌خرد، نه اینکه فقط رویِ اتلاف را بپوشاند."},
+        example:{en:"Bring an old, 'obsolete' machine back online to add hours at the bottleneck.", fa:"یک ماشینِ قدیمی و «ازرده‌خارج» را دوباره راه بینداز تا سرِ گلوگاه ساعت اضافه شود."},
+        tip:{en:"Spend on capacity only after exploiting and subordinating first.", fa:"فقط بعد از بهره‌گیری و هم‌سوسازی، برای ظرفیت خرج کن."},
+        pitfall:{en:"Elevating first — throwing money at a constraint you haven't exploited.", fa:"اول ارتقا دادن — پول ریختن روی محدودیتی که هنوز ازش بهره نگرفته‌ای."} },
+      repeat:{ part:"improve", n:14, name:{en:"5 · Repeat (Beware Inertia)", fa:"۵ · تکرار (مواظبِ اینرسی)"}, glabel:{en:"Repeat", fa:"تکرار"},
+        principle:{en:"Step five: once a constraint is broken, go back to step one — and never let inertia become the new constraint.", fa:"گامِ پنجم: وقتی یک محدودیت شکست، به گامِ اول برگرد — و هیچ‌وقت نگذار اینرسی خودش محدودیتِ تازه بشود."},
+        more:{en:"Break one constraint and it simply moves somewhere else, so the loop starts over. The subtle trap is inertia: the rules and habits you built around the old constraint often outlive it and quietly strangle the system. Re-examine the rules every time the constraint moves.", fa:"یک محدودیت را که بشکنی، فقط جایِ دیگری می‌رود، پس حلقه از نو شروع می‌شود. تلهٔ ظریف، اینرسی است: قاعده‌ها و عادت‌هایی که دورِ محدودیتِ قبلی ساخته‌ای اغلب از خودش عمرِ بیشتری می‌کنند و بی‌سروصدا سیستم را خفه می‌کنند. هر بار که محدودیت جابه‌جا شد، قاعده‌ها را از نو وارسی کن."},
+        example:{en:"A scheduling rule that helped the old bottleneck can choke the plant once the bottleneck moves.", fa:"یک قاعدهٔ زمان‌بندی که به گلوگاهِ قبلی کمک می‌کرد، وقتی گلوگاه جابه‌جا شود می‌تواند کارخانه را خفه کند."},
+        tip:{en:"Each time the constraint moves, revisit the rules you built around the old one.", fa:"هر بار محدودیت جابه‌جا شد، قاعده‌هایی را که دورِ قبلی ساخته بودی دوباره وارسی کن."},
+        pitfall:{en:"Letting yesterday's fix harden into today's constraint.", fa:"گذاشتن اینکه راه‌حلِ دیروز به محدودیتِ امروز سفت بشود."} },
+      science:{ part:"improve", n:15, name:{en:"Think Like a Scientist", fa:"مثلِ دانشمند فکر کن"}, glabel:{en:"Science", fa:"دانش"},
+        principle:{en:"Manage by cause and effect, like a scientist — don't accept given answers, ask why until the root shows.", fa:"با علت‌ومعلول مدیریت کن، مثلِ یک دانشمند — جوابِ آماده را نپذیر، آن‌قدر بپرس چرا تا ریشه پیدا شود."},
+        more:{en:"Jonah never hands Alex answers; he asks questions until Alex reasons his way to them. The deepest message of the book is a method, not a fix: treat the organization as a system to be understood through cause and effect, and most tangled problems trace back to a few simple root causes.", fa:"جونا هیچ‌وقت جواب را کفِ دستِ الکس نمی‌گذارد؛ آن‌قدر سؤال می‌پرسد تا الکس خودش با استدلال به آن‌ها برسد. عمیق‌ترین پیامِ کتاب یک روش است، نه یک راه‌حل: سازمان را سیستمی بدان که باید با علت‌ومعلول فهمیده شود، و بیشترِ مشکل‌های درهم‌تنیده به چند علتِ ریشه‌ایِ ساده برمی‌گردند."},
+        example:{en:"Instead of blaming workers, Alex keeps asking why until the real cause surfaces.", fa:"الکس به‌جای مقصر دانستنِ کارگرها، آن‌قدر می‌پرسد چرا تا علتِ واقعی رو بیاید."},
+        tip:{en:"When something breaks, ask 'why' a few times before you act.", fa:"وقتی چیزی خراب شد، قبل از اقدام چند بار بپرس «چرا»."},
+        pitfall:{en:"Reaching for quick fixes and blame instead of the root cause.", fa:"چنگ‌زدن به راه‌حل‌های سریع و مقصرتراشی، به‌جای علتِ ریشه‌ای."} },
+      questions:{ part:"improve", n:16, name:{en:"The Manager's Questions", fa:"سؤال‌های مدیر"}, glabel:{en:"Questions", fa:"سؤال‌ها"},
+        principle:{en:"The ongoing job of management is three questions: what to change, what to change to, and how to cause the change.", fa:"کارِ همیشگیِ مدیریت سه سؤال است: چه چیزی را عوض کنم، به چه تبدیلش کنم، و چطور تغییر را عملی کنم."},
+        more:{en:"By the end, Alex realizes the plant crisis was never the real lesson — the real skill is knowing how to keep improving anything. Those three questions are the whole discipline: pinpoint the core problem, design the solution, and lead people through the change.", fa:"آخرِ کار، الکس می‌فهمد بحرانِ کارخانه هیچ‌وقت درسِ اصلی نبوده — مهارتِ اصلی این است که بدانی چطور هر چیزی را مدام بهتر کنی. آن سه سؤال کلِ این رشته‌اند: مشکلِ اصلی را دقیق پیدا کن، راه‌حل را طراحی کن، و آدم‌ها را از دلِ تغییر عبور بده."},
+        example:{en:"Alex's team turns the plant around by answering those three questions in order.", fa:"تیمِ الکس با جواب‌دادن به همان سه سؤال به‌ترتیب، کارخانه را نجات می‌دهد."},
+        tip:{en:"For any improvement, answer the three questions in order before acting.", fa:"برای هر بهبودی، قبل از اقدام آن سه سؤال را به‌ترتیب جواب بده."},
+        pitfall:{en:"Jumping to 'how' before you know what to change, or to what.", fa:"پریدن به «چطور»، قبل از اینکه بدانی چه چیزی را باید عوض کنی و به چه."} }
+    },
+    core:{ name:{en:"THE CONSTRAINT", fa:"محدودیت"},
+      principle:{en:"Every system that makes money has a single constraint — its weakest link — that governs the throughput of the whole. Manage that one point well and the system moves toward its goal; ignore it, and improvements everywhere else are wasted.", fa:"هر سیستمی که پول درمی‌آورد یک محدودیت دارد — ضعیف‌ترین حلقه‌اش — که تراپوتِ کلِ سیستم را تعیین می‌کند. همان یک نقطه را خوب مدیریت کن تا سیستم به‌سمتِ هدفش برود؛ نادیده‌اش بگیر، و بهبود در هر جای دیگر هدر می‌رود."},
+      more:{en:"The Goal builds the whole Theory of Constraints from a single plant story. First define the goal (make money) and measure it (throughput, inventory, operating expense). Then see that dependent events and fluctuations create a bottleneck that caps everything. Then manage it with the five focusing steps — identify, exploit, subordinate, elevate, repeat — as a process of ongoing improvement.", fa:"«هدف» کلِ نظریهٔ محدودیت‌ها را از یک داستانِ ساده دربارهٔ یک کارخانه می‌سازد. اول هدف را تعریف کن (پول درآوردن) و بسنجش (تراپوت، موجودی، هزینهٔ عملیاتی). بعد ببین که رویدادهای وابسته و نوسان‌ها یک گلوگاه می‌سازند که سقفِ همه‌چیز است. بعد آن را با پنج گامِ تمرکز مدیریت کن — شناسایی، بهره‌گیری، هم‌سوسازی، ارتقا، تکرار — به‌عنوانِ فرآیندی برای بهبودِ مستمر."},
+      example:{en:"Click any node to read an idea or a step. You can also drag the nodes around.", fa:"روی هر دایره کلیک کن تا یک ایده یا گام را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."} },
+    stages:[
+      { level:1, badge:{en:"Level 1 · Over-simplified", fa:"سطحِ ۱ · خیلی ساده"}, title:{en:"Fix the weakest link", fa:"ضعیف‌ترین حلقه را درست کن"}, tagline:{en:"The whole book in a sentence.", fa:"کلِ کتاب در یک جمله."},
+        body:{en:"A chain is only as strong as its weakest link. Every business has one bottleneck that limits how much money it can make — find that one spot and fix it, and the whole thing gets better.", fa:"یک زنجیر فقط به‌اندازهٔ ضعیف‌ترین حلقه‌اش قوی است. هر کسب‌وکار یک گلوگاه دارد که تعیین می‌کند چقدر می‌تواند پول دربیاورد — همان یک نقطه را پیدا و درست کن، کلِ کار بهتر می‌شود."},
+        example:{en:"If one slow machine holds up everything, that machine is where you focus.", fa:"اگر یک ماشینِ کند همه‌چیز را معطل کرده، تمرکزت باید همان ماشین باشد."},
+        gain:{en:"You know improvement means finding the one thing that limits everything.", fa:"می‌دانی بهبود یعنی پیدا کردنِ همان یک چیزی که همه‌چیز را محدود می‌کند."} },
+      { level:2, badge:{en:"Level 2 · Simple", fa:"سطحِ ۲ · ساده"}, title:{en:"The goal, in numbers", fa:"هدف، به زبانِ عدد"}, tagline:{en:"Make money; measure it three ways.", fa:"پول دربیاور؛ با سه سنجه بسنجش."},
+        body:{en:"The goal of a business is simple: <b>make money</b>. You track it with three numbers — <b>throughput</b> (money from sales), <b>inventory</b> (money tied up inside), and <b>operating expense</b> (money spent running things). Push throughput up while the other two go down.", fa:"هدفِ یک کسب‌وکار ساده است: <b>پول درآوردن</b>. با سه عدد دنبالش می‌کنی — <b>تراپوت</b> (پولِ حاصل از فروش)، <b>موجودی</b> (پولِ گیرافتاده داخل)، و <b>هزینهٔ عملیاتی</b> (پولِ خرجِ چرخاندنِ کار). تراپوت را بالا ببر، آن دو تای دیگر را پایین."},
+        example:{en:"Producing parts you can't sell yet raises inventory without adding throughput.", fa:"ساختنِ قطعه‌هایی که هنوز نمی‌توانی بفروشی، موجودی را بالا می‌برد بی‌آنکه تراپوت اضافه کند."},
+        gain:{en:"You can tell real progress from busywork using three measures.", fa:"می‌توانی با سه سنجه، پیشرفتِ واقعی را از کارِ الکی تشخیص بدهی."} },
+      { level:3, badge:{en:"Level 3 · Balanced", fa:"سطحِ ۳ · متعادل"}, title:{en:"Find the constraint", fa:"محدودیت را پیدا کن"}, tagline:{en:"Dependency, fluctuations, and the bottleneck.", fa:"وابستگی، نوسان، و گلوگاه."},
+        body:{en:"Because steps <b>depend</b> on each other and each one <b>fluctuates</b>, delays pile up and one <b>bottleneck</b> ends up governing the whole output — like Herbie on the hike. An hour lost there is lost for the entire system; an hour saved on a non-bottleneck is a mirage.", fa:"چون مرحله‌ها به هم <b>وابسته‌اند</b> و هرکدام <b>نوسان</b> دارند، تأخیرها روی هم جمع می‌شوند و یک <b>گلوگاه</b> آخرش کلِ خروجی را تعیین می‌کند — مثلِ هربی در پیاده‌روی. یک ساعتی که آنجا از دست برود از کلِ سیستم رفته؛ و یک ساعتی که سرِ منبعِ غیرگلوگاه صرفه‌جویی شود، سراب است."},
+        example:{en:"The tall pile of parts waiting in front of one machine points straight at the constraint.", fa:"تودهٔ بلندِ قطعه‌هایی که جلوی یک ماشین منتظرند، مستقیم به محدودیت اشاره می‌کند."},
+        gain:{en:"You can locate the one resource that caps your system.", fa:"می‌توانی همان یک منبعی را که سقفِ سیستمت است پیدا کنی."} },
+      { level:4, badge:{en:"Level 4 · Advanced", fa:"سطحِ ۴ · پیشرفته"}, title:{en:"Work the five steps", fa:"پنج گام را اجرا کن"}, tagline:{en:"Identify, exploit, subordinate, elevate.", fa:"شناسایی، بهره‌گیری، هم‌سوسازی، ارتقا."},
+        body:{en:"Now manage the constraint in order. <b>Identify</b> it, <b>exploit</b> it (wring out every free hour before spending), <b>subordinate</b> everything else to its pace, and only then <b>elevate</b> it by adding capacity. Skipping ahead to buying more is the classic, expensive mistake.", fa:"حالا محدودیت را به‌ترتیب مدیریت کن. <b>شناسایی‌اش</b> کن، ازش <b>بهره بگیر</b> (قبل از خرج، هر ساعتِ مجانی را دربیاور)، بقیه را با سرعتش <b>هم‌سو</b> کن، و تازه بعد با اضافه‌کردنِ ظرفیت <b>ارتقایش</b> بده. پریدن یک‌راست به سراغِ خرید، همان اشتباهِ کلاسیک و گران است."},
+        example:{en:"Cover the bottleneck's lunch break and inspect its input first — free capacity, no spending.", fa:"وقفهٔ ناهارِ گلوگاه را پوشش بده و اول ورودی‌اش را بازرسی کن — ظرفیتِ مجانی، بی‌هیچ خرجی."},
+        gain:{en:"You can run a constraint end to end without wasting money.", fa:"می‌توانی یک محدودیت را از اول تا آخر مدیریت کنی، بی‌آنکه پول هدر بدهی."} },
+      { level:5, badge:{en:"Level 5 · Expert", fa:"سطحِ ۵ · حرفه‌ای"}, title:{en:"A process, not a fix", fa:"یک فرآیند، نه یک راه‌حل"}, tagline:{en:"Repeat, beat inertia, think like a scientist.", fa:"تکرار، شکستِ اینرسی، فکرِ علمی."},
+        body:{en:"The expert sees past the plant. Break one constraint and another appears, so you <b>repeat</b> — while refusing to let old rules (<b>inertia</b>) become the next limit. Underneath it all is a method: think like a scientist in cause and effect, and keep answering three questions — <b>what to change, what to change to, and how</b>. That is the process of ongoing improvement.", fa:"آدمِ حرفه‌ای فراتر از کارخانه را می‌بیند. یک محدودیت را که بشکنی یکی دیگر پیدا می‌شود، پس <b>تکرار</b> می‌کنی — و نمی‌گذاری قاعده‌های کهنه (<b>اینرسی</b>) محدودیتِ بعدی بشوند. زیرِ همهٔ این‌ها یک روش هست: مثلِ یک دانشمند با علت‌ومعلول فکر کن، و مدام به سه سؤال جواب بده — <b>چه چیزی را عوض کنم، به چه، و چطور</b>. همین است فرآیندِ بهبودِ مستمر."},
+        example:{en:"After the plant recovers, Alex asks what general skill let him do it — and lands on those three questions.", fa:"بعد از نجاتِ کارخانه، الکس می‌پرسد چه مهارتِ کلی‌ای کمکش کرد این کار را بکند — و به همان سه سؤال می‌رسد."},
+        gain:{en:"You can improve any system for good, not just fix one crisis.", fa:"می‌توانی هر سیستمی را برای همیشه بهتر کنی، نه فقط یک بحران را حل کنی."} }
+    ],
+    quotes:[
+      {en:"The goal of a manufacturing organization is to make money.", fa:"هدفِ یک سازمانِ تولیدی پول درآوردن است."},
+      {en:"So this is the goal: To make money by increasing net profit, while simultaneously increasing return on investment, and simultaneously increasing cash flow.", fa:"پس هدف این است: پول درآوردن، با بالا بردنِ سودِ خالص، و هم‌زمان بالا بردنِ بازگشتِ سرمایه، و هم‌زمان بالا بردنِ جریانِ نقدی."},
+      {en:"Productivity is the act of bringing a company closer to its goal. Every action that brings a company closer to its goal is productive.", fa:"بهره‌وری یعنی کاری که شرکت را به هدفش نزدیک‌تر می‌کند. هر کاری که شرکت را به هدفش نزدیک‌تر کند، بهره‌ور است."},
+      {en:"Throughput is the rate at which the system generates money through sales.", fa:"تراپوت یعنی نرخی که سیستم از راهِ فروش پول تولید می‌کند."},
+      {en:"Inventory is all the money that the system has invested in purchasing things which it intends to sell.", fa:"موجودی یعنی همهٔ پولی که سیستم برای خریدِ چیزهایی که قصد دارد بفروشد سرمایه‌گذاری کرده است."},
+      {en:"Operational expense is all the money the system spends in order to turn inventory into throughput.", fa:"هزینهٔ عملیاتی یعنی همهٔ پولی که سیستم خرج می‌کند تا موجودی را به تراپوت تبدیل کند."},
+      {en:"A bottleneck is any resource whose capacity is equal to or less than the demand placed upon it.", fa:"گلوگاه یعنی هر منبعی که ظرفیتش برابر یا کمتر از تقاضایی است که رویش گذاشته می‌شود."},
+      {en:"An hour lost at a bottleneck is an hour lost for the entire system.", fa:"یک ساعتی که سرِ گلوگاه از دست برود، یک ساعت از کلِ سیستم رفته است."},
+      {en:"A plant in which everyone is working all the time is very inefficient.", fa:"کارخانه‌ای که همه در آن همیشه مشغولِ کارند، بسیار ناکارآمد است."}
+    ],
+    media:[
+      { kind:"yt", id:"W18n8m97uuk", src:{en:"YouTube · TOCICO", fa:"یوتیوب · TOCICO"},
+        title:{en:"Eli Goldratt: What Is the Theory of Constraints?", fa:"الی گلدرت: نظریهٔ محدودیت‌ها چیست؟"},
+        desc:{en:"Goldratt himself explains the core idea in his own words.", fa:"خودِ گلدرت ایدهٔ اصلی را با زبانِ خودش توضیح می‌دهد."},
+        bullets:{en:["The goal and the constraint, first-hand","Why chasing local optima fails","Straight from the author"], fa:["هدف و محدودیت، از زبانِ اول","چرا دویدن دنبالِ بهینهٔ محلی شکست می‌خورد","مستقیم از خودِ نویسنده"]},
+        best:{en:"Best for Stage 1–2.", fa:"خوب برای مرحلهٔ ۱ و ۲."} },
+      { kind:"yt", id:"Y_0mgkpZrDc", src:{en:"YouTube · Dr. Hakeem-Ur-Rehman", fa:"یوتیوب · Dr. Hakeem-Ur-Rehman"},
+        title:{en:"The Goal Explained — TOC in Real Life", fa:"شرحِ «هدف» — نظریهٔ محدودیت در عمل"},
+        desc:{en:"A clear walkthrough of the book and how the Theory of Constraints plays out in practice.", fa:"یک مرورِ روشن از کتاب و اینکه نظریهٔ محدودیت در عمل چطور پیش می‌رود."},
+        bullets:{en:["The plant story, summarized","The three measures in action","Real-world examples"], fa:["داستانِ کارخانه، خلاصه","سه سنجه در عمل","مثال‌های دنیای واقعی"]},
+        best:{en:"Best for Stage 2–3.", fa:"خوب برای مرحلهٔ ۲ و ۳."} },
+      { kind:"yt", id:"LiAHtgFyRkA", src:{en:"YouTube · LeanVlog", fa:"یوتیوب · LeanVlog"},
+        title:{en:"Theory of Constraints — A Complete Introduction", fa:"نظریهٔ محدودیت‌ها — یک مقدمهٔ کامل"},
+        desc:{en:"A structured overview of the constraint and the five focusing steps.", fa:"یک مرورِ منظم از محدودیت و پنج گامِ تمرکز."},
+        bullets:{en:["Bottlenecks and the five steps","How to subordinate and elevate","A tidy, complete recap"], fa:["گلوگاه‌ها و پنج گام","چطور هم‌سو و ارتقا کنی","یک مرورِ مرتب و کامل"]},
+        best:{en:"Best for Stage 3–4.", fa:"خوب برای مرحلهٔ ۳ و ۴."} },
+      { kind:"img", url:"https://northriverpress.com/the-goal-30th-anniversary-edition/",
+        src:{en:"North River Press · Publisher", fa:"North River Press · ناشر"},
+        title:{en:"The Goal — Publisher Page", fa:"هدف — صفحهٔ ناشر"},
+        desc:{en:"The publisher page for the anniversary edition, with editions and details.", fa:"صفحهٔ ناشر برای نسخهٔ سالگرد، با نسخه‌ها و جزئیات."},
+        bullets:{en:["The definitive editions","Background on Goldratt","Straight from the source"], fa:["نسخه‌های معتبر","پیشینه‌ای دربارهٔ گلدرت","مستقیم از خودِ منبع"]},
+        best:{en:"For editions and the source.", fa:"برای نسخه‌ها و منبعِ اصلی."} }
+    ],
+    go:[
+      {label:{en:"Publisher page", fa:"صفحهٔ ناشر"}, url:"https://northriverpress.com/the-goal-30th-anniversary-edition/"},
+      {label:{en:"Book on Goodreads", fa:"کتاب در گودریدز"}, url:"https://www.goodreads.com/book/show/113934.The_Goal"},
+      {label:{en:"Quotes from The Goal", fa:"نقل‌قول‌های کتاب"}, url:"https://www.goodreads.com/work/quotes/462428-the-goal-a-process-of-ongoing-improvement"}
+    ],
+    recs:[
+      { pri:"b", t:{en:"Find your one bottleneck", fa:"یک گلوگاهت را پیدا کن"}, d:{en:"Pick a process you own and spot the single step everything else waits on.", fa:"یک فرآیند را که دستِ خودت است انتخاب کن و همان یک مرحله‌ای را که بقیه منتظرش می‌مانند پیدا کن."} },
+      { pri:"b", t:{en:"Exploit before you spend", fa:"قبل از خرج، بهره بگیر"}, d:{en:"Before adding capacity, make sure that constraint never sits idle and never works on junk.", fa:"قبل از اضافه‌کردنِ ظرفیت، مطمئن شو آن محدودیت هیچ‌وقت بی‌کار نمی‌ماند و روی چیزِ بی‌ارزش کار نمی‌کند."} },
+      { pri:"n", t:{en:"Judge work by the goal", fa:"کار را با هدف بسنج"}, d:{en:"For one busy activity this week, ask whether it actually moves money toward the goal.", fa:"این هفته برای یک کارِ پُرمشغله، بپرس آیا واقعاً پول را به‌سمتِ هدف می‌برد یا نه."} },
+      { pri:"n", t:{en:"Ask the three questions", fa:"سه سؤال را بپرس"}, d:{en:"On your next change, answer in order: what to change, what to change to, and how.", fa:"در تغییرِ بعدی‌ات، به‌ترتیب جواب بده: چه چیزی را عوض کنم، به چه، و چطور."} }
+    ]
+  }
+};

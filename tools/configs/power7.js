@@ -1,0 +1,264 @@
+/* config: 7 Rules of Power — Jeffrey Pfeffer (Career) */
+module.exports = {
+  slug:"power7", brand:"<span data-only='en'>7 Rules of Power</span><span data-only='fa'>۷ قانونِ قدرت</span>",
+  titleTag:"7 Rules of Power — نقشهٔ دانش و یادگیری ۵ مرحله‌ای",
+  W:980, H:780, R1:220, R2:126, span:66,
+  leafKickEn:"Rule", leafKickFa:"قانونِ",
+  flowEn:["Act","Brand","Ascend"], flowFa:["عمل","برند","صعود"],
+
+  hero:`  <div class="eyebrow"><span class="edot"></span>
+    <span data-only="en">Book knowledge map · Jeffrey Pfeffer</span>
+    <span data-only="fa">نقشهٔ کتاب · جفری فِفِر</span>
+  </div>
+  <h1>
+    <span data-only="en">7 Rules of Power — Surprising but True Advice on How to Get Things Done and Advance Your Career</span>
+    <span data-only="fa">هفت قانونِ قدرت — توصیه‌هایی شگفت‌انگیز اما درست برای انجامِ کارها و پیشرفت در شغل</span>
+  </h1>
+  <p class="dek">
+    <span data-only="en">A knowledge graph of the whole book, plus a 5-stage path from a single idea to expert-level mastery — with an example at every step.</span>
+    <span data-only="fa">نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از یک ایدهٔ ساده تا حرفه‌ای — با یک مثال در هر مرحله.</span>
+  </p>
+  <div class="metastrip">
+    <div class="metaitem"><span class="mk" data-only="en">Book</span><span class="mk" data-only="fa">کتاب</span>
+      <span class="mv" data-only="en">7 Rules of Power</span><span class="mv" data-only="fa">هفت قانونِ قدرت</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Author</span><span class="mk" data-only="fa">نویسنده</span>
+      <span class="mv" data-only="en">Jeffrey Pfeffer</span><span class="mv" data-only="fa">جفری فِفِر</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Published</span><span class="mk" data-only="fa">سالِ چاپ</span>
+      <span class="mv" data-only="en">2022</span><span class="mv" data-only="fa">۲۰۲۲</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Group</span><span class="mk" data-only="fa">گروه</span>
+      <span class="mv" data-only="en">Career</span><span class="mv" data-only="fa">مسیرِ شغلی</span></div>
+  </div>
+  <div class="chips">
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Parts</span><span data-only="fa">بخش</span></div>
+    <div class="chip"><b data-only="en">16</b><b data-only="fa">۱۶</b><span data-only="en">Rules &amp; ideas</span><span data-only="fa">قانون و ایده</span></div>
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Learning stages</span><span data-only="fa">مرحلهٔ یادگیری</span></div>
+  </div>`,
+
+  callout:`    <b data-only="en">The core idea:</b>
+    <b data-only="fa">ایدهٔ اصلی:</b>
+    <span data-only="en"> Power is a skill you can learn, not a personality you are born with. Get out of your own way, break the rules that hold you back, <i>show up powerfully</i>, build a <i>brand</i> and a <i>network</i>, then <i>use your power</i> — and remember that success excuses almost everything.</span>
+    <span data-only="fa"> قدرت مهارتی است که می‌شود یادش گرفت، نه شخصیتی که با آن به دنیا می‌آیی. از سرِ راهِ خودت کنار برو، قانون‌هایی را که عقبت نگه می‌دارند بشکن، <i>قدرتمند ظاهر شو</i>، یک <i>برند</i> و <i>شبکه</i> بساز، بعد <i>قدرتت را به کار ببر</i> — و یادت باشد که موفقیت تقریباً همه‌چیز را می‌بخشد.</span>`,
+
+  kpis:`    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Parts (own way · rules · presence · brand &amp; network · power)</div><div class="l" data-only="fa">بخش (خودت · قانون · حضور · برند و شبکه · قدرت)</div></div>
+    <div class="kbox"><div class="v" data-only="en">7</div><div class="v" data-only="fa">۷</div><div class="l" data-only="en">Rules of power</div><div class="l" data-only="fa">قانونِ قدرت</div></div>
+    <div class="kbox"><div class="v" data-only="en">16</div><div class="v" data-only="fa">۱۶</div><div class="l" data-only="en">Ideas you can use</div><div class="l" data-only="fa">ایده برای استفاده</div></div>
+    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Levels, simple → expert</div><div class="l" data-only="fa">مرحله، ساده تا حرفه‌ای</div></div>`,
+
+  mapcallout:`      <b data-only="en">Read it as a flow:</b><b data-only="fa">به‌صورتِ یک جریان بخوانش:</b>
+      <span data-only="en"> first <b>act</b> — get out of your own way, break the rules, and show up powerfully; then build your <b>brand</b> and network; then <b>ascend</b> — use your power and let success excuse the rest.</span>
+      <span data-only="fa"> اول <b>عمل کن</b> — از سرِ راهِ خودت کنار برو، قانون‌ها را بشکن، و قدرتمند ظاهر شو؛ بعد <b>برندت</b> و شبکه‌ات را بساز؛ بعد <b>بالا برو</b> — قدرتت را به کار ببر و بگذار موفقیت بقیه‌اش را ببخشد.</span>`,
+
+  methodFa:"<p><b>منبع:</b> کتابِ «هفت قانونِ قدرت» نوشتهٔ جفری فِفِر، چاپِ ۲۰۲۲ (ناشر: Matt Holt / BenBella).</p><p><b>روشِ کار:</b> ساختارِ پنج‌بخشی و هفت قانون از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده؛ نقل‌قول‌ها مقابله و ویدیوها بررسی شده‌اند.</p><p><b>گروه:</b> «مسیرِ شغلی» — یک خواندنی برای هر کسی که می‌خواهد کارها را پیش ببرد و در شغلش جلو برود.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای متنِ کامل، خودِ کتاب را بخوان.</p>",
+  methodEn:"<p><b>Source:</b> the book <i>7 Rules of Power: Surprising — but True — Advice on How to Get Things Done and Advance Your Career</i> by Jeffrey Pfeffer, published 2022 (Matt Holt / BenBella Books).</p><p><b>How this was built:</b> the five-part structure and the seven rules were gathered and rewritten from the book and reputable sources; quotes were cross-checked and the linked videos verified.</p><p><b>Group:</b> Career — a practical read for anyone who wants to get things done and advance.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>",
+
+  data:{
+    tldr:[
+      {en:"The whole book in one line: power is a skill you can learn — and the biggest thing standing between you and it is you.",
+       fa:"خلاصهٔ کل کتاب در یک جمله: قدرت مهارتی است که می‌شود یادش گرفت — و بزرگ‌ترین چیزی که بینِ تو و آن ایستاده، خودِ تو هستی."},
+      {en:"The first three rules are personal: <b>get out of your own way</b>, <b>break the rules</b>, and <b>show up powerfully</b>.",
+       fa:"سه قانونِ اول شخصی‌اند: <b>از سرِ راهِ خودت کنار برو</b>، <b>قانون‌ها را بشکن</b>، و <b>قدرتمند ظاهر شو</b>."},
+      {en:"The next two are relational: build a memorable <b>brand</b> and story, and <b>network relentlessly</b> — give first to get.",
+       fa:"دو قانونِ بعدی دربارهٔ رابطه‌اند: یک <b>برند</b> و داستانِ به‌یادماندنی بساز، و <b>بی‌وقفه شبکه‌سازی کن</b> — اول بده تا بگیری."},
+      {en:"The last two are about holding it: <b>use your power</b> (it grows with use), and know that <b>success excuses almost everything</b>.",
+       fa:"دو قانونِ آخر دربارهٔ نگه‌داشتنِ آن‌اند: <b>قدرتت را به کار ببر</b> (با استفاده رشد می‌کند)، و بدان که <b>موفقیت تقریباً همه‌چیز را می‌بخشد</b>."},
+      {en:"Pfeffer's stance is blunt: fair or not, this is how power really works — and if it is to be used for good, more good people need it.",
+       fa:"موضعِ فِفِر رک است: عادلانه باشد یا نه، قدرت واقعاً این‌طوری کار می‌کند — و اگر قرار است در راهِ خوب به کار برود، آدم‌های خوبِ بیشتری باید داشته باشندش."}
+    ],
+    parts:[
+      { key:"outofway", varc:"--c-teal", name:{en:"Get Out of Your Own Way", fa:"از سرِ راهِ خودت کنار برو"}, tag:{en:"Rule 1", fa:"قانونِ ۱"},
+        gist:{en:"The biggest barrier to power is you — so stop holding yourself back.", fa:"بزرگ‌ترین مانعِ قدرت خودتی — پس دست از عقب‌نگه‌داشتنِ خودت بردار."},
+        more:{en:"Before any tactic, you have to clear the obstacle in the mirror: the self-limiting story, the belief that the world is fair, the fear of being seen. Give those up and you can finally act.",
+              fa:"قبل از هر تاکتیکی، باید مانعی را که در آینه است کنار بزنی: داستانی که خودت را محدود می‌کند، این باور که دنیا عادل است، و ترس از دیده‌شدن. این‌ها را رها کن تا بالاخره بتوانی دست به کار شوی."},
+        chapters:["selfstory","getnoticed","willing"] },
+      { key:"breakrules", varc:"--c-blue", name:{en:"Break the Rules", fa:"قانون‌ها را بشکن"}, tag:{en:"Rule 2", fa:"قانونِ ۲"},
+        gist:{en:"Nonconformity signals power — and asking for more gets you more.", fa:"نافرمانی نشانهٔ قدرت است — و بیشتر خواستن، بیشتر گیرت می‌آورد."},
+        more:{en:"Rules mostly protect whoever already has power. Breaking them, within reason, makes you look powerful and creates room to move — as does simply asking for what most people are too timid to request.",
+              fa:"قانون‌ها بیشتر از کسی که همین حالا قدرت دارد محافظت می‌کنند. شکستنِ حساب‌شده‌شان تو را قدرتمند نشان می‌دهد و جا برای حرکت باز می‌کند — و همین‌طور خواستنِ چیزی که بیشترِ آدم‌ها زیادی محتاط‌اند که بخواهند."},
+        chapters:["nonconform","ask","forgiveness"] },
+      { key:"showup", varc:"--c-amber", name:{en:"Show Up Powerfully", fa:"قدرتمند ظاهر شو"}, tag:{en:"Rule 3", fa:"قانونِ ۳"},
+        gist:{en:"Presence, confident speech, and even anger shape how powerful people judge you to be.", fa:"حضور، کلامِ بااعتماد، و حتی خشم تعیین می‌کنند که دیگران چقدر تو را قدرتمند بدانند."},
+        more:{en:"People read your power off your body and your voice long before they weigh your ideas. Posture, definite speech that repeats its theme, and well-aimed emotion all tell others to take you seriously.",
+              fa:"آدم‌ها قدرتت را خیلی پیش از آنکه ایده‌هایت را بسنجند، از بدن و صدایت می‌خوانند. طرزِ ایستادن، حرفِ قاطعی که مضمونش را تکرار می‌کند، و احساسِ درست‌نشانه‌رفته، همه به دیگران می‌گویند تو را جدی بگیرند."},
+        chapters:["presence","speech","emotion"] },
+      { key:"brandnet", varc:"--c-violet", name:{en:"Brand & Network", fa:"برند و شبکه‌سازی"}, tag:{en:"Rules 4 & 5", fa:"قانون‌های ۴ و ۵"},
+        gist:{en:"Tell your own story, stand out, and build relationships before you need them.", fa:"داستانِ خودت را بگو، متمایز شو، و رابطه‌ها را پیش از آنکه لازمت شوند بساز."},
+        more:{en:"Two rules that multiply your reach: craft a coherent personal brand so people remember what you stand for, and network relentlessly — reaching past your close circle and giving value first so relationships pay off later.",
+              fa:"دو قانون که بُردت را چند برابر می‌کنند: یک برندِ شخصیِ یک‌دست بساز تا آدم‌ها یادشان بماند نمایندهٔ چه هستی، و بی‌وقفه شبکه‌سازی کن — از حلقهٔ نزدیکت فراتر برو و اول ارزش بده تا رابطه‌ها بعداً جواب بدهند."},
+        chapters:["narrative","standout","network","givetoget"] },
+      { key:"usepower", varc:"--c-green", name:{en:"Use Power & Success Excuses Everything", fa:"قدرت را به کار ببر و موفقیت همه‌چیز را می‌بخشد"}, tag:{en:"Rules 6 & 7", fa:"قانون‌های ۶ و ۷"},
+        gist:{en:"Deploy power to make it grow — and let results buy forgiveness.", fa:"قدرت را به کار ببر تا رشد کند — و بگذار نتیجه، بخشش بخرد."},
+        more:{en:"The final rules are about keeping power. Use it quickly and it tends to renew rather than run out; and once you have succeeded, the world largely forgives and forgets how you got there.",
+              fa:"قانون‌های آخر دربارهٔ نگه‌داشتنِ قدرت‌اند. زود به‌کارش ببر تا به‌جای ته‌کشیدن، نو شود؛ و همین که موفق شدی، دنیا تا حدِ زیادی می‌بخشد و فراموش می‌کند که چطور به آنجا رسیدی."},
+        chapters:["deploy","persists","excuses"] }
+    ],
+    chapters:{
+      selfstory:{ part:"outofway", n:1, name:{en:"Drop the Self-Limiting Story", fa:"داستانی که محدودت می‌کند را رها کن"}, glabel:{en:"Self-story", fa:"داستانِ خود"},
+        principle:{en:"The single biggest barrier to power is you. Drop the self-limiting story that you are not 'that kind of person.'", fa:"بزرگ‌ترین مانعِ قدرت، خودِ تو هستی. آن داستانی را که به خودت می‌گویی — «من آدمِ این کارها نیستم» — بگذار کنار."},
+        more:{en:"We talk ourselves out of power with imposter feelings, worries about what others think, and a fixed idea of who we are. Pfeffer says self-doubt holds you back more than any rival. Notice the story, then set it aside.", fa:"با حسِ سرخوردگی و بی‌لیاقتی، با نگرانی از قضاوتِ دیگران، و با تصوری ثابت از خودمان، خودمان را از قدرت محروم می‌کنیم. فِفِر می‌گوید شکِ به خود بیشتر از هر رقیبی جلویت را می‌گیرد. اول این داستان را ببین، بعد کنارش بگذار."},
+        example:{en:"Pfeffer opens with the reminder that 'possibly the single biggest barrier to having power is ourselves' — the limits we impose and never test.", fa:"فِفِر کتاب را با این یادآوری باز می‌کند که «شاید بزرگ‌ترین مانعِ داشتنِ قدرت، خودمان باشیم» — همان مرزهایی که خودمان می‌کشیم و هیچ‌وقت امتحانشان نمی‌کنیم."},
+        tip:{en:"Write down one thing you won't do 'because it's not you,' then ask if that's true or just a habit.", fa:"یک کاری را بنویس که می‌گویی «چون به من نمی‌آید» انجامش نمی‌دهی، بعد از خودت بپرس واقعاً درست است یا فقط یک عادت."},
+        pitfall:{en:"Mistaking your own comfort zone for a moral rule.", fa:"اشتباه‌گرفتنِ منطقهٔ امنِ خودت با یک اصلِ اخلاقی."} },
+      getnoticed:{ part:"outofway", n:2, name:{en:"Get Noticed", fa:"دیده شو"}, glabel:{en:"Be Seen", fa:"دیده‌شدن"},
+        principle:{en:"Doing great work isn't enough — if no one notices, it counts for nothing. Make your contribution visible.", fa:"خوب کارکردن به‌تنهایی کافی نیست — اگر کسی نبیندش، انگار هیچ. کاری کن که سهمت دیده شود."},
+        more:{en:"Pfeffer is blunt: performance that goes unseen is wasted. Powerful people make sure the right people know what they did, without waiting to be discovered. Visibility isn't bragging; it's part of the job.", fa:"فِفِر رک می‌گوید: کاری که دیده نشود، هدر رفته. آدم‌های قدرتمند حواسشان هست که آدم‌های درست بدانند چه کرده‌اند، و منتظر نمی‌مانند کسی کشفشان کند. دیده‌شدن پُز‌دادن نیست؛ بخشی از کار است."},
+        example:{en:"As he puts it, 'job performance is important, but if no one notices that performance, it is for naught.'", fa:"به قولِ خودش: «عملکردِ خوب مهم است، اما اگر کسی آن را نبیند، به هیچ می‌ارزد.»"},
+        tip:{en:"After your next win, tell one decision-maker what happened — plainly and without apology.", fa:"بعد از بُردِ بعدی‌ات، به یک تصمیم‌گیرنده بگو چه شد — ساده و بدون عذرخواهی."},
+        pitfall:{en:"Assuming good work will speak for itself and be rewarded.", fa:"این خیال که کارِ خوب خودش حرف می‌زند و خودبه‌خود پاداش می‌گیرد."} },
+      willing:{ part:"outofway", n:3, name:{en:"Be Willing to Do the Work", fa:"حاضر باش کارش را بکنی"}, glabel:{en:"Willingness", fa:"خواستن"},
+        principle:{en:"Give up the belief in a just world and be willing to do what building power actually takes.", fa:"این باور را که دنیا عادل است بگذار کنار، و حاضر باش کاری را که ساختنِ قدرت واقعاً می‌طلبد انجام بدهی."},
+        more:{en:"Expecting fairness makes you passive — you wait to be rewarded instead of acting. Pfeffer says power goes to those willing to seek it, ask for it, and stay in the game even when it's uncomfortable.", fa:"انتظارِ انصاف آدم را منفعل می‌کند — به‌جای اینکه دست به کار شوی، منتظرِ پاداش می‌مانی. فِفِر می‌گوید قدرت نصیبِ کسانی می‌شود که حاضرند دنبالش بروند، بخواهندش، و حتی وقتی معذب‌کننده است در بازی بمانند."},
+        example:{en:"His advice is direct: 'be willing to do whatever it takes — don't run away from power.'", fa:"توصیه‌اش صریح است: «حاضر باش هر کاری که لازم است بکنی — از قدرت فرار نکن.»"},
+        tip:{en:"Name one uncomfortable move you've been avoiding, and take the smallest version of it this week.", fa:"یک اقدامِ معذب‌کننده را که ازش طفره می‌روی مشخص کن، و همین هفته کوچک‌ترین نسخه‌اش را انجام بده."},
+        pitfall:{en:"Waiting quietly for a fairness that never arrives.", fa:"بی‌صدا منتظرِ انصافی ماندن که هیچ‌وقت نمی‌آید."} },
+      nonconform:{ part:"breakrules", n:4, name:{en:"Nonconformity Signals Power", fa:"نافرمانی نشانهٔ قدرت است"}, glabel:{en:"Nonconformity", fa:"نافرمانی"},
+        principle:{en:"Breaking norms and rules makes people look more powerful — and can actually create power.", fa:"شکستنِ هنجارها و قانون‌ها آدم را قدرتمندتر نشان می‌دهد — و می‌تواند واقعاً قدرت بسازد."},
+        more:{en:"When you deviate from what's expected, observers assume you must have the standing to get away with it, so they grant you more status. Controlled rule-breaking reads as confidence, not chaos.", fa:"وقتی از چیزی که انتظار می‌رود جدا می‌شوی، دیگران فرض می‌کنند حتماً جایگاهش را داری که قِسِر در می‌روی، پس بیشتر برایت اعتبار قائل می‌شوند. قانون‌شکنیِ حساب‌شده نشانهٔ اعتماد‌به‌نفس است، نه آشوب."},
+        example:{en:"Pfeffer's finding: 'violating norms, rules, and social conventions can make rule breakers seem more powerful and thereby create power for them.'", fa:"یافتهٔ فِفِر: «زیرِ‌پا‌گذاشتنِ هنجارها، قانون‌ها و قراردادهای اجتماعی می‌تواند قانون‌شکن‌ها را قدرتمندتر جلوه بدهد و از همین راه برایشان قدرت بسازد.»"},
+        tip:{en:"Find one small 'rule' at work that's really just habit, and break it on purpose.", fa:"یک «قانونِ» کوچک در محلِ کارت را که در واقع فقط عادت است پیدا کن، و عمداً بشکنش."},
+        pitfall:{en:"Following every convention so obediently you become invisible.", fa:"آن‌قدر مطیعانه همهٔ قراردادها را رعایت‌کردن که نامرئی شوی."} },
+      ask:{ part:"breakrules", n:5, name:{en:"Ask for What You Want", fa:"چیزی را که می‌خواهی بخواه"}, glabel:{en:"Just Ask", fa:"بخواه"},
+        principle:{en:"Most people never ask — so simply asking, boldly and specifically, sets you apart.", fa:"بیشترِ آدم‌ها اصلاً نمی‌خواهند — پس همین که جسورانه و مشخص بخواهی، تو را جدا می‌کند."},
+        more:{en:"Raises, projects, introductions: people wait to be offered them. Those who ask directly get far more, and asking itself signals that you expect to be taken seriously.", fa:"افزایشِ حقوق، پروژه، معرفی: آدم‌ها منتظر می‌مانند تا بهشان پیشنهاد شود. کسانی که مستقیم می‌خواهند خیلی بیشتر گیرشان می‌آید، و خودِ خواستن نشان می‌دهد که انتظار داری جدی گرفته شوی."},
+        example:{en:"Pfeffer notes it is often easier and more successful to just do what you want and ask forgiveness than to beg permission.", fa:"فِفِر می‌گوید اغلب راحت‌تر و موفق‌تر است که همان کاری را که می‌خواهی بکنی و بعد عذرخواهی کنی، تا اینکه اجازه بخواهی و التماس کنی."},
+        tip:{en:"Ask for one concrete thing this week that you'd normally wait to be given.", fa:"همین هفته یک چیزِ مشخص را بخواه که معمولاً منتظر می‌مانی خودشان بهت بدهند."},
+        pitfall:{en:"Assuming the answer is no before you've even asked.", fa:"قبل از اینکه اصلاً بپرسی، فرض‌کنی جواب نه است."} },
+      forgiveness:{ part:"breakrules", n:6, name:{en:"Act, Then Ask Forgiveness", fa:"عمل کن، بعد عذرخواهی کن"}, glabel:{en:"Ask Later", fa:"بعداً عذرخواهی"},
+        principle:{en:"Rules tend to protect those already in power. Sometimes you act first and deal with the fallout later.", fa:"قانون‌ها معمولاً از کسانی که همین حالا قدرت دارند محافظت می‌کنند. گاهی اول عمل می‌کنی و بعد سراغِ عواقبش می‌روی."},
+        more:{en:"Waiting for permission hands control to gatekeepers who benefit from the status quo. Moving first — within reason — lets you create facts on the ground that are hard to reverse.", fa:"منتظرِ اجازه‌ماندن، کنترل را دستِ دروازه‌بان‌هایی می‌دهد که از وضعِ موجود سود می‌برند. اول حرکت‌کردن — البته به‌اندازه — به تو اجازه می‌دهد واقعیت‌هایی بسازی که برگرداندنشان سخت است."},
+        example:{en:"Because 'rules tend to favor the already strong,' Pfeffer argues the ambitious sometimes have to bend them to get a seat at the table.", fa:"چون «قانون‌ها معمولاً به نفعِ کسانی‌اند که از قبل قوی‌اند»، فِفِر می‌گوید آدمِ جاه‌طلب گاهی مجبور است خمشان کند تا جایی سرِ میز گیرش بیاید."},
+        tip:{en:"Pick a low-risk decision you'd normally escalate, and just make it yourself.", fa:"یک تصمیمِ کم‌خطر را که معمولاً بالا می‌فرستی انتخاب کن، و خودت بگیرش."},
+        pitfall:{en:"Treating every guideline as an unbreakable law.", fa:"هر دستورالعملی را یک قانونِ نشکن پنداشتن."} },
+      presence:{ part:"showup", n:7, name:{en:"Presence & Posture", fa:"حضور و طرزِ ایستادن"}, glabel:{en:"Presence", fa:"حضور"},
+        principle:{en:"How you show up — posture, gestures, eye contact — can determine your trajectory as much as your work.", fa:"اینکه چطور ظاهر می‌شوی — طرزِ ایستادن، حرکتِ دست‌ها، تماسِ چشمی — می‌تواند به‌اندازهٔ خودِ کارت مسیرت را تعیین کند."},
+        more:{en:"Before people hear your argument, they read your body. Taking up space, standing tall, and moving deliberately all signal authority — and others respond to the signal, often without noticing.", fa:"قبل از اینکه آدم‌ها حرفت را بشنوند، بدنت را می‌خوانند. جا گرفتن، صاف ایستادن، و آرام و بااراده حرکت‌کردن همه نشانهٔ اقتدارند — و دیگران به این نشانه واکنش می‌دهند، اغلب بی‌آنکه بفهمند."},
+        example:{en:"Pfeffer's charge is to 'master how to appear confident, attractive, and powerful,' because presence is read instantly.", fa:"توصیهٔ فِفِر این است که «یاد بگیری چطور بااعتماد، جذاب و قدرتمند به‌نظر برسی»، چون حضور در یک لحظه خوانده می‌شود."},
+        tip:{en:"Before a big meeting, plant your feet, slow down, and take up your full space.", fa:"قبل از یک جلسهٔ مهم، پاهایت را محکم بگذار، آرام‌تر شو، و تمامِ جایت را بگیر."},
+        pitfall:{en:"Shrinking yourself — small posture, hedged voice — and signaling low status.", fa:"خودت را کوچک‌کردن — بدنِ جمع‌شده، صدای مردد — و نشانهٔ جایگاهِ پایین دادن."} },
+      speech:{ part:"showup", n:8, name:{en:"Speak with Power", fa:"با قدرت حرف بزن"}, glabel:{en:"Speech", fa:"کلام"},
+        principle:{en:"Powerful speech is confident, and it repeats its core ideas until they stick.", fa:"کلامِ قدرتمند بااعتماد است، و ایده‌های اصلی‌اش را آن‌قدر تکرار می‌کند تا جا بیفتند."},
+        more:{en:"Drop the qualifiers and apologies. Speak in short, definite statements, and come back to your key theme again and again — repetition is what makes a message land and be remembered.", fa:"تعدیل‌کننده‌ها و عذرخواهی‌ها را بگذار کنار. کوتاه و قاطع حرف بزن، و بارها به نکتهٔ اصلی‌ات برگرد — همین تکرار است که پیام را می‌نشاند و ماندگارش می‌کند."},
+        example:{en:"As Pfeffer puts it, 'most importantly, powerful speech repeats ideas and themes.'", fa:"به قولِ فِفِر: «از همه مهم‌تر، کلامِ قدرتمند ایده‌ها و مضمون‌ها را تکرار می‌کند.»"},
+        tip:{en:"Cut 'just,' 'maybe,' and 'I think' from your next important message.", fa:"از پیامِ مهمِ بعدی‌ات «فقط»، «شاید» و «فکر کنم» را حذف کن."},
+        pitfall:{en:"Softening everything with qualifiers until you sound unsure.", fa:"نرم‌کردنِ همه‌چیز با تعدیل‌کننده تا جایی که مردد به‌نظر برسی."} },
+      emotion:{ part:"showup", n:9, name:{en:"Use Emotion & Anger", fa:"از احساس و خشم استفاده کن"}, glabel:{en:"Emotion", fa:"احساس"},
+        principle:{en:"Well-timed emotion — even anger — can read as strength and command attention.", fa:"احساسِ به‌جا — حتی خشم — می‌تواند نشانهٔ قدرت خوانده شود و توجه را جلب کند."},
+        more:{en:"Calm isn't always powerful. Research finds that people who show controlled anger are seen as more competent and higher-status. The skill is to use emotion deliberately, not to be swept away by it.", fa:"همیشه آرامش قدرت نیست. پژوهش‌ها نشان می‌دهند کسانی که خشمِ کنترل‌شده نشان می‌دهند، لایق‌تر و بالادست‌تر دیده می‌شوند. مهارتش این است که از احساس بااراده استفاده کنی، نه اینکه احساس تو را با خودش ببرد."},
+        example:{en:"Pfeffer cites evidence that people expressing anger are seen as dominant, strong, competent, and smart.", fa:"فِفِر به شواهدی اشاره می‌کند که آدم‌هایی که خشم نشان می‌دهند مسلط، قوی، لایق و باهوش دیده می‌شوند."},
+        tip:{en:"Next time something is genuinely wrong, show measured, pointed displeasure instead of a smile.", fa:"دفعهٔ بعد که واقعاً چیزی سرِ جایش نیست، به‌جای لبخند، ناراحتیِ سنجیده و هدفمند نشان بده."},
+        pitfall:{en:"Hiding all feeling to stay 'nice,' and reading as weak.", fa:"پنهان‌کردنِ همهٔ احساس‌ها برای «خوب‌ماندن»، و ضعیف دیده‌شدن."} },
+      narrative:{ part:"brandnet", n:10, name:{en:"Craft Your Narrative", fa:"روایتت را بساز"}, glabel:{en:"Narrative", fa:"روایت"},
+        principle:{en:"If you don't tell your own story, someone else will tell it for you. Craft a clear, coherent narrative.", fa:"اگر داستانِ خودت را نگویی، یک نفرِ دیگر جای تو می‌گویدش. یک روایتِ روشن و یک‌دست بساز."},
+        more:{en:"A strong personal brand ties your accomplishments to a simple, memorable through-line — often shaped like a hero's journey. Repeat it consistently so people know what you stand for.", fa:"یک برندِ شخصیِ قوی، دستاوردهایت را به یک نخِ ساده و به‌یادماندنی وصل می‌کند — که اغلب شکلِ سفرِ قهرمان دارد. آن را یک‌دست تکرار کن تا آدم‌ها بدانند تو نمایندهٔ چه هستی."},
+        example:{en:"Pfeffer says a brand needs coherence — a way of integrating what you do with some aspect of your personal story.", fa:"فِفِر می‌گوید یک برند به انسجام نیاز دارد — راهی برای گره‌زدنِ کاری که می‌کنی به گوشه‌ای از داستانِ شخصی‌ات."},
+        tip:{en:"Write one sentence that says who you are and what you're known for — then use it.", fa:"یک جمله بنویس که بگوید تو که هستی و به چه شناخته می‌شوی — بعد به‌کارش ببر."},
+        pitfall:{en:"Letting others define your reputation by default.", fa:"گذاشتن که دیگران پیش‌فرض تعیین کنند اعتبارت چیست."} },
+      standout:{ part:"brandnet", n:11, name:{en:"Stand Out", fa:"متمایز شو"}, glabel:{en:"Stand Out", fa:"تمایز"},
+        principle:{en:"Blend in perfectly and you disappear. Being distinctive is what gets you remembered and chosen.", fa:"اگر بی‌نقص در جمع محو شوی، ناپدید می‌شوی. متمایز‌بودن همان چیزی است که باعث می‌شود به‌یاد بمانی و انتخاب شوی."},
+        more:{en:"Memorability beats modesty when promotions are decided. A distinctive style, a signature strength, even a bit of theater makes you easier to recall than a more qualified but forgettable rival.", fa:"وقتی پای ترفیع وسط است، به‌یادماندنی‌بودن از فروتنی جلو می‌زند. یک سبکِ متمایز، یک نقطهٔ قوتِ شاخص، حتی کمی نمایش، تو را به‌یادماندنی‌تر می‌کند از رقیبی که شایسته‌تر است اما فراموش‌شدنی."},
+        example:{en:"Pfeffer warns that 'if people blend in too perfectly, they become unnoticeable, undifferentiated' from everyone competing for the same promotions.", fa:"فِفِر هشدار می‌دهد که «اگر آدم‌ها زیادی بی‌نقص در جمع حل شوند، دیده‌نشدنی و بی‌تمایز می‌شوند» از بقیهٔ کسانی که سرِ همان ترفیع‌ها رقابت می‌کنند."},
+        tip:{en:"Pick one thing you can be visibly, reliably the best at, and lean into it.", fa:"یک چیز را انتخاب کن که بتوانی آشکارا و مطمئن در آن بهترین باشی، و رویش تکیه کن."},
+        pitfall:{en:"Playing it so safe you're interchangeable with everyone else.", fa:"آن‌قدر محافظه‌کارانه بازی‌کردن که با بقیه قابلِ‌تعویض شوی."} },
+      network:{ part:"brandnet", n:12, name:{en:"Network Relentlessly", fa:"بی‌وقفه شبکه‌سازی کن"}, glabel:{en:"Network", fa:"شبکه"},
+        principle:{en:"Relationships are the raw material of power — build a wide network before you need it.", fa:"رابطه‌ها مادهٔ خامِ قدرت‌اند — پیش از آنکه لازمت شود، یک شبکهٔ گسترده بساز."},
+        more:{en:"Who you know shapes what you can get done. Reach beyond your close circle: distant, 'weak tie' contacts open doors your friends can't, because they connect you to worlds you're not already in.", fa:"اینکه چه‌کسی را می‌شناسی، تعیین می‌کند چه کاری از دستت برمی‌آید. از حلقهٔ نزدیکت فراتر برو: آشناهای دور و «کم‌رنگ» درهایی را باز می‌کنند که دوستانت نمی‌توانند، چون تو را به دنیاهایی وصل می‌کنند که در آن‌ها نیستی."},
+        example:{en:"The old line that 'it's not what you know but who you know' has, Pfeffer shows, at least some truth to it.", fa:"آن حرفِ قدیمی که «مهم نیست چه می‌دانی، مهم این است که چه‌کسی را می‌شناسی»، به گفتهٔ فِفِر، دستِ‌کم کمی درست است."},
+        tip:{en:"Reconnect with one person outside your daily circle this week — no ask attached.", fa:"همین هفته با یک نفر بیرون از حلقهٔ هرروزه‌ات دوباره ارتباط بگیر — بدون هیچ درخواستی."},
+        pitfall:{en:"Only networking when you suddenly need something.", fa:"فقط وقتی شبکه‌سازی‌کردن که یک‌دفعه به چیزی احتیاج داری."} },
+      givetoget:{ part:"brandnet", n:13, name:{en:"Give to Get", fa:"بده تا بگیری"}, glabel:{en:"Give to Get", fa:"بده تا بگیری"},
+        principle:{en:"The fastest way to build a network is to give first — favors, help, and value create obligation.", fa:"سریع‌ترین راهِ ساختنِ شبکه این است که اول خودت بدهی — لطف، کمک و ارزش، حسِ دِین می‌سازد."},
+        more:{en:"People stay connected to those who are useful to them. Do favors, make introductions, and share what you have, and reciprocity brings much of it back — often when you least expect it.", fa:"آدم‌ها به کسانی وصل می‌مانند که برایشان مفیدند. لطف کن، آدم‌ها را به هم معرفی کن، و هرچه داری را به‌اشتراک بگذار؛ قانونِ جبران بیشترش را برمی‌گرداند — اغلب همان‌وقتی که انتظارش را نداری."},
+        example:{en:"Pfeffer's question is simple: 'be sure to create value for others — or why would people want to be connected to you?'", fa:"پرسشِ فِفِر ساده است: «حتماً برای دیگران ارزش بساز — وگرنه چرا باید کسی بخواهد به تو وصل باشد؟»"},
+        tip:{en:"Do one useful thing for someone in your network today, expecting nothing back.", fa:"همین امروز یک کارِ مفید برای یک نفر در شبکه‌ات بکن، بی هیچ چشمداشتی."},
+        pitfall:{en:"Taking from your network without ever putting anything in.", fa:"فقط از شبکه‌ات گرفتن، بی‌آنکه هیچ‌وقت چیزی در آن بگذاری."} },
+      deploy:{ part:"usepower", n:14, name:{en:"Deploy Your Power", fa:"قدرتت را به کار بینداز"}, glabel:{en:"Deploy", fa:"به‌کارگیری"},
+        principle:{en:"Power grows when you use it. Deploy it quickly and decisively rather than hoarding it.", fa:"قدرت وقتی به کارش می‌بری رشد می‌کند. به‌جای انبار‌کردنش، سریع و قاطع به‌کارش ببر."},
+        more:{en:"Many people acquire influence and then sit on it, afraid to spend it. Pfeffer argues the opposite: using power gets things done, demonstrates strength, and makes more of it flow to you.", fa:"خیلی‌ها نفوذ به دست می‌آورند و بعد رویش می‌نشینند، از خرج‌کردنش می‌ترسند. فِفِر عکسش را می‌گوید: به‌کار‌بردنِ قدرت کارها را پیش می‌برد، قدرت را نشان می‌دهد، و باعث می‌شود بیشترش به سمتت سرازیر شود."},
+        example:{en:"His rule is to 'use power quickly to get things done,' before opponents can organize against you.", fa:"قاعده‌اش این است که «قدرت را زود به کار ببر تا کارها انجام شود»، پیش از آنکه مخالف‌ها بتوانند علیه‌ات جمع شوند."},
+        tip:{en:"Spend a bit of your influence this week on a decision you actually care about.", fa:"همین هفته کمی از نفوذت را خرجِ تصمیمی کن که واقعاً برایت مهم است."},
+        pitfall:{en:"Stockpiling influence you're too cautious to ever use.", fa:"ذخیره‌کردنِ نفوذی که آن‌قدر محتاطی که هیچ‌وقت خرجش نمی‌کنی."} },
+      persists:{ part:"usepower", n:15, name:{en:"Power Tends to Persist", fa:"قدرت میل به ماندن دارد"}, glabel:{en:"It Persists", fa:"ماندگاری"},
+        principle:{en:"Power isn't a resource that runs out when spent — using it well tends to renew and perpetuate it.", fa:"قدرت منبعی نیست که با خرج‌شدن ته بکشد — به‌کار‌بردنِ درستش معمولاً نو و ماندگارش می‌کند."},
+        more:{en:"Once you hold power and use it, it becomes self-reinforcing: resources, allies, and reputation compound. That's why it's often easier to keep power than it was to get it in the first place.", fa:"همین که قدرت داشته باشی و به‌کارش ببری، خودش خودش را تقویت می‌کند: منابع، متحدها و اعتبار روی هم جمع می‌شوند. برای همین نگه‌داشتنِ قدرت اغلب آسان‌تر از به‌دست‌آوردنِ اولیه‌اش است."},
+        example:{en:"As Pfeffer puts it, 'using power effectively is more likely to perpetuate it than to exhaust it.'", fa:"به قولِ فِفِر: «به‌کار‌بردنِ مؤثرِ قدرت، بیشتر آن را ماندگار می‌کند تا اینکه تمامش کند.»"},
+        tip:{en:"Notice where a past win is still opening doors for you — and build on it.", fa:"ببین کجا یک بُردِ قدیمی هنوز برایت در باز می‌کند — و رویش بساز."},
+        pitfall:{en:"Believing you must ration power like it's about to disappear.", fa:"این باور که باید قدرت را جیره‌بندی کنی، انگار قرار است تمام شود."} },
+      excuses:{ part:"usepower", n:16, name:{en:"Success Excuses Everything", fa:"موفقیت همه‌چیز را می‌بخشد"}, glabel:{en:"Success", fa:"موفقیت"},
+        principle:{en:"Once you succeed and hold power, how you got there is largely forgiven and forgotten.", fa:"همین که موفق شوی و قدرت داشته باشی، اینکه چطور به آنجا رسیده‌ای، تا حدِ زیادی بخشیده و فراموش می‌شود."},
+        more:{en:"Results buy forgiveness. Winners' rough tactics get reframed as boldness, and power itself shields people from paying for their methods. It's not fair — but Pfeffer says pretending otherwise leaves you weaker.", fa:"نتیجه، بخشش می‌خرد. تاکتیک‌های خشنِ برنده‌ها بعداً «جسارت» جا زده می‌شود، و خودِ قدرت آدم‌ها را از تاوانِ روش‌هایشان حفظ می‌کند. عادلانه نیست — اما فِفِر می‌گوید وانمود‌کردن به عکسِ آن، فقط ضعیف‌ترت می‌کند."},
+        example:{en:"He observes that 'power generally insulates people from suffering too greatly for the consequences of their actions.'", fa:"او می‌بیند که «قدرت معمولاً آدم‌ها را از تاوانِ سنگینِ عواقبِ کارهایشان در امان نگه می‌دارد.»"},
+        tip:{en:"Judge advice by results, not by how comfortable it sounds — and then deliver results.", fa:"توصیه‌ها را با نتیجه بسنج، نه با اینکه چقدر خوشایند به‌نظر می‌رسند — و بعد نتیجه بده."},
+        pitfall:{en:"Expecting the world to punish the powerful for how they won.", fa:"این انتظار که دنیا قدرتمندها را به‌خاطرِ نحوهٔ بردنشان تنبیه کند."} }
+    },
+    core:{ name:{en:"BUILD POWER", fa:"قدرت بساز"},
+      principle:{en:"Power is a learnable skill, not a personality you're born with. Get out of your own way, break the rules that hold you back, show up powerfully, build a memorable brand, network relentlessly, use the power you gather, and remember that success excuses almost everything. Fair or not, this is how influence really works.", fa:"قدرت یک مهارتِ یادگرفتنی است، نه شخصیتی که با آن به دنیا می‌آیی. از سرِ راهِ خودت کنار برو، قانون‌هایی را که عقبت نگه می‌دارند بشکن، قدرتمند ظاهر شو، یک برندِ به‌یادماندنی بساز، بی‌وقفه شبکه‌سازی کن، قدرتی را که جمع کرده‌ای به کار ببر، و یادت باشد که موفقیت تقریباً همه‌چیز را می‌بخشد. عادلانه باشد یا نه، نفوذ واقعاً این‌طوری کار می‌کند."},
+      more:{en:"Pfeffer groups his advice into seven rules, mapped here into five parts: getting out of your own way (Rule 1), breaking the rules (Rule 2), showing up powerfully (Rule 3), building a brand and a network (Rules 4-5), and using power while success excuses everything (Rules 6-7). The thread through all of it: stop waiting for a fair world to reward you, and start building power on purpose.", fa:"فِفِر توصیه‌هایش را در هفت قانون می‌چیند که اینجا در پنج بخش خلاصه شده‌اند: کنار‌رفتن از سرِ راهِ خود (قانونِ ۱)، شکستنِ قانون‌ها (قانونِ ۲)، ظاهرشدنِ قدرتمند (قانونِ ۳)، ساختنِ برند و شبکه (قانون‌های ۴ و ۵)، و به‌کار‌بردنِ قدرت درحالی‌که موفقیت همه‌چیز را می‌بخشد (قانون‌های ۶ و ۷). نخِ رابطِ همه‌شان: دست از انتظارِ دنیایی عادل که پاداشت بدهد بردار، و عمداً شروع کن به ساختنِ قدرت."},
+      example:{en:"Click any node to read a rule or an idea. You can also drag the nodes around.", fa:"روی هر دایره کلیک کن تا یک قانون یا ایده را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."} },
+    stages:[
+      { level:1, badge:{en:"Level 1 · Over-simplified", fa:"سطحِ ۱ · خیلی ساده"}, title:{en:"Power is a skill", fa:"قدرت یک مهارت است"}, tagline:{en:"The whole book in a sentence.", fa:"کلِ کتاب در یک جمله."},
+        body:{en:"Power isn't luck or charisma you're born with — it's a set of behaviors you can learn. The first step is deciding you're allowed to want it.", fa:"قدرت نه شانس است نه کاریزمایی که با آن به دنیا آمده‌ای — مجموعه‌ای از رفتارهاست که می‌شود یادشان گرفت. اولین قدم این است که تصمیم بگیری اجازه داری بخواهی‌اش."},
+        example:{en:"Two people do equally good work; the one who seeks power and gets noticed is the one who rises.", fa:"دو نفر کارِ یک‌اندازه خوب می‌کنند؛ آن‌که دنبالِ قدرت می‌رود و دیده می‌شود، همان است که بالا می‌رود."},
+        gain:{en:"You stop treating power as something that just happens to other people.", fa:"دیگر قدرت را چیزی نمی‌بینی که فقط برای دیگران اتفاق می‌افتد."} },
+      { level:2, badge:{en:"Level 2 · Simple", fa:"سطحِ ۲ · ساده"}, title:{en:"The personal rules", fa:"قانون‌های شخصی"}, tagline:{en:"Get out of your way, break rules, show up.", fa:"کنار برو، قانون بشکن، ظاهر شو."},
+        body:{en:"Start with the first three rules, all about you. <b>Get out of your own way</b> and drop the self-limiting story. <b>Break the rules</b> that only protect the people already on top. And <b>show up powerfully</b> — presence and confident speech.", fa:"با سه قانونِ اول شروع کن که همه دربارهٔ خودت‌اند. <b>از سرِ راهِ خودت کنار برو</b> و داستانی را که محدودت می‌کند بگذار کنار. <b>قانون‌هایی را بشکن</b> که فقط از آدم‌های بالانشین محافظت می‌کنند. و <b>قدرتمند ظاهر شو</b> — حضور و کلامِ بااعتماد."},
+        example:{en:"You ask directly for the project instead of hoping it's handed to you — and you look sure while you do it.", fa:"مستقیم پروژه را می‌خواهی، به‌جای اینکه امید ببندی خودشان بهت بدهند — و موقعِ خواستن مطمئن به‌نظر می‌رسی."},
+        gain:{en:"You can act for yourself instead of waiting to be picked.", fa:"می‌توانی برای خودت دست به کار شوی، به‌جای اینکه منتظر بمانی انتخابت کنند."} },
+      { level:3, badge:{en:"Level 3 · Balanced", fa:"سطحِ ۳ · متعادل"}, title:{en:"The relational rules", fa:"قانون‌های رابطه‌ای"}, tagline:{en:"Build a brand and a network.", fa:"برند و شبکه بساز."},
+        body:{en:"Now reach beyond yourself. <b>Create a powerful brand</b>: tell a clear story about who you are and stand out instead of blending in. Then <b>network relentlessly</b> — build wide relationships before you need them, and give value first.", fa:"حالا از خودت فراتر برو. <b>یک برندِ قدرتمند بساز</b>: یک داستانِ روشن از اینکه که هستی بگو و به‌جای محو‌شدن در جمع، متمایز شو. بعد <b>بی‌وقفه شبکه‌سازی کن</b> — پیش از آنکه لازمت شوند رابطه‌های گسترده بساز، و اول ارزش بده."},
+        example:{en:"You become known for one clear thing, and you help people in your network long before you ever ask them for anything.", fa:"به یک چیزِ روشن شناخته می‌شوی، و خیلی پیش از آنکه از کسی چیزی بخواهی، به آدم‌های شبکه‌ات کمک می‌کنی."},
+        gain:{en:"You turn other people's attention and goodwill into real leverage.", fa:"توجه و خیرخواهیِ آدم‌ها را به یک اهرمِ واقعی تبدیل می‌کنی."} },
+      { level:4, badge:{en:"Level 4 · Advanced", fa:"سطحِ ۴ · پیشرفته"}, title:{en:"Use it and keep it", fa:"به‌کارش ببر و نگهش دار"}, tagline:{en:"Deploy power; success excuses everything.", fa:"قدرت را به کار ببر؛ موفقیت همه‌چیز را می‌بخشد."},
+        body:{en:"Power sitting unused is wasted. <b>Use your power</b> quickly and decisively — it tends to grow, not shrink, with use. And understand the hard truth of the seventh rule: once you succeed, <b>success excuses almost everything</b> about how you got there.", fa:"قدرتی که بی‌استفاده مانده، هدر رفته. <b>قدرتت را</b> زود و قاطع <b>به کار ببر</b> — با استفاده معمولاً رشد می‌کند، نه اینکه آب برود. و حقیقتِ سختِ قانونِ هفتم را بفهم: همین که موفق شوی، <b>موفقیت تقریباً همه‌چیز را</b> دربارهٔ نحوهٔ رسیدنت <b>می‌بخشد</b>."},
+        example:{en:"You spend influence on a decision that matters, and a bold move that once looked risky is remembered as visionary once it works.", fa:"نفوذت را خرجِ تصمیمی می‌کنی که مهم است، و حرکتی جسورانه که زمانی پرخطر به‌نظر می‌رسید، همین که جواب می‌دهد، «آینده‌نگرانه» به یاد می‌ماند."},
+        gain:{en:"You can hold on to power, not just win it once.", fa:"می‌توانی قدرت را نگه داری، نه اینکه فقط یک‌بار به دستش بیاوری."} },
+      { level:5, badge:{en:"Level 5 · Expert", fa:"سطحِ ۵ · حرفه‌ای"}, title:{en:"Play the whole game", fa:"کلِ بازی را بازی کن"}, tagline:{en:"All seven rules, eyes open.", fa:"هر هفت قانون، با چشمِ باز."},
+        body:{en:"The expert runs all seven rules together and knows why they work — status, perception, and reciprocity. You break rules and show up powerfully, brand and network, use power and let results speak. Pfeffer's final point is ethical, not cynical: the world isn't just, so <b>if power is to be used for good, more good people need to have it.</b>", fa:"آدمِ حرفه‌ای هر هفت قانون را با هم پیش می‌برد و می‌داند چرا کار می‌کنند — جایگاه، برداشتِ دیگران، و قانونِ جبران. قانون می‌شکنی و قدرتمند ظاهر می‌شوی، برند و شبکه می‌سازی، قدرت را به کار می‌بری و می‌گذاری نتیجه حرف بزند. حرفِ آخرِ فِفِر اخلاقی است، نه بدبینانه: دنیا عادل نیست، پس <b>اگر قرار است قدرت در راهِ خوب به کار برود، آدم‌های خوبِ بیشتری باید داشته باشندش.</b>"},
+        example:{en:"You use every rule deliberately, and you choose to gather power precisely so it lands in better hands — yours.", fa:"هر قانون را بااراده به کار می‌بری، و آگاهانه انتخاب می‌کنی که قدرت جمع کنی، دقیقاً به این خاطر که به دست‌های بهتری برسد — دست‌های تو."},
+        gain:{en:"You can build and wield power on purpose — and aim it at something worth doing.", fa:"می‌توانی قدرت را عمداً بسازی و به کار ببری — و به سمتِ چیزی نشانه بگیری که ارزشِ انجام دارد."} }
+    ],
+    quotes:[
+      {en:"If you want power to be used for good, more good people need to have power.", fa:"اگر می‌خواهی قدرت در راهِ خوب به کار برود، آدم‌های خوبِ بیشتری باید قدرت داشته باشند."},
+      {en:"Possibly the single biggest barrier to having power is ourselves.", fa:"شاید بزرگ‌ترین مانعِ داشتنِ قدرت، خودمان باشیم."},
+      {en:"Job performance is important, but if no one notices that performance, it is for naught.", fa:"عملکردِ خوب مهم است، اما اگر کسی آن را نبیند، به هیچ می‌ارزد."},
+      {en:"Violating norms, rules, and social conventions can make rule breakers seem more powerful and thereby create power for them.", fa:"زیرِ‌پا‌گذاشتنِ هنجارها، قانون‌ها و قراردادهای اجتماعی می‌تواند قانون‌شکن‌ها را قدرتمندتر جلوه بدهد و از همین راه برایشان قدرت بسازد."},
+      {en:"Most importantly, powerful speech repeats ideas and themes.", fa:"از همه مهم‌تر، کلامِ قدرتمند ایده‌ها و مضمون‌ها را تکرار می‌کند."},
+      {en:"If people blend in too perfectly, they become unnoticeable, undifferentiated from those around them competing for promotions.", fa:"اگر آدم‌ها زیادی بی‌نقص در جمع حل شوند، دیده‌نشدنی و بی‌تمایز می‌شوند از کسانی که دورشان سرِ ترفیع‌ها رقابت می‌کنند."},
+      {en:"Be sure to create value for others — or why would people want to be connected to you?", fa:"حتماً برای دیگران ارزش بساز — وگرنه چرا باید کسی بخواهد به تو وصل باشد؟"},
+      {en:"Using power effectively is more likely to perpetuate it than to exhaust it.", fa:"به‌کار‌بردنِ مؤثرِ قدرت، بیشتر آن را ماندگار می‌کند تا اینکه تمامش کند."},
+      {en:"Power generally insulates people from suffering too greatly for the consequences of their actions.", fa:"قدرت معمولاً آدم‌ها را از تاوانِ سنگینِ عواقبِ کارهایشان در امان نگه می‌دارد."}
+    ],
+    media:[
+      { kind:"yt", id:"j-FOpdvuxFU", src:{en:"YouTube · McKinsey", fa:"یوتیوب · مکینزی"},
+        title:{en:"Author Talks: Jeffrey Pfeffer on the Rules of Power", fa:"گفت‌وگو با نویسنده: جفری فِفِر دربارهٔ قانون‌های قدرت"},
+        desc:{en:"A short interview in which Pfeffer lays out the core rules and why they matter.", fa:"یک گفت‌وگوی کوتاه که فِفِر در آن قانون‌های اصلی و اهمیتشان را توضیح می‌دهد."},
+        bullets:{en:["The rules in the author's own words","Why fairness won't save your career","A concise, authoritative intro"], fa:["قانون‌ها به زبانِ خودِ نویسنده","چرا انصاف شغلت را نجات نمی‌دهد","یک معرفیِ فشرده و معتبر"]},
+        best:{en:"Best for Stage 1–2.", fa:"خوب برای مرحلهٔ ۱ و ۲."} },
+      { kind:"yt", id:"UuNLjvybxj8", src:{en:"YouTube · Andrew Yang", fa:"یوتیوب · اندرو یانگ"},
+        title:{en:"The Rules of Power — Pfeffer with Andrew Yang", fa:"قانون‌های قدرت — فِفِر با اندرو یانگ"},
+        desc:{en:"A long, candid conversation turning the seven rules into real-world career advice.", fa:"یک گفت‌وگوی بلند و بی‌پرده که هفت قانون را به توصیه‌های واقعیِ شغلی تبدیل می‌کند."},
+        bullets:{en:["Getting out of your own way","Networking and brand, in practice","Honest talk about power and ethics"], fa:["کنار‌رفتن از سرِ راهِ خود","شبکه‌سازی و برند، در عمل","حرفِ صادقانه دربارهٔ قدرت و اخلاق"]},
+        best:{en:"Best for Stage 2–4.", fa:"خوب برای مرحلهٔ ۲ تا ۴."} },
+      { kind:"yt", id:"2qcGIwRzn58", src:{en:"YouTube · From the Green Notebook", fa:"یوتیوب · From the Green Notebook"},
+        title:{en:"The 7 Rules of Power with Dr. Jeffrey Pfeffer", fa:"هفت قانونِ قدرت با دکتر جفری فِفِر"},
+        desc:{en:"A deeper interview on using power well, aimed at leaders.", fa:"یک گفت‌وگوی عمیق‌تر دربارهٔ درست‌به‌کار‌بردنِ قدرت، برای رهبرها."},
+        bullets:{en:["Using power without waiting","Why success earns forgiveness","Applying the rules as a leader"], fa:["به‌کار‌بردنِ قدرت بی‌معطلی","چرا موفقیت بخشش می‌آورد","به‌کار‌بستنِ قانون‌ها به‌عنوانِ یک رهبر"]},
+        best:{en:"Best for Stage 3–5.", fa:"خوب برای مرحلهٔ ۳ تا ۵."} },
+      { kind:"img", url:"https://www.simonandschuster.com/books/7-Rules-of-Power/Jeffrey-Pfeffer/9781637746479",
+        src:{en:"Simon & Schuster · Publisher", fa:"Simon & Schuster · ناشر"},
+        title:{en:"7 Rules of Power — Publisher Page", fa:"هفت قانونِ قدرت — صفحهٔ ناشر"},
+        desc:{en:"The official publisher page for the book, with editions and details.", fa:"صفحهٔ رسمیِ ناشر برای کتاب، با نسخه‌ها و جزئیات."},
+        bullets:{en:["The definitive editions","Background on Pfeffer","Straight from the source"], fa:["نسخه‌های معتبر","پیشینه‌ای دربارهٔ فِفِر","مستقیم از خودِ منبع"]},
+        best:{en:"For editions and the source.", fa:"برای نسخه‌ها و منبعِ اصلی."} }
+    ],
+    go:[
+      {label:{en:"Publisher page", fa:"صفحهٔ ناشر"}, url:"https://www.simonandschuster.com/books/7-Rules-of-Power/Jeffrey-Pfeffer/9781637746479"},
+      {label:{en:"Book on Goodreads", fa:"کتاب در گودریدز"}, url:"https://www.goodreads.com/book/show/60705919-7-rules-of-power"},
+      {label:{en:"Author's page for the book", fa:"صفحهٔ نویسنده برای کتاب"}, url:"https://jeffreypfeffer.com/books/7-rules-of-power/"}
+    ],
+    recs:[
+      { pri:"b", t:{en:"Ask for one thing this week", fa:"همین هفته یک چیز را بخواه"}, d:{en:"Pick something you want — a project, a raise, an intro — and ask for it directly, no hedging.", fa:"چیزی را که می‌خواهی انتخاب کن — یک پروژه، افزایشِ حقوق، یک معرفی — و مستقیم و بی‌رودربایستی بخواهش."} },
+      { pri:"b", t:{en:"Make your last win visible", fa:"آخرین بُردت را دیدنی کن"}, d:{en:"Tell one decision-maker, plainly, what you accomplished — performance no one sees counts for nothing.", fa:"به یک تصمیم‌گیرنده، ساده، بگو چه کاری را به سرانجام رسانده‌ای — کاری که کسی نبیندش، به هیچ می‌ارزد."} },
+      { pri:"n", t:{en:"Write your one-line brand", fa:"برندِ یک‌خطی‌ات را بنویس"}, d:{en:"In one sentence, say who you are and what you want to be known for — then repeat it everywhere.", fa:"در یک جمله بگو که هستی و می‌خواهی به چه شناخته شوی — بعد همه‌جا تکرارش کن."} },
+      { pri:"n", t:{en:"Give before you need", fa:"قبل از نیاز، بده"}, d:{en:"Do one useful favor for someone outside your close circle, expecting nothing in return.", fa:"یک لطفِ مفید به کسی بیرون از حلقهٔ نزدیکت بکن، بی هیچ چشمداشتی."} }
+    ]
+  }
+};

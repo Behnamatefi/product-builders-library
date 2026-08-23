@@ -1,0 +1,263 @@
+/* config: The Score Takes Care of Itself — Bill Walsh (Leadership) */
+module.exports = {
+  slug:"score", brand:"The Score Takes Care of Itself",
+  titleTag:"The Score Takes Care of Itself — نقشهٔ دانش و یادگیری ۵ مرحله‌ای",
+  W:980, H:780, R1:220, R2:126, span:66,
+  leafKickEn:"Principle", leafKickFa:"اصلِ",
+  flowEn:["Standard","Teach","Win"], flowFa:["استاندارد","آموزش","بُردن"],
+
+  hero:`  <div class="eyebrow"><span class="edot"></span>
+    <span data-only="en">Book knowledge map · Bill Walsh</span>
+    <span data-only="fa">نقشهٔ کتاب · بیل والش</span>
+  </div>
+  <h1>
+    <span data-only="en">The Score Takes Care of Itself — My Philosophy of Leadership</span>
+    <span data-only="fa">نتیجه خودش جور می‌شود — فلسفهٔ من در رهبری</span>
+  </h1>
+  <p class="dek">
+    <span data-only="en">A knowledge graph of the whole book, plus a 5-stage path from a single idea to expert-level mastery — with an example at every step.</span>
+    <span data-only="fa">نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از یک ایدهٔ ساده تا حرفه‌ای — با یک مثال در هر مرحله.</span>
+  </p>
+  <div class="metastrip">
+    <div class="metaitem"><span class="mk" data-only="en">Book</span><span class="mk" data-only="fa">کتاب</span>
+      <span class="mv" data-only="en">The Score Takes Care of Itself</span><span class="mv" data-only="fa">نتیجه خودش جور می‌شود</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Author</span><span class="mk" data-only="fa">نویسنده</span>
+      <span class="mv" data-only="en">Bill Walsh</span><span class="mv" data-only="fa">بیل والش</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Published</span><span class="mk" data-only="fa">سالِ چاپ</span>
+      <span class="mv" data-only="en">2009</span><span class="mv" data-only="fa">۲۰۰۹</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Group</span><span class="mk" data-only="fa">گروه</span>
+      <span class="mv" data-only="en">Leadership</span><span class="mv" data-only="fa">رهبری</span></div>
+  </div>
+  <div class="chips">
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Parts</span><span data-only="fa">بخش</span></div>
+    <div class="chip"><b data-only="en">16</b><b data-only="fa">۱۶</b><span data-only="en">Ideas</span><span data-only="fa">ایده</span></div>
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Learning stages</span><span data-only="fa">مرحلهٔ یادگیری</span></div>
+  </div>`,
+
+  callout:`    <b data-only="en">The core idea:</b>
+    <b data-only="fa">ایدهٔ اصلی:</b>
+    <span data-only="en"> Don't obsess over winning — obsess over <i>how</i> you do everything. Set a demanding <i>Standard of Performance</i> for effort, attitude and detail, teach it to everyone, and hold to it no matter the scoreboard. Do that, and <i>the score takes care of itself</i>.</span>
+    <span data-only="fa"> روی برد وسواس نداشته باش — روی <i>اینکه چطور</i> هر کاری را انجام می‌دهی وسواس داشته باش. یک <i>استانداردِ عملکردِ</i> سخت‌گیرانه برای تلاش، نگرش و جزئیات بگذار، به همه یادش بده، و بی‌توجه به تابلوی امتیاز بهش پایبند بمان. این کار را بکن، <i>نتیجه خودش جور می‌شود</i>.</span>`,
+
+  kpis:`    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Parts (standard · teaching · culture · pressure · team)</div><div class="l" data-only="fa">بخش (استاندارد · آموزش · فرهنگ · فشار · تیم)</div></div>
+    <div class="kbox"><div class="v" data-only="en">16</div><div class="v" data-only="fa">۱۶</div><div class="l" data-only="en">Ideas you can use</div><div class="l" data-only="fa">ایده برای استفاده</div></div>
+    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Levels, simple → expert</div><div class="l" data-only="fa">مرحله، ساده تا حرفه‌ای</div></div>
+    <div class="kbox"><div class="v" data-only="en">3</div><div class="v" data-only="fa">۳</div><div class="l" data-only="en">The through-line: Standard · Teach · the score takes care of itself</div><div class="l" data-only="fa">نخِ رابط: استاندارد · آموزش · نتیجه خودش جور می‌شود</div></div>`,
+
+  mapcallout:`      <b data-only="en">Read it as a flow:</b><b data-only="fa">به‌صورتِ یک جریان بخوانش:</b>
+      <span data-only="en"> set the <b>Standard of Performance</b>, <b>teach</b> it relentlessly and lead by example, build the <b>culture and details</b> beneath the score, keep your poise while <b>handling success and failure</b>, and keep <b>building the team</b> — talent, honest assessment, and letting go.</span>
+      <span data-only="fa"> <b>استانداردِ عملکرد</b> را بگذار، بی‌وقفه <b>یادش بده</b> و با الگو‌بودن رهبری کن، <b>فرهنگ و جزئیاتِ</b> زیرِ نتیجه را بساز، در <b>برد و باخت</b> خونسردی‌ات را نگه دار، و به <b>ساختنِ تیم</b> ادامه بده — استعداد، ارزیابیِ صادقانه، و رها‌کردن.</span>`,
+
+  methodFa:"<p><b>منبع:</b> کتابِ «The Score Takes Care of Itself: My Philosophy of Leadership» نوشتهٔ بیل والش با همکاریِ استیو جیمیسون و کریگ والش، چاپِ ۲۰۰۹ (نشرِ Portfolio / Penguin).</p><p><b>روشِ کار:</b> ساختارِ پنج‌بخشی و ایده‌ها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده؛ نقل‌قول‌ها مقابله و ویدیوها بررسی شده‌اند.</p><p><b>گروه:</b> «رهبری» — یک خواندنیِ پایه برای هر کسی که باید یک تیم را رهبری کند.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای متنِ کامل، خودِ کتاب را بخوان.</p>",
+  methodEn:"<p><b>Source:</b> the book <i>The Score Takes Care of Itself: My Philosophy of Leadership</i> by Bill Walsh with Steve Jamison and Craig Walsh, published 2009 (Portfolio / Penguin).</p><p><b>How this was built:</b> the five-part structure and ideas were gathered and rewritten from the book and reputable sources; quotes were cross-checked and the linked videos verified.</p><p><b>Group:</b> Leadership — a foundational read for anyone who has to lead a team.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>",
+
+  data:{
+    tldr:[
+      {en:"The whole book in one line: forget the scoreboard — obsess over a high Standard of Performance in everything, and the score takes care of itself.",
+       fa:"خلاصهٔ کل کتاب در یک جمله: تابلوی امتیاز را فراموش کن — روی یک استانداردِ عملکردِ بالا در همه‌چیز وسواس داشته باش، نتیجه خودش جور می‌شود."},
+      {en:"The <b>Standard of Performance</b>: exacting standards for effort, attitude and detail — applied to everyone, all the time.",
+       fa:"<b>استانداردِ عملکرد</b>: معیارهای سخت‌گیرانه برای تلاش، نگرش و جزئیات — برای همه، همیشه."},
+      {en:"<b>Leadership is teaching</b>: teach people what to do and how to think, in specifics — and model it yourself.",
+       fa:"<b>رهبری یعنی آموزش</b>: به آدم‌ها یاد بده چه کار کنند و چطور فکر کنند، با جزئیات — و خودت هم الگویش باش."},
+      {en:"<b>Culture precedes results</b>: build the culture and sweat the details first; wins are a by-product.",
+       fa:"<b>فرهنگ جلوتر از نتیجه است</b>: اول فرهنگ را بساز و روی جزئیات وسواس داشته باش؛ بردها محصولِ فرعی‌اند."},
+      {en:"Then <b>handle success and failure</b> with poise, and keep <b>building the team</b> — honest assessment, and knowing when to let go.",
+       fa:"بعد <b>برد و باخت را</b> با خونسردی مدیریت کن، و به <b>ساختنِ تیم</b> ادامه بده — ارزیابیِ صادقانه، و دانستنِ اینکه کِی باید رها کنی."}
+    ],
+    parts:[
+      { key:"standard", varc:"--c-teal", name:{en:"The Standard of Performance", fa:"استانداردِ عملکرد"}, tag:{en:"Define excellence", fa:"تعریفِ عالی‌بودن"},
+        gist:{en:"Set exacting standards for effort, attitude and detail — and make the standard, not the score, the goal.", fa:"برای تلاش، نگرش و جزئیات معیارهای سخت‌گیرانه بگذار — و استاندارد را هدف کن، نه امتیاز را."},
+        more:{en:"Before Walsh said a word about winning, he defined exactly how everyone should prepare, behave and perform — down to the smallest detail. The Standard of Performance is a demanding code you hold to whether you're winning or losing. Live up to it, play after play, and the score takes care of itself.",
+              fa:"بیل والش قبل از اینکه یک کلمه دربارهٔ برد بگوید، دقیق تعریف کرد که همه چطور باید آماده شوند، رفتار کنند و کار کنند — تا کوچک‌ترین جزئیات. استانداردِ عملکرد یک قانونِ سخت‌گیرانه است که چه ببری چه ببازی، بهش پایبند می‌مانی. نمایش‌به‌نمایش بهش وفادار بمان، نتیجه خودش جور می‌شود."},
+        chapters:["setstd","details","scoreitself","effort"] },
+      { key:"teach", varc:"--c-blue", name:{en:"Leadership Is Teaching", fa:"رهبری یعنی آموزش"}, tag:{en:"Be the teacher", fa:"معلم باش"},
+        gist:{en:"Your main job is to teach — specifics, not slogans — and to model the standard yourself.", fa:"کارِ اصلی‌ات آموزش‌دادن است — با جزئیات، نه شعار — و اینکه خودت الگوی استاندارد باشی."},
+        more:{en:"Walsh saw a leader as a teacher first. You teach people what to do and how to think, in concrete detail, and then you teach it again until it holds. And you teach loudest by example: people follow the quality of your actions, not the size of your speeches.",
+              fa:"بیل والش رهبر را قبل از هر چیز یک معلم می‌دید. به آدم‌ها یاد می‌دهی چه کار کنند و چطور فکر کنند، با جزئیاتِ مشخص، و بعد آن‌قدر تکرارش می‌کنی تا جا بیفتد. و بلندترین آموزشت با الگو‌بودن است: آدم‌ها دنبالِ کیفیتِ کارهایت می‌آیند، نه بزرگیِ حرف‌هایت."},
+        chapters:["teacher","specific","example"] },
+      { key:"culture", varc:"--c-amber", name:{en:"Culture & Details", fa:"فرهنگ و جزئیات"}, tag:{en:"Build it underneath", fa:"زیرش را بساز"},
+        gist:{en:"The culture precedes results — sweat the details and script the game in advance.", fa:"فرهنگ جلوتر از نتیجه می‌آید — روی جزئیات وسواس داشته باش و بازی را از پیش بنویس."},
+        more:{en:"Winning is a by-product of the culture beneath it. Walsh built championship behavior before the team was a champion, obsessed over details others ignored, and scripted key decisions ahead of time so game day ran on preparation, not nerves.",
+              fa:"برد، محصولِ فرعیِ فرهنگی است که زیرش هست. بیل والش رفتارِ قهرمانی را قبل از قهرمان‌شدنِ تیم ساخت، روی جزئیاتی که بقیه نادیده می‌گرفتند وسواس داشت، و تصمیم‌های مهم را از قبل می‌نوشت تا روزِ بازی روی آمادگی برود، نه روی استرس."},
+        chapters:["precede","sweat","script"] },
+      { key:"pressure", varc:"--c-violet", name:{en:"Success & Failure", fa:"برد و باخت"}, tag:{en:"Keep your poise", fa:"خونسردی‌ات را نگه دار"},
+        gist:{en:"Don't panic in defeat or gloat in victory — master the pressure and keep the standard steady.", fa:"نه در باخت وحشت کن نه در برد پُز بده — بر فشار مسلط شو و استاندارد را ثابت نگه دار."},
+        more:{en:"The standard has to hold through the swings. Walsh treated failure as part of success — get up and plan the next move — and warned against the 'Success Disease' that follows winning. Through both, the leader's poise sets the team's, so he worked to stay calm when it mattered most.",
+              fa:"استاندارد باید در فراز و نشیب‌ها ثابت بماند. بیل والش شکست را بخشی از موفقیت می‌دانست — بلند شو و حرکتِ بعدی را برنامه‌ریزی کن — و دربارهٔ «بیماریِ موفقیت» که بعد از برد می‌آید هشدار می‌داد. در هر دو حالت، خونسردیِ رهبر، خونسردیِ تیم را می‌سازد، برای همین تلاش می‌کرد وقتی بیشترین اهمیت را داشت آرام بماند."},
+        chapters:["defeat","victory","poise"] },
+      { key:"team", varc:"--c-green", name:{en:"Building the Team", fa:"ساختنِ تیم"}, tag:{en:"People make it last", fa:"آدم‌ها ماندگارش می‌کنند"},
+        gist:{en:"Recruit for character, assess honestly, and plan succession so the standard outlives you.", fa:"برای شخصیت آدم بگیر، صادقانه ارزیابی کن، و برای جانشینی برنامه بریز تا استاندارد بعد از تو هم بماند."},
+        more:{en:"A team is built, not bought. Walsh looked for character and fit as much as talent, developed people patiently, assessed them honestly — hard truths and sincere praise both — and thought about succession, so the standard would carry on after he was gone.",
+              fa:"تیم را می‌سازند، نمی‌خرند. بیل والش به‌اندازهٔ استعداد، دنبالِ شخصیت و تناسب بود، آدم‌ها را با حوصله می‌پروراند، صادقانه ارزیابی‌شان می‌کرد — هم حقیقتِ سخت هم تعریفِ صمیمانه — و به جانشینی فکر می‌کرد، تا استاندارد بعد از رفتنش هم ادامه پیدا کند."},
+        chapters:["talent","assess","succession"] }
+    ],
+    chapters:{
+      setstd:{ part:"standard", n:1, name:{en:"Set the Standard of Performance", fa:"استانداردِ عملکرد را تعیین کن"}, glabel:{en:"The Standard", fa:"استاندارد"},
+        principle:{en:"Define exactly how things should be done — effort, attitude, detail — and make that standard, not the scoreboard, the goal.", fa:"دقیق تعریف کن که کارها چطور باید انجام شوند — تلاش، نگرش، جزئیات — و همان استاندارد را هدف کن، نه تابلوی امتیاز را."},
+        more:{en:"Walsh took over a losing team and, before talking about winning, wrote down how everyone should act, prepare and perform. The Standard of Performance is a detailed code of expected behavior that holds whether you're winning or losing. Meet it, and the results follow on their own.", fa:"بیل والش یک تیمِ بازنده را تحویل گرفت و قبل از اینکه دربارهٔ برد حرف بزند، نوشت که همه چطور باید رفتار کنند، آماده شوند و کار کنند. استانداردِ عملکرد یک قانونِ دقیقِ رفتاری است که چه ببری چه ببازی، برقرار می‌ماند. بهش برس، نتیجه‌ها خودشان می‌آیند."},
+        example:{en:"Walsh set expectations for details as small as how the phones were answered and how players dressed — every detail carried the standard.", fa:"بیل والش برای جزئیاتی به کوچکیِ اینکه تلفن‌ها چطور جواب داده شوند و بازیکن‌ها چطور لباس بپوشند هم انتظار تعیین کرد — هر جزئیات، حاملِ استاندارد بود."},
+        tip:{en:"Write down the specific behaviors and quality you expect from yourself and your team — then hold everyone to them.", fa:"رفتارها و کیفیتِ مشخصی را که از خودت و تیمت انتظار داری بنویس — بعد همه را بهشان پایبند نگه دار."},
+        pitfall:{en:"Chasing the win while leaving 'how we do things here' vague and unspoken.", fa:"دنبالِ برد دویدن، درحالی‌که «اینجا کارها را چطور انجام می‌دهیم» مبهم و نگفته می‌ماند."} },
+      details:{ part:"standard", n:2, name:{en:"Excellence in Every Detail", fa:"عالی‌بودن در هر جزئیات"}, glabel:{en:"Details", fa:"جزئیات"},
+        principle:{en:"The standard applies to everyone and everything, no matter how small — no detail is too minor to do right.", fa:"استاندارد شاملِ همه و همه‌چیز می‌شود، هرچقدر هم کوچک — هیچ جزئیاتی آن‌قدر کوچک نیست که ارزشِ درست‌انجام‌دادن نداشته باشد."},
+        more:{en:"Walsh believed a professional attitude in tiny things builds the same attitude in big ones. Excellence isn't one grand act; it's hundreds of small, correct actions repeated until they're automatic — a clean locker room, a crisp practice, being on time.", fa:"بیل والش باور داشت نگرشِ حرفه‌ای در چیزهای کوچک، همان نگرش را در چیزهای بزرگ می‌سازد. عالی‌بودن یک کارِ بزرگِ یک‌باره نیست؛ صدها کارِ کوچکِ درست است که آن‌قدر تکرار می‌شوند تا خودکار شوند — یک رختکنِ تمیز، یک تمرینِ منظم، سرِوقت‌بودن."},
+        example:{en:"Walsh insisted the facility and the way staff carried themselves reflect first-class standards, long before the team won anything.", fa:"بیل والش اصرار داشت که ساختمانِ تیم و طرزِ رفتارِ کارکنان، استانداردِ درجه‌یک را نشان بدهد، خیلی قبل از اینکه تیم چیزی برده باشد."},
+        tip:{en:"Pick the small details you've been letting slide and raise them to the standard you'd want at your best.", fa:"همان جزئیاتِ کوچکی را که ول کرده‌ای انتخاب کن و به همان استانداردی برسان که در بهترین حالتت می‌خواهی."},
+        pitfall:{en:"Deciding some things are 'too small to matter' and letting them slide.", fa:"تصمیم‌گرفتن که بعضی چیزها «آن‌قدر کوچک‌اند که مهم نیستند» و رهاکردنشان."} },
+      scoreitself:{ part:"standard", n:3, name:{en:"The Score Takes Care of Itself", fa:"نتیجه خودش جور می‌شود"}, glabel:{en:"The Score", fa:"نتیجه"},
+        principle:{en:"Focus on the process, not the scoreboard. Do every job to your standard and the winning takes care of itself.", fa:"روی روند تمرکز کن، نه روی تابلوی امتیاز. هر کار را به استانداردت انجام بده، برد خودش جور می‌شود."},
+        more:{en:"Walsh pointed attention away from the prize of victory and toward the process of getting better. Staring at the score creates pressure and distraction; doing your job right, play by play, is what actually produces the score.", fa:"بیل والش توجه را از جایزهٔ برد برمی‌داشت و به سمتِ روندِ بهترشدن می‌برد. زل‌زدن به امتیاز فقط فشار و حواس‌پرتی می‌آورد؛ درست‌انجام‌دادنِ کارت، نمایش‌به‌نمایش، همان چیزی است که واقعاً امتیاز می‌سازد."},
+        example:{en:"Walsh had his team pour everything into executing each play to their standard rather than watching the final score — and the wins came.", fa:"بیل والش کاری کرد تیمش همه‌چیزش را بگذارد روی اینکه هر نمایش را به استانداردِ خودش اجرا کند، به‌جای اینکه به نتیجهٔ نهایی نگاه کند — و بردها آمدند."},
+        tip:{en:"Swap 'did we win?' for 'did we do it to our standard?' as your daily scorecard.", fa:"به‌جای «بردیم؟»، «به استانداردمان انجامش دادیم؟» را کارنامهٔ روزانه‌ات کن."},
+        pitfall:{en:"Staring at the scoreboard instead of the work that actually moves it.", fa:"زل‌زدن به تابلوی امتیاز، به‌جای کاری که واقعاً تکانش می‌دهد."} },
+      effort:{ part:"standard", n:4, name:{en:"Effort Is the Baseline", fa:"تلاش، کفِ کار است"}, glabel:{en:"Effort", fa:"تلاش"},
+        principle:{en:"Full, intelligent effort isn't a bonus — it's the minimum the standard asks for, every day.", fa:"تلاشِ کامل و هوشمندانه، پاداشِ اضافه نیست — کمترین چیزی است که استاندارد هر روز می‌خواهد."},
+        more:{en:"Under the Standard of Performance, giving your best is simply expected, not celebrated as something special. When maximum effort becomes the normal, unremarkable baseline for everyone, the whole team's level quietly rises.", fa:"زیرِ استانداردِ عملکرد، بهترین‌بودن فقط یک انتظار است، نه چیزی خاص که ازش تعریف کنند. وقتی حداکثرِ تلاش برای همه به یک کفِ عادی و معمولی تبدیل شود، سطحِ کلِ تیم بی‌سروصدا بالا می‌رود."},
+        example:{en:"Walsh expected total preparation and effort as a given; anything less was a breach of the standard, not just a bad day.", fa:"بیل والش آمادگی و تلاشِ کامل را یک چیزِ بدیهی می‌دانست؛ هرچه کمتر از آن، زیرِ پا گذاشتنِ استاندارد بود، نه فقط یک روزِ بد."},
+        tip:{en:"Treat your best effort as the price of admission, not a special occasion.", fa:"بهترین تلاشت را بهای ورود بدان، نه یک مناسبتِ خاص."},
+        pitfall:{en:"Saving maximum effort for the big moments instead of making it normal.", fa:"نگه‌داشتنِ حداکثرِ تلاش برای لحظه‌های بزرگ، به‌جای عادی‌کردنش."} },
+      teacher:{ part:"teach", n:5, name:{en:"Be a Great Teacher", fa:"یک معلمِ خوب باش"}, glabel:{en:"Teacher", fa:"معلم"},
+        principle:{en:"Leadership is teaching. Your core job is to teach people what to do and how to think.", fa:"رهبری یعنی آموزش. کارِ اصلی‌ات این است که به آدم‌ها یاد بدهی چه کار کنند و چطور فکر کنند."},
+        more:{en:"Walsh saw himself first as a teacher — everything he did was instruction of some kind. A leader teaches the skills, the standard, and how to talk to yourself under pressure, then teaches it again, patiently, until it sticks.", fa:"بیل والش قبل از هر چیز خودش را معلم می‌دید — هر کاری می‌کرد، یک‌جور آموزش بود. رهبر، مهارت‌ها، استاندارد، و اینکه زیرِ فشار چطور با خودت حرف بزنی را یاد می‌دهد، بعد با حوصله دوباره یادش می‌دهد تا جا بیفتد."},
+        example:{en:"Walsh built detailed teaching for every role, from quarterbacks down to exactly how a single play should be run.", fa:"بیل والش برای هر نقش یک آموزشِ دقیق ساخت، از کوارتربک‌ها گرفته تا اینکه دقیقاً یک نمایش چطور باید اجرا شود."},
+        tip:{en:"Ask of any recurring problem: what haven't I taught clearly enough yet?", fa:"دربارهٔ هر مشکلی که تکرار می‌شود بپرس: هنوز چه چیزی را به‌قدرِ کافی روشن یاد نداده‌ام؟"},
+        pitfall:{en:"Assuming people already know what you never actually taught them.", fa:"فرض‌کردن که آدم‌ها چیزی را که هیچ‌وقت واقعاً یادشان ندادی، از قبل بلدند."} },
+      specific:{ part:"teach", n:6, name:{en:"Be Specific", fa:"مشخص حرف بزن"}, glabel:{en:"Specifics", fa:"مشخص‌بودن"},
+        principle:{en:"Teach with concrete detail, not vague pep talks — spell out exactly what good looks like.", fa:"با جزئیاتِ ملموس یاد بده، نه با نطق‌های مبهمِ انگیزشی — دقیق بگو خوب یعنی چه شکلی."},
+        more:{en:"Exhortation without specifics is just noise. Walsh gave precise instructions for how each task should be done, so people knew the exact target. The more specific the teaching, the higher and steadier the performance.", fa:"تشویقِ بی‌جزئیات فقط سروصداست. بیل والش برای اینکه هر کار چطور باید انجام شود دستورهای دقیق می‌داد، تا آدم‌ها هدفِ دقیق را بدانند. هرچه آموزش مشخص‌تر، عملکرد بالاتر و باثبات‌تر."},
+        example:{en:"Walsh's famous 'scripted' opening came from teaching in advance, precisely, what to do in each situation.", fa:"«اسکریپتِ» معروفِ بیل والش برای شروعِ بازی از همین می‌آمد: از قبل، دقیق، یاد می‌داد در هر موقعیت چه کار کنند."},
+        tip:{en:"Replace 'do better' with a specific behavior the person can picture and repeat.", fa:"به‌جای «بهتر کار کن»، یک رفتارِ مشخص بگذار که طرف بتواند تصورش کند و تکرارش کند."},
+        pitfall:{en:"Motivating with slogans while leaving the 'how' undefined.", fa:"انگیزه‌دادن با شعار، درحالی‌که «چطورش» تعریف‌نشده می‌ماند."} },
+      example:{ part:"teach", n:7, name:{en:"Lead by Example", fa:"با الگو‌بودن رهبری کن"}, glabel:{en:"Example", fa:"الگو"},
+        principle:{en:"People follow the quality of your actions, not the volume of your words — model the standard yourself.", fa:"آدم‌ها دنبالِ کیفیتِ کارهایت می‌آیند، نه بلندیِ حرف‌هایت — خودت الگوی استاندارد باش."},
+        more:{en:"A leader who preaches the standard but doesn't live it teaches people the standard is optional. Walsh held himself to the same exacting behavior he demanded, knowing his own conduct set the real tone far more than any speech.", fa:"رهبری که استاندارد را موعظه می‌کند اما خودش زندگی‌اش نمی‌کند، به آدم‌ها یاد می‌دهد که استاندارد اختیاری است. بیل والش خودش را به همان رفتارِ سخت‌گیرانه‌ای که می‌خواست پایبند می‌کرد، چون می‌دانست رفتارِ خودش خیلی بیشتر از هر سخنرانی‌ای فضا را می‌سازد."},
+        example:{en:"Walsh held that others follow you based on the quality of your actions rather than the magnitude of your declarations.", fa:"بیل والش می‌گفت آدم‌ها به‌خاطرِ کیفیتِ کارهایت دنبالت می‌آیند، نه به‌خاطرِ بزرگیِ حرف‌هایت."},
+        tip:{en:"Before demanding a behavior, make sure you visibly model it first.", fa:"قبل از اینکه یک رفتار را بخواهی، مطمئن شو که خودت جلوی چشم همه الگویش هستی."},
+        pitfall:{en:"Demanding standards you don't visibly hold yourself to.", fa:"خواستنِ استانداردهایی که خودت آشکارا بهشان پایبند نیستی."} },
+      precede:{ part:"culture", n:8, name:{en:"Culture Precedes Results", fa:"فرهنگ جلوتر از نتیجه است"}, glabel:{en:"Culture", fa:"فرهنگ"},
+        principle:{en:"Build the culture first. Positive results grow out of it — not the other way around.", fa:"اول فرهنگ را بساز. نتیجه‌های خوب از دلِ آن می‌رویند — نه برعکس."},
+        more:{en:"Walsh's rule was that culture precedes positive results: you don't wait to win before acting like winners — you build the winning behaviors first and let the scoreboard catch up. Champions behave like champions before they're champions.", fa:"قاعدهٔ بیل والش این بود که فرهنگ جلوتر از نتیجه‌های خوب می‌آید: منتظرِ برد نمی‌مانی تا بعد مثلِ برنده‌ها رفتار کنی — اول رفتارهای برنده را می‌سازی و می‌گذاری تابلوی امتیاز خودش برسد. قهرمان‌ها قبل از قهرمان‌شدن، مثلِ قهرمان رفتار می‌کنند."},
+        example:{en:"Walsh had a losing team dress, prepare and carry itself like a championship organization long before it was one.", fa:"بیل والش کاری کرد یک تیمِ بازنده، خیلی قبل از اینکه قهرمان باشد، مثلِ یک سازمانِ قهرمان لباس بپوشد، آماده شود و رفتار کند."},
+        tip:{en:"Decide how a great team in your field behaves — then start behaving that way now.", fa:"تصمیم بگیر یک تیمِ عالی در کارِ تو چطور رفتار می‌کند — بعد از همین حالا همان‌طور رفتار کن."},
+        pitfall:{en:"Waiting for success before you'll act like a serious operation.", fa:"منتظرِ موفقیت ماندن تا بعد مثلِ یک مجموعهٔ جدی رفتار کنی."} },
+      sweat:{ part:"culture", n:9, name:{en:"Sweat the Details", fa:"روی جزئیات وسواس داشته باش"}, glabel:{en:"Sweat Details", fa:"وسواسِ جزئیات"},
+        principle:{en:"Nothing is too small. Obsessive attention to detail is what turns a standard from a slogan into reality.", fa:"هیچ‌چیز آن‌قدر کوچک نیست که مهم نباشد. وسواسِ روی جزئیات همان چیزی است که استاندارد را از یک شعار به واقعیت تبدیل می‌کند."},
+        more:{en:"Walsh managed the tiniest specifics because he believed excellence lives in the details other people ignore. When every small thing is done right, the big things tend to work — and the team learns that here, everything matters.", fa:"بیل والش ریزترین جزئیات را مدیریت می‌کرد، چون باور داشت عالی‌بودن در همان جزئیاتی است که بقیه نادیده می‌گیرند. وقتی هر چیزِ کوچک درست انجام شود، چیزهای بزرگ هم معمولاً جور می‌شوند — و تیم یاد می‌گیرد که اینجا همه‌چیز مهم است."},
+        example:{en:"Walsh planned specifics down to sideline conduct and locker-room order, treating none of it as trivial.", fa:"بیل والش جزئیات را تا رفتارِ کنارِ زمین و نظمِ رختکن برنامه‌ریزی می‌کرد و هیچ‌کدام را بی‌اهمیت نمی‌دانست."},
+        tip:{en:"Find one detail everyone treats as trivial and make it genuinely excellent.", fa:"یک جزئیات را که همه بی‌اهمیت می‌دانند پیدا کن و واقعاً عالی‌اش کن."},
+        pitfall:{en:"Saving your attention only for the big, visible moments.", fa:"نگه‌داشتنِ توجهت فقط برای لحظه‌های بزرگ و توی‌چشم."} },
+      script:{ part:"culture", n:10, name:{en:"Script the Game", fa:"بازی را از پیش بنویس"}, glabel:{en:"Script", fa:"اسکریپت"},
+        principle:{en:"Plan and rehearse in advance so you stay calm and ready — when you prepare for everything, you're ready for anything.", fa:"از قبل برنامه بریز و تمرین کن تا آرام و آماده بمانی — وقتی خودت را برای همه‌چیز آماده کنی، آمادهٔ هر چیزی هستی."},
+        more:{en:"Walsh famously scripted his opening plays before the game, so decisions weren't made in the heat and noise of the moment. Preparing your responses ahead of time removes panic and lets you act from a plan instead of reacting to pressure.", fa:"بیل والش معروف بود که نمایش‌های اولِ بازی را قبل از بازی می‌نوشت، تا تصمیم‌ها در گرما و شلوغیِ لحظه گرفته نشوند. آماده‌کردنِ واکنش‌هایت از قبل، وحشت را برمی‌دارد و می‌گذارد به‌جای واکنش به فشار، از روی یک برنامه عمل کنی."},
+        example:{en:"Walsh scripted his opening plays in advance, so the start of the game ran on preparation, not nerves.", fa:"بیل والش نمایش‌های اولِ بازی را از قبل می‌نوشت، تا شروعِ بازی روی آمادگی برود، نه روی استرس."},
+        tip:{en:"Decide your key moves in advance, so game-day emotion doesn't make them for you.", fa:"حرکت‌های کلیدی‌ات را از قبل تعیین کن، تا هیجانِ روزِ بازی به‌جای تو تصمیمشان نگیرد."},
+        pitfall:{en:"Improvising in the moment what you could have planned in calm.", fa:"بداهه‌سازی در لحظه، برای چیزی که می‌شد در آرامش برنامه‌ریزی‌اش کرد."} },
+      defeat:{ part:"pressure", n:11, name:{en:"Don't Panic in Defeat", fa:"در باخت وحشت نکن"}, glabel:{en:"Defeat", fa:"باخت"},
+        principle:{en:"Failure is part of success. Don't fall apart — get up off the mat and plan the next move.", fa:"شکست بخشی از موفقیت است. از هم نپاش — از زمین بلند شو و حرکتِ بعدی را برنامه‌ریزی کن."},
+        more:{en:"Walsh knew the road to victory runs straight through failure. After a loss, a leader's job isn't to despair or lash out, but to absorb the blow, keep the standard intact, and calmly start planning the recovery. Failure is information, not a final verdict.", fa:"بیل والش می‌دانست جادهٔ برد درست از میانِ شکست می‌گذرد. بعد از باخت، کارِ رهبر ناامیدی یا داد و بیداد نیست، بلکه این است که ضربه را جذب کند، استاندارد را دست‌نخورده نگه دارد، و با آرامش برنامهٔ برگشتن را شروع کند. شکست یک اطلاعات است، نه یک حکمِ نهایی."},
+        example:{en:"Walsh treated setbacks as an integral part of success — the strength was in getting up and planning the next move.", fa:"بیل والش شکست‌ها را بخشِ جدانشدنیِ موفقیت می‌دانست — قوت در این بود که بلند شوی و حرکتِ بعدی را برنامه‌ریزی کنی."},
+        tip:{en:"After a setback, name one lesson and one next action before you allow any blame.", fa:"بعد از یک شکست، قبل از اینکه اجازهٔ هیچ سرزنشی بدهی، یک درس و یک اقدامِ بعدی را نام ببر."},
+        pitfall:{en:"Letting a defeat trigger panic, blame, or a quiet lowering of the standard.", fa:"گذاشتن اینکه یک باخت باعثِ وحشت، سرزنش، یا پایین‌آوردنِ بی‌سروصدای استاندارد شود."} },
+      victory:{ part:"pressure", n:12, name:{en:"Don't Gloat in Victory", fa:"در برد پُز نده"}, glabel:{en:"Victory", fa:"برد"},
+        principle:{en:"Success is dangerous. Guard against the complacency and ego that creep in after winning.", fa:"موفقیت خطرناک است. مراقبِ رخوت و خودبزرگ‌بینی‌ای باش که بعد از برد کم‌کم می‌آید."},
+        more:{en:"Walsh warned about what he called 'Success Disease' — the arrogance and slippage that set in after victory. The same standard that got you there has to hold after you win; celebrating too long, or believing your own hype, is how champions start to decline.", fa:"بیل والش دربارهٔ چیزی هشدار می‌داد که اسمش را «بیماریِ موفقیت» گذاشته بود — همان غرور و شل‌شدنی که بعد از برد می‌آید. همان استانداردی که تو را به اینجا رساند باید بعد از برد هم برقرار بماند؛ زیادی جشن‌گرفتن، یا باورکردنِ تعریف‌های خودت، همان جایی است که قهرمان‌ها شروع به اُفت می‌کنند."},
+        example:{en:"Walsh watched winning breed complacency, and fought to keep the standard exactly as demanding in victory as in defeat.", fa:"بیل والش دید که برد چطور رخوت می‌آورد، و جنگید تا استاندارد در برد دقیقاً همان‌قدر سخت‌گیرانه بماند که در باخت."},
+        tip:{en:"After a win, return to the standard fast — celebrate briefly, then get back to work.", fa:"بعد از یک برد، سریع به استاندارد برگرد — کوتاه جشن بگیر، بعد برگرد سرِ کار."},
+        pitfall:{en:"Letting victory breed the arrogance and drift that quietly undo it.", fa:"گذاشتن اینکه برد، همان غرور و لغزشی را بیاورد که بی‌سروصدا خودش را خراب می‌کند."} },
+      poise:{ part:"pressure", n:13, name:{en:"Master the Pressure", fa:"بر فشار مسلط شو"}, glabel:{en:"Poise", fa:"خونسردی"},
+        principle:{en:"Control your emotions under fire — your composure becomes the team's composure.", fa:"زیرِ فشار احساساتت را کنترل کن — خونسردیِ تو، خونسردیِ تیم می‌شود."},
+        more:{en:"In the noise of competition, a leader's poise is contagious — and so is panic. Walsh worked to stay controlled and clear-headed when it mattered most, because the team reads the leader's emotional state and quietly mirrors it.", fa:"در شلوغیِ رقابت، خونسردیِ رهبر مسری است — وحشتش هم همین‌طور. بیل والش تلاش می‌کرد وقتی بیشترین اهمیت را داشت، کنترل‌شده و شفاف بماند، چون تیم حالِ احساسیِ رهبر را می‌خواند و بی‌سروصدا تقلیدش می‌کند."},
+        example:{en:"Walsh prepared meticulously partly so he could stay calm and think clearly when the pressure peaked.", fa:"بیل والش تا حدی این‌قدر دقیق آماده می‌شد که بتواند وقتی فشار به اوج می‌رسد، آرام بماند و شفاف فکر کند."},
+        tip:{en:"In the hardest moment, slow down and act from your plan, not your adrenaline.", fa:"در سخت‌ترین لحظه، سرعتت را کم کن و از روی برنامه‌ات عمل کن، نه از روی آدرنالینت."},
+        pitfall:{en:"Broadcasting your panic and letting it spread through the team.", fa:"پخش‌کردنِ وحشتت و گذاشتن اینکه در تیم پخش شود."} },
+      talent:{ part:"team", n:14, name:{en:"Find & Develop Talent", fa:"استعداد را پیدا کن و بپروران"}, glabel:{en:"Talent", fa:"استعداد"},
+        principle:{en:"Recruit for character and fit, then develop people — raw talent alone doesn't build a team.", fa:"برای شخصیت و تناسب آدم بگیر، بعد آدم‌ها را بپروران — استعدادِ خام به‌تنهایی تیم نمی‌سازد."},
+        more:{en:"Walsh looked past raw ability to attitude, intelligence and fit with the standard, then developed people patiently. A team is built, not bought: the right people taught the right way beat a roster of unmanaged stars.", fa:"بیل والش از تواناییِ خام رد می‌شد و به نگرش، هوش و تناسب با استاندارد نگاه می‌کرد، بعد با حوصله آدم‌ها را می‌پروراند. تیم را می‌سازند، نمی‌خرند: آدم‌های درست که درست آموزش دیده‌اند، از یک فهرستِ ستاره‌های بی‌مدیریت جلو می‌زنند."},
+        example:{en:"Walsh valued a player's character and coachability alongside talent, and shaped roles that fit people's real strengths.", fa:"بیل والش شخصیت و آموزش‌پذیریِ یک بازیکن را در کنارِ استعدادش ارزشمند می‌دانست، و نقش‌هایی می‌ساخت که به قوت‌های واقعیِ آدم‌ها بخورد."},
+        tip:{en:"Hire for the standard and the attitude; you can teach much of the rest.", fa:"برای استاندارد و نگرش آدم بگیر؛ بیشترِ بقیه‌اش را می‌شود یاد داد."},
+        pitfall:{en:"Chasing raw talent while ignoring character and fit.", fa:"دویدن دنبالِ استعدادِ خام و نادیده‌گرفتنِ شخصیت و تناسب."} },
+      assess:{ part:"team", n:15, name:{en:"Honest Assessment", fa:"ارزیابیِ صادقانه"}, glabel:{en:"Assessment", fa:"ارزیابی"},
+        principle:{en:"See people and performance as they really are — and praise generously but truthfully.", fa:"آدم‌ها و عملکرد را همان‌طور که واقعاً هستند ببین — و سخاوتمندانه اما صادقانه تعریف کن."},
+        more:{en:"Walsh insisted on clear-eyed evaluation, free of wishful thinking, about who was performing and who wasn't. He also knew few things return more than sincere praise; honest assessment means both the hard truths and genuine recognition.", fa:"بیل والش روی ارزیابیِ شفاف و بدونِ خیال‌بافی اصرار داشت: اینکه چه کسی خوب کار می‌کند و چه کسی نه. در ضمن می‌دانست کم‌چیزی به‌اندازهٔ یک تعریفِ صمیمانه بازده دارد؛ ارزیابیِ صادقانه یعنی هم حقیقتِ سخت، هم قدردانیِ واقعی."},
+        example:{en:"Walsh held that few things offer greater return on less investment than praise — paired with honest, direct evaluation.", fa:"بیل والش می‌گفت کم‌چیزی هست که با این‌قدر خرجِ کم، به‌اندازهٔ تعریف‌کردن بازده بدهد — در کنارِ یک ارزیابیِ صادق و رک."},
+        tip:{en:"Give one piece of honest feedback and one piece of specific, sincere praise this week.", fa:"این هفته یک بازخوردِ صادقانه و یک تعریفِ مشخص و صمیمانه بده."},
+        pitfall:{en:"Softening the truth about performance until the problems calcify.", fa:"نرم‌کردنِ حقیقتِ عملکرد، آن‌قدر که مشکل‌ها سفت و ماندگار شوند."} },
+      succession:{ part:"team", n:16, name:{en:"Succession & Letting Go", fa:"جانشینی و رها‌کردن"}, glabel:{en:"Succession", fa:"جانشینی"},
+        principle:{en:"Build the team to outlast you — and know when to step away.", fa:"تیم را طوری بساز که بعد از تو هم بماند — و بدان کِی باید کنار بروی."},
+        more:{en:"Walsh thought hard about continuity, developing coaches and players who could carry the standard forward. He also learned, painfully, the cost of staying too long and of leaving badly; a leader's final task is to prepare the organization to succeed without them.", fa:"بیل والش خیلی به تداوم فکر می‌کرد و مربی‌ها و بازیکن‌هایی می‌پروراند که بتوانند استاندارد را ادامه بدهند. به‌سختی هم یاد گرفت که زیادی ماندن و بد‌رفتن چه هزینه‌ای دارد؛ آخرین کارِ یک رهبر این است که سازمان را آماده کند تا بدونِ او هم موفق شود."},
+        example:{en:"Walsh developed a coaching tree whose members carried his methods across the league for decades.", fa:"بیل والش یک «شجرهٔ مربی‌گری» پروراند که اعضایش روش‌هایش را ده‌ها سال در سراسرِ لیگ با خودشان بردند."},
+        tip:{en:"Start growing your successor now, so the standard survives your exit.", fa:"از همین حالا شروع کن به پروراندنِ جانشینت، تا استاندارد بعد از رفتنت زنده بماند."},
+        pitfall:{en:"Building everything around yourself so it can't outlast you.", fa:"ساختنِ همه‌چیز دورِ خودت، طوری که نتواند بعد از تو دوام بیاورد."} }
+    },
+    core:{ name:{en:"STANDARD OF PERFORMANCE", fa:"استانداردِ عملکرد"},
+      principle:{en:"Great leadership isn't about the scoreboard — it's about installing and teaching a demanding Standard of Performance: exactly how everyone should prepare, act, and do every detail of the job. Hold that standard in victory and defeat, lead by example, and build the culture beneath it — and the score takes care of itself.", fa:"رهبریِ بزرگ دربارهٔ تابلوی امتیاز نیست — دربارهٔ برپاکردن و آموزشِ یک استانداردِ عملکردِ سخت‌گیرانه است: اینکه دقیقاً همه چطور باید آماده شوند، رفتار کنند و هر جزئیاتِ کارشان را انجام دهند. این استاندارد را در برد و باخت نگه دار، با الگو‌بودن رهبری کن، و فرهنگِ زیرش را بساز — نتیجه خودش جور می‌شود."},
+      more:{en:"Walsh organizes his philosophy into a few big moves — define the Standard of Performance and its obsession with detail, lead by teaching and example, build a culture that precedes results, handle success and failure with poise, and build the team through talent, honest assessment and succession. The thread through all of it: control the process to your standard, and let the results follow.", fa:"بیل والش فلسفه‌اش را در چند حرکتِ بزرگ می‌چیند — تعریفِ استانداردِ عملکرد و وسواسش روی جزئیات، رهبری با آموزش و الگو‌بودن، ساختنِ فرهنگی که جلوتر از نتیجه می‌آید، مدیریتِ برد و باخت با خونسردی، و ساختنِ تیم با استعداد و ارزیابیِ صادقانه و جانشینی. نخِ رابطِ همه‌شان: روند را به استانداردت کنترل کن، و بگذار نتیجه‌ها خودشان بیایند."},
+      example:{en:"Click any node to read a principle or a method. You can also drag the nodes around.", fa:"روی هر دایره کلیک کن تا یک اصل یا روش را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."} },
+    stages:[
+      { level:1, badge:{en:"Level 1 · Over-simplified", fa:"سطحِ ۱ · خیلی ساده"}, title:{en:"Forget the score", fa:"نتیجه را فراموش کن"}, tagline:{en:"The whole book in a sentence.", fa:"کلِ کتاب در یک جمله."},
+        body:{en:"Stop staring at the scoreboard. Decide exactly how you and your team should do everything — effort, attitude, detail — and hold to it. Do the job right and the winning follows.", fa:"دست از زل‌زدن به تابلوی امتیاز بردار. دقیق تصمیم بگیر که تو و تیمت هر کاری را چطور باید انجام بدهید — تلاش، نگرش، جزئیات — و بهش پایبند بمان. کار را درست انجام بده، برد خودش می‌آید."},
+        example:{en:"Instead of 'we have to win', set 'this is exactly how we prepare, practice, and carry ourselves — every day.'", fa:"به‌جای «باید ببریم»، بگذار «ما دقیقاً این‌طوری آماده می‌شویم، تمرین می‌کنیم و رفتار می‌کنیم — هر روز.»"},
+        gain:{en:"You know where a leader's attention really belongs.", fa:"می‌دانی توجهِ یک رهبر واقعاً باید کجا باشد."} },
+      { level:2, badge:{en:"Level 2 · Simple", fa:"سطحِ ۲ · ساده"}, title:{en:"The Standard of Performance", fa:"استانداردِ عملکرد"}, tagline:{en:"Define excellence in every detail.", fa:"عالی‌بودن را در هر جزئیات تعریف کن."},
+        body:{en:"Write down your <b>Standard of Performance</b>: the specific behaviors, effort and quality you expect, from the biggest task to the smallest. Apply it to everyone, and make maximum effort the normal baseline — not a special event.", fa:"<b>استانداردِ عملکردت</b> را بنویس: رفتارها، تلاش و کیفیتِ مشخصی که انتظار داری، از بزرگ‌ترین کار تا کوچک‌ترین. برای همه اعمالش کن، و حداکثرِ تلاش را به کفِ عادی تبدیل کن — نه یک اتفاقِ خاص."},
+        example:{en:"Walsh defined details as small as how the phone was answered — because the standard is everything, everywhere.", fa:"بیل والش جزئیاتی به کوچکیِ اینکه تلفن چطور جواب داده شود را هم تعریف کرد — چون استاندارد یعنی همه‌چیز، همه‌جا."},
+        gain:{en:"You can set a clear, demanding standard instead of a vague hope to win.", fa:"می‌توانی یک استانداردِ روشن و سخت‌گیرانه بگذاری، به‌جای یک آرزوی مبهم برای برد."} },
+      { level:3, badge:{en:"Level 3 · Balanced", fa:"سطحِ ۳ · متعادل"}, title:{en:"Lead by teaching", fa:"با آموزش رهبری کن"}, tagline:{en:"Teach specifics; model the standard.", fa:"مشخص یاد بده؛ الگوی استاندارد باش."},
+        body:{en:"Leadership is <b>teaching</b>. Teach people exactly what to do and how to think, in concrete detail — not slogans. Then <b>lead by example</b>: people follow the quality of your actions, not the volume of your words.", fa:"رهبری یعنی <b>آموزش</b>. به آدم‌ها دقیق یاد بده چه کار کنند و چطور فکر کنند، با جزئیاتِ ملموس — نه با شعار. بعد <b>با الگو‌بودن رهبری کن</b>: آدم‌ها دنبالِ کیفیتِ کارهایت می‌آیند، نه بلندیِ حرف‌هایت."},
+        example:{en:"Walsh taught every role step by step and held himself to the same standard he demanded.", fa:"بیل والش هر نقش را قدم‌به‌قدم یاد می‌داد و خودش را به همان استانداردی که می‌خواست پایبند می‌کرد."},
+        gain:{en:"You can raise a team's level by teaching, not just exhorting.", fa:"می‌توانی سطحِ یک تیم را با آموزش‌دادن بالا ببری، نه فقط با تشویق‌کردن."} },
+      { level:4, badge:{en:"Level 4 · Advanced", fa:"سطحِ ۴ · پیشرفته"}, title:{en:"Culture, details, pressure", fa:"فرهنگ، جزئیات، فشار"}, tagline:{en:"Build the culture; hold your poise.", fa:"فرهنگ را بساز؛ خونسردی‌ات را نگه دار."},
+        body:{en:"The <b>culture precedes results</b> — act like champions before you are one. <b>Sweat the details</b> and <b>script</b> key decisions in advance. Then ride the swings: <b>don't panic in defeat</b> or gloat in victory, and keep your <b>poise</b> — the team mirrors your composure.", fa:"<b>فرهنگ جلوتر از نتیجه است</b> — قبل از قهرمان‌شدن، مثلِ قهرمان رفتار کن. روی <b>جزئیات وسواس داشته باش</b> و تصمیم‌های کلیدی را از قبل <b>بنویس</b>. بعد فراز و نشیب‌ها را سوار شو: <b>در باخت وحشت نکن</b> و در برد پُز نده، و <b>خونسردی‌ات</b> را نگه دار — تیم، آرامشت را آینه می‌کند."},
+        example:{en:"Walsh scripted his opening plays so the start of the game ran on preparation, not nerves.", fa:"بیل والش نمایش‌های اولِ بازی را از پیش می‌نوشت تا شروعِ بازی روی آمادگی برود، نه روی استرس."},
+        gain:{en:"You can build the culture beneath the score and stay steady under pressure.", fa:"می‌توانی فرهنگِ زیرِ نتیجه را بسازی و زیرِ فشار ثابت بمانی."} },
+      { level:5, badge:{en:"Level 5 · Expert", fa:"سطحِ ۵ · حرفه‌ای"}, title:{en:"Build a team that lasts", fa:"تیمی بساز که ماندگار باشد"}, tagline:{en:"Talent, honest assessment, succession.", fa:"استعداد، ارزیابیِ صادقانه، جانشینی."},
+        body:{en:"The expert builds people. Recruit for <b>character and fit</b>, then develop them. Assess performance <b>honestly</b> — hard truths and sincere praise both. Guard against 'Success Disease' after wins, and plan <b>succession</b> so the standard outlives you. Control the process to your standard, and the score keeps taking care of itself.", fa:"آدمِ حرفه‌ای، آدم می‌سازد. برای <b>شخصیت و تناسب</b> آدم بگیر، بعد بپروران‌شان. عملکرد را <b>صادقانه</b> ارزیابی کن — هم حقیقتِ سخت، هم تعریفِ صمیمانه. بعد از بردها مراقبِ «بیماریِ موفقیت» باش، و برای <b>جانشینی</b> برنامه بریز تا استاندارد بعد از تو هم بماند. روند را به استانداردت کنترل کن، نتیجه همچنان خودش جور می‌شود."},
+        example:{en:"Walsh's coaching tree carried his standard across the league for decades after he left.", fa:"«شجرهٔ مربی‌گریِ» بیل والش، استانداردش را ده‌ها سال بعد از رفتنش در سراسرِ لیگ با خودش برد."},
+        gain:{en:"You can build and renew a team that holds the standard without you.", fa:"می‌توانی تیمی بسازی و نو کنی که بدونِ تو هم استاندارد را نگه دارد."} }
+    ],
+    quotes:[
+      {en:"Champions behave like champions before they're champions.", fa:"قهرمان‌ها قبل از اینکه قهرمان بشوند، مثلِ قهرمان‌ها رفتار می‌کنند."},
+      {en:"Culture precedes positive results.", fa:"فرهنگ، جلوتر از نتیجه‌های خوب می‌آید."},
+      {en:"When you prepare for everything, you're ready for anything.", fa:"وقتی خودت را برای همه‌چیز آماده کنی، آمادهٔ هر چیزی هستی."},
+      {en:"Others follow you based on the quality of your actions rather than the magnitude of your declarations.", fa:"آدم‌ها به‌خاطرِ کیفیتِ کارهایت دنبالت می‌آیند، نه به‌خاطرِ بزرگیِ حرف‌هایت."},
+      {en:"Failure is part of success, an integral part.", fa:"شکست بخشی از موفقیت است، یک بخشِ جدانشدنی."},
+      {en:"Few things offer greater return on less investment than praise.", fa:"کم‌چیزی هست که با این‌همه خرجِ کم، به‌اندازهٔ یک تعریفِ ساده بازده بدهد."},
+      {en:"Victory is produced by and belongs to all. Likewise, failure belongs to everyone.", fa:"برد را همه با هم می‌سازند و مالِ همه است. شکست هم همین‌طور، مالِ همه است."},
+      {en:"Everything I did was teaching in some manner or other.", fa:"هر کاری که می‌کردم، یک‌جورهایی آموزش‌دادن بود."}
+    ],
+    media:[
+      { kind:"yt", id:"tG9K_R2VHBQ", src:{en:"YouTube · Good Book Summary", fa:"یوتیوب · Good Book Summary"},
+        title:{en:"The Score Takes Care of Itself — Summary & Analysis", fa:"نتیجه خودش جور می‌شود — خلاصه و تحلیل"},
+        desc:{en:"A full animated summary and analysis of the book's leadership ideas.", fa:"یک خلاصه و تحلیلِ انیمیشنیِ کامل از ایده‌های رهبریِ کتاب."},
+        bullets:{en:["The Standard of Performance explained","The main ideas in one video","A clear, structured overview"], fa:["توضیحِ استانداردِ عملکرد","ایده‌های اصلی در یک ویدیو","یک مرورِ روشن و منظم"]},
+        best:{en:"Best for Stage 1–2.", fa:"خوب برای مرحلهٔ ۱ و ۲."} },
+      { kind:"yt", id:"sLoX0xk1EU8", src:{en:"YouTube · Axial", fa:"یوتیوب · Axial"},
+        title:{en:"Bill Walsh — The Score Takes Care of Itself", fa:"بیل والش — نتیجه خودش جور می‌شود"},
+        desc:{en:"A talk drawing the book's leadership lessons together.", fa:"یک ویدیو که درس‌های رهبریِ کتاب را کنارِ هم می‌چیند."},
+        bullets:{en:["Leadership as teaching","Standard over scoreboard","Applied, practical lessons"], fa:["رهبری به‌مثابهٔ آموزش","استاندارد به‌جای تابلوی امتیاز","درس‌های عملی و کاربردی"]},
+        best:{en:"Best for Stage 2–3.", fa:"خوب برای مرحلهٔ ۲ و ۳."} },
+      { kind:"yt", id:"db9mY9nCkdA", src:{en:"YouTube · The Beautiful Mess", fa:"یوتیوب · The Beautiful Mess"},
+        title:{en:"What I Learned From The Score Takes Care of Itself", fa:"چیزهایی که از این کتاب یاد گرفتم"},
+        desc:{en:"A reader's practical takeaways from Walsh's book.", fa:"برداشت‌های عملیِ یک خواننده از کتابِ والش."},
+        bullets:{en:["Real lessons put to use","Culture and details in practice","Good after a first read"], fa:["درس‌های واقعیِ به‌کار‌بسته","فرهنگ و جزئیات در عمل","خوب بعد از اولین خواندن"]},
+        best:{en:"Best for Stage 3–4.", fa:"خوب برای مرحلهٔ ۳ و ۴."} },
+      { kind:"img", url:"https://www.penguinrandomhouse.com/books/303810/the-score-takes-care-of-itself-by-bill-walsh-with-steve-jamison-and-craig-walsh/",
+        src:{en:"Penguin Random House · Publisher", fa:"Penguin Random House · ناشر"},
+        title:{en:"The Score Takes Care of Itself — Publisher Page", fa:"نتیجه خودش جور می‌شود — صفحهٔ ناشر"},
+        desc:{en:"The publisher page for the book, with editions and details.", fa:"صفحهٔ ناشر برای کتاب، با نسخه‌ها و جزئیات."},
+        bullets:{en:["The definitive editions","Background on Bill Walsh","Straight from the source"], fa:["نسخه‌های معتبر","پیشینه‌ای دربارهٔ بیل والش","مستقیم از خودِ منبع"]},
+        best:{en:"For editions and the source.", fa:"برای نسخه‌ها و منبعِ اصلی."} }
+    ],
+    go:[
+      {label:{en:"Publisher page", fa:"صفحهٔ ناشر"}, url:"https://www.penguinrandomhouse.com/books/303810/the-score-takes-care-of-itself-by-bill-walsh-with-steve-jamison-and-craig-walsh/"},
+      {label:{en:"Book on Goodreads", fa:"کتاب در گودریدز"}, url:"https://www.goodreads.com/en/book/show/6342995-the-score-takes-care-of-itself"},
+      {label:{en:"Essay: what Silicon Valley can learn from the book", fa:"جستار: درسِ سیلیکون‌ولی از این کتاب"}, url:"https://www.sachinrekhi.com/p/bill-walsh-the-score-takes-care-of-itself"}
+    ],
+    recs:[
+      { pri:"b", t:{en:"Write your Standard of Performance", fa:"استانداردِ عملکردت را بنویس"}, d:{en:"List the specific behaviors, effort and quality you expect from yourself and your team — then hold to them.", fa:"رفتارها، تلاش و کیفیتِ مشخصی را که از خودت و تیمت انتظار داری فهرست کن — بعد بهشان پایبند بمان."} },
+      { pri:"b", t:{en:"Score the process, not the result", fa:"به روند نمره بده، نه به نتیجه"}, d:{en:"For one week, judge each day by 'did we do it to our standard?' instead of by the outcome.", fa:"یک هفته، هر روز را با «به استانداردمان انجامش دادیم؟» بسنج، نه با نتیجه."} },
+      { pri:"n", t:{en:"Teach one thing clearly", fa:"یک چیز را روشن یاد بده"}, d:{en:"Pick something people keep getting wrong and teach the exact steps, in detail, instead of just asking for better.", fa:"یک چیز را که آدم‌ها مدام اشتباه می‌کنند انتخاب کن و قدم‌های دقیقش را با جزئیات یاد بده، به‌جای اینکه فقط بخواهی بهتر شود."} },
+      { pri:"n", t:{en:"Raise one small detail", fa:"یک جزئیاتِ کوچک را بالا ببر"}, d:{en:"Choose a detail everyone treats as trivial and make it excellent; let the standard show there first.", fa:"یک جزئیات را که همه بی‌اهمیت می‌دانند انتخاب کن و عالی‌اش کن؛ بگذار استاندارد اول همان‌جا خودش را نشان بدهد."} }
+    ]
+  }
+};

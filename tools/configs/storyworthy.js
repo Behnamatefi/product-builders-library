@@ -1,0 +1,264 @@
+/* config: Storyworthy — Matthew Dicks (Communication) */
+module.exports = {
+  slug:'stw', brand:'Storyworthy',
+  titleTag:'Storyworthy — نقشهٔ دانش و یادگیری ۵ مرحله‌ای',
+  W:980, H:780, R1:220, R2:126, span:66,
+  leafKickEn:'Technique', leafKickFa:'تکنیکِ',
+  flowEn:['Find','Craft','Tell'], flowFa:['پیدا کن','بساز','بگو'],
+
+  hero:`  <div class="eyebrow"><span class="edot"></span>
+    <span data-only="en">Book knowledge map · Matthew Dicks</span>
+    <span data-only="fa">نقشهٔ کتاب · متیو دیکس</span>
+  </div>
+  <h1>
+    <span data-only="en">Storyworthy — Change Your Life Through Storytelling</span>
+    <span data-only="fa">داستانی — زندگی‌ات را با قصه‌گویی تغییر بده</span>
+  </h1>
+  <p class="dek">
+    <span data-only="en">A knowledge graph of the whole book, plus a 5-stage path from a single sentence to expert-level mastery — with an example at every step.</span>
+    <span data-only="fa">نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از خیلی ساده تا حرفه‌ای — با یک مثال در هر مرحله.</span>
+  </p>
+  <div class="metastrip">
+    <div class="metaitem"><span class="mk" data-only="en">Book</span><span class="mk" data-only="fa">کتاب</span>
+      <span class="mv" data-only="en">Storyworthy</span><span class="mv" data-only="fa">داستانی</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Author</span><span class="mk" data-only="fa">نویسنده</span>
+      <span class="mv" data-only="en">Matthew Dicks</span><span class="mv" data-only="fa">متیو دیکس</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Published</span><span class="mk" data-only="fa">سالِ چاپ</span>
+      <span class="mv" data-only="en">2018</span><span class="mv" data-only="fa">۲۰۱۸</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Group</span><span class="mk" data-only="fa">گروه</span>
+      <span class="mv" data-only="en">Communication</span><span class="mv" data-only="fa">ارتباط</span></div>
+  </div>
+  <div class="chips">
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Phases</span><span data-only="fa">بخش</span></div>
+    <div class="chip"><b data-only="en">16</b><b data-only="fa">۱۶</b><span data-only="en">Techniques</span><span data-only="fa">تکنیک</span></div>
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Learning stages</span><span data-only="fa">مرحلهٔ یادگیری</span></div>
+  </div>`,
+
+  callout:`    <b data-only="en">The core idea:</b>
+    <b data-only="fa">ایدهٔ اصلی:</b>
+    <span data-only="en"> A great story is one small <i>five-second moment</i> where something inside you changed. Anyone can find these in ordinary life and tell them with a few learnable techniques.</span>
+    <span data-only="fa"> یک داستانِ خوب، همان یک <i>لحظهٔ پنج‌ثانیه‌ایِ</i> کوچک است که چیزی درونت عوض شد. هرکسی می‌تواند این‌ها را در زندگیِ معمولی پیدا کند و با چند تکنیکِ یادگرفتنی تعریفشان کند.</span>`,
+
+  kpis:`    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Phases (find · anatomy · shape · stakes · tell)</div><div class="l" data-only="fa">بخش (پیدا · کالبد · شکل · اهمیت · تعریف)</div></div>
+    <div class="kbox"><div class="v" data-only="en">16</div><div class="v" data-only="fa">۱۶</div><div class="l" data-only="en">Techniques you can use</div><div class="l" data-only="fa">تکنیک برای استفاده</div></div>
+    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Levels, simple → expert</div><div class="l" data-only="fa">مرحله، ساده تا حرفه‌ای</div></div>
+    <div class="kbox"><div class="v" data-only="en">5s</div><div class="v" data-only="fa">۵ث</div><div class="l" data-only="en">The moment a story turns on</div><div class="l" data-only="fa">لحظه‌ای که داستان رویش می‌چرخد</div></div>`,
+
+  mapcallout:`      <b data-only="en">Read it as a flow:</b><b data-only="fa">به‌صورتِ یک جریان بخوانش:</b>
+      <span data-only="en"> <b>find</b> stories daily, learn what makes a story (a moment of change), <b>shape</b> its arc, <b>raise the stakes</b>, and <b>tell</b> it plainly — present tense, no notes, vulnerable.</span>
+      <span data-only="fa"> هر روز داستان <b>پیدا</b> کن، یاد بگیر چه چیزی یک داستان می‌سازد (یک لحظهٔ تغییر)، قوسش را <b>شکل</b> بده، <b>اهمیت را بالا ببر</b>، و ساده <b>تعریفش</b> کن — زمانِ حال، بدونِ یادداشت، آسیب‌پذیر.</span>`,
+
+  methodFa:"<p><b>منبع:</b> کتابِ «Storyworthy» نوشتهٔ متیو دیکس، چاپِ ۲۰۱۸.</p><p><b>روشِ کار:</b> ساختار و تکنیک‌ها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده؛ نقل‌قول‌ها با متنِ کتاب مقابله و ویدیوها بررسی شده‌اند.</p><p><b>گروه:</b> «ارتباط» — از فهرستِ کتاب‌های ضروریِ سازندگانِ محصولِ لنی راچیتسکی.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای متنِ کامل، خودِ کتاب را بخوان.</p>",
+  methodEn:"<p><b>Source:</b> the book <i>Storyworthy</i> by Matthew Dicks, 2018.</p><p><b>How this was built:</b> the structure and techniques were gathered and rewritten from the book and reputable sources; quotes were cross-checked and the linked videos verified.</p><p><b>Group:</b> Communication — from Lenny Rachitsky's essential books for product builders.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>",
+
+  data:{
+    tldr:[
+      {en:"The whole book in one line: a great story is one small <b>five-second moment</b> where something inside you changed.",
+       fa:"خلاصهٔ کل کتاب در یک جمله: یک داستانِ خوب، همان یک <b>لحظهٔ پنج‌ثانیه‌ایِ</b> کوچک است که چیزی درونت عوض شد."},
+      {en:"First <b>find</b> your stories — collect them daily with 'Homework for Life' instead of waiting for drama.",
+       fa:"اول داستان‌هایت را <b>پیدا</b> کن — با «تمرینِ زندگی» هر روز جمعشان کن، به‌جای انتظار برای اتفاقِ دراماتیک."},
+      {en:"A true story needs <b>change over time</b>, not just exciting events — and it's told plainly, like dinner talk.",
+       fa:"داستانِ واقعی به <b>تغییر در طولِ زمان</b> نیاز دارد، نه فقط رویدادهای هیجان‌انگیز — و ساده، مثلِ حرفِ سرِ شام، گفته می‌شود."},
+      {en:"<b>Shape</b> it (begin at the opposite of your ending; but/therefore; real scenes) and <b>raise the stakes</b>.",
+       fa:"<b>شکلش</b> بده (از نقطهٔ مقابلِ پایان شروع کن؛ اما/بنابراین؛ صحنه‌های واقعی) و <b>اهمیت را بالا ببر</b>."},
+      {en:"Then <b>tell</b> it well: present tense, no notes, still and vulnerable — so one small moment moves the room.",
+       fa:"بعد خوب <b>تعریفش</b> کن: زمانِ حال، بدونِ یادداشت، آرام و آسیب‌پذیر — تا یک لحظهٔ کوچک، اتاق را تکان بدهد."}
+    ],
+    parts:[
+      { key:'find', varc:'--c-teal', name:{en:'Find Stories', fa:'پیدا کردنِ داستان'}, tag:{en:'The raw material', fa:'مصالحِ خام'},
+        gist:{en:'Everyday practices that surface the stories you already have.', fa:'تمرین‌های روزمره که داستان‌هایی را که همین حالا داری، رو می‌آورند.'},
+        more:{en:"You don't lack stories — you lack a way to notice and remember them. Small daily practices turn an ordinary life into a bottomless supply of true material.",
+              fa:"تو کمبودِ داستان نداری — راهی برای دیدن و به‌خاطرسپاری‌شان نداری. تمرین‌های کوچکِ روزانه، یک زندگیِ معمولی را به منبعی بی‌ته از مصالحِ واقعی تبدیل می‌کنند."},
+        chapters:['homework','flbw','crashburn'] },
+      { key:'makes', varc:'--c-amber', name:{en:'What Makes a Story', fa:'چه چیزی داستان می‌سازد'}, tag:{en:'The anatomy', fa:'کالبد'},
+        gist:{en:'The one thing that separates a true story from a mere anecdote.', fa:'همان یک چیزی که داستانِ واقعی را از یک حکایتِ ساده جدا می‌کند.'},
+        more:{en:"A story isn't a sequence of exciting events — it's a moment of internal change, however small. Nail that and tell it plainly, like you would at dinner.",
+              fa:"داستان، رشته‌ای از رویدادهای هیجان‌انگیز نیست — یک لحظهٔ تغییرِ درونی است، هرچقدر هم کوچک. همان را بگیر و ساده تعریفش کن، همان‌طور که سرِ شام می‌گویی."},
+        chapters:['moment','change','dinner'] },
+      { key:'structure', varc:'--c-blue', name:{en:'Shape the Story', fa:'شکل‌دادنِ داستان'}, tag:{en:'The arc', fa:'قوس'},
+        gist:{en:'Arrange it for the widest arc and the most momentum.', fa:'طوری بچینش که بیشترین قوس و بیشترین شتاب را داشته باشد.'},
+        more:{en:"Once you have your moment, structure carries it. Begin at the opposite of your ending, connect beats with but and therefore, and put every moment in a specific, seeable scene.",
+              fa:"همین که لحظه‌ات را داشتی، ساختار حملش می‌کند. از نقطهٔ مقابلِ پایانت شروع کن، لحظه‌ها را با «اما» و «بنابراین» وصل کن، و هر لحظه را در یک صحنهٔ مشخص و دیدنی بگذار."},
+        chapters:['beginend','butthere','scenes'] },
+      { key:'stakes', varc:'--c-red', name:{en:'Raise the Stakes', fa:'بالا بردنِ اهمیت'}, tag:{en:'The suspense', fa:'تعلیق'},
+        gist:{en:'Five devices that keep an audience leaning in.', fa:'پنج ترفند که مخاطب را جلو نگه می‌دارند.'},
+        more:{en:"Suspense isn't about danger; it's about making the audience care what happens next. These devices — elephant, backpack, breadcrumbs, hourglass, crystal ball — manufacture that wait honestly.",
+              fa:"تعلیق دربارهٔ خطر نیست؛ دربارهٔ این است که کاری کنی مخاطب برایش مهم باشد بعد چه می‌شود. این ترفندها — فیل، کوله‌پشتی، خرده‌نان، ساعت‌شنی، گویِ بلورین — آن انتظار را صادقانه می‌سازند."},
+        chapters:['elephant','backpack','breadcrumbs','crystal'] },
+      { key:'tell', varc:'--c-violet', name:{en:'Tell It', fa:'تعریفش کن'}, tag:{en:'The performance', fa:'اجرا'},
+        gist:{en:'Performance choices that put the audience inside the moment.', fa:'انتخاب‌های اجرایی که مخاطب را درونِ لحظه می‌نشانند.'},
+        more:{en:"How you tell it matters as much as what you tell. Present tense, no notes, a still body and a humble, vulnerable persona make one small true moment move a whole room.",
+              fa:"اینکه چطور تعریفش می‌کنی، به‌اندازهٔ اینکه چه تعریف می‌کنی مهم است. زمانِ حال، بدونِ یادداشت، بدنی آرام و شخصیتی فروتن و آسیب‌پذیر، کاری می‌کنند یک لحظهٔ کوچکِ واقعی، یک اتاقِ کامل را تکان بدهد."},
+        chapters:['present','nonotes','still'] }
+    ],
+    chapters:{
+      homework:{ part:'find', n:1, name:{en:'Homework for Life', fa:'تمرینِ زندگی'}, glabel:{en:'Homework', fa:'تمرینِ زندگی'},
+        principle:{en:"Each night, write a few sentences about the single most story-worthy moment of your day.", fa:"هر شب، چند جمله دربارهٔ داستانی‌ترین لحظهٔ روزت بنویس."},
+        more:{en:"Do this daily and two things happen: you build an endless well of true stories, and you start actually noticing your life instead of letting it blur past. The moments are almost never dramatic — they're small and real.", fa:"این را هر روز انجام بده، دو اتفاق می‌افتد: یک چاهِ بی‌پایان از داستان‌های واقعی می‌سازی، و به‌جای اینکه بگذاری زندگی‌ات تار و مبهم بگذرد، واقعاً شروع می‌کنی به دیدنش. آن لحظه‌ها تقریباً هیچ‌وقت دراماتیک نیستند — کوچک و واقعی‌اند."},
+        example:{en:"Matthew Dicks has done this every night since 2013 — a small exchange with his daughter, a moment at a red light.", fa:"متیو دیکس هر شب از سالِ ۲۰۱۳ این کار را کرده — یک گفت‌وگوی کوچک با دخترش، یک لحظه پشتِ چراغِ قرمز."},
+        tip:{en:"Tonight, write three sentences about the most story-worthy moment of today.", fa:"امشب، سه جمله دربارهٔ داستانی‌ترین لحظهٔ امروز بنویس."},
+        pitfall:{en:"The false belief that 'nothing interesting ever happens to me'.", fa:"این باورِ غلط که «هیچ اتفاقِ جالبی برای من نمی‌افتد»."} },
+      flbw:{ part:'find', n:2, name:{en:'First / Last / Best / Worst', fa:'اولین/آخرین/بهترین/بدترین'}, glabel:{en:'First·Last', fa:'اولین/آخرین'},
+        principle:{en:"Jog your memory with a grid of firsts, lasts, bests and worsts across areas of your life.", fa:"با یک جدول از اولین‌ها، آخرین‌ها، بهترین‌ها و بدترین‌ها در بخش‌های مختلفِ زندگی‌ات، حافظه‌ات را به کار بینداز."},
+        more:{en:"Prompts unlock stories you'd forgotten you had. 'First kiss', 'worst day of school', 'last time I saw them' — each cell is a door into a real memory with change baked in.", fa:"این پرسش‌ها داستان‌هایی را باز می‌کنند که یادت رفته بود داری. «اولین بوسه»، «بدترین روزِ مدرسه»، «آخرین باری که دیدمش» — هر خانه، دری است به یک خاطرهٔ واقعی که تغییر در دلش هست."},
+        example:{en:"'The last time I spoke to my grandfather' instantly surfaces a story with real stakes.", fa:"«آخرین باری که با پدربزرگم حرف زدم» فوراً یک داستان با اهمیتِ واقعی را به سطح می‌آورد."},
+        tip:{en:"Fill in one cell — 'worst ___' or 'first ___' — and see what memory shows up.", fa:"یک خانه را پر کن — «بدترین ___» یا «اولین ___» — و ببین چه خاطره‌ای بیرون می‌آید."},
+        pitfall:{en:"Freezing at a blank page thinking you have no stories.", fa:"خشک‌شدن جلوی صفحهٔ خالی با این فکر که هیچ داستانی نداری."} },
+      crashburn:{ part:'find', n:3, name:{en:'Crash & Burn (Free-write)', fa:'آزادنویسی'}, glabel:{en:'Free-write', fa:'آزادنویسی'},
+        principle:{en:"Free-write nonstop without judging or lifting the pen, letting one memory trigger the next.", fa:"بدونِ قضاوت و بدونِ برداشتنِ قلم، پیوسته آزاد بنویس، و بگذار هر خاطره خاطرهٔ بعدی را روشن کند."},
+        more:{en:"Turn off the inner censor and follow the chain of association. Writing about breakfast can suddenly land you on a memory of your father — the good stuff hides behind the ordinary.", fa:"سانسورچیِ درونی را خاموش کن و زنجیرهٔ تداعی را دنبال کن. نوشتن دربارهٔ صبحانه می‌تواند یک‌دفعه تو را به خاطره‌ای از پدرت برساند — چیزهای خوب پشتِ چیزهای معمولی قایم شده‌اند."},
+        example:{en:"You start writing about your commute and end up at a childhood memory you hadn't touched in years.", fa:"شروع می‌کنی به نوشتن دربارهٔ مسیرِ هر‌روزت و سر از خاطره‌ای از کودکی درمی‌آوری که سال‌ها بهش دست نزده بودی."},
+        tip:{en:"Set a timer for five minutes and write without stopping or editing.", fa:"یک تایمرِ پنج‌دقیقه‌ای بگذار و بدونِ توقف یا ویرایش بنویس."},
+        pitfall:{en:"The inner critic that kills ideas before they become stories.", fa:"منتقدِ درونی که ایده‌ها را قبل از اینکه داستان شوند می‌کشد."} },
+      moment:{ part:'makes', n:4, name:{en:'The Five-Second Moment', fa:'لحظهٔ پنج‌ثانیه‌ای'}, glabel:{en:'5-Sec Moment', fa:'لحظهٔ پنج‌ثانیه'},
+        principle:{en:"Every true story turns on one brief moment of transformation — the whole story exists to make it land.", fa:"هر داستانِ واقعی روی یک لحظهٔ کوتاهِ دگرگونی می‌چرخد — کلِ داستان وجود دارد تا همان لحظه جا بیفتد."},
+        more:{en:"Find that one moment where something inside you changed, and build everything toward it. Without it, you have events; with it, you have a story.", fa:"همان یک لحظه‌ای را پیدا کن که چیزی درونت عوض شد، و همه‌چیز را به‌سمتش بساز. بدونِ آن، فقط رویداد داری؛ با آن، داستان داری."},
+        example:{en:"Dicks's Moth-winning 'Spoon of Power' builds everything toward a single, small realization.", fa:"داستانِ برندهٔ Moth از دیکس، «قاشقِ قدرت»، همه‌چیز را به‌سمتِ یک درکِ کوچک و یگانه می‌سازد."},
+        tip:{en:"For your story, name the exact five-second moment it's really about.", fa:"برای داستانت، همان لحظهٔ پنج‌ثانیه‌ایِ دقیقی را که واقعاً دربارهٔ آن است، نام ببر."},
+        pitfall:{en:"A travelogue — a list of events that goes nowhere.", fa:"یک سفرنامه — فهرستی از رویدادها که به جایی نمی‌رسد."} },
+      change:{ part:'makes', n:5, name:{en:'Change Over Time', fa:'تغییر در طولِ زمان'}, glabel:{en:'Change', fa:'تغییر'},
+        principle:{en:"You must start as one version of yourself and end as another — with no internal change, it's just an anecdote.", fa:"باید به‌عنوانِ یک نسخه از خودت شروع کنی و به‌عنوانِ نسخه‌ای دیگر تمام کنی — بدونِ تغییرِ درونی، فقط یک حکایت است."},
+        more:{en:"Exciting events aren't stories. A car chase with no inner shift is an anecdote; a quiet dinner where you finally forgive someone is a story. The change is the point.", fa:"رویدادهای هیجان‌انگیز داستان نیستند. یک تعقیب‌وگریزِ ماشین بدونِ تغییرِ درونی یک حکایت است؛ یک شامِ آرام که بالاخره کسی را می‌بخشی، یک داستان است. تغییر، اصلِ ماجراست."},
+        example:{en:"'I got a flat tire and a stranger helped' is only a story if it changed how you see people.", fa:"«لاستیکم پنچر شد و یک غریبه کمک کرد» فقط وقتی داستان است که نگاهت به آدم‌ها را عوض کرده باشد."},
+        tip:{en:"Ask: who was I at the start, and who was I at the end?", fa:"بپرس: اولش چه‌کسی بودم، و آخرش چه‌کسی شدم؟"},
+        pitfall:{en:"Mistaking exciting-but-static events for stories.", fa:"اشتباه‌گرفتنِ رویدادهای هیجان‌انگیزِ اما بی‌تغییر با داستان."} },
+      dinner:{ part:'makes', n:6, name:{en:'The Dinner Test', fa:'آزمونِ سرِ شام'}, glabel:{en:'Dinner Test', fa:'آزمونِ شام'},
+        principle:{en:"Tell it the way you'd tell friends over dinner — conversational, not theatrical.", fa:"همان‌طور تعریفش کن که سرِ شام برای دوستانت تعریف می‌کنی — خودمانی، نه نمایشی."},
+        more:{en:"No poetry, no grand gestures, no 'performing'. The most powerful storytelling sounds like a person talking to people they trust — the moment it becomes an oration, listeners pull back.", fa:"نه شعر، نه حرکاتِ بزرگ، نه «نمایش‌دادن». قوی‌ترین داستان‌گویی شبیهِ آدمی است که با کسانی که بهشان اعتماد دارد حرف می‌زند — همین که به یک خطابه تبدیل شود، شنونده‌ها عقب می‌کشند."},
+        example:{en:"Say it like you would over coffee, not like you're reciting on a stage.", fa:"همان‌طور بگو که سرِ یک قهوه می‌گویی، نه انگار روی صحنه دکلمه می‌کنی."},
+        tip:{en:"Before you tell it, imagine you're just talking to one friend across a table.", fa:"قبل از تعریف‌کردن، تصور کن فقط داری با یک دوست، آن‌طرفِ میز، حرف می‌زنی."},
+        pitfall:{en:"Performing the story and pushing listeners away.", fa:"نمایش‌دادنِ داستان و دورکردنِ شنونده‌ها."} },
+      beginend:{ part:'structure', n:7, name:{en:'Begin at the End', fa:'از پایان شروع کن'}, glabel:{en:'Begin at End', fa:'از پایان'},
+        principle:{en:"Pin down your ending (the five-second moment) first, then open with its opposite so the arc is as wide as possible.", fa:"اول پایانت را قطعی کن (همان لحظهٔ پنج‌ثانیه‌ای)، بعد با نقطهٔ مقابلش شروع کن تا قوسِ داستان تا حدِ ممکن پهن شود."},
+        more:{en:"If you end feeling loved, open feeling alone. Knowing the destination first tells you exactly where to start and keeps the whole story pointed at one target.", fa:"اگر با حسِ دوست‌داشته‌شدن تمام می‌کنی، با حسِ تنهایی شروع کن. دانستنِ مقصد از اول، دقیقاً می‌گوید کجا شروع کنی و کلِ داستان را به یک هدف نشانه می‌رود."},
+        example:{en:"End on 'I finally felt like I belonged'? Then open on the day you felt like an outsider.", fa:"با «بالاخره حس کردم که به اینجا تعلق دارم» تمام می‌شود؟ پس با روزی شروع کن که حس می‌کردی یک غریبه‌ای."},
+        tip:{en:"Write your last line first, then find its emotional opposite for your opening.", fa:"اول آخرین خطت را بنویس، بعد نقطهٔ مقابلِ احساسی‌اش را برای شروع پیدا کن."},
+        pitfall:{en:"A meandering opening with no destination in mind.", fa:"یک شروعِ پرسه‌زن، بدونِ هیچ مقصدی در ذهن."} },
+      butthere:{ part:'structure', n:8, name:{en:'But & Therefore', fa:'اما و بنابراین'}, glabel:{en:'But·Therefore', fa:'اما·بنابراین'},
+        principle:{en:"Link your beats with 'but' and 'therefore' — a turn or a consequence — never the flat 'and then'.", fa:"لحظه‌های داستانت را با «اما» و «بنابراین» به هم وصل کن — یک چرخش یا یک نتیجه — نه با «و بعد»ِ بی‌رمق."},
+        more:{en:"'And then, and then' is a list with no momentum. 'But' introduces a problem and 'therefore' a consequence, so each beat pushes into the next — the engine of any good story.", fa:"«و بعد، و بعد» یک فهرست است بدونِ شتاب. «اما» یک مشکل می‌آورد و «بنابراین» یک نتیجه، پس هر لحظه به لحظهٔ بعدی هُل می‌دهد — موتورِ هر داستانِ خوب."},
+        example:{en:"'I missed the bus, THEREFORE I walked, BUT on the way I ran into…' — momentum, not a list.", fa:"«اتوبوس را از دست دادم، بنابراین پیاده رفتم، اما سرِ راه به … برخوردم» — شتاب، نه فهرست."},
+        tip:{en:"Reread your story and replace every 'and then' with a 'but' or 'therefore'.", fa:"داستانت را دوباره بخوان و هر «و بعد» را با یک «اما» یا «بنابراین» عوض کن."},
+        pitfall:{en:"Flat 'and then, and then' narration with no momentum.", fa:"روایتِ بی‌رمقِ «و بعد، و بعد» که هیچ شتابی ندارد."} },
+      scenes:{ part:'structure', n:9, name:{en:'Scenes, Not Summaries', fa:'صحنه، نه خلاصه'}, glabel:{en:'Scenes', fa:'صحنه'},
+        principle:{en:"Anchor every moment to a specific physical location to create 'cinema of the mind'.", fa:"هر لحظه را به یک مکانِ فیزیکیِ مشخص گره بزن تا «سینمای ذهن» بسازی."},
+        more:{en:"Summary tells; a scene shows. 'I was at school' is a blur; 'I'm in the fluorescent hallway outside room 214' puts the listener there, seeing it with you.", fa:"خلاصه می‌گوید؛ صحنه نشان می‌دهد. «مدرسه بودم» یک لکهٔ محو است؛ «توی راهروِ مهتابیِ بیرونِ کلاسِ ۲۱۴ ایستاده‌ام» شنونده را همان‌جا می‌نشاند، تا با تو ببیندش."},
+        example:{en:"Not 'we argued in the kitchen' but 'she set the mug down hard on the counter and didn't look up'.", fa:"نه «توی آشپزخانه دعوا کردیم» بلکه «لیوان را محکم روی کابینت گذاشت و سرش را بالا نیاورد»."},
+        tip:{en:"Place each key moment in one exact spot the listener can picture.", fa:"هر لحظهٔ کلیدی را در یک نقطهٔ دقیق بگذار که شنونده بتواند تصورش کند."},
+        pitfall:{en:"Vague summary the audience can't picture.", fa:"خلاصهٔ مبهمی که مخاطب نمی‌تواند تصورش کند."} },
+      elephant:{ part:'stakes', n:10, name:{en:'The Elephant', fa:'فیل'}, glabel:{en:'Elephant', fa:'فیل'},
+        principle:{en:"Name the story's central problem or looming question early, so the audience knows what to worry about.", fa:"مشکلِ اصلی یا پرسشِ معلقِ داستان را زود مطرح کن، تا مخاطب بداند نگرانِ چه باشد."},
+        more:{en:"Within the first thirty seconds, put a clear worry in the room — 'the elephant'. Once the audience knows what's at stake, they lean in and wait to see how it resolves.", fa:"در همان سی ثانیهٔ اول، یک نگرانیِ روشن را واردِ فضا کن — «فیل». همین که مخاطب بداند چه چیزی در خطر است، جلو می‌آید و منتظر می‌ماند ببیند چطور حل می‌شود."},
+        example:{en:"'There's a bomb under the table' — now every ordinary line is tense with waiting.", fa:"«یک بمب زیرِ میز است» — حالا هر جملهٔ معمولی از انتظار پُرتنش است."},
+        tip:{en:"In your first lines, hint at the problem the whole story will resolve.", fa:"در خطوطِ اولت، به مشکلی که کلِ داستان حلش می‌کند اشاره کن."},
+        pitfall:{en:"No reason to keep listening, so minds wander.", fa:"هیچ دلیلی برای ادامه‌دادن نیست، پس ذهن‌ها پرسه می‌زنند."} },
+      backpack:{ part:'stakes', n:11, name:{en:'The Backpack', fa:'کوله‌پشتی'}, glabel:{en:'Backpack', fa:'کوله‌پشتی'},
+        principle:{en:"Load the audience with the character's hopes and fears before the outcome, so they carry the suspense.", fa:"قبل از نتیجه، امیدها و ترس‌های شخصیت را بارِ مخاطب کن، تا خودشان تعلیق را حمل کنند."},
+        more:{en:"Before you walk into the meeting, describe everything you're dreading and hoping for. Now the audience feels the weight with you and holds their breath through the outcome.", fa:"قبل از اینکه واردِ جلسه شوی، هرچه را ازش می‌ترسی و هرچه را امید داری توصیف کن. حالا مخاطب سنگینی را با تو حس می‌کند و تا رسیدنِ نتیجه نفسش را حبس می‌کند."},
+        example:{en:"Before the test results, list everything you're afraid they'll say — then the reveal lands hard.", fa:"قبل از جوابِ آزمایش، هرچه می‌ترسی بگویند را فهرست کن — بعد لحظهٔ فاش‌شدن، محکم فرود می‌آید."},
+        tip:{en:"Just before a big moment, voice the character's hopes and fears out loud.", fa:"درست قبل از یک لحظهٔ بزرگ، امیدها و ترس‌های شخصیت را بلند بیان کن."},
+        pitfall:{en:"Revealing outcomes flatly, with no anticipation built first.", fa:"فاش‌کردنِ نتیجه‌ها به‌شکلِ بی‌رمق، بدونِ ساختنِ انتظار."} },
+      breadcrumbs:{ part:'stakes', n:12, name:{en:'Breadcrumbs & Hourglass', fa:'خرده‌نان و ساعت‌شنی'}, glabel:{en:'Breadcrumbs', fa:'خرده‌نان'},
+        principle:{en:"Drop a hint of a coming moment (breadcrumb), then slow time with detail right before it (hourglass).", fa:"یک اشاره به لحظه‌ای که در راه است بینداز (خرده‌نان)، بعد درست قبل از آن، با جزئیات زمان را کند کن (ساعت‌شنی)."},
+        more:{en:"A breadcrumb makes the audience wait for something they can feel coming; the hourglass stretches the final seconds before it, so the payoff hits at its fullest.", fa:"خرده‌نان کاری می‌کند مخاطب منتظرِ چیزی بماند که آمدنش را حس می‌کند؛ ساعت‌شنی، ثانیه‌های آخر قبل از آن را کِش می‌دهد، تا پاداش در اوجِ خودش فرود بیاید."},
+        example:{en:"'I didn't know it was the last time I'd see him' — then linger, slowly, on the goodbye at the door.", fa:"«نمی‌دانستم آخرین باری است که می‌بینمش» — بعد آرام، رویِ خداحافظیِ دمِ در مکث کن."},
+        tip:{en:"Foreshadow the big moment once, then slow right down as you reach it.", fa:"یک‌بار به لحظهٔ بزرگ اشاره کن، بعد همین که به آن می‌رسی، سرعت را کاملاً کم کن."},
+        pitfall:{en:"Rushing past the payoff or telegraphing it too plainly.", fa:"شتاب‌زده ردشدن از پاداش، یا لوـدادنِ زیادی واضحِ آن."} },
+      crystal:{ part:'stakes', n:13, name:{en:'The Crystal Ball', fa:'گویِ بلورین'}, glabel:{en:'Crystal Ball', fa:'گویِ بلورین'},
+        principle:{en:"Plant a false prediction the audience expects to come true, then subvert it.", fa:"یک پیش‌بینیِ غلط بکار که مخاطب انتظار دارد درست از آب دربیاید، بعد آن را واژگون کن."},
+        more:{en:"Get the audience bracing for one outcome ('this is going to be a disaster'), then deliver a different one. The gap between what they expected and what happens is where surprise lives.", fa:"کاری کن مخاطب خودش را برای یک نتیجه آماده کند («این قرار است یک فاجعه شود»)، بعد نتیجه‌ای دیگر تحویل بده. فاصلهٔ بینِ آنچه انتظار داشتند و آنچه اتفاق می‌افتد، همان‌جایی است که غافلگیری زندگی می‌کند."},
+        example:{en:"Set up 'I was sure I'd fail' so they brace for failure — then let it go surprisingly right.", fa:"زمینه‌چینی کن که «مطمئن بودم شکست می‌خورم» تا برای شکست آماده شوند — بعد بگذار به‌طرزِ غافلگیرکننده‌ای خوب پیش برود."},
+        tip:{en:"Make the audience predict the wrong ending, then hand them a better one.", fa:"کاری کن مخاطب پایانِ غلط را پیش‌بینی کند، بعد یک پایانِ بهتر تحویلش بده."},
+        pitfall:{en:"Predictable stories with no surprise.", fa:"داستان‌های قابلِ‌پیش‌بینی، بدونِ هیچ غافلگیری."} },
+      present:{ part:'tell', n:14, name:{en:'Present Tense', fa:'زمانِ حال'}, glabel:{en:'Present Tense', fa:'زمانِ حال'},
+        principle:{en:"Tell the key moments in present tense to place the audience inside the moment with you.", fa:"لحظه‌های کلیدی را در زمانِ حال تعریف کن تا مخاطب را همان‌جا، درونِ لحظه، کنارِ خودت بنشانی."},
+        more:{en:"'I opened the door and she was gone' is a report; 'I open the door and she's gone' happens now, in front of everyone. Present tense turns memory into a live moment.", fa:"«در را باز کردم و او رفته بود» یک گزارش است؛ «در را باز می‌کنم و او رفته» همین حالا، جلوی همه، اتفاق می‌افتد. زمانِ حال، خاطره را به یک لحظهٔ زنده تبدیل می‌کند."},
+        example:{en:"Switch the climax to present tense and watch the room hold still.", fa:"اوجِ داستان را به زمانِ حال ببر و ببین چطور کلِ اتاق ساکن می‌شود."},
+        tip:{en:"Rewrite your most important moment in the present tense.", fa:"مهم‌ترین لحظه‌ات را در زمانِ حال بازنویسی کن."},
+        pitfall:{en:"Distancing past-tense reportage that feels like summary.", fa:"گزارشِ گذشتهٔ فاصله‌انداز که حسِ خلاصه می‌دهد."} },
+      nonotes:{ part:'tell', n:15, name:{en:'No Notes', fa:'بدونِ یادداشت'}, glabel:{en:'No Notes', fa:'بدونِ یادداشت'},
+        principle:{en:"Perform without notes; memorize only your first lines, last lines, and scene transitions.", fa:"بدونِ یادداشت اجرا کن؛ فقط خطوطِ اول، خطوطِ آخر، و گذارهای بینِ صحنه‌ها را حفظ کن."},
+        more:{en:"Notes make you a reciter, not a teller. Know your opening image and final sentence cold, know how you move between scenes, and let the middle breathe and stay alive.", fa:"یادداشت تو را به یک دکلمه‌گر تبدیل می‌کند، نه یک قصه‌گو. تصویرِ آغازین و جملهٔ پایانی‌ات را کامل بدان، بدان چطور بینِ صحنه‌ها حرکت می‌کنی، و بگذار میانه نفس بکشد و زنده بماند."},
+        example:{en:"Know your first line and last line by heart; improvise the connective tissue.", fa:"خطِ اول و خطِ آخرت را از بر باش؛ بافتِ رابطِ بینشان را بداهه بگو."},
+        tip:{en:"Memorize only your opening and closing lines; trust yourself with the rest.", fa:"فقط خطوطِ شروع و پایان را حفظ کن؛ برای بقیه به خودت اعتماد کن."},
+        pitfall:{en:"Robotic, word-for-word recitation, or getting lost.", fa:"دکلمهٔ کلمه‌به‌کلمهٔ رباتیک، یا گم‌شدن وسطِ راه."} },
+      still:{ part:'tell', n:16, name:{en:'Stillness & Vulnerability', fa:'آرامش و آسیب‌پذیری'}, glabel:{en:'Vulnerability', fa:'آسیب‌پذیری'},
+        principle:{en:"Keep gestures minimal and undercut your own heroics — audiences root for humble, flawed narrators.", fa:"حرکاتت را کم نگه دار و از قهرمان‌بازیِ خودت کم کن — مخاطب هوادارِ راویِ فروتن و ناقص است."},
+        more:{en:"Grand gestures and hero stories impress but don't connect. Stand still, admit you were scared, downplay the win — vulnerability is what makes a room lean in and care.", fa:"حرکاتِ بزرگ و داستان‌های قهرمانانه تحسین می‌گیرند اما ارتباط نمی‌سازند. ثابت بایست، اعتراف کن که ترسیده بودی، از بُردت کم کن — آسیب‌پذیری همان چیزی است که یک اتاق را وامی‌دارد جلو بیاید و اهمیت بدهد."},
+        example:{en:"Downplay the prize you won and admit the fear you felt; the room comes with you.", fa:"از جایزه‌ای که بردی کم کن و به ترسی که حس کردی اعتراف کن؛ اتاق با تو می‌آید."},
+        tip:{en:"Cut one heroic flourish and add one honest admission of fear.", fa:"یک قهرمان‌نماییِ اضافه را حذف کن و یک اعترافِ صادقانه به ترس اضافه کن."},
+        pitfall:{en:"Grandstanding 'hero stories' that impress but don't connect.", fa:"«داستان‌های قهرمانانه»ی پُرادا که تحسین می‌گیرند اما ارتباط نمی‌سازند."} }
+    },
+    core:{ name:{en:'STORY', fa:'داستان'},
+      principle:{en:"Anyone can become a compelling storyteller by mining ordinary life for small 'five-second moments' of change and shaping them with a few learnable techniques.", fa:"هرکسی می‌تواند یک قصه‌گوی گیرا شود، با کاوشِ زندگیِ معمولی برای «لحظه‌های پنج‌ثانیه‌ای»ِ کوچکِ تغییر، و شکل‌دادنشان با چند تکنیکِ یادگرفتنی."},
+      more:{en:"The book moves through three phases — find your stories (daily practices like Homework for Life), figure out what makes a story (a moment of real change, told like dinner conversation), then craft and tell it (begin at the end, raise the stakes, present tense, no notes). Practiced daily, it changes how you notice your own life.", fa:"کتاب از سه مرحله می‌گذرد — داستان‌هایت را پیدا کن (تمرین‌های روزانه مثلِ «تمرینِ زندگی»)، بفهم چه چیزی یک داستان می‌سازد (یک لحظهٔ تغییرِ واقعی، که مثلِ گفت‌وگوی سرِ شام گفته شود)، بعد بسازش و بگو (از پایان شروع کن، اهمیت را بالا ببر، زمانِ حال، بدونِ یادداشت). با تمرینِ روزانه، طرزِ دیدنِ زندگیِ خودت را عوض می‌کند."},
+      example:{en:"Click any node to read a phase or a technique. You can also drag the nodes around.", fa:"روی هر دایره کلیک کن تا یک مرحله یا تکنیک را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."} },
+    stages:[
+      { level:1, badge:{en:'Level 1 · Over-simplified', fa:'سطحِ ۱ · خیلی ساده'}, title:{en:'One small moment', fa:'یک لحظهٔ کوچک'}, tagline:{en:'The whole book in a sentence.', fa:'کلِ کتاب در یک جمله.'},
+        body:{en:"A great story isn't about big events — it's about one tiny moment when something inside you changed. Find that moment, and you have a story worth telling.", fa:"داستانِ خوب دربارهٔ اتفاق‌های بزرگ نیست — دربارهٔ همان یک لحظهٔ کوچک است که چیزی درونت عوض شد. آن لحظه را پیدا کن، یک داستانِ ارزشِ گفتن داری."},
+        example:{en:"Not 'I traveled across Europe' but 'the moment on a train when I decided to call my dad'.", fa:"نه «سرتاسرِ اروپا را سفر کردم» بلکه «همان لحظه توی قطار که تصمیم گرفتم به پدرم زنگ بزنم»."},
+        gain:{en:"You know what a story actually is — a moment of change.", fa:"می‌دانی داستان واقعاً چیست — یک لحظهٔ تغییر."} },
+      { level:2, badge:{en:'Level 2 · Simple', fa:'سطحِ ۲ · ساده'}, title:{en:'Find your stories', fa:'داستان‌هایت را پیدا کن'}, tagline:{en:'You have more than you think.', fa:'بیشتر از آنچه فکر می‌کنی داری.'},
+        body:{en:"You don't need a dramatic life — you need to notice it. Do <b>Homework for Life</b>: every night, write a few sentences about the most story-worthy moment of your day. Soon you'll have a well of true stories.", fa:"به یک زندگیِ دراماتیک نیاز نداری — باید ببینی‌اش. <b>تمرینِ زندگی</b> را انجام بده: هر شب چند جمله دربارهٔ داستانی‌ترین لحظهٔ روزت بنویس. به‌زودی یک چاهِ داستانِ واقعی خواهی داشت."},
+        example:{en:"A one-line note — 'my son held my hand at the crosswalk' — becomes a whole story later.", fa:"یک یادداشتِ یک‌خطی — «پسرم سرِ خط‌کشیِ عابر دستم را گرفت» — بعداً یک داستانِ کامل می‌شود."},
+        gain:{en:"You'll never again think you have no stories.", fa:"دیگر هیچ‌وقت فکر نمی‌کنی که داستانی نداری."} },
+      { level:3, badge:{en:'Level 3 · Balanced', fa:'سطحِ ۳ · متعادل'}, title:{en:'Shape the arc', fa:'قوس را شکل بده'}, tagline:{en:'Change, opposites, and momentum.', fa:'تغییر، تضاد، و شتاب.'},
+        body:{en:"Now craft it. Make sure there's real <b>change over time</b>. <b>Begin at the end</b>: find your final feeling and open with its opposite. Connect beats with <b>but</b> and <b>therefore</b>, and set each moment in a specific <b>scene</b> the listener can see.", fa:"حالا بسازش. مطمئن شو یک <b>تغییرِ واقعی در طولِ زمان</b> هست. <b>از پایان شروع کن</b>: حسِ نهایی‌ات را پیدا کن و با نقطهٔ مقابلش باز کن. لحظه‌ها را با <b>اما</b> و <b>بنابراین</b> وصل کن، و هر لحظه را در یک <b>صحنهٔ</b> مشخص بگذار که شنونده بتواند ببیندش."},
+        example:{en:"End on belonging? Open on loneliness, and walk the arc between them.", fa:"با تعلق‌داشتن تمام می‌شود؟ با تنهایی باز کن، و قوسِ بینشان را طی کن."},
+        gain:{en:"You can turn a moment into a story with a real arc.", fa:"می‌توانی یک لحظه را به داستانی با یک قوسِ واقعی تبدیل کنی."} },
+      { level:4, badge:{en:'Level 4 · Advanced', fa:'سطحِ ۴ · پیشرفته'}, title:{en:'Raise the stakes', fa:'اهمیت را بالا ببر'}, tagline:{en:'Five ways to hold the room.', fa:'پنج راه برای نگه‌داشتنِ اتاق.'},
+        body:{en:"Now engineer suspense honestly. Name the <b>elephant</b> (the worry) early. Fill the <b>backpack</b> — the character's hopes and fears — before the outcome. Drop <b>breadcrumbs</b> and slow the <b>hourglass</b> before the big moment. Plant a <b>crystal ball</b> — a prediction you'll subvert. None of these need danger; they need the audience to care.", fa:"حالا تعلیق را صادقانه مهندسی کن. زود <b>فیل</b> (نگرانی) را نام ببر. <b>کوله‌پشتی</b> را پُر کن — امیدها و ترس‌های شخصیت — قبل از نتیجه. <b>خرده‌نان</b> بینداز و قبل از لحظهٔ بزرگ، <b>ساعت‌شنی</b> را کند کن. یک <b>گویِ بلورین</b> بکار — پیش‌بینی‌ای که واژگونش می‌کنی. هیچ‌کدام به خطر نیاز ندارند؛ به این نیاز دارند که مخاطب اهمیت بدهد."},
+        example:{en:"'I was sure I'd embarrass myself' makes the room brace — then you surprise them.", fa:"«مطمئن بودم خودم را ضایع می‌کنم» اتاق را آماده می‌کند — بعد غافلگیرشان می‌کنی."},
+        gain:{en:"You can keep an audience leaning in without any 'action'.", fa:"می‌توانی مخاطب را بدونِ هیچ «اکشنی» جلو نگه داری."} },
+      { level:5, badge:{en:'Level 5 · Expert', fa:'سطحِ ۵ · حرفه‌ای'}, title:{en:'Tell it like dinner', fa:'مثلِ سرِ شام بگو'}, tagline:{en:'Present, still, and vulnerable.', fa:'حال، آرام، و آسیب‌پذیر.'},
+        body:{en:"The expert disappears into the telling. Speak in <b>present tense</b> so it happens now. Use <b>no notes</b> — memorize only your first and last lines. Keep your body <b>still</b> and your persona <b>vulnerable</b>: undercut your own heroics, admit the fear. Told this way — plainly, like dinner conversation — one small, true five-second moment can move an entire room.", fa:"آدمِ حرفه‌ای در خودِ تعریف‌کردن محو می‌شود. در <b>زمانِ حال</b> حرف بزن تا همین حالا اتفاق بیفتد. <b>بدونِ یادداشت</b> — فقط خطِ اول و آخرت را حفظ کن. بدنت را <b>آرام</b> و شخصیتت را <b>آسیب‌پذیر</b> نگه دار: از قهرمان‌بازیِ خودت کم کن، به ترس اعتراف کن. اگر این‌طور گفته شود — ساده، مثلِ گفت‌وگوی سرِ شام — یک لحظهٔ پنج‌ثانیه‌ایِ کوچک و واقعی می‌تواند یک اتاقِ کامل را تکان بدهد."},
+        example:{en:"The winning tellers stand still, speak plainly, and let one honest moment do the work.", fa:"قصه‌گوهای برنده ثابت می‌ایستند، ساده حرف می‌زنند، و می‌گذارند یک لحظهٔ صادقانه کار را انجام دهد."},
+        gain:{en:"You can move a room with one small true story — and teach others how.", fa:"می‌توانی با یک داستانِ کوچکِ واقعی یک اتاق را تکان بدهی — و به دیگران هم یادش بدهی."} }
+    ],
+    quotes:[
+      {en:"Every great story is essentially about a five-second moment in a person's life — the moment when something changes.", fa:"هر داستانِ بزرگ در اصل دربارهٔ یک لحظهٔ پنج‌ثانیه‌ای در زندگیِ یک آدم است — لحظه‌ای که چیزی عوض می‌شود."},
+      {en:"Your story must reflect change over time. You must start out as one version of yourself and end as something new.", fa:"داستانت باید تغییر در طولِ زمان را نشان بدهد. باید به‌عنوانِ یک نسخه از خودت شروع کنی و به‌عنوانِ چیزی تازه تمام کنی."},
+      {en:"The beginning of the story should be the opposite of the end.", fa:"شروعِ داستان باید نقطهٔ مقابلِ پایان باشد."},
+      {en:"We tell stories to express our hardest, best, most authentic truths.", fa:"ما داستان می‌گوییم تا سخت‌ترین، بهترین و اصیل‌ترین حقیقت‌هایمان را بیان کنیم."},
+      {en:"We like to laugh, but we listen to stories to be moved.", fa:"ما دوست داریم بخندیم، اما به داستان‌ها گوش می‌دهیم تا تکان بخوریم."},
+      {en:"The simplest stories about the smallest moments in our lives are often the most compelling.", fa:"ساده‌ترین داستان‌ها دربارهٔ کوچک‌ترین لحظه‌های زندگی‌مان، اغلب گیراترین‌اند."},
+      {en:"You need not spend time in jail or crash through a windshield to tell a great story.", fa:"لازم نیست زندان بروی یا از شیشهٔ ماشین پرت شوی تا یک داستانِ بزرگ تعریف کنی."},
+      {en:"Stories that fail to reflect change over time are known as anecdotes.", fa:"داستان‌هایی که تغییر در طولِ زمان را نشان نمی‌دهند، حکایت نامیده می‌شوند."},
+      {en:"When I'm asked a question, I tell a story.", fa:"وقتی ازم سؤالی می‌پرسند، یک داستان تعریف می‌کنم."}
+    ],
+    media:[
+      { kind:'yt', id:'x7p329Z8MD0', src:{en:'YouTube · TEDx Talks', fa:'یوتیوب · TEDx'},
+        title:{en:'Homework for Life — Matthew Dicks (TEDx)', fa:'تمرینِ زندگی — متیو دیکس (TEDx)'},
+        desc:{en:"The author's TEDx talk on the book's core daily practice.", fa:'سخنرانیِ TEDxِ نویسنده دربارهٔ تمرینِ روزانهٔ اصلیِ کتاب.'},
+        bullets:{en:["Why 'nothing happens to me' is false","How the daily practice works","The idea that hooks the whole book"], fa:["چرا «هیچ اتفاقی برایم نمی‌افتد» غلط است","تمرینِ روزانه چطور کار می‌کند","ایده‌ای که کلِ کتاب را قلاب می‌کند"]},
+        best:{en:'Best for Stage 1–2 — start here.', fa:'خوب برای مرحلهٔ ۱ و ۲ — از اینجا شروع کن.'} },
+      { kind:'yt', id:'BcZMl1P6dmc', src:{en:'YouTube · Matthew Dicks', fa:'یوتیوب · متیو دیکس'},
+        title:{en:"The Spoon of Power — Moth GrandSLAM Winner", fa:'قاشقِ قدرت — برندهٔ Moth GrandSLAM'},
+        desc:{en:'His famous winning Moth story — the techniques in action.', fa:'داستانِ برندهٔ معروفش در Moth — تکنیک‌ها در عمل.'},
+        bullets:{en:["A five-second moment, fully built","Stakes and scenes done right","See the theory performed live"], fa:["یک لحظهٔ پنج‌ثانیه‌ای، کامل ساخته‌شده","اهمیت و صحنه، درست اجرا شده","تئوری را زنده روی صحنه ببین"]},
+        best:{en:'Best for Stage 3–5 — see it live.', fa:'خوب برای مرحلهٔ ۳ تا ۵ — زنده ببینش.'} },
+      { kind:'yt', id:'x--U2X47pw8', src:{en:"YouTube · The Founder's Foyer", fa:'یوتیوب · The Founder\\u2019s Foyer'},
+        title:{en:'Storytelling for Life & Work — Matthew Dicks', fa:'قصه‌گویی برای زندگی و کار — متیو دیکس'},
+        desc:{en:'An interview on using storytelling in life and work.', fa:'یک گفت‌وگو دربارهٔ استفاده از قصه‌گویی در زندگی و کار.'},
+        bullets:{en:["Homework for Life, explained by the author","How stories help at work","Practical, applied advice"], fa:["«تمرینِ زندگی» به‌زبانِ خودِ نویسنده","اینکه داستان‌ها چطور سرِ کار کمک می‌کنند","توصیه‌های کاربردی و عملی"]},
+        best:{en:'Best for Stage 2–4.', fa:'خوب برای مرحلهٔ ۲ تا ۴.'} },
+      { kind:'img', url:'https://matthewdicks.com/',
+        src:{en:'matthewdicks.com · Official', fa:'matthewdicks.com · رسمی'},
+        title:{en:'Matthew Dicks — Storyworthy', fa:'متیو دیکس — داستانی'},
+        desc:{en:"The author's site, blog, and storytelling resources.", fa:'سایت، وبلاگ و منابعِ قصه‌گوییِ نویسنده.'},
+        bullets:{en:["The author's blog and workshops","More on Homework for Life","Straight from the source"], fa:["وبلاگ و کارگاه‌های نویسنده","بیشتر دربارهٔ «تمرینِ زندگی»","مستقیم از خودِ منبع"]},
+        best:{en:'For going to the source.', fa:'برای رفتن سراغِ منبعِ اصلی.'} }
+    ],
+    go:[
+      {label:{en:"Matthew Dicks's site", fa:'سایتِ متیو دیکس'}, url:'https://matthewdicks.com/'},
+      {label:{en:'The Moth (live storytelling)', fa:'The Moth (قصه‌گوییِ زنده)'}, url:'https://themoth.org/'},
+      {label:{en:'Book on Goodreads', fa:'کتاب در گودریدز'}, url:'https://www.goodreads.com/book/show/37786022-storyworthy'}
+    ],
+    recs:[
+      { pri:'b', t:{en:'Start Homework for Life tonight', fa:'همین امشب «تمرینِ زندگی» را شروع کن'}, d:{en:'Write three sentences about the most story-worthy moment of today. Repeat every night.', fa:'سه جمله دربارهٔ داستانی‌ترین لحظهٔ امروز بنویس. هر شب تکرارش کن.'} },
+      { pri:'b', t:{en:'Find your five-second moment', fa:'لحظهٔ پنج‌ثانیه‌ات را پیدا کن'}, d:{en:'For a story you want to tell, name the single moment something changed, and build toward it.', fa:'برای داستانی که می‌خواهی بگویی، همان یک لحظه‌ای را که چیزی عوض شد نام ببر، و به‌سمتش بساز.'} },
+      { pri:'n', t:{en:'Begin at the opposite of your ending', fa:'از نقطهٔ مقابلِ پایانت شروع کن'}, d:{en:'Decide how it ends, then open on the opposite feeling to widen the arc.', fa:'تصمیم بگیر چطور تمام می‌شود، بعد با حسِ مقابلش شروع کن تا قوس پهن‌تر شود.'} },
+      { pri:'n', t:{en:"Cut every 'and then'", fa:'هر «و بعد» را حذف کن'}, d:{en:"Replace it with a 'but' or a 'therefore' to give the story momentum.", fa:'با یک «اما» یا «بنابراین» عوضش کن تا داستان شتاب بگیرد.'} }
+    ]
+  }
+};

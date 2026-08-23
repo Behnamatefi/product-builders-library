@@ -1,0 +1,264 @@
+/* config: The Making of a Manager — Julie Zhuo (Managing) */
+module.exports = {
+  slug:"mgr", brand:"The Making of a Manager",
+  titleTag:"The Making of a Manager — نقشهٔ دانش و یادگیری ۵ مرحله‌ای",
+  W:980, H:780, R1:220, R2:126, span:66,
+  leafKickEn:"Idea", leafKickFa:"ایدهٔ",
+  flowEn:["Purpose","People","Process"], flowFa:["هدف","آدم‌ها","فرایند"],
+
+  hero:`  <div class="eyebrow"><span class="edot"></span>
+    <span data-only="en">Book knowledge map · Julie Zhuo</span>
+    <span data-only="fa">نقشهٔ کتاب · جولی ژو</span>
+  </div>
+  <h1>
+    <span data-only="en">The Making of a Manager — What to Do When Everyone Looks to You</span>
+    <span data-only="fa">ساختنِ یک مدیر — وقتی همه به تو نگاه می‌کنند چه کنی</span>
+  </h1>
+  <p class="dek">
+    <span data-only="en">A knowledge graph of the whole book, plus a 5-stage path from a one-line definition to leading at scale — with an example at every step.</span>
+    <span data-only="fa">نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از یک تعریفِ یک‌خطی تا رهبری در مقیاسِ بزرگ — با یک مثال در هر مرحله.</span>
+  </p>
+  <div class="metastrip">
+    <div class="metaitem"><span class="mk" data-only="en">Book</span><span class="mk" data-only="fa">کتاب</span>
+      <span class="mv" data-only="en">The Making of a Manager</span><span class="mv" data-only="fa">ساختنِ یک مدیر</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Author</span><span class="mk" data-only="fa">نویسنده</span>
+      <span class="mv" data-only="en">Julie Zhuo</span><span class="mv" data-only="fa">جولی ژو</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Published</span><span class="mk" data-only="fa">سالِ چاپ</span>
+      <span class="mv" data-only="en">2019</span><span class="mv" data-only="fa">۲۰۱۹</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Group</span><span class="mk" data-only="fa">گروه</span>
+      <span class="mv" data-only="en">Managing</span><span class="mv" data-only="fa">مدیریت</span></div>
+  </div>
+  <div class="chips">
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Parts</span><span data-only="fa">بخش</span></div>
+    <div class="chip"><b data-only="en">16</b><b data-only="fa">۱۶</b><span data-only="en">Ideas</span><span data-only="fa">ایده</span></div>
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Learning stages</span><span data-only="fa">مرحلهٔ یادگیری</span></div>
+  </div>`,
+
+  callout:`    <b data-only="en">The core idea:</b>
+    <b data-only="fa">ایدهٔ اصلی:</b>
+    <span data-only="en"> A manager's job is to get <i>better outcomes from a group of people</i>. You don't do the work yourself — you multiply the team by improving its <i>people, purpose,</i> and <i>process</i>, earning trust and giving honest feedback along the way.</span>
+    <span data-only="fa"> کارِ مدیر این است که <i>از یک گروه آدم نتیجهٔ بهتری بگیرد</i>. خودت کار را انجام نمی‌دهی — تیم را با بهترکردنِ <i>آدم‌ها، هدف،</i> و <i>فرایند</i> چند‌برابر می‌کنی، و در این مسیر اعتماد می‌سازی و بازخوردِ روراست می‌دهی.</span>`,
+
+  kpis:`    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Parts (what · first months · feedback · yourself · scaling)</div><div class="l" data-only="fa">بخش (چیستی · ماه‌های اول · بازخورد · خودت · بزرگ‌شدن)</div></div>
+    <div class="kbox"><div class="v" data-only="en">16</div><div class="v" data-only="fa">۱۶</div><div class="l" data-only="en">Ideas you can use</div><div class="l" data-only="fa">ایده برای استفاده</div></div>
+    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Levels, simple → expert</div><div class="l" data-only="fa">مرحله، ساده تا حرفه‌ای</div></div>
+    <div class="kbox"><div class="v" data-only="en">3</div><div class="v" data-only="fa">۳</div><div class="l" data-only="en">Levers: people · purpose · process</div><div class="l" data-only="fa">اهرم: آدم‌ها · هدف · فرایند</div></div>`,
+
+  mapcallout:`      <b data-only="en">Read it as a path:</b><b data-only="fa">به‌صورتِ یک مسیر بخوانش:</b>
+      <span data-only="en"> understand <b>what management is</b>, survive your <b>first months</b> and earn trust, master <b>feedback</b>, manage <b>yourself</b>, then <b>scale</b> the team through meetings, hiring, delegation, and culture.</span>
+      <span data-only="fa"> بفهم <b>مدیریت یعنی چه</b>، از <b>ماه‌های اولت</b> جان به‌در ببر و اعتماد بساز، <b>بازخورد</b> را استاد شو، <b>خودت</b> را مدیریت کن، بعد تیم را با جلسه، استخدام، واگذاری، و فرهنگ <b>بزرگ کن</b>.</span>`,
+
+  methodFa:"<p><b>منبع:</b> کتابِ «The Making of a Manager» (ساختنِ یک مدیر) نوشتهٔ جولی ژو، نشرِ Portfolio/Penguin، ۲۰۱۹.</p><p><b>روشِ کار:</b> مسیرِ پنج‌بخشی و ایده‌ها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده؛ نقل‌قول‌ها با متنِ اصلی مقابله و ویدیوها بررسی شده‌اند.</p><p><b>گروه:</b> «مدیریت» — یکی از موضوع‌های اصلی برای رهبرانِ تازه‌کار و سازندگانِ محصول.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای متنِ کامل، خودِ کتاب را بخوان.</p>",
+  methodEn:"<p><b>Source:</b> the book <i>The Making of a Manager: What to Do When Everyone Looks to You</i> by Julie Zhuo (Portfolio/Penguin, 2019).</p><p><b>How this was built:</b> the five-part path and ideas were gathered and rewritten from the book and reputable sources; quotes were cross-checked against verbatim excerpts and the linked videos verified.</p><p><b>Group:</b> Managing — a core theme for new leaders and product builders.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book. Read the book itself for the full text.</p>",
+
+  data:{
+    tldr:[
+      {en:"The whole book in one line: a manager's job is to get better outcomes from a group of people working together.",
+       fa:"خلاصهٔ کلِ کتاب در یک جمله: کارِ مدیر این است که از یک گروه آدم که با هم کار می‌کنند، نتیجهٔ بهتری بگیرد."},
+      {en:"You're not paid to do the work yourself — you're a <b>multiplier</b> who improves the team's <b>people, purpose,</b> and <b>process</b>.",
+       fa:"دستمزدت برای انجامِ خودِ کار نیست — تو یک <b>چند‌برابر‌کننده‌ای</b> که <b>آدم‌ها، هدف،</b> و <b>فرایندِ</b> تیم را بهتر می‌کند."},
+      {en:"In your first months, don't try to have every answer; <b>earn trust</b> with weekly one-on-ones and a little humility.",
+       fa:"در ماه‌های اول، سعی نکن همهٔ جواب‌ها را داشته باشی؛ با جلسه‌های هفتگیِ تک‌به‌تک و کمی فروتنی، <b>اعتماد بساز</b>."},
+      {en:"What people want most is <b>more feedback</b> — specific, timely, kind, and clear, including the hard conversations.",
+       fa:"چیزی که آدم‌ها بیشتر از همه می‌خواهند، <b>بازخوردِ بیشتر</b> است — مشخص، به‌موقع، مهربان، و روشن، حتی گفت‌وگوهای سخت."},
+      {en:"Manage <b>yourself</b> first, then <b>scale</b> through great meetings, strong hiring, delegation, and the culture you set.",
+       fa:"اول <b>خودت</b> را مدیریت کن، بعد با جلسه‌های خوب، استخدامِ قوی، واگذاری، و فرهنگی که می‌سازی، <b>بزرگ شو</b>."}
+    ],
+    parts:[
+      { key:"what", varc:"--c-teal", name:{en:"What Management Is", fa:"مدیریت یعنی چه"}, tag:{en:"The purpose", fa:"هدفِ کار"},
+        gist:{en:"Management exists to get better outcomes from a group of people.", fa:"مدیریت هست تا از یک گروه آدم، نتیجهٔ بهتری بگیرد."},
+        more:{en:"A manager's job isn't to be the best individual contributor. It's to help a team produce better results together than any of them could alone — by improving its people, its purpose, and its process.",
+              fa:"کارِ مدیر این نیست که بهترین فردِ تیم باشد. کارش این است که کمک کند یک گروه آدم با هم نتیجه‌ای بهتر از تک‌تکشان بسازند — با بهترکردنِ آدم‌ها، هدف، و فرایندِ تیم."},
+        chapters:["purpose","multiplier","ppp"] },
+      { key:"first", varc:"--c-blue", name:{en:"Your First Three Months", fa:"سه ماهِ اول"}, tag:{en:"Earning trust", fa:"ساختنِ اعتماد"},
+        gist:{en:"Lead a small team and earn its trust in your first months.", fa:"در ماه‌های اول، یک تیمِ کوچک را رهبری کن و اعتمادش را بساز."},
+        more:{en:"The early days set the tone. You don't need every answer; you need your team to trust that you care about them and will be honest. Regular one-on-ones and a bit of humility do more than any grand plan.",
+              fa:"روزهای اول، فضا را می‌سازند. لازم نیست همهٔ جواب‌ها را داشته باشی؛ لازم است تیمت باور کند که برایت مهم است و باهاش روراستی. جلسه‌های منظمِ تک‌به‌تک و کمی فروتنی، بیشتر از هر نقشهٔ بزرگی کار می‌کنند."},
+        chapters:["trust","oneonone","newtraps"] },
+      { key:"feedback", varc:"--c-amber", name:{en:"Feedback & Growth", fa:"بازخورد و رشد"}, tag:{en:"Helping people grow", fa:"کمک به رشد"},
+        gist:{en:"Give clear feedback and have the hard conversations.", fa:"بازخوردِ روشن بده و گفت‌وگوهای سخت را انجام بده."},
+        more:{en:"The most common thing people want from a manager is more feedback. Give it early, make it specific, and don't dodge the uncomfortable talks — done with empathy, they're the ones that actually help someone grow.",
+              fa:"پُرتکرارترین چیزی که آدم‌ها از یک مدیر می‌خواهند، بازخوردِ بیشتر است. زود بده، مشخص بده، و از حرف‌های ناراحت‌کننده فرار نکن — وقتی با همدلی گفته شوند، همان‌هایی‌اند که واقعاً به رشدِ کسی کمک می‌کنند."},
+        chapters:["feedback","hard","grow"] },
+      { key:"self", varc:"--c-violet", name:{en:"Managing Yourself", fa:"مدیریتِ خودت"}, tag:{en:"The inner game", fa:"بازیِ درونی"},
+        gist:{en:"Know yourself, handle self-doubt, and protect your energy.", fa:"خودت را بشناس، با تردید کنار بیا، و انرژی‌ات را نگه دار."},
+        more:{en:"You are your own hardest management problem. Knowing your strengths and triggers, making peace with the impostor feeling almost every manager has, and guarding your time and energy are what let you show up steady for everyone else.",
+              fa:"سخت‌ترین مسئلهٔ مدیریتیِ تو، خودتی. شناختِ نقاطِ قوت و حساسیت‌هایت، کنارآمدن با آن حسِ قلابی‌بودن که تقریباً هر مدیری دارد، و مراقبت از وقت و انرژی‌ات، همان چیزهایی‌اند که می‌گذارند برای بقیه محکم و آرام حاضر باشی."},
+        chapters:["know","impostor","energy"] },
+      { key:"scale", varc:"--c-green", name:{en:"Scaling", fa:"بزرگ‌شدن"}, tag:{en:"Leading at scale", fa:"رهبری در مقیاس"},
+        gist:{en:"Great meetings, great hires, delegation, and culture.", fa:"جلسه‌های خوب، استخدام‌های خوب، واگذاری، و فرهنگ."},
+        more:{en:"As the team grows, your job changes from doing the work to designing how the work happens: running meetings that make people better, hiring well, delegating instead of doing, and shaping the culture through what you celebrate and tolerate.",
+              fa:"وقتی تیم بزرگ می‌شود، کارِ تو از انجامِ کار به طراحیِ نحوهٔ انجامِ کار تغییر می‌کند: جلسه‌هایی که آدم‌ها را بهتر می‌کنند، استخدامِ خوب، واگذاری به‌جای انجام‌دادن، و شکل‌دادن به فرهنگ از طریقِ چیزی که تشویق یا تحمل می‌کنی."},
+        chapters:["meetings","hiring","growteam","culture"] }
+    ],
+    chapters:{
+      purpose:{ part:"what", n:1, name:{en:"The Purpose of Management", fa:"هدفِ مدیریت"}, glabel:{en:"Purpose", fa:"هدف"},
+        principle:{en:"A manager's job is to get better outcomes from a group of people working together.", fa:"کارِ مدیر این است که از یک گروه آدم که با هم کار می‌کنند، نتیجهٔ بهتری بگیرد."},
+        more:{en:"That single sentence is the whole job. Not the smartest person, not the hardest worker — the one who helps the group produce more together than the sum of its parts. Everything else is in service of that outcome.", fa:"همین یک جمله، کلِ کار است. نه باهوش‌ترین آدم، نه پُرکارترین — کسی که کمک می‌کند گروه با هم بیشتر از جمعِ تک‌تکشان بسازد. بقیهٔ همه‌چیز در خدمتِ همین نتیجه است."},
+        example:{en:"A team of five that ships one great product beats five people each doing their own thing.", fa:"تیمی پنج‌نفره که یک محصولِ خوب را به سرانجام می‌رساند، از پنج نفر که هرکدام کارِ خودشان را می‌کنند بهتر است."},
+        tip:{en:"Ask each week: did my team get a better outcome because I was here?", fa:"هر هفته بپرس: آیا تیمم به‌خاطرِ بودنِ من نتیجهٔ بهتری گرفت؟"},
+        pitfall:{en:"Measuring yourself by your own output instead of the team's.", fa:"سنجیدنِ خودت با کارِ خودت، به‌جای نتیجهٔ تیم."} },
+      multiplier:{ part:"what", n:2, name:{en:"You're a Multiplier", fa:"تو چند‌برابر‌کننده‌ای"}, glabel:{en:"Multiplier", fa:"چند‌برابر"},
+        principle:{en:"Your role is not to do the work yourself, even if you're the best at it — it's to multiply the team.", fa:"کارِ تو انجامِ خودِ کار نیست، حتی اگر بهترینش باشی — کارت این است که تیم را چند‌برابر کنی."},
+        more:{en:"Doing it yourself only takes you as far as one person can go. When you make each person a little more effective, that gain multiplies across everyone — that's the leverage a manager has that a contributor doesn't.", fa:"خودت انجام‌دادن، فقط تا جایی می‌بردت که یک نفر می‌تواند برود. وقتی هر نفر را کمی مؤثرتر می‌کنی، آن سود روی همه ضرب می‌شود — همان اهرمی که مدیر دارد و یک نفرِ عادی ندارد."},
+        example:{en:"Spending an hour unblocking five people beats spending it finishing one task yourself.", fa:"یک ساعت وقت‌گذاشتن برای بازکردنِ گیرِ پنج نفر، از تمام‌کردنِ یک کار توسطِ خودت بهتر است."},
+        tip:{en:"Before doing a task, ask if teaching or unblocking someone would go further.", fa:"قبل از انجامِ یک کار، بپرس آیا یاد‌دادن یا بازکردنِ گیرِ کسی، بُردِ بیشتری ندارد."},
+        pitfall:{en:"Hoarding the work because you can do it faster right now.", fa:"چنگ‌زدن به کارها چون همین حالا خودت سریع‌ترش می‌کنی."} },
+      ppp:{ part:"what", n:3, name:{en:"People, Purpose, Process", fa:"آدم‌ها، هدف، فرایند"}, glabel:{en:"3 P’s", fa:"سه پی"},
+        principle:{en:"Managers work on three things: people, purpose, and process — a motivated team, a clear why, and a way of getting things done.", fa:"مدیر روی سه چیز کار می‌کند: آدم‌ها، هدف، و فرایند — یک تیمِ باانگیزه، یک «چراییِ» روشن، و یک راهِ به‌سرانجام‌رساندنِ کارها."},
+        more:{en:"When something's off, it's almost always one of these three. Is the team motivated and set up to succeed (people)? Does everyone know why the work matters (purpose)? Is there a good way decisions and work happen (process)? Fix the weak one.", fa:"وقتی چیزی می‌لنگد، تقریباً همیشه یکی از همین سه‌تاست. آیا تیم باانگیزه و آمادهٔ موفقیت است (آدم‌ها)؟ آیا همه می‌دانند چرا کار مهم است (هدف)؟ آیا راهِ خوبی برای تصمیم و انجامِ کار هست (فرایند)؟ همان ضعیف را درست کن."},
+        example:{en:"A stalled project often isn't a people problem — it's a fuzzy purpose or a broken process.", fa:"یک پروژهٔ گیرکرده اغلب مشکلِ آدم‌ها نیست — یک هدفِ مبهم یا یک فرایندِ خراب است."},
+        tip:{en:"When a team struggles, ask which of the three — people, purpose, or process — is actually weak.", fa:"وقتی یک تیم به‌زحمت می‌افتد، بپرس کدام‌یک — آدم‌ها، هدف، یا فرایند — واقعاً ضعیف است."},
+        pitfall:{en:"Blaming people when the real problem is unclear purpose or process.", fa:"مقصر‌دانستنِ آدم‌ها وقتی مشکلِ واقعی، هدف یا فرایندِ نامشخص است."} },
+      trust:{ part:"first", n:4, name:{en:"Earn Trust", fa:"اعتماد بساز"}, glabel:{en:"Trust", fa:"اعتماد"},
+        principle:{en:"Trust is the foundation: your reports must believe you care about them and will be honest with them.", fa:"اعتماد، پایهٔ کار است: آدم‌هایت باید باور کنند که برایت مهم‌اند و باهاشان روراست خواهی بود."},
+        more:{en:"Without trust, feedback sounds like an attack and support sounds fake. You build it slowly — by keeping your word, admitting what you don't know, and showing with your time that each person matters to you.", fa:"بدونِ اعتماد، بازخورد مثلِ حمله به‌گوش می‌رسد و حمایت، ساختگی. اعتماد را آرام می‌سازی — با سرِ حرفت ماندن، اعترافِ به آنچه نمی‌دانی، و نشان‌دادن با وقتت که هر نفر برایت مهم است."},
+        example:{en:"Saying ‘I don't know, let me find out’ builds more trust than bluffing an answer.", fa:"گفتنِ «نمی‌دانم، بگذار بفهمم» بیشتر از سرِهم‌کردنِ یک جواب، اعتماد می‌سازد."},
+        tip:{en:"Do the small things you promised; reliability is trust made visible.", fa:"همان کارهای کوچکی که قول دادی را انجام بده؛ قابلِ‌اتکا‌بودن، اعتمادِ دیده‌شده است."},
+        pitfall:{en:"Pretending to have all the answers to look strong.", fa:"وانمود‌کردن به داشتنِ همهٔ جواب‌ها برای قوی‌جلوه‌کردن."} },
+      oneonone:{ part:"first", n:5, name:{en:"Great 1:1s", fa:"جلسه‌های تک‌به‌تک"}, glabel:{en:"1:1s", fa:"تک‌به‌تک"},
+        principle:{en:"Hold a weekly one-on-one with every report, focused on them and what would help them succeed.", fa:"هفته‌ای یک جلسهٔ تک‌به‌تک با هر نفر بگذار، متمرکز بر خودِ او و آنچه به موفقیتش کمک می‌کند."},
+        more:{en:"The one-on-one is your single most important meeting. It's not a status update — it's where trust, feedback, and the real, sometimes awkward conversations happen. Prepare for it, and let your report set much of the agenda.", fa:"جلسهٔ تک‌به‌تک، مهم‌ترین جلسهٔ توست. گزارشِ وضعیت نیست — جایی است که اعتماد، بازخورد، و آن گفت‌وگوهای واقعی و گاهی معذب‌کننده اتفاق می‌افتند. برایش آماده شو، و بگذار بخشِ زیادی از دستورِ کار را خودِ او بچیند."},
+        example:{en:"Open with ‘what's most on your mind this week?’ instead of a task checklist.", fa:"به‌جای فهرستِ کارها، با «این هفته بیشتر از همه ذهنت درگیرِ چیه؟» شروع کن."},
+        tip:{en:"Come with one real question, not a status report; give them the floor.", fa:"با یک سؤالِ واقعی بیا، نه گزارشِ وضعیت؛ میدان را به او بده."},
+        pitfall:{en:"Turning the 1:1 into a status meeting about your needs, not theirs.", fa:"تبدیلِ جلسهٔ تک‌به‌تک به جلسهٔ وضعیت دربارهٔ نیازهای تو، نه او."} },
+      newtraps:{ part:"first", n:6, name:{en:"Avoid the New-Manager Traps", fa:"تله‌های مدیرِ تازه‌کار"}, glabel:{en:"New traps", fa:"تله‌ها"},
+        principle:{en:"However you became a manager, don't try to prove yourself by doing everything or knowing everything.", fa:"هرطور که مدیر شدی، سعی نکن با انجامِ همه‌کار یا دانستنِ همه‌چیز، خودت را ثابت کنی."},
+        more:{en:"New managers arrive in different ways — promoted over former peers, or hired to lead strangers — and each has its trap. The shared mistake is overcompensating: micromanaging, hiding uncertainty, or clinging to the old individual-contributor job.", fa:"مدیرهای تازه‌کار از راه‌های مختلف می‌آیند — ترفیع‌گرفته میانِ هم‌ردیف‌های قبلی، یا استخدام‌شده برای رهبریِ غریبه‌ها — و هرکدام تلهٔ خودش را دارد. اشتباهِ مشترک، جبرانِ بیش‌ازحد است: ریزه‌کاری‌مدیریتی، پنهان‌کردنِ تردید، یا چنگ‌زدن به کارِ فردیِ قبلی."},
+        example:{en:"A newly promoted lead who keeps doing their old tasks never actually starts managing.", fa:"سرگروهی که تازه ترفیع گرفته و همچنان کارهای قبلی‌اش را می‌کند، هیچ‌وقت واقعاً شروع به مدیریت نمی‌کند."},
+        tip:{en:"Name your situation honestly, then let go of the old job on purpose.", fa:"وضعیتت را صادقانه اسم ببر، بعد آگاهانه کارِ قبلی را رها کن."},
+        pitfall:{en:"Overcompensating to look like you deserve the title.", fa:"جبرانِ بیش‌ازحد برای اینکه لایقِ عنوان به‌نظر برسی."} },
+      feedback:{ part:"feedback", n:7, name:{en:"Give Feedback Often", fa:"زود و زیاد بازخورد بده"}, glabel:{en:"Feedback", fa:"بازخورد"},
+        principle:{en:"People want more feedback than they get; make it specific, timely, and about behavior, not character.", fa:"آدم‌ها بازخوردِ بیشتری از آنچه می‌گیرند می‌خواهند؛ آن را مشخص، به‌موقع، و دربارهٔ رفتار بده، نه شخصیت."},
+        more:{en:"The most common request managers hear is simply ‘give me more feedback.’ Vague praise and saved-up criticism both fail. Say exactly what you saw and what you'd like to see instead, close to when it happened.", fa:"پُرتکرارترین درخواستی که مدیرها می‌شنوند، همین است: «بیشتر بهم بازخورد بده.» تعریفِ مبهم و انتقادِ روی‌هم‌جمع‌شده، هردو شکست می‌خورند. دقیقاً بگو چه دیدی و به‌جایش چه می‌خواهی ببینی، نزدیک به همان زمان."},
+        example:{en:"Not ‘great job’ but ‘the way you summarized the risks at the end made the decision easy.’", fa:"نه «کارت عالی بود» بلکه «طوری که آخرش ریسک‌ها را جمع‌بندی کردی، تصمیم را آسان کرد.»"},
+        tip:{en:"Give one specific piece of feedback within a day of noticing it.", fa:"یک بازخوردِ مشخص را در همان یک‌روزِ اول که دیدی‌اش بده."},
+        pitfall:{en:"Saving feedback for review season, when it's too late to use.", fa:"نگه‌داشتنِ بازخورد برای فصلِ ارزیابی، وقتی دیگر برای استفاده دیر است."} },
+      hard:{ part:"feedback", n:8, name:{en:"Handle Hard Conversations", fa:"گفت‌وگوهای سخت"}, glabel:{en:"Hard talks", fa:"حرفِ سخت"},
+        principle:{en:"Address problems early and directly, with empathy — pleasantries alone never build a real relationship.", fa:"مشکل‌ها را زود و مستقیم مطرح کن، با همدلی — تعارف‌ها به‌تنهایی هیچ‌وقت یک رابطهٔ واقعی نمی‌سازند."},
+        more:{en:"The conversations you dread — a mistake, a tension, a performance issue — are the ones that matter most. Avoiding them lets small problems grow. Be kind and be clear at the same time; people can handle hard truths delivered with care.", fa:"همان گفت‌وگوهایی که ازشان می‌ترسی — یک اشتباه، یک تنش، یک مشکلِ عملکرد — مهم‌ترین‌هایند. فرار از آن‌ها می‌گذارد مشکلِ کوچک بزرگ شود. هم مهربان باش و هم روشن؛ آدم‌ها حقیقتِ سخت را وقتی با ملاحظه گفته شود، تاب می‌آورند."},
+        example:{en:"Raise a slipping deadline this week, gently, instead of stewing until it blows up.", fa:"همین هفته، ملایم، دربارهٔ ضرب‌الاجلی که دارد از دست می‌رود حرف بزن، نه اینکه آن‌قدر بجوشی تا بترکد."},
+        tip:{en:"Say the hard thing plainly, then ask ‘how do you see it?’", fa:"حرفِ سخت را ساده بگو، بعد بپرس «تو چطور می‌بینی‌اش؟»"},
+        pitfall:{en:"Softening the message so much the real point disappears.", fa:"آن‌قدر نرم‌کردنِ پیام که نکتهٔ اصلی گم شود."} },
+      grow:{ part:"feedback", n:9, name:{en:"Grow Your People", fa:"رشدِ آدم‌هایت"}, glabel:{en:"Growth", fa:"رشد"},
+        principle:{en:"Set clear expectations, coach to each person's strengths, and empower them to find answers themselves.", fa:"انتظارها را روشن کن، هر کس را بر اساسِ نقاطِ قوتش راهنمایی کن، و توانمندش کن که خودش جواب را پیدا کند."},
+        more:{en:"Growth isn't handing out advice. Tell people plainly where they stand and what great looks like, then help them get there by building on what they're already good at — and by asking questions instead of dictating answers.", fa:"رشد یعنی نصیحت‌کردن نیست. به آدم‌ها روراست بگو کجای کار ایستاده‌اند و «عالی» چه شکلی است، بعد کمکشان کن با تکیه بر همان چیزی که در آن خوب‌اند به آنجا برسند — و به‌جای دیکته‌کردنِ جواب، سؤال بپرس."},
+        example:{en:"Instead of solving it, ask ‘what options have you considered?’ and build from there.", fa:"به‌جای حل‌کردنش، بپرس «چه گزینه‌هایی را بررسی کردی؟» و از همان‌جا جلو برو."},
+        tip:{en:"Coach to strengths: grow what someone's great at, don't only fix gaps.", fa:"روی نقاطِ قوت کار کن: چیزی که کسی در آن عالی است را برشان بده، نه فقط رفعِ ضعف‌ها."},
+        pitfall:{en:"Just giving answers, so people never build their own judgment.", fa:"فقط جواب‌دادن، طوری که آدم‌ها هیچ‌وقت قضاوتِ خودشان را نمی‌سازند."} },
+      know:{ part:"self", n:10, name:{en:"Know Yourself", fa:"خودت را بشناس"}, glabel:{en:"Self-know", fa:"خودشناسی"},
+        principle:{en:"You can't manage others well until you understand your own strengths, values, and triggers.", fa:"تا نقاطِ قوت، ارزش‌ها، و حساسیت‌های خودت را نفهمی، نمی‌توانی دیگران را خوب مدیریت کنی."},
+        more:{en:"Your reactions shape the team's mood. Knowing what you're good at, what sets you off, and what you truly value lets you play to your strengths, catch yourself before a bad reaction, and lead in a way that's actually you.", fa:"واکنش‌های تو حال‌وهوای تیم را می‌سازند. دانستنِ اینکه در چه خوبی، چه چیزی از کوره درت می‌برد، و واقعاً به چه اهمیت می‌دهی، می‌گذارد از نقاطِ قوتت استفاده کنی، قبل از یک واکنشِ بد جلوی خودت را بگیری، و طوری رهبری کنی که واقعاً خودت باشی."},
+        example:{en:"If tight deadlines make you snappy, notice it and warn yourself before the meeting.", fa:"اگر ضرب‌الاجلِ تنگ بداخلاقت می‌کند، این را بشناس و قبل از جلسه به خودت هشدار بده."},
+        tip:{en:"Ask a trusted colleague what you're like on a bad day; listen without defending.", fa:"از یک همکارِ مورد‌اعتماد بپرس در یک روزِ بد چه‌جوری هستی؛ بدونِ دفاع گوش کن."},
+        pitfall:{en:"Assuming everyone works and reacts the way you do.", fa:"فرض‌کردنِ اینکه همه مثلِ تو کار و واکنش می‌کنند."} },
+      impostor:{ part:"self", n:11, name:{en:"Befriend Impostor Feelings", fa:"با حسِ قلابی‌بودن کنار بیا"}, glabel:{en:"Impostor", fa:"حسِ قلابی"},
+        principle:{en:"Feeling like a fraud who'll be found out is normal — almost every manager feels it, especially early.", fa:"این حس که قلابی‌ای و بالاخره لو می‌روی، طبیعی است — تقریباً هر مدیری، مخصوصاً اوایل، این حس را دارد."},
+        more:{en:"Impostor feelings don't mean you're not good enough; they mean you're doing something new and hard. Name the feeling, talk about it, and keep acting anyway. Confidence follows action, not the other way around.", fa:"حسِ قلابی‌بودن به این معنا نیست که به‌اندازهٔ کافی خوب نیستی؛ یعنی داری کارِ تازه و سختی می‌کنی. حس را اسم ببر، درباره‌اش حرف بزن، و به‌هرحال به عمل ادامه بده. اعتماد‌به‌نفس بعد از عمل می‌آید، نه برعکس."},
+        example:{en:"Even senior managers admit they still sometimes feel out of their depth.", fa:"حتی مدیرهای باتجربه هم اعتراف می‌کنند گاهی هنوز حس می‌کنند از پسش برنمی‌آیند."},
+        tip:{en:"Say the feeling out loud to a peer; naming it shrinks it.", fa:"حس را با یک هم‌ردیف بلند بگو؛ اسم‌بردنش، کوچکش می‌کند."},
+        pitfall:{en:"Reading normal self-doubt as proof you're not cut out for it.", fa:"خواندنِ تردیدِ طبیعی به‌عنوانِ دلیلِ اینکه به‌دردِ این کار نمی‌خوری."} },
+      energy:{ part:"self", n:12, name:{en:"Guard Your Energy", fa:"انرژی‌ات را نگه دار"}, glabel:{en:"Energy", fa:"انرژی"},
+        principle:{en:"Your time and energy are your most precious resources — protect them so you can show up calm and present.", fa:"وقت و انرژی‌ات، باارزش‌ترین منابعِ تواند — نگهشان دار تا بتوانی آرام و حاضر ظاهر شوی."},
+        more:{en:"A frazzled, overbooked manager makes worse decisions and spreads stress to the team. Guard your calendar, protect focus time, and manage your energy like a budget — because how you show up sets the tone for everyone.", fa:"مدیرِ کلافه و پُرمشغله، تصمیم‌های بدتری می‌گیرد و استرس را به تیم پخش می‌کند. مراقبِ تقویمت باش، وقتِ تمرکز را نگه دار، و انرژی‌ات را مثلِ یک بودجه مدیریت کن — چون طرزِ ظاهر‌شدنت، فضای همه را می‌سازد."},
+        example:{en:"Blocking two hours of focus time can be worth more than five back-to-back meetings.", fa:"بلوکه‌کردنِ دو ساعت وقتِ تمرکز می‌تواند از پنج جلسهٔ پشتِ‌سرِ هم باارزش‌تر باشد."},
+        tip:{en:"Protect one recurring block for deep work and guard it like a meeting.", fa:"یک بلوکِ همیشگی برای کارِ عمیق نگه دار و مثلِ یک جلسه ازش محافظت کن."},
+        pitfall:{en:"Saying yes to every meeting until you have no time to think.", fa:"بله‌گفتن به هر جلسه تا جایی که وقتی برای فکر‌کردن نمی‌ماند."} },
+      meetings:{ part:"scale", n:13, name:{en:"Run Great Meetings", fa:"جلسه‌های خوب بگذار"}, glabel:{en:"Meetings", fa:"جلسه"},
+        principle:{en:"A great meeting has a clear purpose and leaves people clearer and more energized than before.", fa:"یک جلسهٔ خوب هدفِ روشن دارد و آدم‌ها را روشن‌تر و پُرانرژی‌تر از قبل رها می‌کند."},
+        more:{en:"Every meeting should have one obvious reason to exist and the right people in the room. Decide what a good outcome is before you start, make sure quieter voices are heard, and end with clear next steps — or don't hold it at all.", fa:"هر جلسه باید یک دلیلِ روشن برای بودن داشته باشد و آدم‌های درست را در اتاق. قبل از شروع تصمیم بگیر نتیجهٔ خوب چیست، مطمئن شو صداهای آرام‌تر هم شنیده می‌شوند، و با قدم‌های بعدیِ روشن تمامش کن — یا اصلاً برگزارش نکن."},
+        example:{en:"‘What decision do we need to make today?’ at the top keeps a meeting on the rails.", fa:"«امروز باید چه تصمیمی بگیریم؟» در ابتدای جلسه، آن را روی ریل نگه می‌دارد."},
+        tip:{en:"Write the meeting's purpose and desired outcome at the top of the invite.", fa:"هدف و نتیجهٔ دلخواهِ جلسه را بالای دعوت‌نامه بنویس."},
+        pitfall:{en:"Holding a meeting out of habit, with no clear purpose or decision.", fa:"برگزاریِ جلسه از رویِ عادت، بی‌هدفِ روشن یا تصمیم."} },
+      hiring:{ part:"scale", n:14, name:{en:"Hire Well", fa:"خوب استخدام کن"}, glabel:{en:"Hiring", fa:"استخدام"},
+        principle:{en:"Hiring is building the future of your team — treat it as a top priority, not an interruption.", fa:"استخدام یعنی ساختنِ آیندهٔ تیمت — آن را یک اولویتِ اصلی بدان، نه یک مزاحمت."},
+        more:{en:"Every hire changes what your team can become. Invest real time in it: know what you're looking for, sell the mission, and hire for strengths and potential over a flawless but generic résumé. A great team is built one deliberate hire at a time.", fa:"هر استخدام، چیزی که تیمت می‌تواند بشود را عوض می‌کند. وقتِ واقعی برایش بگذار: بدان دنبالِ چه هستی، مأموریت را خوب معرفی کن، و به‌جای رزومهٔ بی‌نقص ولی معمولی، بر اساسِ نقاطِ قوت و ظرفیت استخدام کن. یک تیمِ عالی، استخدام‌به‌استخدام و با تصمیمِ آگاهانه ساخته می‌شود."},
+        example:{en:"A curious, fast learner often outgrows a polished candidate who's already peaked.", fa:"یک آدمِ کنجکاو و زودآموز اغلب از یک نامزدِ صیقلی که به سقفش رسیده جلو می‌زند."},
+        tip:{en:"Write down the strengths you need before you read a single résumé.", fa:"نقاطِ قوتی که لازم داری را قبل از خواندنِ حتی یک رزومه بنویس."},
+        pitfall:{en:"Rushing a hire to fill a seat and paying for it for years.", fa:"عجله در استخدام برای پُرکردنِ یک صندلی، و سال‌ها تاوان‌دادن."} },
+      growteam:{ part:"scale", n:15, name:{en:"Lead a Growing Team", fa:"تیمِ روبه‌رشد را رهبری کن"}, glabel:{en:"Delegate", fa:"واگذاری"},
+        principle:{en:"As the team grows, shift from doing the work to enabling it: delegate, and hire people better than you.", fa:"وقتی تیم بزرگ می‌شود، از انجامِ کار به ممکن‌کردنش برو: واگذار کن، و آدم‌هایی بهتر از خودت استخدام کن."},
+        more:{en:"What worked with three people breaks with thirty. You can no longer touch everything, so your job becomes hiring strong people, trusting them with real ownership, and building enough process that things run without you in every detail.", fa:"چیزی که با سه نفر جواب می‌داد، با سی نفر می‌شکند. دیگر نمی‌توانی به همه‌چیز دست بزنی، پس کارت می‌شود استخدامِ آدم‌های قوی، سپردنِ مالکیتِ واقعی به آن‌ها، و ساختنِ آن‌قدر فرایند که کارها بدونِ حضورِ تو در هر جزئیات بچرخند."},
+        example:{en:"Handing a project fully to someone — decisions and all — scales you; shadowing it doesn't.", fa:"سپردنِ کاملِ یک پروژه به کسی — با همهٔ تصمیم‌هایش — تو را گسترش می‌دهد؛ بالای سرش ایستادن نه."},
+        tip:{en:"Delegate outcomes, not tasks: hand over the goal and let them own the how.", fa:"نتیجه را واگذار کن، نه کار را: هدف را بسپار و بگذار «چطورش» مالِ خودشان باشد."},
+        pitfall:{en:"Staying in the weeds and becoming the bottleneck for every decision.", fa:"ماندن در ریزه‌کاری‌ها و تبدیل‌شدن به گلوگاهِ هر تصمیم."} },
+      culture:{ part:"scale", n:16, name:{en:"Nurture Culture", fa:"فرهنگ را بپروران"}, glabel:{en:"Culture", fa:"فرهنگ"},
+        principle:{en:"Culture is what you celebrate and what you tolerate — your own behavior sets the norms.", fa:"فرهنگ یعنی چیزی که تشویق می‌کنی و چیزی که تحمل می‌کنی — رفتارِ خودت، هنجارها را می‌سازد."},
+        more:{en:"You shape culture whether you mean to or not. People watch what actually gets rewarded and what quietly gets a pass, far more than any stated value. Live the behaviors you want, call out the ones you don't, and be explicit about what your team stands for.", fa:"چه بخواهی چه نخواهی، به فرهنگ شکل می‌دهی. آدم‌ها خیلی بیشتر از هر ارزشِ اعلام‌شده، حواسشان به این است که واقعاً چه چیزی پاداش می‌گیرد و چه چیزی بی‌سروصدا نادیده گرفته می‌شود. رفتاری که می‌خواهی را خودت زندگی کن، آن‌هایی که نمی‌خواهی را تذکر بده، و روشن بگو تیمت پایِ چه ایستاده است."},
+        example:{en:"If you say you value balance but email at midnight, the late emails become the culture.", fa:"اگر بگویی برایت تعادل مهم است ولی نیمه‌شب ایمیل بزنی، همان ایمیل‌های شبانه می‌شوند فرهنگ."},
+        tip:{en:"Pick two behaviors you want to be normal and model them visibly this week.", fa:"دو رفتار که می‌خواهی عادی باشند را انتخاب کن و همین هفته آشکارا انجامشان بده."},
+        pitfall:{en:"Naming values on a poster while rewarding the opposite in practice.", fa:"نوشتنِ ارزش‌ها روی یک پوستر، درحالی‌که در عمل عکسشان پاداش می‌گیرد."} }
+    },
+    core:{ name:{en:"MANAGEMENT", fa:"مدیریت"},
+      principle:{en:"Management is the craft of getting better outcomes from a group of people working together. Your job is not to do the work yourself but to multiply the team — by improving its people, sharpening its purpose, and fixing its process — while earning trust, giving honest feedback, and managing yourself first.", fa:"مدیریت، هنرِ گرفتنِ نتیجهٔ بهتر از یک گروه آدم است که با هم کار می‌کنند. کارِ تو انجامِ خودِ کار نیست، بلکه چند‌برابر‌کردنِ تیم است — با بهترکردنِ آدم‌ها، تیزکردنِ هدف، و درست‌کردنِ فرایند — درحالی‌که اعتماد می‌سازی، بازخوردِ روراست می‌دهی، و اول از همه خودت را مدیریت می‌کنی."},
+      more:{en:"Zhuo organizes the job into a path: understand what management really is (purpose, people, process), survive and earn trust in your first months, master feedback and hard conversations, manage yourself — including the impostor feeling nearly everyone has — and finally scale through great meetings, strong hiring, delegation, and culture. The thread throughout: a manager succeeds only when the team does.", fa:"ژو این کار را در قالبِ یک مسیر می‌چیند: بفهم مدیریت واقعاً چیست (هدف، آدم‌ها، فرایند)، در ماه‌های اول دوام بیاور و اعتماد بساز، بازخورد و گفت‌وگوهای سخت را استاد شو، خودت را مدیریت کن — از جمله همان حسِ قلابی‌بودن که تقریباً همه دارند — و در آخر با جلسه‌های خوب، استخدامِ قوی، واگذاری، و فرهنگ، بزرگ شو. نخِ رابطِ همه: مدیر فقط وقتی موفق است که تیمش موفق باشد."},
+      example:{en:"Click any node to read an idea. You can also drag the nodes around.", fa:"روی هر دایره کلیک کن تا یک ایده را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."} },
+    stages:[
+      { level:1, badge:{en:"Level 1 · Over-simplified", fa:"سطحِ ۱ · خیلی ساده"}, title:{en:"Get better outcomes", fa:"نتیجهٔ بهتر بگیر"}, tagline:{en:"The whole job in one sentence.", fa:"کلِ کار در یک جمله."},
+        body:{en:"Management is simple to state: your job is to help a group of people get a better result together than they would apart. You win when the team wins — not when you personally do the most work.", fa:"گفتنِ مدیریت ساده است: کارت این است که کمک کنی یک گروه آدم با هم نتیجه‌ای بهتر از جدا‌جدا بگیرند. تو وقتی می‌بری که تیم می‌برد — نه وقتی خودت بیشترین کار را می‌کنی."},
+        example:{en:"If your team ships something great, you did your job — even if you wrote none of it.", fa:"اگر تیمت چیزِ خوبی به سرانجام برساند، کارت را کرده‌ای — حتی اگر هیچ بخشش را خودت ننوشته باشی."},
+        gain:{en:"You hold the one definition the whole book builds on.", fa:"همان یک تعریفی را داری که کلِ کتاب رویش ساخته می‌شود."} },
+      { level:2, badge:{en:"Level 2 · Simple", fa:"سطحِ ۲ · ساده"}, title:{en:"People, purpose, process", fa:"آدم‌ها، هدف، فرایند"}, tagline:{en:"The three things you actually work on.", fa:"سه چیزی که واقعاً روشان کار می‌کنی."},
+        body:{en:"A manager improves three levers: <b>people</b> (a motivated, capable team), <b>purpose</b> (a clear, shared why), and <b>process</b> (how decisions and work happen). You're a <b>multiplier</b>: make each person a bit better and the whole team's output grows.", fa:"مدیر سه اهرم را بهتر می‌کند: <b>آدم‌ها</b> (تیمی باانگیزه و توانا)، <b>هدف</b> (یک «چراییِ» روشن و مشترک)، و <b>فرایند</b> (اینکه تصمیم و کار چطور اتفاق می‌افتند). تو یک <b>چند‌برابر‌کننده‌ای</b>: هر نفر را کمی بهتر کن تا خروجیِ کلِ تیم بزرگ شود."},
+        example:{en:"A stuck team usually has one weak lever — often a fuzzy purpose, not lazy people.", fa:"یک تیمِ گیرکرده معمولاً یک اهرمِ ضعیف دارد — اغلب یک هدفِ مبهم، نه آدم‌های تنبل."},
+        gain:{en:"You can diagnose why a team is struggling.", fa:"می‌توانی تشخیص بدهی چرا یک تیم به‌زحمت افتاده."} },
+      { level:3, badge:{en:"Level 3 · Balanced", fa:"سطحِ ۳ · متعادل"}, title:{en:"Trust and feedback", fa:"اعتماد و بازخورد"}, tagline:{en:"Earn trust, then tell the truth.", fa:"اعتماد بساز، بعد حقیقت را بگو."},
+        body:{en:"The daily craft rests on two things. Build <b>trust</b> through regular <b>1:1s</b> and by admitting what you don't know. Then give lots of <b>feedback</b> — specific and timely — and don't dodge the <b>hard conversations</b>, because said with empathy they're what help people grow.", fa:"صنعتِ روزمره روی دو چیز بنا شده. با <b>جلسه‌های تک‌به‌تکِ</b> منظم و اعترافِ به آنچه نمی‌دانی، <b>اعتماد</b> بساز. بعد کلی <b>بازخورد</b> بده — مشخص و به‌موقع — و از <b>گفت‌وگوهای سخت</b> فرار نکن، چون وقتی با همدلی گفته شوند، همان‌هایی‌اند که به رشدِ آدم‌ها کمک می‌کنند."},
+        example:{en:"‘The way you framed the tradeoffs made the call easy’ teaches more than ‘nice work.’", fa:"«طوری که سبک‌سنگین‌ها را چیدی تصمیم را آسان کرد» بیشتر از «خوب بود» یاد می‌دهد."},
+        gain:{en:"You can build real relationships and coach people through them.", fa:"می‌توانی رابطهٔ واقعی بسازی و از دلِ آن آدم‌ها را راهنمایی کنی."} },
+      { level:4, badge:{en:"Level 4 · Advanced", fa:"سطحِ ۴ · پیشرفته"}, title:{en:"Manage yourself", fa:"خودت را مدیریت کن"}, tagline:{en:"Know yourself; guard your energy.", fa:"خودت را بشناس؛ انرژی‌ات را نگه دار."},
+        body:{en:"The hardest person to manage is you. Learn your <b>strengths and triggers</b>, make peace with the <b>impostor feeling</b> nearly every manager has, and guard your <b>time and energy</b> — how you show up, calm or frazzled, sets the tone for the whole team.", fa:"سخت‌ترین آدمی که باید مدیریت کنی، خودتی. <b>نقاطِ قوت و حساسیت‌هایت</b> را بشناس، با آن <b>حسِ قلابی‌بودن</b> که تقریباً هر مدیری دارد کنار بیا، و از <b>وقت و انرژی‌ات</b> محافظت کن — طرزِ ظاهر‌شدنت، آرام یا کلافه، فضای کلِ تیم را می‌سازد."},
+        example:{en:"Blocking focus time and naming your stress triggers keeps you steady for others.", fa:"نگه‌داشتنِ وقتِ تمرکز و شناختنِ محرک‌های استرست، تو را برای بقیه محکم نگه می‌دارد."},
+        gain:{en:"You can stay steady and lead from a place that's actually you.", fa:"می‌توانی محکم بمانی و از جایی که واقعاً خودتی رهبری کنی."} },
+      { level:5, badge:{en:"Level 5 · Expert", fa:"سطحِ ۵ · حرفه‌ای"}, title:{en:"Scale the team", fa:"تیم را بزرگ کن"}, tagline:{en:"Meetings, hiring, delegation, culture.", fa:"جلسه، استخدام، واگذاری، فرهنگ."},
+        body:{en:"At scale your job changes from doing to designing. Run <b>meetings</b> that leave people clearer and more energized. Treat <b>hiring</b> as building the future. <b>Delegate</b> outcomes and hire people better than you. And shape <b>culture</b> deliberately — it's what you celebrate and tolerate, set by your own behavior. A manager succeeds only when the team does.", fa:"در مقیاسِ بزرگ، کارت از انجام‌دادن به طراحی‌کردن تغییر می‌کند. <b>جلسه‌هایی</b> بگذار که آدم‌ها را روشن‌تر و پُرانرژی‌تر رها کنند. <b>استخدام</b> را ساختنِ آینده بدان. نتیجه‌ها را <b>واگذار</b> کن و آدم‌هایی بهتر از خودت بگیر. و <b>فرهنگ</b> را آگاهانه بساز — همان چیزی که تشویق و تحمل می‌کنی، که با رفتارِ خودت تعیین می‌شود. مدیر فقط وقتی موفق است که تیمش موفق باشد."},
+        example:{en:"You hand a project over fully, hire someone sharper than you, and mean it.", fa:"یک پروژه را کامل واگذار می‌کنی، کسی تیزتر از خودت استخدام می‌کنی، و واقعاً پایش می‌ایستی."},
+        gain:{en:"You can grow a team that thrives without you in every detail.", fa:"می‌توانی تیمی بسازی که بدونِ حضورِ تو در هر جزئیات، شکوفا می‌شود."} }
+    ],
+    quotes:[
+      {en:"Your job, as a manager, is to get better outcomes from a group of people working together.", fa:"کارِ تو به‌عنوانِ مدیر این است که از یک گروه آدم که با هم کار می‌کنند، نتیجهٔ بهتری بگیری."},
+      {en:"Your role as a manager is not to do the work yourself, even if you are the best at it, because that will only take you so far.", fa:"نقشِ تو به‌عنوانِ مدیر این نیست که خودت کار را انجام بدهی، حتی اگر بهترینش باشی، چون این فقط تا جایی تو را می‌برد."},
+      {en:"Your role is to improve the purpose, people, and process of your team to get as high a multiplier effect on your collective outcome as you can.", fa:"نقشِ تو این است که هدف، آدم‌ها، و فرایندِ تیمت را بهتر کنی تا بیشترین اثرِ چند‌برابری را روی نتیجهٔ جمعی‌تان بگیری."},
+      {en:"The most precious resource you have is your own time and energy, and when you spend it on your team, it goes a long way toward building healthy relationships.", fa:"باارزش‌ترین منبعی که داری، وقت و انرژیِ خودت است، و وقتی صرفِ تیمت می‌کنی‌اش، خیلی به ساختنِ رابطه‌های سالم کمک می‌کند."},
+      {en:"1:1s should be focused on your report and what would help him be more successful, not on you and what you need.", fa:"جلسه‌های تک‌به‌تک باید روی همان نفر و آنچه به موفقیتش کمک می‌کند متمرکز باشند، نه روی تو و آنچه تو لازم داری."},
+      {en:"Strive for all your one-on-one meetings to feel a little awkward. Why? Because the most important and meaningful conversations have that characteristic.", fa:"تلاش کن همهٔ جلسه‌های تک‌به‌تکت کمی معذب‌کننده باشند. چرا؟ چون مهم‌ترین و معنادارترین گفت‌وگوها همین ویژگی را دارند."},
+      {en:"The most common response to the question “How could your manager better support you?” is simply “Give me more feedback.”", fa:"پُرتکرارترین جواب به این سؤال که «مدیرت چطور می‌توانست بهتر پشتیبانی‌ات کند؟» فقط این است: «بیشتر بهم بازخورد بده.»"},
+      {en:"Your job as a manager isn't to dole out advice—it's to empower your report to find the answer herself.", fa:"کارِ تو به‌عنوانِ مدیر این نیست که نصیحت تحویل بدهی — این است که همان نفر را توانمند کنی تا خودش جواب را پیدا کند."},
+      {en:"When we are going through tough times, the thing that's often the most helpful isn't advice or answers but empathy.", fa:"وقتی روزهای سختی را می‌گذرانیم، چیزی که اغلب بیشترین کمک را می‌کند نصیحت یا جواب نیست، همدلی است."}
+    ],
+    media:[
+      { kind:"yt", id:"t1KskLsRECk", src:{en:"YouTube · FranklinCovey", fa:"یوتیوب · FranklinCovey"},
+        title:{en:"Understand Your Role as a Manager — Julie Zhuo", fa:"نقشت را به‌عنوانِ مدیر بفهم — جولی ژو"},
+        desc:{en:"Julie Zhuo explains what a manager is really there to do.", fa:"جولی ژو توضیح می‌دهد که یک مدیر واقعاً برای چه کاری آنجاست."},
+        bullets:{en:["The core definition of management","Why you're a multiplier, not a doer","Straight from the author"], fa:["تعریفِ اصلیِ مدیریت","چرا تو چند‌برابر‌کننده‌ای، نه انجام‌دهنده","مستقیم از خودِ نویسنده"]},
+        best:{en:"Best for Stage 1–2.", fa:"خوب برای مرحلهٔ ۱ و ۲."} },
+      { kind:"yt", id:"GmOlrQAdb5A", src:{en:"YouTube · LEADx", fa:"یوتیوب · LEADx"},
+        title:{en:"The Making of a Manager — Julie Zhuo Interview", fa:"ساختنِ یک مدیر — گفت‌وگو با جولی ژو"},
+        desc:{en:"A conversation with Julie Zhuo on becoming a manager and the book's ideas.", fa:"گفت‌وگویی با جولی ژو دربارهٔ مدیر‌شدن و ایده‌های کتاب."},
+        bullets:{en:["Lessons from leading at Facebook","Trust, feedback, and first months","Practical, real-world advice"], fa:["درس‌هایی از رهبری در فیسبوک","اعتماد، بازخورد، و ماه‌های اول","توصیه‌های عملی و واقعی"]},
+        best:{en:"Best for Stage 2–3.", fa:"خوب برای مرحلهٔ ۲ و ۳."} },
+      { kind:"yt", id:"Qyo8gETr5FI", src:{en:"YouTube · Book Ginger", fa:"یوتیوب · Book Ginger"},
+        title:{en:"The Making of a Manager — Animated Summary", fa:"ساختنِ یک مدیر — خلاصهٔ انیمیشنی"},
+        desc:{en:"An animated summary of the book for new leaders.", fa:"یک خلاصهٔ انیمیشنی از کتاب برای رهبرانِ تازه‌کار."},
+        bullets:{en:["The whole book in a few minutes","Key ideas, visualized","A fast, memorable recap"], fa:["کلِ کتاب در چند دقیقه","ایده‌های کلیدی، تصویری","یک مرورِ سریع و به‌یادماندنی"]},
+        best:{en:"Best for Stage 1–3.", fa:"خوب برای مرحلهٔ ۱ تا ۳."} },
+      { kind:"img", url:"https://www.penguinrandomhouse.com/books/558155/the-making-of-a-manager-by-julie-zhuo/",
+        src:{en:"Penguin Random House · Publisher", fa:"Penguin Random House · ناشر"},
+        title:{en:"The Making of a Manager — Publisher Page", fa:"ساختنِ یک مدیر — صفحهٔ ناشر"},
+        desc:{en:"The official publisher page, with editions and details.", fa:"صفحهٔ رسمیِ ناشر، با نسخه‌ها و جزئیات."},
+        bullets:{en:["The official edition","About Julie Zhuo","Straight from the source"], fa:["نسخهٔ رسمی","دربارهٔ جولی ژو","مستقیم از خودِ منبع"]},
+        best:{en:"For editions and the source.", fa:"برای نسخه‌ها و منبعِ اصلی."} }
+    ],
+    go:[
+      {label:{en:"Publisher page", fa:"صفحهٔ ناشر"}, url:"https://www.penguinrandomhouse.com/books/558155/the-making-of-a-manager-by-julie-zhuo/"},
+      {label:{en:"Book on Goodreads", fa:"کتاب در گودریدز"}, url:"https://www.goodreads.com/book/show/38821039-the-making-of-a-manager"},
+      {label:{en:"Author's page: The Making of a Manager", fa:"صفحهٔ نویسنده: ساختنِ یک مدیر"}, url:"https://www.juliezhuo.com/book/manager.html"}
+    ],
+    recs:[
+      { pri:"b", t:{en:"Book a weekly 1:1 with every report", fa:"با هر نفر یک جلسهٔ هفتگیِ تک‌به‌تک بگذار"}, d:{en:"Thirty minutes, focused on them — the single highest-leverage habit of a new manager.", fa:"سی دقیقه، متمرکز بر خودِ او — پُراهرم‌ترین عادتِ یک مدیرِ تازه‌کار."} },
+      { pri:"b", t:{en:"Give one specific piece of feedback today", fa:"همین امروز یک بازخوردِ مشخص بده"}, d:{en:"Name exactly what you saw and what you'd like to see next — don't wait for review season.", fa:"دقیقاً بگو چه دیدی و دفعهٔ بعد چه می‌خواهی ببینی — منتظرِ فصلِ ارزیابی نمان."} },
+      { pri:"n", t:{en:"Have the conversation you're avoiding", fa:"همان گفت‌وگویی که ازش فرار می‌کنی را انجام بده"}, d:{en:"Raise the small tension now, kindly and clearly, before it grows into a big one.", fa:"همان تنشِ کوچک را حالا، با مهربانی و روشنی، مطرح کن؛ قبل از اینکه بزرگ شود."} },
+      { pri:"n", t:{en:"Protect two hours of focus time", fa:"دو ساعت وقتِ تمرکز را نگه دار"}, d:{en:"Block it on your calendar and guard it like a meeting — your energy is a resource.", fa:"روی تقویمت بلوکه‌اش کن و مثلِ یک جلسه ازش محافظت کن — انرژی‌ات یک منبع است."} }
+    ]
+  }
+};

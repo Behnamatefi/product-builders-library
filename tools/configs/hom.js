@@ -1,0 +1,263 @@
+/* config: High Output Management — Andrew S. Grove (Managing) */
+module.exports = {
+  slug:"hom", brand:"High Output Management",
+  titleTag:"High Output Management — نقشهٔ دانش و یادگیری ۵ مرحله‌ای",
+  W:980, H:780, R1:220, R2:126, span:66,
+  leafKickEn:"Idea", leafKickFa:"ایدهٔ",
+  flowEn:["Output","Leverage","Measure"], flowFa:["خروجی","اهرم","سنجش"],
+
+  hero:`  <div class="eyebrow"><span class="edot"></span>
+    <span data-only="en">Book knowledge map · Andrew S. Grove</span>
+    <span data-only="fa">نقشهٔ کتاب · اندرو گرو</span>
+  </div>
+  <h1>
+    <span data-only="en">High Output Management — Getting the Most Out of Every Team You Touch</span>
+    <span data-only="fa">مدیریتِ پُربازده — بیشترین خروجی از هر تیمی که با آن کار می‌کنی</span>
+  </h1>
+  <p class="dek">
+    <span data-only="en">A knowledge graph of the whole book, plus a 5-stage path from a single sentence to expert-level mastery — with an example at every step.</span>
+    <span data-only="fa">نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از خیلی ساده تا حرفه‌ای — با یک مثال در هر مرحله.</span>
+  </p>
+  <div class="metastrip">
+    <div class="metaitem"><span class="mk" data-only="en">Book</span><span class="mk" data-only="fa">کتاب</span>
+      <span class="mv" data-only="en">High Output Management</span><span class="mv" data-only="fa">مدیریتِ پُربازده</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Author</span><span class="mk" data-only="fa">نویسنده</span>
+      <span class="mv" data-only="en">Andrew S. Grove</span><span class="mv" data-only="fa">اندرو گرو</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Published</span><span class="mk" data-only="fa">سالِ چاپ</span>
+      <span class="mv" data-only="en">1983</span><span class="mv" data-only="fa">۱۹۸۳</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Group</span><span class="mk" data-only="fa">گروه</span>
+      <span class="mv" data-only="en">Managing</span><span class="mv" data-only="fa">مدیریت</span></div>
+  </div>
+  <div class="chips">
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Parts</span><span data-only="fa">بخش</span></div>
+    <div class="chip"><b data-only="en">16</b><b data-only="fa">۱۶</b><span data-only="en">Ideas</span><span data-only="fa">ایده</span></div>
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Learning stages</span><span data-only="fa">مرحلهٔ یادگیری</span></div>
+  </div>`,
+
+  callout:`    <b data-only="en">The core idea:</b>
+    <b data-only="fa">ایدهٔ اصلی:</b>
+    <span data-only="en"> A manager is paid for output — not their own, but their <i>whole team's</i>. You raise it with <i>leverage</i>: a few high-leverage activities that ripple through many people. Run each team like a tuned production line, aim it with clear objectives, and manage each person by how ready they are for the task.</span>
+    <span data-only="fa"> به یک مدیر برای خروجی پول می‌دهند — نه خروجیِ خودش، بلکه خروجیِ <i>کلِ تیمش</i>. این خروجی را با <i>اهرم</i> بالا می‌بری: چند کارِ پُراهرم که در آدم‌های زیادی موج می‌اندازد. هر تیم را مثلِ یک خطِ تولیدِ کوک‌شده بگردان، با هدف‌های روشن نشانه‌اش بگیر، و هر آدم را برحسبِ اینکه چقدر برای آن کار آماده است مدیریت کن.</span>`,
+
+  kpis:`    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Parts (production · leverage · meetings · planning · people)</div><div class="l" data-only="fa">بخش (تولید · اهرم · جلسه‌ها · برنامه‌ریزی · آدم‌ها)</div></div>
+    <div class="kbox"><div class="v" data-only="en">16</div><div class="v" data-only="fa">۱۶</div><div class="l" data-only="en">Ideas you can use</div><div class="l" data-only="fa">ایده برای استفاده</div></div>
+    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Levels, simple → expert</div><div class="l" data-only="fa">مرحله، ساده تا حرفه‌ای</div></div>
+    <div class="kbox"><div class="v" data-only="en">3</div><div class="v" data-only="fa">۳</div><div class="l" data-only="en">High-leverage acts: training · one-on-ones · clear goals</div><div class="l" data-only="fa">کارهای پُراهرم: آموزش · جلسهٔ دونفره · هدفِ روشن</div></div>`,
+
+  mapcallout:`      <b data-only="en">Read it as a flow:</b><b data-only="fa">به‌صورتِ یک جریان بخوانش:</b>
+      <span data-only="en"> run each team like a <b>production</b> line, multiply yourself through <b>leverage</b>, use <b>meetings</b> and clear <b>decisions</b> as your medium, aim everyone with <b>planning and OKRs</b>, and manage each <b>person</b> by their task-relevant maturity.</span>
+      <span data-only="fa"> هر تیم را مثلِ یک خطِ <b>تولید</b> بگردان، با <b>اهرم</b> خودت را چند برابر کن، از <b>جلسه‌ها</b> و <b>تصمیم‌های</b> روشن به‌عنوانِ بسترِ کارت استفاده کن، همه را با <b>برنامه‌ریزی و OKR</b> نشانه بگیر، و هر <b>آدم</b> را با بلوغِ متناسب با کارش مدیریت کن.</span>`,
+
+  methodFa:"<p><b>منبع:</b> کتابِ «مدیریتِ پُربازده» (High Output Management) نوشتهٔ اندرو گرو، چاپِ نخست ۱۹۸۳ (نشرِ Vintage، با ویرایش‌های بعدی).</p><p><b>روشِ کار:</b> ساختارِ پنج‌بخشی و ایده‌ها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده؛ نقل‌قول‌ها با متنِ کتاب مقابله و ویدیوها بررسی شده‌اند.</p><p><b>گروه:</b> «مدیریت» — از فهرستِ کتاب‌های ضروریِ سازندگانِ محصولِ لنی راچیتسکی.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای متنِ کامل، خودِ کتاب را بخوان.</p>",
+  methodEn:"<p><b>Source:</b> the book <i>High Output Management</i> by Andrew S. Grove, first published 1983 (Vintage, revised editions since).</p><p><b>How this was built:</b> the five-part structure and ideas were gathered and rewritten from the book and reputable sources; quotes were cross-checked and the linked videos verified.</p><p><b>Group:</b> Managing — from Lenny Rachitsky's essential books for product builders.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>",
+
+  data:{
+    tldr:[
+      {en:"The whole book in one line: a manager's output is the output of their whole team — so your job is to raise it.",
+       fa:"خلاصهٔ کل کتاب در یک جمله: خروجیِ یک مدیر یعنی خروجیِ کلِ تیمش — پس کارِ تو این است که آن را بالا ببری."},
+      {en:"You raise it through <b>leverage</b>: a few high-leverage activities (training, one-on-ones, clear goals) that ripple through many people.",
+       fa:"این خروجی را با <b>اهرم</b> بالا می‌بری: چند کارِ پُراهرم (آموزش، جلسهٔ دونفره، هدفِ روشن) که در آدم‌های زیادی موج می‌اندازد."},
+      {en:"Run any team like a <b>production line</b>: meet demand on time, at quality, at low cost — and manage the limiting step.",
+       fa:"هر تیم را مثلِ یک <b>خطِ تولید</b> بگردان: تقاضا را سرِ وقت، باکیفیت و کم‌هزینه جواب بده — و مواظبِ مرحلهٔ محدودکننده باش."},
+      {en:"Align everyone with <b>planning and OKRs</b> — one clear objective plus a few measurable key results.",
+       fa:"همه را با <b>برنامه‌ریزی و OKR</b> هم‌جهت کن — یک هدفِ روشن به‌علاوهٔ چند نتیجهٔ کلیدیِ قابلِ‌اندازه‌گیری."},
+      {en:"Manage each person by their <b>task-relevant maturity</b>, and motivate by tapping the drive to keep getting better.",
+       fa:"هر آدم را با <b>بلوغِ متناسب با کارش</b> مدیریت کن، و با میلِ به بهترشدن در او انگیزه بساز."}
+    ],
+    parts:[
+      { key:"production", varc:"--c-teal", name:{en:"The Production Principle", fa:"اصلِ تولید"}, tag:{en:"Run the line", fa:"خط را بگردان"},
+        gist:{en:"Every kind of work is a production process: deliver on time, at quality, at low cost.", fa:"هر کاری یک فرآیندِ تولید است: سرِ وقت، باکیفیت و کم‌هزینه تحویلش بده."},
+        more:{en:"Grove starts with a breakfast factory serving an egg, toast, and coffee, and shows that sales, engineering, even a whole company obey the same rules. Find the step that limits everything, build the flow around it, and measure it with a few honest indicators — catching problems while they are still cheap to fix.",
+              fa:"گرو با یک «کارخانهٔ صبحانه» شروع می‌کند که تخم‌مرغ و نان تست و قهوه سِرو می‌کند، و نشان می‌دهد فروش، مهندسی، حتی کلِ یک شرکت هم از همین قاعده‌ها پیروی می‌کنند. مرحله‌ای را که همه‌چیز را محدود می‌کند پیدا کن، جریانِ کار را دورش بچین، و با چند شاخصِ صادق بسنجش — طوری که مشکل‌ها را وقتی هنوز ارزان‌اند بگیری."},
+        chapters:["factory","limitstep","indicators"] },
+      { key:"leverage", varc:"--c-blue", name:{en:"Managerial Leverage", fa:"اهرمِ مدیریتی"}, tag:{en:"Multiply yourself", fa:"خودت را چند برابر کن"},
+        gist:{en:"A manager's output is the whole team's output — raised through a few high-leverage acts.", fa:"خروجیِ یک مدیر یعنی خروجیِ کلِ تیم — که با چند کارِ پُراهرم بالا می‌رود."},
+        more:{en:"This is the heart of the book. Your output is not what you personally produce, but what your organization and everyone you influence produce. So the game is leverage: pour your time into the handful of activities — training, one-on-ones, clear objectives, timely nudges — that ripple through many people, and delegate the rest without abandoning it.",
+              fa:"این قلبِ کتاب است. خروجیِ تو چیزی نیست که خودت شخصاً تولید می‌کنی، بلکه چیزی است که سازمانت و هرکسی که رویش اثر می‌گذاری تولید می‌کند. پس بازی، بازیِ اهرم است: وقتت را روی همان چند کار بریز — آموزش، جلسهٔ دونفره، هدفِ روشن، تلنگرِ به‌موقع — که در آدم‌های زیادی موج می‌اندازد، و باقی را واگذار کن، بی‌آنکه رهایش کنی."},
+        chapters:["output","highlev","delegate"] },
+      { key:"meetings", varc:"--c-amber", name:{en:"Meetings & Decisions", fa:"جلسه‌ها و تصمیم‌ها"}, tag:{en:"The manager's medium", fa:"بسترِ کارِ مدیر"},
+        gist:{en:"Meetings are how managerial work gets done; run them well and decide clearly.", fa:"جلسه همان جایی است که کارِ مدیریتی انجام می‌شود؛ خوب بگردانش و روشن تصمیم بگیر."},
+        more:{en:"Managers should not fight meetings — meetings are the medium of the work. Know the difference between process meetings (regular one-on-ones, staff meetings, reviews) and mission meetings (called to reach one decision). And drive decisions the ideal way: free discussion, a clear decision, then full support from everyone, even the people who lost the argument.",
+              fa:"مدیر نباید با جلسه بجنگد — جلسه همان بسترِ کار است. فرقِ جلسه‌های فرآیندی (دونفرهٔ منظم، جلسهٔ تیمی، بازبینی) و جلسه‌های مأموریتی (که برای یک تصمیم گذاشته می‌شوند) را بدان. و تصمیم را به شیوهٔ آرمانی پیش ببر: بحثِ آزاد، یک تصمیمِ روشن، بعد پشتیبانیِ کاملِ همه — حتی آن‌هایی که در بحث باختند."},
+        chapters:["oneonone","meetingtypes","decisions"] },
+      { key:"planning", varc:"--c-violet", name:{en:"Planning & OKRs", fa:"برنامه‌ریزی و OKR"}, tag:{en:"Aim the team", fa:"تیم را نشانه بگیر"},
+        gist:{en:"Plan by the gap between what's demanded and what you deliver, then set objectives and key results.", fa:"با فاصلهٔ بینِ آنچه تقاضا می‌شود و آنچه تحویل می‌دهی برنامه بریز، بعد هدف و نتایجِ کلیدی تعیین کن."},
+        more:{en:"Planning is simple in shape: look at what the environment will demand, look honestly at where you are, and decide what to change to close the gap. Then turn that into objectives and key results — Grove's Intel practice and the origin of OKRs — a clear objective paired with a few measurable results that pace you toward it, cascaded loosely down the org.",
+              fa:"برنامه‌ریزی شکلِ ساده‌ای دارد: ببین محیط چه تقاضایی خواهد داشت، صادقانه ببین کجایی، و تصمیم بگیر چه عوض کنی تا فاصله را ببندی. بعد این را به هدف‌ها و نتایجِ کلیدی تبدیل کن — همان روشِ گرو در اینتل و سرچشمهٔ OKR — یک هدفِ روشن جفت‌شده با چند نتیجهٔ قابلِ‌اندازه‌گیری که قدم‌به‌قدم به آن می‌رسانَدت، که شل و انعطاف‌پذیر در سازمان پایین می‌ریزد."},
+        chapters:["planprocess","okrs","cascade"] },
+      { key:"human", varc:"--c-green", name:{en:"The Human Element", fa:"عنصرِ انسانی"}, tag:{en:"Manage people", fa:"آدم‌ها را مدیریت کن"},
+        gist:{en:"Manage each person by their task-relevant maturity, and motivate by tapping self-actualization.", fa:"هر آدم را با بلوغِ متناسب با کارش مدیریت کن، و با میلِ به بهترشدن انگیزه بده."},
+        more:{en:"In the end, management is teaching and motivating, person by person. How ready someone is for a specific task — their task-relevant maturity — decides how much structure they need. When people underperform they either can't or won't, so you train or you motivate, leaning on Maslow's ladder up to self-actualization. And the performance review is your most important tool for honest, task-relevant feedback.",
+              fa:"آخرِ کار، مدیریت یعنی آموزش‌دادن و انگیزه‌دادن، آدم به آدم. اینکه یک نفر برای یک کارِ مشخص چقدر آماده است — بلوغِ متناسب با کارش — تعیین می‌کند چقدر به ساختار نیاز دارد. وقتی آدم‌ها خوب کار نمی‌کنند، یا نمی‌توانند یا نمی‌خواهند، پس یا آموزش می‌دهی یا انگیزه، با تکیه بر نردبانِ مازلو تا خودشکوفایی. و ارزیابیِ عملکرد مهم‌ترین ابزارت برای بازخوردِ صادقانه و متناسب با کار است."},
+        chapters:["trm","style","motivation","review"] }
+    ],
+    chapters:{
+      factory:{ part:"production", n:1, name:{en:"The Breakfast Factory", fa:"کارخانهٔ صبحانه"}, glabel:{en:"Factory", fa:"کارخانه"},
+        principle:{en:"The basic job of production is to deliver a product on time, at acceptable quality, and at the lowest cost — Grove teaches it with a breakfast factory.", fa:"کارِ پایه‌ایِ تولید این است که محصول را سرِ وقت، با کیفیتِ قابلِ‌قبول و با کمترین هزینه تحویل بدهی — و گرو این را با یک «کارخانهٔ صبحانه» یاد می‌دهد."},
+        more:{en:"A sit-down breakfast — a boiled egg, toast, and coffee, served hot and together — is a production line, and so is sales, engineering, or a whole company. Start from the customer's order and the delivery time, then design the flow backward to meet them.", fa:"یک صبحانهٔ کامل — یک تخم‌مرغِ آب‌پز، نان تست و قهوه که داغ و باهم سِرو شوند — خودش یک خطِ تولید است؛ فروش، مهندسی یا کلِ یک شرکت هم همین‌طور. از سفارشِ مشتری و زمانِ تحویل شروع کن، بعد جریانِ کار را از آخر به اول طوری بچین که به آن‌ها برسی."},
+        example:{en:"To serve the egg, toast, and coffee together, you plan backward from the moment everything must be ready.", fa:"برای اینکه تخم‌مرغ و نان و قهوه باهم آماده شوند، از همان لحظه‌ای که همه‌چیز باید حاضر باشد رو به عقب برنامه می‌ریزی."},
+        tip:{en:"Treat any repeated task as a production line: what's the deadline, the quality bar, and the cheapest way to hit both?", fa:"هر کارِ تکرارشونده را مثلِ یک خطِ تولید ببین: مهلتش کِی است، حداقلِ کیفیتش چقدر است، و ارزان‌ترین راهِ رسیدن به هر دو کدام است؟"},
+        pitfall:{en:"Optimizing one station while the whole meal arrives cold and late.", fa:"بهینه‌کردنِ یک ایستگاه، درحالی‌که کلِ غذا سرد و دیر می‌رسد."} },
+      limitstep:{ part:"production", n:2, name:{en:"The Limiting Step", fa:"مرحلهٔ محدودکننده"}, glabel:{en:"Limiting Step", fa:"مرحلهٔ محدود"},
+        principle:{en:"Find the limiting step — the longest or hardest-to-undo step — and build the whole flow around it.", fa:"مرحلهٔ محدودکننده را پیدا کن — طولانی‌ترین مرحله یا سخت‌ترین‌مرحله برای جبران — و کلِ جریانِ کار را دورِ آن بچین."},
+        more:{en:"One step usually governs the timing of everything else. Schedule the rest off it so nothing waits and nothing spoils. In the breakfast, the egg takes longest, so it sets the clock for the toast and the coffee.", fa:"معمولاً یک مرحله زمان‌بندیِ بقیه را تعیین می‌کند. باقیِ کارها را طوری بچین که با همان هماهنگ باشند تا نه چیزی معطل بماند و نه خراب شود. در صبحانه، تخم‌مرغ بیشترین وقت را می‌برد، پس ساعتِ نان و قهوه را هم همان تعیین می‌کند."},
+        example:{en:"Because the egg takes longest, you start it first and time the toast and coffee to finish with it.", fa:"چون تخم‌مرغ بیشترین وقت را می‌برد، اول آن را می‌گذاری و نان و قهوه را طوری تنظیم می‌کنی که همان موقع آماده شوند."},
+        tip:{en:"Spot the one step that governs the timing, and plan everything else backward from it.", fa:"همان یک مرحله‌ای را که زمان‌بندی را تعیین می‌کند پیدا کن، و باقی را از روی آن، رو به عقب برنامه بریز."},
+        pitfall:{en:"Building the schedule around the easy steps and letting the hard one blow the deadline.", fa:"چیدنِ برنامه دورِ مرحله‌های آسان، و گذاشتن اینکه مرحلهٔ سخت مهلت را خراب کند."} },
+      indicators:{ part:"production", n:3, name:{en:"Indicators & Reject Early", fa:"شاخص‌ها و ردِ زودهنگام"}, glabel:{en:"Indicators", fa:"شاخص‌ها"},
+        principle:{en:"Watch the process with a few paired indicators, and catch faults at the lowest-value stage — reject the bad egg before you've cooked the whole breakfast.", fa:"فرآیند را با چند شاخصِ جفت‌شده زیرِ نظر بگیر، و خطاها را در کم‌ارزش‌ترین مرحله بگیر — تخم‌مرغِ خراب را قبل از پختنِ کلِ صبحانه کنار بگذار."},
+        more:{en:"Good indicators come in pairs, so one guards the other — measure output and quality together, not just speed. And push inspection as early as you can: a fault caught in a raw material costs far less than one found in the finished product.", fa:"شاخص‌های خوب جفتی می‌آیند تا یکی مراقبِ دیگری باشد — خروجی و کیفیت را باهم بسنج، نه فقط سرعت را. و بازرسی را تا جای ممکن زودتر بیاور: خطایی که در موادِ خام گرفته شود خیلی ارزان‌تر از خطایی است که در محصولِ آماده پیدا شود."},
+        example:{en:"Checking eggs while raw is cheap; finding a bad one after plating wastes the toast, the coffee, and the time.", fa:"وارسیِ تخم‌مرغ وقتی خام است ارزان است؛ پیداکردنِ تخم‌مرغِ خراب بعد از چیدنِ بشقاب، نان و قهوه و وقت را هدر می‌دهد."},
+        tip:{en:"Pick a small set of paired indicators, and inspect inputs before you add value to them.", fa:"یک دستهٔ کوچک از شاخص‌های جفت‌شده انتخاب کن، و ورودی‌ها را قبل از اینکه رویشان کار کنی بازرسی کن."},
+        pitfall:{en:"Watching a single number in isolation, and only catching defects at the very end.", fa:"زل‌زدن به یک عددِ تنها، و گرفتنِ خطاها فقط در همان آخرِ کار."} },
+      output:{ part:"leverage", n:4, name:{en:"A Manager's Output", fa:"خروجیِ یک مدیر"}, glabel:{en:"Output", fa:"خروجی"},
+        principle:{en:"A manager's output = the output of their organization + the output of the neighboring organizations under their influence.", fa:"خروجیِ یک مدیر = خروجیِ سازمانِ او + خروجیِ سازمان‌های همسایه‌ای که زیرِ نفوذِ اوست."},
+        more:{en:"This one equation reframes the whole job. You are not paid for what you personally do, but for what your team — and everyone you influence — produces. Your success is measured in other people's output, not your own busyness.", fa:"همین یک معادله کلِ کار را از نو تعریف می‌کند. به تو برای کاری که خودت شخصاً می‌کنی پول نمی‌دهند، بلکه برای چیزی که تیمت — و هرکسی که رویش اثر می‌گذاری — تولید می‌کند. موفقیتت با خروجیِ آدم‌های دیگر سنجیده می‌شود، نه با شلوغیِ خودت."},
+        example:{en:"A manager who writes brilliant code but whose team stalls has low output; one whose team ships a lot has high output — even if they wrote none of it.", fa:"مدیری که خودش کدِ درخشان می‌زند اما تیمش درجا می‌زند، خروجی‌اش کم است؛ مدیری که تیمش کلی کار بیرون می‌دهد، خروجی‌اش بالاست — حتی اگر خودش یک خط هم ننوشته باشد."},
+        tip:{en:"Judge your day by what your team and your influence produced, not by how busy you were.", fa:"روزت را با چیزی که تیمت و نفوذت تولید کرده بسنج، نه با اینکه چقدر سرت شلوغ بوده."},
+        pitfall:{en:"Measuring yourself by your own activity instead of your organization's results.", fa:"سنجیدنِ خودت با کارِ شخصی‌ات، به‌جای نتیجهٔ سازمانت."} },
+      highlev:{ part:"leverage", n:5, name:{en:"High-Leverage Activities", fa:"کارهای پُراهرم"}, glabel:{en:"Leverage", fa:"اهرم"},
+        principle:{en:"Leverage is the output you get per hour of a manager's time; the art of management is finding the few highest-leverage activities and pouring your time into them.", fa:"اهرم یعنی خروجی‌ای که از هر ساعتِ وقتِ یک مدیر به دست می‌آید؛ هنرِ مدیریت این است که همان چند کارِ پُراهرم را پیدا کنی و وقتت را رویشان بریزی."},
+        more:{en:"Some acts ripple through many people for a long time — training your team, a sharp one-on-one, a clear objective, a well-timed nudge. Others barely move anything. Same hour, wildly different output, so hunt for the high-leverage ones and protect them.", fa:"بعضی کارها در آدم‌های زیادی و برای مدتی طولانی موج می‌اندازند — آموزشِ تیم، یک جلسهٔ دونفرهٔ خوب، یک هدفِ روشن، یک تلنگرِ به‌موقع. بعضی دیگر تقریباً هیچ چیزی را تکان نمی‌دهند. یک ساعتِ برابر، اما خروجیِ زمین‌تا‌آسمان متفاوت؛ پس دنبالِ کارهای پُراهرم بگرد و ازشان محافظت کن."},
+        example:{en:"An hour spent training ten people pays back every time each of them does the task better — for years.", fa:"یک ساعتی که صرفِ آموزشِ ده نفر شود، هر بار که هرکدامشان کار را بهتر انجام می‌دهند خودش را پس می‌دهد — سال‌ها."},
+        tip:{en:"Before an activity, ask how many people's output it will affect, and for how long.", fa:"قبل از هر کار بپرس خروجیِ چند نفر را عوض می‌کند، و برای چه مدت."},
+        pitfall:{en:"Filling the day with low-leverage busywork only you can feel.", fa:"پُرکردنِ روز با کارهای کم‌اهرمی که فقط خودت حسشان می‌کنی."} },
+      delegate:{ part:"leverage", n:6, name:{en:"Delegation & Monitoring", fa:"واگذاری و پایش"}, glabel:{en:"Delegation", fa:"واگذاری"},
+        principle:{en:"Delegate work you understand deeply, then monitor it — delegation without follow-through is just abdication.", fa:"کاری را واگذار کن که خوب می‌شناسی‌اش، بعد پایشش کن — واگذاری بدونِ پیگیری، یعنی شانه‌خالی‌کردن."},
+        more:{en:"Hand off tasks you know well enough to tell good work from bad. Then monitor at the lowest cost: sample the output like a quality inspector, and dig deeper only when a sample looks wrong.", fa:"کارهایی را بسپار که آن‌قدر بلدی که بتوانی کارِ خوب را از بد تشخیص بدهی. بعد با کمترین هزینه پایش کن: مثلِ یک بازرسِ کیفیت نمونه بردار، و فقط وقتی یک نمونه مشکوک بود عمیق‌تر برو."},
+        example:{en:"Review a delegated report in full once, then spot-check the next ones — unless something looks off.", fa:"یک گزارشِ واگذارشده را یک‌بار کامل بخوان، بعد بعدی‌ها را فقط سرسری چک کن — مگر اینکه چیزی مشکوک بزند."},
+        tip:{en:"Delegate what you know best, and check it by variable sampling, not fixed inspection.", fa:"چیزی را واگذار کن که از همه بهتر بلدی، و با نمونه‌گیریِ متغیر چکش کن، نه بازرسیِ همیشگی."},
+        pitfall:{en:"Either hovering over every detail or handing off and never looking again.", fa:"یا بالای سرِ هر جزئیات ایستادن، یا سپردن و دیگر هیچ‌وقت سر نزدن."} },
+      oneonone:{ part:"meetings", n:7, name:{en:"The One-on-One", fa:"جلسهٔ دونفره"}, glabel:{en:"One-on-One", fa:"دونفره"},
+        principle:{en:"The one-on-one is the prime place a manager teaches and information flows up — hold it regularly and let the subordinate set the agenda.", fa:"جلسهٔ دونفره بهترین جایی است که مدیر یاد می‌دهد و اطلاعات از پایین بالا می‌آید — منظم برگزارش کن و بگذار خودِ نفر دستورِ جلسه را بچیند."},
+        more:{en:"Private, regular, and led by your report, the one-on-one is where small problems surface before they grow and where real coaching happens. Grove reckons one hour of it can lift a subordinate's work for two weeks.", fa:"خصوصی، منظم، و به‌رهبریِ خودِ نفر — جلسهٔ دونفره جایی است که مشکل‌های کوچک قبل از بزرگ‌شدن رو می‌آیند و آموزشِ واقعی اتفاق می‌افتد. گرو می‌گوید یک ساعتِ آن می‌تواند کارِ یک نفر را دو هفته بهتر کند."},
+        example:{en:"A weekly one-on-one where your report brings the agenda catches small issues before they blow up.", fa:"یک جلسهٔ دونفرهٔ هفتگی که خودِ نفر دستورِ کارش را می‌آورد، مشکل‌های کوچک را قبل از ترکیدن می‌گیرد."},
+        tip:{en:"Hold regular one-on-ones and let the other person drive the agenda.", fa:"جلسه‌های دونفرهٔ منظم بگذار و بگذار طرفِ مقابل دستورِ جلسه را پیش ببرد."},
+        pitfall:{en:"Skipping one-on-ones, or turning them into your own status update.", fa:"قید زدنِ جلسه‌های دونفره، یا تبدیلشان به گزارشِ وضعیتِ خودت."} },
+      meetingtypes:{ part:"meetings", n:8, name:{en:"Process vs. Mission Meetings", fa:"جلسه‌های فرآیندی و مأموریتی"}, glabel:{en:"Meetings", fa:"جلسه‌ها"},
+        principle:{en:"Know which meeting you're in: process meetings (one-on-ones, staff meetings, reviews) run on a schedule; a mission meeting is called to produce one specific decision.", fa:"بدان توی کدام جلسه‌ای: جلسه‌های فرآیندی (دونفره، جلسهٔ تیمی، بازبینی) طبقِ برنامه برگزار می‌شوند؛ جلسهٔ مأموریتی برای رسیدن به یک تصمیمِ مشخص گذاشته می‌شود."},
+        more:{en:"Process meetings are regular and share knowledge; mission meetings are ad hoc and should be rare and tightly run. Either way, a meeting is the medium of managerial work — so run it well instead of resenting it.", fa:"جلسه‌های فرآیندی منظم‌اند و دانش را پخش می‌کنند؛ جلسه‌های مأموریتی موردی‌اند و باید کم و فشرده باشند. در هر حال، جلسه همان بسترِ کارِ مدیریتی است — پس به‌جای غر زدن از آن، خوب بگردانش."},
+        example:{en:"A weekly staff meeting is process; an emergency huddle to approve a launch date is mission.", fa:"یک جلسهٔ تیمیِ هفتگی فرآیندی است؛ یک جمع‌شدنِ اضطراری برای تأییدِ تاریخِ عرضه، مأموریتی."},
+        tip:{en:"Name the meeting's type up front, and for a mission meeting, name the decision it must produce.", fa:"همان اول نوعِ جلسه را مشخص کن، و برای جلسهٔ مأموریتی، تصمیمی را که باید ازش دربیاید نام ببر."},
+        pitfall:{en:"Calling a meeting with no clear type, agenda, or decision to reach.", fa:"گذاشتنِ جلسه‌ای بی‌نوعِ روشن، بی‌دستورِ کار، و بی‌تصمیمی که باید بهش برسی."} },
+      decisions:{ part:"meetings", n:9, name:{en:"Ideal Decision-Making", fa:"تصمیم‌گیریِ آرمانی"}, glabel:{en:"Decisions", fa:"تصمیم‌ها"},
+        principle:{en:"The ideal decision comes in three moves: free discussion, then a clear decision, then full support from everyone — even those who disagreed.", fa:"تصمیمِ آرمانی سه حرکت دارد: اول بحثِ آزاد، بعد یک تصمیمِ روشن، بعد پشتیبانیِ کاملِ همه — حتی آن‌هایی که مخالف بودند."},
+        more:{en:"Let the people closest to the problem argue it out in the open. Then someone makes a clear call and the whole group backs it. Grove frames the setup with six questions: what decision, by when, who decides, who must be consulted, who ratifies, and who needs to be told.", fa:"بگذار آن‌هایی که به مسئله نزدیک‌ترند رک و باز سرش بحث کنند. بعد یک نفر تصمیمِ روشن می‌گیرد و کلِ جمع پشتش می‌ایستد. گرو کار را با شش سؤال می‌چیند: چه تصمیمی، تا کِی، چه‌کسی تصمیم می‌گیرد، با چه‌کسی باید مشورت شود، چه‌کسی تأیید می‌کند، و چه‌کسی باید در جریان باشد."},
+        example:{en:"Engineers debate openly, the lead decides, and everyone — including the dissenters — commits to the plan.", fa:"مهندس‌ها باز بحث می‌کنند، سرپرست تصمیم می‌گیرد، و همه — از جمله مخالف‌ها — پای برنامه می‌ایستند."},
+        tip:{en:"Separate the free-discussion phase from the decision, and ask for support once the call is made.", fa:"مرحلهٔ بحثِ آزاد را از خودِ تصمیم جدا کن، و همین که تصمیم گرفته شد، پشتیبانی بخواه."},
+        pitfall:{en:"Fake consensus, muddled authority, or a decision no one actually commits to.", fa:"اجماعِ الکی، اختیارِ درهم‌وبرهم، یا تصمیمی که هیچ‌کس واقعاً پایش نمی‌ایستد."} },
+      planprocess:{ part:"planning", n:10, name:{en:"The Planning Process", fa:"فرآیندِ برنامه‌ریزی"}, glabel:{en:"Planning", fa:"برنامه‌ریزی"},
+        principle:{en:"Planning answers three things: what the environment will demand, where you are now, and what you must change to close the gap.", fa:"برنامه‌ریزی به سه چیز جواب می‌دهد: محیط چه تقاضایی خواهد داشت، الان کجایی، و چه باید عوض کنی تا فاصله را ببندی."},
+        more:{en:"Look honestly at the outside demand — customers, market — compare it to your current output, then decide what to do this period to close the difference. Plan for the need that's a step ahead, not the one in front of you today.", fa:"با صداقت به تقاضای بیرون نگاه کن — مشتری‌ها، بازار — با خروجیِ فعلی‌ات مقایسه‌اش کن، بعد تصمیم بگیر این دوره چه بکنی تا اختلاف را ببندی. برای نیازی برنامه بریز که یک قدم جلوتر است، نه آن‌که امروز جلوی چشمت است."},
+        example:{en:"If demand will be over here in a year and you're over there today, this year's actions are the bridge between them.", fa:"اگر تقاضا یک سالِ دیگر آنجاست و تو امروز اینجایی، کارهای امسال همان پلِ بینِ این دو است."},
+        tip:{en:"Base today's plan on where demand will be, then set actions to close the gap.", fa:"برنامهٔ امروز را روی جایی بگذار که تقاضا خواهد بود، بعد کارها را برای بستنِ فاصله تعیین کن."},
+        pitfall:{en:"Planning around what you can do now instead of what the environment will need.", fa:"برنامه‌ریزی دورِ کاری که الان می‌توانی بکنی، به‌جای چیزی که محیط لازم خواهد داشت."} },
+      okrs:{ part:"planning", n:11, name:{en:"OKRs — Objectives & Key Results", fa:"OKR — اهداف و نتایجِ کلیدی"}, glabel:{en:"OKRs", fa:"OKR"},
+        principle:{en:"A good objectives system answers two questions: where do I want to go (the objective), and how will I know I'm getting there (the key results)?", fa:"یک سیستمِ هدف‌گذاریِ خوب به دو سؤال جواب می‌دهد: کجا می‌خواهم بروم (هدف)، و از کجا بفهمم دارم می‌رسم (نتایجِ کلیدی)؟"},
+        more:{en:"Set one clear objective and a few measurable key results that pace you toward it. Grove's Intel practice — objectives and key results — is where OKRs come from. Keep them few and make them stretch: if you hit every one easily, you probably aimed too low.", fa:"یک هدفِ روشن بگذار و چند نتیجهٔ کلیدیِ قابلِ‌اندازه‌گیری که تو را قدم‌به‌قدم به آن می‌رسانند. همین روشِ گرو در اینتل — هدف‌ها و نتایجِ کلیدی — سرچشمهٔ OKR است. کم نگهشان دار و بلندپروازشان کن: اگر همه‌شان راحت به دست آمدند، احتمالاً نشانه را پایین گرفته‌ای."},
+        example:{en:"Objective: launch on time. Key results: beta by March, zero critical bugs, fifty pilot users.", fa:"هدف: عرضه سرِ وقت. نتایجِ کلیدی: نسخهٔ آزمایشی تا اسفند، صفر باگِ بحرانی، پنجاه کاربرِ آزمایشی."},
+        tip:{en:"For any goal, write one objective and two or three measurable key results.", fa:"برای هر هدفی، یک مقصد بنویس و دو سه نتیجهٔ کلیدیِ قابلِ‌اندازه‌گیری."},
+        pitfall:{en:"Too many objectives at once, or key results you can't actually measure.", fa:"هدف‌های زیاد به‌یک‌باره، یا نتایجِ کلیدی‌ای که اصلاً نمی‌شود اندازه‌شان گرفت."} },
+      cascade:{ part:"planning", n:12, name:{en:"Cascading Objectives", fa:"آبشارِ هدف‌ها"}, glabel:{en:"Cascade", fa:"آبشار"},
+        principle:{en:"Objectives cascade — your key results become your team's objectives — but the fit should stay loose, not mechanical.", fa:"هدف‌ها آبشاری‌اند — نتایجِ کلیدیِ تو، هدفِ تیمت می‌شود — اما این جفت‌وجورشدن باید شل بماند، نه ماشینی."},
+        more:{en:"A person's objectives should support their manager's, so the whole org pulls one way. But leave room for judgment: objectives are a tool for focus, not a straitjacket that ignores what's really happening on the ground.", fa:"هدف‌های هر آدم باید هدف‌های مدیرش را پشتیبانی کنند تا کلِ سازمان یک‌طرف را بکشد. اما جا برای عقلِ سلیم بگذار: هدف ابزارِ تمرکز است، نه لباسِ تنگی که واقعیتِ کف کار را نادیده بگیرد."},
+        example:{en:"If the company's key result is faster delivery, your team's objective becomes cutting cycle time.", fa:"اگر نتیجهٔ کلیدیِ شرکت تحویلِ سریع‌تر است، هدفِ تیمِ تو می‌شود کم‌کردنِ زمانِ چرخه."},
+        tip:{en:"Line your objectives up with your manager's, but keep the link flexible.", fa:"هدف‌هایت را با هدف‌های مدیرت هم‌راستا کن، اما پیوندش را انعطاف‌پذیر نگه دار."},
+        pitfall:{en:"Copying objectives down rigidly, or letting them drift out of alignment.", fa:"کپیِ خشکِ هدف‌ها به پایین، یا رهاکردنشان تا از هم‌راستایی در بیایند."} },
+      trm:{ part:"human", n:13, name:{en:"Task-Relevant Maturity (TRM)", fa:"بلوغِ متناسب با کار (TRM)"}, glabel:{en:"TRM", fa:"بلوغِ کار"},
+        principle:{en:"Task-Relevant Maturity is how ready someone is for a specific task — their skill, experience, and willingness for that job, not in general.", fa:"بلوغِ متناسب با کار یعنی اینکه یک نفر برای یک کارِ مشخص چقدر آماده است — مهارت، تجربه و آمادگی‌اش برای همان کار، نه به‌طورِ کلی."},
+        more:{en:"The same person can be high TRM on one task and low on another; it isn't about age or seniority. Because readiness changes task by task, TRM is the single biggest input to how you should manage someone.", fa:"یک آدم می‌تواند در یک کار بلوغِ بالا و در کارِ دیگری بلوغِ پایین داشته باشد؛ ربطی به سن یا سابقه ندارد. چون آمادگی کار‌به‌کار فرق می‌کند، بلوغِ متناسب با کار مهم‌ترین چیزی است که تعیین می‌کند یک نفر را چطور باید مدیریت کنی."},
+        example:{en:"A veteran engineer can be high TRM writing code but low TRM running their first project.", fa:"یک مهندسِ کارکشته می‌تواند در کدنویسی بلوغش بالا باشد اما در گرداندنِ اولین پروژه‌اش پایین."},
+        tip:{en:"Rate readiness task by task, never by the person overall.", fa:"آمادگی را کار‌به‌کار بسنج، نه بر اساسِ کلِ آدم."},
+        pitfall:{en:"Assuming a senior person is high-maturity at everything.", fa:"این فرض که یک آدمِ باسابقه در همه‌چیز بلوغش بالاست."} },
+      style:{ part:"human", n:14, name:{en:"Style by Maturity", fa:"سبک بر اساسِ بلوغ"}, glabel:{en:"Style", fa:"سبک"},
+        principle:{en:"Match your style to the person's TRM: low maturity needs structure, medium needs coaching and support, high needs you mostly out of the way.", fa:"سبکت را با بلوغِ طرف جور کن: بلوغِ پایین به ساختار نیاز دارد، بلوغِ متوسط به آموزش و پشتیبانی، و بلوغِ بالا به اینکه بیشتر کنار بایستی."},
+        more:{en:"There's no single best style. When TRM is low, be precise about what and how. As it rises, shift to two-way communication and encouragement. When it's high, agree on objectives and let go.", fa:"یک سبکِ همیشه‌بهترین وجود ندارد. وقتی بلوغ پایین است، دربارهٔ «چه» و «چطور» دقیق باش. هرچه بالاتر رفت، به گفت‌وگوی دوطرفه و دلگرمی برو. وقتی بالاست، سرِ هدف‌ها توافق کن و رها کن."},
+        example:{en:"You give a new hire step-by-step direction, but hand a proven lead only the goal.", fa:"به یک تازه‌وارد قدم‌به‌قدم مسیر می‌دهی، اما به یک سرپرستِ امتحان‌پس‌داده فقط هدف را می‌سپاری."},
+        tip:{en:"When someone struggles, check their TRM before you change your approach.", fa:"وقتی کسی گیر می‌کند، قبل از عوض‌کردنِ روشت بلوغش را بسنج."},
+        pitfall:{en:"Micromanaging your strongest people and abandoning your newest.", fa:"ریزمدیریتِ بهترین آدم‌هایت و رهاکردنِ تازه‌واردهایت."} },
+      motivation:{ part:"human", n:15, name:{en:"Motivation & Maslow", fa:"انگیزه و مازلو"}, glabel:{en:"Motivation", fa:"انگیزه"},
+        principle:{en:"When someone underperforms it's one of two things — they can't do it or they won't — so the manager's job is training and motivation.", fa:"وقتی کسی خوب کار نمی‌کند، فقط دو حالت دارد — یا نمی‌تواند یا نمی‌خواهد — پس کارِ مدیر آموزش‌دادن و انگیزه‌دادن است."},
+        more:{en:"Grove leans on Maslow's ladder: once basic and security needs are met, people are driven by esteem and, highest of all, self-actualization — the pull to keep getting better at something they care about. Tap that and motivation becomes self-sustaining.", fa:"گرو به نردبانِ مازلو تکیه می‌کند: وقتی نیازهای پایه و امنیت برآورده شد، آدم‌ها با احترام و — از همه بالاتر — خودشکوفایی پیش می‌روند؛ همان کششِ درونی به بهترشدن در چیزی که برایشان مهم است. این را که روشن کنی، انگیزه خودش خودش را نگه می‌دارد."},
+        example:{en:"A well-paid engineer who's bored comes alive when the work becomes a race against their own best.", fa:"یک مهندسِ خوش‌حقوق که حوصله‌اش سر رفته، وقتی کار تبدیل به مسابقه‌ای با بهترینِ خودش شود، جان می‌گیرد."},
+        tip:{en:"Ask whether a struggling person needs training or a reason to care — then supply it.", fa:"بپرس آدمی که گیر کرده به آموزش نیاز دارد یا به یک دلیل برای اهمیت‌دادن — بعد همان را بهش بده."},
+        pitfall:{en:"Treating every performance problem as motivation, or every one as a skill gap.", fa:"هر مشکلِ عملکرد را انگیزه دیدن، یا هرکدام را کمبودِ مهارت دیدن."} },
+      review:{ part:"human", n:16, name:{en:"The Performance Review", fa:"ارزیابیِ عملکرد"}, glabel:{en:"Reviews", fa:"ارزیابی"},
+        principle:{en:"The review is a manager's most important form of task-relevant feedback — assess real performance honestly, and deliver it so it actually lands.", fa:"ارزیابی مهم‌ترین شکلِ بازخوردِ متناسب با کار برای یک مدیر است — عملکردِ واقعی را صادقانه بسنج، و طوری برسانش که واقعاً بنشیند."},
+        more:{en:"Its whole purpose is to improve the person's output. Be candid and specific, focus on a few things that matter, and keep the message separate from the pay conversation. Delivering it well matters as much as getting the judgment right.", fa:"کلِ هدفش این است که خروجیِ آن آدم بهتر شود. رک و مشخص باش، روی چند چیزِ مهم تمرکز کن، و پیام را از صحبتِ حقوق جدا نگه دار. خوب رساندنش به‌اندازهٔ درست‌قضاوت‌کردن مهم است."},
+        example:{en:"One clear message — your design is strong, your follow-through slips — beats a page of vague praise.", fa:"یک پیامِ روشن — طراحی‌ات قوی است، اما پیگیری‌ات لنگ می‌زند — از یک صفحه تعریفِ مبهم بهتر است."},
+        tip:{en:"Pick the one or two messages that matter most and land them clearly.", fa:"همان یکی دو پیامی را که از همه مهم‌ترند انتخاب کن و روشن برسان."},
+        pitfall:{en:"Vague, everything-is-fine reviews that leave the person no wiser.", fa:"ارزیابی‌های مبهم و «همه‌چیز‌خوب‌است» که آدم را ذره‌ای داناتر نمی‌کنند."} }
+    },
+    core:{ name:{en:"LEVERAGE", fa:"اهرم"},
+      principle:{en:"A manager's real output is the output of their whole organization plus everyone they influence — and the way to raise it is leverage: spend your limited time on the few activities that ripple through the most people.", fa:"خروجیِ واقعیِ یک مدیر یعنی خروجیِ کلِ سازمانش به‌علاوهٔ همهٔ کسانی که رویشان اثر می‌گذارد — و راهِ بالا بردنش اهرم است: وقتِ محدودت را روی همان چند کاری بگذار که در بیشترین آدم‌ها موج می‌اندازد."},
+      more:{en:"High Output Management builds the whole job from one idea. Run every team like a production line (the breakfast factory, the limiting step, honest indicators). Multiply yourself through managerial leverage. Use meetings and clear decisions as the medium of the work. Aim everyone with planning and OKRs. And manage the human element person by person — by task-relevant maturity, motivation, and honest reviews.", fa:"«مدیریتِ پُربازده» کلِ کارِ مدیر را از یک ایده می‌سازد. هر تیم را مثلِ یک خطِ تولید بگردان (کارخانهٔ صبحانه، مرحلهٔ محدودکننده، شاخص‌های صادق). با اهرمِ مدیریتی خودت را چند برابر کن. از جلسه‌ها و تصمیم‌های روشن به‌عنوانِ بسترِ کار استفاده کن. همه را با برنامه‌ریزی و OKR نشانه بگیر. و عنصرِ انسانی را آدم به آدم مدیریت کن — با بلوغِ متناسب با کار، انگیزه، و ارزیابیِ صادقانه."},
+      example:{en:"Click any node to read an idea or a step. You can also drag the nodes around.", fa:"روی هر دایره کلیک کن تا یک ایده یا گام را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."} },
+    stages:[
+      { level:1, badge:{en:"Level 1 · Over-simplified", fa:"سطحِ ۱ · خیلی ساده"}, title:{en:"Your job is the team's output", fa:"کارِ تو، خروجیِ تیم است"}, tagline:{en:"The whole book in a sentence.", fa:"کلِ کتاب در یک جمله."},
+        body:{en:"A manager isn't judged by what they personally get done, but by what their team produces. Your real job is to raise that output — everything else in the book serves it.", fa:"یک مدیر را با کاری که خودش تمام می‌کند نمی‌سنجند، بلکه با چیزی که تیمش تولید می‌کند. کارِ اصلی‌ات این است که همان خروجی را بالا ببری — باقیِ کتاب در خدمتِ همین است."},
+        example:{en:"If your team ships more and better because of you, you're doing the job — even if you touched none of it.", fa:"اگر تیمت به‌خاطرِ تو بیشتر و بهتر کار بیرون می‌دهد، داری کارت را انجام می‌دهی — حتی اگر دستت به هیچ‌کدامش نخورده باشد."},
+        gain:{en:"You know a manager is measured by the team's results, not their own busyness.", fa:"می‌دانی مدیر را با نتیجهٔ تیم می‌سنجند، نه با شلوغیِ خودش."} },
+      { level:2, badge:{en:"Level 2 · Simple", fa:"سطحِ ۲ · ساده"}, title:{en:"Output and leverage", fa:"خروجی و اهرم"}, tagline:{en:"The core equation, and how to move it.", fa:"معادلهٔ اصلی، و راهِ تکان‌دادنش."},
+        body:{en:"Here's the equation: <b>a manager's output = their organization's output + the output of everyone they influence</b>. You raise it through <b>leverage</b> — the few activities, like training or a one-on-one, that ripple through many people at once.", fa:"معادله این است: <b>خروجیِ مدیر = خروجیِ سازمانش + خروجیِ هرکسی که رویش اثر می‌گذارد</b>. این را با <b>اهرم</b> بالا می‌بری — همان چند کاری مثلِ آموزش یا جلسهٔ دونفره که یک‌جا در آدم‌های زیادی موج می‌اندازد."},
+        example:{en:"An hour training your team beats an hour doing one person's task yourself.", fa:"یک ساعت آموزشِ تیم، از یک ساعت انجامِ کارِ یک نفر به‌جای او بهتر است."},
+        gain:{en:"You can tell high-leverage work from low-leverage busywork.", fa:"می‌توانی کارِ پُراهرم را از کارِ کم‌اهرمِ الکی تشخیص بدهی."} },
+      { level:3, badge:{en:"Level 3 · Balanced", fa:"سطحِ ۳ · متعادل"}, title:{en:"Run the machine", fa:"ماشین را بگردان"}, tagline:{en:"Production, and meetings as the medium.", fa:"تولید، و جلسه به‌عنوانِ بستر."},
+        body:{en:"Treat each team like a <b>production line</b> — meet demand on time, at quality, at low cost, and manage the <b>limiting step</b>. And use <b>meetings</b> well: regular <b>one-on-ones</b> and staff meetings are how the work actually gets done, not a distraction from it.", fa:"هر تیم را مثلِ یک <b>خطِ تولید</b> ببین — تقاضا را سرِ وقت، باکیفیت و کم‌هزینه جواب بده، و <b>مرحلهٔ محدودکننده</b> را مدیریت کن. و از <b>جلسه‌ها</b> خوب استفاده کن: <b>جلسه‌های دونفرهٔ</b> منظم و جلسه‌های تیمی همان جایی‌اند که کار واقعاً انجام می‌شود، نه مزاحمِ کار."},
+        example:{en:"A weekly one-on-one where your report sets the agenda catches problems while they're still small.", fa:"یک جلسهٔ دونفرهٔ هفتگی که خودِ نفر دستورش را می‌چیند، مشکل‌ها را وقتی هنوز کوچک‌اند می‌گیرد."},
+        gain:{en:"You can run the day-to-day of a team like a well-tuned process.", fa:"می‌توانی کارِ روزمرهٔ یک تیم را مثلِ یک فرآیندِ کوک‌شده بگردانی."} },
+      { level:4, badge:{en:"Level 4 · Advanced", fa:"سطحِ ۴ · پیشرفته"}, title:{en:"Aim and decide", fa:"نشانه بگیر و تصمیم بگیر"}, tagline:{en:"Planning, OKRs, and clean decisions.", fa:"برنامه‌ریزی، OKR، و تصمیم‌های تمیز."},
+        body:{en:"Point the whole team the same way. <b>Plan</b> from the gap between what's demanded and what you deliver, turn it into <b>OKRs</b> — one clear objective and a few measurable key results — and make decisions the ideal way: <b>free discussion, a clear decision, then full support</b> from everyone.", fa:"کلِ تیم را یک‌طرف نشانه بگیر. از فاصلهٔ بینِ آنچه تقاضا می‌شود و آنچه تحویل می‌دهی <b>برنامه</b> بریز، تبدیلش کن به <b>OKR</b> — یک هدفِ روشن و چند نتیجهٔ کلیدیِ قابلِ‌اندازه‌گیری — و تصمیم را به شیوهٔ آرمانی بگیر: <b>بحثِ آزاد، یک تصمیمِ روشن، بعد پشتیبانیِ کاملِ</b> همه."},
+        example:{en:"Objective: launch on time; key results: beta by March, zero critical bugs, fifty pilot users.", fa:"هدف: عرضه سرِ وقت؛ نتایجِ کلیدی: نسخهٔ آزمایشی تا اسفند، صفر باگِ بحرانی، پنجاه کاربرِ آزمایشی."},
+        gain:{en:"You can set direction and drive decisions the whole team backs.", fa:"می‌توانی مسیر تعیین کنی و تصمیم‌هایی بگیری که کلِ تیم پشتشان می‌ایستد."} },
+      { level:5, badge:{en:"Level 5 · Expert", fa:"سطحِ ۵ · حرفه‌ای"}, title:{en:"Lead the human element", fa:"عنصرِ انسانی را رهبری کن"}, tagline:{en:"Maturity, motivation, and honest reviews.", fa:"بلوغ، انگیزه، و ارزیابیِ صادقانه."},
+        body:{en:"The expert manages people one at a time. Read each person's <b>task-relevant maturity</b> and match your style to it — structure when it's low, freedom when it's high. When someone falls short they either <b>can't or won't</b>, so you train or you motivate, reaching up Maslow's ladder to <b>self-actualization</b>. And the <b>performance review</b> is your sharpest tool for honest, task-relevant feedback. Management, in the end, is teaching and motivating.", fa:"آدمِ حرفه‌ای، آدم‌ها را یکی‌یکی مدیریت می‌کند. <b>بلوغِ متناسب با کارِ</b> هر نفر را بخوان و سبکت را با آن جور کن — وقتی پایین است ساختار بده، وقتی بالاست آزادی. وقتی کسی کم می‌آورد، یا <b>نمی‌تواند یا نمی‌خواهد</b>، پس یا آموزش می‌دهی یا انگیزه، و روی نردبانِ مازلو تا <b>خودشکوفایی</b> بالا می‌روی. و <b>ارزیابیِ عملکرد</b> تیزترین ابزارت برای بازخوردِ صادقانه و متناسب با کار است. مدیریت، آخرِ کار، یعنی آموزش‌دادن و انگیزه‌دادن."},
+        example:{en:"You give a rookie step-by-step direction, hand a veteran just the goal, and give each a review that names one real thing to improve.", fa:"به یک تازه‌کار قدم‌به‌قدم مسیر می‌دهی، به یک کارکشته فقط هدف را، و به هرکدام ارزیابی‌ای می‌دهی که یک چیزِ واقعی برای بهترشدن را نام می‌برد."},
+        gain:{en:"You can grow people task by task and get the most from a whole team.", fa:"می‌توانی آدم‌ها را کار‌به‌کار رشد بدهی و از کلِ یک تیم بیشترین را بگیری."} }
+    ],
+    quotes:[
+      {en:"A manager's output = the output of his organization + the output of the neighboring organizations under his influence.", fa:"خروجیِ یک مدیر = خروجیِ سازمانِ او + خروجیِ سازمان‌های همسایه‌ای که زیرِ نفوذِ اوست."},
+      {en:"The art of management lies in the capacity to select from the many activities of seemingly comparable significance the one or two or three that provide leverage well beyond the others and concentrate on them.", fa:"هنرِ مدیریت این است که از میانِ کارهای زیادی که به‌ظاهر هم‌ارزش‌اند، همان یکی دو تا سه‌تایی را که اهرمِ خیلی بیشتری دارند انتخاب کنی و رویشان تمرکز کنی."},
+      {en:"Training is, quite simply, one of the highest-leverage activities a manager can perform.", fa:"آموزش‌دادن، به‌سادگی، یکی از پُراهرم‌ترین کارهایی است که یک مدیر می‌تواند انجام بدهد."},
+      {en:"A meeting is nothing less than the medium through which managerial work is performed.", fa:"جلسه چیزی کمتر از بستری نیست که کارِ مدیریتی از دلِ آن انجام می‌شود."},
+      {en:"A successful MBO system needs only to answer two questions: Where do I want to go? (The answer provides the objective.) How will I pace myself to see if I am getting there? (The answer gives us milestones, or key results.)", fa:"یک سیستمِ هدف‌گذاریِ موفق فقط باید به دو سؤال جواب بدهد: کجا می‌خواهم بروم؟ (جوابش هدف را می‌دهد.) چطور خودم را بسنجم تا ببینم دارم می‌رسم یا نه؟ (جوابش نقطه‌های عطف، یا همان نتایجِ کلیدی را می‌دهد.)"},
+      {en:"The basic requirements of production are to build and deliver products in response to the demands of the customer at a scheduled delivery time, at an acceptable quality level, and at the lowest possible cost.", fa:"نیازهای پایه‌ایِ تولید این است: محصول را در پاسخ به تقاضای مشتری بساز و تحویل بده، سرِ زمانِ مقرر، با کیفیتی قابلِ‌قبول، و با کمترین هزینهٔ ممکن."},
+      {en:"When a person is not doing his job, there can only be two reasons for it. The person either can't do it or won't do it; he is either not capable or not motivated.", fa:"وقتی کسی کارش را درست انجام نمی‌دهد، فقط دو دلیل دارد. یا نمی‌تواند انجامش بدهد یا نمی‌خواهد؛ یا توانایی‌اش را ندارد یا انگیزه‌اش را."},
+      {en:"Remember too that your time is your one finite resource, and when you say “yes” to one thing you are inevitably saying “no” to another.", fa:"این را هم یادت باشد که وقتت تنها منبعِ محدودِ توست، و وقتی به یک چیز «آره» می‌گویی، ناچار داری به چیزِ دیگری «نه» می‌گویی."}
+    ],
+    media:[
+      { kind:"yt", id:"4v4_7kfESiw", src:{en:"YouTube · Famous Labs", fa:"یوتیوب · Famous Labs"},
+        title:{en:"High Output Management — Book Summary", fa:"مدیریتِ پُربازده — خلاصهٔ کتاب"},
+        desc:{en:"A clear overview of Grove's core ideas in one sitting.", fa:"یک مرورِ روشن از ایده‌های اصلیِ گرو در یک نشست."},
+        bullets:{en:["Output, leverage, and meetings","The manager's real job","A fast, memorable overview"], fa:["خروجی، اهرم، و جلسه‌ها","کارِ واقعیِ مدیر","یک مرورِ سریع و به‌یادماندنی"]},
+        best:{en:"Best for Stage 1–2.", fa:"خوب برای مرحلهٔ ۱ و ۲."} },
+      { kind:"yt", id:"SY64JpyBQyQ", src:{en:"YouTube · SnapTale", fa:"یوتیوب · SnapTale"},
+        title:{en:"High Output Management — 9-Minute Summary", fa:"مدیریتِ پُربازده — خلاصهٔ ۹ دقیقه‌ای"},
+        desc:{en:"A quick summary of the key concepts.", fa:"یک خلاصهٔ سریع از مفهوم‌های کلیدی."},
+        bullets:{en:["Leverage and the manager's output","One-on-ones and meetings","A tidy recap"], fa:["اهرم و خروجیِ مدیر","جلسه‌های دونفره و جلسه‌ها","یک مرورِ مرتب"]},
+        best:{en:"Best for Stage 2–3.", fa:"خوب برای مرحلهٔ ۲ و ۳."} },
+      { kind:"yt", id:"fBKXqgZBDYE", src:{en:"YouTube · Khushwant Singh", fa:"یوتیوب · Khushwant Singh"},
+        title:{en:"High Output Management — Grove's Blueprint for Leadership", fa:"مدیریتِ پُربازده — نقشهٔ گرو برای رهبری"},
+        desc:{en:"A structured walkthrough of the book's management model.", fa:"یک مرورِ منظم از مدلِ مدیریتیِ کتاب."},
+        bullets:{en:["Production and leverage","Planning and people","A complete overview"], fa:["تولید و اهرم","برنامه‌ریزی و آدم‌ها","یک مرورِ کامل"]},
+        best:{en:"Best for Stage 3–4.", fa:"خوب برای مرحلهٔ ۳ و ۴."} },
+      { kind:"img", url:"https://www.penguinrandomhouse.com/books/72467/high-output-management-by-andrew-s-grove-former-chairman-and-ceo-of-intel/",
+        src:{en:"Penguin Random House · Publisher", fa:"Penguin Random House · ناشر"},
+        title:{en:"High Output Management — Publisher Page", fa:"مدیریتِ پُربازده — صفحهٔ ناشر"},
+        desc:{en:"The Vintage / PRH publisher page, with editions and details.", fa:"صفحهٔ ناشر (Vintage / PRH)، با نسخه‌ها و جزئیات."},
+        bullets:{en:["The definitive editions","Background on Grove","Straight from the source"], fa:["نسخه‌های معتبر","پیشینه‌ای دربارهٔ گرو","مستقیم از خودِ منبع"]},
+        best:{en:"For editions and the source.", fa:"برای نسخه‌ها و منبعِ اصلی."} }
+    ],
+    go:[
+      {label:{en:"Publisher page", fa:"صفحهٔ ناشر"}, url:"https://www.penguinrandomhouse.com/books/72467/high-output-management-by-andrew-s-grove-former-chairman-and-ceo-of-intel/"},
+      {label:{en:"Book on Goodreads", fa:"کتاب در گودریدز"}, url:"https://www.goodreads.com/book/show/324750.High_Output_Management"},
+      {label:{en:"Quotes from the book", fa:"نقل‌قول‌های کتاب"}, url:"https://www.goodreads.com/work/quotes/315440-high-output-management"}
+    ],
+    recs:[
+      { pri:"b", t:{en:"Write your output equation", fa:"معادلهٔ خروجی‌ات را بنویس"}, d:{en:"List your team plus the groups you influence; that sum is your real output.", fa:"تیمت را به‌علاوهٔ گروه‌هایی که رویشان اثر داری بنویس؛ همان جمع، خروجیِ واقعیِ توست."} },
+      { pri:"b", t:{en:"Hold a real one-on-one", fa:"یک جلسهٔ دونفرهٔ واقعی بگذار"}, d:{en:"Schedule one this week and let the other person set the agenda.", fa:"این هفته یکی بگذار و بگذار طرفِ مقابل دستورِ جلسه را بچیند."} },
+      { pri:"n", t:{en:"Find one high-leverage hour", fa:"یک ساعتِ پُراهرم پیدا کن"}, d:{en:"Pick a training or coaching task that will lift many people, and do it.", fa:"یک کارِ آموزشی یا مربی‌گری که خروجیِ آدم‌های زیادی را بالا می‌برد انتخاب کن، و انجامش بده."} },
+      { pri:"n", t:{en:"Set one objective and its key results", fa:"یک هدف و نتایجِ کلیدی‌اش را تعیین کن"}, d:{en:"For a current goal, write one objective and two or three measurable key results.", fa:"برای یک هدفِ فعلی، یک مقصد و دو سه نتیجهٔ کلیدیِ قابلِ‌اندازه‌گیری بنویس."} }
+    ]
+  }
+};

@@ -1,0 +1,263 @@
+/* config: The Great CEO Within — Matt Mochary (Executing) */
+module.exports = {
+  slug:"gcw", brand:"The Great CEO Within",
+  titleTag:"The Great CEO Within — نقشهٔ دانش و یادگیری ۵ مرحله‌ای",
+  W:980, H:780, R1:220, R2:126, span:66,
+  leafKickEn:"Practice", leafKickFa:"تمرینِ",
+  flowEn:["Systematize","Delegate","Scale"], flowFa:["سیستم بساز","بسپار","رشد بده"],
+
+  hero:`  <div class="eyebrow"><span class="edot"></span>
+    <span data-only="en">Book knowledge map · Matt Mochary</span>
+    <span data-only="fa">نقشهٔ کتاب · مت موکری</span>
+  </div>
+  <h1>
+    <span data-only="en">The Great CEO Within — The Tactical Guide to Company Building</span>
+    <span data-only="fa">مدیرعاملِ بزرگ — راهنمای عملیِ ساختنِ شرکت</span>
+  </h1>
+  <p class="dek">
+    <span data-only="en">A knowledge graph of the whole book, plus a 5-stage path from a single idea to expert-level mastery — with an example at every step.</span>
+    <span data-only="fa">نقشه‌ای از کلِ کتاب، به‌علاوهٔ یک مسیرِ ۵ مرحله‌ای از یک ایدهٔ ساده تا حرفه‌ای — با یک مثال در هر مرحله.</span>
+  </p>
+  <div class="metastrip">
+    <div class="metaitem"><span class="mk" data-only="en">Book</span><span class="mk" data-only="fa">کتاب</span>
+      <span class="mv" data-only="en">The Great CEO Within</span><span class="mv" data-only="fa">مدیرعاملِ بزرگ</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Author</span><span class="mk" data-only="fa">نویسنده</span>
+      <span class="mv" data-only="en">Matt Mochary</span><span class="mv" data-only="fa">مت موکری</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Published</span><span class="mk" data-only="fa">سالِ چاپ</span>
+      <span class="mv" data-only="en">2019</span><span class="mv" data-only="fa">۲۰۱۹</span></div>
+    <div class="metaitem"><span class="mk" data-only="en">Group</span><span class="mk" data-only="fa">گروه</span>
+      <span class="mv" data-only="en">Executing</span><span class="mv" data-only="fa">اجرا</span></div>
+  </div>
+  <div class="chips">
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Parts</span><span data-only="fa">بخش</span></div>
+    <div class="chip"><b data-only="en">16</b><b data-only="fa">۱۶</b><span data-only="en">Practices</span><span data-only="fa">تمرین</span></div>
+    <div class="chip"><b data-only="en">5</b><b data-only="fa">۵</b><span data-only="en">Learning stages</span><span data-only="fa">مرحلهٔ یادگیری</span></div>
+  </div>`,
+
+  callout:`    <b data-only="en">The core idea:</b>
+    <b data-only="fa">ایدهٔ اصلی:</b>
+    <span data-only="en"> Build the <i>systems and habits</i> that let you — and your company — run without you as the bottleneck. Manage yourself first (get tasks out of your head, protect time for your top goal), then run the group on <i>transparency</i>, clean feedback, and clear ownership.</span>
+    <span data-only="fa"> همان <i>سیستم‌ها و عادت‌هایی</i> را بساز که باعث می‌شوند تو — و شرکتت — بدونِ اینکه تو گلوگاه باشی کار کنید. اول خودت را مدیریت کن (کارها را از سرت بیرون بریز، برای هدفِ اصلی‌ات وقت نگه دار)، بعد گروه را با <i>شفافیت</i>، بازخوردِ تمیز و مالکیتِ روشن بچرخان.</span>`,
+
+  kpis:`    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Parts (self · comms · delegation · team · CEO)</div><div class="l" data-only="fa">بخش (خود · ارتباط · واگذاری · تیم · مدیرعامل)</div></div>
+    <div class="kbox"><div class="v" data-only="en">16</div><div class="v" data-only="fa">۱۶</div><div class="l" data-only="en">Practices you can use</div><div class="l" data-only="fa">تمرین برای استفاده</div></div>
+    <div class="kbox"><div class="v" data-only="en">5</div><div class="v" data-only="fa">۵</div><div class="l" data-only="en">Levels, simple → expert</div><div class="l" data-only="fa">مرحله، ساده تا حرفه‌ای</div></div>
+    <div class="kbox"><div class="v" data-only="en">3</div><div class="v" data-only="fa">۳</div><div class="l" data-only="en">The flow: systematize · delegate · scale</div><div class="l" data-only="fa">جریانِ کار: سیستم‌سازی · واگذاری · رشد</div></div>`,
+
+  mapcallout:`      <b data-only="en">Read it as a flow:</b><b data-only="fa">به‌صورتِ یک جریان بخوانش:</b>
+      <span data-only="en"> get <b>yourself</b> organized (GTD, Inbox Zero, Top Goal), run the <b>group</b> on transparency and feedback, <b>delegate</b> with clear ownership (AORs, no single point of failure), and grow the <b>company</b> — culture, hiring, fundraising, sales.</span>
+      <span data-only="fa"> اول <b>خودت</b> را مرتب کن (انجامِ کار، صندوقِ خالی، هدفِ اصلی)، <b>گروه</b> را با شفافیت و بازخورد بگردان، با مالکیتِ روشن <b>واگذار</b> کن (حوزه‌های مسئولیت، بدونِ گلوگاه)، و <b>شرکت</b> را بزرگ کن — فرهنگ، استخدام، جذبِ سرمایه، فروش.</span>`,
+
+  methodFa:"<p><b>منبع:</b> کتابِ «The Great CEO Within» نوشتهٔ مت موکری، چاپِ ۲۰۱۹. این کتاب به‌صورتِ رایگان به شکلِ یک گوگل‌داک در دسترس است.</p><p><b>روشِ کار:</b> ساختارِ پنج‌بخشی و تمرین‌ها از خودِ کتاب و منابعِ معتبر گردآوری و ساده‌نویسی شده؛ نقل‌قول‌ها با متنِ کتاب مقابله و ویدیوها بررسی شده‌اند.</p><p><b>گروه:</b> «اجرا» — از فهرستِ کتاب‌های ضروریِ سازندگانِ محصولِ لنی راچیتسکی.</p><p><b>یک نکته:</b> این صفحه برای یادگیری است، نه جایگزینِ کتاب. برای متنِ کامل، خودِ کتاب را بخوان.</p>",
+  methodEn:"<p><b>Source:</b> the book <i>The Great CEO Within</i> by Matt Mochary, published 2019 — freely available online as a Google Doc.</p><p><b>How this was built:</b> the five-part structure and practices were gathered and rewritten from the book and reputable sources; quotes were cross-checked and the linked videos verified.</p><p><b>Group:</b> Executing — from Lenny Rachitsky's essential books for product builders.</p><p><b>Limitation:</b> this page is a learning aid, not a substitute for the book.</p>",
+
+  data:{
+    tldr:[
+      {en:"The whole book in one line: build the systems and habits that let you — and your company — run without you as the bottleneck.",
+       fa:"خلاصهٔ کل کتاب در یک جمله: همان سیستم‌ها و عادت‌هایی را بساز که باعث می‌شوند تو — و شرکتت — بدونِ اینکه تو گلوگاه باشی کار کنید."},
+      {en:"Start with <b>yourself</b>: get tasks out of your head, keep your inbox at zero, and protect two hours a day for your Top Goal.",
+       fa:"از <b>خودت</b> شروع کن: کارها را از سرت بیرون بریز، صندوقِ ورودی‌ات را خالی نگه دار، و هر روز دو ساعت را برای هدفِ اصلی‌ات نگه دار."},
+      {en:"Run the <b>group</b> on transparency and clean feedback — share everything, and surface issues early instead of letting them fester.",
+       fa:"<b>گروه</b> را با شفافیت و بازخوردِ تمیز بگردان — همه‌چیز را بگو، و مشکل‌ها را زود رو کن، نه اینکه بگذاری ورم کنند."},
+      {en:"<b>Delegate</b> by giving every area one owner (AORs), so there's no single point of failure — and track a few clear KPIs.",
+       fa:"با دادنِ یک صاحب به هر حوزه (حوزه‌های مسئولیت) <b>واگذار</b> کن، تا هیچ گلوگاهی نمانَد — و چند شاخصِ روشن را دنبال کن."},
+      {en:"Then build the <b>team and culture</b>, lead from a calm, conscious place, and master the CEO skills: hiring, fundraising, and sales.",
+       fa:"بعد <b>تیم و فرهنگ</b> را بساز، از یک جای آرام و آگاه رهبری کن، و مهارت‌های مدیرعامل را استاد شو: استخدام، جذبِ سرمایه، و فروش."}
+    ],
+    parts:[
+      { key:"getdone", varc:"--c-teal", name:{en:"Getting Things Done", fa:"انجامِ کارها"}, tag:{en:"Personal productivity", fa:"بهره‌وریِ شخصی"},
+        gist:{en:"Manage yourself first — get tasks out of your head and protect time for what matters.", fa:"اول خودت را مدیریت کن — کارها را از سرت بیرون بریز و برای آنچه مهم است وقت نگه دار."},
+        more:{en:"Everything starts with you. If your own head is full and your inbox runs your day, you can't lead a company. Build a trusted personal system so your attention goes to the work that matters most.",
+              fa:"همه‌چیز از خودت شروع می‌شود. اگر سرِ خودت شلوغ باشد و ایمیل روزت را بگرداند، نمی‌توانی یک شرکت را رهبری کنی. یک سیستمِ شخصیِ مطمئن بساز تا تمرکزت برود روی کاری که از همه مهم‌تر است."},
+        chapters:["gtd","inbox","topgoal","energy"] },
+      { key:"comm", varc:"--c-blue", name:{en:"Communication & Feedback", fa:"ارتباط و بازخورد"}, tag:{en:"Talk straight", fa:"رُک حرف بزن"},
+        gist:{en:"Share everything, give and take feedback cleanly, and surface conflict early.", fa:"همه‌چیز را بگو، بازخورد را تمیز بده و بگیر، و تعارض را زود رو کن."},
+        more:{en:"Teams don't break on hard problems; they break on things left unsaid. Default to transparency, make feedback a normal habit, and deal with tension the day you feel it, directly with the person involved.",
+              fa:"تیم‌ها با مسئله‌های سخت نمی‌شکنند؛ با حرف‌های نگفته می‌شکنند. پیش‌فرضت شفافیت باشد، بازخورد را به یک عادتِ عادی تبدیل کن، و تنش را همان روزی که حسش می‌کنی، مستقیم با خودِ طرف حل کن."},
+        chapters:["transparency","feedback","conflict"] },
+      { key:"delegate", varc:"--c-amber", name:{en:"Managing & Delegation", fa:"مدیریت و واگذاری"}, tag:{en:"Let go well", fa:"خوب واگذار کن"},
+        gist:{en:"One owner per area, no single point of failure, and a few numbers everyone can see.", fa:"هر حوزه یک صاحب، بدونِ گلوگاه، و چند عدد که همه ببینند."},
+        more:{en:"You scale by letting go, not by holding on. Give every area of responsibility exactly one owner, document how things work so nothing depends on a single person, and steer with a handful of clear metrics.",
+              fa:"با رهاکردن بزرگ می‌شوی، نه با چنگ‌زدن. هر حوزهٔ مسئولیت را دقیقاً به یک نفر بسپار، طرزِ کارها را مستند کن تا هیچ‌چیز به یک نفر بند نباشد، و با چند شاخصِ روشن مسیر را هدایت کن."},
+        chapters:["aor","nospof","kpis"] },
+      { key:"team", varc:"--c-violet", name:{en:"Team & Culture", fa:"تیم و فرهنگ"}, tag:{en:"Build the people", fa:"آدم‌ها را بساز"},
+        gist:{en:"Hire carefully, define your culture with the team, and lead consciously.", fa:"با دقت استخدام کن، فرهنگ را با تیم تعریف کن، و آگاهانه رهبری کن."},
+        more:{en:"A company is just its people and the norms they live by. Treat hiring as a top priority, agree on values with the whole team, and lead from a conscious place instead of reacting from fear or anger.",
+              fa:"یک شرکت چیزی نیست جز آدم‌هایش و قاعده‌هایی که با آن‌ها زندگی می‌کنند. استخدام را یک اولویتِ اصلی بدان، ارزش‌ها را با کلِ تیم توافق کن، و به‌جای واکنشِ از سرِ ترس یا خشم، از یک جای آگاه رهبری کن."},
+        chapters:["hiring","culture","conscious"] },
+      { key:"ceoskills", varc:"--c-green", name:{en:"CEO Skills & Fundraising", fa:"مهارت‌های مدیرعامل و جذبِ سرمایه"}, tag:{en:"Fuel the company", fa:"به شرکت سوخت برسان"},
+        gist:{en:"Raise money by running a tight process, sell by solving pain, decide with buy-in.", fa:"با یک فرایندِ فشرده سرمایه جذب کن، با حلِ درد بفروش، و با همراهی تصمیم بگیر."},
+        more:{en:"These are the outward-facing skills a founder can't delegate away. Run fundraising as a competitive process, sell by finding real pain and showing results, and make decisions in a way that gets the team to truly own them.",
+              fa:"این‌ها مهارت‌های روبه‌بیرونی‌اند که یک بنیان‌گذار نمی‌تواند از خودش دورشان کند. جذبِ سرمایه را مثلِ یک فرایندِ رقابتی اجرا کن، با پیداکردنِ دردِ واقعی و نشان‌دادنِ نتیجه بفروش، و طوری تصمیم بگیر که تیم واقعاً پایش بایستد."},
+        chapters:["fundraising","sales","decisions"] }
+    ],
+    chapters:{
+      gtd:{ part:"getdone", n:1, name:{en:"Getting Things Done", fa:"انجامِ کارها"}, glabel:{en:"GTD", fa:"کارها"},
+        principle:{en:"Get every task, idea, and worry out of your head into one trusted system, and decide the next action for each.", fa:"هر کار، ایده و دغدغه را از سرت بیرون بریز توی یک سیستمِ مطمئن، و برای هرکدام قدمِ بعدی را مشخص کن."},
+        more:{en:"Your mind is for having ideas, not holding them. When everything lives in an external list you trust — and each item has a clear next action — the background hum of “what am I forgetting?” goes quiet and you can actually focus.", fa:"ذهنِ تو برای ایده‌داشتن است، نه نگه‌داشتنِ ایده‌ها. وقتی همه‌چیز توی یک فهرستِ بیرونی است که بهش اعتماد داری — و هر مورد یک قدمِ بعدیِ روشن دارد — آن وزوزِ همیشگیِ «چی رو دارم یادم می‌ره؟» ساکت می‌شود و می‌توانی واقعاً تمرکز کنی."},
+        example:{en:"Instead of holding “call the lawyer” in your head, write a concrete next action: “Email Sara to set up the lawyer call.”", fa:"به‌جای اینکه «به وکیل زنگ بزن» را توی سرت نگه داری، یک قدمِ بعدیِ مشخص بنویس: «به سارا ایمیل بزن تا تماس با وکیل را تنظیم کند»."},
+        tip:{en:"Do a weekly review: empty every inbox and check that each project has a defined next action.", fa:"یک مرورِ هفتگی داشته باش: همهٔ صندوق‌ها را خالی کن و مطمئن شو هر پروژه یک قدمِ بعدیِ مشخص دارد."},
+        pitfall:{en:"Keeping to-dos in your head, so your energy leaks into remembering instead of doing.", fa:"نگه‌داشتنِ کارها توی سرت، جوری که انرژی‌ات به‌جای انجام‌دادن، صرفِ به‌یادآوردن می‌شود."} },
+      inbox:{ part:"getdone", n:2, name:{en:"Inbox Zero", fa:"صندوقِ خالی"}, glabel:{en:"Inbox Zero", fa:"صندوقِ خالی"},
+        principle:{en:"Treat your inbox as a triage room, not a storage room — process each email to a decision and get to zero.", fa:"صندوقِ ورودی را یک اتاقِ تریاژ بدان، نه انبار — هر ایمیل را تا یک تصمیم پیش ببر و به صفر برسان."},
+        more:{en:"Checking email all day, every few minutes, shreds your focus. Batch it into a few blocks, and for each message do one thing: do it now if it's quick, delegate it, turn it into a task, or archive it. The inbox is for triage, not for living in.", fa:"چک‌کردنِ ایمیل در طولِ روز و هر چند دقیقه، تمرکزت را تکه‌تکه می‌کند. آن را توی چند بازهٔ مشخص جمع کن، و برای هر پیام فقط یک کار بکن: اگر سریع است همان‌جا انجامش بده، واگذارش کن، به یک کار تبدیلش کن، یا بایگانی‌اش کن. صندوقِ ورودی برای تریاژ است، نه برای زندگی‌کردن توی آن."},
+        example:{en:"Twice a day you open email and move every message out — reply, forward, or make it a task — until the inbox is empty.", fa:"روزی دو بار ایمیل را باز می‌کنی و هر پیام را بیرون می‌بری — جواب، فوروارد، یا تبدیل به کار — تا صندوق خالی شود."},
+        tip:{en:"Check email at a few set times a day, not continuously, and turn off the notifications.", fa:"ایمیل را چند بارِ مشخص در روز چک کن، نه مدام، و اعلان‌ها را خاموش کن."},
+        pitfall:{en:"Living in your inbox all day, letting other people's priorities set your agenda.", fa:"تمامِ روز توی صندوقِ ورودی زندگی‌کردن، و گذاشتن اولویتِ دیگران برنامه‌ات را بچیند."} },
+      topgoal:{ part:"getdone", n:3, name:{en:"Top Goal", fa:"هدفِ اصلی"}, glabel:{en:"Top Goal", fa:"هدفِ اصلی"},
+        principle:{en:"Pick the single most important goal, and protect two uninterrupted hours a day to work only on it.", fa:"مهم‌ترین هدف را انتخاب کن، و هر روز دو ساعتِ بی‌وقفه را نگه دار که فقط رویش کار کنی."},
+        more:{en:"Most people spend their best hours reacting to email and meetings, and their real priority never gets serious attention. Block two hours each morning for your Top Goal alone — no email, no chat, no calls — and guard it like a meeting with your most important investor.", fa:"بیشترِ آدم‌ها بهترین ساعت‌هایشان را صرفِ واکنش به ایمیل و جلسه می‌کنند، و اولویتِ واقعی‌شان هیچ‌وقت توجهِ جدی نمی‌گیرد. هر صبح دو ساعت را فقط برای هدفِ اصلی‌ات خالی کن — نه ایمیل، نه چت، نه تماس — و مثلِ یک جلسه با مهم‌ترین سرمایه‌گذارت ازش محافظت کن."},
+        example:{en:"You put a recurring two-hour “Top Goal” block on your calendar each morning and refuse to schedule over it.", fa:"هر صبح یک بازهٔ دوساعتهٔ تکرارشوندهٔ «هدفِ اصلی» توی تقویمت می‌گذاری و اجازه نمی‌دهی چیزی رویش بنشیند."},
+        tip:{en:"Do your Top Goal block first thing, before the day's noise starts.", fa:"بازهٔ هدفِ اصلی را همان اولِ وقت انجام بده، قبل از اینکه سروصدای روز شروع شود."},
+        pitfall:{en:"Letting urgent-but-unimportant tasks crowd out the one goal that moves the company.", fa:"گذاشتنِ کارهای فوری‌ولی‌بی‌اهمیت جای همان یک هدفی را بگیرند که شرکت را جلو می‌برد."} },
+      energy:{ part:"getdone", n:4, name:{en:"Energy Audit & Zone of Genius", fa:"بررسیِ انرژی و منطقهٔ نبوغ"}, glabel:{en:"Energy", fa:"انرژی"},
+        principle:{en:"Track which activities energize you and which drain you, then shift your time toward your Zone of Genius.", fa:"ببین کدام کارها بهت انرژی می‌دهند و کدام می‌کشندت، بعد وقتت را به‌سمتِ منطقهٔ نبوغت ببر."},
+        more:{en:"List everything you do in a week and mark each one energizing or draining. The draining tasks are usually someone else's Zone of Genius — delegate them. Spend more time on the rare work that both energizes you and creates the most value; that's your Zone of Genius.", fa:"هرچه را توی یک هفته انجام می‌دهی بنویس و هرکدام را «انرژی‌بخش» یا «انرژی‌کش» علامت بزن. کارهای انرژی‌کش معمولاً منطقهٔ نبوغِ یک نفرِ دیگرند — واگذارشان کن. بیشترِ وقتت را بگذار روی آن کارِ کمیابی که هم بهت انرژی می‌دهد و هم بیشترین ارزش را می‌سازد؛ همان منطقهٔ نبوغِ توست."},
+        example:{en:"If sales calls light you up but bookkeeping drains you, hand off the bookkeeping and do more selling.", fa:"اگر تماس‌های فروش سرِحالت می‌آورند ولی حسابداری خسته‌ات می‌کند، حسابداری را واگذار کن و بیشتر بفروش."},
+        tip:{en:"For two weeks, tag each task “energizing” or “draining”, then plan to offload the drainers.", fa:"دو هفته، هر کار را «انرژی‌بخش» یا «انرژی‌کش» برچسب بزن، بعد برنامه بریز که انرژی‌کش‌ها را از دوشت برداری."},
+        pitfall:{en:"Grinding through draining work you could delegate, running your own tank to empty.", fa:"جان‌کندن روی کارِ انرژی‌کشی که می‌شد واگذارش کنی، و خالی‌کردنِ باکِ خودت."} },
+      transparency:{ part:"comm", n:5, name:{en:"Transparency", fa:"شفافیت"}, glabel:{en:"Transparency", fa:"شفافیت"},
+        principle:{en:"Share all relevant information with the team, good and bad — transparency builds trust and speed.", fa:"همهٔ اطلاعاتِ مهم را با تیم در میان بگذار، خوب و بد — شفافیت اعتماد و سرعت می‌سازد."},
+        more:{en:"Founders often hide bad news to protect the team, but secrecy just breeds fear and rumor. When you share the real numbers, the hard news, and your reasoning, people trust you and can actually help. Default to open — share unless there's a strong reason not to.", fa:"بنیان‌گذارها اغلب خبرِ بد را پنهان می‌کنند تا تیم را حفظ کنند، ولی پنهان‌کاری فقط ترس و شایعه می‌سازد. وقتی عددهای واقعی، خبرهای سخت و دلیل‌هایت را می‌گویی، آدم‌ها بهت اعتماد می‌کنند و واقعاً می‌توانند کمک کنند. پیش‌فرضت باز بودن باشد — بگو، مگر اینکه دلیلِ محکمی برای نگفتن باشد."},
+        example:{en:"You send the whole team the monthly financials and the honest state of the business — not just the wins.", fa:"عددهای مالیِ ماهانه و وضعیتِ صادقانهٔ کسب‌وکار را برای کلِ تیم می‌فرستی — نه فقط بُردها را."},
+        tip:{en:"Ask yourself “why not share this?” and default to transparency unless there's a real reason.", fa:"از خودت بپرس «چرا این را نگویم؟» و پیش‌فرض را شفافیت بگذار، مگر یک دلیلِ واقعی باشد."},
+        pitfall:{en:"Hoarding information to look in control, which quietly breeds distrust and rumors.", fa:"احتکارِ اطلاعات برای اینکه مسلط به‌نظر برسی، که بی‌سروصدا بی‌اعتمادی و شایعه می‌سازد."} },
+      feedback:{ part:"comm", n:6, name:{en:"Feedback & Appreciation", fa:"بازخورد و قدردانی"}, glabel:{en:"Feedback", fa:"بازخورد"},
+        principle:{en:"Give feedback with permission and care — and receive both feedback and appreciation with a simple “Thank you.”", fa:"بازخورد را با اجازه و با ملاحظه بده — و هم بازخورد و هم قدردانی را با یک «ممنونم»ِ ساده بگیر."},
+        more:{en:"Good feedback is timely, specific, and asked-for: get permission, describe what happened, share how it landed, and make a request. On the receiving end, resist defending yourself — the only right response to appreciation is “Thank you”, and the right response to criticism is to listen for the truth in it.", fa:"بازخوردِ خوب به‌موقع، مشخص و بااجازه است: اجازه بگیر، بگو چه اتفاقی افتاد، بگو چه حسی بهت داد، و یک درخواست بکن. سرِ گرفتن هم، جلوی گارد گرفتنت را بگیر — تنها جوابِ درست به قدردانی «ممنونم» است، و جوابِ درست به انتقاد این است که گوش کنی و حقیقتش را پیدا کنی."},
+        example:{en:"“Can I give you some feedback? When you cut Ali off in the meeting, the room went quiet — could you let people finish?”", fa:"«می‌تونم یه بازخورد بدم؟ توی جلسه وقتی حرفِ علی رو قطع کردی، جمع ساکت شد — می‌شه بذاری آدم‌ها حرفشون رو تموم کنن؟»"},
+        tip:{en:"Before you criticize, ask “Can I give you some feedback?” and wait for a yes.", fa:"قبل از انتقاد، بپرس «می‌تونم یه بازخورد بدم؟» و منتظرِ یک «بله» بمان."},
+        pitfall:{en:"Bottling up issues until they explode, or getting defensive when feedback comes back to you.", fa:"انباشتنِ مشکل‌ها تا وقتی منفجر شوند، یا گارد گرفتن وقتی بازخورد به خودت برمی‌گردد."} },
+      conflict:{ part:"comm", n:7, name:{en:"Conflict Resolution", fa:"حلِ تعارض"}, glabel:{en:"Conflict", fa:"تعارض"},
+        principle:{en:"Surface issues early and resolve conflict directly between the two people involved, in private.", fa:"مشکل‌ها را زود رو کن و تعارض را مستقیم بینِ همان دو نفرِ درگیر، خصوصی حل کن."},
+        more:{en:"Unspoken tension festers and poisons a whole team. Name issues as soon as you feel them. When two people clash, get them in a room to speak directly — each restates the other's view (“I think I heard you say…”) until both feel heard, before solving. Don't carry messages between people.", fa:"تنشِ نگفته می‌ماند و کلِ تیم را مسموم می‌کند. مشکل را همان لحظه‌ای که حسش می‌کنی اسم ببر. وقتی دو نفر به هم می‌خورند، توی یک اتاق بگذارشان تا مستقیم حرف بزنند — هرکدام حرفِ دیگری را دوباره می‌گوید («فکر کنم گفتی که…») تا هر دو حس کنند شنیده شده‌اند، بعد سراغِ حل بروند. پیام‌بَرِ بینِ آدم‌ها نباش."},
+        example:{en:"If two teammates are stuck in tension, you sit them together and have each repeat the other's point before proposing a fix.", fa:"اگر دو نفر از تیم توی تنش گیر کرده‌اند، کنارِ هم می‌نشانی‌شان و می‌گویی هرکدام حرفِ دیگری را تکرار کند، بعد راه‌حل پیشنهاد بدهند."},
+        tip:{en:"When you sense friction, raise it the same day instead of hoping it fades.", fa:"وقتی یک اصطکاک را حس کردی، همان روز مطرحش کن، نه اینکه امید ببندی خودش برود."},
+        pitfall:{en:"Avoiding the hard conversation, or venting to a third party instead of the person involved.", fa:"فرار از گفت‌وگوی سخت، یا خالی‌کردنِ دل پیشِ یک نفرِ سوم به‌جای خودِ طرف."} },
+      aor:{ part:"delegate", n:8, name:{en:"Areas of Responsibility", fa:"حوزه‌های مسئولیت"}, glabel:{en:"AORs", fa:"مسئولیت"},
+        principle:{en:"Assign every area of the company to one — and only one — clearly named owner.", fa:"هر حوزهٔ شرکت را به یک نفر — و فقط یک نفرِ — مشخص بسپار."},
+        more:{en:"When two people own something, no one does; when no one owns it, it rots. List every area of responsibility in the company and put exactly one person's name on each. Then everyone knows who to go to, and nothing falls through the cracks.", fa:"وقتی دو نفر صاحبِ یک چیزند، هیچ‌کس نیست؛ وقتی هیچ‌کس صاحبش نیست، می‌پوسد. همهٔ حوزه‌های مسئولیتِ شرکت را فهرست کن و روی هرکدام دقیقاً اسمِ یک نفر را بگذار. آن‌وقت همه می‌دانند سراغِ کی بروند، و هیچ‌چیز از قلم نمی‌افتد."},
+        example:{en:"You keep a shared list: “Payroll — Sara. Office — Reza. Security — Nima.” One name each.", fa:"یک فهرستِ مشترک نگه می‌داری: «حقوق‌ودستمزد — سارا. دفتر — رضا. امنیت — نیما». هرکدام یک اسم."},
+        tip:{en:"Write down every area of responsibility and make sure each has exactly one owner — not zero, not two.", fa:"همهٔ حوزه‌های مسئولیت را بنویس و مطمئن شو هرکدام دقیقاً یک صاحب دارد — نه صفر، نه دو تا."},
+        pitfall:{en:"Shared ownership, where everyone quietly assumes someone else has it handled.", fa:"مالکیتِ مشترک، که همه بی‌سروصدا فکر می‌کنند یکی دیگر ترتیبش را داده."} },
+      nospof:{ part:"delegate", n:9, name:{en:"No Single Point of Failure", fa:"بدونِ گلوگاه"}, glabel:{en:"Delegate", fa:"واگذاری"},
+        principle:{en:"Delegate and document so the company never depends on any one person — including you.", fa:"طوری واگذار و مستند کن که شرکت هیچ‌وقت به یک نفر بند نباشد — از جمله خودت."},
+        more:{en:"If only one person can do a critical task, they're a single point of failure and a bottleneck. Delegate ownership, write down how things work, and cross-train a backup. Owning part of a well-run system beats being the hero who has to touch everything.", fa:"اگر فقط یک نفر بتواند یک کارِ حیاتی را انجام دهد، همان یک گلوگاه است. مالکیت را واگذار کن، طرزِ کار را بنویس، و یک نفرِ جایگزین را آموزش بده. صاحبِ بخشی از یک سیستمِ خوب بودن، بهتر از قهرمانی است که باید دستش به همه‌چیز بخورد."},
+        example:{en:"If only you can deploy the app or close the books, you teach someone else and write down the steps.", fa:"اگر فقط تو می‌توانی اپ را منتشر کنی یا حساب‌ها را ببندی، یک نفرِ دیگر را یاد می‌دهی و قدم‌ها را می‌نویسی."},
+        tip:{en:"Find the tasks only you can do, and this month teach one of them to someone else.", fa:"کارهایی که فقط از دستِ تو برمی‌آید را پیدا کن، و همین ماه یکی‌شان را به یک نفرِ دیگر یاد بده."},
+        pitfall:{en:"Becoming the bottleneck yourself because you never trained a backup or wrote it down.", fa:"خودت گلوگاه شدن، چون نه جایگزین آموزش دادی نه چیزی نوشتی."} },
+      kpis:{ part:"delegate", n:10, name:{en:"KPIs & Goal-Tracking", fa:"شاخص‌ها و پیگیریِ هدف"}, glabel:{en:"KPIs", fa:"شاخص‌ها"},
+        principle:{en:"Pick a few key metrics, make them visible, and review progress on a regular cadence.", fa:"چند شاخصِ کلیدی را انتخاب کن، جلوی چشم بگذارشان، و پیشرفت را با یک ریتمِ منظم مرور کن."},
+        more:{en:"What gets measured gets managed. Choose the handful of numbers that show the health of the business, put them on a shared dashboard, and review them every week. Clear metrics turn vague hopes into goals the team can actually steer toward.", fa:"چیزی که اندازه گرفته شود، مدیریت می‌شود. همان چند عددی را که سلامتِ کسب‌وکار را نشان می‌دهند انتخاب کن، روی یک داشبوردِ مشترک بگذار، و هر هفته مرورشان کن. شاخصِ روشن، امیدهای مبهم را به هدف‌هایی تبدیل می‌کند که تیم واقعاً می‌تواند به‌سمتشان فرمان بدهد."},
+        example:{en:"A weekly dashboard: new signups, revenue, churn, and cash in the bank — reviewed every Monday.", fa:"یک داشبوردِ هفتگی: ثبت‌نامِ جدید، درآمد، ریزش، و پولِ توی حساب — هر دوشنبه مرور می‌شود."},
+        tip:{en:"Choose three to five KPIs everyone can see, and review them at the same time each week.", fa:"سه تا پنج شاخص را که همه ببینند انتخاب کن، و هر هفته سرِ یک ساعتِ ثابت مرورشان کن."},
+        pitfall:{en:"Drowning in dozens of metrics — or flying blind with none at all.", fa:"غرق‌شدن توی ده‌ها شاخص — یا کورپروازی بدونِ هیچ شاخصی."} },
+      hiring:{ part:"team", n:11, name:{en:"Recruiting & Hiring", fa:"جذب و استخدام"}, glabel:{en:"Hiring", fa:"استخدام"},
+        principle:{en:"Hire slowly and deliberately — recruiting is a top priority, not an interruption.", fa:"آهسته و با دقت استخدام کن — جذبِ نیرو یک اولویتِ اصلی است، نه یک وقفه."},
+        more:{en:"A great company is just great people. Treat recruiting as an ongoing priority: build a pipeline, sell candidates on the mission, and check references seriously. Ask why they left each past job — promoted, recruited, or fired? Hire for both skill and values, and be willing to wait for the right person.", fa:"یک شرکتِ عالی چیزی نیست جز آدم‌های عالی. جذبِ نیرو را یک اولویتِ همیشگی بدان: یک صف از کاندیدا بساز، آن‌ها را به مأموریت علاقه‌مند کن، و مرجع‌ها را جدی چک کن. بپرس چرا از هر شغلِ قبلی رفتند — ترفیع گرفتند، جذب شدند، یا اخراج؟ هم برای مهارت استخدام کن هم برای ارزش‌ها، و حاضر باش برای آدمِ درست صبر کنی."},
+        example:{en:"In a reference check you ask “Why did they leave?” and “Would you hire them again?”", fa:"موقعِ چک‌کردنِ مرجع می‌پرسی «چرا از اونجا رفت؟» و «دوباره استخدامش می‌کردی؟»"},
+        tip:{en:"Always be building a candidate pipeline, even when you're not hiring right now.", fa:"همیشه در حالِ ساختنِ صفی از کاندیدا باش، حتی وقتی همین حالا استخدام نمی‌کنی."},
+        pitfall:{en:"Rushing a hire to fill a seat, then paying for that mistake for years.", fa:"عجله در استخدام فقط برای پرکردنِ یک صندلی، و بعد سال‌ها تاوانِ آن اشتباه را دادن."} },
+      culture:{ part:"team", n:12, name:{en:"Culture & Values", fa:"فرهنگ و ارزش‌ها"}, glabel:{en:"Culture", fa:"فرهنگ"},
+        principle:{en:"Culture is the behavior you actually reward — define your values with the whole team and live them.", fa:"فرهنگ همان رفتاری است که واقعاً پاداش می‌دهی — ارزش‌ها را با کلِ تیم تعریف کن و باهاشان زندگی کن."},
+        more:{en:"Culture isn't a poster; it's the real norms of how people behave. Agree on your values as a whole company so they get maximum buy-in, name the people who exemplify each, and then hire, promote, and fire by them. What you tolerate becomes your culture.", fa:"فرهنگ یک پوستر نیست؛ همان قاعده‌های واقعیِ رفتارِ آدم‌هاست. ارزش‌ها را به‌عنوانِ کلِ شرکت توافق کن تا بیشترین همراهی را بگیرند، برای هر ارزش آدمی را که نمونه‌اش است اسم ببر، و بعد بر اساسشان استخدام، ترفیع و اخراج کن. چیزی که تحملش می‌کنی، فرهنگت می‌شود."},
+        example:{en:"You ask the whole team to nominate a value and a colleague who lives it, and make those your real values.", fa:"از کلِ تیم می‌خواهی یک ارزش و یک همکار که آن را زندگی می‌کند نام ببرند، و همان‌ها را ارزش‌های واقعی‌ات می‌کنی."},
+        tip:{en:"Define your values together, then actually use them in hiring and promotion decisions.", fa:"ارزش‌ها را با هم تعریف کن، بعد واقعاً توی تصمیم‌های استخدام و ترفیع به کارشان ببر."},
+        pitfall:{en:"Writing values on the wall while rewarding the opposite in practice.", fa:"نوشتنِ ارزش‌ها روی دیوار، درحالی‌که در عمل عکسشان را پاداش می‌دهی."} },
+      conscious:{ part:"team", n:13, name:{en:"Conscious Leadership", fa:"رهبریِ آگاهانه"}, glabel:{en:"Conscious", fa:"آگاهی"},
+        principle:{en:"Lead from above the line — take responsibility instead of blaming, and act from curiosity, not fear.", fa:"از بالای خط رهبری کن — به‌جای مقصر گشتن، مسئولیت بپذیر، و از سرِ کنجکاوی عمل کن، نه ترس."},
+        more:{en:"Under stress we drop “below the line”: defensive, blaming, needing to be right. Conscious leaders notice this and shift back “above the line” — open, curious, responsible. They pause to breathe, accept what they feel, and choose their response instead of reacting from fear or anger.", fa:"زیرِ فشار می‌افتیم «پایینِ خط»: گارد گرفته، دنبالِ مقصر، محتاجِ حق‌به‌جانب‌بودن. رهبرهای آگاه این را می‌بینند و برمی‌گردند «بالای خط» — باز، کنجکاو، مسئول. مکث می‌کنند، نفس می‌کشند، حسشان را می‌پذیرند، و به‌جای واکنشِ از سرِ ترس یا خشم، پاسخشان را انتخاب می‌کنند."},
+        example:{en:"When you feel defensive in a meeting, you pause, breathe, and ask a curious question instead of attacking.", fa:"وقتی توی جلسه حس می‌کنی داری گارد می‌گیری، مکث می‌کنی، نفس می‌کشی، و به‌جای حمله یک سؤالِ کنجکاوانه می‌پرسی."},
+        tip:{en:"When you get triggered, name the feeling and take three breaths before you respond.", fa:"وقتی جرقه می‌خوری، حست را اسم ببر و قبل از جواب‌دادن سه تا نفسِ عمیق بکش."},
+        pitfall:{en:"Reacting from fear or anger and dropping below the line into blame.", fa:"واکنش از سرِ ترس یا خشم و افتادن به پایینِ خط، توی مقصر گشتن."} },
+      fundraising:{ part:"ceoskills", n:14, name:{en:"Fundraising", fa:"جذبِ سرمایه"}, glabel:{en:"Fundraising", fa:"سرمایه"},
+        principle:{en:"Run fundraising as a tight, time-boxed process that creates competition among investors.", fa:"جذبِ سرمایه را مثلِ یک فرایندِ فشرده و زمان‌دار اجرا کن که بینِ سرمایه‌گذارها رقابت بسازد."},
+        more:{en:"Don't raise money one meeting at a time. Line up all your investor conversations in the same short window so interest builds in parallel and offers arrive together. Real competition — genuine FOMO — is what gets you good terms. Get a lead investor, then close fast.", fa:"سرمایه را یکی‌یکی و جلسه‌به‌جلسه جمع نکن. همهٔ گفت‌وگوهای سرمایه‌گذاری را توی یک بازهٔ کوتاهِ مشترک ردیف کن تا علاقه به‌موازاتِ هم بالا برود و پیشنهادها با هم برسند. رقابتِ واقعی — همان ترسِ ازدست‌دادن — همان چیزی است که شرایطِ خوب را برایت می‌گیرد. یک سرمایه‌گذارِ پیش‌رو پیدا کن، بعد سریع ببند."},
+        example:{en:"You book all your first investor meetings in the same two weeks, so the offers land around the same time.", fa:"همهٔ اولین جلسه‌های سرمایه‌گذاری را توی یک بازهٔ دوهفته‌ای می‌گذاری، تا پیشنهادها حدوداً هم‌زمان برسند."},
+        tip:{en:"Batch investor meetings into one window to create urgency and competing offers.", fa:"جلسه‌های سرمایه‌گذارها را توی یک بازه جمع کن تا فوریت و پیشنهادهای رقیب بسازی."},
+        pitfall:{en:"Dragging fundraising out serially, losing your momentum and your leverage.", fa:"کش‌دادنِ جذبِ سرمایه به‌شکلِ پشتِ‌سرِهم، و ازدست‌دادنِ شتاب و قدرتِ چانه‌زنی‌ات."} },
+      sales:{ part:"ceoskills", n:15, name:{en:"Sales", fa:"فروش"}, glabel:{en:"Sales", fa:"فروش"},
+        principle:{en:"Sell by building trust, finding the customer's real pain, and selling results — not features.", fa:"با اعتمادسازی، پیداکردنِ دردِ واقعیِ مشتری، و فروشِ نتیجه بفروش — نه امکانات."},
+        more:{en:"People buy from those they trust, to solve a specific pain. Listen more than you pitch: find the exact problem that's costing them, build trust by being honest, and frame your product around the outcome they'll get, not a list of features. And split lead-generation from closing — they're different jobs.", fa:"آدم‌ها از کسی می‌خرند که بهش اعتماد دارند، تا یک دردِ مشخص را حل کنند. بیشتر از اینکه معرفی کنی، گوش بده: همان مشکلِ دقیقی که دارد برایشان خرج می‌تراشد را پیدا کن، با صادق‌بودن اعتماد بساز، و محصولت را دورِ نتیجه‌ای که می‌گیرند بچین، نه یک فهرست از امکانات. و پیداکردنِ مشتری را از بستنِ قرارداد جدا کن — دو کارِ متفاوت‌اند."},
+        example:{en:"Instead of listing features, you ask what a problem is costing them today, then show the result your product delivers.", fa:"به‌جای ردیف‌کردنِ امکانات، می‌پرسی این مشکل الان چقدر برایشان خرج دارد، بعد نتیجه‌ای را که محصولت می‌دهد نشان می‌دهی."},
+        tip:{en:"On every sales call, spend the first half just finding the customer's specific pain.", fa:"توی هر تماسِ فروش، نیمهٔ اول را فقط صرفِ پیداکردنِ دردِ دقیقِ مشتری کن."},
+        pitfall:{en:"Pitching features to someone whose actual problem you never uncovered.", fa:"معرفیِ امکانات به کسی که مشکلِ واقعی‌اش را اصلاً کشف نکرده‌ای."} },
+      decisions:{ part:"ceoskills", n:16, name:{en:"Decision-Making", fa:"تصمیم‌گیری"}, glabel:{en:"Decisions", fa:"تصمیم"},
+        principle:{en:"Making the call is the easy part; the real work is getting the team emotionally bought in.", fa:"گرفتنِ تصمیم بخشِ آسانش است؛ کارِ اصلی همراه‌کردنِ احساسیِ تیم است."},
+        more:{en:"A decision only sticks when the people who have to execute it own it. Involve them in the process, let their input genuinely shape the outcome, and they'll commit even when it isn't the choice they'd have made. Buy-in beats a “correct” decision the team quietly resents.", fa:"یک تصمیم فقط وقتی می‌ماند که آدم‌هایی که باید اجرایش کنند مالکش باشند. توی فرایند دخالتشان بده، بگذار نظرشان واقعاً روی نتیجه اثر بگذارد، آن‌وقت پایش می‌ایستند حتی اگر انتخابِ خودشان نبوده باشد. همراهی از یک تصمیمِ «درست» که تیم در دل ازش دلخور است، بهتر است."},
+        example:{en:"Before you decide, you ask the team for input and show how it changed your thinking — then you decide.", fa:"قبل از تصمیم، از تیم نظر می‌خواهی و نشان می‌دهی نظرشان چطور فکرت را عوض کرد — بعد تصمیم می‌گیری."},
+        tip:{en:"Bring the team into the decision early, so they feel their input actually shaped it.", fa:"تیم را زود واردِ تصمیم کن، تا حس کنند نظرشان واقعاً رویش اثر گذاشته."},
+        pitfall:{en:"Announcing decisions top-down, then wondering why no one follows through.", fa:"اعلامِ تصمیم‌ها از بالا به پایین، و بعد تعجب از اینکه چرا کسی پایش نمی‌ایستد."} }
+    },
+    core:{ name:{en:"SYSTEMS", fa:"سیستم‌ها"},
+      principle:{en:"A great CEO builds the systems and habits that let a company run — and grow — without them in the middle of everything. Get work out of your head into trusted systems, default to transparency, lead from a calm place, and delegate until you're no longer the bottleneck.", fa:"یک مدیرعاملِ بزرگ همان سیستم‌ها و عادت‌هایی را می‌سازد که باعث می‌شوند یک شرکت بدونِ اینکه او وسطِ همه‌چیز باشد، کار کند و رشد کند. کارها را از سرت بیرون بریز توی سیستم‌های مطمئن، پیش‌فرضت شفافیت باشد، از یک جای آرام رهبری کن، و آن‌قدر واگذار کن تا دیگر گلوگاه نباشی."},
+      more:{en:"Mochary organizes the tactical guide into five moves — manage yourself (GTD, Inbox Zero, Top Goal, energy), communicate (transparency, feedback, conflict), delegate (AORs, no single point of failure, KPIs), build the team (hiring, culture, conscious leadership), and master the CEO skills (fundraising, sales, decisions). The thread through all of it: systems and self-awareness let you scale.", fa:"موکری این راهنمای عملی را در پنج حرکت می‌چیند — خودت را مدیریت کن (انجامِ کار، صندوقِ خالی، هدفِ اصلی، انرژی)، ارتباط بگیر (شفافیت، بازخورد، تعارض)، واگذار کن (حوزه‌های مسئولیت، بدونِ گلوگاه، شاخص‌ها)، تیم را بساز (استخدام، فرهنگ، رهبریِ آگاه)، و مهارت‌های مدیرعامل را استاد شو (جذبِ سرمایه، فروش، تصمیم). نخِ رابطِ همه‌شان: سیستم و خودآگاهی به تو اجازهٔ رشد می‌دهند."},
+      example:{en:"Click any node to read a practice or an idea. You can also drag the nodes around.", fa:"روی هر دایره کلیک کن تا یک تمرین یا ایده را بخوانی. دایره‌ها را هم می‌توانی بکشی و جابه‌جا کنی."} },
+    stages:[
+      { level:1, badge:{en:"Level 1 · Over-simplified", fa:"سطحِ ۱ · خیلی ساده"}, title:{en:"Build systems", fa:"سیستم بساز"}, tagline:{en:"The whole book in a sentence.", fa:"کلِ کتاب در یک جمله."},
+        body:{en:"A great CEO builds systems and habits so the company can run without them. Get everything out of your head and into a system you trust — then hand it off to someone else.", fa:"یک مدیرعاملِ خوب سیستم و عادت می‌سازد تا شرکت بدونِ خودش هم بچرخد. هرچیزی را از سرت بیرون بریز و توی سیستمی بگذار که بهش اعتماد داری — بعد بسپارش به یک نفرِ دیگر."},
+        example:{en:"You keep one trusted task list instead of a hundred sticky notes and a full head.", fa:"به‌جای صد تا کاغذِ یادداشت و یک سرِ شلوغ، یک فهرستِ کارِ مطمئن داری."},
+        gain:{en:"You hold the single idea the whole book expands on.", fa:"همان یک ایده‌ای را داری که کلِ کتاب بسطش می‌دهد."} },
+      { level:2, badge:{en:"Level 2 · Simple", fa:"سطحِ ۲ · ساده"}, title:{en:"Manage yourself first", fa:"اول خودت را مدیریت کن"}, tagline:{en:"GTD, Inbox Zero, Top Goal.", fa:"انجامِ کار، صندوقِ خالی، هدفِ اصلی."},
+        body:{en:"Before you can run a company, run yourself. <b>Get things out of your head</b> into a task system, keep your <b>inbox at zero</b>, and protect <b>two hours a day</b> for your Top Goal — the one thing that matters most.", fa:"قبل از اینکه یک شرکت را بگردانی، خودت را بگردان. <b>کارها را از سرت بیرون بریز</b> توی یک سیستمِ کار، <b>صندوقِ ورودی‌ات را خالی</b> نگه دار، و هر روز <b>دو ساعت</b> را برای هدفِ اصلی‌ات نگه دار — همان یک چیزی که از همه مهم‌تر است."},
+        example:{en:"Each morning you spend two focused hours on your top priority before you touch email.", fa:"هر صبح، قبل از اینکه سراغِ ایمیل بروی، دو ساعت با تمرکز روی مهم‌ترین کارت کار می‌کنی."},
+        gain:{en:"You get your own time and attention under control.", fa:"وقت و تمرکزِ خودت را دستِ خودت می‌گیری."} },
+      { level:3, badge:{en:"Level 3 · Balanced", fa:"سطحِ ۳ · متعادل"}, title:{en:"Run the group", fa:"گروه را بگردان"}, tagline:{en:"Transparency, feedback, decisions.", fa:"شفافیت، بازخورد، تصمیم."},
+        body:{en:"Now the team. Default to <b>transparency</b> — share the real numbers, good and bad. Give and take <b>feedback</b> cleanly, surface conflict early, and when you decide, get <b>buy-in</b> so the team owns the decision, not just you.", fa:"حالا نوبتِ تیم است. پیش‌فرضت <b>شفافیت</b> باشد — عددهای واقعی را بگو، خوب و بد. <b>بازخورد</b> را تمیز بده و بگیر، تعارض را زود رو کن، و وقتی تصمیم می‌گیری، طوری <b>تیم را همراه</b> کن که تصمیم مالِ همه باشد، نه فقط تو."},
+        example:{en:"You share the monthly financials with everyone and let the team shape big calls before you make them.", fa:"عددهای مالیِ ماهانه را با همه در میان می‌گذاری و می‌گذاری تیم روی تصمیم‌های بزرگ اثر بگذارد، قبل از اینکه بگیری‌شان."},
+        gain:{en:"You can run a team on trust instead of fear.", fa:"می‌توانی تیم را با اعتماد بگردانی، نه با ترس."} },
+      { level:4, badge:{en:"Level 4 · Advanced", fa:"سطحِ ۴ · پیشرفته"}, title:{en:"Delegate and structure", fa:"واگذار کن و ساختار بده"}, tagline:{en:"AORs, no bottlenecks, KPIs.", fa:"حوزهٔ مسئولیت، بی‌گلوگاه، شاخص."},
+        body:{en:"Scale by letting go. Give every <b>area of responsibility</b> exactly one owner so nothing falls through the cracks. Kill every <b>single point of failure</b> — including you — by documenting and cross-training. And track a few <b>KPIs</b> everyone can see.", fa:"با رهاکردن، بزرگ شو. هر <b>حوزهٔ مسئولیت</b> را دقیقاً به یک نفر بسپار تا هیچ‌چیز از قلم نیفتد. هر <b>گلوگاه</b> را از بین ببر — از جمله خودت — با مستندکردن و آموزشِ جایگزین. و چند <b>شاخصِ کلیدی</b> را که همه ببینند دنبال کن."},
+        example:{en:"Every function has one named owner, and no critical task depends on a single person.", fa:"هر بخش یک صاحبِ مشخص دارد، و هیچ کارِ مهمی به یک نفر بند نیست."},
+        gain:{en:"You remove yourself as the bottleneck.", fa:"خودت را از گلوگاه‌بودن درمی‌آوری."} },
+      { level:5, badge:{en:"Level 5 · Expert", fa:"سطحِ ۵ · حرفه‌ای"}, title:{en:"Lead and scale", fa:"رهبری کن و رشد بده"}, tagline:{en:"Culture, conscious leadership, the CEO skills.", fa:"فرهنگ، رهبریِ آگاه، مهارت‌های مدیرعامل."},
+        body:{en:"The complete CEO builds the people and leads from a calm place. Define your <b>culture and values</b> with the whole team and hire by them. Lead <b>consciously</b> — notice fear and anger, and choose your response instead of reacting. And master the outward skills: <b>hiring, fundraising, and sales</b>. Systems carry the company; you carry the tone.", fa:"مدیرعاملِ کامل، آدم‌ها را می‌سازد و از یک جای آرام رهبری می‌کند. <b>فرهنگ و ارزش‌ها</b> را با کلِ تیم تعریف کن و بر اساسشان استخدام کن. <b>آگاهانه</b> رهبری کن — ترس و خشم را ببین، و به‌جای واکنشِ ناگهانی، پاسخت را انتخاب کن. و مهارت‌های بیرونی را استاد شو: <b>استخدام، جذبِ سرمایه، و فروش</b>. سیستم‌ها شرکت را حمل می‌کنند؛ تو حال‌وهوا را."},
+        example:{en:"You hire and promote by your values, stay above the line under stress, and raise money by running a tight process.", fa:"بر اساسِ ارزش‌هایت استخدام و ترفیع می‌دهی، زیرِ فشار بالای خط می‌مانی، و با یک فرایندِ فشرده سرمایه جذب می‌کنی."},
+        gain:{en:"You can build a company that runs — and grows — without you in the middle of everything.", fa:"می‌توانی شرکتی بسازی که بدونِ اینکه تو وسطِ همه‌چیز باشی، کار کند و رشد کند."} }
+    ],
+    quotes:[
+      {en:"Schedule two hours each day to work on your top goal only.", fa:"هر روز دو ساعت را بگذار که فقط روی هدفِ اصلی‌ات کار کنی."},
+      {en:"Share all relevant information with your team, both positive and negative.", fa:"همهٔ اطلاعاتِ مهم را با تیمت در میان بگذار، چه خوب چه بد."},
+      {en:"It's often easy to make a decision, but it can be much harder to get your team to invest emotionally in that decision.", fa:"معمولاً گرفتنِ یک تصمیم آسان است، ولی همراه‌کردنِ احساسیِ تیم با آن تصمیم خیلی سخت‌تر است."},
+      {en:"You create buy-in when you make people feel that they are part of the decision and that their input contributes to the final outcome.", fa:"وقتی کاری می‌کنی که آدم‌ها حس کنند بخشی از تصمیم‌اند و نظرشان روی نتیجهٔ نهایی اثر گذاشته، همراهی می‌سازی."},
+      {en:"And when receiving appreciation, there is only one correct response: 'Thank you.'", fa:"و وقتی کسی ازت قدردانی می‌کند، فقط یک جوابِ درست دارد: «ممنونم»."},
+      {en:"Even though conscious leaders get defensive like everyone else, they regularly interrupt this natural reactivity by pausing to breathe, accept, and shift.", fa:"رهبرهای آگاه هم مثلِ بقیه گارد می‌گیرند، ولی مدام این واکنشِ طبیعی را قطع می‌کنند: مکث می‌کنند، نفس می‌کشند، می‌پذیرند و مسیر را عوض می‌کنند."},
+      {en:"Agreeing on what your values are is the kind of statement that needs maximum buy-in, so it should involve your whole company.", fa:"توافق روی اینکه ارزش‌هایتان چیست، از آن تصمیم‌هایی است که بیشترین همراهی را می‌خواهد، پس باید کلِ شرکت را درگیر کند."},
+      {en:"To make a sale: build trust, identify the customer's specific pain, and sell results, not features.", fa:"برای فروش: اعتماد بساز، دردِ دقیقِ مشتری را پیدا کن، و نتیجه بفروش، نه امکانات."}
+    ],
+    media:[
+      { kind:"yt", id:"24b1m0P3AXk", src:{en:"YouTube · The Learning Leader", fa:"یوتیوب · The Learning Leader"},
+        title:{en:"Lessons From A World-Class CEO Coach", fa:"درس‌هایی از یک مربیِ درجه‌یکِ مدیرعامل‌ها"},
+        desc:{en:"Ryan Hawk interviews Matt Mochary on the core ideas of the book.", fa:"رایان هاک با مت موکری دربارهٔ ایده‌های اصلیِ کتاب گفت‌وگو می‌کند."},
+        bullets:{en:["The big picture, in plain terms","How the habits fit together","A warm, fast overview"], fa:["تصویرِ کلی، به زبانِ ساده","اینکه عادت‌ها چطور کنارِ هم می‌نشینند","یک مرورِ گرم و سریع"]},
+        best:{en:"Best for Stage 1–2.", fa:"خوب برای مرحلهٔ ۱ و ۲."} },
+      { kind:"yt", id:"qOrwVtZvdaE", src:{en:"YouTube · Lenny's Podcast", fa:"یوتیوب · Lenny's Podcast"},
+        title:{en:"Are Your Fears Giving You Terrible Advice?", fa:"آیا ترس‌هایت دارند نصیحتِ بد بهت می‌دهند؟"},
+        desc:{en:"Mochary on working through fear and leading consciously.", fa:"موکری دربارهٔ عبور از ترس و رهبریِ آگاهانه."},
+        bullets:{en:["Fear and anger give bad advice","Getting above the line under stress","Practical, story-driven"], fa:["ترس و خشم نصیحتِ بد می‌دهند","بالای خط رفتن زیرِ فشار","کاربردی و همراهِ داستان"]},
+        best:{en:"Best for Stage 3–4.", fa:"خوب برای مرحلهٔ ۳ و ۴."} },
+      { kind:"yt", id:"JVkiQY8KkOQ", src:{en:"YouTube · Tim Ferriss", fa:"یوتیوب · Tim Ferriss"},
+        title:{en:"CEO Coach Matt Mochary — Coaching Tim", fa:"مربیِ مدیرعامل‌ها، مت موکری — کوچینگِ تیم"},
+        desc:{en:"A live coaching session covering delegation, hiring, and accountability.", fa:"یک جلسهٔ کوچینگِ زنده دربارهٔ واگذاری، استخدام و پاسخگویی."},
+        bullets:{en:["Real coaching, not just theory","Energy audits and accountability","Deep and practical"], fa:["کوچینگِ واقعی، نه فقط تئوری","بررسیِ انرژی و پاسخگویی","عمیق و کاربردی"]},
+        best:{en:"Best for Stage 4–5.", fa:"خوب برای مرحلهٔ ۴ و ۵."} },
+      { kind:"img", url:"https://www.porchlightbooks.com/products/great-ceo-within-matt-mochary-9780578599281",
+        src:{en:"Porchlight · Publisher", fa:"Porchlight · ناشر"},
+        title:{en:"The Great CEO Within — Publisher Page", fa:"مدیرعاملِ بزرگ — صفحهٔ ناشر"},
+        desc:{en:"The publisher page for the print edition, with details and ordering.", fa:"صفحهٔ ناشر برای نسخهٔ چاپی، با جزئیات و سفارش."},
+        bullets:{en:["The print edition","Background on the book","Straight from the source"], fa:["نسخهٔ چاپی","پیشینه‌ای دربارهٔ کتاب","مستقیم از خودِ منبع"]},
+        best:{en:"For the print edition and details.", fa:"برای نسخهٔ چاپی و جزئیات."} }
+    ],
+    go:[
+      {label:{en:"Publisher page (Porchlight)", fa:"صفحهٔ ناشر"}, url:"https://www.porchlightbooks.com/products/great-ceo-within-matt-mochary-9780578599281"},
+      {label:{en:"Book on Goodreads", fa:"کتاب در گودریدز"}, url:"https://www.goodreads.com/book/show/48691943-the-great-ceo-within"},
+      {label:{en:"Read the book free (Google Doc)", fa:"نسخهٔ رایگانِ کتاب"}, url:"https://docs.google.com/document/d/1ZJZbv4J6FZ8Dnb0JuMhJxTnwl-dwqx5xl0s65DE3wO8/mobilebasic"}
+    ],
+    recs:[
+      { pri:"b", t:{en:"Set your Top Goal and block two hours", fa:"هدفِ اصلی‌ات را تعیین کن و دو ساعت خالی کن"}, d:{en:"Pick your single most important goal and put a daily two-hour block on your calendar for it — first thing.", fa:"مهم‌ترین هدفت را انتخاب کن و هر روز یک بازهٔ دوساعته توی تقویمت برایش بگذار — همان اولِ وقت."} },
+      { pri:"b", t:{en:"Get to Inbox Zero today", fa:"امروز به صندوقِ خالی برس"}, d:{en:"Process every email to a decision — do, delegate, defer, or delete — until the inbox is empty.", fa:"هر ایمیل را تا یک تصمیم پیش ببر — انجام، واگذاری، بعداً، یا حذف — تا صندوق خالی شود."} },
+      { pri:"n", t:{en:"Give every area one owner", fa:"به هر حوزه یک صاحب بده"}, d:{en:"List your company's areas of responsibility and put exactly one name on each.", fa:"حوزه‌های مسئولیتِ شرکتت را فهرست کن و روی هرکدام دقیقاً یک اسم بگذار."} },
+      { pri:"n", t:{en:"Share the real numbers", fa:"عددهای واقعی را بگو"}, d:{en:"Send your team the honest state of the business this week — the good news and the bad.", fa:"وضعیتِ صادقانهٔ کسب‌وکار را همین هفته برای تیمت بفرست — خبرهای خوب و بد."} }
+    ]
+  }
+};
